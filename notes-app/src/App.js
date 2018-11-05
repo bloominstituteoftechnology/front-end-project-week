@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NotesList from './components/NotesList';
-//import Note from './components/Note'
 import { Route } from 'react-router-dom';
 
 import './App.css';

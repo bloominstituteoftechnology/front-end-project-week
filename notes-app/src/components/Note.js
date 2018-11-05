@@ -6,12 +6,12 @@ class Note extends Component {
   constructor(props){
     super(props);
     this.state = {
-      note: null
+      notes: null,
     }
   }
 
   componentDidMount(){
-    const id = this.props.match.params.id;
+    const id = this.state.match.params.id;
     this.fetchNote(id);
   }
 
@@ -19,7 +19,7 @@ class Note extends Component {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
-        this.setState(() => ({ note: response.date }))
+        this.setState(() => ({ notes: response.data }))
       })
       .catch(error => {
         console.log(error);
@@ -30,10 +30,8 @@ class Note extends Component {
     if(!this.state.note) {
       return <div>loading notes...</div>
     }
-    
-    const {note} = this.state;
       return (
-        <NoteCard note={note} />
+        <NoteCard note={this.state} />
       )
   }
 }
