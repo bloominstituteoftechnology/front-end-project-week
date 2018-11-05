@@ -23,4 +23,4 @@ export const data = [
     title:'note title',
     textBody:'text body'
   }
-]
+];
