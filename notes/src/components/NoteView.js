@@ -8,7 +8,7 @@ const NoteView = props => {
 
   return (
     <div className='note-view'>
-      {/* <NavBar /> */}
+      <NavBar />
       <div className='single-note-extended-container'>
         <div>
           <button>edit</button>

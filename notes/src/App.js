@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { NoteListViewers, NavBarViewers } from "./views";
-import { SingleNote, NoteView, ListView, EditView, NavBar, CreateNewView } from './components' ;
+import { NoteListViewers } from "./views";
+import { SingleNote, NoteView, ListView, EditView, NavBar, CreateNewView, DeleteModal } from './components' ;
 import "./App.css";
+// import { Route } from 'react-router-dom';
 
-// import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 // to do WrongURL
 
@@ -29,8 +30,8 @@ class App extends Component {
         {/* <ListView /> */}
         <CreateNewView />
         {/* <NoteView /> */}
-        {/* <EditView /> */}
-        {/* <DeleteModal /> */}
+        <EditView />
+        <DeleteModal />
 
 
       </div>

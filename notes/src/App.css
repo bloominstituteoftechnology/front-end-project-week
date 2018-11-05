@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  color: red;
+}
+
+* {
+  color: red;
 }
 
 .App-logo {
@@ -29,4 +34,111 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.href-button a {
+  border: 1px solid #89999A;
+  background-color: #25B8BC;
+  color: white;
+  text-decoration: none;
+  display: block;
+  flex-wrap: nowrap;
+  margin: 30px 15px 0px 15px;
+  padding: 12.5px 15px;
+  font-weight: bold;
+}
+
+.nav-bar {
+  background-color: #D1D1D1;
+  color: #414041;
+  width: 242px;
+  display: block;
+  padding-top: 20px;
+}
+
+.nav-bar h1 {
+  background-color: #D1D1D1;
+  color: #414041;
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 0px 0px 15px;
+  margin: 0;
+  font-size: 2.35em;
+  line-height: 32px;
+}
+
+.list-view, .create-new-view, .note-view, .NoteListViewer_wrapper {
+  border: 3px solid grey;
+  margin: 50px;
+  max-width: 978px;
+  height: 978px;
+  display: flex;
+}
+
+.list-view h2, .create-new-view h2, .note-view h2, .NoteListViewer_wrapper h2 {
+  padding-left: 15px;
+  display: flex;
+}
+
+.all-notes-container {
+  width: 736px;
+  background-color: #F0EFF0;
+  padding-top: 35px;
+}
+
+.all-notes-container ul {
+  /* text-decoration: none; */
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  margin: 0;
+  white-space: normal;
+  overflow: hidden;
+}
+
+.single-note-container {
+  background-color: white;
+  border: 1px solid #D8D8D8;
+  width: 200px;
+  height: 200px;
+  margin: 10px 15px;
+  padding: 5px;
+  display: block;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.single-note-container li {
+  color: #89999A;
+  display: block;
+  width: 180px;
+  margin: 0 10px;
+  padding: 10px 0px 10px 0px;
+  white-space: wrap;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+}
+
+.note-title {
+  font-size: 20px;
+  font-weight: bolder;
+  display: block;
+  margin: 0px 10px;
+  width: 180px;
+  border-bottom: 2px solid #89999A;
+}
+
+.note-content {
+  font-size: 15px;
+  width: 180px;
+  display: block;
+  margin: 0px 0px 5px 0px;
+  white-space: normal;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
 }

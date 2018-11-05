@@ -1,17 +1,13 @@
 import React from 'react';
 import NavBar from './NavBar';
-
-
-// need to remove 8 SingleNote components once it is dynamic done now for layout purposes.
-
-
+import { connect } from 'react-redux';
+import { addNote } from '../actions';
 
 class EditView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
-      // content: ''
       textBody: ''
     }
   }
@@ -38,7 +34,7 @@ class EditView extends React.Component {
   render () {
     return (
       <div className='create-new-view'>
-        {/* <NavBar /> */}
+        <NavBar />
         <div className='create-new-note'>
           <h2>Edit Note:</h2>
           <input 
@@ -55,11 +51,21 @@ class EditView extends React.Component {
           placeholder='Note Content'
           value={this.state.textBody}
           />
-          <button type='button' onClick={this.addNoteHandler}>Update</button>
+          <button type='button' onClick={this.editNoteHandler}>Update</button>
         </div>
       </div>
     )
   }
 }
 
-export default EditView;
+// export default EditView;
+
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+  }
+}
+
+export default connect(mapStateToProps, {
+  addNote
+})(EditView);

@@ -1,24 +1,26 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
 const NavBar = () => {
+  {/* <Router> */}
+    {/* <div> */}
+      {/* <Route path='/listview' component={NoteListViewers} /> */}
+    {/* </div> */}
+  {/* </Router> */}
   return (
     <div className='nav-bar'>
-      <h1>Lambda Notes</h1>
-      {/* <Link to='/listview'>View Your Notes</Link>
-      <Link to='/editview'>+ Create New Note</Link> */}
+      <h1>Lambda</h1>
+      <h1>Notes</h1>
       <nav>
-        {/* <ul>
-          <li> <a href='https://fe-notes.herokuapp.com/note/get/all'>View Your Notes</a> </li> 
-          <li> <a href='https://fe-notes.herokuapp.com/note/create'>+ Create New Note</a> </li> 
-        </ul> */}
-        <div>
-        <button>View Your Notes</button>
-        <div>
+        <div className='href-button'>
+        <Link to='view/ListView'>View Your Notes</Link>
+          {/* <Link to='/listview'>View Your Notes</Link> */}
         </div>
-        <button>+ Create New Note</button>
+        <div className='href-button'>
+        {/* <Link to='/editview'>View Your Notes</Link> */}
+        <Link to='/component/CreateNewView'>+ Create New Note</Link>
         </div>
       </nav> 
     </div> // nav-bar

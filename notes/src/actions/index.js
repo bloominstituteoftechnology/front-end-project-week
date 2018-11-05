@@ -2,8 +2,11 @@ import axios from 'axios';
 export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCH_NOTES_SUCCESS = 'FETCH_NOTES_SUCCESS';
 export const ERROR = 'ERROR';
-// export const FETCH_NOTES = 'FETCH_NOTES';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
+export const SINGLE_NOTE = 'SINGLE_NOTE';
+export const TOGGLE_UPDATE_NOTE = 'TOGGLE_UPDATE_NOTE';
+export const DELETE_NOTE_SUCCESS= 'DELETE_NOTE_SUCCESS';
+export const UPDATE_NOTE_SUCCESS= 'UPDATE_NOTE_SUCCESS';
 
 
 const url = 'https://fe-notes.herokuapp.com/note/'
@@ -35,12 +38,68 @@ export const addNote = note => dispatch => {
         payload: response.data
       })
     })
+    .then(() => getNotes()(dispatch))
     .catch(error => {
       dispatch({
         type: ERROR,
         payload: error
       })
     })
+}
+
+export const deleteNote = id => dispatch => {
+  axios
+    .delete(`${url}delete/${id}`)
+    .then(response => {
+      dispatch({
+        type: DELETE_NOTE_SUCCESS,
+        payload: id
+      })
+      dispatch({
+        type: SINGLE_NOTE, 
+        payload: {}
+      })
+    })
+    .catch(error => {
+      dispatch({
+        type: ERROR,
+        payload: error
+      })
+    })
+}
+
+export const updateNote = updatedNote => dispatch => {
+  axios
+    .put(`${url}note/${updatedNote.id}`, updatedNote)
+    .then(response => {
+      dispatch({
+        type: UPDATE_NOTE_SUCCESS,
+        payload: response.data
+      })
+    //   dispatch({
+    //     type: SINGLE_NOTE, 
+    //     payload: {}
+    //   })
+    })
+    .catch(error => {
+      dispatch({
+        type: ERROR,
+        payload: error
+      })
+    })
+}
+
+export const updateSingleNote = note => {
+  return {
+    type: SINGLE_NOTE,
+    payload: note
+  }
+}
+
+export const toggleShowUpdate = () => {
+  return {
+    type: TOGGLE_UPDATE_NOTE
+  }
 }
 
 /* https://fe-notes.herokuapp.com/note/get/all

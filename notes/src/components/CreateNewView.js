@@ -40,7 +40,7 @@ class CreateNewView extends React.Component {
   render () {
     return (
       <div className='create-new-view'>
-        {/* <NavBar /> */}
+        <NavBar />
         <div className='create-new-note'>
           <h2>Create New Note:</h2>
           <input 
