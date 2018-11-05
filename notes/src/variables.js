@@ -4,6 +4,6 @@ export const colors = {
   backgroundColor: '#F9F8EA',
   buttonColor: '#4C86A8',
   buttonNegColor: '#E0777D',
-  buttonAltColor: '#5B618A',
+  borderColor: '#9DBDCF',
   accentColor: '#E1DD8F',
 };
