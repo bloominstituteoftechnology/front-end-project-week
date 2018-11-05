@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Route, NavLink } from 'react-router-dom';
 import Notes from './Notes';
 import NewNote from './NewNote';
+import Note from './Note';
 
 const URL = 'https://fe-notes.herokuapp.com/note/';
 
@@ -12,6 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       notes: [],
+      thisNote: '',
       newNote: {
         tags: ["example one", "example two"],
         title: '',
@@ -27,7 +29,7 @@ componentDidMount() {
     .get(`${URL}get/all`)
     .then(response => this.setState({ notes: response.data }))
     .catch(error => {
-      console.error('Server Error!', error)
+      console.error('Error collecting notes!', error)
     });
 }
 
@@ -37,7 +39,6 @@ addNote = event => {
     .then(response => this.setState({
        notes: response.data,
        newNote: {
-        ...this.state, 
         title: '',
         textBody: ''
        }
@@ -55,6 +56,12 @@ handleInputChange = event => {
     }
   });
 };
+
+handleCardSelect = event => {
+  this.setState({
+    thisNote: event.target.id
+  })
+}
 
   render() {
     return (
@@ -77,6 +84,15 @@ handleInputChange = event => {
               {...props}
               notes={this.state.notes}/>
               )}
+        />
+        <Route 
+          path={`/:${this.props.id}`}
+          render={props => (
+            <Note 
+              {...props}
+
+            />
+          )}
         />
         <Route 
           path='/new_note'

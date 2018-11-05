@@ -7,7 +7,8 @@ const Notes = (props) => {
       {props.notes.map( (note, i) => {
         return (
           <div key={i} id={i}>
-          <h3>{note.title}</h3>
+            <h3>{note.title}</h3>
+            <p>{note.textBody}</p>
           </div>
           )
       })}
