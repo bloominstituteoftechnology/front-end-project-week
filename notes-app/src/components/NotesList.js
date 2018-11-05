@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NoteCard from './NoteCard';
+import Note from './Note';
 //import axios from 'axios'
 
 class NotesList extends Component {
@@ -10,7 +10,7 @@ class NotesList extends Component {
         <div>
           {this.props.notes.map(note => {
             return (
-              <NoteCard 
+              <Note 
                 title={note.title}
                 textBody={note.textBody}
               />
