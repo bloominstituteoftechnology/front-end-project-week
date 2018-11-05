@@ -1,59 +1,105 @@
 import styled from 'styled-components';
 import { ViewContainer, StyledH3, StyledInput, Button } from '../../mixins';
 import { StyledLink } from '../../mixins';
+import { colors } from '../../variables';
 
 export const StyledView = styled(ViewContainer)`
-padding: 0;
+  padding: 0;
+  @media (max-width: 700px) {
+    padding-top: 44px;
+  }
 `;
 
 export const SearchBar = styled.div`
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 2;
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 64px;
-  background: rgb(243, 243, 243);
+  background: ${colors.backgroundColor};
   padding: 8px 0px;
-  /* background: linear-gradient(rgb(243, 243, 243) 52px, transparent); */
-  /* border-bottom: 1px solid rgb(152, 152, 152); */
-  /* margin-bottom: 8px; */
+  @media (max-width: 940px) {
+    align-self: flex-end;
+    justify-content: space-around;
+    width: 70%;
+    padding: 8px 5vw;
+  }
+  @media (max-width: 700px) {
+    position: static;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 2px;
+  }
 `;
 
 export const SearchInput = styled(StyledInput)`
-  width: 30%;
+  width: 70%;
   margin: 0;
+  @media (max-width: 940px) {
+    width: 40vw;
+  }
+  @media (max-width: 700px) {
+    width: 60vw;
+  }
+  @media (max-width: 500px) {
+    width: 55vw;
+  }
 `;
 
 export const NewOldButton = styled(Button)`
-  
+  @media (max-width: 940px) {
+    width: 126px;
+  }
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
-export const OldNewButton = styled(Button)`
-  
+export const NewOldMobileButton = styled(Button)`
+  width: 96px;
+  display: none;
+  @media (max-width: 500px) {
+    display: initial;
+  }
 `;
 
 export const ListTitle = styled(StyledH3)`
-  margin-left: 30px;
+    margin-left: 30px;
+  @media (max-width: 940) {
+    margin-left: 5vw;
+  }
 `;
 
 export const StyledListDiv = styled.div`
-display: flex;
-flex-flow: row wrap;
-justify-content: flex-start;
-width: 100%;
-padding: 33px 0 33px 31px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 33px 0 33px 31px;
+  @media (max-width: 940px) {
+    padding-left: 6vw;
+  }
 `;
 
 export const StyledNoteLink = styled(StyledLink)`
+  width: 30%;
   margin-right: 17.5px;
   margin-bottom: 27px;
   animation-name: out;
   animation-duration: 150ms;
   box-shadow: 0px 3px 5px -3px rgb(0, 0, 0);
+  @media (max-width: 940px) {
+    width: 28vw;
+  }
+  @media (max-width: 700px) {
+    width: 42vw;
+  }
+  @media (max-width: 500px) {
+    width: 88vw;
+  }
   :hover {
     animation-name: in;
     animation-duration: 300ms;

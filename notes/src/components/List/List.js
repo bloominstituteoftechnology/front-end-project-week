@@ -10,6 +10,7 @@ import {
   SearchInput,
   NewOldButton,
   OldNewButton,
+  NewOldMobileButton,
 } from './styles';
 
 export default class List extends Component {
@@ -41,7 +42,31 @@ export default class List extends Component {
     );
   };
 
-  handleNewestFirst = () => this.setState({ sortReverse: true });
+  sortButton = () => {
+    if (this.state.sortReverse) {
+      return (
+        'Old → New'
+      );
+    } else if (!this.state.sortReverse) {
+      return (
+        'New → Old'
+      );
+    }
+  };
+  
+  sortMobileButton = () => {
+    if (this.state.sortReverse) {
+      return (
+        'Oldest'
+      );
+    } else if (!this.state.sortReverse) {
+      return (
+        'Newest'
+      );
+    }
+  };
+
+  handleSortToggle = () => this.setState({ sortReverse: !this.state.sortReverse });
 
   handleOldestFirst = () => this.setState({ sortReverse: false });
 
@@ -66,12 +91,8 @@ export default class List extends Component {
             onChange={this.handleChange}
             value={this.state.search}
           />
-          <NewOldButton onClick={this.handleNewestFirst}>
-            Sort: Newest First
-          </NewOldButton>
-          <OldNewButton onClick={this.handleOldestFirst}>
-            Sort: Oldest First
-          </OldNewButton>
+          <NewOldButton onClick={this.handleSortToggle}>{this.sortButton()}</NewOldButton>
+          <NewOldMobileButton onClick={this.handleSortToggle}>{this.sortMobileButton()}</NewOldMobileButton>
         </SearchBar>
         <ListTitle>Your Notes:</ListTitle>
         <StyledListDiv>

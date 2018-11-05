@@ -1,15 +1,31 @@
 import React from 'react';
-import { StyledSidebar, StyledH1, StyledButton, StyledSidebarLink } from './styles';
+import {
+  StyledSidebar,
+  StyledH1,
+  StyledButton,
+  StyledAltButton,
+  StyledSidebarLink,
+  StyledSidebarTitleLink,
+  StyledMobileButton,
+  StyledMobileAltButton,
+} from './styles';
+import { ReactComponent as Logo } from '../../house.svg';
 
 function Sidebar() {
   return (
     <StyledSidebar>
-      <StyledSidebarLink to="/"><StyledH1>Lambda Notes</StyledH1></StyledSidebarLink>
+      <StyledSidebarTitleLink to="/">
+        <StyledH1>Lambda Notes</StyledH1>
+      </StyledSidebarTitleLink>
       <StyledSidebarLink to="/">
         <StyledButton>View Your Notes</StyledButton>
+        <StyledMobileButton>
+          <Logo />
+        </StyledMobileButton>
       </StyledSidebarLink>
       <StyledSidebarLink to="/create">
-        <StyledButton>+ Create New Note</StyledButton>
+        <StyledAltButton>+ Create New Note</StyledAltButton>
+        <StyledMobileAltButton>+</StyledMobileAltButton>
       </StyledSidebarLink>
     </StyledSidebar>
   );

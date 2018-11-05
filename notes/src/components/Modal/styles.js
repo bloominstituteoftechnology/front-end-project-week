@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { StyledP, Button } from '../../mixins';
+import { colors } from '../../variables';
 
 export const StyledBackdrop = styled.div`
   ${(props) => {
@@ -13,8 +14,9 @@ export const StyledBackdrop = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(152, 152, 152, 0.7);
-  padding: 50;
+  z-index: 3;
+  background: rgba(231, 231, 231, 0.7);
+  padding-top: 64px;
 `;
 
 export const StyledModal = styled.div`
@@ -22,29 +24,44 @@ export const StyledModal = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: rgb(255, 255, 255);
-  border-radius: 5;
-  width: 50vw;
+  z-index: 3;
+  width: 80vw;
   max-width: 598px;
-  height: 202px;
-  border: 1px solid rgb(81, 81, 81);
-  margin: 191px auto;
+  height: 212px;
+  background: rgb(255, 255, 255);
+  padding: 36px;
+  border-radius: 7px;
+  margin: auto auto 45vh;
+  box-shadow: 0 5px 20px -5px rgb(0, 0, 0);
 `;
 
 export const ModalMessage = styled(StyledP)`
   font-weight: 500;
-  margin-top: 28px;
+  margin: 0 10%;
 `;
 
 export const ModalButtonContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 76%;
-  /* padding-bottom: 10px; */
+  justify-content: space-around;
+  width: 100%;
+  @media (max-width: 940px) {
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    /* margin-bottom: 28px; */
+  }
 `;
 
 export const ModalDeleteButton = styled(Button)`
-  background: rgb(208, 1, 27);
-`;
+  background: ${colors.buttonNegColor};
+  @media (max-width: 940px) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  `;
 
-export const ModalNoButton = styled(Button)``;
+export const ModalNoButton = styled(Button)`
+  @media (max-width: 940px) {
+    width: 100%;
+  }
+`;
