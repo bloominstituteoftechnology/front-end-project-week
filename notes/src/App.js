@@ -19,13 +19,24 @@ componentDidMount() {
     .catch(error => console.log(error))
 }
 
+addNote = (event, newNote) => {
+  event.preventDefault();
+  axios
+    .post("https://fe-notes.herokuapp.com/note/create", newNote)
+    .then(response => {
+      newNote._id = response.data.success;
+      this.setState({ notes: [newNote, ...this.state.notes] })
+    })
+    .catch(error => console.log(error))
+}
+
 
 
   render() {
     return (
       <div className="App">
       <h1 className='title'> Lambda Notes </h1>
-
+      <NoteForm />
 
       
       </div>

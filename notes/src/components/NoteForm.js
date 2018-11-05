@@ -10,8 +10,8 @@ class NoteForm extends Component {
         }
     }
     
-    changeHandler = e => {
-        this.setState({ [e.target.name]: e.target.value });
+    changeHandler = event => {
+        this.setState({ [event.target.name]: event.target.value });
     };
     
     submitNote = event => {
@@ -21,7 +21,7 @@ class NoteForm extends Component {
     }
     
     render() {
-        console.log(this.props);
+      
         return (
             <div className="new-note-container">
         <div className="notes-header">
