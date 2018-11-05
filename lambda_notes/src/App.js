@@ -8,7 +8,7 @@ import CreateNote from "./components/CreateNote";
 import Note from "./components/Note";
 import ViewNote from "./components/ViewNote";
 import EditNote from "./components/EditNote";
-import Header from "./components/Header"
+import Header from "./components/Navbar"
 
 
 

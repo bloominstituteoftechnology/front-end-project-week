@@ -13,14 +13,14 @@ const styHeader = styled.nav`
   width: 100%;
 `;
 
-class Header extends Component {
+class Navbar extends Component {
   render() {
     return (
-      <div>
+      <nav>
         <styHeader>Lambda Notes</styHeader>
-      </div>
+      </nav>
     );
   }
 }
 
-export default Header;
+export default Navbar;

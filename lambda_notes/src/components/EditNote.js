@@ -1,7 +1,6 @@
 // this is where you can create a new note
 
 import React, { Component } from "react";
-import axios from "axios";
 import styled from "styled-components";
 
 const SideButton = styled.button`
@@ -37,8 +36,7 @@ const SecondaryHeading = styled.h2`
   z-index: 10;
   text-decoration: none;
   color: black;
-
-  `;
+`;
 class EditNote extends Component {
   state = {
     title: "",
@@ -62,7 +60,7 @@ class EditNote extends Component {
   render() {
     return (
       <div>
-      <SecondaryHeading>Edit Note:</SecondaryHeading>
+        <SecondaryHeading>Edit Note:</SecondaryHeading>
 
         <StyledNote>
           <form onSubmit={this.handleSubmit}>
