@@ -6,14 +6,14 @@ class NoteList extends Component {
     render() {
         return ( 
             <div className = "NoteList" >
-            <h1> Notes </h1> 
+            <h1> Lambda Notes </h1> 
             <ul> 
             {this.props.notes.map(note => {
                 return (
                     <Note 
                         tags={note.tags}
                         title={note.title}
-                        textbody={note.textbody}
+                        textBody={note.textBody}
                     />
                 );
             })} 

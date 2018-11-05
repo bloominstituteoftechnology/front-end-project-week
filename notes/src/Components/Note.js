@@ -3,16 +3,16 @@ import React from 'react';
 const Note = props => {
     return (
         <div className="Note">
-            {props.tags}
             {props.title}
-            {props.textbody}
+            {props.textBody}
+        </div>
     );
 };
 
 Note.defaultProps = {
     tags: '',
     title: '',
-    textbody: '',
+    textBody: '',
 };
 
 export default Note;
