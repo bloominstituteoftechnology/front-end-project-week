@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "./App.css";
 import axios from "axios";
 import NoteForm from "./components/NoteForm"
-
+import { Route, NavLink, withRouter } from "react-router-dom";
 
 class App extends Component {
 constructor() {
@@ -30,15 +30,35 @@ addNote = (event, newNote) => {
     .catch(error => console.log(error))
 }
 
-
+deleteNote = (event, id) => {
+  event.preventDefault();
+  axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(() => {
+      const deletedNote = this.state.notes.filter(note => {
+        if (note._id !== id) {
+          return note;
+        }
+      })
+      this.setState({ notes: deletedNote })
+    })
+    .catch(error => console.log(error))
+}
 
   render() {
     return (
       <div className="App">
       <h1 className='title'> Lambda Notes </h1>
-      <NoteForm />
+      <div className="nav-button-container">
+            <NavLink className="nav-buttons" to="/">
+              View Your Notes
+            </NavLink>
+            <NavLink className="nav-buttons" to="/add-note">
+              + Create New Note
+            </NavLink>
+            <Route path="/add-note" render={props => <NoteForm {...props} addNote={this.addNote} />} />
 
-      
+      </div>
       </div>
     );
   }

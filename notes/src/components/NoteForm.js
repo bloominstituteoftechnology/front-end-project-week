@@ -17,7 +17,7 @@ class NoteForm extends Component {
     submitNote = event => {
         this.props.addNote(event, this.state);
         this.setState({ title: "", textBody: "" })
-        this.props.history.push("")
+        this.props.history.push("/")
     }
     
     render() {
