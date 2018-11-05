@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledH3, ViewContainer, StyledP } from '../../mixins';
+import { StyledH3, ViewContainer, StyledP, StyledLink } from '../../mixins';
 import { colors } from '../../variables'
 
 export const NoteView = styled(ViewContainer)`
@@ -31,7 +31,11 @@ export const NoteLinkContainer = styled.div`
   }
 `;
 
-export const NoteLink = styled.span`
+export const NoteLink = styled(StyledLink)`
+  text-decoration: none;
+`;
+
+export const NoteLinkText = styled.span`
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: 600;
