@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NotesList from './components/NotesList';
 //import Note from './components/Note'
-//import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NotesList />
+        <Route exact path="/" render={props => <NotesList {...props}/>} />
       </div>
     );
   }
