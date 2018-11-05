@@ -19,8 +19,8 @@ export const SORT_CHARACTERS = "SORT_CHARACTERS";
 export const SORT_CONTENT = "SORT_CONTENT";
 export const NO_SORT = "NO_SORT";
 
-const url = `http://localhost:5500/api/notes/`;
-const baseUrl = `http://localhost:5500`;
+//const url = `http://localhost:5500/api/notes/`;
+//const baseUrl = `http://localhost:5500`;
 export const fetchNotes = () => {
   const noteData = axios.get(`https://csilla-notes.herokuapp.com/api/notes`);
   return function(dispatch) {
@@ -106,7 +106,7 @@ export const registerUser = (user, history) => {
     dispatch({ type: REGISTERING_USER });
 
     axios
-      .post(`${baseUrl}/register`, user)
+      .post(`https://csilla-notes.herokuapp.com/api/register`, user)
       .then(res => {
         localStorage.setItem("token", res.data.token);
         dispatch({ type: REGISTERED_USER });

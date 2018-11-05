@@ -66,6 +66,10 @@ form {
     background: rgba(40, 75, 99, 0.8);
     background-size: cover;
     border-radius: 5px;
+    box-sizing: border-box;
+    /* position: relative; */
+    /* width: 100px;
+    height: 100%; */
 }
 
 .signIn {
@@ -139,9 +143,9 @@ form {
     height: 30px;
 }
 
-div {
+/* div {
     display: block;
-}
+} */
 
 .bringitback {
     position: absolute;
