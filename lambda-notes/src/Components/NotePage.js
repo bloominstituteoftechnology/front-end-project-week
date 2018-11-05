@@ -34,9 +34,9 @@ const NotePage = props => {
             to={`/note/${note._id}/edit`}
             onClick={() => props.editNoteContent(note.title, note.textBody)}
           >
-            edit
-          </Link>{" "}
-          <span onClick={props.deleteToggleOn}>delete</span>
+            <button>edit</button>
+          </Link>
+          <button onClick={props.deleteToggleOn}>delete</button>
         </div>
         <h2 className="note-title">{note.title}</h2>
         <div className="note-body">{note.textBody}</div>

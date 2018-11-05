@@ -22,8 +22,8 @@ const EditForm = props => {
       <textarea
         name="newTextBody"
         id=""
-        cols="30"
-        rows="10"
+        cols='30'
+        rows='10'
         placeholder="Note Content"
         onChange={props.changeHandler}
         value={props.newTextBody}

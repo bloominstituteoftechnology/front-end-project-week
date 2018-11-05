@@ -39,7 +39,8 @@ class App extends Component {
   };
 
   addNote = () => {
-    axios.post("https://fe-notes.herokuapp.com/note/create", {
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", {
       title: this.state.title,
       textBody: this.state.textBody
     });
@@ -47,7 +48,8 @@ class App extends Component {
   };
 
   editNote = id => {
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
       title: this.state.newTitle,
       textBody: this.state.newTextBody
     });
