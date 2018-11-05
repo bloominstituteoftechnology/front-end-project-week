@@ -59,7 +59,7 @@ class App extends Component {
 
   addNewNote = () => {
     axios
-      .post('https://fe-notes.herokuapp.com/note/get/all', this.state.note)
+      .post('https://fe-notes.herokuapp.com/note/create', this.state.note)
       .then(response => {
         this.setState({ notes: response.data })
       })
@@ -69,9 +69,9 @@ class App extends Component {
   deleteNote = (ev, id) => {
     ev.preventDefault();
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
-        this.setState({ smurfs: response.data });
+        this.setState({ notes: response.data });
       })
       .catch(error => console.log(error));
   };
@@ -79,7 +79,7 @@ class App extends Component {
   updateNote = () => {
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/get/${this.state.editingId}`,
+        `https://fe-notes.herokuapp.com/note/edit/${this.state.editingId}`,
         this.state.note
       )
       .then(response => {
@@ -98,7 +98,7 @@ class App extends Component {
     this.setState({
       note, 
       isEditing: true,
-      editingId: note.id
+      editingId: note._id
     });
   };
 
@@ -130,11 +130,13 @@ class App extends Component {
 
         <Route exact path='/notes' render={(props) => <Notes {...props} 
         getNoteById={this.getNoteById}
+        
         notes={this.state.notes} />} />
 
-        <Route path='/notes/:id' render={(props) => <Note {...props} 
+        <Route path='/notes/:_id' render={(props) => <Note {...props} 
         deleteNote={this.deleteNote}
-        note={this.state.activeNote}
+        updateNote={this.updateNote}
+        activeNote={this.state.activeNote}
         notes={this.state.notes} />} />
 
       </div>

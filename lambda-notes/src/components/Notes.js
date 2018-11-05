@@ -3,24 +3,33 @@ import './Note.css';
 import Note from './Note';
 
 function Notes(props) {
+    console.log(props.notes)
+    
     function routeToNote(ev, note) {
         ev.preventDefault();
-        props.history.push(`/notes/${note.id}`);
-        props.getNoteById(note.id)
+        console.log(note._id);
+        props.history.push(`/notes/${note._id}`);
+        props.getNoteById(note._id);
+        console.log(note._id);
+        
     }
     return (
         <div className="Notes">
             <h1>Your Notes</h1>
             {props.notes.map(note => {
+                console.log(note._id);
                 return (
+                    <div onClick={ev => routeToNote(ev, note)}>
                     <Note 
-                    onClick={ev => routeToNote(ev, note)}
+                    
+                    
                     tags={note.tags}
-                    id={note.id}
+                    id={note._id}
                     title={note.title}
                     textBody={note.textBody}
-                    key={note.id}
+                    key={note._id}
                     />
+                    </div>
                 )
             })}
         </div>
