@@ -1,0 +1,20 @@
+.container {
+    border: 1px solid darkgray;
+}
+.sideBar {
+    width: 25%;
+}
+.lambdaTitle {
+}
+.sideBarButtons {
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    justify-content: space-between;
+}
+.sideBarButtons button {
+    padding: 20px 0;
+}
+.yourNotes {
+    background-color: lightgray;
+}
