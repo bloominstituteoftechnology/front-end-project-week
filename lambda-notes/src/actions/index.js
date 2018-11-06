@@ -17,7 +17,7 @@ export const getNotes = () => {
   }
 }
 
-export const silentUpdate = () => {
+export const silentUpdate = () => { //fetch notes without using loading icon
   return dispatch => {
     axios
       .get(notesUrl)
@@ -30,8 +30,7 @@ export const silentUpdate = () => {
   }
 }
 
-export const updateNoteOrdering = (updatedNoteOrdering) => {
-  console.log("redux: ", updatedNoteOrdering);
+export const updateNoteOrdering = (updatedNoteOrdering) => { // update a user's noteOrdering
   return dispatch => {
     axios
       .put(`${usersUrl}/ordering`, updatedNoteOrdering)
