@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import  { Route } from 'react-router-dom';
+// import  { Route } from 'react-router-dom';
+
+import Notes from './components/Notes';
 import './App.css';
 
 class App extends Component {
