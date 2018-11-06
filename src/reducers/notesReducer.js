@@ -38,7 +38,7 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingData: false,
-        notes: action.payload.slice(length - 100, length),
+        notes: action.payload.slice(length - 9, length),
         allNotes: action.payload,
         error: null,
       };
@@ -102,8 +102,8 @@ export const notesReducer = (state = initialState, action) => {
         ...state,
         notes: state.allNotes.filter(
           (note) =>
-            note.title.includes(action.payload) ||
-            note.textBody.includes(action.payload)
+            note.title.toLowerCase().includes(action.payload.toLowerCase()) ||
+            note.textBody.toLowerCase().includes(action.payload.toLowerCase())
         ),
       };
     default:
