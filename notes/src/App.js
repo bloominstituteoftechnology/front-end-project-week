@@ -31,7 +31,6 @@ class App extends Component {
   };
   
   editNote = id => {
-    console.log(id)
     axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
       title: this.state.editTitle,
@@ -67,9 +66,11 @@ class App extends Component {
         />
         <Route
           path="/notes/:id"
-          render={props => <OneNote {...props} 
-          notes={this.state.notes} 
-          deleteNote={this.deleteNote}
+          render={props => 
+          <OneNote 
+            {...props} 
+            notes={this.state.notes} 
+            deleteNote={this.deleteNote}
           />
         }
           />
@@ -81,7 +82,7 @@ class App extends Component {
           notes={this.state.notes}
           editTitle={this.state.editTitle}
           editTextBody={this.state.editTextBody}
-          editNote={this.state.editNote}
+          editNote={this.editNote}
           changeHandler={this.changeHandler}
           />}/>
       </div>

@@ -1,6 +1,14 @@
 import React from 'react'
 
+
 const EditNote = (props) => {
+    const note = props.notes.find(
+        note => props.match.params.id === `${note._id}`
+    )
+    const editNotes = event => {
+        props.editNote(note._id);
+        props.history.push(`/notes/${note._id}`)
+    }
     return ( 
         <div>
             <form>
@@ -16,7 +24,7 @@ const EditNote = (props) => {
                     name="editTextBody"
                     onChange={props.changeHandler}
                 />
-                <button onClick={props.EditNote}>Save</button>
+                <button onClick={editNotes}>Save</button>
             </form>
         </div>
      );
