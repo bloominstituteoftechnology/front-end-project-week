@@ -27,6 +27,7 @@ class App extends Component {
       .catch(error => {
         console.log('Server Error', error)
       })
+    
   }
 
   render() {

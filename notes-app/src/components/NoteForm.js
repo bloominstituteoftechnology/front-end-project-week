@@ -28,11 +28,13 @@ class NoteForm extends Component {
       .catch( error => console.log(error))
   }
 
+
+
   render() {
     return (
       <div>
         <form onSubmit={this.addNote}>
-          <label for='name'>Title:</label>
+          <label for='name'>Title: </label>
           <input 
             onChange={this.inputHandler}
             type='text' 
@@ -40,7 +42,8 @@ class NoteForm extends Component {
             placeholder='title'
             value={this.state.title} 
           />
-          <label for='textBody'>Text:</label>
+          <br></br>
+          <label for='textBody'>Text: </label>
           <input 
             onChange={this.inputHandler}
             type='text'
@@ -48,6 +51,7 @@ class NoteForm extends Component {
             placeholder='text'
             value={this.state.textBody}
           />
+          <br></br>
           <button type='submit'>Add Note</button>
         </form>
       </div>

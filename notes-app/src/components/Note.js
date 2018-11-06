@@ -1,11 +1,13 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 function Note(props) {
   return (
     <div className="noteCard">
-      <div className="noteCardTitle">{props.title}</div>
-      <div className="noteCardText">{props.textBody}</div>
+      <Link to={`/notecard/${props.note._id}`}>
+        <div className="noteCardTitle">{props.note.title}</div>
+        <div className="noteCardText">{props.note.textBody}</div>    
+      </Link>
     </div>
   )
 }

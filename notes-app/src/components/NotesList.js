@@ -12,10 +12,8 @@ class NotesList extends Component {
         <div>
           {this.props.notes.map(note => {
             return (
-                <Note 
-                  title={note.title}
-                  textBody={note.textBody}
-                />
+              
+                <Note note={note}/>
               )
           })}
         </div>
