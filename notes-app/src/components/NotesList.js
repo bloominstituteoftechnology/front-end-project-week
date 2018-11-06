@@ -11,10 +11,12 @@ class NotesList extends Component {
         <div>
           {this.props.notes.map(note => {
             return (
+              <Link to={`https://fe-notes.herokuapp.com/note/get/${note.id}`}>
                 <Note 
                 title={note.title}
                 textBody={note.textBody}
                 />
+              </Link>
               )
           })}
         </div>
