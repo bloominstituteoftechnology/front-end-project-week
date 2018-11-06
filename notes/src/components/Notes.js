@@ -15,7 +15,7 @@ class Notes extends Component {
     return (
       <div className="yourNotes">
         Notes
-        <Note notes={this.props.notes}/>
+        <Note notes={this.props.notes} deleteNote={this.props.deleteNote}/>
       </div>
     );
   }

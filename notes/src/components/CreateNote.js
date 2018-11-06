@@ -8,11 +8,7 @@ class CreateNote extends Component {
             notes: props.notes
          }
     }
-    changeHandler = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
+    
     createNote = event => {
         event.preventDefault();
         console.log('button clicked')
@@ -37,19 +33,19 @@ class CreateNote extends Component {
                     placeholder="Title"
                     name='title'
                     value={this.state.title}
-                    onChange={this.changeHandler} />
+                    onChange={this.props.changeHandler} />
                     <input
                     type="text"
                     placeholder="Content"
                     name='textBody'
                     value={this.state.textBody}
-                    onChange={this.changeHandler} />
+                    onChange={this.props.changeHandler} />
                     <input 
                      type="text"
                      placeholder="Tags"
                      name='tags'
                      value={this.state.tags}
-                     onChange={this.changeHandler}
+                     onChange={this.props.changeHandler}
                     />
                 </form>
                 <button onClick={this.createNote}>Save</button>

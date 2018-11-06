@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {NavLink} from 'react-router-dom';
 
 
 class OneNote extends Component {
@@ -12,6 +13,7 @@ class OneNote extends Component {
     componentDidMount = () => {
       this.fetchNote(this.props.match.params.id);
       console.log(this.props.match.params.id);
+      console.log(this.state.notes)
     }
     componentWillReceiveProps(newProps) {
         if (this.props.match.params.id !== newProps.match.params.id) {
@@ -33,8 +35,15 @@ class OneNote extends Component {
     
     render() { 
         return (
-            <div>   
-                <button onClick={this.deleteNote}>Delete Note</button>
+            <div> 
+                <div>
+                    {this.state.notes.title}
+                    {this.state.notes.textBody}
+                </div>  
+                <button onClick={this.props.deleteNote}>Delete Note</button>
+                <NavLink to={`/notes/${this.state.notes._id}/edit`}>
+                <button>Edit Note</button>
+                </NavLink>
             </div> );
     }
 }
