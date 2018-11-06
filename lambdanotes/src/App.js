@@ -29,16 +29,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-        
-        {/* <div>
-          {this.state.notesList.map(note => <ul><li>{note.title}</li></ul>)}
-         
-        </div> */}
         </header>
         <h1>Lambda Notes</h1>
-        <Route path = '/:_id/view' render= {(props) => (<NoteView {...props} notesData = {this.state.notesList} />)}/>
-        {/* <ListView notesData = {this.state.notesList}/> */}
-        {/* <Route exact path= ':id/viewnote' render= {(props) => (<NoteView {...props} notesData = {this.state.notesList} />)}></Route> */}
+        <Route exact path= '/' render= {(props) => (<ListView {...props} notesData= {this.state.notesList} />)}/>
+        <Route path = '/:_id/view' render= {(props) => (<NoteView {...props} notesData= {this.state.notesList} />)}/>
       </div>
     )
   }
@@ -46,4 +40,3 @@ class App extends Component {
 
 export default App;
 
-// <3 React
