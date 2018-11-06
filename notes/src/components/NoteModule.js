@@ -1,8 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import { NoteModuleContainer, NoteModuleForm } from '../styles'
 
 
-import { ButtonsContainer, StyledButton } from '../styles';
+import { 
+    ButtonsContainer, 
+    StyledButton, 
+    NoteModuleContainer, 
+    NoteModuleInput, 
+    NoteModuleTextArea,  
+    NoteModuleForm,
+    CloseIcon
+} from '../styles';
 
 import DeleteConfirm from './DeleteConfirm';
 
@@ -32,25 +39,9 @@ const NoteModule = ({
                 updateNote(note);
                 history.push('/');
             }}>
-                <div className="close-icon" onClick={e => {
-                    e.preventDefault();
-                    history.push('/');
-                }}
-                ><i className="fas fa-times"></i></div>
-                <input 
-                    className="title" 
-                    type="text" 
-                    name="title"
-                    value={note.title}
-                    onChange={activeNoteHandler}
-                />
-                <textarea
-                    className="body" 
-                    type="text" 
-                    name="textBody"
-                    value={note.textBody}
-                    onChange={activeNoteHandler}
-                />
+                <CloseIcon onClick={e => {e.preventDefault(); history.push('/');}}><i className="fas fa-times"></i></CloseIcon>
+                <NoteModuleInput type="text" name="title" value={note.title} onChange={activeNoteHandler}/>
+                <NoteModuleTextArea type="text" name="textBody" value={note.textBody} onChange={activeNoteHandler}/>
                 <ButtonsContainer display={true}>
                     <StyledButton type="button" onClick={e => {
                         e.preventDefault();

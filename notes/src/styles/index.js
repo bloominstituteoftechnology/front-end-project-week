@@ -1,11 +1,13 @@
 import styled, { css } from 'styled-components';
-export *  from './SVGs';
-export *  from './Header';
-export *  from './DeleteConfirm';
+export * from './SVGs';
+export * from './Header';
+export * from './DeleteConfirm';
 export * from './NoteSelect';
 export * from './NoteModule';
 export * from './ToolBar';
 export * from './Note';
+export * from './NoteList';
+export * from './NoteForm';
 
 export const ButtonsContainer = styled.div`
     position: absolute;
