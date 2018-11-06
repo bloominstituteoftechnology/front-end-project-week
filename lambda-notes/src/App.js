@@ -9,6 +9,8 @@ import NotesForm from "./Components/NotesForm";
 import NotePage from "./Components/NotePage";
 import EditForm from "./Components/EditForm";
 
+
+
 class App extends Component {
   constructor() {
     super();
@@ -18,7 +20,8 @@ class App extends Component {
       textBody: "",
       newTitle: "",
       newTextBody: "",
-      delete: false
+      delete: false,
+      search:''
     };
   }
   componentDidMount() {
@@ -75,7 +78,13 @@ class App extends Component {
       .catch(err => console.log(err));
     this.setState();
   };
+
   render() {
+    let filteredNotes = this.state.notes.filter(
+      note =>
+        note.title.includes(this.state.search) ||
+        note.textBody.includes(this.state.search)
+    );
     return (
       <div className="app">
         <Sidebar />
@@ -85,7 +94,8 @@ class App extends Component {
           render={props => (
             <NotesList
               {...props}
-              notes={this.state.notes}
+              notes={filteredNotes}
+              search={this.state.serach}
               changeHandler={this.changeHandler}
             />
           )}

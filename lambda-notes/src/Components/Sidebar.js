@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
+
+
 class SideBar extends Component {
   render() {
     return (
@@ -13,6 +15,7 @@ class SideBar extends Component {
           <NavLink to='/create' activeClassName='link'>
             <button>+ Create New Note</button>
           </NavLink>
+          
         </div>
       </div>
     )
