@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "./App.css";
 import axios from "axios";
 import NoteForm from "./components/NoteForm"
+import Note from "./components/Note"
 import { Route, NavLink, withRouter } from "react-router-dom";
 
 class App extends Component {
@@ -57,7 +58,7 @@ deleteNote = (event, id) => {
               + Create New Note
             </NavLink>
             <Route path="/add-note" render={props => <NoteForm {...props} addNote={this.addNote} />} />
-
+            <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
       </div>
       </div>
     );
