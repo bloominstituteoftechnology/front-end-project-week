@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import ListView from './components/ListView';
 import axios from 'axios';
 
 class App extends Component {
@@ -23,12 +24,14 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-        <h1>Lambda Notes</h1>
-        <div>
+        
+        {/* <div>
           {this.state.notesList.map(note => <ul><li>{note.title}</li></ul>)}
          
-        </div>
+        </div> */}
         </header>
+        <h1>Lambda Notes</h1>
+        <ListView notesData = {this.state.notesList}/>
       </div>
     );
   }
