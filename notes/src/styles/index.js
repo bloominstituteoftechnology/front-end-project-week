@@ -5,6 +5,7 @@ export *  from './DeleteConfirm';
 export * from './NoteSelect';
 export * from './NoteModule';
 export * from './ToolBar';
+export * from './Note';
 
 export const ButtonsContainer = styled.div`
     position: absolute;
@@ -36,7 +37,7 @@ export const StyledButton = styled.button`
     `}
 `;
 
-export const NoteContainer = styled.div`
+export const NotesContainer = styled.div`
   margin-left: 280px;
   display: block;
   direction: ltr;

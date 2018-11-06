@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
-import { NoteContainer }from '../styles';
+import { NotesContainer }from '../styles';
 
 import { 
   getNotes, 
@@ -105,7 +105,7 @@ class App extends Component {
           menuToggle={this.props.menuToggle}
         />
 
-        <NoteContainer showMenu={this.props.showMenu}>
+        <NotesContainer showMenu={this.props.showMenu}>
           <Route 
             path='/'
             render={props => 
@@ -134,7 +134,7 @@ class App extends Component {
               />
             }
           />
-        </NoteContainer>
+        </NotesContainer>
 
         <Route 
           path='/note/:id'
