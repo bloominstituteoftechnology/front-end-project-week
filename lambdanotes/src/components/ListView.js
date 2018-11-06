@@ -37,7 +37,7 @@ const ListView = props => {
                  {
             (props.notesData.map( note => 
                 <div className= 'note-card'>
-                <h1>{note.title}</h1>
+                <h1><a href='#'>{note.title}</a></h1>
                 <p>{note.textBody}</p>
             </div>
             

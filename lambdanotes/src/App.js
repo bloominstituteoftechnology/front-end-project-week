@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import ListView from './components/ListView';
+import NoteView from './components/NoteView'
 import axios from 'axios';
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
         </header>
         <h1>Lambda Notes</h1>
         <ListView notesData = {this.state.notesList}/>
+        <NoteView notesData = {this.state.notesList} />
       </div>
     );
   }
