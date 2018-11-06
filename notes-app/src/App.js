@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-
 import NotesList from './components/NotesList';
 import NoteForm from './components/NoteForm';
 import NoteCard from './components/NoteCard';
 import axios from 'axios';
-
 import './App.css';
 
 class App extends Component {
@@ -26,21 +24,19 @@ class App extends Component {
       })
       .catch(error => {
         console.log('Server Error', error)
-      })
-    
+      })  
   }
 
   render() {
     return (
       <div className="App">
-        <NoteForm />
-        <br></br>
+
+        <Route path="/noteform" 
+          render={props => <NoteForm {...props} /> }/>
         <Route exact path="/"
-          render={(props) => <NotesList {...props} notes={this.state.notes} />} 
-        />
+          render={(props) => <NotesList {...props} notes={this.state.notes} />} />
         <Route path="/notecard/:id" 
-          render={props => <NoteCard {...props} />} 
-        />
+          render={props => <NoteCard {...props} />} />
       </div>
     );
   }

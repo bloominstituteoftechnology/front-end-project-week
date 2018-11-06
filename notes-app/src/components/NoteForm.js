@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navigation from './Navigation';
 import axios from 'axios';
 
 class NoteForm extends Component {
@@ -33,6 +34,8 @@ class NoteForm extends Component {
   render() {
     return (
       <div>
+        <Navigation />
+
         <form onSubmit={this.addNote}>
           <label for='name'>Title: </label>
           <input 

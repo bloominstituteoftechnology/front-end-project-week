@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
-//import Note from './Note';
 import axios from 'axios';
 
 class NoteCard extends Component {
@@ -33,15 +31,14 @@ class NoteCard extends Component {
     }
   }
 
-
   render() {
     if(!this.state.note) {
       return <div>loading notes...</div>
     }
       return (
         <div>
-        <div>{this.state.note.title}</div>
-        <div>{this.state.note.textBody}</div>
+        <strong>{this.state.note.title}</strong>
+        <p>{this.state.note.textBody}</p>
         </div>
       )
   }
