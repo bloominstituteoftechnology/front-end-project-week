@@ -13,7 +13,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       notes: [],
-      thisNote: '',
       newNote: {
         tags: ["example one", "example two"],
         title: '',
@@ -57,12 +56,6 @@ handleInputChange = event => {
   });
 };
 
-handleCardSelect = event => {
-  this.setState({
-    thisNote: event.target.id
-  })
-}
-
   render() {
     return (
       <div className="App">
@@ -83,17 +76,17 @@ handleCardSelect = event => {
             <Notes
               {...props}
               notes={this.state.notes}/>
-              )}
-        />
-        <Route 
-          path={`/:${this.props.id}`}
-          render={props => (
-            <Note 
+           )}
+         />
+         <Route 
+            path='/:id' 
+            render={props => (
+              <Note 
               {...props}
-
-            />
-          )}
-        />
+              notes={this.state.notes}
+              />
+            )}
+          />
         <Route 
           path='/new_note'
           render={props => (
@@ -105,6 +98,7 @@ handleCardSelect = event => {
             />
           )}
         />
+        
       </div>
     );
   }
