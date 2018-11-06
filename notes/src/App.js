@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 
+import Note from './Components/Note';
 import NoteList from './Components/NoteList';
 import Menu from './Components/Menu';
 
@@ -12,17 +13,6 @@ class App extends Component {
       notes: [],
     };
   }
-
-componentDidMount() {
-  axios
-  .get('https://fe-notes.herokuapp.com/note/get/all')
-    .then(response => {
-      this.setState(() => ({ notes: response.data }));
-    })
-    .catch(error => {
-      console.error('Error getting notes data.', error);
-    });
-}
 
   render() {
     return (

@@ -37,13 +37,13 @@ render() {
                 <h1>Create New Note:</h1>
                 <input 
                     onChange={this.handleInputChange}
-                    placeholder='title'
+                    placeholder='Note Title'
                     value={this.state.title}
                     name='title'
                 />
                 <input 
                     onChange={this.handleInputChange}
-                    placeholder='textBody'
+                    placeholder='Note Content'
                     value={this.state.textBody}
                     name='textBody'
                 />
