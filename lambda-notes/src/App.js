@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import  { Route } from 'react-router-dom';
+import  { Route } from 'react-router-dom';
 
 import Notes from './components/Notes';
 import './App.css';
@@ -8,26 +8,25 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
+
      this.state = {
       notes: []
     };
   }
+  
    componentDidMount() {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(response => this.setState({ notes: response.data }))
-      .then(console.log(this.state.notes))
+      .then(console.log(this.state))
       .catch(error => console.log(error));
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <p>
-            Lambda Notes!!! Best Note taking app in the world!!
-          </p>
-        </header>
+        <h1>Notes App</h1>
+        <Notes notes={this.state.notes} />
       </div>
     );
   }
