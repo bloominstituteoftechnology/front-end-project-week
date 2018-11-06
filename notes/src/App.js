@@ -76,7 +76,7 @@ class App extends Component {
           <Form {...props} addNote={this.addNote}/> }/>
 
             <Route 
-            path='/:id' 
+            path='notes/:id' 
             render={props => (
               <Note 
               {...props}
