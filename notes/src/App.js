@@ -67,7 +67,7 @@ handleInputChange = event => {
             <h2 className="navLinks">View Your Notes</h2>
           </NavLink>
           <NavLink to='/new_note'>
-            <h2 className="navLinks">Create New Note</h2>
+            <h2 className="navLinks">+ Create New Note</h2>
           </NavLink>
         </div>
         <Route

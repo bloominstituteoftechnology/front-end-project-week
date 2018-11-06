@@ -3,9 +3,7 @@ import { Col, Button, Form, FormGroup, Input } from 'reactstrap';
 
 
 class NewNote extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  
   render() {
     return (
       <Form onSubmit={this.props.addNote}>

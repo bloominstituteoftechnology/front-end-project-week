@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 
 //  console.log(props);
 //   const noteId = props.match.params.id;
@@ -17,16 +18,17 @@ class Note extends React.Component {
   }
 
 
-  // componentDidMount(){
-  //   console.log("inside CDM")
-  // }
-  // props.bootUp()
-  // console.log(props.notes)
-  // const found = props.notes[props.match.params.id]
-  //   console.log(found);
+  componentDidMount(){
+    console.log("inside Note CDM");
+    this.setState({
+      selectedNote: this.props.match.params.id.slice(1),
+      notes: this.props.notes
+    })
+  }
+ 
 
   render() {
-    console.log("Render Invoked");
+    console.log("Note Render Invoked");
     const thisId = this.props.match.params.id.slice(1);
     console.log(thisId);
     const thisNote = this.props.notes[thisId]
