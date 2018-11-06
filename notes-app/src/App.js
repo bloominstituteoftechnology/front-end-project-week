@@ -34,8 +34,10 @@ class App extends Component {
       <div className="App">
         <NoteForm />
         <br></br>
-        <NotesList exact path="/" notes={this.state.notes} />
-        <Route path="https://fe-notes.herokuapp.com/note/get/:id" 
+        <Route exact path="/"
+          render={(props) => <NotesList {...props} notes={this.state.notes} />} 
+        />
+        <Route path="/notecard/:id" 
           render={props => <NoteCard {...props} />} 
         />
       </div>

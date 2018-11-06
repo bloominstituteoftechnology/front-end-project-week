@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Note from './Note';
 import axios from 'axios';
 
@@ -6,21 +7,20 @@ class NoteCard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      notes: null,
+      note: null,
     }
   }
 
   componentDidMount(){
-    const id = this.state.match.params.id;
+    const id = this.props.match.params.id;
     this.fetchNote(id);
   }
   
-
   fetchNote = id => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
-        this.setState(() => ({ notes: response.data }))
+        this.setState(() => ({ note: response.data }))
       })
       .catch(error => {
         console.log(error);
@@ -40,7 +40,10 @@ class NoteCard extends Component {
     }
       return (
         <div>
-          <Note />
+          <Note 
+            title={this.state.title}
+            textBody={this.state.textBody}
+          />
         </div>
       )
   }
