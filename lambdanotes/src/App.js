@@ -3,9 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 
 import ListView from './components/ListView';
-import NoteView from './components/NoteView'
+import NoteView from './components/NoteView';
+
 
 import axios from 'axios';
+import { Route } from 'react-router-dom';
+
 
 class App extends Component {
   constructor() {
@@ -33,11 +36,14 @@ class App extends Component {
         </div> */}
         </header>
         <h1>Lambda Notes</h1>
-        <ListView notesData = {this.state.notesList}/>
-        <NoteView notesData = {this.state.notesList} />
+        <Route path = '/:_id/view' render= {(props) => (<NoteView {...props} notesData = {this.state.notesList} />)}/>
+        {/* <ListView notesData = {this.state.notesList}/> */}
+        {/* <Route exact path= ':id/viewnote' render= {(props) => (<NoteView {...props} notesData = {this.state.notesList} />)}></Route> */}
       </div>
-    );
+    )
   }
 }
 
 export default App;
+
+// <3 React
