@@ -41,19 +41,19 @@ class YourNotes extends React.Component {
             </div>
             <div className="cont-body">
               {this.state.notes.map((note, i) => (
-                <Link to={`/:${i}`}key={i} >
                 <div className="note">
 
+                <Link to={`/:${i}`}key={i} >
                   <div className='note-title'>
                     <h3>{note.title}</h3>
                   </div>
+               </Link>
 
                   <div className="note-body">
                     {note.textBody}
                   </div>
                   
                 </div>
-               </Link>
               )
               )}
             </div>

@@ -2,6 +2,7 @@
 import React from 'react';
 
 
+
 class Note extends React.Component {
   constructor(props) {
     super(props);
@@ -11,16 +12,23 @@ class Note extends React.Component {
     }
   }
 
+  
 
   render() { 
-    const thisId = this.props.match.params.id.slice(1); 
-    const thisNote = this.props.notes[thisId]
+    const id = this.props.match.params.id.slice(1);
+ 
+    const note = this.props.notes[id]
     
   return (
-   
     <div>
-      <h1>{thisNote.title}</h1>
-      <p>{thisNote.textBody}</p>
+        <div>
+            <p>edit</p>
+            <p>delete</p>
+        </div>
+        <div>
+            <h1>{note.title}</h1>
+            <p>{note.textBody}</p>
+        </div>
     </div>
    )
   }
