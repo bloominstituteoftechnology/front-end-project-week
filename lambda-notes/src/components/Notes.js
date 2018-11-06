@@ -20,15 +20,11 @@ function Notes(props) {
                 console.log(note._id);
                 return (
                     <div onClick={ev => routeToNote(ev, note)}>
-                    <Note 
-                    
-                    
-                    tags={note.tags}
-                    id={note._id}
-                    title={note.title}
-                    textBody={note.textBody}
-                    key={note._id}
-                    />
+                        <h2>{note.tags}</h2>
+                        <h3>{note.title}</h3>
+            
+                        <hr/>
+                        <p>{note.textBody}</p>
                     </div>
                 )
             })}
@@ -37,3 +33,14 @@ function Notes(props) {
 }
 
 export default Notes;
+
+
+                    // <Note 
+                    
+                    
+                    // tags={note.tags}
+                    // id={note._id}
+                    // title={note.title}
+                    // textBody={note.textBody}
+                    // key={note._id}
+                    // />
