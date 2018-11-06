@@ -51,17 +51,23 @@ class App extends Component {
               <h1>Lambda</h1>
               <h1> Notes</h1>
             </div>
-            <button className='button'>View Your Notes</button>
-            <button className='button'>+Create New Note</button>
+            <NavLink exact to='/'>
+            <button className='side-button'>View Your Notes</button>
+            </NavLink>
+            <NavLink to='/create-new-note'>
+            <button className='side-button'>+Create New Note</button>
+            </NavLink>
           </div>
+          
           <Route
             path exact='/'
             render={props =>
             <YourNotes {...props}/>} />
+
           <Route
           path='/create-new-note' 
           render={props =>
-          <Form {...props}/> }/>
+          <Form {...props} addNote={this.addNote}/> }/>
         </div>
       </div>
     );

@@ -2,6 +2,9 @@
     box-sizing: border-box;
     margin: 0 auto;
   }
+  .container{
+    max-width: 800px;
+  }
   
   
   .main-view{
@@ -20,6 +23,7 @@
     height: 160px;
     border: 2px solid lightgrey;
     width: 160px;
+    margin: 5px;
   }
   
   .note-title{
@@ -34,3 +38,4 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+ 

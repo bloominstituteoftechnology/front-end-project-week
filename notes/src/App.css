@@ -1,25 +1,27 @@
 * {
   box-sizing: border-box;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .App{
   display: flex;
-  
+  height: 100%;
 }
 
 .side-bar{
   /* border: 1px solid red; */
-  width: 30%;
-  height: 100%;
+  width: 200px;
+  text-align: center;
   background: lightgrey;
 }
 
-.button{
-  height: 40px;
+.side-button{
+  height: 35px;
   width: 90%;
   text-align: center;
   color: white;
   background: teal;
+  margin: 5px 0;
 }
 
