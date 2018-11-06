@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 const Note = props => {
   
   return (
@@ -9,7 +7,8 @@ const Note = props => {
       <div>
           <button>edit</button>
           <button>delete</button>
-          <h3>{props.note.title}</h3>
+          <h3>Note Title</h3>
+          <p>Note Text</p>
 
       </div>
     </div>
