@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 
 import NoteList from './Components/NoteList';
+import Menu from './Components/Menu';
 
 class App extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ componentDidMount() {
     return (
       <div className="App">
         <NoteList notes = {this.state.notes} />
+        <Menu />
       </div>
     );
   }
