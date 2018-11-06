@@ -13,9 +13,6 @@ import {
   searchHandler, 
   setSortMode, 
   menuToggle,
-  noteChecked,
-  noteUnChecked,
-  noteCheckedClear,
   deleteChecked
 } from '../actions';
 
@@ -32,14 +29,8 @@ class App extends Component {
     this.props.getNotes();
   }
 
-  noteClicked = (ev, id, history) => {
-    ev.preventDefault();
-    history.push(`/note/${id}`)
-  }
-
   deleteNote = (ev, id) => {
     ev.preventDefault();
-
   }
 
   formSubmited = (title, textBody, history) => {
@@ -47,46 +38,6 @@ class App extends Component {
     const note = {title, textBody};
     this.props.addNote(note);
     history.push('/');
-  }
-
-  searchList = () => {
-    const filterdNotes = this.props.notes.filter(note => 
-      note.title.toLowerCase().indexOf(this.props.searchValue.toLowerCase()) !== -1
-      ||
-      note.textBody.toLowerCase().indexOf(this.props.searchValue.toLowerCase()) !== -1
-      );
-
-    if (this.props.sortMode === 'default') {
-      return filterdNotes;
-    }
-    if (this.props.sortMode === 'alpha') {
-      return filterdNotes.sort((a, b) => {
-          var nameA = a.title.toLowerCase(); // ignore upper and lowercase
-          var nameB = b.title.toLowerCase(); // ignore upper and lowercase
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-          // names must be equal
-          return 0;
-        });
-    }
-    if (this.props.sortMode === 'reverse-alpha') {
-      return filterdNotes.sort((a, b) => {
-        var nameA = a.title.toLowerCase(); // ignore upper and lowercase
-        var nameB = b.title.toLowerCase(); // ignore upper and lowercase
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-        // names must be equal
-        return 0;
-      }).reverse();
-    }
   }
 
   render() {
@@ -119,20 +70,7 @@ class App extends Component {
           />
           <Route 
             path='/'
-            render={props =>
-              <NoteList 
-                {...props}
-                notes={this.searchList()} 
-                noteClicked={this.noteClicked}
-                noteChecked={this.props.noteChecked}
-                noteUnChecked={this.props.noteUnChecked}
-                fetchingNote={this.props.fetchingNote}
-                fetchingNotes={this.props.fetchingNotes}
-                addingNote={this.props.addingNote}
-                updatingNote={this.props.updatingNote}
-                deletingNote={this.props.deletingNote}
-              />
-            }
+            render={props => <NoteList {...props}/>}
           />
         </NotesContainer>
 
@@ -156,31 +94,19 @@ class App extends Component {
 
 const mapStateToProps = state => {
   const { 
-    notes, 
+    notes,
     activeNote, 
     searchValue, 
     sortMode, 
     showMenu, 
-    checkedNotes,
-    fetchingNote,
-    fetchingNotes,
-    addingNote,
-    updatingNote,
-    deletingNote,
   } = state;
 
   return { 
-    notes, 
+    notes,
     activeNote, 
     searchValue, 
     sortMode, 
-    showMenu, 
-    checkedNotes,
-    fetchingNote,
-    fetchingNotes,
-    addingNote,
-    updatingNote,
-    deletingNote,
+    showMenu,
   };
 }
 
@@ -196,9 +122,6 @@ export default withRouter(connect(
     searchHandler,
     setSortMode,
     menuToggle,
-    noteChecked,
-    noteUnChecked,
-    noteCheckedClear,
     deleteChecked,
   }
 )(App));
