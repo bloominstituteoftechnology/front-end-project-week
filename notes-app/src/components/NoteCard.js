@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import NoteCard from './NoteCard';
+import Note from './Note';
 import axios from 'axios';
 
-class Note extends Component {
+class NoteCard extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -10,11 +10,11 @@ class Note extends Component {
     }
   }
 
-/*   componentDidMount(){
+  componentDidMount(){
     const id = this.state.match.params.id;
     this.fetchNote(id);
   }
-   */
+  
 
   fetchNote = id => {
     axios
@@ -27,15 +27,23 @@ class Note extends Component {
       })
   }
 
+  componentWillReceiveProps(newProps){
+    if(this.props.match.params.id !== newProps.match.params.id){
+      this.fetchNote(newProps.match.params.id);
+    }
+  }
+
 
   render() {
-    if(!this.state.note) {
+    if(!this.state.notes) {
       return <div>loading notes...</div>
     }
       return (
-        
+        <div>
+          <Note />
+        </div>
       )
   }
 }
 
-export default Note;
+export default NoteCard;
