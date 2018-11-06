@@ -24,9 +24,9 @@ class App extends Component {
     return (
       <div className="App">
         <Route path="/" render={props => <HomePage {...props}/>} />
-        <Route exact path="/notes" render={props => <Notes {...props} notes={this.state.notes} id={this.state.id}/>} />
-        <Route path="/createnote" render={props => <CreateNote {...props} notes={this.state.notes}/>} />
-        <Route path='/notes/id' render={props => <OneNote {...props}/>} />
+        <Route exact path="/notes" render={props => <Notes {...props} notes={this.state.notes}/>} />
+        <Route exact path="/createnote" render={props => <CreateNote {...props} notes={this.state.notes}/>} />
+        <Route path="/notes/:id" render={props => <OneNote {...props} notes={this.state.notes}/>} />
       </div>
     );
   }

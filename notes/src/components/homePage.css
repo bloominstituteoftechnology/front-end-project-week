@@ -23,6 +23,7 @@
     background-color: lightgray;
 }
 .note {
+    width: 60%;
     border: 1px solid darkgray;
     margin: 10px 0px;
 }

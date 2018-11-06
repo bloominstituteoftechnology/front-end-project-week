@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import axios from 'axios';
 import "./homePage.css";
 
 class HomePage extends Component {
@@ -30,9 +29,6 @@ class HomePage extends Component {
               <button>+ Create New Note</button>
             </NavLink>
           </div>
-        </div>
-        <div className="notesBody">
-          Your Notes
         </div>
       </div>
     );

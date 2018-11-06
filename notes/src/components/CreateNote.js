@@ -16,7 +16,7 @@ class CreateNote extends Component {
     createNote = event => {
         event.preventDefault();
         console.log('button clicked')
-        const newNote = {
+        let newNote = {
           tags: this.state.tags,
           title: this.state.title,
           textBody: this.state.textBody
@@ -26,7 +26,8 @@ class CreateNote extends Component {
           this.setState({notes: response.data })
         })
         .catch(err => console.log(err))
-      }
+    }
+
     render() { 
         return ( 
             <div>
@@ -43,6 +44,13 @@ class CreateNote extends Component {
                     name='textBody'
                     value={this.state.textBody}
                     onChange={this.changeHandler} />
+                    <input 
+                     type="text"
+                     placeholder="Tags"
+                     name='tags'
+                     value={this.state.tags}
+                     onChange={this.changeHandler}
+                    />
                 </form>
                 <button onClick={this.createNote}>Save</button>
             </div>
