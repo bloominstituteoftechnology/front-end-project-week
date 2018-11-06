@@ -68,10 +68,7 @@ class App extends Component {
               />
             }
           />
-          <Route 
-            path='/'
-            render={props => <NoteList {...props}/>}
-          />
+          <Route path='/' render={props => <NoteList {...props}/>}/>
         </NotesContainer>
 
         <Route 
@@ -98,7 +95,8 @@ const mapStateToProps = state => {
     activeNote, 
     searchValue, 
     sortMode, 
-    showMenu, 
+    showMenu,
+    checkedNotes,
   } = state;
 
   return { 
@@ -107,6 +105,7 @@ const mapStateToProps = state => {
     searchValue, 
     sortMode, 
     showMenu,
+    checkedNotes,
   };
 }
 

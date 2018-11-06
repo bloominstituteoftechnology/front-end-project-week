@@ -127,7 +127,7 @@ const mapStateToProps = state => {
         updatingNote,
         deletingNote,
         searchValue,
-        sortMode
+        sortMode,
     } = state;
     return {
         notes,
