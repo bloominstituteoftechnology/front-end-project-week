@@ -9,6 +9,7 @@ import Note from "./components/Note";
 import ViewNote from "./components/ViewNote";
 import EditNote from "./components/EditNote";
 import Header from "./components/Navbar"
+import DeleteModal from './components/DeleteModal';
 
 
 
