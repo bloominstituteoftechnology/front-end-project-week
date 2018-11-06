@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import './listView.css';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
+
 
 
 class YourNotes extends React.Component {
@@ -39,7 +40,8 @@ class YourNotes extends React.Component {
               <h2>Your Notes: </h2>
             </div>
             <div className="cont-body">
-              {this.state.notes.map(note => (
+              {this.state.notes.map((note, i) => (
+                <Link to={`/:${i}`}key={i} >
                 <div className="note">
 
                   <div className='note-title'>
@@ -49,9 +51,9 @@ class YourNotes extends React.Component {
                   <div className="note-body">
                     {note.textBody}
                   </div>
-
+                  
                 </div>
-               
+               </Link>
               )
               )}
             </div>
