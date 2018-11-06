@@ -61,4 +61,51 @@ class Note extends Component {
 
 
 
-     
+      render() {
+        if (!this.state.note) {
+          return <div>loading note</div>;
+        }
+        const { title, textBody, _id } = this.state.note;
+        return (
+          <div>
+            <div className="delete-container">
+              <Link className="note-link" to={`/edit/${_id}`}>
+                <p className="edit-note-link">edit</p>
+              </Link>
+              <p className="delete-note-link" onClick={this.openModal}>
+                delete
+              </p>
+            </div>
+            <div>
+              <h3>{title}</h3>
+              <Markdown>{textBody}</Markdown>
+            </div>
+            <div>
+              <Modal
+                isOpen={this.state.showModal}
+                onRequestClose={this.closeModal}
+                contentLabel="Are you sure you want to delete?"
+              >
+                <div className="modal">
+                  <div className="modal-prompt">
+                    <p>Are you sure you want to delete this?</p>
+                  </div>
+                  <div className="modal-button-container">
+                    <Link className="rr-link" to="/">
+                      <div className="modal-delete-button" onClick={this.deletedNote}>
+                        Delete
+                      </div>
+                    </Link>
+                    <div className="modal-no-button" onClick={this.closeModal}>
+                      No
+                    </div>
+                  </div>
+                </div>
+              </Modal>
+            </div>
+          </div>
+        );
+      }
+    }
+    
+    export default withRouter(Note);

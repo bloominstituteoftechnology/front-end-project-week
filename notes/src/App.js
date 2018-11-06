@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import "./App.css";
 import axios from "axios";
 import NoteForm from "./components/NoteForm"
+import EditNote from "./components/EditNote"
 import Note from "./components/Note"
+import NoteList from "./components/NoteList"
+import NoteCard from "./components/NoteCard";
 import { Route, NavLink, withRouter } from "react-router-dom";
 
 class App extends Component {
 constructor() {
   super();
-  this.state= {
+  this.state = {
     notes: []
   }
 }
@@ -46,6 +49,24 @@ deleteNote = (event, id) => {
     .catch(error => console.log(error))
 }
 
+
+editNote = (event, id, state) => {
+  event.preventDefault();
+  axios
+  .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, state)
+  .then(response => {
+    const updateArray = this.state.notes.map(note => {
+      if (note._id === response.data._id) {
+        return response.data;
+      }
+      return note;
+    });
+    this.setState({ notes: updateArray });
+  })
+  .catch(error => console.log(error));
+}
+
+
   render() {
     return (
       <div className="App">
@@ -57,12 +78,31 @@ deleteNote = (event, id) => {
             <NavLink className="nav-buttons" to="/add-note">
               + Create New Note
             </NavLink>
+            <Route
+            exact
+            path="/"
+            render={props => (
+              <NoteList
+                {...props}
+                deleteNote={this.deleteNote}
+                addNote={this.addNote}
+                editNote={this.editNote}
+                />
+              )}
+            />
             <Route path="/add-note" render={props => <NoteForm {...props} addNote={this.addNote} />} />
             <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
+            <Route path="/edit/:id" render={props => <EditNote {...props} editNote={this.editNote} />} />
       </div>
       </div>
     );
   }
 }
+                
+                
+               
+            
 
-export default App;
+
+
+export default withRouter(App);
