@@ -29,6 +29,14 @@ class App extends Component {
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
   };
+  addNote = () => {
+    axios
+    .post('https://fe-notes.herokuapp.com/note/create', {
+      title: this.state.title,
+      textBody: this.state.textBody
+    })
+    this.setState({ title: '', textBody: ''})
+  }
   
   editNote = id => {
     axios
@@ -37,12 +45,13 @@ class App extends Component {
       textBody: this.state.editTextBody
     });
     this.setState({ title: '', textBody: ''})
-  }
+  };
+
   changeHandler = event => {
     this.setState({
         [event.target.name]: event.target.value
     })
-}
+  };
 
   render() {
     return (
@@ -62,6 +71,7 @@ class App extends Component {
           render={props => <CreateNote {...props} 
           notes={this.state.notes} 
           changeHandler={this.changeHandler}
+          addNote={this.addNote}
           />}
         />
         <Route

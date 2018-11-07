@@ -32,6 +32,10 @@ class OneNote extends Component {
             console.log(response.data)
         })
     }
+    deleteSingleNote = event => {
+        this.props.deleteNote(this.state.notes._id);
+        event.preventDefault();
+    }
     
     render() { 
         return (
@@ -40,7 +44,7 @@ class OneNote extends Component {
                     {this.state.notes.title}
                     {this.state.notes.textBody}
                 </div>  
-                <button onClick={this.props.deleteNote}>Delete Note</button>
+                <button onClick={this.deleteSingleNote}>Delete Note</button>
                 <NavLink to={`/notes/${this.state.notes._id}/edit`}>
                 <button>Edit Note</button>
                 </NavLink>
