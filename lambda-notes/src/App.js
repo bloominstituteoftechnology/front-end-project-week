@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
+
 import Sidebar from "./Components/Sidebar";
 import NotesList from "./Components/NotesList";
 import NotesForm from "./Components/NotesForm";
@@ -82,8 +83,8 @@ class App extends Component {
   render() {
     let filteredNotes = this.state.notes.filter(
       note =>
-        note.title.includes(this.state.search) ||
-        note.textBody.includes(this.state.search)
+        note.title.toLowerCase().includes(this.state.search) ||
+        note.textBody.toLowerCase().includes(this.state.search)
     );
     return (
       <div className="app">
