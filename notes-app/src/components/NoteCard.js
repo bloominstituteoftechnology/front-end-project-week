@@ -5,7 +5,7 @@ class NoteCard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      note: null,
+      note: [],
     }
   }
 
@@ -41,6 +41,9 @@ class NoteCard extends Component {
         <div>
         <strong>{this.state.note.title}</strong>
         <p>{this.state.note.textBody}</p>
+        <button onClick={event => {
+          this.state.deleteNote(event, this.state.note._id)
+        }}>delete</button>
         </div>
       )
   }
