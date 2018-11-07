@@ -14,7 +14,7 @@ const SideButton = styled.button`
   font-size: inherit;
   font-weight: bold;
   color: #fafafa;
-  background-color: #00A3FF;
+  background-color: #00a3ff;
   border: none;
   border-radius: 5px;
   display: block;
@@ -67,25 +67,27 @@ class CreateNote extends Component {
 
         <StyledNote>
           <form onSubmit={this.handleSubmit}>
-            <input style={{width: '500px', padding:'15px', marginBottom:'8px'}}
+            <input
+              style={{ width: "500px", padding: "15px", marginBottom: "40px" }}
               value={this.state.title}
+              placeholder='Title'
               type="text"
               name="title"
               id=""
               cols="100"
               rows="30"
-
               onChange={this.handleChange}
             />
-            <textarea
+            <textarea style={{fontSize: '1rem'}}
               value={this.state.textBody}
+              placeholder='Write something'
               name="textBody"
               id=""
               cols="160"
               rows="30"
               onChange={this.handleChange}
             />
-            <SideButton style={{backgroundColor: '#00A3FF'}}>SAVE</SideButton>
+            <SideButton style={{ backgroundColor: "#00A3FF" }}>SAVE</SideButton>
           </form>
         </StyledNote>
       </div>

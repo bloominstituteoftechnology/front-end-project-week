@@ -65,7 +65,9 @@ class EditNote extends Component {
         <StyledNote>
           <form onSubmit={this.handleSubmit}>
             <input
+              style={{ width: "500px", padding: "15px", marginBottom: "40px" }}
               value={this.state.title}
+              placeholder='Title'
               type="text"
               name="title"
               id=""
@@ -75,13 +77,16 @@ class EditNote extends Component {
             />
             <textarea
               value={this.state.textBody}
+              placeholder='Write Something'
               name="textBody"
               id=""
               cols="160"
               rows="30"
               onChange={this.handleChange}
             />
-            <SideButton style={{backgroundColor: '#00A3FF'}}>UPDATE</SideButton>
+            <SideButton style={{ backgroundColor: "#00A3FF" }}>
+              UPDATE
+            </SideButton>
           </form>
         </StyledNote>
       </div>

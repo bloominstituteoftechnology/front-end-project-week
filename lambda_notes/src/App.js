@@ -47,12 +47,12 @@ class App extends Component {
         console.log(response);
       });
   };
-  editNote = (id, newNote) => {
+  editNote = (id, editedNote) => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, newNote)
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editedNote)
       .then(response => {
         console.log(response);
-        newNote._id = response.data;
+        editedNote._id = response.data;
 
         this.setState({
           notes: this.state.notes.map(note => {
@@ -80,7 +80,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{backgroundImage: 'linear-gradient( #e0e2e4, #c8ccce, #b1b7b6, #9da29d, #8c8c86)'}}>
         <Header />
       <Sidebar />
       <MainContent>

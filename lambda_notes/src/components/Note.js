@@ -11,7 +11,6 @@ const SingleCard = styled.div`
   width: 10rem;
   height: 10rem;
   margin: 1.5rem;
-  border: 1px solid black;
   border-radius: 5px;
 `;
 

@@ -69,13 +69,24 @@ class ViewNote extends Component {
 
         <StyledNote>
           <form onSubmit={this.handleSubmit}>
+          <input style={{width: '500px', padding:'15px', marginBottom:'40px'}}
+          value={this.state.title}
+          placeholder='Title'
+          type="text"
+          name="title"
+          id=""
+          cols="100"
+          rows="5"
+          onChange={this.handleChange}
+        />
 
 
-            <textarea
+            <textarea style={{fontSize: '1rem'}}
               value={this.state.textBody}
+              placeholder='Write Something'
               name="textBody"
               id=""
-              cols="160"
+              cols="130"
               rows="30"
               onChange={this.handleChange}
             />

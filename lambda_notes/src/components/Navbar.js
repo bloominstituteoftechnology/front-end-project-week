@@ -27,6 +27,9 @@ class Navbar extends Component {
       left: 0,
       zIndex: 500, paddingTop: '1rem', paddingBottom: '1rem', width: '100vw'}}>
         <header style={{display: 'flex', justifyContent:'flex-end', color: 'white', fontSize:'1.5rem', marginRight:'20px'}}><Link to="/" style={{color:'white'}}>Lambda Notes</Link></header>
+        <input type="Search" id="" name="" placeholder="Search" onChange={(event) => console.log(event.target.value)
+
+        }/>
       </nav>
     );
   }

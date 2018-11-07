@@ -12,7 +12,6 @@ const StyledSideBar = styled.div`
   width: 250px;
   background-color: white;
   padding: 1.5rem;
-  border: .5px solid black;
   text-decoration: none;
 `;
 const MainHeading = styled.h1`
