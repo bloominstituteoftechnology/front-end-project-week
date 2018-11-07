@@ -11,12 +11,14 @@
   height:100vh;
   top:0;
 }
+
 .link-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .link-section button{
   background:#00cec9;
   border:1px solid rgb(167, 167, 167);
@@ -30,7 +32,6 @@
   cursor: pointer;
 }
 
-/*notes*/
 .notes-list{
   width:100%;
   display: flex;
@@ -43,7 +44,6 @@
   font-size:25px;
   margin-bottom:50px;
 }
-
 
 .notes-list .notes{
   display: flex;
@@ -62,16 +62,18 @@
   margin-bottom:30px;
   background: white;
 }
+
 .note .note-title{
   text-decoration: none;
   color:black;
 }
-/*forms*/
+
 form{
   display: flex;
   flex-direction: column;
   padding: 5% 1% 0 1%;
 }
+
 form input{
   border:1px solid black;
   padding:10px;
@@ -100,8 +102,6 @@ form button{
   cursor: pointer;
 }
 
-/*Note Page*/
-
 .note-page{
   display: flex;
   flex-direction: column;
@@ -110,32 +110,36 @@ form button{
   top:0;
   margin-bottom:0;
 }
+
 .note-page .note-body{
-  border:1px solid black;
   width:100%;
   margin:0;
   overflow-wrap: break-word;
 }
+
 .note-page .note-title{
-  border:1px solid black;
   width:100%;
   right:0;
   margin-bottom:20px;
   padding:0;
 }
+
 .note-page-buttons{
   display: flex;
   justify-content: flex-end; 
   text-decoration: underline;
   font-weight: bold;
 }
+
 .note-page-buttons a{
   color:black;
   margin-right:10px;
 }
+
 .note-page-buttons span{
   cursor: pointer;
 }
+
 .modal-overlay{
   display: flex;
   justify-content: center;
@@ -147,6 +151,7 @@ form button{
   left: 0;
   background: rgba(114, 114, 114, 0.77);
 }
+
 .delete-modal{
   display: flex;
   flex-direction: column;
@@ -155,6 +160,7 @@ form button{
   background: white;
   z-index: 2;
 }
+
 .delete-modal p{
   text-align: center;
   padding: 0 0 20px 0;
@@ -171,9 +177,11 @@ form button{
   cursor: pointer;
   outline: none;
 }
+
 .delete-modal .note-modal-buttons .delete-btn{
   background:rgb(164, 0, 0);
 }
+
 .delete-modal .note-modal-buttons .no-btn{
   background:#00cec9;
 }

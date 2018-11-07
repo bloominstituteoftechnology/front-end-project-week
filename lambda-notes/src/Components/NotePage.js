@@ -19,7 +19,7 @@ const NotePage = props => {
             <div className="delete-modal">
               <p>Are you sure you want to delete this?</p>
               <div className="note-modal-buttons">
-                <button className="delete-btn" onClick={deleteNotes}>Yes</button>
+                <button className="delete-btn" onClick={deleteNotes}>Delete</button>
                 <button className="no-btn" onClick={props.deleteToggleOff}>No</button>
               </div>
             </div>
