@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import "./App.css";
-import HomePage from "./components/HomePage";
-import Notes from "./components/Notes";
-import CreateNote from "./components/CreateNote";
-import EditNote from './components/EditNote';
 import axios from "axios";
+
+import HomePage from "./components/HomePage";
+import Note from "./components/Note";
+import CreateNote from "./components/CreateNote";
+import EditNote from "./components/EditNote";
 import OneNote from "./components/OneNote";
+
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       notes: [],
-      editTitle: '',
-      editTextBody: ''
+      editTitle: "",
+      editTextBody: ""
     };
   }
   componentDidMount = () => {
@@ -30,35 +32,36 @@ class App extends Component {
       .catch(err => console.log(err));
   };
   addNote = () => {
-    axios
-    .post('https://fe-notes.herokuapp.com/note/create', {
+    axios.post("https://fe-notes.herokuapp.com/note/create", {
       title: this.state.title,
       textBody: this.state.textBody
-    })
-    this.setState({ title: '', textBody: ''})
-  }
-  
+    });
+    this.setState({ title: "", textBody: "" });
+  };
+
   editNote = id => {
-    axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
       title: this.state.editTitle,
       textBody: this.state.editTextBody
     });
-    this.setState({ title: '', textBody: ''})
+    this.setState({ title: "", textBody: "" });
   };
 
   changeHandler = event => {
     this.setState({
-        [event.target.name]: event.target.value
-    })
+      [event.target.name]: event.target.value
+    });
   };
 
   render() {
     return (
       <div className="App">
         <Route path="/" render={props => <HomePage {...props} />} />
-        <Route exact path="/notes" render={props => (
-            <Notes
+        <Route
+          exact
+          path="/notes"
+          render={props => (
+            <Note
               {...props}
               notes={this.state.notes}
               deleteNote={this.deleteNote}
@@ -68,33 +71,38 @@ class App extends Component {
         <Route
           exact
           path="/createnote"
-          render={props => <CreateNote {...props} 
-          notes={this.state.notes} 
-          changeHandler={this.changeHandler}
-          addNote={this.addNote}
-          />}
+          render={props => (
+            <CreateNote
+              {...props}
+              notes={this.state.notes}
+              changeHandler={this.changeHandler}
+              addNote={this.addNote}
+            />
+          )}
         />
         <Route
           path="/notes/:id"
-          render={props => 
-          <OneNote 
-            {...props} 
-            notes={this.state.notes} 
-            deleteNote={this.deleteNote}
-          />
-        }
-          />
+          render={props => (
+            <OneNote
+              {...props}
+              notes={this.state.notes}
+              deleteNote={this.deleteNote}
+            />
+          )}
+        />
         <Route
           path="/notes/:id/edit"
-          render={props => 
-          <EditNote
-          {...props}
-          notes={this.state.notes}
-          editTitle={this.state.editTitle}
-          editTextBody={this.state.editTextBody}
-          editNote={this.editNote}
-          changeHandler={this.changeHandler}
-          />}/>
+          render={props => (
+            <EditNote
+              {...props}
+              notes={this.state.notes}
+              editTitle={this.state.editTitle}
+              editTextBody={this.state.editTextBody}
+              editNote={this.editNote}
+              changeHandler={this.changeHandler}
+            />
+          )}
+        />
       </div>
     );
   }
