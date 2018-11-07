@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import Logout from "../Authenticate/Logout";
 
 
 class SideBar extends Component {
@@ -15,7 +15,7 @@ class SideBar extends Component {
           <NavLink to='/create' activeClassName='link'>
             <button>+ Create New Note</button>
           </NavLink>
-          
+          <Logout />
         </div>
       </div>
     )

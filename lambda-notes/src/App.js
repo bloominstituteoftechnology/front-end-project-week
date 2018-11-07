@@ -9,6 +9,7 @@ import NotesList from "./Components/NotesList";
 import NotesForm from "./Components/NotesForm";
 import NotePage from "./Components/NotePage";
 import EditForm from "./Components/EditForm";
+import Authenticate from "./Authenticate/Authenticate";
 
 
 
@@ -148,4 +149,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Authenticate(App);
