@@ -33,14 +33,21 @@ componentDidMount() {
 
 addNote = event => {
   event.preventDefault();
-  axios.post(`${URL}create`, this.state.newNote)
-    .then(response => this.setState({
-       notes: response.data,
+  console.log(event);
+  axios
+    .post(`${URL}create`, this.state.newNote)
+    .then(response => {
+      console.log(response)
+      this.setState({
+       notes: [
+         ...this.state.notes,
+         this.state.newNote
+       ],
        newNote: {
         title: '',
         textBody: ''
        }
-    }))
+    })})
     .catch(error => {
       console.error('Posting Error!', error)
     })
