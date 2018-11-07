@@ -45,7 +45,7 @@ color: #000;
 const SideBar = () => {
   return (
     <StyledSideBar>
-      <MainHeading>
+      <MainHeading style={{marginTop: 150}}>
       <styLink>
         <Link to="/" style={{color:'black'}}>Lambda <br /> Notes</Link>
       </styLink>

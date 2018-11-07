@@ -80,7 +80,7 @@ class ViewNote extends Component {
             />
             <div>
               <SideButton>
-                <Link to={`/editnote/${this.state._id}`}>EDIT</Link>
+                <Link to={`/editnote/${this.state._id}`} style={{color:'white'}}>EDIT</Link>
               </SideButton>
               <SideButton onClick={this.helper}>DELETE</SideButton>
             </div>

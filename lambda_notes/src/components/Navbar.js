@@ -1,23 +1,14 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const styHeader = styled.nav`
-  background-color: rgb(7.3%, 6.6%, 6.4%);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 500;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  width: 100%;
-`;
 
 class Navbar extends Component {
   render() {
     return (
-      <nav>
-        <styHeader>Lambda Notes</styHeader>
+      <nav style={{backgroundColor: '#26a69a', position: 'fixed', top: 0,right: 0,
+      left: 0,
+      zIndex: 500, paddingTop: '1rem', paddingBottom: '1rem', width: '100vw', borderBottom: '3px solid gray'}}>
+        <header style={{display: 'flex', justifyContent:'flex-end', color: 'white', fontSize:'1.5rem', marginRight:'20px'}}><Link to="/" style={{color:'white'}}>Lambda Notes</Link></header>
       </nav>
     );
   }
