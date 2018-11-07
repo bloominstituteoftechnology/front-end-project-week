@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import './App.css';
 import { Route } from 'react-router-dom';
 
@@ -12,6 +12,10 @@ class App extends Component {
     super(props);
     this.state = {
       notes: [],
+      note: {
+        title: '',
+        textBody: '',
+      },
     };
   }
 
@@ -21,7 +25,13 @@ class App extends Component {
       {/*   <NoteList notes = {this.state.notes} />
         <Menu /> */}
         <Route exact path='/' component={NoteList} />
-        <Route path='/notes/_id' component={Note} />
+        <Route path='/note/_id' render={props => (
+            <Note
+              {...props}
+              note={this.state.note}
+            />
+          )} />
+        <Menu />
       </div>
     );
   }

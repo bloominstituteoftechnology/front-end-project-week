@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-import Note from './Note';
+//import Note from './Note';
 import NoteCard from './NoteCard';
 
 
