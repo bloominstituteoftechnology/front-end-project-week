@@ -27,6 +27,17 @@ class App extends Component {
       })  
   }
 
+  deleteNote = (event, id) => {
+    event.preventDefault();
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        console.log('DELETE', response)
+        this.setState({ note: response.data })
+      })
+      .catch( error => { console.log(error) })
+  }
+
   render() {
     return (
       <div className="App">

@@ -9,13 +9,7 @@ class NoteCard extends Component {
     }
   }
 
-   componentDidMount(){
-    const id = this.props.match.params.id;
-    this.fetchNote(id);
-  }
-
-
-  fetchNote = id => {
+  getNote = id => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
@@ -26,22 +20,21 @@ class NoteCard extends Component {
       })
   }
 
-  deleteNote = (event, id) => {
-    event.preventDefault();
-    axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => {
-        console.log('DELETE', response)
-        this.setState({ note: response.data })
-      })
-      .catch( error => { console.log(error) })
+  componentDidMount(){
+    const id = this.props.match.params.id;
+    this.getNote(id);
   }
 
-  componentWillReceiveProps(newProps){
+  deleteNote = (e, id) => {
+    e.preventDefault();
+    this.props.deleteNote(this.state.note);
+  }
+
+/*   componentWillReceiveProps(newProps){
     if(this.props.match.params.id !== newProps.match.params.id){
       this.fetchNote(newProps.match.params.id);
     }
-  }
+  } */
 
   render() {
 
