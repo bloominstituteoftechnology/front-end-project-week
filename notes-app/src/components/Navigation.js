@@ -4,16 +4,16 @@ import { NavLink } from 'react-router-dom';
 function Navigation(props) {
   return (
     <ul className="navbar">
-      <li>
+      <div>
         <NavLink exact to="/" activeClassName="activeNavButton">
           Home
         </NavLink>
-      </li>
-      <li>
+      </div>
+      <div>
         <NavLink to="/noteform" activeClassName="activeNavButton">
           Form
         </NavLink>
-      </li>
+      </div>
     </ul>
   )
 }

@@ -16,7 +16,7 @@ class NoteForm extends Component {
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  addNote = event => {
+  addNote = () => {
     const newNote = {
       title: this.state.title,
       textBody: this.state.textBody
@@ -28,8 +28,6 @@ class NoteForm extends Component {
       })
       .catch( error => console.log(error))
   }
-
-
 
   render() {
     return (
