@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Route, NavLink } from 'react-router-dom';
 import Notes from './Notes';
 import NewNote from './NewNote';
+import SingleNote from './SingleNote';
 
 const URL = 'https://fe-notes.herokuapp.com/note/';
 
@@ -71,7 +72,7 @@ handleInputChange = event => {
           <h1 className="navbarHeader">
             Lambda Notes
           </h1>
-          <NavLink exact to='/'>
+          <NavLink exact to='/notes/'>
             <h2 className="navLinks">View Your Notes</h2>
           </NavLink>
           <NavLink exact to='/new_note'>
@@ -79,25 +80,32 @@ handleInputChange = event => {
           </NavLink>
         </div>
         <Route
-          exact path='/'
+          exact path='/notes/'
           render={props => (
             <Notes
               {...props}
-              notes={this.state.notes}/>
+              notes={this.state.notes} />
            )}
          />
          <Route 
-          path='/new_note'
+          exact path='/new_note'
           render={props => (
             <NewNote 
               {...props}
               newNote={this.state.newNote}
               handleInputChange={this.handleInputChange}
-              addNote={this.addNote}
+              addNote={this.addNote} />
+          )}
+        />
+        <Route
+          path='/notes/:_id'
+          render={props => (
+            <SingleNote 
+              {...props}
+              notes={this.state.notes}
             />
           )}
         />
-        
         
       </div>
     );
