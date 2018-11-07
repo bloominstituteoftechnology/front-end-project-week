@@ -26,23 +26,31 @@ class NoteCard extends Component {
       })
   }
 
-  /*
+  deleteNote = (event, id) => {
+    event.preventDefault();
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        console.log('DELETE', response)
+        this.setState({ note: response.data })
+      })
+      .catch( error => { console.log(error) })
+  }
+
   componentWillReceiveProps(newProps){
     if(this.props.match.params.id !== newProps.match.params.id){
       this.fetchNote(newProps.match.params.id);
     }
-  } */
+  }
 
   render() {
-    if(!this.state.note) {
-      return <div>loading note...</div>
-    }
+
       return (
         <div>
         <strong>{this.state.note.title}</strong>
         <p>{this.state.note.textBody}</p>
         <button onClick={event => {
-          this.state.deleteNote(event, this.state.note._id)
+          this.deleteNote(event, this.state.note._id)
         }}>delete</button>
         </div>
       )
