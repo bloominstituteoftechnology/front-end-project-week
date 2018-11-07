@@ -5,7 +5,7 @@ import './App.css';
 import ListView from './components/ListView';
 import NoteView from './components/NoteView';
 import SideBar from './components/SideBar';
-
+import CreateNote from './components/CreateNote';
 
 import axios from 'axios';
 import { Route } from 'react-router-dom';
@@ -41,6 +41,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <SideBar />
+        <CreateNote />
         <h1>Lambda Notes</h1>
         <Route exact path= '/' render= {(props) => (<ListView {...props} notesData= {this.state.notesList} />)}/>
         {/* <Route exact path = '/note/get/:_id' component= {NoteView} notesData= {this.state.notesList} /> */}
