@@ -1,7 +1,7 @@
 
 import React from 'react';
 import axios from 'axios';
-import './listView.css';
+import './Notes.css';
 import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
 
 

@@ -2,14 +2,16 @@
 
 import React from 'react';
 import axios from 'axios';
-import './createNewView.css';
+import './Edit.css';
 
-class Form extends React.Component {
+class EditNote extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            title: "",
-            textBody: ""
+            note: [],
+            title: '',
+            textBody: '',
+            isEditing: false,
         }
     }
 
@@ -17,39 +19,58 @@ class Form extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
-    createNote = event => {
-        this.props.addNote(event, this.state);
-        this.setState({ title: "", textBody: "" })
-        this.props.history.push("/")
+   
+
+    editNote = e => {
+        this.props.editNote(e, this.state.note._id, this.state);
+        this.setState({ title: "", textBody: "" });
+        this.props.history.push("/");
+      };
+
+    componentsDidMount() {
+        const id = this.props.match.params.id;
+        this.fetchNote(id)
     }
-
-
+    
+    fetchNote = id => {
+        axios
+          .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+          .then(res => this.setState({ note: res.data }))
+          .catch(res => console.log(res));
+      };
+    
+    
     render() {
+
 
         return (
             <div className="container">
                 <div className="notes-header">
-                    <h3>Create New Note:</h3>
+                    <h3>Edit Note:</h3>
                 </div>
-                <form onSubmit={this.createNote}>
+
+                <form onSubmit={this.editNote}>
                     <input
                         className="title"
                         name="title"
+                        size='80'
                         value={this.state.title}
                         onChange={this.changeHandler}
                         type="text"
                         placeholder='Note Title'
                     />
+                    <br/>
                     <input
                         className="content"
                         name="textBody"
+                        size='80'
                         value={this.state.textBody}
                         onChange={this.changeHandler}
                         type="text"
-                        placeholder='Note Content'
+                        placeholder="Note Content"
                     />
-
-                    <button className="button">Save</button>
+                    <br/>
+                    <button className="update-button">Update</button>
                 </form>
             </div>
         );
@@ -58,4 +79,4 @@ class Form extends React.Component {
 
 
 
-export default Form;
+export default EditNote;

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
-
+import axios from 'axios';
 import React from 'react';
 
 
@@ -13,19 +13,19 @@ class Note extends React.Component {
     }
   }
 
-  
 
   render() { 
     const id = this.props.match.params.id.slice(1);
- 
     const note = this.props.notes[id]
     
   return (
     <div>
         <div>
-            <NavLink to="/edit-note">
+        
+            <Link to={`/edit-note/${id}`}>         
             <p>edit</p>
-            </NavLink>
+            </Link>
+         
             <p>delete</p>
         </div>
         <div>
