@@ -48,6 +48,7 @@ class ViewNote extends Component {
       _id: "",
       title: "",
       textBody: ""
+
     };
   }
   componentDidMount() {

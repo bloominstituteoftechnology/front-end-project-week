@@ -67,7 +67,7 @@ class CreateNote extends Component {
 
         <StyledNote>
           <form onSubmit={this.handleSubmit}>
-            <input
+            <input style={{width: '500px', padding:'15px', marginBottom:'8px'}}
               value={this.state.title}
               type="text"
               name="title"
