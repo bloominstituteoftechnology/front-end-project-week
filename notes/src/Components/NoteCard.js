@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function NoteCard({ note }) {
-  const { title, textBody } = note;
+function NoteCard(props) {
+  //const { props.title, props.textBody, id } = note;
   return (
     <div>
 
-      <Link to={`Notes/${note.id}`}>
-        <h2>{title}</h2>
+      <Link to={`/notes/${props.note._id}`}>
+        <h2>{props.note.title}</h2>
       </Link>
-      <p>{textBody}</p>
+      <p>{props.note.textBody}</p>
 
     
     </div>

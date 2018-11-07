@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { Route } from 'react-router-dom';
 
 import Note from './Components/Note';
 import NoteList from './Components/NoteList';
@@ -17,8 +18,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NoteList notes = {this.state.notes} />
-        <Menu />
+      {/*   <NoteList notes = {this.state.notes} />
+        <Menu /> */}
+        <Route exact path='/' component={NoteList} />
+        <Route path='/notes/_id' component={Note} />
       </div>
     );
   }

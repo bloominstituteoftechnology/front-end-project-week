@@ -53,7 +53,7 @@ componentDidMount() {
     return (
       <div>
         {this.state.notes.map(note => (
-            <NoteCard key={note.id} note={note} />
+            <NoteCard key={note._id} note={note} />
         ))}
       </div>
     );
