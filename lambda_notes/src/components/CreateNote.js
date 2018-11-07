@@ -74,8 +74,8 @@ class CreateNote extends Component {
               type="text"
               name="title"
               id=""
-              cols="100"
-              rows="30"
+              cols="80"
+              rows="20"
               onChange={this.handleChange}
             />
             <textarea style={{fontSize: '1rem'}}
@@ -83,8 +83,8 @@ class CreateNote extends Component {
               placeholder='Write something'
               name="textBody"
               id=""
-              cols="160"
-              rows="30"
+              cols="80"
+              rows="20"
               onChange={this.handleChange}
             />
             <SideButton style={{ backgroundColor: "#00A3FF" }}>SAVE</SideButton>

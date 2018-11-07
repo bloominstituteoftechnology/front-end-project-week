@@ -80,8 +80,8 @@ class EditNote extends Component {
               placeholder='Write Something'
               name="textBody"
               id=""
-              cols="160"
-              rows="30"
+              cols="80"
+              rows="20"
               onChange={this.handleChange}
             />
             <SideButton style={{ backgroundColor: "#00A3FF" }}>

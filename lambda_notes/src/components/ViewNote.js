@@ -86,8 +86,8 @@ class ViewNote extends Component {
               placeholder='Write Something'
               name="textBody"
               id=""
-              cols="130"
-              rows="30"
+              cols="80"
+              rows="20"
               onChange={this.handleChange}
             />
             <div>

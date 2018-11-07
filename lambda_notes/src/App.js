@@ -8,10 +8,8 @@ import CreateNote from "./components/CreateNote";
 import Note from "./components/Note";
 import ViewNote from "./components/ViewNote";
 import EditNote from "./components/EditNote";
-import Header from "./components/Navbar"
-import DeleteModal from './components/DeleteModal';
-
-
+import Header from "./components/Navbar";
+import DeleteModal from "./components/DeleteModal";
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -19,14 +17,9 @@ const MainContent = styled.div`
   text-decoration: none;
 `;
 
-
-
-
-
 class App extends Component {
   state = {
     notes: []
-
   };
   componentDidMount() {
     axios
@@ -41,7 +34,7 @@ class App extends Component {
       .then(response => {
         newNote._id = response.data.success;
 
-        this.setState({ notes:[newNote, ...this.state.notes]});
+        this.setState({ notes: [newNote, ...this.state.notes] });
 
         console.log("create note", this.state.notes.concat(newNote));
         console.log(response);
@@ -56,8 +49,8 @@ class App extends Component {
 
         this.setState({
           notes: this.state.notes.map(note => {
-            if (note._id === id) return response.data
-            return note
+            if (note._id === id) return response.data;
+            return note;
           })
         });
       });
@@ -78,12 +71,36 @@ class App extends Component {
       });
   };
 
+  handleChange(event) {
+    let NotesToSearch = [];
+    let newSearch = [];
+
+    if (event.target.value !== "") {
+      NotesToSearch = this.props.items;
+
+      newSearch = NotesToSearch.filter(item => {
+        const lc = item.toLowerCase();
+        const filter = event.target.value.toLowerCase();
+        return lc.includes(filter);
+      });
+    } else {
+      newSearch = this.props.items;
+    }
+    this.setState({
+      filtered: newSearch
+    });
+  }
   render() {
     return (
-      <div style={{backgroundImage: 'linear-gradient( #e0e2e4, #c8ccce, #b1b7b6, #9da29d, #8c8c86)'}}>
+      <div
+        style={{
+          backgroundImage:
+            "linear-gradient( #e0e2e4, #c8ccce, #b1b7b6, #9da29d, #8c8c86)"
+        }}
+      >
         <Header />
-      <Sidebar />
-      <MainContent>
+        <Sidebar />
+        <MainContent>
           <Route
             exact
             path="/"
