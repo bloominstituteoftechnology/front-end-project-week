@@ -26,14 +26,15 @@ class App extends Component {
       },
       editingId: null,
       activeNote: null,
-      isEditing: false
+      isEditing: false,
+      loading: true
     }
   }
 
   componentDidMount(){
     axios
     .get('https://fe-notes.herokuapp.com/note/get/all')
-    .then(response => this.setState({ notes: response.data }))
+    .then(response => this.setState({ notes: response.data, loading: false }))
     .catch(error => console.log(error));
   }
 
@@ -66,20 +67,20 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  deleteNote = (ev, id) => {
-    ev.preventDefault();
+  deleteNote = (_id) => {
+    // ev.preventDefault();
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${_id}`)
       .then(response => {
         this.setState({ notes: response.data });
       })
       .catch(error => console.log(error));
   };
 
-  updateNote = () => {
+  updateNote = (id) => {
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/edit/${this.state.editingId}`,
+        `https://fe-notes.herokuapp.com/note/edit/${id}`,
         this.state.note
       )
       .then(response => {

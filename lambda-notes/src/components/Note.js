@@ -1,5 +1,6 @@
 import React from 'react';
 import './Note.css';
+import { Link } from 'react-router-dom';
 
 const Note = props => {
 
@@ -15,7 +16,8 @@ const Note = props => {
             
             <hr/>
             <p>{singleNote.textBody}</p>
-            <button onClick = {(ev) => props.deleteNote(ev, singleNote._id)}>Delete Note</button>
+
+            <Link to = "/notes"><button onClick = {(_id) => props.deleteNote(props.match.params._id)}>Delete Note</button></Link>
             <button onClick = {props.updateNote}>Update Note</button>
         </div>
     )
