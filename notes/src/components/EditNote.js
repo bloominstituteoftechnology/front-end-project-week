@@ -12,18 +12,18 @@ class EditNote extends Component {
         }
     }
 
-    componentDidMount() {
-        const id = this.props.match.params.id;
-        this.getNote(id);
-      }
+    // componentDidMount() {
+    //     const id = this.props.match.params.id;
+    //     this.getNote(id);
+    //   }
 
 
-    getNote = id => {
-        axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-            .then(response => this.setState({ note: response.data }))
-            .catch(response => console.log(response));
-        }
+    // getNote = id => {
+    //     axios
+    //         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    //         .then(response => this.setState({ note: response.data }))
+    //         .catch(response => console.log(response));
+    //     }
 
      changeHandler = event => {
         this.setState({ [event.target.name]: event.target.value });

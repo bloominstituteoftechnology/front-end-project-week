@@ -39,7 +39,7 @@ class NoteList extends React.Component {
               </div>
               <div className="cont-body">
                 {this.state.notes.map((note, i) => (
-                  <Link to={`note/${i}`}key={i} >
+                  <Link to={`note/${note._id}`}key={i} >
                   <div className="note">
   
                     <div className='note-title'>

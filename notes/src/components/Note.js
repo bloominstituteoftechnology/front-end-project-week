@@ -14,17 +14,17 @@ class Note extends Component {
         }
     }
 
-    componentDidMount() {
-        const id = this.props.match.params.id
-        this.getNote(id);
-    }
+    // componentDidMount() {
+    //     const id = this.props.match.params.id
+    //     this.getNote(id);
+    // }
 
-    getNote = id => {
-        axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-            .then(response => this.setState({ note: response.data }))
-            .catch(response=> console.log(response));
-        }
+    // getNote = id => {
+    //     axios
+    //         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    //         .then(response => this.setState({ note: response.data }))
+    //         .catch(response=> console.log(response));
+    //     }
 
 
         
@@ -57,15 +57,17 @@ class Note extends Component {
               <Link className="note-link" to={`/edit/${_id}`}>
                 <p className="edit-note-link">edit</p>
               </Link>
-              <Link className="delete-note-link" onClick={this.openModal} to={`/delete/${_id}`} >
+              <p className="delete-note-link" onClick={this.openModal} >
                 delete
-              </Link>
+              </p>
             </div>
             <div>
               <h3>{title}</h3>
               <Markdown>{textBody}</Markdown>
             </div>
+          
             <div>
+              
               <Modal
                 isOpen={this.state.showModal}
                 onRequestClose={this.closeModal}

@@ -80,15 +80,15 @@ editNote = (event, id, state) => {
             render={props => (
               <NoteList
                 {...props}
-                deleteNote={this.deleteNote}
-                addNote={this.addNote}
-                editNote={this.editNote}
+                // deleteNote={this.deleteNote}
+                // addNote={this.addNote}
+                // editNote={this.editNote}
                 />
               )}
             />
             
             <Route path="/add-note" render={props => <NoteForm {...props} addNote={this.addNote} />} />
-            <Route path="/note/:id" render={props => <Note {...props} note={this.state.notes} />} />
+            <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
             <Route path="/edit/:id" render={props => <EditNote {...props} editNote={this.editNote} />} />
       </div>
       </div>
