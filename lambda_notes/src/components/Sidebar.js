@@ -10,7 +10,7 @@ const StyledSideBar = styled.div`
   left: 0;
   height: 100%;
   width: 250px;
-  background-color: #ddd;
+  background-color: white;
   padding: 1.5rem;
   border: .5px solid black;
   text-decoration: none;
@@ -28,7 +28,7 @@ const SideButton = styled.button`
   font-size: inherit;
   font-weight: bold;
   color: #fafafa;
-  background-color: #26a69a;
+  background-color: #00A3FF;
   border: none;
   border-radius: 5px;
   display: block;
@@ -51,10 +51,10 @@ const SideBar = () => {
       </styLink>
       </MainHeading>
       <SideButton>
-        <Link to="/" style={{color:'white'}}>View Your Notes</Link>
+        <Link to="/" style={{color:'white', backgroundColor: '#00A3FF'}}>View Your Notes</Link>
       </SideButton>
       <SideButton>
-        <Link to="/createnote" style={{color:'white'}}>+Create a New Note</Link>
+        <Link to="/createnote" style={{color:'white', backgroundColor: '#00A3FF'}}>+Create a New Note</Link>
       </SideButton>
     </StyledSideBar>
   );

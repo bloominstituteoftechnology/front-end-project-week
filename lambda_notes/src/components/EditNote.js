@@ -81,7 +81,7 @@ class EditNote extends Component {
               rows="30"
               onChange={this.handleChange}
             />
-            <SideButton>UPDATE</SideButton>
+            <SideButton style={{backgroundColor: '#00A3FF'}}>UPDATE</SideButton>
           </form>
         </StyledNote>
       </div>

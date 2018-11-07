@@ -14,7 +14,7 @@ const SideButton = styled.button`
   font-size: inherit;
   font-weight: bold;
   color: #fafafa;
-  background-color: #26a69a;
+  background-color: #00A3FF;
   border: none;
   border-radius: 5px;
   display: block;
@@ -74,6 +74,7 @@ class CreateNote extends Component {
               id=""
               cols="100"
               rows="30"
+
               onChange={this.handleChange}
             />
             <textarea
@@ -84,7 +85,7 @@ class CreateNote extends Component {
               rows="30"
               onChange={this.handleChange}
             />
-            <SideButton>SAVE</SideButton>
+            <SideButton style={{backgroundColor: '#00A3FF'}}>SAVE</SideButton>
           </form>
         </StyledNote>
       </div>

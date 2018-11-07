@@ -79,10 +79,10 @@ class ViewNote extends Component {
               onChange={this.handleChange}
             />
             <div>
-              <SideButton>
+              <SideButton style={{backgroundColor: '#00A3FF'}}>
                 <Link to={`/editnote/${this.state._id}`} style={{color:'white'}}>EDIT</Link>
               </SideButton>
-              <SideButton onClick={this.helper}>DELETE</SideButton>
+              <SideButton style={{backgroundColor: '#DA0000'}} onClick={this.helper}>DELETE</SideButton>
             </div>
           </form>
         </StyledNote>
