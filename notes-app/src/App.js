@@ -27,7 +27,7 @@ class App extends Component {
       })  
   }
 
-/*   deleteNote = (id) => {
+  deleteNote = (id) => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
@@ -35,7 +35,7 @@ class App extends Component {
         this.setState({ notes: response.data })
       })
       .catch( error => { console.log(error) })
-  } */
+  }
 
   render() {
     return (

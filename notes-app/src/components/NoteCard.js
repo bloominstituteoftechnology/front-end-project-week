@@ -9,11 +9,12 @@ class NoteCard extends Component {
     }
   }
 
-  componentDidMount(){
+   componentDidMount(){
     const id = this.props.match.params.id;
     this.fetchNote(id);
   }
-  
+
+
   fetchNote = id => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
@@ -25,11 +26,12 @@ class NoteCard extends Component {
       })
   }
 
+  /*
   componentWillReceiveProps(newProps){
     if(this.props.match.params.id !== newProps.match.params.id){
       this.fetchNote(newProps.match.params.id);
     }
-  }
+  } */
 
   render() {
     if(!this.state.note) {
