@@ -47,14 +47,14 @@ const SideBar = () => {
     <StyledSideBar>
       <MainHeading>
       <styLink>
-        <Link to="/">Lambda <br /> Notes</Link>
+        <Link to="/" style={{color:'black'}}>Lambda <br /> Notes</Link>
       </styLink>
       </MainHeading>
       <SideButton>
-        <Link to="/">View Your Notes</Link>
+        <Link to="/" style={{color:'white'}}>View Your Notes</Link>
       </SideButton>
       <SideButton>
-        <Link to="/createnote">+Create a New Note</Link>
+        <Link to="/createnote" style={{color:'white'}}>+Create a New Note</Link>
       </SideButton>
     </StyledSideBar>
   );
