@@ -28,6 +28,7 @@ class SingleNote extends React.Component {
       <div>
         <div>
           <h3 onClick={event => this.props.deleteNote(event, this.state.note._id)}>Delete</h3>
+          <h3 onClick={event => this.props.editNote(event, this.state.note._id)}>Edit</h3>
         </div>
         <p>{title}</p>
         <p>{textBody}</p>

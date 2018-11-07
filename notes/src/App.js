@@ -13,11 +13,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       notes: [],
-      newNote: {
+      note: {
         tags: ["example one", "example two"],
         title: '',
         textBody: ''
-      }
+      },
+      isEditing: false
     };
   }
 
@@ -36,15 +37,15 @@ addNote = event => {
   event.preventDefault();
   console.log(event);
   axios
-    .post(`${URL}create`, this.state.newNote)
+    .post(`${URL}create`, this.state.note)
     .then(response => {
       console.log(response)
       this.setState({
        notes: [
          ...this.state.notes,
-         this.state.newNote
+         this.state.note
        ],
-       newNote: {
+       note: {
         title: '',
         textBody: ''
        }
@@ -69,10 +70,14 @@ deleteNote = (ev, _id) => {
     })
 }
 
+editNote = (ev, _id) => {
+  console.log(ev, _id)
+}
+
 handleInputChange = event => {
   this.setState({
-    newNote: {
-      ...this.state.newNote,
+    note: {
+      ...this.state.note,
       [event.target.name]: event.target.value
     }
   });
@@ -105,9 +110,11 @@ handleInputChange = event => {
           render={props => (
             <NewNote 
               {...props}
-              newNote={this.state.newNote}
+              note={this.state.note}
               handleInputChange={this.handleInputChange}
-              addNote={this.addNote} />
+              editNote={this.editNote}
+              addNote={this.addNote}
+              isEditing={this.state.isEditing} />
           )}
         />
         <Route
@@ -116,6 +123,7 @@ handleInputChange = event => {
             <SingleNote 
               {...props}
               deleteNote={this.deleteNote}
+              editNote={this.editNote}
               notes={this.state.notes}
             />
           )}
