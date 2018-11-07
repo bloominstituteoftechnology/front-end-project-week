@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import  { Route } from 'react-router-dom';
+// import  { Route } from 'react-router-dom';
 
 import Notes from './components/Notes';
 import './App.css';
@@ -18,15 +18,26 @@ class App extends Component {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(response => this.setState({ notes: response.data }))
-      .then(console.log(this.state))
+      .then(console.log(this.state.notes))
       .catch(error => console.log(error));
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Notes App</h1>
-        <Notes notes={this.state.notes} />
+        <div className="sideBar">
+        <h1 className="sideBar__headline">
+            Lambda
+            <br />
+            Notes
+          </h1>
+          <button className="btn">View Your Notes</button>
+          <br />
+          <button className="btn">Create New Note</button>
+        </div>
+         <div className="content">
+          <Notes notes={this.state.notes} />
+        </div>
       </div>
     );
   }
