@@ -3,7 +3,7 @@ import axios from 'axios';
 // import  { Route } from 'react-router-dom';
 
 import Notes from './components/Notes';
-import './App.css';
+import './styles.css';
 
 class App extends Component {
   constructor(props) {

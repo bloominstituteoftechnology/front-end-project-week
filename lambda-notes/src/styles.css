@@ -1,0 +1,31 @@
+.App {
+  display: flex;
+}
+ .home {
+  display: flex;
+}
+ .card {
+  border: 3px solid red;
+  margin: 20px;
+  background-color: #fff;
+  padding: 10px;
+}
+ .sideBar {
+  background: #d3d2d3;
+  color: #000;
+}
+ .sideBar__headline {
+  margin: 20px;
+}
+ .content {
+  background-color: #f2f1f2;
+}
+ .btn {
+  background-color: #24b8bd;
+  color: #fff;
+  height: 65px;
+  width: 200px;
+  margin: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
