@@ -54,7 +54,20 @@ addNote = event => {
     })
 }
 
-
+deleteNote = (ev, _id) => {
+  console.log(ev, _id)
+  ev.preventDefault();
+  const foundNote = this.state.notes.find(note => note._id === _id)
+    console.log(foundNote)
+  const newNotesArray = this.state.notes.filter(note => note._id !== _id)
+  axios.delete(`${URL}delete/${_id}`)
+    .then(response => {
+      console.log(response)
+      this.setState({
+        notes: newNotesArray
+      })
+    })
+}
 
 handleInputChange = event => {
   this.setState({
@@ -102,6 +115,7 @@ handleInputChange = event => {
           render={props => (
             <SingleNote 
               {...props}
+              deleteNote={this.deleteNote}
               notes={this.state.notes}
             />
           )}
