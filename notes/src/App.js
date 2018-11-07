@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
@@ -5,6 +6,7 @@ import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom'
 import Form from './components/createNewView';
 import YourNotes from './components/listView';
 import Note from './components/noteView';
+import Edit from './components/editView';
 
 
 
@@ -62,13 +64,11 @@ class App extends Component {
             </NavLink>
           </div>
           
-          {/* function NoteDetails({note}){
-            <Link to = {`/notes/${note.id}`}> */}
             <Route
             path exact='/'
             render={props =>
             <YourNotes {...props}/> 
-              /* </Link>} */}/>
+          }/>
 
           <Route
           path='/create-new-note' 
@@ -76,7 +76,7 @@ class App extends Component {
           <Form {...props} addNote={this.addNote}/> }/>
 
             <Route 
-            path='notes/:id' 
+            path='/notes/:id' 
             render={props => (
               <Note 
               {...props}
@@ -85,7 +85,11 @@ class App extends Component {
             )}
           />
 
-
+            <Route
+            path='/edit-note'
+            render={props =>
+            <Edit {...props}/> 
+          }/>
 
         </div>
       </div>

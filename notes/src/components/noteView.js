@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
 
 import React from 'react';
 
@@ -22,7 +23,9 @@ class Note extends React.Component {
   return (
     <div>
         <div>
+            <NavLink to="/edit-note">
             <p>edit</p>
+            </NavLink>
             <p>delete</p>
         </div>
         <div>

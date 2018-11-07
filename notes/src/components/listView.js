@@ -1,3 +1,4 @@
+
 import React from 'react';
 import axios from 'axios';
 import './listView.css';
@@ -43,7 +44,7 @@ class YourNotes extends React.Component {
               {this.state.notes.map((note, i) => (
                 <div className="note">
 
-                <Link to={`/:${i}`}key={i} >
+                <Link to={`/notes/:${i}`}key={i} >
                   <div className='note-title'>
                     <h3>{note.title}</h3>
                   </div>

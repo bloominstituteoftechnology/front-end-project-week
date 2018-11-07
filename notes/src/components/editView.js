@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import axios from 'axios';
 import './createNewView.css';
@@ -37,7 +38,7 @@ class Edit extends React.Component {
                         value={this.state.title}
                         onChange={this.changeHandler}
                         type="text"
-                        placeholder='Note Title'
+                        placeholder={this.state.title}
                     />
                     <input
                         className="content"
@@ -45,10 +46,10 @@ class Edit extends React.Component {
                         value={this.state.textBody}
                         onChange={this.changeHandler}
                         type="text"
-                        placeholder='Note Content'
+                        placeholder={this.state.textBody}
                     />
 
-                    <button className="button">Save</button>
+                    <button className="update-button">Update</button>
                 </form>
             </div>
         );
