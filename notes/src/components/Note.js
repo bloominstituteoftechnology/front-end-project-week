@@ -28,18 +28,12 @@ class Note extends Component {
 
 
         
-    deletedNote = event => {
+    deleteTheNote = event => {
         event.preventDefault(event);
         this.props.deleteNote(event, this.state.note._id);
         this.props.history.push("/")
     }
 
-
-
-
-
-
-            
 
 
     openModal = () => {
@@ -50,17 +44,8 @@ class Note extends Component {
         this.setState({ showModal: false });
       };
     
-
-
-
-
-
-
-
-
-
-
-
+     
+     
       render() {
         if (!this.state.note) {
           return <div>loading note</div>;
@@ -72,9 +57,9 @@ class Note extends Component {
               <Link className="note-link" to={`/edit/${_id}`}>
                 <p className="edit-note-link">edit</p>
               </Link>
-              <p className="delete-note-link" onClick={this.openModal}>
+              <Link className="delete-note-link" onClick={this.openModal} to={`/delete/${_id}`} >
                 delete
-              </p>
+              </Link>
             </div>
             <div>
               <h3>{title}</h3>
@@ -84,20 +69,18 @@ class Note extends Component {
               <Modal
                 isOpen={this.state.showModal}
                 onRequestClose={this.closeModal}
-                contentLabel="Are you sure you want to delete?"
+               
               >
                 <div className="modal">
-                  <div className="modal-prompt">
-                    <p>Are you sure you want to delete this?</p>
-                  </div>
+                 
                   <div className="modal-button-container">
-                    <Link className="rr-link" to="/">
-                      <div className="modal-delete-button" onClick={this.deletedNote}>
+                    <Link className="note-link" to="/">
+                      <div className="modal-delete-button" onClick={this.deleteTheNote}>
                         Delete
                       </div>
                     </Link>
                     <div className="modal-no-button" onClick={this.closeModal}>
-                      No
+                      Don't Delete
                     </div>
                   </div>
                 </div>
@@ -109,3 +92,19 @@ class Note extends Component {
     }
     
     export default withRouter(Note);
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+

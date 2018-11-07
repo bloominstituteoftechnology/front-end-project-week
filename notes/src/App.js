@@ -5,7 +5,6 @@ import NoteForm from "./components/NoteForm"
 import EditNote from "./components/EditNote"
 import Note from "./components/Note"
 import NoteList from "./components/NoteList"
-import NoteCard from "./components/NoteCard";
 import { Route, NavLink, withRouter } from "react-router-dom";
 
 class App extends Component {
@@ -34,19 +33,16 @@ addNote = (event, newNote) => {
     .catch(error => console.log(error))
 }
 
-deleteNote = (event, id) => {
-  event.preventDefault();
+deleteNote = (id) => {
   axios
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-    .then(() => {
-      const deletedNote = this.state.notes.filter(note => {
-        if (note._id !== id) {
-          return note;
-        }
-      })
-      this.setState({ notes: deletedNote })
+    .delete(`http://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      console.log('DELETE RESPONSE: ', response)
+      this.setState({ notes: response.data })
     })
-    .catch(error => console.log(error))
+    .catch(err => {console.log(err)})
+
+
 }
 
 
@@ -90,8 +86,9 @@ editNote = (event, id, state) => {
                 />
               )}
             />
+            
             <Route path="/add-note" render={props => <NoteForm {...props} addNote={this.addNote} />} />
-            <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
+            <Route path="/note/:id" render={props => <Note {...props} note={this.state.notes} />} />
             <Route path="/edit/:id" render={props => <EditNote {...props} editNote={this.editNote} />} />
       </div>
       </div>

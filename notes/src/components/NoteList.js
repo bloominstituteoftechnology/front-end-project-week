@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class NoteList extends React.Component {
     constructor(props) {
@@ -21,24 +21,25 @@ class NoteList extends React.Component {
         .then(response => {
           this.setState({ notes: response.data })
         })
-        .catch(error => console.log('It\'s over! Turn back now!'))
+        .catch(error => console.log(error))
   
     }
+    
     
   
     render() {
       return (
-        
+       
         <div className='container'>
           <div className="App">
-  
+          
             <div className='main-view'>
               <div className='title-cont'>
                 <h2>Your Notes: </h2>
               </div>
               <div className="cont-body">
                 {this.state.notes.map((note, i) => (
-                  <Link to={`/:${i}`}key={i} >
+                  <Link to={`note/${i}`}key={i} >
                   <div className="note">
   
                     <div className='note-title'>
@@ -51,6 +52,7 @@ class NoteList extends React.Component {
                     
                   </div>
                  </Link>
+                  
                 )
                 )}
               </div>

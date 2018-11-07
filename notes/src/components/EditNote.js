@@ -22,7 +22,7 @@ class EditNote extends Component {
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => this.setState({ note: response.data }))
-            .catch(response=> console.log(response));
+            .catch(response => console.log(response));
         }
 
      changeHandler = event => {
@@ -43,37 +43,36 @@ class EditNote extends Component {
 
         
         
-    render() {
-          
-        return (
-                <div className="new-note-container">
-            <div className="notes-header">
-              <h3>Create New Note:</h3>
-            </div>
-            <form onSubmit={this.submitNote}>
-              <input
-                className="form-note-title"
-                name="title"
-                value={this.state.title}
-                onChange={this.changeHandler}
-                type="text"
-                placeholder="Note Title"
-                />
-              <textarea
-                className="form-note-content"
-                name="textBody"
-                value={this.state.textBody}
-                onChange={this.changeHandler}
-                type="text"
-                placeholder="Note Content"
-                />
-    
-              <button className="form-button">Save</button>
-            </form>
-          </div>
-        );
-    }
-    }
+        render() {
+            return (
+              <div>
+                <div className="notes-header">
+                  <h3>Edit Note:</h3>
+                </div>
+                <form onSubmit={this.submitNote}>
+                  <input
+                    className="form-note-title"
+                    name="title"
+                    value={this.state.title}
+                    onChange={this.changeHandler}
+                    type="text"
+                    placeholder="Note Title"
+                  />
+                  <textarea
+                    className="form-note-content"
+                    name="textBody"
+                    value={this.state.textBody}
+                    onChange={this.changeHandler}
+                    type="text"
+                    placeholder="Note Content"
+                  />
+                  <button className="form-button">Save</button>
+                </form>
+              </div>
+            );
+          }
+        }
+        
     
  
 export default EditNote;
