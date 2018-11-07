@@ -1,52 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './ListView.css';
 
-// class ListView extends Component {
-//     constructor(props) {
-//         super(); 
-//     }
-
-//     render() {
-//         return (
-//             {props.notesData.map(note => {
-//                 <div>
-//                     <h1>note.title</h1>
-//                     <p>note.textBody</p>
-//                 </div>
-                
-//             })}
-//         )
-//     }
-// }
-
-// function ListView (props) {
-//     return (
-//         {props.notesData.map(note => {
-//             <div>
-//                 <h1>note.title</h1>
-//                 <p>note.textBody</p>
-//             </div>
-            
-//         })}
-//     )
-// }
 
 const ListView = props => {
     return (
         <div className= 'note-card-wrapper'>
-                 {
-            (props.notesData.map( note => 
-                <div className= 'note-card'>
-                <h1><a href='#'>{note.title}</a></h1>
-                <p>{note.textBody}</p>
-            </div>
-            
-             
-            ))
-        }
+            {
+                (props.notesData.map( note => 
+                    <div className= 'note-card'  >
+                        <Link to={`${note._id}`} onClick={() => props.getCurrentNoteByID(note._id)}><h1>{note.title} </h1></Link>
+                        <p>{note.textBody}</p>
+                    </div>))
+            }
         </div>
-   
-      
     )
 }
 

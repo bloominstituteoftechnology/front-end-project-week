@@ -15,13 +15,22 @@ class App extends Component {
     super();
     this.state = {
       notesList: [],
+      currentNote: {},
     }
   }
 
   componentDidMount() {
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then(res => {this.setState({notesList: res.data})})
+  }
+
+  // Todo: add error above
+
+  getCurrentNoteByID = (note_id) => {
+    axios.get(`https://fe-notes.herokuapp.com/note/get/${note_id}`)
+      .then(res => {this.setState({currentNote: res.data._id})})
+        .catch(err => {console.log(err)})
   }
 
   render() {
@@ -32,7 +41,8 @@ class App extends Component {
         </header>
         <h1>Lambda Notes</h1>
         <Route exact path= '/' render= {(props) => (<ListView {...props} notesData= {this.state.notesList} />)}/>
-        <Route path = '/:_id/view' render= {(props) => (<NoteView {...props} notesData= {this.state.notesList} />)}/>
+        {/* <Route exact path = '/note/get/:_id' component= {NoteView} notesData= {this.state.notesList} /> */}
+        <Route exact path = '/note/get/:_id' render= {(props) => (<NoteView {...props} notesData= {this.state.notesList} currentNote={this.state.currentNote} />)}/>
       </div>
     )
   }
