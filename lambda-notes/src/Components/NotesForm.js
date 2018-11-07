@@ -17,8 +17,8 @@ const NotesForm = props => {
         placeholder="Title"
       />
       <textarea
-        cols="30"
-        rows="10"
+        cols="60"
+        rows="30"
         name="textBody"
         value={props.textBody}
         onChange={props.changeHandler}
