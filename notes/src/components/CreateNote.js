@@ -22,13 +22,6 @@ const CreateNote = props => {
           value={props.textBody}
           onChange={props.changeHandler}
         />
-        <input
-          type="text"
-          placeholder="Tags"
-          name="tags"
-          value={props.tags}
-          onChange={props.changeHandler}
-        />
       </form>
       <button onClick={createNewNote}>Save</button>
     </div>

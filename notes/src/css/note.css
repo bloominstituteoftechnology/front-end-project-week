@@ -1,0 +1,26 @@
+.notePageTitle {
+    width: 100%;
+    padding-left: 20px;
+}
+.allNotes {
+    width: 60%;
+    border: 1px solid darkgray;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+.note {
+    border: 1px solid darkgray;
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+    margin: 20px 0;
+}
+.noteTitle {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+}

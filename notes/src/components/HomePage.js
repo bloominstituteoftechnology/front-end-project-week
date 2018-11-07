@@ -1,61 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import "./homePage.css";
-
-// class HomePage extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       notes: []
-//     };
-//   }
-//   showNotes = event => {
-//     event.preventDefault();
-//     console.log("Show me the notes!");
-//   }
-  
-//   render() {
-//     return (
-//       <div className="container">
-//         <div className="sideBar">
-//           <NavLink to="/">
-//             <h1 className="lambdaTitle">Lambda Notes</h1>
-//           </NavLink>
-//           <div className="sideBarButtons">
-//             <NavLink to="/notes">
-//               <button>View Your Notes</button>
-//             </NavLink>
-//             <NavLink to="/createnote">
-//               <button>+ Create New Note</button>
-//             </NavLink>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default HomePage;
-
+import "../css/homePage.css";
 
 
 const HomePage = () => {
   return ( 
-    <div className="container">
+   
         <div className="sideBar">
-          <NavLink to="/">
+          <NavLink className="lambdaTitle" to="/">
             <h1 className="lambdaTitle">Lambda Notes</h1>
           </NavLink>
           <div className="sideBarButtons">
-            <NavLink to="/notes">
+            <NavLink className="sideBarButtons" to="/notes">
               <button>View Your Notes</button>
-            </NavLink>
-            <NavLink to="/createnote">
+            </NavLink >
+            <NavLink className="sideBarButtons" to="/createnote">
               <button>+ Create New Note</button>
             </NavLink>
           </div>
         </div>
-      </div>
    );
 }
  

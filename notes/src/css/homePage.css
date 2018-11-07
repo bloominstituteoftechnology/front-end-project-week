@@ -6,12 +6,14 @@
     width: 25%;
 }
 .lambdaTitle {
+    text-decoration: none;
 }
 .sideBarButtons {
     display: flex;
     flex-direction: column;
     height: 150px;
     justify-content: space-between;
+    text-decoration: none;
 }
 .sideBarButtons button {
     padding: 20px 0;
@@ -19,11 +21,11 @@
 .container .notesBody {
     padding: 20px;
 }
-.yourNotes {
+/* .yourNotes {
     background-color: lightgray;
 }
 .note {
     width: 60%;
     border: 1px solid darkgray;
     margin: 10px 0px;
-}
+} */

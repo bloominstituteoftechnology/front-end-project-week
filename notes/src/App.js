@@ -56,42 +56,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path="/" render={props => <HomePage {...props} />} />
-        <Route
-          exact
-          path="/notes"
+        <Route path="/" component={HomePage} />
+        <Route exact path="/notes"
           render={props => (
             <Note
               {...props}
               notes={this.state.notes}
-              deleteNote={this.deleteNote}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/createnote"
+              deleteNote={this.deleteNote} />
+          )}/>
+        <Route path="/createnote" 
           render={props => (
             <CreateNote
               {...props}
               notes={this.state.notes}
               changeHandler={this.changeHandler}
-              addNote={this.addNote}
-            />
-          )}
-        />
-        <Route
-          path="/notes/:id"
+              addNote={this.addNote}/>
+          )} />
+        <Route path="/notes/:id"
           render={props => (
             <OneNote
               {...props}
               notes={this.state.notes}
-              deleteNote={this.deleteNote}
-            />
-          )}
-        />
-        <Route
-          path="/notes/:id/edit"
+              deleteNote={this.deleteNote} />
+          )}/>
+        <Route path="/notes/:id/edit"
           render={props => (
             <EditNote
               {...props}
@@ -99,10 +87,8 @@ class App extends Component {
               editTitle={this.state.editTitle}
               editTextBody={this.state.editTextBody}
               editNote={this.editNote}
-              changeHandler={this.changeHandler}
-            />
-          )}
-        />
+              changeHandler={this.changeHandler} />
+          )} />
       </div>
     );
   }
