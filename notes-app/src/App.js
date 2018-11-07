@@ -27,16 +27,28 @@ class App extends Component {
       })  
   }
 
+/*   deleteNote = (id) => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        console.log('DELETE', response)
+        this.setState({ notes: response.data })
+      })
+      .catch( error => { console.log(error) })
+  } */
+
   render() {
     return (
       <div className="App">
+        <Route exact path="/"
+        render={(props) => <NotesList {...props} notes={this.state.notes} />} />
 
         <Route path="/noteform" 
           render={props => <NoteForm {...props} /> }/>
-        <Route exact path="/"
-          render={(props) => <NotesList {...props} notes={this.state.notes} />} />
+        
         <Route path="/notecard/:id" 
           render={props => <NoteCard {...props} />} />
+
       </div>
     );
   }

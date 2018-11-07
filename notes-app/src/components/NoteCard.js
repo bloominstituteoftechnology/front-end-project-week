@@ -5,7 +5,7 @@ class NoteCard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      note: [],
+      note: null,
     }
   }
 
@@ -32,6 +32,9 @@ class NoteCard extends Component {
   }
 
   render() {
+    if(!this.state.note) {
+      return <div>loading note...</div>
+    }
       return (
         <div>
         <strong>{this.state.note.title}</strong>
@@ -42,7 +45,3 @@ class NoteCard extends Component {
 }
 
 export default NoteCard;
-
-/*     if(!this.state.note) {
-      return <div>loading notes...</div>
-    } */

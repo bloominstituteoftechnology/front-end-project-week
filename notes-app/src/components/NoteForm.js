@@ -45,7 +45,7 @@ class NoteForm extends Component {
           />
           <br></br>
           <label for='textBody'>Text: </label>
-          <input 
+          <textarea 
             onChange={this.inputHandler}
             type='text'
             name='textBody'
