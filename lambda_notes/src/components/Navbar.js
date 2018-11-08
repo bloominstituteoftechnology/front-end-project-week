@@ -69,7 +69,7 @@ class Navbar extends Component {
           </Link>
         </header>
         <div style = {{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <input style={{ width: "300px", marginBottom:'10px', fontSize: '1rem'}}
+          <input style={{ width: "500px", marginBottom:'10px', fontSize: '1rem', padding:'100px'}}
             type="Search"
             id=""
             name=""
