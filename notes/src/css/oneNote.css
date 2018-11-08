@@ -1,0 +1,19 @@
+.activeNote {
+    padding: 20px;
+    width: 50%;
+    background-color: #F2F0F1;
+}
+.activeNote .noteContent {
+    line-height: 1.5;
+    margin: 20px 0;
+}
+.activeNote .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.activeNote .buttons button {
+    text-decoration: none;
+}

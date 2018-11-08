@@ -53,12 +53,10 @@ class App extends Component {
       [event.target.name]: event.target.value
     });
   };
-  deleteToggleFalse = () => {
-    this.setState({ deleted: false })
+  deleteToggle = () => {
+    this.setState({ deleted: !this.state.deleted })
   };
-  deleteToggleTrue = () => {
-    this.setState({ deleted: true })
-  }
+  
   render() {
     return (
       <div className="App">
@@ -78,15 +76,15 @@ class App extends Component {
               changeHandler={this.changeHandler}
               addNote={this.addNote}/>
           )} />
-        <Route path="/notes/:id"
+        <Route exact path="/notes/:id"
           render={props => (
             <OneNote
               {...props}
               notes={this.state.notes}
               deleteNote={this.deleteNote}
               deleted={this.state.deleted}
-              deleteToggleFalse={this.deleteToggleFalse}
-              deleteToggleTrue={this.deleteToggleTrue} />
+              deleteToggle={this.deleteToggle}
+              />
           )}/>
         <Route path="/notes/:id/edit"
           render={props => (

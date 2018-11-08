@@ -8,7 +8,7 @@ const HomePage = () => {
    
         <div className="sideBar">
           <NavLink className="lambdaTitle" to="/">
-            <h1 className="lambdaTitle">Lambda Notes</h1>
+            <h1 className="lambdaTitle">Lambda <br></br> Notes</h1>
           </NavLink>
           <div className="sideBarButtons">
             <NavLink className="sideBarButtons" to="/notes">

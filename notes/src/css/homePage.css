@@ -1,9 +1,12 @@
 
 .sideBar {
-    width: 25%;
+    width: 15%;
+    padding: 10px;
+    background-color: #D2D1D2;
 }
 .lambdaTitle {
     text-decoration: none;
+    color: black;
 }
 .sideBarButtons {
     display: flex;
@@ -14,6 +17,11 @@
 }
 .sideBarButtons button {
     padding: 20px 0;
+    background-color: #00B8BA;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+
 }
 .container .notesBody {
     padding: 20px;
