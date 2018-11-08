@@ -1,10 +1,11 @@
 import React from 'react';
 import './Note.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+// import UpdateNoteForm from './UpdateNoteForm';
 
 const Note = props => {
 
-    const singleNote = props.notes.find(singleNote => singleNote._id === props.match.params._id);
+    let singleNote = props.notes.find(singleNote => singleNote._id === props.match.params._id);
     console.log(singleNote);
     const singleActiveNote = props.activeNote;
     console.log(props.activeNote);
@@ -17,8 +18,9 @@ const Note = props => {
             <hr/>
             <p>{singleNote.textBody}</p>
 
-            <Link to = "/notes"><button onClick = {(_id) => props.deleteNote(props.match.params._id)}>Delete Note</button></Link>
-            <button onClick = {props.updateNote}>Update Note</button>
+            <Link exact to = "/notes"><button onClick = {(_id) => props.deleteNote(props.match.params._id)}>Delete Note</button></Link>
+            <NavLink exact to = {`/notes/${props.match.params._id}/update`}><button>Update Note</button></NavLink>
+            
         </div>
     )
 }

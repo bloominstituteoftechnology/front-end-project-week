@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import Notes from './components/Notes';
+import UpdateNoteForm from './components/UpdateNoteForm';
 
 const blankNote = {
     tags: [],
@@ -77,10 +78,10 @@ class App extends Component {
       .catch(error => console.log(error));
   };
 
-  updateNote = (id) => {
+  updateNote = (_id) => {
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/edit/${id}`,
+        `https://fe-notes.herokuapp.com/note/edit/${_id}`,
         this.state.note
       )
       .then(response => {
@@ -139,6 +140,15 @@ class App extends Component {
         updateNote={this.updateNote}
         activeNote={this.state.activeNote}
         notes={this.state.notes} />} />
+
+        <Route path='/notes/:_id/update' render={(props) => <UpdateNoteForm {...props}
+                addNewNote = {this.addNewNote} 
+                changeHandler = {this.changeHandler} 
+                isEditing={this.state.isEditing}
+                updateNote={this.updateNote}
+                note = {this.state.note}
+                notes={this.state.notes}
+        />}/>
 
       </div>
     );
