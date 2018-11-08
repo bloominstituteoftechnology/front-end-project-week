@@ -20,6 +20,25 @@ const SideButton = styled.button`
   }
 `;
 
+//  handleChange(event) {
+//     let NotesToSearch = [];
+//     let newSearch = [];
+
+//     if (event.target.value !== "") {
+//       NotesToSearch = this.props.items;
+
+//       newSearch = NotesToSearch.filter(item => {
+//         const lc = item.toLowerCase();
+//         const filter = event.target.value.toLowerCase();
+//         return lc.includes(filter);
+//       });
+//     } else {
+//       newSearch = this.props.items;
+//     }
+//     this.setState({
+//       filtered: newSearch
+//     });
+//   }
 class Navbar extends Component {
   render() {
     return (
@@ -50,14 +69,14 @@ class Navbar extends Component {
           </Link>
         </header>
         <div style = {{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <input style={{ width: "200px", padding: "15px", fontSize: '1rem'}}
+          <input style={{ width: "300px", marginBottom:'10px', fontSize: '1rem'}}
             type="Search"
             id=""
             name=""
             placeholder="Search"
             onChange={event => console.log(event.target.value)}
           />
-          <button style={{backgroundColor: "#00A3FF", marginLeft: '15px', color:'white', cursor:'pointer'}}>search</button>
+          <button style={{backgroundColor: "white", marginLeft: '15px',  cursor:'pointer'}}>search</button>
         </div>
       </nav>
     );

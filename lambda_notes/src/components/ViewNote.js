@@ -65,7 +65,7 @@ class ViewNote extends Component {
   render() {
     return (
       <div>
-      <SecondaryHeading>{this.state.title}</SecondaryHeading>
+      <SecondaryHeading style={{marginTop: '100px'}}>{this.state.title}</SecondaryHeading>
 
         <StyledNote>
           <form onSubmit={this.handleSubmit}>

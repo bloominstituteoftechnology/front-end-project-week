@@ -71,25 +71,25 @@ class App extends Component {
       });
   };
 
-  handleChange(event) {
-    let NotesToSearch = [];
-    let newSearch = [];
+  // handleChange(event) {
+  //   let NotesToSearch = [];
+  //   let newSearch = [];
 
-    if (event.target.value !== "") {
-      NotesToSearch = this.props.items;
+  //   if (event.target.value !== "") {
+  //     NotesToSearch = this.props.items;
 
-      newSearch = NotesToSearch.filter(item => {
-        const lc = item.toLowerCase();
-        const filter = event.target.value.toLowerCase();
-        return lc.includes(filter);
-      });
-    } else {
-      newSearch = this.props.items;
-    }
-    this.setState({
-      filtered: newSearch
-    });
-  }
+  //     newSearch = NotesToSearch.filter(item => {
+  //       const lc = item.toLowerCase();
+  //       const filter = event.target.value.toLowerCase();
+  //       return lc.includes(filter);
+  //     });
+  //   } else {
+  //     newSearch = this.props.items;
+  //   }
+  //   this.setState({
+  //     filtered: newSearch
+  //   });
+  // }
   render() {
     return (
       <div

@@ -28,7 +28,7 @@ color: black;
  const AllNotes = ({ notes }) => {
   return (
     <div>
-    <SecondaryHeading>Your Notes:</SecondaryHeading>
+    <SecondaryHeading style={{marginTop: '100px'}}>Your Notes:</SecondaryHeading>
 
       <CardsContainer>
         {notes.map(note => (

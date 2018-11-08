@@ -63,7 +63,7 @@ class CreateNote extends Component {
   render() {
     return (
       <div>
-        <SecondaryHeading>Create New Note:</SecondaryHeading>
+        <SecondaryHeading style={{marginTop: '100px'}}>Create New Note:</SecondaryHeading>
 
         <StyledNote>
           <form onSubmit={this.handleSubmit}>

@@ -60,7 +60,7 @@ class EditNote extends Component {
   render() {
     return (
       <div>
-        <SecondaryHeading>Edit Note:</SecondaryHeading>
+        <SecondaryHeading style={{marginTop: '100px'}}>Edit Note:</SecondaryHeading>
 
         <StyledNote>
           <form onSubmit={this.handleSubmit}>
