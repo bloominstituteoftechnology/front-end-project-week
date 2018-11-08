@@ -20,7 +20,8 @@ const MainContent = styled.div`
 
 class App extends Component {
   state = {
-    notes: []
+    notes: [],
+    search: ""
   };
   componentDidMount() {
     axios
@@ -72,25 +73,13 @@ class App extends Component {
       });
   };
 
-  // handleChange(event) {
-  //   let NotesToSearch = [];
-  //   let newSearch = [];
 
-  //   if (event.target.value !== "") {
-  //     NotesToSearch = this.props.items;
 
-  //     newSearch = NotesToSearch.filter(item => {
-  //       const lc = item.toLowerCase();
-  //       const filter = event.target.value.toLowerCase();
-  //       return lc.includes(filter);
-  //     });
-  //   } else {
-  //     newSearch = this.props.items;
-  //   }
-  //   this.setState({
-  //     filtered: newSearch
-  //   });
-  // }
+
+
+
+
+
   render() {
     return (
       <div

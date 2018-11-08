@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FormText } from "reactstrap";
 import styled from "styled-components";
+import Search from './Search';
 
 const SideButton = styled.button`
   width: 5%;
@@ -25,7 +26,7 @@ const SideButton = styled.button`
 //     let newSearch = [];
 
 //     if (event.target.value !== "") {
-//       NotesToSearch = this.props.items;
+//       NotesToSearch = this.props.notes;
 
 //       newSearch = NotesToSearch.filter(item => {
 //         const lc = item.toLowerCase();
@@ -33,7 +34,7 @@ const SideButton = styled.button`
 //         return lc.includes(filter);
 //       });
 //     } else {
-//       newSearch = this.props.items;
+//       newSearch = this.props.notes;
 //     }
 //     this.setState({
 //       filtered: newSearch
@@ -55,6 +56,7 @@ class Navbar extends Component {
           width: "100vw"
         }}
       >
+      <Search />
         <header
           style={{
             display: "flex",
@@ -68,16 +70,7 @@ class Navbar extends Component {
             Lambda Notes
           </Link>
         </header>
-        <div style = {{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <input style={{ width: "500px", marginBottom:'10px', fontSize: '1rem', padding:'100px'}}
-            type="Search"
-            id=""
-            name=""
-            placeholder="Search"
-            onChange={event => console.log(event.target.value)}
-          />
-          <button style={{backgroundColor: "white", marginLeft: '15px',  cursor:'pointer'}}>search</button>
-        </div>
+
       </nav>
     );
   }
