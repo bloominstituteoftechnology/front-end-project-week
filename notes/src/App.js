@@ -16,7 +16,8 @@ class App extends Component {
     this.state = {
       notes: [],
       editTitle: "",
-      editTextBody: ""
+      editTextBody: "",
+      deleted: false
     };
   }
   componentDidMount = () => {
@@ -52,7 +53,12 @@ class App extends Component {
       [event.target.name]: event.target.value
     });
   };
-
+  deleteToggleFalse = () => {
+    this.setState({ deleted: false })
+  };
+  deleteToggleTrue = () => {
+    this.setState({ deleted: true })
+  }
   render() {
     return (
       <div className="App">
@@ -77,7 +83,10 @@ class App extends Component {
             <OneNote
               {...props}
               notes={this.state.notes}
-              deleteNote={this.deleteNote} />
+              deleteNote={this.deleteNote}
+              deleted={this.state.deleted}
+              deleteToggleFalse={this.deleteToggleFalse}
+              deleteToggleTrue={this.deleteToggleTrue} />
           )}/>
         <Route path="/notes/:id/edit"
           render={props => (
@@ -89,6 +98,7 @@ class App extends Component {
               editNote={this.editNote}
               changeHandler={this.changeHandler} />
           )} />
+        
       </div>
     );
   }
