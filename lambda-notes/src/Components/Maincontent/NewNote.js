@@ -21,7 +21,7 @@ class NewNote extends React.PureComponent {
 	saveNote = () => {
 		const { noteTitle, noteContent } = this.state;
 		if (noteTitle === '' && noteContent === '') {
-			alert('Please edit at least one of the fields');
+			alert('Error!');
 		} else {
 			axios
 				.post('https://fe-notes.herokuapp.com/note/create', { title: noteTitle, textBody: noteContent })

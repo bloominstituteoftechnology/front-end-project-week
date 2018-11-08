@@ -35,7 +35,7 @@ class EditNote extends React.PureComponent {
 	editNote = () => {
 		const { noteTitle, noteContent } = this.state;
 		if (noteTitle === '' || noteContent === '') {
-			alert('Please fill out both fields');
+			alert('Error!');
 		} else {
 			Axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, {
 				title: noteTitle,
