@@ -141,7 +141,7 @@ class App extends Component {
         activeNote={this.state.activeNote}
         notes={this.state.notes} />} />
 
-        <Route path='/notes/:_id/update' render={(props) => <UpdateNoteForm {...props}
+        <Route path='/notes/update/:_id' render={(props) => <UpdateNoteForm {...props}
                 addNewNote = {this.addNewNote} 
                 changeHandler = {this.changeHandler} 
                 isEditing={this.state.isEditing}
