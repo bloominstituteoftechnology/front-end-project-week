@@ -63,5 +63,3 @@ class NoteList extends React.Component {
     }
   }
   export default NoteList;
-  
-  

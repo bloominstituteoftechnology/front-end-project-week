@@ -12,6 +12,7 @@ constructor() {
   super();
   this.state = {
     notes: []
+    
   }
 }
 

@@ -14,26 +14,32 @@ class Note extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     const id = this.props.match.params.id
-    //     this.getNote(id);
-    // }
-
-    // getNote = id => {
-    //     axios
-    //         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    //         .then(response => this.setState({ note: response.data }))
-    //         .catch(response=> console.log(response));
-    //     }
-
-
-        
-    deleteTheNote = event => {
-        event.preventDefault(event);
-        this.props.deleteNote(event, this.state.note._id);
-        this.props.history.push("/")
+    componentDidMount() {
+        const id = this.props.match.params.id
+        this.getNote(id);
     }
 
+    getNote = id => {
+        axios
+            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .then(response => this.setState({ note: response.data }))
+            .catch(response=> console.log(response));
+        }
+
+    
+    deleteNote = (event) => {
+      const id = this.state.note._id
+      console.log(id)
+      axios
+        .delete(`http://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then(response => {
+          console.log('DELETE RESPONSE: ', response)
+          this.setState({ notes: response.data })
+        })
+        .catch(err => {console.log(err)})
+    
+    
+    }
 
 
     openModal = () => {
@@ -77,7 +83,7 @@ class Note extends Component {
                  
                   <div className="modal-button-container">
                     <Link className="note-link" to="/">
-                      <div className="modal-delete-button" onClick={this.deleteTheNote}>
+                      <div className="modal-delete-button" onClick={this.deleteNote}>
                         Delete
                       </div>
                     </Link>

@@ -1,5 +1,5 @@
 .App {
-  max-width: 1000px;
+  width: 97%;
   margin: 0 auto;
   box-sizing: border-box;
   display: flex;
@@ -8,7 +8,60 @@
   border: 1px solid #94a3a4;
 }
 
+.nav-button-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
+.nav-buttons {
+  text-decoration: none;
+  font-size: 10px;
+  background-color: #35c0c3;
+  height: 32px;
+  width: 143px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid #94a3a4;
+  margin-bottom: 20px;
+}
+
+.nav-buttons:hover {
+  background-color: white;
+  color: #35c0c3;
+}
+
+
+
+.note{
+  height: 160px;
+  border: 2px solid lightgrey;
+  width: 160px;
+  margin: 5px;
+}
+
+.cont-body{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note-title{
+  border-bottom: 2px solid lightgrey;
+  width: 85%;
+  text-align: center;
+}
+
+.note-body{
+  width: 85%;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 
 
