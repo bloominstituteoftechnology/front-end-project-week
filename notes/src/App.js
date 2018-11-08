@@ -54,25 +54,31 @@ editNote = (event, id, state) => {
 
   render() {
     return (
+      <div className='container'>
       <div className="App">
-      <h1 className='title'> Lambda Notes </h1>
-      <div className="nav-button-container">
-            <NavLink className="nav-buttons" to="/">
-              View Your Notes
-            </NavLink>
-            <NavLink className="nav-buttons" to="/add-note">
-              + Create New Note
-            </NavLink>
+        <div className="side-bar">
+          <div className='lambda-notes'>
+            <h1>Lambda</h1>
+            <h1> Notes</h1>
+          </div>
+          <NavLink exact to='/'>
+          <button className='side-button'>View Your Notes</button>
+          </NavLink>
+          <NavLink to='/add-note'>
+          <button className='side-button'>+Create New Note</button>
+          </NavLink>
+        </div>
             <Route
             exact
             path="/"
             render={props => (
+              
               <NoteList
                 {...props}
                 />
               )}
             />
-            
+            {/* </div> */}
             <Route path="/add-note" render={props => <NoteForm {...props} addNote={this.addNote} />} />
             <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
             <Route path="/edit/:id" render={props => <EditNote {...props} editNote={this.editNote} />} />

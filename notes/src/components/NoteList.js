@@ -35,7 +35,7 @@ class NoteList extends React.Component {
           
             <div className='main-view'>
               <div className='title-cont'>
-                <h2>Your Notes: </h2>
+                <h2> Your Notes: </h2>
               </div>
               <div className="cont-body">
                 {this.state.notes.map((note, i) => (
@@ -45,7 +45,7 @@ class NoteList extends React.Component {
                     <div className='note-title'>
                       <h3>{note.title}</h3>
                     </div>
-  
+                  
                     <div className="note-body">
                       {note.textBody}
                     </div>

@@ -1,43 +1,33 @@
-.App {
-  width: 97%;
-  height: auto;
-  margin: 0 auto;
+* {
   box-sizing: border-box;
+  max-width: 1000px;
+  margin: 0 auto;
+ }
+
+ .App{
   display: flex;
-  flex-direction: row;
-  background-color: #f2f1f2;
-  border: 1px solid #94a3a4;
+  height: 100%;
 }
 
-.nav-button-container {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
+.side-bar{
+  width: 200px;
+  text-align: center;
+  background: lightgrey;
 }
 
-.nav-buttons {
-  text-decoration: none;
-  font-size: 10px;
-  background-color: #24b8bd;
-  height: 32px;
-  width: 143px;
+.side-button{
+  height: 35px;
+  width: 90%;
+  text-align: center;
   color: white;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  font-weight: bold;
-  border: 1px solid #94a3a4;
-  margin-bottom: 20px;
+  background: teal;
+  margin: 5px 0;
 }
-
-.nav-buttons:hover {
-  background-color: white;
-  color: #24b8bd;
-}
-
-
+  h2 {
+    background: #F2f1f2;
+    
+  }
+  
 
 .note{
   height: 185px;
@@ -50,6 +40,7 @@
 .cont-body{
   display: flex;
   flex-wrap: wrap;
+  background: #F2f1f2
 }
 
 .note-title{
@@ -70,5 +61,182 @@
   
 }
 
+.form-button {
+  text-decoration: none;
+  font-size: 10px;
+  background-color: #35c0c3;
+  height: 32px;
+  width: 143px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid #94a3a4;
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-button:hover {
+  background-color: white;
+  color: #35c0c3;
+}
+
+.new-note-container {
+  display: flex;
+  flex-direction: column;
+  /* padding-left: 50px; */
+}
+
+.notes-header {
+  width: 100%;
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+form {
+  flex-direction: column;
+  display: flex;
+}
+
+.form-note-title {
+  width: 50%;
+  margin: 20px 0;
+  margin-left: 10px;
+  border-radius: 2px;
+  border: 1px solid #94a3a4;
+  height: 20px;
+}
+
+.form-note-content {
+  width: 90%;
+  margin-left: 10px;
+  height: 200px;
+  border-radius: 2px;
+  border: 1px solid #94a3a4;
+}
+
+.note-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.note-card {
+  width: 135px;
+  height: 145px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border: 0.5px solid #94a3a4;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.card-line {
+  height: 1px;
+  border-bottom: 0.5px solid #94a3a4;
+}
+.note-card-body {
+  width: 125px;
+}
+
+.note-card h4 {
+  font-size: 10px;
+  text-decoration: none;
+  padding: 0 5px;
+  text-align: left;
+  width: 80%;
+}
+
+.note-card p {
+  font-size: 10px;
+}
+
+.note-link {
+  text-decoration: none;
+  color: black;
+}
 
 
+
+.edit-delete-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  flex-direction: column;
+}
+
+.modal-prompt {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.modal-button-container {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  justify-content: space-between;
+}
+
+.modal-delete-button {
+  text-decoration: none;
+  font-size: 10px;
+  background-color: #c30019;
+  height: 32px;
+  width: 143px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid #94a3a4;
+  margin-bottom: 20px;
+}
+
+.modal-delete-button:hover {
+  color: #c30019;
+  background-color: white;
+}
+
+.modal-no-button {
+  text-decoration: none;
+  font-size: 10px;
+  background-color: #35c0c3;
+  height: 32px;
+  width: 143px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid #94a3a4;
+  margin-bottom: 20px;
+}
+
+.modal-no-button:hover {
+  color: #35c0c3;
+  background-color: white;
+}
+
+.edit-note-link {
+  margin-right: 10px;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+.delete-note-link {
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  margin-right: 10px;
+}

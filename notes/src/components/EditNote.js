@@ -63,7 +63,7 @@ class EditNote extends Component {
                           type="text"
                           placeholder="Note Content"
                         />
-                        <button className="form-button">Save</button>
+                        <button className="form-button">Update</button>
                       </form>
                     </div>
                   );
