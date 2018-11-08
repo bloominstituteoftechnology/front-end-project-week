@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+//import { Link } from 'react-router-dom';
+//import DeleteModal from './DeleteModal';
 import axios from 'axios';
 
 class NoteCard extends Component {
@@ -6,6 +8,7 @@ class NoteCard extends Component {
     super(props);
     this.state = {
       note: [],
+      deleting: false,
     }
   }
 
@@ -37,6 +40,10 @@ class NoteCard extends Component {
       })
   }
 
+  toggleDeleting = () => {
+    this.setState({deleting : !this.state.deleting})
+  }
+
 /*   deleteNote = (e, id) => {
     e.preventDefault();
     this.props.deleteNote(this.state.note); //_id
@@ -49,13 +56,20 @@ class NoteCard extends Component {
   } */
 
   render() {
+      if(!this.state.note) {
+        return (
+        <div>
+          <h2>Loading...</h2>
+        </div>
+        )
+      }
 
       return (
-        <div>
-        <strong>{this.state.note.title}</strong>
-        <p>{this.state.note.textBody}</p>
-        <button onClick={this.toggleDeleting}>delete</button>
-        <button>edit</button>
+        <div className='singleNote'>
+          <div>{this.state.note.title}</div>
+          <div>{this.state.note.textBody}</div>
+          <button onClick={this.toggleDeleting}>delete</button>
+          <button>edit</button>
         </div>
       )
   }

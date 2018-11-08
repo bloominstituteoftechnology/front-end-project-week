@@ -3,6 +3,7 @@ import Note from './Note';
 import Navigation from './Navigation';
 
 class NotesList extends Component {
+
   
   render() {
     return (

@@ -13,7 +13,6 @@ class App extends Component {
       notes: [],
       title: '',
       textBody: '',
-      deleting: false,
     }
   }
 
@@ -39,10 +38,6 @@ class App extends Component {
       .catch( error => { console.log(error) })
   }
 
-  toggleDeleting = () => {
-    this.setState({deleting : !this.state.deleting})
-  }
-
   render() {
     return (
       <div className="App">
@@ -53,7 +48,7 @@ class App extends Component {
           render={props => <NoteForm {...props} /> }/>
         
         <Route path="/notecard/:id" 
-          render={props => <NoteCard {...props} deleteNote={this.deleteNote} toggleDeleting={this.toggleDeleting}/>} />
+          render={props => <NoteCard {...props} deleteNote={this.deleteNote} />} />
 
       </div>
     );
