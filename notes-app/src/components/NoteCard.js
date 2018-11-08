@@ -25,10 +25,10 @@ class NoteCard extends Component {
     this.getNote(id);
   }
 
-  deleteNote = (e, id) => {
+/*   deleteNote = (e, id) => {
     e.preventDefault();
-    this.props.deleteNote(this.state.note);
-  }
+    this.props.deleteNote(this.state.note); //_id
+  } */
 
 /*   componentWillReceiveProps(newProps){
     if(this.props.match.params.id !== newProps.match.params.id){
@@ -42,9 +42,7 @@ class NoteCard extends Component {
         <div>
         <strong>{this.state.note.title}</strong>
         <p>{this.state.note.textBody}</p>
-        <button onClick={event => {
-          this.deleteNote(event, this.state.note._id)
-        }}>delete</button>
+        <button onClick={this.toggleDeleting}>delete</button>
         </div>
       )
   }
