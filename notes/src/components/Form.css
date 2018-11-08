@@ -1,4 +1,19 @@
-.container{
-    max-width: 800px;
+
+.edit-title{
+    width: 400px;
+}
+
+.edit-content{
+    /* height: 400px; */
+    margin-top: 10px;
     
+}
+
+.update-button{
+    height: 35px;
+    width: 160px;
+    text-align: center;
+    color: white;
+    background: #23B8BD;
+    margin: 5px 0;
 }

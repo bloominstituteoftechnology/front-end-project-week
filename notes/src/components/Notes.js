@@ -89,21 +89,21 @@ class YourNotes extends React.Component {
         <div className="App">
 
           <div className='main-view'>
-            <div className='title-cont'>
+            <div className='home-title'>
               <h2>Your Notes: </h2>
             </div>
-            <div className="cont-body">
+            <div className="home-body">
               {this.state.notes.map((note, i) => (
                 <div className="note">
-
+                
                 <Link to={`/note/${note._id}`}key={i} >
                   <div className='note-title'>
-                    <h3>{note.title}</h3>
+                    <h3 className='background-white'>{note.title}</h3>
                   </div>
                </Link>
 
                   <div className="note-body">
-                    {note.textBody}
+                    <p className='background-white'>{note.textBody}</p>
                   </div>
                   
                 </div>

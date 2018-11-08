@@ -1,0 +1,47 @@
+.edit-delete{
+    display: flex;
+    margin-right: 10px;
+    color: black;
+    text-decoration: underline;
+    width:100px;
+    margin-top: 20px;
+
+
+}
+.edit{
+    color:black;
+}
+.modal{
+    height: 140px;
+    width: 450px;
+    border: 1px solid black;
+    text-align: center;
+    margin-top: 140px;
+    background-color: white;
+    padding-top: 30px;
+    font-size: 12px;
+}
+.modal-buttons{
+    width: 300px;
+    display: flex;
+    height: 60px;
+    align-items: flex-end;
+    
+}
+
+.delete-modal{
+    width: 140px;
+    height: 35px;
+    background-color: darkred;
+    color: white;
+    font-weight: bold;
+}
+
+.no-modal{
+    width: 140px;
+    height: 35px;
+    background-color: darkturquoise;
+    color: white;
+    font-weight: bold;
+}
+

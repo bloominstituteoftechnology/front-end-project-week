@@ -86,28 +86,33 @@ class Form extends React.Component {
         return (
             <div className="container">
                 <div className="notes-header">
-                    <h3>Create New Note:</h3>
+                    <h3 className='home-title' >Create New Note:</h3>
                 </div>
-                <form onSubmit={this.createNote}>
-                    <input
-                        className="title"
+                <div className='home-body'>
+                <form onSubmit={this.createNote} >
+                    <textarea
+                        className="edit-title"
                         name="title"
+                        size='80'
                         value={this.state.title}
                         onChange={this.changeHandler}
                         type="text"
                         placeholder='Note Title'
                     />
-                    <input
-                        className="content"
+                    <textarea
+                        className="edit-content"
                         name="textBody"
+                        cols='80'
+                        rows='30'
                         value={this.state.textBody}
                         onChange={this.changeHandler}
                         type="text"
                         placeholder='Note Content'
                     />
 
-                    <button className="button">Save</button>
+                    <button className="update-button">Save</button>
                 </form>
+                </div>
             </div>
         );
     }

@@ -44,13 +44,13 @@ class EditNote extends React.Component {
 
         return (
             <div className="container">
-                <div className="notes-header">
+                <div className="home-title">
                     <h3>Edit Note:</h3>
                 </div>
-
+                <div className='home-body'>
                 <form onSubmit={this.submitNote}>
-                    <input
-                        className="title"
+                    <textarea
+                        className="edit-title"
                         name="title"
                         size='80'
                         value={this.state.title}
@@ -59,10 +59,11 @@ class EditNote extends React.Component {
                         placeholder='Note Title'
                     />
                     <br/>
-                    <input
-                        className="content"
+                    <textarea
+                        className="edit-content"
                         name="textBody"
-                        size='80'
+                        cols='80'
+                        rows='30'
                         value={this.state.textBody}
                         onChange={this.changeHandler}
                         type="text"
@@ -71,6 +72,7 @@ class EditNote extends React.Component {
                     <br/>
                     <button className="update-button">Update</button>
                 </form>
+                </div>
             </div>
         );
     }

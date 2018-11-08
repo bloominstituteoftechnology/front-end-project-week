@@ -1,27 +1,47 @@
 * {
   box-sizing: border-box;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
-
+.container{
+  height: 100%;
+  background-color: #F2F1F2;
+}
 .App{
   display: flex;
-  height: 100%;
+  height: 1000px;
 }
 
 .side-bar{
   /* border: 1px solid red; */
   width: 200px;
   text-align: center;
-  background: lightgrey;
+  background: #D3D2D3;
+  margin-left: 0;
 }
 
 .side-button{
   height: 35px;
-  width: 90%;
+  width: 140px;
   text-align: center;
   color: white;
-  background: teal;
+  background: #23B8BD;
   margin: 5px 0;
+  font-weight: bold;
 }
 
+.home-title{
+  margin:25px;
+  margin-top: 50px;
+}
+.home-body{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px;
+  
+}
+ 
+.lambda-notes{
+  text-align: left;
+  margin: 15px
+}

@@ -19,7 +19,7 @@
 //             updateNote(event, note);
 //             history.push('/create-new-note');}}>      
 //             <p>edit</p>
-            
+
 //           </button> 
 //           <button
 //             onClick={event => {
@@ -48,6 +48,7 @@ import axios from 'axios';
 import React from 'react';
 import Markdown from 'react-markdown';
 import Modal from 'react-modal';
+import './Note.css';
 
 
 
@@ -63,81 +64,88 @@ class Note extends React.Component {
 
   fetchNote = id => {
     axios
-    .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    .then(response => this.setState({ note: response.data }))
-    .catch(response => console.log(response));
-}
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => this.setState({ note: response.data }))
+      .catch(response => console.log(response));
+  }
 
-  componentDidMount(){
+  componentDidMount() {
     const id = this.props.match.params.id
     this.fetchNote(id);
   }
 
   deleteNote = (ev) => {
     const id = this.state.note._id
-        axios
-          .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-          .then(response => {
-            this.setState({ notes: response.data });
-        
-          })
-          .catch(error => console.log(error));
-      };
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        this.setState({ notes: response.data });
 
-      openModal = () => {
-        this.setState({ showModal: true });
-      };
-    
-      closeModal = () => {
-        this.setState({ showModal: false });
-      };
+      })
+      .catch(error => console.log(error));
+  };
 
-  render() { 
+  openModal = () => {
+    this.setState({ showModal: true });
+  };
+
+  closeModal = () => {
+    this.setState({ showModal: false });
+  };
+
+  render() {
     // const id = this.props.match.params.id.slice(1);
- 
+
     // const note = this.props.notes[id]
 
-    const {title, textBody, _id} = this.state.note
-   
-    
-  return (
-    <div>
-        <div>
-            <NavLink to={`/edit/${_id}`}>
-            <p>edit</p>
-            </NavLink>
-            
-            <p onClick={this.openModal}>delete</p>
-        </div>
-        <p>{this.state.note.title}</p>
-        <p>{this.state.note.textBody}</p>
-          <Modal
+    const { title, textBody, _id } = this.state.note
 
-            isOpen={this.state.showModal}
-            onRequestClose={this.closeModal}
-            contentLabel='Are you sure you want to DELETE?'>
-          
+
+    return (
+      <div>
+        <div className='edit-delete'>
           <div>
-            <p>Are you sure you want to DELETE?</p>
+            <NavLink to={`/edit/${_id}`}>
+              <p className='edit'>edit</p>
+            </NavLink>
+          </div>
+          <div>
+            <p onClick={this.openModal}>delete</p>
+          </div>
+        </div>
+        <div className='note-full-body'>
+        <h2 className='home-title'>{this.state.note.title}</h2>
+        <p className='home-body'>{this.state.note.textBody}</p>
+        </div>
+        <Modal
+          className='modal'
+          isOpen={this.state.showModal}
+          onRequestClose={this.closeModal}
+          contentLabel='Are you sure you want to DELETE?'>
+
+          <div>
+            <p>Are you sure you want to delete this?</p>
           </div>
 
-          <Link className="noteLink" to="/">
-          <div onClick={this.deleteNote}>
-            delete
-          </div>
-          </Link>
-            <div onClick={this.closeModal}>
+          <div className='modal-buttons'>
+            <Link className="noteLink" to="/">
+              <button className='delete-modal' onClick={this.deleteNote}>
+                delete
+              </button>
+            </Link>
+            <button className='no-modal' onClick={this.closeModal}>
               No
-            </div>
-              <div>
+            </button>
+          </div>
+          {/* <div>
                 <h1>{title}</h1>
                 <p>{textBody}</p>
-              </div>
-          </Modal>
+              </div> */}
+        </Modal>
 
-        
-    </div>
-   )
+
+      </div>
+    )
   }
 }
 
