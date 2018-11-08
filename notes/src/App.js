@@ -12,6 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeNote: null,
       notes: [],
       note: {
         tags: ["example one", "example two"],
@@ -33,6 +34,15 @@ componentDidMount() {
       console.error('Error collecting notes!', error)
     });
 }
+
+getNoteById = id => {
+  axios
+    .get(`${URL}get/${id}`)
+    .then(res => {
+      console.log(res.data)
+      this.setState({ activeNote: res.data })})
+    .catch(err => console.log(err));
+};
 
 addNote = () => {
   axios
@@ -71,13 +81,29 @@ deleteNote = (ev, _id) => {
 
 editNote = () => {
   axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/:${this.state.editingId}`, this.state.item)
+    .put(
+      `${URL}edit/${this.state.editingId}`, 
+      this.state.note
+    )
     .then(response => {
-      console.log(response)
-      // this.setState({
-      //   notes: newNotesArray
-      // })
+      // const oldNote = this.state.notes.find(note => note._id === this.state.editingId)
+      // console.log(oldNote)
+      const newNotesArray = this.state.notes.filter(note => note._id !== this.state.activeNote._id)
+      console.log(newNotesArray)
+      newNotesArray.push(response.data)
+      this.setState({
+        
+        notes: newNotesArray,
+        editingId: null,
+        isEditing: false,
+        note: {
+          tags: ["example one", "example two"],
+          title: '',
+          textBody: ''
+        }
+      });
     })
+    .catch(error => console.log(error))
 }
 
 handleInputChange = event => {
@@ -88,6 +114,15 @@ handleInputChange = event => {
     }
   });
 };
+
+prepareUpdateForm = ( event, note) => {
+  event.preventDefault();
+  this.setState({
+    note,
+    isEditing: true,
+    editingId: note._id
+  })
+}
 
   render() {
     return (
@@ -104,10 +139,12 @@ handleInputChange = event => {
           </NavLink>
         </div>
         <Route
-          exact path='/notes/'
+          exact path='/notes'
           render={props => (
             <Notes
               {...props}
+              getNoteById={this.getNoteById}
+              activeNoteHandler={this.activeNoteHandler}
               notes={this.state.notes} />
            )}
          />
@@ -128,8 +165,10 @@ handleInputChange = event => {
           render={props => (
             <SingleNote 
               {...props}
+              activeNote={this.state.activeNote}
               deleteNote={this.deleteNote}
-              editNote={this.editNote}
+              editNote={this.prepareUpdateForm}
+              note={this.state.activeNote}
               notes={this.state.notes}
             />
           )}

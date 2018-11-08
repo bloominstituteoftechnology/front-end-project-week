@@ -5,15 +5,18 @@ class SingleNote extends React.Component {
     super(props);
     this.state = {
       note: {
-        title:'Ham',
-        textBody:'Sandwich'
+        title: '',
+        textBody: ''
       }
     }
   }
 
   componentDidMount() {
-    const myId = this.props.match.params._id.slice(1);
+    console.log(this.props)
+    const myId = this.props.match.params._id;
     console.log(myId)
+    console.log(this.props.notes)
+    // console.log(this.props.notes)
     const foundNote = this.props.notes.find(note => note._id === myId)
     console.log(foundNote)
     this.setState({
@@ -23,7 +26,6 @@ class SingleNote extends React.Component {
   }
 
   render(){
-    const { title, textBody } = this.state.note;
     return (
       <div>
         <div>
@@ -33,12 +35,14 @@ class SingleNote extends React.Component {
           }}>
             Delete
           </h3>
-          <h3 onClick={event => {this.props.editNote(event, this.state.note._id)}}>
+          <h3 onClick={event => {
+            this.props.editNote(event, this.state.note);
+            this.props.history.push('/new_note')}}>
             Edit
           </h3>
         </div>
-        <p>{title}</p>
-        <p>{textBody}</p>
+        <p>{this.state.note.title}</p>
+        <p>{this.state.note.textBody}</p>
       </div>
     )
   //   console.log(this.props)

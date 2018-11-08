@@ -10,6 +10,7 @@ const NewNote = (props) => {
     } else {
       props.addNote();
     }
+    props.history.push('/notes');
   };
   return (
     <div>
