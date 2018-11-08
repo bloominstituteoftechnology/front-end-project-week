@@ -43,7 +43,10 @@ class App extends Component {
           />
 
           {/* ### Display Single Note ###  */}
-
+          <Route
+            path="/note/get/:id"
+            render={props => <Note {...props} deleteNote={this.deleteNote} />}
+          />
           {/* ### Add Notes ###  */}
           <Route path="/submit" component={NoteForm} />
           {/* displays notes under add note form so you can see whats been added or reply to something */}
