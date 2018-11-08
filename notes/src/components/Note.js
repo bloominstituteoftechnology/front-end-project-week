@@ -59,11 +59,11 @@ class Note extends Component {
         const { title, textBody, _id } = this.state.note;
         return (
           <div>
-            <div className="delete-container">
+            <div className="edit-delete-container">
               <Link className="note-link" to={`/edit/${_id}`}>
                 <p className="edit-note-link">edit</p>
               </Link>
-              <p className="delete-note-link" onClick={this.openModal} >
+              <p className="delete-note-link" onClick={this.openModal}>
                 delete
               </p>
             </div>
@@ -71,16 +71,16 @@ class Note extends Component {
               <h3>{title}</h3>
               <Markdown>{textBody}</Markdown>
             </div>
-          
             <div>
-              
               <Modal
                 isOpen={this.state.showModal}
                 onRequestClose={this.closeModal}
-               
+                contentLabel="Are you sure you want to delete?"
               >
                 <div className="modal">
-                 
+                  <div className="modal-prompt">
+                    <p>Are you sure you want to delete this?</p>
+                  </div>
                   <div className="modal-button-container">
                     <Link className="note-link" to="/">
                       <div className="modal-delete-button" onClick={this.deleteNote}>
@@ -88,7 +88,7 @@ class Note extends Component {
                       </div>
                     </Link>
                     <div className="modal-no-button" onClick={this.closeModal}>
-                      Don't Delete
+                      No
                     </div>
                   </div>
                 </div>
@@ -98,12 +98,10 @@ class Note extends Component {
         );
       }
     }
-    
-    export default withRouter(Note);
 
 
 
-            
+    export default withRouter(Note);  
 
 
 

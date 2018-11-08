@@ -1,5 +1,6 @@
 .App {
   width: 97%;
+  height: auto;
   margin: 0 auto;
   box-sizing: border-box;
   display: flex;
@@ -18,7 +19,7 @@
 .nav-buttons {
   text-decoration: none;
   font-size: 10px;
-  background-color: #35c0c3;
+  background-color: #24b8bd;
   height: 32px;
   width: 143px;
   color: white;
@@ -33,16 +34,17 @@
 
 .nav-buttons:hover {
   background-color: white;
-  color: #35c0c3;
+  color: #24b8bd;
 }
 
 
 
 .note{
-  height: 160px;
+  height: 185px;
   border: 2px solid lightgrey;
   width: 160px;
   margin: 5px;
+  background: #FFFFFF;
 }
 
 .cont-body{
@@ -52,15 +54,20 @@
 
 .note-title{
   border-bottom: 2px solid lightgrey;
-  width: 85%;
+  width: 100%;
   text-align: center;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
 }
 
+
 .note-body{
-  width: 85%;
+  width: 65%;
   white-space: nowrap; 
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; 
+  
 }
 
 

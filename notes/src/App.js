@@ -12,7 +12,7 @@ constructor() {
   super();
   this.state = {
     notes: []
-    
+
   }
 }
 
@@ -32,18 +32,6 @@ addNote = (event, newNote) => {
       this.setState({ notes: [newNote, ...this.state.notes] })
     })
     .catch(error => console.log(error))
-}
-
-deleteNote = (id) => {
-  axios
-    .delete(`http://fe-notes.herokuapp.com/note/delete/${id}`)
-    .then(response => {
-      console.log('DELETE RESPONSE: ', response)
-      this.setState({ notes: response.data })
-    })
-    .catch(err => {console.log(err)})
-
-
 }
 
 
@@ -81,9 +69,6 @@ editNote = (event, id, state) => {
             render={props => (
               <NoteList
                 {...props}
-                // deleteNote={this.deleteNote}
-                // addNote={this.addNote}
-                // editNote={this.editNote}
                 />
               )}
             />
