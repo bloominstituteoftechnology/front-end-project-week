@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link, NavLink } from 'react-router-dom';
 const UpdateNoteForm = props => {
 
 
@@ -25,7 +25,7 @@ const UpdateNoteForm = props => {
             value={props.note.tags}
             name="tags"
           />
-          <button type="submit">Submit Change Note</button>
+          <Link to = "/"><button type="submit">Submit Change Note</button></Link>
         </form>
     </div>
         )

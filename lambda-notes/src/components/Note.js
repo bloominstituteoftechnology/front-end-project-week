@@ -38,7 +38,7 @@ class Note extends React.Component {
     return (
         <div className = "Note">
          <div className="note-div">{this.state.notes.map(this.filterNotes)}</div>
-            <Link exact to = "/notes"><button onClick = {(_id) => this.props.deleteNote(this.props.match.params._id)}>Delete Note</button></Link>
+            <Link exact to = "/"><button onClick = {(_id) => this.props.deleteNote(this.props.match.params._id)}>Delete Note</button></Link>
         <NavLink exact to={`/notes/update/${this.props.match.params._id}`}><button>Update Note</button></NavLink>
             
         </div>

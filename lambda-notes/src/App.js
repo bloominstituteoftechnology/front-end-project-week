@@ -59,6 +59,8 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+
+
   addNewNote = () => {
     axios
       .post('https://fe-notes.herokuapp.com/note/create', this.state.note)
