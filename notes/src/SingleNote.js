@@ -1,15 +1,25 @@
 import React from 'react';
+import Modal from './Modal';
  
 class SingleNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      deleteModal: false,
       note: {
         title: '',
         textBody: ''
       }
     }
   }
+
+  showModal = () => {
+    this.setState({ deleteModal: true });
+  };
+
+  hideModal = () => {
+    this.setState({ deleteModal: false });
+  };
 
   componentDidMount() {
     console.log(this.props)
@@ -25,14 +35,16 @@ class SingleNote extends React.Component {
     // const myNote = this.props.notes.find((note) =>)
   }
 
+  deleteConfirmed = (event) => {
+    this.props.deleteNote(event, this.state.note._id);
+    this.props.history.push('/notes/')
+  }
+
   render(){
     return (
       <div>
         <div>
-          <h3 onClick={event => {
-            this.props.deleteNote(event, this.state.note._id);
-            this.props.history.push('/notes/')
-          }}>
+          <h3 onClick={this.showModal}>
             Delete
           </h3>
           <h3 onClick={event => {
@@ -40,6 +52,12 @@ class SingleNote extends React.Component {
             this.props.history.push('/new_note')}}>
             Edit
           </h3>
+          <Modal 
+            show={this.state.deleteModal} 
+            handleClose={this.hideModal}
+            deleteConfirmed={this.deleteConfirmed}>
+            <p>Are you sure you want to delete this?</p>
+          </Modal>
         </div>
         <p>{this.state.note.title}</p>
         <p>{this.state.note.textBody}</p>
