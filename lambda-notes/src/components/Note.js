@@ -38,7 +38,7 @@ class Note extends React.Component {
           <Link
             className="singleNote__edit"
             to={`/note/edit/${this.state.note._id}`}
-          
+          >
             edit
           </Link>
           <span
