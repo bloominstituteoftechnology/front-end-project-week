@@ -1,72 +1,75 @@
+// Dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { editNote } from '../actions/index';
-import './EditNote.css';
-
-const mapStateToProps = (state) => {
-    return {
-        notesArray: state
-    }
-}
+// Actions
+import { updateNote } from '../actions';
+// Styles
+import {
+	PageTitle,
+	StyledInput,
+	StyledTextArea,
+	SubmitInput
+} from '../styles/SharedStyles';
 
 class EditNote extends Component {
-    constructor() {
-        super();
-        this.state = {
-            matched: [],
-        }
-    }
+	state = {
+		//tags: [],
+		title: '',
+		textBody: ''
+	};
 
-    componentWillMount() {
-        let routeId = this.props.match.params.id;
-        let matched = this.props.notesArray.filter((item) => item._id === routeId);
-        this.setState({ matched })
-    }
+	changeHandler = event => {
+		this.setState({ [event.target.name]: event.target.value });
+	};
 
-    handleUpdate = () => {
-        // Todo: Fire Action here!
-        this.props.editNote(this.state.matched[0]);
-        this.props.history.push('/');
-    }
+	submitHandler = event => {
+		event.preventDefault();
 
-    handleChange = (e) => {
-        let temp = Array.from(this.state.matched);
-        temp[0][e.target.name] = e.target.value;
-        this.setState({ matched: temp });
-    }
+		this.props.updateNote(this.props.note.id, {
+			// tags: [],
+			// id: this.props.note.id,
+			title: this.state.title,
+			textBody: this.state.textBody
+		});
 
-    render() {
-        return (
-            <div className='noteView_container'>
-                <div className='noteView_topContent'>
-                    <h3 className='content_header'>
-                        Edit Note:
-                    </h3>
-                </div>
-                <div className='createNote_form'>
-                    <input
-                        type='text'
-                        className='createNote_title'
-                        name='title'
-                        value={this.state.matched[0].title}
-                        onChange={this.handleChange}
-                    />
-                    <textarea
-                        className='createNote_body'
-                        name='body'
-                        value={this.state.matched[0].body}
-                        rows="20"
-                        onChange={this.handleChange}
-                    />
-                    <div
-                        className='nav_button createNote_button'
-                        onClick={this.handleUpdate}
-                    >Update</div>
-                </div>
-            </div>
-        );
-    }
+		this.props.returnToNote('edit');
+	};
+
+	componentDidMount() {
+		this.setState({
+			// tags: this.props.note.tags,
+			title: this.props.note.title,
+			textBody: this.props.note.textBody
+		});
+	}
+
+	render() {
+		return (
+			<form className="EditNote" onSubmit={this.submitHandler}>
+				<PageTitle>Edit Note:</PageTitle>
+				<StyledInput
+					name="title"
+					type="text"
+					placeholder="Note Title"
+					value={this.state.title}
+					onChange={this.changeHandler}
+					required
+				/>
+				<StyledTextArea
+					name="textBody"
+					type="text"
+					placeholder="Note Content"
+					value={this.state.textBody}
+					onChange={this.changeHandler}
+					required
+				/>
+				<SubmitInput type="submit" value="Update" />
+			</form>
+		);
+	}
 }
 
-export default connect(mapStateToProps, {editNote})(EditNote);
-
+export default connect(
+	null,
+	{ updateNote }
+)(EditNote);
