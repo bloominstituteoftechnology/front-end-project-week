@@ -13,6 +13,7 @@ class NoteCard extends Component {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
+        console.log(response.data)
         this.setState(() => ({ note: response.data }))
       })
       .catch(error => {
