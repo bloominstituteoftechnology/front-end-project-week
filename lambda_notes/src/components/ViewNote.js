@@ -6,8 +6,8 @@ import DeleteModal from './DeleteModal';
 
 const SideButton = styled.button`
   width: 80%;
-  padding: 1rem 0;
-  margin-top: 10px;
+  padding: 1rem;
+  margin:0 10px;
   text-decoration: none;
   text-align: center;
   font-size: inherit;
@@ -18,9 +18,9 @@ const SideButton = styled.button`
   border-radius: 5px;
   display: block;
   cursor: pointer;
-  &:not(:last-child) {
+  /* &:not(:last-child) {
     margin-bottom: 1rem;
-  }
+  } */
 `;
 
 const StyledNote = styled.div`
@@ -90,7 +90,7 @@ class ViewNote extends Component {
               rows="20"
               onChange={this.handleChange}
             />
-            <div>
+            <div style={{display:'flex', marginTop: '20px'}}>
               <SideButton style={{backgroundColor: '#00A3FF'}}>
                 <Link to={`/editnote/${this.state._id}`} style={{color:'white'}}>EDIT</Link>
               </SideButton>
