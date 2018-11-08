@@ -6,31 +6,26 @@ import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom'
 
 
 
-class YourNotes extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: [],
-      newNote: {
-        tag: '',
-        title: '',
-        textBody: '',
-      }
-    }
+// class YourNotes extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       notes: [],
+//       newNote: {
+//         tag: '',
+//         title: '',
+//         textBody: '',
+//       }
+//     }
+//   }
+
+function YourNotes(props) {
+  function routeToNote(ev, note) {
+    ev.preventDefault();
+    props.history.push(`/${note.id}`);
+    props.getNoteById(note.id)
   }
-
-  componentDidMount() {
-    axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        this.setState({ notes: response.data })
-      })
-      .catch(error => console.log('It\'s over! Turn back now!'))
-
-  }
-  
-
-  render() {
+    
     return (
       
       <div className='container'>
@@ -41,19 +36,16 @@ class YourNotes extends React.Component {
               <h2>Your Notes: </h2>
             </div>
             <div className="cont-body">
-              {this.state.notes.map((note, i) => (
-                <div className="note">
-
-                <Link to={`/notes/:${i}`}key={i} >
+              {props.notes.map(note => (
+                <div className="note"
+                  onClick={ev => routeToNote(ev, note)}
+                  key={note.id}>
                   <div className='note-title'>
                     <h3>{note.title}</h3>
                   </div>
-               </Link>
-
                   <div className="note-body">
                     {note.textBody}
-                  </div>
-                  
+                  </div>     
                 </div>
               )
               )}
@@ -63,5 +55,7 @@ class YourNotes extends React.Component {
       </div>
     );
   }
-}
+
 export default YourNotes;
+
+
