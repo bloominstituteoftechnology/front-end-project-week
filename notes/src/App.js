@@ -196,6 +196,7 @@ class App extends Component {
 
   }
 
+
   addNote = (event, newNote) => {
     event.preventDefault();
     axios
