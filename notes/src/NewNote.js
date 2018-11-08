@@ -18,26 +18,24 @@ const NewNote = (props) => {
       <h2>{props.isEditing ? "Edit note:" : "Create New Note:"}</h2>
         <Form onSubmit={handleClick}>
           <FormGroup row>
-            <Col sm={{ size: 12, order: 2, offset: 1 }}>
               <Input 
+                className='titleInput'
                 type="title" 
                 name="title" 
                 id="exampleTitle" 
                 placeholder="Note Title"
                 onChange={props.handleInputChange}
                 value={props.note.title} />
-            </Col>
           </FormGroup>
           <FormGroup row>
-            <Col sm={{size: 50, order: 2, offset: 1 }}>
               <Input 
+                className='textBodyInput'
                 type="textarea" 
                 name="textBody" 
                 id="exampleText" 
                 placeholder="Note Content"
                 onChange={props.handleInputChange}
                 value={props.note.textBody} />
-            </Col>
           </FormGroup>
           <Button className='formButton'type="submit">
             {props.isEditing ? "Update" : "Save"}

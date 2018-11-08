@@ -4,6 +4,11 @@
 
 html {
   font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  height: 100%;
 }
 
 h1 {
@@ -46,12 +51,12 @@ img {
 .routesContainer {
   background-color: rgb(242, 241, 242);
   width: 75%;
+  height: 100%;
 }
 
 .navbar {
   background-color: rgb(211, 210, 211);
-  width: 25%
-
+  width: 25%;
 }
 
 .navbarText {
