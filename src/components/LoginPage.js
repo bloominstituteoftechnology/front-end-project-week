@@ -18,7 +18,7 @@ class LoginPage extends Component {
     return (
       <div className="login-container">
         <form className="login" onSubmit={e => this.props.loginHandler(e, this.state.username)}>
-          <h1>Lambda Forms</h1>
+          <h1>Lambda Notes</h1>
           <input
             type="text"
             name="username"
