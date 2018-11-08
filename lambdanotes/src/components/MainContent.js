@@ -6,7 +6,6 @@ class MainContent extends Component {
     render () {
         return (
             <div className= 'main-container'>
-               <h1 className= 'nav-header'> Lambda Notes </h1>
                <ListView />
             </div>
         )

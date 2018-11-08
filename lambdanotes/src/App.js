@@ -43,9 +43,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header> */}
         <MainContent />
-        
+        <Route path='/note/create' render={ (props) => { return(<CreateNote {...props} updateState={this.updateState} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} currentUser={this.state.currentUser} />)}} />
     
-        
+    
       </div>
     )
   }

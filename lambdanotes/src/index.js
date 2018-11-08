@@ -5,10 +5,11 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import './index.css';
 import App from './App';
+import notesReducer from './reducers';
 
-const interimReducer = (state = [], action) => state;
+let reducer = (state = [], action) => state;
 
-const store = createStore(interimReducer)
+const store = createStore(reducer)
 
 ReactDOM.render(
     (
