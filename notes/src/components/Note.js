@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
 import Modal from 'react-modal';
 import Markdown from 'react-markdown'
+import posed from 'react-pose'
 
 
 class Note extends Component {
@@ -68,7 +69,7 @@ class Note extends Component {
               </p>
             </div>
             <div>
-              <h3>{title}</h3>
+            <Markdown>{title}</Markdown>
               <Markdown>{textBody}</Markdown>
             </div>
             <div>

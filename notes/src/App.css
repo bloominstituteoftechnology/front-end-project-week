@@ -2,34 +2,36 @@
   box-sizing: border-box;
   max-width: 1000px;
   margin: 0 auto;
- }
+}
 
- .App{
+.App {
   display: flex;
   height: 100%;
 }
 
-.side-bar{
+.side-bar {
   width: 200px;
+  height: 1300px;
   text-align: center;
   background: lightgrey;
 }
 
-.side-button{
+.side-button {
   height: 35px;
   width: 90%;
   text-align: center;
   color: white;
-  background: teal;
+  background: #24b8bd;
   margin: 5px 0;
 }
-  h2 {
-    background: #F2f1f2;
-    
-  }
-  
 
-.note{
+h2 {
+  background: #F2f1f2;
+
+}
+
+
+.note {
   height: 185px;
   border: 2px solid lightgrey;
   width: 160px;
@@ -37,13 +39,14 @@
   background: #FFFFFF;
 }
 
-.cont-body{
+.cont-body {
   display: flex;
   flex-wrap: wrap;
-  background: #F2f1f2
+  background: #F2f1f2;
+  height: 1275px;
 }
 
-.note-title{
+.note-title {
   border-bottom: 2px solid lightgrey;
   width: 100%;
   text-align: center;
@@ -53,12 +56,12 @@
 }
 
 
-.note-body{
+.note-body {
   width: 65%;
-  white-space: nowrap; 
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; 
-  
+  text-overflow: ellipsis;
+
 }
 
 .form-button {
@@ -80,13 +83,13 @@
 
 .form-button:hover {
   background-color: white;
-  color: #35c0c3;
+  color: #24b8bd;
 }
 
 .new-note-container {
   display: flex;
   flex-direction: column;
-  /* padding-left: 50px; */
+
 }
 
 .notes-header {
@@ -101,18 +104,18 @@ form {
 }
 
 .form-note-title {
-  width: 50%;
+  width: 300px;
   margin: 20px 0;
   margin-left: 10px;
   border-radius: 2px;
   border: 1px solid #94a3a4;
-  height: 20px;
+  height: 40px;
 }
 
 .form-note-content {
-  width: 90%;
+  width: 650px;
   margin-left: 10px;
-  height: 200px;
+  height: 300px;
   border-radius: 2px;
   border: 1px solid #94a3a4;
 }
@@ -123,51 +126,11 @@ form {
   justify-content: space-between;
 }
 
-.note-card {
-  width: 135px;
-  height: 145px;
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: white;
-  border: 0.5px solid #94a3a4;
-  overflow: hidden;
-  border-radius: 2px;
-}
-
-.card-line {
-  height: 1px;
-  border-bottom: 0.5px solid #94a3a4;
-}
-.note-card-body {
-  width: 125px;
-}
-
-.note-card h4 {
-  font-size: 10px;
-  text-decoration: none;
-  padding: 0 5px;
-  text-align: left;
-  width: 80%;
-}
-
-.note-card p {
-  font-size: 10px;
-}
-
-.note-link {
-  text-decoration: none;
-  color: black;
-}
 
 
 
-.edit-delete-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
+
+
 
 .modal {
   display: flex;
@@ -229,11 +192,18 @@ form {
   background-color: white;
 }
 
+.edit-delete-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-decoration: none;
+}
+
 .edit-note-link {
-  margin-right: 10px;
   border-bottom: 1px solid black;
   cursor: pointer;
 }
+
 
 .delete-note-link {
   border-bottom: 1px solid black;
