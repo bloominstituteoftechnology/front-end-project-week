@@ -95,7 +95,8 @@ class App extends Component {
       <div
         style={{
           backgroundImage:
-            "linear-gradient( #e0e2e4, #c8ccce, #b1b7b6, #9da29d, #8c8c86)"
+            "linear-gradient( #e0e2e4, #c8ccce, #b1b7b6, #9da29d, #8c8c86)",
+            height:'100vh'
         }}
       >
         <Header />
