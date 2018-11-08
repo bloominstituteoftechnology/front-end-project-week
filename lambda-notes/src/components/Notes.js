@@ -15,7 +15,7 @@ function Notes(props) {
     }
     return (
         <div className="Notes">
-            <h1>Your Notes</h1>
+            <h1>Deez Notes</h1>
             {props.notes.map(note => {
                 console.log(note._id);
                 return (

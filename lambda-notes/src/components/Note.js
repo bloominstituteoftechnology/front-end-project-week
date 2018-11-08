@@ -1,29 +1,51 @@
 import React from 'react';
 import './Note.css';
 import { Link, NavLink } from 'react-router-dom';
-import UpdateNoteForm from './UpdateNoteForm';
+// import UpdateNoteForm from './UpdateNoteForm';
 
-const Note = props => {
+class Note extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: null,
+      notes: []
+    };
 
-    let singleNote = props.notes.find(singleNote => singleNote._id === props.match.params._id);
-    console.log(singleNote);
-    const singleActiveNote = props.activeNote;
-    console.log(props.activeNote);
-    
+
+ }
+
+
+  componentDidMount() {
+    const id = this.props.match.params._id;
+    console.log(id)
+    this.setState({ id: id, notes: this.props.notes });
+  }
+
+  filterNotes = note => {
+    if (note._id === this.state.id) {
+      return (
+        <div key={note.id}>
+          <p className='single-note-title'>{note.title}</p>
+          <p className='single-note-content'>{note.textBody}</p>
+        </div>
+      );
+    }
+  };
+
+
+
+   render () {
     return (
         <div className = "Note">
-            <h2>{singleNote.tags}</h2>
-            <h3>{singleNote.title}</h3>
-            
-            <hr/>
-            <p>{singleNote.textBody}</p>
-
-            <Link exact to = "/notes"><button onClick = {(_id) => props.deleteNote(props.match.params._id)}>Delete Note</button></Link>
-            <NavLink exact to = {`/notes/update/${props.match.params._id}`}><button>Update Note</button></NavLink>
-            {/* <UpdateNoteForm /> */}
+         <div className="note-div">{this.state.notes.map(this.filterNotes)}</div>
+            <Link exact to = "/notes"><button onClick = {(_id) => this.props.deleteNote(this.props.match.params._id)}>Delete Note</button></Link>
+        <NavLink exact to={`/notes/update/${this.props.match.params._id}`}><button>Update Note</button></NavLink>
             
         </div>
     )
 }
+}
+
+
 
 export default Note;

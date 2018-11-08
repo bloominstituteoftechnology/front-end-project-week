@@ -148,6 +148,7 @@ class App extends Component {
                 updateNote={this.updateNote}
                 note = {this.state.note}
                 notes={this.state.notes}
+                handleInputChange = {this.handleInputChange}
         />}/>
 
       </div>
