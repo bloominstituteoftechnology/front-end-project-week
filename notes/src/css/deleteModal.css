@@ -16,16 +16,18 @@
     width: 50%;
     position: fixed;
     left: 25%;
+    top: 50%;
     border: 1px solid pink;
     padding-top: 100px;
     background-color: white;
 }
 .deleteModal .modalBox .modalButtons {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    padding: 20px 0;
 }
 
 .deleteModal .modalBox .modalButtons button {
-    width: 125px;
+    width: 200px;
     height: 50px;
 }

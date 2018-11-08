@@ -10,11 +10,11 @@ const EditNote = props => {
   };
   return (
     <div className="createNote">
-      <h4>Edit Note:</h4>
+      <h4 className="createNoteHeader">Edit Note:</h4>
       <form className="createNoteForm">
         <input
           type="text"
-          placeholder="Edit Title"
+          placeholder="Note Title"
           value={props.editTitle}
           name="editTitle"
           onChange={props.changeHandler}
@@ -22,7 +22,7 @@ const EditNote = props => {
         />
         <input
           type="text"
-          placeholder="Edit Comment"
+          placeholder="Note Comment"
           value={props.editTextBody}
           name="editTextBody"
           onChange={props.changeHandler}

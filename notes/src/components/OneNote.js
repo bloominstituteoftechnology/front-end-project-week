@@ -44,27 +44,27 @@ class OneNote extends Component {
   render() {
     return (
       <div className="activeNote">
+        <div className="buttons">
+        <NavLink to={`/notes/${this.state.notes._id}/edit`}>
+          <button>edit</button>
+        </NavLink>
+        <button onClick={this.props.deleteToggle}>delete</button>
+        </div>
         <div className="noteContent">
           <h3>{this.state.notes.title}</h3>
-          {this.state.notes.textBody}
+          <p>{this.state.notes.textBody}</p>
         </div>
         {this.props.deleted && (
           <div className="deleteModal">
             <div className="modalBox">
-              <p>Are you sure you want to delete?</p>
+              <p>Are you sure you want to delete this?</p>
               <div className="modalButtons">
                 <button onClick={this.deleteSingleNote}>Delete</button>
-                <button onClick={this.props.deleteToggle}>Cancel</button>
+                <button onClick={this.props.deleteToggle}>No</button>
               </div>
             </div>
           </div>
         )}
-        <div className="buttons">
-        <button onClick={this.props.deleteToggle}>Delete Note</button>
-        <NavLink to={`/notes/${this.state.notes._id}/edit`}>
-          <button>Edit Note</button>
-        </NavLink>
-        </div>
       </div>
     );
   }

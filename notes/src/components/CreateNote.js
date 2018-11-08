@@ -8,7 +8,7 @@ const CreateNote = props => {
   };
   return (
     <div className="createNote">
-        <h4>Create New Note:</h4>
+        <h4 className="createNoteHeader">Create New Note:</h4>
       <form className="createNoteForm">
         <input
           type="text"

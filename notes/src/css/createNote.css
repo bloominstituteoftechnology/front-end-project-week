@@ -3,6 +3,9 @@
     padding: 50px;
     background-color: #F2F0F1;
 }
+.createNote .createNoteHeader {
+    font-size: 24px;
+}
 .createNote .createNoteForm {
     display: flex;
     flex-wrap: wrap;
