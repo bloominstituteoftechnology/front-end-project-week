@@ -5,33 +5,86 @@ import axios from "axios";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import NotesList from "./components/NotesList";
-import AddNoteForm from "./components/AddNoteForm";
+import AddForm from "./components/AddForm";
+import IndividualNote from "./components/IndividualNote";
+import EditNote from "./components/EditNote";
 
-let notes = [
-  {
-    tags: ["tag", "otherTag"],
-    title: "Note Title",
-    textBody: "Note Body",
-    _id: "cksdkjvckadd32"
-  }
-];
-class App extends Component {
+class App extends Component 
+{
   constructor() {
     super();
     this.state = {
-      notes: notes,
+      notes: [],
       title: "",
-      textBody: ""
+      textBody: "",
+      utitle: "",
+      utextBody: "",
+      isDeleting: false
     };
   }
-  componentDidMount() {
+  componentDidMount() 
+  {
     axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
-      .then(res => this.setState({ notes: res.data }))
-      .catch(err => console.log(err));
+      .get( "https://fe-notes.herokuapp.com/note/get/all" )
+      .then( res => this.setState( { notes: res.data } ) )
+      .catch( err => console.log( err ) );
   }
-  handleInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  componentDidUpdate() 
+  {
+    axios
+      .get( "https://fe-notes.herokuapp.com/note/get/all" )
+      .then(res => this.setState( { notes: res.data } ) )
+      .catch( err => console.log( err ) );
+  }
+
+  handleInput = e => 
+  {
+    this.setState( { [e.target.name]: e.target.value } );
+  };
+  addNote = () => 
+  {
+    axios
+      .post( "https://fe-notes.herokuapp.com/note/create", 
+      {
+        title: this.state.title,
+        textBody: this.state.textBody
+      } )
+      .then( res => console.log( res.data ) ) 
+      .catch( err => console.log( err ) );
+    this.setState( { title: "", textBody: "" } );
+  };
+  toEditNote = ( title, textBody ) => 
+  {
+    this.setState( { utitle: title, utextBody: textBody } );
+  };
+  editNote = ( id ) => 
+  {
+    axios
+      .put( `https://fe-notes.herokuapp.com/note/edit/${id}`, 
+      {
+        title: this.state.utitle,
+        textBody: this.state.utextBody
+      } )
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+    this.setState();
+  };
+  toggleOnDeleting = () => 
+  {
+    this.setState({ isDeleting: true });
+  };
+  toggleOffDeleting = e => 
+  {
+    e.preventDefault();
+    this.setState({ isDeleting: false });
+  };
+  deleteNote = id => 
+  {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+    this.setState();
   };
   render() {
     return (
@@ -43,13 +96,47 @@ class App extends Component {
           render={props => <NotesList {...props} notes={this.state.notes} />}
         />
         <Route
+          exact
           path="/addnote"
-          render={props => (
-            <AddNoteForm
+          render={props => 
+          (
+            <AddForm
               {...props}
               title={this.state.title}
               textBody={this.state.textBody}
               handleInput={this.handleInput}
+              addNote={this.addNote}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/note/:id"
+          render={props => 
+          (
+            <IndividualNote
+              {...props}
+              notes={this.state.notes}
+              toEditNote={this.toEditNote}
+              isDeleting={this.state.isDeleting}
+              toggleOnDeleting={this.toggleOnDeleting}
+              toggleOffDeleting={this.toggleOffDeleting}
+              deleteNote={this.deleteNote}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/note/:id/edit"
+          render={props => 
+          (
+            <EditNote
+              {...props}
+              notes={this.state.notes}
+              handleInput={this.handleInput}
+              utitle={this.state.utitle}
+              utextBody={this.state.utextBody}
+              editNote={this.editNote}
             />
           )}
         />

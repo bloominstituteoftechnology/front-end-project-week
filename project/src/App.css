@@ -1,32 +1,203 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.app {
+  display: flex;
+  width: 100%;
+  background: #F2F1F2;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navigation {
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 25%;
+  height: 100vh;
+  background: #D3D2D3;
+  border-right: 2px solid #B6B6B6;
+}
+
+.navigation h1 {
+  font-size: 2.5rem;
+  color: #414141;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.navigation a {
+  align-self: center;
+  text-align: center;
+  background: #56B9BD;
   color: white;
+  width: 80%;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: 1px solid #ADB9BA;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.noteslist {
+  width: 75%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.noteslist h2 {
+  color: #414141;
+  margin: 75px 0 20px 3%;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 200px;
+  background: white;
+  border: 2px solid #D9D9D9;
+  padding: 15px;
+  margin: 15px 2%;
+  overflow: hidden;
+}
+
+.note h3 {
+  margin: 0;
+}
+
+.note h3 a {
+  text-decoration: none;
+  color: black;
+  margin: 0;
+}
+
+.note hr {
+  background: #D9D9D9;
+  color: #D9D9D9;
+  width: 100%;
+  height: 3px;
+  margin: 5px 0;
+}
+
+.note p {
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form h2 {
+  color: #414141;
+  margin: 75px 0 20px 3%;
+}
+
+.form input {
+  width: 50%;
+  height: 35px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 0 15px 3%;
+}
+
+.form textarea {
+  width: 94%;
+  height: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 3% 15px;
+}
+
+.form button {
+  text-align: center;
+  background: #56B9BD;
+  color: white;
+  font-size: 1rem;
+  width: 20%;
+  padding: 10px 20px;
+  margin: 0 3% 15px;
+}
+
+.singleNote {
+  width: 100%;
+}
+
+.singleNote .editDelete {
+  text-align: right;
+  color: #414141;
+  text-decoration: underline;
+}
+
+.singleNote .editDelete a {
+  color: #414141;
+  margin-right: 1%;
+}
+
+.singleNote .editDelete span {
+  cursor: pointer;
+  margin-right: 3%;
+}
+
+.singleNote h2 {
+  color: #414141;
+  margin: 40px 0 20px 3%;
+}
+
+.singleNote p {
+  margin: 0 3%;
+}
+
+.deleteModal {
+  position: fixed;
+  top: 40%;
+  left: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FBFAFB;
+  padding: 20px 30px;
+  border: 2px solid #ACACAC;
+  z-index: 1;
+}
+
+.deleteModal p {
+  margin-bottom: 15px;
+}
+
+.deleteModal .deleteBtn {
+  text-align: center;
+  background: #CB352B;
+  color: white;
+  font-size: 1rem;
+  width: 200px;
+  padding: 10px 20px;
+  margin-right: 15px;
+}
+
+.deleteModal .noBtn {
+  text-align: center;
+  background: #56B9BD;
+  color: white;
+  font-size: 1rem;
+  width: 200px;
+  padding: 10px 20px;
+}
+
+.deleteModal::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #D8D8D8;
+  opacity: 0.7;
+  z-index: -1;
 }
