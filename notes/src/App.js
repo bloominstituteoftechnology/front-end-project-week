@@ -18,7 +18,8 @@ class App extends React.Component {
         title: '',
         textBody: ''
       },
-      isEditing: false
+      isEditing: false,
+      editingId: null
     };
   }
 
@@ -33,9 +34,7 @@ componentDidMount() {
     });
 }
 
-addNote = event => {
-  event.preventDefault();
-  console.log(event);
+addNote = () => {
   axios
     .post(`${URL}create`, this.state.note)
     .then(response => {
@@ -70,8 +69,15 @@ deleteNote = (ev, _id) => {
     })
 }
 
-editNote = (ev, _id) => {
-  console.log(ev, _id)
+editNote = () => {
+  axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/:${this.state.editingId}`, this.state.item)
+    .then(response => {
+      console.log(response)
+      // this.setState({
+      //   notes: newNotesArray
+      // })
+    })
 }
 
 handleInputChange = event => {

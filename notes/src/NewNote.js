@@ -3,8 +3,8 @@ import { Col, Button, Form, FormGroup, Input } from 'reactstrap';
 
 
 const NewNote = (props) => {
-  const handleClick = ev => {
-    ev.preventDefault();
+  const handleClick = event => {
+    event.preventDefault();
     if (props.isEditing) {
       props.editNote();
     } else {
