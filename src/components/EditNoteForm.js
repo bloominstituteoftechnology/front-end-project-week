@@ -5,8 +5,8 @@ class EditNoteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      textBody: "",
+      title: this.props.note.title,
+      textBody: this.props.note.textBody,
       note: []
     };
   }

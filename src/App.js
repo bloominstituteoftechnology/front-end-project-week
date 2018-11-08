@@ -92,6 +92,10 @@ class App extends Component {
     this.setState({ username: "" });
   };
 
+  editingNote = id => {
+    return this.state.notes.find(note => note._id === id);
+  };
+
   render() {
     if (this.state.username === "") {
       return <LoginPage loginHandler={this.loginHandler} />;
@@ -134,7 +138,12 @@ class App extends Component {
           />
           <Route path="/add-note" render={props => <AddNoteForm {...props} addNote={this.addNote} />} />
           <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
-          <Route path="/edit/:id" render={props => <EditNoteForm {...props} editNote={this.editNote} />} />
+          <Route
+            path="/edit/:id"
+            render={props => (
+              <EditNoteForm note={this.editingNote(props.match.params.id)} {...props} editNote={this.editNote} />
+            )}
+          />
         </div>
       </div>
     );
