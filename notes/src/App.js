@@ -66,7 +66,7 @@
 //       .post('https://fe-notes.herokuapp.com/note/create', this.state.note)
 //       .then(response => {
 //         this.setState({ notes: response.data });
-    
+
 //       })
 //       .catch(error => console.log(error));
 //   };
@@ -77,7 +77,7 @@
 //       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
 //       .then(response => {
 //         this.setState({ notes: response.data });
-    
+
 //       })
 //       .catch(error => console.log(error));
 //   };
@@ -108,7 +108,7 @@
 
 //   render() {
 //     return (
-      
+
 //       <div className='container'>
 //         <div className="App">
 //           <div className="side-bar">
@@ -123,7 +123,7 @@
 //             <button className='side-button'>+Create New Note</button>
 //             </NavLink>
 //           </div>
-          
+
 //             <Route exact path='/' 
 //             render={props =><YourNotes {...props}
 //             notes={this.state.notes}
@@ -197,6 +197,7 @@ class App extends Component {
   }
 
 
+
   addNote = (event, newNote) => {
     event.preventDefault();
     axios
@@ -207,11 +208,26 @@ class App extends Component {
       })
       .catch(error => console.log('It\'s over! Turn back now!'))
   }
-  
+
+  editNote = (event, id, state) => {
+    event.preventDefault();
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, state)
+      .then(response => {
+        const updateArray = this.state.notes.map(note => {
+          if (note._id === response.data._id) {
+            return response.data;
+          }
+          return note;
+        });
+        this.setState({ notes: updateArray });
+      })
+      .catch(error => console.log(error));
+  }
 
   render() {
     return (
-      
+
       <div className='container'>
         <div className="App">
           <div className="side-bar">
@@ -220,38 +236,40 @@ class App extends Component {
               <h1> Notes</h1>
             </div>
             <NavLink exact to='/'>
-            <button className='side-button'>View Your Notes</button>
+              <button className='side-button'>View Your Notes</button>
             </NavLink>
             <NavLink to='/create-new-note'>
-            <button className='side-button'>+Create New Note</button>
+              <button className='side-button'>+Create New Note</button>
             </NavLink>
           </div>
-          
-            <Route
-            path exact='/'
-            render={props =>
-            <YourNotes {...props}/> 
-          }/>
 
           <Route
-          path='/create-new-note' 
-          render={props =>
-          <Form {...props} addNote={this.addNote}/> }/>
+            path exact='/'
+            render={props =>
+              <YourNotes {...props} />
+            } />
 
-            <Route 
-            path='/note/:id' 
-            render={props => 
-              <Note 
-              {...props}
+          <Route
+            path='/create-new-note'
+            render={props =>
+              <Form {...props} addNote={this.addNote} />} />
+
+          <Route
+            path='/note/:id'
+            render={props =>
+              <Note
+                {...props}
               />
             }
           />
 
-            <Route
-            path='/edit'
+          <Route
+            path='/edit/:id'
             render={props =>
-            <Edit {...props}/> 
-          }/>
+              <Edit {...props}
+                editNote={this.editNote}
+              />
+            } />
 
         </div>
       </div>

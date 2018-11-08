@@ -109,7 +109,8 @@ class Note extends React.Component {
             
             <p onClick={this.openModal}>delete</p>
         </div>
-
+        <p>{this.state.note.title}</p>
+        <p>{this.state.note.textBody}</p>
           <Modal
 
             isOpen={this.state.showModal}

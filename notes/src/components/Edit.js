@@ -20,13 +20,13 @@ class EditNote extends React.Component {
 
    
 
-    editNote = e => {
+    submitNote = e => {
         this.props.editNote(e, this.state.note._id, this.state);
         this.setState({ title: "", textBody: "" });
         this.props.history.push("/");
       };
 
-    componentsDidMount() {
+    componentDidMount() {
         const id = this.props.match.params.id;
         this.fetchNote(id)
     }
@@ -48,7 +48,7 @@ class EditNote extends React.Component {
                     <h3>Edit Note:</h3>
                 </div>
 
-                <form onSubmit={this.editNote}>
+                <form onSubmit={this.submitNote}>
                     <input
                         className="title"
                         name="title"
