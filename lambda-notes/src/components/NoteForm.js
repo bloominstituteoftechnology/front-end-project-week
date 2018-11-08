@@ -12,6 +12,8 @@ class NoteForm extends React.Component {
 
   addNote = event => {
     event.preventDefault();
+
+
      axios
     .post('https://fe-notes.herokuapp.com/note/create', {
       title: this.state.title,
@@ -19,11 +21,13 @@ class NoteForm extends React.Component {
     })
     .then(response => console.log(response))
     .catch(error => console.log(error));
+
      this.setState({
       title: "",
       textBody: ""
     });
   };
+
    handleInputChange = event => {
     this.setState({ [event.target.title]: event.target.value });
   };
@@ -32,14 +36,34 @@ class NoteForm extends React.Component {
   };
 
 
-  render(){
+  render() {
     return (
-      <div>
-        {/* ??? */}
-       </div>
-    )
-  }
+      <div className="noteSubmit">
+        <h2>Create New Note</h2>
+        <form onSubmit={this.addNote} className="noteForm">
+          <input
+            onChange={this.handleInputChange}
+            placeholder="Note Title"
+            value={this.state.title}
+            name="title"
+            className="noteForm__input"
+          />
+          <br />
 
+          <input
+            onChange={this.handleInputChange}
+            placeholder="Note Content"
+            value={this.state.textBody}
+            name="textBody"
+            className="noteForm__input--big"
+          />
+          <button type="submit" className="btn">
+            Save
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default NoteForm;

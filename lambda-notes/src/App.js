@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import  { Route } from 'react-router-dom';
 
+import Note from './components/Note';
 import Notes from './components/Notes';
 import NoteForm from './components/NoteForm';
+import NoteEdit from './components/NoteEdit';
+import Nav from './components/Nav';
+
 import './styles.css';
 
 class App extends Component {
@@ -11,7 +15,8 @@ class App extends Component {
     super(props);
 
      this.state = {
-      notes: []
+      notes: [],
+      id: "",
     };
   }
   
@@ -23,21 +28,20 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+
   render() {
     return (
       <div className="App">
-        <div className="sideBar">
-        <h1 className="sideBar__headline">
-            Lambda
-            <br />
-            Notes
-          </h1>
-          <button className="btn">View Your Notes</button>
-          <br />
-          <button className="btn">Create New Note</button>
-        </div>
-         <div className="content">
-          <NoteForm />
+        <Nav />
+        <div className="content">
+          {/* d i s p l a y   n o t e s */}
+          <Route
+            exact
+            path="/"
+            render={() => <Notes notes={this.state.notes.reverse()} />}
+          />
+          {/* a d d  n o t e  */}
+          <Route path="/submit" component={NoteForm} />
           <Notes notes={this.state.notes} />
         </div>
       </div>
