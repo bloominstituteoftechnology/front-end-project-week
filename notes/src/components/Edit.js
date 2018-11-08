@@ -49,17 +49,18 @@ class EditNote extends React.Component {
                 </div>
                 <div className='home-body'>
                 <form onSubmit={this.submitNote}>
-                    <textarea
+                    <textarea 
                         className="edit-title"
                         name="title"
                         size='80'
                         value={this.state.title}
                         onChange={this.changeHandler}
                         type="text"
-                        placeholder='Note Title'
+                        placeholder={this.state.note.title}
                     />
                     <br/>
                     <textarea
+                        contentEditable='true'
                         className="edit-content"
                         name="textBody"
                         cols='80'
@@ -67,7 +68,7 @@ class EditNote extends React.Component {
                         value={this.state.textBody}
                         onChange={this.changeHandler}
                         type="text"
-                        placeholder="Note Content"
+                        placeholder={this.state.note.textBody}
                     />
                     <br/>
                     <button className="update-button">Update</button>

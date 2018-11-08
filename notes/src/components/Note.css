@@ -2,14 +2,16 @@
     display: flex;
     margin-right: 10px;
     color: black;
-    text-decoration: underline;
+    text-decoration: underline black;
     width:100px;
     margin-top: 20px;
+    cursor: pointer;
 
 
 }
 .edit{
     color:black;
+    text-decoration: underline black;
 }
 .modal{
     height: 140px;
@@ -32,16 +34,18 @@
 .delete-modal{
     width: 140px;
     height: 35px;
-    background-color: darkred;
+    background-color: #CA001A;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .no-modal{
     width: 140px;
     height: 35px;
-    background-color: darkturquoise;
+    background-color:#23B8BD;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 

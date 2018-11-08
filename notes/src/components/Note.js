@@ -130,7 +130,7 @@ class Note extends React.Component {
           <div className='modal-buttons'>
             <Link className="noteLink" to="/">
               <button className='delete-modal' onClick={this.deleteNote}>
-                delete
+                Delete
               </button>
             </Link>
             <button className='no-modal' onClick={this.closeModal}>

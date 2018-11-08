@@ -49,6 +49,8 @@
     margin-top: 5px;
     text-align: left;
     height: 110px;
+    color: black;
+    text-decoration: underline white;
   }
 
   .home-title{

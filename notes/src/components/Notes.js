@@ -100,11 +100,11 @@ class YourNotes extends React.Component {
                   <div className='note-title'>
                     <h3 className='background-white'>{note.title}</h3>
                   </div>
-               </Link>
 
                   <div className="note-body">
                     <p className='background-white'>{note.textBody}</p>
                   </div>
+               </Link>
                   
                 </div>
               )
