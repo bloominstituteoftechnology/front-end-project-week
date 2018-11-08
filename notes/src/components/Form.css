@@ -1,6 +1,7 @@
 
 .edit-title{
     width: 400px;
+    color: #414141;
 }
 
 .edit-content{
@@ -17,4 +18,9 @@
     background: #23B8BD;
     margin: 5px 0;
     cursor: pointer;
+    border: 1px solid #AFAEAF;
+    font-size: 12px;
+}
+.container-form{
+    margin-left: 15px;
 }

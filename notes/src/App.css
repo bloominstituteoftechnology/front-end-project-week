@@ -2,14 +2,21 @@
   box-sizing: border-box;
   max-width: 900px;
   margin: 0 auto;
+  
+}
+body{
+  background-color: rgb(107, 103, 105);
 }
 .container{
   height: 100%;
   background-color: #F2F1F2;
+  border: 1px solid #AFAEAF;
+  
+  
 }
 .App{
   display: flex;
-  height: 1000px;
+  height: 1200px;
 }
 
 .side-bar{
@@ -18,6 +25,8 @@
   text-align: center;
   background: #D3D2D3;
   margin-left: 0;
+  border-right: 1px solid #AFAEAF;
+  margin-right: 10px;
 }
 
 .side-button{
@@ -28,6 +37,8 @@
   background: #23B8BD;
   margin: 5px 0;
   font-weight: bold;
+  border: 1px solid #AFAEAF;
+  font-size: 12px;
 }
 
 .home-title{
@@ -43,5 +54,6 @@
  
 .lambda-notes{
   text-align: left;
-  margin: 15px
+  margin: 15px;
+  color: #414141;
 }

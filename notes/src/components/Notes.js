@@ -85,7 +85,7 @@ class YourNotes extends React.Component {
   render() {
     return (
       
-      <div className='container'>
+      
         <div className="App">
 
           <div className='main-view'>
@@ -112,7 +112,7 @@ class YourNotes extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      
     );
   }
 }

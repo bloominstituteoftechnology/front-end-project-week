@@ -22,14 +22,14 @@
   
   .note{
     height: 160px;
-    border: 2px solid #D3D2D3;
+    border: 1px solid #AFAEAF;
     width: 160px;
     margin: 5px;
     background-color: white;
   }
   
   .note-title{
-    border-bottom: 2px solid #D3D2D3;
+    border-bottom: 1px solid #AFAEAF;
     width: 85%;
     text-align: left;
     color: black;
@@ -39,6 +39,8 @@
     overflow: hidden;
     text-overflow: '';
     white-space: nowrap;
+    font-size: 15px;
+    
   }
   
   .note-body{
@@ -51,11 +53,13 @@
     height: 110px;
     color: black;
     text-decoration: underline white;
+    font-size: 13px;
   }
 
   .home-title{
     margin:25px 15px;
     margin-top: 50px;
+    color: #414141;
   }
 
   .note-page-title{
@@ -66,9 +70,13 @@
     display: flex;
     flex-wrap: wrap;
     margin: 15px;
+    color: #414141;
+    
   }
  .note-full-body{
    margin-left: 10px;
    width: 725px;
+   color: #414141;
+   
  }
  

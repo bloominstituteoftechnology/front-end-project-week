@@ -115,7 +115,7 @@ class Note extends React.Component {
         </div>
         <div className='note-full-body'>
         <h2 className='home-title'>{this.state.note.title}</h2>
-        <p className='home-body'>{this.state.note.textBody}</p>
+        <p className='note-home-body' >{this.state.note.textBody}</p>
         </div>
         <Modal
           className='modal'

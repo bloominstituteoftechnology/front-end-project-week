@@ -43,7 +43,7 @@ class EditNote extends React.Component {
 
 
         return (
-            <div className="container">
+            <div className="container-edit">
                 <div className="home-title">
                     <h3>Edit Note:</h3>
                 </div>

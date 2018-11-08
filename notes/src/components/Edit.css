@@ -1,10 +1,12 @@
 .edit-title{
     width: 400px;
+    color: #414141;
 }
 
 .edit-content{
     /* height: 400px; */
     margin-top: 10px;
+    
     
 }
 
@@ -17,4 +19,9 @@
     margin: 5px 0;
     font-weight: bold;
     cursor: pointer;
+    border: 1px solid #AFAEAF;
+}
+
+.container-edit{
+    margin-left: 0px;
 }

@@ -2,16 +2,18 @@
     display: flex;
     margin-right: 10px;
     color: black;
-    text-decoration: underline black;
+    text-decoration: underline #414141;
     width:100px;
     margin-top: 20px;
     cursor: pointer;
+    color: #414141;
 
 
 }
 .edit{
     color:black;
-    text-decoration: underline black;
+    text-decoration: underline #414141;
+    color: #414141;
 }
 .modal{
     height: 140px;
@@ -38,6 +40,7 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
+    border: 1px solid #AFAEAF;
 }
 
 .no-modal{
@@ -47,5 +50,11 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
+    border: 1px solid #AFAEAF;
 }
 
+.note-home-body{
+    font-size: 13px;
+    line-height: 1.7;
+    margin-left: 15px;
+}

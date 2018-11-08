@@ -84,7 +84,7 @@ class Form extends React.Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="container-form">
                 <div className="notes-header">
                     <h3 className='home-title' >Create New Note:</h3>
                 </div>
@@ -109,7 +109,7 @@ class Form extends React.Component {
                         type="text"
                         placeholder='Note Content'
                     />
-
+                        <br/>
                     <button className="update-button">Save</button>
                 </form>
                 </div>
