@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 import './App.css';
 import { Route } from 'react-router-dom';
 
@@ -19,18 +19,31 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })
+      .catch(error => {
+        console.error("Error getting notes data.", error);
+      });
+  }
+
   render() {
     return (
       <div className="App">
       {/*   <NoteList notes = {this.state.notes} />
         <Menu /> */}
-        <Route exact path='/' component={NoteList} />
-        <Route path='/note/_id' render={props => (
-            <Note
-              {...props}
-              note={this.state.note}
-            />
-          )} />
+        <Route
+          exact
+          path="/"
+          render={props => <NoteList {...props} notes={this.state.notes} />}
+        />
+        <Route
+          path="/note/:_id"
+          render={props => <Note {...props} notes={this.state.notes} />}
+        />
         <Menu />
       </div>
     );

@@ -1,37 +1,38 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import NoteCard from './NoteCard';
+//import NoteCard from './NoteCard';
 
 class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: {}
-    };
+      notes: [],
+      note: {},
+      id: null
+    };   
   }
 
   componentDidMount() {
-    const { id } = this.props.match.params;
-    this.fetchNote(id);
+    const id = this.props.match.params._id;
+    console.log(id);
+    this.setState({ id, notes: this.props.notes });
   }
 
-  fetchNote = id => {
-    axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-      .then(response => {
-        this.setState(() => ({ note: response.data }));
-      })
-      .catch(error => {
-        console.error(error);
-      });
+  fetchNote = note => {
+    if (note._id === this.state.id) {
+      return (
+        <div>
+          <p>{note.title}</p>
+          <p>{note.textBody}</p>
+        </div>
+      );
+    }
   };
 
   render() {
 
-    const { note } = this.state;
-
-    return <NoteCard note={note}/>;
+    return <div>{this.state.notes.map(note => this.fetchNote(note))}</div>;
 
   }
 }
