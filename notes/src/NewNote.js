@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Button, Form, FormGroup, Input } from 'reactstrap';
+import './NewNote.css'
 
 
 const NewNote = (props) => {
@@ -13,11 +14,11 @@ const NewNote = (props) => {
     props.history.push('/notes');
   };
   return (
-    <div>
+    <div className='noteFormPage'>
       <h2>{props.isEditing ? "Edit note:" : "Create New Note:"}</h2>
         <Form onSubmit={handleClick}>
           <FormGroup row>
-            <Col sm={10}>
+            <Col sm={{ size: 12, order: 2, offset: 1 }}>
               <Input 
                 type="title" 
                 name="title" 
@@ -28,7 +29,7 @@ const NewNote = (props) => {
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Col sm={10}>
+            <Col sm={{size: 50, order: 2, offset: 1 }}>
               <Input 
                 type="textarea" 
                 name="textBody" 

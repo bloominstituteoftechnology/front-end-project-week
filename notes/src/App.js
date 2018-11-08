@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Notes from './Notes';
 import NewNote from './NewNote';
 import SingleNote from './SingleNote';
@@ -128,15 +128,21 @@ prepareUpdateForm = ( event, note) => {
     return (
       <div className="App">
         <div className="navbar">
-          <h1 className="navbarHeader">
-            Lambda Notes
-          </h1>
-          <NavLink exact to='/notes/'>
-            <h2 className="navLinks">View Your Notes</h2>
-          </NavLink>
-          <NavLink exact to='/new_note'>
-            <h2 className="navLinks">+ Create New Note</h2>
-          </NavLink>
+          <div className='navbarText'>
+            <h1>
+              Lambda Notes
+            </h1>
+            <Link 
+              exact to='/notes/'
+              style={{ textDecoration: 'none' }}>
+              <h2 className="navLinks view">View Your Notes</h2>
+            </Link>
+            <Link 
+              exact to='/new_note'
+              style={{ textDecoration: 'none' }}>
+              <h2 className="navLinks create">+ Create New Note</h2>
+            </Link>
+          </div>
         </div>
         <div className='routesContainer'>
           <Route

@@ -1,3 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3.2rem;
+  padding-bottom: 10px;
+}
+
+h4 {
+  font-size: 2.5rem;
+  padding-bottom: 10px;
+}
+
+p {
+  line-height: 1.5;
+  font-size: 1.6rem;
+  padding-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .App {
   text-align: left;
   display: flex;
@@ -6,15 +45,33 @@
 }
 .routesContainer {
   background-color: rgb(242, 241, 242);
+  width: 75%;
 }
 
 .navbar {
-  background-color: rgb(211, 210, 211)
+  background-color: rgb(211, 210, 211);
+  width: 25%
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.navbarText {
+  margin-left: 12px;
+  margin-top: 17px;
+  margin-right: 15px;
+}
+
+.navbarText h1 {
+  font-size: 35px;
+  margin-top: 0px;
+  line-height: 33px;
+}
+
+.navLinks {
+  background-color: rgb(104, 182, 187);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 14px;
 }
 
 .App-header {

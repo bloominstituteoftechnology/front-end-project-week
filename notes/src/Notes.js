@@ -20,9 +20,9 @@ function Notes(props) {
                 className="miniNote"
                 onClick={event => routeToNote(event, note)}
                 key={i}>                
-                <CardBody>
-                  <CardTitle>{note.title}</CardTitle>
-                  <CardText>{note.textBody}</CardText>
+                <CardBody className='cardBody'>
+                  <CardTitle className='title'>{note.title}</CardTitle>
+                  <CardText className='note'>{note.textBody}</CardText>
                 </CardBody>
               </Card>
             )

@@ -1,0 +1,10 @@
+.noteFormPage {
+  width: 90%;
+  height: 100vh;
+  margin-left: 24px;
+  margin-top: 60px;
+}
+
+.noteFormPage h2 {
+  font-size: 22px;
+}

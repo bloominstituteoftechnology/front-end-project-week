@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
+import './SingleNote.css';
  
 class SingleNote extends React.Component {
   constructor(props) {
@@ -42,16 +43,18 @@ class SingleNote extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className='singleNotePage'>
         <div>
-          <h3 onClick={this.showModal}>
-            Delete
-          </h3>
-          <h3 onClick={event => {
-            this.props.editNote(event, this.state.note);
-            this.props.history.push('/new_note')}}>
-            Edit
-          </h3>
+          <div className='editAndDeleteButtons'>
+            <h3 onClick={this.showModal}>
+              Delete
+            </h3>
+            <h3 onClick={event => {
+              this.props.editNote(event, this.state.note);
+              this.props.history.push('/new_note')}}>
+              Edit
+            </h3>
+          </div>
           <Modal 
             show={this.state.deleteModal} 
             handleClose={this.hideModal}

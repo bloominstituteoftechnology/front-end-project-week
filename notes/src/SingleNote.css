@@ -1,0 +1,16 @@
+.singleNotePage {
+  height: 100vh;
+}
+
+.editAndDeleteButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editAndDeleteButtons h3 {
+  margin: 15px;
+}
+
+.singleNotePage p {
+  margin: 15px;
+}
