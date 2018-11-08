@@ -35,7 +35,7 @@
 
 .formButton:hover {
   cursor: pointer;
-  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
-  box-shadow: 5px 5px 15px 5px #000000;
+  -webkit-box-shadow: 5px 5px 15px 5px #00000096; 
+  box-shadow: 5px 5px 15px 5px #00000096;
 }
 
