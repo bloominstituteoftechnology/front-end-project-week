@@ -138,42 +138,43 @@ prepareUpdateForm = ( event, note) => {
             <h2 className="navLinks">+ Create New Note</h2>
           </NavLink>
         </div>
-        <Route
-          exact path='/notes'
-          render={props => (
-            <Notes
-              {...props}
-              getNoteById={this.getNoteById}
-              activeNoteHandler={this.activeNoteHandler}
-              notes={this.state.notes} />
-           )}
-         />
-         <Route 
-          exact path='/new_note'
-          render={props => (
-            <NewNote 
-              {...props}
-              note={this.state.note}
-              handleInputChange={this.handleInputChange}
-              editNote={this.editNote}
-              addNote={this.addNote}
-              isEditing={this.state.isEditing} />
-          )}
-        />
-        <Route
-          path='/notes/:_id'
-          render={props => (
-            <SingleNote 
-              {...props}
-              activeNote={this.state.activeNote}
-              deleteNote={this.deleteNote}
-              editNote={this.prepareUpdateForm}
-              note={this.state.activeNote}
-              notes={this.state.notes}
-            />
-          )}
-        />
-        
+        <div className='routesContainer'>
+          <Route
+            exact path='/notes'
+            render={props => (
+              <Notes
+                {...props}
+                getNoteById={this.getNoteById}
+                activeNoteHandler={this.activeNoteHandler}
+                notes={this.state.notes} />
+             )}
+           />
+           <Route 
+            exact path='/new_note'
+            render={props => (
+              <NewNote 
+                {...props}
+                note={this.state.note}
+                handleInputChange={this.handleInputChange}
+                editNote={this.editNote}
+                addNote={this.addNote}
+                isEditing={this.state.isEditing} />
+            )}
+          />
+          <Route
+            path='/notes/:_id'
+            render={props => (
+              <SingleNote 
+                {...props}
+                activeNote={this.state.activeNote}
+                deleteNote={this.deleteNote}
+                editNote={this.prepareUpdateForm}
+                note={this.state.activeNote}
+                notes={this.state.notes}
+              />
+            )}
+          />
+        </div>
       </div>
     );
   }

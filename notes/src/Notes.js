@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import './Notes.css'
 
 
 function Notes(props) {
@@ -10,25 +11,23 @@ function Notes(props) {
   }
 
   return( 
-    <div>
-      {console.log(props.notes)}
-      <h2>Hello from Notes</h2>
-      
-      {props.notes.map((note, i)=> {
-        return (
-            <div 
-              onClick={event => routeToNote(event, note)}
-              key={i}>
-              {console.log(note)}
-              <div >
-                <h3>{note.title}</h3>
-                <p>{note.textBody}</p>
-              </div>
-            </div>
-          )
-      })}
-      
-        
+    <div className='notesPage'>
+      <h2>Your Notes:</h2>
+      <div className="notesContainer">
+        {props.notes.map((note, i)=> {
+          return (
+              <Card
+                className="miniNote"
+                onClick={event => routeToNote(event, note)}
+                key={i}>                
+                <CardBody>
+                  <CardTitle>{note.title}</CardTitle>
+                  <CardText>{note.textBody}</CardText>
+                </CardBody>
+              </Card>
+            )
+        })}
+      </div>
     </div>
     )
 }

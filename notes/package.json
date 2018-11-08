@@ -8,6 +8,7 @@
     "feather": "^0.0.6",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
+    "proptypes": "^1.1.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-feather": "^1.1.4",

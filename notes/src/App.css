@@ -1,5 +1,15 @@
 .App {
-  text-align: center;
+  text-align: left;
+  display: flex;
+  background-color: rgb(242, 241, 242);
+  height: 100%;
+}
+.routesContainer {
+  background-color: rgb(242, 241, 242);
+}
+
+.navbar {
+  background-color: rgb(211, 210, 211)
 }
 
 .App-logo {
