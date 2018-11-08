@@ -46,7 +46,7 @@ class NoteView extends React.Component {
     event.preventDefault();
     this.setState({ editing: true, editedText: this.state.note });
   };
-  render() {
+render() {
     let viewStyle = {};
     let editStyle = {};
     if (this.state.editing) {

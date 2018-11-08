@@ -34,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SideBar />
+       <SideBar />
         <Route
           path="/new-note"
           render={props => (
