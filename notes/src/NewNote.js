@@ -39,7 +39,7 @@ const NewNote = (props) => {
                 value={props.note.textBody} />
             </Col>
           </FormGroup>
-          <Button type="submit">
+          <Button className='formButton'type="submit">
             {props.isEditing ? "Update" : "Save"}
           </Button>
         </Form>

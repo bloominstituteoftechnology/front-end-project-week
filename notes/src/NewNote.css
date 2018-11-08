@@ -8,3 +8,18 @@
 .noteFormPage h2 {
   font-size: 22px;
 }
+
+.formButton {
+  background-color: rgb(104, 182, 187);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 14px;
+  width: 30%;
+}
+
+.formButton:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #000000;
+}

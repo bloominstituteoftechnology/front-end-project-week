@@ -74,6 +74,12 @@ img {
   padding: 14px;
 }
 
+.navLinks:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #000000;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

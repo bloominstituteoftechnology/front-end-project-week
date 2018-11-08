@@ -46,13 +46,14 @@ class SingleNote extends React.Component {
       <div className='singleNotePage'>
         <div>
           <div className='editAndDeleteButtons'>
-            <h3 onClick={this.showModal}>
-              Delete
-            </h3>
-            <h3 onClick={event => {
+            <h3 
+              onClick={event => {
               this.props.editNote(event, this.state.note);
               this.props.history.push('/new_note')}}>
               Edit
+            </h3>
+            <h3 onClick={this.showModal}>
+              Delete
             </h3>
           </div>
           <Modal 
@@ -62,7 +63,7 @@ class SingleNote extends React.Component {
             <p>Are you sure you want to delete this?</p>
           </Modal>
         </div>
-        <p>{this.state.note.title}</p>
+        <h2 className='singleNoteTitle'>{this.state.note.title}</h2>
         <p>{this.state.note.textBody}</p>
       </div>
     )

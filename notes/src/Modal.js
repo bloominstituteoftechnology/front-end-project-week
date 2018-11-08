@@ -8,9 +8,19 @@ function Modal(props)  {
     <div className={showHideClassName}>
 
       <section className="modal-main">
-        <h2>Are you sure you want to delete this?</h2>
-        <button onClick={props.deleteConfirmed}>Delete</button>
-        <button onClick={props.handleClose}>No</button>
+        <h2 className='confirmationQuestion'>Are you sure you want to delete this?</h2>
+        <button 
+          className='deleteButton'
+          onClick={props.deleteConfirmed}
+        >
+            Delete
+        </button>
+        <button 
+          className='noButton'
+          onClick={props.handleClose}
+        >
+            No
+        </button>
       </section>
     </div>
   )

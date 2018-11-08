@@ -1,5 +1,7 @@
 .singleNotePage {
   height: 100vh;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .editAndDeleteButtons {
@@ -8,9 +10,22 @@
 }
 
 .editAndDeleteButtons h3 {
-  margin: 15px;
+  padding: 5px;
+}
+
+.editAndDeleteButtons h3:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #000000;
 }
 
 .singleNotePage p {
   margin: 15px;
+  width: 90%;
+}
+
+.singleNoteTitle {
+  font-size: 22px;
+  margin: 15px;
+  border-bottom: 1px solid black;
 }
