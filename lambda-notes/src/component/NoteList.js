@@ -22,10 +22,6 @@ class NoteList extends Component {
     });
   }
 
-  editChangeHandler = event => {
-    let _editedText = event.target.value;
-    this.setState({ editedText: _editedText });
-  };
   getNote = id => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
@@ -33,10 +29,6 @@ class NoteList extends Component {
         this.setState({ note: response.data });
       })
       .catch(error => console.log(error));
-  };
-  editHandler = event => {
-    event.preventDefault();
-    this.setState({ editing: true, editedText: this.state.note });
   };
   render() {
     let viewStyle = {};
@@ -48,15 +40,13 @@ class NoteList extends Component {
     }
     return (
       <div>
-        <div style={viewStyle} onDoubleClick={this.editHandler}>
+        <div style={viewStyle}>
           <h2>{this.state.note.title}</h2>
           <p>{this.state.note.textBody}</p>
         </div>
         <input
           name="title"
           type="text"
-          style={editStyle}
-          onKeyDown={this.editSubmitHandler}
           onChange={this.ChangeHandler}
           value={this.state.editedText}
         />

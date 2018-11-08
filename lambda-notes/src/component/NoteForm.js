@@ -10,7 +10,6 @@ class NoteForm extends Component {
     };
   }
   addNote = event => {
-    const { history } = this.props;
     event.preventDefault();
     axios
       .post('https://fe-notes.herokuapp.com/note/create', this.state)
@@ -20,7 +19,7 @@ class NoteForm extends Component {
       title: '',
       textBody: ''
     });
-    history.push('/');
+    this.props.history.push('/');
   };
 
   changeHandler = event => {
