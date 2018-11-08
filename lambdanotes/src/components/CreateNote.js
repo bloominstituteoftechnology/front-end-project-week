@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios"; 
 import './CreateNote.css';
 
+
 class CreateNote extends Component {
 
     constructor(props) {
@@ -58,16 +59,7 @@ class CreateNote extends Component {
       handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
-//     constructor() {
-//         super();
-//         this.state = {
-//             note: {
-//                 title: '',
-//                 body: '',
-//             }
 
-//         }
-//     }
 
     render() {
         return (

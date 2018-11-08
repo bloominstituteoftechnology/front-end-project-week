@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
-import ListView from './components/ListView';
-import NoteView from './components/NoteView';
+// import ListView from './components/ListView';
+// import NoteView from './components/NoteView';
 import MainContent from './components/MainContent';
 import SideBar from './components/SideBar';
-import CreateNote from './components/CreateNote';
-
+// import CreateNote from './components/CreateNote';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 
@@ -39,13 +36,8 @@ class App extends Component {
     return (
       <div className='app-container'>
         <SideBar />
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header> */}
         <MainContent />
-        <Route path='/note/create' render={ (props) => { return(<CreateNote {...props} updateState={this.updateState} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} currentUser={this.state.currentUser} />)}} />
-    
-    
+        {/* <Route path='/note/create' render={ (props) => { return(<CreateNote {...props} updateState={this.updateState} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} currentUser={this.state.currentUser} />)}} /> */}
       </div>
     )
   }

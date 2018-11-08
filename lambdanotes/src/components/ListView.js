@@ -88,7 +88,7 @@ class ListView extends Component {
     constructor() {
         super()
         this.state = {
-            
+            notesArray: this.state
         }
     }
 
