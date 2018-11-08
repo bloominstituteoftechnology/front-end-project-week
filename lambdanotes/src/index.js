@@ -11,7 +11,11 @@ const interimReducer = (state = [], action) => state;
 const store = createStore(interimReducer)
 
 ReactDOM.render(
-    <Router>
-        <App />
-    </Router>, 
-    document.getElementById('root'));
+    (
+        <Provider store= { store }>
+            <Router>
+                <App />
+            </Router>
+        </Provider>
+     )
+     ,document.getElementById('root'));

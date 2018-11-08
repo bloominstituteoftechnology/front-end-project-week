@@ -4,6 +4,7 @@ import './App.css';
 
 import ListView from './components/ListView';
 import NoteView from './components/NoteView';
+import MainContent from './components/MainContent';
 import SideBar from './components/SideBar';
 import CreateNote from './components/CreateNote';
 
@@ -36,16 +37,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
+      <div className='app-container'>
         <SideBar />
-        <CreateNote />
-        <h1>Lambda Notes</h1>
-        <Route exact path= '/' render= {(props) => (<ListView {...props} notesData= {this.state.notesList} />)}/>
-        {/* <Route exact path = '/note/get/:_id' component= {NoteView} notesData= {this.state.notesList} /> */}
-        <Route exact path='/notes/:id' render= {(props) => (<NoteView {...props} notesData= {this.state.notesList} currentNote={this.state.currentNote}  />) } />
+        {/* <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </header> */}
+        <MainContent />
+        
+    
         
       </div>
     )
