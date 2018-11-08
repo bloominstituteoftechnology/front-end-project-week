@@ -25,7 +25,7 @@ class NoteForm extends React.Component {
     });
   };
    handleInputChange = event => {
-    this.setState({ [e.target.title]: e.target.value })''
+    this.setState({ [event.target.title]: event.target.value });
   };
    clickHandler = event => {
     event.preventDefault();

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import  { Route } from 'react-router-dom';
 import Notes from './components/Notes';
+import NoteForm from './components/NoteForm';
 import './styles.css';
 
 class App extends Component {
