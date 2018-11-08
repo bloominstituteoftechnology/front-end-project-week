@@ -34,15 +34,23 @@ class App extends Component {
       <div className="App">
         <Nav />
         <div className="content">
-          {/* d i s p l a y   n o t e s */}
+
+          {/* ### Display Notes ### */}
           <Route
             exact
             path="/"
             render={() => <Notes notes={this.state.notes.reverse()} />}
           />
-          {/* a d d  n o t e  */}
+
+          {/* ### Display Single Note ###  */}
+
+          {/* ### Add Notes ###  */}
           <Route path="/submit" component={NoteForm} />
-          <Notes notes={this.state.notes} />
+          {/* displays notes under add note form so you can see whats been added or reply to something */}
+         <Notes notes={this.state.notes} />
+
+          {/* ### Edit Notes ###  */}
+
         </div>
       </div>
     );
