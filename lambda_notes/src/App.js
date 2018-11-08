@@ -10,6 +10,7 @@ import ViewNote from "./components/ViewNote";
 import EditNote from "./components/EditNote";
 import Header from "./components/Navbar";
 import DeleteModal from "./components/DeleteModal";
+import Login from './components/Login';
 
 const MainContent = styled.div`
   padding: 4rem;
@@ -95,13 +96,12 @@ class App extends Component {
       <div
         style={{
           backgroundImage:
-            "linear-gradient( #e0e2e4, #c8ccce, #b1b7b6, #9da29d, #8c8c86)",
-            height:'100vh'
+            "linear-gradient( #e0e2e4, #c8ccce, #b1b7b6, #9da29d, #8c8c86)"
         }}
       >
-        <Header />
-        <Sidebar />
-        <MainContent>
+      <Header />
+      <Sidebar />
+      <MainContent>
           <Route
             exact
             path="/"
