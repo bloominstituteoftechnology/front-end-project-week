@@ -93,15 +93,17 @@ class Note extends React.Component {
       };
 
   render() { 
-    const id = this.props.match.params.id.slice(1);
+    // const id = this.props.match.params.id.slice(1);
  
-    const note = this.props.notes[id]
+    // const note = this.props.notes[id]
+
+    const {title, textBody, _id} = this.state.note
    
     
   return (
     <div>
         <div>
-            <NavLink to={`/edit-note/${id}`}>
+            <NavLink to={`/edit/${_id}`}>
             <p>edit</p>
             </NavLink>
             
@@ -126,13 +128,13 @@ class Note extends React.Component {
             <div onClick={this.closeModal}>
               No
             </div>
-
+              <div>
+                <h1>{title}</h1>
+                <p>{textBody}</p>
+              </div>
           </Modal>
 
-        <div>
-            <h1>{note.title}</h1>
-            <p>{note.textBody}</p>
-        </div>
+        
     </div>
    )
   }

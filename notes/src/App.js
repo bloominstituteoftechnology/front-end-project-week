@@ -239,17 +239,16 @@ class App extends Component {
           <Form {...props} addNote={this.addNote}/> }/>
 
             <Route 
-            path='/notes/:id' 
-            render={props => (
+            path='/note/:id' 
+            render={props => 
               <Note 
               {...props}
-              notes={this.state.notes}
               />
-            )}
+            }
           />
 
             <Route
-            path='/edit-note'
+            path='/edit'
             render={props =>
             <Edit {...props}/> 
           }/>
