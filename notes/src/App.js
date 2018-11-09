@@ -29,15 +29,26 @@ class App extends Component {
         console.error("Error getting notes data.", error);
       });
   }
+  
+  deleteNote = (e, id) => {
+    e.preventDefault();
+  
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        this.setState({notes: response.data})
+        this.props.history.push('/');
+      })
+      .catch(error => {
+        console.error("Failed to delete note.", error);
+      })
+  }
 
   render() {
     return (
       <div className="App">
-      {/*   <NoteList notes = {this.state.notes} />
-        <Menu /> */}
         <Route
-          exact
-          path="/"
+          exact path="/"
           render={props => <NoteList {...props} notes={this.state.notes} />}
         />
         <Route

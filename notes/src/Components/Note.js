@@ -9,7 +9,7 @@ class Note extends Component {
     this.state = {
       notes: [],
       note: {},
-      id: null
+      id: null,
     };   
   }
 
@@ -25,6 +25,11 @@ class Note extends Component {
         <div>
           <p>{note.title}</p>
           <p>{note.textBody}</p>
+       {/*    <button onClick={e => {
+            this.deleteNote(e, note.id);
+          }}>
+          Delete Note
+          </button>  */}
         </div>
       );
     }
@@ -32,7 +37,9 @@ class Note extends Component {
 
   render() {
 
-    return <div>{this.state.notes.map(note => this.fetchNote(note))}</div>;
+    return <div>
+              {this.state.notes.map(note => this.fetchNote(note))}
+            </div>;
 
   }
 }
