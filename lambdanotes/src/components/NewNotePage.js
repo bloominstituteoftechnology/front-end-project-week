@@ -1,7 +1,6 @@
-// Dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// Actions
+
 import { addNote } from '../actions';
 // Styles
 import {

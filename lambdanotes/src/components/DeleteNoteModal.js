@@ -1,8 +1,7 @@
-// Dependencies
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-// Actions
+
 import { deleteNote } from '../actions';
 // Styles
 import { StatusMessage, SubmitButton } from '../styles/SharedStyles';

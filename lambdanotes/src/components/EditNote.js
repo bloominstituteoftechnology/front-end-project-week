@@ -1,7 +1,6 @@
-// Dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// Actions
+
 import { updateNote } from '../actions';
 // Styles
 import {
@@ -15,7 +14,7 @@ class EditNote extends Component {
 	state = {
 		//tags: [],
 		title: '',
-		textBody: ''
+		textBody: '',
 	};
 
 	changeHandler = event => {

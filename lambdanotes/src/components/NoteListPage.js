@@ -13,14 +13,9 @@ import {
 	StatusMessage
 } from '../styles/SharedStyles';
 
-// const ListContainer = styled.div`
-// 	padding: 56px 8px 0 28px;
-// `;
-
 const NoteList = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	/* justify-content: space-between; */
 `;
 
 class NoteListPage extends Component {

@@ -1,12 +1,11 @@
-// Dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
-// Components
+
 import EditNote from './EditNote';
 import DeleteNoteModal from './DeleteNoteModal';
-// Actions
+
 import { getNote, resetRedirect } from '../actions';
 // Styles
 import {
