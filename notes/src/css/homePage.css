@@ -11,7 +11,7 @@
 .sideBarButtons {
     display: flex;
     flex-direction: column;
-    height: 150px;
+    height: 250px;
     justify-content: space-between;
     text-decoration: none;
 }

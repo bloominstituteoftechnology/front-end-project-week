@@ -7,6 +7,7 @@ import Note from "./components/Note";
 import CreateNote from "./components/CreateNote";
 import EditNote from "./components/EditNote";
 import OneNote from "./components/OneNote";
+import Search from "./components/Search";
 
 import "./App.css";
 
@@ -17,7 +18,8 @@ class App extends Component {
       notes: [],
       editTitle: "",
       editTextBody: "",
-      deleted: false
+      deleted: false,
+      search: ''
     };
   }
   componentDidMount = () => {
@@ -56,8 +58,11 @@ class App extends Component {
   deleteToggle = () => {
     this.setState({ deleted: !this.state.deleted })
   };
+
   
   render() {
+    let searchedNotes = this.state.notes.filter(note => 
+      note.title.toLowerCase().includes(this.state.search) || note.textBody.toLowerCase().includes(this.state.search));
     return (
       <div className="App">
         <Route path="/" component={HomePage} />
@@ -66,7 +71,9 @@ class App extends Component {
             <Note
               {...props}
               notes={this.state.notes}
-              deleteNote={this.deleteNote} />
+              deleteNote={this.deleteNote} 
+              search={this.state.search}
+              changeHandler={this.changeHandler}/>
           )}/>
         <Route path="/createnote" 
           render={props => (
@@ -95,6 +102,14 @@ class App extends Component {
               editTextBody={this.state.editTextBody}
               editNote={this.editNote}
               changeHandler={this.changeHandler} />
+          )} />
+        <Route path="/search"
+          render={props => (
+            <Search 
+            {...props}
+            search={this.state.search}
+            notes={searchedNotes}
+            changeHandler={this.changeHandler}/>
           )} />
         
       </div>

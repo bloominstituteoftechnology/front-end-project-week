@@ -17,6 +17,9 @@ const HomePage = () => {
             <NavLink className="sideBarButtons" to="/createnote">
               <button>+ Create New Note</button>
             </NavLink>
+            <NavLink className="sideBarButtons" to="/search">
+              <button>Search for a Note</button>
+            </NavLink>
           </div>
         </div>
    );
