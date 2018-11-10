@@ -1,6 +1,6 @@
 
 .sideBar {
-    width: 15%;
+    width: 100%;
     padding: 10px;
     background-color: #D2D1D2;
 }
@@ -26,11 +26,3 @@
 .container .notesBody {
     padding: 20px;
 }
-/* .yourNotes {
-    background-color: lightgray;
-}
-.note {
-    width: 60%;
-    border: 1px solid darkgray;
-    margin: 10px 0px;
-} */

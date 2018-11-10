@@ -1,11 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../css/homePage.css";
+import Note from './Note';
 
 
 const HomePage = () => {
   return ( 
-   
+   <div>
+
         <div className="sideBar">
           <NavLink className="lambdaTitle" to="/">
             <h1 className="lambdaTitle">Lambda <br></br> Notes</h1>
@@ -22,6 +24,7 @@ const HomePage = () => {
             </NavLink>
           </div>
         </div>
+   </div>
    );
 }
  
