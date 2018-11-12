@@ -19,6 +19,10 @@ export const singleNoteReducer = (state = initialState, action) => {
         ...state, 
         noteSelected: action.payload, 
         showUpdate: false };
+    case actionTypes.TOGGLE_DELETE_NOTE:
+      return { 
+        ...state, 
+        deleteNote: !state.deleteNote }
     case actionTypes.TOGGLE_UPDATE_NOTE:
       return { 
         ...state, 
@@ -30,4 +34,4 @@ export const singleNoteReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+}  

@@ -14,14 +14,11 @@ class DeleteModal extends React.Component {
     }
   }
 
-  componentDidMount() {
+
+  deleteNote = () => {
     const id = this.props.match.params.id;
     console.log("ID", id)
     this.props.deleteNote(id);
-  }
-
-  deleteNote = () => {
-    this.props.deleteNote();
   };
 
   render() {
@@ -31,21 +28,21 @@ class DeleteModal extends React.Component {
 
     return (
       <div className='note-view'>
-        <NavBar />
+        {/* <NavBar /> */}
         {/* <h1>ADD DROP DOWN MENU FOR DELETE</h1> */}
-        <div>
+        {/* <div> */}
         <h5>Are you sure you want to delete this?</h5>
-        {/* <button onClick={() => deleteNote(id)} >Delete</button> */}
-        <button onClick={() => deleteNote()} >Delete</button>
+
+        <button onClick={() => this.deleteNote()} >Delete</button>
         <a href='/'>no</a>
         
-        <div className='single-note-extended-container'>
+        {/* <div className='single-note-extended-container'>
           <div>
           </div>
           <h3>Note Title (need to update for each note)</h3>
           <p>Note Content (need to update for each note). No max length!!!</p>
-        </div> 
-        </div>
+        </div>  */}
+        {/* </div> */}
       </div>
     )
   }
@@ -60,6 +57,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-  deleteNote
+  deleteNote,
 })(DeleteModal);
 // export default DeleteModal;

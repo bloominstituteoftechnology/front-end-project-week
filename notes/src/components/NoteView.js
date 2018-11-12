@@ -2,10 +2,12 @@ import React from 'react';
 import NavBar from './NavBar';
 import SingleNote from './SingleNote';
 import { Link } from 'react-router-dom';
+import DeleteModal from './DeleteModal';
+import { connect } from 'react-redux';
+import { toggleDeleteNote } from '../actions';
 
 const NoteView = props => {
 
-  //
 
   return (
     <div className='note-view'>
@@ -16,25 +18,42 @@ const NoteView = props => {
         <Link to={`/note/edit/${props.note._id}`} className='edit-view'>
         edit
           </Link>
-          {/* <Link to="/EditView" className='edit-view'>
-            edit
-          </Link> */}
-          <Link to={`/note/delete/${props.note._id}`} className='delete-modal'>
+          <button 
+            className='delete-modal' 
+            onClick={props.toggleDeleteNote}>
           delete
-          </Link>
-          {/* <button>edit</button> */}
-          {/* <button>delete</button> */}
+          </button>
         </div>
         <ul>
+
           <SingleNote note={props.note}/>
+
         </ul>
-        {/* <h3>Note Title (need to update for each note)</h3>
-        <p>Note Content (need to update for each note). No max length!!!</p> */}
       </div> 
+      {props.deleteNote
+        ? <DeleteModal note={props.note} />
+        : undefined }
     </div>
   )
 }
 
-export default NoteView;
+const mapStateToProps = state => {
+  console.log('STATE', state)
+  return {
+    note: state.singleFlatNote.noteSelected,
+    // error: state.singleFlatNote.error,
+    // fetching: state.singleFlatNote.fetching,
+    // showUpdate: state.singleFlatNote.showUpdate,
+    deleteNote: state.singleFlatNote.deleteNote
+  }
+}
+
+export default connect(
+  mapStateToProps, {
+    toggleDeleteNote,
+  }
+)(NoteView)
+
+// export default NoteView;
 // this.props if it is a class b/c state would be declared b/c instance
 // props when it is a fn like here.

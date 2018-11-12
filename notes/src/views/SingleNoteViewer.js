@@ -20,9 +20,14 @@ class SingleNoteViewer extends React.Component {
     if (this.props.note) {
       console.log('this.props.note', this.props.note)
       return (
-        this.props.showUpdate
+        <div>
+        {this.props.showUpdate
         ? <EditView note={this.props.note} />
-        : <NoteView note={this.props.note} />
+        : <NoteView note={this.props.note} />}
+        {/* {this.props.deleteNote
+        ? <DeleteModal note={this.props.note} />
+        : undefined } */}
+        </div>
       )
     } else {
       return (
@@ -38,7 +43,8 @@ const mapStateToProps = state => {
     note: state.singleFlatNote.noteSelected,
     error: state.singleFlatNote.error,
     fetching: state.singleFlatNote.fetching,
-    showUpdate: state.singleFlatNote.showUpdate
+    showUpdate: state.singleFlatNote.showUpdate,
+    deleteNote: state.singleFlatNote.deleteNote
   }
 }
 

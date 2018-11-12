@@ -8,9 +8,13 @@ export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const DELETE_NOTE_SUCCESS= 'DELETE_NOTE_SUCCESS';
 export const UPDATE_NOTE_SUCCESS= 'UPDATE_NOTE_SUCCESS';
 
+export const TOGGLE_DELETE_NOTE = 'TOGGLE_DELETE_NOTE';
+
 export const TOGGLE_UPDATE_NOTE = 'TOGGLE_UPDATE_NOTE';
 
 export const SINGLE_NOTE = 'SINGLE_NOTE';
+
+
 
 
 const url = 'https://fe-notes.herokuapp.com/note/'
@@ -111,6 +115,11 @@ export const updateNote = updatedNote => dispatch => {
     })
 }
 
+export const toggleDeleteNote = () => {
+  return {
+    type: TOGGLE_DELETE_NOTE
+  }
+}
 
 export const toggleShowUpdate = () => {
   return {
