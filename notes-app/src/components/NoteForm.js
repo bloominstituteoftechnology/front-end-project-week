@@ -33,7 +33,7 @@ class NoteForm extends Component {
     return (
       <div>
         <Navigation />
-
+        <h2>{this.props.isEditing ? 'Edit Note' : 'Add Note'}</h2>
         <form onSubmit={this.addNote}>
           <label for='name'>Title: </label>
           <input 

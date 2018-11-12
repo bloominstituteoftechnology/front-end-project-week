@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
-//import DeleteModal from './DeleteModal';
+//import { Route } from 'react-router-dom';
+import DeleteModal from './DeleteModal';
+import NoteForm from './NoteForm';
 import axios from 'axios';
 
 class NoteCard extends Component {
@@ -8,7 +9,10 @@ class NoteCard extends Component {
     super(props);
     this.state = {
       note: [],
+      title: '',
+      textBody:'',
       deleting: false,
+      isEditing: false,
     }
   }
 
@@ -68,8 +72,8 @@ class NoteCard extends Component {
         <div className='singleNote'>
           <div>{this.state.note.title}</div>
           <div>{this.state.note.textBody}</div>
-          <button onClick={this.toggleDeleting}>delete</button>
-          <button>edit</button>
+          <button onClick={this.isEditing}>edit</button>
+          <button onClick={this.deleting}>delete</button>
         </div>
       )
   }
