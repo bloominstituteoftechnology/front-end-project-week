@@ -9,8 +9,8 @@ class Dashboard extends Component{
 <NoteList />
 </div>
 </div>
-
-         ) }
+  ) 
+}
 }
 
 export default Dashboard;
