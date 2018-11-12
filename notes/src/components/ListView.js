@@ -12,10 +12,8 @@ const ListView = props => {
           <ul>
             {props.notes.map(note => {
               return <SingleNote 
-                id={note.id} 
-                key={note.title} 
-
-                editNoteHandler={() => props.editNoteHandler(note)}
+                id={note._id} 
+                key={note._id} 
                 note={note} 
                 />
             })}
@@ -25,6 +23,5 @@ const ListView = props => {
   )
 }
 
-                {/* toggleShowUpdate={() => props.toggleShowUpdate} */}
 
 export default ListView;

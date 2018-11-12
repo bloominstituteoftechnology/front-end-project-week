@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { SingleNote } from '../components';
+import { EditView, NoteView } from '../components';
 import { getSingleNote } from '../actions';
 
 class SingleNoteViewer extends React.Component {
@@ -20,10 +20,9 @@ class SingleNoteViewer extends React.Component {
     if (this.props.note) {
       console.log('this.props.note', this.props.note)
       return (
-        <div>
-          <SingleNote 
-          note={this.props.note} />
-        </div>
+        this.props.showUpdate
+        ? <EditView note={this.props.note} />
+        : <NoteView note={this.props.note} />
       )
     } else {
       return (
@@ -38,7 +37,8 @@ const mapStateToProps = state => {
   return {
     note: state.singleFlatNote.noteSelected,
     error: state.singleFlatNote.error,
-    fetching: state.singleFlatNote.fetching
+    fetching: state.singleFlatNote.fetching,
+    showUpdate: state.singleFlatNote.showUpdate
   }
 }
 

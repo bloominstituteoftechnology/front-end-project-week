@@ -12,13 +12,17 @@ class NoteListViewer extends React.Component {
     this.props.getNotes();
   }
 
+
+
+
+
   render() {
     if (this.props.fetching) {
       return <h2>Fetching best &#9835;</h2>;
     }
     return (
       <div>
-        <ListView editNoteHandler={this.props.editNoteHandler} notes={this.props.notes} />
+        <ListView notes={this.props.notes} />
       </div>
     )
   }
