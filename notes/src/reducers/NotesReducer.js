@@ -25,7 +25,7 @@ export const notesReducer = (state = initialState, action) => {
       console.log('FETCH SUCCESS', action.payload)
       return {
         ...state,
-        notes: [...state.notes, ...action.payload],
+        notes: [...action.payload],
         fetching: false
       };
     case actionTypes.ADD_NOTE_SUCCESS:
