@@ -17,6 +17,7 @@ align-items:center;
 width:100%;
 height:70px;
 background-color:#fff;
+margin-bottom:20px;
 `;
 
 export const Nav = styled.div`
@@ -51,11 +52,24 @@ background-color:darkgrey;
 
 export const Mainbar = styled.div`
 display:flex;
-flex-direction:column
-justify-content:center;
-align-items:center;
+flex-flow:row wrap;
+justify-content:space-evenly;
+//align-items:center;
 width:75%;
 max-width:855px;
 //border:1px dotted black;
 height:800px;
+`;
+
+export const Notecard = styled.div`
+display:flex;
+flex-direction:column
+// justify-content:center;
+// align-items:center;
+width:100%;
+max-width:265px;
+height:265px;
+padding:10px;
+marging-top:15px;
+border:1px solid lightgray;
 `;

@@ -5,10 +5,11 @@ import { Wrapper } from '../../style/style';
 
 class Home extends Component {
   render() { 
+    console.log(this.props.notes)
     return ( 
       <Wrapper>
       <Side/>
-      <Main/>
+      <Main notes={this.props.notes}/>
       </Wrapper>
     );
   }
