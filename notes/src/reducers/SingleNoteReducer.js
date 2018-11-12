@@ -8,7 +8,8 @@ import * as actionTypes from '../actions';
 
 const initialState = {
   noteSelected: null,
-  showUpdate: false
+  showUpdate: false,
+  deleteNote: false
 }
 
 export const singleNoteReducer = (state = initialState, action) => {
@@ -22,6 +23,10 @@ export const singleNoteReducer = (state = initialState, action) => {
       return { 
         ...state, 
         showUpdate: !state.noteSelected }
+    case actionTypes.DELETE_NOTE_SUCCESS:
+      return { 
+        ...state,
+        noteSelected: null }
     default:
       return state;
   }

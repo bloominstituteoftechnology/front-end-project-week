@@ -1,37 +1,65 @@
 import React from 'react';
 import NavBar from './NavBar';
+import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
 
-const DeleteModal = props => {
+// const DeleteModal = props => {
+class DeleteModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: '',
+      title: '',
+      textBody: ''
+    }
+  }
 
-  console.log(props)
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    console.log("ID", id)
+    this.props.deleteNote(id);
+  }
 
-  return (
-    <div className='note-view'>
-      <NavBar />
-      {/* <h1>ADD DROP DOWN MENU FOR DELETE</h1> */}
-      <h5>Are you sure you want to delete this?</h5>
-      <button onClick={() => props.deleteNote()} >Delete</button>
-      <form>
-        {/* <button onClick={()} >No</button> */}
-        <input 
-          type='button' 
-          value='No'
-        />
-      </form>
-      
-      <div className='single-note-extended-container'>
+  deleteNote = () => {
+    this.props.deleteNote();
+  };
+
+  render() {
+    // console.log('DELETE PROPS', props)
+    // const id = props.match.params.id;
+    // console.log('PARAMS ID', id)
+
+    return (
+      <div className='note-view'>
+        <NavBar />
+        {/* <h1>ADD DROP DOWN MENU FOR DELETE</h1> */}
         <div>
-          {/* <a href='#'>edit</a> */}
-          {/* <a href='#'>delete</a> */}
+        <h5>Are you sure you want to delete this?</h5>
+        {/* <button onClick={() => deleteNote(id)} >Delete</button> */}
+        <button onClick={() => deleteNote()} >Delete</button>
+        <a href='/'>no</a>
+        
+        <div className='single-note-extended-container'>
+          <div>
+          </div>
+          <h3>Note Title (need to update for each note)</h3>
+          <p>Note Content (need to update for each note). No max length!!!</p>
+        </div> 
         </div>
-        <h3>Note Title (need to update for each note)</h3>
-        <p>Note Content (need to update for each note). No max length!!!</p>
-      </div> 
-    </div>
-  )
+      </div>
+    )
+  }
+}
+const mapStateToProps = state => {
+  return {
+    // notes: state.notes,
+    note: state.singleFlatNote.noteSelected,
+    showUpdate: state.singleFlatNote.showUpdate,
+    deleteNote: state.singleFlatNote.deleteNote
+  }
 }
 
-export default DeleteModal;
-
-// line 22          {/* onClick='window.location.href=#' */}
+export default connect(mapStateToProps, {
+  deleteNote
+})(DeleteModal);
+// export default DeleteModal;

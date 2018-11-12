@@ -19,7 +19,6 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        {/* <NavBar /> */}
         <div className='ListViewRouters'>
           <Route 
             exact path="/" 
@@ -41,13 +40,6 @@ class App extends Component {
             render={props => <DeleteModal {...props}
             notes={this.state.notes} />} />
         </div>
-        {/* https://fe-notes.herokuapp.com/note/edit/id */}
-      {/* <NoteListViewers />  */}
-                  {/* <ListView /> */}
-      {/* <CreateNewView /> */}
-                  {/* <NoteView /> */}
-      {/* <EditView /> */}
-      {/* <DeleteModal /> */}
       </div>
     )
   }

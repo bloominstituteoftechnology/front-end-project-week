@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
 import { updateNote } from '../actions';
 
+
 class EditView extends React.Component {
   constructor(props) {
     super(props);
@@ -46,9 +47,6 @@ class EditView extends React.Component {
         <NavBar />
         <div className='create-new-note'>
           <h2>Edit Note:</h2>
-          <Link to="/SingleNoteViewer" className='nav-button'>
-           HERE
-          </Link>
           <input 
             onChange={this.handleNoteInput}
             type='text'

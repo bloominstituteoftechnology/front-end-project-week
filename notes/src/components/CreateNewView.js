@@ -3,12 +3,6 @@ import NavBar from './NavBar';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
 
-
-// need to remove 8 SingleNote components once it is dynamic done now for layout purposes.
-
-let nextNoteId = Math.random().toFixed(5) * 100000;
-// replace after researching id.
-
 class CreateNewView extends React.Component {
   constructor(props) {
     super(props);
