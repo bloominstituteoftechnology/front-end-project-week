@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import { NoteListViewers } from "./views";
+import { NoteListViewers, SingleNoteViewer } from "./views";
 import { SingleNote, NoteView, ListView, EditView, NavBar, CreateNewView, DeleteModal } from './components' ;
 import "./App.css";
-// import { Route } from 'react-router-dom';
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, NavLink, Link } from 'react-router-dom';
 
-// to do WrongURL
 
+const targets = ['note-view'];
 
 class App extends Component {
   constructor(props) {
@@ -16,27 +15,34 @@ class App extends Component {
       note: ''
     }
   }
+
   render() {
     return (
-      <div className='ENTIRE SITE'>
-      {/* <NavBar />
-      <Switch>
-        <div className='Nav-Bar-2'>
-          <Route exact path = '/listview' component={ListView} />
-          <Route exact path = '/editview' component={EditView} />
+      <div className='App'>
+        {/* <NavBar /> */}
+        <div className='ListViewRouters'>
+          <Route 
+            exact path="/" 
+            component={NoteListViewers} />
+          <Route 
+            exact path='/CreateNewView' 
+            render={props => <CreateNewView {...props} 
+            notes={this.state.notes} />} />
+          <Route 
+            path = '/note/:id'
+            render={props => <SingleNoteViewer {...props}
+            notes={this.state.notes} />} />
         </div>
-      </Switch> */}
-      <NoteListViewers />
-        {/* <ListView /> */}
-        <CreateNewView />
-        {/* <NoteView /> */}
-        <EditView />
-        <DeleteModal />
-
-
+      {/* <NoteListViewers />  */}
+                  {/* <ListView /> */}
+      {/* <CreateNewView /> */}
+                  {/* <NoteView /> */}
+      {/* <EditView /> */}
+      {/* <DeleteModal /> */}
       </div>
     )
   }
 }
 
 export default App;
+// path = '/notes/:id' 

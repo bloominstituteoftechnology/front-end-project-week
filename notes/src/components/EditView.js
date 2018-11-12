@@ -1,12 +1,14 @@
 import React from 'react';
-import NavBar from './NavBar';
 import { connect } from 'react-redux';
-import { addNote } from '../actions';
+import { Link } from 'react-router-dom';
+import NavBar from './NavBar';
+import { updateNote } from '../actions';
 
 class EditView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: '',
       title: '',
       textBody: ''
     }
@@ -17,14 +19,14 @@ class EditView extends React.Component {
   };
 
   editNoteHandler = e => {
-    const { title, textBody, id } = this.state; // more research how to handle id on edits?
+    const { title, textBody, id } = this.state; 
     const newNote = {
       title,
       textBody,
       id
     };
     // console.log(newNote)
-    this.props.addNote(newNote);
+    this.props.updateNote(newNote);
     this.setState({
       title: '',
       textBody: ''
@@ -37,6 +39,9 @@ class EditView extends React.Component {
         <NavBar />
         <div className='create-new-note'>
           <h2>Edit Note:</h2>
+          <Link to="/SingleNoteViewer" className='nav-button'>
+          View Your Notes
+        </Link>
           <input 
           onChange={this.handleNoteInput}
           type='text'
@@ -67,5 +72,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-  addNote
+  updateNote
 })(EditView);

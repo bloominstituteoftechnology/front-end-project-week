@@ -18,7 +18,7 @@ class NoteListViewer extends React.Component {
     }
     return (
       <div>
-        <ListView notes={this.props.notes} />
+        <ListView editNoteHandler={this.props.editNoteHandler} notes={this.props.notes} />
       </div>
     )
   }

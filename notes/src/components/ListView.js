@@ -11,12 +11,20 @@ const ListView = props => {
           <h2>Your Notes:</h2>
           <ul>
             {props.notes.map(note => {
-              return <SingleNote id={note.id} key={note.title} note={note} />
+              return <SingleNote 
+                id={note.id} 
+                key={note.title} 
+
+                editNoteHandler={() => props.editNoteHandler(note)}
+                note={note} 
+                />
             })}
           </ul>
         </div>
       </div>
   )
 }
+
+                {/* toggleShowUpdate={() => props.toggleShowUpdate} */}
 
 export default ListView;

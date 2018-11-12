@@ -1,9 +1,16 @@
 {
+  "scripts": {
+    "start": "nodemon"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "react-redux": "^5.1.0",
+    "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
   }
 }

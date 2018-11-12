@@ -18,11 +18,13 @@ class CreateNewView extends React.Component {
     }
   }
 
+
   handleNoteInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   addNoteHandler = e => {
+    e.preventDefault();
     const { title, textBody } = this.state;
     const newNote = {
       title,

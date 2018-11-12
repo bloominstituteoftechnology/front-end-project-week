@@ -7,13 +7,13 @@
 import * as actionTypes from '../actions';
 
 const initialState = {
-  noteSelected: {},
+  noteSelected: null,
   showUpdate: false
 }
 
 export const singleNoteReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SINGLE_NOTE:
+    case actionTypes.FETCH_SINGLE_NOTE_SUCCESS:
       return { 
         ...state, 
         noteSelected: action.payload, 
@@ -21,7 +21,7 @@ export const singleNoteReducer = (state = initialState, action) => {
     case actionTypes.TOGGLE_UPDATE_NOTE:
       return { 
         ...state, 
-        noteSelected: !state.noteSelected }
+        showUpdate: !state.noteSelected }
     default:
       return state;
   }

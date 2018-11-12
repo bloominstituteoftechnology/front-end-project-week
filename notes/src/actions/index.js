@@ -1,12 +1,16 @@
 import axios from 'axios';
 export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCH_NOTES_SUCCESS = 'FETCH_NOTES_SUCCESS';
+export const FETCH_SINGLE_NOTE = 'FETCH_SINGLE_NOTE';
+export const FETCH_SINGLE_NOTE_SUCCESS = 'FETCH_SINGLE_NOTE_SUCCESS';
 export const ERROR = 'ERROR';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
-export const SINGLE_NOTE = 'SINGLE_NOTE';
-export const TOGGLE_UPDATE_NOTE = 'TOGGLE_UPDATE_NOTE';
 export const DELETE_NOTE_SUCCESS= 'DELETE_NOTE_SUCCESS';
 export const UPDATE_NOTE_SUCCESS= 'UPDATE_NOTE_SUCCESS';
+
+export const TOGGLE_UPDATE_NOTE = 'TOGGLE_UPDATE_NOTE';
+
+export const SINGLE_NOTE = 'SINGLE_NOTE';
 
 
 const url = 'https://fe-notes.herokuapp.com/note/'
@@ -18,6 +22,24 @@ export const getNotes = () => dispatch => {
     .then(response => {
       dispatch({
         type: FETCH_NOTES_SUCCESS,
+        payload: response.data
+      })
+    })
+    .catch(error => {
+      dispatch({
+        type: ERROR,
+        payload: error
+      })
+    })
+}
+
+export const getSingleNote = id => dispatch => {
+  dispatch({ type: FETCH_SINGLE_NOTE })
+  axios
+    .get(`${url}get/${id}`)
+    .then(response => {
+      dispatch({
+        type: FETCH_SINGLE_NOTE_SUCCESS,
         payload: response.data
       })
     })
@@ -70,16 +92,16 @@ export const deleteNote = id => dispatch => {
 
 export const updateNote = updatedNote => dispatch => {
   axios
-    .put(`${url}note/${updatedNote.id}`, updatedNote)
+    // .put(`${url}note/${updatedNote.id}`, updatedNote)
     .then(response => {
       dispatch({
         type: UPDATE_NOTE_SUCCESS,
         payload: response.data
       })
-    //   dispatch({
-    //     type: SINGLE_NOTE, 
-    //     payload: {}
-    //   })
+      // dispatch({
+      //   type: SINGLE_NOTE, 
+      //   payload: {}
+      // })
     })
     .catch(error => {
       dispatch({
@@ -89,16 +111,17 @@ export const updateNote = updatedNote => dispatch => {
     })
 }
 
-export const updateSingleNote = note => {
-  return {
-    type: SINGLE_NOTE,
-    payload: note
-  }
-}
 
 export const toggleShowUpdate = () => {
   return {
     type: TOGGLE_UPDATE_NOTE
+  }
+}
+
+export const updateSingleNote = note => {
+  return {
+    type: SINGLE_NOTE,
+    payload: note
   }
 }
 
