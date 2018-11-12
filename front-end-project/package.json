@@ -1,0 +1,36 @@
+{
+  "name": "front-end-project",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "auth0-js": "^9.8.1",
+    "auth0-lock": "^11.11.0",
+    "axios": "^0.18.0",
+    "dragula": "^3.7.2",
+    "emotion": "^9.2.10",
+    "emotion-theming": "^9.2.9",
+    "gsap": "^2.0.2",
+    "react": "^16.5.2",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
+    "react-dom": "^16.5.2",
+    "react-dragula": "^1.1.17",
+    "react-emotion": "^9.2.10",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.1.1",
+    "react-transition-group": "^2.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
