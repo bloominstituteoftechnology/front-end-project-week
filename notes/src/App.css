@@ -2,3 +2,31 @@ html{
   font-size: 62.5%;
   box-sizing: border-box;
 }
+
+.logo a img{
+ width:150px;
+}
+
+.actions{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  margin-top:15px;
+}
+
+.actions button {
+  margin-top:15px;
+}
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+}
+
+.footer p{
+  margin-top:30px;
+  color:lightgray;
+}

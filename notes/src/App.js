@@ -6,6 +6,12 @@ import Home from './components/Home/home';
 import { Container } from './style/style';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      notes:[]
+    }
+  }
   render() {
     return (
     <>

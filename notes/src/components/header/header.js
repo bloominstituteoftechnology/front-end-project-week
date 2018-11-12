@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, HeaderNav, Nav } from '../../style/style';
 import { NavLink } from 'react-router-dom';
+import logo from '../../../src/logo.png';
 
 
 class Header extends Component {
@@ -10,7 +11,7 @@ class Header extends Component {
         <HeaderNav>
           <div className='logo'>
             <NavLink to ='/home'>
-            <h1>Lambda<span>Note</span></h1>
+             <img src={logo} alt="logo"/>
             </NavLink>
           </div>
           <Nav>

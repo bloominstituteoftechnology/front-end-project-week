@@ -6,7 +6,7 @@ flex-direction:column;
 margin:0 auto;
 width:100%;
 max-width:1140px;
-border:1px dotted red;
+//border:1px dotted red;
 `;
 
 export const HeaderNav = styled.div`
@@ -33,18 +33,20 @@ flex-direction:row;
 margin:0 auto;
 width:100%;
 max-width:1140px;
-border:1px dotted red;
+//border:1px dotted red;
 `;
 
 export const Sidebar =styled.div`
 display:flex;
 flex-direction:column
-justify-content:center;
-align-items:center;
+//justify-content:center;
+//align-items:center;
 width:25%;
 max-width:265px;
 border:1px dotted black;
+padding:35px;
 height:800px;
+background-color:darkgrey;
 `;
 
 export const Mainbar = styled.div`
@@ -54,6 +56,6 @@ justify-content:center;
 align-items:center;
 width:75%;
 max-width:855px;
-border:1px dotted black;
+//border:1px dotted black;
 height:800px;
 `;
