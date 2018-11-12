@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink} from 'react-router-dom';
+
 
 
 const SignedInLinks = () => {
   return(
       <ul> 
-          <li>
-
-          </li>
+          <li><NavLink to="/">View Your Notes </NavLink></li>
+          <li><NavLink to="/">New Note </NavLink></li>
+          <li><NavLink to="/">Log Out </NavLink></li>
       </ul>
     )
 }
