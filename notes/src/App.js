@@ -29,10 +29,19 @@ class App extends Component {
             render={props => <CreateNewView {...props} 
             notes={this.state.notes} />} />
           <Route 
-            path = '/note/:id'
+            exact path = '/note/:id'
             render={props => <SingleNoteViewer {...props}
             notes={this.state.notes} />} />
+            <Route 
+            path = '/note/edit/:id'
+            render={props => <EditView {...props}
+            notes={this.state.notes} />} />
+            <Route 
+            path = '/note/delete/:id'
+            render={props => <DeleteModal {...props}
+            notes={this.state.notes} />} />
         </div>
+        {/* https://fe-notes.herokuapp.com/note/edit/id */}
       {/* <NoteListViewers />  */}
                   {/* <ListView /> */}
       {/* <CreateNewView /> */}

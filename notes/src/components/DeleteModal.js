@@ -1,12 +1,10 @@
 import React from 'react';
 import NavBar from './NavBar';
-
-
-
+import { deleteNote } from '../actions';
 
 const DeleteModal = props => {
 
-  //
+  console.log(props)
 
   return (
     <div className='note-view'>
@@ -19,7 +17,6 @@ const DeleteModal = props => {
         <input 
           type='button' 
           value='No'
-
         />
       </form>
       

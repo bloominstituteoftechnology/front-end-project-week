@@ -14,19 +14,25 @@ class EditView extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    console.log("ID", id)
+    this.props.updateNote(id);
+  }
+
   handleNoteInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   editNoteHandler = e => {
-    const { title, textBody, id } = this.state; 
-    const newNote = {
+    const { title, textBody } = this.state;const id = this.props.match.params.id;
+    const updatedNote = {
       title,
       textBody,
       id
     };
-    // console.log(newNote)
-    this.props.updateNote(newNote);
+    console.log('UPDATED NOTE', updatedNote)
+    this.props.updateNote(updatedNote);
     this.setState({
       title: '',
       textBody: ''
@@ -34,27 +40,28 @@ class EditView extends React.Component {
   };
 
   render () {
+    console.log('THIS.PROPS', this.props)
     return (
       <div className='create-new-view'>
         <NavBar />
         <div className='create-new-note'>
           <h2>Edit Note:</h2>
           <Link to="/SingleNoteViewer" className='nav-button'>
-          View Your Notes
-        </Link>
+           HERE
+          </Link>
           <input 
-          onChange={this.handleNoteInput}
-          type='text'
-          name='title'
-          placeholder='Note Title'
-          value={this.state.title}
+            onChange={this.handleNoteInput}
+            type='text'
+            name='title'
+            placeholder='Note Title'
+            value={this.state.title}
           />
           <input 
-          onChange={this.handleNoteInput}
-          type='text'
-          name='textBody'
-          placeholder='Note Content'
-          value={this.state.textBody}
+            onChange={this.handleNoteInput}
+            type='text'
+            name='textBody'
+            placeholder='Note Content'
+            value={this.state.textBody}
           />
           <button type='button' onClick={this.editNoteHandler}>Update</button>
         </div>
@@ -67,7 +74,8 @@ class EditView extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
+    note: state.singleFlatNote.noteSelected,
+    showUpdate: state.singleFlatNote.showUpdate
   }
 }
 

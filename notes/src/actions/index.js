@@ -92,7 +92,7 @@ export const deleteNote = id => dispatch => {
 
 export const updateNote = updatedNote => dispatch => {
   axios
-    // .put(`${url}note/${updatedNote.id}`, updatedNote)
+    .put(`${url}edit/${updatedNote.id}`, updatedNote)
     .then(response => {
       dispatch({
         type: UPDATE_NOTE_SUCCESS,

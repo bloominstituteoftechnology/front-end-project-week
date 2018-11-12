@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import SingleNote from './SingleNote';
+import { Link } from 'react-router-dom';
 
 const NoteView = props => {
 
@@ -11,8 +12,18 @@ const NoteView = props => {
       <NavBar />
       <div className='single-note-extended-container'>
         <div>
-          <button>edit</button>
-          <button>delete</button>
+        
+        <Link to={`/note/edit/${props.note._id}`} className='edit-view'>
+        edit
+          </Link>
+          {/* <Link to="/EditView" className='edit-view'>
+            edit
+          </Link> */}
+          <Link to={`/note/delete/${props.note._id}`} className='delete-modal'>
+          delete
+          </Link>
+          {/* <button>edit</button> */}
+          {/* <button>delete</button> */}
         </div>
         <ul>
           <SingleNote note={props.note}/>
