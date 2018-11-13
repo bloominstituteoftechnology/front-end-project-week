@@ -46,7 +46,7 @@ width:100%;
 max-width:265px;
 border:1px dotted black;
 padding:35px;
-height:800px;
+height:825px;
 background-color:darkgrey;
 `;
 
@@ -82,4 +82,13 @@ width:100%;
 max-width:855px;
 padding:10px;
 //border:1px solid red;
+`;
+
+export const NoteContainer = styled.div`
+display:flex;
+flex-direction:column;
+justify-content:flex-start;
+width:100%;
+max-width:855px;
+padding:10px;
 `;

@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 class Note extends Component {
   render() { 
-    console.log(this.props.notes)
+    console.log(this.props.notes.id)
     const {id, title, content } = this.props.notes
     return ( 
       <Notecard>
         <div className="title">
-        <Link to={`/note/${id}`}>
+        <Link to={`/note/${id}/details`}>
         <p>{title}</p>
         </Link>
         </div>

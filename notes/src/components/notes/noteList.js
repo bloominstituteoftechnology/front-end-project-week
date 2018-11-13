@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Note from './note';
+import { Mainbar } from '../../style/style';
 
 
 class NoteList extends Component {
@@ -9,13 +10,13 @@ class NoteList extends Component {
       return <p>Please create a note </p>
     } 
     return (
-      <>
+      <Mainbar>
       {this.props.notes.map(note =>{
         return[
         <Note key={note.id} notes={note}/>
         ]
       })}
-      </> 
+      </Mainbar> 
     );
   }
 }
