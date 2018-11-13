@@ -42,7 +42,7 @@ display:flex;
 flex-direction:column
 //justify-content:center;
 //align-items:center;
-width:25%;
+width:100%;
 max-width:265px;
 border:1px dotted black;
 padding:35px;
@@ -53,12 +53,12 @@ background-color:darkgrey;
 export const Mainbar = styled.div`
 display:flex;
 flex-flow:row wrap;
-justify-content:space-evenly;
+justify-content:space-around;
 //align-items:center;
-width:75%;
+width:100%;
 max-width:855px;
 //border:1px dotted black;
-height:800px;
+height:auto;
 `;
 
 export const Notecard = styled.div`
@@ -70,6 +70,16 @@ width:100%;
 max-width:265px;
 height:265px;
 padding:10px;
-marging-top:15px;
+margin-bottom:15px;
 border:1px solid lightgray;
+`;
+
+export const FormContainer = styled.div`
+display:flex;
+flex-direction:column;
+justify-content:flex-start;
+width:100%;
+max-width:855px;
+padding:10px;
+//border:1px solid red;
 `;

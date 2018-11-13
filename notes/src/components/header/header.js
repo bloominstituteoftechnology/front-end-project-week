@@ -10,7 +10,7 @@ class Header extends Component {
       <Container>
         <HeaderNav>
           <div className='logo'>
-            <NavLink to ='/home'>
+            <NavLink to ='/'>
              <img src={logo} alt="logo"/>
             </NavLink>
           </div>

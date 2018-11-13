@@ -107,9 +107,41 @@ a{
 .content p{
   width:250px;
   height:210px;
+  font-weight: lighter;
 }
 .truncate{
   white-space:pre-wrap;
   overflow: hidden;         /* <- this does seem to be required */
   text-overflow: ellipsis;
+}
+
+.form-title{
+  font-size:2.0rem;
+  font-weight: bold;
+  margin:50px 0px 15px 0px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+textarea {
+  width: 75%;
+  height: 450px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: #f8f8f8;
+  resize: none;
+  outline: none;
+  margin-bottom:8px;
+}
+
+input[type=text] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+  outline:none;
 }

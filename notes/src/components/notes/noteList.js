@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Note from './note';
 
+
 class NoteList extends Component {
   render() {
     console.log(this.props.notes)
@@ -10,7 +11,9 @@ class NoteList extends Component {
     return (
       <>
       {this.props.notes.map(note =>{
-        return <Note key={note.id} notes={note}/>
+        return[
+        <Note key={note.id} notes={note}/>
+        ]
       })}
       </> 
     );
