@@ -82,6 +82,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navigation />
+        <Route exact path="/" render={ props => (
+          <Notes {...props} notes={this.state.notes} delete={this.deleteNote} />
+        )} />
+        <Route path="/notes/:id" render={props => (
+          <NoteCard {...props} />
+        )} />
+        <Route exact path="/notes/:id/edit" render={props => (
+          <EditForm {...props} notes={this.state.notes} editNote={this.editNote} inputHandler={this.inputHandler} updateTitle={this.state.updateTitle} updateTextBody={this.state.updateTextBody} />
+        )} />
+        <Route path="/new-note" render={ props => (
+          <NewForm {...props} addNote={this.addNote} inputHandler={this.inputHandler} title={this.state.title} textBody={this.state.textBody} />
+        )} />
       </div>
     );
   }
