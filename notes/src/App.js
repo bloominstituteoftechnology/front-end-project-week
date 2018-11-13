@@ -33,6 +33,17 @@ class App extends Component {
       });
   }
 
+  componentDidUpdate() {
+    axios
+      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })
+      .catch(error => {
+        console.error('Server Error', error);
+      });
+  }
+
   addNote = (newNote) => {
     axios
         .post('https://killer-notes.herokuapp.com/note/create', {
