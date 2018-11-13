@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { NoteListViewers, SingleNoteViewer } from "./views";
-import { SingleNote, NoteView, ListView, EditView, NavBar, CreateNewView, DeleteModal } from './components' ;
+import { EditView, CreateNewView, DeleteModal } from './components' ;
 import "./App.css";
 
-import { Route, Switch, NavLink, Link } from 'react-router-dom';
-
-
-const targets = ['note-view'];
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {

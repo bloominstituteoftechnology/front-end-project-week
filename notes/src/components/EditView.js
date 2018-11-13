@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
 import { updateNote } from '../actions';
 
@@ -17,7 +17,6 @@ class EditView extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    console.log("ID", id)
     this.props.updateNote(id);
   }
 
@@ -32,7 +31,6 @@ class EditView extends React.Component {
       textBody,
       id
     };
-    console.log('UPDATED NOTE', updatedNote)
     this.props.updateNote(updatedNote);
     this.setState({
       title: '',
@@ -41,7 +39,6 @@ class EditView extends React.Component {
   };
 
   render () {
-    console.log('THIS.PROPS', this.props)
     return (
       <div className='create-new-view'>
         <NavBar />

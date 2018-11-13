@@ -38,7 +38,6 @@ const NoteView = props => {
 }
 
 const mapStateToProps = state => {
-  console.log('STATE', state)
   return {
     note: state.singleFlatNote.noteSelected,
     // error: state.singleFlatNote.error,

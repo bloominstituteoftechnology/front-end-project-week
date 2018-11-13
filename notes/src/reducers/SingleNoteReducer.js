@@ -1,9 +1,3 @@
-// import {
-//   TOGGLE_UPDATE_NOTE,
-//   SINGLE_NOTE,
-//   UPDATE_FRIEND_SUCCESS,
-// } from '../actions';
-
 import * as actionTypes from '../actions';
 
 const initialState = {

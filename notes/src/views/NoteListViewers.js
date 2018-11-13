@@ -4,9 +4,9 @@ import { ListView } from '../components';
 import { getNotes } from '../actions';
 
 class NoteListViewer extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   componentDidMount() {
     this.props.getNotes();
@@ -29,7 +29,6 @@ class NoteListViewer extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('STATE', state)
   return {
     notes: state.flatNotes.notes,
     error: state.flatNotes.error,

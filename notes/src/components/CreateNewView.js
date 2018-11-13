@@ -23,9 +23,8 @@ class CreateNewView extends React.Component {
     const newNote = {
       title,
       textBody,
-      // id: nextNoteId++
     };
-    // console.log(newNote)
+
     this.props.addNote(newNote);
     this.setState({ // sets form to empty for new form
       title: '',
