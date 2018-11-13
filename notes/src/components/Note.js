@@ -10,9 +10,13 @@ class Note extends React.Component {
   render() {
     return (
       <div className="note">
-        <Link to={`/notes/${this.props.note.id}`} style={{ textDecoration: 'none', color: 'inherit' } }>
+        <Link
+          to={`/notes/${this.props.note._id}`}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           <h3 className="note-title">{this.props.note.title}</h3>
-          <p className="note-body">{this.props.note.body}</p>
+          <h4 className="note-tag">{this.props.note.tags}</h4>
+          <p className="note-body">{this.props.note.textBody}</p>
         </Link>
       </div>
     );
