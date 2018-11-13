@@ -45,6 +45,7 @@ class EditView extends React.Component {
         <div className='create-new-note'>
           <h2>Edit Note:</h2>
           <input 
+            className='note-title-input'
             onChange={this.handleNoteInput}
             type='text'
             name='title'
@@ -52,13 +53,14 @@ class EditView extends React.Component {
             value={this.state.title}
           />
           <input 
+          className='note-content-input'
             onChange={this.handleNoteInput}
             type='text'
             name='textBody'
             placeholder='Note Content'
             value={this.state.textBody}
           />
-          <button type='button' onClick={this.editNoteHandler}>Update</button>
+          <button type='button' className='save-button' onClick={this.editNoteHandler}>Update</button>
         </div>
       </div>
     )

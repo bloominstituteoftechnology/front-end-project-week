@@ -25,9 +25,11 @@ class DeleteModal extends React.Component {
 
     return (
       <div className='modal-view'>
-        <h5>Are you sure you want to delete this?</h5>
-        <button onClick={() => this.deleteNote()} >Delete</button>
-        <a href='/'>no</a>
+        <div className='modal-view-box'>
+          <h3>Are you sure you want to delete this?</h3>
+          <button onClick={() => this.deleteNote()} >Delete</button>
+          <a type='button' href='/'>No</a>
+        </div>
       </div>
     )
   }

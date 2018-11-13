@@ -13,13 +13,12 @@ const NoteView = props => {
     <div className='note-view'>
       <NavBar />
       <div className='single-note-extended-container'>
-        <div>
-        
+        <div className='edit-view-container'>
         <Link to={`/note/edit/${props.note._id}`} className='edit-view'>
         edit
           </Link>
           <button 
-            className='delete-modal' 
+            className='edit-view'
             onClick={props.toggleDeleteNote}>
           delete
           </button>

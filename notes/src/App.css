@@ -45,6 +45,20 @@
   font-weight: bold;
 }
 
+.save-button {
+  border: 1px solid #89999A;
+  background-color: #25B8BC;
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+  display: block;
+  flex-wrap: nowrap;
+  margin: 30px 15px 0px 15px;
+  padding: 12.5px 15px;
+  font-weight: bold;
+  width: 180px;
+}
+
 .nav-bar {
   background-color: #D1D1D1;
   color: #414041;
@@ -65,23 +79,50 @@
   line-height: 32px;
 }
 
-.list-view, .create-new-view, .note-view, .NoteListViewer_wrapper {
+.list-view, .create-new-view, .note-view, .NoteListViewer_wrapper, .delete-viewer {
   border: 3px solid grey;
+  background-color: #F0EFF0;
   margin: 50px;
   max-width: 978px;
-  height: 900px;
+  min-width: 800px;
+  min-height: 900px;
   display: flex;
 }
 
-.list-view h2, .create-new-view h2, .note-view h2, .NoteListViewer_wrapper h2 {
-  padding-left: 15px;
+.single-note-extended-container {
+  min-width: 580px;
+}
+
+.list-view h2, .create-new-view h2, .note-view h2, .NoteListViewer_wrapper h2, .delete-viewer h2 {
+  /* padding-left: 15px; */
   display: flex;
+  /* padding-top: 35px; */
+  padding: 35px 0 10px 15px;
+}
+
+.delete-viewer a {
+  display: block;
+  text-decoration: none;
+}
+
+.note-title-input {
+  display: block;
+  margin: 0 0 15px 15px;
+  padding: 10px 10px;
+  width: 300px;
+}
+
+.note-content-input {
+  display: inline-block;
+  margin: 0 0 15px 15px;
+  padding: 10px 10px;
+  width: 500px;
+  min-height: 250px;
 }
 
 .all-notes-container {
   width: 736px;
   background-color: #F0EFF0;
-  padding-top: 35px;
 }
 
 .all-notes-container ul {
@@ -95,9 +136,10 @@
   margin: 0;
   white-space: normal;
   overflow: hidden;
+  
 }
 
-.single-note-container {
+.all-notes-container ul .single-note-container {
   background-color: white;
   border: 1px solid #D8D8D8;
   width: 200px;
@@ -110,31 +152,42 @@
   text-overflow: ellipsis;
 }
 
-.single-note-container li {
-  color: #89999A;
-  display: block;
-  width: 180px;
-  margin: 0 10px;
-  padding: 10px 0px 10px 0px;
-  white-space: wrap;
-  overflow: hidden;
-  /* text-overflow: ellipsis; */
+
+
+.single-note-extended-container {
+  text-align: right;
 }
 
-a.note-title {
+.list-view .all-notes-container a.note-title {
   color: black;
+  border-bottom: 2px solid grey;
   font-size: 20px;
   font-weight: bolder;
   display: block;
   margin: 0px 10px;
   width: 180px;
   text-align: left;
-  border-bottom: 2px solid #89999A;
   text-decoration-line: none;
   -webkit-text-decoration-line: none;
   list-style-type: none;
 }
-a.note-content {
+
+a.note-title {
+  padding-top: 20px;
+  color: #4A494A;
+  font-size: 20px;
+  font-weight: bolder;
+  display: block;
+  margin: 0px 10px;
+  max-width: 580px;
+  text-align: left;
+  text-decoration-line: none;
+  -webkit-text-decoration-line: none;
+  list-style-type: none;
+  text-align: left;
+}
+
+.list-view .all-notes-container a.note-content {
   text-align: left;
   color: #202020;
   font-size: 13px;
@@ -146,31 +199,90 @@ a.note-content {
   list-style-type: none;
 }
 
-a .note-content {
-  font-size: 15px;
-  width: 180px;
+a.note-content {
+  text-align: left;
+  color: #202020;
+  font-size: 13px;
+  font-weight: normal;
   display: block;
-  margin: 0px 0px 5px 0px;
-  white-space: normal;
-  overflow: hidden;
-  /* text-overflow: ellipsis; */
+  margin: 20px 10px;
+  max-width: 580px;
+  text-decoration-line: none;
+  list-style-type: none;
 }
+
+
 
 .modal-view {
-
+  min-width: 800px;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  bottom: 0;
+  border: inline;
+  border: 3px solid grey;
+  background-color: rgba(0, 0, 0, .1);
+  height: 900px;
+  max-width: 978px;
 }
 
-.modal-view h5 {
-  
+.modal-view-box {
+  margin: 200px auto;
+  /* margin: 200px 100px 0 100px; */
+  width: 425px;
+  background-color: white;
+  border: 1px solid black;
+  height: 200px;
+}
+
+.modal-view h3 {
+  color: #4A494A;
+  font-weight: 500;
+  font-size: 15px;
 }
 
 div.modal-view button {
   background-color: #CA041A;
   color: white;
+  width: 160px;
+  font-size: 15px;
+  line-height: 25px;
+  padding: 5px;
+  border: 1px solid grey;
+  margin: 10px 15px;
 }
 .modal-view a{
-  
+  background-color: #25B8BC;
+  color: white;
+  width: 160px;
+  text-decoration-line: none;
+  font-size: 15px;
+  display: inline-block;
+  line-height: 25px;
+  padding: 5px;
+  border: 1px solid grey;
 }
-/* .modal-view {
-  
-} */
+
+.edit-view-container {
+  justify-content: right;
+  display: inline;
+  text-align: right;
+}
+
+.edit-view {
+  margin-top: 10px;
+  color: #424142;
+  text-decoration: underline;
+  text-justify: right;
+  font-size: 13px;
+}
+
+button.edit-view {
+  background-color: #F0EFF0;
+  font-size: 13px;
+  border-style: none;
+  margin-top: 10px;
+  color: #424142;
+  text-decoration: underline;
+  text-justify: right;
+}

@@ -26,8 +26,10 @@ class SingleNoteViewer extends React.Component {
       return (
         <div className='delete-viewer'>
           <NavBar />
-          <p>Note Unavailable or Deleted</p>
-          <a href='/'>Click to See All Notes</a>
+          <div>
+            <h2>Note Unavailable or Deleted</h2>
+            {/* <a href='/'>Click to See All Notes</a> */}
+          </div>
         </div>
       )
     }

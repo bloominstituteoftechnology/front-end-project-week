@@ -39,6 +39,7 @@ class CreateNewView extends React.Component {
         <div className='create-new-note'>
           <h2>Create New Note:</h2>
           <input 
+          className='note-title-input'
           onChange={this.handleNoteInput}
           type='text'
           name='title'
@@ -46,13 +47,14 @@ class CreateNewView extends React.Component {
           value={this.state.title}
           />
           <input 
+          className='note-content-input'
           onChange={this.handleNoteInput}
           type='text'
           name='textBody'
           placeholder='Note Content'
           value={this.state.textBody}
           />
-          <button type='button' onClick={this.addNoteHandler}>Save</button>
+          <button type='button' className='save-button' onClick={this.addNoteHandler}>Save</button>
         </div>
       </div>
     )
