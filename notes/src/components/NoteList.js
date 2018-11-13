@@ -3,7 +3,7 @@ import Note from './Note'
 
 const NoteList = props => {
     return (
-        <ul className='note-list'>
+        <div className='note-list'>
         {props.notes.map(note => 
         <Note 
             key={note.id} 
@@ -11,7 +11,7 @@ const NoteList = props => {
         />
         )
         }
-        </ul>
+        </div>
     )
 } 
 
