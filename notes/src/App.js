@@ -12,9 +12,9 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      inputTag: "",
-      inputTitle: "",
-      inputBody: ""
+      tags: "",
+      title: "",
+      textBody: ""
     };
   }
 
@@ -24,35 +24,32 @@ class App extends Component {
       .then(response => {
         this.setState({ notes: response.data });
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err.response));
   }
 
-  handleInputTag = e => {
+  handleInput = e => {
     this.setState({
-      inputTag: e.target.value
-    });
-  };
-  handleInputTitle = e => {
-    this.setState({
-      inputTitle: e.target.value
-    });
-  };
-  handleInputBody = e => {
-    this.setState({
-      inputBody: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
   handleClick = e => {
     e.preventDefault();
     const newNote = {
-      title: this.state.inputTitle,
-      body: this.state.inputBody
+      title: this.state.title,
+      textBody: this.state.textBody,
     };
-    this.setState({
-      notes: [...this.state.notes, newNote],
-      newTask: ""
-    });
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", newNote)
+      .then(response => {
+        console.log(response);
+        this.setState({
+          tags: "",
+          title: "",
+          textBody: ""
+        });
+      })
+      .catch(err => "this is error" + err);
   };
 
   render() {
@@ -78,9 +75,7 @@ class App extends Component {
             render={() => (
               <NoteForm
                 notes={this.state.notes}
-                handleInputTag={this.handleInputTag}
-                handleInputTitle={this.handleInputTitle}
-                handleInputBody={this.handleInputBody}
+                handleInput={this.handleInput}
                 handleClick={this.handleClick}
               />
             )}
@@ -88,7 +83,7 @@ class App extends Component {
           <Route
             path="/"
             exact
-            component={props => <NoteList {...props} notes={this.state.notes} />}
+            component={() => <NoteList notes={this.state.notes} />}
           />
           <Route
             path="/notes/:id"
