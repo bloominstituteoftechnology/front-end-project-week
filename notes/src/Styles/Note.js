@@ -8,4 +8,5 @@ const Note = styled.section `
     border: 2px solid ${borderColor}
 `;
 
+
 export default Note;
