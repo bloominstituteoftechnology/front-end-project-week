@@ -1,7 +1,11 @@
 import React from 'react';
+import '../components/Note.css';
 
 export const Note = (props) => {
         return(
-            <div>{props.note}</div> 
+              <div className="note">
+                <h4>{props.note.title}</h4> 
+                <p>{props.note.textBody}</p> 
+              </div> 
         )
 }

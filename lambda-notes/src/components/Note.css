@@ -1,0 +1,7 @@
+.note{
+    border: 1px solid black; 
+    width: 27%;  
+    overflow: hidden; 
+    height: 180px; 
+    margin: 10px 0px; 
+}

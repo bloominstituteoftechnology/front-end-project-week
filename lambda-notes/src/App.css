@@ -1,14 +1,15 @@
 
 .App {
   width: 100%; 
-  display: flex; 
+  display: flex;
   flex-wrap: wrap; 
   margin: 0 auto; 
-  max-width: 1240px; 
+  max-width: 1000px;
+  height: 100vh;  
 }
 
 .sidebar-container{
-  width: 19%; 
+  width: 25%; 
   background-color: rgb(208, 208, 255); 
   border: 1px solid navy; 
   border-right: none; 
@@ -18,7 +19,7 @@
 }
 
 .notes-container{
-  width: 79%; 
+  width: 70%; 
   background-color: rgb(232, 232, 255); 
   border: 1px solid navy; 
 }
