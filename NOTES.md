@@ -6,6 +6,8 @@
 
 - A note has this basic format:
 
+
+
 ```js
   {
     "tags": ["tag", "otherTag"],
