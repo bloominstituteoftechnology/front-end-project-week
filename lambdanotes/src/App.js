@@ -5,6 +5,7 @@ import './App.css';
 import axios from 'axios'
 
 import NotesList from './components/NotesList'
+import CreateNewNote from './components/CreateNewNote'
 
 class App extends Component {
   constructor(){
@@ -24,6 +25,8 @@ class App extends Component {
       console.log("Fail to GET notes from server", err)
     })
   }
+
+
   
 
 
@@ -32,10 +35,16 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          
+
+          <CreateNewNote />
+
           <p>
             Lambda Notes Components.
           </p>
-            <NotesList notes={this.state.notes}/>
+
+          <NotesList notes={this.state.notes}/>
+
           <p>
             Edit View (update).
           </p>
