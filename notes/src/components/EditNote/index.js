@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 class EditNote extends React.Component {
@@ -55,5 +55,10 @@ update = (e) => {
     )
   }
 }
+
+EditNote.propTypes = {
+  update: PropTypes.func.isRequired
+}
+
 
 export default EditNote;
