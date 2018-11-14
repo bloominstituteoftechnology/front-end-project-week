@@ -6,6 +6,7 @@ import './App.css';
 import NavSideBar from './components/NavSideBar';
 import NotesList from './components/NotesList';
 import CreateNote from './components/CreateNote';
+import DisplayNote from './components/DisplayNote';
 
 class App extends Component {
   constructor(props){
@@ -22,7 +23,20 @@ class App extends Component {
       this.setState({notes: response.data});
     })
     .catch(error=>{
-      this.setState({error: 'Notes failed to load'});
+      this.setState({error: 'Failed to load notes'});
+    })
+  }
+
+  addNote = note=>{
+    axios.post('https://fe-notes.herokuapp.com/note/create', note)
+    .then(response=>{
+      const newNote = Object.assign({}, note, {'_id': response.data.success});
+      const newNotes = this.state.notes;
+      newNotes.push(newNote);
+      this.setState({notes: newNotes});
+    })
+    .catch(error=>{
+      this.setState({error: 'Failed to create note'});
     })
   }
 
@@ -32,7 +46,8 @@ class App extends Component {
         <NavSideBar/>
 
         <Route exact path="/" render={props=><NotesList notes={this.state.notes}/>}/>
-        <Route path="/create-note" render={props=><CreateNote {...props}/>}/>
+        <Route path="/create-note" render={props=><CreateNote {...props} addNote={this.addNote}/>}/>
+        <Route path="/:id" render={props=><DisplayNote {...props} notes={this.state.notes}/>}/>
       </div>
     );
   }

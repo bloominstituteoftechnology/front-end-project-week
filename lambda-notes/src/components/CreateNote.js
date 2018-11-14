@@ -15,10 +15,14 @@ class CreateNote extends Component{
 
     handleSubmit = event=>{
         event.preventDefault();
-        console.log('Send object back to App and set page back to default');
+        
+        this.props.addNote({
+            title: this.state.name,
+            textBody: this.state.text
+        })
         
         // Sets path back to default
-        this.props.history.goBack();
+        this.props.history.push("/");
     }
 
     render(){
