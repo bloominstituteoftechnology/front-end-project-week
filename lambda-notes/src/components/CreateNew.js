@@ -8,6 +8,7 @@ export const CreateNew = () => {
         <form>
           <input placeholder="Note Title" className='input' type='text'/>
           <input placeholder="Note Content" className="text-area" type='text'/> 
+          <p className="button-2">Create New Note</p> 
         </form> 
       </div> 
     )
