@@ -7,9 +7,12 @@ import styled from 'styled-components'
 class App extends Component {
   render() {
     return (
-      <div className='appContainer'>
-      <SideBar className='sideBar'/>
-      <MainSection className='mainSection'/>
+      <div className= "appContainer">
+      <div className= "sideBarClass">
+          <h1>Lambda Notes</h1>
+      
+      </div>
+      
       </div>
     );
   }

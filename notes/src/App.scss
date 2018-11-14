@@ -1,4 +1,17 @@
 .appContainer{
-width: 900px;
-height: 100vh
+max-width: 1200px;
+margin: auto;
+border: 1px solid red;
+height: 800px;
+}
+
+
+
+.sideBarClass{
+border: 2px solid green;
+height: 100 vh;
+max-width: 400px;
+h1{
+color: black;
+}
 }
