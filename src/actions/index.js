@@ -4,6 +4,7 @@ export const LOADING = "LOADING";
 export const ERROR_MESSAGE = "ERROR_MESSAGE";
 export const GET_NOTES = "GET_NOTES";
 export const GET_NOTE = "GET_NOTE";
+export const UPDATE_NOTE = "UPDATE_NOTE";
 
 export const getNotes = () => {
     return(dispatch) => {
@@ -24,7 +25,7 @@ export const getOneNote = (id) => {
         dispatch({type: LOADING})
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then( response => {
-                dispatch({type: GET_NOTE, notes: response.data})
+                dispatch({type: GET_NOTE, currentNote: response.data})
             })
             .catch( err => {
                 dispatch({type: ERROR_MESSAGE, errorMessage: "This note is playing Hide and Seek. Look harder."})
@@ -52,7 +53,7 @@ export const updateNote = (id, updatedNote) => {
         dispatch({type: LOADING})
         axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
             .then( response => {
-                dispatch({type: GET_NOTES, notes: response.data})
+                dispatch({type: UPDATE_NOTE, currentNote: response.data})
             })
             .catch( err => {
                 dispatch({type: ERROR_MESSAGE, errorMessage: "This note prefers not to be changed and declined your requested edits."})
