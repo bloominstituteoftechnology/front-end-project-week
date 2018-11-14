@@ -12,13 +12,15 @@ const Container = styled.div`
 `;
 
 const NotesHeader = styled.h2`
-  padding-left: 5%;
+  padding-top: 65px;
+  padding-left: 25px;
 `;
 
 const NotesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
+  padding-left: 15px;
 `;
 
 const NoteContainer = styled.div`
@@ -37,7 +39,6 @@ const NoteContainer = styled.div`
 
 class Notes extends Component {
   render() {
-    console.log(this.props)
     return (
       <Container>
         <NotesHeader>Your Notes:</NotesHeader>

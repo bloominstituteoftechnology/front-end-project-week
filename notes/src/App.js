@@ -61,7 +61,7 @@ class App extends Component {
     axios
         .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         .then(response => {
-          console.log(response.data)
+          // console.log(response.data)
         })
         .catch(err => {
           console.log(err)
