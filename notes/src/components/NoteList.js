@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Note from './Note';
+import NoteCard from './NoteCard';
 
 class NoteList extends React.Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class NoteList extends React.Component {
             <div className="note-list">
                 { this.state.loading === true ? <h1>Loading...</h1>: null }
                 { this.state.error !== null ? <h1>{this.state.error}</h1> : null }
-                { this.state.notes.map(note => <Note note={note} key={note._id}/> ) }
+                { this.state.notes.map(note => <NoteCard note={note} key={note._id} /> ) }
             </div>
         )
     }
