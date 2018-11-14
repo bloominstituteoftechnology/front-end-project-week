@@ -1,10 +1,19 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 const NoteForm = props => {
+  const handleClick = () => {
+    const newNote = {
+      title: props.title,
+      tags: props.tags,
+      textBody: props.textBody
+    };
+    props.postNotes(newNote);
+    props.history.push(`/notes/${props._id}`);
+  };
+
   return (
     <div>
-      <form className="form">
+      <div className="form">
         <input
           className="input-tags"
           type="text"
@@ -30,14 +39,8 @@ const NoteForm = props => {
           onChange={props.handleInput}
           placeholder="Start writing..."
         />
-        <NavLink
-          to="/"
-          activeClassName="activeNew"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <button onClick={props.handleClick}>Save</button>
-        </NavLink>
-      </form>
+          <button onClick={handleClick}>Save</button>
+      </div>
     </div>
   );
 };

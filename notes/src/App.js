@@ -14,7 +14,8 @@ class App extends Component {
       notes: [],
       tags: "",
       title: "",
-      textBody: ""
+      textBody: "",
+      _id:""
     };
   }
 
@@ -37,20 +38,15 @@ class App extends Component {
     });
   };
 
-  handleClick = () => {
-    const newNote = {
-      title: this.state.title,
-      tags: this.state.tags,
-      textBody: this.state.textBody
-    };
+  postNotes = note => {
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", newNote)
+      .post("https://fe-notes.herokuapp.com/note/create", note)
       .then(response => {
-        console.log(response);
         this.setState({
           tags: "",
           title: "",
-          textBody: ""
+          textBody: "",
+          _id: response.data.success
         });
         this.fetchNotes();
       })
@@ -73,17 +69,22 @@ class App extends Component {
             activeClassName="activeNewNote"
             style={{ textDecoration: "none", color: "inherit" }}
           >
-           <h2>+ New Note</h2>
+            <h2>+ New Note</h2>
           </NavLink>
         </header>
         <div className="body">
           <Route
             path="/new-note"
-            render={() => (
+            render={props => (
               <NoteForm
+                {...props}
                 notes={this.state.notes}
+                tags={this.state.tags}
+                title={this.state.title}
+                textBody={this.state.textBody}
+                _id={this.state._id}
                 handleInput={this.handleInput}
-                handleClick={this.handleClick}
+                postNotes={this.postNotes}
               />
             )}
           />
