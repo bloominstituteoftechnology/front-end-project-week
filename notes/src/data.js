@@ -1,4 +1,4 @@
-export const notes = [
+const notes = [
     {
         tags: [''],
         id: 0,
@@ -12,3 +12,5 @@ export const notes = [
         textBody: 'This is my second note'
     }
 ]
+
+export default notes
