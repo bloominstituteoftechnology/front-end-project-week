@@ -15,6 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/" component={Nav} />
+        <Route path="/" component={Notes} />
       </div>
     );
   }

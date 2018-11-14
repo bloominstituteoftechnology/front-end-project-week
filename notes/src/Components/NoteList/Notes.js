@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
+import './Notes.css';
 
 /* Notes.js
- * This is the real starting point for the app, where / will route to.
+ * List all of the notes
  */
 
 class Notes extends Component {
@@ -11,15 +14,24 @@ class Notes extends Component {
     // I'm not sure what we'll need in state just yet. 
     this.state = {
       name: "Jen",
+      notes: [],
     };
   };
 
-  // We don't really need to be pulling any data yet - I think.
-  // componentDidMount() {};
+  // Pull data from the API
+  componentDidMount() {
+    axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .then( (response) => {
+        this.setState( () => ({ notes: response.data }) )
+      })
+      .catch( (error) => console.error(error) );
+  };
 
   render() {
     return(
-      <div className="appNotes">Notes.js</div>
+      <div className="appNotes">
+        <h2>Your Notes:</h2>
+      </div>
     );
   };
 };
