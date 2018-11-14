@@ -276,3 +276,46 @@ li {
     top: 0px;
       border: 2px solid rgb(151, 151, 151);   
 }
+
+.note-create-form, .note-edit-form {
+display: flex;
+flex-direction: column;
+margin-left: 44px;
+width: 932px;
+font-weight: bold;
+color: rgb(74, 74, 74);
+
+}
+
+.note-create-header{
+margin-top: 90px;
+font-size: 40px;
+}
+
+.note-title-input{
+    margin-top: 50px;
+    height: 65px;
+    width: 552px;
+border: 2px solid rgb(181, 181, 181);
+}
+
+.note-textarea {
+    margin-top: 23px;
+    height: 533px;
+    border: 2px solid rgb(181, 181, 181);
+}
+
+.save-button, .update-button {
+    margin-top: 23px;
+    width: 294px;
+    height: 67px;
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(43, 193, 196);
+    border: 2px solid rgb(151, 151, 151);
+}
+
+.save-button:hover, .update-button:hover {
+    color: rgb(8, 89, 143);
+}

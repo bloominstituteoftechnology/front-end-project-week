@@ -1,9 +1,11 @@
 import React from 'react';
-
 import "./App.css";
 import "./css/note.css"
 import NoteList from './components/noteList';
-import NoteForm from './components/noteForm';
+import NoteView from './components/noteView';
+import NoteCreate from './components/noteCreate';
+import NoteEdit from './components/noteEdit';
+import NoteDelete from './components/noteDelete';
 import Nav from './components/nav';
 
 class App extends React.Component {
@@ -74,13 +76,12 @@ class App extends React.Component {
 
       <div className="App">
         <div className="main-container">
-        
           <Nav />
           <div className="main-display">
-            <NoteList
-              list={this.state.noteList}
+            <NoteCreate
+              /* list={this.state.noteList}
               id={this.state.id}
-              toggleComplete={this.toggleComplete} />
+              toggleComplete={this.toggleComplete} */ />
 
           </div>
         </div>
