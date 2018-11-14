@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Note from './Note';
 import './Notes.css';
 
 /* Notes.js
@@ -31,6 +32,11 @@ class Notes extends Component {
     return(
       <div className="appNotes">
         <h2>Your Notes:</h2>
+        <div className="noteList">
+          {this.state.notes.map( (note) => {
+            return (<Note key={note._id} title={note.title} textBody={note.textBody} id={note._id} />);
+          })}
+        </div>
       </div>
     );
   };
