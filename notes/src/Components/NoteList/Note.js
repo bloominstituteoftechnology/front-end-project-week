@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /*
  * Takes in props:
@@ -20,6 +21,13 @@ import React from 'react';
       <div className="noteText">{text}</div>
     </div>
    );
+ };
+
+ // Double check to make sure we have all of the correct values
+ Note.propTypes = {
+   id: PropTypes.string.isRequired,
+   title: PropTypes.string.isRequired,
+   textBody: PropTypes.string.isRequired
  };
 
  export default Note;

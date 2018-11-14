@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import './App.css';
-import Nav from './Components/Nav';
+import Nav from './Components/Nav/Nav';
 import Notes from './Components/NoteList/Notes';
 
 /* Main entry point for the Lambda Notes app.
