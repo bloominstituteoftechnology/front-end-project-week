@@ -1,4 +1,16 @@
+body {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 800px;
+  min-height: 600px;
+  border: 1px solid black;
+  margin: auto;
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 

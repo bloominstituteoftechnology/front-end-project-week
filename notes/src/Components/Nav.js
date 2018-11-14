@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 
-import './App.css';
-import Nav from './Components/Nav';
-import Notes from './Components/Notes';
+import '../App.css';
 
 /* Main entry point for the Lambda Notes app.
  * This will primarily contains the routes needed for our app, along with
  * app links
  */
 
-class App extends Component {
+class Nav extends Component {
   render() {
     return (
-      <div className="App">
-        <Route exact path="/" component={Nav} />
+      <div className="Nav">
+        <h1>Lambda Notes</h1>
+        <Link to="" className="navButton">View Your Notes</Link>
+        <Link to="" className="navButton">+ Create New Note</Link>
       </div>
     );
   }
 }
 
-export default App;
+export default Nav;
