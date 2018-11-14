@@ -1,0 +1,27 @@
+.note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
+    width: 25%;
+    height: 200px;
+    margin: 5px 5px;
+    
+}
+
+.noteTitle {
+    font-size: 2.0rem;
+    font-weight: bold;
+    text-align: left;
+    width: 85%;
+    margin: 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid lightgrey;
+}
+
+.noteText {
+    font-size: 1.6rem;
+    text-align: left;
+    width: 85%;
+}

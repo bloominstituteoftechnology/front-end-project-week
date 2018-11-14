@@ -6,29 +6,49 @@
 .App {
   display: flex;
   border: 1px solid black;
-  width: 1000px;
+  width: 80%;
+  height: 100%;
   margin: auto;
   font-size: 1.6rem;
+}
+.listViewContainer {
+  background-color: #F2F1F2;
+  padding: 10px 20px;
+}
+
+.notesHeader{
+  font-size: 2.8rem;
+}
+
+
+.listView {
+  width: 800px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
-  background-color: lightgrey;
-  padding-left: 15px;
+  width: 300px;
+  background-color: #D3D2D3;
+  padding-left: 20px;
 }
 
 .title {
   font-size: 3.5rem;
+  width: 180px;
 }
 
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 180px;
+  height: 35px;
   font-size: 1.8rem;
   color: white;
   border: 1px solid black;
