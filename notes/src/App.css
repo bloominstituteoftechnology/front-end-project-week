@@ -1,32 +1,121 @@
 .App {
-  text-align: center;
+  display: flex;
+  min-height: 1200px;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
+.App .header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 20%;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.App .header h1 {
+  font-size: 1.6rem;
+  padding: 20px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .header h2 {
+  font-size: 1.2rem;
+}
+.App .body {
+  background-color: whitesmoke;
+  width: 80%;
+}
+.App .body .note-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0px auto;
+}
+.App .body .note-list .note {
+  width: 27%;
+  height: 200px;
+  margin: 10px;
+  background-color: white;
+  border: 0.1px solid Gainsboro;
+}
+.App .body .note-list .note .note-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: auto 10px;
+}
+.App .body .note-list .note .note-body {
+  text-overflow: ellipsis;
+  margin: 15px 10px;
+  line-height: 1.2;
+}
+.App .body .note-detail {
+  padding: 20px 50px;
+}
+.App .body .note-detail .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.App .body .note-detail .header-container .note-title {
+  font-size: 2rem;
+}
+.App .body .note-detail .header-container button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  width: 80px;
+  height: 30px;
+  border: 1px solid black;
+  outline: 0;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.App .body .note-detail .header-container button:hover {
+  color: white;
+  background-color: black;
+}
+.App .body .form {
+  display: flex;
+  flex-direction: column;
+}
+.App .body .form .input-tags,
+.App .body .form .input-title,
+.App .body .form .input-body {
+  padding-left: 20px;
+  border: none;
+  background: transparent;
+}
+.App .body .form .input-tags:focus,
+.App .body .form .input-title:focus,
+.App .body .form .input-body:focus {
+  outline: none;
+}
+.App .body .form .input-tags {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+.App .body .form .input-title {
+  font-size: 2rem;
+}
+.App .body .form .input-body {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  min-height: 300px;
+  line-height: 25px;
+}
+.App .body .form button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  width: 80px;
+  height: 30px;
+  border: 1px solid black;
+  outline: 0;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.App .body .form button:hover {
+  color: white;
+  background-color: black;
 }

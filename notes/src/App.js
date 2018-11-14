@@ -18,13 +18,17 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  fetchNotes = () => {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(response => {
         this.setState({ notes: response.data });
       })
       .catch(err => console.log(err.response));
+  };
+
+  componentDidMount() {
+    this.fetchNotes();
   }
 
   handleInput = e => {
@@ -33,24 +37,22 @@ class App extends Component {
     });
   };
 
-  handleClick = e => {
-    e.preventDefault();
+  handleClick = () => {
     const newNote = {
       title: this.state.title,
       tags: "",
-      textBody: this.state.textBody,
-      id: ""
+      textBody: this.state.textBody
     };
     axios
       .post("https://fe-notes.herokuapp.com/note/create", newNote)
       .then(response => {
         console.log(response);
-        this.handleRedirect(response)
         this.setState({
           tags: "",
           title: "",
           textBody: ""
         });
+        this.fetchNotes();
       })
       .catch(err => console.log(err));
   };
@@ -58,7 +60,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="header">
           <NavLink
             to="/"
             activeClassName="activeNewNote"
@@ -71,8 +73,10 @@ class App extends Component {
             activeClassName="activeNewNote"
             style={{ textDecoration: "none", color: "inherit" }}
           >
-            + New Note
+           <h2>+ New Note</h2>
           </NavLink>
+        </header>
+        <div className="body">
           <Route
             path="/new-note"
             render={() => (
@@ -90,9 +94,15 @@ class App extends Component {
           />
           <Route
             path="/notes/:id"
-            render={props => <NoteDetail {...props} notes={this.state.notes} />}
+            render={props => (
+              <NoteDetail
+                {...props}
+                notes={this.state.notes}
+                fetchNotes={this.fetchNotes}
+              />
+            )}
           />
-        </header>
+        </div>
       </div>
     );
   }

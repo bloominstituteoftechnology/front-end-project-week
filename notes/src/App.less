@@ -1,0 +1,120 @@
+.App {
+    // text-align: center;
+    display: flex;
+    min-height: 1200px;
+    .header {
+        background-color: #282c34;
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        align-items: center;
+        color: white;
+        h1 {
+            font-size: 1.6rem;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 1.2rem;
+        }
+    }
+    .body {
+        background-color: whitesmoke;
+        width: 80%;
+        .note-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin: 0px auto;
+            .note {
+                width: 27%;
+                height: 200px;
+                margin: 10px;
+                background-color: white;
+                border: .1px solid Gainsboro;
+                .note-title {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    margin: auto 10px;
+                }
+                .note-body {
+                    text-overflow: ellipsis;
+                    margin: 15px 10px;
+                    line-height: 1.2;
+                }
+            }
+        }
+        .note-detail {
+            padding: 20px 50px;
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .note-title {
+                    font-size: 2rem;
+                }
+                button {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 10px;
+                    margin: 0 auto;
+                    font-size: 0.8rem;
+                    width: 80px;
+                    height: 30px;
+                    border: 1px solid black;
+                    outline: 0;
+                    cursor: pointer;
+                    transition-duration: 0.2s;
+                    &:hover {
+                        color: white;
+                        background-color: black;
+                    }
+                }
+            }
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            .input-tags,
+            .input-title,
+            .input-body {
+                padding-left: 20px;
+                border: none;
+                background: transparent;
+                &:focus {
+                    outline: none;
+                }
+            }
+            .input-tags {
+                font-size: 1rem;
+                margin: 10px 0;
+            }
+            .input-title {
+                font-size: 2rem;
+            }
+            .input-body {
+                margin-top: 20px;
+                font-size: 1.2rem;
+                min-height: 300px;
+                line-height: 25px;
+            }
+            button {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+                margin: 0 auto;
+                font-size: 0.8rem;
+                width: 80px;
+                height: 30px;
+                border: 1px solid black;
+                outline: 0;
+                cursor: pointer;
+                transition-duration: 0.2s;
+                &:hover {
+                    color: white;
+                    background-color: black;
+                }
+            }
+        }
+    }
+}
