@@ -1,16 +1,12 @@
 import axios from 'axios';
 
 export const ERROR = 'ERROR';
-
 export const GET_NOTES = 'GET_NOTES';
 export const GETTING_NOTES = 'GETTING_NOTES';
-
 export const ADD_NOTE = 'ADD_NOTE';
 export const ADDING_NOTE = 'ADDING_NOTE';
-
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const DELETING_NOTE = 'DELETING_NOTE';
-
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const EDITING_NOTE = 'EDITING_NOTE';
 
