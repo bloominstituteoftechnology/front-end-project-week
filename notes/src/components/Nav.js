@@ -2,6 +2,6 @@ import React from 'react';
 
 export default () => (
     <nav>
-        <p>Hello World</p>
+        <h1>Lambda Notes</h1>
     </nav>
 );
