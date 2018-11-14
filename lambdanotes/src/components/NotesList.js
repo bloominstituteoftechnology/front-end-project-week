@@ -9,7 +9,11 @@ const NotesList = (props) => {
          <p> This is the Notes List: </p>
             <p>
                 {props.notes.map(note => {
-                    return note.textBody
+                    return(
+                        <div>
+                            <NoteView note={note}/>
+                        </div>
+                    )
                 })}
             </p>
         </div>
