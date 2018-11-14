@@ -9,7 +9,8 @@ class EditNote extends React.Component {
     this.state = {
       title: '',
       textBody: '',
-      id: null
+      id: null,
+      error: null
     }
   }
   componentDidMount() {
@@ -21,6 +22,11 @@ class EditNote extends React.Component {
              id: res.data._id
            })
          })
+         .catch(err => {
+           this.setState({
+             error: err
+          })
+        })
   }
 
   inputHandler = (e) => {
