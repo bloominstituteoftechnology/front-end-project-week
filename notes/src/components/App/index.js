@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import './App.css';
+import Main from '../Main';
 
 class App extends Component {
   render() {
@@ -15,6 +17,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <Main />
       </div>
     );
   }
