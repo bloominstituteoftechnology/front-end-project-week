@@ -6,8 +6,11 @@ class ListView extends React.Component {
     render() {
       return (
         <div className="listView">
-         I'm the list view
-         <Note />
+            {this.props.notes.map(note => {
+                return(
+                    <Note key={note.id} id={note.id} title={note.title} text={note.textBody} />
+                )
+            })}
         </div>
       );
     }
