@@ -1,4 +1,4 @@
-body {
+* {
   box-sizing: border-box;
 }
 
@@ -7,10 +7,12 @@ body {
   min-height: 600px;
   border: 1px solid black;
   margin: auto;
+  
 }
 
 .App {
   display: flex;
   flex-direction: row;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
