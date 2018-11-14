@@ -26,6 +26,7 @@ const DeleteModal = props => {
       </section>
     </div>
   );
+  
 }
 
 export default DeleteModal;
