@@ -2,18 +2,21 @@
     width: 20vw;
     height: 100vh;
     background-color: lightgrey;
-    border: 1px solid purple;
+    border: 1px solid lightgrey;
 }
 
 .title {
-    padding: 15px;
-    border: 1px solid red;
+    margin-bottom: 5%;
+    padding-left: 10%;
 }
 
 .side-button {
     width: 80%;
-    margin: 10%;
-    padding: 0, 10%;
-    border: 1px solid red;
+    margin: 3% 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
     align-content: center;
+    background-color: teal;
+    color: white;
+    font-weight: bold;
 }

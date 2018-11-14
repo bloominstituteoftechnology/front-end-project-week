@@ -7,7 +7,7 @@ const SideBar = props => {
         <div className="sidebar">
             <h1 className="title">Lambda Notes</h1>
             <button className="side-button">View Your Notes</button>
-            <button className="side-button">+ Create a Note</button>
+            <button className="side-button">+ Create New Note</button>
         </div>
     );
 };
