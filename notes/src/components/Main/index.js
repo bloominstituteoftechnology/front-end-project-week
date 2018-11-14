@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import ListView from '../ListView';
+import CreateNote from '../CreateNote';
+import Navigation from '../Navigation';
+
+import './main.css';
 
 
 class Main extends Component {
@@ -12,7 +16,9 @@ class Main extends Component {
     this.state = {
       notes: [],
       fetching: false,
-      fetched: false
+      fetched: false,
+      creatingNote: false,
+      created: false
     }
   }
 
@@ -32,13 +38,23 @@ class Main extends Component {
          })
   }
 
+  createNote = (note) => {
+    this.setState({ creatingNote: true })
+
+    axios.post('https://fe-notes.herokuapp.com/note/create', note)
+         .then()
+  }
+
   render() {
     return (
-      <section>
-        Main
-        {this.state.fetching ? <p className='loading'>Loading Notes...</p> : null }
+      <section className='main-container'>
 
-        <Route path='/' render={(props) => <ListView notes={this.state.notes} />} />
+        <Navigation></Navigation>
+
+        <Route path='/' exact render={(props) => <ListView notes={this.state.notes} />}/>
+
+        <Route path='/note/create' exact render={(props) => <CreateNote
+          createNote={this.createNote}/>} />
       </section>
     );
   }
