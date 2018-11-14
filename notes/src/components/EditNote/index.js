@@ -45,11 +45,13 @@ update = (e) => {
         <input onChange={this.inputHandler}
                placeholder='Note Title'
                name='title'
-               value={this.state.title}/>
+               value={this.state.title}
+               required/>
         <textarea onChange={this.inputHandler}
                   placeholder='Note Content'
                   name='textBody'
-                  value={this.state.textBody}/>
+                  value={this.state.textBody}
+                  required/>
         <button type='submit' className='links'>Update</button>
       </form>
     )
