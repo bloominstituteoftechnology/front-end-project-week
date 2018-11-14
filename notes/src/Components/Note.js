@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Note.css';
 
 class Note extends Component {
     constructor(props) {
@@ -7,9 +8,13 @@ class Note extends Component {
 
     render() {
         return (
-            <div>
-                {this.props.note.title}
-                {this.props.note.textBody}
+            <div class='note'>
+                <h3 class='note-title'>
+                    {this.props.note.title}
+                </h3>
+                <div class='note-body'>
+                    {this.props.note.textBody}
+                </div>
             </div>
         )
     }

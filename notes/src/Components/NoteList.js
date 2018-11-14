@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Note from './Note';
+import './NoteList.css';
 
 class NoteList extends Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class NoteList extends Component {
 
     render() {
         return (
-            <div>
+            <div class='note-list'>
                 {this.state.notes.map(note => {
                     console.log(note)
                     return (
