@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+
 import './App.css';
+import NavSideBar from './components/NavSideBar';
+import NotesList from './components/NotesList';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      notes: [],
+      error: ''
+    }
+  }
+
+  componentDidMount(){
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(response=>{
+      this.setState({notes: response.data});
+    })
+    .catch(error=>{
+      this.setState({error: 'Notes failed to load'});
+    })
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <NavSideBar/>
+        <NotesList notes={this.state.notes}/>
       </div>
     );
   }
