@@ -1,48 +1,40 @@
-import React, { Component } from 'react'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import React from 'react';
 
- class EditNote extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: this.props.title,
-            content: this.props.content
-        }
-    }
-     handleChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-    }
-     updateNote = event => {
-        event.preventDefault();
-        let updatedNote = {
-            id: this.props.id,
-            title: this.state.title,
-            content: this.state.content
-        }
-        this.props.updateNote(updatedNote,this.props.history);
-        this.setState({
-            title: '',
-            content: ''
-        })
-        
-    }
+import { FormContainer, FormGroup, ActionButton } from './Styles';
+import EditNoteModal from './EditNoteModal';
+
+const EditNote = props => {
     
+  return (
+    <FormContainer>
+      <h2>Edit Note:</h2>
 
-     render() {
-        return (
-            <Form onSubmit={this.updateNote} className="note-form">
-                <FormGroup>
-                    <Label for="title">Update Title</Label>
-                    <Input type="text" name="title" id="title" onChange={this.handleChange} value={this.state.title} required></Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="content"> Update Note</Label>
-                    <Input type="textarea" name="content" id="content" onChange={this.handleChange} value={this.state.content} required></Input>
-                </FormGroup>
-                <Button color="primary">Update!</Button>
-                <Button type="button" onClick={this.props.onCancel} color="danger">Cancel</Button>
-            </Form>
-        )
-    }
+      <FormGroup onSubmit={(e) => props.editNote(e, props.note._id)}>
+        <input
+          type="text"
+          placeholder="Note Title"
+          onChange={props.handleInput}
+          name="title"
+          value={props.title}
+        />
+
+        <textarea
+          type="text"
+          placeholder="Note Content"
+          onChange={props.handleInput}
+          name="textBody"
+          value={props.textBody}
+        />
+
+        <ActionButton type="submit" onClick={props.showModal}>Update</ActionButton>
+        <EditNoteModal
+          show={props.show}
+          hideModal={props.hideModal}
+          getNotes={props.getNotes}
+        />
+      </FormGroup>
+    </FormContainer>
+  );
 }
- export default EditNote;
+
+export default EditNote;
