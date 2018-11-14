@@ -37,19 +37,22 @@ class App extends Component {
     e.preventDefault();
     const newNote = {
       title: this.state.title,
+      tags: "",
       textBody: this.state.textBody,
+      id: ""
     };
     axios
       .post("https://fe-notes.herokuapp.com/note/create", newNote)
       .then(response => {
         console.log(response);
+        this.handleRedirect(response)
         this.setState({
           tags: "",
           title: "",
           textBody: ""
         });
       })
-      .catch(err => "this is error" + err);
+      .catch(err => console.log(err));
   };
 
   render() {
