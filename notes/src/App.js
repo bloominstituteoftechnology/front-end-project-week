@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import NoteList from "./Components/NoteList";
+import Nav from "./Components/Nav";
 import "./App.css";
 
 class App extends Component {
@@ -23,14 +24,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.notes.map(note => {
-          return (
-            <div>
-              <h1>{note.title}</h1>
-              <p>{note.textBody}</p>
-            </div>
-          );
-        })}
+        <Nav />
+        <NoteList notes={this.state.notes} />
       </div>
     );
   }

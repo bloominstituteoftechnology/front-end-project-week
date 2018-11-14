@@ -1,32 +1,64 @@
+html,
+body {
+    height: 100%;
+    background-color: whitesmoke;
+}
+
 .App {
-  text-align: center;
+    display: flex;
+    height: 100vh;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.navbar {
+    background-color: lightgray;
+    border-right: 1px solid grey;
+    width: 10%;
+    margin-right: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar h1 {
+    color: grey;
+    margin-left: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.button {
+    padding: 12px;
+    color: white;
+    margin: 15px;
+    background-color: aquamarine;
+    text-align: center;
+    font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.note {
+    padding: 15px;
+    width: 25%;
+    margin-right: 2%;
+    border: 1px solid grey;
+    background-color: white;
+    margin-bottom: 30px;
+    height: 300px;
+}
+
+.note-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.notes {
+    width: 90%;
+    margin-top: 50px;
+}
+
+.notes h1 {
+    font-size: 22px;
+    color: grey;
+}
+
+.note h1 {
+    font-size: 16px;
+    color: grey;
+    border-bottom: 1px solid grey;
+    padding-bottom: 10px;
 }
