@@ -1,33 +1,38 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import './reset.css';
 import './App.css';
-
 import { Route, Link } from 'react-router-dom';
+
+import NoteList from './components/NotesList';
 
 class App extends Component {
   constructor() {
     super();
-    this.state = [];
+    this.state = {
+      notes: []
+    };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    axios
+      .get()
+      .then()
+      .catch();
+  }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <aside>
+          <h1>Lambda Notes</h1>
+          <div className="asideBtn">View Your Notes</div>
+          <div className="asideBtn">+ Create New Note</div>
+        </aside>
+        <Route path="/" exact component={NoteList} />
+        {/* <Route path="/create" component={CreateNote} />
+        <Route path="/view/:id" component={} />
+        <Route path="/edit/:id" component={} /> */}
       </div>
     );
   }
