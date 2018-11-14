@@ -2,7 +2,7 @@ import React from 'react'
 
 const NoteView = props => {
     return (
-        <div>
+        <div key={props.note._id}>
             <h2>Title: {props.note.title} </h2>
             <p>Text Body: {props.note.textBody}</p>
             <p>ID: {props.note._id}</p>

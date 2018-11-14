@@ -7,15 +7,13 @@ const NotesList = (props) => {
     return (
         <div>
          <p> This is the Notes List: </p>
-            <p>
                 {props.notes.map(note => {
                     return(
-                        <div>
+                        <div key={note._id}>
                             <NoteView note={note}/>
                         </div>
                     )
                 })}
-            </p>
         </div>
     )
 }
