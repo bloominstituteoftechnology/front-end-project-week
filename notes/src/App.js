@@ -20,11 +20,14 @@ class App extends Component {
   }
 
   render() {
+
     return (
 
   <div className= 'App'>
         <Sidebar />
-        <Route exact path='/' component={NoteList}/>
+        <Route exact path='/' render={props => (
+          <NoteList {...props} notes={this.state.notes} />
+        )}/>
   </div>
 
     );
