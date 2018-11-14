@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import Note from './note'
+
 class NotesList extends React.Component{
     constructor(props){
         super(props)
@@ -21,7 +23,9 @@ class NotesList extends React.Component{
     render(){
         return (
             <div>
-               stuff 
+              {this.state.notes.map(item => 
+                <Note key={item.id} note={item} />
+              )}
             </div>
         )
     }
