@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import Navigation from './components/Navigation';
 import Notes from './components/Notes';
-import NoteCard from './components/NoteCard'
+import Note from './components/Note'
 import NewForm from './components/NewForm';
 import EditForm from './components/EditForm';
 
@@ -98,7 +98,7 @@ class App extends Component {
           <Notes {...props} notes={this.state.notes} delete={this.deleteNote} />
         )} />
         <Route path="/notes/:id" render={props => (
-          <NoteCard {...props} />
+          <Note {...props} />
         )} />
         <Route exact path="/notes/:id/edit" render={props => (
           <EditForm {...props} notes={this.state.notes} editNote={this.editNote} inputHandler={this.inputHandler} updateTitle={this.state.updateTitle} updateTextBody={this.state.updateTextBody} />

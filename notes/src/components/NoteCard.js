@@ -10,7 +10,7 @@ const NoteContainer = styled.div`
 const TextContainer = styled.div`
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
     line-height: 2;
 `;
@@ -36,3 +36,5 @@ NoteCard.defaultProps = {
 };
 
 export default NoteCard;
+
+{/* <button onClick={() => this.props.delete(note._id)}>Delete</button> */}

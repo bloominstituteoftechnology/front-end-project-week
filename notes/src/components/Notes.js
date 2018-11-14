@@ -32,7 +32,7 @@ const NoteContainer = styled.div`
   border-radius: 3px;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
-  margin: 15px 15px 30px 15px;
+  margin: 15px 15px 15px 15px;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
@@ -45,7 +45,7 @@ class Notes extends Component {
           <NotesContainer>
               {this.props.notes.map(note => {
                 return (
-                  <NoteContainer>
+                  <NoteContainer key={note._id}>
                     <Link to={`/notes/${note._id}`} style={{ textDecoration: 'none', color: 'black' }} >
                       <NoteCard
                         key={note._id}
@@ -53,7 +53,6 @@ class Notes extends Component {
                         text={note.textBody}
                       />
                     </Link>
-                    <button onClick={() => this.props.delete(note._id)}>Delete</button>
                   </NoteContainer>
                 );
               })}
