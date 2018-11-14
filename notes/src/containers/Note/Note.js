@@ -5,7 +5,7 @@ const NoteCard = styled.div`
   display: inline-block;
   border: 1px solid #ccc;
   padding: 0px 10px;
-  width: 180px;
+  width: 210px;
   height: 250px;
   margin: 0px 20px;
   background-color: white;

@@ -1,19 +1,23 @@
-import React from 'react'
-import Note from './Note';
+import React from "react";
+import Note from "./Note";
+import styled from "styled-components";
 
-const NoteList = ({notes}) => {
+const ListHeader = styled.h1`
+color: #555;
+margin:40px 10px;
+padding: 5px;
 
-    return (
-        <div>
-            <h1>Your Notes:</h1>
-        {notes.map(note => (
-            <Note note={note} key={note.id} />
-        ))}
+`
 
-        </div>)
-}
+const NoteList = ({ notes }) => {
+  return (
+    <div>
+      <ListHeader>Your Notes:</ListHeader>
+      {notes.map(note => (
+        <Note note={note} key={note.id} />
+      ))}
+    </div>
+  );
+};
 
-
-
-
-export default NoteList
+export default NoteList;
