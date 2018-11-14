@@ -1,0 +1,11 @@
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 90%;
+}
+
+button {
+    margin: 5px;
+    text-align: center;
+}
