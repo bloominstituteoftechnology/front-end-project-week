@@ -1,3 +1,5 @@
+Trello Board for this project:  https://trello.com/b/RfbWRTN9/lambda-notes-christopher-ferrell
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
