@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Nav from './components/Nav';
 
@@ -13,4 +14,6 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({});
+
+export default connect(mapStateToProps)(App);
