@@ -2,14 +2,15 @@ const notes = [
     {
         tags: [''],
         id: 0,
-        title: 'My first note',
-        textBody: 'This is my first note'
+        title: 'Note Title',
+        textBody: 'Morbi pellentesque euismod venenatis.Nulla ut nibh nunc.Phasellus diam metus,blandit ac purus a,efficitur mollis …'
     },
     {
         tags: [''],
         id: 1,
-        title: 'My second note',
-        textBody: 'This is my second note'
+        title: 'Note Title',
+        textBody: 'Morbi pellentesque euismod venenatis.Nulla ut nibh nunc.Phasellus diam metus,blandit ac purus a,efficitur mollis …'
+
     }
 ]
 

@@ -4,16 +4,17 @@ import styled from "styled-components";
 const NoteCard = styled.div`
   display: inline-block;
   border: 1px solid #ccc;
-  padding: 10px;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  overflow-wrap: break-word;
-  margin: 40px 20px;
+  padding: 0px 10px;
+  width: 180px;
+  height: 250px;
+  margin: 0px 20px;
   background-color: white;
   h1 {
-      font-size: 20px;
-
+    font-size: 24px;
+  }
+  p {
+      overflow:hidden;
+      line-height:30px;
   }
 `;
 
