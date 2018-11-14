@@ -10,10 +10,11 @@ class Notes extends React.Component {
     }
 
     render(){
+        console.log(this.props.notes)
         return(
             <div>
                 {this.props.notes.map( note => 
-                    < Note note={note} key={note.textBody} /> 
+                    < Note note={note} key={note._id} id={note._id} text={note.textBody} title={note.title} /> 
                 )}
             </div>
         )
