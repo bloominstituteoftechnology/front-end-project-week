@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import Sidebar from './sidebar.js'; 
-import Notes from './Notes.js'; 
+import Sidebar from './components/sidebar'; 
+import Notes from './components/Notes'; 
 
 class App extends Component {
+  constructor(){
+    super(); 
+    this.state = {
+      notes: ["i am card 1", "i am card 2"]
+    }
+  }
   render() {
     return (
       <div className="App">
@@ -11,7 +17,7 @@ class App extends Component {
           <Sidebar />
         </div> 
         <div className="notes-container">
-          <Notes /> 
+          <Notes notes={this.state.notes} /> 
         </div> 
       </div>
     );

@@ -3,13 +3,30 @@
   width: 100%; 
   display: flex; 
   flex-wrap: wrap; 
-  margin: 0; 
+  margin: 0 auto; 
+  max-width: 1240px; 
 }
 
 .sidebar-container{
-  width: 30%; 
+  width: 19%; 
+  background-color: rgb(208, 208, 255); 
+  border: 1px solid navy; 
+  border-right: none; 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center;  
 }
 
 .notes-container{
-  width: 70%; 
+  width: 79%; 
+  background-color: rgb(232, 232, 255); 
+  border: 1px solid navy; 
 }
+
+h1{
+  font-weight: 700;
+  font-size: 40px;
+  line-height: .8;
+  margin-left: 9%;    
+}
+
