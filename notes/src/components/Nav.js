@@ -1,9 +1,12 @@
 import React from 'react';
 
 import Nav from '../Styles/Nav';
+import { Title, Button } from '../Styles/GeneralStyles';
 
 export default () => (
     <Nav>
-        <h1>Lambda Notes</h1>
+        <Title>Lambda Notes</Title>
+        <Button>View Your Notes</Button>
+        <Button>+Create New Note</Button>
     </Nav>
 );
