@@ -47,3 +47,29 @@ export const addNote = (newNote) => {
 }
 
 
+export const updateNote = (id, updatedNote) => {
+    return(dispatch) => {
+        dispatch({type: LOADING})
+        axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
+            .then( response => {
+                dispatch({type: GET_NOTES, notes: response.data})
+            })
+            .catch( err => {
+                dispatch({type: ERROR_MESSAGE, errorMessage: "This note prefers not to be changed and declined your requested edits."})
+            })
+    }
+}
+
+
+export const deleteNote = (id) => {
+    return(dispatch) => {
+        dispatch({type: LOADING})
+        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+            .then( response => {
+                dispatch({type: GET_NOTES, notes: response.data})
+            })
+            .catch( err => {
+                dispatch({type: ERROR_MESSAGE, errorMessage: "This all-powerful note cannot simply cease to exist per your command."})
+            })
+    }
+}
