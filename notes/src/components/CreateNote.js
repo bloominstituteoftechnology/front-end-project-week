@@ -10,18 +10,24 @@ export default class CreateNote extends React.Component {
   }
 
   inputHandler = e => {
-      this.setState({[e.target.name]: e.target.value})
-  }
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   submitHandler = e => {
-      e.preventDefault();
-      this.props.saveNote(this.state.newTitle, this.state.newText)
-      this.props.history.push('/')
-  }
+    e.preventDefault();
+    this.props.saveNote(this.state.newTitle, this.state.newText);
+    this.props.history.push("/");
+  };
   render() {
     return (
       <form onSubmit={this.submitHandler}>
-        <input type="text" name="newTitle" value={this.state.newTitle} onChange={this.inputHandler} placeholder="Note Title" />
+        <input
+          type="text"
+          name="newTitle"
+          value={this.state.newTitle}
+          onChange={this.inputHandler}
+          placeholder="Note Title"
+        />
         <textarea
           cols="60"
           rows="30"

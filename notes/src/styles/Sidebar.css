@@ -1,0 +1,66 @@
+.sidebar {
+  width: 18%;
+  height: 100vh;
+  background-color: #d3d2d3;
+  border-right: 1px solid #b6b5b6;
+}
+
+.sidebarWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 10% 0 0 5%;
+}
+
+.sidebarTitle {
+    margin-bottom: 20px;
+}
+
+.notesButton {
+    height: 45px;
+    width: 95%;
+    border: 1.5px solid #b6b5b6;
+    background-color: #24B8BD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.sidebarWrapper a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+    color: white;
+    height: 45px;
+}
+
+.sidebarWrapper a:hover {
+    color: #24B8BD;
+}
+
+
+
+.notesButton:hover {
+    background-color: white;
+    color: #24B8BD;
+}
+
+
+.newNoteButton {
+    color: white;
+    height: 45px;
+    width: 95%;
+    border: 1.5px solid #b6b5b6;
+    background-color: #24B8BD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newNoteButton:hover {
+    background-color: white;
+    color: #24B8BD;
+}

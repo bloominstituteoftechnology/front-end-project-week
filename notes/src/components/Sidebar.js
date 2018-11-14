@@ -1,17 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import "../styles/Sidebar.css";
 
 export default class SideBar extends React.Component {
-
-
-    
-    render() {
-        return (
-            <div>
-                <h1>Lambda Notes</h1>
-                <NavLink to='/'>View Your Notes</NavLink>
-                <NavLink to='/create'>+ Create New Note</NavLink>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="sidebar">
+        <div className="sidebarWrapper">
+          <h1 className="sidebarTitle">Lambda Notes</h1>
+          <div className="notesButton"><Link to="/">View Your Notes</Link></div>
+          <div className="newNoteButton"><Link to="/create">+ Create New Note</Link></div>
+        </div>
+      </div>
+    );
+  }
 }

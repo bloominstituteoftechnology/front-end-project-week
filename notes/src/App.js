@@ -7,6 +7,8 @@ import CreateNote from "./components/CreateNote";
 import NotePage from "./components/NotePage";
 import EditNote from "./components/EditNote";
 
+import './styles/App.css';
+
 class App extends Component {
   constructor() {
     super();
@@ -51,14 +53,14 @@ class App extends Component {
   };
 
   deleteNote = id => {
-    let filteredNotes = this.state.notes.filter(note => note.id !== id)
+    let filteredNotes = this.state.notes.filter(note => note.id !== id);
     this.setState({
       notes: filteredNotes
-    })
-  }
+    });
+  };
   render() {
     return (
-      <div className="app">
+      <div className="App">
         <SideBar />
         <Route
           exact
@@ -80,7 +82,13 @@ class App extends Component {
         <Route
           exact
           path="/note/:id"
-          render={props => <NotePage {...props} notes={this.state.notes} deleteNote={this.deleteNote} />}
+          render={props => (
+            <NotePage
+              {...props}
+              notes={this.state.notes}
+              deleteNote={this.deleteNote}
+            />
+          )}
         />
         <Route
           exact
