@@ -5,7 +5,7 @@ import SideBar from "./components/Sidebar";
 import Notes from "./components/Notes";
 import CreateNote from "./components/CreateNote";
 import NotePage from "./components/NotePage";
-// import EditNote from "./components/EditNote";
+import EditNote from "./components/EditNote";
 
 class App extends Component {
   constructor() {
@@ -31,10 +31,31 @@ class App extends Component {
 
   saveNote = (newTitle, newText) => {
     this.setState({
-      notes: [...this.state.notes, { title: newTitle, text: newText, id: this.state.newId }],
+      notes: [
+        ...this.state.notes,
+        { title: newTitle, text: newText, id: this.state.newId }
+      ],
       newId: this.state.newId + 1
     });
   };
+
+  editNote = (newTitle, newText, id) => {
+    let updatedNote = this.state.notes.find(note => note.id === id);
+    let filteredNotes = this.state.notes.filter(note => note.id !== id);
+    this.setState({
+      notes: [
+        ...filteredNotes,
+        { title: newTitle, text: newText, id: updatedNote.id }
+      ]
+    });
+  };
+
+  deleteNote = id => {
+    let filteredNotes = this.state.notes.filter(note => note.id !== id)
+    this.setState({
+      notes: filteredNotes
+    })
+  }
   render() {
     return (
       <div className="app">
@@ -59,13 +80,19 @@ class App extends Component {
         <Route
           exact
           path="/note/:id"
-          render={props => <NotePage {...props} notes={this.state.notes} />}
+          render={props => <NotePage {...props} notes={this.state.notes} deleteNote={this.deleteNote} />}
         />
-        {/* <Route
+        <Route
           exact
           path="/note/:id/edit"
-          render={props => <EditNote {...props} notes={this.state.notes} />}
-        /> */}
+          render={props => (
+            <EditNote
+              {...props}
+              notes={this.state.notes}
+              editNote={this.editNote}
+            />
+          )}
+        />
       </div>
     );
   }
