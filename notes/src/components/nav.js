@@ -24,18 +24,18 @@ class Nav extends React.Component {
  
 
  
-  /****** Render to Screen (React DOM) *************/
+  
   render() {
     return (
         <form className="nav-left">
         <div className="nav-title">Lambda Notes</div>
         <ul className="nav-list">
           <li className="nav-left-item icon1">
-          <button className="nav-button" value="ViewData" onClick={this.props.viewTripData} name="viewNotes">View Your Notes</button>
+          <button className="nav-button" value="noteList" onClick={this.props.noteList} name="noteList">View Your Notes</button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button className="nav-button" value="EditData" onClick={this.props.createNewNote} name="createNewNote">+ Create New Note</button>
+            <button className="nav-button" value="noteCreate" onClick={this.props.noteCreate} name="noteCreate">+ Create New Note</button>
           </li>
          
          

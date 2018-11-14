@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from "axios";
 import "../css/note.css"
 
-const NoteCreate = props => {
-	return (
-		<form className="note-create-form" onSubmit={props.createSubmit}>
+class NoteCreate extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+		tags: '',
+		title: '',
+		textBody: '',
+      id: ''
+    };
+  }
+	
+	
+
+	  render() {
+		return (
+		<form className="note-create-form" onSubmit={this.props.saveNote}>
 			<header className="note-create-header">Create New Note</header>
 			<input
 				type="text"
 				className="note-title-input"
-				value={props.value}
-				placeHolder="Note Content"
-				onChange={props.changeHandler}
-				name="note-title-create" />
+				value={this.props.value}
+				placeholder="Note Content"
+				onChange={this.props.changeHandler}
+				name="title" />
 			<textarea
 				type="text"
 				className="note-textarea"
-				value={props.value}
-				onChange={props.changeHandler}
-				name="note-textarea-create" />
-			<button className="save-button" onSubmit={props.createSubmit}>Save</button>
+				value={this.props.value}
+				onChange={this.props.changeHandler}
+				name="textBody" />
+			<button className="save-button" onSubmit={this.props.saveNote}>Save</button>
 		</form>
 	);
+}
 };
 export default NoteCreate;

@@ -2,7 +2,7 @@ import React from 'react'
 import "../css/note.css"
 
 const NoteView = props => {
-  return props.list.map((item, id) => (
+  return props.notes.map((item, id) => (
     <li
       onClick={() => props.toggleComplete(item.id)}
       key={id}
