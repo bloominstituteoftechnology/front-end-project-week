@@ -2,23 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Sidebar from './components/sidebar'; 
 import Notes from './components/Notes'; 
-import axios from 'axios'; 
+import {Route} from 'react-router-dom'; 
+import { CreateNew } from './components/CreateNew'
 
 class App extends Component {
   constructor(){
     super(); 
-    this.state = {
-      notes: [{title: "hey", textBody: "yeahjlkja"}, {title: "hey", textBody: ";asjdk;lakjlfj;a"}, {title: "hey"} ,{title: "hey"}]
-    }
-  }
-
-  componentDidMount(){
-    axios
-    .get("https://fe-notes.herokuapp.com/note/get/all")
-      .then(response => {
-        this.setState({notes: response.data})
-      })
-        .catch(err => console.log(err)); 
   }
 
   render() {
@@ -28,7 +17,8 @@ class App extends Component {
           <Sidebar />
         </div> 
         <div className="notes-container">
-          <Notes notes={this.state.notes} /> 
+          <Route exact path='/' component={Notes} />
+          <Route path='/CreateNew' component={CreateNew}/>   
         </div> 
       </div>
     );
