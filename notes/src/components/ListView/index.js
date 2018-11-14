@@ -1,25 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-import NoteCard from '../NoteCard';
-
+import NoteCard from "../NoteCard";
 
 class ListView extends React.Component {
-  render () {
-    const notes = this.props.notes;
+  constructor(props) {
+    super(props);
 
-    return(
+    this.state = {
+      notes: []
+    }
+  }
+  render() {
+    const notes = this.props.notes;
+    return (
       <section>
         {notes.map(note => {
-          return (
-            <NoteCard key={note.id+note.title} note={note} />
-          )
+          return <NoteCard key={note.id + note.title} note={note} />;
         })}
       </section>
-    )
+    );
   }
 }
-
 
 ListView.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired
