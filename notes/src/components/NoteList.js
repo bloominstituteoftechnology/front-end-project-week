@@ -14,7 +14,6 @@ class NoteList extends React.Component {
     }
 
     componentDidMount() {
-        console.log('NoteList: componentDidMount()');
         this.setState({...this.state, loading: true});
         axios.get('https://fe-notes.herokuapp.com/note/get/all')
             .then( response => {
@@ -26,7 +25,6 @@ class NoteList extends React.Component {
     }
 
     render() {
-        console.log('NoteList: render()');
         return (
             <div className="note-list">
                 { this.state.loading === true ? <h1>Loading...</h1>: null }
