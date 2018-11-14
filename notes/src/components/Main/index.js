@@ -5,6 +5,8 @@ import { Route } from 'react-router-dom';
 import ListView from '../ListView';
 import CreateNote from '../CreateNote';
 import Navigation from '../Navigation';
+import Note from '../Note';
+import EditNote from '../EditNote';
 
 import './main.css';
 
@@ -17,7 +19,8 @@ class Main extends Component {
       notes: [],
       fetching: false,
       fetched: false,
-      creatingNote: false
+      creatingNote: false,
+      id: null
     }
   }
 
@@ -57,6 +60,13 @@ class Main extends Component {
          }))
   }
 
+  updateNote = (note) => {
+    // this.setState({updatingNote: true, fetched:false})
+
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, {...note})
+         .then(res => console.log(res))
+  }
+
   render() {
     return (
       <section className='main-container'>
@@ -65,9 +75,13 @@ class Main extends Component {
 
         <Route path='/' exact render={(props) => <ListView notes={this.state.notes} />}/>
 
-        <Route path='/note/create' exact render={(props) => <CreateNote
+        <Route  exact path='/note/create/'  render={(props) => <CreateNote
           createNote={this.createNote}
           creatingNote={this.state.creatingNote}/>} />
+
+        <Route path='/:id' exact render={(props) => <Note {...props}/>}/>
+
+        <Route path='/edit/:id' exact render={(props) => <EditNote {...props} update={this.updateNote}/>}/>
       </section>
     );
   }
