@@ -20,12 +20,16 @@ class CreateNote extends React.Component {
 
     submitHandler = (e) => {
         e.preventDefault();
+        this.setState({
+            title: '',
+            text: ''
+        })
     }
 
     render(){
         return(
             <div>
-                <h1>CreateNew Note:</h1>
+                <h1>Create New Note:</h1>
 
                 <form onSubmit={this.submitHandler} >
                     <input onChange={this.inputHandler} type="text" value={this.state.title} name="title" placeholder="Note Title" />

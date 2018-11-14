@@ -3,7 +3,8 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import SideBar from './SideBar';
 import CreateNote from './CreateNote';
-
+import FullNote from './FullNote';
+import Notes from './Notes';
 
 class App extends Component {
   render() {
@@ -12,6 +13,8 @@ class App extends Component {
       <SideBar />
 
       <Route path="/create" component={CreateNote} />
+      <Route path="/notes" component={Notes} />
+      <Route path="/notes/:id" render={ props => <FullNote {...props} /> } />
       </div>
     );
   }
