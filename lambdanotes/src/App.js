@@ -26,7 +26,16 @@ class App extends Component {
     })
   }
 
-
+  handleAddNewNote = note => {
+    axios 
+    .post(`https://fe-notes.herokuapp.com/note/create`, note)
+    .then(response => {
+      this.setState({ notes: response.data })
+    })
+    .catch(err => {
+      console.log("Fail to POST a note to the server", err)
+    })
+  }
   
 
 
@@ -37,7 +46,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           
 
-          <CreateNewNote />
+          <CreateNewNote handleAddNewNote={this.handleAddNewNote}/>
 
           <p>
             Lambda Notes Components.
