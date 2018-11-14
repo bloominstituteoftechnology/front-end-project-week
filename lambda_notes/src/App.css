@@ -1,0 +1,31 @@
+body {
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 600px;
+  margin: 5px;
+}
+.sidebar {
+  padding: 5px;
+  background-color: #D3D2D3;
+  width: 40%;
+  font-size: 15px;
+  line-height: .2;
+  height: 100%;
+}
+button {
+  width: 85%;
+  padding: 10px;
+  color: white;
+  background-color: #24B8BD;
+  margin-bottom: 10px;
+}
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35px;
+}
+h1 {
+  margin: 20px 12.5px;
+  color: #424242;
+}
