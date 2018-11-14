@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NotesList from './components/NotesList.js';
+import Sidebar from './components/Sidebar.js';
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+    display: flex;
+    background: whitesmoke;
+    height: 100%;
+    width: 1000px;
+    margin: 0 auto;
+`
 
 class App extends Component {
     constructor(props)  {
@@ -21,9 +31,10 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
+            <AppContainer>
+                <Sidebar />
                 <NotesList notes={this.state.notes}/>
-            </div>
+            </AppContainer>
         );
     }
 }
