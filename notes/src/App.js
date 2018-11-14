@@ -24,7 +24,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -35,7 +35,7 @@ class App extends Component {
 
   componentDidUpdate() {
     axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -46,7 +46,7 @@ class App extends Component {
 
   addNote = (newNote) => {
     axios
-        .post('https://killer-notes.herokuapp.com/note/create', {
+        .post('https://fe-notes.herokuapp.com/note/create', {
           title: this.state.title,
           textBody: this.state.textBody
         })
@@ -59,7 +59,7 @@ class App extends Component {
 
   deleteNote = (id) => {
     axios
-        .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         .then(response => {
           console.log(response.data)
         })
@@ -73,7 +73,7 @@ class App extends Component {
 
   editNote = (id) => {
     axios
-        .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, {
+        .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
           title: this.state.title,
           textBody: this.state.textBody          
         })
