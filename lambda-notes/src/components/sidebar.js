@@ -7,7 +7,7 @@ export default class Sidebar extends React.Component {
           <div>
             <h1>Lambda Notes</h1> 
             <p className="button"> View Your Notes </p> 
-            <p className="button"> +Create A New Note </p> 
+            <p className="button"> + Create A New Note </p> 
           </div> 
         )
     }

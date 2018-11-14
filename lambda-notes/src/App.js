@@ -8,7 +8,7 @@ class App extends Component {
   constructor(){
     super(); 
     this.state = {
-      notes: []
+      notes: [{title: "hey", textBody: "yeahjlkja"}, {title: "hey", textBody: ";asjdk;lakjlfj;a"}, {title: "hey"} ,{title: "hey"}]
     }
   }
 

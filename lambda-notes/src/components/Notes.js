@@ -9,7 +9,7 @@ export default class Notes extends React.Component {
     render(){
         return(
           <div> 
-            <h2>Your Notes:</h2>  
+            <h3>Your Notes:</h3>  
             <div className='container'> 
               {this.props.notes.map((note, index) => {
                 return <Note key={index} note={note}></Note> 

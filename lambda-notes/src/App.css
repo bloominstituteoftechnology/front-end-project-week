@@ -9,8 +9,8 @@
 }
 
 .sidebar-container{
-  width: 25%; 
-  background-color: rgb(208, 208, 255); 
+  width: 22%; 
+  background-color: rgb(179, 179, 180); 
   border: 1px solid navy; 
   border-right: none; 
   display: flex; 
@@ -25,8 +25,8 @@
 }
 
 h1{
-  font-weight: 700;
-  font-size: 40px;
+  font-weight: 650;
+  font-size: 35px;
   line-height: .8;
   margin-left: 9%;    
 }

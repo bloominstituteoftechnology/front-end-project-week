@@ -4,3 +4,10 @@
     width: 100%; 
     justify-content: space-evenly; 
 }
+
+h3{
+    margin-top: 50px; 
+    font-size: 23px; 
+    padding-left: 25px; 
+}
+

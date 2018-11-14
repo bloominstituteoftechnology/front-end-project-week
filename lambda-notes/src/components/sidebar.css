@@ -1,12 +1,15 @@
 .button{
     background-color: rgb(23, 196, 202);
-    border: 1px solid black; 
-    width: 80%;
-    height: 40px;  
+    border: 1px solid rgb(114, 63, 119); 
+    width: 84%;
+    height: 36px;  
     color: white; 
     font-weight: bold; 
-    margin: 10px auto; 
+    margin: 17px auto; 
     display: flex; 
     align-items: center; 
-    justify-content: center; 
+    justify-content: center;
+    padding: 3px;  
+    font-size: 16px; 
+    letter-spacing: 0.5; 
 }
