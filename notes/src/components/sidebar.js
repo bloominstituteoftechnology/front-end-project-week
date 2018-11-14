@@ -4,6 +4,7 @@ function Sidebar(props) {
 
   return (
     <div>
+    <h2>Buttons Here</h2>
 
 
     </div>

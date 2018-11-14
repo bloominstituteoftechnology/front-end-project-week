@@ -10,6 +10,7 @@ class App extends Component {
       <div className= "appContainer">
       <div className= "sideBarClass">
           <h1>Lambda Notes</h1>
+          <SideBar/>
       
       </div>
       
