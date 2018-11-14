@@ -34,8 +34,8 @@ class NoteDetail extends React.Component {
   render() {
     return (
       <div className="note-detail">
+        {/* <h3 className="note-tags">{this.state.note.tags}</h3> */}
         <div className="header-container">
-          {/* <h4 className="note-tag">{this.state.note.tags.map(tag => `${tag} `)}</h4> */}
           <h3 className="note-title">{this.state.note.title}</h3>
           <NavLink
             to="/"

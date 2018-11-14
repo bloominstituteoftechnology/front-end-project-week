@@ -24,7 +24,7 @@ class App extends Component {
       .then(response => {
         this.setState({ notes: response.data });
       })
-      .catch(err => console.log(err.response));
+      .catch(err => console.log(err));
   };
 
   componentDidMount() {
@@ -40,7 +40,7 @@ class App extends Component {
   handleClick = () => {
     const newNote = {
       title: this.state.title,
-      tags: "",
+      tags: this.state.tags,
       textBody: this.state.textBody
     };
     axios
