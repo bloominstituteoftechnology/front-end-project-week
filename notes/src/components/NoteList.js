@@ -2,13 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Note from './Note';
+import NoteListStyle from '../Styles/NoteList';
 
 const NoteList = (props) => (
-    <div>
+    <NoteListStyle>
         {props.notes.map(note => (
             <Note key={note.id} title={note.title} body={note.body} />
         ))}
-    </div>
+    </NoteListStyle>
 );
 
 const mapStateToProps = state => ({
