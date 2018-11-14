@@ -8,10 +8,10 @@ export default class Sidebar extends React.Component {
           <div>
             <h1>Lambda Notes</h1>
               <p className="button"> 
-                <Link to="/"> View Your Notes </Link>
+                <Link style={{textDecoration: 'none', color: 'white'}} to="/"> View Your Notes </Link>
               </p>
               <p className="button"> 
-               <Link to='/CreateNew'> + Create A New Note </Link>
+               <Link style={{textDecoration: 'none', color: 'white'}} to='/CreateNew'> + Create A New Note </Link>
               </p>  
           </div> 
         )
