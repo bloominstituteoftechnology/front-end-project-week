@@ -12,6 +12,9 @@ const NavBar = styled.div`
     background-color: rgb(216, 216, 216);
     border-right: 1px solid rgb(175, 175, 175);
     color: rgb(74, 74, 74);
+    /* margin-bottom: -101%; */
+    padding-bottom: 150%;
+    overflow: hidden;
 `;
 
 const SiteName = styled.div`

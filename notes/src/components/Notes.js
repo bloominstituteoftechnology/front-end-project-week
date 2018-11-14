@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 const NotesHeader = styled.h2`
-    padding-left: 5%;
+  padding-left: 5%;
 `;
 
 const NotesContainer = styled.div`
@@ -30,11 +30,9 @@ const NoteContainer = styled.div`
   border-radius: 3px;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
-  margin: 10px;
-  padding: px;
+  margin: 15px 15px 30px 15px;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.5;
 `;
 
 class Notes extends Component {
@@ -47,7 +45,7 @@ class Notes extends Component {
               {this.props.notes.map(note => {
                 return (
                   <NoteContainer>
-                    <Link to={`/notes/${note._id}`} style={{ textDecoration: 'none' }} >
+                    <Link to={`/notes/${note._id}`} style={{ textDecoration: 'none', color: 'black' }} >
                       <NoteCard
                         key={note._id}
                         title={note.title}

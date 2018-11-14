@@ -75,7 +75,7 @@ class App extends Component {
     axios
         .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
           title: this.state.title,
-          textBody: this.state.textBody          
+          textBody: this.state.textBody
         })
         .catch(err => {
           console.log(err)
