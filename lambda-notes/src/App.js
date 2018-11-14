@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Route} from 'react-router-dom';
 
 import './App.css';
 import NavSideBar from './components/NavSideBar';
 import NotesList from './components/NotesList';
+import CreateNote from './components/CreateNote';
 
 class App extends Component {
   constructor(props){
@@ -28,7 +30,9 @@ class App extends Component {
     return (
       <div>
         <NavSideBar/>
-        <NotesList notes={this.state.notes}/>
+
+        <Route exact path="/" render={props=><NotesList notes={this.state.notes}/>}/>
+        <Route path="/create-note" render={props=><CreateNote {...props}/>}/>
       </div>
     );
   }
