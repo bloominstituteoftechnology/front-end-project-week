@@ -25,7 +25,7 @@ https://trello.com/b/cJsEQO3P/lambda-notes-eric-whitcomb
 ## MVP Features:
 
 - [x] Display a list of notes
-- [ ] Create a note with a title and content
+- [x] Create a note with a title and content
 - [x] View an existing note
 - [ ] Edit an existing note
 - [ ] Delete an existing note
@@ -33,7 +33,7 @@ https://trello.com/b/cJsEQO3P/lambda-notes-eric-whitcomb
   - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
   - [x] GET all
   - [x] GET note
-  - [ ] POST note
+  - [x] POST note
   - [ ] PUT note
   - [ ] DELETE note
 
