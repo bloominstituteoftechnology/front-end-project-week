@@ -22,20 +22,20 @@ export const Button = styled.button `
    padding: 5px 20px;
    cursor: pointer;
    width: 90%;
+   max-width: 200px;
 `
 
 export const DisplayContainer = styled.div`
    background-color: whitesmoke;
    display: flex;
-   justify-content: space-between;
-   align-items: center;
+   justify-content: space-around;
    flex-wrap: wrap;
    padding: 30px;
    width: 100%;
 `
 
 export const DisplayHeader = styled.h2`
-   width: 100%;
+   width: 93%;
 `
 
 export const NoteContainer = styled.div`
@@ -50,10 +50,20 @@ export const NoteContainer = styled.div`
 
 export const InputHeader = styled.input `
    background-color: white;
-   text: black;
+   color: black;
+   max-width: 600px;
+   width: 80%;
+   border-radius: 5px;
+   padding: 5px 10px;
 `
 
 export const InputBody = styled.input `
    background-color: white;
-   text: black;
+   color: black;
+   vertical-align: top;
+   max-width: 800px;
+   width: 100%;
+   border-radius: 5px;
+   padding: 5px 10px;
+   height: 300px;
 `

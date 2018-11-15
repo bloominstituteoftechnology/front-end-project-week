@@ -6,6 +6,7 @@ import Note from "./Note";
 import {DisplayHeader} from "../Styles/Styles"
 
 const NoteList = (props) => {
+   console.log(props)
    return(
       <>
          <DisplayHeader>Your Notes:</DisplayHeader>
