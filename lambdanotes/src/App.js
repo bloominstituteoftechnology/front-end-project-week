@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
 import axios from 'axios'
 
 import NotesList from './components/NotesList'
 import CreateNewNote from './components/CreateNewNote'
+import Home from './components/Home'
+
+import { Route, Link } from 'react-router-dom'
+
 
 class App extends Component {
   constructor(){
@@ -53,28 +55,40 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          
-
-          <CreateNewNote handleAddNewNote={this.handleAddNewNote}/>
-
-          <p>
-            Lambda Notes Components.
-          </p>
-
-          <NotesList 
-            notes={this.state.notes}
-            handleDeleteNote={this.handleDeleteNote}
-          />
-
-          <p>
-            Edit View (update).
-          </p>
-          <p>
-            Delete Modal
-          </p>
+        <header className="App-header"> 
+          <ul>
+            <li>
+              <Link to="/">HOME</Link>
+            </li>
+            <li>
+              <Link to="/notes">View Your Notes</Link>
+            </li>
+            <li>
+              <Link to="/create">Create New Notes</Link>
+            </li>
+          </ul>
         </header>
+
+        <div className="Container">
+              <Route exact path="/" component={Home} />
+
+              <Route exact path="/notes" 
+                render={props => <NotesList {...props} notes={this.state.notes}
+                handleDeleteNote={this.handleDeleteNote}/> }
+              />
+
+              <Route exact path="/create" 
+                render={props => <CreateNewNote {...props} handleAddNewNote={this.handleAddNewNote} />}
+              />
+
+              <p>
+                Edit View (update).
+              </p>
+              <p>
+                Delete Modal
+              </p>
+        </div>
+
       </div>
     );
   }
