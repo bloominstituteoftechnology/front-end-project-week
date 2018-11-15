@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import ListView from '../ListView';
 import CreateNote from '../CreateNote';
 import Navigation from '../Navigation';
 import Note from '../Note';
 import EditNote from '../EditNote';
+import DeleteModal from '../DeleteModal';
 
 import './main.css';
 
@@ -20,15 +21,18 @@ class Main extends Component {
       fetching: false,
       fetched: false,
       creatingNote: false,
+      updating: false,
       id: null,
-      error: null
+      error: null,
+      deleted: false,
+      redirect: false
     }
   }
 
   componentDidMount() {
 
       // set State to fetching if no notes list is present
-      this.setState({ fetching: true })
+      this.setState({ fetching: true, deleted: false })
 
     // make an API call to get notes
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
@@ -52,7 +56,9 @@ class Main extends Component {
                 .then(res => this.setState({
                   notes: res.data,
                   fetched: true,
-                  fetching: false
+                  fetching: false,
+                  deleting: false,
+                  deleted: false
                 }))
                 .catch(err => {
            this.setState({
@@ -88,6 +94,21 @@ class Main extends Component {
         })
   }
 
+  deleteModal = (id) => {
+    this.setState({deleting: true, deleted:false, id: id})
+  }
+  delete = () => {
+    const id = this.state.id
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+         .then(res => {
+          this.getNotes();
+          this.setState({deleting: false, deleted:true})
+         })
+         .catch(err => {
+           this.setState({error: err})
+         })
+  }
+
   render() {
     return (
       <section className='main-container'>
@@ -100,9 +121,15 @@ class Main extends Component {
           createNote={this.createNote}
           creatingNote={this.state.creatingNote}/>} />
 
-        <Route path='/:id' exact render={(props) => <Note {...props}/>}/>
+        <Route path='/:id' exact render={(props) => <Note {...props}
+          delete={this.deleteModal}
+          deleting={this.state.deleting}/>}/>
 
         <Route path='/edit/:id' exact render={(props) => <EditNote {...props} update={this.updateNote}/>}/>
+
+        {this.state.deleting ? <DeleteModal delete={this.delete} /> : null}
+
+        {this.state.deleted ? <Redirect exact to='/' /> : null}
       </section>
     );
   }

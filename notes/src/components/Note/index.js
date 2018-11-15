@@ -15,6 +15,11 @@ class Note extends React.Component {
     axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
     .then(res => this.setState({note: res.data}))
   }
+
+delete = () => {
+ return this.props.delete(this.props.match.params.id);
+}
+
   render() {
     if (!Object.keys(this.state.note).length) {
       return <p></p>
@@ -23,7 +28,7 @@ class Note extends React.Component {
       <article name={this.state.note._id}>
       <span>
         <Link to={`/edit/${this.state.note._id}`} >Edit</Link>
-        <p>Delete</p>
+        <p onClick={this.delete}>Delete</p>
       </span>
         <header>
           {this.state.note.title}
