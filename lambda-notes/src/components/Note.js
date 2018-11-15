@@ -40,7 +40,7 @@ class Note extends Component  {
                         {this.props.note.title.length > 11 ? (this.props.note.title.slice(0, 11).trim() + "...") : this.props.note.title}
                     </NoteTitle>
                     <NoteBody>
-                        {this.props.note.textBody}
+                        {this.props.note.textBody.length > 200 ? (this.props.note.textBody.slice(0, 200).trim() + "...") : this.props.note.textBody}
                     </NoteBody>
                 </NoteContainer>
         );

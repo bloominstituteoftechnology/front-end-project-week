@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Note from './Note.js';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ListView = styled.div`
     margin-top: 50px;
@@ -18,6 +19,14 @@ const ViewTitle = styled.div`
     margin-left: 23px;
 `
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+    &:hover {
+        text-decoration: underline;
+    }
+`
+
 class NotesList extends Component   {
     // constructor(props)  {
     //     super(props)
@@ -30,8 +39,8 @@ class NotesList extends Component   {
                     Your Notes:
                 </ViewTitle>
                 <NotesView>
-                    {this.props.notes.map(note  =>  {
-                        return <Note note={note}/>
+                    {this.props.notes.map((note, index)  =>  {
+                        return <StyledLink to={`/note/${note["_id"]}`} data={note}><Note key={index} note={note}/></StyledLink>
                     })}
                 </NotesView>
             </ListView>

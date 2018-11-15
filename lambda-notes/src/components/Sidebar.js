@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 const SidebarContainer  =   styled.div`
     background: lightgray;
-    width: 200px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-right: solid 1px darkgray;
+    min-height: 100vh;
 `
 const Button = styled.div`
     width: 170px;
