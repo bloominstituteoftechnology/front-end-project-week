@@ -59,7 +59,7 @@ export const updateNote = (id, updatedNote) => {
         dispatch({type: LOADING})
         axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
             .then( response => {
-                dispatch(getNotes())
+                dispatch(getOneNote(id))
             })
             .catch( err => {
                 dispatch({type: ERROR_MESSAGE, errorMessage: "This note prefers not to be changed and declined your requested edits."})
@@ -73,7 +73,7 @@ export const deleteNote = (id) => {
         dispatch({type: LOADING})
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
             .then( response => {
-                dispatch(getNotes());
+                dispatch(getOneNote());
             })
             .catch( err => {
                 dispatch({type: ERROR_MESSAGE, errorMessage: "This all-powerful note cannot simply cease to exist per your command."})

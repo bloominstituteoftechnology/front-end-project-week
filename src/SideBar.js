@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SideBarDiv, SideBarButton, Header } from './StyledComponents';
 
 const SideBar = () => {
     return(
-        <div>
-            <h1>Lambda Notes</h1>
-            <Link to="/notes"><button>View Your Notes</button></Link>
-            <Link to="/create"><button>+ Create New Note</button></Link>
-        </div>
+        <SideBarDiv>
+            <Header>Lambda Notes</Header>
+            <Link to="/notes"><SideBarButton>View Your Notes</SideBarButton></Link>
+            <Link to="/create"><SideBarButton>+ Create New Note</SideBarButton></Link>
+        </SideBarDiv>
     )
 }
 
