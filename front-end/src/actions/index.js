@@ -6,27 +6,27 @@ export const FETCHING = "FETCHING";
 export const ADDING = "ADDING";
 
 export const getNotes = () => dispatch => {
-    dispatch({ type: FETCHING, loading: true });
+    dispatch({ type: FETCHING });
 
     axios
-        .get(`http://localhost:3333/smurfs`)
+        .get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then(({ data }) => {
-            dispatch({ type: SUCCESS, notes: data, loading: false });
+            dispatch({ type: SUCCESS, notes: data });
         })
         .catch(err => {
-            dispatch({ type: FAILURE, error: err, loading: false});
+            dispatch({ type: FAILURE, error: err });
         });
 };
 
-export const postNote = note => dispatch => {
-    dispatch({ type: ADDING, adding: true });
+export const createNote = note => dispatch => {
+    dispatch({ type: ADDING });
 
     axios
-        .post(`http://localhost:3333/smurfs`, note)
+        .post(`https://fe-notes.herokuapp.com/note/create`, note)
         .then(({ data }) => {
-            dispatch({ type: SUCCESS, notes: data, adding: false });
+            dispatch({ type: SUCCESS, notes: data });
         })
         .catch(err => {
-            dispatch({ type: FAILURE, error: err, adding: false});
+            dispatch({ type: FAILURE, error: err });
         });
 };
