@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 import NoteList from "./components/NoteList";
 import NoteForm from "./components/NoteForm";

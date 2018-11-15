@@ -1,8 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import { fetchNotes } from "../actions/index";
-import NoteCard from './NoteCard';
+import NoteCard from "./NoteCard";
+
+const ListDiv = styled.div`
+  h1 {
+    font-size: 1.8rem;
+    padding: 60px 5% 20px;
+  }
+`;
+
+const CardDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 class NoteList extends React.Component {
   componentDidMount() {
@@ -11,13 +25,16 @@ class NoteList extends React.Component {
 
   render() {
     return (
-    <div>
-      {console.log(this.props)}
-      {this.props.notes.map(item => {
-        return <NoteCard key={item._id} note={item} />
-      })}
-    </div>
-    )}
+      <ListDiv>
+        <h1>Your Notes:</h1>
+        <CardDiv>
+          {this.props.notes.map(item => {
+            return <NoteCard key={item._id} note={item} />;
+          })}
+        </CardDiv>
+      </ListDiv>
+    );
+  }
 }
 
 const mapStateToProps = state => {
