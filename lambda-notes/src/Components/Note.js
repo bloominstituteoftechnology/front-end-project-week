@@ -1,25 +1,15 @@
 import React, {Component} from 'react'
+import '../App.css'
 
-const NotesNav = (props) => {
+const Note = (props) => {
     return (
-        <div>
-            <h4>I Scream For Ice Cream</h4>
+        <div className='noteStyle'>
+            <h3>{props.title}</h3>
+            <div className='line'></div>
+            <p>{props.body}</p>
 
-            <p> Scoop snow cones mint mocha. Snow cones
-                chocolate chip flavour froyo scoop toppings
-                blueberry mocha. Sherbet cookies and cream,
-                raspberry dessert flavour. Toppings nut cookies and cream,
-                cake caramel. Mint frozen apple popsicle coffee cheesecake
-                cheesecake.
-            </p>
-
-             <p> Scoop snow cones mint mocha. Snow cones
-                chocolate chip flavour froyo scoop toppings
-                blueberry mocha. Sherbet cookies and cream,
-                raspberry dessert flavour. Toppings nut cookies and cream,
-                cake caramel. Mint frozen apple popsicle coffee cheesecake
-                cheesecake.
-            </p>
         </div>
     )
 }
+
+export default Note;
