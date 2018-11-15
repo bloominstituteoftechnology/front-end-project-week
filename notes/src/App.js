@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Notes from './components/Notes';
+import CreateNote from './components/CreateNote';
 import './App.css';
 
 export default class App extends Component {
@@ -36,6 +37,12 @@ export default class App extends Component {
     };
   }
 
+  handleSubmit = note => {
+    this.setState(prevState => ({
+      notes: [note, ...prevState.notes],
+    }));
+  };
+
   render() {
     return (
       <div className="app-container">
@@ -43,6 +50,7 @@ export default class App extends Component {
         {/* <NavLink to="/">View Your Notes</NavLink> */}
         {/* <NavLink to="/create">+ Create New Note</NavLink> */}
         <Notes notes={this.state.notes} />
+        <CreateNote onSubmit={this.handleSubmit} />
       </div>
     );
   }
