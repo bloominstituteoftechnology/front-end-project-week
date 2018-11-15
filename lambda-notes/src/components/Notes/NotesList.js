@@ -9,8 +9,8 @@ const NotesList = props => {
         <h3>Your Notes:</h3>
       </div>
       <div>
-        {props.notes.map(note => {
-          return <Note id={note.id} note={note} />
+        {props.notes.map((note, id) => {
+          return <Note key={id} note={note} />
         })}
       </div>
     </div>
