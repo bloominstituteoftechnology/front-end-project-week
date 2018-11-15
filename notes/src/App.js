@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
+import {Route} from 'react-router-dom';
 import axios from 'axios';
 
 import './App.css';
 import Menu from './Components/Menu/Menu';
 import NoteList from './Components/Notes/NoteList';
+import CreateNote from './Components/Notes/CreateNote';
 
+/*
 let dummyData = [{
   "tags": ["tag", "otherTag"],
   "title": "Note Title",
   "textBody": "Note Body",
 }];
+*/
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       notes: undefined,
+      title: '',
+      textBody: '',
     }
   }
 
@@ -31,6 +37,11 @@ class App extends Component {
     });
   }
 
+  updateValue = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    })
+  }
 
   render() {
     if (this.state.notes === undefined) {
@@ -53,7 +64,12 @@ class App extends Component {
           <Menu />
         </nav>
         <main className='notes'>
-          <NoteList notes={this.state.notes}/>
+          <Route exact path='/'
+            render={(props) => <NoteList {...props} notes={this.state.notes}/>}
+          />
+          <Route path='/notes/create'
+            render={(props) => <CreateNote {...props} title={this.state.title} textBody={this.state.textBody} updateValue={this.updateValue} />}
+          />
         </main>
       </div>
     );
