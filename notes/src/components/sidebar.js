@@ -1,10 +1,13 @@
 import React from 'react';
+import { Button }  from 'reactstrap'
 
 function Sidebar(props) {
 
   return (
-    <div>
-    <h2>Buttons Here</h2>
+    <div className='noteContainer'>
+    <Button color="info" size='lg'>View Your Notes</Button>
+    <Button color="info" size='lg'>+Create Note</Button>
+
 
 
     </div>

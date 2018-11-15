@@ -1,19 +1,51 @@
 .appContainer{
+display:flex;
 max-width: 1200px;
 margin: auto;
 border: 1px solid red;
-height: 800px;
+height: 100%;
 }
 
-
-
 .sideBarClass{
+padding-left: 10px;
 border: 2px solid green;
 background-color: lightgray;
 height: 100 vh;
-max-width: 300px;
+width:20%;
 height: 800px;
 h1{
 color: black;
+font-weight: 700;
+}
+
+button{
+margin-bottom: 10px;
+}
+}
+
+.noteSection{
+width:100%;
+display:flex;
+flex-wrap: wrap;
+flex-direction: row;
+border: 3px solid green;
+}
+
+.note{
+h2{
+font-weight: 700;
+font-size: 18px;
+border-bottom: 1px solid black;
+padding: 0 5px 5px 5px;
+}
+display:flex;
+flex-direction: column;
+height: 200px;
+width: 28%;
+border: 2px solid orange;
+margin: 2%;
+padding: 0 10px 10px 5px;
+.block-with-text{
+overflow: hidden;
 }
 }
