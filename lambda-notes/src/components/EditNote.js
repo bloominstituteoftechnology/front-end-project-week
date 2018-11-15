@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 
-class CreateNote extends Component{
+class EditNote extends Component{
     constructor(props){
         super(props);
         this.state = {
-            name: '',
-            text: ''
+            id: props.note._id,
+            name: props.note.title,
+            text: props.note.textBody
         }
     }
 
@@ -16,29 +17,24 @@ class CreateNote extends Component{
     handleSubmit = event=>{
         event.preventDefault();
         
-        this.props.addNote({
+        this.props.editNote(this.state.id, {
             title: this.state.name,
             textBody: this.state.text
-        })
-
-        this.setState({
-            name: '',
-            text: ''
         })
     }
 
     render(){
         return(
             <div>
-                <h2>Create New Note:</h2>
+                <h2>Edit Note:</h2>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" name="name" value={this.state.name} placeholder="Note Title" onChange={this.handleInput}/>
                     <input type="text" name="text" value={this.state.text} placeholder="Note Content" onChange={this.handleInput}/>
-                    <button type="submit">Save</button>
+                    <button type="submit">Update</button>
                 </form>
             </div>
         )
     }
 }
 
-export default CreateNote;
+export default EditNote;

@@ -1,13 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 const NoteCard = props=>{
+    function selectNote(){
+        props.setCurrentNote(props.note._id);
+    }
     return(
-        <div>
-            <Link to={`/${props.note._id}`}>
-                <h3>{props.note.title}</h3>
-                <p>{props.note.textBody}</p>
-            </Link>
+        <div onClick={selectNote}>
+            <h3>{props.note.title}</h3>
+            <p>{props.note.textBody}</p>
         </div>
     )
 }
