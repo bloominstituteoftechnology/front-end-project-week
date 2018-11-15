@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   display: flex;
-  border: 1px solid red;
   margin: auto;
   width: 97%;
 }

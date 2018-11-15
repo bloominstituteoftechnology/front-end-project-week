@@ -11,8 +11,8 @@ class Menu extends Component {
                     Lambda Notes
                 </h1>
                 <div class='menu-buttons'>
-                    <button>View Your Notes</button>
-                    <button>+ Create New Notes</button>
+                    <div class='button'>View Your Notes</div>
+                    <div class='button'>+ Create New Notes</div>
                 </div>
             </div>
         )

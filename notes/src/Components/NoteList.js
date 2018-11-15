@@ -28,6 +28,9 @@ class NoteList extends Component {
     render() {
         return (
             <div class='note-list'>
+                <h2>
+                    Your Notes:
+                </h2>    
                 {this.state.notes.map(note => {
                     console.log(note)
                     return (

@@ -1,16 +1,21 @@
 .menu {
     width: 25%;
-    background-color: grey;
+    background-color: lightgrey;
+    border: 1px solid grey;
 }
 
 .menu-buttons {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    width: 90%;
+    justify-content: center;
 }
 
-button {
-    margin: 5px;
+.button {
+    border: 1px solid grey;
+    background-color: aqua;
+    color: white;
+    margin: 5px auto;
+    width: 80%;
+    height: 50px;
     text-align: center;
 }
