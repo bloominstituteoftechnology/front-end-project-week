@@ -29,11 +29,14 @@ class App extends Component {
     return (
       <div>
       <BrowserRouter>
-        <NavLink to="/">Go home</NavLink>
-        <Route path="/notes-form" render={props =>
-        <NoteForm addNote={this.addNote}/>}></Route>
-        <NoteForm />
-        <Route exact path="/" render={props => <Notes notes={this.state.notes} />}/>
+      <div>
+      <NavLink to="/">Go home</NavLink>
+      <Route path="/notes-form" render={props =>
+      <NoteForm addNote={this.addNote}/>}></Route>
+      <NoteForm />
+      <Route exact path="/" render={props => <Notes notes={this.state.notes} />}/>
+
+      </div>
       </BrowserRouter>
       </div>
     )
