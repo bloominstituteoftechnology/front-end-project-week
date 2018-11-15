@@ -27,15 +27,16 @@ https://trello.com/b/cJsEQO3P/lambda-notes-eric-whitcomb
 - [x] Display a list of notes
 - [x] Create a note with a title and content
 - [x] View an existing note
-- [ ] Edit an existing note
-- [ ] Delete an existing note
-- [ ] Wire up your static React App to our Notes API.
+- [x] Edit an existing note
+- [x] Delete an existing note
+- [x] Wire up your static React App to our Notes API.
   - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
   - [x] GET all
   - [x] GET note
   - [x] POST note
-  - [ ] PUT note
-  - [ ] DELETE note
+  - [x] PUT note
+  - [x] DELETE note
+- [ ] Match CSS design to specification documents
 
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
 
