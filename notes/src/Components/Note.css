@@ -2,6 +2,8 @@
     border: 1px solid black;
     margin: 25px;
     width: 25%;
+    height: 200px;
+    background-color: white;
 }
 
 .note-title {

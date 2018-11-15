@@ -1,0 +1,5 @@
+.title {
+    border-bottom: 1px solid grey;
+    margin: 0 10px 20px 10px;
+    display: flex;
+}
