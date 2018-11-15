@@ -1,44 +1,42 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import Note from '../Styles/Note';
+import { viewNote } from '../actions';
 import history from '../history';
 
 class Notes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: []
+            title: '',
+            body: ''
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.setState({
-            note: {
-                title: this.props.title,
-                body: this.props.body
-            }
+            title: this.props.title,
+            body: this.props.body
         });
-    }
+    } 
 
-    selectNoteToView() {
+    selectNoteToView = () => {
+        this.props.viewNote(this.state);
         history.push('/view-note');
-    }    
+    }
 
     render() {
         return (
             <Note onClick={this.selectNoteToView}>
-                <h3>{this.state.note.title}</h3>
+                <h3>{this.state.title}</h3>
                 <hr></hr>
-                <p>{this.state.note.body}</p>
+                <p>{this.state.body}</p>
             </Note>
         );
     }
 }
 
-const mapStateToProps = state => ({
-    currentNote: state.currentNote
-});
+const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps)(withRouter(Notes));
+export default connect(mapStateToProps, { viewNote })(Notes);

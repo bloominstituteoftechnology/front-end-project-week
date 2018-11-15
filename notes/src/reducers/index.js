@@ -1,4 +1,4 @@
-
+import { VIEW_NOTE } from '../actions';
 
 const initialState = {
     notes: [
@@ -20,11 +20,13 @@ const initialState = {
     ],
     fetching: false,
     error: null,
-    viewNote: []
+    viewNote: {}
 };
 
 export default (state = initialState, actions) => {
     switch(actions.type) {
+        case VIEW_NOTE:
+            return {...state, viewNote: actions.note};
         default:
             return state;
     }
