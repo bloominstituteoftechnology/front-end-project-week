@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
+import './App.css';
 import NotesList from './components/NotesList';
+import CreateNote from './components/CreateNote';
 
 class App extends Component {
   constructor(props){
@@ -30,9 +33,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <p>
-            Lambda Notes
-          </p>
+        <NavLink to="/">View Your Notes</NavLink>
+        <NavLink to="/create">+Create New Note</NavLink>
+
+        <Route exact path="/" render={props => <NotesList {...props} notes={this.state.notes}/>} />
         <NotesList notes={this.state.notes} />
       </div>
     );
