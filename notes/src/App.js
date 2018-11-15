@@ -17,7 +17,11 @@ class App extends React.Component {
     this.state = {
       viewPage: null,
       noteList: [],
-      inputText: ''
+      inputText: '',
+      title: "",
+      textBody: "",
+      id: "",
+      tags: "",
     };
   }
 
@@ -71,11 +75,14 @@ class App extends React.Component {
     //  window.location.reload();
   }
 
-  noteView = (e) => {
-    e.preventDefault();
+  noteView = id => {
+    //e.preventDefault();
     localStorage.setItem('viewPage', "noteView");
     let pageType = "noteView"
-    this.setState(() => ({ viewPage: pageType }));
+    let _id = id;
+    this.setState(() => ({ viewPage: pageType, id: _id }));
+    console.log("noteviewstate:", this.state)
+    console.log("_id:", id)
     //  window.location.reload();
   }
 
@@ -134,7 +141,7 @@ class App extends React.Component {
 		  tags: this.state.tags,
 		  title: this.state.title,
 		  textBody: this.state.textBody,
-		  id: this.state.id
+		  /* id: this.state.id */
 		})
 		  .then(response => {
 			this.setState(() => ({ notes: response.data }));
@@ -147,7 +154,7 @@ class App extends React.Component {
 			tags: '',
 			title: '',
 			textBody: '',
-		  id: ''
+		 /*  id: '' */
 		});
 		window.location.reload();
     }
@@ -199,7 +206,7 @@ class App extends React.Component {
           <div className="main-container">
             <Nav noteList={this.noteList} noteCreate={this.noteCreate} />
             <div className="main-display">
-              <NoteList />
+              <NoteList noteView={this.noteView} notes={this.state.notes} />
             </div>
           </div>
         </div>;
@@ -209,7 +216,7 @@ class App extends React.Component {
        <div className="main-container">
          <Nav noteList={this.noteList} noteCreate={this.noteCreate} />
          <div className="main-display">
-           <NoteView />
+           <NoteView id={this.state.id} notes={this.notes}/>
          </div>
        </div>
      </div>;

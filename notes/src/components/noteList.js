@@ -36,7 +36,7 @@ class NoteList extends Component {
 		<div className="note-list"><div className="list-title">Your Notes:</div>
 		<div className="list-container">
 			 {this.state.notes.map((note, index) => {
-        return <Note key={index} title={note.title} textBody={note.textBody} id={note.id} noteView={this.props.noteView} />
+        return <Note key={index} title={note.title} textBody={note.textBody} _id={note._id} noteView={this.props.noteView} notes={this.state.notes}/>
      } ) }
 				  
 		</div>
