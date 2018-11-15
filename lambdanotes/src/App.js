@@ -9,6 +9,8 @@ import Home from './components/Home'
 import { Route, Link } from 'react-router-dom'
 import NoteView from './components/NoteView'
 
+import UpdateNote from './components/UpdateNote'
+
 
 class App extends Component {
   constructor(){
@@ -65,6 +67,25 @@ class App extends Component {
       console.log("Fail to DELETE a note", err)
     })
   }
+
+  handleUpdateNote = updatedNote => {
+    axios 
+    .put(`https://fe-notes.herokuapp.com/note/edit/${updatedNote.id}`, updatedNote)
+    .then(response => {
+      //this.setState({ notes: response.data })
+            axios
+            .get(`https://fe-notes.herokuapp.com/note/get/all`)
+            .then(response => {
+                this.setState({ notes: response.data })
+            })
+            .catch(err => {
+              console.log("Fail to GET notes from server", err)
+            })
+    })
+    .catch(err => {
+      console.log("Fail to UPDATE a note", err)
+    })
+  }
   
 
 
@@ -100,6 +121,10 @@ class App extends Component {
       
               <Route path="/notes/:id"
                 render={props => <NoteView {...props} handleDeleteNote={this.handleDeleteNote}/>}
+              />
+
+              <Route path="/edit/:id"
+                render={props => <UpdateNote {...props} handleUpdateNote={this.handleUpdateNote} notes={this.state.notes}/>}
               />
 
               <p>

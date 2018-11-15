@@ -38,6 +38,7 @@ class NoteView extends React.Component {
                 <p>ID: {this.state.note._id}</p>
                 <p>Double_Underscore_V: {this.state.note.__v}</p>
                 <div onClick={this.handleDelete}><Link to="/notes" style={{cursor: "pointer"}} > X </Link></div>
+                <div><Link to={`/edit/${this.state.note._id}`}> Edit </Link></div>
             </div>
         )
     } 
