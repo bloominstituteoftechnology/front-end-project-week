@@ -1,16 +1,13 @@
 import React from 'react';
 
-import {HOME} from '../App';
-import {CREATE} from '../App';
-
 const NavSideBar = props=>{
 
     function appHome(){
-        props.setAppState(HOME);
+        props.history.push('/');
     }
 
     function appCreateNote(){
-        props.setAppState(CREATE);
+        props.history.push('/create-note');
     }
 
     return(

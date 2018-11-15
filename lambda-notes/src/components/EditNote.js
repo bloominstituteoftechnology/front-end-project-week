@@ -21,9 +21,14 @@ class EditNote extends Component{
             title: this.state.name,
             textBody: this.state.text
         })
+        
+        this.props.history.push(`/note/${this.props.note._id}`);
     }
 
     render(){
+        if(!this.props.note){
+            return <div>Loading data...</div>
+        }
         return(
             <div>
                 <h2>Edit Note:</h2>

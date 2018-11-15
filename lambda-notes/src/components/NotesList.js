@@ -6,7 +6,7 @@ const NotesList = props=>{
     return(
         <div>
             <h2>Your Notes:</h2>
-            {props.notes.map(note=><NoteCard key={note._id} note={note} setCurrentNote={props.setCurrentNote}/>)}
+            {props.notes.map(note=><NoteCard key={note._id} {...props} note={note} setCurrentNote={props.setCurrentNote}/>)}
         </div>
     )
 }

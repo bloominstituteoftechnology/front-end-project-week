@@ -21,10 +21,7 @@ class CreateNote extends Component{
             textBody: this.state.text
         })
 
-        this.setState({
-            name: '',
-            text: ''
-        })
+        this.props.history.push('/');
     }
 
     render(){

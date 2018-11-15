@@ -1,29 +1,50 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-import {EDIT} from '../App';
+import DeleteNoteModal from './DeleteNoteModal';
 
-const DisplayNote = props=>{
-
-    function editNote(){
-        props.setAppState(EDIT);
+class DisplayNote extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            confirmDelete: false
+        }
     }
 
-    function deleteNote(){
-        props.deleteNote(props.note._id);
+    componentDidMount(){
+        this.props.setCurrentNoteID(this.props.match.params.id);
     }
 
-    if(!props.note){
-        return <div>Loading data...</div>
+    editNote = ()=>{
+        this.props.history.push(`/edit/${this.props.note._id}`);
     }
 
-    return(
-        <div>
-            <button onClick={editNote}>edit</button>
-            <button onClick={deleteNote}>delete</button>
-            <h3>{props.note.title}</h3>
-            <p>{props.note.textBody}</p>
-        </div>
-    )
+    confirmDelete = ()=>{
+        this.setState({confirmDelete: true});
+    }
+
+    deleteNote = (deleteNote)=>{
+        this.setState({confirmDelete: false});
+        if(deleteNote){
+            this.props.deleteNote(this.props.note._id);
+            this.props.history.push('/');
+        }
+    }
+
+    render(){
+        if(!this.props.note){
+            return <div>Loading data...</div>
+        }
+        
+        return(
+            <div>
+                <button onClick={this.editNote}>edit</button>
+                <button onClick={this.confirmDelete}>delete</button>
+                <h3>{this.props.note.title}</h3>
+                <p>{this.props.note.textBody}</p>
+                {this.state.confirmDelete ? <DeleteNoteModal deleteNote={this.deleteNote}/> : null}
+            </div>
+        )
+    }
 }
 
 export default DisplayNote;
