@@ -5,7 +5,8 @@ import Note from './Note';
 import './Notes.css';
 
 /* Notes.js
- * List all of the notes
+ * List all of the notes in one page.
+ * Calls out to Note to display each block.
  */
 
 class Notes extends Component {
@@ -14,12 +15,11 @@ class Notes extends Component {
 
     // I'm not sure what we'll need in state just yet. 
     this.state = {
-      name: "Jen",
       notes: [],
     };
   };
 
-  // Pull data from the API
+  // Pull all notes from the API
   componentDidMount() {
     axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then( (response) => {

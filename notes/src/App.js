@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 import Nav from './Components/Nav/Nav';
@@ -7,8 +7,7 @@ import Notes from './Components/NoteList/Notes';
 import Note from './Components/Note/Note';
 
 /* Main entry point for the Lambda Notes app.
- * This will primarily contains the routes needed for our app, along with
- * app links
+ * This will primarily contains the routes needed for our app
  */
 
 class App extends Component {

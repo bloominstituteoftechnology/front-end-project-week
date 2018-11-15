@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './Nav.css';
 
-/* Main entry point for the Lambda Notes app.
- * This will primarily contains the routes needed for our app, along with
- * app links
+/* Left side bar that remains open at all times.
+ * This has the links to view & create
  */
 
 class Nav extends Component {

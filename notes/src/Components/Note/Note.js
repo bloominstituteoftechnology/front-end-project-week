@@ -8,6 +8,9 @@ import './Note.css';
  * returning 'undefined'. Would be nice to use Redux here to eliminate
  * the new axios call. Will have to refactor later. */
 
+/* Note/Note.js
+ * Displays the individual note with options to edit & delete.
+ */
 class Note extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +20,7 @@ class Note extends Component {
     };
   };
 
+  /* Need to pull the individula note from axios GET */
   componentDidMount() {
     axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
       .then( (response) => {

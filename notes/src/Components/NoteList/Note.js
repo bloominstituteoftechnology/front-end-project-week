@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 /*
+ * Display each note block for use on the main note list.
+ *
  * Takes in props:
  * id: ""
  * title: ""
@@ -10,6 +12,7 @@ import { Link } from 'react-router-dom';
  */
 
  const Note = (props) => {
+   /* Truncating via code instead of CSS */
    let propText = props.textBody;
    const text = propText.length > 125 ?
       propText.substring( 0, 120 ) + "..." :
@@ -24,7 +27,7 @@ import { Link } from 'react-router-dom';
    );
  };
 
- // Double check to make sure we have all of the correct values
+ // Double check to make sure we have all of the correct values passed as props
  Note.propTypes = {
    id: PropTypes.string.isRequired,
    title: PropTypes.string.isRequired,

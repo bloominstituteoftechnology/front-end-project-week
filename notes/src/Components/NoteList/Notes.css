@@ -1,3 +1,5 @@
+/* Start of Note List CSS */
+
 .appNotes {
   width: 100%;
   min-height: 600px;
@@ -35,3 +37,4 @@
 .noteText {
   color: black;
 }
+/* End of Note List CSS */

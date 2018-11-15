@@ -1,3 +1,4 @@
+/* Start of Note CSS */
 .viewNote {
   width: 100%;
   min-height: 600px;
@@ -25,3 +26,5 @@
   font-weight: bold;
   padding: 20px 0;
 }
+
+/* End of Note CSS */
