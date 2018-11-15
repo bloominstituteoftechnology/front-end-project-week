@@ -11,20 +11,36 @@ const MainDiv = styled.div`
   display: flex;
   width: 100%;
   max-width: 1024px;
-  margin: auto;
+  margin: 5px auto;
+
   `;
   
   const SideBar = styled.div`
-  width: 25%;
-  border: 1px solid black;
+  width: 22%;
+  background-color: silver;
+  padding: 15px;
   h1 {
-    font-size: 4.6rem;
+    font-size: 2.6rem;
+    font-weight: bold;
+    margin-bottom: 30px;
   }
   `;
   
   const DisplayDiv = styled.div`
-  width: 70%;
-  border: 1px solid black;
+  width: 75%;
+  background-color: whitesmoke;
+`;
+
+const Button = styled.div`
+  width: 95%;
+  height: 50px;
+  margin: 20px auto 15px;
+  background-color: darkcyan;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
 `;
 
 class App extends Component {
@@ -32,7 +48,9 @@ class App extends Component {
     return (
       <MainDiv>
         <SideBar>
-          <h1>Notable</h1>
+          <h1>Lambda Notes</h1>
+          <Button>View Your Notes</Button>
+          <Button>+ Create a New Note</Button>
         </SideBar>
         <DisplayDiv>
           <Route exact path="/" component={NoteList} />
