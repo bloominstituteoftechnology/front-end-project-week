@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Route, Link } from 'react-router-dom';
+import ViewNote from './ViewNote';
 
 class NoteList extends Component {
   constructor(props) {
@@ -14,11 +15,11 @@ class NoteList extends Component {
           {this.props.notes.map(note => {
             // console.log(note);
             return (
-              <div key={note._id} className="note">
+              <Link to={`/view/${note._id}`} key={note._id} className="note">
                 <p className="noteTitle">{note.title}</p>
                 <hr />
                 <p className="noteBody">{note.textBody}</p>
-              </div>
+              </Link>
             );
           })}
         </div>
