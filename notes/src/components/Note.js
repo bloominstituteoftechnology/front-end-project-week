@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 
 import styled from 'styled-components';
@@ -12,6 +14,12 @@ const Container = styled.div`
 
 const NoteContainer = styled.div`
     padding: 0px 25px;
+`;
+
+const Actions = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 `;
 
 export default class Note extends Component {
@@ -46,6 +54,10 @@ export default class Note extends Component {
 
         return (
             <Container>
+                <Actions>
+                    <Link to='/'>edit</Link>
+                    <Link to='/' >delete</Link>
+                </Actions>
                 <NoteContainer>
                     <h2>{this.state.note.title}</h2>
                     <p>{this.state.note.textBody}</p>
