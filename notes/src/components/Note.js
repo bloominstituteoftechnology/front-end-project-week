@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Note extends React.Component {
     constructor(props) {
@@ -17,6 +18,11 @@ class Note extends React.Component {
         }
     }
 
+    deleteHandler = e => {
+        e.preventDefault();
+        // call lambda api to delete note
+    }
+
     componentDidMount() {
         this.setState({...this.state, loading: true});
         axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
@@ -31,9 +37,15 @@ class Note extends React.Component {
     render() {
         return (
             <div className="note">
+                <header>
+                    <h2>{this.state.note.title}</h2>
+                    <div className="options">
+                        <Link to={`/edit/${this.state.note._id}`}>edit</Link>
+                        <a href={`/delete/${this.state.note._id}`} onClick={this.deleteHandler}>delete</a>
+                    </div>
+                </header>
                 { this.state.loading === true ? <h1>Loading...</h1>: null }
                 { this.state.error !== null ? <h1>{this.state.error}</h1> : null }
-                <h2>{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>
             </div>
         )

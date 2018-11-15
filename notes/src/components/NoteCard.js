@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const NoteCard = (props) => {
     return (
-        <Link to={`/note/${props.note._id}`}>
-            <h2>{props.note.title}</h2>
+        <Link className="note-card" to={`/note/${props.note._id}`}>
+            <h3>{props.note.title}</h3>
             <p>{props.note.textBody}</p>
         </Link>
     )

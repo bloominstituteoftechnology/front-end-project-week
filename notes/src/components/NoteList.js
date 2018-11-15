@@ -26,11 +26,16 @@ class NoteList extends React.Component {
 
     render() {
         return (
-            <div className="note-list">
-                { this.state.loading === true ? <h1>Loading...</h1>: null }
-                { this.state.error !== null ? <h1>{this.state.error}</h1> : null }
-                { this.state.notes.map(note => <NoteCard note={note} key={note._id} /> ) }
-            </div>
+            <React.Fragment>
+                <header>
+                    <h2>Your Notes:</h2>
+                </header>
+                <section className="note-list">
+                    { this.state.loading === true ? <h1>Loading...</h1>: null }
+                    { this.state.error !== null ? <h1>{this.state.error}</h1> : null }
+                    { this.state.notes.map(note => <NoteCard note={note} key={note._id} /> ) }
+                </section>
+            </React.Fragment>
         )
     }
 }

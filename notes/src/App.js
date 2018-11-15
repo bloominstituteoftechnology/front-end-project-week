@@ -12,9 +12,12 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar />
-        <Route exact path="/" component={NoteList} />
-        <Route path="/note/:id" component={Note} />
-        <Route path="/create" component={NoteForm} />
+        <div className="content">
+          <Route exact path="/" component={NoteList} />
+          <Route exact path="/note/:id" component={Note} />
+          <Route exact path="/create" component={NoteForm} />
+          <Route exact path="/edit/:id" component={NoteForm} />
+        </div>
       </div>
     );
   }
