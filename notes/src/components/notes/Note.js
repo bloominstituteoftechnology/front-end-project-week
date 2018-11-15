@@ -1,20 +1,18 @@
 import React from "react";
 import NoteCard from "./NoteCard";
+import NoteDetails from "./NoteDetails";
 
 const Note = props => {
-  const { notes } = props
+
+
   return (
-
-  
-
-
-    <div className="note-summary">
+  <div className="note-summary">
      <ul>
     {props.notes.map(note => {
       return <NoteCard key={note.id} note={note} />;
     })}
   </ul>
-    </div>
+   </div>
   );
 };
 export default Note;

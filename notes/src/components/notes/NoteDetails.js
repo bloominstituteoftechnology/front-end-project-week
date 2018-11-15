@@ -1,15 +1,15 @@
 import React from "react";
 import Moment from "react-moment";
-import { Link } from "react-router-dom";
 
-const NoteCard = props => {
+const NoteDetails = props => {
   return (
     <div className="container">
       <div className="card-action">
+        <p> edit </p> <p> delete </p>
       </div>
-      <Link to={"/note/"+ props.note._id}>  <div className="note-title">  
-        <h3>{props.note.title}</h3>
-      </div></Link>
+      <div className="note-title">
+        <h3>{props.note.title} - {props.note._id}</h3>
+      </div>
       <div className="note-text">
         <h3>{props.note.textBody}</h3>
       </div>
@@ -19,4 +19,4 @@ const NoteCard = props => {
     </div>
   );
 };
-export default NoteCard;
+export default NoteDetails;

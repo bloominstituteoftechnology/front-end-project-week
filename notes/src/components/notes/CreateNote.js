@@ -1,24 +1,44 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
 class CreateNote extends Component {
-  state = {
-    title: "",
-    content: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+    textBody: ""
+    };
+  }
+  
+
+
+  addNote = event => {
+    event.preventDefault();
+    const note= {
+      title: this.state.title,
+      textBody: this.state.textBody
+    
+    }
+    axios.post('https://fe-notes.herokuapp.com/note/create', note).then(response => {
+      this.setState({
+        note: response.data
+      }, () => console.log(this.state))
+
+    }).catch(error => {
+      console.error('Server Error', error);
+    });
+  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSumbit = e => {
-    e.preventDefault();
-    console.log(this.state);
-  };
+;
 
   render() {
     return (
       <div className="container">
-        <form onSubmit={this.handleSumbit}>
+        <form onSubmit={this.addNote}>
           <h2>Create Note</h2>
           <input
             type="text"
@@ -30,9 +50,9 @@ class CreateNote extends Component {
           />
           <textarea rows="8" cols="80"
             type="text"
-            name="content"
-            id="content"
-            value={this.state.content}
+            name="textBody"
+            id="textBody"
+            value={this.state.textBody}
             onChange={this.handleChange}
             placeholder="Note Content"
           />
