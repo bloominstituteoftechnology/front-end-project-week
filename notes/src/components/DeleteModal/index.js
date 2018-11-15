@@ -24,8 +24,10 @@ class DeleteModal extends React.Component {
     <section className='delete-modal'>
       <section className='modal'>
       <p>Are you sure you want to delete this?</p>
-      <button onClick={this.delete}>Delete</button>
-      <button onClick={this.close}>No</button>
+      <section className='buttons-modal'>
+        <button onClick={this.delete} className='delete-btn'>Delete</button>
+        <button onClick={this.props.close} className='no-btn'>No</button>
+      </section>
       {this.state.deleting ? <p className='loading'>Deleting Note...</p> : null}
       </section>
     </section>

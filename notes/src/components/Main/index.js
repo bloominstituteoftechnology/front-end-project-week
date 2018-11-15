@@ -112,6 +112,9 @@ class Main extends Component {
            this.setState({error: err})
          })
   }
+  closeModal = () => {
+    this.setState({deleting:false})
+  }
 
   render() {
     return (
@@ -131,7 +134,7 @@ class Main extends Component {
 
         <Route path='/edit/:id' exact render={(props) => <EditNote {...props} update={this.updateNote}/>}/>
 
-        {this.state.deleting ? <DeleteModal delete={this.delete} /> : null}
+        {this.state.deleting ? <DeleteModal delete={this.delete} close={this.closeModal} /> : null}
 
         {this.state.deleted ? <Redirect exact to='/' /> : null}
       </section>
