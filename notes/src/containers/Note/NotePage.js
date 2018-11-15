@@ -8,33 +8,26 @@ const Modal = styled.div`
   justify-conent: center;
   align-items: center;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
   background: rgb(114, 144, 144, 0.66);
 `;
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  p {
-    font-weight: bold;
-    font-size: 1em;
-  }
-`;
-const Content = styled.div`
-  display: flex;
-  margin-top: 200px;
+  flex-directon: column;
+  margin: 0 500px 250px;
   padding: 50px 100px;
   border: 3px solid rgb(187, 187, 187);
   background: white;
   z-index: 2;
-  ${"" /* display: flex;
- flex-wrap: wrap;
   p {
-    font-weight: bold;
-    font-size: 1em;
-  } */};
+      text-align: center;
+  }
+`;
+const Content = styled.div`
+  display: flex;
+
 `;
 const Button = styled.div`
   width: 200px;
