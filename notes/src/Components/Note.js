@@ -2,7 +2,7 @@ import React from "react";
 
 const Note = props => {
   return (
-    <div className="note">
+    <div className="note" key={props.id} onClick={props.clickHandler}>
       <h1>{props.title}</h1>
       <p>{props.textBody}</p>
     </div>

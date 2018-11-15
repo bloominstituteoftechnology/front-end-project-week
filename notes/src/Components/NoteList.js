@@ -7,7 +7,14 @@ const NoteList = props => {
       <h1>Your Notes:</h1>
       <div className="note-list">
         {props.notes.map(note => {
-          return <Note textBody={note.textBody} title={note.title} />;
+          return (
+            <Note
+              textBody={note.textBody}
+              clickHandler={props.clickHandler}
+              key={note._id}
+              title={note.title}
+            />
+          );
         })}
       </div>
     </div>
