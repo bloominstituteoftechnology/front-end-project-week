@@ -1,7 +1,7 @@
 body {
   box-sizing: border-box;
   max-width: 100%;
-  width: 980px;
+  width: 1200px;
   margin: 5px;
 }
 .sidebar {
@@ -23,14 +23,33 @@ body {
   width: 245px;
 }
 h1 {
-  margin: 20px 12.5px;
+  margin: 15px;
   color: #424242;
+}
+.noteview {
+  display: flex; 
+}
+.note {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 225px;
+  height: 200px;
+  margin: 10px;
+}
+.notetitle {
+  font-size: 15px;
+}
+button {
+  width: 150px;
+  margin: 0px 45px;
 }
 .notelist {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 10px;
 }
-.noteview {
-  display: flex;
-  width: 100%;
+.notetext {
+  margin: 0px 15px;
+  overflow-y: hidden;
 }

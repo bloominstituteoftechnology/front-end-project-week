@@ -8,13 +8,20 @@ class NoteList extends Component {
     return (
       <div>
         <h1>Your Notes:</h1>
-        <div>
+        <div className="notelist">
           {this.props.notes.map(note => {
             return (
-              <div className='notelist'>
-                <p>{note.title}</p>
-                <p>{note.textBody}</p>
-              </div>
+              <>
+                <div className="fullnote">
+                  <div className="note">
+                    <h1 className="notetitle">{note.title}</h1>
+                    <div className="notetext">
+                      <p>{note.textBody}</p>
+                    </div>
+                  </div>
+                  <button>View full note</button>
+                </div>
+              </>
             );
           })}
         </div>
