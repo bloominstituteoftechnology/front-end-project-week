@@ -13,7 +13,7 @@ const NoteForm = props => {
 
   return (
     <div>
-      <div className="form">
+      <div className="note-form">
         <input
           className="input-tags"
           type="text"
@@ -39,7 +39,9 @@ const NoteForm = props => {
           onChange={props.handleInput}
           placeholder="Start writing..."
         />
+        <div className="btn-container">
           <button onClick={handleClick}>Save</button>
+        </div>
       </div>
     </div>
   );

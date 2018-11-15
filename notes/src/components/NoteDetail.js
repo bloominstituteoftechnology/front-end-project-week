@@ -57,7 +57,6 @@ class NoteDetail extends React.Component {
     e.preventDefault();
     this.putNote(this.state);
     this.setState({ editing: false });
-    this.props.history.push(`/${this.state._id}`);
   };
 
   deleteNote = id => {
@@ -78,26 +77,50 @@ class NoteDetail extends React.Component {
     return (
       <div className="note-detail">
         {/* <h3 className="note-tags">{this.state.note.tags}</h3> */}
-        <div className="header-container">
-          <h3 className="note-title">{this.state.title}</h3>
-          <input
-            className={this.state.editing ? "view input" : "none"}
-            type="text"
-            value={this.state.title}
-            name="title"
-            onChange={this.handleEditingChange.bind(this)}
-          />
-          <button onClick={this.handleDelete}>delete</button>
-        </div>
-        <p className="note-body">{this.state.textBody}</p>
         <input
-          className={this.state.editing ? "view input" : "none"}
+          className="input-tags"
           type="text"
+          name="tags"
+          value={this.state.tags}
+          onChange={this.handleEditingChange.bind(this)}
+        />
+        <h3
+          onClick={this.handleEditing.bind(this)}
+          className={this.state.editing ? "none" : "note-title"}
+        >
+          {this.state.title}
+        </h3>
+        <input
+          className={this.state.editing ? "input-title" : "none"}
+          type="text"
+          value={this.state.title}
+          name="title"
+          onChange={this.handleEditingChange.bind(this)}
+        />
+        <p
+          className={this.state.editing ? "none" : "note-body"}
+          onClick={this.handleEditing.bind(this)}
+        >
+          {this.state.textBody}
+        </p>
+        <textarea
+          className={this.state.editing ? "input-body" : "none"}
+          type="textarea"
           value={this.state.textBody}
           name="textBody"
           onChange={this.handleEditingChange.bind(this)}
         />
-        <button onClick={this.handleUpdate}>save</button>
+        <div className="btn-container">
+          <button
+            className={this.state.editing ? "save-btn" : "hide"}
+            onClick={this.handleUpdate}
+          >
+            save
+          </button>
+          <button className="delete-btn" onClick={this.handleDelete}>
+            delete
+          </button>
+        </div>
       </div>
     );
   }
