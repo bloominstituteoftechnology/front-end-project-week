@@ -3,7 +3,8 @@ import './App.css';
 import Sidebar from './components/sidebar'; 
 import Notes from './components/Notes'; 
 import {Route} from 'react-router-dom'; 
-import  CreateNew  from './components/CreateNew'
+import  CreateNew  from './components/CreateNew';
+import { NoteView } from './components/NoteView'; 
 import axios from 'axios'
 
 class App extends Component {
@@ -60,7 +61,12 @@ class App extends Component {
                 newNote={this.newNote}
               />
             )}
-            />   
+            /> 
+          <Route exact path='/NoteView/:id' render={props => (
+            <NoteView
+            {...props}
+            notes={this.state.notes} />
+          )} />  
         </div> 
       </div>
     );
