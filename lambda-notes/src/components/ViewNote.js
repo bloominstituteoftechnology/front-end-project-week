@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalBody } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class ViewNote extends Component {
   constructor(props) {
@@ -36,15 +36,16 @@ class ViewNote extends Component {
   };
 
   render() {
-    console.log(this.props.notes);
+    // console.log(this.props.notes);
+    console.log(this.props.match.params.id);
     if (this.state.toList) {
       return <Redirect to="/" />;
     }
     return (
       <div className="pageWrapper">
         <div className="actionButtons">
-          <div>edit</div>
-          <div onClick={this.toggle}>delete</div>
+          <Link to={`/edit/${this.props.match.params.id}`}>edit</Link>
+          <a onClick={this.toggle}>delete</a>
         </div>
         {this.props.notes.map(note => {
           if (this.props.match.params.id === note._id) {

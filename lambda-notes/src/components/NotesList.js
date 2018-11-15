@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import ViewNote from './ViewNote';
+import { Link } from 'react-router-dom';
 
 class NoteList extends Component {
   constructor(props) {
