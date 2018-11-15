@@ -16,11 +16,16 @@ class NoteForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input />
-                <textarea />
-                <button>Save</button>
-            </form>
+            <React.Fragment>
+                <header>
+                    <h2>Create New Note:</h2>
+                </header>
+                <form className="note-form" onSubmit={this.handleSubmit}>
+                    <input />
+                    <textarea />
+                    <button>Save</button>
+                </form>
+            </React.Fragment>
         )
     }
 }

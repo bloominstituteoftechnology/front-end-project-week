@@ -84,3 +84,24 @@ nav a {
 .note header .options a {
     margin-left: 10px;
 }
+
+.note-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.note-form input {
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.note-form textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.note-form button {
+    width: 30%;
+    margin-bottom: 10px;
+}
