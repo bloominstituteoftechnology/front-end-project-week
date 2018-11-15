@@ -8,7 +8,7 @@ class ListView extends Component {
 
     render() {
         return(
-            <div>
+            <div className='Main'>
             <NotesNav />
             <NotesList />
             </div>
