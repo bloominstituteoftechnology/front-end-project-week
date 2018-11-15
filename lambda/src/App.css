@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .App-logo {
@@ -29,4 +31,67 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+/* My CSS: */
+.list-view {
+  border: 1px solid;
+  width: 95%;
+  margin: auto;
+  display: flex;
+
+}
+.list-view .notes-sidebar {
+  background-color: lightgrey;
+  width: 25%;
+}
+.list-view .notes-sidebar .title {
+  line-height: 30px;
+  text-align: left;
+  border: 1px solid;
+  width: 80%;
+  margin: auto;
+}
+.list-view .notes-sidebar button {
+  width: 80%;
+  height: 50px;
+  margin: auto;
+  margin-top: 5%;
+  background-color: turquoise;
+}
+.list-view .notes-section {
+  background-color: whitesmoke;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: space-between;
+  width: 75%;
+}
+.list-view .notes-section .notes-title {
+  background-color: whitesmoke;
+  color: grey;
+  border: 1px solid;
+  height: 20px;
+  width: 90%;
+  display: flex;
+  
+}
+.list-view .notes-section .each-note {
+  border: 1px solid grey;
+  width: 40%;
+  height: 200px;
+  font-size: .75rem;
+  margin-bottom: 2%;
+  padding: 2%;
+  /* display: flex;
+  flex-direction: column; */
+  overflow: scroll;
+  text-align: left;
+}
+.list-view .notes-section .each-note .each-note-title {
+  border-bottom: 1px solid grey;
+  padding-bottom: 1%;
+  font-size: 1rem;
 }
