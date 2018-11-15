@@ -1,5 +1,6 @@
 import './App.css'
 
+import axios from 'axios'
 import React, { Component } from 'react'
 
 import logo from './logo.svg'
@@ -11,6 +12,20 @@ class App extends Component {
       notes: []
     }
   }
+
+  componentDidMount() {
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .then(res => {
+        this.setState({
+          notes: res.data
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
   render() {
     return (
       <div className="App">
