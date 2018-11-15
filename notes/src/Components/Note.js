@@ -1,13 +1,13 @@
 import React from "react"
+import {NoteContainer} from "../Styles/Styles"
 
 const Note = (props) => {
-   console.log(props)
    return (
-      <div>
+      <NoteContainer>
          <h3>{props.note.title}</h3>
          <hr/>
          <p>{props.note.textBody}</p>
-      </div>
+      </NoteContainer>
    )
 }
 

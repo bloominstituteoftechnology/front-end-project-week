@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Header from "./Components/Header"
 import NoteList from "./Components/NoteList"
+import {AppContainer, DisplayContainer} from "./Styles/Styles"
 
 class App extends Component {
   constructor(){
@@ -23,10 +24,12 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <AppContainer>
         <Header />
-        <NoteList notes={this.state.notes}/>
-      </div>
+        <DisplayContainer>
+          <NoteList notes={this.state.notes}/>
+        </DisplayContainer>
+      </AppContainer>
     );
   }
 }
