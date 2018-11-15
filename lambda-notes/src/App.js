@@ -30,6 +30,12 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  postNote = (newNote) => {
+    axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
+      .then(response => this.setState({ notes: response.data }))
+      .err(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
@@ -37,7 +43,8 @@ class App extends Component {
         <NavLink to="/create">+Create New Note</NavLink>
 
         <Route exact path="/" render={props => <NotesList {...props} notes={this.state.notes}/>} />
-        <NotesList notes={this.state.notes} />
+        <Route path="/create" render={props => <CreateNote {...props} postNote={this.postNote}/>} />
+
       </div>
     );
   }

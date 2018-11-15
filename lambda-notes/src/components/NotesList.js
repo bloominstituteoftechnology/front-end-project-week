@@ -7,7 +7,7 @@ class NotesList extends Component {
   render(){
     return(
       <>
-        <h1>List View</h1>
+        <h1>Your Notes:</h1>
         <div className="notes-list">
           {this.props.notes.map(note => <Note key={note.id} note={note}/>)}
         </div>
