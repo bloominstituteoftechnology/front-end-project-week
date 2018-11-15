@@ -3,7 +3,6 @@ import axios from 'axios';
 import {Route} from 'react-router-dom';
 import styled from 'styled-components';
 
-import './App.css';
 import NavSideBar from './components/NavSideBar';
 import NotesList from './components/NotesList';
 import CreateNote from './components/CreateNote';
@@ -11,14 +10,29 @@ import DisplayNote from './components/DisplayNote';
 import EditNote from './components/EditNote';
 
 const AppContainer = styled.div`
-  margin-left: 50px;
+  display: flex;
+  justify-content: flex-start;
+  max-width: 900px;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
 `;
 
-//export const HOME = '/';
-//export const NOTE = '/note/'; // Add id to end
-//export const CREATE = '/create-note';
-//export const EDIT = '/edit/'; // Add id to end
-//this.state.notes.find(note=>note._id===id)
+const NavContainer = styled.div`
+  display: flex;
+  width: 30%;
+  background-color: #d3d2d3;
+  border: 2px solid #c2c3c2;
+`;
+
+const BodyContainer = styled.div`
+  display: flex;
+  width: 70%;
+  background-color: #f2f1f2;
+  border-top: 2px solid #ececec;
+  border-right: 2px solid #ececec;
+  border-bottom: 2px solid #ececec;
+`;
 
 class App extends Component {
   constructor(props){
@@ -83,17 +97,21 @@ class App extends Component {
     })
   }
 
-  
-
   render() {
     return (
       <AppContainer>
-        <Route path="/" render={props=><NavSideBar {...props}/>}/>
 
-        <Route exact path="/" render={props=><NotesList {...props} notes={this.state.notes} setCurrentNoteID={this.setCurrentNoteID}/>}/>
-        <Route path="/note/:id" render={props=><DisplayNote {...props} note={this.state.notes.find(note=>note._id===this.state.currentNoteID)} editNote={this.editNote} deleteNote={this.deleteNote} setCurrentNoteID={this.setCurrentNoteID}/>}/>
-        <Route path="/create-note" render={props=><CreateNote {...props} addNote={this.addNote}/>}/>
-        <Route path="/edit/:id" render={props=><EditNote {...props} note={this.state.notes.find(note=>note._id===this.state.currentNoteID)} editNote={this.editNote}/>}/>
+        <NavContainer>
+          <Route path="/" render={props=><NavSideBar {...props}/>}/>
+        </NavContainer>
+
+        <BodyContainer>
+          <Route exact path="/" render={props=><NotesList {...props} notes={this.state.notes} setCurrentNoteID={this.setCurrentNoteID}/>}/>
+          <Route path="/note/:id" render={props=><DisplayNote {...props} note={this.state.notes.find(note=>note._id===this.state.currentNoteID)} editNote={this.editNote} deleteNote={this.deleteNote} setCurrentNoteID={this.setCurrentNoteID}/>}/>
+          <Route path="/create-note" render={props=><CreateNote {...props} addNote={this.addNote}/>}/>
+          <Route path="/edit/:id" render={props=><EditNote {...props} note={this.state.notes.find(note=>note._id===this.state.currentNoteID)} editNote={this.editNote}/>}/>
+        </BodyContainer>
+        
       </AppContainer>
     );
   }
