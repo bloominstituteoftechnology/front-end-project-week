@@ -31,18 +31,31 @@ class App extends Component {
         ]
     };
 
+    handleEditNote = (note, id) => {
+        let noteArr = this.state.notes;
+
+        noteArr.splice(id, 1, note);
+
+        this.setState({
+            notes: noteArr
+        });
+    };
+
     render() {
         return (
             <div>
-                <SideBar /> {/*Always display sidebar regardless of URL*/}
                 <Router>
                     <div>
+                        <SideBar /> {/*Always display sidebar regardless of URL*/}
                         <Route exact path="/" render={ //Rendering NoteList while also passing it array of notes as a prop
                             props => <NoteList {...props} notes={this.state.notes} />
                         } />
                         <Route exact path="/view/:id" render={
                             props => <ViewNote {...props} notes={this.state.notes} />   
                         }/>
+                        <Route exact path="/view/:id/edit" render={
+                            props => <EditNote {...props} editNote={this.handleEditNote} notes={this.state.notes} />
+                        } />
                     </div>
                 </Router>
             </div>

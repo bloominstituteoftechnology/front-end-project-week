@@ -3,29 +3,32 @@ import {Link} from "react-router-dom";
 
 class ViewNote extends Component {
     state = {
-        note: null
+        note: null,
+        id: null
     };
 
     componentDidMount() {
-        let note = this.props.notes[this.props.match.params.id]; //pick out note that corresponds to ID in URL
+        let id = this.props.match.params.id;
+        let note = this.props.notes[id]; //pick out note that corresponds to ID in URL
 
         this.setState({ //set note to state
-            note: note
+            note: note,
+            id: id
         });
     };
 
     render() {
         return (
             <div>
-                {this.state.note ? ( //only display note after note is set to state, otherwise display loading message
+                {this.state.note ? ( //only display note after note is set to state, otherwise display error message
                     <div>
                         <div>
-                            <Link to="#">Edit Note</Link>
+                            <Link to={`/view/${this.state.id}/edit`}>Edit Note</Link>
                         </div>
                         <h3>{this.state.note.title}</h3>
                         <p>{this.state.note.text}</p>
                     </div>
-                ) : "Loading..."}
+                ) : "Note not found."}
             </div>
         );
     };
