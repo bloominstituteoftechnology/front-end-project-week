@@ -18,6 +18,10 @@ const ToDoDiv = styled.div`
     margin: 0 auto;
 `;
 
+const TitleH3 = styled.h3`
+    font-size: 3.0rem;
+`;
+
 const ToDo = props => {
     const { toDo, deleteToDo } = props
 
@@ -27,7 +31,13 @@ const ToDo = props => {
 
     return(
         <ToDoDiv key={toDo.id}>
+        <TitleH3>{toDo.title}</TitleH3>
+        <p>{toDo.textBody}</p>
 
         </ToDoDiv>
     )
 }
+
+const mapStateToProps = () => ( {} )
+
+export default connect(mapStateToProps, {deleteToDo})(ToDo);

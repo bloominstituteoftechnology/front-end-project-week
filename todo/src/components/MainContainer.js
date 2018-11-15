@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Route } from 'react-router-dom';
+
+import ToDoList from './ToDoList';
 import './App.css';
 
 const MainContainerDiv = styled.div`
@@ -19,6 +22,8 @@ const MainContainer = props => {
     return (
         <MainContainerDiv>
             <MainContainerH3>Lambda Notes</MainContainerH3>
+            <Route exact path='/' component={ ToDoList } />
+			{/* <Route path='/' component={  } /> */}
         </MainContainerDiv>
     )
 }

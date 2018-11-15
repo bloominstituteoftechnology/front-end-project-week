@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Route, Link } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components'
+import { Route } from 'react-router-dom';
 
-import LeftBar from './LeftBar';
 import MainContainer from './MainContainer';
+import LeftBar from './LeftBar';
 import './App.css';
-// import { Route, Link } from 'react-router-dom';
-// import NewNote from './NewNote';
-
 
 const CenteredDiv = styled.div`
 	margin: 0 auto;
@@ -21,9 +19,7 @@ const App = props => {
 	return (
 		<CenteredDiv>
 			<LeftBar />
-			
-			{/* <MainContainer /> */}
-			<h3>Broken ... </h3>
+			<MainContainer />
 		</CenteredDiv>
 	);
 }
