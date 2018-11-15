@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 
 import { Notes } from './Notes';
+import { AddNote } from './AddNote';
 
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <AddNote addNote={this.addNote} />
         <Notes notes={this.state.notes} />
       </div>
     );
