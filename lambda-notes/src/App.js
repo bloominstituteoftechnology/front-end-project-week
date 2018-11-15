@@ -33,6 +33,14 @@ class App extends Component {
       });
   };
 
+  deleteNote = id => {
+    console.log('deleted');
+    // axios
+    //   .delete()
+    //   .then()
+    //   .catch();
+  };
+
   render() {
     return (
       <div className="App">
@@ -58,7 +66,13 @@ class App extends Component {
         />
         <Route
           path="/view/:id"
-          render={props => <ViewNote {...props} notes={this.state.notes} />}
+          render={props => (
+            <ViewNote
+              {...props}
+              notes={this.state.notes}
+              deleteNote={this.deleteNote}
+            />
+          )}
         />
         {/* <Route path="/edit/:id" component={} /> */}
       </div>

@@ -45,7 +45,7 @@ class CreateNote extends Component {
             value={this.state.title}
             onChange={this.handleInput}
           />
-          <input
+          <textarea
             required
             className="inputContent"
             placeholder="Note Content"
