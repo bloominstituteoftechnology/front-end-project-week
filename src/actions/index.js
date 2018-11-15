@@ -39,7 +39,13 @@ export const addNote = (newNote) => {
         dispatch({type: LOADING})
         axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
             .then( response => {
-                dispatch({type: GET_NOTES, notes: response.data})
+                axios.get('https://fe-notes.herokuapp.com/note/get/all')
+                    .then(response => {
+                        dispatch({type: GET_NOTES, notes: response.data})
+                    })
+                    .catch(err => {
+                        dispatch({type: ERROR_MESSAGE, errorMessage: "The new note was added but the other notes are now hiding from it. You may have accidentally added a monster note..."})
+                    })
             })
             .catch( err => {
                 dispatch({type: ERROR_MESSAGE, errorMessage: "This note could not be added. Try again."})

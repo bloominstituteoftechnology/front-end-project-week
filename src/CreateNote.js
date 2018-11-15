@@ -1,16 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addNote } from './actions/index';
+
+
 
 class CreateNote extends React.Component {
     constructor(props){
         super(props);
         this.state={
             title: '',
-            text: '',
-            timestamp: '',
-            tags: [],
+            textBody: ''
         }
     }
+
+
 
     inputHandler = (e) => {
         this.setState({
@@ -20,10 +23,12 @@ class CreateNote extends React.Component {
 
     submitHandler = (e) => {
         e.preventDefault();
+        this.props.addNote(this.state);
         this.setState({
             title: '',
-            text: ''
+            textBody: ''
         })
+        this.props.history.push('/notes');
     }
 
     render(){
@@ -33,7 +38,7 @@ class CreateNote extends React.Component {
 
                 <form onSubmit={this.submitHandler} >
                     <input onChange={this.inputHandler} type="text" value={this.state.title} name="title" placeholder="Note Title" />
-                    <input onChange={this.inputHandler} type="text" value={this.state.text} name="text" placeholder="Note Content" />
+                    <input onChange={this.inputHandler} type="text" value={this.state.text} name="textBody" placeholder="Note Content" />
                     <button type="submit">Save</button>
                 </form>
             </div>
@@ -41,10 +46,5 @@ class CreateNote extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return{
-        notes: state.notes,
-    }
-};
 
-export default connect(mapStateToProps)(CreateNote); 
+export default connect( ()=>({}), { addNote })(CreateNote); 

@@ -10,7 +10,6 @@ class Notes extends React.Component {
     }
 
     render(){
-        console.log(this.props.notes)
         return(
             <div>
                 {this.props.notes.map( note => 
