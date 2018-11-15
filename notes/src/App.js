@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import ListView from './components/ListView/ListView'
 import Sidebar from './components/Sidebar/Sidebar'
 import CreateForm from './components/CreateForm/CreateForm'
+import NoteView from './components/ListView/NoteView'
 
 import './App.css';
 
@@ -17,6 +18,10 @@ class App extends Component {
   }
 
     componentDidMount() {
+      this.getNotes();
+    }
+
+    getNotes = () => {
       axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         this.setState({ notes: response.data })
@@ -30,9 +35,10 @@ class App extends Component {
         textBody: text
       })
       .then(response => {
-        console.log(response)
+        console.log(response);
+        this.getNotes();
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err)) 
     }
 
  
@@ -40,14 +46,11 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar />
-
         <Route exact path="/" render={(props) =>
           <ListView notes={this.state.notes} />
         } />
-
-        <Route eact path='/create' render={(props) => <CreateForm createNote={this.createNote} />} />
-
-
+        <Route exact path='/create' render={(props) => <CreateForm createNote={this.createNote} />} />
+        <Route exact path='/:id' render={(props) => <NoteView />} />
       </div>
     );
   }

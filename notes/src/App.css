@@ -5,12 +5,13 @@
 
 .App {
   display: flex;
-  border: 1px solid black;
-  width: 80%;
+  justify-content: center;
+  min-height: 700px;
   height: 100%;
-  margin: auto;
+  margin: 0 auto;
   font-size: 1.6rem;
 }
+
 .listViewContainer {
   background-color: #F2F1F2;
   padding: 10px 20px;
@@ -27,15 +28,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  width: 200px;
   background-color: #D3D2D3;
-  padding-left: 20px;
 }
 
 .title {

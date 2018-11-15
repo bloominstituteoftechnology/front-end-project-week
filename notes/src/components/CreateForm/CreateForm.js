@@ -11,6 +11,8 @@ class CreateForm extends React.Component {
     }
   }
 
+  //Need to set this to be /create
+  
   inputHandler= (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
@@ -23,10 +25,11 @@ class CreateForm extends React.Component {
     render() {
       return (
         <div className="createForm">
+        <h2 className="createNoteHeader">Create New Note:</h2>
          <form onSubmit={this.submitHandler} >
            <input type="text" placeholder="Note Title" className="titleField" name="title" value={this.state.title} onChange={this.inputHandler}></input>
-           <input type="text" placeholder="Jot down a note" className="textField" name="text" value={this.state.text} onChange={this.inputHandler}></input>
-           <input type="submit" value="submit"></input>      
+           <textarea placeholder="Jot down a note" className="textField" name="text" value={this.state.text} onChange={this.inputHandler}></textarea>
+           <input type="submit" value="Create Note" className="createSubmit"></input>      
          </form>
 
         </div>

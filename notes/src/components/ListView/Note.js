@@ -12,7 +12,7 @@ class Note extends React.Component {
       return (
         <div className="note">
          <div className="noteTitle">{this.props.title}</div>
-         <div className="noteText">{this.props.text.slice(0, 130)}...</div>
+         <div className="noteText">{this.props.text.slice(0, 110)}...</div>
         </div>
       );
     }
