@@ -1,0 +1,34 @@
+.note-list {
+    display: flex;
+    align-content: space-around;
+    flex-flow: wrap;
+}
+
+.note-card {
+    width: 250px;
+    height: 200px;
+    margin: 1%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1%;
+}
+
+.note-card .note-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 6px;
+}
+
+.note-card .note-card-break {
+    align-self: center;
+    border: 1px solid black;
+    width: 95%;
+}
+
+.note-card .note-card-body {
+    padding: 6px;
+    overflow: hidden;
+    
+}
