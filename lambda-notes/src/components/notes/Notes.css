@@ -1,12 +1,38 @@
 .notes-list {
     background-color: whitesmoke;
     align-self: right;
-    width: 75vw;
-    height: 100vh;
+    width: 75%;
+    height: 100%;
     padding: 5%;
 }
 
 .your-notes {
     color: darkslategrey;
     font-weight: bolder;
+}
+
+.all-notes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.single-note {
+    border: 1px solid grey;
+    width: 200px;
+    background-color: white;
+    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.note-title {
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+    padding-bottom: 2%;
+    margin: 0;
+}
+
+.text-body {
+    margin-top: 4%;
 }

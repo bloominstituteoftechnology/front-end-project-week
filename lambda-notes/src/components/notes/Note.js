@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './Notes.css';
 
-export default class Friend extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    };
-
-    render() {
-        return (
-            <div>I am a note!</div>
-        )
-    }
+const Note = (props) => {
+    return (
+        <div className="single-note">
+            <h4 className="note-title">
+                Note Title
+                {/* {props.note.title} */}
+            </h4>
+            <p className="text-body">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus ut, harum quae cupiditate omnis eaque dolorum sed odio veritatis dolorem eum necessitatibus nisi ratione incidunt culpa labore velit ab laboriosam?
+                {/* {props.note.textBody} */}
+            </p>
+        </div>
+    )
 }
+
+export default Note;

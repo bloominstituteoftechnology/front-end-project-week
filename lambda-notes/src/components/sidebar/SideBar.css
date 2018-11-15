@@ -1,6 +1,6 @@
 .sidebar {
-    width: 25vw;
-    height: 100vh;
+    width: 25%;
+    height: 100%;
     background-color: lightgrey;
     border: 1px solid lightgrey;
 }
@@ -19,6 +19,10 @@
     background-color: teal;
     color: white;
     font-weight: bold;
+}
+
+.side-button:last-child {
+    margin-bottom: 1500%;
 }
 
 .side-button:hover {
