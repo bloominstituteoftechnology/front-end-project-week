@@ -7,6 +7,7 @@ const NoteList = props => {
     console.log(props.notes);
     return (
         <div className='note-list'>
+            <h2>Your Notes:</h2>
             {props.notes.map(note => {
                 return <NoteCard key={note.title + note.textBody} note={note} />
             })}

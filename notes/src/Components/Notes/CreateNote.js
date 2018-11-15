@@ -3,6 +3,7 @@ import React from 'react';
 const CreateNote = props => {
     const submitForm = e => {
         e.preventDefault();
+        props.createNote();
     }
 
     return(
