@@ -2,6 +2,7 @@ import axios from "axios"
 
 export const FAILURE = "FAILURE";
 export const SUCCESS = "SUCCESS";
+export const VIEW= "VIEW";
 export const FETCHING = "FETCHING";
 export const ADDING = "ADDING";
 
@@ -12,6 +13,19 @@ export const getNotes = () => dispatch => {
         .get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then(({ data }) => {
             dispatch({ type: SUCCESS, notes: data });
+        })
+        .catch(err => {
+            dispatch({ type: FAILURE, error: err });
+        });
+};
+
+export const getNote = id => dispatch => {
+    dispatch({ type: FETCHING });
+
+    axios
+        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .then(({ data }) => {
+            dispatch({ type: VIEW, note: data });
         })
         .catch(err => {
             dispatch({ type: FAILURE, error: err });
