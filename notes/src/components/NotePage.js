@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import "../styles/App.css";
+import "../styles/NotePage.css";
+
 const NotePage = props => {
   let note = props.notes.find(note => `${note.id}` === props.match.params.id);
   const deleteHandler = e => {
@@ -10,20 +13,12 @@ const NotePage = props => {
   };
 
   return (
-    <div>
-      <Link to={`/note/${note.id}/edit`}>edit</Link>
-      <span
-        onClick={deleteHandler}
-        style={{
-          textDecoration: "underline",
-          cursor: "pointer",
-          color: "#551A8B",
-          paddingLeft: "5px"
-        }}
-      >
-        delete
-      </span>
-      <h3>{note.title}</h3>
+    <div className="componentContainer">
+      <div className="spanButtonsContainer">
+        <a href={`/note/${note.id}/edit`}>edit</a>
+        <span onClick={deleteHandler}>delete</span>
+      </div>
+      <h2>{note.title}</h2>
       <p>{note.text}</p>
     </div>
   );

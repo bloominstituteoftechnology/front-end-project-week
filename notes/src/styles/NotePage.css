@@ -1,0 +1,20 @@
+.spanButtonsContainer {
+  display: flex;
+  width: 82%;
+  justify-content: flex-end;
+  margin: 0 0 0 10%;
+}
+
+a, span {
+  text-decoration: underline;
+  cursor: pointer;
+  color: black;
+}
+
+.spanButtonsContainer a {
+    margin-right: 2%;
+}
+
+.componentContainer p {
+    margin: 35px 5% 35px 5%;
+}

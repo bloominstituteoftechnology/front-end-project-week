@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import "../styles/Note.css"
+
 const Note = props => (
-  <div>
+  <div className="noteCard">
     <h3>
       <Link to={`/note/${props.note.id}`}>{props.note.title}</Link>
     </h3>
+    <hr />
     <p>{props.note.text}</p>
   </div>
 );

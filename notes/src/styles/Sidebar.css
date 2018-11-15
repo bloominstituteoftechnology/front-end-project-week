@@ -3,6 +3,7 @@
   height: 100vh;
   background-color: #d3d2d3;
   border-right: 1px solid #b6b5b6;
+  position: fixed
 }
 
 .sidebarWrapper {
@@ -16,15 +17,7 @@
 }
 
 .notesButton {
-    height: 45px;
-    width: 95%;
-    border: 1.5px solid #b6b5b6;
-    background-color: #24B8BD;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 20px;
-    color: white;
 }
 
 .sidebarWrapper a {
@@ -41,26 +34,18 @@
     color: #24B8BD;
 }
 
-
-
-.notesButton:hover {
-    background-color: white;
-    color: #24B8BD;
-}
-
-
-.newNoteButton {
+.sidebarButton {
     color: white;
     height: 45px;
     width: 95%;
-    border: 1.5px solid #b6b5b6;
+    border: 1.2px solid #b6b5b6;
     background-color: #24B8BD;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.newNoteButton:hover {
+.sidebarButton:hover {
     background-color: white;
     color: #24B8BD;
 }

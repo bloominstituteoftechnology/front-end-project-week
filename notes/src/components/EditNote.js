@@ -1,5 +1,8 @@
 import React from "react";
 
+import "../styles/App.css";
+import "../styles/CreateNote.css";
+
 export default class EditNote extends React.Component {
   constructor(props) {
     super(props);
@@ -26,24 +29,26 @@ export default class EditNote extends React.Component {
       note => `${note.id}` === this.props.match.params.id
     );
     return (
-      <form onSubmit={this.submitHandler}>
-        <input
-          type="text"
-          name="newTitle"
-          value={this.state.newTitle}
-          onChange={this.inputHandler}
-          placeholder={note.title}
-        />
-        <textarea
-          cols="60"
-          rows="30"
-          name="newText"
-          value={this.state.newText}
-          onChange={this.inputHandler}
-          placeholder={note.text}
-        />
-        <button type="submit">Update</button>
-      </form>
+      <div className="componentContainer">
+        <form onSubmit={this.submitHandler}>
+          <input
+            type="text"
+            name="newTitle"
+            value={this.state.newTitle}
+            onChange={this.inputHandler}
+            placeholder={note.title}
+          />
+          <textarea
+            cols="60"
+            rows="30"
+            name="newText"
+            value={this.state.newText}
+            onChange={this.inputHandler}
+            placeholder={note.text}
+          />
+          <button type="submit" className="sidebarButton createButton">Update</button>
+        </form>
+      </div>
     );
   }
 }
