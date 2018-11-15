@@ -10,8 +10,19 @@ export default class AddNote extends Component {
         this.state = {
             notes: [],
             title: '',
-            bodyText: '',
+            textBody: '',
         };
+    }
+
+    componentDidMount() {
+        axios
+            .get(`${URL}/get/all`)
+            .then(response => {
+                this.setState(() => ({ notes: response.data }))
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     handleChange = (e) => {
@@ -22,13 +33,14 @@ export default class AddNote extends Component {
         e.preventDefault();
         const note = {
             title: this.state.title,
-            bodyText: this.state.bodyText,
+            textBody: this.state.textBody,
         };
+        console.log(note);
         axios
             .post(`${URL}/create`, note)
             .then(response => {
+                this.setState({ title: '', textBody: '', });
                 this.setState({ notes: response.data });
-                this.setState({ title: '', bodyText: '' });
             })
             .catch(error => {
                 console.log(error);
@@ -41,7 +53,7 @@ export default class AddNote extends Component {
                 <h2 className="your-notes">Create New Note:</h2>
                     <form className="input-form" onSubmit={this.submitHandler} >
                         <input type="text" placeholder="Note Title" name="title" value={this.state.title} onChange={this.handleChange} />
-                        <textarea type="text" placeholder="Note Content" name="bodyText" value={this.state.bodyText} onChange={this.handleChange} />
+                        <textarea type="text" placeholder="Note Content" name="textBody" value={this.state.textBody} onChange={this.handleChange} />
                         <button type="submit" className="submit-button">Save</button>
                     </form>
             </div>
