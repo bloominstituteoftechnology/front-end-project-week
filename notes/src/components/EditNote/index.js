@@ -58,7 +58,13 @@ update = (e) => {
                   name='textBody'
                   value={this.state.textBody}
                   required/>
-        <button type='submit' className='links'>Update</button>
+
+        <section className='btn-edit'>
+          {this.props.updating ? <p className='loading'>Updating Note...</p> : <button type='submit' className='links'>Update</button>}
+
+
+
+        </section>
       </form>
     )
   }

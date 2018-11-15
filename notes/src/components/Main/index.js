@@ -24,8 +24,7 @@ class Main extends Component {
       updating: false,
       id: null,
       error: null,
-      deleted: false,
-      redirect: false
+      deleted: false
     }
   }
 
@@ -87,15 +86,22 @@ class Main extends Component {
   }
 
   updateNote = (note) => {
-    // this.setState({updatingNote: true, fetched:false})
+    this.setState({updating: true, fetched:false})
 
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, {...note})
-         .then(res => console.log(res))
+         .then(res => {
+           this.setState({updating: false, fetched: true})
+         })
          .catch(err => {
            this.setState({
              error: err
           })
         })
+
+    setTimeout(() => {
+      this.setState({updating: false, fetched: true});
+    },2000)
+
   }
 
   deleteModal = (id) => {
@@ -132,7 +138,8 @@ class Main extends Component {
           delete={this.deleteModal}
           deleting={this.state.deleting}/>}/>
 
-        <Route path='/edit/:id' exact render={(props) => <EditNote {...props} update={this.updateNote}/>}/>
+        <Route path='/edit/:id' exact render={(props) => <EditNote {...props} update={this.updateNote}
+        updating={this.state.updating}/>}/>
 
         {this.state.deleting ? <DeleteModal delete={this.delete} close={this.closeModal} /> : null}
 
