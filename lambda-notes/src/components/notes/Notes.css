@@ -38,7 +38,7 @@
 .text-body {
     margin-top: 4%;
     line-height: 150%;
-    
+
     /* overflow: hidden;
     text-overflow: ellipsis; */
 
@@ -51,3 +51,45 @@
     overflow: hidden;
     text-overflow: ellipsis; */
 }
+
+/* AddNote Component */
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-form > * {
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+::-webkit-input-placeholder {
+    
+}
+
+.input-form > input {
+    width: 60%;
+}
+
+textarea {
+    height: 350px;
+}
+
+.submit-button {
+    width: 30%;
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+    
+.submit-button:hover {
+    cursor: pointer;
+}
+
