@@ -8,7 +8,7 @@ const NoteForm = props => {
       textBody: props.textBody
     };
     props.postNotes(newNote);
-    props.history.push(`/notes/${props._id}`);
+    props.history.push(`/`);
   };
 
   return (

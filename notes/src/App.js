@@ -46,7 +46,6 @@ class App extends Component {
           tags: "",
           title: "",
           textBody: "",
-          _id: response.data.success
         });
         this.fetchNotes();
       })
@@ -95,7 +94,6 @@ class App extends Component {
           />
           <Route
             path="/notes/:id"
-            onUpdate={() => window.scrollTo(0, 0)}
             render={props => (
               <NoteDetail
                 {...props}

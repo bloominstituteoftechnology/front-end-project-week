@@ -45,7 +45,6 @@
   margin: 20px 15px;
 }
 .App .body .note-list .note .card-body {
-  /* exactly three lines */
   margin: 5px 15px;
   line-height: 1.2;
   white-space: pre-wrap;
@@ -115,4 +114,7 @@
 .App .body button:hover {
   color: white;
   background-color: black;
+}
+.App .body textarea {
+  resize: none;
 }

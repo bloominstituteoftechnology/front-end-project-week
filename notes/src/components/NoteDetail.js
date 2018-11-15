@@ -19,7 +19,6 @@ class NoteDetail extends React.Component {
         `https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
       )
       .then(response => {
-        console.log(response.data);
         this.setState({
           _id: response.data._id,
           title: response.data.title,
@@ -46,8 +45,8 @@ class NoteDetail extends React.Component {
       .put(`https://fe-notes.herokuapp.com/note/edit/${note._id}`, {
         ...note
       })
-      .then(res => {
-        console.log(res);
+      .then(response => {
+        console.log(response);
         this.props.fetchNotes();
       })
       .catch(err => console.log(err));
