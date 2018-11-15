@@ -11,12 +11,16 @@ import notesReducer from './Reducers/notesReducer';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
+import { BrowserRouter } from 'react-router-dom';
+
 const middleware = applyMiddleware(logger, thunk);
 
 ReactDOM.render(
-    <Provider store={createStore(notesReducer, middleware)}>
-        <App />
-    </Provider>, 
+    <BrowserRouter>
+        <Provider store={createStore(notesReducer, middleware)}>
+            <App />
+        </Provider>
+    </BrowserRouter>, 
 document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

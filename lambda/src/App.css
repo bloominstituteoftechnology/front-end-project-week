@@ -43,24 +43,26 @@
   display: flex;
 
 }
-.list-view .notes-sidebar {
+/* left-sidebar in every page (start): */
+.notes-sidebar {
   background-color: lightgrey;
   width: 25%;
 }
-.list-view .notes-sidebar .title {
+.notes-sidebar .title {
   line-height: 30px;
   text-align: left;
-  border: 1px solid;
   width: 80%;
   margin: auto;
 }
-.list-view .notes-sidebar button {
+.notes-sidebar button {
   width: 80%;
   height: 50px;
   margin: auto;
   margin-top: 5%;
   background-color: turquoise;
 }
+/* left-sidebar in every page (end): */
+/* Main-Page (start): */
 .list-view .notes-section {
   background-color: whitesmoke;
   display: flex;
@@ -72,9 +74,8 @@
 .list-view .notes-section .notes-title {
   background-color: whitesmoke;
   color: grey;
-  border: 1px solid;
   height: 20px;
-  width: 90%;
+  width: 92%;
   display: flex;
   
 }
@@ -95,3 +96,7 @@
   padding-bottom: 1%;
   font-size: 1rem;
 }
+/* Main-Page (end): */
+/* Add-Note Page (start) */
+
+/* Add-Note Page (start) */

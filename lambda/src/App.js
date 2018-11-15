@@ -6,6 +6,11 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import NotesList from './sub-components/notesList';
+import NewNote from './sub-components/newNote';
+
+import { loadNotesAction, addNoteAction, updateNoteAction, deleteNoteAction } from './Actions/notesActions'
+
+import { Route } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props){
@@ -14,6 +19,7 @@ class App extends React.Component {
       notes: [],
     }
   }
+  //componentDidMount() for w/o redux:
   componentDidMount = () => {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
@@ -26,6 +32,10 @@ class App extends React.Component {
         console.log(error);
       })
   }
+  //componentDidMount() for with redux:
+  // componentDidMount = () => {
+  //   this.props.loadNotesAction();
+  // }
   render() {
     return (
       <div className="App">
@@ -35,4 +45,16 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    loadingNotes: state.loadingNotes,
+    notesLoaded: state.notesLoaded,
+    addingNotes: state.addingNotes,
+    updatingNotes: state.updatingNotes,
+    deletingNotes: state.deletingNotes,
+    error: state.error,
+  }
+}
+
+export default connect(mapStateToProps, {loadNotesAction, addNoteAction, updateNoteAction, deleteNoteAction})(App);
