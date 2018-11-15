@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NoteList from "./pages/NoteList";
 import ViewNote from "./pages/ViewNote";
+import EditNote from "./pages/EditNote";
 import SideBar from "./components/SideBar";
 
 class App extends Component {
@@ -39,7 +40,7 @@ class App extends Component {
                         <Route exact path="/" render={ //Rendering NoteList while also passing it array of notes as a prop
                             props => <NoteList {...props} notes={this.state.notes} />
                         } />
-                        <Route path="/view" render={
+                        <Route exact path="/view/:id" render={
                             props => <ViewNote {...props} notes={this.state.notes} />   
                         }/>
                     </div>
