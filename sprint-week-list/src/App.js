@@ -9,14 +9,14 @@ import NavBar from './Components/NavBar';
 import NotesContainer from './Components/NotesContainer';
 import NewNoteForm from './Components/NewNoteForm';
 import EditNoteForm from './Components/EditNoteForm';
+import Note from './Components/Note';
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
       notes: [],
-      title: '',
-      textBody: '',
+     
     }
   }
   componentDidMount(){
@@ -34,24 +34,34 @@ class App extends Component {
       .post('https://fe-notes.herokuapp.com/note/create', newNote)
         .then(response =>{
           this.setState({
-            tags : response.data.tags,
-            id : response.data._id,
-            title: response.data.title,
-            textBody : response.data.textBody,
+            notes: response.data
           })
+          
         })
+        
         .catch(err =>{
           console.log('Trouble posting new data', err)
         })    
+  }
+  deleteNote = (id) =>{
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then(response =>{
+
+        })
+        .catch(err =>{
+          console.log('Trouble deleting note' ,err)
+        })
   }
 
   render() {
     return (
       <div className="App">
         <NavBar />
-        <Route exact path = '/' render = {(props) => <NotesContainer notes = {this.state.notes} />}/>
-        <Route path = '/create' render = {(props) => <NewNoteForm notes = {this.state} createNewNote = {this.createNewNote}/>}/>
-        <Route path = '/edit' render = {(props) => <EditNoteForm />}/>
+        <Route exact path = '/' render = {(props) => <NotesContainer {...props} notes = {this.state.notes} />}/>
+        <Route path = 'notes/:id' render = {(props) => <Note {...props} />}/>
+        <Route path = '/create' render = {(props) => <NewNoteForm {...props} notes = {this.state.notes} createNewNote = {this.createNewNote}/>}/>
+        <Route path = '/edit' render = {(props) => <EditNoteForm {...props} />}/>
       </div>
     );
   }

@@ -43,9 +43,9 @@ class NewNoteForm extends React.Component{
                         value = {this.state.textBody}
                         name = 'textBody'
                         onChange = {this.inputHandler}/>    
-                    <Link exact to = '/' >
+                    
                         <button type = 'submit'>Save</button>
-                    </Link>
+                    
 
                 </form>
 

@@ -1,17 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-class Note extends React.Component{
-    render(){
+const Note = (props) =>{   
+    
         return(
             <div className = 'note-container'>
-                
-                    <h2>{this.props.note.title}</h2>
-                  
-                <p>{this.props.note.textBody}</p>
+                <Link  to={`/notes/${props.id}`}>
+                    <h2>{props.title}</h2>
+                </Link>  
+                <p>{props.textBody}</p>
             </div>
         )
-    }    
+    
+      
 }
 
 export default Note;

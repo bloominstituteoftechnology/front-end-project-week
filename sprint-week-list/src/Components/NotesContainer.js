@@ -6,13 +6,17 @@ class NotesContainer extends React.Component{
    
   
     render(){
-        console.log(this.props.notes)
+        console.log('I am console log',this.props.notes)
         return(
             <div className = 'notes-container'>
                 <h1>Your Notes: </h1>
                 <div>{this.props.notes.map(note =>{
                     return(
-                        <Note note = {note}/>
+                        <Note 
+                            key = {note.id}
+                            id = {note.id}
+                            textBody = {note.textBody}
+                            title = {note.title}/>
                     )
                 })}</div>
             </div>
