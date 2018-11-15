@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import './App.css';
 import Menu from './Components/Menu/Menu';
@@ -19,10 +20,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      notes: dummyData,
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(response => {
+      this.setState({
+        notes: response.data,
+      })
     })
+    .catch(response => {
+      console.log(response);
+    });
   }
+
 
   render() {
     if (this.state.notes === undefined) {
