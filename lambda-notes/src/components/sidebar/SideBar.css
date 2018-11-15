@@ -1,6 +1,6 @@
 .sidebar {
     width: 25%;
-    height: 100%;
+    /* height: 100%; */
     background-color: lightgrey;
     border: 1px solid lightgrey;
 }
@@ -8,6 +8,11 @@
 .title {
     margin-bottom: 5%;
     padding-left: 10%;
+}
+
+.button-holder {
+    display: flex;
+    flex-direction: column;
 }
 
 .side-button {
@@ -19,10 +24,6 @@
     background-color: teal;
     color: white;
     font-weight: bold;
-}
-
-.side-button:last-child {
-    margin-bottom: 1500%;
 }
 
 .side-button:hover {
