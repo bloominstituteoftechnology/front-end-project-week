@@ -26,6 +26,12 @@
 
 .noteTitle {
   border-bottom: 2px solid gray;
+  color: #585858;
 }
 
-.noteText {}
+.note {
+  text-decoration: none;
+}
+.noteText {
+  color: black;
+}

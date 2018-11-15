@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 /*
  * Takes in props:
@@ -16,10 +17,10 @@ import PropTypes from 'prop-types';
       
 
    return (
-    <div className="note">
+    <Link to={`/note/${props.id}`} className="note">
       <h3 className="noteTitle">{props.title}</h3>
       <div className="noteText">{text}</div>
-    </div>
+    </Link>
    );
  };
 
