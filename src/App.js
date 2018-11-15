@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
 import './App.css';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import SideBar from './SideBar';
 import CreateNote from './CreateNote';
 import FullNote from './FullNote';
@@ -22,4 +24,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(connect( ()=>({}) )(App));
