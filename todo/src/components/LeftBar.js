@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './App.css';
 import App from './App';
 import NewNote from './NewNote';
@@ -43,10 +43,8 @@ const LeftBarButton = styled.div`
 const LeftBar = props => {
     return (
         <LeftBarDiv>
-            <Route exact path='/' component={App} />
-            <Route path='/NewNote' component={NewNote} />
             <LeftBarH1>Lambda Notes</LeftBarH1>
-            <Link to='/App'><LeftBarButton>View Your Notes</LeftBarButton></Link>
+            <Link exact to='/'><LeftBarButton>View Your Notes</LeftBarButton></Link>
             <Link to='/NewNote'><LeftBarButton>+ Create New Note</LeftBarButton></Link>
         </LeftBarDiv>
     )

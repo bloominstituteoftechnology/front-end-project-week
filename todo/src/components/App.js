@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Route, Link } from 'react-router-dom';
 
 import LeftBar from './LeftBar';
 import MainContainer from './MainContainer';
 import './App.css';
-import { Route, Link } from 'react-router-dom';
-import NewNote from './NewNote';
+// import { Route, Link } from 'react-router-dom';
+// import NewNote from './NewNote';
 
 
 const CenteredDiv = styled.div`
@@ -16,20 +17,16 @@ const CenteredDiv = styled.div`
 	display: flex;
 `;
 
-class App extends Component {
-	state = {
-		todos: [],
-	}
-
-
-	render() {
-		return (
-			<CenteredDiv>
-				<LeftBar />
-				<MainContainer />
-			</CenteredDiv>
-		);
-	}
+const App = props => {
+	return (
+		<CenteredDiv>
+			<LeftBar />
+			
+			{/* <MainContainer /> */}
+			<h3>Broken ... </h3>
+		</CenteredDiv>
+	);
 }
+
 
 export default App;
