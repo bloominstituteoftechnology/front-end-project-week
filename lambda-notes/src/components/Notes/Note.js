@@ -2,14 +2,12 @@ import React from 'react';
 
 const Note = props => {
   return (
-    <div>
+    <div id={props.id}>
       <div>
-        notes title
-        {/* <h3>{props.note.title}</h3> */}
+        <h3>{props.note.title}</h3>
       </div>
       <div>
-        textBody
-        {/* {props.notes.textBody} */}
+        {props.note.textBody}
       </div>
     </div>
   );
