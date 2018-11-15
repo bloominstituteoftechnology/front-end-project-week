@@ -1,5 +1,5 @@
 .sidebar {
-    width: 20vw;
+    width: 25vw;
     height: 100vh;
     background-color: lightgrey;
     border: 1px solid lightgrey;
@@ -19,4 +19,8 @@
     background-color: teal;
     color: white;
     font-weight: bold;
+}
+
+.side-button:hover {
+    cursor: pointer;
 }

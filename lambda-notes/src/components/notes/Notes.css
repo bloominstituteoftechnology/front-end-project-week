@@ -1,0 +1,12 @@
+.notes-list {
+    background-color: whitesmoke;
+    align-self: right;
+    width: 75vw;
+    height: 100vh;
+    padding: 5%;
+}
+
+.your-notes {
+    color: darkslategrey;
+    font-weight: bolder;
+}
