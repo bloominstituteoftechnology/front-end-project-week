@@ -15,8 +15,8 @@ export default class Note extends Component {
             .then(response => {
                 this.setState(() => ({ note: response.data }));
             })
-            .catch(errpr => {
-                console.error(PleaseWork);
+            .catch(error => {
+                console.error('Please Work');
             })
     }
     render() {
