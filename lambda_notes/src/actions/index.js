@@ -25,6 +25,7 @@ export const getNotes = () => {
         .catch(err => {
           dispatch({ type: ERROR, payload: err });
         })
+
     }
   );
 };
@@ -67,6 +68,7 @@ export const editNote = (id, note) => {
       dispatch({ type: EDITING_NOTE });
 
       axios.put(`${URL}/edit/${id}`, note)
+      
         .then(response => {
           dispatch({ type: EDIT_NOTE, payload: { id, ...response.data } });
         })
