@@ -8,13 +8,12 @@ class NoteView extends Component {
   constructor(props){
     super(props)
     this.state = {
-      note: {}
+      note: []
     }
   }
 
   componentDidMount(){
     const id = this.props.match.params.id;
-    console.log(id)
     this.fetchNote(id)
   }
 
@@ -27,11 +26,18 @@ class NoteView extends Component {
       .catch(err => console.log(err))
   }
 
+  clickHandler = (e) => {
+    e.preventDefault();
+    const id = this.props.match.params.id;
+    this.props.deleteNote(id)
+    this.setState({ note: [] })
+  }
+
   render(){
     return(
       <div className="view-wrapper">
         <Link to="/edit/:id">Edit</Link>
-        <div onClick="">Delete</div>
+        <div onClick={this.clickHandler}>Delete</div>
         <Note note={this.state.note} />
       </div>
     )

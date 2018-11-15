@@ -25,7 +25,6 @@ class App extends Component {
   getNotes = () => {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
-        console.log(response)
         this.setState({ notes: response.data })
       })
       .catch(err => console.log(err))
@@ -34,7 +33,15 @@ class App extends Component {
   postNote = (newNote) => {
     axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
       .then(response => this.setState({ notes: response.data }))
-      .err(err => console.log(err))
+      .catch(err => console.log(err))
+  }
+
+  deleteNote = id => {
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        this.setState({ notes: response.data })
+      })
+      .catch(err => console.log(err))
   }
 
   render() {
@@ -42,10 +49,9 @@ class App extends Component {
       <div className="App">
         <NavLink to="/">View Your Notes</NavLink>
         <NavLink to="/create">+Create New Note</NavLink>
-
-        <Route exact path="/" render={props => <NotesList {...props} notes={this.state.notes}/>} />
-        <Route path="/create" render={props => <CreateNote {...props} postNote={this.postNote}/>} />
-        <Route path="/view/:id" render={props => <NoteView {...props}/>} />
+        <Route exact path="/" render={props => <NotesList {...props} notes={this.state.notes} />}/>
+        <Route path="/create" render={props => <CreateNote {...props} postNote={this.postNote} />}/>
+        <Route path="/view/:id" render={props => <NoteView {...props} deleteNote={this.deleteNote} />}/>
 
       </div>
     );
