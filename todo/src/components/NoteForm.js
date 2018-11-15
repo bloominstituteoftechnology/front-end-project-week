@@ -18,8 +18,33 @@ class NoteForm extends Component {
 
     render() {
         return (
-            <p>foo</p>
+            <div>
+                <form onSubmit={this.addNote}>
+                    <input
+                onChange={this.handleInputChange}
+                placeholder="tags"
+                value={this.state.name}
+                name="tags"
+                />
+                <input
+                onChange={this.handleInputChange}
+                placeholder="title"
+                value={this.state.age}
+                name="title"
+                />
+                <input
+                onChange={this.handleInputChange}
+                placeholder="note text"
+                value={this.state.height}
+                name="text"
+                />
+                <button type="submit" onClick={this.addNote}>Add note</button>
+            </form>
+            </div>
+            
+
         )
+        
     }
 }
 
