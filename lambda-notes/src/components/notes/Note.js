@@ -1,6 +1,7 @@
 import React from 'react';
 import './Notes.css';
 
+
 const Note = (props) => {
     return (
         <div className="single-note">
