@@ -9,7 +9,7 @@ export const Button = styled.button `
     background-color: ${buttonColor};
     border: none;
     color: white;
-    padding: 15px 100px;
+    padding: 15px 50px;
     text-decoration: none;
     font-size: 16px;
     margin: 20px 0;
