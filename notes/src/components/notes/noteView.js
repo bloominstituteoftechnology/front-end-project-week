@@ -3,17 +3,37 @@ import {  NoteContainer} from '../../style/style';
 import { Button } from 'reactstrap';
 
 class NoteView extends Component {
-  state = {  }
-  render() { 
+  constructor(props){
+    super(props);
+    this.state={
+      note:[]
+    }
+  }
+
+  componentDidMount(){
+    let myId = this.props.match.params.id;
+    const notes = this.props.notes
+    const note  = notes.filter(item => {
+      return item.id === Number(myId);
+    });
+    this.setState({ note: note });
+  }
+
+  render() {
+    console.log(this.state.note )
     return ( 
-      <NoteContainer>
+      <NoteContainer >
         <div className='note-actions'>
         <Button color="link">Edit</Button>
         <Button color="link">Delete</Button>
         </div>
         <div className="note-wrapper">
-        <h1>Note Title</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus sit amet luctus venenatis lectus. Senectus et netus et malesuada fames ac turpis. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Donec et odio pellentesque diam. Urna molestie at elementum eu. Duis ultricies lacus sed turpis. Netus et malesuada fames ac turpis egestas. Lectus arcu bibendum at varius vel. Id cursus metus aliquam eleifend mi in nulla posuere sollicitudin. Id diam maecenas ultricies mi eget mauris</p>
+         {this.state.note.map(item =>{
+           return[
+             <h1>{item.title}</h1>,
+             <p>{item.content}</p>
+           ]
+         })}
         </div>
       </NoteContainer>
     );

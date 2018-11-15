@@ -33,7 +33,7 @@ class App extends Component {
     <Side/>
     <Route exact path="/" render={(props) => <NoteList {...props} notes={this.state.notes}/>}/>
     <Route exact path="/form" component={ Form } />
-    <Route exact path='/note/:id/details' render={(props) => <NoteView {...props}/>}/>
+    <Route exact path='/noteView/:id' render={(props) => <NoteView {...props} notes={this.state.notes} />}/>
     </Wrapper>
     <Footer/>
     </>

@@ -68,7 +68,7 @@ flex-direction:column
 // align-items:center;
 width:100%;
 max-width:265px;
-height:265px;
+height:300px;
 padding:10px;
 margin-bottom:15px;
 border:1px solid lightgray;
