@@ -2,16 +2,8 @@ import React from 'react';
 import axios from 'axios';
 
 import Note from './note'
-import styled from 'styled-components';
+import { MappedNotes } from './styledcomponents';
 
-const MappedNotes = styled.div `
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-content: center;
-    padding-top: 10px
-    border: 1px solid aqua;
-`
 
 class NotesList extends React.Component{
     constructor(props){
