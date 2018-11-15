@@ -73,8 +73,13 @@ export const deleteNote = (id) => {
         dispatch({type: LOADING})
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
             .then( response => {
-                dispatch({type: GET_NOTES, notes: response.data})
-            })
+                axios.get('https://fe-notes.herokuapp.com/note/get/all')
+                    .then( response => {
+                        dispatch({type: GET_NOTES, notes: response.data})
+                    })
+                    .catch( err=> {
+                        dispatch({type: ERROR_MESSAGE, errorMessage: "Your note was deleted but now the other notes are hiding for fear of being likewise destroyed."})
+                    })            })
             .catch( err => {
                 dispatch({type: ERROR_MESSAGE, errorMessage: "This all-powerful note cannot simply cease to exist per your command."})
             })
