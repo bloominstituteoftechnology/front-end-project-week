@@ -23,14 +23,18 @@
         .note-list {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-evenly;
+            justify-content: flex-start;
             margin: 0px auto;
             .note {
                 width: 27%;
                 height: 200px;
-                margin: 10px;
+                margin-top: 25px;
+                margin-left: 5%;
                 background-color: white;
                 border: .1px solid Gainsboro;
+                overflow: hidden;
+                height: 198px;
+                text-overflow: -o-ellipsis-lastline;
                 .card-title {
                     text-overflow: ellipsis;
                     white-space: nowrap;
@@ -39,10 +43,10 @@
                     ;
                 }
                 .card-body {
-                    text-overflow: ellipsis;
-                    overflow: hidden;
+                    /* exactly three lines */
                     margin: 5px 15px;
                     line-height: 1.2;
+                    white-space: pre-wrap;
                 }
             }
         }
@@ -72,16 +76,19 @@
             font-size: 1rem;
             margin: 10px 0;
         }
-        .input-title, .note-title {
+        .input-title,
+        .note-title {
             font-size: 2rem;
             font-weight: 400;
             margin: 0;
         }
-        .input-body, .note-body {
+        .input-body,
+        .note-body {
             margin-top: 20px;
             margin-bottom: 0;
             padding: 0;
             font-size: 1.2rem;
+            white-space: pre-wrap;
             min-height: 300px;
             line-height: 25px;
         }

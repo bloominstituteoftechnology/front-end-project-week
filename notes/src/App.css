@@ -24,15 +24,19 @@
 .App .body .note-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   margin: 0px auto;
 }
 .App .body .note-list .note {
   width: 27%;
   height: 200px;
-  margin: 10px;
+  margin-top: 25px;
+  margin-left: 5%;
   background-color: white;
   border: 0.1px solid Gainsboro;
+  overflow: hidden;
+  height: 198px;
+  text-overflow: -o-ellipsis-lastline;
 }
 .App .body .note-list .note .card-title {
   text-overflow: ellipsis;
@@ -41,10 +45,10 @@
   margin: 20px 15px;
 }
 .App .body .note-list .note .card-body {
-  text-overflow: ellipsis;
-  overflow: hidden;
+  /* exactly three lines */
   margin: 5px 15px;
   line-height: 1.2;
+  white-space: pre-wrap;
 }
 .App .body .note-detail,
 .App .body .note-form {
@@ -86,6 +90,7 @@
   margin-bottom: 0;
   padding: 0;
   font-size: 1.2rem;
+  white-space: pre-wrap;
   min-height: 300px;
   line-height: 25px;
 }
