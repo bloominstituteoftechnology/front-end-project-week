@@ -15,8 +15,13 @@ class Note extends Component {
   constructor(props) {
     super(props);
 
+    /* note{}:
+     *  _id: 0
+     *  textBody: ""
+     *  title: ""
+     */
     this.state = {
-      note: []
+      note: {}
     };
   };
 
@@ -33,8 +38,8 @@ class Note extends Component {
     return (
       <div className="viewNote">
         <div className="noteLinks">
-          <Link to={`/edit/${this.state.note.id}`}>edit</Link>
-          <Link to={`/delete/${this.state.note.id}`}>delete</Link>
+          <Link to={`/edit/${this.state.note._id}`}>edit</Link>
+          <Link to={`/delete/${this.state.note._id}`}>delete</Link>
         </div>
         <div className="viewNoteTitle">{this.state.note.title}</div>
         <div className="viewNoteText">{this.state.note.textBody}</div>
