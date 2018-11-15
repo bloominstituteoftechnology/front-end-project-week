@@ -14,21 +14,20 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      stateObject : {
-
-      }
+      notes: [],
+      title: '',
+      textBody: '',
     }
   }
   componentDidMount(){
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
         .then(response =>{
-          
-          this.setState({
-           stateObject : response.data
-          })
+          this.setState(()=> ({notes : response.data}))
         })
-        
+      .catch(err =>{
+        console.log('Trouble loading data', err)
+      })  
   }
   createNewNote = (newNote) =>{
     axios
@@ -41,13 +40,16 @@ class App extends Component {
             textBody : response.data.textBody,
           })
         })
+        .catch(err =>{
+          console.log('Trouble posting new data', err)
+        })    
   }
 
   render() {
     return (
       <div className="App">
         <NavBar />
-        <Route exact path = '/' render = {(props) => <NotesContainer notes = {this.state} />}/>
+        <Route exact path = '/' render = {(props) => <NotesContainer notes = {this.state.notes} />}/>
         <Route path = '/create' render = {(props) => <NewNoteForm notes = {this.state} createNewNote = {this.createNewNote}/>}/>
         <Route path = '/edit' render = {(props) => <EditNoteForm />}/>
       </div>
