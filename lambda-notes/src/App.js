@@ -15,15 +15,29 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getNotes()
+  }
+
+  getNotes = () => {
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+    .get('https://fe-notes.herokuapp.com/note/get/all')
+    .then( response => {
+      console.log(response)
+      this.setState({notes: response.data})
+    })
+    .catch(err => console.log(err))
+  }
+
+  createNote = note => {
+    axios
+      .post('https://fe-notes.herokuapp.com/note/create', note)
       .then( response => {
         console.log(response)
-        this.setState({notes: response.data})
+        this.getNotes()
       })
       .catch(err => console.log(err))
-  }
-  
+  }  
+
   render() {
     return (
       <div className="App">
@@ -32,7 +46,7 @@ class App extends Component {
       </div>
       <div>
         <Route exact path='/' render={ props => <ListNotes {...props} notes={this.state.notes}/>} />
-        <Route path='/create-note' component={CreateNote} />
+        <Route path='/create-note' render={ props => <CreateNote {...props} createNote={this.createNote} />} />
       </div>
       
       </div>
