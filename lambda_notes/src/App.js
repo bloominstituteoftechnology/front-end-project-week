@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './App.css';
+
 import ListView from './components/Display_Components/ListView';
 
 class App extends Component {
