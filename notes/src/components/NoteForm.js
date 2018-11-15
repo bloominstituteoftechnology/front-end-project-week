@@ -27,7 +27,6 @@ class NoteForm extends React.Component {
         this.setState({...this.state, creating: true});
         axios.post('https://fe-notes.herokuapp.com/note/create', note)
             .then( response => {
-                // this.setState({error: null, loading: false, id: response.data});
                 this.props.history.push(`/note/${response.data.success}`);
             })
             .catch( err => {

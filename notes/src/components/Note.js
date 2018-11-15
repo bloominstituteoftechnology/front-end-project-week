@@ -12,6 +12,7 @@ class Note extends React.Component {
         }
 
         this.state = {
+            deleting: false,
             error: null,
             loading: false,
             note: this.note
@@ -20,7 +21,14 @@ class Note extends React.Component {
 
     deleteHandler = e => {
         e.preventDefault();
-        // call lambda api to delete note
+        this.setState({...this.state, deleting: true});
+        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
+            .then( response => {
+                this.props.history.push(`/`);
+            })
+            .catch( err => {
+                this.setState({error: "Unable to delete note on server", deleting: false});
+            })
     }
 
     componentDidMount() {
@@ -44,7 +52,8 @@ class Note extends React.Component {
                         <a href={`/delete/${this.state.note._id}`} onClick={this.deleteHandler}>delete</a>
                     </div>
                 </header>
-                { this.state.loading === true ? <h1>Loading...</h1>: null }
+                { this.state.loading === true ? <h1>Loading...</h1> : null }
+                { this.state.deleting === true ? <h1>Deleting...</h1> : null }
                 { this.state.error !== null ? <h1>{this.state.error}</h1> : null }
                 <p>{this.state.note.textBody}</p>
             </div>
