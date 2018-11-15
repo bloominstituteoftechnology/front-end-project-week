@@ -25,6 +25,7 @@ class App extends Component {
       axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         this.setState({ notes: response.data })
+        console.log(response.data)
       })
       .catch(err => console.log(err))
     }
@@ -35,7 +36,6 @@ class App extends Component {
         textBody: text
       })
       .then(response => {
-        console.log(response);
         this.getNotes();
       })
       .catch(err => console.log(err)) 
@@ -50,7 +50,7 @@ class App extends Component {
           <ListView notes={this.state.notes} />
         } />
         <Route exact path='/create' render={(props) => <CreateForm createNote={this.createNote} />} />
-        <Route exact path='/:id' render={(props) => <NoteView />} />
+        <Route exact path='/note/:id' render={(props) => <NoteView {...props} notes={this.state.notes} />} />
       </div>
     );
   }

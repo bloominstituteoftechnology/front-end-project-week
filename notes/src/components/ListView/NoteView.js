@@ -1,11 +1,19 @@
 import React from 'react';
-import Note from './Note';
 
 class NoteView extends React.Component {
     render() {
         return (
             <div>
-                I'm a single note
+                {this.props.notes.map(note => {
+                    if (this.props.match.params.id === `${note._id}`) {
+                        return (
+                            <div>
+                                {note.title}
+                                {note.textBody}
+                            </div>
+                        )
+                    }
+                })}
             </div>
         )
     }

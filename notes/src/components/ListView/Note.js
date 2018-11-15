@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './note.css';
 
@@ -11,7 +12,9 @@ class Note extends React.Component {
     render() {
       return (
         <div className="note">
-         <div className="noteTitle">{this.props.title}</div>
+          <Link to={`/note/${this.props.id}`}>
+            <div className="noteTitle">{this.props.title}</div>
+          </Link>
          <div className="noteText">{this.props.text.slice(0, 110)}...</div>
         </div>
       );
