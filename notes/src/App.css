@@ -93,12 +93,14 @@ a{
   color:lightgray;
 }
 
-.title{
+.title p{
   text-align:center;
   border-bottom:1px solid #e1e5e9;
   padding:5px 0px 8px 0px;
   margin-bottom: 8px;
   font-size:1.6rem;
+  text-transform: capitalize;
+  font-weight: bold;
 }
 
 .content{
@@ -111,6 +113,18 @@ a{
   height:210px;
   font-weight: lighter;
   line-height: 1.4;
+  margin-bottom:10px;
+}
+.content-link{
+  text-decoration: none;
+  color:black;
+  font-size:1.4rem;
+  cursor: pointer;
+}
+
+.content-link:hover{
+  text-decoration: none;
+  color:black;
 }
 .truncate{
   white-space:pre-wrap;

@@ -53,11 +53,10 @@ background-color:darkgrey;
 export const Mainbar = styled.div`
 display:flex;
 flex-flow:row wrap;
-justify-content:space-around;
-//align-items:center;
+padding-left:10px
+padding-right:10px;
 width:100%;
 max-width:855px;
-//border:1px dotted black;
 height:auto;
 `;
 
@@ -68,8 +67,9 @@ flex-direction:column
 // align-items:center;
 width:100%;
 max-width:265px;
-height:300px;
+height:285px;
 padding:10px;
+margin-right:10px;
 margin-bottom:15px;
 border:1px solid lightgray;
 `;
@@ -91,4 +91,15 @@ justify-content:flex-start;
 width:100%;
 max-width:855px;
 padding:10px;
+`;
+
+export const ViewCard = styled.div`
+display:flex;
+flex-direction:column
+width:100%;
+height:auto;
+padding:10px;
+margin-right:10px;
+margin-bottom:15px;
+border:1px solid lightgray;
 `;

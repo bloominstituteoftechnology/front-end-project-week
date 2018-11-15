@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  NoteContainer} from '../../style/style';
+import {  NoteContainer, ViewCard} from '../../style/style';
 import { Button } from 'reactstrap';
 
 class NoteView extends Component {
@@ -23,18 +23,18 @@ class NoteView extends Component {
     console.log(this.state.note )
     return ( 
       <NoteContainer >
+        <ViewCard>
         <div className='note-actions'>
         <Button color="link">Edit</Button>
         <Button color="link">Delete</Button>
         </div>
-        <div className="note-wrapper">
          {this.state.note.map(item =>{
            return[
-             <h1>{item.title}</h1>,
-             <p>{item.content}</p>
+             <h1 className="title">{item.title}</h1>,
+             <p className="content">{item.content}</p>
            ]
          })}
-        </div>
+        </ViewCard>
       </NoteContainer>
     );
   }
