@@ -13,6 +13,8 @@ class App extends Component {
     }
   }
 
+  addNote = note => {}
+
   componentDidMount() {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
