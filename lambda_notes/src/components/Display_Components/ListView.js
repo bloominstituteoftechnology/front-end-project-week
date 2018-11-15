@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {Title} from '../Styles/ListViewStyle';
 
 
 
@@ -30,14 +31,15 @@ class ListView extends Component {
 
     render() {
         return (
-            <div>
+            <div> 
             {this.state.notes.map( note => {
                 return(
-                    <article key={note.id}>
-                    <h4>{note.title}</h4>
+                    //noteCards
+                <article key={note.id}> 
+                    <Title>{note.title}</Title>
                     <p>{note.textBody}</p>
-                    </article>
-                )
+                 </article>
+                     )
             })}
             </div>
         )
