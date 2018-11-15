@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {Route, Link} from "react-router-dom";
 import { connect } from "react-redux";
 import { getNotes } from "../actions";
 import { FlexColumn } from "./Styled";
+import Note from "./Note";
+import CreateNoteForm from "./CreateNoteForm";
+import NoteView from "./ViewNote";
+
 
 class Notes extends Component {
     constructor(props) {
@@ -21,8 +26,11 @@ class Notes extends Component {
                 {loading && <h1>LOADING...</h1>}
                 {error && <><h1>Error</h1><p>{error}</p></>}
                 {notes && notes.map(note => {
-                    return <div>{note.textBody}</div>
+                    return <Link key={note._id} to={`/note/${note._id}`}><Note note={note} /></Link>
                 })}
+
+                <CreateNoteForm />
+                <Route path="/note/:id" render={({match})=> <NoteView id={match.params.id}/>} />
             </FlexColumn>
         );
     }

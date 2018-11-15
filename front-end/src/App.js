@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import Notes from "./components/Notes";
-import CreateNoteForm from "./components/CreateNoteForm";
+
 
 class App extends Component {
     render() {
         return (
-            <>
-                <Notes/>
-                <CreateNoteForm/>
-            </>
+            <Router>
+                <Route path="/" component={Notes}/>
+            </Router>
         );
     }
 }

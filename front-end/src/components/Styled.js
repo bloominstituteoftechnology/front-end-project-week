@@ -45,3 +45,27 @@ export const FlexColumn = styled.div.attrs({
     max-width: 100%;
     flex-grow: ${props => props.grow}
 `;
+
+export const Modal = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.81);;
+`;
+
+export const Paper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.6784313725490196);
+    padding: 20px;
+    background: white;
+`;
