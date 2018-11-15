@@ -19,7 +19,8 @@ const initialState = {
         }
     ],
     fetching: false,
-    error: null
+    error: null,
+    viewNote: []
 };
 
 export default (state = initialState, actions) => {

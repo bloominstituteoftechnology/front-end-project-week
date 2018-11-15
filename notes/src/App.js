@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Nav from './components/Nav';
 import NoteContainer from './components/NoteContainer';
 import AppStyled from './Styles/App';
+import ViewNote from './components/ViewNote';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <AppStyled>
         <Route path='/' component={Nav} />
         <Route exact path='/' component={NoteContainer} />
+        <Route path='/view-note' component={ViewNote} />
       </AppStyled>
     );
   }
