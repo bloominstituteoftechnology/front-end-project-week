@@ -6,10 +6,9 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  background-color: rgb(242, 241, 242);
   overflow-wrap: break-word;
-  width: 100%;
-  min-width: 880px;
+  /* min-width: 100%; */
+  max-width: 880px;
 `;
 
 const NoteContainer = styled.div`
@@ -20,6 +19,8 @@ const Actions = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    padding-top: 20px;
+    padding-right: 20px;
 `;
 
 export default class Note extends Component {
@@ -55,12 +56,12 @@ export default class Note extends Component {
         return (
             <Container>
                 <Actions>
-                    <Link to='/'>edit</Link>
-                    <Link to='/' >delete</Link>
+                    <Link to='/' style={{ color: 'black' }}>edit</Link>
+                    <Link to='/' style={{ paddingLeft: '10px', color: 'black' }}>delete</Link>
                 </Actions>
                 <NoteContainer>
                     <h2>{this.state.note.title}</h2>
-                    <p>{this.state.note.textBody}</p>
+                    <p style={{ lineHeight: '2'}}>{this.state.note.textBody}</p>
                 </NoteContainer>
             </Container>
         )
