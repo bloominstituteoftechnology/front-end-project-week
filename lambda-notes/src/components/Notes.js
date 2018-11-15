@@ -24,12 +24,15 @@ class Notes extends Component {
 
     render(){
         return(
-            <div>
+            <div className="notesContent">
+                <h2>Your Notes:</h2>
+                <div className="notesBlock">
                 {this.state.notes.map( item => {
                     return(
                         <Note note={item} key={item.id}/>
                     )
                 })}
+                </div>
             </div>
         )
     }
