@@ -2,17 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 
+import './notecard.css';
+
 const NoteCard = props => {
   return (
-    <article name={props.note._id}>
-      <header>
-        <Link to={`/${props.note._id}`} name={props.note._id}>
+    <Link to={`/${props.note._id}`} name={props.note._id} className='note'>
+      <h2>
           {props.note.title}
-        </Link>
-      </header>
+      </h2>
       <hr />
       <p>{props.note.textBody}</p>
-    </article>
+    </Link>
   );
 };
 

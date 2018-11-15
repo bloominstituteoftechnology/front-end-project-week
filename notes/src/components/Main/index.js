@@ -80,6 +80,10 @@ class Main extends Component {
              error: err
           })
         })
+        setTimeout(() => {this.setState({
+          creatingNote: false,
+          fetched: true
+        })},1000);
   }
 
   updateNote = (note) => {

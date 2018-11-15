@@ -1,0 +1,20 @@
+.note {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  color: rgb(7, 12, 29);
+  height: 300px;
+  margin: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  overflow: hidden;
+  width: 250px;
+}
+
+.note:hover {
+  border-color: gray;
+}
+
+.note h2 {
+  font-size: 24px;
+  margin: 5px auto;
+}

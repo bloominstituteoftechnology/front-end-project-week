@@ -1,0 +1,34 @@
+.note-container {
+  padding: 5px 40px;
+}
+
+
+.edit-delete {
+  align-items: center;
+  color: rgb(7, 12, 29);
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: underline;
+}
+.edit-delete p {
+  cursor: pointer;
+}
+.edit-delete p:hover {
+  color: darkgray;
+}
+a {
+  color: rgb(7, 12, 29);
+  margin-right: 10px;
+}
+
+a:hover {
+  color: darkgray;
+}
+
+header {
+  font-size: 30px;
+}
+
+.hr {
+  background-color: rgb(7, 12, 29);
+}

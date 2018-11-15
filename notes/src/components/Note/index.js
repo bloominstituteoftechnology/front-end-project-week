@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 
 import { Link } from 'react-router-dom';
+import './note.css';
 
 class Note extends React.Component {
   constructor(props) {
@@ -21,19 +22,16 @@ delete = () => {
 }
 
   render() {
-    if (!Object.keys(this.state.note).length) {
-      return <p></p>
-    }
     return (
-      <article name={this.state.note._id}>
-      <span>
+      <article className='note-container' name={this.state.note._id}>
+      <span className='edit-delete'>
         <Link to={`/edit/${this.state.note._id}`} >Edit</Link>
         <p onClick={this.delete}>Delete</p>
       </span>
         <header>
           {this.state.note.title}
         </header>
-        <hr />
+        <hr className='hr' />
         <p>{this.state.note.textBody}</p>
       </article>
     );

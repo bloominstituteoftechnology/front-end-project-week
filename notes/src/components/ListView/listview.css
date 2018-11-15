@@ -1,0 +1,12 @@
+
+.listview h1 {
+  font-size: 32px;
+  padding: 20px 0 0 20px;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 10px;
+}

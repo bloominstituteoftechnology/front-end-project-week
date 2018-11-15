@@ -1,0 +1,37 @@
+.aside-nav {
+  background-color: lightgray;
+  border-right: 2px solid gray;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 10px 0 0 0;
+  width: 320px;
+}
+.aside-nav h1 {
+  color: gray;
+  font-size: 48px;
+  line-height: 42px;
+  text-align: left;
+  margin: 0 20px;
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.links {
+  align-items: center;
+  background-color: rgb(78, 175, 230);
+  border: 2px solid gray;
+  color: white;
+  display: flex;
+  font-size: 24px;
+  font-weight: bold;
+  justify-content: center;
+  margin: 20px;
+  height: 66px;
+  text-decoration: none;
+  width: 285px;
+}
