@@ -34,11 +34,16 @@ class App extends Component {
   };
 
   deleteNote = id => {
-    console.log('deleted');
-    // axios
-    //   .delete()
-    //   .then()
-    //   .catch();
+    console.log(`${id}`, ' deleted');
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => {
+        // console.log(res);
+        this.getNotes();
+      })
+      .catch(err => {
+        console.log('error deleting');
+      });
   };
 
   render() {
