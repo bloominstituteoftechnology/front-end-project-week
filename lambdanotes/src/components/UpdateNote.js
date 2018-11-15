@@ -9,7 +9,7 @@ class UpdateNote extends React.Component {
         this.state = {
             title: '',
             textBody: '',
-            note: {},
+            // note: {}
         }
     }
 
@@ -25,14 +25,29 @@ class UpdateNote extends React.Component {
     //     })
     // }
 
-    componentDidMount(){
-        console.log(this.props.notes)
-        console.log(this.props.match)
-        const { notes, match } = this.props 
-        const note = this.props.notes.find( item => item.id === Number(this.props.match.params.id))
-        this.setState({note})
-        console.log(this.props.match.params.id)
-    }
+    // componentDidMount(){
+    //     const note = this.props.notes.find( item => item.id === Number(this.props.match.params.id))
+    //     axios 
+    //     .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, note)
+    //     .then(response => {
+    //         this.setState({ notes: response.data })
+    //         console.log(this.state.notes)
+    //         console.log(this.state.note)
+    //     })
+    //     .catch(err => {
+    //         console.log("Fail to UPDATE individual note", err)
+    //     })
+    // }
+
+    // componentDidMount(){
+    //     console.log(this.props.notes)
+    //     console.log(this.props.match)
+    //     //const { notes, match } = this.props 
+    //     const note = this.props.notes.find( item => item.id === Number(this.props.match.params.id))
+    //     this.setState({note})
+    //     console.log(this.props.match.params.id)
+    //     console.log(this.note)
+    // }
 
     handleChange = event => {
         event.preventDefault();
@@ -43,7 +58,9 @@ class UpdateNote extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.handleUpdateNote(this.state)
+        //this.props.handleUpdateNote({...this.state})
+        this.props.handleUpdateNote({...this.state, id: this.props.match.params.id})
+        console.log(this.state)
     }
 
 

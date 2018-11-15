@@ -73,6 +73,7 @@ class App extends Component {
     .put(`https://fe-notes.herokuapp.com/note/edit/${updatedNote.id}`, updatedNote)
     .then(response => {
       //this.setState({ notes: response.data })
+      console.log(response.data)
             axios
             .get(`https://fe-notes.herokuapp.com/note/get/all`)
             .then(response => {
