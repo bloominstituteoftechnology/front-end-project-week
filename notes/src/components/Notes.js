@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-
+import { Note } from './Note';
+import {Link , Route} from 'react-router-dom';
 
 export class Notes extends Component {
     render(){
@@ -9,8 +9,11 @@ export class Notes extends Component {
             {this.props.notes.map(note => {
                 return (
                     <div>
-                        <h4>{note.title}</h4>
-                        <p>{note.textBody}</p>
+                        <Link to={`/note/${note._id}`}>
+                            <Note note={note} title={note.title} textBody={note.textBody}  />
+                        </Link>
+                        
+                        
                     </div>
                 )
             })}

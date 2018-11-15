@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 
 import './App.css';
 import axios from 'axios';
+import { Route, NavLink } from 'react-router-dom';
 
 import { Notes } from './Notes';
 import { AddNote } from './AddNote';
+
 
 
 class App extends Component {
@@ -37,8 +39,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AddNote addNote={this.addNote} />
-        <Notes notes={this.state.notes} />
+        <div>
+          <NavLink to='/'><button>View Your Notes</button></NavLink>
+          <NavLink to='/add-note'><button>+ Add Note</button></NavLink>
+        </div>
+        <Route path="/add-note"
+          render={props => (
+            <AddNote addNote={this.addNote} />
+          )} />
+        
+        <Route exact path="/"
+          render={props => (
+            <Notes notes={this.state.notes} />
+          )} />
+        
       </div>
     );
   }
