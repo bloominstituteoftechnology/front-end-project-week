@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const NoteCard = styled.div`
   display: inline-block;
@@ -12,17 +12,24 @@ const NoteCard = styled.div`
   background-color: white;
   h1 {
     font-size: 24px;
+    color: black;
+    cursor:pointer;
   }
   p {
-      overflow:hidden;
-      line-height:30px;
+    flex: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 30px;
   }
 `;
 
 const Note = ({ note }) => {
   return (
     <NoteCard>
-      <h1><Link to={`note/${note.id}`}>{note.title}</Link></h1>
+      <h1>
+        <Link to={`note/${note.id}`} style={{ textDecoration: 'none', color:'black'}}>{note.title}</Link>
+      </h1>
       <hr />
       <p>{note.textBody}</p>
     </NoteCard>
