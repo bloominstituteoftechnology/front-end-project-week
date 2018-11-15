@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import './css/App.css';
+import './css/NavBar.css';
 
 import axios from 'axios';
 import {Route } from 'react-router-dom';

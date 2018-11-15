@@ -2,11 +2,13 @@ import React from 'react';
 
 import Note from './Note';
 
+import styles from '../css/NotesContainer.css';
+
 class NotesContainer extends React.Component{
    
   
     render(){
-        console.log('I am console log',this.props.notes)
+        //console.log('I am console log',this.props.notes)
         return(
             <div className = 'notes-container'>
                 <h1>Your Notes: </h1>
