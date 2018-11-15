@@ -39,7 +39,8 @@ const Sidebar = props => {
       </Header>
       <NavLink exact to='/' style={{ textDecoration: 'none' }}>
         <Button>View Your Notes</Button></NavLink>
-      <Button>+ Create New Note</Button>
+      <NavLink to='/create' style={{ textDecoration: 'none' }}>
+      <Button>+ Create New Note</Button> </NavLink>
     </SideBar>
   );
 };
