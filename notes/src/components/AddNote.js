@@ -9,7 +9,6 @@ export class AddNote extends Component {
         }
     }
     addNote = e => {
-        e.preventDefault();
         const newNote = {
             title: this.state.title,
             textBody: this.state.textBody,
