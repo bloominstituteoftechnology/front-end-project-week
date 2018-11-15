@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 import List from './components/List';
 import styled from 'styled-components';
+import { Route } from 'react-router-dom';
 
 const AppWrapper = styled.div`
   width: 100%;
   display: flex;
-  height: 100vh;
+  height: 100%;
 `
 
 const Sidebar = styled.div`
@@ -36,22 +36,9 @@ const SbButton = styled.button`
 class App extends Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      notes: []
-    }
   }
 
-  componentDidMount() {
-    axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
-      .then(res => {
-        const notes = res.data;
-        this.setState({ notes });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+
 
   render() {
     return (
@@ -61,7 +48,7 @@ class App extends Component {
           <SbButton><h2>View Your Notes</h2></SbButton>
           <SbButton><h2>+ Create New Note</h2></SbButton>
         </Sidebar>
-        <List notes={this.state.notes} />
+        <Route exact path="/" component={List} />
       </AppWrapper>
     );
   }

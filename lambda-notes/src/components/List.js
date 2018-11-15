@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import axios from 'axios'
+
 
 const ListWrapper = styled.div`
     width: 100%;
@@ -21,6 +23,8 @@ const Note = styled.div`
     background-color: white;
     border: 1px solid darkgrey;
     overflow: hidden;
+    margin: 10px;
+    
 
     h2 {
         width: 90%;
@@ -30,23 +34,47 @@ const Note = styled.div`
     }
 
     p {
-        margin: 0px auto;
-        padding: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6; 
+        line-height: 1.2em;       
+        max-height: 7.2em;
+        margin: 10px;      
+     }
     }
 `
 
 class List extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+          notes: []
+        }
+      }
 
+      componentDidMount() {
+        axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+          .then(res => {
+            const notes = res.data;
+            this.setState({ notes });
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
 
   render() {
     return (
       <ListWrapper>
           <h1>Your Notes:</h1>
         <NotesWrapper>
-       {this.props.notes.map(note => {
+       {this.state.notes.map(note => {
            return (
                <Note key={note._id}>
-                   <h2>{note.title}</h2>
+                   <h2 onClick>{note.title}</h2>
                    <p>{note.textBody}</p>
                 </Note>
            )
