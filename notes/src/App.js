@@ -3,6 +3,7 @@ import './App.css';
 import NoteList from '../src/Components/NoteList';
 import Menu from '../src/Components/Menu';
 import Title from '../src/Components/Tite';
+import NoteForm from '../src/Components/NoteForm';
 
 class App extends Component {
   render() {
@@ -10,8 +11,8 @@ class App extends Component {
       <div>
         <Title />
         <div className="App">
-          <Menu />
-          <NoteList />
+          {/* <NoteList /> */}
+          <NoteForm />
         </div>
       </div>
     );

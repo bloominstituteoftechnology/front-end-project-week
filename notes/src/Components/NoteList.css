@@ -1,3 +1,7 @@
+.list {
+    display: flex;
+}
+
 .note-list {
     border: 1px solid grey;
     display: flex;
@@ -5,4 +9,15 @@
     flex-wrap: wrap;
     width: 75%;
     background-color: whitesmoke;
+}
+
+/* h2 {
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid black;
+} */
+
+.notes {
+    display: flex;
+    flex-wrap: wrap;
 }

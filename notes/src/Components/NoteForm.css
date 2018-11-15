@@ -1,0 +1,38 @@
+.form {
+    display: flex;
+    width: 100%;
+}
+
+.note-form {
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    background-color: whitesmoke;
+}
+
+.new-note-title {
+    width: 50%;
+    height: 45px;
+    margin: 0 0 10px 5%;
+}
+
+.note-content {
+    width: 80%;
+    height: 350px;
+    margin: 0 0 20px 5%;
+}
+
+.save-button {
+    border: 1px solid grey;
+    background-color: rgb(0, 167, 167);
+    color: white;
+    margin: 0 0 20px 5%;
+    width: 25%;
+    height: 50px;
+}
+
+h2 {
+    display: flex;
+    margin-left: 5%;
+}

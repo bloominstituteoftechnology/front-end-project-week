@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Note from './Note';
 import './NoteList.css';
+import Menu from './Menu';
 
 class NoteList extends Component {
     constructor(props) {
@@ -27,18 +28,23 @@ class NoteList extends Component {
 
     render() {
         return (
-            <div class='note-list'>
-                <h2>
-                    Your Notes:
-                </h2>    
-                {this.state.notes.map(note => {
-                    console.log(note)
-                    return (
-                        <Note
-                            note={note}
-                        />
-                    )
-                })}
+            <div class='list'>
+                <Menu />
+                <div class='note-list'>
+                    <h2>
+                        Your Notes:
+                </h2>
+                    <div class='notes'>
+                        {this.state.notes.map(note => {
+                            console.log(note)
+                            return (
+                                <Note
+                                    note={note}
+                                />
+                            )
+                        })}
+                    </div>
+                </div>
             </div>
         )
     }
