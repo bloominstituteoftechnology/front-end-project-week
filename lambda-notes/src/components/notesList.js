@@ -2,6 +2,16 @@ import React from 'react';
 import axios from 'axios';
 
 import Note from './note'
+import styled from 'styled-components';
+
+const MappedNotes = styled.div `
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    padding-top: 10px
+    border: 1px solid aqua;
+`
 
 class NotesList extends React.Component{
     constructor(props){
@@ -22,11 +32,11 @@ class NotesList extends React.Component{
 
     render(){
         return (
-            <div>
+            <MappedNotes>
               {this.state.notes.map(item => 
                 <Note key={item.id} note={item} />
               )}
-            </div>
+            </MappedNotes>
         )
     }
 
