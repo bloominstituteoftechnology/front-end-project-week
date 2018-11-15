@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const SidebarContainer  =   styled.div`
     background: lightgray;
@@ -10,7 +11,7 @@ const SidebarContainer  =   styled.div`
     border-right: solid 1px darkgray;
     min-height: 100vh;
 `
-const Button = styled.div`
+const Button = styled(Link)`
     width: 170px;
     height: 35px;
     margin-top: 10px;
@@ -22,6 +23,7 @@ const Button = styled.div`
     font-size: 16px;
     font-weight: bolder;
     color: white;
+    text-decoration: none;
     &:hover {
         cursor: pointer;
     }
@@ -45,8 +47,8 @@ class Sidebar extends Component  {
                 <Head>
                     Lambda Notes
                 </Head>
-                <Button>View Your Notes</Button>
-                <Button>+ Create New Note</Button>
+                <Button to={"/"}>View Your Notes</Button>
+                <Button to={"/"}>+ Create New Note</Button>
             </SidebarContainer>
 
         );

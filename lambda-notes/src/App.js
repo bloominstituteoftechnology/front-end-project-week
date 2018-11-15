@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar.js';
 import styled from 'styled-components';
 import { Route } from 'react-router-dom';
 import SingleNote from './components/SingleNote.js';
+import NoteEdit from './components/NoteEdit.js';
 
 const AppContainer = styled.div`
     display: flex;
@@ -37,6 +38,7 @@ class App extends Component {
                 <Sidebar />
                 <Route exact path="/" render={()    =>  <NotesList notes={this.state.notes} />} />
                 <Route path="/note/:id" render={(props)  =>  <SingleNote notes={this.state.notes} {...props}/>} />
+                <Route path="/edit/:id" render={(props) =>  <NoteEdit notes={this.state.notes} {...props}/>} />
             </AppContainer>
         );
     }
