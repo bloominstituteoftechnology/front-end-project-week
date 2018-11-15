@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 class CreateNewNote extends React.Component {
     constructor(){
         super();
@@ -40,7 +42,7 @@ class CreateNewNote extends React.Component {
                         onChange={this.handleChange}
                     />
                 </form>
-                <button onClick={this.handleSubmit}>Create</button>
+                <div onClick={this.handleSubmit}><Link to="/notes" >Create</Link></div>
             </div>
         )
     }

@@ -7,6 +7,7 @@ import CreateNewNote from './components/CreateNewNote'
 import Home from './components/Home'
 
 import { Route, Link } from 'react-router-dom'
+import NoteView from './components/NoteView'
 
 
 class App extends Component {
@@ -32,7 +33,14 @@ class App extends Component {
     axios 
     .post(`https://fe-notes.herokuapp.com/note/create`, note)
     .then(response => {
-      this.setState({ notes: response.data })
+            axios
+              .get(`https://fe-notes.herokuapp.com/note/get/all`)
+              .then(response => {
+                  this.setState({ notes: response.data })
+              })
+              .catch(err => {
+                console.log("Fail to GET notes from server", err)
+              })
     })
     .catch(err => {
       console.log("Fail to POST a note to the server", err)
@@ -43,7 +51,15 @@ class App extends Component {
     axios 
     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
-      this.setState({ notes: response.data })
+      //this.setState({ notes: response.data })
+            axios
+              .get(`https://fe-notes.herokuapp.com/note/get/all`)
+              .then(response => {
+                  this.setState({ notes: response.data })
+              })
+              .catch(err => {
+                console.log("Fail to GET notes from server", err)
+              })
     })
     .catch(err => {
       console.log("Fail to DELETE a note", err)
@@ -79,6 +95,11 @@ class App extends Component {
 
               <Route exact path="/create" 
                 render={props => <CreateNewNote {...props} handleAddNewNote={this.handleAddNewNote} />}
+              />
+
+      
+              <Route path="/notes/:id"
+                render={props => <NoteView {...props} handleDeleteNote={this.handleDeleteNote}/>}
               />
 
               <p>
