@@ -7,6 +7,7 @@ import { FlexColumn } from "./Styled";
 import Note from "./Note";
 import CreateNoteForm from "./CreateNoteForm";
 import NoteView from "./ViewNote";
+import NoteEdit from "./EditNote";
 
 
 class Notes extends Component {
@@ -25,12 +26,13 @@ class Notes extends Component {
             <FlexColumn>
                 {loading && <h1>LOADING...</h1>}
                 {error && <><h1>Error</h1><p>{error}</p></>}
-                {notes && notes.map(note => {
+                {!error && !!notes.length && notes.map(note => {
                     return <Link key={note._id} to={`/note/${note._id}`}><Note note={note} /></Link>
                 })}
 
                 <CreateNoteForm />
                 <Route path="/note/:id" render={({match})=> <NoteView id={match.params.id}/>} />
+                <Route path="/edit/:id" render={({match})=> <NoteEdit id={match.params.id}/>} />
             </FlexColumn>
         );
     }

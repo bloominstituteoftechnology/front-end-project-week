@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import {Modal, Paper} from './Styled';
 import { getNote } from "../actions";
 import { connect } from "react-redux";
-import { FlexColumn } from "./Styled";
+import { FlexColumn, FlexRow } from "./Styled";
 
 class NoteView extends Component {
     constructor(props) {
@@ -23,6 +24,10 @@ class NoteView extends Component {
                     {error && <><h1>Error</h1><p>{error}</p></>}
                     {note &&
                         <FlexColumn>
+                            <FlexRow width="full" justifyEnd>
+                                <Link to={`/edit/${note._id}`}>Edit</Link>
+                            </FlexRow>
+
                             <h1>{note.title}</h1>
                             <p>{note.textBody}</p>
                         </FlexColumn>

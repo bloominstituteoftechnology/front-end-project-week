@@ -1,4 +1,4 @@
-import { FETCHING, FAILURE, SUCCESS, ADDING, VIEW } from "../actions";
+import { FETCHING, FAILURE, SUCCESS, ADDING, VIEW, EDITING } from "../actions";
 
 const initialState = {
     notes: [],
@@ -27,6 +27,8 @@ export const notesReducer = (state = initialState, action) => {
         case ADDING:
             return {...state, ...{ loading: true }};
         case FAILURE:
+            return {...state, ...{ error: action.error, loading: false }};
+        case EDITING:
             return {...state, ...{ error: action.error, loading: false }};
         default:
             return state;
