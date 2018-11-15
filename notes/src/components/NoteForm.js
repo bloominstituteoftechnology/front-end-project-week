@@ -7,8 +7,9 @@ class NoteForm extends React.Component {
 
         this.state = {
             error: null,
-            loading: false,
             creating: false,
+            loading: false,
+            updating: false,
             title: '',
             textBody: '',
         }
@@ -24,24 +25,55 @@ class NoteForm extends React.Component {
             title: this.state.title,
             textBody: this.state.textBody
         }
-        this.setState({...this.state, creating: true});
-        axios.post('https://fe-notes.herokuapp.com/note/create', note)
-            .then( response => {
-                this.props.history.push(`/note/${response.data.success}`);
-            })
-            .catch( err => {
-                this.setState({error: "Unable to create note on server", loading: false});
-            })
+        if (this.props.match.params.id) {
+            this.setState({...this.state, updating: true});
+            axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, note)
+                .then( response => {
+                    this.props.history.push(`/note/${response.data._id}`);
+                })
+                .catch( err => {
+                    this.setState({error: "Unable to update note on server", updating: false});
+                })
+        } else {
+            this.setState({...this.state, creating: true});
+            axios.post('https://fe-notes.herokuapp.com/note/create', note)
+                .then( response => {
+                    this.props.history.push(`/note/${response.data.success}`);
+                })
+                .catch( err => {
+                    this.setState({error: "Unable to create note on server", creating: false});
+                })
+        }
+    }
+
+    componentDidMount() {
+        if (this.props.match.params.id) {
+            this.setState({...this.state, loading: true});
+            axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+                .then( response => {
+                    this.setState({
+                        error: null, 
+                        loading: false, 
+                        title: response.data.title, 
+                        textBody: response.data.textBody
+                    });
+                })
+                .catch( err => {
+                    this.setState({error: "Unable to retrieve note from server", loading: false});
+                })
+        }
     }
 
     render() {
         return (
             <React.Fragment>
                 <header>
-                    <h2>Create New Note:</h2>
+                    <h2>{ this.props.match.params.id ? "Update Note:" : "Create New Note:" }</h2>
                 </header>
                 <form className="note-form" onSubmit={this.handleSubmit}>
                     { this.state.loading === true ? <h1>Loading...</h1>: null }
+                    { this.state.creating === true ? <h1>Creating...</h1>: null }
+                    { this.state.updating === true ? <h1>Updating...</h1>: null }
                     { this.state.error !== null ? <h1>{this.state.error}</h1> : null }
                     <input
                         name="title"
@@ -53,9 +85,8 @@ class NoteForm extends React.Component {
                         value={this.state.textBody}
                         onChange={this.inputHandler}
                     />
-                    <button type="submit">Save</button>
+                    <button type="submit">{ this.props.match.params.id ? "Update" : "Save" }</button>
                 </form>
-                { this.state.creating === true ? <h1>Creating...</h1>: null }
             </React.Fragment>
         )
     }
