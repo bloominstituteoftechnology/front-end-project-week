@@ -10,7 +10,10 @@ const NotesList = (props) => {
                 {props.notes.map(note => {
                     return(
                         <div key={note._id}>
-                            <NoteView note={note}/>
+                            <NoteView 
+                                note={note}
+                                handleDeleteNote={props.handleDeleteNote}
+                            />
                         </div>
                     )
                 })}

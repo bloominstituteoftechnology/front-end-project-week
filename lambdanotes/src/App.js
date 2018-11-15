@@ -36,6 +36,17 @@ class App extends Component {
       console.log("Fail to POST a note to the server", err)
     })
   }
+
+  handleDeleteNote = id => {
+    axios 
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      this.setState({ notes: response.data })
+    })
+    .catch(err => {
+      console.log("Fail to DELETE a note", err)
+    })
+  }
   
 
 
@@ -52,7 +63,10 @@ class App extends Component {
             Lambda Notes Components.
           </p>
 
-          <NotesList notes={this.state.notes}/>
+          <NotesList 
+            notes={this.state.notes}
+            handleDeleteNote={this.handleDeleteNote}
+          />
 
           <p>
             Edit View (update).
