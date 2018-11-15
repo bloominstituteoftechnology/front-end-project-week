@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {NavLink} from 'react-router-dom'
 const SideBar = styled.div`
   background: rgb(227, 227, 227);
   padding: 10px;
@@ -27,6 +28,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+
 const Sidebar = props => {
   return (
     <SideBar>
@@ -35,7 +37,8 @@ const Sidebar = props => {
         <br />
         Notes
       </Header>
-      <Button>View Your Notes</Button>
+      <NavLink exact to='/' style={{ textDecoration: 'none' }}>
+        <Button>View Your Notes</Button></NavLink>
       <Button>+ Create New Note</Button>
     </SideBar>
   );

@@ -5,6 +5,7 @@ import Sidebar from './containers/Note/Sidebar';
 import {Route } from 'react-router-dom'
 import NoteList from './containers/Note/NoteList';
 import notes from './data'
+import NotePage from './containers/Note/NotePage';
 class App extends Component {
   constructor(props)
   {
@@ -27,7 +28,10 @@ class App extends Component {
         <Sidebar />
         <Route exact path='/' render={props => (
           <NoteList {...props} notes={this.state.notes} />
-        )}/>
+        )} />
+        <Route path='/note/:id' render={props => (
+          <NotePage {...props} notes={this.state.notes} />
+      )}/>
   </div>
 
     );

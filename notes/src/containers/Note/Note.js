@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
 const NoteCard = styled.div`
   display: inline-block;
@@ -21,7 +22,7 @@ const NoteCard = styled.div`
 const Note = ({ note }) => {
   return (
     <NoteCard>
-      <h1>{note.title}</h1>
+      <h1><Link to={`note/${note.id}`}>{note.title}</Link></h1>
       <hr />
       <p>{note.textBody}</p>
     </NoteCard>
