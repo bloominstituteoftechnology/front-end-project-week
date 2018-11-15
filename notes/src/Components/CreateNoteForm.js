@@ -1,5 +1,11 @@
 //add event handler for input and submit for the form
-
+/* format
+{
+    "tags": ["tag", "otherTag"],
+    "title": "Note Title",
+    "textBody": "Note Body",
+  }
+*/
 import React from "react";
 
 class CreateNote extends React.Component {

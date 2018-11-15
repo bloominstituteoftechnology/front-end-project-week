@@ -1,8 +1,13 @@
 import React from "react"
 
 const Note = (props) => {
+   console.log(props)
    return (
-      <div>individual notes go here (pass as props)</div>
+      <div>
+         <h3>{props.note.title}</h3>
+         <hr/>
+         <p>{props.note.textBody}</p>
+      </div>
    )
 }
 
