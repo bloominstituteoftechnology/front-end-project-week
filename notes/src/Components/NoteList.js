@@ -2,22 +2,41 @@
 //view notes button routes here
 //create styled components doc for buttons and form input boxes
 import React from "react";
+import axios from "axios"
 import Note from "./Note";
-import {DisplayHeader} from "../Styles/Styles"
+import {TestContainer, DisplayHeader} from "../Styles/Styles"
 
-const NoteList = (props) => {
-   console.log(props)
-   return(
-      <>
-         <DisplayHeader>Your Notes:</DisplayHeader>
-         {props.notes.length < 1 ? <div>There are no notes!</div> : props.notes.map(note => 
-            <Note 
-               key={note._id}
-               note={note}
-            />)
-         }
-      </>
-   )
+class NoteList extends React.Component {
+   constructor(){
+      super()
+      this.state = {
+        notes: []
+      }
+    }
+
+    componentDidMount() {
+      axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+        .then(response => {
+          this.setState({notes: response.data})
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+
+   render() {
+      return(
+         <>
+            <DisplayHeader>Your Notes:</DisplayHeader>
+            {this.state.notes.length < 1 ? <h3>There are no notes!</h3> : this.state.notes.map(note => 
+               <Note 
+                  key={note._id}
+                  note={note}
+               />)
+            }
+         </>
+      )
+   }
 }
 
 export default NoteList

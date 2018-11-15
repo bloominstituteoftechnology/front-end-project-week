@@ -21,7 +21,7 @@ class CreateNote extends React.Component {
   submitHandler = (e) => {
     e.preventDefault()
     axios.post(`https://fe-notes.herokuapp.com/note/create`, this.state)
-      .then(response => {console.log(response)})
+      .then(response => {this.setState({title: "",textBody: ","})})
       .catch(err => {console.log(err)})
   }
 
@@ -33,11 +33,13 @@ class CreateNote extends React.Component {
               <InputHeader 
                 name="title"
                 placeholder="Note Title"
+                value={this.state.title}
                 onChange= {this.inputHandler}
               />
               <InputBody
                 name="textBody"
                 placeholder="Note Content"
+                value={this.state.textBody}
                 onChange= {this.inputHandler}
               />
               <Button type="submit">Save</Button>
