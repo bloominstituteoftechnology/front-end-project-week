@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class Signin extends Component {
+class CreateNote extends Component {
   state = {
-    email: "",
-    password: ""
+    title: "",
+    content: ""
   };
 
   handleChange = e => {
@@ -19,28 +19,28 @@ class Signin extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handleSumbit}>
-          <h2>Log In</h2>
+          <h2>Create Note</h2>
           <input
             type="text"
-            name="email"
-            id="email"
-            value={this.state.email}
+            name="title"
+            id="title"
+            value={this.state.title}
             onChange={this.handleChange}
-            placeholder="email"
+            placeholder="Note Title"
           />
-          <input
+          <textarea rows="8" cols="80"
             type="text"
-            name="password"
-            id="password"
-            value={this.state.password}
+            name="content"
+            id="content"
+            value={this.state.content}
             onChange={this.handleChange}
-            placeholder="password"
+            placeholder="Note Content"
           />
-          <button type="submit">Log In</button>
+          <button type="submit">Create</button>
         </form>
       </div>
     );
   }
 }
 
-export default Signin;
+export default CreateNote;
