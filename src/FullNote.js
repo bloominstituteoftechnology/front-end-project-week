@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from './actions/index';
+import { withRouter } from 'react-router-dom';
 
 class FullNote extends React.Component {
     constructor(props){
@@ -23,7 +24,7 @@ class FullNote extends React.Component {
     }
 
     updateRoute = (e) => {
-        this.props.history.push(`/notes/${this.state.note._id}/edit`)
+        this.props.history.push(`/notes/edit/${this.state.note._id}`)
     }
 
     render(){
@@ -45,4 +46,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, { deleteNote })(FullNote);
+export default withRouter(connect(mapStateToProps, { deleteNote })(FullNote));

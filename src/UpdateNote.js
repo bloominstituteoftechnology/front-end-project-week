@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateNote } from './actions/index';
+import {withRouter} from 'react-router-dom';
 
 class UpdateNote extends React.Component{
     constructor(props){
@@ -15,7 +16,9 @@ class UpdateNote extends React.Component{
     componentDidMount(){
         const note = this.props.notes.find(item=> `${item._id}` === this.props.match.params.id);
         this.setState({
-            note: note 
+            note: note, 
+            title: note.title,
+            textBody: note.textBody
         })
     }
 
@@ -32,7 +35,6 @@ class UpdateNote extends React.Component{
             textBody: this.state.textBody,
             id: this.state.note._id
         }
-        console.log(updatedNote);
         this.props.updateNote(updatedNote.id, updatedNote);
         this.setState({
             name: '',
@@ -62,4 +64,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { updateNote })(UpdateNote);
+export default withRouter(connect(mapStateToProps, { updateNote })(UpdateNote));

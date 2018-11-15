@@ -16,7 +16,7 @@ class App extends Component {
       <Route path="/create" component={CreateNote} />
       <Route exact path="/notes" component={Notes} />
       <Route path="/notes/:id" render={ props => <FullNote {...props} /> } />
-      <Route path="/notes/:id/edit" render={ props => <UpdateNote {...props} /> } />
+      <Route path="/notes/edit/:id" render={ props => <UpdateNote {...props} /> } />
       </div>
     );
   }
