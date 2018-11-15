@@ -1,10 +1,12 @@
 import React from 'react';
 
 import NoteList from './NoteList';
+import NoteContainer from '../Styles/NoteContainer';
+import { SectionHeading } from '../Styles/GeneralStyles';
 
 export default () => (
-    <>
-        <h2>Your notes:</h2>
+    <NoteContainer>
+        <SectionHeading>Your notes:</SectionHeading>
         <NoteList />
-    </>
+    </NoteContainer>
 );
