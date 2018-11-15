@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(`URL`)
+    axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
     .then(response => {
       this.setState({notes: response.data})
     })

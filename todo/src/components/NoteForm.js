@@ -15,6 +15,12 @@ class NoteForm extends Component {
         const newNote = {tags: this.state.tags, title: this.state.title, textBody: this.state.textBody}
 
         }
+
+    render() {
+        return (
+            <p>foo</p>
+        )
+    }
 }
 
 export default NoteForm
