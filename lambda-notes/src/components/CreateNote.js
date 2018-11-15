@@ -13,7 +13,8 @@ class CreateNote extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  submitHandler = () => {
+  submitHandler = (e) => {
+    e.preventDefault();
     this.props.postNote(this.state)
   }
 

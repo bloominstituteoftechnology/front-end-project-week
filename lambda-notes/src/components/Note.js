@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Note = ({ note }) => {
-  return (
-    <div className="note-card" key={note.id}>
-      <h3>{note.title}</h3>
-      <p>{note.textBody}</p>
+  return ( 
+    <div className="note-card" key={note._id}>   
+        <h3>{note.title}</h3>
+        <p>{note.textBody}</p> 
     </div>
   )
 }

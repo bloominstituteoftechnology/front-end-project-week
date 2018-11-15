@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Note from './Note';
+import { Link } from 'react-router-dom';
 
 class NotesList extends Component {
 
@@ -9,7 +10,12 @@ class NotesList extends Component {
       <>
         <h1>Your Notes:</h1>
         <div className="notes-list">
-          {this.props.notes.map(note => <Note key={note.id} note={note}/>)}
+          {this.props.notes.map(note => {
+            return (
+              <Link to={`/view/${note._id}`}>
+                <Note key={note._id} note={note}/>
+              </Link>
+            )})}
         </div>
       </>
     )
