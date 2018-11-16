@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import NoteForm from './NoteForm';
 import './EditNote.css';
@@ -8,7 +9,7 @@ import './EditNote.css';
  * Class used for editing a current note. I'd like to use a standard
  * form for both edit and create.
  */
-class EditNote extends Component {
+class AddNote extends Component {
   constructor(props){
     super(props);
 
@@ -46,7 +47,7 @@ class EditNote extends Component {
     });
     
     // Send to axios
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, newNote )
+    axios.post(`https://fe-notes.herokuapp.com/note/add`, newNote )
 
     // Redirect to note display & reset fields
     this.setState( (prevState) => ({
@@ -70,7 +71,7 @@ class EditNote extends Component {
 
     return (
       <div className="viewNote">
-        <div className="viewNoteTitle">Edit Note:</div>
+        <div className="viewNoteTitle">Add Note:</div>
         <NoteForm 
           handleInput={this.handleInput} 
           handleSubmit={this.handleSubmit}
@@ -82,5 +83,4 @@ class EditNote extends Component {
   };
 };
 
-
-export default EditNote;
+export default AddNote;
