@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import {Modal, Paper} from './Styled';
 import { getNote, deleteNote } from "../actions";
 import { connect } from "react-redux";
-import { FlexColumn, FlexRow } from "./Styled";
+import { FlexColumn, FlexRow, Title, Text, Button } from "./Styled";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class NoteView extends Component {
     constructor(props) {
@@ -18,23 +19,32 @@ class NoteView extends Component {
         this.props.deleteNote(this.props.id);
     };
 
+    handleClose = () => {
+        this.props.history.push("/")
+    };
+
     render() {
         const { loading, error, note } = this.props;
 
         return (
             <Modal>
-                <Paper>
-                    {loading && <h4>Hang tight...</h4>}
+                <Paper width="70%">
+                    {loading && <><Modal><h1>LOADING...</h1></Modal></>}
                     {error && <><h1>Error</h1><p>{error}</p></>}
                     {note &&
                         <FlexColumn>
-                            <FlexRow width="full" justifyEnd>
-                                <Link to={`/edit/${note._id}`}>Edit</Link>
-                                <Link to="/" onClick={this.handleDelete}>Delete</Link>
-                            </FlexRow>
+                            <Title color="#2b2b2b">{note.title}</Title>
+                            <Text>{note.textBody}</Text>
 
-                            <h1>{note.title}</h1>
-                            <p>{note.textBody}</p>
+                            <FlexRow width="full" justifyEnd>
+                                <Link to="/" onClick={this.handleDelete} style={{fontSize: "1.2rem", marginRight: "10px"}}>
+                                    <Button border>DELETE</Button>
+                                </Link>
+                                <Button onClick={this.handleClose} border style={{marginRight: "10px"}}>CLOSE</Button>
+                                <Link to={`/edit/${note._id}`}>
+                                    <Button primary border>EDIT</Button>
+                                </Link>
+                            </FlexRow>
                         </FlexColumn>
                     }
                 </Paper>
@@ -53,4 +63,4 @@ const mapStateToProps = ({loading, error, note}) => {
     }
 };
 
-export default connect(mapStateToProps, {getNote, deleteNote})(NoteView);
+export default connect(mapStateToProps, {getNote, deleteNote})(withRouter(NoteView));

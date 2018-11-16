@@ -3,7 +3,7 @@ import {Link, withRouter} from "react-router-dom";
 import {Modal, Paper} from './Styled';
 import {getNote, editNote, getNotes} from "../actions";
 import {connect} from "react-redux";
-import {FlexColumn, FlexRow} from "./Styled";
+import {FlexColumn, FlexRow, Input, TextArea, Button} from "./Styled";
 
 class NoteEdit extends Component {
     constructor(props) {
@@ -32,8 +32,8 @@ class NoteEdit extends Component {
             .then(() => this.props.history.push("/"));
     };
 
-    handleDelete = () => {
-
+    handleClose = () => {
+        this.props.history.push("/")
     };
 
     render() {
@@ -42,20 +42,20 @@ class NoteEdit extends Component {
 
         return (
             <Modal>
-                <Paper>
-                    {loading && <h4>Hang tight...</h4>}
+                <Paper width="70%">
+                    {loading && <><Modal><h1>LOADING...</h1></Modal></>}
                     {error && <><h1>Error</h1><p>{error}</p></>}
                     {note &&
                     <FlexColumn>
-                        <FlexRow width="full" justifyEnd>
-                            <Link to={`/edit/${_id}`}>Edit</Link>
-                        </FlexRow>
+                        <form onSubmit={this.handleSubmit} style={{width: "100%"}}>
+                            <FlexColumn width="full">
+                                <Input value={title} onChange={e => this.setState({title: e.target.value})}/>
+                                <TextArea value={textBody} onChange={e => this.setState({textBody: e.target.value})}/>
 
-                        <form onSubmit={this.handleSubmit}>
-                            <FlexColumn>
-                                <input value={title} onChange={e => this.setState({title: e.target.value})}/>
-                                <textarea value={textBody} onChange={e => this.setState({textBody: e.target.value})}/>
-                                <button type="submit">UPDATE</button>
+                                <FlexRow width="full" justifyEnd>
+                                    <Button onClick={this.handleClose} border style={{marginRight: "10px"}}>CANCEL</Button>
+                                    <Button primary type="submit">UPDATE</Button>
+                                </FlexRow>
                             </FlexColumn>
                         </form>
                     </FlexColumn>
