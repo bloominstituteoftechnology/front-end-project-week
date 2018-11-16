@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import './Notes.css';
 import Note from './Note';
@@ -31,7 +32,9 @@ export default class Notes extends Component {
                 <h2 className="your-notes">Your Notes:</h2>
                 <div className="all-notes">
                     {this.state.notes.map(note => (
-                        <Note key={note.id} note={note} />
+                        <Link to={`/note`} className="card-link">
+                            <Note key={note.id} note={note} />
+                        </Link>
                     ))}
                 </div>
             </div>

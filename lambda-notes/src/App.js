@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import SideBar from './components/sidebar/SideBar';
 import Notes from './components/notes/Notes';
 import AddNote from './components/notes/AddNote';
+import OneNote from './components/notes/OneNote';
 
 class App extends Component {
   render() {
@@ -12,7 +13,8 @@ class App extends Component {
       <div className="App">
         <SideBar />
         <Route exact path="/" component={Notes} />
-        <Route exact path="/create" component={AddNote} />
+        <Route path="/create" component={AddNote} />
+        <Route path={`/note`} component={OneNote} />
       </div>
     );
   }

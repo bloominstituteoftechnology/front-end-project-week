@@ -1,3 +1,4 @@
+
 .notes-list {
     background-color: whitesmoke;
     align-self: right;
@@ -19,6 +20,19 @@
 }
 
 .single-note {
+    /* border: 1px solid grey;
+    width: 200px;
+    background-color: white;
+    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 170px; */
+}
+
+.card-link {
+    text-decoration: none;
+    color: black;
+    /* this is taken from .single-note to keep styling */
     border: 1px solid grey;
     width: 200px;
     background-color: white;
@@ -93,3 +107,29 @@ textarea {
     cursor: pointer;
 }
 
+.menu-container {
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+.link-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.link {
+    margin: 15px;
+    font-weight: 700;
+    font-size: .8rem;
+    color: black;
+}
+
+.link:last-child {
+    margin-right: 30px;
+}
+
+.note-view {
+    background-color: whitesmoke;
+    padding: 5%;
+}
