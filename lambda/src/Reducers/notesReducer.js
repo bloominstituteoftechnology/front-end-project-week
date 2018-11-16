@@ -36,16 +36,19 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {
                 addingNotes: true,
                 error: null,
+                notesLoaded: false,
             })
         case UPDATING_NOTES:
             return Object.assign({}, state, {
                 updatingNotes: true,
                 error: null,
+                notesLoaded: false,
             })
         case DELETING_NOTES:
             return Object.assign({}, state, {
                 deletingNotes: true,
                 error: null,
+                notesLoaded: false,
             })
         default:
             return state;

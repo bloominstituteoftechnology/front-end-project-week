@@ -28,13 +28,13 @@ export const loadNotesAction = () => {
             })
     }
 }
-export const addNoteAction = (textValue, titleValue) => {
+export const addNoteAction = (titleValue, textValue) => {
     return dispatch => {
         dispatch({ type: ADDING_NOTES });
         axios
             .post('https://fe-notes.herokuapp.com/note/create', {
                 tags: [],
-                textbody: textValue,
+                textBody: textValue,
                 title: titleValue,
             })
             .then(response => {
@@ -45,7 +45,7 @@ export const addNoteAction = (textValue, titleValue) => {
                 })
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
                 dispatch({
                     type: ERROR,
                     payload: 'Unable to add new note. Please refresh the page to re-try adding new note. Sorry for the inconvenience',
@@ -82,7 +82,7 @@ export const deleteNoteAction = (textValue, titleValue, idValue) => {
     return dispatch => {
         dispatch({ type: DELETING_NOTES });
         axios
-            .delete(`https://fe-notes.herokuapp.com/note/edit/${idValue}`)
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${idValue}`)
             .then(response => {
                 console.log(response);
                 dispatch({

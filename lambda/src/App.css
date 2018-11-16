@@ -35,7 +35,11 @@
 
 
 
+
+
+
 /* My CSS: */
+
 /* left-sidebar in every page (start): */
 .notes-sidebar {
   background-color: lightgrey;
@@ -46,6 +50,8 @@
   text-align: left;
   width: 80%;
   margin: auto;
+  margin-top: 5%;
+
 }
 .notes-sidebar button {
   width: 80%;
@@ -58,17 +64,8 @@
   color: white;
   font-weight: bold;
 }
-/* .navlink {
-  margin-right: 1%;
-  font-size: 1.25rem;
-  text-decoration: none;
-  color: black;
-  padding-left: .5%;
-  padding-right: .5%;
-  cursor: pointer;
-  width: 100%;
-} */
 /* left-sidebar in every page (end): */
+
 /* Main-Page (start): */
 .list-view {
   border: 1px solid;
@@ -83,9 +80,10 @@
   justify-content: space-evenly;
   align-items: space-between;
   width: 75%;
+  border: 1px solid;
 }
 .list-view .notes-section .notes-title {
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   color: grey;
   height: 20px;
   width: 92%;
@@ -99,8 +97,6 @@
   font-size: .75rem;
   margin-bottom: 2%;
   padding: 2%;
-  /* display: flex;
-  flex-direction: column; */
   overflow: scroll;
   text-align: left;
 }
@@ -111,5 +107,32 @@
 }
 /* Main-Page (end): */
 /* Add-Note Page (start) */
-
+.create-view {
+  border: 1px solid;
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+.create-view .new-note-section {
+  border: 1px solid;
+  width: 75%;
+  margin-bottom: 250px;
+}
+.create-view .new-note-section .new-note-form {
+  width: 90%;
+  height: 500px;
+  margin: auto;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: left;
+}
+.create-view .new-note-section .new-note-form .note-title-input {
+  width: 60%;
+  height: 35px;
+}
+.create-view .new-note-section .new-note-form .note-content-input {
+  height: 200px;
+}
 /* Add-Note Page (start) */
