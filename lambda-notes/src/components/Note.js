@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom'
 
 export const Note = (props) => {
         return(
-            
               <div className="note">
-                <h4><Link to={`/NoteView/${props.note.id}`}>{props.note.title}</Link>
+                <h4>
+                  <Link 
+                    style={{textDecoration: "none", color: "black"}} 
+                    to={`/NoteView/${props.id}`}>
+                    {props.note.title}
+                  </Link>
                   <br/>
                   <hr/> 
                   <br/> 

@@ -4,18 +4,16 @@ import Sidebar from './components/sidebar';
 import Notes from './components/Notes'; 
 import {Route} from 'react-router-dom'; 
 import  CreateNew  from './components/CreateNew';
-import { NoteView } from './components/NoteView'; 
+import NoteView  from './components/NoteView'; 
 import axios from 'axios'
 
 class App extends Component {
   constructor(){
     super(); 
     this.state = {
-      notes: [
-        {title: "title", textBody: "content a", id: 0}, 
-        {title: "title b", textBody: "content b", id: 1},
-        {title: "title c", textBody: 'content c', id: 2}],
-      newId: 3 
+      notes: [{_id: null}],
+      newId: 3,
+      id: null
     }  
   }
 
@@ -65,7 +63,7 @@ class App extends Component {
           <Route exact path='/NoteView/:id' render={props => (
             <NoteView
             {...props}
-            notes={this.state.notes} />
+            />
           )} />  
         </div> 
       </div>
