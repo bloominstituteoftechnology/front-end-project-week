@@ -59,6 +59,7 @@ class App extends Component {
   }
 
   handleDeleteNote = id => {
+    alert("Are you sure you want to delete?")
     axios 
     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
