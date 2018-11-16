@@ -101,7 +101,7 @@ ul {
 
 /*  CreateNewNote.js */
 
-.createnote-container {
+.note-container {
   border: 3px solid goldenrod;
   height: 600px;
   padding-left: 20px;
@@ -110,6 +110,7 @@ ul {
 
 .button.save {
   width: 30%;
+  font-size: 1.2rem;
 }
 
 form {
@@ -131,3 +132,17 @@ form {
   margin-top: 20px;
 }
 
+/*  NoteView.js */
+
+.note-menu {
+  border: 1px solid salmon;
+  height: 40px;
+
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+
+.note-menu div {
+  padding-right: 10px;
+}

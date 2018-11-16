@@ -2,6 +2,14 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
+import styled from "styled-components"
+
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: white;
+`
+
 class CreateNewNote extends React.Component {
     constructor(){
         super();
@@ -25,7 +33,7 @@ class CreateNewNote extends React.Component {
 
     render(){
         return (
-            <div className="createnote-container">
+            <div className="note-container">
             <h2> Create New Notes: </h2>
                 <form>
                     <input 
@@ -45,7 +53,7 @@ class CreateNewNote extends React.Component {
                         onChange={this.handleChange}
                     />
                 </form>
-                <div className="button save" onClick={this.handleSubmit}><Link to="/notes" >Save</Link></div>
+                <div className="button save" onClick={this.handleSubmit}><StyledLink to="/notes" >Save</StyledLink></div>
             </div>
         )
     }
