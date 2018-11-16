@@ -42,6 +42,7 @@ class App extends Component {
     axios
       .post("https://fe-notes.herokuapp.com/note/create", note)
       .then(response => {
+        console.log(response);
         this.setState({
           tags: "",
           title: "",

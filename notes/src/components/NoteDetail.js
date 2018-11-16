@@ -6,7 +6,8 @@ class NoteDetail extends React.Component {
     super();
     this.state = {
       _id: "",
-      tags: "",
+      // tags: [],
+      // tag:"",
       title: "",
       textBody: "",
       editing: false
@@ -22,7 +23,8 @@ class NoteDetail extends React.Component {
         this.setState({
           _id: response.data._id,
           title: response.data.title,
-          textBody: response.data.textBody
+          textBody: response.data.textBody,
+          // tags: response.data.tags
         });
       })
       .catch(err => console.log(err.response));
@@ -82,6 +84,7 @@ class NoteDetail extends React.Component {
           name="tags"
           value={this.state.tags}
           onChange={this.handleEditingChange.bind(this)}
+          placeholder="add tags"
         />
         <h3
           onClick={this.handleEditing.bind(this)}

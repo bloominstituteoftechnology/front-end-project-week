@@ -20,7 +20,7 @@ const NoteForm = props => {
           name="tags"
           value={props.value}
           onChange={props.handleInput}
-          placeholder="tag"
+          placeholder="add tags"
         />
 
         <input
