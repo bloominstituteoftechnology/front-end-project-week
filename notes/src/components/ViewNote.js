@@ -9,10 +9,16 @@ class ViewNote extends Component {
         }
     }
 
+    handleDelete = e => {
+        e.preventDefault();
+        this.props.deleteNote(this.props.match.params.id);
+    };
+
     render() {
         return (
             <div>
                 <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
+                <a onClick={this.handleDelete}>delete</a>
                 {this.props.notes.map(note => {
                     if (this.props.match.params.id === note._id) {
                         return (
