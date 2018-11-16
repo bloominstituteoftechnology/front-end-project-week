@@ -1,5 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router';
+import {Link} from 'react-router-dom';
 
 import './notes.css';
 
@@ -8,7 +9,8 @@ const DisplayNote = props => {
         e.preventDefault();
         if (e.target.name === 'edit') {
             // Change path to /note/edit
-            return <Redirect to='/note/edit' />
+            console.log('In edit');
+            return <Redirect to='/note/:id/edit' />
         }
         else {
             // change this to show a delete yes/no modal
@@ -31,7 +33,7 @@ const DisplayNote = props => {
             <header className='note-header'>
                 <div className='note-title'>{note.title}</div>
                 <form>
-                    <button name='edit' className='edit-note-button' onClick={buttonClicked}>Edit</button>
+                    <Link to={`${note._id}/edit`}>Edit</Link>
                     <button name='delete' className='delete-note-button' onClick={buttonClicked}>Delete</button>
                 </form>
             </header>

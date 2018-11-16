@@ -5,7 +5,7 @@ import axios from 'axios';
 import './App.css';
 import Menu from './Components/Menu/Menu';
 import NoteList from './Components/Notes/NoteList';
-import CreateNote from './Components/Notes/CreateNote';
+import NoteForm from './Components/Notes/NoteForm';
 import DisplayNote from './Components/Notes/DisplayNote';
 
 /*
@@ -107,10 +107,13 @@ class App extends Component {
             render={(props) => <NoteList {...props} notes={this.state.notes}/>}
           />
           <Route path='/notes/create'
-            render={(props) => <CreateNote {...props} title={this.state.title} textBody={this.state.textBody} updateValue={this.updateValue} createNote={this.createNote} />}
+            render={(props) => <NoteForm {...props} type='Create' title={this.state.title} textBody={this.state.textBody} updateValue={this.updateValue} createNote={this.createNote} />}
           />
-          <Route path='/note/:id'
+          <Route exact path='/note/:id'
             render={(props) => <DisplayNote {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>}
+          />
+          <Route path='/note/:id/edit'
+            render={(props) => <NoteForm {...props} type='Edit' notes={this.state.notes} title={this.state.title} textBody={this.state.textBody} updateValue={this.updateValue} updateNote={this.updateNote} />}
           />
         </main>
       </div>
