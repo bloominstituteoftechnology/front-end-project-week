@@ -3,6 +3,14 @@
   font-size: 62.5%
 }
 
+a:visited{
+  color: black;
+}
+
+a:link {
+  color: black;
+}
+
 .App {
   display: flex;
   justify-content: center;
@@ -15,6 +23,8 @@
 .listViewContainer {
   background-color: #F2F1F2;
   padding: 10px 20px;
+  width: 800px;
+  height: 100%;
 }
 
 .notesHeader{
@@ -23,8 +33,6 @@
 
 
 .listView {
-  width: 800px;
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
