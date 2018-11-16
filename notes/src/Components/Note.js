@@ -1,12 +1,15 @@
 import React from "react";
 
-const Note = props => {
-  return (
-    <div className="note" key={props.id} onClick={props.clickHandler}>
-      <h1>{props.title}</h1>
-      <p>{props.textBody}</p>
-    </div>
-  );
-};
+class Note extends React.Component {
+  render() {
+    const id = this.props.id;
+    return (
+      <div className="note" onClick={() => this.props.clickHandler(id)}>
+        <h1>{this.props.title}</h1>
+        <p>{this.props.textBody}</p>
+      </div>
+    );
+  }
+}
 
 export default Note;

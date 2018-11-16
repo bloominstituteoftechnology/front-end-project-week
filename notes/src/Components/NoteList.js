@@ -11,6 +11,7 @@ const NoteList = props => {
             <Note
               textBody={note.textBody}
               clickHandler={props.clickHandler}
+              id={note._id}
               key={note._id}
               title={note.title}
             />

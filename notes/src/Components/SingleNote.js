@@ -1,18 +1,37 @@
-import React from "react";
+import React, { Component } from "react";
+import axios from "axios";
 
-const SingleNote = props => {
-  return (
-    <div className="single-note">
-      <div className="note-header">
-        <h1>{props.title}</h1>
-        <div className="edit-buttons">
-          <p>edit</p>
-          <p>delete</p>
+class SingleNote extends Component {
+  constructor() {
+    super();
+    this.state = {
+      note: []
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/${this.props.id}`)
+      .then(response => {
+        this.setState({ note: response.data });
+      })
+      .catch(err => console.log(err));
+  }
+
+  render() {
+    return (
+      <div className="single-note">
+        <div className="note-header">
+          <h1>{this.state.note.title}</h1>
+          <div className="edit-buttons">
+            <p>edit</p>
+            <p>delete</p>
+          </div>
         </div>
+        <p>{this.state.note.textBody}</p>
       </div>
-      <p>{props.textBody}</p>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default SingleNote;
