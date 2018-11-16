@@ -58,25 +58,25 @@ class App extends Component {
   //   })
   // }
 
-  handleDeleteNote = id => {
-    //alert("Are you sure you want to delete?")
-    axios 
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-    .then(response => {
-      //this.setState({ notes: response.data })
-            axios
-              .get(`https://fe-notes.herokuapp.com/note/get/all`)
-              .then(response => {
-                  this.setState({ notes: response.data })
-              })
-              .catch(err => {
-                console.log("Fail to GET notes from server", err)
-              })
-    })
-    .catch(err => {
-      console.log("Fail to DELETE a note", err)
-    })
-  }
+  // handleDeleteNote = id => {
+  //   //alert("Are you sure you want to delete?")
+  //   axios 
+  //   .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+  //   .then(response => {
+  //     //this.setState({ notes: response.data })
+  //           axios
+  //             .get(`https://fe-notes.herokuapp.com/note/get/all`)
+  //             .then(response => {
+  //                 this.setState({ notes: response.data })
+  //             })
+  //             .catch(err => {
+  //               console.log("Fail to GET notes from server", err)
+  //             })
+  //   })
+  //   .catch(err => {
+  //     console.log("Fail to DELETE a note", err)
+  //   })
+  // }
 
   handleUpdateNote = updatedNote => {
     axios 

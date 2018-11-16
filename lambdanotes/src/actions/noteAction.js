@@ -42,11 +42,40 @@ export const createNote = note => {
     }
 }
 
-// from React
-// handleAddNewNote = note => {
+//DELETE
+export const deleteNote = id => {
+    return (dispatch) => {
+        dispatch({ type: LOADING })
+        axios 
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        //.then(this.getNotes)
+        .then(response => {
+            //dispatch({ type: SUCCESS, notes: response.data })
+            axios
+            .get(`https://fe-notes.herokuapp.com/note/get/all`)
+            .then(response => {
+                this.setState({ notes: response.data })
+            })
+            .catch(err => {
+                console.log("Fail to GET notes from server", err)
+            })
+        })
+        .catch(err => {
+            dispatch({ type: ERROR, errorMessage: "Trouble Deleting Friend"})
+        })
+    }
+}
+
+
+
+
+
+// handleDeleteNote = id => {
+//     //alert("Are you sure you want to delete?")
 //     axios 
-//     .post(`https://fe-notes.herokuapp.com/note/create`, note)
+//     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
 //     .then(response => {
+//       //this.setState({ notes: response.data })
 //             axios
 //               .get(`https://fe-notes.herokuapp.com/note/get/all`)
 //               .then(response => {
@@ -57,6 +86,7 @@ export const createNote = note => {
 //               })
 //     })
 //     .catch(err => {
-//       console.log("Fail to POST a note to the server", err)
+//       console.log("Fail to DELETE a note", err)
 //     })
 //   }
+

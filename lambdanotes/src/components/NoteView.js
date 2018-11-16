@@ -4,6 +4,9 @@ import axios from 'axios'
 
 import { Link } from 'react-router-dom'
 
+import { connect } from 'react-redux'
+import { deleteNote } from '../actions/noteAction'
+
 class NoteView extends React.Component {
     constructor(){
         super();
@@ -27,7 +30,8 @@ class NoteView extends React.Component {
 
     handleDelete = event => {
         event.preventDefault();
-        this.props.handleDeleteNote(this.props.match.params.id)
+        //this.props.handleDeleteNote(this.props.match.params.id)
+        this.props.deleteNote(this.props.match.params.id)
     }
 
     render(){
@@ -51,4 +55,10 @@ class NoteView extends React.Component {
     } 
 }
 
-export default NoteView
+const mapStateToProps = () => {
+    return {}
+}
+
+export default connect(mapStateToProps, { deleteNote })(NoteView)
+
+//export default NoteView
