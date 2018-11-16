@@ -20,7 +20,6 @@ class NoteView extends Component {
   fetchNote = id => {
     axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
-        console.log(response)
         this.setState({ note: response.data })
       })
       .catch(err => console.log(err))
@@ -36,7 +35,7 @@ class NoteView extends Component {
   render(){
     return(
       <div className="view-wrapper">
-        <Link to="/edit/:id">Edit</Link>
+        <Link to={`/edit/${this.state.note._id}`}>Edit</Link>
         <div onClick={this.clickHandler}>Delete</div>
         <Note note={this.state.note} />
       </div>

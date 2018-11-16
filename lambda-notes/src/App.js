@@ -7,6 +7,7 @@ import './App.css';
 import NotesList from './components/NotesList';
 import CreateNote from './components/CreateNote';
 import NoteView from './components/NoteView';
+import EditView from './components/EditView';
 
 class App extends Component {
   constructor(props){
@@ -44,15 +45,26 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  updateNote = updatedNote => {
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${updatedNote._id}`, updatedNote)
+      .then(response => {
+        this.setState({ notes: response.data })
+      })
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
+        <h1>Lambda Notes</h1>
+
         <NavLink to="/">View Your Notes</NavLink>
         <NavLink to="/create">+Create New Note</NavLink>
-        <Route exact path="/" render={props => <NotesList {...props} notes={this.state.notes} />}/>
-        <Route path="/create" render={props => <CreateNote {...props} postNote={this.postNote} />}/>
-        <Route path="/view/:id" render={props => <NoteView {...props} deleteNote={this.deleteNote} />}/>
 
+        <Route exact path="/" render={ props => <NotesList {...props} notes={this.state.notes} />}/>
+        <Route path="/create" render={ props => <CreateNote {...props} postNote={this.postNote} />}/>
+        <Route path="/view/:id" render={ props => <NoteView {...props} deleteNote={this.deleteNote} />}/>
+        <Route path="/edit/:id" render={ props => <EditView {...props} notes={this.state.notes} updateNote={this.updateNote} />}/>
       </div>
     );
   }
