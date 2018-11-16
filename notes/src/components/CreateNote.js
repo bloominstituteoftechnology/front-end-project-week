@@ -27,7 +27,7 @@ import {Link} from 'react-router-dom'
       <form onSubmit={this.submitHandler}>
       <input name="title" onChange={this.changeHandler} value={this.state.title}></input>
       <textarea name="text" onChange={this.changeHandler} value={this.state.text} className="textArea"></textarea>
-      <Link to="/"><Button color="info">Submit</Button></Link>
+      <Link to="/"><Button type="submit" color="info">Submit</Button></Link>
       </form>
 
         
