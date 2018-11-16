@@ -7,5 +7,14 @@ const initialState = {
 };
 
 export default (previousState = initialState, action) => {
-    return previousState
+    switch(action.type){
+        case LOADING:
+            return Object.assign({}, previousState, {loading: true})
+        case SUCCESS:
+            return Object.assign({}, previousState, { notes: action.notes, loading: false, error: ''})
+        case ERROR:
+            return Object.assign({}, previousState, {error: action.errorMessage, loading: false})
+        default:
+            return previousState
+    }
 }

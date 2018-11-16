@@ -5,3 +5,16 @@ export const SUCCESS = "SUCCESS"
 export const ERROR = "ERROR"
 
 //GET
+export const getNotes = () => {
+    return (dispatch) => {
+        dispatch({ type: LOADING })
+        axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+            .then(response => {
+                dispatch({ type: SUCCESS, notes: response.data })
+            })
+            .catch(err => {
+                dispatch({ type: ERROR, errorMessage: "Trouble GETTING notes"})
+            })
+    }
+}
+

@@ -29,16 +29,16 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
-    axios
-    .get(`https://fe-notes.herokuapp.com/note/get/all`)
-    .then(response => {
-        this.setState({ notes: response.data })
-    })
-    .catch(err => {
-      console.log("Fail to GET notes from server", err)
-    })
-  }
+  // componentDidMount(){
+  //   axios
+  //   .get(`https://fe-notes.herokuapp.com/note/get/all`)
+  //   .then(response => {
+  //       this.setState({ notes: response.data })
+  //   })
+  //   .catch(err => {
+  //     console.log("Fail to GET notes from server", err)
+  //   })
+  // }
 
   handleAddNewNote = note => {
     axios 
