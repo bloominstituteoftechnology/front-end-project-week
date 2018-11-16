@@ -49,3 +49,31 @@ padding: 0 10px 10px 5px;
 overflow: hidden;
 }
 }
+
+.createNote{
+display: flex;
+flex-direction: column;
+width: 100%;
+border: 2px solid blue;
+padding-left: 5px;
+
+button{
+  width: 200px;
+  margin-top: 10px;
+}
+
+form{
+input{
+width: 80%;
+margin-bottom: 5px;
+border: 2px solid black;
+}
+display:flex;
+flex-direction: column;
+}
+
+.textArea{
+width: 80%;
+height: 300px;
+}
+}
