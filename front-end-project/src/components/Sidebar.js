@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const NavContainer = styled.nav`
     display: table-cell;
+    width: 20%;
     min-width: 200px;
     height: 100%;
     padding: 0 1.5% 0 1.5%;
