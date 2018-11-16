@@ -10,7 +10,7 @@ export class Notes extends Component {
                 return (
                     <div>
                         <Link to={`/note/${note._id}`}>
-                            <Note note={note} title={note.title} textBody={note.textBody}  />
+                            <h1>{note.title}</h1>
                         </Link>
                         
                         

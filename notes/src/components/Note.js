@@ -2,17 +2,31 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Route} from 'react-router-dom';
 
-export class Note extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            note: []
-        };
-    }
+
+export function Note(props) {
+    const id = props._id;
+    const note = props.notes.find(note => note._id === id);
+    console.log(props.notes)
+    return (
+        <div>
+            
+            <h1>Hey! </h1>
+        </div>
+    )
+}
+
+
+// export class Note extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             note: []
+//         };
+//     }
 
     // componentDidMount() {
-    //     console.log(this.props.match.params.id);
-    //     const id = this.props.match.params.id;
+    //     console.log(this.props.match.params);
+    //     const id = this.props.match.params._id;
     //     this.fetchNote(id);
     // }
 
@@ -26,16 +40,16 @@ export class Note extends Component {
     //     })
     // }
 
-    render() {
-        return (
-            <div>
-                <h4>{this.props.note.title}</h4>
-                <Route path={`/note/${this.state.note._id}`}
-                    render={props => (
-                    <h1>{props.note.title}</h1>
-                )} />
-            </div>
-        )
-    }
-}
+//     render() {
+//         return (
+//             <div>
+//                 <h4>{this.props.note._id}</h4>
+//                 <Route path={`/note/${this.props.note._id}`}
+//                     render={props => (
+//                     <h1>{props.note._id}</h1>
+//                 )} />
+//             </div>
+//         )
+//     }
+// }
 
