@@ -30,6 +30,7 @@ export default class EditNote extends React.Component {
     );
     return (
       <div className="componentContainer">
+        <h2>Edit Note:</h2>
         <form onSubmit={this.submitHandler}>
           <input
             type="text"

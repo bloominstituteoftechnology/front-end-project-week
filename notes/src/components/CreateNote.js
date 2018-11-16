@@ -26,7 +26,7 @@ export default class CreateNote extends React.Component {
   render() {
     return (
       <div className="componentContainer">
-        <h2>Create New Note</h2>
+        <h2>Create New Note:</h2>
         <form onSubmit={this.submitHandler} method="post">
           <input
             type="text"

@@ -1,17 +1,47 @@
 .componentContainer .noteCard p {
-    margin: 0; 
+  margin: 0;
 }
 
 .noteCard {
-    height: 250px;
-    width: 20%;
-    padding: 10px 1.5%;
-    display: block;
-    border: 1px solid #b6b5b6;
-    background-color: white;
-    overflow: hidden;
-    white-space: pre-line;
-    text-overflow: ellipsis;
-    margin: 35px 5% 0 0;
-    line-height: 30px;
+  height: 250px;
+  width: 213px;
+  padding: 10px 1.5%;
+  border: 1px solid #b6b5b6;
+  background-color: white;
+  margin: 35px 5% 0 0;
+  line-height: 30px;
 }
+
+.noteCard h3 {
+  height: 31px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 179px;
+}
+
+.block-with-text {
+  overflow: hidden;
+  position: relative;
+  line-height: 1.7em;
+  max-height: 8.5em;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 0.8em;
+}
+.block-with-text:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  font-weight: 800;
+}
+.block-with-text:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+}
+

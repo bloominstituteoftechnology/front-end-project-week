@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import "../styles/App.css";
 import "../styles/NotePage.css";
@@ -19,7 +18,7 @@ const NotePage = props => {
         <span onClick={deleteHandler}>delete</span>
       </div>
       <h2>{note.title}</h2>
-      <p>{note.text}</p>
+      <p className="noteText">{note.text}</p>
     </div>
   );
 };

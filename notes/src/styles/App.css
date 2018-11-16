@@ -3,10 +3,30 @@
   width: 100%
 }
 
+@media (max-width: 513px) {
+
+  .componentContainer .notesContainer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1030px) {
+
+  .App .componentContainer {
+    width: 100%;
+    left: 0;
+    top: 75px;
+  }
+
+  /* .componentContainer .notesContainer {
+    justify-content: center;
+  } */
+}
+
 .componentContainer {
   background-color: #F2F1F2;
   width: 82%;
-  padding: 50px 0 60px 0;
+  padding: 50px 0 50px 0;
   position: relative;
   left: 18%;
   min-height: 100vh;

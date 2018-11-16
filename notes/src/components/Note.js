@@ -9,7 +9,8 @@ const Note = props => (
       <Link to={`/note/${props.note.id}`}>{props.note.title}</Link>
     </h3>
     <hr />
-    <p>{props.note.text}</p>
+      <p className="block-with-text">{props.note.text}</p>
+    
   </div>
 );
 
