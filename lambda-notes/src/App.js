@@ -20,6 +20,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getNotes();
+    // setInterval(() => this.getNotes(), 500);
   }
 
   getNotes = () => {

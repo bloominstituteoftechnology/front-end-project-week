@@ -136,10 +136,12 @@ hr {
 
 .noteBody {
   letter-spacing: 1px;
-  line-height: 2rem;
+  line-height: 2.2rem;
+  height: 13.2rem;
   font-size: 1.6rem;
   white-space: pre-wrap;
   color: rgb(65, 65, 65);
+  overflow: hidden;
 }
 
 .viewNoteTitle {
