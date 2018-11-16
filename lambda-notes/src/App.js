@@ -3,10 +3,12 @@ import axios from 'axios';
 import NotesList from './components/NotesList.js';
 import Sidebar from './components/Sidebar.js';
 import styled from 'styled-components';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import SingleNote from './components/SingleNote.js';
 import NoteEdit from './components/NoteEdit.js';
 import NoteCreate from './components/NoteCreate.js'
+import { connect } from "react-redux";
+import { fetch } from "./actions";
 
 const AppContainer = styled.div`
     display: flex;
@@ -25,29 +27,31 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.getNotes();
-    }
-
-    getNotes = ()   =>  {
-        axios.get("https://fe-notes.herokuapp.com/note/get/all")
-        .then(res    =>  {
-            this.setState((state)   =>  ({
-                notes: res.data,
-            }))
-        })
+        this.props.fetch();
     }
 
     render() {
         return (
             <AppContainer>
                 <Sidebar />
-                <Route exact path="/" render={()    =>  <NotesList notes={this.state.notes} getNotes={this.getNotes}/>} />
-                <Route path="/note/:id" render={(props)  =>  <SingleNote notes={this.state.notes} getNotes={this.getNotes} {...props}/>} />
-                <Route path="/edit/:id" render={(props) =>  <NoteEdit notes={this.state.notes} getNotes={this.getNotes} {...props}/>} />
-                <Route path="/create" render={(props) =>  <NoteCreate getNotes={this.getNotes} {...props}/>} />
+                <Route exact path="/" render={()    =>  <NotesList notes={this.props.notes} getNotes={this.props.fetch}/>} />
+                <Route path="/note/:id" render={(props)  =>  <SingleNote notes={this.props.notes} getNotes={this.props.fetch} {...props}/>} />
+                <Route path="/edit/:id" render={(props) =>  <NoteEdit relID={this.props.relID} notes={this.props.notes} getNotes={this.props.fetch} {...props}/>} />
+                <Route path="/create" render={(props) =>  <NoteCreate relID={this.props.relID} getNotes={this.props.fetch} {...props}/>} />
             </AppContainer>
         );
     }
 }
 
-export default App;
+const mapStateToProps   =   state   =>  {
+    return {
+        notes: state.noteReducer.notes,
+        fetching: state.noteReducer.fetching,
+        error: state.noteReducer.error,
+        relID: state.noteReducer.relID.success,
+    }
+}
+export default withRouter(connect(
+  mapStateToProps,
+  { fetch }
+)(App));

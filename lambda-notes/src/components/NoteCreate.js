@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { createNote } from '../actions';
 
 const CreateContainer = styled.div`
     display: flex;
@@ -51,7 +53,7 @@ class NoteCreate extends Component    {
         this.state = {
             title: "",
             body: "",
-            id: ""
+            id: this.props.relID,
         }
     }
 
@@ -62,18 +64,12 @@ class NoteCreate extends Component    {
     }
 
     onClickHandler = () =>  {
-        axios.post(`https://fe-notes.herokuapp.com/note/create`, {title: this.state.title, textBody: this.state.body})
-        .then((data)  =>  {
-            return this.setState({
-                id: data.data.success
-            },  ()  =>  {
-                return this.props.getNotes();
-            });
-        })
-        .then(()    =>  {
-            return this.props.history.push(`/note/${this.state.id}`)
-        })
-        .catch(err  =>  console.log(err))
+        this.props.createNote(this.state.title, this.state.body)
+    }
+    componentWillReceiveProps() {
+        if(this.props.relID !== "")    {
+            return this.props.history.push(`/note/${this.props.relID.success}`);
+        }
     }
 
     render()    {
@@ -87,4 +83,16 @@ class NoteCreate extends Component    {
     }
 }
 
-export default NoteCreate;
+const mapStateToProps   =   state   =>  {
+    return {
+        notes: state.noteReducer.notes,
+        fetching: state.noteReducer.fetching,
+        error: state.noteReducer.error,
+        relID: state.noteReducer.relID,
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { createNote }
+)(NoteCreate);

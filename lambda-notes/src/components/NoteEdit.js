@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { updateNote } from '../actions';
 
 const EditContainer = styled.div`
     display: flex;
@@ -61,14 +63,16 @@ class NoteEdit extends Component    {
     }
 
     onClickHandler = () =>  {
-        axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, {title: this.state.title, textBody: this.state.body})
-        .then(()    =>  {
-            return this.props.getNotes();
-        })
-        .then(( )  =>  {
+        // console.log(this.props.match.params.id)
+        this.props.updateNote(this.state.title, this.state.body, this.props.match.params.id)
+    }
+
+    componentWillReceiveProps() {
+        console.log("here")
+        if(this.props.relID !== "" || this.props.relID === undefined) {
+            console.log(this.props.relID)
             return this.props.history.push(`/note/${this.props.match.params.id}`)
-        })
-        .catch(err  =>  console.log(err))
+        }
     }
 
     render()    {
@@ -83,4 +87,16 @@ class NoteEdit extends Component    {
     }
 }
 
-export default NoteEdit;
+const mapStateToProps   =   state   =>  {
+    return {
+        notes: state.noteReducer.notes,
+        fetching: state.noteReducer.fetching,
+        error: state.noteReducer.error,
+        relID: state.noteReducer.relID,
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { updateNote }
+)(NoteEdit);
