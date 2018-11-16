@@ -11,7 +11,7 @@ export const getNotes = () => {
         .then(response => {
             dispatch({type:SUCCESS, notes:response.data})
         })
-        .catch(err => {
+        .catch(error => {
             dispatch({type:ERROR, errorMessage:"Trouble getting your Notes! Try Again"})
         })
     }
@@ -24,12 +24,21 @@ export const createNote = (newNote) =>{
         .then(response => {
             dispatch(getNotes())
         })
-        .catch(err =>{
+        .catch(error =>{
             dispatch({type:ERROR, errorMessage:"Cannot Create Note"})
         })
     }
 }
 
 export const deleteNote = (id) =>{
-    return
+    return (dispatch) =>{
+        dispatch({type:LOADING})
+        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then(response=> {
+            dispatch(getNotes())
+        })
+        .catch(error => {
+            dispatch({type:ERROR, errorMessage:"It did not Delete"})
+        })
+    }
 }
