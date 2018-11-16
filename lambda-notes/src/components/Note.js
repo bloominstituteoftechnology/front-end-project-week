@@ -2,7 +2,7 @@ import React from 'react';
 
 const Note = props => {
   return (
-    <div className="Smurf">
+    <div className="Note">
       <p>{props.title}</p>
       <p>{props.content}</p>
     </div>

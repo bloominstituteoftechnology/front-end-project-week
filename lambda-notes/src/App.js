@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import { NavLink } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import NewNote from './components/NewNote'
 
 
 
@@ -31,9 +33,12 @@ componentDidMount() {
       <Router>
       <div className="App">
       <nav>
+      <Sidebar/>
+      <NavLink to = '/new-note'>Create Note</NavLink>
       <NavLink to = '/'>Home</NavLink>
       </nav>
       <Route exact path='/' render={() => <NoteList notes={this.state.notes} />} /> 
+      <Route path='/new-note' component={NewNote} />
        </div>
        </Router>
      );
