@@ -1,4 +1,4 @@
-import { FETCHING, SUCCESS, FAILURE, POSTING, CREATED, UPDATING, UPDATED } from "../actions";
+import { FETCHING, SUCCESS, FAILURE, POSTING, CREATED, UPDATING, UPDATED, DELETING, DELETED } from "../actions";
 const initialState = {
   notes: [],
   fetching: false,
@@ -23,6 +23,11 @@ export const noteReducer = (state = initialState, action) => {
         return { ...state, fetching: true, relID: "" };
     case UPDATED:
         return { ...state, fetching: false, relID: action.payload["_id"] };
+    case DELETING:
+        return { ...state, fetching: true, relID: "" };
+    case DELETED:
+        console.log(action.payload)
+        return { ...state, fetching: false, relID: "" };
     default:
       return state;
   }

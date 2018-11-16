@@ -68,6 +68,9 @@ export const deleteNote = (id)  =>  {
         dispatch({ type: DELETING});
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         .then((data)    =>  {
+            dispatch({ type: DELETED, payload: data });
+        })
+        .then((data)    =>  {
             axios.get("https://fe-notes.herokuapp.com/note/get/all")
             .then(({data})   =>  {
                 dispatch({ type: SUCCESS, payload: data });
