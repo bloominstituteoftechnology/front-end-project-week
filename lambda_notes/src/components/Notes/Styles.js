@@ -119,7 +119,7 @@ export const FormGroup = styled.form`
   }
 
   textarea {
-    width: 98%;
+    width: 97%;
     height: 450px;
   }
 `;
