@@ -36,13 +36,6 @@
 
 
 /* My CSS: */
-.list-view {
-  border: 1px solid;
-  width: 95%;
-  margin: auto;
-  display: flex;
-
-}
 /* left-sidebar in every page (start): */
 .notes-sidebar {
   background-color: lightgrey;
@@ -59,10 +52,30 @@
   height: 50px;
   margin: auto;
   margin-top: 5%;
-  background-color: turquoise;
+  background-color: rgb(3, 190, 190);
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
 }
+/* .navlink {
+  margin-right: 1%;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: black;
+  padding-left: .5%;
+  padding-right: .5%;
+  cursor: pointer;
+  width: 100%;
+} */
 /* left-sidebar in every page (end): */
 /* Main-Page (start): */
+.list-view {
+  border: 1px solid;
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
 .list-view .notes-section {
   background-color: whitesmoke;
   display: flex;

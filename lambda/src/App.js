@@ -21,7 +21,8 @@ class App extends React.Component {
   }
   //componentDidMount() for w/o redux:
   componentDidMount = () => {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         console.log(response)
         this.setState({
@@ -32,14 +33,21 @@ class App extends React.Component {
         console.log(error);
       })
   }
+  windowReload = (e) => {
+    window.location.reload();
+}
   //componentDidMount() for with redux:
   // componentDidMount = () => {
   //   this.props.loadNotesAction();
   // }
+
   render() {
     return (
       <div className="App">
-        <NotesList notesList={this.state.notes} />
+        <div>
+          <Route exact path='/' render={ (props) => <NotesList {...props} notesList={this.state.notes} pageReload={this.windowReload} />} />
+          <Route exact path='/create-new-note' render={ (props) => <NewNote {...props} pageReload={this.windowReload} />} />
+        </div>
       </div>
     );
   }
