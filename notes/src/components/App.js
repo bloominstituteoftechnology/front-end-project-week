@@ -8,6 +8,7 @@ import { Notes } from './Notes';
 import { AddNote } from './AddNote';
 import { NoteView } from './NoteView';
 import { EditNote } from './EditNote';
+import { DeleteNote } from './DeleteNote';
 
 
 
@@ -65,6 +66,9 @@ class App extends Component {
               return(<EditNote {...props} />)
           }} />
         
+        <Route path="/note/:id/delete" render={(props) => {
+              return(<DeleteNote {...props} />)
+          }} />
       </div>
     );
   }

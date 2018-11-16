@@ -16,6 +16,24 @@ export class DeleteNote extends Component {
                 {open: false}
             )})
             .catch(err => console.log(err))
-        this.
+        this.closeBox()
+    }
+
+    closeBox = () => {
+        this.setState({open: false})
+    }
+
+    render() {
+        return(
+            this.state.open === true ?
+            <div>
+                <p>Are you sure you want to delete this?</p>
+                <button onClick={() => this.deleteItem(this.props.match.params.id)}>Delete</button>
+                <Link to={`/note/${this.props.match.params.id}`} >
+                    <button onClick={() => this.closeBox()} >No</button>
+                </Link>
+            </div>
+            : null
+        )
     }
 }
