@@ -25,7 +25,7 @@
   position: relative;
   line-height: 1.7em;
   max-height: 8.5em;
-  text-align: justify;
+  /* text-align: justify; */
   margin-right: -1em;
   padding-right: 0.8em;
 }

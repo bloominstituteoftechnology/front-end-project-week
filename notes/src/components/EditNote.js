@@ -12,21 +12,21 @@ export default class EditNote extends React.Component {
     };
   }
 
-  inputHandler = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  // inputHandler = e => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // };
 
-  submitHandler = e => {
-    e.preventDefault();
-    let note = this.props.notes.find(
-      note => `${note.id}` === this.props.match.params.id
-    );
-    this.props.editNote(this.state.newTitle, this.state.newText, note.id);
-    this.props.history.push(`/note/${note.id}`);
-  };
+  // submitHandler = e => {
+  //   e.preventDefault();
+  //   let note = this.props.notes.find(
+  //     note => `${note._id}` === this.props.match.params.id
+  //   );
+  //   this.props.editNote(this.state.newTitle, this.state.newText, note.id);
+  //   this.props.history.push(`/note/${note._id}`);
+  // };
   render() {
     let note = this.props.notes.find(
-      note => `${note.id}` === this.props.match.params.id
+      note => `${note._id}` === this.props.match.params.id
     );
     return (
       <div className="componentContainer">

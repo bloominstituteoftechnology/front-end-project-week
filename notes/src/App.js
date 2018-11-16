@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import axios from 'axios';
 
 import SideBar from "./components/Sidebar";
 import Notes from "./components/Notes";
@@ -13,51 +14,65 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-          title: "Green Eggs & Ham",
-          text:
-            "I do not like green eggs and ham. I do not like them Sam I am. I will not eat them in a house, I will not eat them with a mouse.",
-          id: 1
-        },
-        {
-          title: "Miss Polly & Her Dolly",
-          text:
-            "Miss Polly had a dolly who was sick, sick, sick. So, she took her to the doctor really quick, quick, quick.",
-          id: 2
-        }
-      ],
-      newId: 3
+      notes: [],
+      newNote: {
+        tags: [],
+        title: "",
+        textBody: ""
+      }
     };
   }
 
-  saveNote = (newTitle, newText) => {
+  componentDidMount() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(response => {
+        this.setState({
+          notes: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  inputChange = e => {
+    e.preventDefault();
     this.setState({
-      notes: [
-        ...this.state.notes,
-        { title: newTitle, text: newText, id: this.state.newId }
-      ],
-      newId: this.state.newId + 1
+      newNote: {
+        ...this.state.newNote,
+        [e.target.name]: e.target.value
+      }
     });
   };
 
-  editNote = (newTitle, newText, id) => {
-    let updatedNote = this.state.notes.find(note => note.id === id);
-    let filteredNotes = this.state.notes.filter(note => note.id !== id);
-    this.setState({
-      notes: [
-        ...filteredNotes,
-        { title: newTitle, text: newText, id: updatedNote.id }
-      ]
-    });
+  addNote = e => {
+    e.preventDefault();
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", this.state.newNote)
+      .then(response =>
+        this.setState({
+          notes: response.data,
+          newNote: { title: "", textBody: "" }
+        })
+      )
+      .catch(error => console.log(error));
+  };
+
+  updateNote = id => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
   };
 
   deleteNote = id => {
-    let filteredNotes = this.state.notes.filter(note => note.id !== id);
-    this.setState({
-      notes: filteredNotes
-    });
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
   };
+
   render() {
     return (
       <div className="App">
@@ -74,8 +89,9 @@ class App extends Component {
             <CreateNote
               {...props}
               notes={this.state.notes}
-              newId={this.state.newId}
-              saveNote={this.saveNote}
+              inputChange={this.inputChange}
+              addNote={this.addNote}
+              newNote={this.state.newNote}
             />
           )}
         />
@@ -97,7 +113,9 @@ class App extends Component {
             <EditNote
               {...props}
               notes={this.state.notes}
-              editNote={this.editNote}
+              inputChange={this.inputChange}
+              newNote={this.state.newNote}
+              editNote={this.updateNote}
             />
           )}
         />
