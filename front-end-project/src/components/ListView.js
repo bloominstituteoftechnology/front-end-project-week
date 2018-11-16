@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 // list view styled components
 
@@ -19,7 +20,7 @@ const NotePreviewContainer = styled.div`
     flex-wrap: wrap;
 `
 
-const NotePreview = styled.div`
+const NotePreview = styled(Link)`
     border: 1px solid #C0C0C0;
     background: white;
     margin: 0 20px 30px 0;
@@ -28,6 +29,8 @@ const NotePreview = styled.div`
     padding: 20px;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: black;
 `
 
 const PreviewTitle = styled.h3`
@@ -46,55 +49,6 @@ const PreviewBody = styled.p`
 class ListView extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            notes: [
-                {   
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 1",
-                    "textBody": "Sample Body 1",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 2",
-                    "textBody": "Sample Body 2",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 3",
-                    "textBody": "Sample Body 3",
-                },
-                {   
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 1",
-                    "textBody": "Sample Body 1",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 2",
-                    "textBody": "Sample Body 2",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 3",
-                    "textBody": "Sample Body 3",
-                },
-                {   
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 1",
-                    "textBody": "Sample Body 1",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 2",
-                    "textBody": "Sample Body 2",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 3",
-                    "textBody": "Sample Body 3",
-                },
-            ]
-        }
     }
 
     render() {
@@ -102,8 +56,8 @@ class ListView extends Component {
             <ListViewContainer>
                 <ListHeader>Your Notes:</ListHeader>
                 <NotePreviewContainer>
-                    {this.state.notes.map(note => 
-                        <NotePreview note={note}>
+                    {this.props.notes.map(note => 
+                        <NotePreview note={note} to='/'>
                             <PreviewTitle>{note.title}</PreviewTitle>
                             <PreviewBody>{note.textBody}</PreviewBody>
                         </NotePreview>

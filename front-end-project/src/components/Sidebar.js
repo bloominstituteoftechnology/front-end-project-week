@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 // Nav bar styled components
 
@@ -21,10 +22,10 @@ const NavHeader = styled.h1`
     margin: 1.6rem 0;
 `
 
-const NavButton = styled.button`
+const NavButton = styled(NavLink)`
+    display: block;
     border: 1px solid #959898;
     outline: none;
-    margin: 0;
     text-decoration: none;
     background-color: #5DBEC3;
     color: #ffffff;
@@ -33,9 +34,9 @@ const NavButton = styled.button`
     cursor: pointer;
     text-align: center;    
     font-weight: bold;
-    margin: 0.8rem 0;
     padding: 0.8rem 0;
     width: 100%;
+    margin-bottom: 10px;
     -webkit-appearance: none;
     -moz-appearance: none; 
 `
@@ -44,8 +45,8 @@ const Sidebar = props => {
     return (
         <NavContainer>
             <NavHeader>Lambda<br/>Notes</NavHeader>
-            <NavButton>View Your Notes</NavButton>
-            <NavButton>+ Create New Note</NavButton>
+            <NavButton to='/'>View Your Notes</NavButton>
+            <NavButton to='/'>+ Create New Note</NavButton>
         </NavContainer>
     )
 }
