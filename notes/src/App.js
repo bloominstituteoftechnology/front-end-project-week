@@ -36,17 +36,26 @@ class App extends Component {
 
         if (id === "Add") {
             noteArr.push(note);
-
             this.setState({
                 notes: noteArr
             });
         } else {
             noteArr.splice(id, 1, note);
-    
             this.setState({
                 notes: noteArr
             });
         }
+    };
+
+    handleDeleteNote = id => {
+        let noteArr = this.state.notes;
+
+        noteArr.splice(id, 1);
+        this.setState({
+            notes: noteArr
+        });
+
+        document.getElementById("delete-modal").classList.toggle("hidden");
     };
 
     render() {
@@ -59,7 +68,7 @@ class App extends Component {
                             props => <NoteList {...props} notes={this.state.notes} />
                         } />
                         <Route exact path="/view/:id" render={
-                            props => <ViewNote {...props} notes={this.state.notes} />   
+                            props => <ViewNote {...props} notes={this.state.notes} delete={this.handleDeleteNote} />   
                         }/>
                         <Route exact path="/view/:id/edit" render={
                             props => <EditNote {...props} type="Edit" addNote={this.handleAddNote} notes={this.state.notes} />

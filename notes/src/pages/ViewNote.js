@@ -23,6 +23,10 @@ class ViewNote extends Component {
         document.getElementById("delete-modal").classList.toggle("hidden");
     }
 
+    handleDelete = () => {
+        this.props.delete(this.state.id);
+    };
+
     render() {
         return (
             <div>
@@ -30,8 +34,8 @@ class ViewNote extends Component {
                     <div>
                         <div id="delete-modal" className="hidden">
                             <p>Are you sure you want to delete this?</p>
-                            <button onClick={this.handleModal}>Yes</button>
-                            <button onClick={this.handleModal}>No</button>
+                            <button onClick={this.handleDelete}>Delete</button>
+                            <button onClick={this.handleModal}>Cancel</button>
                         </div>
                         <div>
                             <Link to={`/view/${this.state.id}/edit`}>Edit</Link>
