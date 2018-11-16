@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+// Component Imports
+import SideBar from './components/sidebar/SideBar'
 class App extends Component {
 
   constructor(){
@@ -20,7 +22,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>What about now?</h1>
+        <h1>Still working</h1>
+        <SideBar />
       </div>
     );
   }
