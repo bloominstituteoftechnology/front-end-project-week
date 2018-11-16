@@ -29,11 +29,6 @@ const CardDiv = styled.div`
 `;
 
 const NoteCard = props => {
-
-//   const truncatedText =
-//     props.note.textBody.length < 121
-//       ? props.note.textBody
-//       : props.note.textBody.substring(0, 120) + "...";
   return (
     <CardDiv onClick={() => props.gotoSingleNote(props.note._id)}>
       <h3>{props.note.title}</h3>

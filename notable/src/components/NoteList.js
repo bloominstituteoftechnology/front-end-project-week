@@ -26,7 +26,7 @@ class NoteList extends React.Component {
   gotoSingleNote = id => {
     this.props.fetchSingleNote(id);
     this.props.history.push(`/note/${id}`);
-  }
+  };
 
   render() {
     return (
@@ -37,7 +37,13 @@ class NoteList extends React.Component {
         ) : (
           <CardDiv>
             {this.props.notes.map(item => {
-              return <NoteCard key={`${item._id}`} note={item} gotoSingleNote={this.gotoSingleNote} />;
+              return (
+                <NoteCard
+                  key={`${item._id}`}
+                  note={item}
+                  gotoSingleNote={this.gotoSingleNote}
+                />
+              );
             })}
           </CardDiv>
         )}
