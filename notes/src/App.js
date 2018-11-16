@@ -70,7 +70,7 @@ class App extends Component {
               deleteNoteOn={this.deleteNoteOn}
               deleteNoteOff={this.deleteNoteOff}
               delete={this.state.delete}
-              deleteNote={this.state.deleteNote}
+              deleteNote={this.deleteNote}
             />
           )}
         />
