@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { fetchNotes } from "../actions/index";
+import { fetchNotes, fetchSingleNote } from "../actions/index";
 import NoteCard from "./NoteCard";
 
 const ListDiv = styled.div`
@@ -23,6 +23,11 @@ class NoteList extends React.Component {
     this.props.fetchNotes();
   }
 
+  gotoSingleNote = id => {
+    this.props.fetchSingleNote(id);
+    this.props.history.push(`/note/${id}`);
+  }
+
   render() {
     return (
       <ListDiv>
@@ -32,7 +37,7 @@ class NoteList extends React.Component {
         ) : (
           <CardDiv>
             {this.props.notes.map(item => {
-              return <NoteCard key={`${item._id}`} note={item} />;
+              return <NoteCard key={`${item._id}`} note={item} gotoSingleNote={this.gotoSingleNote} />;
             })}
           </CardDiv>
         )}
@@ -47,5 +52,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchNotes }
+  { fetchNotes, fetchSingleNote }
 )(NoteList);

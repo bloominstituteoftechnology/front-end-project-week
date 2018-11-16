@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import NoteList from "./components/NoteList";
 import NoteForm from "./components/NoteForm";
@@ -12,10 +12,9 @@ const MainDiv = styled.div`
   width: 100%;
   max-width: 1024px;
   margin: 5px auto;
+`;
 
-  `;
-  
-  const SideBar = styled.div`
+const SideBar = styled.div`
   width: 22%;
   background-color: silver;
   padding: 15px;
@@ -24,9 +23,9 @@ const MainDiv = styled.div`
     font-weight: bold;
     margin-bottom: 30px;
   }
-  `;
-  
-  const DisplayDiv = styled.div`
+`;
+
+const DisplayDiv = styled.div`
   width: 75%;
   background-color: whitesmoke;
 `;
@@ -44,18 +43,26 @@ const Button = styled.div`
 `;
 
 class App extends Component {
+  sendToForm = () => {
+    this.props.history.push(`/form`);
+  };
+
+  sendToHome = () => {
+    this.props.history.push(`/`);
+  };
+
   render() {
     return (
       <MainDiv>
         <SideBar>
           <h1>Lambda Notes</h1>
-          <Button>View Your Notes</Button>
-          <Button>+ Create a New Note</Button>
+          <Button onClick={this.sendToHome}>View Your Notes</Button>
+          <Button onClick={this.sendToForm}>+ Create a New Note</Button>
         </SideBar>
         <DisplayDiv>
-          <Route exact path="/" component={NoteList} />
+          <Route exact path="/" render={props => <NoteList {...props} />} />
           <Route path="/form" component={NoteForm} />
-          <Route path="/note/:id" component={SingleNote} />
+          <Route path="/note/:id" render={props => <SingleNote {...props} />} />
         </DisplayDiv>
       </MainDiv>
     );
