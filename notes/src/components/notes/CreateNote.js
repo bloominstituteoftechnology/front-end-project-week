@@ -11,7 +11,6 @@ class CreateNote extends Component {
   }
   
 
-
   addNote = event => {
     event.preventDefault();
     const note= {
