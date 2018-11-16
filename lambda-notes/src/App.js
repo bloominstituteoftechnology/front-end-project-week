@@ -4,6 +4,7 @@ import { instance } from './utils.js';
 
 import './App.css';
 import NotesList from './components/Notes/NotesList';
+import Note from './components/Notes/Note';
 
 class App extends Component {
   constructor() {
@@ -42,6 +43,7 @@ class App extends Component {
           render={props => (
             <NotesList notes={this.state.notes} />
           )} />
+          <Route path='/:id' component={Note} />
         {/* <NotesList notes={this.state.notes} /> */}
       </div>
     );
