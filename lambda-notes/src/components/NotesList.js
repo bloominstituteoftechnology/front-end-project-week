@@ -27,7 +27,32 @@ const StyledLink = styled(Link)`
     }
 `
 
+const StyledInput = styled.input`
+margin: 0 auto;
+`
+
 class NotesList extends Component   {
+    constructor(props)  {
+        super(props);
+        this.state = {
+            notes: [],
+            inputValue: "",
+        }
+    }
+    componentWillReceiveProps(newProps) {
+        this.setState((state)   =>  ({
+            notes: newProps.notes,
+        }))
+    }
+
+    onInputChange = ({ target })  =>  {
+        this.setState((state)   =>  ({
+            notes: this.props.notes.filter((note)   =>  {
+                return note.title.includes(target.value) || note.textBody.includes(target.value)
+            }),
+            inputValue: target.value
+        }))
+    }
 
     render()    {
         return(
@@ -35,8 +60,9 @@ class NotesList extends Component   {
                 <ViewTitle>
                     Your Notes:
                 </ViewTitle>
+                <StyledInput onChange={this.onInputChange} placeholder={"Search..."} value={this.state.inputValue}></StyledInput>
                 <NotesView>
-                    {this.props.notes.map((note, index)  =>  {
+                    {this.state.notes.map((note, index)  =>  {
                         return <StyledLink to={`/note/${note["_id"]}`} data={note} key={index}><Note key={index} note={note}/></StyledLink>
                     })}
                 </NotesView>
