@@ -17,13 +17,25 @@ class ViewNote extends Component {
         });
     };
 
+    handleModal = event => {
+        event.preventDefault();
+
+        document.getElementById("delete-modal").classList.toggle("hidden");
+    }
+
     render() {
         return (
             <div>
                 {this.state.note ? ( //only display note after note is set to state, otherwise display error message
                     <div>
+                        <div id="delete-modal" className="hidden">
+                            <p>Are you sure you want to delete this?</p>
+                            <button onClick={this.handleModal}>Yes</button>
+                            <button onClick={this.handleModal}>No</button>
+                        </div>
                         <div>
-                            <Link to={`/view/${this.state.id}/edit`}>Edit Note</Link>
+                            <Link to={`/view/${this.state.id}/edit`}>Edit</Link>
+                            <a href="##" onClick={this.handleModal}>Delete</a>
                         </div>
                         <h3>{this.state.note.title}</h3>
                         <p>{this.state.note.text}</p>
