@@ -7,6 +7,7 @@ import { Route, NavLink } from 'react-router-dom';
 import { Notes } from './Notes';
 import { AddNote } from './AddNote';
 import { NoteView } from './NoteView';
+import { EditNote } from './EditNote';
 
 
 
@@ -54,15 +55,15 @@ class App extends Component {
             <Notes notes={this.state.notes} />
           )} />
 
-          {/* <Route exact path={`/note/:id`}
-          render={props => (
-            <Note notes={this.state.notes} />
-
-          )} /> */}
+          
 
           <Route path="/note/:id" render={(props) => {
             return(<NoteView {...props}/>)}}
           />
+
+          <Route path="/edit/:id/" render={(props) => {
+              return(<EditNote {...props} />)
+          }} />
         
       </div>
     );
