@@ -19,3 +19,8 @@
     height: 50px;
     text-align: center;
 }
+
+.link {
+    text-decoration-color: white;
+    text-decoration: none;
+}

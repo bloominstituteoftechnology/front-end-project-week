@@ -13,19 +13,6 @@ class NoteList extends Component {
         }
     }
 
-    componentDidMount() {
-        console.log(this.state.notes)
-        axios
-            .get(`https://fe-notes.herokuapp.com/note/get/all`)
-            .then(response => {
-                console.log(response.data)
-                this.setState({
-                    notes: response.data
-                })
-            })
-            .catch(error => console.log('error!'))
-    }
-
     render() {
         return (
             <div class='list'>
@@ -35,7 +22,7 @@ class NoteList extends Component {
                         Your Notes:
                 </h2>
                     <div class='notes'>
-                        {this.state.notes.map(note => {
+                        {this.props.notes.map(note => {
                             console.log(note)
                             return (
                                 <Note

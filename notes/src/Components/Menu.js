@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Menu.css';
+import { Link } from 'react-router-dom';
 
 class Menu extends Component {
 
@@ -11,8 +12,16 @@ class Menu extends Component {
                     Lambda Notes
                 </h1>
                 <div class='menu-buttons'>
-                    <div class='button'>View Your Notes</div>
-                    <div class='button'>+ Create New Notes</div>
+                    <Link to='/' class='link'>
+                        <div class='button'>
+                            View Your Notes
+                        </div>
+                    </Link>
+                    <Link to='/form' class='link'>
+                        <div class='button'>
+                            + Create New Notes
+                        </div>
+                    </Link>
                 </div>
             </div>
         )
