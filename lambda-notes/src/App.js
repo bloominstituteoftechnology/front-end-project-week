@@ -48,7 +48,7 @@ const mapStateToProps   =   state   =>  {
         notes: state.noteReducer.notes,
         fetching: state.noteReducer.fetching,
         error: state.noteReducer.error,
-        relID: state.noteReducer.relID.success,
+        relID: state.noteReducer.relID,
     }
 }
 export default withRouter(connect(

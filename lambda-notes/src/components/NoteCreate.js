@@ -68,7 +68,7 @@ class NoteCreate extends Component    {
     }
     componentWillReceiveProps() {
         if(this.props.relID !== "")    {
-            return this.props.history.push(`/note/${this.props.relID.success}`);
+            return this.props.history.push(`/note/${this.props.relID}`);
         }
     }
 

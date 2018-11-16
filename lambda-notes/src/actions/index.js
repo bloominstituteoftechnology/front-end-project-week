@@ -7,6 +7,8 @@ export const UPDATING = "UPDATING";
 export const UPDATED = "UPDATED";
 export const POSTING = "POSTING";
 export const CREATED = "CREATED";
+export const DELETING = "DELETING";
+export const DELETED = "DELETED";
 
 export const fetch = () => {
     return dispatch => {
@@ -49,6 +51,23 @@ export const updateNote = (title, content, id)  =>  {
                 return dispatch({ type: UPDATED, payload: data })
         })
         .then(()    =>  {
+            axios.get("https://fe-notes.herokuapp.com/note/get/all")
+            .then(({data})   =>  {
+                dispatch({ type: SUCCESS, payload: data });
+            })
+            .catch(err  =>  {
+                return dispatch({ type: FAILURE, payload: err })
+            });
+        })
+        .catch(err  =>  console.log(err))
+    }
+}
+
+export const deleteNote = (id)  =>  {
+    return dispatch =>  {
+        dispatch({ type: DELETING});
+        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then((data)    =>  {
             axios.get("https://fe-notes.herokuapp.com/note/get/all")
             .then(({data})   =>  {
                 dispatch({ type: SUCCESS, payload: data });

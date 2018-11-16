@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { deleteNote } from '../actions';
 
 const NoteView = styled.div`
     padding-left: 25px;
@@ -61,14 +63,11 @@ class SingleNote extends Component  {
     }
 
     onDeleteHandler = ()    =>  {
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
-        .then((data)    =>  {
-            return this.props.getNotes();
-        })
-        .then((data)    =>  {
-            return this.props.history.push("/")
-        })
-        .catch(err  =>  console.log(err))
+        this.props.deleteNote(this.props.match.params.id);
+    }
+
+    componentWillReceiveProps() {
+        this.props.history.push("/")
     }
 
     render()    {
@@ -87,4 +86,16 @@ class SingleNote extends Component  {
     }
 }
 
-export default SingleNote;
+const mapStateToProps   =   state   =>  {
+    return {
+        notes: state.noteReducer.notes,
+        fetching: state.noteReducer.fetching,
+        error: state.noteReducer.error,
+        relID: state.noteReducer.relID,
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { deleteNote }
+)(SingleNote);
