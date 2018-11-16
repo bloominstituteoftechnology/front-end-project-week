@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ListView from './ListView.js'
+import { Route } from 'react-router-dom';
 
 const MainContentContainer = styled.div`
     display: table-cell;
@@ -12,7 +13,13 @@ const MainContentContainer = styled.div`
 const MainContent = props => {
     return (
         <MainContentContainer>
-            <ListView />
+            <Route 
+                path='/' 
+                exact
+                render={props => 
+                    <ListView props={props}/>
+                } 
+            />
         </MainContentContainer>
     )
 }
