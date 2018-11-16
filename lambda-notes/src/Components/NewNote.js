@@ -11,8 +11,12 @@ class NewNote extends Component {
     render() {
 
         return (
-            <div>
-            <h2> You Got Me! </h2>
+            <div className='notesList'>
+            <h2> Create New Note: </h2>
+            <form><input className='title' placeholder='Note Title' type='text'></input></form>
+            <textarea rows="20" cols="100" placeholder='Content Title'></textarea>
+
+            <button>Save</button>
             </div>
         )
     }

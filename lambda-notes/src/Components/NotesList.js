@@ -12,9 +12,8 @@ class NotesList extends Component {
 
         return (
             <div className='notesList'>
-            <h2> Your Notes </h2>
+            <h2> Your Notes: </h2>
             {this.props.notes.map( jot => <Note title={jot.title} key={jot._id} textBody={jot.textBody} jot={jot} />)}
-            Yep it works
             </div>
         )
     }

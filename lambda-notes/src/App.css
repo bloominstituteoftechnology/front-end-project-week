@@ -95,9 +95,26 @@ h1 {
 }
 button {
   background-color: #24B8BD;
+  width: 250px;
   color:white;
   padding:20px;
   font-size: 1.25rem;
   border-radius: 0%;
-  margin: 10px;
+  margin: 10px 10px 10px 20px;
+}
+
+form {
+  width: 80%
+}
+.title {
+  height: 35px;
+  width: 50%;
+  margin: 20px;
+  font-size: 1rem
+}
+
+
+textarea {
+  margin-left: 20px;
+  font-size: 1rem;
 }
