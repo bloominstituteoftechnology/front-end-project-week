@@ -17,14 +17,15 @@ export const HeaderContainer = styled.div`
 `
 
 export const Button = styled.button `
-   background-color: lightseagreen;
+   background-color: ${props => props.bgColor || "lightseagreen"};
    color: white;
    text-align: center;
    font-weight: bold;
+   font-size: 1.3rem;
    padding: 10px 25px;
    cursor: pointer;
-   width: 90%;
-   max-width: 200px;
+   width: ${props => props.width || "90%"};
+   max-width: ${props => props.maxWidth || "200px"};
 `
 
 export const DisplayContainer = styled.div`

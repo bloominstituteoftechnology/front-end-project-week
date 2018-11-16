@@ -4,7 +4,7 @@
 import React from "react";
 import axios from "axios"
 import Note from "./Note";
-import {DisplayHeader} from "../Styles/Styles"
+// import {DisplayHeader} from "../Styles/Styles"
 
 class NoteList extends React.Component {
    constructor(){
@@ -26,15 +26,15 @@ class NoteList extends React.Component {
 
    render() {
       return(
-         <>
-            <DisplayHeader>Your Notes:</DisplayHeader>
+         <div className="notelist">
+            <h2>Your Notes:</h2>
             {this.state.notes.length < 1 ? <h3>There are no notes!</h3> : this.state.notes.map(note => 
                <Note 
                   key={note._id}
                   note={note}
                />)
             }
-         </>
+         </div>
       )
    }
 }

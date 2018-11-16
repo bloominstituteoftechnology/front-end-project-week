@@ -4,7 +4,7 @@ import {Button, HeaderContainer} from "../Styles/Styles"
 
 const Header = () => {
    return(
-      <HeaderContainer>
+      <div className="header">
          <h1>Lambda Notes</h1>
          <Link to="/">
             <Button>View Your Notes</Button>
@@ -12,7 +12,7 @@ const Header = () => {
          <Link to="/create">
             <Button>+Create New Note</Button>
          </Link>
-      </HeaderContainer>
+      </div>
    )
 }
 
