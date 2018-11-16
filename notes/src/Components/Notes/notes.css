@@ -32,3 +32,27 @@
     overflow: hidden;
     
 }
+
+.card-link {
+    margin: 1%;
+    text-decoration: none;
+    color: black;
+}
+
+.display-note {
+    min-width: 801px;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+.display-note .note-header {
+    width: 100%;
+    display: flex;
+    align-content: space-between;
+}
+
+.note-break {
+    width: 80%;
+    border: 1px solid black;
+    margin: 1% 0%;
+}

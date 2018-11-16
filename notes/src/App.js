@@ -6,6 +6,7 @@ import './App.css';
 import Menu from './Components/Menu/Menu';
 import NoteList from './Components/Notes/NoteList';
 import CreateNote from './Components/Notes/CreateNote';
+import DisplayNote from './Components/Notes/DisplayNote';
 
 /*
 let dummyData = [{
@@ -39,6 +40,10 @@ class App extends Component {
     .catch(response => {
       console.log(response);
     });
+    this.setState({
+      title: '',
+      textBody: '',
+    })
   }
 
   createNote = () => {
@@ -103,6 +108,9 @@ class App extends Component {
           />
           <Route path='/notes/create'
             render={(props) => <CreateNote {...props} title={this.state.title} textBody={this.state.textBody} updateValue={this.updateValue} createNote={this.createNote} />}
+          />
+          <Route path='/note/:id'
+            render={(props) => <DisplayNote {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>}
           />
         </main>
       </div>
