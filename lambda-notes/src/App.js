@@ -7,6 +7,7 @@ import SideBar from './components/SideBar';
 import ListNotes from './components/listView/ListNotes';
 import CreateNote from './components/newView/CreateNote';
 import Note from './components/noteView/Note'
+import Edit from './components/editView/Edit';
 
 
 class App extends Component {
@@ -48,7 +49,8 @@ class App extends Component {
       <div>
         <Route exact path='/' render={ props => <ListNotes {...props} notes={this.state.notes}/>} />
         <Route path='/create-note' render={ props => <CreateNote {...props} createNote={this.createNote} />} />
-        <Route path='/note/:id' render={props => <Note {...props} notes={this.state.notes} getNotes={this.getNotes} />} />
+        <Route path='/note/:id' render={props => <Note {...props} getNotes={this.getNotes} />} />
+        <Route path='/note/:id/edit' render={props => <Edit {...props}  />} />
       </div>
       
       </div>

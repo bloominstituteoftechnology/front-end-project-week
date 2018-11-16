@@ -26,7 +26,7 @@ export default class Note extends Component {
   deleteNote = () => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.movie._id}`)
-      .then( response => {
+      .then( () => {
         this.props.getNotes()
       })
       .catch( err => console.log(err))
@@ -35,8 +35,8 @@ export default class Note extends Component {
   render() {
     return (
       <div>
-        <h3>Edit</h3>
-       <Link to={'/'}><h3 onClick={this.deleteNote}>Delete</h3></Link>
+        <Link to={`/note/${this.state.movie._id}/edit`}><h3>Edit</h3></Link>
+        <Link to={'/'}><h3 onClick={this.deleteNote}>Delete</h3></Link>
         <h1>{this.state.movie.title}</h1>
         <p>{this.state.movie.textBody}</p>
       </div>

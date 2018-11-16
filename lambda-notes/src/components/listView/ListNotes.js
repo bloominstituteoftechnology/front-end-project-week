@@ -7,8 +7,4 @@ export default function ListNotes(props) {
       {props.notes.map( note => <Preview key={note._id} note={note} />)}
     </div>
   )
-
-  function selectNote() {
-    
-  }
 }
