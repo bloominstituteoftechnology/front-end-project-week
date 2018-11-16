@@ -17,4 +17,8 @@ const NotesList = props => {
   );
 }
 
+NotesList.defaultProps = {
+  Notes: [],
+};
+
 export default NotesList;
