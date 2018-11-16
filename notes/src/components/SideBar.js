@@ -5,7 +5,7 @@ const SideBar = props => (
     <div>
         <h2>Lambda Notes</h2>
         <Link to="/"><button>View Notes</button></Link>
-        <button>+ Create New Note</button>
+        <Link to="/create"><button>+ Create New Note</button></Link>
     </div>
 );
 

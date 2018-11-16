@@ -9,18 +9,20 @@ class EditNote extends Component {
     };
 
     componentDidMount() {
-        let id = this.props.match.params.id;
-        let note = this.props.notes[id]; //pick out note that corresponds to ID in URL
-
-        this.setState({ //set note to state
-            note: note,
-            id: id
-        }, () => { //set initial values for title and text
-            this.setState({
-                newTitle: this.state.note.title,
-                newText: this.state.note.text
+        if (this.props.type === "Edit") {
+            let id = this.props.match.params.id;
+            let note = this.props.notes[id]; //pick out note that corresponds to ID in URL
+    
+            this.setState({ //set note to state
+                note: note,
+                id: id
+            }, () => { //set initial values for title and text
+                this.setState({
+                    newTitle: this.state.note.title,
+                    newText: this.state.note.text
+                });
             });
-        });
+        }
     };
 
     handleChangeValue = event => {
@@ -31,23 +33,22 @@ class EditNote extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-
-        this.props.editNote({
+        this.props.addNote({
             title: this.state.newTitle,
             text: this.state.newText
-        }, this.state.id);
+        }, this.state.id ? this.state.id : "Add");
     };
 
     render() {
         return (
             <div>
-                {this.state.note ? (
+                {this.state.note || this.props.type === "Add" ? (
                     <div>
-                        <h3>Edit Post</h3>
+                        <h3>{this.props.type} Note</h3>
                         <form onSubmit={this.handleSubmit}>
-                            <input onChange={this.handleChangeValue} name="newTitle" type="text" placeholder="Note Title" defaultValue={this.state.note.title}></input>
-                            <textarea onChange={this.handleChangeValue} name="newText" placeholder="Note Text" defaultValue={this.state.note.text}></textarea>
-                            <input type="submit" value="Update"></input>
+                            <input onChange={this.handleChangeValue} name="newTitle" type="text" placeholder="Note Title" defaultValue={this.state.note ? this.state.note.title : ""}></input>
+                            <textarea onChange={this.handleChangeValue} name="newText" placeholder="Note Text" defaultValue={this.state.note ? this.state.note.text : ""}></textarea>
+                            <input type="submit" value={this.props.type === "Edit" ? "Update" : "Add"}></input>
                         </form>
                     </div>
                 ) : "Note note found."}

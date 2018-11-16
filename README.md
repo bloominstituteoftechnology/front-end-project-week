@@ -46,7 +46,7 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 ## MVP Features:
 
 - [X] Display a list of notes
-- [ ] Create a note with a title and content
+- [X] Create a note with a title and content
 - [X] View an existing note
 - [X] Edit an existing note
 - [ ] Delete an existing note

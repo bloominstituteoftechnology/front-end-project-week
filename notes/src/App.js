@@ -31,14 +31,22 @@ class App extends Component {
         ]
     };
 
-    handleEditNote = (note, id) => {
+    handleAddNote = (note, id) => {
         let noteArr = this.state.notes;
 
-        noteArr.splice(id, 1, note);
+        if (id === "Add") {
+            noteArr.push(note);
 
-        this.setState({
-            notes: noteArr
-        });
+            this.setState({
+                notes: noteArr
+            });
+        } else {
+            noteArr.splice(id, 1, note);
+    
+            this.setState({
+                notes: noteArr
+            });
+        }
     };
 
     render() {
@@ -54,7 +62,10 @@ class App extends Component {
                             props => <ViewNote {...props} notes={this.state.notes} />   
                         }/>
                         <Route exact path="/view/:id/edit" render={
-                            props => <EditNote {...props} editNote={this.handleEditNote} notes={this.state.notes} />
+                            props => <EditNote {...props} type="Edit" addNote={this.handleAddNote} notes={this.state.notes} />
+                        } />
+                        <Route exact path="/create" render={
+                            props => <EditNote {...props} type="Add" addNote={this.handleAddNote} notes={this.state.notes} />
                         } />
                     </div>
                 </Router>
