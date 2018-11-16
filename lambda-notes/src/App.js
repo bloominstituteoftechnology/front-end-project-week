@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Notes from "./components/Notes"
+import CreateForm from './components/CreateForm';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <p className="menuButton">+ Create New Note</p>
         </div>
         <div className="mainContent">
+          <CreateForm />
           <Notes />
         </div>
       </div>
