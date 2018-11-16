@@ -3,10 +3,10 @@ import "./App.css";
 import Sidebar from "./containers/Note/Sidebar";
 import { Route } from "react-router-dom";
 import NoteList from "./containers/Note/NoteList";
-import notes from "./data";
+// import notes from "./data";
 import NotePage from "./containers/Note/NotePage";
 import NoteForm from "./containers/Note/NoteForm";
-// import axios from "axios";
+import axios from "axios";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -18,12 +18,28 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    this.setState({ notes: notes });
-    //   axios
-    //     .get("https://fe-notes.herokuapp.com/note/get/all")
-    //     .then(res => this.setState({notes: res.data}))
-    //     .catch(err => console.log(err));
-    //
+    // this.setState({ notes: notes });
+      axios
+        .get("https://fe-notes.herokuapp.com/note/get/all")
+        .then(res => this.setState({notes: res.data}))
+        .catch(err => console.log(err));
+
+  }
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+  addNote = e => {
+    e.preventDefault();
+    const newNote = {
+      title: this.state.title,
+      textBody: this.state.textBody
+    }
+
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", newNote)
+      .then(res => this.setState({ notes: res.data}))
+      .catch(err => console.log(err))
+
   }
   deleteNoteOn = () => {
     this.setState({ delete: true });
@@ -47,7 +63,7 @@ class App extends Component {
         />
         <Route
           path="/create"
-          render={props => <NoteForm {...props} notes={this.state.notes} />}
+          render={props => <NoteForm {...props} notes={this.state.notes} addNote={this.addNote} handleChange={this.handleChange}/>}
         />
       </div>
     );

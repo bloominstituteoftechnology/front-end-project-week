@@ -52,12 +52,11 @@ Button.defaultProps = {
 
 const NotePage = props => {
   if (props.notes.length) {
-    let note = props.notes.find(note => `${note.id}` === props.match.params.id);
+    let note = props.notes.find(note => `${note._id}` === props.match.params.id);
 
     const deleteNote = e => {
       e.preventDefault();
-      props.deleteNote(note.id);
-      props.history.push("/");
+      props.deleteNote(note._id);
     };
     return (
       <div>
@@ -78,7 +77,7 @@ const NotePage = props => {
         )}
         {/* onClick=
         {() => props.editNote(note.title, note.textBody)} */}
-        <Link to={`/note/${note.id}/edit`}>edit</Link> {""}
+        <Link to={`/note/${note._id}/edit`}>edit</Link> {""}
         <button onClick={props.deleteNoteOn}>delete</button>
         <h1>{note.title}</h1>
         <p>{note.textBody}</p>

@@ -10,16 +10,15 @@ const NoteCard = styled.div`
   height: 250px;
   margin: 0px 20px;
   background-color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
   h1 {
     font-size: 24px;
     color: black;
-    cursor:pointer;
+    cursor: pointer;
   }
   p {
     flex: 1;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
     line-height: 30px;
   }
 `;
@@ -28,7 +27,12 @@ const Note = ({ note }) => {
   return (
     <NoteCard>
       <h1>
-        <Link to={`note/${note.id}`} style={{ textDecoration: 'none', color:'black'}}>{note.title}</Link>
+        <Link
+          to={`note/${note._id}`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          {note.title}
+        </Link>
       </h1>
       <hr />
       <p>{note.textBody}</p>
