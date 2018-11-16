@@ -14,20 +14,19 @@ const AppContainer = styled.div`
   justify-content: flex-start;
   max-width: 900px;
   width: 100%;
-  height: 100vh;
   margin: 0 auto;
 `;
 
 const NavContainer = styled.div`
   display: flex;
-  width: 30%;
+  width: 25%;
   background-color: #d3d2d3;
   border: 2px solid #c2c3c2;
 `;
 
 const BodyContainer = styled.div`
   display: flex;
-  width: 70%;
+  width: 75%;
   background-color: #f2f1f2;
   border-top: 2px solid #ececec;
   border-right: 2px solid #ececec;

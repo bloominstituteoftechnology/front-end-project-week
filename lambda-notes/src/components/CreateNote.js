@@ -1,4 +1,42 @@
 import React, {Component} from 'react';
+import styled from 'styled-components';
+
+const CreateNoteContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 0 4%;
+    width: 100%;
+
+    h2{
+        font-size: 2.2rem;
+        margin: 55px 0 25px 0;
+    }
+`;
+
+const CreateNoteForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    font-size: 2.2rem;
+
+    input{
+        width: 60%;
+        height: 40px;
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+        border: 2px solid #c9c8c9;
+        border-radius: 3px;
+        outline-style: none;
+    }
+
+    textarea{
+        height: 300px;
+        padding: 10px 10px;
+        font-size: 2.0rem;
+        border: 2px solid #c9c8c9;
+        border-radius: 3px;
+        outline-style: none;
+    }
+`;
 
 class CreateNote extends Component{
     constructor(props){
@@ -26,14 +64,14 @@ class CreateNote extends Component{
 
     render(){
         return(
-            <div>
+            <CreateNoteContainer>
                 <h2>Create New Note:</h2>
-                <form onSubmit={this.handleSubmit}>
+                <CreateNoteForm onSubmit={this.handleSubmit}>
                     <input type="text" name="name" value={this.state.name} placeholder="Note Title" onChange={this.handleInput}/>
-                    <input type="text" name="text" value={this.state.text} placeholder="Note Content" onChange={this.handleInput}/>
+                    <textarea name="text" value={this.state.text} placeholder="Note Content" onChange={this.handleInput}/>
                     <button type="submit">Save</button>
-                </form>
-            </div>
+                </CreateNoteForm>
+            </CreateNoteContainer>
         )
     }
 }
