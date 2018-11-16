@@ -10,11 +10,11 @@ const initialState = {
 export default (state = initialState, action) => {
     switch(action.type){
         case LOADING:
-        return{...state, loading:true, error:null};
+        return Object.assign({}, state, {loading:true});
         case SUCCESS:
-        return Object.assign({}, state, {notes:action.notes, loading:false, error: ''})
+        return Object.assign({}, state, {notes:[...action.notes], loading:false, error: ''});
         case ERROR:
-        return{...state, loading:false, error:action.errorMessage}
+        return Object.assign({}, state, {error:action.errorMessage, loading:false})
         default:
         return state
     }

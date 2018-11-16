@@ -16,3 +16,20 @@ export const getNotes = () => {
         })
     }
 }
+
+export const createNote = (newNote) =>{
+    return (dispatch) =>{
+        dispatch({type:LOADING})
+        axios.post("https://fe-notes.herokuapp.com/note/create", newNote)
+        .then(response => {
+            dispatch(getNotes())
+        })
+        .catch(err =>{
+            dispatch({type:ERROR, errorMessage:"Cannot Create Note"})
+        })
+    }
+}
+
+export const deleteNote = (id) =>{
+    return
+}

@@ -20,7 +20,7 @@ class NoteList extends Component {
 
                 {this.props.error !== '' ? <h1>{this.props.error}</h1> : null}
 
-                {this.props.notes.map(note => <Note note={note} key={note._id} />)}
+                {this.props.notes.map(note => <Note note={note} key={note._id} />).reverse()}
             </div>
         )
     }

@@ -13,4 +13,8 @@ const Note = props => {
     )
 }
 
-export default connect(()=>{})(Note);
+const mapStateToProps = state =>{
+    return {}
+}
+
+export default connect(mapStateToProps)(Note);
