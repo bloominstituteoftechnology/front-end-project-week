@@ -9,7 +9,7 @@ export const SectionHeading = styled.h2 `
     font-size: 25px;
 `;
 
-export const Button = styled.button `
+export const Button = styled.section `
     background-color: ${buttonColor};
     border: none;
     color: white;

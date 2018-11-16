@@ -4,9 +4,9 @@ import NoteList from './NoteList';
 import NoteContainer from '../Styles/NoteContainer';
 import { SectionHeading } from '../Styles/GeneralStyles';
 
-export default () => (
+export default (props) => (
     <NoteContainer>
         <SectionHeading>Your notes:</SectionHeading>
-        <NoteList />
+        <NoteList notes={props.notes} />
     </NoteContainer>
 );

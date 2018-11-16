@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 class ViewNote extends Component {
     constructor() {
@@ -28,8 +27,4 @@ class ViewNote extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    viewNote: state.viewNote
-});
-
-export default connect(mapStateToProps)(ViewNote);
+export default ViewNote;

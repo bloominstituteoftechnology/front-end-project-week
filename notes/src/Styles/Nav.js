@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { navBackgroundColor } from './variables';
 
-const Nav = styled.section `
+const NavStyle = styled.section `
     display: flex;
     flex-direction: column;
     background-color: ${navBackgroundColor};
@@ -10,4 +10,4 @@ const Nav = styled.section `
     height: 100vh;
 `;
 
-export default Nav;
+export default NavStyle;

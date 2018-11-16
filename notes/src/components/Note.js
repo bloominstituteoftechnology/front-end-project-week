@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import Note from '../Styles/Note';
-//import { viewNote } from '../actions';
-import history from '../history';
 
 class Notes extends Component {
     constructor(props) {
@@ -22,7 +19,6 @@ class Notes extends Component {
     } 
 
     selectNoteToView = () => {
-        //history.push('/view-note');
     }
 
     render() {
@@ -36,6 +32,4 @@ class Notes extends Component {
     }
 }
 
-const mapStateToProps = state => ({});
-
-export default connect(mapStateToProps)(Notes);
+export default Notes
