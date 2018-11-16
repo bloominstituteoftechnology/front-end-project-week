@@ -5,22 +5,29 @@ import Note from './Note';
 import styles from '../css/NotesContainer.css';
 
 class NotesContainer extends React.Component{
-   
+   textBodyCutOff = (string) =>{
+       return (string.length > 120 ? string.slice(0,120) + '...' : string)
+   }
+   titleCutOff = (string) =>{
+       return (string.length > 15 ? string.slice(0,15) + '...' : string)
+   }
   
     render(){
-        //console.log('I am console log',this.props.notes)
+        
         return(
             <div className = 'notes-container'>
-                <h1>Your Notes: </h1>
-                <div>{this.props.notes.map(note =>{
-                    return(
-                        <Note 
-                            key = {note.id}
-                            id = {note.id}
-                            textBody = {note.textBody}
-                            title = {note.title}/>
-                    )
-                })}</div>
+                <div className = 'notes-sub-container'>
+                    <h1 className = 'notes-container-header'>Your Notes: </h1>
+                    <div className ='thing'>{this.props.notes.map(note =>{
+                        return(
+                            <Note 
+                                key = {note._id}
+                                id = {note._id}
+                                textBody = {this.textBodyCutOff(note.textBody)}
+                                title = {this.titleCutOff(note.title)}/>
+                        )
+                    })}</div>
+                </div>    
             </div>
         )
     }

@@ -1,0 +1,31 @@
+.expanded-note-container{
+    width:78%;
+    background-color: #F2F1F2;
+    border: 2px solid #B7B7B7;
+    border-left:none;
+    height:1000px;
+    
+   
+}
+.edit-container{
+    width:20%;
+    display:flex;
+    float: right;
+    justify-content: space-around;
+    margin:20px;
+}
+.expanded-note-body{
+   
+    width:94%;
+    margin: 90px auto;
+    
+}
+.expanded-note-header{
+    color: #4A4948;
+    margin-left:10px;
+    margin-bottom:25px;
+
+}
+.expanded-note-text{
+    line-height:2;
+}

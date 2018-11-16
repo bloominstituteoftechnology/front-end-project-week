@@ -1,14 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import styles from '../css/Note.css';
+
 const Note = (props) =>{   
     
         return(
             <div className = 'note-container'>
-                <Link  to={`/notes/${props.id}`}>
-                    <h2>{props.title}</h2>
+                <Link  className = 'link' to= {`/notes/${props.id}`}>
+                    <h2 className = 'note-header'>{props.title}</h2>
                 </Link>  
-                <p>{props.textBody}</p>
+                <p className = 'note-text'>{props.textBody}</p>
             </div>
         )
     

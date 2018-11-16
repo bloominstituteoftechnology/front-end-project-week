@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import styles from '../css/NewNoteForm.css';
+
 class NewNoteForm extends React.Component{
     constructor(){
         super()

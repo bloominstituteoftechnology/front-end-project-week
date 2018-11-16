@@ -1,30 +1,47 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import axios from 'axios';
+
 class EditNoteForm extends React.Component{
     constructor(){
         super()
         this.state = {
-            title: '',
-            textBody : '',
+          title : '',
+          textBody : '',
         }
-    }
-    componentDidMount(){
-        this.setState({
-            title: this.props.notes.title,
-            textBody : this.props.notes.textBody,
-        })
     }
     inputHandler = (event) =>{
         this.setState({[event.target.name] : event.target.value})
     }
+    fetchNote = id => {
+        axios
+        .get(`https://fe-notes.herokuapp.com/note/edit/${id}`)
+        .then(response => {
+            this.setState(() => ({ 
+                title : response.data.title,
+                textBody : response.data.textBody,
+             }))
+        })
+        .catch(err => {
+            console.error('Trouble fetching data',err)
+        })
+    }
+
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        this.fetchNote(id);
+        
+    }
     submitHandler = (event) =>{
         event.preventDefault()
-        this.props.editNote(this.state)
+        const id = this.props.match.params.id;
+        this.props.updateNote(id, this.state)
         this.setState({
-            title: '',
+            title : '',
             textBody : '',
         })
+       
     }
     render(){
         return(
