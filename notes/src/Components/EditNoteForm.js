@@ -1,17 +1,18 @@
-/*Create Note Form
-  Takes in user input and post the input to the notes list
+/*Edit Note Form
+  Takes in user input and edits the note they previously clicked on
 */
 import React from "react";
 import axios from "axios"
 import {DisplayHeader, InputHeader, InputBody, Button} from "../Styles/Styles"
 
-class CreateNote extends React.Component {
+class EditNote extends React.Component {
   constructor(props){
-    super(props)
-    this.state = {
-        title: "",
-        textBody: "",
-    }
+      super(props)
+      this.state = {
+         
+         title: "",
+         textBody: "",
+      }
   }
 
   inputHandler = (e) => {
@@ -20,15 +21,16 @@ class CreateNote extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault()
-    axios.post(`https://fe-notes.herokuapp.com/note/create`, this.state)
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, this.state)
       .then(response => {this.setState({title: "", textBody: ""})})
       .catch(err => {console.log(err)})
   }
 
   render(){
+     console.log(this.props)
     return (
         <>
-          <DisplayHeader>Create New Note</DisplayHeader>
+          <DisplayHeader>Edit Note</DisplayHeader>
           <form onSubmit={this.submitHandler}>
               <InputHeader 
                 name="title"
@@ -42,11 +44,11 @@ class CreateNote extends React.Component {
                 value={this.state.textBody}
                 onChange= {this.inputHandler}
               />
-              <Button type="submit">Save</Button>
+              <Button type="submit">Update</Button>
           </form>
         </>
     )
   }
 }
 
-export default CreateNote
+export default EditNote

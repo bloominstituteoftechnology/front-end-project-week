@@ -35,14 +35,6 @@ export const DisplayContainer = styled.div`
    width: 79%;
 `
 
-export const TestContainer = styled.div`
-   // display: flex;
-   // flex-direction: column
-   // border: solid red;
-   // width: 100%
-   
-`
-
 export const DisplayHeader = styled.h2`
    width: 93%;
 `
@@ -77,7 +69,7 @@ export const InputHeader = styled.input `
    padding: 5px 0px;
 `
 
-export const InputBody = styled.input `
+export const InputBody = styled.textarea `
    background-color: white;
    color: black;
    vertical-align: top;

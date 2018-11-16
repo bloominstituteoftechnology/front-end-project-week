@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import {Link} from "react-router-dom";
 
 class NoteView extends React.Component {
    constructor(props){
@@ -24,16 +25,20 @@ class NoteView extends React.Component {
          .then(response => {this.setState({note: response.data})})
          .catch(err => console.log(err))
    }
+
    render(){
-      console.log(this.state.note)
       return(
          <>
             <div>
-               <span>edit</span>
-               <span>delete</span>
+               <Link to={`/edit/${this.state.note._id}`} >
+                  <span>edit</span>
+               </Link>
+                  <span>delete</span>
             </div>
-            <h2>{this.state.note.title}</h2>
-            <p>{this.state.note.textBody}</p>
+            <div>
+               <h2>{this.state.note.title}</h2>
+               <p>{this.state.note.textBody}</p>
+            </div>
          </>
       )
    }

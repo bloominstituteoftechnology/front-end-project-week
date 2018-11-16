@@ -4,7 +4,7 @@
 import React from "react";
 import axios from "axios"
 import Note from "./Note";
-import {TestContainer, DisplayHeader} from "../Styles/Styles"
+import {DisplayHeader} from "../Styles/Styles"
 
 class NoteList extends React.Component {
    constructor(){
