@@ -1,0 +1,25 @@
+{
+  "name": "Lambda-Notes_GlennDavid-Daniel",
+  "version": "0.1.0",
+  "description": "LambdaSchool CSPT2 Front-End Project Week project by D2rd",
+  "keywords": [],
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/d2rd/front-end-project-week_Lambda-Notes_cspt2.git"
+    },
+  "developer": "Glenn-David Daniel <d2rd@outlook.com>",
+  "homepage": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  }
+}
