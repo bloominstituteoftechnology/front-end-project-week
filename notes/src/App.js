@@ -7,7 +7,9 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Signin from "./components/auth/Signin";
 import Signup from "./components/auth/Signup";
 import CreateNote from "./components/notes/CreateNote";
-import NoteDetails from "./components/notes/NoteDetails";
+
+import NoteList from "./components/notes/NoteList";
+import Note from "./components/notes/Note";
 
 class App extends Component {
   constructor(props) {
@@ -19,8 +21,10 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Dashboard} />
-          <Route path="/notes/" component={NoteCard} />
-          <Route path="/note/:id" component={NoteDetails} />
+          <Route path="/notes/" component={NoteList} />
+          <Route path="/note/:id" render={(props) => {
+              return(<Note {...props}/>)}}
+          />
           <Route path="/login" component={Signin} />
           <Route path="/signup" component={Signup} />
           <Route path="/create" component={CreateNote} />

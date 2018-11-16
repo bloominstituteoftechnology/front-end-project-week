@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Note from "./Note";
+import NoteCard from "./NoteCard";
 import axios from 'axios';
 
 class NoteList extends Component {
@@ -11,7 +11,7 @@ class NoteList extends Component {
   }
   componentDidMount() {
     axios.get("https://fe-notes.herokuapp.com/note/get/all")
-      .then(response => {console.log(response)
+      .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
       .catch(error => {
@@ -20,9 +20,15 @@ class NoteList extends Component {
   }
   render() {
     return (
-      <div className="note-list-container">
-        <Note notes={this.state.notes} />
-      </div>
+      <div className="notelist">
+      <h2>Your Notes:</h2>
+      {this.state.notes.length < 1 ? <h3>There are no notes!</h3> : this.state.notes.map(note => 
+         <NoteCard 
+            key={note._id}
+            note={note}
+         />)
+      }
+   </div>
     );
   }
 }
