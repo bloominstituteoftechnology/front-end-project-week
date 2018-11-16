@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class ViewNote extends Component {
     constructor(props) {
@@ -11,8 +12,8 @@ class ViewNote extends Component {
     render() {
         return (
             <div>
+                <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
                 {this.props.notes.map(note => {
-                    console.log(note);
                     if (this.props.match.params.id === note._id) {
                         return (
                             <div key={note._id}>
