@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
 
 class ViewNote extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            title: this.props.viewNote.title,
-            body: this.props.viewNote.body
+            modal: false
         }
     }
 
-    componentWillMount() {
-        this.setState({
-            title: this.props.viewNote.title,
-            body: this.props.viewNote.body
-        });
-    }
-
     render() {
-        console.log(this.state)
         return (
-            <>
-                <h2>{this.state.title}</h2>
-                <p>{this.state.body}</p>
-            </>
-        )
+            <div>
+                {this.props.notes.map(note => {
+                    console.log(note);
+                    if (this.props.match.params.id === note._id) {
+                        return (
+                            <div key={note._id}>
+                                <p>{note.title}</p>
+                                <p>{note.textBody}</p>
+                            </div>
+                        );
+                    }
+                })} 
+            </div>
+        );
     }
 }
 
