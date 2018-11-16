@@ -32,7 +32,7 @@ getNotes=()=>{
 createNote=(note)=>{
   axios
     .post("https://fe-notes.herokuapp.com/note/create",note)
-    .then(response => this.getNotes)
+    .then(() => this.getNotes)
     .catch(err => console.log(err))
   }
   render() {
