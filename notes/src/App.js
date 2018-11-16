@@ -6,7 +6,7 @@ import axios from 'axios'
 import CreateNote from './components/CreateNote'
 import {Route} from 'react-router-dom'
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -32,7 +32,8 @@ getNotes=()=>{
 createNote=(note)=>{
   axios
     .post("https://fe-notes.herokuapp.com/note/create",note)
-    .then(() => this.getNotes)
+    .then(() => (this.getNotes()))
+    .then(() => this.props.history.push('/'))
     .catch(err => console.log(err))
   }
   render() {

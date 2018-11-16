@@ -7,7 +7,7 @@ function Sidebar(props) {
 
   return (
     <div className='noteContainer'>
-      <NavLink to="/notes"><Button color="info" size='lg'>View Your Notes</Button></NavLink>
+      <NavLink to="/"><Button color="info" size='lg'>View Your Notes</Button></NavLink>
       <NavLink to="/create"><Button color="info" size='lg'>+Create Note</Button></NavLink>
    </div>
   )
