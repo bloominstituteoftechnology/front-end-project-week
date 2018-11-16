@@ -34,7 +34,6 @@ class App extends Component {
       ],
       newId: this.state.newId + 1
     })
-     
   }
 
   render() {

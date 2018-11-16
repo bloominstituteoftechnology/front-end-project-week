@@ -20,8 +20,12 @@ export default class NoteView extends React.Component{
     }
 
     render() {
-    return(
+      return(
         <div>
+          <div className='noteView-menu'>
+            <h6>edit</h6>
+            <h6>delete</h6> 
+          </div> 
           <h3>{this.state.note.title}</h3> 
           <div className="note-textBody"> 
             <h5>{this.state.note.textBody}</h5> 

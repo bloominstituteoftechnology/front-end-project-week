@@ -3,3 +3,22 @@
     margin-left: 23px; 
     font-size: 18px; 
 }
+
+.noteView-menu{
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: flex-end; 
+  height: 12px; 
+}
+
+h6{
+ margin-right: 15px;
+ font-size: 14px; 
+ color: black; 
+ text-decoration: underline; 
+ margin-top: 15px; 
+}
+
+h6:last-child{
+    margin-right: 30px; 
+}
