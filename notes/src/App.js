@@ -7,6 +7,7 @@ import CreateNote from "./Components/CreateNoteForm"
 import NoteView from "./Views/NoteView"
 import EditNote from "./Components/EditNoteForm"
 import {AppContainer, DisplayContainer} from "./Styles/Styles"
+import DeleteConfirmation from './Components/DeleteConfirmation';
 
 class App extends Component {
   render() {
@@ -23,6 +24,9 @@ class App extends Component {
             return(<EditNote {...props}/>)}}
           />
         </DisplayContainer>
+        <Route path="/note/:id/delete" render={(props) => {
+            return(<NoteView {...props}/>, <DeleteConfirmation {...props}/>)}}
+          />
       </AppContainer>
     );
   }
