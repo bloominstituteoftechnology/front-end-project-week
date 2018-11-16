@@ -7,11 +7,10 @@ body {
     flex-direction: row;
     text-align: center;
     width: 100%;
-    /*  border: 4px solid pink;    */
     background-color: rgb(192, 192, 192);
 }
 
-.noteContainer {
+/* .noteContainer {
     width: 700px;
     display: flex;
     justify-content: center;
@@ -25,9 +24,9 @@ body {
 
 .noteContainer:hover {
     background-color: slategray;
-}
+} */
 
-.inputButton {
+/* .inputButton {
     background-color: blue;
     color: white;
     border-radius: 15px;
@@ -37,9 +36,9 @@ body {
 
 .inputButton:hover {
     background-color: rgba(109, 220, 240, 0.534);
-}
+} */
 
-.inputField {
+/* .inputField {
     border: 1px solid gray;
     width: 200px;
     height: auto;
@@ -62,29 +61,20 @@ body {
 
 .clearButton:hover {
     background-color: rgba(109, 220, 240, 0.534);
-}
+} */
 
 li {
     font-size: 16px;
 }
 
-/* h1 {
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    font-size: 40px;
-    font-family: fantasy;
-    color: slategray;
-} */
-
-.h1Container {
-    /* border: 1px solid white; */
+/* .h1Container {
+   
     width: 700px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
-}
+} */
 
 .ul {
     color: white;
@@ -97,7 +87,6 @@ li {
     font-size: 18px;
     background-color: rgb(216, 216, 216);
     height: 2000px;
-    /*  position: absolute; */
     top: 0px;
     border: 2px solid rgb(151, 151, 151);
 }
@@ -109,12 +98,9 @@ li {
     line-height: 30px;
     padding-top: 47px;
     padding-left: 0px;
-    /* padding-top: 10px; */
     display: flex;
     flex-direction: column;
     height: auto;
-    /*  animation: move-it 2s 1; */
-    /*    border: 2px solid gray;  */
 }
 
 .nav-title {
@@ -126,11 +112,9 @@ li {
     padding-top: 30px;
     line-height: 42px;
     width: 313px;
-    /* border: 2px solid blue; */
 }
 
 .nav-left-item {
-    /*  margin-left: 5px; */
     color: white;
     cursor: pointer;
     display: inline-block;
@@ -138,20 +122,12 @@ li {
     font-size: 16px;
     left: 0px;
     top: 0px;
-    /*  border: 1px solid red; */
-    /*  animation: move-it 2s linear 0s 10; */
-}
-
-.nav-left-item:hover {
-    /*  background-color: black; */
-    /*   animation: move-it 1s linear 0s 10; */
-}
+    }
 
 .nav-button {
     color: white;
     font-size: 26px;
     background-color: rgb(43, 193, 196);
-    /* padding-bottom: 6px; */
     padding-left: 10px;
     padding-right: 10px;
     font-weight: bold;
@@ -162,106 +138,15 @@ li {
 }
 
 .nav-button:hover {
-    /*  background-color: black; */
     color: rgb(8, 89, 143);
 }
 
 .nav-left-icon-1 {
-    /* background-image: url('./Graphics/fish16.png'); */
     background-repeat: no-repeat;
     width: 120px;
     height: 24px;
     margin-left: auto;
     margin-right: auto;
-    /* border: 1px solid black;  */
-    /* animation: move-it; */
-}
-
-.nav-left-icon-1:hover {
-    /*  background-image: url('./Graphics/fish15.png'); */
-}
-
-#icon2 {
-    /* background-image: url('./Graphics/fish22.png'); */
-}
-
-/* view catches */
-
-#icon3 {
-    /*   background-image: url('./Graphics/fish11.png'); */
-}
-
-/* enter catch info */
-
-#icon4 {
-    /*    background-image: url('./Graphics/fish7.png'); */
-    width: 120px;
-}
-
-/* save changes */
-
-#icon5 {
-    /*  background-image: url('./Graphics/fish24.png'); */
-    width: 140px;
-}
-
-/* clear fields */
-
-#icon6 {
-    /*  background-image: url('./Graphics/fish14.png'); */
-}
-
-/* cancal changes */
-
-#icon7 {
-    /*  background-image: url('./Graphics/fish9.png'); */
-    width: 120px;
-}
-
-/* print */
-
-#icon8 {
-    /*  background-image: url('./Graphics/fish7.png'); */
-    width: 120px;
-}
-
-/* logout */
-
-#icon9 {
-    /*   background-image: url('./Graphics/fish13.png'); */
-    width: 140px;
-}
-
-#icon2:hover {
-    /*   background-image: url('./Graphics/fish23.png'); */
-}
-
-#icon3:hover {
-    /*   background-image: url('./Graphics/fish12.png'); */
-}
-
-#icon4:hover {
-    /*  background-image: url('./Graphics/fish8.png'); */
-}
-
-#icon5:hover {
-    /*    background-image: url('./Graphics/fish25.png'); */
-}
-
-#icon6:hover {
-    /*  background-image: url('./Graphics/fish13.png'); */
-}
-
-#icon7:hover {
-    /*   background-image: url('./Graphics/fish10.png'); */
-}
-
-#icon8:hover {
-    /*  background-image: url('./Graphics/fish8.png'); */
-}
-
-#icon9:hover {
-    /*  background-image: url('./Graphics/fish10.png'); */
 }
 
 .main-container {
@@ -269,15 +154,12 @@ li {
     flex-direction: row;
     width: 100%;
     justify-content: center;
-    /*  height: 100%; */
-    /*  border: 2px solid white;    */
 }
 
 .main-display {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    /* position: relative; */
     max-width: 100%;
     width: 1024px;
     color: white;
@@ -319,7 +201,9 @@ li {
 }
 
 .save-button,
-.update-button {
+.update-button,
+.delete2-button,
+.cancel-button {
     margin-top: 23px;
     width: 294px;
     height: 67px;
@@ -331,8 +215,23 @@ li {
 }
 
 .save-button:hover,
-.update-button:hover {
+.update-button:hover,
+.delete2-button:hover,
+.cancel-button:hover  {
     color: rgb(8, 89, 143);
+}
+
+.cancel-button {
+margin-left: 20px;
+}
+
+.delete2-button {
+    background-color: red;
+}
+
+.modal-form {
+width: auto;
+height: auto;
 }
 
 .note-card {
@@ -345,7 +244,6 @@ li {
 }
 
 .note {
-   /*  border: 2px solid red; */
     height: 238px;
     width: 236px;
     margin-left:29px;
@@ -361,6 +259,8 @@ li {
     line-height: 20px;
     padding-top: 14px;
     font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
     font-size: 24px;
     border-bottom-color: rgb(151, 151, 151);
 }
@@ -370,6 +270,8 @@ li {
     padding-top: 10px;
     font-size: 22px;
     line-height: 32px;
+    overflow: hidden;
+    height: 200px;
 
 }
 
@@ -379,7 +281,6 @@ li {
     flex-wrap: wrap;
     width: 938px;
     margin-left: 43px;
-   /*  border: 2px solid green; */
 }
 
 .list-title {
@@ -390,16 +291,14 @@ li {
     color: rgb(74, 74, 74);
     font-size: 30px;
     font-weight: bold;
-    /* border: 2px solid blue; */
 }
 
 .list-container {
-    /* border: 2px solid orange; */
     margin-top: 48px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .id-id {
@@ -407,26 +306,57 @@ li {
 }
 
 .note-view {
-   border: 2px solid blue;
+   width: 933px;
+   margin-left: 42px;
+   height: 600px;
+   color: black;
 }
 
+.note-view-container {
+    display: flex;
+    flex-direction: row;
+}
 .spacer {
-   border: 2px solid green; 
+   width: 856px;
+   height: 60px;
 }
 
 .edit-button {
-   border: 2px solid red; 
+    border: 0px solid red;  
+   width: 70px;
+   margin-right: 10px;
+   background-color: rgb(243, 243, 243);
+   color: black;
+   margin-top: 30px;
+   font-weight: 500;
+   font-size: 20px;
+   text-decoration-line: underline;
 }
 
 .delete-button {
-   border: 2px solid orange; 
+   border: 0px solid orange;
+   margin-right: 10px;
+   margin-top: 30px;
+   width: 70px;
+   font-size: 20px; 
+   font-weight: 500;
+   background-color: rgb(243, 243, 243);
+   text-decoration-line: underline;
+   color: black;
 
 }
 
 .note-name {
-   border: 2px solid pink; 
+   color: black;
+   font-weight: bold;
+   color: rgb(74, 74, 74);
+   font-size: 34px;
+   height: 60px;
 }
 
 .note-body {
-   border: 2px solid gray; 
+   height: 80px;
+   font-size: 28px;
+   height: auto;
+   color: rgb(74, 74, 74);
 }
