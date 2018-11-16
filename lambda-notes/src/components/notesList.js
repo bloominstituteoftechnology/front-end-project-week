@@ -16,7 +16,6 @@ class NotesList extends React.Component{
         axios
             .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(response =>{
-                console.log(response) 
                 this.setState({notes: response.data})})
                 .catch(err => console.log(err))
     }
