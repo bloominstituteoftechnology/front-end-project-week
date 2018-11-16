@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
     case FETCHING:
       return Object.assign({}, state, {fetching: true});
     case SUCCESS:
-      return Object.assign({}, state, {notes: action.payload});
+      return Object.assign({}, state, {notes: action.payload, fetching: false, error: false});
     case ERROR:
       return Object.assign({}, state, {error: action.payload});
     default:

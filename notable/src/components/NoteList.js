@@ -27,18 +27,22 @@ class NoteList extends React.Component {
     return (
       <ListDiv>
         <h1>Your Notes:</h1>
-        <CardDiv>
-          {this.props.notes.map(item => {
-            return <NoteCard key={item._id} note={item} />;
-          })}
-        </CardDiv>
+        {this.props.fetching ? (
+          <h1>Please Wait</h1>
+        ) : (
+          <CardDiv>
+            {this.props.notes.map(item => {
+              return <NoteCard key={item._id} note={item} />;
+            })}
+          </CardDiv>
+        )}
       </ListDiv>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { notes: state.notes };
+  return { notes: state.notes, fetching: state.fetching };
 };
 
 export default connect(
