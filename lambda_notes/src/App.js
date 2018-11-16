@@ -4,6 +4,8 @@ import "./App.css";
 import { Route, NavLink } from "react-router-dom";
 import NoteList from "./components/notelist";
 import CreateNote from "./components/createnote";
+import NoteView from "./components/noteview";
+import EditNote from "./components/editnote";
 
 class App extends Component {
   constructor() {
@@ -43,17 +45,33 @@ class App extends Component {
             </NavLink>
           </div>
         </div>
-        <Route
-          path="/"
-          exact
-          render={props => <NoteList {...props} notes={this.state.notes} />}
-        />
-        <Route
-          path="/create"
-          render={props => (
-            <CreateNote {...props} createNewNote={this.createNewNote} />
-          )}
-        />
+        <div className="display">
+          <Route
+            path="/"
+            exact
+            render={props => <NoteList {...props} notes={this.state.notes} />}
+          />
+          <Route
+            path="/create"
+            render={props => (
+              <CreateNote {...props} createNewNote={this.createNewNote} />
+            )}
+          />
+          <Route
+            path="/viewnote/:id"
+            render={props => <NoteView {...props} notes={this.state.notes} />}
+          />
+          <Route
+            path="/edit/:id"
+            render={props => (
+              <EditNote
+                {...props}
+                notes={this.state.notes}
+                getNotes={this.getNotes}
+              />
+            )}
+          />
+        </div>
       </div>
     );
   }

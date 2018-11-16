@@ -1,8 +1,18 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 class NoteList extends Component {
   constructor(props) {
     super(props);
+  }
+
+  truncateString(str, num) {
+    // checking str.length instead of str here
+    return str.length >= 75 || num <= 75
+      ? str.slice(0, num) + "..."
+      : str.length <= num
+      ? str
+      : str.slice(0, num) + "...";
   }
   render() {
     return (
@@ -16,10 +26,16 @@ class NoteList extends Component {
                   <div className="note">
                     <h1 className="notetitle">{note.title}</h1>
                     <div className="notetext">
-                      <p>{note.textBody}</p>
+                      <p>{this.truncateString(note.textBody, 76)}</p>
                     </div>
                   </div>
-                  <button>View full note</button>
+                  <NavLink
+                    className="viewnotebutton"
+                    to={`/viewnote/${note._id}`}
+                    key={note._id}
+                  >
+                    View full note
+                  </NavLink>
                 </div>
               </>
             );

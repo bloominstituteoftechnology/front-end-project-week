@@ -35,7 +35,7 @@ class CreateNote extends Component {
   render() {
     return (
       <div>
-        <h1>Create New Note:</h1>
+        <h1 className="header">Create New Note:</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             required
@@ -45,6 +45,7 @@ class CreateNote extends Component {
             onChange={this.handleInput}
           />
           <input
+            className="text"
             required
             placeholder="Note Text"
             name="body"
