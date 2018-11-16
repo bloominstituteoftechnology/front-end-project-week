@@ -10,7 +10,7 @@ const NoteList = props => {
           return (
             <Note
               textBody={note.textBody}
-              clickHandler={props.clickHandler}
+              noteClickHandler={props.noteClickHandler}
               id={note._id}
               key={note._id}
               title={note.title}

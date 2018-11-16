@@ -15,13 +15,18 @@ class App extends Component {
     };
   }
 
-  clickHandler = id => {
+  noteClickHandler = id => {
     this.setState({
       id: id
     });
     console.log(this.state.id);
   };
 
+  viewAllClickHandler = () => {
+    this.setState({
+      id: "all"
+    });
+  };
   componentDidMount() {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
@@ -35,15 +40,18 @@ class App extends Component {
     if (this.state.id !== "all") {
       return (
         <div className="App">
-          <Nav />
+          <Nav viewAllClickHandler={this.viewAllClickHandler} />
           <SingleNote id={this.state.id} notes={this.state.notes} />
         </div>
       );
     } else {
       return (
         <div className="App">
-          <Nav />
-          <NoteList notes={this.state.notes} clickHandler={this.clickHandler} />
+          <Nav viewAllClickHandler={this.viewAllClickHandler} />
+          <NoteList
+            notes={this.state.notes}
+            noteClickHandler={this.noteClickHandler}
+          />
         </div>
       );
     }

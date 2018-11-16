@@ -28,6 +28,7 @@ body {
     background-color: aquamarine;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .note {
@@ -38,6 +39,7 @@ body {
     background-color: white;
     margin-bottom: 30px;
     height: 300px;
+    cursor: pointer;
 }
 
 .note-list {
@@ -61,4 +63,26 @@ body {
     color: grey;
     border-bottom: 1px solid grey;
     padding-bottom: 10px;
+}
+
+.single-note {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px 20px;
+}
+
+.single-note .note-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.edit-buttons {
+    display: flex;
+}
+
+.edit-buttons p {
+    margin-right: 10px;
+    cursor: pointer;
 }
