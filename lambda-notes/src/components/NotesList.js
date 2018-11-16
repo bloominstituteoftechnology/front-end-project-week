@@ -27,8 +27,17 @@ const StyledLink = styled(Link)`
     }
 `
 
+const InputContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
 const StyledInput = styled.input`
-margin: 0 auto;
+    height: 20px;
+    border-radius: 5px;
+    border: solid 1px lightgray;
+    padding-left: 3px;
+    outline: none;
 `
 
 class NotesList extends Component   {
@@ -48,7 +57,7 @@ class NotesList extends Component   {
     onInputChange = ({ target })  =>  {
         this.setState((state)   =>  ({
             notes: this.props.notes.filter((note)   =>  {
-                return note.title.includes(target.value) || note.textBody.includes(target.value)
+                return note.title.toLowerCase().includes(target.value.toLowerCase()) || note.textBody.toLowerCase().includes(target.value.toLowerCase())
             }),
             inputValue: target.value
         }))
@@ -60,7 +69,9 @@ class NotesList extends Component   {
                 <ViewTitle>
                     Your Notes:
                 </ViewTitle>
-                <StyledInput onChange={this.onInputChange} placeholder={"Search..."} value={this.state.inputValue}></StyledInput>
+                <InputContainer>
+                    <StyledInput onChange={this.onInputChange} placeholder={"Search..."} value={this.state.inputValue}></StyledInput>
+                </InputContainer>
                 <NotesView>
                     {this.state.notes.map((note, index)  =>  {
                         return <StyledLink to={`/note/${note["_id"]}`} data={note} key={index}><Note key={index} note={note}/></StyledLink>
