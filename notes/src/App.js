@@ -31,19 +31,27 @@ class App extends Component {
     axios.post("https://fe-notes.herokuapp.com/note/create", {
       title: this.state.title,
       textBody: this.state.textBody
-    });
+    })
+    .then(res => this.getNote()
+    )
     this.setState({ title: "", textBody: "" });
   };
 
+  getNote = () => {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(res => this.setState({ notes: res.data }))
+      .catch(err => console.log(err));
+  };
   deleteNote = id => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(res =>
         // console.log(res)
-      this.setState({ notes: res.data})
-    )
+        // this.setState({ notes: res.data })
+        this.getNote()
+      )
       .catch(err => console.log(err));
-    this.setState({})
   };
   deleteNoteOn = () => {
     this.setState({ delete: true });

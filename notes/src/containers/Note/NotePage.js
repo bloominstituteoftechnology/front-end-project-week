@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 
@@ -49,6 +49,14 @@ Button.defaultProps = {
   }
 };
 
+const NvLinks = styled.div`
+display: flex;
+border: 1px solid red;
+justify-content: flex-end;
+align-items: flex-end;
+
+`
+
 const NotePage = props => {
   if (props.notes.length) {
     let note = props.notes.find(
@@ -62,6 +70,10 @@ const NotePage = props => {
     };
     return (
       <div key={note._id}>
+        <NvLinks>
+          <Link to={`/note/${note._id}/edit`}>edit</Link> {""}
+          <button onClick={props.deleteNoteOn}>delete</button>
+        </NvLinks>
         {props.delete && (
           <Modal>
             <Container>
@@ -79,8 +91,7 @@ const NotePage = props => {
         )}
         {/* onClick=
         {() => props.editNote(note.title, note.textBody)} */}
-        <Link to={`/note/${note._id}/edit`}>edit</Link> {""}
-        <button onClick={props.deleteNoteOn}>delete</button>
+
         <h1>{note.title}</h1>
         <p>{note.textBody}</p>
       </div>
