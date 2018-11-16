@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import { instance } from './utils.js';
 
 import './App.css';
@@ -35,7 +36,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NotesList notes={this.state.notes} />
+        <Route
+          exact
+          path='/'
+          render={props => (
+            <NotesList notes={this.state.notes} />
+          )} />
+        {/* <NotesList notes={this.state.notes} /> */}
       </div>
     );
   }
