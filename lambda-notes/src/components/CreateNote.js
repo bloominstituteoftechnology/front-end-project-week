@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import '../index.css';
 
 class CreateNote extends Component {
   constructor(props) {
@@ -13,10 +14,12 @@ class CreateNote extends Component {
 
   createNote = event => {
     event.preventDefault();
+    this.props.addnote(this.state)
     this.setState({
       title: '',
       textBody: '',
     });
+    event.target.reset()
   }
 
   handleInputChange = e => {
@@ -25,16 +28,25 @@ class CreateNote extends Component {
 
   render() {
     return (
-      <div className="CreateNote">
-            <form onSubmit={this.addNote}>
-          <input
+      <div className="modifynote container">
+        <h2>Create New Note:</h2>
+        <form onSubmit={this.createNote}>
+          <input input className="input"
             onChange={this.handleInputChange}
-            placeholder="title"
+            placeholder="Note Title"
             name="title"
           />
-        <textarea name="textBody"></textarea>
+          <textarea
+            className="textarea"
+            name="textBody"
+            onChange={this.handleInputChange}
+            placeholder="Note Content"
+
+          >
+          </textarea><br/>
+          <button className="link"  type="submit">Save</button>
         </form>
-            </div>
+      </div>
     );
   }
 }

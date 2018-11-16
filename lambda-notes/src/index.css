@@ -46,30 +46,139 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+html{
+	font-size:62.5%;
+}
 .app{
 	max-width: 900px;
 	display: flex;
+	
 }
 .sidebar-links{
-	width:30%;
+	width:25%;
 	background-color:#D2D2D2;
 	border:1px solid gray;
+	display: flex;
+	flex-direction: column;
+	
+	
 }
 .content{
-	width:69%;
+	width:74%;
 	background-color: #F1F1F1;
 	border:1px solid gray;
 }
 .link{
 	background-color:#25BBBD;
 	color:white;
+	font-size:1.6rem;
 	text-decoration: none;
+	padding: 10px;
+	margin:0px auto;
+	margin-top:20px;
+	border:1px solid gray;
+	width:180px;
+	text-align: center;
 }
 .notelink{
 	color:black;
 	text-decoration: none;
 }
 h1{
+font-size:3.6rem;
+margin-left:10px;
+margin-top:10px;
+font-weight: bold;
+}
+h2{
+font-size:2.4rem;
+}
 
+.noteheadline{
+	padding-bottom:5px;
+}
+.modifynote{
+	display: flex;
+	flex-direction: column;
+	height:100vh;
+}
+.input{
+	width:50%;
+	margin-top:30px;
+	margin-bottom:15px;
+	height:25px;
+	border-radius: 5px;
+}
+.textarea{
+	max-width:99%;
+	width:99%;
+	border-radius: 5px;
+	height:300px;
+	margin-bottom: -10px
+}
+.notes{
+	width:100%;
+	justify-content: space-between;
+	display:flex;
+	flex-wrap: wrap;	
+	margin-top:15px;
+}
+.container{
+	margin:0px 25px;
+	margin-top:50px;
+	
+}
+.notePreview{
+	border:1px solid gray ;
+	width:26%;
+	height:200px;
+	padding-left: 15px;
+	padding-right:15px;
+	margin-top: 10px;
+	margin-bottom:10px;
+	font-size:1.8rem;	
+	background-color: white;
+    	
+	}
+	.note{
+	
+	}
+.notelist-note{
+	line-height: 1.6;
+	font-size:1.4rem
+
+}
+.heading{
+	
+	border-bottom: 1px solid gray;
+	margin-bottom: 10px;
+	padding-bottom:10px;
+	font-size:1.8rem;
+	font-weight: bold;
+}
+.navbar{
+	text-align: end;
+	margin-bottom:10px;
+}
+.edit-delete{
+	text-decoration: underline;
+	color: black;
+	font-size:1.4rem;
+	cursor: pointer;
+}
+span{
+	padding-left:10px;
+}
+.notecard{
+	margin-top:15px;
+	height:100vh;
+}
+h3{
+	font-size:2.4rem;
+	margin-top:20px;
+}
+.notepara{
+	line-height: 1.6;
+	font-size:1.4rem;
+	margin-top:15px;
 }

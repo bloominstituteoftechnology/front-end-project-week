@@ -1,10 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import '../index.css';
 const Note = props => {
+  console.log(props)
   return (
     <NavLink className="notelink" to={`/notes/${props.id}`}>
-      <div className="note">
-        <h3>{props.title}</h3>
+      <div className="notelist-note">
+        <h3 className="heading">{props.title}</h3>
         <p>{props.text}</p>
       </div>
     </NavLink>

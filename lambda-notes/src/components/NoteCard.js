@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { NavLink } from 'react-router-dom'
 class NoteCard extends Component {
     constructor(props) {
         super(props);
@@ -26,15 +26,20 @@ class NoteCard extends Component {
 
     render() {
         const id = this.props.match.params.id;
-        const note = this.props.notes.find(note => `${note.id}` === id);
+        const note = this.props.notes.find(note => `${note._id}` === id);
+        console.log(id)
         if (!note) {
             return "Loading Note"
         }
         return (
-            <div className="card">
-                <div className="note">
+            <div className="notecard container">
+                <nav className="navbar">
+                    <NavLink className="edit-delete" to={`/edit/${note._id}`}>edit</NavLink>
+                    <span className="edit-delete">delete</span>
+                </nav>
+                <div >
                     <h3>{note.title}</h3>
-                    <p>{note.textBody}</p>
+                    <p className="notepara">{note.textBody}</p>
                 </div>
             </div>
         );
