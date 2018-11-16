@@ -5,8 +5,8 @@ class ViewNote extends Component {
     constructor() {
         super();
         this.state = {
-            title: '',
-            body: ''
+            title: this.props.viewNote.title,
+            body: this.props.viewNote.body
         }
     }
 
@@ -14,11 +14,11 @@ class ViewNote extends Component {
         this.setState({
             title: this.props.viewNote.title,
             body: this.props.viewNote.body
-        })
+        });
     }
 
     render() {
-        console.log(this.state);
+        console.log(this.state)
         return (
             <>
                 <h2>{this.state.title}</h2>

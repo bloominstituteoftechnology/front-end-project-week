@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Note from '../Styles/Note';
-import { viewNote } from '../actions';
+//import { viewNote } from '../actions';
 import history from '../history';
 
 class Notes extends Component {
@@ -22,8 +22,7 @@ class Notes extends Component {
     } 
 
     selectNoteToView = () => {
-        this.props.viewNote(this.state);
-        history.push('/view-note');
+        //history.push('/view-note');
     }
 
     render() {
@@ -39,4 +38,4 @@ class Notes extends Component {
 
 const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps, { viewNote })(Notes);
+export default connect(mapStateToProps)(Notes);
