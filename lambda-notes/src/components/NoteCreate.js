@@ -77,7 +77,7 @@ class NoteCreate extends Component    {
             <CreateContainer>
                 <TitleText placeholder={"Note Title"} onChange={this.onChangeHandler} name="title" value={this.state.title}/>
                 <BodyText placeholder={"Note Content"} onChange={this.onChangeHandler} name="body" value={this.state.body} />
-                <Update onClick={this.onClickHandler}>Update</Update>
+                <Update onClick={this.onClickHandler}>Create</Update>
             </CreateContainer>
         )
     }
