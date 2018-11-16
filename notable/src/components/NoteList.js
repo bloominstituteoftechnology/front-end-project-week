@@ -32,7 +32,7 @@ class NoteList extends React.Component {
         ) : (
           <CardDiv>
             {this.props.notes.map(item => {
-              return <NoteCard key={item._id} note={item} />;
+              return <NoteCard key={`${item._id}`} note={item} />;
             })}
           </CardDiv>
         )}

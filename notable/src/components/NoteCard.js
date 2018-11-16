@@ -19,6 +19,9 @@ const CardDiv = styled.div`
   p {
     font-size: 1.2rem;
     margin: 0px 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
     overflow: hidden;
     word-wrap: break-word;
     text-overflow: ellipsis;
@@ -26,14 +29,14 @@ const CardDiv = styled.div`
 `;
 
 const NoteCard = props => {
-  const truncatedText =
-    props.note.textBody.length < 121
-      ? props.note.textBody
-      : props.note.textBody.substring(0, 120) + "...";
+//   const truncatedText =
+//     props.note.textBody.length < 121
+//       ? props.note.textBody
+//       : props.note.textBody.substring(0, 120) + "...";
   return (
     <CardDiv>
       <h3>{props.note.title}</h3>
-      <p>{truncatedText}</p>
+      <p>{props.note.textBody}</p>
     </CardDiv>
   );
 };
