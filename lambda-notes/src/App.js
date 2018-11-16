@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import List from './components/List';
 import styled from 'styled-components';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import SingleNote from './components/SingleNote';
 
 const AppWrapper = styled.div`
   width: 100%;
@@ -31,6 +32,11 @@ const SbButton = styled.button`
   align-content: center;
   color: white;
   margin: 10px auto;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `
 
 class App extends Component {
@@ -45,10 +51,11 @@ class App extends Component {
       <AppWrapper>
         <Sidebar>
           <h1>Lambda<br/>Notes</h1>
-          <SbButton><h2>View Your Notes</h2></SbButton>
+          <SbButton><Link to={`/`}><h2>View Your Notes</h2></Link></SbButton>
           <SbButton><h2>+ Create New Note</h2></SbButton>
         </Sidebar>
         <Route exact path="/" component={List} />
+        <Route path="/:_id" component={SingleNote} />
       </AppWrapper>
     );
   }

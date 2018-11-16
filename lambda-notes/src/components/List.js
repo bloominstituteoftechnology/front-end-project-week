@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import axios from 'axios'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 
 const ListWrapper = styled.div`
@@ -25,6 +27,10 @@ const Note = styled.div`
     overflow: hidden;
     margin: 10px;
     
+    a {
+        color: #4A4A4A;
+        text-decoration: none;
+    }
 
     h2 {
         width: 90%;
@@ -41,7 +47,8 @@ const Note = styled.div`
         -webkit-line-clamp: 6; 
         line-height: 1.2em;       
         max-height: 7.2em;
-        margin: 10px;      
+        margin: 10px;
+        height: 1fr;      
      }
     }
 `
@@ -73,10 +80,7 @@ class List extends Component {
         <NotesWrapper>
        {this.state.notes.map(note => {
            return (
-               <Note key={note._id}>
-                   <h2 onClick>{note.title}</h2>
-                   <p>{note.textBody}</p>
-                </Note>
+            <NotesDetail key={note.id} note={note} />
            )
        })}
        </NotesWrapper>
@@ -84,5 +88,17 @@ class List extends Component {
     );
   }
 }
+
+function NotesDetail({note}) {
+    const { _id, title, textBody } = note;
+      return (
+          <Note>
+        <Link to={`/${_id}`} id={_id}>
+              <h2>{title}</h2>
+              <p>{textBody}</p>
+          </Link>
+          </Note>
+      );
+  }
 
 export default List;
