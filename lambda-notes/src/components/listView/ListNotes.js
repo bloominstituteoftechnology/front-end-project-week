@@ -1,10 +1,14 @@
 import React from 'react'
-import Note from '../noteView/Note'
+import Preview from './Preview'
 
 export default function ListNotes(props) {
   return (
     <div>
-      {props.notes.map( note => <Note key={note._id} note={note} />)}
+      {props.notes.map( note => <Preview key={note._id} note={note} />)}
     </div>
   )
+
+  function selectNote() {
+    
+  }
 }
