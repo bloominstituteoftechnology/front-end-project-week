@@ -9,10 +9,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './index.css';
 import App from './App';
-import rootReducer from './reducers/noteReducer'
+import noteReducer from './reducers/noteReducer'
 
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(noteReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
     <Provider store={store}>
