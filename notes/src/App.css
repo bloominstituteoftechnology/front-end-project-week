@@ -93,7 +93,7 @@ a{
   color:lightgray;
 }
 
-.title p{
+.title{
   text-align:center;
   border-bottom:1px solid #e1e5e9;
   padding:5px 0px 8px 0px;
@@ -170,9 +170,9 @@ input[type=text] {
 }
 
 .note-actions button.btn-link{
-  font-size:1.6rem;
+  font-size:1.3rem;
   color:black;
-  font-weight:bold;
+  font-weight:lighter;
 }
 
 .note-wrapper{

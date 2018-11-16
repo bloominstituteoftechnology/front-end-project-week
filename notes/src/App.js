@@ -39,7 +39,7 @@ class App extends Component {
       content:'',
       notes:[...this.state.notes, note]
     })
-    this.props.history.push('/');
+    //this.props.history.push('/');
 };
 
   componentDidMount(){
