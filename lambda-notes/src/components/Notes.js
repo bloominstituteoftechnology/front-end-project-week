@@ -22,6 +22,18 @@ class Notes extends Component {
             });
     }
 
+    deleteHandler=(id)=>{
+        return()=>{
+            axios
+                .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+                .then(response =>{
+                    console.log(response)
+                })
+                .catch(err => console.log(err))
+        }
+
+    }
+
     render(){
         return(
             <div className="notesContent">
@@ -29,7 +41,7 @@ class Notes extends Component {
                 <div className="notesBlock">
                 {this.state.notes.map( item => {
                     return(
-                        <Note note={item} key={item.id}/>
+                        <Note note={item} id={item._id} key={item._id} deleteHandler={this.deleteHandler}/>
                     )
                 })}
                 </div>
