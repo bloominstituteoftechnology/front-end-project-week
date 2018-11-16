@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ListView from './ListView.js'
 import { Route } from 'react-router-dom';
+import axios from 'axios';
 
 const MainContentContainer = styled.div`
     display: table-cell;
@@ -62,6 +63,17 @@ class MainContent extends Component {
                 },
             ]
         }
+    }
+
+    componentDidMount() {
+        axios
+            .get(`https://fe-notes.herokuapp.com/note/get/all`)
+            .then(response => {
+                this.setState({
+                    notes: response.data
+                });
+            })
+            .catch(err => console.log(err));
     }
 
     render() {
