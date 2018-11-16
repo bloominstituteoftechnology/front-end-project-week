@@ -28,22 +28,22 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   addNote = () => {
-    axios
-      .post("https://fe-notes.herokuapp.com/note/create", {
-        title: this.state.title,
-        textBody: this.state.textBody
-      });
+    axios.post("https://fe-notes.herokuapp.com/note/create", {
+      title: this.state.title,
+      textBody: this.state.textBody
+    });
     this.setState({ title: "", textBody: "" });
   };
 
   deleteNote = id => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      .then(res => {
-       console.log(res.data)
-      })
+      .then(res =>
+        // console.log(res)
+      this.setState({ notes: res.data})
+    )
       .catch(err => console.log(err));
-     this.setState()
+    this.setState({})
   };
   deleteNoteOn = () => {
     this.setState({ delete: true });
