@@ -37,7 +37,7 @@ class App extends Component {
       <AppStyled>
         <Route path='/' render={props => <Nav {...props} getNotes={this.getNotes} />} />
         <Route exact path='/' render={props => <NoteContainer {...props} notes={this.state.notes} />} />
-        <Route path='/create-note' render={props => <NewNote {...props} />} />
+        <Route path='/create-note' render={props => <NewNote {...props} get />} />
         <Route path='/view-note' component={ViewNote} />
       </AppStyled>
     );

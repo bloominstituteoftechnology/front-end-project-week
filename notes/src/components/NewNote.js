@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class NewNoteForm extends Component {
     constructor() {
@@ -15,7 +16,18 @@ class NewNoteForm extends Component {
     
     submitHandler = (e) => {
         e.preventDefault()
-        this.props.addNote(this.state)
+
+        const note = {
+            title: this.state.title,
+            textBody: this.state.body
+        };
+
+        axios
+            .post('https://fe-notes.herokuapp.com/note/create', note)
+                .then(res => {
+                    this.setState({ title: '', body: ''});
+                })
+                .catch(() => console.log('Error: Note wasn\'t added'));
      }
 
     render() {
