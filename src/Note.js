@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { NoteDiv, NoteTitle, NoteParagraph } from './StyledComponents';
 
 const Note = (props) => {
     return(
-        <div>
+        <NoteDiv>
             <Link to={`/notes/${props.id}`}>
-                <div>
-                    <h5>{props.id}</h5>
-                    <h3>{props.title}</h3>
+                    <h2>{props.title}</h2>
                     <p>{props.text}</p>
-                </div>
             </Link>
-        </div>
+        </NoteDiv>
     )
 }
 
