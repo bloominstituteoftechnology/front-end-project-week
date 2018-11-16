@@ -78,9 +78,9 @@ class App extends Component {
       <div className="app">
         <div className="sidebar-links">
           <h1>Lambda<br/>Notes</h1>
-          <NavLink className="link" to={'/'}>View Your Notes</NavLink>
+          <NavLink className="link navlink" to={'/'}>View Your Notes</NavLink>
           
-          <NavLink className="link" to={'/note-form'}>+ Create New Note</NavLink>
+          <NavLink className="link navlink" to={'/note-form'}>+ Create New Note</NavLink>
           
         </div>
         <div className="content">

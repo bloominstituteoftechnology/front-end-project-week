@@ -3,8 +3,11 @@ import Note from './Note';
 import '../index.css';
 
 class Notes extends Component {
-  ellipsis = (str) =>{
-    return (str.length > 150 ? str.slice(0, 150) + ' ...' : str)
+  bodyellipsis = (str) =>{
+    return (str.length > 145 ? str.slice(0, 145) + ' ...' : str)
+  }
+  headerellipsis = (str) => {
+    return (str.length > 12 ? str.slice(0, 12) + ' ...' : str)
   }
   render() {
     return (
@@ -16,9 +19,9 @@ class Notes extends Component {
             return (
               <div className="notePreview">
               <Note className="note"
-                title={note.title}
+                title={this.headerellipsis(note.title)}
                 id={note._id}
-                text={this.ellipsis(note.textBody)}
+                text={this.bodyellipsis(note.textBody)}
                 key={note._id}
               />
               </div>
