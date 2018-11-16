@@ -19,7 +19,6 @@ class NotesList extends React.Component{
                 console.log(response) 
                 this.setState({notes: response.data})})
                 .catch(err => console.log(err))
-
     }
 
     render(){
