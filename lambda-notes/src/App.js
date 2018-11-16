@@ -2,7 +2,7 @@ import './App.css';
 import React,{Component} from 'react';
 import axios from 'axios';
 import {Route} from 'react-router-dom';
-
+import Text from './components/Text';
 const url='http://localhost:4444/notes';
 class App extends Component{
   constructor(props){
@@ -23,8 +23,7 @@ class App extends Component{
 render() {
   return (
     <div className="App">
-      <Side />
-      <Route exact path="/notes" render={(props) => <Notes {...props} notes={this.state.notes} />} />
+      <Route exact path="/notes" render={(props) => <Text {...props} notes={this.state.notes} />} />
     </div>
   );
 }
