@@ -40,26 +40,26 @@ class App extends Component {
   //   })
   // }
 
-  handleAddNewNote = note => {
-    axios 
-    .post(`https://fe-notes.herokuapp.com/note/create`, note)
-    .then(response => {
-            axios
-              .get(`https://fe-notes.herokuapp.com/note/get/all`)
-              .then(response => {
-                  this.setState({ notes: response.data })
-              })
-              .catch(err => {
-                console.log("Fail to GET notes from server", err)
-              })
-    })
-    .catch(err => {
-      console.log("Fail to POST a note to the server", err)
-    })
-  }
+  // handleAddNewNote = note => {
+  //   axios 
+  //   .post(`https://fe-notes.herokuapp.com/note/create`, note)
+  //   .then(response => {
+  //           axios
+  //             .get(`https://fe-notes.herokuapp.com/note/get/all`)
+  //             .then(response => {
+  //                 this.setState({ notes: response.data })
+  //             })
+  //             .catch(err => {
+  //               console.log("Fail to GET notes from server", err)
+  //             })
+  //   })
+  //   .catch(err => {
+  //     console.log("Fail to POST a note to the server", err)
+  //   })
+  // }
 
   handleDeleteNote = id => {
-    alert("Are you sure you want to delete?")
+    //alert("Are you sure you want to delete?")
     axios 
     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {

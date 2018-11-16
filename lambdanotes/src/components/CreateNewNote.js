@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 
 import styled from "styled-components"
 
+import { connect } from 'react-redux'
+import { createNote } from '../actions/noteAction'
+
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -11,8 +14,8 @@ const StyledLink = styled(Link)`
 `
 
 class CreateNewNote extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             title: '',
             textBody: '',
@@ -28,7 +31,8 @@ class CreateNewNote extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.handleAddNewNote(this.state)
+        //this.props.handleAddNewNote(this.state)
+        this.props.createNote(this.state)
     }
 
     render(){
@@ -59,4 +63,10 @@ class CreateNewNote extends React.Component {
     }
 }
 
-export default CreateNewNote
+const mapStateToProps = state => {
+    return {}
+}
+
+export default connect(mapStateToProps, { createNote: createNote })(CreateNewNote)
+
+//export default CreateNewNote
