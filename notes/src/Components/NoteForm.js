@@ -24,8 +24,8 @@ class NoteForm extends Component {
         this.props.newNote(addedNote)
 
         this.setState({
-            title: this.state.title,
-            textBody: this.state.textBody
+            title: '',
+            textBody: ''
         })
     }
 

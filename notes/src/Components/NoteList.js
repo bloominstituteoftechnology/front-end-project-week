@@ -5,14 +5,6 @@ import './NoteList.css';
 import Menu from './Menu';
 
 class NoteList extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            notes: [],
-        }
-    }
-
     render() {
         return (
             <div class='list'>
@@ -23,7 +15,6 @@ class NoteList extends Component {
                 </h2>
                     <div class='notes'>
                         {this.props.notes.map(note => {
-                            console.log(note)
                             return (
                                 <Note
                                     note={note}

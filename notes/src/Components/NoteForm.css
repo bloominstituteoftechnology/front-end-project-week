@@ -32,6 +32,10 @@
     height: 50px;
 }
 
+.save-button:hover {
+    cursor: pointer;
+}
+
 h2 {
     display: flex;
     margin-left: 5%;
