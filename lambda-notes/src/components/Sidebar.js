@@ -48,7 +48,7 @@ class Sidebar extends Component  {
                     Lambda Notes
                 </Head>
                 <Button to={"/"}>View Your Notes</Button>
-                <Button to={"/"}>+ Create New Note</Button>
+                <Button to={"/create"}>+ Create New Note</Button>
             </SidebarContainer>
 
         );

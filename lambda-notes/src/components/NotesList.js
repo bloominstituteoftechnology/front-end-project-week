@@ -40,7 +40,7 @@ class NotesList extends Component   {
                 </ViewTitle>
                 <NotesView>
                     {this.props.notes.map((note, index)  =>  {
-                        return <StyledLink to={`/note/${note["_id"]}`} data={note}><Note key={index} note={note}/></StyledLink>
+                        return <StyledLink to={`/note/${note["_id"]}`} data={note} key={index}><Note key={index} note={note}/></StyledLink>
                     })}
                 </NotesView>
             </ListView>

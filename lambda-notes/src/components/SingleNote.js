@@ -12,6 +12,8 @@ const NoteView = styled.div`
 const Actions = styled.div`
     display: flex;
     justify-content: flex-end;
+    width: 750px;
+    padding-top: 10px;
 `
 
 const StyledLink = styled(Link)`
@@ -61,7 +63,9 @@ class SingleNote extends Component  {
     onDeleteHandler = ()    =>  {
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
         .then((data)    =>  {
-            console.log(data)
+            return this.props.getNotes();
+        })
+        .then((data)    =>  {
             return this.props.history.push("/")
         })
         .catch(err  =>  console.log(err))

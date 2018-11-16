@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
-const EditContainer = styled.div`
+const CreateContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding-left: 50px;
@@ -45,12 +45,13 @@ const Update = styled.div`
     }
 `
 
-class NoteEdit extends Component    {
+class NoteCreate extends Component    {
     constructor(props)  {
         super(props)
         this.state = {
-            title: this.props.location.state.title,
-            body: this.props.location.state.body
+            title: "",
+            body: "",
+            id: ""
         }
     }
 
@@ -61,26 +62,29 @@ class NoteEdit extends Component    {
     }
 
     onClickHandler = () =>  {
-        axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, {title: this.state.title, textBody: this.state.body})
-        .then(()    =>  {
-            return this.props.getNotes();
+        axios.post(`https://fe-notes.herokuapp.com/note/create`, {title: this.state.title, textBody: this.state.body})
+        .then((data)  =>  {
+            return this.setState({
+                id: data.data.success
+            },  ()  =>  {
+                return this.props.getNotes();
+            });
         })
-        .then(( )  =>  {
-            return this.props.history.push(`/note/${this.props.match.params.id}`)
+        .then(()    =>  {
+            return this.props.history.push(`/note/${this.state.id}`)
         })
         .catch(err  =>  console.log(err))
     }
 
     render()    {
-        console.log(this.props)
         return(
-            <EditContainer>
-                <TitleText onChange={this.onChangeHandler} name="title" value={this.state.title}/>
-                <BodyText onChange={this.onChangeHandler} name="body" value={this.state.body} />
+            <CreateContainer>
+                <TitleText placeholder={"Note Title"} onChange={this.onChangeHandler} name="title" value={this.state.title}/>
+                <BodyText placeholder={"Note Content"} onChange={this.onChangeHandler} name="body" value={this.state.body} />
                 <Update onClick={this.onClickHandler}>Update</Update>
-            </EditContainer>
+            </CreateContainer>
         )
     }
 }
 
-export default NoteEdit;
+export default NoteCreate;
