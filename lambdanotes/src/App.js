@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Notelist from './components/Notelist'
+import Noteform from './components/Noteform'
 import axios from 'axios';
 
 class App extends Component {
@@ -26,7 +27,8 @@ class App extends Component {
     return (
       <div className="App">
         <Notelist 
-          notes= {this.state.notes} />      
+          notes= {this.state.notes} />
+        <Noteform />        
       </div>
     );
   }
