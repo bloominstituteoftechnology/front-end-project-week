@@ -5,6 +5,7 @@
 
 .App {
   text-align: center;
+  width: 100%;
 }
 
 .App-logo {
@@ -38,11 +39,12 @@
 
 .noteStyle {
   display: flex;
-  width: 25%;
+  width: 200px;
   flex-direction: column;
   background-color: white;
   align-items: flex-start;
   text-align:left;
+  height:250px;
   margin: 15px;
   padding-left: 15px;
   padding-right: 15px;
@@ -56,13 +58,23 @@
 
 }
 
-.notesList {
+.notesContainer {
   width: 80%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  flex-wrap: wrap;
   padding: 20px;
-  background-color: #F2F1F2
+  background-color: yellow
+}
+.notesList {
+  height: 2000px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: red
 }
 
 p {

@@ -6,17 +6,30 @@ class NewNote extends Component {
 
     constructor() {
         super();
-            }
+        this.state = {
+            title: '',
+            content: '', 
+        }
+        }
+
+        inputHandler = (event) => {
+                let value=event.target.value;
+                let property= event.target.dataset.property;
+                console.log(value);
+                this.setState({[property]: value})
+        }
 
     render() {
 
         return (
-            <div className='notesList'>
+            <div className='notesContainer'>
             <h2> Create New Note: </h2>
-            <form><input className='title' placeholder='Note Title' type='text'></input></form>
-            <textarea rows="20" cols="100" placeholder='Content Title'></textarea>
+            <div className='notesList'>
+            <form><input onChange={this.inputHandler} data-property='title' className='title' placeholder='Note Title' type='text'></input></form>
+            <textarea onChange={this.inputHandler} data-property='content' rows="20" cols="100" placeholder='Content Title'></textarea>
 
             <button>Save</button>
+            </div>
             </div>
         )
     }

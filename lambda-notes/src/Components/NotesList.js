@@ -11,9 +11,11 @@ class NotesList extends Component {
     render() {
 
         return (
-            <div className='notesList'>
+            <div className='notesContainer'>
             <h2> Your Notes: </h2>
+            <div className='notesList'>
             {this.props.notes.map( jot => <Note title={jot.title} key={jot._id} textBody={jot.textBody} jot={jot} />)}
+            </div>
             </div>
         )
     }
