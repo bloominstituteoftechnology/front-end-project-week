@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default notecard = props => {
+export default function Notecard(props) {
   return (
     <div>
       <h3 className='noteTitle'>{props.title}</h3>
