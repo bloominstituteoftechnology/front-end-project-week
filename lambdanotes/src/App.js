@@ -11,6 +11,15 @@ import NoteView from './components/NoteView'
 
 import UpdateNote from './components/UpdateNote'
 
+import styled from "styled-components"
+
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: white;
+`
+
+
 
 class App extends Component {
   constructor(){
@@ -94,15 +103,16 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header"> 
+          <h1> Lambda Notes </h1>
           <ul>
             <li>
-              <Link to="/">HOME</Link>
+              <StyledLink to="/"><div className="button">Home</div></StyledLink>
             </li>
             <li>
-              <Link to="/notes">View Your Notes</Link>
+              <StyledLink to="/notes"><div className="button">View Your Notes</div></StyledLink>
             </li>
             <li>
-              <Link to="/create">Create New Notes</Link>
+              <StyledLink to="/create"><div className="button">Create New Notes</div></StyledLink>
             </li>
           </ul>
         </header>
