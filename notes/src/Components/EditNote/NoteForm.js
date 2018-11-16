@@ -17,7 +17,7 @@ const NoteForm = (props) => {
       <textarea name="newText" onChange={props.handleInput} placeholder="Note Content"
         value={props.textBody}>
       </textarea>
-      <button class="navButton" type="submit">Save</button>
+      <button className="navButton" type="submit">Save</button>
     </form>
   );
 };

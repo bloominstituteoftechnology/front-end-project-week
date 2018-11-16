@@ -19,7 +19,7 @@ class App extends Component {
         <Route exact path="/" component={Notes} />
         <Route path="/note/:id" component={Note} />
         <Route path="/edit/:id" component={EditNote} />
-        <Route path="/add" component="" />
+        {/* <Route path="/add" component={} /> */}
       </div>
     );
   }
