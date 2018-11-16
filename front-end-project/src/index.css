@@ -51,6 +51,10 @@ table {
 
 /* index CSS */
 
+html {
+	height: 100%;
+}
+
 body {
   font-size: 62.5%;
   margin: 0;
@@ -60,4 +64,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F3F3F3;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
 }

@@ -3,14 +3,11 @@ import styled from 'styled-components';
 
 // Nav bar styled components
 
-const NavContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    position: absolute;
+const NavContainer = styled.nav`
+    display: table-cell;
     min-width: 200px;
-    width: 20%; 
     height: 100%;
-    padding: 0 2% 0 2%;
+    padding: 0 1.5% 0 1.5%;
     background-color: #D8D8D8;
     border-right: 1px solid #A0A0A0;
     text-align: left;
@@ -25,6 +22,7 @@ const NavHeader = styled.h1`
 
 const NavButton = styled.button`
     border: 1px solid #959898;
+    outline: none;
     margin: 0;
     text-decoration: none;
     background-color: #5DBEC3;
@@ -36,19 +34,18 @@ const NavButton = styled.button`
     font-weight: bold;
     margin: 0.8rem 0;
     padding: 0.8rem 0;
+    width: 100%;
     -webkit-appearance: none;
     -moz-appearance: none; 
 `
 
 const Sidebar = props => {
     return (
-        <nav>
-            <NavContainer>
-                <NavHeader>Lambda<br/>Notes</NavHeader>
-                <NavButton>View Your Notes</NavButton>
-                <NavButton>+ Create New Note</NavButton>
-            </NavContainer>
-        </nav>
+        <NavContainer>
+            <NavHeader>Lambda<br/>Notes</NavHeader>
+            <NavButton>View Your Notes</NavButton>
+            <NavButton>+ Create New Note</NavButton>
+        </NavContainer>
     )
 }
 
