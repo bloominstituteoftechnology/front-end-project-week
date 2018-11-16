@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import Note from './Note';
 
@@ -7,7 +8,9 @@ const Notes = props => {
   return (
     <div className="notes">
       {notes.map(note => (
-        <Note note={note} />
+        <NavLink to={`/edit/${note._id}`}>
+          <Note note={note} />
+        </NavLink>
       ))}
     </div>
   );
