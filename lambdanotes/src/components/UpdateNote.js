@@ -66,9 +66,11 @@ class UpdateNote extends React.Component {
 
     render(){
         return (
-            <div>
+            <div className="note-container">
+            <h2> Edit Note: </h2>
                 <form>
                     <input 
+                        className="input-title"
                         placeholder="Note Title"
                         type="text"
                         name="title"
@@ -76,6 +78,7 @@ class UpdateNote extends React.Component {
                         onChange={this.handleChange}
                     />
                     <input 
+                        className="input-content"
                         placeholder="Note Content"
                         type="text"
                         name="textBody"
@@ -83,7 +86,7 @@ class UpdateNote extends React.Component {
                         onChange={this.handleChange}
                     />
                 </form>
-                <div onClick={this.handleSubmit}><Link to="/notes" >Update</Link></div>
+                <div className="button save" onClick={this.handleSubmit}><Link to="/notes" >Update</Link></div>
             </div>
         )
     }
