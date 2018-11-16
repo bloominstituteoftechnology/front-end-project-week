@@ -48,13 +48,23 @@ export const DisplayHeader = styled.h2`
 `
 
 export const NoteContainer = styled.div`
+   display: -webkit-box;
    background-color: white;
    border: 1px solid grey;
    width: 40%;
-   height: 250px;
+   height: 260px;
    max-width: 250px;
    padding: 10px;
    margin-bottom: 20px;
+   -webkit-line-clamp: 6;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: -o-ellipsis-lastline;
+
+   h3, hr, p, a{
+      color: black;
+      text-decoration: none;
+   }
 `
 
 export const InputHeader = styled.input `
