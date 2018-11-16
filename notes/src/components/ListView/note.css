@@ -10,6 +10,19 @@
     overflow: hidden;
 }
 
+.noteViewNav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    margin-top: 20px;
+}
+
+.noteButton {
+    font-size: 1.6rem;
+    margin-left: 20px;
+    text-decoration: underline;
+}
 .noteTitle {
     font-size: 2.0rem;
     font-weight: bold;
@@ -18,12 +31,28 @@
     margin: 5px 0;
     padding-bottom: 5px;
     border-bottom: 2px solid lightgrey;
-    overflow: hidden;
 }
 
 .noteText {
     font-size: 1.6rem;
     text-align: left;
     width: 85%;
-    
+}
+
+.noteViewContainer {
+    width: 800px;
+    padding: 0 20px;
+    background-color: #F2F1F2;
+    min-height: 1000px;
+    height: 100%;
+}
+
+.noteViewTitle {
+    font-size: 2.8rem;
+    margin-top: 20px;
+}
+
+.noteViewText {
+    width: 600px;
+    font-size: 1.6rem;
 }

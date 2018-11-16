@@ -4,6 +4,11 @@ import Note from './Note'
 import '../../App.css'
 
 class ListView extends React.Component {
+
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+    
     render() {
       return (
         <div className="listViewContainer">

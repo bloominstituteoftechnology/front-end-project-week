@@ -41,6 +41,14 @@ class App extends Component {
       .catch(err => console.log(err)) 
     }
 
+    deleteNote = (id) => {
+      axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        this.getNotes();
+      })
+      .catch(err => console.log(err))
+    }
+
  
   render() {
     return (
@@ -50,7 +58,13 @@ class App extends Component {
           <ListView notes={this.state.notes} />
         } />
         <Route exact path='/create' render={(props) => <CreateForm createNote={this.createNote} />} />
-        <Route exact path='/note/:id' render={(props) => <NoteView {...props} notes={this.state.notes} />} />
+       
+        <Route exact path='/note/:id' render={(props) => 
+          <NoteView 
+            {...props} 
+            notes={this.state.notes} 
+            deleteNote={this.deleteNote}
+            />} />
       </div>
     );
   }

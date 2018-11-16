@@ -12,7 +12,7 @@ class Note extends React.Component {
     render() {
       return (
         <div className="note">
-          <Link to={`/note/${this.props.id}`}>
+          <Link to={`/note/${this.props.id}`} style={{textDecoration: 'none'}}>
             <div className="noteTitle">{this.props.title}</div>
           </Link>
          <div className="noteText">{this.props.text.slice(0, 110)}...</div>
