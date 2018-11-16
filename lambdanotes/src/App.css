@@ -55,8 +55,9 @@ ul {
   width: 80%;
   padding-top: 10px;
   text-align: center;
-
 }
+
+
 
 @keyframes App-logo-spin {
   from {
@@ -66,3 +67,67 @@ ul {
     transform: rotate(360deg);
   }
 }
+
+.Container {
+  background-color: whitesmoke;
+  width: 70%;
+}
+
+/*  NotesList.js */
+
+.noteslist-container {
+  background-color: whitesmoke;
+  border: 3px solid pink;
+}
+
+.notebox-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.notebox {
+  background-color: white;
+  border: 1px solid black;
+  width: 30%;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
+.contentbox {
+  border: 1px solid lime;
+  height: 120px;
+}
+
+/*  CreateNewNote.js */
+
+.createnote-container {
+  border: 3px solid goldenrod;
+  height: 600px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.button.save {
+  width: 30%;
+}
+
+form {
+  border: 1px solid purple;
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.input-title {
+  width: 60%;
+  height: 50px;
+}
+
+.input-content {
+  width: 95%;
+  height: 400px;
+  margin-top: 20px;
+}
+

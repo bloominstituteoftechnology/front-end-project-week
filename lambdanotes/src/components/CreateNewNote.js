@@ -25,9 +25,11 @@ class CreateNewNote extends React.Component {
 
     render(){
         return (
-            <div>
+            <div className="createnote-container">
+            <h2> Create New Notes: </h2>
                 <form>
                     <input 
+                        className="input-title"
                         placeholder="Note Title"
                         type="text"
                         name="title"
@@ -35,6 +37,7 @@ class CreateNewNote extends React.Component {
                         onChange={this.handleChange}
                     />
                     <input 
+                        className="input-content"
                         placeholder="Note Content"
                         type="text"
                         name="textBody"
@@ -42,7 +45,7 @@ class CreateNewNote extends React.Component {
                         onChange={this.handleChange}
                     />
                 </form>
-                <div onClick={this.handleSubmit}><Link to="/notes" >Create</Link></div>
+                <div className="button save" onClick={this.handleSubmit}><Link to="/notes" >Save</Link></div>
             </div>
         )
     }

@@ -112,7 +112,7 @@ class App extends Component {
               <StyledLink to="/notes"><div className="button">View Your Notes</div></StyledLink>
             </li>
             <li>
-              <StyledLink to="/create"><div className="button">Create New Notes</div></StyledLink>
+              <StyledLink to="/create"><div className="button"> +Create New Notes</div></StyledLink>
             </li>
           </ul>
         </header>
