@@ -32,6 +32,10 @@ class NoteEdit extends Component {
             .then(() => this.props.history.push("/"));
     };
 
+    handleDelete = () => {
+
+    };
+
     render() {
         const {loading, error, note} = this.props;
         const {title, textBody, _id} = this.state;

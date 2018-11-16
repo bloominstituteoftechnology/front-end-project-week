@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { createNote } from "../actions";
 import { connect } from "react-redux";
 
-class CreateNoteForm extends Component {
+class CreateNote extends Component {
     constructor(props) {
         super(props);
 
@@ -33,7 +33,7 @@ class CreateNoteForm extends Component {
     }
 }
 
-CreateNoteForm.propTypes = {};
+CreateNote.propTypes = {};
 
 const mapStateToProps = ({ loading, error }) => {
     return {
@@ -42,4 +42,4 @@ const mapStateToProps = ({ loading, error }) => {
     }
 };
 
-export default connect(mapStateToProps, { createNote })(CreateNoteForm);
+export default connect(mapStateToProps, { createNote })(CreateNote);

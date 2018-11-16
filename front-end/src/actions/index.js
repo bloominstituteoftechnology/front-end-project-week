@@ -2,13 +2,11 @@ import axios from "axios"
 
 export const FAILURE = "FAILURE";
 export const SUCCESS = "SUCCESS";
-export const VIEW= "VIEW";
-export const FETCHING = "FETCHING";
-export const ADDING = "ADDING";
-export const EDITING = "EDITING";
+export const VIEW = "VIEW";
+export const WORKING = "WORKING";
 
 export const getNotes = () => dispatch => {
-    dispatch({ type: FETCHING });
+    dispatch({ type: WORKING });
 
     return axios
         .get(`https://fe-notes.herokuapp.com/note/get/all`)
@@ -21,7 +19,7 @@ export const getNotes = () => dispatch => {
 };
 
 export const getNote = id => dispatch => {
-    dispatch({ type: FETCHING });
+    dispatch({ type: WORKING });
 
     return axios
         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
@@ -34,7 +32,7 @@ export const getNote = id => dispatch => {
 };
 
 export const createNote = note => dispatch => {
-    dispatch({ type: ADDING });
+    dispatch({ type: WORKING });
 
     return axios
         .post(`https://fe-notes.herokuapp.com/note/create`, note)
@@ -47,8 +45,7 @@ export const createNote = note => dispatch => {
 };
 
 export const editNote = (id, note) => dispatch => {
-    dispatch({ type: EDITING });
-    console.log("editing", note);
+    dispatch({ type: WORKING });
 
     return axios
         .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
@@ -58,4 +55,13 @@ export const editNote = (id, note) => dispatch => {
         .catch(err => {
             dispatch({ type: FAILURE, error: err });
         });
+};
+
+export const deleteNote = id => dispatch => {
+    dispatch({ type: WORKING });
+
+    return axios
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then(() => getNotes()(dispatch))
+        .catch(err => dispatch({ type: FAILURE, error: err }));
 };

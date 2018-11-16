@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import {Modal, Paper} from './Styled';
-import { getNote } from "../actions";
+import { getNote, deleteNote } from "../actions";
 import { connect } from "react-redux";
 import { FlexColumn, FlexRow } from "./Styled";
 
@@ -13,6 +13,10 @@ class NoteView extends Component {
     componentDidMount() {
         this.props.getNote(this.props.id);
     }
+
+    handleDelete = () => {
+        this.props.deleteNote(this.props.id);
+    };
 
     render() {
         const { loading, error, note } = this.props;
@@ -26,6 +30,7 @@ class NoteView extends Component {
                         <FlexColumn>
                             <FlexRow width="full" justifyEnd>
                                 <Link to={`/edit/${note._id}`}>Edit</Link>
+                                <Link to="/" onClick={this.handleDelete}>Delete</Link>
                             </FlexRow>
 
                             <h1>{note.title}</h1>
@@ -48,4 +53,4 @@ const mapStateToProps = ({loading, error, note}) => {
     }
 };
 
-export default connect(mapStateToProps, {getNote})(NoteView);
+export default connect(mapStateToProps, {getNote, deleteNote})(NoteView);

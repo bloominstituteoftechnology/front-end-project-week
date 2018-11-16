@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { getNotes } from "../actions";
 import { FlexColumn } from "./Styled";
 import Note from "./Note";
-import CreateNoteForm from "./CreateNoteForm";
+import CreateNoteForm from "./CreateNote";
 import NoteView from "./ViewNote";
 import NoteEdit from "./EditNote";
 
