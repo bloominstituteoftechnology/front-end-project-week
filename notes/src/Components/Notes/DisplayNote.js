@@ -11,7 +11,7 @@ const DisplayNote = props => {
             return <Redirect to='/note/edit' />
         }
         else {
-            // call delete function
+            // change this to show a delete yes/no modal
             props.deleteNote(note._id);
         }
     }
