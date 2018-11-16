@@ -3,10 +3,11 @@ import React from "react";
 const NoteForm = props => {
   const handleClick = () => {
     const newNote = {
-      title: props.title,
       tags: props.tags,
+      title: props.title,
       textBody: props.textBody
     };
+    console.log(newNote)
     props.postNotes(newNote);
     props.history.push(`/`);
   };
@@ -14,15 +15,25 @@ const NoteForm = props => {
   return (
     <div>
       <div className="note-form">
-        <input
-          className="input-tags"
-          type="text"
-          name="tags"
-          value={props.value}
-          onChange={props.handleInput}
-          placeholder="add tags"
-        />
-
+        <header className="body-header">
+          <form className="tags-form" onSubmit={props.handleSubmitTag}>
+            <div className="tags">
+              {props.tags.map(tag => {
+                return <p className="tag" key={tag}>{tag}</p>
+              })}
+            </div>
+            <input
+              className="input-tags"
+              type="text"
+              name="tag"
+              value={props.tag}
+              onChange={props.handleInput}
+              onSubmit={props.handleSubmitTag}
+              placeholder="add tags"
+            />
+          </form>
+        </header>
+        <hr></hr>
         <input
           className="input-title"
           type="text"

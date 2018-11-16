@@ -57,7 +57,8 @@
   display: none;
 }
 .App .body .hide {
-  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
 }
 .App .body .input-tags,
 .App .body .input-title,
@@ -82,6 +83,7 @@
   font-size: 2rem;
   font-weight: 400;
   margin: 0;
+  margin-top: 20px;
 }
 .App .body .input-body,
 .App .body .note-body {
@@ -93,27 +95,49 @@
   min-height: 300px;
   line-height: 25px;
 }
-.App .body .btn-container {
+.App .body .body-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+.App .body .body-header .tags {
+  display: inline-block;
+  width: auto;
+}
+.App .body .body-header .tags .tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin: 0 10px 0 0;
+  background: #79B0D5;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.App .body .body-header .input-tags {
+  display: inline-block;
+  width: auto;
+}
+.App .body .body-header .btn-container {
+  display: flex;
+  align-items: center;
 }
 .App .body button {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  margin: 0 auto;
   font-size: 0.8rem;
   width: 80px;
   height: 30px;
   border: 1px solid black;
   outline: 0;
   cursor: pointer;
-  margin-bottom: 10px;
   transition-duration: 0.2s;
 }
 .App .body button:hover {
   color: white;
   background-color: black;
+}
+.App .body .save-btn {
+  transition: 1s;
+  margin-right: 20px;
 }
 .App .body textarea {
   resize: none;

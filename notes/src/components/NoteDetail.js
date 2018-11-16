@@ -6,8 +6,8 @@ class NoteDetail extends React.Component {
     super();
     this.state = {
       _id: "",
-      // tags: [],
-      // tag:"",
+      tags: [],
+      tag: "",
       title: "",
       textBody: "",
       editing: false
@@ -24,7 +24,7 @@ class NoteDetail extends React.Component {
           _id: response.data._id,
           title: response.data.title,
           textBody: response.data.textBody,
-          // tags: response.data.tags
+          tags: response.data.tags
         });
       })
       .catch(err => console.log(err.response));
@@ -77,15 +77,36 @@ class NoteDetail extends React.Component {
   render() {
     return (
       <div className="note-detail">
-        {/* <h3 className="note-tags">{this.state.note.tags}</h3> */}
-        <input
-          className="input-tags"
-          type="text"
-          name="tags"
-          value={this.state.tags}
-          onChange={this.handleEditingChange.bind(this)}
-          placeholder="add tags"
-        />
+        <header className="body-header">
+          <form className="tags-form" onSubmit={this.props.handleSubmitTag}>
+            <div className="tags">
+              {this.props.tags.map(tag => {
+                return <p className="tag">{tag}</p>
+              })}
+            </div>
+            <input
+              className="input-tags"
+              type="text"
+              name="tag"
+              value={this.props.tag}
+              onChange={this.props.handleInput}
+              onSubmit={this.props.handleSubmitTag}
+              placeholder="add tags"
+            />
+          </form>
+          <div className="btn-container">
+            <button
+              className={this.state.editing ? "save-btn" : "hide"}
+              onClick={this.handleUpdate}
+            >
+              save
+          </button>
+            <button className="delete-btn" onClick={this.handleDelete}>
+              delete
+          </button>
+          </div>
+        </header>
+        <hr></hr>
         <h3
           onClick={this.handleEditing.bind(this)}
           className={this.state.editing ? "none" : "note-title"}
@@ -112,17 +133,7 @@ class NoteDetail extends React.Component {
           name="textBody"
           onChange={this.handleEditingChange.bind(this)}
         />
-        <div className="btn-container">
-          <button
-            className={this.state.editing ? "save-btn" : "hide"}
-            onClick={this.handleUpdate}
-          >
-            save
-          </button>
-          <button className="delete-btn" onClick={this.handleDelete}>
-            delete
-          </button>
-        </div>
+
       </div>
     );
   }

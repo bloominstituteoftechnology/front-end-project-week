@@ -12,7 +12,8 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      tags: "",
+      tags: [],
+      tag:'',
       title: "",
       textBody: "",
       _id:""
@@ -38,13 +39,22 @@ class App extends Component {
     });
   };
 
+  handleSubmitTag = e => {
+    e.preventDefault();
+    this.setState({
+      tags: [...this.state.tags, this.state.tag],
+      tag:''
+    })
+  }
+
   postNotes = note => {
     axios
       .post("https://fe-notes.herokuapp.com/note/create", note)
       .then(response => {
         console.log(response);
         this.setState({
-          tags: "",
+          tags:[],
+          tag: "",
           title: "",
           textBody: "",
         });
@@ -80,10 +90,12 @@ class App extends Component {
                 {...props}
                 notes={this.state.notes}
                 tags={this.state.tags}
+                tag={this.state.tag}
                 title={this.state.title}
                 textBody={this.state.textBody}
                 _id={this.state._id}
                 handleInput={this.handleInput}
+                handleSubmitTag={this.handleSubmitTag}
                 postNotes={this.postNotes}
               />
             )}
@@ -100,6 +112,10 @@ class App extends Component {
                 {...props}
                 notes={this.state.notes}
                 fetchNotes={this.fetchNotes}
+                tags={this.state.tags}
+                tag={this.state.tag}
+                handleInput={this.handleInput}
+                handleSubmitTag={this.handleSubmitTag}
               />
             )}
           />

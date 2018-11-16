@@ -57,7 +57,8 @@
             display: none;
         }
         .hide {
-            visibility: hidden;
+            opacity: 0;
+            transition: 0.5s;
         }
         .input-tags,
         .input-title,
@@ -80,6 +81,7 @@
             font-size: 2rem;
             font-weight: 400;
             margin: 0;
+            margin-top: 20px;
         }
         .input-body,
         .note-body {
@@ -91,27 +93,49 @@
             min-height: 300px;
             line-height: 25px;
         }
-        .btn-container {
+        .body-header {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            .tags {
+                display: inline-block;
+                width: auto;
+                .tag {
+                    display: inline-block;
+                    font-size: 0.8rem;
+                    margin: 0 10px 0 0;
+                    background: #79B0D5;
+                    padding: 5px 10px;
+                    border-radius: 10px;
+                }
+            }
+            .input-tags {
+                display: inline-block;
+                width: auto;
+            }
+            .btn-container {
+                display: flex;
+                align-items: center;
+            }
         }
         button {
             display: flex;
             justify-content: center;
-            margin-top: 10px;
-            margin: 0 auto;
             font-size: 0.8rem;
             width: 80px;
             height: 30px;
             border: 1px solid black;
             outline: 0;
             cursor: pointer;
-            margin-bottom: 10px;
             transition-duration: 0.2s;
             &:hover {
                 color: white;
                 background-color: black;
             }
+        }
+        .save-btn {
+            transition: 1s;
+            margin-right: 20px;
         }
         textarea {
             resize: none;
