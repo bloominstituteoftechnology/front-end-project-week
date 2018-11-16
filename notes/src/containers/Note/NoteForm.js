@@ -36,6 +36,11 @@ const Button = styled.button`
 `;
 
 const NoteForm = props => {
+    const createNote = e => {
+        e.preventDefault()
+        props.addNote()
+        props.history.push("/");
+    }
 
   return (
     <Form>
@@ -51,7 +56,7 @@ const NoteForm = props => {
         onChange={props.handleChange}
         placeholder="Note Content"
       />
-      <Button onClick={props.addNote}>Save</Button>
+      <Button onClick={createNote}>Save</Button>
     </Form>
   );
 };

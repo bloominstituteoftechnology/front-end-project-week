@@ -22,12 +22,11 @@ const Container = styled.div`
   background: white;
   z-index: 2;
   p {
-      text-align: center;
+    text-align: center;
   }
 `;
 const Content = styled.div`
   display: flex;
-
 `;
 const Button = styled.div`
   width: 200px;
@@ -52,21 +51,24 @@ Button.defaultProps = {
 
 const NotePage = props => {
   if (props.notes.length) {
-    let note = props.notes.find(note => `${note._id}` === props.match.params.id);
+    let note = props.notes.find(
+      note => `${note._id}` === props.match.params.id
+    );
 
-    const deleteNote = e => {
+    const deleted = e => {
       e.preventDefault();
       props.deleteNote(note._id);
+      props.history.push("/");
     };
     return (
-      <div>
+      <div key={note._id}>
         {props.delete && (
           <Modal>
             <Container>
               <p>Are you sure you want to delete this?</p>
               <Content>
                 <ThemeProvider theme={theme}>
-                  <Button className="del-btn" onClick={deleteNote}>
+                  <Button onClick={deleted}>
                     Delete
                   </Button>
                 </ThemeProvider>

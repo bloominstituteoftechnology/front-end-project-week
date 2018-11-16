@@ -19,33 +19,37 @@ class App extends Component {
   }
   componentDidMount() {
     // this.setState({ notes: notes });
-      axios
-        .get("https://fe-notes.herokuapp.com/note/get/all")
-        .then(res => this.setState({notes: res.data}))
-        .catch(err => console.log(err));
-
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(res => this.setState({ notes: res.data }))
+      .catch(err => console.log(err));
   }
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
-  addNote = e => {
-    e.preventDefault();
-    const newNote = {
-      title: this.state.title,
-      textBody: this.state.textBody
-    }
-
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  addNote = () => {
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", newNote)
-      .then(res => this.setState({ notes: res.data}))
-      .catch(err => console.log(err))
+      .post("https://fe-notes.herokuapp.com/note/create", {
+        title: this.state.title,
+        textBody: this.state.textBody
+      });
+    this.setState({ title: "", textBody: "" });
+  };
 
-  }
+  deleteNote = id => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => {
+       console.log(res.data)
+      })
+      .catch(err => console.log(err));
+     this.setState()
+  };
   deleteNoteOn = () => {
     this.setState({ delete: true });
   };
   deleteNoteOff = e => {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({ delete: false });
   };
   render() {
@@ -59,11 +63,27 @@ class App extends Component {
         />
         <Route
           path="/note/:id"
-          render={props => <NotePage {...props} notes={this.state.notes} deleteNoteOn={this.deleteNoteOn} deleteNoteOff={this.deleteNoteOff} delete={this.state.delete} />}
+          render={props => (
+            <NotePage
+              {...props}
+              notes={this.state.notes}
+              deleteNoteOn={this.deleteNoteOn}
+              deleteNoteOff={this.deleteNoteOff}
+              delete={this.state.delete}
+              deleteNote={this.state.deleteNote}
+            />
+          )}
         />
         <Route
           path="/create"
-          render={props => <NoteForm {...props} notes={this.state.notes} addNote={this.addNote} handleChange={this.handleChange}/>}
+          render={props => (
+            <NoteForm
+              {...props}
+              notes={this.state.notes}
+              addNote={this.addNote}
+              handleChange={this.handleChange}
+            />
+          )}
         />
       </div>
     );
