@@ -38,6 +38,7 @@ class ViewNote extends Component {
                         return (
                             <div key={note._id}>
                                 <SectionHeading>{note.title}</SectionHeading>
+                                <hr></hr>
                                 <P>{note.textBody}</P>
                             </div>
                         );
