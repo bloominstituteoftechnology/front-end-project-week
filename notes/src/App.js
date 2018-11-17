@@ -7,6 +7,7 @@ import NoteList from "./containers/Note/NoteList";
 import NotePage from "./containers/Note/NotePage";
 import NoteForm from "./containers/Note/NoteForm";
 import axios from "axios";
+import EditNote from "./containers/Note/NoteEdit";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -47,12 +48,21 @@ class App extends Component {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(res =>
-        // console.log(res)
-        // this.setState({ notes: res.data })
         this.getNote()
       )
       .catch(err => console.log(err));
   };
+
+  editNote = id => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+        title: this.state.title,
+        textBody: this.state.textBody
+      } )
+      .then( res => this.getNote())
+      .catch(err => console.log(err))
+}
+
   deleteNoteOn = () => {
     this.setState({ delete: true });
   };
@@ -93,6 +103,12 @@ class App extends Component {
             />
           )}
         />
+        <Route path='/note/:id/edit' render={props => (
+          <EditNote {...props}
+          notes={this.state.notes}
+          handleChange={this.handleChange}
+          editNote={this.editNote} />
+        )} />
       </div>
     );
   }

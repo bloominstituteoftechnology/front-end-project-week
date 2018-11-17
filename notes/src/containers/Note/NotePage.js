@@ -1,8 +1,11 @@
 import React from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 
+const Main = styled.div`
+  border: 1px solid red;
+`;
 const Modal = styled.div`
   display: flex;
   justify-conent: center;
@@ -29,7 +32,7 @@ const Content = styled.div`
   display: flex;
 `;
 const Button = styled.div`
-  width: 200px;
+  width: ${props => props.edit.width};
   padding: 15px 60px;
   font-size: 20px;
   color: white;
@@ -45,17 +48,21 @@ const theme = {
 };
 Button.defaultProps = {
   theme: {
-    bg: "#00cec9"
+    bg: "#00cec9",
+    width: "200px"
   }
 };
+const edit = {
+  bg: 'bg: "#00cec9"',
+  width: "100px"
 
+};
 const NvLinks = styled.div`
-display: flex;
-border: 1px solid red;
-justify-content: flex-end;
-align-items: flex-end;
-
-`
+  display: flex;
+  border: 1px solid red;
+  justify-content: flex-end;
+  align-items: flex-end;
+`;
 
 const NotePage = props => {
   if (props.notes.length) {
@@ -69,9 +76,16 @@ const NotePage = props => {
       props.history.push("/");
     };
     return (
-      <div key={note._id}>
+      <Main key={note._id}>
         <NvLinks>
-          <Link to={`/note/${note._id}/edit`}>edit</Link> {""}
+          <Link to={`/note/${note._id}/edit`}>
+            <ThemeProvider theme={edit}>
+            <Button onClick={() => props.editNote(note.title, note.textBody)}>
+              edit
+            </Button>
+            </ThemeProvider>
+          </Link>{" "}
+          {""}
           <button onClick={props.deleteNoteOn}>delete</button>
         </NvLinks>
         {props.delete && (
@@ -80,21 +94,17 @@ const NotePage = props => {
               <p>Are you sure you want to delete this?</p>
               <Content>
                 <ThemeProvider theme={theme}>
-                  <Button onClick={deleted}>
-                    Delete
-                  </Button>
+                  <Button onClick={deleted}>Delete</Button>
                 </ThemeProvider>
                 <Button onClick={props.deleteNoteOff}>No</Button>
               </Content>
             </Container>
           </Modal>
         )}
-        {/* onClick=
-        {() => props.editNote(note.title, note.textBody)} */}
 
         <h1>{note.title}</h1>
         <p>{note.textBody}</p>
-      </div>
+      </Main>
     );
   }
 };
