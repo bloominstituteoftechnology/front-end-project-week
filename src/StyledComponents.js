@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 export const SideBarDiv = styled.div`
     width: 25%;
-    height: 100vh;
+    height: 150vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -111,19 +111,65 @@ export const SubmitButton = styled.button`
 
 //NOTE
 
+export const StandardDiv = styled.div`
+    background-color: rgb(242, 241, 242);
+    width: 75%;
+    padding-left: 3%;
+    padding-top: 6vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        color: rgb(65, 65, 65);
+        font-size: 2.6rem;
+        margin-left: 2%;
+        align-self: flex-start;
+        // border: 1px solid pink;
+    }
+`;
+
+export const NotesContainer = styled.div`
+    display: flex;
+    height: 100vh;
+    width: 95%;
+    justify-content: flex-start;
+    background-color: rgb(242, 241, 242);
+    flex-wrap: wrap;
+    // border: 1px solid blue;
+`;
+
 export const NoteDiv = styled.div`
     border: 1px solid black;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 10px;
-    width: 28%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 5px 5px 10px 5px;
+    width: 30%;
     height: 200px;
     background-color: white;
 
+    a:link{
+        color: black;
+        text-decoration: none;
+    }
+
+    a:visited{
+        color: black;
+    }
+
+    a:hover{
+        color: rgb(0, 187, 191);
+    }
+
     h2 {
         font-size: 1.4rem;
-        margin: 3px auto 8px;
+    }
+
+    hr{
+        width: 100%;
     }
 
     p {

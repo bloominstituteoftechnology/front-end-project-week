@@ -7,6 +7,7 @@ const Note = (props) => {
         <NoteDiv>
             <Link to={`/notes/${props.id}`}>
                     <h2>{props.title}</h2>
+                    <hr></hr>
                     <p>{props.text}</p>
             </Link>
         </NoteDiv>

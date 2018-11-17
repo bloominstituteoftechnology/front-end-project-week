@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getNotes } from './actions/index';
 import Note from './Note';
-import { NoteContainer, H2Header } from './StyledComponents';
+import { NotesContainer, StandardDiv } from './StyledComponents';
 
 
 class Notes extends React.Component {
@@ -12,12 +12,14 @@ class Notes extends React.Component {
 
     render(){
         return(
-            <NoteContainer>
-                <H2Header>Your Notes:</H2Header>
+            <StandardDiv>
+            <h1>Your Notes:</h1>
+            <NotesContainer>
                 {this.props.notes.map( note => 
                     < Note note={note} key={note._id} id={note._id} text={note.textBody} title={note.title} /> 
                 )}
-            </NoteContainer>
+            </NotesContainer>
+            </StandardDiv>
         )
     }
 }
