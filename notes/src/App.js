@@ -32,9 +32,9 @@ class App extends Component {
           <Route path="/login" component={Signin} />
           <Route path="/signup" component={Signup} />
           <Route path="/create" component={CreateNote} />
-          <Route path="note/:id/delete" render={(props) => {
-              return(<DeleteModal {...props}/>)}}
-              />     
+          <Route path="/delete/:id/" render={(props) => {
+            return( <DeleteModal {...props}/>)}}
+        />  
         </Switch>
       </div>
     );

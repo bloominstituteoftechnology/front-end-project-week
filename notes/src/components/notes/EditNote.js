@@ -7,20 +7,20 @@ class EditNote extends Component {
     this.state = {
       title: "",
     textBody: "",
-    // note:[]
+    note:[]
     };
-    console.log('test', props.match.params.id)
+
     
   }
-//   componentDidMount(){
-//     this.getNote(this.props.match.params.id)
-//  }
+  componentDidMount(){
+    this.getNote(this.props.match.params.id)
+ }
 
-//  getNote = id => {
-//   axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-//      .then(response => {this.setState({note: response.data})})
-//      .catch(err => console.log(err))
-// }
+ getNote = id => {
+  axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+     .then(response => {this.setState({note: response.data})})
+     .catch(err => console.log(err))
+}
 
   editNote = event => {
     event.preventDefault();
@@ -30,10 +30,10 @@ class EditNote extends Component {
       id: this.props.match.params.id
     
     }
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${notes.id}`).then(response => {
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${notes.id}`, notes).then(response => {
       this.setState({
         notes: response.data
-      }, () => console.log("supposedNewState",notes.id, notes, this.state))
+      }, () => console.log("success"))
 
     }).catch(error => {
       console.error('Server Error', error);
@@ -47,7 +47,7 @@ class EditNote extends Component {
 ;
 
   render() {
-    console.log('test', this.state)
+
     return (
       <div className="container">
         <form onSubmit={this.editNote}>
@@ -58,7 +58,7 @@ class EditNote extends Component {
             id="title"
             value={this.state.title}
             onChange={this.handleChange}
-            // placeholder={this.state.note.title}
+            placeholder={this.state.note.title}
           />
           <textarea rows="8" cols="80"
             type="text"
@@ -66,7 +66,7 @@ class EditNote extends Component {
             id="textBody"
             value={this.state.textBody}
             onChange={this.handleChange}
-            // placeholder={this.state.note.textBody}
+            placeholder={this.state.note.textBody}
           />
           <button type="submit">Create</button>
         </form>

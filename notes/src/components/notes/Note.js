@@ -10,7 +10,7 @@ class Note extends Component {
     this.state = {
       note: []
     };
-    console.log(props.match.params.id)
+  
   }
   componentDidMount(){
     this.getNote(this.props.match.params.id)
@@ -32,7 +32,7 @@ class Note extends Component {
              <Link to={`/edit/${this.state.note._id}`} >
                 <p>edit</p>
              </Link>
-             <Link to={`/note/${this.state.note._id}/delete`} >
+             <Link to={`/delete/${this.state.note._id}/`} >
                 <p>delete</p>
              </Link>
           </div>

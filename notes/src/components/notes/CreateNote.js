@@ -55,6 +55,7 @@ class CreateNote extends Component {
             onChange={this.handleChange}
             placeholder="Note Content"
           />
+          
           <button type="submit">Create</button>
         </form>
       </div>
