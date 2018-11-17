@@ -3,7 +3,7 @@ import axios from "axios";
 import NoteList from "./Components/NoteList";
 import Nav from "./Components/Nav";
 import SingleNote from "./Components/SingleNote.js";
-import { Route } from "react-router-dom";
+import NewNote from "./Components/NewNote";
 import "./App.css";
 
 class App extends Component {
@@ -15,18 +15,13 @@ class App extends Component {
     };
   }
 
-  noteClickHandler = id => {
+  clickHandler = id => {
     this.setState({
       id: id
     });
     console.log(this.state.id);
   };
 
-  viewAllClickHandler = () => {
-    this.setState({
-      id: "all"
-    });
-  };
   componentDidMount() {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
@@ -37,21 +32,25 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.id !== "all") {
+    if (this.state.id === "all") {
       return (
         <div className="App">
-          <Nav viewAllClickHandler={this.viewAllClickHandler} />
-          <SingleNote id={this.state.id} notes={this.state.notes} />
+          <Nav clickHandler={this.clickHandler} />
+          <NoteList notes={this.state.notes} clickHandler={this.clickHandler} />
+        </div>
+      );
+    } else if (this.state.id === "new") {
+      return (
+        <div className="App">
+          <Nav clickHandler={this.clickHandler} />
+          <NewNote />
         </div>
       );
     } else {
       return (
         <div className="App">
-          <Nav viewAllClickHandler={this.viewAllClickHandler} />
-          <NoteList
-            notes={this.state.notes}
-            noteClickHandler={this.noteClickHandler}
-          />
+          <Nav clickHandler={this.clickHandler} />
+          <SingleNote id={this.state.id} notes={this.state.notes} />
         </div>
       );
     }

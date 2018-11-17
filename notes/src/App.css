@@ -1,19 +1,24 @@
 html,
 body {
     height: 100%;
-    background-color: whitesmoke;
 }
 
 .App {
     display: flex;
     min-height: 100vh;
+    max-width: 1200px;
+    background-color: whitesmoke;
+    margin: 0 auto;
 }
 
 .navbar {
     background-color: lightgray;
     border-right: 1px solid grey;
-    width: 10%;
+    width: 30%;
+    max-width: 300px;
     margin-right: 20px;
+    position: fixed;
+    height: 100%;
 }
 
 .navbar h1 {
@@ -33,12 +38,11 @@ body {
 
 .note {
     padding: 15px;
-    width: 25%;
-    margin-right: 2%;
+    width: 200px;
     border: 1px solid grey;
     background-color: white;
     margin-bottom: 30px;
-    height: 300px;
+    height: 22vh;
     cursor: pointer;
 }
 
@@ -46,11 +50,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: space-between;
 }
 
 .notes {
-    width: 90%;
-    margin-top: 50px;
+    width: 100%;
+    margin: 50px 60px 0px 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .notes h1 {
@@ -85,4 +92,13 @@ body {
 .edit-buttons p {
     margin-right: 10px;
     cursor: pointer;
+}
+
+.new-note h1 {
+    color: aquamarine;
+    margin: 10px;
+}
+
+.new-note {
+    width: 100%;
 }

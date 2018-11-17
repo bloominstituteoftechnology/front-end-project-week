@@ -9,10 +9,12 @@ const Nav = props => {
         <br />
         Notes
       </h1>
-      <div className="button" onClick={props.viewAllClickHandler}>
+      <div className="button" onClick={() => props.clickHandler("all")}>
         View Your Notes
       </div>
-      <div className="button">+ Create New Note</div>
+      <div className="button" onClick={() => props.clickHandler("new")}>
+        + Create New Note
+      </div>
     </div>
   );
 };

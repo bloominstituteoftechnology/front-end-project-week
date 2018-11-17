@@ -1,5 +1,6 @@
 import React from "react";
 import Note from "./Note";
+import "../App.css";
 
 const NoteList = props => {
   return (
@@ -10,7 +11,7 @@ const NoteList = props => {
           return (
             <Note
               textBody={note.textBody}
-              noteClickHandler={props.noteClickHandler}
+              clickHandler={props.clickHandler}
               id={note._id}
               key={note._id}
               title={note.title}
