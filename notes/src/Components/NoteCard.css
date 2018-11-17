@@ -12,3 +12,10 @@
 .delete:hover {
     cursor: pointer;
 }
+
+.body {
+    display: flex;
+    margin-left: 5%;
+    width: 90%;
+    text-align: start;
+}

@@ -9,7 +9,8 @@ class Menu extends Component {
         return (
             <div class='menu'>
                 <h1 class='lambda-notes'>
-                    Lambda Notes
+                    <p>Lambda</p> 
+                    <p>Notes</p>
                 </h1>
                 <div class='menu-buttons'>
                     <Link to='/' class='link'>

@@ -1,13 +1,14 @@
 .form {
     display: flex;
     width: 100%;
+    height: auto;
 }
 
 .note-form {
     border: 1px solid grey;
     display: flex;
     flex-direction: column;
-    width: 75%;
+    width: 100%;
     background-color: gainsboro;
 }
 
@@ -31,6 +32,9 @@
     width: 25%;
     height: 50px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .save-button:hover {
