@@ -64,8 +64,8 @@ Once your MVP has been approved, you have been given a feature list that the cli
 
 ## Extra Features:
 
-- [ ] Re-factor your code to include redux for your state-management
-- [ ] Search functionality
+- [X] Re-factor your code to include redux for your state-management
+- [X] Search functionality
 - [ ] Markdown support in notes
 - [ ] Sorting options in the list view
 - [ ] Create and display tags that can be added to notes
