@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ListView from './ListView.js'
 import { Route } from 'react-router-dom';
 import axios from 'axios';
+import NoteView from './NoteView.js'
 
 const MainContentContainer = styled.div`
     display: table-cell;
@@ -83,8 +84,14 @@ class MainContent extends Component {
                     path='/' 
                     exact
                     render={props => 
-                        <ListView props={props} notes={this.state.notes}/>
+                        <ListView {...props} notes={this.state.notes}/>
                     } 
+                />
+                <Route
+                    path={`/notes/:id`}
+                    render={props =>
+                        <NoteView {...props}/>
+                    }
                 />
             </MainContentContainer>
         )

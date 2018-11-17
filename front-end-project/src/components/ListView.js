@@ -57,7 +57,7 @@ class ListView extends Component {
                 <ListHeader>Your Notes:</ListHeader>
                 <NotePreviewContainer>
                     {this.props.notes.map(note => 
-                        <NotePreview note={note} to='/'>
+                        <NotePreview to={`/notes/${note._id}`}>
                             <PreviewTitle>{note.title}</PreviewTitle>
                             <PreviewBody>{note.textBody}</PreviewBody>
                         </NotePreview>
