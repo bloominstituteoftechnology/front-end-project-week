@@ -29,13 +29,14 @@ class NoteCard extends Component {
         const note = this.props.notes.find(note => `${note._id}` === id);
         console.log(id)
         if (!note) {
-            return "Loading Note"
+            return <h1 className="notecard">Note Deleted</h1>
         }
         return (
+            console.log(this.props),
             <div className="notecard container">
                 <nav className="navbar">
                     <NavLink className="edit-delete" to={`/edit/${note._id}`}>edit</NavLink>
-                    <span className="edit-delete">delete</span>
+                    <span onClick={() => this.props.visible(id)} className="edit-delete">delete</span>
                 </nav>
                 <div >
                     <h3>{note.title}</h3>

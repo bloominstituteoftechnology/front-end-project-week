@@ -7,7 +7,7 @@ class Notes extends Component {
     return (str.length > 145 ? str.slice(0, 145) + ' ...' : str)
   }
   headerellipsis = (str) => {
-    return (str.length > 12 ? str.slice(0, 12) + ' ...' : str)
+    return (str.length > 10 ? str.slice(0, 10) + ' ...' : str)
   }
   render() {
     return (

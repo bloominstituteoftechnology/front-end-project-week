@@ -13,6 +13,8 @@ class App extends Component {
     super(props);
     this.state = {
       notes: [],
+      visible: false,
+      id:null,
 
     };
   }
@@ -27,6 +29,19 @@ class App extends Component {
         console.error('Server Error', error);
 
       });
+  }
+  visible = (id) => {
+    if(this.state.visible){
+      this.setState({ visible: false,
+        id:null
+       })
+    }else{
+      this.setState({ 
+        visible: true,
+        id:id,
+       })
+    }
+    
   }
   updateNoteList = () => {
     axios
@@ -61,11 +76,12 @@ class App extends Component {
       .catch(error => {
         console.log(error);
       });
-    }
+  }
   deleteNote = (id) => {
     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then((response) => {
         this.updateNoteList();
+        this.visible()
       })
       .catch(error => {
         console.log(error);
@@ -75,19 +91,29 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <div className="sidebar-links">
-          <h1>Lambda<br/>Notes</h1>
-          <NavLink className="link navlink" to={'/'}>View Your Notes</NavLink>
-          
-          <NavLink className="link navlink" to={'/note-form'}>+ Create New Note</NavLink>
-          
-        </div>
-        <div className="content">
-          <Route exact path="/" render={(props) => <Notes {...props} notes={this.state.notes} />} />
-          <Route path="/note-form" render={(props) => <CreateNote {...props} addnote={this.addNewNote}  />} />
-          <Route path="/notes/:id" render={(props) => <NoteCard {...props} notes={this.state.notes}  />} />
-          <Route path="/edit/:id" render={(props) => <EditNote {...props} updateNote={this.updateNote} updateNoteList={this.updateNoteList} notes={this.state.notes} />} />
+      console.log(this.props),
+      <div >
+
+        <div className="app">
+          <div className={this.state.visible ? "fullscreen" : "hidden"}>
+            <div className={this.state.visible ? "delete" : "hidden"}><p className="deletepara">Are you sure you want to delete this ? </p>
+              <span onClick={() => this.deleteNote(this.state.id)}  className="button1">Delete</span>
+              <span onClick={() => this.visible()} className="button2">No</span>
+            </div>
+          </div>
+          <div className="sidebar-links">
+            <h1>Lambda<br />Notes</h1>
+            <NavLink className="link navlink" to={'/'}>View Your Notes</NavLink>
+
+            <NavLink className="link navlink" to={'/note-form'}>+ Create New Note</NavLink>
+
+          </div>
+          <div className="content">
+            <Route exact path="/" render={(props) => <Notes {...props} notes={this.state.notes} />} />
+            <Route path="/note-form" render={(props) => <CreateNote {...props} addnote={this.addNewNote} />} />
+            <Route path="/notes/:id" render={(props) => <NoteCard {...props} visible={this.visible}  notes={this.state.notes} />} />
+            <Route path="/edit/:id" render={(props) => <EditNote {...props} updateNote={this.updateNote} updateNoteList={this.updateNoteList} notes={this.state.notes} />} />
+          </div>
         </div>
       </div>
     );
