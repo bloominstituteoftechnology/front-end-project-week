@@ -42,12 +42,28 @@ class App extends Component {
     }
 
   }
+
+ 
   componentDidMount() {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(res => {
         const notes = res.data;
         this.setState({ notes});
       })
+
+  }
+  handleChange = event => {
+    this.setState({ note: event.target.value });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const note = {
+      note: this.state.note
+    };
+
+    axios.post('https://fe-notes.herokuapp.com/note/create', {note})
   }
   
   render() {

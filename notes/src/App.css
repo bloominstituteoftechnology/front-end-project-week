@@ -21,20 +21,14 @@
 
 
 
-h6{
-  width: 22%;
-  height:22%;
+.notes  {
+  padding: 15px;
+  width: 200px;
+  border: 1px solid grey;
+  background-color: white;
+  margin-bottom: 30px;
+  height: 22vh;
+  cursor: pointer;
+  overflow: hidden;
 }
-h5{
-  width:22%;
-  height:22%;
-}
-h4{
-  width: 22%;
-  height:22%
-}
-h1{
-  height:50%;
-  width:50%
-}
-
+ 
