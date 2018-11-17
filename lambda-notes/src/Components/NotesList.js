@@ -14,7 +14,7 @@ class NotesList extends Component {
             <div className='notesContainer'>
             <h2> Your Notes: </h2>
             <div className='notesList'>
-            {this.props.notes.map( jot => <Note title={jot.title} key={jot._id} textBody={jot.textBody} jot={jot} />)}
+            {this.props.notes.map( jot => <Note title={jot.title} selectedHandler={this.props.selectedHandler} ID={jot._id} key={jot._id} textBody={jot.textBody} jot={jot} />)}
             </div>
             </div>
         )

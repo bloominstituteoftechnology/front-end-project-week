@@ -39,6 +39,17 @@ class App extends Component {
       deleteNote: false,})
   }
 
+  selectedHandler = (event) => {
+    event.preventDefault()
+    const id = event.target.id
+    console.log(id)
+    // axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    // .then(response => this.setState({notes: response.data}))
+    // .catch(err => console.log('There is a Note Error'))
+  }
+
+
+
   clickForAllHandler = () => {
     this.setState ({
       allNotes: true,
@@ -52,7 +63,7 @@ class App extends Component {
     return (
       <div className="App" className='Main'>
         <NotesNav clickForAllHandler={this.clickForAllHandler} clickForNewHandler={this.clickForNewHandler} />
-        <Route exact path="/home" render={(props) =>  <NotesList {...props} notes={this.state.notes} />} />
+        <Route exact path="/home" render={(props) =>  <NotesList {...props} selectedHandler={this.selectedHandler} notes={this.state.notes} />} />
         <Route exact path="/new" render={(props) =>  <NewNote {...props} notes={this.state.notes} />} />
       </div>
     );
