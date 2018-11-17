@@ -10,16 +10,20 @@ const NoteCard = styled.div`
   height: 250px;
   margin: 0px 20px;
   background-color: white;
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   h1 {
     font-size: 24px;
     color: black;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   p {
     flex: 1;
     line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 
