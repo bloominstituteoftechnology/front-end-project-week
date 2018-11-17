@@ -34,16 +34,16 @@ class App extends Component {
       });
   }
 
-  // componentDidUpdate() {
-  //   axios
-  //     .get('https://fe-notes.herokuapp.com/note/get/all')
-  //     .then(response => {
-  //       this.setState(() => ({ notes: response.data }));
-  //     })
-  //     .catch(error => {
-  //       console.error('Server Error', error);
-  //     });
-  // }
+  componentDidUpdate() {
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })
+      .catch(error => {
+        console.error('Server Error', error);
+      });
+  }
 
   addNote = () => {
     axios

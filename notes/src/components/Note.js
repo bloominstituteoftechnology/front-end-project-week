@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-
-import axios from 'axios';
 
 import styled from 'styled-components';
 
 const Container = styled.div`
   overflow-wrap: break-word;
-  /* min-width: 100%; */
+  min-width: 500px;
+  width: 66vw;
   max-width: 880px;
 `;
 
@@ -23,75 +22,76 @@ const Actions = styled.div`
     padding-right: 20px;
 `;
 
-const Modal = styled.div`
+const ActionButton = styled.div`
+    text-decoration: underline;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+`;
 
+const Modal = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(114, 114, 114, 0.75);
 `;
 
 const DeleteModal = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 50px 100px;
+    border: 3px solid rgb(187, 187, 187);
+    background: white;
+    z-index: 2;
 
+    p {
+        text-align: center;
+        padding: 0 0 20px 0;
+    }
 `;
 
 const ModalButtons = styled.div`
-
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
 `;
 
 const DeleteButton = styled.div`
-
+  width: 200px;
+  padding: 15px 60px;
+  font-size: 20px;
+  color: white;
+  background: rgb(164, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  margin: 10px;
+  cursor: pointer;
+  outline: none;
 `;
 
 const NoButton = styled.div`
-
+  width: 200px;
+  padding: 15px 60px;
+  font-size: 20px;
+  color: white;
+  background: rgb(48, 184, 188);
+  text-align: center;
+  text-decoration: none;
+  margin: 10px;
+  cursor: pointer;
+  outline: none;
 `;
-// export default class Note extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             note: null
-//         };
-//     }
-
-//     componentDidMount() {
-//         const id = this.props.match.params.id;
-//         this.fetchNote(id);
-//         console.log('Fetched!')
-//     }
-
-//     fetchNote = id => {
-//         axios
-//         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-//         .then(response => {
-//             this.setState(() => ({ note : response.data }))
-//         })
-//         .catch(error => {
-//             console.error(error)
-//         })
-//     }
-
-//     render() {
-//         if (!this.state.note) {
-//             return <div>Loading note...</div>;
-//         }
-
-//         return (
-//             <Container>
-//                 <Actions>
-//                     <Link to='/' style={{ color: 'black' }}>edit</Link>
-//                     <Link to='/' style={{ paddingLeft: '10px', color: 'black' }}>delete</Link>
-//                 </Actions>
-//                 <NoteContainer>
-//                     <h2>{this.state.note.title}</h2>
-//                     <p style={{ lineHeight: '2'}}>{this.state.note.textBody}</p>
-//                 </NoteContainer>
-//             </Container>
-//         )
-//     }
-// }
 
 const Note = props => {
     if (props.notes.length) {
         let note = props.notes.find(note => `${note._id}` === props.match.params.id);
 
-        const deleteNote = (event) => {
+        const deleteNotes = (event) => {
             event.preventDefault();
             props.deleteNote(note._id);
             props.history.push('/');
@@ -104,7 +104,7 @@ const Note = props => {
                         <DeleteModal>
                             <p>Are you sure you want to delete this?</p>
                             <ModalButtons>
-                                <DeleteButton onClick={deleteNote}>Delete</DeleteButton>
+                                <DeleteButton onClick={deleteNotes}>Delete</DeleteButton>
                                 <NoButton onClick={props.deleteToggleOff}>No</NoButton>
                             </ModalButtons>
                         </DeleteModal>
@@ -112,14 +112,17 @@ const Note = props => {
                 )}
 
                 <Actions>
-                     <Link to={`/note/${note._id}/edit`}
-                            
-                           style={{ color: 'black' }}>edit</Link>
-                     <Link to='/' style={{ paddingLeft: '10px', color: 'black' }}>delete</Link>
+                    <Link to={`/note/${note._id}/edit`}
+                        onClick={() => props.updatedNote(note.title, note.textBody)}
+                        style={{ color: 'black' }}
+                    >
+                        <ActionButton>edit</ActionButton>
+                    </Link>
+                    <ActionButton onClick={props.deleteToggleOn}>delete</ActionButton>
                  </Actions>
                  <NoteContainer>
-                     <h2>{this.state.note.title}</h2>
-                     <p style={{ lineHeight: '2'}}>{this.state.note.textBody}</p>
+                     <h2>{note.title}</h2>
+                     <p style={{ lineHeight: '2'}}>{note.textBody}</p>
                  </NoteContainer>
             </Container>
         )
