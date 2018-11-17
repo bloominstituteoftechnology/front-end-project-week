@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import ViewNoteStyle from '../Styles/ViewNoteStyle';
+
 class ViewNote extends Component {
     constructor(props) {
         super(props);
@@ -16,9 +18,9 @@ class ViewNote extends Component {
 
     render() {
         return (
-            <div>
+            <ViewNoteStyle>
                 <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
-                <a onClick={this.handleDelete}>delete</a>
+                <a href='' onClick={this.handleDelete}>delete</a>
                 {this.props.notes.map(note => {
                     if (this.props.match.params.id === note._id) {
                         return (
@@ -29,7 +31,7 @@ class ViewNote extends Component {
                         );
                     }
                 })} 
-            </div>
+            </ViewNoteStyle>
         );
     }
 }

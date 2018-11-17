@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { buttonColor } from './variables';
+import { buttonColor, borderColor } from './variables';
 
 export const Form = styled.section `
     margin-left: 350px;
@@ -20,11 +20,14 @@ export const Form = styled.section `
 export const TitleInput = styled.input `
     width: 60%;
     height: 10%;
+    border: 2px solid ${borderColor}
 `;
 
-export const BodyInput = styled.input `
+export const BodyInput = styled.textarea `
     width: 100%;
     height: 50%;
+    border: 2px solid ${borderColor}
+    resize: none;
 `;
 
 export const Button = styled.button `
