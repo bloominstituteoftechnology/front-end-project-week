@@ -17,3 +17,11 @@ textarea {
 .createButton {
     width: 23%;
 }
+
+.inputBox {
+    display: flex;
+}
+
+.inputBox button {
+    height: 40px;
+}

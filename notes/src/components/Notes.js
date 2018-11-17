@@ -1,38 +1,49 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import Note from "./Note";
 
+import { fetchNotes } from "../actions/actions";
+
 import "../styles/App.css";
 
-const Notes = props => {
+class Notes extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
   // sortNotes = (a, b) => {
   //   if (b.id < a.id) return 1;
   //   if (b.id > a.id) return -1;
   //   return 0;
   // };
 
-  if (props.notes.length) {
-    let notes = props.notes;
-    // let sortedNotes = this.props.notes.sort(this.sortNotes);
-    // if (!notes) {
-    //   return (
-    //   <div className="componentContainer"></div>
-    //   );
-    // } else {
-      return (
-        <div className="componentContainer">
-          <h2>Your Notes:</h2>
-          <div className="notesContainer">
-            {notes.map(note => (
-              <Note key={note._id} note={note} />
-            ))}
-          </div>
+  // let sortedNotes = this.props.notes.sort(this.sortNotes);
+  // if (!notes) {
+  //   return (
+  //   <div className="componentContainer"></div>
+  //   );
+  // } else {
+  render() {
+    let notes = this.props.notes;
+    return (
+      <div className="componentContainer">
+        <h2>Your Notes:</h2>
+        <div className="notesContainer">
+          {notes.map(note => (
+            <Note key={note._id} note={note} />
+          ))}
         </div>
-      );
-    } else {
-    return <p>Loading...</p>;
+      </div>
+    );
   }
-  }
+}
 
-  export default Notes
+const mapStatetoProps = state => {
+  return {
+    notes: state.notes
+  };
+};
+
+export default connect(mapStatetoProps, { fetchNotes })(Notes);
 // }

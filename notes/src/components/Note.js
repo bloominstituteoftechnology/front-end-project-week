@@ -18,6 +18,7 @@ const Note = props => {
     </h3>
     <hr />
       <p>{truncateString(props.note.textBody, 91)}</p>
+      {props.note.tags.map(tag => <span>{`#${tag},`}</span>)}
     
   </div>
 )};

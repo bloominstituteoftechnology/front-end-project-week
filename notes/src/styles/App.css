@@ -46,9 +46,11 @@
   
 }
 
-.componentContainer form {
+.componentContainer form, .tagInput {
   display: flex;
   flex-direction: column;
   margin: 35px 5%;
 }
+
+
   
