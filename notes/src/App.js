@@ -26,9 +26,8 @@ class App extends Component {
       axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         this.setState({ notes: response.data })
-        console.log(response.data)
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log('error getting notes', err))
     }
 
     createNote = (title, text) => {
@@ -39,7 +38,7 @@ class App extends Component {
       .then(response => {
         this.getNotes();
       })
-      .catch(err => console.log(err)) 
+      .catch(err => console.log('error creating note', err)) 
     }
 
     deleteNote = (id) => {
@@ -47,7 +46,18 @@ class App extends Component {
       .then(response => {
         this.getNotes();
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log('error deleting note', err))
+    }
+
+    editNote = (id, title, text) => {
+      axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+        title: title,
+        textBody: text
+      })
+      .then(response => {
+        this.getNotes();
+      })
+      .catch(err => console.log('Error editing note', err))
     }
 
  
@@ -70,6 +80,7 @@ class App extends Component {
           <Route exact path="/note/edit/:id" render={(props) =>
             <EditForm
               {...props}
+              editNote={this.editNote}
               notes={this.state.notes}
             />}/>
       </div>
