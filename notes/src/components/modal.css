@@ -18,8 +18,9 @@
 }
 
 .modal {
-    background: #464b5e;
-    color: white;
+    background: white;
+    padding: 100px;
+    border: 2px solid black;
     max-width: 30rem;
     outline: none;
     padding: 32px;
@@ -27,7 +28,7 @@
 }
 
 .modal__title {
-    margin: 0 0 16px 0;
+    margin: 16px 0;
 }
 
 .modal__body {
@@ -35,4 +36,21 @@
     font-size: 2rem;
     font-weight: 300;
     word-break: break-all;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.button-success {
+    background-color: #3498db;
+}
+
+.button-danger {
+    background-color: #c0392b;
 }

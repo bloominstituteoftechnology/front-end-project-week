@@ -11,9 +11,9 @@ const ModalOption = (props) => (
         closeTimeoutMS={200}
         className='modal'
     >
-        <h3 className='modal__title'>Selected Option</h3>
-        <button className='button' onClick={props.handleDelete}>Delete</button>
-        <button className='button' onClick={props.toggle}>No</button>
+        <h3 className='modal__title'>Are you sure you want to delete this?</h3>
+        <button className='button button-danger' onClick={props.handleDelete}>Delete</button>
+        <button className='button button-success' onClick={props.toggle}>No</button>
     </Modal>
 );
 
