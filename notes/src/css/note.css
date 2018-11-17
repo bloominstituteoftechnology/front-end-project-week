@@ -10,71 +10,9 @@ body {
     background-color: rgb(192, 192, 192);
 }
 
-/* .noteContainer {
-    width: 700px;
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 15px;
-    border: 1px solid white;
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
-
-.noteContainer:hover {
-    background-color: slategray;
-} */
-
-/* .inputButton {
-    background-color: blue;
-    color: white;
-    border-radius: 15px;
-    width: 100px;
-    font-size: 16px;
-}
-
-.inputButton:hover {
-    background-color: rgba(109, 220, 240, 0.534);
-} */
-
-/* .inputField {
-    border: 1px solid gray;
-    width: 200px;
-    height: auto;
-    left: 0px;
-    top: 0px;
-    font-size: 16px;
-    border-radius: 15px;
-}
-
-.clearButton {
-    color: white;
-    width: 140px;
-    height: auto;
-    left: 150px;
-    top: 100px;
-    font-size: 16px;
-    background-color: blue;
-    border-radius: 15px;
-}
-
-.clearButton:hover {
-    background-color: rgba(109, 220, 240, 0.534);
-} */
-
 li {
     font-size: 16px;
 }
-
-/* .h1Container {
-   
-    width: 700px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 15px;
-} */
 
 .ul {
     color: white;
@@ -360,3 +298,4 @@ height: auto;
    height: auto;
    color: rgb(74, 74, 74);
 }
+

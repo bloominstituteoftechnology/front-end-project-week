@@ -18,7 +18,7 @@ class Nav extends React.Component {
         <div className="nav-title">Lambda Notes</div>
         <ul className="nav-list">
           <li className="nav-left-item icon1">
-            <button className="nav-button" value="noteList" onClick={this.props.noteList} name="noteList">View Your Notes</button>
+            <button className="nav-button" value="noteList" onClick={this.props.noteList} name="noteList">View Notes</button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>

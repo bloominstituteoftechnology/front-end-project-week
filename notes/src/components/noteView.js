@@ -43,8 +43,6 @@ class NoteView extends Component {
   }
 
   render() {
-
-
     return (
       <div className="note-view"> <div className="note-view-container">
         <div className="spacer"></div>

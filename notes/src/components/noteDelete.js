@@ -70,7 +70,7 @@ class noteDelete extends React.Component {
           style={customStyles}   
         >
  
-          {<h2 ref={subtitle => this.subtitle = subtitle}></h2>}
+          {<h2 ref={subtitle => this.subtitle = subtitle}>Are you sure you want to delete this?</h2>}
           <button className="delete2-button" onClick={this.noteDelete}>Delete</button>
           <button className="cancel-button" onClick={this.closeModal}>Cancel</button> 
           <form className="modal-form">

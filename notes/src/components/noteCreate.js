@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from "axios";
 import "../css/note.css"
 
 class NoteCreate extends Component {
@@ -13,8 +12,6 @@ class NoteCreate extends Component {
 		};
 	}
 
-
-
 	render() {
 		return (
 			<form className="note-create-form" onSubmit={this.props.saveNote}>
@@ -23,7 +20,7 @@ class NoteCreate extends Component {
 					type="text"
 					className="note-title-input"
 					value={this.props.value}
-					placeholder="Note Content"
+					placeholder="Note Title"
 					onChange={this.props.changeHandler}
 					name="title" />
 				<textarea
