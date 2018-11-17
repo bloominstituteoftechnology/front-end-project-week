@@ -46,7 +46,7 @@ class CreateNote extends React.Component {
           required
         />
         <section className="submitAndMsg">
-          {this.props.creatingNote ? <p class='loading'>Saving Note...</p> : <button type="submit" className="links">Save</button>}
+          {this.props.creatingNote ? <p className='loading'>Saving Note...</p> : <button type="submit" className="links">Save</button>}
         </section>
       </form>
     );

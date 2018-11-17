@@ -13,8 +13,7 @@ class DeleteModal extends React.Component {
 
   delete = () => {
     this.setState({deleting: true});
-
-    return this.props.delete()
+    return this.props.delete(this.props.id)
   }
 
   render () {

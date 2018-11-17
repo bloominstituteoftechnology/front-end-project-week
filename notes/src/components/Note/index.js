@@ -18,7 +18,8 @@ class Note extends React.Component {
   }
 
 delete = () => {
- return this.props.delete(this.props.match.params.id);
+  const id = this.state.note._id;
+ return this.props.delete(id);
 }
 
   render() {

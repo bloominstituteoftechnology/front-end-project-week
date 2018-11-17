@@ -5,22 +5,14 @@ import NoteCard from "../NoteCard";
 import './listview.css';
 
 class ListView extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      notes: []
-    }
-  }
   render() {
-    const notes = this.props.notes;
     return (
       <section className='listview'>
         <h1>Your Notes:</h1>
         <br />
         <div className='notes-container'>
-        {notes.map(note => {
-          return <NoteCard key={note.id + note.title} note={note} />;
+        {this.props.notes.map(note => {
+          return <NoteCard key={note.id + note.title + Math.random()} note={note} />;
         })}
       </div>
       </section>
