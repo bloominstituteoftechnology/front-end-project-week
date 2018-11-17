@@ -1,0 +1,67 @@
+/* Start of Note CSS */
+.viewNote {
+  width: 100%;
+  min-height: 600px;
+  background-color: whitesmoke;
+  border: 1px solid gray;
+  padding: 20px;
+  padding-top: 5px;
+  color: #585858;
+  font-size: small;
+}
+
+.noteLinks {
+  width: 100%;
+  text-align: right;
+}
+
+.noteLinks a {
+  color: black;
+  padding-left: 20px;
+}
+
+.viewNoteTitle {
+  color: #585858;
+  font-size: larger;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.deleteOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+}
+.hidden {
+  visibility: hidden;
+}
+
+.deleteBox {
+  margin: 200px auto;
+  border: 1px solid black;
+  background-color: white;
+  width: 500px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteBoxButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 400px;
+}
+
+.buttonRed {
+  background-color: red;
+}
+/* End of Note CSS */

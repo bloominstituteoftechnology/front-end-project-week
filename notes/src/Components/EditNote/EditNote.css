@@ -1,0 +1,17 @@
+/* Start of Edit Note CSS */
+.noteForm {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 65%;
+  height: 40px;
+  margin: 20px 0;
+}
+
+textarea {
+  height: 300px;
+}
+
+/* End of Edit Note CSS */

@@ -1,0 +1,19 @@
+/* Start of App CSS */
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 800px;
+  min-height: 600px;
+  margin: auto;
+  
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* End of App CSS */
