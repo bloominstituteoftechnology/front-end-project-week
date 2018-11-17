@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateNoteAction } from '../Actions/notesActions';
 
+import axios from 'axios';
+
 
 class UpdateNote extends React.Component {
     constructor(props){
@@ -11,7 +13,21 @@ class UpdateNote extends React.Component {
         this.state = {
             NoteTitle: '',
             NoteContent: '',
+            note: [],
         }
+    }
+    componentDidMount() {
+        axios
+            .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+            .then(response => {
+                console.log(response);
+                this.setState({
+                    note: response.data,
+                })
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     handleInputChange = e => {
@@ -19,11 +35,10 @@ class UpdateNote extends React.Component {
     }
     updateNoteHandler = e => {
         e.preventDefault();
-        // console.log(e.target.children[1].value);
-        console.log(this.props.history.goBack());
-        // this.props.history.goBack();
-        // window.location.reload();
-        // this.props.updateNoteAction(e.target.children[1].value, e.target.children[2].value, );
+        // console.log(e.target.children[2].value);
+        // console.log(this.props.match.params.id);
+        // console.log(this.state.NoteTitle, this.state.NoteContent);
+        this.props.updateNoteAction(this.state.NoteTitle, this.state.NoteContent, this.props.match.params.id);
     }
 
     render() {

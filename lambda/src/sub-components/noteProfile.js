@@ -5,7 +5,9 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { saveNoteId } from '../Actions/notesActions';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
+
+import UpdateNote from './updateNote';
 
 class NoteProfile extends React.Component {
     constructor(props) {
@@ -37,7 +39,7 @@ class NoteProfile extends React.Component {
             <div className='note-view'>
                 <div>
                     <div>
-                        <NavLink to='/update-note' onClick={this.props.pageReload}>edit</NavLink>
+                        <NavLink to={`/note/${this.props.match.params.id}/update-note`} onClick={this.props.pageReload}>edit</NavLink>
                     </div>
                 </div>
                 <div className='notes-sidebar'>
@@ -49,6 +51,7 @@ class NoteProfile extends React.Component {
                     <h4 className='specific-note-title'>{this.state.note.title}</h4>
                     <p className='specific-note-textbody'>{this.state.note.textBody}</p>
                 </div>
+                {/* <Route exact path='/notes/:id/update-note' render={ (props) => <UpdateNote {...props} pageReload={this.windowReload} />} /> */}
             </div>
         )
     }

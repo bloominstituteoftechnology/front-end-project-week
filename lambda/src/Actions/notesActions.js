@@ -60,7 +60,7 @@ export const updateNoteAction = (titleValue, textValue, idValue) => {
         axios
             .put(`https://fe-notes.herokuapp.com/note/edit/${idValue}`, {
                 tags: [],
-                textbody: textValue,
+                textBody: textValue,
                 title: titleValue,
             })
             .then(response => {
@@ -79,7 +79,7 @@ export const updateNoteAction = (titleValue, textValue, idValue) => {
             })
     }
 }
-export const deleteNoteAction = (textValue, titleValue, idValue) => {
+export const deleteNoteAction = (idValue) => {
     return dispatch => {
         dispatch({ type: DELETING_NOTES });
         axios

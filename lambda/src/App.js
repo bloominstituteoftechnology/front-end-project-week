@@ -56,7 +56,7 @@ class App extends React.Component {
           <Route exact path='/' render={ (props) => <NotesList {...props} notesList={this.props.notes} pageReload={this.windowReload} />} />
           <Route exact path='/create-new-note' render={ (props) => <NewNote {...props} pageReload={this.windowReload} />} />
           <Route exact path='/note/:id' render={ (props) => <NoteProfile {...props} pageReload={this.windowReload} />} />
-          <Route exact path='/update-note' render={ (props) => <UpdateNote {...props} pageReload={this.windowReload} />} />
+          <Route exact path='/note/:id/update-note' render={ (props) => <UpdateNote {...props} pageReload={this.windowReload} />} />
         </div>
       </div>
     );
