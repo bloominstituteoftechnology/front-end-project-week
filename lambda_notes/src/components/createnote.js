@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from 'react-router-dom';
 
 class CreateNote extends Component {
   constructor(props) {
@@ -7,7 +8,8 @@ class CreateNote extends Component {
     this.state = {
       tag: [],
       title: "",
-      body: ""
+      body: "",
+      noteCreated: false
     };
   }
 
@@ -22,17 +24,20 @@ class CreateNote extends Component {
       title: this.state.title,
       textBody: this.state.body
     };
-    console.log(note);
+
     axios
       .post("https://fe-notes.herokuapp.com/note/create", note)
       .then(res => {
-        console.log(res);
-        this.setState({ title: "", body: "" });
+        this.setState({ title: "", body: "", noteCreated:true });
       })
       .catch(() => alert("Error adding note"));
   };
 
   render() {
+    if (this.state.noteCreated) {
+      this.props.getNotes();
+      return <Redirect to="/" />;
+    }
     return (
       <div>
         <h1 className="header">Create New Note:</h1>

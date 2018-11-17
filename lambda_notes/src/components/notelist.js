@@ -7,7 +7,6 @@ class NoteList extends Component {
   }
 
   truncateString(str, num) {
-    // checking str.length instead of str here
     return str.length >= 75 || num <= 75
       ? str.slice(0, num) + "..."
       : str.length <= num
@@ -26,7 +25,7 @@ class NoteList extends Component {
                   <div className="note">
                     <h1 className="notetitle">{note.title}</h1>
                     <div className="notetext">
-                      <p>{this.truncateString(note.textBody, 76)}</p>
+                    <p>{this.truncateString(note.textBody, 90)}</p>
                     </div>
                   </div>
                   <NavLink

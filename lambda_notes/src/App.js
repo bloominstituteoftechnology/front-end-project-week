@@ -30,6 +30,18 @@ class App extends Component {
         console.log(err);
       });
   };
+
+  deleteNote = id => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => {
+        this.getNotes();
+      })
+      .catch(err => {
+        console.log("error deleting");
+      });
+  };
+
   render() {
     return (
       <div className="noteview">
@@ -53,13 +65,17 @@ class App extends Component {
           />
           <Route
             path="/create"
-            render={props => (
-              <CreateNote {...props} createNewNote={this.createNewNote} />
-            )}
+            render={props => <CreateNote {...props} getNotes={this.getNotes} />}
           />
           <Route
             path="/viewnote/:id"
-            render={props => <NoteView {...props} notes={this.state.notes} />}
+            render={props => (
+              <NoteView
+                {...props}
+                notes={this.state.notes}
+                deleteNote={this.deleteNote}
+              />
+            )}
           />
           <Route
             path="/edit/:id"

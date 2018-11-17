@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
+import { Modal, ModalBody } from "reactstrap";
 
 class NoteView extends Component {
   constructor(props) {
@@ -7,10 +8,8 @@ class NoteView extends Component {
     this.state = {
       modal: false,
       backdrop: true,
-      toList: false
+      backtoList: false
     };
-
-    // this.toggle = this.toggle.bind(this);
     this.changeBackdrop = this.changeBackdrop.bind(this);
   }
 
@@ -27,33 +26,64 @@ class NoteView extends Component {
     }
     this.setState({ backdrop: value });
   }
-
   handleDelete = e => {
     e.preventDefault();
     this.setState({ toList: true });
     this.props.deleteNote(this.props.match.params.id);
   };
-
+  truncateString(str, num) {
+    return str.length >= 75 || num <= 75
+      ? str.slice(0, num) + "..."
+      : str.length <= num
+      ? str
+      : str.slice(0, num) + "...";
+  }
   render() {
-    // console.log(this.props.notes);
-    console.log(this.props.match.params.id);
-
+    if (this.state.toList) {
+      this.props.getNotes();
+      return <Redirect to="/" />;
+    }
     return (
-      <div className="pageWrapper">
-        <div className="actionButtons">
-          <NavLink to={`/edit/${this.props.match.params.id}`}>edit</NavLink>
+      <div>
+        <div>
+          <NavLink to={`/edit/${this.props.match.params.id}`}>
+            <button>edit</button>
+          </NavLink>
+          <button onClick={this.toggle}>delete</button>
         </div>
+        
+        
+        
+        <div className='singlenote'>  
         {this.props.notes.map(note => {
           if (this.props.match.params.id === note._id) {
-            console.log(note.title);
             return (
-              <div key={note._id}>
-                <p className="viewNoteTitle">{note.title}</p>
-                <p className="viewNoteBody">{note.textBody}</p>
+              <div className="note" key={note._id}>
+                <h1 className="notetitle">{note.title}</h1>
+                <p className="notetext">{this.truncateString(note.textBody, 90)}</p>
               </div>
             );
           }
         })}
+        </div>
+        <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
+          backdrop={this.state.backdrop}
+        >
+        <ModalBody>
+            <p>Are you sure you want to delete this?</p>
+            <div>
+              <button onClick={this.handleDelete}>
+                Yes
+              </button>{' '}
+              <button onClick={this.toggle}>
+                No
+              </button>
+            </div>
+          </ModalBody>
+        </Modal>
       </div>
     );
   }

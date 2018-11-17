@@ -51,8 +51,6 @@ h1 {
 }
 .notetext {
   margin: 0px 25px;
-  overflow: hidden;
-  text-overflow: -o-ellipsis-lastline;
 }
 .viewnotebutton {
   text-align: center;
@@ -91,4 +89,18 @@ input {
 }
 .header {
   margin-top: 35px;
+}
+.changebuttons {
+  display: flex;
+}
+.editbutton {
+    text-align: center;
+    padding: 5px 40px;
+    color: white;
+    background-color: #24b8bd;
+    margin: 15px 35px;
+    text-decoration: none;
+}
+.singlenote {
+  margin-left: 50px;
 }
