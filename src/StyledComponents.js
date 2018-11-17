@@ -124,7 +124,7 @@ export const StandardDiv = styled.div`
     h1 {
         color: rgb(65, 65, 65);
         font-size: 2.6rem;
-        margin-left: 2%;
+        margin-left: 3%;
         align-self: flex-start;
         // border: 1px solid pink;
     }
@@ -141,12 +141,8 @@ export const NotesContainer = styled.div`
 `;
 
 export const NoteDiv = styled.div`
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 5px 5px 10px 5px;
+    border: 2px solid rgb(220, 219, 220);
+    margin: 5px 7px 20px 5px;
     width: 30%;
     height: 200px;
     background-color: white;
@@ -166,17 +162,22 @@ export const NoteDiv = styled.div`
 
     h2 {
         font-size: 1.4rem;
+        text-align: left;
+        margin-left: 7%;
     }
 
     hr{
-        width: 100%;
+        width: 85%;
+        border: 1px solid rgb(220, 219, 220);
     }
 
     p {
         font-size: 1.2rem;
-        margin: 0px 5px;
+        text-align: left;
+        margin: 0 7% 0 7%;
+        line-height: 22px;
         display: -webkit-box;
-        -webkit-line-clamp: 7;
+        -webkit-line-clamp: 6;
         -webkit-box-orient: vertical;
         overflow: hidden;
         word-wrap: break-word;
