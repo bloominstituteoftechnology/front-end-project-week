@@ -30,7 +30,7 @@ class App extends Component {
       <div className="App">
         {loading ? <h1>Loading...</h1> : null}
         {error !== null ? <h1>{error}</h1> : null}
-        <div className="sidePanel">
+        <div className="navPanel">
           <NavigationPanel />
         </div>
 

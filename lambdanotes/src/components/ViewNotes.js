@@ -12,9 +12,14 @@ class ViewNotes extends Component{
         <NotesContext.Consumer>
             {data =>{
                 const noteData = data.state.notes;
-            
                 const notes = noteData.map(note =>{
-                    return <h1>{note.title}</h1>
+                    return (
+                        <div>
+                            <h1>{note.title}</h1>
+                            <hr/>
+                            <p>{note.textBody}</p>
+                        </div>
+                        )
                 })
                 return (
                     notes
