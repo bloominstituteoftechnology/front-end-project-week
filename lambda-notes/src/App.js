@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom'; 
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import axios from "axios";
+
 import SideBar from "./Components/Sidebar";
 import Notes from "./Components/Notes";
 import CreateNote from "./Components/CreateNote";
@@ -10,56 +12,96 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-          title: "Joke 1",
-          text: "C: DOS, C: DOS run, run DOS run",
-          id: 1
-        },
-        {
-          title: "Joke 2",
-          text:
-            "What do you get when you cross an elephant with a rino? Eliphino.",
-          id: 2
-        }
-      ],
-      newId: 3
+      notes: [],
+      newNote: {
+        tags: [],
+        title: "",
+        textBody: "",
+        modal: false,
+      }
     };
   }
 
-  saveNote = (newTitle, newText) => {
+  componentDidMount() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(response => {
+        this.setState({
+          notes: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  componentDidUpdate() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(response => {
+        this.setState({
+          notes: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  modalHandler = () => {
+    this.state.modal ? this.setState({modal: false}) : this.setState({modal: true})
+  }
+
+  inputChange = e => {
+    e.preventDefault();
     this.setState({
-      notes: [
-        ...this.state.notes,
-        { title: newTitle, text: newText, id: this.state.newId }
-      ],
-      newId: this.state.newId + 1
+      newNote: {
+        ...this.state.newNote,
+        [e.target.name]: e.target.value
+      }
     });
   };
 
-  editNote = (newTitle, newText, id) => {
-    let updatedNote = this.state.notes.find(note => note.id === id);
-    let filteredNotes = this.state.notes.filter(note => note.id !== id);
-    this.setState({
-      notes: [
-        ...filteredNotes,
-        { title: newTitle, text: newText, id: updatedNote.id }
-      ]
-    });
+  addNote = () => {
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", this.state.newNote)
+      .then(response =>
+        this.setState({
+          newNote: { title: "", textBody: "" }
+        })
+      )
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  updateNote = id => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
+      .then(response =>
+        this.setState({
+          newNote: { title: "", textBody: "" }
+        })
+      )
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   deleteNote = id => {
-    let filteredNotes = this.state.notes.filter(note => note.id !== id);
-    this.setState({
-      notes: filteredNotes
-    });
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
   };
+
   render() {
     return (
       <div className="App">
         <SideBar />
         <Route
-          exact path="/"
+          exact
+          path="/"
           render={props => <Notes {...props} notes={this.state.notes} />}
         />
         <Route
@@ -69,8 +111,9 @@ class App extends Component {
             <CreateNote
               {...props}
               notes={this.state.notes}
-              newId={this.state.newId}
-              saveNote={this.saveNote}
+              inputChange={this.inputChange}
+              addNote={this.addNote}
+              newNote={this.state.newNote}
             />
           )}
         />
@@ -82,6 +125,8 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               deleteNote={this.deleteNote}
+              modal={this.state.modal}
+              modalHandler={this.modalHandler}
             />
           )}
         />
@@ -92,7 +137,9 @@ class App extends Component {
             <EditNote
               {...props}
               notes={this.state.notes}
-              editNote={this.editNote}
+              inputChange={this.inputChange}
+              newNote={this.state.newNote}
+              updateNote={this.updateNote}
             />
           )}
         />
