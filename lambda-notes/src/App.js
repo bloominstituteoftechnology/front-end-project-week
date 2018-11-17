@@ -8,11 +8,13 @@ import NotesNav from './Components/NotesNav'
 
 import axios from 'axios'
 class App extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
 
     this.state = {
       notes: [],
+      title: '',
+      content: '',
       allNotes: true,
       newNote: false,
       fullNote: false,
@@ -26,6 +28,7 @@ class App extends Component {
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log('There is a Note Error'))
 }
+
 
   clickForNewHandler = () => {
     this.setState ({
@@ -46,15 +49,11 @@ class App extends Component {
   }
 
   render() {
-    let Comp;
-
-    if (this.state.allNotes === true) {Comp = <NotesList notes={this.state.notes} />}
-    if (this.state.newNote === true) {Comp = <NewNote />}
     return (
       <div className="App" className='Main'>
         <NotesNav clickForAllHandler={this.clickForAllHandler} clickForNewHandler={this.clickForNewHandler} />
-        <Route exact path="/home" render={(props) =>  <NotesList notes={this.state.notes} />} />
-        <Route exact path="/new" render={(props) =>  <NewNote />} />
+        <Route exact path="/home" render={(props) =>  <NotesList {...props} notes={this.state.notes} />} />
+        <Route exact path="/new" render={(props) =>  <NewNote {...props} notes={this.state.notes} />} />
       </div>
     );
   }

@@ -5,7 +5,7 @@
 
 .App {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   text-align: center;
   width: 100%;
 }
@@ -130,4 +130,9 @@ form {
 textarea {
   margin-left: 20px;
   font-size: 1rem;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
 }

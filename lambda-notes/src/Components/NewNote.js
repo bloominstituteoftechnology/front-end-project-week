@@ -4,20 +4,32 @@ import '../App.css'
 import axios from 'axios'
 class NewNote extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
+            notes:[props.notes],
+            tags:[],
             title: '',
             content: '', 
         }
         }
-        
+
         inputHandler = (event) => {
                 let value=event.target.value;
                 let property= event.target.dataset.property;
-                console.log(value);
                 this.setState({[property]: value})
         }
+
+        addNote = (event) => {
+            event.preventDefault();
+            console.log('This is working')
+            const tags = this.state.tags;
+            const title = this.state.title;
+            const content = this.state.content;
+            axios.post('https://fe-notes.herokuapp.com/note/create', {tags, title,content})
+            .then( response => this.setState({notes: response.data}))
+            .catch(err => console.log(err))
+          }
 
     render() {
 
@@ -25,10 +37,10 @@ class NewNote extends Component {
             <div className='notesContainer'>
             <h2> Create New Note: </h2>
             <div className='notesList'>
-            <form><input onChange={this.inputHandler} data-property='title' className='title' placeholder='Note Title' type='text'></input></form>
+            <form><input onChange={this.inputHandler} className='title' placeholder='Note Title' type='text'></input></form>
             <textarea onChange={this.inputHandler} data-property='content' rows="20" cols="100" placeholder='Content Title'></textarea>
 
-            <button>Save</button>
+            <button onClick={this.addNote}>Save</button>
             </div>
             </div>
         )
