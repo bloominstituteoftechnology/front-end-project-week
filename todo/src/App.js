@@ -6,6 +6,8 @@ import NoteForm from './components/NoteForm';
 import Note from './components/Note';
 import Notes from './components/Notes';
 
+// NoteForm is the default list view -- need to build out a NoteView thing that displays when the user clicks an individual link.
+
 
 class App extends Component {
   constructor(props){
