@@ -12,6 +12,7 @@ const AppWrapper = styled.div`
 text-align: center;
 display: flex;
 width: 100%;
+/* ${props => props.modal ? `opacity: 0.5`: null } */
 `
 
 const Sidebar = styled.nav`
@@ -54,13 +55,43 @@ const SidebarHeader = styled.h1`
 `
 
 const DeleteModal = styled.div`
-    border: 1px solid black;
-    background-color: whitesmoke;
+    width: 70%;
+    height: 250px;
+    opacity: none;
+    border: 2px solid black;
+    background-color: white;
     position: fixed;
     z-index: 1;
-    left: 50%;
-    top: 50%;
+    left: 20%;
+    top: 36%;
     ${props => props.modal ? `display: flex; flex-direction: column; align-items: center` : `display: none`}
+    > h3 {
+      margin-top: 50px;
+      font-weight: normal;
+      font-size: 24px;
+    }
+    > div {
+      width: 60%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      > div {
+        border: 1px solid darkgray;
+        font-weight: bold;
+        width: 45%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        background-color: #d01313;
+        color: white;
+        &:last-of-type {
+          background-color: #13c1d0;
+        }
+      }
+    }
 `
 
 class App extends Component {
@@ -84,7 +115,7 @@ class App extends Component {
   }
 
   render() {
-    return  <AppWrapper>
+    return  <AppWrapper modal={this.state.modal} >
                 <DeleteModal modal={this.state.modal}>
                     <h3>Are you sure you want to delete this?</h3>
                     <div>
