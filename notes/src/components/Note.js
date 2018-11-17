@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteNote } from '../actions/noteActions'
 
@@ -15,6 +16,7 @@ const Note = props => {
             <h1>{note.title}</h1>
             <p>{note.textBody}</p>
             <button onClick={clickHandler}>Delete</button>
+            <Link to={`/update/${note.id}`}>Update</Link>
         </div>
     )
 }

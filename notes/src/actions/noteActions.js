@@ -30,6 +30,19 @@ export const createNote = (newNote) =>{
     }
 }
 
+export const updateNote = (updatedNote) => {
+    return(dispatch) => {
+        dispatch({type:LOADING})
+        axios.put(`https://fe-notes.herokuapp.com/note/edit/${updatedNote._id}`, updatedNote)
+        .then( response =>{
+            dispatch(getNotes())
+        })
+        .catch( error => {
+            dispatch({type:ERROR, errorMessage:"Could Not Update!"})
+        })
+    }
+}
+
 export const deleteNote = (id) =>{
     return (dispatch) =>{
         dispatch({type:LOADING})
