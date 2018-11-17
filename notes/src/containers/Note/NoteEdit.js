@@ -7,7 +7,7 @@ const Form = styled.form`
   padding: 5% 1% 0 10%;
 `;
 const Input = styled.input`
-  boreder: 1px solid #333;
+  border: 1px solid #333;
   padding: 10px;
   width: 400px;
   font-size: 20px;

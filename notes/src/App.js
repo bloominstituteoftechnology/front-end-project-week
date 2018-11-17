@@ -15,7 +15,8 @@ class App extends Component {
       notes: [],
       title: "",
       textBody: "",
-      delete: false
+      delete: false,
+      search:''
     };
   }
   componentDidMount() {
@@ -75,13 +76,22 @@ class App extends Component {
    }
 
   render() {
+    let filterNote = this.state.notes.filter(
+      note =>
+        note.title.toLowerCase().includes(this.state.search) ||
+        note.textBody.toLowerCase().includes(this.state.search)
+    )
     return (
       <div className="App">
         <Sidebar />
         <Route
           exact
           path="/"
-          render={props => <NoteList {...props} notes={this.state.notes} />}
+          render={props => <NoteList {...props}
+            notes={filterNote}
+            seach={this.state.search}
+            handleChange={this.handleChange}
+            />}
         />
         <Route
          exact path="/note/:id"

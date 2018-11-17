@@ -1,6 +1,7 @@
 import React from "react";
 import Note from "./Note";
 import styled from "styled-components";
+import SearchBar from "../Search/SearchBar"
 
 const Header = styled.h1`
 color: #555;
@@ -9,11 +10,12 @@ padding: 5px;
 
 `
 
-const NoteList = ({ notes }) => {
+const NoteList = props => {
   return (
     <div>
+      <SearchBar search={props.search} handleChange={props.handleChange}/>
       <Header>Your Notes:</Header>
-      {notes.map(note => (
+      {props.notes.map(note => (
         <Note note={note} key={note._id} />
       ))}
     </div>
