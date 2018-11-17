@@ -1,16 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+// import { instance } from './../utils.js';
 
-const Note = props => {
-  return (
-    <div key={props.note._id}>
+export default class Note extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      note: null
+    };
+  }
+
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    this.fetchNote(id);
+  }
+
+  fetchNote = id => {
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        console.log(response);
+        this.setState(() => ({ note: response.data }));
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  render() {
+    if (!this.state.movie) {
+      return <div>Loading note information...</div>
+    }
+
+    const { title, textBody } = this.state.note;
+    return (
       <div>
-        <h3>{props.note.title}</h3>
+        <div>
+          <h3>{title}</h3>
+        </div>
+        <div>
+          {textBody}
+        </div>
       </div>
-      <div>
-        {props.note.textBody}
-      </div>
-    </div>
-  );
+    );
+  }
 }
-
-export default Note;
