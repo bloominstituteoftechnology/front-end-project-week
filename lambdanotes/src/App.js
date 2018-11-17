@@ -13,7 +13,7 @@ import UpdateNote from './components/UpdateNote'
 
 import styled from "styled-components"
 
-import Login from './components/Login'
+
 
 
 const StyledLink = styled(Link)`
