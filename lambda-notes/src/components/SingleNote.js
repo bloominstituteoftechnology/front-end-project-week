@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
+import showdown from 'showdown';
+import { Markdown } from 'react-showdown';
 
 const NoteView = styled.div`
     padding-left: 25px;
@@ -38,25 +40,22 @@ class SingleNote extends Component  {
     constructor(props)  {
         super(props)
         this.state = {
-            note: {}
+            note: {},
+            html: ""
         }
-    }
-
-    componentWillReceiveProps(newProps)  {
-        newProps.notes.filter((note)  =>  {
-            if(this.props.match.params.id === note["_id"])  {
-                this.setState({
-                    note: note,
-                })
-            }
-        })
     }
 
     componentDidMount() {
         this.props.notes.filter((note)  =>  {
             if(this.props.match.params.id === note["_id"])  {
+                let converter = new showdown.Converter(),
+                    text = note.textBody,
+                    html = converter.makeHtml(text)
+                    console.log(text);
+
                 this.setState({
                     note: note,
+                    html: html,
                 })
             }
         })
@@ -71,6 +70,7 @@ class SingleNote extends Component  {
     }
 
     render()    {
+
         return(
             <div>
                 <Actions>
@@ -79,7 +79,7 @@ class SingleNote extends Component  {
                 </Actions>
                 <NoteView>
                     <h2>{this.state.note.title}</h2>
-                    <div>{this.state.note.textBody}</div>
+                    <Markdown markup={ this.state.html } />
                 </NoteView>
             </div>
         );
