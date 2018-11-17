@@ -117,7 +117,7 @@ class Main extends Component {
         </section>
         <Navigation getNotes={this.props.fetchNotes}></Navigation>
 
-        <Route path='/' exact render={(props) => <ListView notes={this.props.notes} />}/>
+        <Route path='/' exact render={(props) => <ListView notes={this.props.notes} fetching={this.props.fetching} />}/>
 
         <Route  exact path='/note/create/'  render={(props) => <CreateNote
           createNote={this.props.createNote}

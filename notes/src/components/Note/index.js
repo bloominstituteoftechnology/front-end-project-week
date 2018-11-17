@@ -30,7 +30,7 @@ delete = () => {
         <p onClick={this.delete}>Delete</p>
       </span>
         <header>
-          {this.state.note.title}
+          { !Object.keys(this.state.note).length ? <h2 className='loading'>Loading Note...</h2> : this.state.note.title}
         </header>
         <hr className='hr' />
         <p>{this.state.note.textBody}</p>

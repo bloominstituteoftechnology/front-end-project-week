@@ -11,7 +11,8 @@ class Sorting extends React.Component {
     super();
 
     this.state = {
-      searchTerm: ''
+      searchTerm: '',
+      csvData: ''
     }
   }
   inputHandler = (e) => {
@@ -20,12 +21,44 @@ class Sorting extends React.Component {
 
     return this.props.search(search)
   }
+
+  convertCSVNotes = () => {
+    let headers = Object.keys(this.props.notes[0]);
+    let results = [];
+    results.push(headers.join(','))
+    this.props.notes.map(note => {
+      const noteStr = Object.values(note);
+      results.push(noteStr.join(','));
+    })
+    results = results.join('\n');
+    this.setState({csvData: results})
+    console.log(results)
+    return this.exportCSV(results);
+  }
+
+  exportCSV = data => {
+    const blob = new Blob([data], {type: 'text/csv'});
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+
+    a.setAttribute('hidden', '');
+    a.setAttribute('href', url);
+    a.setAttribute('download', 'Lambda-Notes.csv');
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
   render () {
     return (
       <section className='sorting-container'>
         <section className='search'>
           <p>Search</p>
           <input type='text' onChange={this.inputHandler} value={this.state.searchTerm} />
+        </section>
+        <section>
+          <button onClick={this.convertCSVNotes}>Export Notes</button>
         </section>
         <section className='sorting'>
           <p>Sort:</p>

@@ -12,7 +12,6 @@ class CreateNote extends React.Component {
       textBody: ""
     };
   }
-
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };

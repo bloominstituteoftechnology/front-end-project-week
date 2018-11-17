@@ -27,7 +27,7 @@ export const fetchNotes = () => {
          .then(res => {
            dispatch({
               type: FETCHED,
-              payload: res.data
+              payload: res.data.reverse()
             })
           })
           .catch(err => {
@@ -47,7 +47,7 @@ export const createNote = (note) => {
          .then(() => {
            axios.get('https://fe-notes.herokuapp.com/note/get/all')
             .then(res => {
-              dispatch({type:FETCHED, payload: res.data})
+              dispatch({type:FETCHED, payload: res.data.reverse()})
             })
             .catch(err => {
               dispatch({type: ERROR, payload: err})
@@ -70,7 +70,7 @@ export const updateNote = (note) => {
          .then(() => {
            axios.get('https://fe-notes.herokuapp.com/note/get/all')
             .then(res => {
-              dispatch({type:FETCHED, payload: res.data})
+              dispatch({type:FETCHED, payload: res.data.reverse()})
             })
             .catch(err => {
               dispatch({type: ERROR, payload: err})
@@ -92,7 +92,7 @@ export const deleteNote = (id) => {
          .then(() => {
            axios.get('https://fe-notes.herokuapp.com/note/get/all')
             .then(res => {
-              dispatch({type:FETCHED, payload: res.data})
+              dispatch({type:FETCHED, payload: res.data.reverse()})
             })
             .catch(err => {
               dispatch({type: ERROR, payload: err})

@@ -12,6 +12,8 @@ const NoteCard = props => {
       </h2>
       <hr />
       <p>{props.note.textBody}</p>
+      <br />
+      <p>{props.note.tags}</p>
     </Link>
   );
 };
