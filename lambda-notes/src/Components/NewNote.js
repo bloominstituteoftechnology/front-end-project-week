@@ -11,7 +11,7 @@ class NewNote extends Component {
             content: '', 
         }
         }
-
+        
         inputHandler = (event) => {
                 let value=event.target.value;
                 let property= event.target.dataset.property;

@@ -4,6 +4,8 @@
 
 
 .App {
+  display: flex;
+  flex-direction: row;
   text-align: center;
   width: 100%;
 }
@@ -64,7 +66,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding: 20px;
-  background-color: yellow
 }
 .notesList {
   height: 2000px;
@@ -74,7 +75,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   padding: 20px;
-  background-color: red
+  background-color: lightgray
 }
 
 p {

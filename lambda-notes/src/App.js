@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router,Route, NavLink} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import NotesList from './Components/NotesList'
@@ -52,7 +53,8 @@ class App extends Component {
     return (
       <div className="App" className='Main'>
         <NotesNav clickForAllHandler={this.clickForAllHandler} clickForNewHandler={this.clickForNewHandler} />
-        {Comp}
+        <Route exact path="/home" render={(props) =>  <NotesList notes={this.state.notes} />} />
+        <Route exact path="/new" render={(props) =>  <NewNote />} />
       </div>
     );
   }
