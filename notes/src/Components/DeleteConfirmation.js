@@ -1,6 +1,8 @@
 import React from "react"
-import {Link} from "react-router-dom";
 import axios from "axios"
+import {Link} from "react-router-dom";
+import {DeleteContainer, DeleteBox, Button} from "../Styles/Styles";
+
 
 class DeleteConfirmation extends React.Component {
    constructor(){
@@ -22,16 +24,24 @@ class DeleteConfirmation extends React.Component {
    }
 
    render() {
-      console.log(this.props)
       return(
          this.state.open === true ?
-         <div>
-            <p>Are you sure you want to delete this?</p>
-            <button onClick={() => this.deleteItem(this.props.match.params.id)}>Delete</button>
-            <Link to={`/note/${this.props.match.params.id}`} >
-               <button onClick={() => this.closeBox()}>No</button>
-            </Link>
-         </div>
+         <DeleteContainer>
+            <DeleteBox>
+               <p>Are you sure you want to delete this?</p>
+               <Link to={`/`} >
+                  <Button 
+                     bgColor="crimson" 
+                     margin="10px"
+                     onClick={() => this.deleteItem(this.props.match.params.id)}>Delete</Button>
+               </Link>
+               <Link to={`/note/${this.props.match.params.id}`} >
+                  <Button 
+                  margin="10px" 
+                  onClick={() => this.closeBox()}>No</Button>
+               </Link>
+            </DeleteBox>
+         </DeleteContainer>
          : null
       )
    }

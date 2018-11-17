@@ -29,12 +29,14 @@ export const Button = styled.button `
    color: white;
    font-weight: bold;
    font-size: 1.3rem;
-   padding: 10px 25px;
+   padding: 12px 25px;
    margin-bottom: 14px;
    cursor: pointer;
    white-space: nowrap;
+   margin-left: ${props => props.margin || "0px"};
+   margin-right: ${props => props.margin || "0px"};
    width: ${props => props.width || "95%"};
-   max-width: ${props => props.maxWidth || "200px"};
+   max-width: ${props => props.maxWidth || "180px"};
 `
 
 export const DisplayContainer = styled.div`
@@ -106,6 +108,7 @@ export const Content =styled.div`
 
    p {
       white-space: pre-line;
+      margin-left: 0px;
    }
 `
 
@@ -131,4 +134,30 @@ export const InputBody = styled.textarea `
    border-radius: 5px;
    height: 300px;
    resize: none;
+`
+
+export const DeleteContainer = styled.div`
+   position: absolute;
+   text-align: center;
+   background: rgb(211, 211, 211, 0.9);
+   height: 100%;
+   width: 100%;
+   min-height: 800px;
+`
+
+export const DeleteBox = styled.div`
+   position: fixed;
+   left: 168px;
+   top: 112px;
+   background-color: white;
+   width: 50%;
+   margin: 50px auto;
+   border: 1px solid black;
+   padding: 40px;
+   z-index: 6;
+
+   p {
+      margin-bottom: 20px;
+      margin-left: 0;
+   }
 `
