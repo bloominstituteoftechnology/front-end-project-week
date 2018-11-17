@@ -4,6 +4,7 @@ import MainSection from './components/MainSection';
 import SideBar from './components/sidebar'
 import axios from 'axios'
 import CreateNote from './components/CreateNote'
+import UpdateNote from './components/UpdateNote'
 import {Route} from 'react-router-dom'
 
 class App extends React.Component {
@@ -45,6 +46,7 @@ createNote=(note)=>{
         </div>
         <Route path="/create" render={props => <CreateNote createNote={this.createNote}/>}></Route>
         <Route exact path="/" render={(props => (<MainSection notes={this.state.notes}/>))}></Route>
+        <Route path="update/:id" render={(props=>(<UpdateNote notes={this.state.notes}/>))}></Route>
        </div>
     );
   }

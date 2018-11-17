@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {Button} from 'reactstrap'
+
 
 class UpdateNote extends Component {
   constructor(props) {
@@ -10,8 +12,8 @@ class UpdateNote extends Component {
     }
   }
   componentDidMount() {
-    const { note, match } = this.props
-    const note = notes.find(item => item.id === Number(match.params.id));
+    const { notes, match } = this.props
+    const note = notes.find(item => item.id === String(match.params.id));
     this.setState(note)
   }
 
@@ -25,7 +27,7 @@ class UpdateNote extends Component {
   render() {
     return (
       <div className="createNote">
-        <h1>Create Note</h1>
+        <h1>Update Note</h1>
         <form onSubmit={this.submitHandler}>
           <input name="title" onChange={this.changeHandler} value={this.state.title}></input>
           <textarea name="text" onChange={this.changeHandler} value={this.state.text} className="textArea"></textarea>

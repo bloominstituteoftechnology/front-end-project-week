@@ -12,7 +12,7 @@ class MainSection extends Component {
     return (
       <div className = "noteSection">
           {this.props.notes.map(note => {
-          return (<Note key={note._id} note={note} />)
+          return (<Note key={note._id} note={note} id={note._id} />)
         })}
       </div>
     )
