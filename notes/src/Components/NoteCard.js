@@ -29,6 +29,7 @@ const NoteCard = props => {
                 </p>
                 <div>
                     <Link to={`/${note._id}/edit`}>Edit</Link>
+                    <div onClick={() => { props.deleteNote(props.match.params.id)}}>Delete</div>
                 </div>
             </div>
         </div>

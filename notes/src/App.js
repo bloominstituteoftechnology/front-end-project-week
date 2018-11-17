@@ -50,6 +50,15 @@ class App extends Component {
       .catch(error => console.log('error!'))
   }
 
+  deleteNote = id => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        this.getNotes()
+      })
+      .catch(error => console.log('error!'))
+  }
+
   render() {
     return (
       <div className="App">
@@ -69,6 +78,7 @@ class App extends Component {
           <NoteCard
             {...props}
             notes={this.state.notes}
+            deleteNote={this.deleteNote}
           />
         )} />
         <Route exact path='/:id/edit' render={props => (
