@@ -67,7 +67,7 @@ class EditForm extends React.Component{
     render() {
         return  <HomeContainer>
                     <HeaderContainer>
-                        <h1>Create New Note:</h1>
+                        <h1>Edit Note:</h1>
                     </HeaderContainer>
                     <Form>
                         <input name='title' value={this.state.title} onChange={this.changeHandler} placeholder='Note Title' ></input>
