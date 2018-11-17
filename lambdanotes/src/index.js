@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
+import Home from './components/Home'
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -16,7 +17,7 @@ const store = createStore(NoteReducer, middleware)
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <App /> 
+            <Home /> 
         </Router>
     </Provider>,
 document.getElementById('root'));

@@ -13,6 +13,8 @@ import UpdateNote from './components/UpdateNote'
 
 import styled from "styled-components"
 
+import Login from './components/Login'
+
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -97,6 +99,11 @@ class App extends Component {
   //     console.log("Fail to UPDATE a note", err)
   //   })
   // }
+
+  handleLogOut = event => {
+    localStorage.setItem('user', '')
+    window.location.reload();
+  }
   
 
 
@@ -105,9 +112,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header"> 
           <h1> Lambda Notes </h1>
+          <button onClick={this.handleLogOut}>Log Out </button>
           <ul>
             <li>
-              <StyledLink to="/"><div className="button">Home</div></StyledLink>
+              <StyledLink to="/home"><div className="button">Home</div></StyledLink>
             </li>
             <li>
               <StyledLink to="/notes"><div className="button">View Your Notes</div></StyledLink>
@@ -119,7 +127,8 @@ class App extends Component {
         </header>
 
         <div className="Container">
-              <Route exact path="/" component={Home} />
+
+              {/* <Route exact path="/home" component={Home} /> */}
 
               <Route exact path="/notes" 
                 render={props => <NotesList {...props} notes={this.state.notes}
