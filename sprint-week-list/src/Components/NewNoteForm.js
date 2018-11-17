@@ -31,26 +31,31 @@ class NewNoteForm extends React.Component{
     render(){
         return(
             <div className = 'create-container'>
-                <h1 className = 'create-header'>Create New Note:</h1>
-                <form onSubmit = {this.submitHandler}>
-                    <input 
-                        type = 'text'
-                        placeholder = 'Note Title'
-                        value = {this.state.title}
-                        name = 'title'
-                        onChange = {this.inputHandler}/>
-                    <input 
-                        type = 'text'
-                        placeholder = 'Note Content'
-                        value = {this.state.textBody}
-                        name = 'textBody'
-                        onChange = {this.inputHandler}/>    
-                    
-                        <button type = 'submit'>Save</button>
-                    
+                <div className = 'sub-container'>
+                    <h1 className = 'create-header'>Create New Note:</h1>
+                    <form className = 'form' onSubmit = {this.submitHandler}>
+                        <input 
+                           
+                            className = 'title-input'
+                            type = 'text'
+                            placeholder = 'Note Title'
+                            value = {this.state.title}
+                            name = 'title'
+                            onChange = {this.inputHandler}/>
+                        <input 
+                            
+                            className = 'text-input'
+                            type = 'text'
+                            placeholder = 'Note Content'
+                            value = {this.state.textBody}
+                            name = 'textBody'
+                            onChange = {this.inputHandler}/>    
+                        <Link exact to = '/'>
+                            <button className = 'submit-button' type = 'submit'>Save</button>
+                        </Link>
 
-                </form>
-
+                    </form>
+                </div>
             </div>
         )
     }

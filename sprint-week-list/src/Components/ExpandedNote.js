@@ -8,7 +8,8 @@ class ExpandedNote extends React.Component{
     constructor(){
         super()
         this.state = {
-           note : []
+           note : [],
+           openDeleteProp : false
         }
     }
 
@@ -31,19 +32,43 @@ class ExpandedNote extends React.Component{
         })
     }
     
-    
+    openDelete = () =>{
+        if(!this.state.openDeleteProp){
+            this.setState({
+                openDeleteProp : true,
+        })}
+    }
+    closeDelete = () =>{
+        if(this.state.openDeleteProp){
+            this.setState({
+                openDeleteProp:false,
+            })
+        }
+    }
    
     render(){
         
         
         return(
             <div className = 'expanded-note-container'>
+                <div className = {(this.state.openDeleteProp) ? 'expanded-delete' : 'closed-delete'}>
+                    <div className = 'delete-container'>
+                        <p className = 'delete-question'>Are you sure you want to delete this?</p><br></br>
+                        <div className = 'button-container'>
+                            <Link className = 'link' exact to = '/'>
+                                <button className = 'delete-button' onClick = {this.props.deleteNote(this.state.note._id)}>Delete</button>
+                            </Link>    
+                            <button className = 'no-button' onClick = {this.closeDelete}>No</button>
+                        </div>
+                    </div>    
+                </div>
                 <div className = 'edit-container'>
                     <Link to = {`note/edit/${this.state.note._id}`}>
-                        <p>edit</p>
+                        <p className = 'edit-prompt'>edit</p>
                     </Link>
                     
-                        <p>delete</p>
+                        <p onClick = {this.openDelete} className = 'delete-prompt'>delete</p>
+
                 </div>
                 <div className = 'expanded-note-body'>
                     <h1 className = 'expanded-note-header'>{this.state.note.title}</h1>

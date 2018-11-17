@@ -10,7 +10,7 @@ import NavBar from './Components/NavBar';
 import NotesContainer from './Components/NotesContainer';
 import NewNoteForm from './Components/NewNoteForm';
 import EditNoteForm from './Components/EditNoteForm';
-import Note from './Components/Note';
+
 import ExpandedNote from './Components/ExpandedNote';
 
 class App extends Component {
@@ -65,14 +65,12 @@ class App extends Component {
         console.log('Trouble updating note', err)
       })  
   }
-  noteCutOff = (notes) =>{
-    return (notes.length > 12 ? notes.slice(0, 12) : notes)
-  }
+
   render() {
     return (
       <div className="App">
         <NavBar />
-        <Route exact path = '/' render = {(props) => <NotesContainer {...props} notes = {this.noteCutOff(this.state.notes)} />}/>
+        <Route exact path = '/' render = {(props) => <NotesContainer {...props} notes = {this.state.notes} />}/>
         
         <Route path = '/notes/:id' render = {(props) => <ExpandedNote {...props} notes = {this.state.notes} deleteNote = {this.deleteNote}/>}/>
         <Route path = '/create' render = {(props) => <NewNoteForm {...props} notes = {this.state.notes} createNewNote = {this.createNewNote}/>}/>
