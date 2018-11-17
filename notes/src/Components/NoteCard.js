@@ -28,7 +28,7 @@ const NoteCard = props => {
                     {note.textBody}
                 </p>
                 <div>
-                    <Link to=''>Edit</Link>
+                    <Link to={`/${note._id}/edit`}>Edit</Link>
                 </div>
             </div>
         </div>

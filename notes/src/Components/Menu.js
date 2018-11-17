@@ -17,7 +17,7 @@ class Menu extends Component {
                             View Your Notes
                         </div>
                     </Link>
-                    <Link to='/form' class='link'>
+                    <Link to='/notes/form' class='link'>
                         <div class='button'>
                             + Create New Notes
                         </div>

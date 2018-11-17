@@ -4,6 +4,7 @@ import './App.css';
 import NoteList from '../src/Components/NoteList';
 import NoteForm from '../src/Components/NoteForm';
 import NoteCard from '../src/Components/NoteCard';
+import EditNote from '../src/Components/EditNote';
 import axios from 'axios';
 
 class App extends Component {
@@ -40,6 +41,15 @@ class App extends Component {
       .catch(error => console.log('error!'))
   }
 
+  updateNote = (note) => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, note)
+      .then(response => {
+        this.getNotes()
+      })
+      .catch(error => console.log('error!'))
+  }
+
   render() {
     return (
       <div className="App">
@@ -49,7 +59,7 @@ class App extends Component {
             notes={this.state.notes}
           />
         )} />
-        <Route exact path='/form' render={props => (
+        <Route exact path='/notes/form' render={props => (
           <NoteForm
             {...props}
             newNote={this.newNote}
@@ -59,6 +69,12 @@ class App extends Component {
           <NoteCard
             {...props}
             notes={this.state.notes}
+          />
+        )} />
+        <Route exact path='/:id/edit' render={props => (
+          <EditNote
+            {...props}
+            updateNote={this.updateNote}
           />
         )} />
       </div>
