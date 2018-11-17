@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
 import showdown from 'showdown';
@@ -51,7 +50,6 @@ class SingleNote extends Component  {
                 let converter = new showdown.Converter(),
                     text = note.textBody,
                     html = converter.makeHtml(text)
-                    console.log(text);
 
                 this.setState({
                     note: note,

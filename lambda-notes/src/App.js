@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import NotesList from './components/NotesList.js';
 import Sidebar from './components/Sidebar.js';
 import styled from 'styled-components';

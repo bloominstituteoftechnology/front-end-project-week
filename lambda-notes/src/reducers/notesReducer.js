@@ -8,7 +8,7 @@ const initialState = {
 
 export const noteReducer = (state = initialState, action) => {
   switch (action.type) {
-     case FETCHING:
+    case FETCHING:
         return { ...state, fetching: true, relID: "" };
     case SUCCESS:
         return { ...state, notes: action.payload, fetching: false, relID: "" };

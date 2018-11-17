@@ -40,19 +40,30 @@ const StyledInput = styled.input`
     outline: none;
 `
 
+const SortButtonContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+`
+
+const SortButton = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 25px;
+    border: solid 1px black;
+    border-radius: 3px;
+`
+
 class NotesList extends Component   {
     constructor(props)  {
         super(props);
         this.state = {
-            // notes: [],
+            notes: [],
             inputValue: "",
         }
     }
-    // componentWillReceiveProps(newProps) {
-    //     this.setState((state)   =>  ({
-    //         notes: newProps.notes,
-    //     }))
-    // }
 
     onInputChange = ({ target })  =>  {
         this.setState((state)   =>  ({
@@ -63,17 +74,90 @@ class NotesList extends Component   {
         }))
     }
 
+    componentDidMount() {
+        this.setState((state)   =>  ({
+            notes: this.props.notes,
+        }))
+    }
+
+    componentWillReceiveProps(newProps) {
+        this.setState((state)   =>  ({
+            notes: newProps.notes,
+        }))
+    }
+
+    onSortHandler = ({ target })  =>  {
+        let newState = []
+        switch (target.id)   {
+            case "0":
+                newState = this.state.notes.sort((a,b)    =>  {
+                    let id1 = a["_id"],
+                        id2 = b["_id"],
+                        comparison = 0;
+                    id1 > id2 ? comparison = 1 : comparison = -1;
+                    return comparison;
+                })
+                this.setState((state)    =>  ({
+                    notes: newState,
+                }))
+                break;
+            case "1":
+                newState = this.state.notes.sort((a,b)    =>  {
+                    let id1 = a["_id"],
+                        id2 = b["_id"],
+                        comparison = 0;
+                        id1 < id2 ? comparison = 1 : comparison = -1;
+                        return comparison;
+                })
+                this.setState((state)    =>  ({
+                notes: newState,
+            }))
+            break;
+            case "2":
+            newState = this.state.notes.sort((a,b)    =>  {
+                let title1 = a.title.toLowerCase(),
+                    title2 = b.title.toLowerCase(),
+                    comparison = 0;
+                title1 > title2 ? comparison = 1 : comparison = -1;
+                return comparison;
+            })
+            this.setState((state)    =>  ({
+                notes: newState,
+            }))
+            break;
+            case "3":
+            newState = this.state.notes.sort((a,b)    =>  {
+                let title1 = a.title.toLowerCase(),
+                    title2 = b.title.toLowerCase(),
+                    comparison = 0;
+                title1 < title2 ? comparison = 1 : comparison = -1;
+                return comparison;
+            })
+            this.setState((state)    =>  ({
+                notes: newState,
+            }))
+            break;
+            default:
+                return this.state;
+        }
+    }
+
+
+
     render()    {
         return(
             <ListView>
                 <ViewTitle>
                     Your Notes:
                 </ViewTitle>
+                <SortButtonContainer>
+                    <SortButton id="0" onClick={this.onSortHandler} name="dateUp">Date ^</SortButton><SortButton id="1" onClick={this.onSortHandler} name={"dateDown"}>Date v</SortButton><SortButton id="2" onClick={this.onSortHandler} name={"titleUp"}>Title ^</SortButton><SortButton id="3" onClick={this.onSortHandler} name={"titleDown"}>Title v</SortButton>
+                </SortButtonContainer>
                 <InputContainer>
                     <StyledInput onChange={this.onInputChange} placeholder={"Search..."} value={this.state.inputValue}></StyledInput>
                 </InputContainer>
                 <NotesView>
-                    {this.props.notes.map((note, index)  =>  {
+                    {this.state.notes.map((note, index)  =>  {
                         return <StyledLink to={`/note/${note["_id"]}`} data={note} key={index}><Note key={index} note={note}/></StyledLink>
                     })}
                 </NotesView>
