@@ -21,7 +21,7 @@ data source: use provided server or heroku backend from CSPT1?
 * [x]   **RUN** `yarn` or `npm install` to retrieve all `server-side` the dependencies.
 * [x] **LOOK** at all the files you've been given for this project. One important file to note is `server.js`. This file contains an **API** that you are going to be interfacing with. Below is documentation on how to interact with the **API**.
 * [x] **RUN** `yarn start` or `npm start` to get your API up and running on `http://localhost:5000`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
-* [] After your API is up and running, you can open chrome and type in `http://localhost:5000/notes`. You should see an empty Array `[]` returned to you. This is an array that your **API** will be using to store our Smurf Data.
+* [x] After your API is up and running, you can open chrome and type in `http://localhost:5000/notes`. You should see the seed array you created.  This is an array that your **API** will be using to store our Note Data.
 * [] **LOOK** at your `notes` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
 
 
@@ -34,17 +34,17 @@ data source: use provided server or heroku backend from CSPT1?
 
 ### GET '/notes'
 
-* [x] To retrieve an array all the notes in the Smurf DB simply write a get to the endpoint `'/notes'`.
+* [x] To retrieve an array all the notes in the Note DB simply write a get to the endpoint `'/notes'`.
 * [x] Because `Redux-Thunk` is wired up as a middleware for this project. Be sure to utilize thunks when appropriate.
 
 * [] Your response from the server should be an array of notes.
 
 ### POST '/notes'
 
-* [] To add a smurf to the Smurf DB you'll need all three fields. `name`, `age`, and `height`.
+* [] To add a note to the Note DB you'll need all three fields. `title`, `priority`, and `body`.
 
-* [] If a smurf is created correctly, you should see a response that is an array of notes with uniqe id's assigned to each smurf.
-* []  Initially Brainey will be in the array, but it takes more than one smurf to make the village. Be sure to add a few notes to populate our smurf village.
+* [] If a note is created correctly, you should see a response that is an array of notes with uniqe id's assigned to each note.
+* []  Initially Brainey will be in the array, but it takes more than one note to make the village. Be sure to add a few notes to populate our note village.
 * **HINT** if you are going to be working on Stretch Problem, you'll need to use that unique `id`.
     
 
