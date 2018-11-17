@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import Home from './components/Home';
 import NoteProfile from './components/NoteProfile';
+import { deleteNote, fetchNotes } from './actions/actions';
 
 const AppWrapper = styled.div`
 text-align: center;
@@ -51,9 +53,45 @@ const SidebarHeader = styled.h1`
     color: #545252;
 `
 
+const DeleteModal = styled.div`
+    border: 1px solid black;
+    background-color: whitesmoke;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    ${props => props.modal ? `display: flex; flex-direction: column; align-items: center` : `display: none`}
+`
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    }
+  }
+
+  componentDidMount() {
+    this.props.fetchNotes()
+  }
+
+  toggle = () => this.setState({modal: !this.state.modal})
+
+  deleteClickHandler = () => {
+      this.props.deleteNote(this.props.id);
+      this.props.history.push('/');
+      this.toggle()
+  }
+
   render() {
     return  <AppWrapper>
+                <DeleteModal modal={this.state.modal}>
+                    <h3>Are you sure you want to delete this?</h3>
+                    <div>
+                        <div onClick={this.deleteClickHandler} >Delete</div>
+                        <div onClick={this.toggle} >No</div>
+                    </div>
+                </DeleteModal>
                 <Sidebar>
                     <SidebarHeader>
                         Lambda <br/> Notes
@@ -62,9 +100,13 @@ class App extends Component {
                     <div>+ Create New Note</div>
                 </Sidebar>
                 <Route exact path='/' render = {props => <Home {...props} />} />
-                <Route exact path='/note/:id' render = {props => <NoteProfile {...props} />} />     
+                <Route exact path='/note/:id' render = {props => <NoteProfile toggle={this.toggle} {...props} />} />     
             </AppWrapper>
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {id: state.activeId}
+}
+
+export default withRouter(connect(mapStateToProps, {deleteNote, fetchNotes})(App));

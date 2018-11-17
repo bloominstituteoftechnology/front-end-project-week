@@ -3,6 +3,7 @@ import axios from 'axios';
 export const SUCCESS = 'SUCCESS';
 export const LOADING = 'LOADING';
 export const ERROR = 'ERROR';
+export const HANDLE_ID = 'HANDLE_ID';
 
 export const fetchNotes = () => {
     return dispatch => {
@@ -72,5 +73,12 @@ export const deleteNote = id => {
                     payload: 'Ups! Something went wrong deleting your note, you should try again!'
                 })
             })
+    }
+}
+
+export const handleId = id => {
+    return {
+        type: HANDLE_ID,
+        payload: id,
     }
 }

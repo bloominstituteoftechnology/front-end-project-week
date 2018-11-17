@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteNote } from '../actions/actions';
+import { handleId } from '../actions/actions';
 import styled from 'styled-components';
 
 const NoteCard = styled.div`
@@ -28,9 +28,11 @@ const NoteCard = styled.div`
     }
 `
 
-export default props => <NoteCard onClick={() => props.history.push(`/note/${props.id}`)} >
+const Note = props => <NoteCard onClick={() => {props.history.push(`/note/${props.id}`);props.handleId(props.id)}} >
                             <div>
                                 <h2>{props.title}</h2>
                             </div>                            
                             <p>{props.textBody}</p>
                         </NoteCard>
+
+export default connect(()=>{return{}}, {handleId})(Note);

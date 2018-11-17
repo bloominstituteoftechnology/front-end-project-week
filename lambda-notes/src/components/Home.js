@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { fetchNotes } from '../actions/actions';
 import Note from './Note';
 
 export const HomeContainer = styled.div`
@@ -31,9 +30,6 @@ const HeaderContainer = styled.div`
 `
 
 class Home extends React.Component {
-    componentDidMount() {
-        this.props.fetchNotes()
-    }
 
     render() {
         return  <HomeContainer>
@@ -51,4 +47,4 @@ const mapStateToProps = state => {
     return {notes: state.notes}
 }
 
-export default connect(mapStateToProps, {fetchNotes} )(Home);
+export default connect(mapStateToProps)(Home);

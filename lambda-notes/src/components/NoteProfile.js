@@ -45,10 +45,10 @@ const NoteProfile = props => {
                     </div>
                     <div>
                         <span>edit</span>
-                        <span>delete</span>
+                        <span onClick={props.toggle} >delete</span>
                     </div>
                 </MainSection>
-                <NoteBody>{note.textBody}</NoteBody>
+                <NoteBody>{note.textBody}</NoteBody>                
             </HomeContainer>
 }
 const mapStateToProps = state => {
