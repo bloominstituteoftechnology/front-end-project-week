@@ -23,47 +23,109 @@ const Actions = styled.div`
     padding-right: 20px;
 `;
 
-export default class Note extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            note: null
-        };
-    }
+const Modal = styled.div`
 
-    componentDidMount() {
-        const id = this.props.match.params.id;
-        this.fetchNote(id);
-        console.log('Fetched!')
-    }
+`;
 
-    fetchNote = id => {
-        axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-        .then(response => {
-            this.setState(() => ({ note : response.data }))
-        })
-        .catch(error => {
-            console.error(error)
-        })
-    }
+const DeleteModal = styled.div`
 
-    render() {
-        if (!this.state.note) {
-            return <div>Loading note...</div>;
+`;
+
+const ModalButtons = styled.div`
+
+`;
+
+const DeleteButton = styled.div`
+
+`;
+
+const NoButton = styled.div`
+
+`;
+// export default class Note extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             note: null
+//         };
+//     }
+
+//     componentDidMount() {
+//         const id = this.props.match.params.id;
+//         this.fetchNote(id);
+//         console.log('Fetched!')
+//     }
+
+//     fetchNote = id => {
+//         axios
+//         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+//         .then(response => {
+//             this.setState(() => ({ note : response.data }))
+//         })
+//         .catch(error => {
+//             console.error(error)
+//         })
+//     }
+
+//     render() {
+//         if (!this.state.note) {
+//             return <div>Loading note...</div>;
+//         }
+
+//         return (
+//             <Container>
+//                 <Actions>
+//                     <Link to='/' style={{ color: 'black' }}>edit</Link>
+//                     <Link to='/' style={{ paddingLeft: '10px', color: 'black' }}>delete</Link>
+//                 </Actions>
+//                 <NoteContainer>
+//                     <h2>{this.state.note.title}</h2>
+//                     <p style={{ lineHeight: '2'}}>{this.state.note.textBody}</p>
+//                 </NoteContainer>
+//             </Container>
+//         )
+//     }
+// }
+
+const Note = props => {
+    if (props.notes.length) {
+        let note = props.notes.find(note => `${note._id}` === props.match.params.id);
+
+        const deleteNote = (event) => {
+            event.preventDefault();
+            props.deleteNote(note._id);
+            props.history.push('/');
         }
 
         return (
             <Container>
+                {props.delete && (
+                    <Modal>
+                        <DeleteModal>
+                            <p>Are you sure you want to delete this?</p>
+                            <ModalButtons>
+                                <DeleteButton onClick={deleteNote}>Delete</DeleteButton>
+                                <NoButton onClick={props.deleteToggleOff}>No</NoButton>
+                            </ModalButtons>
+                        </DeleteModal>
+                    </Modal>
+                )}
+
                 <Actions>
-                    <Link to='/' style={{ color: 'black' }}>edit</Link>
-                    <Link to='/' style={{ paddingLeft: '10px', color: 'black' }}>delete</Link>
-                </Actions>
-                <NoteContainer>
-                    <h2>{this.state.note.title}</h2>
-                    <p style={{ lineHeight: '2'}}>{this.state.note.textBody}</p>
-                </NoteContainer>
+                     <Link to={`/note/${note._id}/edit`}
+                            
+                           style={{ color: 'black' }}>edit</Link>
+                     <Link to='/' style={{ paddingLeft: '10px', color: 'black' }}>delete</Link>
+                 </Actions>
+                 <NoteContainer>
+                     <h2>{this.state.note.title}</h2>
+                     <p style={{ lineHeight: '2'}}>{this.state.note.textBody}</p>
+                 </NoteContainer>
             </Container>
         )
+    } else {
+        return <p>Loading...</p>
     }
 }
+
+export default Note;

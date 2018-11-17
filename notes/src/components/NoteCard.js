@@ -36,5 +36,3 @@ NoteCard.defaultProps = {
 };
 
 export default NoteCard;
-
-{/* <button onClick={() => this.props.delete(note._id)}>Delete</button> */}

@@ -19,6 +19,7 @@ class App extends Component {
       textBody: '',
       updateTitle: '',
       updateTextBody: '',
+      deleteToggle: false,
     }
   }
 
@@ -33,18 +34,18 @@ class App extends Component {
       });
   }
 
-  componentDidUpdate() {
-    axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
-      })
-      .catch(error => {
-        console.error('Server Error', error);
-      });
-  }
+  // componentDidUpdate() {
+  //   axios
+  //     .get('https://fe-notes.herokuapp.com/note/get/all')
+  //     .then(response => {
+  //       this.setState(() => ({ notes: response.data }));
+  //     })
+  //     .catch(error => {
+  //       console.error('Server Error', error);
+  //     });
+  // }
 
-  addNote = (newNote) => {
+  addNote = () => {
     axios
         .post('https://fe-notes.herokuapp.com/note/create', {
           title: this.state.title,
@@ -71,6 +72,15 @@ class App extends Component {
     this.props.history.push('/')
   }
 
+  deleteToggleOn = () => {
+    this.setState({ deleteToggle: true })
+  }
+
+  deleteToggleOff = (event) => {
+    event.preventDefault()
+    this.setState({ deleteToggle: false })
+  }
+
   editNote = (id) => {
     axios
         .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
@@ -95,16 +105,31 @@ class App extends Component {
       <div className="App">
         <Navigation />
         <Route exact path="/" render={ props => (
-          <Notes {...props} notes={this.state.notes} delete={this.deleteNote} />
+          <Notes {...props} notes={this.state.notes} />
         )} />
         <Route path="/notes/:id" render={props => (
-          <Note {...props} />
+          <Note {...props} 
+                notes={this.state.notes} 
+                updatedNote={this.updatedNote} 
+                deleteNote={this.deleteNote}
+                deleteToggleOn={this.deleteToggleOn} 
+                deleteToggleOff={this.deleteToggleOff} 
+                delete={this.state.deleteToggle} />
         )} />
         <Route exact path="/notes/:id/edit" render={props => (
-          <EditForm {...props} notes={this.state.notes} editNote={this.editNote} inputHandler={this.inputHandler} updateTitle={this.state.updateTitle} updateTextBody={this.state.updateTextBody} />
+          <EditForm {...props} 
+                    notes={this.state.notes} 
+                    editNote={this.editNote} 
+                    inputHandler={this.inputHandler} 
+                    updateTitle={this.state.updateTitle} 
+                    updateTextBody={this.state.updateTextBody} />
         )} />
         <Route path="/new-note" render={ props => (
-          <NewForm {...props} addNote={this.addNote} inputHandler={this.inputHandler} title={this.state.title} textBody={this.state.textBody} />
+          <NewForm {...props} 
+                  addNote={this.addNote} 
+                  inputHandler={this.inputHandler} 
+                  title={this.state.title} 
+                  textBody={this.state.textBody} />
         )} />
       </div>
     );
