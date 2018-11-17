@@ -17,7 +17,7 @@ class Notes extends Component {
     componentWillMount() {
         this.setState({
             title: this.props.title,
-            body: this.props.body,
+            body: this.props.body.slice(0,500) + '...',
             id: this.props.id
         });
     } 
