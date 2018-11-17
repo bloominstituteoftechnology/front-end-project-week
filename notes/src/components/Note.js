@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Note from '../Styles/Note';
+import { NoteHeading, P } from '../Styles/GeneralStyles';
 
 class Notes extends Component {
     constructor(props) {
@@ -25,9 +26,9 @@ class Notes extends Component {
         return (
             <Link to={`/view-note/${this.state.id}`} style={{ textDecoration: 'none' }} >
                 <Note onClick={this.selectNoteToView}>
-                    <h3>{this.state.title}</h3>
+                    <NoteHeading>{this.state.title}</NoteHeading>
                     <hr></hr>
-                    <p>{this.state.body}</p>
+                    <P>{this.state.body}</P>
                 </Note>
             </Link>
         );

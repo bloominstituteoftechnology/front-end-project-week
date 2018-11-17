@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { buttonColor } from './variables';
+import { buttonColor, pColor } from './variables';
 
 export const Title = styled.h1 `
     font-size: 30px;
@@ -7,6 +7,15 @@ export const Title = styled.h1 `
 
 export const SectionHeading = styled.h2 `
     font-size: 25px;
+`;
+
+export const NoteHeading = styled.h3 `
+    font-size: 20px;
+`;
+
+export const P = styled.p `
+    font-size: 18px;
+    color: ${pColor};
 `;
 
 export const Button = styled.section `

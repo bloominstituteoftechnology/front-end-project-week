@@ -8,6 +8,10 @@ const Note = styled.section `
     border: 2px solid ${borderColor}
     color: black;
     margin: 20px 0;
+
+    hr {
+        color: ${borderColor};
+    }
 `;
 
 

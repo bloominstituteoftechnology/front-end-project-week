@@ -8,6 +8,11 @@ const NavStyle = styled.section `
     margin: 0;
     padding: 10px;
     height: 100vh;
+    position: fixed;
+
+    a {
+        text-decoration: none;
+    }
 `;
 
 export default NavStyle;
