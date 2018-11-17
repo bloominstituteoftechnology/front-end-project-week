@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import './App.css';
 
 class App extends Component {
@@ -10,37 +10,44 @@ class App extends Component {
         {
           tags: [],
           _id: '',
-          title: 'hey',
-          textBody: 'klsj;ldfj'
+          title: '',
+          textBody: ''
         },
         {
           tags: [],
           _id: '',
-          title: 'how',
-          textBody: 'kjslkfdj'
+          title: '',
+          textBody: ''
         },
       {
         tags: [],
         _id: '',
-        title: 'are',
-        textBody: 'kjlkjslfkdj'
+        title: '',
+        textBody: ''
       },
       {
         tags: [],
         _id: '',
-        title: 'you',
-        textBody: 'l;kjsdflkja'
+        title: '',
+        textBody: ''
       },
       {
         tags: [],
         _id: '',
-        title: 'whats',
-        textBody: 'kjsdf;lkajsf'
+        title: '',
+        textBody: ''
       }
 
       ]
     }
 
+  }
+  componentDidMount() {
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(res => {
+        const notes = res.data;
+        this.setState({ notes});
+      })
   }
   
   render() {
