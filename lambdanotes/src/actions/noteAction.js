@@ -67,26 +67,47 @@ export const deleteNote = id => {
 }
 
 
+//PUT
+export const updateNote = theupdatedNote => {
+    return (dispatch) => {
+        dispatch({ type: LOADING })
+        axios 
+        .put(`https://fe-notes.herokuapp.com/note/edit/${theupdatedNote.id}`, theupdatedNote)
+        .then(response => {
+            //dispatch({ type: SUCCESS, notes: response.data })
+            axios
+            .get(`https://fe-notes.herokuapp.com/note/get/all`)
+            .then(response => {
+                this.setState({ notes: response.data })
+            })
+            .catch(err => {
+                console.log("Fail to GET notes from server", err)
+            })
+        })
+        .catch(err => {
+            dispatch({ type: ERROR, errorMessage: "Trouble Editing Friend"})
+        })
+    }
+}
 
 
 
-// handleDeleteNote = id => {
-//     //alert("Are you sure you want to delete?")
+// handleUpdateNote = updatedNote => {
 //     axios 
-//     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+//     .put(`https://fe-notes.herokuapp.com/note/edit/${updatedNote.id}`, updatedNote)
 //     .then(response => {
 //       //this.setState({ notes: response.data })
+//       console.log(response.data)
 //             axios
-//               .get(`https://fe-notes.herokuapp.com/note/get/all`)
-//               .then(response => {
-//                   this.setState({ notes: response.data })
-//               })
-//               .catch(err => {
-//                 console.log("Fail to GET notes from server", err)
-//               })
+//             .get(`https://fe-notes.herokuapp.com/note/get/all`)
+//             .then(response => {
+//                 this.setState({ notes: response.data })
+//             })
+//             .catch(err => {
+//               console.log("Fail to GET notes from server", err)
+//             })
 //     })
 //     .catch(err => {
-//       console.log("Fail to DELETE a note", err)
+//       console.log("Fail to UPDATE a note", err)
 //     })
 //   }
-

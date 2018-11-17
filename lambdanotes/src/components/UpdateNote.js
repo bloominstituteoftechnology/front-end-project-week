@@ -1,7 +1,10 @@
 import React from 'react'
 
-import axios from 'axios'
+//import axios from 'axios'
 import { Link } from 'react-router-dom'
+
+import { connect } from 'react-redux'
+import { updateNote } from '../actions/noteAction'
 
 class UpdateNote extends React.Component {
     constructor(props){
@@ -12,6 +15,8 @@ class UpdateNote extends React.Component {
             // note: {}
         }
     }
+
+    // WHY NOT componentDidMount needed?
 
     // componentDidMount(){
     //     const id = this.props.match.params.id
@@ -58,8 +63,8 @@ class UpdateNote extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        //this.props.handleUpdateNote({...this.state})
-        this.props.handleUpdateNote({...this.state, id: this.props.match.params.id})
+        //this.props.handleUpdateNote({...this.state, id: this.props.match.params.id})
+        this.props.updateNote({...this.state, id: this.props.match.params.id})
         console.log(this.state)
     }
 
@@ -92,4 +97,11 @@ class UpdateNote extends React.Component {
     }
 }
 
-export default UpdateNote
+const mapStateToProps = state => {
+    return {
+        notes: state.notes
+    }
+}
+
+export default connect(mapStateToProps, { updateNote })(UpdateNote)
+//export default UpdateNote
