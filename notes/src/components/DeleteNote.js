@@ -24,10 +24,11 @@ export class DeleteNote extends Component {
         this.setState({open: false})
     }
 
+
     render() {
         return(
             this.state.open === true ?
-            <div>
+            <div className="delete">
                 <p>Are you sure you want to delete this?</p>
                 <button onClick={() => this.deleteItem(this.props.match.params.id)}>Delete</button>
                 <Link to={`/note/${this.props.match.params.id}`} >
