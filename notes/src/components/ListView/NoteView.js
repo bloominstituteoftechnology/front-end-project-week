@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import './note.css'
 
 class NoteView extends React.Component {
+    constructor(props){
+        super(props);
+        this.state ={
+            modal: false
+        }
+    }
 
     componentDidMount() {
         window.scrollTo(0, 0);
@@ -11,7 +18,14 @@ class NoteView extends React.Component {
 
     deleteNoteHandler = (id) => {
         this.props.deleteNote(id);
+        this.toggleModal();
     }
+
+    toggleModal = () => {
+        this.setState({
+          modal: !this.state.modal
+        })
+      }
     
     render() {
         return (
@@ -25,19 +39,35 @@ class NoteView extends React.Component {
                                     <Link to={`/note/edit/${note._id}`}>
                                     <span className="noteButton" style={{cursor: 'pointer'}}>Edit</span>
                                     </Link>
-                                    <span className="noteButton" style={{cursor: 'pointer'}} onClick={() => this.deleteNoteHandler(note._id)}>Delete</span>
+                                    <span className="noteButton" style={{cursor: 'pointer'}} onClick={this.toggleModal}>Delete</span>
                                 </div>
                                 <h2 className="noteViewTitle">{note.title}</h2>
                                 <p className="noteViewText">{note.textBody}</p>
+
+                                <Modal 
+                                    isOpen={this.state.modal} 
+                                    toggle={this.toggleModal} 
+                                    centered={true}
+                                    size='sm' 
+                                    >
+                                    <ModalHeader toggle={this.toggleModal} >Modal Header</ModalHeader>
+                                    <ModalBody>Are you sure you want to delete?</ModalBody>
+                                    <ModalFooter>
+                                        <Button color='danger' onClick={() => this.deleteNoteHandler(note._id)}>Delete</Button>
+                                        <Button color="primary" onClick={this.toggleModal}>Cancel</Button>
+                                    </ModalFooter>
+                                </Modal>
                             </div>
                         )
                     }
                 })}
 
-
+                
             </div>
         )
     }
 };
 
 export default NoteView;
+
+// () => this.deleteNoteHandler(note._id)

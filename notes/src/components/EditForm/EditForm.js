@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import './editform.css';
 
 class EditForm extends React.Component {
@@ -9,6 +10,7 @@ class EditForm extends React.Component {
       id: '',
       title: '',
       text: '',
+      modal: false
     }
   }
 
@@ -32,13 +34,12 @@ class EditForm extends React.Component {
     render() {
       return (
         <div className="editForm">
-        <h2 className="editNoteHeader">Create New Note:</h2>
-         <form onSubmit={this.submitHandler}>
-           <input type="text" placeholder="Note Title" className="titleField" name="title" value={this.state.title} onChange={this.inputHandler}></input>
-           <textarea placeholder="Jot down a note" className="textField" name="text" value={this.state.text} onChange={this.inputHandler}></textarea>
-           <input type="submit" value="Submit Edit" className="submitEdit"></input>      
-         </form>
-
+          <h2 className="editNoteHeader">Create New Note:</h2>
+          <form onSubmit={this.submitHandler}>
+            <input type="text" placeholder="Note Title" className="titleField" name="title" value={this.state.title} onChange={this.inputHandler}></input>
+            <textarea placeholder="Jot down a note" className="textField" name="text" value={this.state.text} onChange={this.inputHandler}></textarea>
+            <input type="submit" value="Submit Edit" className="submitEdit"></input>      
+          </form>
         </div>
       );
     }
