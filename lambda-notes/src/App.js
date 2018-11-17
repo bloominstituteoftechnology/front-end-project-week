@@ -50,7 +50,7 @@ class App extends Component {
         <Route exact path='/' render={ props => <ListNotes {...props} notes={this.state.notes}/>} />
         <Route path='/create-note' render={ props => <CreateNote {...props} createNote={this.createNote} />} />
         <Route path='/note/:id' render={props => <Note {...props} getNotes={this.getNotes} />} />
-        <Route path='/note/:id/edit' render={props => <Edit {...props}  />} />
+        <Route path='/note/:id/edit' render={props => <Edit {...props} getNotes={this.getNotes} />} />
       </div>
       
       </div>

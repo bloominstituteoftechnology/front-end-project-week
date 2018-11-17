@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default class Edit extends Component {
   state = {
@@ -29,23 +30,23 @@ export default class Edit extends Component {
 
   submitHandler = e => {
     const id = this.props.match.params.id
-    e.preventDefault();
     console.log(id)
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state)
       .then( response => {
         console.log(response)
+        this.props.getNotes()
       })
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.submitHandler}>
+        <form>
           <h1>Create New Note</h1>
           <input type='text' name='title' value={this.state.title} onChange={this.changeHandler} />
           <textarea cols='40' rows='50' name='textBody' value={this.state.textBody} onChange={this.changeHandler} ></textarea>
-          <button type='submit'>Submit Note</button>
+          <Link to={'/'}><div onClick={this.submitHandler}>Submit Note</div></Link>
         </form>
       </div>
     )
