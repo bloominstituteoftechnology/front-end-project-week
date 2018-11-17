@@ -1,0 +1,34 @@
+.side-bar{
+    width: 25%;
+    height: 100vh;
+    background-color: $gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid $dark-gray;
+
+    .title-container{
+        padding: 35px 20px 35px 20px;
+    }
+
+    .button-container{
+        width: 100%;
+        height: 154px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+
+        .button{
+            width: 86%;
+            height: 65px;
+            background-color: $cyan;
+            border: 1px solid $dark-gray;
+            //FONT
+            font-family: helvetica;
+            color: $white;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+    }
+}
