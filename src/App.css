@@ -22,7 +22,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 3rem;
 }
 
 .App-intro {
@@ -38,34 +38,34 @@
   }
 }
 
-.left {
+/* .left {
   background-color: #d8d8d8;
   overflow: scroll;
   height: 100%;
-}
+} */
 
-.right {
+/* .right {
   background-color: #f3f3f3;
   overflow: scroll;
   padding-left: 20px;
   height: 100vh;
-}
+} */
 
-h1 {
+/* h1 {
   font-family: Roboto Bold;
   color: #4a4a4a;
   text-align: center;
-}
-
+} */
+/* 
 .sidebar-button {
   width: 200px;
   height: 60px;
   margin: 10px 10px 0px 25px;
   background-color: #2bc1c4;
   color: white;
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: heavy;
-}
+} */
 
 .save-button {
   width: 200px;
@@ -73,7 +73,7 @@ h1 {
   margin-top: 20px;
   background-color: #2bc1c4;
   color: white;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: heavy;
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SplitPane from 'react-split-pane';
+// import SplitPane from 'react-split-pane';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import { gettingAllNotes, addNote } from './actions';
@@ -11,6 +11,7 @@ import UpdateForm from './components/UpdateForm';
 import SideBar from './components/SideBar';
 import Loading from './components/Loading';
 import './App.css';
+import { Container, RightDiv, Wrapper } from './StyledComponents/App'
 
 class App extends Component {
   componentDidMount() {
@@ -24,26 +25,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <Container>
         <BrowserRouter>
-          <SplitPane split="vertical" defaultSize={250}>
+          <Wrapper>
             <SideBar />
-            <div className="right">
-              {this.props.gettingNotes ? (
-                <Route exact path="/" component={Loading} />
-              ) : (
-                <Route exact path="/" render={(props) => <Notes notes={this.props.notes} />} />
-              )}
+            <RightDiv>
+              {this.props.gettingNotes ? <Route exact path="/" component={Loading} /> : <Route exact path="/" render={(props) => <Notes notes={this.props.notes} />} />}
               <Route path="/new" render={(props) => <NoteForm addNote={this.props.addNote} />} />
-
               <Route path="/viewnote" component={SingleNote} />
               <Route path="/update" component={UpdateForm} />
-            </div>
-          </SplitPane>
+            </RightDiv>
+          </Wrapper>
         </BrowserRouter>
-      </div>
-    );
-  }
+      </Container>
+  )}
 }
 
 const mapStateToProps = (state) => {

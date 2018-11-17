@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Notes extends Component {
   render() {
     return (
-      <div className="home">
+      <div className="home" style={{border: '5px solid pink', width: '100%'}}>
         <h2>Your Notes:</h2>
         <div className="notes">
           {this.props.notes.map((note) => (
