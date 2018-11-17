@@ -66,8 +66,8 @@ Once your MVP has been approved, you have been given a feature list that the cli
 
 - [X] Re-factor your code to include redux for your state-management
 - [X] Search functionality
-- [ ] Markdown support in notes
-- [ ] Sorting options in the list view
+- [X] Markdown support in notes
+- [X] Sorting options in the list view
 - [ ] Create and display tags that can be added to notes
 - [ ] Drag sorting in the list view
 - [ ] Add the ability to have checklists within the note view
