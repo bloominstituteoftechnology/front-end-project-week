@@ -17,6 +17,15 @@
   border: 1px solid black;
 }
 
+.note-list {
+  padding: 90px 45px 90px 45px;
+  box-sizing: border-box;
+  border: 1px solid red;
+}
+.note-list .note-container {
+  border: 1px solid black;
+}
+
 .side-bar {
   width: 25%;
   height: 100vh;
@@ -46,6 +55,12 @@
   color: white;
   font-weight: bold;
   font-size: 1.4rem;
+}
+
+.note-card {
+  border: 1px solid black;
+  width: 300px;
+  height: 290px;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 

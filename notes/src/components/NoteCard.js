@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const NoteCard = props => (
-    <div>
+    <div className="note-card">
         <Link to={`/view/${props.id}`}><h5>{props.note.title}</h5></Link>
         <p>{props.note.text}</p>
     </div>
