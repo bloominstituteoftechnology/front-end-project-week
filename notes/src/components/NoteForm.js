@@ -32,6 +32,9 @@ const NoteForm = props => {
               placeholder="add tags"
             />
           </form>
+          <div className="btn-container">
+            <button onClick={handleClick}>Save</button>
+          </div>
         </header>
         <hr></hr>
         <input
@@ -50,9 +53,7 @@ const NoteForm = props => {
           onChange={props.handleInput}
           placeholder="Start writing..."
         />
-        <div className="btn-container">
-          <button onClick={handleClick}>Save</button>
-        </div>
+
       </div>
     </div>
   );
