@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router} from 'react-router-dom'
 import './index.css';
 import App from './App';
 import NotesProvider, {NotesContext} from './contexts/NotesProvider'
@@ -8,7 +9,10 @@ ReactDOM.render(
     <NotesProvider>
         <NotesContext.Consumer>
             {data =>
-                <App data={data} />
+                //Pass App the state data so that I can use it in ComponentDidMount
+                <Router>
+                    <App data={data} />
+                </Router>
             }
         </NotesContext.Consumer>
     </NotesProvider>

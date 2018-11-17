@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {Route} from 'react-router-dom'
+
+import NavigationPanel from './components/NavigationPanel'
 import ViewNotes from './components/ViewNotes'
 import CreateNote from './components/CreateNote'
 import './App.css';
@@ -7,35 +10,36 @@ class App extends Component {
 
   componentDidMount(){
     const appData = this.props.data
+    //Load the Notes 
     appData.actions.fetchNotes();
     
   }
 
-  render() {
-    console.log('within render', this.props.data);
-    const loading = this.props.data.state.loading
-    const status = this.props.data.state.status
-    console.log(status);
-    // let displayComponent;
-    // if(status === 'view'){
-    //   displayComponent = <ViewNotes />
-    // }else
-    //   displayComponent = <CreateNote />
 
+
+  render() {
+    //Grab loading and status properties of state
+    const loading = this.props.data.state.loading
+    const error = this.props.data.state.error
+
+
+
+  
     return (
+     
       <div className="App">
+        {loading ? <h1>Loading...</h1> : null}
+        {error !== null ? <h1>{error}</h1> : null}
         <div className="sidePanel">
-          <h1>Lamba Notes</h1>
-          <button>View Your Notes</button>
-          <button>+Create New Note</button>
+          <NavigationPanel />
         </div>
 
         <div className="mainPanel">
-          {/* {loading === false 
-            ? <ViewNotes /> 
-            : <h1>Loading Notes...</h1>} */}
-          {loading === true ? <h1>Loading...</h1> : null}
-          {status === 'view' ? <ViewNotes /> : <CreateNote />}
+          <Route exact path="/" component={ViewNotes} />
+          <Route exact path="/create" component={CreateNote} />
+          <Route exact path="/note" component={CreateNote} />
+          <Route exact path="/edit" component={CreateNote} />
+          <Route exact path="/delete" component={CreateNote} />
         </div>
       </div>
     );
