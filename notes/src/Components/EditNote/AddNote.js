@@ -50,7 +50,13 @@ class AddNote extends Component {
     // Send to axios
     axios.post(`https://fe-notes.herokuapp.com/note/create`, newNote )
     .then( (response) => {
-      this.setState( () => ({ note: response.data, newTitle: "", newText: "", redirect: true }) )
+      console.log( "response:", response );
+      this.setState( () => ({ 
+        note: { _id: response.data.success }, 
+        newTitle: "", 
+        newText: "", 
+        redirect: true 
+      }) )
     })
     .catch( (error) => console.error(error));
   };
