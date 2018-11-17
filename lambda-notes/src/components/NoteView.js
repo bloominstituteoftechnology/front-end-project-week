@@ -1,34 +1,25 @@
 import React from 'react'; 
 import './NoteView.css'
-import axios from 'axios' 
+import { Link } from 'react-router-dom'
 
-export default class NoteView extends React.Component{
-  constructor() {
-    super();  
-    this.state = {
-      note: []
-    }
-  }
-    
-    componentDidMount() {
-      axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
-        .then(response => {
-          this.setState({ note: response.data });
-        })
-        .catch(err => console.log(err));
-    }
+export const NoteView = (props) => {
+  
+  if (props.notes.length) {
+    let note = props.notes.find(
+      note => `${note._id}` === props.match.params.id
+    );
 
-    render() {
       return(
         <div>
           <div className='noteView-menu'>
-            <h6>edit</h6>
+            <h6>
+              <Link to={`/Edit/${props.match.params.id}`}>edit </Link>
+            </h6>
             <h6>delete</h6> 
           </div> 
-          <h3>{this.state.note.title}</h3> 
+          <h3>{note.title}</h3> 
           <div className="note-textBody"> 
-            <h5>{this.state.note.textBody}</h5> 
+            <h5>{note.textBody}</h5> 
           </div> 
         </div>  
     )

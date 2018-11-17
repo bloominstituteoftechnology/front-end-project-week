@@ -1,48 +1,34 @@
 import React from 'react'; 
 import './CreateNew.css'; 
+import axios from 'axios'; 
 
-export default class CreateNew extends React.Component {
-  constructor(props){
-    super(props); 
-    this.state = {
-      title: '',
-      content:''
-    }
-  }
+export const Edit = (props) => {
+ 
+  if (props.notes.length) {
+    let note = props.notes.find(
+     note => `${note._id}` === props.match.params.id
+   );
+  const push = () => {
+   props.history.push(`/note/${note._id}`)
+ }
+ 
+ const updateNoteHandler = e => {
+   e.preventDefault();
+   props.updateNote(note._id)
+   setTimeout( push , 50)
+   
+ }
 
-  inputHandler = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
-  submitEdit = (event) => {
-    event.preventDefault(); 
-
-    let note = {
-      title: this.state.title,
-      content: this.state.content
-    }
-
-    axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, note)
-    .then(res => {
-      console.log(res);
-      this.setState({ title: " ", content: " " });
-    })
-    .catch(() => alert("Encountered an error loading your note"));
-  }
-
-  render(){
+  
     return(
       <div>
         <h3>Edit Note:</h3> 
-        <form onSubmit={this.submitEdit}>
-          <input onChange={this.inputHandler} value={this.state.title} name="title" placeholder="Note Title" className='input' type='text'/>
-          <input onChange={this.inputHandler} name="content" value={this.state.content} placeholder="Note Content" className="text-area" type='text'/> 
+        <form onSubmit={updateNoteHandler}>
+          <input onChange={props.inputChange} value={props.newNote.title} name="title" placeholder="Note Title" className='input' type='text'/>
+          <input onChange={props.inputChange} name="textBody" value={props.newNote.textBody} placeholder="Note Content" className="text-area" type='text'/> 
           <button type="submit" className="button-2">Save</button> 
         </form> 
       </div> 
     )
+    }
   }
-}
