@@ -30,6 +30,7 @@ class NotesList extends React.Component {
                                 </h2>
                                 <div className="contentbox">
                                     <p> {note.textBody}</p>
+                                    <p> Tag: {note.tags}</p>
                                 </div>
                             </div>
                         )
@@ -42,7 +43,7 @@ class NotesList extends React.Component {
                         emptyArr.push(note.title)
                         console.log(typeof emptyArr)
                         return(
-                            <div>
+                            <div key={note._id}>
                                 {/* <div>
                                     {note.title.toUpperCase()}
                                 </div> */}

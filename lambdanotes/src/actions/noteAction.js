@@ -26,6 +26,7 @@ export const createNote = note => {
         .post(`https://fe-notes.herokuapp.com/note/create`, note) 
         //.then(this.getNotes)
         .then(response => {
+            console.log(note)
             //dispatch({ type: SUCCESS, notes: response.data })
             axios
             .get(`https://fe-notes.herokuapp.com/note/get/all`)

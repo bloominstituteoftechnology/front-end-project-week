@@ -35,6 +35,7 @@ class NoteView extends React.Component {
     }
 
     render(){
+        console.log(this.state.note)
         return (
             <div>
                 <div className="note-menu">
@@ -48,6 +49,7 @@ class NoteView extends React.Component {
                         <p>Text Body: {this.state.note.textBody}</p>
                         <p>ID: {this.state.note._id}</p>
                         <p>Double_Underscore_V: {this.state.note.__v}</p>
+                        <p>TAGS: {this.state.note.tags}</p>
                     </div>
                 </div>
             </div>
