@@ -28,12 +28,12 @@ class NoteView extends Component {
         <Button color="link">Edit</Button>
         <Button color="link">Delete</Button>
         </div>
-         {this.state.note.map(item =>{
-           return[
-             <h1 className="title">{item.title}</h1>,
-             <p className="content">{item.content}</p>
-           ]
-         })}
+        {this.state.note.map(item =>{
+          return[
+            <h1 className="title">{item.title}</h1>,
+            <p className="content">{item.content}</p>
+          ]
+        })}
         </ViewCard>
       </NoteContainer>
     );
