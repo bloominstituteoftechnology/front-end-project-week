@@ -62,7 +62,7 @@ export const deleteNote = id => {
     return dispatch => {
         dispatch({type: LOADING})
         axios
-            .delete(`ttps://fe-notes.herokuapp.com/note/delete/${id}`)
+            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
             .then(response => {
                 dispatch(fetchNotes())
             })
