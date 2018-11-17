@@ -26,16 +26,7 @@ export const createNote = note => {
         .post(`https://fe-notes.herokuapp.com/note/create`, note) 
         //.then(this.getNotes)
         .then(response => {
-            console.log(note)
-            //dispatch({ type: SUCCESS, notes: response.data })
-            axios
-            .get(`https://fe-notes.herokuapp.com/note/get/all`)
-            .then(response => {
-                this.setState({ notes: response.data })
-            })
-            .catch(err => {
-                console.log("Fail to GET notes from server", err)
-            })
+            dispatch(getNotes());
         })
         .catch(err => {
             dispatch({ type: ERROR, errorMessage: "Trouble CREATING a note"})
@@ -51,15 +42,7 @@ export const deleteNote = id => {
         .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         //.then(this.getNotes)
         .then(response => {
-            //dispatch({ type: SUCCESS, notes: response.data })
-            axios
-            .get(`https://fe-notes.herokuapp.com/note/get/all`)
-            .then(response => {
-                this.setState({ notes: response.data })
-            })
-            .catch(err => {
-                console.log("Fail to GET notes from server", err)
-            })
+            dispatch(getNotes());
         })
         .catch(err => {
             dispatch({ type: ERROR, errorMessage: "Trouble Deleting Friend"})
@@ -75,15 +58,7 @@ export const updateNote = theupdatedNote => {
         axios 
         .put(`https://fe-notes.herokuapp.com/note/edit/${theupdatedNote.id}`, theupdatedNote)
         .then(response => {
-            //dispatch({ type: SUCCESS, notes: response.data })
-            axios
-            .get(`https://fe-notes.herokuapp.com/note/get/all`)
-            .then(response => {
-                this.setState({ notes: response.data })
-            })
-            .catch(err => {
-                console.log("Fail to GET notes from server", err)
-            })
+            dispatch(getNotes());
         })
         .catch(err => {
             dispatch({ type: ERROR, errorMessage: "Trouble Editing Friend"})
@@ -91,4 +66,16 @@ export const updateNote = theupdatedNote => {
     }
 }
 
+// NOTE: To prevent having to refresh, add the below to then(response => {*add here*})
 
+// Redux
+// dispatch(getNotes());
+
+// React
+// axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+//             .then(response => {
+//                 dispatch({ type: SUCCESS, notes: response.data })
+//             })
+//             .catch(err => {
+//                 dispatch({ type: ERROR, errorMessage: "Trouble GETTING notes"})
+//             })
