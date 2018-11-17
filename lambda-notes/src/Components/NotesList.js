@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import Note from './Note'
 import '../App.css'
+import {BrowserRouter as Router,Route, Link} from 'react-router-dom';
+
 import axios from 'axios'
 class NotesList extends Component {
 
@@ -14,7 +16,7 @@ class NotesList extends Component {
             <div className='notesContainer'>
             <h2> Your Notes: </h2>
             <div className='notesList'>
-            {this.props.notes.map( jot => <Note title={jot.title} selectedHandler={this.props.selectedHandler} ID={jot._id} key={jot._id} textBody={jot.textBody} jot={jot} />)}
+            {this.props.notes.map( jot => <Link to={`/note/${jot._id}`}><Note title={jot.title} key={jot._id} textBody={jot.textBody} jot={jot} /></Link>)}
             </div>
             </div>
         )

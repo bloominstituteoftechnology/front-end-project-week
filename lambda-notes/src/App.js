@@ -5,6 +5,8 @@ import './App.css';
 import NotesList from './Components/NotesList'
 import NewNote from './Components/NewNote'
 import NotesNav from './Components/NotesNav'
+import Note from './Components/Note'
+import SingleNote from './Components/SingleNote'
 
 import axios from 'axios'
 class App extends Component {
@@ -30,34 +32,34 @@ class App extends Component {
 }
 
 
-  clickForNewHandler = () => {
-    this.setState ({
-      allNotes: false,
-      newNote: true,
-      fullNote: false,
-      updateNote: false,
-      deleteNote: false,})
-  }
+  // clickForNewHandler = () => {
+  //   this.setState ({
+  //     allNotes: false,
+  //     newNote: true,
+  //     fullNote: false,
+  //     updateNote: false,
+  //     deleteNote: false,})
+  // }
 
-  selectedHandler = (event) => {
-    event.preventDefault()
-    const id = event.target.id
-    console.log(id)
-    // axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    // .then(response => this.setState({notes: response.data}))
-    // .catch(err => console.log('There is a Note Error'))
-  }
+  // selectedHandler = (id) => {
 
+  //   console.log(id)
+  //   // axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+  //   // .then(response => this.setState({notes: response.data}))
+  //   // .catch(err => console.log('There is a Note Error'))
+  // }
 
 
-  clickForAllHandler = () => {
-    this.setState ({
-      allNotes: true,
-      newNote: false,
-      fullNote: false,
-      updateNote: false,
-      deleteNote: false,})
-  }
+
+  // clickForAllHandler = () => {
+  //   this.setState ({
+  //     allNotes: true,
+  //     newNote: false,
+  //     fullNote: false,
+  //     updateNote: false,
+  //     deleteNote: false,})
+  // }
+  
 
   render() {
     return (
@@ -65,6 +67,8 @@ class App extends Component {
         <NotesNav clickForAllHandler={this.clickForAllHandler} clickForNewHandler={this.clickForNewHandler} />
         <Route exact path="/home" render={(props) =>  <NotesList {...props} selectedHandler={this.selectedHandler} notes={this.state.notes} />} />
         <Route exact path="/new" render={(props) =>  <NewNote {...props} notes={this.state.notes} />} />
+        <Route exact path="/note/:id" component={SingleNote} />
+
       </div>
     );
   }
