@@ -94,7 +94,7 @@ const Note = props => {
         const deleteNotes = (event) => {
             event.preventDefault();
             props.deleteNote(note._id);
-            props.history.push('/');
+            props.deleteToggleOff();
         }
 
         return (
@@ -112,7 +112,8 @@ const Note = props => {
                 )}
 
                 <Actions>
-                    <Link to={`/note/${note._id}/edit`}
+                    <Link 
+                        to={`/note/${note._id}/edit`}
                         onClick={() => props.updatedNote(note.title, note.textBody)}
                         style={{ color: 'black' }}
                     >
