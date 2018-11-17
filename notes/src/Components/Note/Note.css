@@ -27,4 +27,39 @@
   padding: 20px 0;
 }
 
+.deleteOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  /* visibility: hidden; */
+}
+
+.deleteBox {
+  margin: 200px auto;
+  border: 1px solid black;
+  background-color: white;
+  width: 500px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteBoxButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 400px;
+}
+
+.buttonRed {
+  background-color: red;
+}
 /* End of Note CSS */

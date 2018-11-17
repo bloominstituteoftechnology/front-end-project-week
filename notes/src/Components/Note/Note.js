@@ -21,7 +21,8 @@ class Note extends Component {
      *  title: ""
      */
     this.state = {
-      note: {}
+      note: {},
+      deleteConfirm: false
     };
   };
 
@@ -34,16 +35,34 @@ class Note extends Component {
       .catch( (error) => console.error(error) );
   };
 
+  /* Handle deleting a note without redirecting to a different page. */
+  handleDelete = (event) => {
+    event.preventDefault();
+    this.setState( () => ({deleteConfirm: true}));
+    alert( "Delete called" );
+  };
+
   render() {
     return (
+      <>
+      <div className="deleteOverlay">
+        <div className="deleteBox">
+          <div>Are you sure you want to delete this?</div>
+          <div className="deleteBoxButtons">
+            <div className="navButton buttonRed">Delete</div>
+            <div className="navButton">No</div>
+          </div>
+        </div>
+      </div>
       <div className="viewNote">
         <div className="noteLinks">
           <Link to={`/edit/${this.state.note._id}`}>edit</Link>
-          <Link to={`/delete/${this.state.note._id}`}>delete</Link>
+          <Link to={`/delete/${this.state.note._id}`} onClick={this.handleDelete}>delete</Link>
         </div>
         <div className="viewNoteTitle">{this.state.note.title}</div>
         <div className="viewNoteText">{this.state.note.textBody}</div>
       </div>
+      </>
     );
   }
 };
