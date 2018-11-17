@@ -42,10 +42,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
+        <div className="Sidebar">
+          <h1>Lambda</h1>
+          <h1>Notes</h1>
           <NavLink to='/note'><button>View Your Notes</button></NavLink>
           <NavLink to='/add-note'><button>+ Add Note</button></NavLink>
         </div>
+        <div className="Notesection">
         <Route path="/add-note"
           render={props => (
             <AddNote addNote={this.addNote} />
@@ -69,6 +72,8 @@ class App extends Component {
         <Route path="/note/:id/delete" render={(props) => {
               return(<DeleteNote {...props} />)
           }} />
+
+          </div>
       </div>
     );
   }

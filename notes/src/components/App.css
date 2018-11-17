@@ -30,3 +30,34 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  display: flex;
+}
+
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #D3D2D3;
+  height: 100vh;
+  width: 250px;
+}
+
+.Sidebar h1 {
+  color: #434242;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 25px;
+}
+
+.Sidebar button {
+  color: white;
+  background-color: #24B8BD;
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+  margin: 5px;
+}
+

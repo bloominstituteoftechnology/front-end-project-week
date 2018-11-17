@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Note } from './Note';
 import {Link , Route} from 'react-router-dom';
+import './App.css';
 
 export class Notes extends Component {
     render(){
