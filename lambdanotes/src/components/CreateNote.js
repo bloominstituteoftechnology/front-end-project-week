@@ -9,9 +9,14 @@ class CreateNote extends Component{
     }
   }
 
-  changleHandler = (e) =>{
-    console.log('inputbox change', e.target.value)
-    // [e.target.name] = e.target.value
+  changeHandler = (e) =>{
+    // console.log('inputbox change', e.target.value)
+    // console.log(this.state);
+    this.setState({
+      [e.target.name]: e.target.value
+
+    })
+    console.log(this.state);
   }
 
   render(){
@@ -23,12 +28,12 @@ class CreateNote extends Component{
           name="title"
           placeholder="Note Title" 
           value={this.state.title}
-          onChange={this.changleHandler}/>
+          onChange={this.changeHandler}/>
         <textarea type="text" spellCheck="false"
           rows='15'
-          name="title"
-          placeholder="Note Title" 
-          onChange={this.changleHandler}/>
+          name="content"
+          placeholder="Note Content" 
+          onChange={this.changeHandler}/>
         <button className="createBtn">Save</button>
       </div>
     )

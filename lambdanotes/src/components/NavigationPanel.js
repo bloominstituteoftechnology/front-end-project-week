@@ -7,12 +7,13 @@ const NavigationPanel = () =>{
 
     return (
         <div className="navContainer">
-            <h1>Lamba Notes</h1>
+            <h1>Lamba</h1>
+            <h1>Notes</h1>
             <Link to='/' style={{textDecoration: 'none'}}>
                 <button className="navBtn">View Your Notes</button>
             </Link>
             <Link to='/create' style={{textDecoration: 'none'}}>
-                <button className="navBtn">+Create New Note</button>
+                <button className="navBtn">+ Create New Note</button>
             </Link>
         </div>
     )

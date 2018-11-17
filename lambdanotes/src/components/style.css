@@ -3,8 +3,10 @@
 
     background-color: #D3D2D3;
     color: #414141;
-    border: 1px solid #7B7B7C;
+    /* border: 1px solid #7B7B7C; */
     height: 100vh;
+    text-align: left;
+    padding-top: 20px;
 }
 
 .navBtn {
@@ -20,6 +22,53 @@
 .navBtn:hover {
     cursor: pointer;
 }
+.navContainer h1 {
+    margin: 0 10%;
+    
+}
+
+
+/* ViewNotes.js, Note.js */
+.notesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px 5%;
+    border: 1px solid #7B7B7C;
+    
+}
+.notesContainer h3 {
+    margin-bottom: 20px;
+}
+.viewHeader {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+}
+.noteCard {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 23%;
+    background: #FFFFFF;
+    border: 1px solid #414141;
+    padding: 0 4%;
+    margin-bottom: 20px;
+}
+
+.noteCard h3 {
+    margin-bottom: 5px;
+}
+.noteCard p {
+    font-size: 1.0em;
+}
+hr {
+    color: black;
+    height: 5;
+    width: 100%;
+}
+
+
 
 /* CreateNote.js */
 .createContainer {
