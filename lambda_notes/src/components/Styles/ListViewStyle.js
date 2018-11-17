@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 export const NoteWrap = styled.div`
-    width: 350px;
-    height: 500px;
     display: flex;
     
 `
 
 export const NoteContent = styled.div`
-    justify-content: space-evenly;
+    width: 1000px;
+    height: 500px;
+    border: 2px solid black;
+    flex-direction: column;
+    justify-content: space-between;
 
 `
 

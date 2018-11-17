@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "normalize.css": "^8.0.1",
+    "react-router": "^4.3.1",
     "styled-components": "^4.1.1"
   }
 }
