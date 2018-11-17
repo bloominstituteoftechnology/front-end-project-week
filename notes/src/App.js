@@ -4,7 +4,7 @@ import NoteList from "./pages/NoteList";
 import ViewNote from "./pages/ViewNote";
 import EditNote from "./pages/EditNote";
 import SideBar from "./components/SideBar";
-import "./styling/index.css";
+import "./css/index.css";
 
 class App extends Component {
     state = {

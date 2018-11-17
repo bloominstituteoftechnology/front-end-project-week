@@ -3,8 +3,9 @@ import {Link} from "react-router-dom";
 
 const NoteCard = props => (
     <div className="note-card">
-        <Link to={`/view/${props.id}`}><h5>{props.note.title}</h5></Link>
-        <p>{props.note.text}</p>
+        <Link className="note-title-font" to={`/view/${props.id}`}><h5>{props.note.title}</h5></Link>
+        <div className="divider"></div>
+        <p className="note-body-font">{props.note.text}</p>
     </div>
 );
 

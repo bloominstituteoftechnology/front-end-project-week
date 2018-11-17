@@ -1,11 +1,12 @@
 .side-bar{
     width: 25%;
     height: 100vh;
-    background-color: $gray;
+    background-color: @gray;
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid $dark-gray;
+    border: 1px solid @dark-gray;
 
     .title-container{
         padding: 35px 20px 35px 20px;
@@ -22,11 +23,11 @@
         .button{
             width: 86%;
             height: 65px;
-            background-color: $cyan;
-            border: 1px solid $dark-gray;
+            background-color: @cyan;
+            border: 1px solid @dark-gray;
             //FONT
             font-family: helvetica;
-            color: $white;
+            color: @white;
             font-weight: bold;
             font-size: 1.4rem;
         }
