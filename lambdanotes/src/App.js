@@ -23,7 +23,6 @@ class App extends Component {
     const error = this.props.data.state.error
 
 
-
   
     return (
      
