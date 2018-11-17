@@ -7,7 +7,7 @@ const Note = (props) =>{
     
         return(
             <div className = 'note-container'>
-                <Link  className = 'link' to= {`/notes/${props.id}`}>
+                <Link  className = 'link' exact to= {`/notes/${props.id}`}>
                     <h2 className = 'note-header'>{props.title}</h2>
                 </Link>  
                 <p className = 'note-text'>{props.textBody}</p>

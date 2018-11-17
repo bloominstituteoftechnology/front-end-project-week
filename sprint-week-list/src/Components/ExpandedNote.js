@@ -63,7 +63,7 @@ class ExpandedNote extends React.Component{
                     </div>    
                 </div>
                 <div className = 'edit-container'>
-                    <Link to = {`note/edit/${this.state.note._id}`}>
+                    <Link exact to = {`/edit/${this.state.note._id}`}>
                         <p className = 'edit-prompt'>edit</p>
                     </Link>
                     

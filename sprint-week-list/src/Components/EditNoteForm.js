@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 
 import axios from 'axios';
 
+import styles from '../css/EditNoteForm.css';
+
 class EditNoteForm extends React.Component{
     constructor(){
         super()
@@ -29,13 +31,13 @@ class EditNoteForm extends React.Component{
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id;
+        const id = this.props.match.params._id;
         this.fetchNote(id);
         
     }
     submitHandler = (event) =>{
-        event.preventDefault()
-        const id = this.props.match.params.id;
+        //event.preventDefault()
+        const id = this.props.match.params._id;
         this.props.updateNote(id, this.state)
         this.setState({
             title : '',
@@ -45,24 +47,26 @@ class EditNoteForm extends React.Component{
     }
     render(){
         return(
-            <div className = 'edit-container'>
+            <div className = 'edit-page-container'>
                 <div className = 'sub-container'>
                     <h1 className = 'edit-header'>Edit Note:</h1>
-                    <form onSubmit = {this.submitHandler}>
+                    <form className = 'form' onSubmit = {this.submitHandler}>
                         <input 
+                            className = 'title-input'
                             type = 'text'
                             placeholder = 'Note Title'
                             value = {this.state.title}
                             name = 'title'
                             onChange = {this.inputHandler}/>
                         <input 
+                            className = 'text-input'
                             type = 'text'
                             placeholder = 'Note Content'
                             value = {this.state.textBody}
                             name = 'textBody'
                             onChange = {this.inputHandler}/>    
                         <Link exact to = '/' >
-                            <button type = 'submit'>Save</button>
+                            <button className = 'submit-button' type = 'submit'>Save</button>
                         </Link>
 
                     </form>
