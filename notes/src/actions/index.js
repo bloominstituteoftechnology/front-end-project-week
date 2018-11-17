@@ -16,6 +16,7 @@ export const CLOSE_MODAL = 'CLOSE_MODAL';
 // sorting actions
 export const A_Z = 'A_Z';
 export const Z_A = 'Z_A';
+export const SORT_ID = 'SORT_ID';
 
 
 export const fetchNotes = () => {
@@ -113,16 +114,19 @@ export const closeModal = () => {
     dispatch({type: CLOSE_MODAL})
   }
 }
-const compare = (a,b) => {
+const compareByTitle = (a,b) => {
   return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1
 }
 
+const compareById = (a,b) => {
+  return a.id > b.id ? 1 : -1
+}
 
 export const alpha = () => {
   return dispatch => {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
      .then(res => {
-       let sortedData = res.data.sort(compare);
+       let sortedData = res.data.sort(compareByTitle);
        dispatch({type:A_Z, payload: sortedData })
      })
      .catch(err => {
@@ -135,8 +139,22 @@ export const alphaReverse = () => {
   return dispatch => {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
      .then(res => {
-       let sortedData = res.data.sort(compare).reverse();
+       let sortedData = res.data.sort(compareByTitle).reverse();
        dispatch({type:Z_A, payload: sortedData })
+     })
+     .catch(err => {
+       dispatch({type: ERROR, payload: err})
+     })
+  }
+}
+
+export const sortById = () => {
+  return dispatch => {
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+     .then(res => {
+       let sortedData = res.data.sort(compareById);
+       console.log(sortedData)
+       dispatch({type:SORT_ID, payload: sortedData })
      })
      .catch(err => {
        dispatch({type: ERROR, payload: err})

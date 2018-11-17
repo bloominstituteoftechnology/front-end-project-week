@@ -1,7 +1,7 @@
 import { FETCHING, FETCHED, CREATING,
          UPDATING, DELETING, UPDATED, DELETED,
          CREATED, ERROR, CLOSE_MODAL,
-         A_Z, Z_A
+         A_Z, Z_A, SORT_ID
        } from '../actions';
 
 
@@ -60,6 +60,8 @@ export const notesReducer = (state = initialState, action) => {
     case A_Z :
       return Object.assign({}, state, { notes: action.payload})
     case Z_A :
+      return Object.assign({}, state, { notes: action.payload})
+    case SORT_ID :
       return Object.assign({}, state, { notes: action.payload})
     default:
       return state;
