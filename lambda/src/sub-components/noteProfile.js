@@ -2,6 +2,9 @@ import React from 'react';
 
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+import { saveNoteId } from '../Actions/notesActions';
+
 import { NavLink } from 'react-router-dom';
 
 class NoteProfile extends React.Component {
@@ -25,6 +28,8 @@ class NoteProfile extends React.Component {
                 console.log(error);
             })
         // console.log(this.state.note);
+        this.props.saveNoteId(this.props.match.params.id);
+
     }
 
     render() {
@@ -48,4 +53,18 @@ class NoteProfile extends React.Component {
         )
     }
 }
-export default NoteProfile;
+
+const mapStateToProps = state => {
+    return {
+      notes: state.notes,
+      loadingNotes: state.loadingNotes,
+      notesLoaded: state.notesLoaded,
+      addingNotes: state.addingNotes,
+      updatingNotes: state.updatingNotes,
+      deletingNotes: state.deletingNotes,
+      error: state.error,
+      noteId: state.noteId,
+    }
+}
+
+export default connect(mapStateToProps, {saveNoteId})(NoteProfile);

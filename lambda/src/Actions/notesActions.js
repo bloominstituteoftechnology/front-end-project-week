@@ -6,6 +6,7 @@ export const ADDING_NOTES = 'ADDING_NOTES';
 export const UPDATING_NOTES = 'UPDATING_NOTES';
 export const DELETING_NOTES = 'DELETING_NOTES';
 export const ERROR = 'ERROR';
+export const SAVE_NOTE_ID = 'SAVE_NOTE_ID';
 
 export const loadNotesAction = () => {
     return dispatch => {
@@ -99,3 +100,9 @@ export const deleteNoteAction = (textValue, titleValue, idValue) => {
             })
     }
 }
+export const saveNoteId = (idValue) => {
+    return {
+        type: SAVE_NOTE_ID,
+        payload: idValue,
+    }
+} 

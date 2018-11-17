@@ -1,4 +1,4 @@
-import { LOADING_NOTES, NOTES_LOADED, ADDING_NOTES, UPDATING_NOTES, DELETING_NOTES, ERROR } from '../Actions/notesActions';
+import { LOADING_NOTES, NOTES_LOADED, ADDING_NOTES, UPDATING_NOTES, DELETING_NOTES, ERROR, SAVE_NOTE_ID } from '../Actions/notesActions';
 
 const initialState = {
     notes: [],
@@ -8,6 +8,7 @@ const initialState = {
     updatingNotes: false,
     deletingNotes: false,
     error: null,
+    noteId: null,
 };
 
 export default (state = initialState, action) => {
@@ -49,6 +50,10 @@ export default (state = initialState, action) => {
                 deletingNotes: true,
                 error: null,
                 notesLoaded: false,
+            })
+        case SAVE_NOTE_ID:
+            return Object.assign({}, state, {
+                noteId: action.payload,
             })
         default:
             return state;

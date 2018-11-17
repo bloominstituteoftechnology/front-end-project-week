@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { updateNoteAction } from '../Actions/notesActions'
+import { updateNoteAction } from '../Actions/notesActions';
 
 
 class UpdateNote extends React.Component {
@@ -56,7 +56,8 @@ const mapStateToProps = state => {
       updatingNotes: state.updatingNotes,
       deletingNotes: state.deletingNotes,
       error: state.error,
+      noteId: state.noteId,
     }
-  }
+}
 
 export default connect(mapStateToProps, {updateNoteAction})(UpdateNote);
