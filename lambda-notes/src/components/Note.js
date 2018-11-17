@@ -11,6 +11,7 @@ const NoteCard = styled.div`
     margin-bottom: 35px;    
     text-align: start;
     background-color: #fbfafa;
+    cursor: pointer;
     > div {
         border-bottom: 1px solid #8e8b8b;
         height: 35px;

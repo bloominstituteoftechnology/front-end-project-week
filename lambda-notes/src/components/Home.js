@@ -19,7 +19,7 @@ const CardWrapper = styled.div`
 
 
 
-const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;

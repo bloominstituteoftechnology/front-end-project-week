@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import Home from './components/Home';
 import NoteProfile from './components/NoteProfile';
 import { deleteNote, fetchNotes } from './actions/actions';
+import CreateForm from './components/CreateForm';
 
 const AppWrapper = styled.div`
 text-align: center;
@@ -37,6 +38,7 @@ const Sidebar = styled.nav`
           justify-content: center;
           font-weight: bolder;
           margin-bottom: 30px;
+          cursor: pointer;
           &:hover {
             color: #16ccc9;
             background-color: white;
@@ -56,7 +58,7 @@ const SidebarHeader = styled.h1`
 
 const DeleteModal = styled.div`
     width: 70%;
-    height: 250px;
+    height: 300px;
     opacity: none;
     border: 2px solid black;
     background-color: white;
@@ -87,6 +89,7 @@ const DeleteModal = styled.div`
         font-size: 24px;
         background-color: #d01313;
         color: white;
+        cursor: pointer;
         &:last-of-type {
           background-color: #13c1d0;
         }
@@ -111,7 +114,8 @@ class App extends Component {
   deleteClickHandler = () => {
       this.props.deleteNote(this.props.id);
       this.props.history.push('/');
-      this.toggle()
+      this.toggle();
+      console.log(this.props)
   }
 
   render() {
@@ -127,17 +131,18 @@ class App extends Component {
                     <SidebarHeader>
                         Lambda <br/> Notes
                     </SidebarHeader>
-                    <div>View Your Notes</div>
-                    <div>+ Create New Note</div>
+                    <div onClick={() => this.props.history.push('/')} >View Your Notes</div>
+                    <div onClick={() => this.props.history.push('/create')} >+ Create New Note</div>
                 </Sidebar>
                 <Route exact path='/' render = {props => <Home {...props} />} />
-                <Route exact path='/note/:id' render = {props => <NoteProfile toggle={this.toggle} {...props} />} />     
+                <Route exact path='/note/:id' render = {props => <NoteProfile toggle={this.toggle} {...props} />} />
+                <Route exact path='/create' render = {props => <CreateForm {...props}/>} />     
             </AppWrapper>
   }
 }
 
 const mapStateToProps = state => {
-  return {id: state.activeId}
+  return {id: state.active_Id}
 }
 
 export default withRouter(connect(mapStateToProps, {deleteNote, fetchNotes})(App));
