@@ -25,7 +25,7 @@ class SingleNote extends Component {
           <h1>{this.state.note.title}</h1>
           <div className="edit-buttons">
             <p>edit</p>
-            <p>delete</p>
+            <p onClick={this.props.deleteNote}>delete</p>
           </div>
         </div>
         <p>{this.state.note.textBody}</p>

@@ -55,7 +55,7 @@ body {
 
 .notes {
     width: 100%;
-    margin: 50px 60px 0px 40px;
+    margin: 50px 60px 0px 30%;
     display: flex;
     flex-direction: column;
 }
@@ -63,6 +63,7 @@ body {
 .notes h1 {
     font-size: 22px;
     color: grey;
+    margin-bottom: 20px;
 }
 
 .note h1 {
@@ -76,7 +77,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 10px 20px;
+    margin: 10px 20px 0px 28%;
 }
 
 .single-note .note-header {
@@ -96,9 +97,38 @@ body {
 
 .new-note h1 {
     color: aquamarine;
-    margin: 10px;
 }
 
 .new-note {
     width: 100%;
+    margin: 40px 3% 0px 28%;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-note input {
+    width: 55%;
+    margin: 15px 0px;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid grey;
+}
+
+.new-note textarea {
+    height: 35%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid grey;
+    resize: none;
+    margin-bottom: 15px;
+}
+
+.save-button {
+    padding: 10px;
+    color: white;
+    background-color: aquamarine;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    width: 20%;
 }

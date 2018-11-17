@@ -11,7 +11,9 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      id: "all"
+      id: "all",
+      title: "",
+      textBody: ""
     };
   }
 
@@ -22,6 +24,12 @@ class App extends Component {
     console.log(this.state.id);
   };
 
+  changeHandler = e => {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
   componentDidMount() {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
@@ -30,6 +38,37 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   }
+
+  createNote = e => {
+    e.preventDefault();
+    const note = {
+      title: this.state.title,
+      textBody: this.state.textBody
+    };
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", note)
+      .then(response => {
+        console.log(response);
+        this.setState({
+          id: response.data.success
+        });
+        console.log(this.state);
+      })
+      .catch(err => console.log(err));
+  };
+
+  deleteNote = e => {
+    e.preventDefault();
+    console.log(this.state.id);
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.id}`)
+      .then(() => {
+        this.setState({
+          id: "all"
+        });
+      })
+      .catch(err => console.log(err));
+  };
 
   render() {
     if (this.state.id === "all") {
@@ -43,14 +82,21 @@ class App extends Component {
       return (
         <div className="App">
           <Nav clickHandler={this.clickHandler} />
-          <NewNote />
+          <NewNote
+            changeHandler={this.changeHandler}
+            createNote={this.createNote}
+          />
         </div>
       );
     } else {
       return (
         <div className="App">
           <Nav clickHandler={this.clickHandler} />
-          <SingleNote id={this.state.id} notes={this.state.notes} />
+          <SingleNote
+            id={this.state.id}
+            notes={this.state.notes}
+            deleteNote={this.deleteNote}
+          />
         </div>
       );
     }
