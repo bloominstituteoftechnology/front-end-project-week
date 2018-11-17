@@ -2,54 +2,54 @@ import React from "react";
 
 import "../styles/App.css";
 import "../styles/CreateNote.css";
+import "../styles/Sidebar.css";
 
-export default class EditNote extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      newTitle: "",
-      newText: ""
-    };
+const EditNote = props => {
+
+  if (props.notes.length) {
+
+    let note = props.notes.find(
+      note => `${note._id}` === props.match.params.id
+    );
+
+  const push = () => {
+    props.history.push(`/note/${note._id}`)
+  }
+  
+  const updateNoteHandler = e => {
+    e.preventDefault();
+    props.updateNote(note._id)
+    setTimeout( push , 50)
+    
   }
 
-  // inputHandler = e => {
-  //   this.setState({ [e.target.name]: e.target.value });
-  // };
-
-  // submitHandler = e => {
-  //   e.preventDefault();
-  //   let note = this.props.notes.find(
-  //     note => `${note._id}` === this.props.match.params.id
-  //   );
-  //   this.props.editNote(this.state.newTitle, this.state.newText, note.id);
-  //   this.props.history.push(`/note/${note._id}`);
-  // };
-  render() {
-    let note = this.props.notes.find(
-      note => `${note._id}` === this.props.match.params.id
-    );
     return (
       <div className="componentContainer">
         <h2>Edit Note:</h2>
-        <form onSubmit={this.submitHandler}>
+        <form onSubmit={updateNoteHandler} method="post">
           <input
             type="text"
-            name="newTitle"
-            value={this.state.newTitle}
-            onChange={this.inputHandler}
-            placeholder={note.title}
+            name="title"
+            value={props.newNote.title}
+            onChange={props.inputChange}
+            placeholder="Note Title"
           />
           <textarea
-            cols="60"
-            rows="30"
-            name="newText"
-            value={this.state.newText}
-            onChange={this.inputHandler}
-            placeholder={note.text}
+            cols="50"
+            rows="25"
+            name="textBody"
+            value={props.newNote.textBody}
+            onChange={props.inputChange}
+            placeholder="Note Content"
           />
-          <button type="submit" className="sidebarButton createButton">Update</button>
+
+          <button type="submit" className="sidebarButton createButton">Save</button>
         </form>
       </div>
     );
+  } else {
+    return <p>Loading...</p>;
   }
 }
+
+export default EditNote;

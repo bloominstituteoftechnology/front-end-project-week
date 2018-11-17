@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 import SideBar from "./components/Sidebar";
 import Notes from "./components/Notes";
@@ -8,7 +8,7 @@ import CreateNote from "./components/CreateNote";
 import NotePage from "./components/NotePage";
 import EditNote from "./components/EditNote";
 
-import './styles/App.css';
+import "./styles/App.css";
 
 class App extends Component {
   constructor() {
@@ -18,7 +18,8 @@ class App extends Component {
       newNote: {
         tags: [],
         title: "",
-        textBody: ""
+        textBody: "",
+        modal: false,
       }
     };
   }
@@ -36,6 +37,23 @@ class App extends Component {
       });
   }
 
+  componentDidUpdate() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(response => {
+        this.setState({
+          notes: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  modalHandler = () => {
+    this.state.modal ? this.setState({modal: false}) : this.setState({modal: true})
+  }
+
   inputChange = e => {
     e.preventDefault();
     this.setState({
@@ -46,30 +64,36 @@ class App extends Component {
     });
   };
 
-  addNote = e => {
-    e.preventDefault();
+  addNote = () => {
     axios
       .post("https://fe-notes.herokuapp.com/note/create", this.state.newNote)
       .then(response =>
         this.setState({
-          notes: response.data,
           newNote: { title: "", textBody: "" }
         })
       )
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   updateNote = id => {
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
-      .then(response => this.setState({ notes: response.data }))
-      .catch(error => console.log(error));
+      .then(response =>
+        this.setState({
+          newNote: { title: "", textBody: "" }
+        })
+      )
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   deleteNote = id => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => this.setState({ notes: response.data }))
+      .then(response => console.log(response))
       .catch(error => console.log(error));
   };
 
@@ -103,6 +127,8 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               deleteNote={this.deleteNote}
+              modal={this.state.modal}
+              modalHandler={this.modalHandler}
             />
           )}
         />
@@ -115,7 +141,7 @@ class App extends Component {
               notes={this.state.notes}
               inputChange={this.inputChange}
               newNote={this.state.newNote}
-              editNote={this.updateNote}
+              updateNote={this.updateNote}
             />
           )}
         />

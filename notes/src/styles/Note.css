@@ -20,28 +20,3 @@
   width: 179px;
 }
 
-.block-with-text {
-  overflow: hidden;
-  position: relative;
-  line-height: 1.7em;
-  max-height: 8.5em;
-  /* text-align: justify; */
-  margin-right: -1em;
-  padding-right: 0.8em;
-}
-.block-with-text:before {
-  content: '...';
-  position: absolute;
-  right: 0;
-  bottom: 4px;
-  font-weight: 800;
-}
-.block-with-text:after {
-  content: '';
-  position: absolute;
-  right: 0;
-  width: 1em;
-  height: 1em;
-  margin-top: 0.2em;
-}
-

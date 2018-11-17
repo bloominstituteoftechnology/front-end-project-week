@@ -4,15 +4,15 @@ import Note from "./Note";
 
 import "../styles/App.css";
 
-export default class Notes extends React.Component {
+const Notes = props => {
   // sortNotes = (a, b) => {
   //   if (b.id < a.id) return 1;
   //   if (b.id > a.id) return -1;
   //   return 0;
   // };
 
-  render() {
-    let notes = this.props.notes;
+  if (props.notes.length) {
+    let notes = props.notes;
     // let sortedNotes = this.props.notes.sort(this.sortNotes);
     // if (!notes) {
     //   return (
@@ -29,6 +29,10 @@ export default class Notes extends React.Component {
           </div>
         </div>
       );
-    }
+    } else {
+    return <p>Loading...</p>;
   }
+  }
+
+  export default Notes
 // }
