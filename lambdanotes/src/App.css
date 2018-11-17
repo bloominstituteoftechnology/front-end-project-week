@@ -30,3 +30,12 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  width:95%;
+  margin:0 auto;
+}

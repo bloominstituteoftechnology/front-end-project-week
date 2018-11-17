@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Note from './Note';
 import Container from './styles/Container';
+import Wrapper from './styles/Wrapper';
 
 
 class Notes extends Component {
@@ -10,9 +11,12 @@ class Notes extends Component {
     render() {
         return (
             <>
-              <Container>
-                  {this.props.notes.map( note => <Note note={note} key={note._id} />)} 
-               </Container>
+             <Wrapper>
+                <h2>Your Notes:</h2>
+                <Container>
+                    {this.props.notes.map( note => <Note note={note} key={note._id} />)} 
+                </Container>
+               </Wrapper> 
             </>
         );
     }

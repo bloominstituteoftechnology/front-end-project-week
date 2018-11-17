@@ -5,8 +5,9 @@ const Container = styled.div`
        justify-content: space-between;
        align-items: center;
        flex-wrap:wrap;
-       width: 80%;
-       margin: 10px auto;
+       width:100%;
+       padding: 0px 30px 20px 30px;
+       ${'' /* margin: 10px auto; */}
 `
 
 export default Container;

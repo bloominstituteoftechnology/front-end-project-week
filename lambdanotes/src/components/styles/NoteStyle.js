@@ -14,6 +14,7 @@ import styled from 'styled-components';
         overflow: hidden;
         text-overflow: ellipsis;
         text-align:justify;
+        background: #fff;
         
 
         h3 {

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Header from './components/Header';
 import LambdaNotes from './components/LambdaNotes';
 import Notes from './components/Notes';
+import MainContainer from './components/styles/MainContainer';
 
 class App extends Component {
 constructor(props) {
@@ -25,9 +26,10 @@ componentDidMount() {
   render() {
     return (
       <div className="App">
-        <Header />
-        <LambdaNotes />
-        <Notes notes={this.state.notes} />
+        <MainContainer>
+          <LambdaNotes />
+          <Notes notes={this.state.notes} />
+        </MainContainer>
       </div>
     );
   }

@@ -1,3 +1,8 @@
+
+html {
+  margin:0px;
+  padding:0px;
+}
 body {
   margin: 0;
   padding: 0;
@@ -11,4 +16,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* * {
+  border: 1px solid red;
+} */
+
+* {
+  box-sizing: border-box;
 }
