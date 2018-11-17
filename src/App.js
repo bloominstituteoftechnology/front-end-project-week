@@ -3,6 +3,8 @@ import './App.css';
 import Note from './components/Note';
 import Sidebar from './components/Sidebar';
 import NotesContainer from './components/NotesContainer';
+import Modal from './components/Modal';
+
 class App extends Component {
 
   constructor(props) {
@@ -58,6 +60,7 @@ class App extends Component {
           </div>
         <div className="notescontainer">
           <NotesContainer />
+          <Modal />
         {notes}        
         </div>
         </div>
