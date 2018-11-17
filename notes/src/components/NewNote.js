@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { Form, TitleInput, BodyInput, Button } from '../Styles/Form';
+import { SectionHeading } from '../Styles/GeneralStyles';
+
 class NewNoteForm extends Component {
     constructor() {
         super();
@@ -32,11 +35,14 @@ class NewNoteForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.submitHandler}>
-                <input type="text" name="title" value={this.state.title} onChange={this.inputHandler} placeholder="Title"/>
-                <input type="text" name="body" value={this.state.body} onChange={this.inputHandler} placeholder="Body"/>
-                <button type="submit">Add New Note</button>
-            </form>
+            <Form>
+                <SectionHeading>Create New Note:</SectionHeading>
+                <form onSubmit={this.submitHandler}>
+                    <TitleInput type="text" name="title" value={this.state.title} onChange={this.inputHandler} placeholder="Title"/>
+                    <BodyInput type="text" name="body" value={this.state.body} onChange={this.inputHandler} placeholder="Body"/>
+                    <Button type="submit">Save</Button>
+                </form>
+            </Form>
         )
     }
 }
