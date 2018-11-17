@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import { Form, TitleInput, BodyInput, Button } from '../Styles/Form';
 import { SectionHeading } from '../Styles/GeneralStyles';
@@ -25,12 +24,8 @@ class NewNoteForm extends Component {
             textBody: this.state.body
         };
 
-        axios
-            .post('https://fe-notes.herokuapp.com/note/create', note)
-                .then(res => {
-                    this.setState({ title: '', body: ''});
-                })
-                .catch(() => console.log('Error: Note wasn\'t added'));
+        this.props.addNewNote(note);
+        this.props.history.push('/');
      }
 
     render() {

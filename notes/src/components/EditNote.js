@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import { Form, TitleInput, BodyInput, Button } from '../Styles/Form';
 import { SectionHeading } from '../Styles/GeneralStyles';
@@ -38,12 +37,8 @@ class EditNote extends Component {
             textBody: this.state.body
         };
 
-        axios
-            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
-                .then(res => {
-                    console.log('success');
-                })
-                .catch(() => console.log('Error: Note wasn\'t edited'));
+        this.props.editNote(id, note);
+        this.props.history.push('/');
      }
 
     render() {

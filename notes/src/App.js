@@ -32,6 +32,15 @@ class App extends Component {
       });
   };
 
+  addNewNote = note => {
+    axios
+      .post('https://fe-notes.herokuapp.com/note/create', note)
+        .then(res => {
+          this.getNotes();
+        })
+        .catch(() => console.log('Error: Note wasn\'t added'));
+  };
+
   deleteNote = id => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
@@ -39,8 +48,19 @@ class App extends Component {
         this.getNotes();
       })
       .catch(err => {
-        console.log('error deleting');
+        console.log('Error: Note wasn\'t deleted');
       });
+  };
+
+  editNote = (id, note) => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+        .then(res => {
+          this.getNotes();
+        })
+        .catch(err => {
+          console.log('Error: Note wasn\'t edited')
+        });
   };
 
 
@@ -51,8 +71,8 @@ class App extends Component {
         <Route path='/' render={props => <Nav {...props} getNotes={this.getNotes} />} />
         <Route exact path='/' render={props => <NoteContainer {...props} notes={this.state.notes} />} />
         <Route path='/view-note/:id' render={props => <ViewNote {...props} notes={this.state.notes} deleteNote={this.deleteNote} />} />
-        <Route path='/create-note' render={props => <NewNote {...props} />} />
-        <Route path='/edit-note/:id' render={props => <EditNote {...props} notes={this.state.notes} />} />
+        <Route path='/create-note' render={props => <NewNote {...props} addNewNote={this.addNewNote} />} />
+        <Route path='/edit-note/:id' render={props => <EditNote {...props} notes={this.state.notes} editNote={this.editNote} />} />
       </AppStyled>
     );
   }
