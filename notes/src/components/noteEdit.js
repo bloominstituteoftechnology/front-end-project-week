@@ -53,12 +53,13 @@ class NoteEdit extends Component {
                 <input
                     type="text"
                     className="note-title-input"
-                    placeholder="Note Content"
+                    placeholder={this.state.notes.title}
                     value={this.props.value}
                     onChange={this.props.changeHandler}
                     name="title" />
                 <textarea
                     type="text"
+                    placeholder={this.state.notes.textBody}
                     className="note-textarea"
                     value={this.props.value}
                     onChange={this.props.changeHandler}

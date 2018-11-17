@@ -1,37 +1,60 @@
 import React, { Component } from 'react';
 import "../css/note.css"
+import { connect } from 'react-redux';
+import { createNote } from '../actions';
 
 class NoteCreate extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
+/* 	constructor(props) {
+		super(props); */
+		state = {
 			tags: '',
 			title: '',
-			textBody: '',
-			id: ''
+			textBody: ''
 		};
-	}
+	
+
+	
+	handleInputChange = event => {
+        this.setState({ [event.target.name]: event.target.value });
+    };
+
+
+    handleAddNote = _ => {
+        const { tags, title, textBody } = this.state;
+        this.props.createNote({ tags, title, textBody });
+        this.setState({ tags: '', title: '', textBody: '' });
+    };
+
+
 
 	render() {
 		return (
-			<form className="note-create-form" onSubmit={this.props.saveNote}>
+			<form className="note-create-form">
 				<header className="note-create-header">Create New Note</header>
 				<input
 					type="text"
 					className="note-title-input"
-					value={this.props.value}
-					placeholder="Note Title"
-					onChange={this.props.changeHandler}
+					value={this.state.value}
+					placeholder="Enter Note Title Here..."
+					onChange={this.handleInputChange}
 					name="title" />
 				<textarea
 					type="text"
+					placeholder="Enter Note Body Here..."
 					className="note-textarea"
-					value={this.props.value}
-					onChange={this.props.changeHandler}
+					value={this.state.value}
+					onChange={this.handleInputChange}
 					name="textBody" />
-				<button className="save-button" onSubmit={this.props.saveNote}>Save</button>
+				<button className="save-button" onClick={() => this.handleAddNote()}>Save</button>
 			</form>
 		);
 	}
 };
-export default NoteCreate;
+const mapStateToProps = state => {
+	return {
+		error: state.error,
+		creatingNote: state.creatingNote
+	};
+};
+export default connect(mapStateToProps, { createNote })(NoteCreate);
+//export default NoteCreate;

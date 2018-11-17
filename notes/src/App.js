@@ -9,6 +9,8 @@ import NoteEdit from './components/noteEdit';
 import NoteDelete from './components/noteDelete';
 import Nav from './components/nav';
 import Modal from "react-modal";
+import { getNotes } from './actions';
+import { connect } from 'react-redux';
 
 class App extends React.Component {
   constructor() {
@@ -43,6 +45,7 @@ class App extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.props.getNotes();
   }
 
   openModal() {
@@ -92,7 +95,7 @@ class App extends React.Component {
     this.setState(() => ({ viewPage: pageType, id: _id }));
   }
 
-  saveNote = event => {
+ /*  saveNote = event => {
     event.preventDefault();
 
     axios.post('https://fe-notes.herokuapp.com/note/create', {
@@ -117,7 +120,7 @@ class App extends React.Component {
 
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-  }
+  } */
 
   render() {
 
@@ -175,5 +178,14 @@ class App extends React.Component {
     };
   }
 }
+const mapStateToProps = state => {
+  const { notesReducer } = state;
+  return {
+    notes: notesReducer.notes,
+    error: notesReducer.error,
+    gettingNotes: notesReducer.gettingNotes
+  };
+};
 
-export default App;
+export default connect(mapStateToProps, { getNotes })(App);
+
