@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import {Link} from "react-router-dom";
+import {LinkContainer} from "../Styles/Styles";
 
 class NoteView extends React.Component {
    constructor(props){
@@ -29,18 +30,18 @@ class NoteView extends React.Component {
    render(){
       return(
          <>
-            <div>
+            <LinkContainer>
                <Link to={`/edit/${this.state.note._id}`} >
                   <span>edit</span>
                </Link>
                <Link to={`/note/${this.state.note._id}/delete`} >
                   <span>delete</span>
                </Link>
-            </div>
-            <div>
+            </LinkContainer>
+            <>
                <h2>{this.state.note.title}</h2>
                <p>{this.state.note.textBody}</p>
-            </div>
+            </>
          </>
       )
    }

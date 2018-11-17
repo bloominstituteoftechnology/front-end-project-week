@@ -1,5 +1,5 @@
 html {
-  font-size: 62.5%
+  font-size: 62.5%;
 }
 
 body {
@@ -31,7 +31,6 @@ h1 {
 
 h2 {
   font-size: 2.4rem;
-  width: 100%;
 }
 
 h3 {
@@ -45,4 +44,8 @@ p {
 a {
   color: black;
   text-decoration: none;
+}
+
+hr {
+  width: 85%;
 }

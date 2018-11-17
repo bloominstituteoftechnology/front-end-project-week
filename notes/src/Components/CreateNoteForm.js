@@ -3,7 +3,7 @@
 */
 import React from "react";
 import axios from "axios"
-import {DisplayHeader, InputHeader, InputBody, Button} from "../Styles/Styles"
+import {InputHeader, InputBody, Button} from "../Styles/Styles"
 
 class CreateNote extends React.Component {
   constructor(props){
@@ -28,7 +28,7 @@ class CreateNote extends React.Component {
   render(){
     return (
         <>
-          <DisplayHeader>Create New Note</DisplayHeader>
+          <h2>Create New Note:</h2>
           <form onSubmit={this.submitHandler}>
               <InputHeader 
                 name="title"

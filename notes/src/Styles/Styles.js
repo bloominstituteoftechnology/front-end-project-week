@@ -2,62 +2,92 @@ import styled from "styled-components";
 
 export const AppContainer = styled.div`
    display: flex;
-   width: 100%;
-   height: 100%;
-   // background-color: whitesmoke;
+   margin: 0 auto;
+   min-height: 800px;
+
+   p, h2 {
+      margin-left: 1%;
+   }
 `
 
 export const HeaderContainer = styled.div`
    display: flex;
-   background-color: silver;
-   flex-wrap: wrap;
    flex-direction: column;
-   max-width: 217px;
-   width: 21%;
+   align-items: center;
+   background-color: silver;
+   width: 20%;
+   min-width: 130px;
 `
 
 export const Button = styled.button `
    background-color: ${props => props.bgColor || "lightseagreen"};
    color: white;
-   text-align: center;
    font-weight: bold;
    font-size: 1.3rem;
    padding: 10px 25px;
+   margin-bottom: 10px;
    cursor: pointer;
-   width: ${props => props.width || "90%"};
+   white-space: nowrap;
+   width: ${props => props.width || "95%"};
    max-width: ${props => props.maxWidth || "200px"};
 `
 
 export const DisplayContainer = styled.div`
-   background-color: whitesmoke;
    display: flex;
-   justify-content: space-evenly;
+   flex-direction: column;
+   background-color: whitesmoke;
+   width: 80%;
+   padding: 0px 30px;
+   padding-top: 30px;
+`
+
+export const NoteListContainer = styled.div`
+   display: flex;
    flex-wrap: wrap;
-   width: 79%;
+   justify-content: space-around;
 `
 
-export const DisplayHeader = styled.h2`
-   width: 93%;
-`
-
-export const NoteContainer = styled.div`
-   display: -webkit-box;
+export const Notes = styled.a`
+   display: -webkit-box !important;
+   -webkit-box-orient: vertical !important;
+   -webkit-line-clamp: 6 !important;
+   overflow: hidden !important;
    background-color: white;
    border: 1px solid grey;
-   width: 40%;
-   height: 260px;
-   max-width: 250px;
-   padding: 10px;
-   margin-bottom: 20px;
-   -webkit-line-clamp: 6;
-   -webkit-box-orient: vertical;
-   overflow: hidden;
-   text-overflow: -o-ellipsis-lastline;
+   height: 285px;
+   max-width: 260px;
+   width: 50%;
+   margin-bottom: 30px;
 
-   h3, hr, p, a{
-      color: black;
-      text-decoration: none;
+   h3 {
+      margin-left: 7%;
+      margin-right: 7%
    }
+
+   p {
+      margin-left: 7%;
+      width: 67%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+`
+export const LinkContainer = styled.span`
+   display: inline-flex;
+   justify-content: flex-end;
+
+   a {
+      margin-right: 10px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-decoration-line: underline;
+   }
+
+   p {
+      margin-left: 2%
+   }
+`
+export const FormContainer = styled.div`
+
 `
 
 export const InputHeader = styled.input `

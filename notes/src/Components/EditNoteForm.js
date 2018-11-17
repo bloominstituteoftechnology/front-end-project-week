@@ -3,7 +3,7 @@
 */
 import React from "react";
 import axios from "axios"
-import {DisplayHeader, InputHeader, InputBody, Button} from "../Styles/Styles"
+import {InputHeader, InputBody, Button} from "../Styles/Styles"
 
 class EditNote extends React.Component {
   constructor(props){
@@ -30,7 +30,7 @@ class EditNote extends React.Component {
      console.log(this.props)
     return (
         <>
-          <DisplayHeader>Edit Note</DisplayHeader>
+          <h2>Edit Note:</h2>
           <form onSubmit={this.submitHandler}>
               <InputHeader 
                 name="title"
