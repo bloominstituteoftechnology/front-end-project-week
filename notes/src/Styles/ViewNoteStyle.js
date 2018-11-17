@@ -1,9 +1,18 @@
 import styled from 'styled-components';
 
-const ViewNoteStyle = styled.section `
+export const ViewNoteStyle = styled.section `
     margin-left: 350px;
-    display: flex;
-    flex-direction: column;
+    width: 50%;
 `;
 
-export default ViewNoteStyle;
+
+export const LinkContainer = styled.section `
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+        margin: 0 5px;
+        color: black;
+    }
+`;

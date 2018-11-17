@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import ViewNoteStyle from '../Styles/ViewNoteStyle';
+import {  ViewNoteStyle, LinkContainer } from '../Styles/ViewNoteStyle';
+import { SectionHeading, P } from '../Styles/GeneralStyles';
 
 class ViewNote extends Component {
     constructor(props) {
@@ -19,14 +20,16 @@ class ViewNote extends Component {
     render() {
         return (
             <ViewNoteStyle>
-                <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
-                <a href='' onClick={this.handleDelete}>delete</a>
+                <LinkContainer>
+                    <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
+                    <a href='' onClick={this.handleDelete}>delete</a>
+                </LinkContainer>
                 {this.props.notes.map(note => {
                     if (this.props.match.params.id === note._id) {
                         return (
                             <div key={note._id}>
-                                <p>{note.title}</p>
-                                <p>{note.textBody}</p>
+                                <SectionHeading>{note.title}</SectionHeading>
+                                <P>{note.textBody}</P>
                             </div>
                         );
                     }
