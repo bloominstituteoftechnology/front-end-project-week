@@ -31,7 +31,7 @@ const Sidebar = styled.nav`
           background-color: #16ccc9;
           width: 85%;
           height: 60px;
-          font-size: 20px;
+          font-size: 22px;
           border: 1px solid #8e8b8b;
           display: flex;
           align-items: center;

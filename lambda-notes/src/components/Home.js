@@ -37,7 +37,11 @@ class Home extends React.Component {
                         <h1>Your Notes:</h1>
                     </HeaderContainer>
                     <CardWrapper>
-                            {this.props.notes.map(note => <Note history={this.props.history} key={note._id} id={note._id} title={note.title} textBody={note.textBody} />)}                    
+                            {this.props.notes.map(note => <Note history={this.props.history}
+                            key={note._id} 
+                            id={note._id} 
+                            title={note.title} 
+                            textBody={note.textBody} />).reverse()}              
                     </CardWrapper>   
                 </HomeContainer>
     }
