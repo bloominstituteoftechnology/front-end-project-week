@@ -45,7 +45,6 @@ const NoteForm = props => {
   return (
     <Form>
       <h1>Create New Note</h1>
-      {/* Todo: Add OnChange={props.changeHandler} */}
       <Input type="text" name="title" value={props.title} placeholder="Title" onChange={props.handleChange} />
       <TextArea
         name="textBody"
