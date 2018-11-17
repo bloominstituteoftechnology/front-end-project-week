@@ -24,7 +24,7 @@ class EditNote extends Component {
   componentDidMount() {
     axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
       .then( (response) => {
-        this.setState( () => ({ note: response.data, newTitle: response.data.title, newText: response.data.textBody }) )
+        this.setState( () => ({ note: response.data, newTitle: response.data.title, newText: response.data.textBody, redirect: false }) )
       })
       .catch( (error) => console.error(error) );
   };
@@ -47,14 +47,18 @@ class EditNote extends Component {
     
     // Send to axios
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, newNote )
+      .then( (response) => {
+        this.setState( () => ({ note: response.data, newTitle: "", newText: "", redirect: true }) )
+      })
+      .catch( (error) => console.error(error));
 
     // Redirect to note display & reset fields
-    this.setState( (prevState) => ({
-      note: newNote,
-      redirect: true,
-      newTitle: "",
-      newText: ""
-    }) );
+    // this.setState( (prevState) => ({
+    //   note: newNote,
+    //   redirect: true,
+    //   newTitle: "",
+    //   newText: ""
+    // }) );
   };
 
   /* Send props:

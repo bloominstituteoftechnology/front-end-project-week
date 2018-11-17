@@ -13,7 +13,7 @@ class Nav extends Component {
       <div className="Nav">
         <h1>Lambda Notes</h1>
         <Link to="/" className="navButton">View Your Notes</Link>
-        <Link to="" className="navButton">+ Create New Note</Link>
+        <Link to="/add" className="navButton">+ Create New Note</Link>
       </div>
     );
   }

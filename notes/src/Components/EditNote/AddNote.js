@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 
 import NoteForm from './NoteForm';
 import './EditNote.css';
-/* EditNote/EditNote.js
+
+/* EditNote/AddNote.js
  * Class used for editing a current note. I'd like to use a standard
- * form for both edit and create.
+ * form for both edit and create. This is very much a duplicate of EditNote
  */
 class AddNote extends Component {
   constructor(props){
@@ -47,15 +48,11 @@ class AddNote extends Component {
     });
     
     // Send to axios
-    axios.post(`https://fe-notes.herokuapp.com/note/add`, newNote )
-
-    // Redirect to note display & reset fields
-    this.setState( (prevState) => ({
-      note: newNote,
-      redirect: true,
-      newTitle: "",
-      newText: ""
-    }) );
+    axios.post(`https://fe-notes.herokuapp.com/note/create`, newNote )
+    .then( (response) => {
+      this.setState( () => ({ note: response.data, newTitle: "", newText: "", redirect: true }) )
+    })
+    .catch( (error) => console.error(error));
   };
 
   /* Send props:
