@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import Note from './Note';
-
 export default class NotesList extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

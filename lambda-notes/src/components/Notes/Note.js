@@ -11,6 +11,7 @@ export default class Note extends Component {
   }
 
   componentDidMount() {
+    console.log('Note mounted');
     const id = this.props.match.params.id;
     this.fetchNote(id);
   }
