@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NoteStyles from './styles/NoteStyle';
 
 class Note extends Component {
     constructor(props){
@@ -7,9 +8,15 @@ class Note extends Component {
 
     render() {
         return (
-            <div>
-                <div>{this.props.note.title}</div>
-            </div>
+            <>
+            <NoteStyles>
+              
+               <div className="note">
+                <h3>Note Title</h3>
+                {this.props.note.textBody}
+               </div>
+            </NoteStyles>   
+            </>
         );
     }
 }

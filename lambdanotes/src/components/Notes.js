@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Note from './Note';
+import Container from './styles/Container';
+
 
 class Notes extends Component {
     constructor(props){
@@ -7,10 +9,11 @@ class Notes extends Component {
     }
     render() {
         return (
-            <div>
-               {this.props.notes.map( note => <Note note={note} key={note.id} />)} 
-
-            </div>
+            <>
+              <Container>
+                  {this.props.notes.map( note => <Note note={note} key={note._id} />)} 
+               </Container>
+            </>
         );
     }
 }
