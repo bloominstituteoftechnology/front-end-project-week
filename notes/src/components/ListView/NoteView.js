@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './note.css'
 
@@ -21,7 +22,9 @@ class NoteView extends React.Component {
                         return (
                             <div>
                                 <div className="noteViewNav">
+                                    <Link to={`/note/edit/${note._id}`}>
                                     <span className="noteButton" style={{cursor: 'pointer'}}>Edit</span>
+                                    </Link>
                                     <span className="noteButton" style={{cursor: 'pointer'}} onClick={() => this.deleteNoteHandler(note._id)}>Delete</span>
                                 </div>
                                 <h2 className="noteViewTitle">{note.title}</h2>
@@ -30,6 +33,8 @@ class NoteView extends React.Component {
                         )
                     }
                 })}
+
+
             </div>
         )
     }

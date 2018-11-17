@@ -6,6 +6,7 @@ import ListView from './components/ListView/ListView'
 import Sidebar from './components/Sidebar/Sidebar'
 import CreateForm from './components/CreateForm/CreateForm'
 import NoteView from './components/ListView/NoteView'
+import EditForm from './components/EditForm/EditForm'
 
 import './App.css';
 
@@ -65,6 +66,12 @@ class App extends Component {
             notes={this.state.notes} 
             deleteNote={this.deleteNote}
             />} />
+          
+          <Route exact path="/note/edit/:id" render={(props) =>
+            <EditForm
+              {...props}
+              notes={this.state.notes}
+            />}/>
       </div>
     );
   }

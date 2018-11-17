@@ -10,8 +10,6 @@ class CreateForm extends React.Component {
       text: '',
     }
   }
-
-  //Need to set this to be /create
   
   inputHandler= (e) => {
     this.setState({ [e.target.name]: e.target.value })
