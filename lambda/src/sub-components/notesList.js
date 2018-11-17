@@ -13,14 +13,20 @@ const NotesList = props => {
                     <h3 className='notes-title'>Your Notes:</h3>
                     {props.notesList.map((eachNote) => {
                         return (
-                            <div key={eachNote._id} className='each-note'>
-                                <h4 className='each-note-title'>{eachNote.title}</h4>
-                                <p>{eachNote.textBody}</p>
-                            </div>
+                            <NavLink to={`/${eachNote._id}`}  >
+                                <div onClick={props.pageReload}>
+                                    <div key={eachNote._id} id={eachNote._id} className='each-note' >
+                                        <h4 className='each-note-title'>{eachNote.title}</h4>
+                                        <p>{eachNote.textBody}</p>
+                                    </div>
+                                </div>
+                            </NavLink>
                         )
                     })}
                 </div>
             </div>
         );
 }
+
+
 export default NotesList;

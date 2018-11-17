@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import NotesList from './sub-components/notesList';
 import NewNote from './sub-components/newNote';
+import NoteProfile from './sub-components/noteProfile';
 
 import { loadNotesAction } from './Actions/notesActions'
 
@@ -53,6 +54,7 @@ class App extends React.Component {
         <div>
           <Route exact path='/' render={ (props) => <NotesList {...props} notesList={this.props.notes} pageReload={this.windowReload} />} />
           <Route exact path='/create-new-note' render={ (props) => <NewNote {...props} pageReload={this.windowReload} />} />
+          <Route exact path='/:id' render={ (props) => <NoteProfile {...props} pageReload={this.windowReload} />} />
         </div>
       </div>
     );
