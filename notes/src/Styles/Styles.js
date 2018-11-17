@@ -72,7 +72,7 @@ export const Notes = styled.a`
     }
 `
 export const LinkContainer = styled.span`
-   display: inline-flex;
+   display: flex;
    justify-content: flex-end;
 
    a {
@@ -84,6 +84,12 @@ export const LinkContainer = styled.span`
 
    p {
       margin-left: 2%
+   }
+`
+export const Content =styled.div`
+   h2{
+      margin-top: 0px;
+      margin-bottom: 0px;
    }
 `
 export const FormContainer = styled.div`

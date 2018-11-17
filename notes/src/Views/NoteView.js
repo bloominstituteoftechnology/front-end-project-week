@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import {Link} from "react-router-dom";
-import {LinkContainer} from "../Styles/Styles";
+import {LinkContainer, Content} from "../Styles/Styles";
 
 class NoteView extends React.Component {
    constructor(props){
@@ -38,10 +38,10 @@ class NoteView extends React.Component {
                   <span>delete</span>
                </Link>
             </LinkContainer>
-            <>
+            <Content>
                <h2>{this.state.note.title}</h2>
                <p>{this.state.note.textBody}</p>
-            </>
+            </Content>
          </>
       )
    }
