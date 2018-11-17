@@ -13,7 +13,7 @@ const NotesList = props => {
                     <h3 className='notes-title'>Your Notes:</h3>
                     {props.notesList.map((eachNote) => {
                         return (
-                            <NavLink to={`/${eachNote._id}`}  >
+                            <NavLink to={`/note/${eachNote._id}`} className='navlink' exact activeClassName='navlink-selected' >
                                 <div onClick={props.pageReload}>
                                     <div key={eachNote._id} id={eachNote._id} className='each-note' >
                                         <h4 className='each-note-title'>{eachNote.title}</h4>

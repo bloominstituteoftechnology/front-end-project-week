@@ -82,6 +82,18 @@
   width: 75%;
   border: 1px solid;
 }
+.list-view .notes-section .navlink {
+  text-decoration: none;
+  color: black;
+  width: 40%;
+  height: 200px;
+  overflow: scroll;
+  margin-bottom: 2%;
+  padding: 2%;
+  border: 1px solid grey;
+  font-size: .75rem;
+  text-align: left;
+}
 .list-view .notes-section .notes-title {
   /* background-color: whitesmoke; */
   color: grey;
@@ -91,14 +103,14 @@
   
 }
 .list-view .notes-section .each-note {
-  border: 1px solid grey;
-  width: 40%;
-  height: 200px;
-  font-size: .75rem;
-  margin-bottom: 2%;
-  padding: 2%;
-  overflow: scroll;
-  text-align: left;
+  /* border: 1px solid grey; */
+  /* width: 40%;
+  height: 200px; */
+  /* font-size: .75rem; */
+  /* margin-bottom: 2%;
+  padding: 2%; */
+  /* overflow: scroll; */
+  /* text-align: left; */
 }
 .list-view .notes-section .each-note .each-note-title {
   border-bottom: 1px solid grey;
@@ -106,6 +118,7 @@
   font-size: 1rem;
 }
 /* Main-Page (end): */
+
 /* Add-Note Page (start) */
 .create-view {
   border: 1px solid;
@@ -122,7 +135,6 @@
   width: 90%;
   height: 500px;
   margin: auto;
-  border: 1px solid blue;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -135,4 +147,18 @@
 .create-view .new-note-section .new-note-form .note-content-input {
   height: 200px;
 }
-/* Add-Note Page (start) */
+/* Add-Note Page (end) */
+
+/* Specific Note View (start) */
+.note-view {
+  border: 1px solid;
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+.note-view .specific-note{
+  width: 75%;
+  padding: 2%;
+  text-align: left;
+}
+/* Specific Note View (end) */

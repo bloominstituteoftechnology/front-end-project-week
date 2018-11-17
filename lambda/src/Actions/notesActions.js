@@ -53,7 +53,7 @@ export const addNoteAction = (titleValue, textValue) => {
             })
     }
 }
-export const updateNoteAction = (textValue, titleValue, idValue) => {
+export const updateNoteAction = (titleValue, textValue, idValue) => {
     return dispatch => {
         dispatch({ type: UPDATING_NOTES });
         axios
