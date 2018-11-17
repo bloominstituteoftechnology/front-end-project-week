@@ -15,7 +15,8 @@ class UpdateNote extends Component {
 
     componentDidMount(){
         const { notes, match } = this.props
-        const notez = notes.find(item => item.id === Number(match.param.id))
+        const notez = notes.find(item => `${item._id}` === match.params.id)
+        console.log(notez)
         this.setState(notez)
     }
 
@@ -26,6 +27,10 @@ class UpdateNote extends Component {
     submitHandler = event => {
         event.preventDefault()
         this.props.updateNote(this.state)
+        this.setState({
+            title:'',
+            textBody:''
+        })
     }
 
     render(){
@@ -40,10 +45,10 @@ class UpdateNote extends Component {
     }
 }
 
-const mapStateToPros = state =>{
+const mapStateToProps = state =>{
     return {
         notes:state.notes
     }
 }
 
-export default connect(mapStateToPros, {updateNote})(UpdateNote) 
+export default connect(mapStateToProps, {updateNote})(UpdateNote) 

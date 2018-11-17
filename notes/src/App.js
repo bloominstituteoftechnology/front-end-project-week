@@ -13,7 +13,7 @@ class App extends Component {
         <NavLink to="/create"><button>New Note</button></NavLink>
 
         <Route path="/create" component={CreateNote} />
-        <Route path="/update/:id" component={UpdateNote} />       
+        <Route path="/update/:id" render={props => <UpdateNote {...props} />} />       
 
         <h1>Lambda Notes</h1>
         <NoteList />
