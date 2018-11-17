@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import './editform.css';
 
 class EditForm extends React.Component {
@@ -28,7 +27,8 @@ class EditForm extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.editNote(this.state.id, this.state.title, this.state.text)
+    this.props.editNote(this.state.id, this.state.title, this.state.text);
+    this.props.history.push('/');
   }
 
     render() {
@@ -38,7 +38,7 @@ class EditForm extends React.Component {
           <form onSubmit={this.submitHandler}>
             <input type="text" placeholder="Note Title" className="titleField" name="title" value={this.state.title} onChange={this.inputHandler}></input>
             <textarea placeholder="Jot down a note" className="textField" name="text" value={this.state.text} onChange={this.inputHandler}></textarea>
-            <input type="submit" value="Submit Edit" className="submitEdit"></input>      
+              <input type="submit" value="Submit Edit" className="submitEdit"></input>      
           </form>
         </div>
       );

@@ -8,7 +8,7 @@ class NoteView extends React.Component {
     constructor(props){
         super(props);
         this.state ={
-            modal: false
+            modal: false,
         }
     }
 
@@ -19,6 +19,7 @@ class NoteView extends React.Component {
     deleteNoteHandler = (id) => {
         this.props.deleteNote(id);
         this.toggleModal();
+        this.props.history.push('/')
     }
 
     toggleModal = () => {
@@ -50,10 +51,10 @@ class NoteView extends React.Component {
                                     centered={true}
                                     size='sm' 
                                     >
-                                    <ModalHeader toggle={this.toggleModal} >Modal Header</ModalHeader>
+                                    <ModalHeader toggle={this.toggleModal}>Modal Header</ModalHeader>
                                     <ModalBody>Are you sure you want to delete?</ModalBody>
                                     <ModalFooter>
-                                        <Button color='danger' onClick={() => this.deleteNoteHandler(note._id)}>Delete</Button>
+                                            <Button color='danger' onClick={() => this.deleteNoteHandler(note._id)} >Delete</Button>
                                         <Button color="primary" onClick={this.toggleModal}>Cancel</Button>
                                     </ModalFooter>
                                 </Modal>

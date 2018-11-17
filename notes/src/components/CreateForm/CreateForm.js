@@ -18,7 +18,8 @@ class CreateForm extends React.Component {
   submitHandler = (e) => {
     e.preventDefault();
     this.props.createNote(this.state.title, this.state.text);
-    this.setState({ title: '', text: '' })
+    this.setState({ title: '', text: '' });
+    this.props.history.push('/');
   }
     render() {
       return (
