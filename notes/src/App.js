@@ -70,6 +70,10 @@ class App extends Component {
     e.preventDefault();
     this.setState({ delete: false });
   };
+  editContent = (title, textBody) => {
+     this.setState({title: title, textBody: textBody})
+   }
+
   render() {
     return (
       <div className="App">
@@ -80,7 +84,7 @@ class App extends Component {
           render={props => <NoteList {...props} notes={this.state.notes} />}
         />
         <Route
-          path="/note/:id"
+         exact path="/note/:id"
           render={props => (
             <NotePage
               {...props}
@@ -89,6 +93,7 @@ class App extends Component {
               deleteNoteOff={this.deleteNoteOff}
               delete={this.state.delete}
               deleteNote={this.deleteNote}
+              editContent={this.editContent}
             />
           )}
         />
@@ -103,8 +108,10 @@ class App extends Component {
             />
           )}
         />
-        <Route path='/note/:id/edit' render={props => (
+        <Route exact path='/note/:id/edit' render={props => (
           <EditNote {...props}
+            title={this.state.title}
+            textBody={this.state.textBody}
           notes={this.state.notes}
           handleChange={this.handleChange}
           editNote={this.editNote} />

@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 
 const Main = styled.div`
-  border: 1px solid red;
+  width: 1200px;
+  margin: 10px;
+  padding: 10px;
 `;
 const Modal = styled.div`
   display: flex;
@@ -32,7 +34,7 @@ const Content = styled.div`
   display: flex;
 `;
 const Button = styled.div`
-  width: ${props => props.edit.width};
+  width: 200px;
   padding: 15px 60px;
   font-size: 20px;
   color: white;
@@ -48,18 +50,22 @@ const theme = {
 };
 Button.defaultProps = {
   theme: {
-    bg: "#00cec9",
-    width: "200px"
+    bg: "#00cec9"
   }
 };
-const edit = {
-  bg: 'bg: "#00cec9"',
-  width: "100px"
 
-};
+const LinkBtns = styled.button`
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: underline;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
 const NvLinks = styled.div`
   display: flex;
-  border: 1px solid red;
   justify-content: flex-end;
   align-items: flex-end;
 `;
@@ -77,17 +83,6 @@ const NotePage = props => {
     };
     return (
       <Main key={note._id}>
-        <NvLinks>
-          <Link to={`/note/${note._id}/edit`}>
-            <ThemeProvider theme={edit}>
-            <Button onClick={() => props.editNote(note.title, note.textBody)}>
-              edit
-            </Button>
-            </ThemeProvider>
-          </Link>{" "}
-          {""}
-          <button onClick={props.deleteNoteOn}>delete</button>
-        </NvLinks>
         {props.delete && (
           <Modal>
             <Container>
@@ -101,7 +96,17 @@ const NotePage = props => {
             </Container>
           </Modal>
         )}
-
+        <NvLinks>
+          <Link to={`/note/${note._id}/edit`}>
+            <LinkBtns
+              onClick={() => props.editContent(note.title, note.textBody)}
+            >
+              edit
+            </LinkBtns>
+          </Link>
+          {""}
+          <LinkBtns onClick={props.deleteNoteOn}>delete</LinkBtns>
+        </NvLinks>
         <h1>{note.title}</h1>
         <p>{note.textBody}</p>
       </Main>

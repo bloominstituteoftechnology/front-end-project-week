@@ -36,6 +36,7 @@ const Button = styled.button`
 `;
 
 const EditNote = props => {
+    console.log(props)
   const note = props.notes.find(note => props.match.params.id === `${note._id}`);
   const editNotes = e => {
     e.preventDefault();
@@ -57,7 +58,7 @@ const EditNote = props => {
       <TextArea
         name="textBody"
         value={props.textBody}
-        id="props.id"
+        id="note.id"
         cols="60"
         rows="30"
         onChange={props.handleChange}
