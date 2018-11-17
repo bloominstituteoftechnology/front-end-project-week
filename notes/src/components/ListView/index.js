@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import NoteCard from "../NoteCard";
+import Sorting from '../Sorting';
 import './listview.css';
 
 class ListView extends React.Component {
@@ -10,6 +11,7 @@ class ListView extends React.Component {
       <section className='listview'>
         <h1>Your Notes:</h1>
         <br />
+        <Sorting />
         <div className='notes-container'>
         {this.props.notes.map(note => {
           return <NoteCard key={note.id + note.title + Math.random()} note={note} />;

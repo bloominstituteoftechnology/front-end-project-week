@@ -113,7 +113,7 @@ class Main extends Component {
     return (
       <section className='main-container'>
         <section className='loading-container'>
-          {(this.props.created || this.props.deleted ? <p className='loading position-top'>Updated...</p> : null)}
+          {(this.props.created || this.props.deleted || this.props.updated ? <p className='loading position-top'>Updated...</p> : null)}
         </section>
         <Navigation getNotes={this.props.fetchNotes}></Navigation>
 

@@ -13,6 +13,10 @@ export const UPDATED = 'UPDATED';
 export const ERROR = 'ERROR';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 
+// sorting actions
+export const A_Z = 'A_Z';
+export const Z_A = 'Z_A';
+
 
 export const fetchNotes = () => {
   return dispatch => {
@@ -107,5 +111,35 @@ export const deleteModal = (id) => {
 export const closeModal = () => {
   return dispatch => {
     dispatch({type: CLOSE_MODAL})
+  }
+}
+const compare = (a,b) => {
+  return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1
+}
+
+
+export const alpha = () => {
+  return dispatch => {
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+     .then(res => {
+       let sortedData = res.data.sort(compare);
+       dispatch({type:A_Z, payload: sortedData })
+     })
+     .catch(err => {
+       dispatch({type: ERROR, payload: err})
+     })
+  }
+}
+
+export const alphaReverse = () => {
+  return dispatch => {
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+     .then(res => {
+       let sortedData = res.data.sort(compare).reverse();
+       dispatch({type:Z_A, payload: sortedData })
+     })
+     .catch(err => {
+       dispatch({type: ERROR, payload: err})
+     })
   }
 }

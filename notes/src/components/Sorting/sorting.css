@@ -1,0 +1,12 @@
+.sorting-container {
+  align-items: center;
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+select {
+  width: 100px;
+  height: 30px;
+  margin: 0 0 0 10px;
+}
