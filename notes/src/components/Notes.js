@@ -1,21 +1,52 @@
 import React from 'react';
+import axios from 'axios';
+import './notes.css';
+import { Link } from 'react-router-dom';
 
-function Notes(props) {
+class Notes extends React.Component {
+    state = {
+        notes: [],
+        newNote: {
+            tag: '',
+            title: '',
+            textBody: ''
+        }
+    }
 
-    return (
-        <div>
-            {props.notes.map(note => {
-                return (
-                    <div>
-                        <h2>{note.tags}</h2>
-                        <h3>{note.title}</h3>
-                        <p>{note.textBody}</p>
+    componentDidMount() {
+        axios
+            .get('https://fe-notes.herokuapp.com/note/get/all')
+            .then(response => {
+                this.setState({ notes: response.data })
+            })
+            .catch(error => console.log('error'))
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <div className='main-view'>
+                    <div className='home-title'>
+                        <h2>Your Notes: </h2>
                     </div>
-                )}
-            )}
-        </div>
-    )
-
+                    <div className="home-body">
+                        {this.state.notes.map((note, i) => (
+                            <div className="note">
+                                <Link to={`/note/${note._id}`}key={i} >
+                                    <div className='note-title'>
+                                        <h3 className='background-white'>{note.title}</h3>
+                                    </div>
+                                    <div className="note-body">
+                                        <p className='background-white'>{note.textBody}</p>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default Notes;
