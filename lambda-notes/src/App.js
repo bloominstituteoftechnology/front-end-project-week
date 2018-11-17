@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom'
 import './App.css';
 
 import Notes from "./components/Notes"
@@ -14,8 +15,8 @@ class App extends Component {
           <p className="menuButton">+ Create New Note</p>
         </div>
         <div className="mainContent">
-          <CreateForm />
-          <Notes />
+          <Route path ="/create" component={  CreateForm  } />
+          <Route exact path ="/" component={ Notes } />
         </div>
       </div>
     );
