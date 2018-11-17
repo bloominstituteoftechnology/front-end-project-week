@@ -3,7 +3,8 @@ import {Route} from 'react-router-dom'
 import axios from 'axios'
 
 import './App.css';
-import SideBar from './components/SideBar';
+import {MainDiv} from './styled'
+import SideBar from './components/sideBar/SideBar';
 import ListNotes from './components/listView/ListNotes';
 import CreateNote from './components/newView/CreateNote';
 import Note from './components/noteView/Note'
@@ -42,18 +43,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-      <div>
-        <SideBar />
-      </div>
-      <div>
-        <Route exact path='/' render={ props => <ListNotes {...props} notes={this.state.notes}/>} />
-        <Route path='/create-note' render={ props => <CreateNote {...props} createNote={this.createNote} />} />
-        <Route path='/note/:id' render={props => <Note {...props} getNotes={this.getNotes} />} />
-        <Route path='/note/:id/edit' render={props => <Edit {...props} getNotes={this.getNotes} />} />
-      </div>
-      
-      </div>
+      <MainDiv className="App">
+        <div>
+          <SideBar />
+        </div>
+        <div>
+          <Route exact path='/' render={ props => <ListNotes {...props} notes={this.state.notes}/>} />
+          <Route path='/create-note' render={ props => <CreateNote {...props} createNote={this.createNote} />} />
+          <Route path='/note/:id' render={props => <Note {...props} getNotes={this.getNotes} />} />
+          <Route path='/note/:id/edit' render={props => <Edit {...props} getNotes={this.getNotes} />} />
+        </div>
+      </MainDiv>
     );
   }
 }
