@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import {Link} from "react-router-dom";
+import './App.css';
 
 export class NoteView extends React.Component {
    constructor(props){
@@ -28,8 +29,8 @@ export class NoteView extends React.Component {
 
    render(){
       return(
-         <>
-            <div>
+         <div className="Completeview">
+            <div className="Topbar">
                <Link to={`/edit/${this.state.note._id}`} >
                   <span>edit</span>
                </Link>
@@ -37,11 +38,11 @@ export class NoteView extends React.Component {
                   <span>delete</span>
                </Link>
             </div>
-            <div>
+            <div className="Noteview">
                <h2>{this.state.note.title}</h2>
                <p>{this.state.note.textBody}</p>
             </div>
-         </>
+         </div>
       )
    }
 }

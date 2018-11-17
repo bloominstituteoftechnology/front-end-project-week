@@ -27,21 +27,23 @@ export class AddNote extends Component {
 
     render() {
         return (
-            <div>
+            <div className="Createnote">
+                <h2>Create New Note:</h2>
                 <form onSubmit={this.addNote}>
                     <input 
                         onChange={this.handleInputChange}
-                        placeholder="title"
+                        placeholder="Title"
                         value={this.state.title}
                         name="title"
                     />
-                    <input 
+                    <textarea 
+                    className="textform"
                         onChange={this.handleInputChange}
-                        placeholder="text"
+                        placeholder="Text"
                         value={this.state.textBody}
                         name="textBody"
                     />
-                    <button type="submit">Add Note</button>
+                    <button type="submit">Save</button>
                 </form>
             </div>
         )

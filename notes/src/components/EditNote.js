@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NoteView from './NoteView';
+import './App.css';
+
 
 export class EditNote extends Component {
     constructor(props) {
@@ -26,7 +28,8 @@ export class EditNote extends Component {
 
     render() {
         return (
-            <div>
+            <div className="Createnote">
+            <h2>Edit Note:</h2>
                 <form onSubmit={this.editNote}>
                     <input 
                         onChange={this.handleInputChange}
@@ -34,7 +37,8 @@ export class EditNote extends Component {
                         value={this.state.title}
                         name="title"
                     />
-                    <input 
+                    <textarea 
+                    className="textform"
                         onChange={this.handleInputChange}
                         placeholder= "New Text"
                         value={this.state.textBody}

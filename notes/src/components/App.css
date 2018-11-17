@@ -33,7 +33,10 @@
 
 .App {
   display: flex;
+  background-color: #F2F1F2;
 }
+
+/* Sidebar */
 
 .Sidebar {
   display: flex;
@@ -61,3 +64,91 @@
   margin: 5px;
 }
 
+/* View Notes Page */
+.Notesection {
+  background-color: #F2F1F2;
+}
+
+.Notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 25px;
+}
+.Note {
+  display:flex;
+  border: 1px solid gray;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 300px;
+  margin-bottom: 25px;
+  background-color: white;
+  color: black;
+  padding: 5px;
+}
+
+/* Noteview Page */
+.Completeview {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.Topbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Topbar span { 
+  color: black;
+  margin: 20px;
+}
+
+.Noteview {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+}
+
+/* Create Note Page */
+.Createnote {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  width: 100vh;
+
+}
+.Createnote form {
+  display:flex;
+  flex-direction: column;
+}
+
+
+.textform {
+  width: 600px;
+  padding: 10px;
+  font-size: 16px;
+  height: 400px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 20px 0;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form input:first-child {
+  width: 400px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+form button {
+  padding: 15px;
+  font-size: 16px;
+  background-color: #24B8BD;
+  color: white;
+  width: 200px;
+}
