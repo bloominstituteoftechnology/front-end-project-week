@@ -1,12 +1,15 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const Note = props => {
     return (
         <div className="Note">
-            <p>I am not a note, I am a free man.</p>
-            <h3>{props.title}</h3>
-            <p>{props.textBody}</p>
+            <Link to={`/note/${props.note._id}`}>
+                <h3>{props.title}</h3>
+                <p>{props.textBody}</p>
+            </Link>
         </div>
+
     )
 }
 
