@@ -11,13 +11,13 @@
     background-color: gainsboro;
 }
 
-/* h2 {
+.note-list h2 {
     display: flex;
-    justify-content: flex-start;
-    border: 1px solid black;
-} */
+    width: 100%;
+}
 
 .notes {
     display: flex;
     flex-wrap: wrap;
+    margin-left: 3%;
 }

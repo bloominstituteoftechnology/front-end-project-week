@@ -5,9 +5,6 @@ import './NoteCard.css';
 
 const NoteCard = props => {
 
-    console.log(props.match.params.id, 'hello')
-    console.log(props.notes)
-
     const note = props.notes.find(note => {
         if (note._id === props.match.params.id)
             return note;
@@ -29,7 +26,7 @@ const NoteCard = props => {
                 </p>
                 <div>
                     <Link to={`/${note._id}/edit`}>Edit</Link>
-                    <div onClick={() => { props.deleteNote(props.match.params.id)}}>Delete</div>
+                    <div class='delete' onClick={() => { props.deleteNote(props.match.params.id)}}>Delete</div>
                 </div>
             </div>
         </div>

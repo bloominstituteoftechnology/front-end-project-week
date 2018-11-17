@@ -8,3 +8,7 @@
     border: 1px solid gray;
     background-color: gainsboro;
 }
+
+.delete:hover {
+    cursor: pointer;
+}
