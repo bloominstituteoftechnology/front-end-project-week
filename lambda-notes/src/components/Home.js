@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchNotes } from '../actions/actions';
 import Note from './Note';
 
-const HomeContainer = styled.div`
+export const HomeContainer = styled.div`
     width: 75%;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@ class Home extends React.Component {
                         <h1>Your Notes:</h1>
                     </HeaderContainer>
                     <CardWrapper>
-                            {this.props.notes.map(note => <Note key={note._id} id={note._id} title={note.title} textBody={note.textBody} />)}                    
+                            {this.props.notes.map(note => <Note history={this.props.history} key={note._id} id={note._id} title={note.title} textBody={note.textBody} />)}                    
                     </CardWrapper>   
                 </HomeContainer>
     }

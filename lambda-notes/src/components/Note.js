@@ -28,11 +28,9 @@ const NoteCard = styled.div`
     }
 `
 
-const Note = props =>   <NoteCard>
+export default props => <NoteCard onClick={() => props.history.push(`/note/${props.id}`)} >
                             <div>
                                 <h2>{props.title}</h2>
                             </div>                            
                             <p>{props.textBody}</p>
                         </NoteCard>
-
-export default connect(()=>{return{}}, {deleteNote})(Note);

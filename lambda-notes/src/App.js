@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
-import Home from './components/Home';
 import styled from 'styled-components';
+
+import Home from './components/Home';
+import NoteProfile from './components/NoteProfile';
 
 const AppWrapper = styled.div`
 text-align: center;
@@ -59,7 +61,8 @@ class App extends Component {
                     <div>View Your Notes</div>
                     <div>+ Create New Note</div>
                 </Sidebar>
-                <Route exact path='/' render = {props => <Home {...props} />} />        
+                <Route exact path='/' render = {props => <Home {...props} />} />
+                <Route exact path='/note/:id' render = {props => <NoteProfile {...props} />} />     
             </AppWrapper>
   }
 }
