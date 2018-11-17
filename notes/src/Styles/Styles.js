@@ -5,8 +5,13 @@ export const AppContainer = styled.div`
    margin: 0 auto;
    min-height: 800px;
 
-   p, h2 {
+   p, h2 form {
       margin-left: 1%;
+   }
+
+   form {
+      display: flex;
+      flex-direction: column;
    }
 `
 
@@ -25,7 +30,7 @@ export const Button = styled.button `
    font-weight: bold;
    font-size: 1.3rem;
    padding: 10px 25px;
-   margin-bottom: 10px;
+   margin-bottom: 14px;
    cursor: pointer;
    white-space: nowrap;
    width: ${props => props.width || "95%"};
@@ -44,14 +49,15 @@ export const DisplayContainer = styled.div`
 export const NoteListContainer = styled.div`
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-around;
+   justify-content: space-evenly;
 `
 
 export const Notes = styled.a`
-   display: -webkit-box !important;
-   -webkit-box-orient: vertical !important;
-   -webkit-line-clamp: 6 !important;
-   overflow: hidden !important;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 6;
+   overflow: hidden;
+   white-space: pre-line;
    background-color: white;
    border: 1px solid grey;
    height: 285px;
@@ -59,9 +65,14 @@ export const Notes = styled.a`
    width: 50%;
    margin-bottom: 30px;
 
+   :nth-child(3n-1){
+      margin-left: 1%;
+      margin-right: 1%;
+   }
    h3 {
       margin-left: 7%;
       margin-right: 7%
+      margin-bottom: 5px;
    }
 
    p {
@@ -86,33 +97,38 @@ export const LinkContainer = styled.span`
       margin-left: 2%
    }
 `
+
 export const Content =styled.div`
-   h2{
+   h2 {
       margin-top: 0px;
       margin-bottom: 0px;
    }
-`
-export const FormContainer = styled.div`
 
+   p {
+      white-space: pre-line;
+   }
 `
 
 export const InputHeader = styled.input `
    display: flex;
    background-color: white;
    color: black;
-   // max-width: 600px;
-   width: 100%;
+   padding: 10px 5px;
+   margin-bottom: 14px;
+   max-width: 600px;
+   width: 60%;
    border-radius: 5px;
-   padding: 5px 0px;
 `
 
 export const InputBody = styled.textarea `
    background-color: white;
    color: black;
    vertical-align: top;
+   padding: 10px 12px;
    max-width: 800px;
-   width: 100%;
+   width: 95%;
+   margin-bottom: 14px;
    border-radius: 5px;
-   padding: 5px 0px;
    height: 300px;
+   resize: none;
 `
