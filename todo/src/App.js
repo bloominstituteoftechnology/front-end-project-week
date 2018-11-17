@@ -5,6 +5,7 @@ import {Route, BrowserRouter, NavLink} from 'react-router-dom';
 import NoteForm from './components/NoteForm';
 import Note from './components/Note';
 import Notes from './components/Notes';
+import NoteView from './components/NoteView';
 
 // NoteForm is the default list view -- need to build out a NoteView thing that displays when the user clicks an individual link.
 
@@ -33,6 +34,8 @@ class App extends Component {
       <BrowserRouter>
       <div>
       <NavLink to="/">Go home</NavLink>
+      <Route path="/note/:id" render={(props) => {
+        return(<NoteView {...props}/>)}}/>
       <Route path="/notes-form" render={props =>
       <NoteForm addNote={this.addNote}/>}></Route>
       <NoteForm />
