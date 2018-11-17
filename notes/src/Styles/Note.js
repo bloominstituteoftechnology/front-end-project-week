@@ -6,6 +6,8 @@ const Note = styled.section `
     width: 300px;
     height: 300px;
     border: 2px solid ${borderColor}
+    color: black;
+    margin: 20px 0;
 `;
 
 
