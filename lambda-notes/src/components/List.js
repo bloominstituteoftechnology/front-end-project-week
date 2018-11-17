@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const ListWrapper = styled.div`
     width: 100%;
+    min-height: 100vh;
     padding: 20px;
     background-color: #F3F3F3;
     color: #4A4A4A;
@@ -93,7 +94,13 @@ function NotesDetail({note}) {
     const { _id, title, textBody } = note;
       return (
           <Note>
-        <Link to={`/${_id}`} id={_id}>
+        <Link to={{
+            pathname: `/${_id}`,
+            state: {title: {title},
+            textBody: {textBody},
+            id: {_id}
+        }
+        }}>
               <h2>{title}</h2>
               <p>{textBody}</p>
           </Link>

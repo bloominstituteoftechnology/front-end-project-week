@@ -7,6 +7,7 @@ import SingleNote from './components/SingleNote';
 const AppWrapper = styled.div`
   width: 100%;
   display: flex;
+  min-height: 100vh;
   height: 100%;
 `
 
