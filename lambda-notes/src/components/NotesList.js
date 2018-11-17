@@ -6,7 +6,10 @@ import NoteCard from './NoteCard';
 const NotesListContainer = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
     padding: 0 4%;
+
+    border: 1px solid black;
 
     h2{
         font-size: 2.2rem;

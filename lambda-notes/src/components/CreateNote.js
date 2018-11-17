@@ -30,11 +30,30 @@ const CreateNoteForm = styled.form`
 
     textarea{
         height: 300px;
+        margin-bottom: 20px;
         padding: 10px 10px;
         font-size: 2.0rem;
         border: 2px solid #c9c8c9;
         border-radius: 3px;
         outline-style: none;
+    }
+`;
+
+const CreateNoteButton = styled.button`
+    font-size: 1.6rem;
+    width: 30%;
+    height: 40px;
+    margin-bottom: 15px;
+    color: white;
+    background-color: #24b8bd;
+    border: 2px solid #56aaad;
+    cursor: pointer;
+    outline-style: none;
+
+    &:hover{
+        color: #24b8bd;
+        background-color: white;
+        border: 2px solid #56aaad;
     }
 `;
 
@@ -69,7 +88,7 @@ class CreateNote extends Component{
                 <CreateNoteForm onSubmit={this.handleSubmit}>
                     <input type="text" name="name" value={this.state.name} placeholder="Note Title" onChange={this.handleInput}/>
                     <textarea name="text" value={this.state.text} placeholder="Note Content" onChange={this.handleInput}/>
-                    <button type="submit">Save</button>
+                    <CreateNoteButton type="submit">Save</CreateNoteButton>
                 </CreateNoteForm>
             </CreateNoteContainer>
         )
