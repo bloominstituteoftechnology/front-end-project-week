@@ -56,3 +56,48 @@
     border: 1px solid black;
     margin: 1% 0%;
 }
+
+.delete-modal {
+    position: absolute;
+    width: 90vw;
+    height: 95vh;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.delete-modal .delete-modal-box {
+    background-color: white;
+    z-index: 100;
+    border: 1px solid black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 30vh;
+    left: 30vw;
+    width: 30%;
+    padding: 1%;
+}
+
+.delete-modal-box .delete-button-box {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.delete-modal-button {
+    text-decoration: none;
+    border: 1px solid black;
+}
+
+.note-form {
+    width: 80vw;
+    height: 80vh;
+    border: 1px solid black;
+}
+
+.title-input {
+    width: 255px;
+}
+
+.text-body-input {
+    width: 600px;
+    height: 60vh;
+}

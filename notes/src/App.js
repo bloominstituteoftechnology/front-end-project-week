@@ -7,6 +7,7 @@ import Menu from './Components/Menu/Menu';
 import NoteList from './Components/Notes/NoteList';
 import NoteForm from './Components/Notes/NoteForm';
 import DisplayNote from './Components/Notes/DisplayNote';
+import DeleteModal from './Components/Notes/DeleteModal';
 
 /*
 let dummyData = [{
@@ -21,8 +22,6 @@ class App extends Component {
     super();
     this.state = {
       notes: undefined,
-      title: '',
-      textBody: '',
     }
   }
 
@@ -40,14 +39,10 @@ class App extends Component {
     .catch(response => {
       console.log(response);
     });
-    this.setState({
-      title: '',
-      textBody: '',
-    })
   }
 
-  createNote = () => {
-    axios.post('https://fe-notes.herokuapp.com/note/create', {title: this.state.title, textBody: this.state.textBody})
+  createNote = (note) => {
+    axios.post('https://fe-notes.herokuapp.com/note/create', note)
     .then(() => {
       this.getNotes();
     })
@@ -56,8 +51,8 @@ class App extends Component {
     })
   }
 
-  updateNote = (id) => {
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {title: this.state.title, textBody: this.state.textBody})
+  updateNote = (id, note) => {
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
     .then(() => {
       this.getNotes();
     })
@@ -73,12 +68,6 @@ class App extends Component {
     })
     .catch(response => {
       console.log(response);
-    })
-  }
-
-  updateValue = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
     })
   }
 
@@ -98,6 +87,9 @@ class App extends Component {
     }
     return (
       <div className="App">
+        <Route exact path='/note/:id/delete'
+            render={(props) => <DeleteModal {...props} notes={this.state.notes} deleteNote={this.deleteNote} />}
+        />
         <nav className='menu'>
           <h1>Lambda<br/>Notes</h1>
           <Menu />
@@ -107,13 +99,17 @@ class App extends Component {
             render={(props) => <NoteList {...props} notes={this.state.notes}/>}
           />
           <Route path='/notes/create'
-            render={(props) => <NoteForm {...props} type='Create' title={this.state.title} textBody={this.state.textBody} updateValue={this.updateValue} createNote={this.createNote} />}
+            render={(props) => <NoteForm {...props} type='Create' updateValue={this.updateValue} createNote={this.createNote} />}
           />
           <Route exact path='/note/:id'
             render={(props) => <DisplayNote {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>}
           />
+          <Route exact path='/note/:id/delete'
+            render={(props) => <DisplayNote {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>}
+          />
+
           <Route path='/note/:id/edit'
-            render={(props) => <NoteForm {...props} type='Edit' notes={this.state.notes} title={this.state.title} textBody={this.state.textBody} updateValue={this.updateValue} updateNote={this.updateNote} />}
+            render={(props) => <NoteForm {...props} type='Edit' notes={this.state.notes} updateValue={this.updateValue} updateNote={this.updateNote} />}
           />
         </main>
       </div>
