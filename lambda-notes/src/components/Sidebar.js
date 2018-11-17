@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 const SidebarContainer  =   styled.div`
     background: lightgray;
@@ -11,7 +11,7 @@ const SidebarContainer  =   styled.div`
     border-right: solid 1px darkgray;
     min-height: 100vh;
 `
-const Button = styled(Link)`
+const Button = styled.div`
     width: 170px;
     height: 35px;
     margin-top: 10px;
@@ -41,18 +41,25 @@ class Sidebar extends Component  {
     //     super(props);
     // }
 
+    toCreate    =   ()  =>  {
+        this.props.history.push("/create");
+    }
+    toHome  =   ()  =>  {
+        this.props.history.push("/");
+    }
+
     render()    {
         return(
             <SidebarContainer>
                 <Head>
                     Lambda Notes
                 </Head>
-                <Button to={"/"}>View Your Notes</Button>
-                <Button to={"/create"}>+ Create New Note</Button>
+                <Button onClick={this.toHome}>View Your Notes</Button>
+                <Button onClick={this.toCreate}>+ Create New Note</Button>
             </SidebarContainer>
 
         );
     }
 }
 
-export default Sidebar;
+export default withRouter(Sidebar);

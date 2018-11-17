@@ -44,15 +44,15 @@ class NotesList extends Component   {
     constructor(props)  {
         super(props);
         this.state = {
-            notes: [],
+            // notes: [],
             inputValue: "",
         }
     }
-    componentWillReceiveProps(newProps) {
-        this.setState((state)   =>  ({
-            notes: newProps.notes,
-        }))
-    }
+    // componentWillReceiveProps(newProps) {
+    //     this.setState((state)   =>  ({
+    //         notes: newProps.notes,
+    //     }))
+    // }
 
     onInputChange = ({ target })  =>  {
         this.setState((state)   =>  ({
@@ -73,7 +73,7 @@ class NotesList extends Component   {
                     <StyledInput onChange={this.onInputChange} placeholder={"Search..."} value={this.state.inputValue}></StyledInput>
                 </InputContainer>
                 <NotesView>
-                    {this.state.notes.map((note, index)  =>  {
+                    {this.props.notes.map((note, index)  =>  {
                         return <StyledLink to={`/note/${note["_id"]}`} data={note} key={index}><Note key={index} note={note}/></StyledLink>
                     })}
                 </NotesView>

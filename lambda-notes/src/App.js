@@ -33,7 +33,7 @@ class App extends Component {
     render() {
         return (
             <AppContainer>
-                <Sidebar />
+                <Route path="/" render={(props)  =>  <Sidebar {...props} />} />
                 <Route exact path="/" render={()    =>  <NotesList notes={this.props.notes} getNotes={this.props.fetch}/>} />
                 <Route path="/note/:id" render={(props)  =>  <SingleNote notes={this.props.notes} getNotes={this.props.fetch} {...props}/>} />
                 <Route path="/edit/:id" render={(props) =>  <NoteEdit relID={this.props.relID} notes={this.props.notes} getNotes={this.props.fetch} {...props}/>} />
