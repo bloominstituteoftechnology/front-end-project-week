@@ -161,3 +161,18 @@ export const sortById = () => {
      })
   }
 }
+
+export const search = (term) => {
+  return dispatch => {
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+     .then(res => {
+       let sortedData = res.data.filter(note => {
+         return note.title.includes(term)
+       })
+       dispatch({type:SORT_ID, payload: sortedData })
+     })
+     .catch(err => {
+       dispatch({type: ERROR, payload: err})
+     })
+  }
+}

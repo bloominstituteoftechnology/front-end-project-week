@@ -2,9 +2,15 @@
   align-items: center;
   width: 90%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
+.sorting-container section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 select {
   width: 100px;
   height: 30px;
