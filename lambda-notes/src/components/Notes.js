@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 import Note from './Note'
 
@@ -39,11 +40,11 @@ class Notes extends Component {
             <div className="notesContent">
                 <h2>Your Notes:</h2>
                 <div className="notesBlock">
-                {this.state.notes.map( item => {
-                    return(
+                {this.state.notes.map( item => (
+                    <Link to={`/note/${item._id}`}>
                         <Note note={item} id={item._id} key={item._id} deleteHandler={this.deleteHandler}/>
-                    )
-                })}
+                    </Link>
+                    ))}
                 </div>
             </div>
         )
