@@ -7,7 +7,8 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Signin from "./components/auth/Signin";
 import Signup from "./components/auth/Signup";
 import CreateNote from "./components/notes/CreateNote";
-
+import DeleteModal from "./components/notes/DeleteModal";
+import EditNote from "./components/notes/EditNote";
 import NoteList from "./components/notes/NoteList";
 import Note from "./components/notes/Note";
 
@@ -25,9 +26,15 @@ class App extends Component {
           <Route path="/note/:id" render={(props) => {
               return(<Note {...props}/>)}}
           />
+           <Route path="/edit/:id" render={(props) => {
+              return(<EditNote {...props}/>)}}
+          />
           <Route path="/login" component={Signin} />
           <Route path="/signup" component={Signup} />
           <Route path="/create" component={CreateNote} />
+          <Route path="note/:id/delete" render={(props) => {
+              return(<DeleteModal {...props}/>)}}
+              />     
         </Switch>
       </div>
     );

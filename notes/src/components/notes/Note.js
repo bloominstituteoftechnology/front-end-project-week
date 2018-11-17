@@ -30,10 +30,10 @@ class Note extends Component {
        <>
           <div>
              <Link to={`/edit/${this.state.note._id}`} >
-                <span>edit</span>
+                <p>edit</p>
              </Link>
              <Link to={`/note/${this.state.note._id}/delete`} >
-                <span>delete</span>
+                <p>delete</p>
              </Link>
           </div>
           <div>
