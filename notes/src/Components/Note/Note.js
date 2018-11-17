@@ -22,7 +22,6 @@ class Note extends Component {
      */
     this.state = {
       note: {},
-      deleteConfirm: false
     };
   };
 
@@ -38,19 +37,23 @@ class Note extends Component {
   /* Handle deleting a note without redirecting to a different page. */
   handleDelete = (event) => {
     event.preventDefault();
-    this.setState( () => ({deleteConfirm: true}));
-    alert( "Delete called" );
+    document.querySelector(".deleteOverlay").classList.toggle("hidden");
+  };
+
+  /* Cancel the deletion */
+  cancelDelete = (event) => {
+    document.querySelector(".deleteOverlay").classList.toggle("hidden");
   };
 
   render() {
     return (
       <>
-      <div className="deleteOverlay">
+      <div className="deleteOverlay hidden">
         <div className="deleteBox">
           <div>Are you sure you want to delete this?</div>
           <div className="deleteBoxButtons">
             <div className="navButton buttonRed">Delete</div>
-            <div className="navButton">No</div>
+            <div className="navButton" onClick={this.cancelDelete}>No</div>
           </div>
         </div>
       </div>
