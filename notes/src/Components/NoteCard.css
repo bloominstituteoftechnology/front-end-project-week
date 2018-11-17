@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.note-container {
+    width: 100%;
+    border: 1px solid gray;
+    background-color: gainsboro;
+}

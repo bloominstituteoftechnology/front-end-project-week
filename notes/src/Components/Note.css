@@ -4,6 +4,8 @@
     width: 25%;
     height: 200px;
     background-color: white;
+    text-decoration-color: white;
+    text-decoration: none;
 }
 
 .note-title {

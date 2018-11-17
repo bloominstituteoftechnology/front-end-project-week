@@ -3,13 +3,10 @@ import { Link } from 'react-router-dom';
 import './Note.css';
 
 class Note extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         return (
-            <Link to='' class='note'>
+            <Link to={`/${this.props.note._id}`} class='note'>
                 <h3 class='note-title'>
                     {this.props.note.title}
                 </h3>

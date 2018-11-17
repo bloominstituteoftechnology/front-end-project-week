@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import NoteList from '../src/Components/NoteList';
-import Menu from '../src/Components/Menu';
-import Title from '../src/Components/Tite';
 import NoteForm from '../src/Components/NoteForm';
+import NoteCard from '../src/Components/NoteCard';
 import axios from 'axios';
 
 class App extends Component {
@@ -20,7 +19,6 @@ class App extends Component {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then(response => {
-        console.log(response.data)
         this.setState({
           notes: response.data
         })
@@ -37,31 +35,32 @@ class App extends Component {
     axios
       .post(`https://fe-notes.herokuapp.com/note/create`, note)
       .then(response => {
-        this.setState({
-          notes: this.getNotes()
-        })
+        this.getNotes()
       })
       .catch(error => console.log('error!'))
   }
 
   render() {
     return (
-      <div>
-        <Title />
-        <div className="App">
-          <Route exact path='/' render={props => (
-            <NoteList
-              {...props}
-              notes={this.state.notes}
-            />
-          )} />
-          <Route exact path='/form' render={props => (
-            <NoteForm
-              {...props}
-              newNote={this.newNote}
-            />
-          )} />
-        </div>
+      <div className="App">
+        <Route exact path='/' render={props => (
+          <NoteList
+            {...props}
+            notes={this.state.notes}
+          />
+        )} />
+        <Route exact path='/form' render={props => (
+          <NoteForm
+            {...props}
+            newNote={this.newNote}
+          />
+        )} />
+        <Route exact path='/:id' render={props => (
+          <NoteCard
+            {...props}
+            notes={this.state.notes}
+          />
+        )} />
       </div>
     );
   }

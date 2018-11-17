@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Note from './Note';
 import './NoteList.css';
 import Menu from './Menu';
@@ -12,7 +11,7 @@ class NoteList extends Component {
                 <div class='note-list'>
                     <h2>
                         Your Notes:
-                </h2>
+                    </h2>
                     <div class='notes'>
                         {this.props.notes.map(note => {
                             return (
