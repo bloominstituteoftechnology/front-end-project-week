@@ -13,7 +13,8 @@ class ViewNote extends Component {
         }
     }
 
-    toggle = () => {
+    toggle = (e) => {
+        e.preventDefault();
         this.setState(prevState => ({
           modal: !prevState.modal
         }));
@@ -47,6 +48,7 @@ class ViewNote extends Component {
                 <ModalOption 
                     modal={this.state.modal}
                     handleDelete={this.handleDelete}
+                    toggle={this.toggle}
                 />
             </ViewNoteStyle>
         );

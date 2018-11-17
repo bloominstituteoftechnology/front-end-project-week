@@ -13,6 +13,7 @@ const ModalOption = (props) => (
     >
         <h3 className='modal__title'>Selected Option</h3>
         <button className='button' onClick={props.handleDelete}>Delete</button>
+        <button className='button' onClick={props.toggle}>No</button>
     </Modal>
 );
 
