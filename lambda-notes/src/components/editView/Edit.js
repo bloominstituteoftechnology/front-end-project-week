@@ -33,8 +33,7 @@ export default class Edit extends Component {
     console.log(id)
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state)
-      .then( response => {
-        console.log(response)
+      .then( () => {
         this.props.getNotes()
       })
   }
