@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import './Note.css';
 
@@ -22,6 +22,7 @@ class Note extends Component {
      */
     this.state = {
       note: {},
+      redirect: false
     };
   };
 
@@ -45,14 +46,27 @@ class Note extends Component {
     document.querySelector(".deleteOverlay").classList.toggle("hidden");
   };
 
+  /* Deletion was confirmed, now delete it from the API */
+  confirmedDelete = (event) => {
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
+      .then( () => {
+        this.setState( () => ({ redirect: true }) );
+      })
+      .catch( (error) => console.error(error) );
+  };
+
   render() {
+    if ( this.state.redirect === true ) {
+      return (<Redirect to="/" />);
+    }
+
     return (
       <>
       <div className="deleteOverlay hidden">
         <div className="deleteBox">
           <div>Are you sure you want to delete this?</div>
           <div className="deleteBoxButtons">
-            <div className="navButton buttonRed">Delete</div>
+            <div className="navButton buttonRed" onClick={this.confirmedDelete}>Delete</div>
             <div className="navButton" onClick={this.cancelDelete}>No</div>
           </div>
         </div>
