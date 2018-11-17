@@ -44,7 +44,7 @@ const NoteProfile = props => {
                         <h1>{note.title}</h1>
                     </div>
                     <div>
-                        <span>edit</span>
+                        <span onClick={() => props.history.push(`/note/${note._id}/edit`)} >edit</span>
                         <span onClick={props.toggle} >delete</span>
                     </div>
                 </MainSection>

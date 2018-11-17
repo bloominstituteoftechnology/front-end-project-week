@@ -8,6 +8,7 @@ import Home from './components/Home';
 import NoteProfile from './components/NoteProfile';
 import { deleteNote, fetchNotes } from './actions/actions';
 import CreateForm from './components/CreateForm';
+import EditForm from './components/EditForm';
 
 const AppWrapper = styled.div`
 text-align: center;
@@ -136,7 +137,8 @@ class App extends Component {
                 </Sidebar>
                 <Route exact path='/' render = {props => <Home {...props} />} />
                 <Route exact path='/note/:id' render = {props => <NoteProfile toggle={this.toggle} {...props} />} />
-                <Route exact path='/create' render = {props => <CreateForm {...props}/>} />     
+                <Route exact path='/create' render = {props => <CreateForm {...props}/>} />
+                <Route path='/note/:id/edit' render = {props => <EditForm {...props}/>} />     
             </AppWrapper>
   }
 }
