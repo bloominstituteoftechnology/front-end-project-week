@@ -1,25 +1,31 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { deletNote } from '../actions/noteActions';
 
+class NoteCard extends Component {
 
- class NoteCard extends Component {
-
+onDeleteClick = (id) => {
+  this.props.deletNote(id);
+}
   render() {
-    const {title, content,} = this.props.note;
+    const { id, title, content} = this.props.note;
 
     return (
       <div>
-        <div className="container mb-5">
-            <i className="fa fa-edit"></i>
-            <i className="fa fa-trash"></i>
-            <h4 className="note-title">{title}</h4>
-            <textarea>{content}</textarea>
+        <div className="card mb-4">
+          <div className="title-box">
+            <h4 className="card-title">{title}</h4>
+        </div>
+            <hr></hr>
+            <div className="card-body">{content}</div> 
+            <div class="card-footer">
+                <i className="fa fa-edit"></i>
+                <i className="fa fa-trash" onClick={ this.onDeleteClick.bind(this, id)}></i>
+            </div>  
         </div>
       </div>
     )
   }
 }
 
-// PropTypes
-
-export default NoteCard;
+export default connect(null, { deletNote }) (NoteCard);

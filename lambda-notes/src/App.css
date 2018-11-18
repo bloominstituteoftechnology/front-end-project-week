@@ -2,3 +2,46 @@
   box-sizing: border-box;
 }
 
+.navbar {
+  background: #e3f2fd;
+}
+.note-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.card {
+  width: 17rem;
+  box-shadow: 5px 5px 5px #cccccc;
+  margin-left: 5.2rem;
+  color: #707070;
+}
+
+.card-body {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.2rem;
+}
+
+.card-title {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  color: #1da1f2;
+}
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.fa {
+  font-size: 1rem;
+  padding-left: 10px;
+  cursor: pointer;
+  color: #707070;
+}
+
+.page-title-heading {
+  font-family: 'Shadows Into Light', cursive;
+}
