@@ -8,11 +8,10 @@ import axios from 'axios';
 class CreateView extends Component {
     constructor(props) {
         super(props);
+
         this.state ={
             title: "",
             textBody: "",
-            notes:[]
-                        
         }
     }
     inputHandler = event => {
@@ -22,28 +21,27 @@ class CreateView extends Component {
     }
     submitHandler = event => {
         event.preventDefault();
-        console.log("this is line 24: " + this.state.title);
-        this.addNote(this.state);
-        this.props.addContent(this.state);
+        this.props.addContent(event,this.state);
         this.setState({
             title:'',
             textBody:''
-        })        
+        })    
+        // this.props.history.push("/");  
     }
 
-    addNote = notes => {
-        axios.post(`https://fe-notes.herokuapp.com/note/create`, notes)
-             .then( response => {
-                 this.setState({
-                     notes: Object.assign({}, this.props.notes, ...notes, response._id, response.tags )
-                 })
-             })
-             .catch( error => {
-                this.setState({ errorMessage: "Error: There is some error getting notes"})
-             })
-    }
+    // addNote = notes => {
+    //     axios.post(`https://fe-notes.herokuapp.com/note/create`, notes)
+    //          .then( response => {
+    //              this.setState({
+    //                  notes: Object.assign({}, this.props.notes, ...notes, response._id, response.tags )
+    //              })
+    //          })
+    //          .catch( error => {
+    //             this.setState({ errorMessage: "Error: There is some error getting notes"})
+    //          })
+    // }
     render() {
-        console.log(this.props.addContent)
+        console.log(this.state.title, this.state.textBody);
         return (
             <>
                <Wrapper>

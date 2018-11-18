@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import { Route, Link } from 'react-router-dom';
-import Header from './components/Header';
+import { Route} from 'react-router-dom';
 import LambdaNotes from './components/LambdaNotes';
 import Notes from './components/Notes';
 import MainContainer from './components/styles/MainContainer';
 import CreateView from './components/CreateView';
+import MyNote from './components/MyNote';
 
 class App extends Component {
 constructor(props) {
@@ -20,7 +19,7 @@ constructor(props) {
 componentDidMount() {
    axios.get('https://fe-notes.herokuapp.com/note/get/all')
         .then( response => {
-          console.log(response.data)
+         
             this.setState({
                 notes: response.data
             })
@@ -34,12 +33,26 @@ componentDidMount() {
      )
 }
 
-addContent = content => {
-    this.setState({
-        notes: content.notes
-    })
-    console.log(content.notes);
+addContent = (event,newNotes) => {
+  event.preventDefault();
+  axios.post(`https://fe-notes.herokuapp.com/note/create`, newNotes)
+       .then( response => {
+           console.log(newNotes.title);
+           newNotes._id = response.data.success;
+           this.setState({ notes: [newNotes, ...this.state.notes] })
+       })
+       .catch( error => {
+          this.setState({ errorMessage: "Error: There is some error getting notes"})
+       })
 }
+
+// addContent = (event,content) => {
+//     event.preventDefault();
+//     this.setState({
+//         notes: [content.notes, ...this.state.notes]
+//     })
+//     console.log(content.notes);
+// }
 
   render() {
     const notes = this.state.notes;
@@ -49,7 +62,9 @@ addContent = content => {
           <LambdaNotes />
           <Route exact path='/' render={ props => <Notes {...props} notes={notes}/>}></Route>
           {/* <Notes notes={this.state.notes} /> */}
-          <Route path='/createview' render={ props => <CreateView {...props} addContent={this.addContent} notes={notes} />}></Route>
+          <Route exact path='/notes' render={ props => <CreateView {...props} addContent={this.addContent} notes={notes} />}></Route>
+          <Route path='/note/:_id' render={ props => <MyNote {...props} notes={notes} /> } />
+          {/* <Route path="/avengers/:id" render={ props =>   <AvengerPage {...props} avengers={avengers} />}  /> */}
         </MainContainer>
       </div>
     );
