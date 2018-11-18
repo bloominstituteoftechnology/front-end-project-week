@@ -155,10 +155,48 @@
   width: 95%;
   margin: auto;
   display: flex;
+  flex-wrap: wrap;
+}
+.note-view .modal {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.4); 
+}
+.note-view .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.note-view-allcontent {
+  width: 100%;
+  display: flex;
+}
+.note-view .edit-delete-box {
+  width: 100%;
+}
+.note-view .edit-delete-box .edit-delete-section {
+  text-align: right;
+}
+.note-view .edit-delete-box .edit-delete-section .edit-navlink {
+  margin-right: 2%;
+  color: black;
+}
+.note-view .edit-delete-box .edit-delete-section span {
+  margin-right: 2%;
+  text-decoration: none;
 }
 .note-view .specific-note{
   width: 75%;
   padding: 2%;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 /* Specific Note View (end) */
