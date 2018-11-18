@@ -10,9 +10,8 @@ export default class Noteform extends Component {
         
       }
     }
-    addNote = event => {
+    addNote = () => {
         const { title, noteContent } = this.state;
-        event.preventDefault();
         axios
           .post('https://fe-notes.herokuapp.com/note/create', {title, noteContent})
           .then(response => {
