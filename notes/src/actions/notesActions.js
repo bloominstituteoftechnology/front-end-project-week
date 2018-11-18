@@ -18,7 +18,7 @@ export const getNotes = () => {
 }
 
 // POST
-export const createNotes = (newNote) => {
+export const createNote = (newNote) => {
   return (dispatch) => {
     dispatch({type: LOADING})
     axios.post('http://localhost:5000/notes', newNote)

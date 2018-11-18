@@ -12,7 +12,7 @@ const Note = props => {
 
   return (
     <div key={note.id} className="note-card">
-      <p className="close-button" onClick={clickHandler}>Close</p>
+      <p className="close-button" onClick={clickHandler}>CLOSE</p>
       <h2>{note.title}</h2>
       <h4>{note.priority}</h4>
       <p>{note.summary}</p>
