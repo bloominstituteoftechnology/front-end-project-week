@@ -7,12 +7,18 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #d8d8d8;
+   @media (max-width: 425px) {
+    width: 100%
+  }
 `;
 export const H1 = styled.h1`
   font-weight: 900;
   font-size: 2.5rem;
   text-align: center;
   padding: 10%;
+   @media (max-width: 425px) {
+    padding: 5%
+  }
 `;
 
 export const Button = styled.button`
@@ -26,4 +32,7 @@ export const Button = styled.button`
   &:hover {
     cursor: pointer;
   };
+   @media (max-width: 425px) {
+    margin: 10%;
+  }
 `;

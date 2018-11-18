@@ -11,6 +11,9 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  @media (max-width: 425px) {
+    flex-direction: column;
+  }
 `;
 
 // Right side 
@@ -18,5 +21,8 @@ export const RightDiv = styled.div`
   width: 75%;
   min-height: 100vh;
   border: 10px pink;
-  background-color: #f3f3f3;;
+  background-color: #f3f3f3;
+  @media (max-width: 425px) {
+    width: 100%
+  }
 `;
