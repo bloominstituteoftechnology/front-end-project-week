@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateNote } from './actions/index';
 import {withRouter} from 'react-router-dom';
+import { NoteContainer, NoteForm, FormTitle, FormText, SubmitButton, H2Header } from './StyledComponents';
 
 class UpdateNote extends React.Component{
     constructor(props){
@@ -46,14 +47,14 @@ class UpdateNote extends React.Component{
 
     render(){
         return(
-            <div>
-                <h2>Edit Note:</h2>
-            <form onSubmit={this.submitHandler}>
-                <input onChange={this.inputHandler} type="text" name="title" placeholder="Note Title" value={this.state.title}></input>
-                <input onChange={this.inputHandler} type="text" name="textBody" placeholder="Note Content" value={this.state.textBody}></input>
-                <button type="submit">Update</button>
-            </form>
-            </div>
+            <NoteContainer>
+                <H2Header>Edit Note:</H2Header>
+            <NoteForm onSubmit={this.submitHandler}>
+                <FormTitle onChange={this.inputHandler} type="text" name="title" placeholder="Note Title" value={this.state.title}></FormTitle>
+                <FormText onChange={this.inputHandler} type="text" name="textBody" placeholder="Note Content" value={this.state.textBody}></FormText>
+                <SubmitButton type="submit">Update</SubmitButton>
+            </NoteForm>
+            </NoteContainer>
         )
     }
 }

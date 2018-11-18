@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getNotes } from './actions/index';
 import Note from './Note';
+import '../src/index';
 import { NotesContainer, StandardDiv } from './StyledComponents';
 
 
@@ -13,12 +14,12 @@ class Notes extends React.Component {
     render(){
         return(
             <StandardDiv>
-            <h1>Your Notes:</h1>
-            <NotesContainer>
-                {this.props.notes.map( note => 
-                    < Note note={note} key={note._id} id={note._id} text={note.textBody} title={note.title} /> 
-                )}
-            </NotesContainer>
+                <h1>Your Notes:</h1>
+                <NotesContainer>
+                    {this.props.notes.map( note => 
+                        < Note note={note} key={note._id} id={note._id} text={note.textBody} title={note.title} /> 
+                    )}
+                </NotesContainer>
             </StandardDiv>
         )
     }

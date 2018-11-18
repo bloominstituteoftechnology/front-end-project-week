@@ -2,12 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from './actions/index';
 import { withRouter } from 'react-router-dom';
+import { NoteButton, FullNoteContainer, NoteButtonContainer } from './StyledComponents';
+import DeleteModal from './DeleteModal';
 
 class FullNote extends React.Component {
     constructor(props){
         super(props);
         this.state={
             note: [],
+            delete: false,
         }
     }
 
@@ -18,24 +21,43 @@ class FullNote extends React.Component {
         })
     }
 
+    popup = (e) => {
+        e.preventDefault();
+        this.setState({
+            delete: !this.state.delete
+        })
+    }
+
+    closeForm = (e) => {
+        this.setState({
+            delete: !this.state.delete
+        })
+    }
+
+
     deleter = (e) => {
         this.props.deleteNote(this.state.note._id)
         setTimeout(()=>{this.props.history.push('/notes')}, 1000)
     }
 
     updateRoute = (e) => {
-        this.props.history.push(`/notes/edit/${this.state.note._id}`)
+        this.props.history.push(`/edit/${this.state.note._id}`)
     }
 
     render(){
         if(!this.state.note) return null;
         return(
-            <div>
-                <h3 onClick={this.updateRoute}>edit</h3>
-                <h3 onClick={this.deleter}>delete</h3>
+            <FullNoteContainer>
+                <NoteButtonContainer>
+                    <NoteButton onClick={this.updateRoute}>edit</NoteButton>
+                    <NoteButton onClick={this.popup}>delete</NoteButton>
+                </NoteButtonContainer>
                 <h2>{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>
-            </div>
+
+                {this.state.delete ? <DeleteModal delete={this.deleter} closeForm={this.closeForm} /> : null }
+
+            </FullNoteContainer>
         )
     }
 }

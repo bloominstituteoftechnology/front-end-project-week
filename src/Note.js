@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NoteDiv, NoteTitle, NoteParagraph } from './StyledComponents';
+import { NoteDiv } from './StyledComponents';
 
 const Note = (props) => {
     return(

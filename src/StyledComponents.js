@@ -29,6 +29,7 @@ export const SideBarButton = styled.button`
     margin-bottom: 20px;
     box-sizing: border-box;
     font-size: 1.4rem;
+    cursor: pointer;
 
     &:hover{
         border: 2px solid rgb(0, 187, 191);
@@ -79,7 +80,7 @@ export const FormTitle = styled.input`
     padding-left: 1%;
 `;
 
-export const FormText = styled.input`
+export const FormText = styled.textarea`
     width: 60vw;
     height: 35vh;
     margin-bottom: 15px;
@@ -101,6 +102,7 @@ export const SubmitButton = styled.button`
     margin-bottom: 20px;
     box-sizing: border-box;
     font-size: 1.4rem;
+    cursor: pointer;
 
     &:hover{
         border: 2px solid rgb(0, 187, 191);
@@ -186,6 +188,91 @@ export const NoteDiv = styled.div`
 `;
 
 
+//FULL NOTE
+
+export const NoteButton = styled.p`
+    color: black;
+    text-decoration: underline;
+    font-size: 1.4rem;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &:hover{
+        font-weight: bold;
+        color: rgb(0, 187, 191);
+    }
+`;
 
 
+export const NoteButtonContainer = styled.div`
+    align-self: flex-end;
+    display: flex;
+`;
 
+export const FullNoteContainer = styled.div`
+    display: flex;
+    height: 100vh;
+    width: 75%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 5%;
+    background-color: rgb(242, 241, 242);
+    flex-wrap: wrap;
+
+    h2{
+        font-weight: bold;
+        font-size: 2.6rem;
+    }
+
+    p{
+        font-size: 1.4rem;
+    }
+`;
+
+//DELETE MODAL
+
+export const DeleteModalBackground = styled.div`
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(30,30,30);
+    background-color: rgb(30,30,30,0.4);
+`;
+
+export const DeleteModalDiv = styled.div`
+    width: 50%;
+    border: 1px solid #888;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+`;
+
+export const ButtonWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
+export const ModalButtons = styled.div`
+    font-size: 1.6rem;
+    font-weight: bold;
+    width: 40%;
+    height: 5vh;
+    border: 1px solid darkgrey;
+    border-radius: 5px;
+    background: ${props=> props.primary ? "rgb(0, 187, 191)" : "rgb(218, 0, 0)"};
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover{
+        background-color: white;
+        border: 1px solid ${props=> props.primary ? "rgb(0, 187, 191)" : "rgb(218, 0, 0)"};
+        color: ${props=> props.primary ? "rgb(0, 187, 191)" : "rgb(218, 0, 0)"};
+    }
+`;
