@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #d8d8d8;
-   @media (max-width: 425px) {
+   @media (max-width: 500px) {
     width: 100%
   }
 `;
@@ -16,7 +16,7 @@ export const H1 = styled.h1`
   font-size: 2.5rem;
   text-align: center;
   padding: 10%;
-   @media (max-width: 425px) {
+   @media (max-width: 500px) {
     padding: 5%
   }
 `;
@@ -24,7 +24,7 @@ export const H1 = styled.h1`
 export const Button = styled.button`
   width: 100%;
   height: 60px;
-  margin: 5%;
+  margin-bottom: 10%;
   background-color: #dea6af;
   color: white;
   text-align: center;
@@ -32,7 +32,4 @@ export const Button = styled.button`
   &:hover {
     cursor: pointer;
   };
-   @media (max-width: 425px) {
-    margin: 10%;
-  }
 `;
