@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const port = 5000;
+// STRETCH add selectable data store local or heroku
 
 const server = express();
 server.use(express.json());
