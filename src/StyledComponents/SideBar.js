@@ -24,4 +24,7 @@ export const Button = styled.button`
   color: white;
   text-align: center;
   font-size: 2rem;
+  &:hover {
+    cursor: pointer;
+  };
 `;

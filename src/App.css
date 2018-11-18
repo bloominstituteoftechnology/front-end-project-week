@@ -110,16 +110,18 @@
   width: 80%;
 } */
 
-/* input tags */
+/* input tag */
 .note-title {
   height: 30px;
   width: 80%;
   margin-bottom: 20px;
+  padding-left: 5%;
 } 
 
 .note-text {
   height: 500px;
   width: 80%;
+  padding-left: 5%;
 } 
 
 
@@ -132,7 +134,6 @@
   display: flex;
   justify-content: flex-end;
 } */
-
 
 .edit {
   margin: 10px;
