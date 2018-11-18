@@ -14,7 +14,7 @@ class App extends Component {
         <SideBar />
         <Route exact path="/" component={Notes} />
         <Route path="/create" component={AddNote} />
-        <Route path={`/note`} component={OneNote} />
+        <Route path={`/note/:id`} component={OneNote} />
       </div>
     );
   }

@@ -11,13 +11,13 @@ export default class OneNote extends Component {
         super(props);
         this.state = {
             note: [],
-            title: 'Yo',
-            textBody: 'Yo Yo Yo'
+            // title: '',
+            // textBody: ''
         };
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id;
+        const id = this.props.match.params._id;
         // not sure if this id will be id or _id!
         this.fetchNote(id);
     }
@@ -26,6 +26,7 @@ export default class OneNote extends Component {
         axios
             .get(`${URL}/get/${id}`)
             .then(response => {
+                console.log(response);
                 this.setState(() => ({ note: response.data }));
             })
             .catch(error => {
@@ -45,8 +46,8 @@ export default class OneNote extends Component {
                         </Link>
                     </div>
                     <div className="note-view">
-                        <h2 className="your-notes">{this.state.title}</h2>
-                        <p>{this.state.textBody}</p>
+                        <h2 className="your-notes">{this.state.title} is state</h2>
+                        <p>{this.state.textBody} is state</p>
                     </div>
                 </div>
         );
