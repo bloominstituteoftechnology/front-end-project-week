@@ -7,12 +7,16 @@ export const MainDiv = styled.div `
   width: 250px;
   display: flex;
   flex-direction: column
-  align-items: center
+  padding-left: 20px;
+  position: fixed
+  top: 0
+  left: 0
 `
 
 export const Title = styled.h1 `
   font-size: 3rem;
   font-weight: bold;
+  text-align: left;
 `
 
 export const Button = styled.div `
@@ -27,5 +31,4 @@ export const Button = styled.div `
 export const StyledLink = styled(Link) `
 text-decoration: none
 color: white;
-text-align: center
 `

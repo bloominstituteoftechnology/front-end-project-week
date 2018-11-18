@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import {Title, Button, MainDiv, StyledLink} from './styled'
 
 export default function () {
   return (
     <MainDiv>
-      <Title>Lambda Notes</Title>
+      <Title>Lambda <br /> Notes</Title>
       <Button>
         <StyledLink to={'/'}>View your Notes</StyledLink>
       </Button>
