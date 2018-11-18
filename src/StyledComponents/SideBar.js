@@ -9,7 +9,6 @@ export const Container = styled.div`
   background-color: #d8d8d8;
 `;
 export const H1 = styled.h1`
-  color: #4a4a4a;
   font-weight: 900;
   font-size: 2.5rem;
   text-align: center;

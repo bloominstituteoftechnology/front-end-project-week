@@ -17,6 +17,11 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+    h3 {
+    font-weight: 900;
+    font-size: 2.5rem;
+    padding: 5%;
+  };
 `;
 
 export const Button = styled.button`
