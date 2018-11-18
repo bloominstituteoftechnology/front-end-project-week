@@ -9,6 +9,7 @@ export const Container = styled.div`
   h1 {
     padding: 5%;
     font-size: 3rem;
+    font-weight: 900;
   }
 `;
 
@@ -23,6 +24,7 @@ export const Note = styled.div`
  h3 {
     padding: 5%;
     border-bottom: 2px solid gray;
+    font-weight: 900;
   };
   div {
     padding: 5%;
