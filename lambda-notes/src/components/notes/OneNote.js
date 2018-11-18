@@ -10,7 +10,7 @@ export default class OneNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: [],
+            note: []
             // title: '',
             // textBody: ''
         };
