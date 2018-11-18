@@ -4,6 +4,7 @@ import ListView from './ListView.js'
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 import NoteView from './NoteView.js'
+import CreateNote from './CreateNote.js'
 
 const MainContentContainer = styled.div`
     display: table-cell;
@@ -77,6 +78,10 @@ class MainContent extends Component {
             .catch(err => console.log(err));
     }
 
+    addNote = response => {
+        window.location.reload();
+    }
+
     render() {
         return (
             <MainContentContainer>
@@ -91,6 +96,12 @@ class MainContent extends Component {
                     path={`/notes/:id`}
                     render={props =>
                         <NoteView {...props}/>
+                    }
+                />
+                <Route
+                    path={`/create`}
+                    render={props =>
+                        <CreateNote {...props} addNote={this.addNote}/>
                     }
                 />
             </MainContentContainer>

@@ -30,9 +30,11 @@ const NoteTitle = styled.h2`
     font-weight: bold;
 `
 
-const NoteBody = styled.p`
+const NoteBody = styled.div`
     font-size: 0.9rem;
     line-height: 1.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 class NoteView extends Component {
