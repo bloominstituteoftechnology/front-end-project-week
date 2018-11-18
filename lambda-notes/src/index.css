@@ -46,15 +46,15 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-html{
+html {
 	font-size:62.5%;
 }
-.app{
+.app {
 	max-width: 900px;
 	display: flex;
 	
 }
-.sidebar-links{
+.sidebar-links {
 	width:25%;
 	background-color:#D2D2D2;
 	border:1px solid gray;
@@ -63,12 +63,12 @@ html{
 	
 	
 }
-.content{
+.content {
 	width:74%;
 	background-color: #F1F1F1;
 	border:1px solid gray;
 }
-.link{
+.link {
 	background-color:#25BBBD;
 	color:white;
 	font-size:1.6rem;
@@ -80,18 +80,16 @@ html{
 	width:170px;
 	text-align: center;
 }
-.fullscreen{
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  background-color: rgba(216, 216, 216, 0.7);
-  
+.fullscreen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background-color: rgba(216, 216, 216, 0.7);
 }
-.delete{
+.delete {
 	width:400px;
 	padding:30px;
 	margin: 0px auto;
@@ -104,44 +102,43 @@ html{
 }
 .hidden{
 	display:none;
-	
 }
 .deletepara{
 	margin-bottom:15px;
 }
 .button1{
-background-color:#CE0120;
-color:white;
-padding:10px;
-cursor: pointer;
-width:150px;
-margin-right:10px;
-display: inline-block
+	background-color:#CE0120;
+	color:white;
+	padding:10px;
+	cursor: pointer;
+	width:150px;
+	margin-right:10px;
+	display: inline-block
 }
 .button2{
-background-color:#26B5C4;
-cursor: pointer;
-color:white;
-padding:10px;
-width:150px;
-display: inline-block
+	background-color:#26B5C4;
+	cursor: pointer;
+	color:white;
+	padding:10px;
+	width:150px;
+	display: inline-block
 }
 .navlink{
-width:80%;
-padding:10px;
+	width:80%;
+	padding:10px;
 }
 .notelink{
 	color:black;
 	text-decoration: none;
 }
 h1{
-font-size:3.6rem;
-margin-left:10px;
-margin-top:10px;
-font-weight: bold;
+	font-size:3.6rem;
+	margin-left:10px;
+	margin-top:10px;
+	font-weight: bold;
 }
 h2{
-font-size:2.4rem;
+	font-size:2.4rem;
 }
 
 .noteheadline{
@@ -181,7 +178,7 @@ font-size:2.4rem;
 	margin-top:50px;
 	
 }
-.notePreview{
+.notePreview {
 	border:1px solid gray ;
 	width:26%;
 	height:200px;
@@ -191,46 +188,42 @@ font-size:2.4rem;
 	margin-bottom:10px;
 	font-size:1.8rem;	
 	background-color: white;
-    	
-	}
-	.note{
-	
-	}
-.notelist-note{
+}
+
+.notelist-note {
 	line-height: 1.6;
 	font-size:1.4rem
 
 }
-.heading{
-	
+.heading {
 	border-bottom: 1px solid gray;
 	margin-bottom: 10px;
 	padding-bottom:10px;
 	font-size:1.8rem;
 	font-weight: bold;
 }
-.navbar{
+.navbar {
 	text-align: end;
 	margin-bottom:10px;
 }
-.edit-delete{
+.edit-delete {
 	text-decoration: underline;
 	color: black;
 	font-size:1.4rem;
 	cursor: pointer;
 }
-span{
+span {
 	padding-left:10px;
 }
-.notecard{
+.notecard {
 	margin-top:15px;
 	height:100vh;
 }
-h3{
+h3 {
 	font-size:2.4rem;
 	margin-top:20px;
 }
-.notepara{
+.notepara {
 	line-height: 1.6;
 	font-size:1.4rem;
 	margin-top:15px;

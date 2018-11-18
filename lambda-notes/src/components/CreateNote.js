@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import '../index.css';
 
 class CreateNote extends Component {
@@ -41,7 +40,6 @@ class CreateNote extends Component {
             name="textBody"
             onChange={this.handleInputChange}
             placeholder="Note Content"
-
           >
           </textarea><br/>
           <button className="link"  type="submit">Save</button>

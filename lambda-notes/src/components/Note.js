@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../index.css';
 const Note = props => {
-  console.log(props)
   return (
     <NavLink className="notelink" to={`/notes/${props.id}`}>
       <div className="notelist-note">

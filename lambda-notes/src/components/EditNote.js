@@ -7,7 +7,6 @@ class EditNote extends Component {
     this.state = {
       title: '',
       textBody: '',
-
     };
   }
   componentDidMount() {
@@ -16,11 +15,8 @@ class EditNote extends Component {
     this.setState({
       title:note.title,
       textBody:note.textBody,
-      
-
     })
-    
-  }
+}
   editNote = event => {
     event.preventDefault();
     const id = this.props.match.params.id;
