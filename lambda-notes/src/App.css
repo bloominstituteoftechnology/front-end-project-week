@@ -85,12 +85,14 @@
 .notesSingle {
   height: 2000px;
   display: flex;
+  position: fixed;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
   padding: 20px;
-  background-color: white
+  background-color: white;
+  z-index: 0;
 }
 p {
   height: 200px;
@@ -151,6 +153,27 @@ textarea {
   flex-direction: column;
 }
 
-.single {
+.button {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  justify-content: space-around;
+  color: black;
+}
 
+
+h5:hover {
+  text-decoration: underline;
+  color: #24B8BD;
+  cursor: pointer;
+}
+
+.delete {
+  display: flex;
+  position: fixed;
+  width: 300px;
+  height: 200px;
+  background-color: orange;
+  z-index: 1;
 }

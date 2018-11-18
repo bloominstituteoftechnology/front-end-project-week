@@ -29,7 +29,7 @@ class NewNote extends Component {
             axios.post('https://fe-notes.herokuapp.com/note/create', {title,textBody})
             .then( response => this.setState({notes: response.data}))
             .catch(err => console.log(err))
-            }
+          }
 
     render() {
 

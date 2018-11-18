@@ -51,15 +51,16 @@ class App extends Component {
 
 
 
-  // clickForAllHandler = () => {
-  //   this.setState ({
-  //     allNotes: true,
-  //     newNote: false,
-  //     fullNote: false,
-  //     updateNote: false,
-  //     deleteNote: false,})
-  // }
-  
+  clickForAllHandler = () => {
+        window.location.reload();
+
+    this.setState ({
+      allNotes: true,
+      newNote: false,
+      fullNote: false,
+      updateNote: false,
+      deleteNote: false,})
+  }
 
   render() {
     return (

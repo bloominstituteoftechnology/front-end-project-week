@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
 import '../App.css'
 import axios from 'axios';
+import DeleteModal from './DeleteModal'
+
 class SingleNote extends Component {
     constructor(props) {
         super(props);
         this.state= {
             note: [],
+            delete: false,
         };
     }
 
@@ -22,11 +25,18 @@ class SingleNote extends Component {
     render(){
         console.log(this.state.note)
     return (
+        <div>
+        <DeleteModal />
         <div className='notesSingle'>
+            <div className='button'>
+                <h5>edit</h5>
+                <h5>delete</h5>
+            </div>
             <h3>{this.state.note.title}</h3>
             <div className='line'></div>
             <p>{this.state.note.textBody}</p>
 
+        </div>
         </div>
     )
 }
