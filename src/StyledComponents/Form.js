@@ -1,26 +1,30 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 25%;
-  height: auto;
-  border: 5px solid black;
+  width: 100%;
+  height: 100%;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  h3 {
+    padding: 5%;
+  };
+`;
+
+export const FormWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #d8d8d8;
-`;
-export const H1 = styled.h1`
-  color: #4a4a4a;
-  font-weight: 900;
-  text-align: center;
-  padding: 10%;
 `;
 
 export const Button = styled.button`
-  width: 100%;
+  width: 200px;
   height: 60px;
+  margin: 20px;
   background-color: #dea6af;
   color: white;
   text-align: center;
   font-size: 2rem;
-`;
+ `;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
 import { Link } from 'react-router-dom';
+import { Container, FormWrapper, Button } from '../StyledComponents/Form'
 
 class NoteForm extends Component {
   state = {
@@ -27,32 +28,19 @@ class NoteForm extends Component {
 
   render() {
     return (
-      <div className="single-note" style={{width: '100%', height: '100%', border: '5px solid pink', display: 'flex', flexDirection: 'column', justifyContent: 'center', aligntItems: 'center'}}>
-        <h3>Create New Note:</h3>
-        <input
-          className="note-title"
-          type="text"
-          placeholder="note title"
-          onChange={this.handleNoteInput}
-          name="title"
-          value={this.state.title}
-        />
-        <input
-          className="note-text"
-          type="text"
-          placeholder="note text"
-          onChange={this.handleNoteInput}
-          name="textBody"
-          value={this.state.textBody}
-        />
-        <Link to="/">
-          <button className="save-button" onClick={() => this.handleSubmit()}>
-            Save
-          </button>
-        </Link>
-      </div>
-    );
-  }
+      <Container>
+        <FormWrapper>
+          <h3>Create New Note:</h3>
+          <input className="note-title" type="text" placeholder="note title" onChange={this.handleNoteInput} name="title" value={this.state.title} />
+          <input className="note-text" type="text" placeholder="note text" onChange={this.handleNoteInput} name="textBody" value={this.state.textBody} />
+          <Link to="/">
+            <Button onClick={() => this.handleSubmit()}>
+              Save
+            </Button>
+          </Link>
+        </FormWrapper>
+      </Container>
+    )}
 }
 // pass in anonmyous function
 export default connect(

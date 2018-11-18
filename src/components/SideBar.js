@@ -10,7 +10,7 @@ export default () => (
       <Button>View Your Notes</Button>
     </Link>
     <Link to="/new">
-      <Button>+ Create New Note</Button>
+      <Button>Create New Note</Button>
     </Link>
   </Container>
   // </div>

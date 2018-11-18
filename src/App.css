@@ -67,7 +67,7 @@
   font-weight: heavy;
 } */
 
-.save-button {
+/* .save-button {
   width: 200px;
   height: 60px;
   margin-top: 20px;
@@ -75,7 +75,7 @@
   color: white;
   font-size: 2rem;
   font-weight: heavy;
-}
+} */
 
 /* h2 {
   font-family: Roboto Bold;
@@ -83,21 +83,18 @@
   width: 800px;
   text-align: center;
 } */
-.home {
-  text-align: center;
-}
 
+/* 
 .notes {
   display: flex;
   flex-wrap: wrap;
   text-decoration: none;
-}
+} */
 
 .cards {
   width: 200px;
   height: 200px;
   border: 2px solid #979797;
-  font-family: 'Raleway Medium';
   background-color: white;
   text-decoration: none;
   padding: 20px;
@@ -109,9 +106,9 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
- .single-note {
+ /* .single-note {
   width: 80%;
-}
+} */
 
 .note-title {
   height: 30px;
@@ -124,9 +121,11 @@
   width: 80%;
 } 
 
-.notes-text {
+
+/* .notes-text {
   overflow: auto;
-} 
+  // from notes.js
+}  */
 
 .edit-links {
   display: flex;

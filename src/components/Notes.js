@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Container, NotesWrapper, Note } from '../StyledComponents/Notes';
 
 class Notes extends Component {
   render() {
     return (
-      <div className="home" style={{border: '5px solid pink', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-        <h2>Your Notes:</h2>
-        <div className="notes" style={{border: '5px solid red', display: 'flex', justifyContent: 'center'}}>
+      <Container>
+        <h1>Your Notes:</h1>
+        <NotesWrapper>
           {this.props.notes.map((note) => (
             <Link
               className="cards"
@@ -14,14 +15,14 @@ class Notes extends Component {
               key={Math.random()}
             >
               {/* passing state down with the link to the route on App.js */}
-              <div>
+              <Note>
                 <h3>{note.title}</h3>
-                <div className="notes-text">{note.textBody}</div>
-              </div>
+                <div>{note.textBody}</div>
+              </Note>
             </Link>
           ))}
-        </div>
-      </div>
+        </NotesWrapper>
+      </Container>
     );
   }
 }
