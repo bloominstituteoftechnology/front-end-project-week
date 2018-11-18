@@ -17,8 +17,8 @@ export default class OneNote extends Component {
     }
 
     componentDidMount() {
-        const id = this.props.match.params._id;
-        // not sure if this id will be id or _id!
+        const id = this.props.match.params.id;
+        // not sure if this id will be id or _id! Boom! It's id becuase it's built into React (not the _id of the server).
         this.fetchNote(id);
     }
 
@@ -46,8 +46,8 @@ export default class OneNote extends Component {
                         </Link>
                     </div>
                     <div className="note-view">
-                        <h2 className="your-notes">{this.state.title} is state</h2>
-                        <p>{this.state.textBody} is state</p>
+                        <h2 className="your-notes">{this.state.note.title}</h2>
+                        <p>{this.state.note.textBody}</p>
                     </div>
                 </div>
         );
