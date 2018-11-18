@@ -114,6 +114,48 @@ body {
 .note-card:nth-child(3) {
   margin-right: 0px;
 }
+.add-edit-note {
+  box-sizing: border-box;
+  padding: 90px 46px 90px 46px;
+}
+.add-edit-note .title {
+  margin-bottom: 48px;
+}
+.add-edit-note .title-input {
+  width: 548px;
+  height: 60px;
+  background-color: white;
+  border: 2px solid #d3d2d3;
+  border-radius: 3px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 1.1rem;
+  font-family: arial;
+}
+.add-edit-note .text-input {
+  width: 100%;
+  height: 530px;
+  background-color: white;
+  border: 2px solid #d3d2d3;
+  border-radius: 4px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  padding: 30px;
+  font-size: 1.1rem;
+  font-family: arial;
+}
+.add-edit-note .button {
+  width: 295px;
+  height: 65px;
+  background-color: #24b8bd;
+  border: 1px solid #afafaf;
+  font-family: helvetica;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
 /*MODAL*/
 .modal-container {
   height: 100vh;
