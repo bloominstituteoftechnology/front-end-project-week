@@ -12,7 +12,7 @@ class Note extends Component {
             <NoteStyles>
               
                <div className="note">
-                <h3>Note Title</h3>
+                <h3>{this.props.note.title}</h3>
                 {this.props.note.textBody}
                </div>
             </NoteStyles>   

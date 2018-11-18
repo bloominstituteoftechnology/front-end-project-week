@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Input = styled.input`
   padding: 0.5em;
   margin: 0.5em;
+  margin-left:0px;
   color: ${props => props.inputColor || "palevioletred"};
   background: papayawhip;
   border: none;
