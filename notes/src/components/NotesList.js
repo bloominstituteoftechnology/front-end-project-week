@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'axios
+import { connect } from 'react-redux'
 
 import { getNotes } from '../actions/notesActions'
-import Notes from './Note'
+import Note from './Note'
 
 class NotesList extends Component {
   constructor(props){
