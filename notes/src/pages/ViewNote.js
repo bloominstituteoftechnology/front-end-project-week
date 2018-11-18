@@ -32,17 +32,24 @@ class ViewNote extends Component {
             <div>
                 {this.state.note ? ( //only display note after note is set to state, otherwise display error message
                     <div>
-                        <div id="delete-modal" className="hidden">
-                            <p>Are you sure you want to delete this?</p>
-                            <button onClick={this.handleDelete}>Delete</button>
-                            <button onClick={this.handleModal}>Cancel</button>
+                        <div id="delete-modal" className="hidden modal-container">
+                            <div className="modal">
+                                <p className="view-note-body-font">Are you sure you want to delete this?</p>
+                                <div className="button-container">
+                                    <button className="button red" onClick={this.handleDelete}>Delete</button>
+                                    <button className="button" onClick={this.handleModal}>Cancel</button>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <Link to={`/view/${this.state.id}/edit`}>Edit</Link>
-                            <a href="##" onClick={this.handleModal}>Delete</a>
+
+                        <div className="view-note">
+                            <div className="link-container">
+                                <Link className="link-font" to={`/view/${this.state.id}/edit`}>edit</Link>
+                                <a className="link-font" href="##" onClick={this.handleModal}>delete</a>
+                            </div>
+                            <h3 className="subtitle-font title">{this.state.note.title}</h3>
+                            <p className="view-note-body-font">{this.state.note.text}</p>
                         </div>
-                        <h3>{this.state.note.title}</h3>
-                        <p>{this.state.note.text}</p>
                     </div>
                 ) : "Note not found."}
             </div>
