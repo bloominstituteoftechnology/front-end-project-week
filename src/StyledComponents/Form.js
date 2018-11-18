@@ -36,3 +36,17 @@ export const Button = styled.button`
     cursor: pointer;
   };
  `;
+
+ export const InputTitle = styled.input`
+  height: 30px;
+  width: 80%;
+  margin-bottom: 20px;
+  padding-left: 5%;
+  font-size: 2rem;
+ `
+ export const InputText = styled.input`
+  height: 500px;
+  width: 80%;
+  padding-left: 5%;
+  font-size: 2rem;
+ `

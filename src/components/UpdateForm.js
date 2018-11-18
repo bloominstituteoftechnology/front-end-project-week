@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateNote } from '../actions';
-import { Container, FormWrapper, Button } from '../StyledComponents/Form';
+import { Container, FormWrapper, Button, InputTitle, InputText } from '../StyledComponents/Form';
 
 class UpdateForm extends Component {
   constructor(props) {
@@ -32,8 +32,8 @@ class UpdateForm extends Component {
       <Container>
         <FormWrapper>
           <h3>Edit Note:</h3>
-          <input className="note-title" type="text" onChange={this.updateHandler} name="title" value={this.state.title} placeholder="edit title" />
-          <input className="note-text" type="text" onChange={this.updateHandler} name="textBody" value={this.state.textBody} placeholder="edit textbody" />
+          <InputTitle type="text" onChange={this.updateHandler} name="title" value={this.state.title} placeholder="edit title" />
+          <InputText type="text" onChange={this.updateHandler} name="textBody" value={this.state.textBody} placeholder="edit textbody" />
           <Link to="/">
             <Button onClick={() => this.handleUpdateSubmit()}>
               Update

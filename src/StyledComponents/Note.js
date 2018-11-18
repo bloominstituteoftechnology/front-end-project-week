@@ -15,7 +15,14 @@ export const NoteWrapper = styled.div`
     font-weight: 900;
     font-size: 2.5rem;
     padding: 5%;
-  }
+  };
+  div {
+    height: 30px;
+    width: 80%;
+    margin-bottom: 20px;
+    padding-left: 5%;
+    font-size: 2rem;
+  };
 `
 
 export const EditLinks = styled.div`
