@@ -1,22 +1,24 @@
 import React, {Component} from 'react'
+import {NotesContext} from '../contexts/NotesProvider'
 
 class CreateNote extends Component{
   constructor(){
     super()
     this.state = {
       title: '',
-      content: ''
+      content: '',
+      newNote: ''
     }
   }
 
   changeHandler = (e) =>{
-    // console.log('inputbox change', e.target.value)
-    // console.log(this.state);
     this.setState({
-      [e.target.name]: e.target.value
-
+      [e.target.name]: e.target.value,
+    }, () =>{
+      this.setState({
+        newNote: {title: this.state.title, textBody: this.state.content}
+      })
     })
-    console.log(this.state);
   }
 
   render(){
@@ -34,7 +36,13 @@ class CreateNote extends Component{
           name="content"
           placeholder="Note Content" 
           onChange={this.changeHandler}/>
-        <button className="createBtn">Save</button>
+        <NotesContext.Consumer>
+          {data=>{
+            return <button 
+              className="createBtn"
+              onClick={() =>{data.actions.createNote(this.state.newNote)}}>Save</button>
+          }}
+        </NotesContext.Consumer>
       </div>
     )
   }

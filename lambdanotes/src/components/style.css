@@ -54,18 +54,21 @@
     border: 1px solid #414141;
     padding: 0 4%;
     margin-bottom: 20px;
+    color: #414141;
 }
 
 .noteCard h3 {
     margin-bottom: 5px;
+    height: 47px;
 }
 .noteCard p {
     font-size: 1.0em;
 }
 hr {
-    color: black;
-    height: 5;
     width: 100%;
+    height: .5px;
+    background: #414141;
+    opacity: .4;
 }
 
 

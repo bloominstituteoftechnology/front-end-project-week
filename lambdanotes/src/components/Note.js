@@ -1,13 +1,14 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './style.css'
 
 const Note = ({note})=> {
   return (
-    <div className="noteCard">
-        <h3>{note.title}</h3>
-        <hr/>
-        <p>{note.textBody}</p>
-    </div>
+    <Link to="/note" style={{textDecoration:"none"}} className="noteCard">
+          <h3>{note.title}</h3>
+          <hr/>
+          <p>{note.textBody}</p>
+    </Link>
   )
 }
 

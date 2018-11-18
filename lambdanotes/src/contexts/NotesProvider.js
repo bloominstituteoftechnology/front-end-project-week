@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {withRouter} from 'react-router-dom'
 import axios from 'axios'
 
 export const NotesContext = React.createContext({})  //contextAPI
@@ -18,7 +19,7 @@ class NotesProvider extends Component{
         axios.get('https://fe-notes.herokuapp.com/note/get/all')
             .then((response) => {
                 this.setState({ 
-                    notes: response.data,
+                    notes: [...this.state.notes, response.data][0],
                     loading: false,
                     error: null
                 })
@@ -32,25 +33,28 @@ class NotesProvider extends Component{
     }
 
     //*********.POST - Add note to notes array**************** */
-    // createNote = () =>{
-    //     this.setState({loading: true})
-    //     axios.post('https://fe-notes.herokuapp.com/note/create')
-    //     .then((response) => {
-    //         this.setState({ 
-    //             notes: response.data,
-    //             loading: false,
-    //             error: null,
-    //             status: 'view'
-    //         })
-    //     })
-    //     .catch(err => {
-    //         this.setState({
-    //             loading: false,
-    //             error: "Unable to load the notes, please try again.",
-    //             status: null
-    //         })
-    //     })
-    // }
+    createNote = (newNote) =>{
+        this.setState({loading: true})
+        axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
+        .then((response) => {
+            axios.get(`https://fe-notes.herokuapp.com/note/get/${response.data.success}`)
+                .then((response) => {
+                    this.setState({ 
+                        notes: [...this.state.notes, response.data],
+                        loading: false,
+                        error: null
+                })
+                this.props.history.push('/')
+            })
+            
+        })
+        .catch(err => {
+            this.setState({
+                loading: false,
+                error: "Unable to load the notes, please try again.",
+            })
+        })
+    }
 
     render(){
         return (
@@ -72,4 +76,4 @@ class NotesProvider extends Component{
     }
 }
 
-export default NotesProvider
+export default withRouter(NotesProvider)
