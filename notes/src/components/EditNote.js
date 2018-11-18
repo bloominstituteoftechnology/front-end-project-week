@@ -4,7 +4,6 @@ export default class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tags: [],
       _id: null,
       title: '',
       textBody: '',
@@ -18,18 +17,31 @@ export default class EditNote extends Component {
     this.setState(note);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.title === '' ||
+      this.props.match.params.id !== prevProps.match.params.id
+    ) {
+      const note = this.props.notes.find(
+        note => `${note._id}` === this.props.match.params.id
+      );
+      this.setState(note);
+    }
+  }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit({
-      tags: this.state.tags,
-      _id: this.state._id,
-      title: this.state.title,
-      textBody: this.state.textBody,
-    });
+    this.props.onSubmit(
+      {
+        title: this.state.title,
+        textBody: this.state.textBody,
+      },
+      this.state._id
+    );
     this.props.history.push('/');
   };
 

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 import Notes from './components/Notes';
+import ViewNote from './components/ViewNote';
 import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
 import './App.css';
@@ -10,54 +12,36 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        {
-          tags: [],
-          _id: 0,
-          title: 'Note Title #1',
-          textBody: `Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus
-             diam metus, blandit ac purus a, efficitur mollis ...`,
-        },
-        {
-          tags: [],
-          _id: 1,
-          title: 'Note Title #2',
-          textBody: `Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus
-             diam metus, blandit ac purus a, efficitur mollis ...`,
-        },
-        {
-          tags: [],
-          _id: 2,
-          title: 'Note Title #3',
-          textBody: `Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus
-             diam metus, blandit ac purus a, efficitur mollis ...`,
-        },
-        {
-          tags: [],
-          _id: 3,
-          title: 'Note Title #4',
-          textBody: `Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus
-             diam metus, blandit ac purus a, efficitur mollis ...`,
-        },
-      ],
+      notes: [],
     };
   }
 
+  componentDidMount() {
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(response => this.setState({ notes: response.data }))
+      .catch(err => console.log(err));
+  }
+
   handleSubmit = note => {
-    this.setState(prevState => ({
-      notes: [note, ...prevState.notes],
-    }));
+    axios
+      .post('https://fe-notes.herokuapp.com/note/create', note)
+      .then(() => this.updateNotes())
+      .catch(err => console.log(err));
   };
 
-  editNote = note => {
-    let newNotes = this.state.notes.slice();
-    newNotes = newNotes.map(oldNote => {
-      if (oldNote._id === note._id) {
-        return note;
-      }
-      return oldNote;
-    });
-    this.setState({ notes: newNotes });
+  editNote = (note, id) => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+      .then(() => this.updateNotes())
+      .catch(err => console.log(err));
+  };
+
+  updateNotes = () => {
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(response => this.setState({ notes: response.data }))
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -72,8 +56,14 @@ export default class App extends Component {
           render={() => <Notes notes={this.state.notes} />}
         />
         <Route
+          path="/view/:id"
+          render={props => <ViewNote {...props} notes={this.state.notes} />}
+        />
+        <Route
           path="/create"
-          render={() => <CreateNote onSubmit={this.handleSubmit} />}
+          render={props => (
+            <CreateNote {...props} onSubmit={this.handleSubmit} />
+          )}
         />
         <Route
           path="/edit/:id"

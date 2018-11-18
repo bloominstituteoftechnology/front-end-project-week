@@ -17,6 +17,7 @@ export default class CreateNote extends Component {
     e.preventDefault();
     this.props.onSubmit(this.state);
     this.setState({ title: '', textBody: '' });
+    this.props.history.push('/');
   };
 
   render() {
