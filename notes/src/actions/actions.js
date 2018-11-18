@@ -7,8 +7,25 @@ export const ERROR = 'ERROR';
 export const ADDED = 'ADDED';
 export const UPDATED = 'UPDATED';
 export const DELETED = 'DELETED';
+export const ADD_TAG = 'ADD_TAG';
+export const ADD_TAG_TO_TAGS = 'ADD_TAG_TO_TAGS';
+export const ADD_TAGS_TO_NOTE = 'ADD_TAGS_TO_NOTE';
 
 const url = 'https://fe-notes.herokuapp.com/note'
+
+export const addTag = tag => dispatch => {
+    dispatch({type: ADD_TAG, payload: tag, id: Date.now()});
+
+}
+
+export const addTagToTags = () => dispatch => {
+    dispatch({type: ADD_TAG_TO_TAGS});
+}
+
+export const addTagsToNote = (id) => dispatch => {
+    dispatch({type: ADD_TAGS_TO_NOTE, payload: id});
+}
+
  export const fetchNotes = () => dispatch => {
     dispatch({ type: FETCHING });
     axios
@@ -16,6 +33,9 @@ const url = 'https://fe-notes.herokuapp.com/note'
         .then(response => {
             dispatch({ type: FETCHALL, payload: response.data });
         })
+        // .then(response => {
+        //     dispatch({type: ADD_TAGS_TO_NOTE, payload: id});
+        // })
         .catch(error => {
             dispatch({ type: ERROR, payload: error });
         });
@@ -27,6 +47,9 @@ const url = 'https://fe-notes.herokuapp.com/note'
         .then(response => {
             dispatch({ type: FETCHONE, payload: response.data });
         })
+        .then(response => {
+            dispatch({type: ADD_TAGS_TO_NOTE, payload: id});
+        })
         .catch(error => {
             dispatch({ type: ERROR, payload: error });
         });
@@ -37,6 +60,9 @@ const url = 'https://fe-notes.herokuapp.com/note'
         .then(response => {
             dispatch({ type: ADDED, payload: response.data });
         })
+        // .then(response => {
+        //     dispatch({type: ADD_TAGS_TO_NOTE});
+        // })
         .catch(error => {
             dispatch({ type: ERROR, payload: error });
         });

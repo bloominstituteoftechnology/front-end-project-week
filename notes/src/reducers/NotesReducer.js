@@ -5,7 +5,10 @@ import {
   ADDED,
   UPDATED,
   DELETED,
-  ERROR
+  ERROR,
+  ADD_TAG,
+  ADD_TAG_TO_TAGS,
+  ADD_TAGS_TO_NOTE
 } from "../actions/actions";
 
 const initialState = {
@@ -13,7 +16,9 @@ const initialState = {
   notes: [],
   note: {},
   newNote: "",
-  error: null
+  error: null,
+  tags: [],
+  tag: {}
 };
 
 export default (state = initialState, action) => {
@@ -24,7 +29,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         fetching: false,
-        notes: [...action.payload]
+        notes: [...action.payload],
       };
     case FETCHONE:
       return {
@@ -42,7 +47,8 @@ export default (state = initialState, action) => {
         ...state,
         notes: state.notes.map(note => {
           return note._id === action.payload._id ? action.payload : note;
-        })
+        }),
+        tags: []
       };
     case DELETED:
       return {
@@ -54,6 +60,24 @@ export default (state = initialState, action) => {
         fetching: false,
         error: action.payload
       };
+    case ADD_TAG:
+      return {
+        ...state,
+        tag: {tagText: action.payload, id: action.id}
+      }
+    case ADD_TAG_TO_TAGS:
+      return {
+          ...state,
+          tags: [...state.tags, state.tag]
+      }
+    case ADD_TAGS_TO_NOTE:
+      return {
+          ...state,
+          notes: state.notes.map(note => {
+              return note._id === action.payload ? {...note, tags: state.tags} : note;
+          }),
+          tag: ""
+      }
     default:
       return state;
   }

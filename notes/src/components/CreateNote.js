@@ -2,7 +2,14 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { fetchNotes, addNote } from "../actions/actions";
+import {
+  fetchNotes,
+  fetchNote,
+  addNote,
+  addTag,
+  addTagToTags,
+  addTagsToNote
+} from "../actions/actions";
 
 import "../styles/App.css";
 import "../styles/Sidebar.css";
@@ -15,7 +22,6 @@ class CreateNote extends React.Component {
       title: "",
       textBody: "",
       added: false,
-      tags: [],
       tag: ""
     };
   }
@@ -29,23 +35,28 @@ class CreateNote extends React.Component {
     this.props
       .addNote({
         title: this.state.title,
-        textBody: this.state.textBody,
-        tags: this.state.tags
+        textBody: this.state.textBody
       })
-      .then(() => this.props.fetchNotes());
-    this.setState({
-      title: "",
-      textBody: "",
-      tags: [],
-      tag: "",
-      added: true
-    });
+      // .then(() => this.props.fetchNotes())
+      // .then(() => this.props.addTagsToNote(this.props.newNote))
+      .then(() => this.props.fetchNotes())
+      .then(() => this.props.fetchNote(this.props.newNote))
+      .then(() =>
+        this.setState({
+          title: "",
+          textBody: "",
+          tag: "",
+          added: true
+        })
+      );
   };
 
   newTagHandler = () => {
-   this.setState({tags: [...this.state.tags, this.state.tag]})
-   this.setState({tag: ""})
-  //  .then(() => this.props.fetchNotes());
+    //  this.setState({tags: [...this.state.tags, this.state.tag]})
+    //  this.setState({tag: ""})
+    this.props.addTag(this.state.tag);
+    this.props.addTagToTags();
+    this.setState({ tag: "" });
   };
 
   render() {
@@ -70,35 +81,35 @@ class CreateNote extends React.Component {
             onChange={this.inputChange}
             placeholder="Note Content"
           />
-          
 
           <button type="submit" className="sidebarButton createButton">
             Save
           </button>
         </form>
-        
+
         <div className="tagInput">
           <div className="inputBox">
             <input
-            type="text"
-            name="tag"
-            value={this.state.tag}
-            onChange={this.inputChange}
-            placeholder="Note Tag"
-          />
-          <button
-            className="sidebarButton createButton"
-            onClick={this.newTagHandler}
-          >
-            Add New Tag
-          </button>
+              type="text"
+              name="tag"
+              value={this.state.tag}
+              onChange={this.inputChange}
+              placeholder="Note Tag"
+            />
+            <button
+              className="sidebarButton createButton"
+              onClick={this.newTagHandler}
+            >
+              Add New Tag
+            </button>
           </div>
         </div>
-          <div>
+        <div>
           <h3>Tags:</h3>
-          {this.state.tags.map(tag => <span key={Date.now()}>{`#${tag},`}</span>)}
-          </div>
-        
+          {this.props.tags.map(tag => (
+            <span key={tag.id}>{`#${tag.tagText},`}</span>
+          ))}
+        </div>
       </div>
     );
   }
@@ -106,10 +117,14 @@ class CreateNote extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    tags: state.tags,
+    tag: state.tag,
+    newNote: state.newNote,
+    note: state.note
   };
 };
 export default connect(
   mapStateToProps,
-  { fetchNotes, addNote }
+  { fetchNotes, fetchNote, addNote, addTag, addTagToTags, addTagsToNote }
 )(CreateNote);
