@@ -110,6 +110,7 @@
   width: 80%;
 } */
 
+/* input tags */
 .note-title {
   height: 30px;
   width: 80%;
@@ -127,10 +128,11 @@
   // from notes.js
 }  */
 
-.edit-links {
+/* .edit-links {
   display: flex;
   justify-content: flex-end;
-}
+} */
+
 
 .edit {
   margin: 10px;

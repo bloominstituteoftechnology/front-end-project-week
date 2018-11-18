@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
    width: 100%;
+   max-width: 1000px;
    min-height: 100vh;
    margin: 0 auto;
    font-size: 2rem;
 `
 export const Wrapper = styled.div`
   width: 100%;
-  border: 5px solid purple;
   display: flex;
 `;
 
