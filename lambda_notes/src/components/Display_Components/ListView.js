@@ -23,7 +23,6 @@ class ListView extends Component {
             notes: res.data,
             })
         })
-
         .catch( err => {
             throw new Error(err);
         })

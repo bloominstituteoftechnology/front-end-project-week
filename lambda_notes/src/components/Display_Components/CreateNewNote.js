@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import PropTypes from 'prop-types'
-import {noteTitle} from '../Styles/CreateNoteStyle';
+import { noteTitle } from '../Styles/CreateNoteStyle';
 
 class CreateNewNote extends Component {
     constructor(props) {
@@ -20,13 +20,18 @@ class CreateNewNote extends Component {
 
  submitHandler = (e) => {
     e.preventDefault();
+    
     this.newNote(this.state);
  }
 
 
  componentDidMount() {
+    
 
-  const newNote = (note) => {  
+}
+
+const newNote = (e, note) => {
+    e.preventDefault();
         axios.post(`https://fe-notes.herokuapp.com/note/create`, note)
         .then( res => {
             this.setState({
@@ -37,15 +42,15 @@ class CreateNewNote extends Component {
             throw new Error(err);
         })
     }
-}
 
 
     render() {
         return (
             <div>
                 <form submit={this.submitHandler}>
-                    <input type='text' name='title'></input>
-                    <noteTitle type='text' name='textBody'></noteTitle>
+                    <input type='text' name='title' onInput={this.inputHandler}></input>
+                    <input type='textBox' name='textBody' onInput={this.inputHandler}></input>
+                    <button type="submit">Add Note</button>
                 </form>
             </div>
         )
