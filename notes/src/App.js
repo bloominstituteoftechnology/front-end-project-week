@@ -88,18 +88,18 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <NoteList {...props}
+          render={props => <NoteList
             // notes={filterNote}
-            seach={this.state.search}
-            handleChange={this.handleChange}
+            // seach={this.state.search}
+            // handleChange={this.handleChange}
             />}
         />
         <Route
          exact path="/note/:id"
           render={props => (
             <NotePage
-              {...props}
-              notes={this.state.notes}
+              // {...props}
+              // notes={this.state.notes}
               deleteNoteOn={this.deleteNoteOn}
               deleteNoteOff={this.deleteNoteOff}
               delete={this.state.delete}
@@ -112,18 +112,19 @@ class App extends Component {
           path="/create"
           render={props => (
             <NoteForm
-              {...props}
-              notes={this.state.notes}
-              addNote={this.addNote}
+              // {...props}
+              // notes={this.state.notes}
+              // addNote={this.addNote}
               handleChange={this.handleChange}
             />
           )}
         />
         <Route exact path='/note/:id/edit' render={props => (
-          <EditNote {...props}
+          <EditNote
+            // {...props}
             title={this.state.title}
             textBody={this.state.textBody}
-          notes={this.state.notes}
+          // notes={this.state.notes}
           handleChange={this.handleChange}
           editNote={this.editNote} />
         )} />

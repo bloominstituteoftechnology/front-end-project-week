@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux'
+// import {deleteNote} from '../../actions/noteActions'
 
 const NoteCard = styled.div`
   display: inline-block;
@@ -44,4 +46,7 @@ const Note = ({ note }) => {
   );
 };
 
-export default Note;
+const mapStateToProps = () => ({})
+
+
+export default connect(mapStateToProps, )(Note);

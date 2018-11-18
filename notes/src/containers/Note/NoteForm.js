@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {connect} from 'react-redux'
 
 const Form = styled.form`
   display: flex;
@@ -60,4 +61,6 @@ const NoteForm = props => {
   );
 };
 
-export default NoteForm;
+const mapStateToProps = () => ({})
+
+export default connect(mapStateToProps)(NoteForm);
