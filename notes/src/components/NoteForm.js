@@ -79,11 +79,13 @@ class NoteForm extends React.Component {
                         name="title"
                         value={this.state.title}
                         onChange={this.inputHandler}
+                        placeholder="Note Title"
                     />
                     <textarea
                         name="textBody"
                         value={this.state.textBody}
                         onChange={this.inputHandler}
+                        placeholder="Note Content"
                     />
                     <button type="submit">{ this.props.match.params.id ? "Update" : "Save" }</button>
                 </form>

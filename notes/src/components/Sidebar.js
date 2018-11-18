@@ -8,8 +8,8 @@ const Sidebar = (props) => {
                 <h1>Lambda<br />Notes</h1>
             </header>
             <nav>
-                <Link to="/">View Your Notes</Link>
-                <Link to="/create">+ Create New Note</Link>
+                <Link to="/"><div>View Your Notes</div></Link>
+                <Link to="/create"><div>+ Create New Note</div></Link>
             </nav>
         </div>
     )
