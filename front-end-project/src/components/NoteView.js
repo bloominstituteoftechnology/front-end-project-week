@@ -3,6 +3,38 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const NoteViewContainer = styled.div`
+    padding: 20px 3% 0 0;
+`
+
+const EditDeleteContainer = styled.div`
+    float: right;
+`
+
+const EditDeleteLinks = styled(Link)`
+    color: #4A494A;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 15px;
+`
+
+const NoteContainer = styled.section`
+    padding-top: 40px;
+`
+
+const NoteTitle = styled.h2`
+    color: #4A494A;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+`
+
+const NoteBody = styled.p`
+    font-size: 0.9rem;
+    line-height: 1.6;
+`
+
 class NoteView extends Component {
     constructor(props) {
         super(props);
@@ -29,9 +61,16 @@ class NoteView extends Component {
 
     render() {
         return (
-            <div>
-            <div>{this.state.note.title}</div>
-            </div>
+            <NoteViewContainer>
+                <EditDeleteContainer>
+                    <EditDeleteLinks to={'/'}>edit</EditDeleteLinks>
+                    <EditDeleteLinks to={'/'}>delete</EditDeleteLinks>
+                </EditDeleteContainer>
+                <NoteContainer>
+                    <NoteTitle>{this.state.note.title}</NoteTitle>
+                    <NoteBody>{this.state.note.textBody}</NoteBody>
+                </NoteContainer>
+            </NoteViewContainer>
         )
     };
 }

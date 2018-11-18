@@ -44,6 +44,7 @@ const PreviewTitle = styled.h3`
 
 const PreviewBody = styled.p`
     font-size: 0.9rem;
+    line-height: 1.6;
 `
 
 class ListView extends Component {
