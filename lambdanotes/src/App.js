@@ -11,7 +11,8 @@ class App extends Component {
 constructor(props) {
    super(props);
    this.state ={
-      notes:[]
+      notes:[],
+      errorMessage: ''
    }
 }
 componentDidMount() {
@@ -22,6 +23,13 @@ componentDidMount() {
                 notes: response.data
             })
         })
+        .catch( error => {
+          this.setState({ errorMessage: "Error: There is some error getting notes"})
+          setTimeout( () => {
+             this.setState({ errorMessage: null})
+          }, 1500)
+        }
+     )
 }
   render() {
     return (
