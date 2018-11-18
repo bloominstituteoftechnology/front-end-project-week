@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
       <SideBar />
-
+      <Route exact path="/" component={Notes} />
       <Route path="/create" component={CreateNote} />
       <Route exact path="/notes" component={Notes} />
       <Route path="/notes/:id" render={ props => <FullNote {...props} /> } />
