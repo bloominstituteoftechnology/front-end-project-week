@@ -40,7 +40,7 @@ class CreateNote extends Component {
                 textBody: this.state.textBody,
             })
             .then(response => {
-                this.props.addNote();
+                this.props.refreshMain();
                 this.props.history.push('/');
             })
             .catch(err => console.log(err));

@@ -59,7 +59,7 @@ class ListView extends Component {
     render() {
         return (
             <ListViewContainer>
-                <ListHeader>Your Notes:</ListHeader>
+                {this.props.loading ? <ListHeader>Loading...</ListHeader> : <ListHeader>Your Notes:</ListHeader>}
                 <NotePreviewContainer>
                     {this.props.notes.map(note => 
                         <NotePreview to={`/notes/${note._id}`}>
