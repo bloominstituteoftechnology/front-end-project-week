@@ -27,7 +27,7 @@ class NoteForm extends Component {
 
   render() {
     return (
-      <div className="single-note">
+      <div className="single-note" style={{width: '100%', height: '100%', border: '5px solid pink', display: 'flex', flexDirection: 'column', justifyContent: 'center', aligntItems: 'center'}}>
         <h3>Create New Note:</h3>
         <input
           className="note-title"

@@ -77,12 +77,12 @@
   font-weight: heavy;
 }
 
-h2 {
+/* h2 {
   font-family: Roboto Bold;
   color: #4a4a4a;
   width: 800px;
   text-align: center;
-}
+} */
 .home {
   text-align: center;
 }
@@ -109,25 +109,24 @@ h2 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.single-note {
-  /* width: 800px; */
+ .single-note {
   width: 80%;
 }
 
 .note-title {
   height: 30px;
-  width: 100%;
+  width: 80%;
   margin-bottom: 20px;
-}
+} 
 
 .note-text {
   height: 500px;
-  width: 100%;
-}
+  width: 80%;
+} 
 
 .notes-text {
   overflow: auto;
-}
+} 
 
 .edit-links {
   display: flex;

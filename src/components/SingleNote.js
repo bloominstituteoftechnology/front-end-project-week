@@ -11,13 +11,9 @@ class SingleNote extends Component {
 
   render() {
     const { id } = this.props.location.state;
-    return (
-      <div className="single-note">
-        <div className="edit-links">
-          <Link
-            className="edit"
-            to={{ pathname: `/update/${id}`, state: this.props.location.state }}
-          >
+    return <div className="single-note" style={{ width: '100%', height: '100%', border: '5px solid pink', display: 'flex', flexDirection: 'column'}}>
+        <div className="edit-links" style={{border: '5px solid pink'}}>
+          <Link className="edit" to={{ pathname: `/update/${id}`, state: this.props.location.state }}>
             edit
           </Link>
           <Link className="edit" to="/" onClick={() => this.handleDeleteNote(id)}>
@@ -26,8 +22,7 @@ class SingleNote extends Component {
         </div>
         <h3>{this.props.location.state.title}</h3>
         <div className="note-text">{this.props.location.state.textBody}</div>
-      </div>
-    );
+      </div>;
   }
 }
 

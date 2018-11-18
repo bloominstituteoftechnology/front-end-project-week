@@ -27,33 +27,18 @@ class UpdateForm extends Component {
   };
 
   render() {
-    return (
-      <div className="single-note">
-        <h3>Edit Note:</h3>
-        <input
-          className="note-title"
-          type="text"
-          onChange={this.updateHandler}
-          name="title"
-          value={this.state.title}
-          placeholder="edit title"
-        />
-        <input
-          className="note-text"
-          type="text"
-          onChange={this.updateHandler}
-          name="textBody"
-          value={this.state.textBody}
-          placeholder="edit textbody"
-        />
-        <Link to="/">
-          <button className="save-button" onClick={() => this.handleUpdateSubmit()}>
-            Update
-          </button>
-        </Link>
-      </div>
-    );
-  }
+    return <div className="single-note" style={{ width: '100%', height: '100%', border: '5px solid pink', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <div style={{width: '100%', border: '5px solid red', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+          <h3>Edit Note:</h3>
+          <input className="note-title" type="text" onChange={this.updateHandler} name="title" value={this.state.title} placeholder="edit title" />
+          <input className="note-text" type="text" onChange={this.updateHandler} name="textBody" value={this.state.textBody} placeholder="edit textbody" />
+          <Link to="/">
+            <button className="save-button" onClick={() => this.handleUpdateSubmit()}>
+              Update
+            </button>
+          </Link>
+        </div>
+      </div>;}
 }
 
 export default connect(
