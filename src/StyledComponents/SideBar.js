@@ -15,7 +15,7 @@ export const H1 = styled.h1`
 
 export const Button = styled.button`
   width: 100%;
-  height: 60px;
+  height: 50px;
   background-color: #2bc1c4;
   color: white;
   font-weight: 900;
