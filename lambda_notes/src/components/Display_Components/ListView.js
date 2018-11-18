@@ -41,7 +41,7 @@ class ListView extends Component {
                </NoteContent>  
                 )
             })}
-            <CreateNewNote notes={this.state.notes}/>
+            
             </NoteWrap>
             
         )

@@ -4,38 +4,29 @@ import PropTypes from 'prop-types'
 import { noteTitle } from '../Styles/CreateNoteStyle';
 
 class CreateNewNote extends Component {
-    constructor(props) {
-        super(props);
-    this.state = {
-    newNote: {
-        title: '',
-        textBody: '',
-    },
+
+ state = {
+        title: "",
+        textBody: "",
     }
 
-}
- inputHandler = (e) => {
+
+    inputHandler = (e) => {
      this.setState({[e.target.name]: e.target.value})
  }
 
  submitHandler = (e) => {
     e.preventDefault();
-    
     this.newNote(this.state);
  }
 
 
- componentDidMount() {
-    
-
-}
-
-const newNote = (e, note) => {
-    e.preventDefault();
-        axios.post(`https://fe-notes.herokuapp.com/note/create`, note)
+newNote = (note) => {
+        axios
+        .post(`https://fe-notes.herokuapp.com/note/create`, note)
         .then( res => {
             this.setState({
-                newNote: note 
+                notes: Object.assign({}, this.props.notes, ...note, res._id)
             })
         })
         .catch( err => {
@@ -47,7 +38,7 @@ const newNote = (e, note) => {
     render() {
         return (
             <div>
-                <form submit={this.submitHandler}>
+                <form onSubmit={this.submitHandler}>
                     <input type='text' name='title' onInput={this.inputHandler}></input>
                     <input type='textBox' name='textBody' onInput={this.inputHandler}></input>
                     <button type="submit">Add Note</button>
@@ -57,8 +48,6 @@ const newNote = (e, note) => {
     }
 }
 
-CreateNewNote.propTypes = {
 
-}
 
 export default CreateNewNote
