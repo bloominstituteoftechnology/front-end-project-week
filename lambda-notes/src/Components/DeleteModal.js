@@ -9,8 +9,12 @@ class DeleteModal extends Component {
 
     render() {
         return(
-            <div className='delete'>
-            Hello!
+            <div className='deleteContainer'>
+            <p> Are you sure you want to delete this? </p>
+            <div className='deleteButtons'>
+            <button className='red'>Delete</button>
+            <button onClick={this.props.noHandler}>No</button>
+            </div>
             </div>
         )
     }

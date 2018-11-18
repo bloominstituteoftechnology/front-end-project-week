@@ -9,7 +9,7 @@ class NotesNav extends Component {
     }
     render(){
     return (
-        <nav className='nav'>
+        <nav>
             <h1>Lambda Notes</h1>
             <NavLink activeClassName='selected' to='/home'>
             <button onClick={this.props.clickForAllHandler}>View Your Notes</button>

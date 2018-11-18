@@ -25,16 +25,15 @@ class SingleNote extends Component {
     render(){
         console.log(this.state.note)
     return (
-        <div>
-        <DeleteModal />
+        <div className='singleContainer'>
         <div className='notesSingle'>
             <div className='button'>
                 <h5>edit</h5>
-                <h5>delete</h5>
+                <h5 onClick={this.props.deleteHandler}>delete</h5>
             </div>
             <h3>{this.state.note.title}</h3>
             <div className='line'></div>
-            <p>{this.state.note.textBody}</p>
+            <p className='fullText'>{this.state.note.textBody}</p>
 
         </div>
         </div>
