@@ -9,7 +9,7 @@ const NoteCard = props => {
         textBody = textBody.slice(0, 215);
         textBody = textBody + '...';
     }
-    
+    console.log(props.key);
     return (
         <div className='note-card'>
             <div className='note-card-title'>

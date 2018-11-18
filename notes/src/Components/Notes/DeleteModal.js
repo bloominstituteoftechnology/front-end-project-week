@@ -9,8 +9,8 @@ const DeleteModal = props => {
             <div className='delete-modal-box'>
                 <div>Delete Note?</div>
                 <div className='delete-button-box'>
-                    <Link className='delete-modal-button' to='../../' onClick={() => props.deleteNote(props.match.params.id)}>Yes</Link>
-                    <Link className='delete-modal-button' to={`../${props.match.params.id}`}>No</Link>
+                    <Link className='delete-modal-button delete' to='../../' onClick={() => props.deleteNote(props.match.params.id)}>Delete</Link>
+                    <Link className='delete-modal-button no' to={`../${props.match.params.id}`}>No</Link>
                 </div>
             </div>
         </div>

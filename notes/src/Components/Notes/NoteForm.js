@@ -69,7 +69,7 @@ class NoteForm extends React.Component {
                     <input className='title-input' 
                         name='title' 
                         value={this.state.title} 
-                        placeholder={this.props.type === 'Create' ? 'Title' : ''} 
+                        placeholder={this.props.type === 'Create' ? 'Note Title' : ''} 
                         onChange={this.updateValue} 
                     />
                 </p>
@@ -77,7 +77,7 @@ class NoteForm extends React.Component {
                     <textarea className='text-body-input' 
                         name='textBody' 
                         value={this.state.textBody} 
-                        placeholder={this.props.type === 'Create' ? 'Text' : ''} 
+                        placeholder={this.props.type === 'Create' ? 'Note Content' : ''} 
                         onChange={this.updateValue} 
                     />
                 </p>
