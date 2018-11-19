@@ -244,6 +244,8 @@ export const FullNoteContainer = styled.div`
 
     p{
         font-size: 1.4rem;
+        width: 80%;
+        text-align: left;
     }
 `;
 
