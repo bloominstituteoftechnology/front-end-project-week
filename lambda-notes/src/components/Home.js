@@ -29,22 +29,20 @@ export const HeaderContainer = styled.div`
     }
 `
 
-class Home extends React.Component {
-
-    render() {
-        return  <HomeContainer>
-                    <HeaderContainer>
-                        <h1>Your Notes:</h1>
-                    </HeaderContainer>
-                    <CardWrapper>
-                            {this.props.notes.map(note => <Note history={this.props.history}
-                            key={note._id} 
-                            id={note._id} 
-                            title={note.title} 
-                            textBody={note.textBody} />).reverse()}              
-                    </CardWrapper>   
-                </HomeContainer>
-    }
+const Home = props => {
+    const arr = props.search ? props.notes.filter(note => JSON.stringify(note).toLowerCase().includes(props.search.toLowerCase())) : props.notes;    
+    return  <HomeContainer>
+                <HeaderContainer>
+                    <h1>Your Notes:</h1>
+                </HeaderContainer>
+                <CardWrapper>
+                        {arr.map(note => <Note history={props.history}
+                        key={note._id} 
+                        id={note._id} 
+                        title={note.title} 
+                        textBody={note.textBody} />).reverse()}              
+                </CardWrapper>   
+            </HomeContainer>
 }
 
 const mapStateToProps = state => {

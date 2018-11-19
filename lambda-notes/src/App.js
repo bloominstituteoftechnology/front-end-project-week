@@ -26,7 +26,14 @@ const Sidebar = styled.nav`
     flex-direction: column;
     align-items: center;
     background-color: #bfbcbc;
-    height: 100vw;
+    min-height: 100vw;
+    > input {
+        width: 85%;
+        height: 60px;
+        font-size: 22px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
     > div {
           color: white;
           background-color: #16ccc9;
@@ -102,9 +109,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      search: '',
     }
   }
+
+  changeHandler = e => {
+    this.setState({search: e.target.value});
+    }
 
   componentDidMount() {
     this.props.fetchNotes()
@@ -116,7 +128,6 @@ class App extends Component {
       this.props.deleteNote(this.props.id);
       this.props.history.push('/');
       this.toggle();
-      console.log(this.props)
   }
 
   render() {
@@ -132,10 +143,11 @@ class App extends Component {
                     <SidebarHeader>
                         Lambda <br/> Notes
                     </SidebarHeader>
+                    <input placeholder='Search Notes...' onChange={this.changeHandler} value={this.state.search} />
                     <div onClick={() => this.props.history.push('/')} >View Your Notes</div>
-                    <div onClick={() => this.props.history.push('/create')} >+ Create New Note</div>
+                    <div onClick={() => this.props.history.push('/create')} >+ Create New Note</div>                    
                 </Sidebar>
-                <Route exact path='/' render = {props => <Home {...props} />} />
+                <Route exact path='/' render = {props => <Home search={this.state.search} {...props} />} />
                 <Route exact path='/note/:id' render = {props => <NoteProfile toggle={this.toggle} {...props} />} />
                 <Route exact path='/create' render = {props => <CreateForm {...props}/>} />
                 <Route path='/note/:id/edit' render = {props => <EditForm {...props}/>} />     

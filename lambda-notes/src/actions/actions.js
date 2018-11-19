@@ -4,6 +4,7 @@ export const SUCCESS = 'SUCCESS';
 export const LOADING = 'LOADING';
 export const ERROR = 'ERROR';
 export const HANDLE_ID = 'HANDLE_ID';
+export const FILTER = 'FILTER';
 
 export const fetchNotes = () => {
     return dispatch => {
