@@ -13,13 +13,17 @@ class App extends Component {
     };
 
     componentDidMount() {
+        this.getNotes();
+    };
+
+    getNotes = () => {
         axios.get("https://fe-notes.herokuapp.com/note/get/all")
-            .then(response => {
-                console.log(response.data);
-                this.setState({
-                    notes: response.data
-                });
+        .then(response => {
+            console.log(response.data);
+            this.setState({
+                notes: response.data
             });
+        });
     };
 
     handleAddNote = (note, id) => {
@@ -27,9 +31,12 @@ class App extends Component {
             axios.post("https://fe-notes.herokuapp.com/note/create", {
                 title: note.title,
                 textBody: note.textBody
-            }).then(response => {console.log(response)});
+            }).then(this.getNotes);
         } else {
-            
+            axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+                title: note.title,
+                textBody: note.textBody
+            }).then(this.getNotes);
         }
     };
 
