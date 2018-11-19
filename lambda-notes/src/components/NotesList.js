@@ -32,9 +32,9 @@ class NotesList extends Component {
   }
 }
 
-NotesList.propTypes = {
+/* NotesList.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object)
-}
+} */
 
 const mapStateToProps = state => {
   return {

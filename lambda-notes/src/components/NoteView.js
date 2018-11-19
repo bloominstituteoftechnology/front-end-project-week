@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { fetchNote, deleteNote } from '../actions/index';
 import Note from './Note';
 
 class NoteView extends Component {
@@ -43,4 +45,6 @@ class NoteView extends Component {
   }
 }
 
-export default NoteView;
+const mapStateToProps = () => ({})
+
+export default connect(mapStateToProps, { deleteNote })(NoteView);

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updateNote } from '../actions/index';
 
 class EditView extends Component {
   constructor(){
@@ -39,4 +41,10 @@ class EditView extends Component {
   }
 }
 
-export default EditView;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  }
+}
+
+export default connect(mapStateToProps, { updateNote })(EditView);
