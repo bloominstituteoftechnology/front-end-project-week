@@ -41,12 +41,8 @@ class App extends Component {
     };
 
     handleDeleteNote = id => {
-        let noteArr = this.state.notes;
-
-        noteArr.splice(id, 1);
-        this.setState({
-            notes: noteArr
-        });
+        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+            .then(this.getNotes);
 
         document.getElementById("delete-modal").classList.toggle("hidden");
     };
