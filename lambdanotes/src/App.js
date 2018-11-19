@@ -63,7 +63,7 @@ addContent = (event,newNotes) => {
           <Route exact path='/' render={ props => <Notes {...props} notes={notes}/>}></Route>
           {/* <Notes notes={this.state.notes} /> */}
           <Route exact path='/notes' render={ props => <CreateView {...props} addContent={this.addContent} notes={notes} />}></Route>
-          <Route path='/note/:_id' render={ props => <MyNote {...props} notes={notes} /> } />
+          <Route path='/note/:id' render={ props => <MyNote {...props} notes={notes} /> } />
           {/* <Route path="/avengers/:id" render={ props =>   <AvengerPage {...props} avengers={avengers} />}  /> */}
         </MainContainer>
       </div>

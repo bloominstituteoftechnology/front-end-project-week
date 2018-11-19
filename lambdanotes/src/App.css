@@ -39,3 +39,16 @@
   width:95%;
   margin:0 auto;
 }
+
+.single-note {
+  width:90%;
+}
+
+.edit {
+  display: flex;
+  justify-content: flex-end;
+  width:300px;
+  position: absolute;
+  right:20px;
+  top:20px;
+}

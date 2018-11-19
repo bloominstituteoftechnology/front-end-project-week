@@ -3,7 +3,7 @@ import Container from './styles/Container';
 import Wrapper from './styles/Wrapper';
 import Input from './styles/Input';
 import Button from './styles/Button';
-import axios from 'axios';
+
 
 class CreateView extends Component {
     constructor(props) {
@@ -26,7 +26,7 @@ class CreateView extends Component {
             title:'',
             textBody:''
         })    
-        // this.props.history.push("/");  
+        this.props.history.push("/");  
     }
 
     // addNote = notes => {

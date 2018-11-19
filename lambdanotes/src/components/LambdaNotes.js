@@ -8,7 +8,7 @@ class LambdaNotes extends Component {
         return (
             <SideNotes>
             <h1>Lambda Notes</h1>
-            <Link exact to='/'>
+            <Link to='/'>
                <Button>View Your Notes</Button>
             </Link>
             <Link to='/notes'>
