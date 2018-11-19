@@ -6,9 +6,7 @@ import NoteForm from './components/NoteForm';
 import Note from './components/Note';
 import Notes from './components/Notes';
 import NoteView from './components/NoteView';
-
-// NoteForm is the default list view -- need to build out a NoteView thing that displays when the user clicks an individual link.
-
+import UpdateNote from './components/updateNote'
 
 class App extends Component {
   constructor(props){
@@ -34,13 +32,12 @@ class App extends Component {
       <BrowserRouter>
       <div>
       <NavLink to="/">Go home</NavLink>
-      <Route path="/note/:id" render={(props) => {
-        return(<NoteView {...props}/>)}}/>
-      <Route path="/notes-form" render={props =>
-      <NoteForm addNote={this.addNote}/>}></Route>
+      <Route path="/notes/:id" render={(props) =>
+        <NoteView {...props}/>}/>
+      <Route path="/edit/:id" render={(props) => 
+       <UpdateNote /> } />
       <NoteForm />
       <Route exact path="/" render={props => <Notes notes={this.state.notes} />}/>
-
       </div>
       </BrowserRouter>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-// Link goes here?
+
 
 const Note = props => {
     return (
