@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import "../css/note.css"
+import { viewNote } from '../actions';
+import { noteUpdate } from '../actions';
+import { connect } from 'react-redux';
 
 
 class NoteEdit extends Component {
@@ -18,7 +21,12 @@ class NoteEdit extends Component {
 
 
     componentDidMount() {
-        const URL = 'https://fe-notes.herokuapp.com/note/get/' + this.props.id;
+            this.props.viewNote(this.props.id)
+            console.log("this.props.id", this.props.id)
+            
+         
+          
+      /*   const URL = 'https://fe-notes.herokuapp.com/note/get/' + this.props.id;
         axios
             .get(URL)
             .then(response => {
@@ -26,11 +34,35 @@ class NoteEdit extends Component {
             })
             .catch(error => {
                 console.error('Server Error', error);
-            });
+            }); */
     }
 
-    noteUpdate = (e) => {
-        e.preventDefault();
+
+    noteUpdate = () => {
+        //const { tags, title, textBody } = this.props.noteSelected;
+        const newRec = {
+            tags: this.state.tags,
+            title: this.state.title,
+            textBody: this.state.textBody,
+        }
+        console.log("newRec", newRec)
+        
+        this.props.noteUpdate(newRec);
+        //this.setState({ tags: '', title: '', textBody: '' });
+        console.log("this.noteUpdate state:", this.state)
+    };
+
+    changeHandler = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+      } 
+  /*   noteUpdate = (e) => { */
+
+
+
+
+
+
+      /*   e.preventDefault();
         const URL = 'https://fe-notes.herokuapp.com/note/edit/' + this.props.id;
         axios
             .put(URL, {
@@ -43,34 +75,53 @@ class NoteEdit extends Component {
             })
             .catch(error => {
                 console.error('Server Error', error);
-            });
-    }
+            }); */
+    
 
     render() {
         return (
-            <form className="note-edit-form" onSubmit={this.noteUpdate}>
+            <form className="note-edit-form" >
                 <header className="note-create-header">Edit Note:</header>
                 <input
                     type="text"
                     className="note-title-input"
-                    placeholder={this.state.notes.title}
+                    placeholder={this.props.noteSelected.title}
                     value={this.props.value}
-                    onChange={this.props.changeHandler}
+                    onChange={this.changeHandler}
                     name="title" />
                 <textarea
                     type="text"
-                    placeholder={this.state.notes.textBody}
+                    placeholder={this.props.noteSelected.textBody}
                     className="note-textarea"
                     value={this.props.value}
-                    onChange={this.props.changeHandler}
+                    onChange={this.changeHandler}
                     name="textBody" />
                 <button
                     className="update-button"
-                    onSubmit={this.noteUpdate}>
+                    onClick={this.noteUpdate}>
                     Update
             </button>
             </form>
         );
     };
 }
-export default NoteEdit;
+const mapStateToProps = state => {
+	const { singleNoteReducer } = state;
+	return {
+	 // deletingNote: state.notesReducer.deletingNote,
+	  error: state.notesReducer.error,
+	 // showUpdate: state.singleNoteReducer.showUpdate,
+	   noteSelected: state.singleNoteReducer.noteSelected 
+	/*  notes: notesReducer.notes,  */
+	/*  error: notesReducer.error, */
+	
+	};
+  };
+  
+  export default connect(mapStateToProps, {
+	/* deleteNote, */
+/* 	updateSingleNote, */
+	/* toggleShowUpdate, */
+    viewNote,
+    noteUpdate, 
+  })(NoteEdit);

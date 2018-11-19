@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import "../css/note.css"
-
+import { connect } from 'react-redux';
+import { viewNote } from '../actions';
 
 class NoteView extends Component {
   constructor(props) {
@@ -12,12 +13,18 @@ class NoteView extends Component {
       title: '',
       textBody: '',
       _id: '',
-      select: null,
+      selected: null,
     };
   }
 
   componentDidMount() {
-    const URL = 'https://fe-notes.herokuapp.com/note/get/' + this.props.id;
+  
+  const theId = this.props.id;
+    this.props.viewNote(this.props.id)
+    
+  console.log("this.state", this.state)
+  
+    /*  const URL = 'https://fe-notes.herokuapp.com/note/get/' + this.props.id;
 
     axios
       .get(URL)
@@ -26,10 +33,10 @@ class NoteView extends Component {
       })
       .catch(error => {
         console.error('Server Error', error);
-      });
+      }); */
 
   }
-  noteDelete = (e) => {
+ /*  noteDelete = (e) => {
     e.preventDefault();
     const URL = 'https://fe-notes.herokuapp.com/note/delete/' + this.props.id;
     axios
@@ -40,19 +47,37 @@ class NoteView extends Component {
       .catch(error => {
         console.error('Server Error', error);
       });
-  }
+  } */
 
   render() {
     return (
       <div className="note-view"> <div className="note-view-container">
         <div className="spacer"></div>
         <button className="edit-button" onClick={() => this.props.noteEdit(this.props.id)}>edit</button>
-        <button className="delete-button" onClick={() => this.props.noteDelete(this.props.id)}>delete</button></div>
-        <div className="note-name">{this.state.notes.title}</div>
-        <div className="note-body">{this.state.notes.textBody}</div>
+        <button className="delete-button" onClick={() => this.props.deleteNote(this.props.id)}>delete</button></div>
+       <div className="note-name">{this.props.noteSelected.title}</div> 
+       <div className="note-body">{this.props.noteSelected.textBody}</div> 
       </div>
     )
   };
 }
 
-export default NoteView;
+const mapStateToProps = state => {
+	const { singleNoteReducer } = state;
+	return {
+	 // deletingNote: state.notesReducer.deletingNote,
+	  error: state.notesReducer.error,
+	 // showUpdate: state.singleNoteReducer.showUpdate,
+	  noteSelected: state.singleNoteReducer.noteSelected
+	 /* notes: notesReducer.notes, */
+	/*  error: notesReducer.error, */
+	
+	};
+  };
+  
+  export default connect(mapStateToProps, {
+	/* deleteNote, */
+/* 	updateSingleNote, */
+	/* toggleShowUpdate, */
+	viewNote 
+  })(NoteView);

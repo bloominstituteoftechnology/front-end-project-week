@@ -70,6 +70,7 @@ class App extends React.Component {
 
   noteDelete = id => {
     localStorage.setItem('viewPage', "noteDelete");
+    
     let pageType = `noteDelete`
     let _id = id;
     this.setState(() => ({ viewPage: pageType, id: _id }))
@@ -92,6 +93,7 @@ class App extends React.Component {
     localStorage.setItem('viewPage', "noteView");
     let pageType = "noteView"
     let _id = id;
+    console.log("in noteView app.js")
     this.setState(() => ({ viewPage: pageType, id: _id }));
   }
 
@@ -151,7 +153,7 @@ class App extends React.Component {
           <div className="main-container">
             <Nav noteList={this.noteList} noteCreate={this.noteCreate} />
             <div className="main-display">
-              <NoteEdit changeHandler={this.changeHandler} tags={this.tags} title={this.state.title} textBody={this.state.textBody} id={this.state.id} />
+              <NoteEdit changeHandler={this.changeHandler} tags={this.tags} id={this.state.id} />
             </div>
           </div>
         </div>;
@@ -171,7 +173,7 @@ class App extends React.Component {
           <div className="main-container">
             <Nav noteList={this.noteList} noteCreate={this.noteCreate} />
             <div className="main-display">
-              <NoteView id={this.state.id} notes={this.notes} noteEdit={this.noteEdit} noteDelete={this.noteDelete} />
+              <NoteView id={this.state.id} notes={this.notes} selected={this.props.noteSelected} noteEdit={this.noteEdit} noteDelete={this.noteDelete} />
             </div>
           </div>
         </div>;

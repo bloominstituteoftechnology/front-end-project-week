@@ -10,6 +10,7 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const UPDATING_NOTE = 'UPDATING_NOTE';
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const SINGLE_NOTE = 'SINGLE_NOTE';
+export const GETTING_SINGLE_NOTE = 'GETTING_SINGLE_NOTE';
 export const TOGGLE_UPDATE_NOTE = 'TOGGLE_UPDATE_NOTE';
 
 
@@ -57,6 +58,25 @@ export const createNote = (newNote) => {
     }
   } 
 
+  export const noteUpdate = (newNote) => {
+ // noteUpdate = (e) => {
+   // e.preventDefault();
+   return (dispatch) => {
+    dispatch({type: UPDATING_NOTE})
+    const URL = 'https://fe-notes.herokuapp.com/note/edit/' + newNote;
+    axios
+        .put(URL)
+        
+        .then(response => {
+          dispatch({ type: UPDATE_NOTE, payload: response.data }) 
+         // this.setState(() => ({ notes: response.data }));
+        })
+        .catch(error => {
+          dispatch({ type: ERROR, payload: error }) 
+          //console.error('Server Error', error);
+        });
+}
+  }
   /* axios.post('https://fe-notes.herokuapp.com/note/create', {
     tags: this.state.tags,
     title: this.state.title,
@@ -78,17 +98,35 @@ export const createNote = (newNote) => {
 }
  */
 
+export const viewNote = (id) => {
+  return (dispatch) => {
+    dispatch({type: GETTING_SINGLE_NOTE})
+    const URL = 'https://fe-notes.herokuapp.com/note/get/' + id;
+    axios
+      .get(URL)
+      .then(response => {
+        dispatch({ type: SINGLE_NOTE, payload: response.data })
+        console.log("in viewnote", response.data)
+       // this.setState(() => ({ notes: response.data }));
+      })
+      .catch(error => {
+        dispatch({ type: ERROR, payload: error })
+       // console.error('Server Error', error);
+      });
+    }
+  }
 
 
 
 
-
-export const deleteNote = id => {
+export const deleteNote = (id) => {
     return (dispatch) => {
+      const URL = 'https://fe-notes.herokuapp.com/note/delete/' + id;
       dispatch({type: DELETING_NOTE})
-      axios.delete(`http://localhost:3333/notes/${id}`)
-        .then(({ data }) => {
-            dispatch({ type: DELETE_NOTE, payload: data });
+      axios
+      .delete(URL)
+      .then(response => {
+            dispatch({ type: DELETE_NOTE, payload: response.data });
             dispatch({ type: SINGLE_NOTE, payload: {} });
         })
         .catch( err => {
@@ -97,6 +135,19 @@ export const deleteNote = id => {
   
     }
   }
+
+  /* noteDelete = (e) => {
+    e.preventDefault();
+    const URL = 'https://fe-notes.herokuapp.com/note/delete/' + this.props.id;
+    axios
+      .delete(URL)
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })
+      .catch(error => {
+        console.error('Server Error', error);
+      });
+  } */
 
 export const toggleShowUpdate = () => {
   return {
