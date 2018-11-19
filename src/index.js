@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose} from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { notesReducer } from './reducers';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import thunk from 'redux-thunk';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

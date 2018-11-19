@@ -9,17 +9,17 @@ class Notes extends Component {
     this.props.fetchData();
   }
 
-
-
   render() {
     return (
+
+      
+      
       <div className='listDisplay' >
         <h1>Your notes:</h1>
         <div className='noteDisplay'>
           {this.props.notes.map(note => {
             return (
-              
-              <Link to={`/notes/${note.id}`}>
+              <Link to={`/notes/${note.id}`} style={{ textDecoration: 'none' }}>
                 <div className="notesDisplay" key={note.id}>
                   <h2>{note.title}</h2>
                   <p>{note.content}</p>
