@@ -47,7 +47,7 @@ class EditNote extends Component {
                         <h3 className="subtitle-font title">{this.props.type} Note:</h3>
                         <form onSubmit={this.handleSubmit}>
                             <input className="title-input" onChange={this.handleChangeValue} name="newTitle" type="text" placeholder="Note Title" defaultValue={this.state.note ? this.state.note.title : ""}></input><br></br>
-                            <textarea className="text-input"  onChange={this.handleChangeValue} name="newText" placeholder="Note Content" defaultValue={this.state.note ? this.state.note.text : ""}></textarea><br></br>
+                            <textarea className="text-input"  onChange={this.handleChangeValue} name="newText" placeholder="Note Content" defaultValue={this.state.note ? this.state.note.textBody : ""}></textarea><br></br>
                             <input className="button" type="submit" value={this.props.type === "Edit" ? "Update" : "Add"}></input>
                         </form>
                     </div>

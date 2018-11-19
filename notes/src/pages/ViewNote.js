@@ -48,7 +48,7 @@ class ViewNote extends Component {
                                 <a className="link-font" href="##" onClick={this.handleModal}>delete</a>
                             </div>
                             <h3 className="subtitle-font title">{this.state.note.title}</h3>
-                            <p className="view-note-body-font">{this.state.note.text}</p>
+                            <p className="view-note-body-font">{this.state.note.textBody}</p>
                         </div>
                     </div>
                 ) : "Note not found."}
