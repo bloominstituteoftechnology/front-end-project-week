@@ -2,8 +2,8 @@ import React from "react";
 import Note from "./Note";
 import styled from "styled-components";
 import SearchBar from "../Search/SearchBar"
-import { connect } from 'react-redux'
-import { fetchNotes } from '../../actions/noteActions'
+// import { connect } from 'react-redux'
+// import { fetchNotes } from '../../actions/noteActions'
 
 const Header = styled.h1`
 color: #555;
@@ -14,9 +14,9 @@ padding: 5px;
 class NoteList extends React.Component {
 
 
-  componentDidMount() {
-    this.props.fetchNotes()
-  }
+  // componentDidMount() {
+  //   this.props.fetchNotes()
+  // }
 
   render() {
     return (
@@ -33,17 +33,17 @@ class NoteList extends React.Component {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    notes: state.noteReducer.notes,
-    error: state.noteReducer.error,
-    loading: state.noteReducer.error,
-    title: state.noteReducer.title,
-    textBody: state.noteReducer.textBody,
-    delete: state.noteReducer.delete,
-    search: state.noteReducer.search
+// const mapStateToProps = state => {
+//   return {
+//     notes: state.noteReducer.notes,
+//     error: state.noteReducer.error,
+//     loading: state.noteReducer.error,
+//     title: state.noteReducer.title,
+//     textBody: state.noteReducer.textBody,
+//     delete: state.noteReducer.delete,
+//     search: state.noteReducer.search
 
-  }
-}
+//   }
+// }
 
-export default connect(mapStateToProps, {fetchNotes})(NoteList);
+export default NoteList;

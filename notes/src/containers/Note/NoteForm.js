@@ -61,6 +61,8 @@ const NoteForm = props => {
   );
 };
 
-const mapStateToProps = () => ({})
+const mapStateToProps = state => ({
+  notes:state.noteReducer.notes
+})
 
 export default connect(mapStateToProps)(NoteForm);
