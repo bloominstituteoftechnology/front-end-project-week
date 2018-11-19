@@ -1,0 +1,36 @@
+.note-container {
+	width: 100%;
+}
+
+.note-links {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.edit-delete {
+	width:  55px;
+	text-align: center;
+	margin: 5px;
+	color: #FF9E26;
+	background-color: #fff;
+	text-decoration: underline;
+	box-shadow: -1px -1px 5px green, 1px 1px 5px green;
+	padding:  3px;
+	border-radius: 10%;
+}
+
+.view-note {
+	margin: 30px;
+	color: #000;
+	background-color: #fff;
+	box-shadow: -5px -5px 10px #FF9E26, 5px 5px 10px #FF9E26;
+	border-radius: 2%;
+	min-width: 500px;
+	min-height: 600px;
+	padding: 20px;
+}
+
+.view-note h2 {
+	font-weight: bold;
+	padding: 20px 0;
+}
