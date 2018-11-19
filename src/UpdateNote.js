@@ -56,7 +56,7 @@ class UpdateNote extends React.Component{
                 <H2Header>Edit Note:</H2Header>
             <NoteForm onSubmit={this.submitHandler}>
                 <FormTitle onChange={this.inputHandler} type="text" name="title" placeholder="Note Title" value={this.state.title}></FormTitle>
-                <ReactQuill value={this.state.textBody} onChange={this.handleChange} />
+                <ReactQuill className="quillEditor" value={this.state.textBody} onChange={this.handleChange} />
                 <SubmitButton type="submit">Update</SubmitButton>
             </NoteForm>
             </NoteContainer>

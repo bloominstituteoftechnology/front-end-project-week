@@ -47,7 +47,7 @@ class CreateNote extends React.Component {
 
                 <NoteForm onSubmit={this.submitHandler} >
                     <FormTitle onChange={this.inputHandler} type="text" value={this.state.title} name="title" placeholder="Note Title" />
-                    <ReactQuill value={this.state.textBody} onChange={this.handleChange} />
+                    <ReactQuill className="quillEditor" value={this.state.textBody} onChange={this.handleChange} />
                     <SubmitButton type="submit">Save</SubmitButton>
                 </NoteForm>
             </NoteContainer>
