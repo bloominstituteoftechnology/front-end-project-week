@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from './actions/index';
 import { withRouter } from 'react-router-dom';
+
 import { NoteButton, FullNoteContainer, NoteButtonContainer } from './StyledComponents';
 import DeleteModal from './DeleteModal';
+
 
 class FullNote extends React.Component {
     constructor(props){
