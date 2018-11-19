@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
 const Main = styled.div`
   width: 1200px;
@@ -114,8 +114,8 @@ const NotePage = props => {
     );
   }
 };
-const mapStateToProps = state => ({
-  notes: state.noteReducer.notes
+// const mapStateToProps = state => ({
+//   notes: state.noteReducer.notes
 
-})
-export default connect(mapStateToProps)(NotePage);
+// })
+export default NotePage;
