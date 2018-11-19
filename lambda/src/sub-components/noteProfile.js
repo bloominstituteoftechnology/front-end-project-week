@@ -60,7 +60,7 @@ class NoteProfile extends React.Component {
         this.props.deleteNoteAction(this.props.match.params.id);
         const deleteModal = document.querySelector('.modal');
         // window.location.assign('http://localhost:3000/');
-        setTimeout(window.location.assign('http://localhost:3000/'), 5000);
+        setTimeout(window.location.reload(true), 10000);
 
         // // window.location.reload();
         // this.props.history.goBack(2);
@@ -106,7 +106,7 @@ class NoteProfile extends React.Component {
                 <div className="modal">
                     <div className="modal-content">
                         <span className="close">Are you sure you want to delete this?</span>
-                        <div>
+                        <div className='modal-buttons'>
                             <button className='delete-button' onClick={this.deleteNoteHandler}>Delete</button>
                             <button className='no-button' onClick={this.closeDeleteModal}>No</button>
                         </div>

@@ -172,7 +172,30 @@
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 60%;
+}
+.note-view .modal-content .delete-button {
+  width: 30%;
+  height: 40px;
+  margin: auto;
+  margin-top: 2.5%;
+  margin-right: 2%;
+  background-color: red;
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+}
+.note-view .modal-content .no-button {
+  width: 30%;
+  height: 40px;
+  margin: auto;
+  margin-top: 2.5%;
+  background-color: rgb(3, 190, 190);
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
 }
 .note-view-allcontent {
   width: 100%;
@@ -191,6 +214,7 @@
 .note-view .edit-delete-box .edit-delete-section span {
   margin-right: 2%;
   text-decoration: none;
+  cursor: pointer;
 }
 .note-view .specific-note{
   width: 75%;
