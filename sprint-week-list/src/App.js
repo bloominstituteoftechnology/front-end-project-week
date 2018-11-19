@@ -55,16 +55,6 @@ class App extends Component {
           console.log('Trouble deleting note' ,err)
         })
   }
-  updateNote = (id, updatedNote) =>{
-    axios 
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
-        .then(response =>{
-          this.fetchNotes()
-        })
-      .catch(err =>{
-        console.log('Trouble updating note', err)
-      })  
-  }
 
   render() {
     return (
@@ -74,7 +64,7 @@ class App extends Component {
         
         <Route exact path = '/notes/:id' render = {(props) => <ExpandedNote {...props} notes = {this.state.notes} deleteNote = {this.deleteNote}/>}/>
         <Route exact path = '/create' render = {(props) => <NewNoteForm {...props} notes = {this.state.notes} createNewNote = {this.createNewNote}/>}/>
-        <Route exact path = '/edit/:id' render = {(props) => <EditNoteForm {...props} updateNote = {this.updateNote}/>}/>
+        <Route exact path = '/edit/:id' render = {(props) => <EditNoteForm {...props} notes = {this.state.notes} fetchNotes = {this.fetchNotes} updateNote = {this.updateNote}/>}/>
       </div>
     );
   }

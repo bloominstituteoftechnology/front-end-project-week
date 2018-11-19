@@ -33,9 +33,8 @@ class NewNoteForm extends React.Component{
             <div className = 'create-container'>
                 <div className = 'sub-container'>
                     <h1 className = 'create-header'>Create New Note:</h1>
-                    <form className = 'form' onSubmit = {this.submitHandler}>
+                    <form className = 'form' >
                         <input 
-                           
                             className = 'title-input'
                             type = 'text'
                             placeholder = 'Note Title'
@@ -43,15 +42,14 @@ class NewNoteForm extends React.Component{
                             name = 'title'
                             onChange = {this.inputHandler}/>
                         <input 
-                            
                             className = 'text-input'
                             type = 'text'
                             placeholder = 'Note Content'
                             value = {this.state.textBody}
                             name = 'textBody'
                             onChange = {this.inputHandler}/>    
-                        <Link exact to = '/'>
-                            <button className = 'submit-button' type = 'submit'>Save</button>
+                        <Link exact to = '/' onClick = {this.submitHandler}>
+                            <button className = 'submit-button' >Save</button>
                         </Link>
 
                     </form>

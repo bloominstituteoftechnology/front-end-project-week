@@ -6,67 +6,79 @@ import axios from 'axios';
 import styles from '../css/EditNoteForm.css';
 
 class EditNoteForm extends React.Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
-          title : '',
-          textBody : '',
+          note: {},
+          newTitle : '',
+          newTextBody : '',
         }
     }
+        componentDidMount(){
+            axios   
+                .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+                    .then(response =>{
+                        this.setState({
+                            note : response.data,
+                            newTitle : response.data.title,
+                            newTextBody : response.data.textBody,
+                        })
+                    })
+                .catch(err =>{
+                    console.log('Trouble fetching data', err)
+                })    
+        }
+
     inputHandler = (event) =>{
+        event.preventDefault()
         this.setState({[event.target.name] : event.target.value})
     }
-    fetchNote = id => {
-        axios
-        .get(`https://fe-notes.herokuapp.com/note/edit/${id}`)
-        .then(response => {
-            this.setState(() => ({ 
-                title : response.data.title,
-                textBody : response.data.textBody,
-             }))
-        })
-        .catch(err => {
-            console.error('Trouble fetching data',err)
-        })
-    }
 
-    componentDidMount() {
-        const id = this.props.match.params._id;
-        this.fetchNote(id);
-        
-    }
     submitHandler = (event) =>{
-        //event.preventDefault()
-        const id = this.props.match.params._id;
-        this.props.updateNote(id, this.state)
-        this.setState({
-            title : '',
-            textBody : '',
+        event.preventDefault()
+        const newNote = Object.assign({}, this.state.note, {
+            title : this.state.newTitle,
+            textBody : this.state.newTextBody,
+            id : this.props.match.params.id,
         })
-       
+        axios   
+            .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, newNote )
+                .then(response =>{
+                    this.setState({
+                        note :response.data,
+                        newTitle : '',
+                        newTextBody : '',
+                    })
+                })
+            .catch(err =>{
+                console.log('Trouble adding new note', err)
+            })    
     }
+    
+    
+
     render(){
         return(
             <div className = 'edit-page-container'>
                 <div className = 'sub-container'>
                     <h1 className = 'edit-header'>Edit Note:</h1>
-                    <form className = 'form' onSubmit = {this.submitHandler}>
+                    <form className = 'form' >
                         <input 
                             className = 'title-input'
                             type = 'text'
                             placeholder = 'Note Title'
-                            value = {this.state.title}
-                            name = 'title'
+                            value = {this.state.newTitle}
+                            name = 'newTitle'
                             onChange = {this.inputHandler}/>
                         <input 
                             className = 'text-input'
                             type = 'text'
                             placeholder = 'Note Content'
-                            value = {this.state.textBody}
-                            name = 'textBody'
+                            value = {this.state.newTextBody}
+                            name = 'newtextBody'
                             onChange = {this.inputHandler}/>    
                         <Link exact to = '/' >
-                            <button className = 'submit-button' type = 'submit'>Save</button>
+                            <button className = 'submit-button' type = 'submit' onClick = {this.submitHandler}>Save</button>
                         </Link>
 
                     </form>

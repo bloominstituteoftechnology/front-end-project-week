@@ -10,7 +10,7 @@ class NavBar extends React.Component{
                     <NavLink exact to = '/'>
                         <button className = 'nav-button'>View Your Notes</button>
                     </NavLink>
-                    <NavLink to = '/create'>
+                    <NavLink exact to = '/create'>
                         <button className = 'nav-button'>+ Create New Note</button>
                     </NavLink>
                 </div>    
