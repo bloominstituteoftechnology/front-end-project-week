@@ -36,7 +36,7 @@ class SingleNoteView extends Component {
       <div className="singlenoteDisplay">
         <div className="button-flex">
 		
-          <Link to={`/updateNote/${this.props.match.params.id}`}>edit</Link>
+          <Link to={`/updateNote/${this.props.match.params.id}`}>Edit</Link>
 
 		  {/* React strap Modal */}
           <p onClick={this.toggle}>
