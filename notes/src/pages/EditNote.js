@@ -11,7 +11,7 @@ class EditNote extends Component {
     componentDidMount() {
         if (this.props.type === "Edit") {
             let id = this.props.match.params.id;
-            let note = this.props.notes[id]; //pick out note that corresponds to ID in URL
+            let note = this.props.notes.find(note => note._id === id); //pick out note that corresponds to ID in URL
     
             this.setState({ //set note to state
                 note: note,
@@ -35,7 +35,7 @@ class EditNote extends Component {
         event.preventDefault();
         this.props.addNote({
             title: this.state.newTitle,
-            text: this.state.newText
+            textBody: this.state.newText
         }, this.state.id ? this.state.id : "Add");
     };
 

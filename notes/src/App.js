@@ -23,18 +23,13 @@ class App extends Component {
     };
 
     handleAddNote = (note, id) => {
-        let noteArr = this.state.notes;
-
         if (id === "Add") {
-            noteArr.push(note);
-            this.setState({
-                notes: noteArr
-            });
+            axios.post("https://fe-notes.herokuapp.com/note/create", {
+                title: note.title,
+                textBody: note.textBody
+            }).then(response => {console.log(response)});
         } else {
-            noteArr.splice(id, 1, note);
-            this.setState({
-                notes: noteArr
-            });
+            
         }
     };
 
