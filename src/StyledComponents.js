@@ -111,6 +111,23 @@ export const SubmitButton = styled.button`
     }
 `;
 
+//NOTES
+
+export const SearchContainer = styled.div`
+    display: flex;
+    width: 92%;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1%;
+    margin-right: auto;
+    margin-bottom: 10px;
+
+    input{
+        text-align: center;
+        line-height: 2.0rem;
+    }
+`;
+
 //NOTE
 
 export const StandardDiv = styled.div`
