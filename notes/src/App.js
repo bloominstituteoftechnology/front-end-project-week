@@ -10,7 +10,7 @@ import UpdateNote from './components/UpdateNote'
 const App = props => {
   return (
     <div className="App">
-      <NavLink to="/create">Create</NavLink>
+      <NavLink to="/create">ADD NOTE</NavLink>
 
       <Route path="/create" component={CreateNote} />
       <Route path="/update/:id" component={UpdateNote} />
