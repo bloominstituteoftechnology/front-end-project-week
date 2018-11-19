@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { postNote } from '../actions/index';
 
 class CreateNote extends Component {
   constructor(props){
@@ -32,4 +34,6 @@ class CreateNote extends Component {
   }
 }
 
-export default CreateNote;
+const mapStateToProps = () => ({})
+
+export default connect(mapStateToProps, { postNote })(CreateNote);
