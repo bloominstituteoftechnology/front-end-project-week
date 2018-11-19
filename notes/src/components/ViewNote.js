@@ -30,10 +30,16 @@ export default class ViewNote extends Component {
     }
   }
 
+  deleteNote = () => {
+    this.props.deleteNote(this.state._id);
+    this.props.history.push('/');
+  };
+
   render() {
     return (
-      <div>
+      <div className="view-note">
         <Link to={`/edit/${this.state._id}`}>edit</Link>
+        <span onClick={this.deleteNote}>delete</span>
         {this.state.title}
         {this.state.textBody}
       </div>

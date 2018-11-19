@@ -48,6 +48,7 @@ export default class EditNote extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <h2>Edit Note:</h2>
         <input
           type="text"
           name="title"
@@ -56,8 +57,7 @@ export default class EditNote extends Component {
           onChange={this.handleChange}
           required
         />
-        <input
-          type="text"
+        <textarea
           name="textBody"
           value={this.state.textBody}
           placeholder="Note Content"

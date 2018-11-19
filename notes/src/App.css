@@ -136,24 +136,77 @@ html {
   box-sizing: border-box;
 }
 
-.notes {
+body {
+  background-color: #24b8bd;
+}
+
+.app-container {
+  border: 1px solid #a5a5a5;
+  display: flex;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+}
+
+.nav {
+  background-color: #d3d2d3;
+  border-right: 1px solid #a5a5a5;
+  display: flex;
+  flex-direction: column;
+  max-width: 225px;
+  padding: 10px;
+  width: 100%;
+}
+
+.nav h1 {
+  color: #414141;
+  font-size: 3.4rem;
+  font-weight: bold;
+}
+
+.nav a {
+  margin: 10px 0;
+}
+
+.nav button {
+  background-color: #24b8bd;
+  border: 1px solid #a5a5a5;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: bold;
+  height: 40px;
+  width: 100%;
+}
+
+.main-content {
   background-color: #f1f0f2;
+  display: flex;
+  justify-content: center;
+  max-width: 675px;
+  width: 100%;
+}
+
+.notes {
   color: #414141;
   display: flex;
   flex-wrap: wrap;
   font-size: 1.4rem;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: space-around;
+  width: 90%;
 }
 
 .note {
   background-color: #ffffff;
-  border: 2px solid #d8d8d8;
+  border: 1px solid #a5a5a5;
   color: #414141;
   display: flex;
   flex-flow: column wrap;
+  height: 152px;
+  margin: 10px 5px;
+  overflow-wrap: break-word;
   padding: 15px;
-  width: 18%;
+  width: 27%;
 }
 
 .note h3 {
@@ -162,4 +215,54 @@ html {
   font-weight: bold;
   margin-bottom: 10px;
   padding-bottom: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+form h2 {
+  color: #414141;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+form input {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px 0;
+  padding: 2%;
+  width: 55%;
+}
+
+form textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 400px;
+  margin: 5px 0;
+  padding: 2%;
+  resize: none;
+  width: 100%;
+}
+
+form button {
+  background-color: #24b8bd;
+  border: 1px solid #a5a5a5;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: bold;
+  height: 40px;
+  margin: 5px 0;
+  width: 25%;
+}
+
+.view-note {
+  overflow-wrap: break-word;
+  width: 90%;
+}
+
+.view-note span {
+  cursor: pointer;
+  text-decoration: underline;
 }
