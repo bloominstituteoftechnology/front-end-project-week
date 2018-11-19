@@ -5,6 +5,7 @@
 
 .input-container {
     width: 100%;
+    padding-top: 75px;
     border: 1px solid grey;
     background-color: gainsboro;
 }

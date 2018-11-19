@@ -18,6 +18,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-align: start;
 }
 
 .note-body {
@@ -25,4 +26,5 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-align: start;
 }

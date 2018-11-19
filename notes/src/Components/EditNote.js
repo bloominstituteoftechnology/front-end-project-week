@@ -48,7 +48,7 @@ class EditNote extends Component {
                         onChange={this.inputHandleChange}
                         value={this.state.title}
                     />
-                    <input
+                    <textarea
                         class='note-content'
                         placeholder='Note Content'
                         name='textBody'

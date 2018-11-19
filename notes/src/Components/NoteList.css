@@ -8,6 +8,7 @@
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
+    padding-top: 75px;
     background-color: gainsboro;
 }
 

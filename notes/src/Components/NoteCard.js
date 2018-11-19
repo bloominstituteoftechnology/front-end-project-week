@@ -18,15 +18,17 @@ const NoteCard = props => {
         <div class='container'>
             <Menu />
             <div class='note-container'>
-                <h2 class='title'>
-                    {note.title}
-                </h2>
-                <p class='body'>
-                    {note.textBody}
-                </p>
-                <div>
-                    <Link to={`/${note._id}/edit`}>Edit</Link>
-                    <div class='delete' onClick={() => { props.deleteNote(props.match.params.id)}}>Delete</div>
+                <div class='notecard-buttons'>
+                    <Link class='edit' to={`/${note._id}/edit`}>edit</Link>
+                    <div class='delete' onClick={() => { props.deleteNote(props.match.params.id) }}>delete</div>
+                </div>
+                <div class='notecard'>
+                    <h2 class='title'>
+                        {note.title}
+                    </h2>
+                    <p class='body'>
+                        {note.textBody}
+                    </p>
                 </div>
             </div>
         </div>
