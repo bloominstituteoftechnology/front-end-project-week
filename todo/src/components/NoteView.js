@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
+
 
 
 // wrap individual note component in Note, and link using route
@@ -29,13 +31,13 @@ class NoteView extends Component {
     }
     
     render(){
-        console.log(this.state.textBody)
         return(
             <div className="note-view">
                 <p>Test test</p>
                 <h2>{this.state.title}</h2>
                 <p>{this.state.textBody}</p>
-            </div>
+                <Link to={`/notes/${this.props.match.params.id}/edit/`}><button>Update me</button></Link>
+            </div> 
         )
         // const id = this.props.match.params.id;
         // const note = this.props.notes.find(note => `${note._id}`);

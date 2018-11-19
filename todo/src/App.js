@@ -7,6 +7,7 @@ import Note from './components/Note';
 import Notes from './components/Notes';
 import NoteView from './components/NoteView';
 import UpdateNote from './components/updateNote'
+import CreateNote from './components/CreateNote'
 
 class App extends Component {
   constructor(props){
@@ -32,11 +33,11 @@ class App extends Component {
       <BrowserRouter>
       <div>
       <NavLink to="/">Go home</NavLink>
-      <Route path="/notes/:id" render={(props) =>
+      <CreateNote />
+      <Route exact path="/notes/:id" render={(props) =>
         <NoteView {...props}/>}/>
-      <Route path="/edit/:id" render={(props) => 
-       <UpdateNote /> } />
-      <NoteForm />
+      <Route path="/notes/:id/edit" render={(props) => 
+       <UpdateNote {...props} /> } />
       <Route exact path="/" render={props => <Notes notes={this.state.notes} />}/>
       </div>
       </BrowserRouter>
