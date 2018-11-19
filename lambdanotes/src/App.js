@@ -7,6 +7,8 @@ import Notes from './components/Notes';
 import MainContainer from './components/styles/MainContainer';
 import CreateView from './components/CreateView';
 import MyNote from './components/MyNote';
+import EditNote from './components/EditNote';
+
 
 class App extends Component {
 constructor(props) {
@@ -46,13 +48,15 @@ addContent = (event,newNotes) => {
        })
 }
 
-// addContent = (event,content) => {
-//     event.preventDefault();
-//     this.setState({
-//         notes: [content.notes, ...this.state.notes]
-//     })
-//     console.log(content.notes);
-// }
+updateContent = (event, id, editedNote) => {
+    event.preventDefault();
+    axios.put('https://fe-notes.herokuapp.com/note/edit/${id}', editedNote)
+         .then( response => {
+            this.setState({notes:[editedNote, ...this.state.notes]})
+         })
+         .catch( err => { this.setState({ errorMessage: "Cannot edit now"})
+      })
+}
 
   render() {
     const notes = this.state.notes;
@@ -63,7 +67,9 @@ addContent = (event,newNotes) => {
           <Route exact path='/' render={ props => <Notes {...props} notes={notes}/>}></Route>
           {/* <Notes notes={this.state.notes} /> */}
           <Route exact path='/notes' render={ props => <CreateView {...props} addContent={this.addContent} notes={notes} />}></Route>
-          <Route path='/note/:id' render={ props => <MyNote {...props} notes={notes} /> } />
+          <Route path='/note/:id' render={ props => <MyNote    {...props} notes= {notes} /> } />
+          <Route path='/edit/:id' render={ props => 
+                          <EditNote  {...props} notes={notes} updateContent={this.updateContent} />} />
           {/* <Route path="/avengers/:id" render={ props =>   <AvengerPage {...props} avengers={avengers} />}  /> */}
         </MainContainer>
       </div>
