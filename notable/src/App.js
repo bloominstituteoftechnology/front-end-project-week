@@ -61,8 +61,16 @@ class App extends Component {
         </SideBar>
         <DisplayDiv>
           <Route exact path="/" render={props => <NoteList {...props} />} />
-          <Route path="/form" component={NoteForm} />
+          <Route
+            path="/form"
+            render={props => (
+              <NoteForm {...props} purpose="Create New Note:" buttonText="Save" />
+            )}
+          />
           <Route path="/note/:id" render={props => <SingleNote {...props} />} />
+          <Route path='/update/:id' render={props => (
+              <NoteForm {...props} purpose="Edit Note:" buttonText="Update" />
+            )} />
         </DisplayDiv>
       </MainDiv>
     );

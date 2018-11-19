@@ -1,13 +1,18 @@
 import axios from "axios";
 
-export const ADD_NOTE = "ADD_NOTE";
 export const FETCHING = "FETCHING";
 export const SUCCESS = "SUCCESS";
 export const SUCCESS_SINGLE = "SUCCESS_SINGLE";
 export const ERROR = "ERROR";
 
 export const addNote = data => {
-  return { type: ADD_NOTE, payload: data };
+  return dispatch => {
+    axios.post(`https://fe-notes.herokuapp.com/note/create`, data)
+      .then(() => dispatch(fetchNotes()))
+      .catch(err => {
+        dispatch({ type: ERROR, payload: `Problem adding new note. Please try again. ${err}`})
+      })
+  }
 };
 
 export const fetchNotes = () => {
