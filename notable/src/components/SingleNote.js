@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { fetchSingleNote, deleteNote } from "../actions/index";
+import { fetchSingleNote, deleteNote, setUpdate } from "../actions/index";
 import DeleteModal from "./DeleteModal";
 
 const OptionsBar = styled.div`
@@ -52,11 +52,16 @@ class SingleNote extends React.Component {
     this.props.history.push("/");
   };
 
+  updateHandler = () => {
+    this.props.setUpdate();
+    this.props.history.push(`/update/${this.props.note._id}`);
+  }
+
   render() {
     return (
       <div>
         <OptionsBar>
-          <div>edit</div>
+          <div onClick={this.updateHandler}>edit</div>
           <div onClick={this.showModal}>delete</div>
         </OptionsBar>
         {this.props.fetching ? (
@@ -82,5 +87,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchSingleNote, deleteNote }
+  { fetchSingleNote, deleteNote, setUpdate }
 )(SingleNote);

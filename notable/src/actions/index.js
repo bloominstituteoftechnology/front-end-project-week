@@ -4,15 +4,20 @@ export const FETCHING = "FETCHING";
 export const SUCCESS = "SUCCESS";
 export const SUCCESS_SINGLE = "SUCCESS_SINGLE";
 export const ERROR = "ERROR";
+export const UPDATE = "UPDATE";
 
 export const addNote = data => {
   return dispatch => {
-    axios.post(`https://fe-notes.herokuapp.com/note/create`, data)
+    axios
+      .post(`https://fe-notes.herokuapp.com/note/create`, data)
       .then(() => dispatch(fetchNotes()))
       .catch(err => {
-        dispatch({ type: ERROR, payload: `Problem adding new note. Please try again. ${err}`})
-      })
-  }
+        dispatch({
+          type: ERROR,
+          payload: `Problem adding new note. Please try again. ${err}`
+        });
+      });
+  };
 };
 
 export const fetchNotes = () => {
@@ -61,6 +66,29 @@ export const deleteNote = id => {
         dispatch({
           type: ERROR,
           payload: `Problem with deleting note, ${err}`
+        });
+      });
+  };
+};
+
+export const setUpdate = () => {
+  return { type: UPDATE };
+};
+
+export const updateNote = data => {
+  return dispatch => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${data._id}`, {
+        title: data.title,
+        textBody: data.textBody
+      })
+      .then(response => {
+        dispatch({ type: SUCCESS_SINGLE, payload: response.data });
+      })
+      .catch(err => {
+        dispatch({
+          type: ERROR,
+          payload: `Problem adding new note. Please try again. ${err}`
         });
       });
   };

@@ -1,4 +1,4 @@
-import { SUCCESS, FETCHING, ERROR, SUCCESS_SINGLE } from "../actions";
+import { SUCCESS, FETCHING, ERROR, SUCCESS_SINGLE, UPDATE } from "../actions";
 
 const initialState = {
   notes: [
@@ -36,8 +36,11 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         singleNote: action.payload,
         fetching: false,
+        updating: false,
         error: ""
       });
+    case UPDATE:
+      return Object.assign({}, state, { updating: true });
     default:
       return state;
   }

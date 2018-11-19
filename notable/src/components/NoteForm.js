@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { addNote } from "../actions/index";
+import { addNote, updateNote } from "../actions/index";
 
 const FormDiv = styled.div`
   h3 {
@@ -68,13 +68,21 @@ class NoteForm extends React.Component {
   submitHandler = e => {
     e.preventDefault();
     if (this.props.updating) {
+      this.props.updateNote({
+        _id: this.props.note._id,
+        title: this.state.title,
+        textBody: this.state.textBody
+      });
+      console.log("update done");
+      this.props.history.push(`/note/${this.props.note._id}`);
+      console.log("should be on single note page")
     } else {
       this.props.addNote({
         title: this.state.title,
         textBody: this.state.textBody
       });
+      this.props.history.push("/");
     }
-    this.props.history.push('/');
   };
 
   render() {
@@ -86,7 +94,7 @@ class NoteForm extends React.Component {
             type="text"
             name="title"
             id="title"
-            defaultValue={this.state.title}
+            value={this.state.title}
             placeholder="Note Title"
             onChange={this.changeHandler}
           />
@@ -94,7 +102,7 @@ class NoteForm extends React.Component {
             type="text"
             name="textBody"
             id="textBody"
-            defaultValue={this.state.textBody}
+            value={this.state.textBody}
             placeholder="Note Content"
             onChange={this.changeHandler}
           />
@@ -114,5 +122,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addNote }
+  { addNote, updateNote }
 )(NoteForm);
