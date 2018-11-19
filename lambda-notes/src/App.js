@@ -130,6 +130,19 @@ class App extends Component {
       this.toggle();
   }
 
+  exportCsv = () => {
+      let CSVData = [['Row','Note', 'id', 'Title', 'Content']];
+      this.props.notes.forEach((note, index) => CSVData.push([index, note._id, note.title, note.textBody]));
+      CSVData = CSVData.map(item => item.join(','));
+      CSVData = CSVData.join('%0A')
+      let a = document.createElement('a');
+      a.href = 'data:atachment/csv' + CSVData;
+      a.target = "_Blank";
+      a.download = 'Notes.csv';
+      document.body.appendChild(a);
+      a.click();
+  }
+
   render() {
     return  <AppWrapper modal={this.state.modal} >
                 <DeleteModal modal={this.state.modal}>
@@ -143,9 +156,10 @@ class App extends Component {
                     <SidebarHeader>
                         Lambda <br/> Notes
                     </SidebarHeader>
-                    <input placeholder='Search Notes...' onChange={this.changeHandler} value={this.state.search} />
+                    <input placeholder='&#x1F50D; Search Notes...' onChange={this.changeHandler} value={this.state.search} />
                     <div onClick={() => this.props.history.push('/')} >View Your Notes</div>
-                    <div onClick={() => this.props.history.push('/create')} >+ Create New Note</div>                    
+                    <div onClick={() => this.props.history.push('/create')} >+ Create New Note</div>
+                    <div onClick={this.exportCsv} >Export CSV</div>                    
                 </Sidebar>
                 <Route exact path='/' render = {props => <Home search={this.state.search} {...props} />} />
                 <Route exact path='/note/:id' render = {props => <NoteProfile toggle={this.toggle} {...props} />} />
@@ -156,7 +170,10 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return {id: state.active_Id}
+  return {
+    id: state.active_Id,
+    notes: state.notes
+  }
 }
 
 export default withRouter(connect(mapStateToProps, {deleteNote, fetchNotes})(App));
