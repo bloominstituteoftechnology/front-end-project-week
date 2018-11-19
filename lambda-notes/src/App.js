@@ -19,18 +19,6 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
-    this.getNotes();
-  }
-
-  getNotes = () => {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        this.setState({ notes: response.data })
-      })
-      .catch(err => console.log(err))
-  }
-
   postNote = (newNote) => {
     axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
       .then(response => this.setState({ notes: response.data }))
@@ -61,7 +49,7 @@ class App extends Component {
         <NavLink to="/">View Your Notes</NavLink>
         <NavLink to="/create">+Create New Note</NavLink>
 
-        <Route exact path="/" render={ props => <NotesList {...props} notes={this.state.notes} />}/>
+        <Route exact path="/" component={NotesList} />
         <Route path="/create" render={ props => <CreateNote {...props} postNote={this.postNote} />}/>
         <Route path="/view/:id" render={ props => <NoteView {...props} deleteNote={this.deleteNote} />}/>
         <Route path="/edit/:id" render={ props => <EditView {...props} notes={this.state.notes} updateNote={this.updateNote} />}/>

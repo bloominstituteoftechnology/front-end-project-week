@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { getNotes } from '../actions/index';
 import Note from './Note';
 import { Link } from 'react-router-dom';
 
 class NotesList extends Component {
+  constructor(props){
+    super(props)
+  }
+
+  componentDidMount(){
+    this.props.getNotes()
+  }
 
   render(){
     return(
@@ -18,7 +28,7 @@ class NotesList extends Component {
             )})}
         </div>
       </>
-    )
+    );
   }
 }
 
@@ -26,4 +36,10 @@ NotesList.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object)
 }
 
-export default NotesList;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  }
+}
+
+export default connect(mapStateToProps, { getNotes })(NotesList);

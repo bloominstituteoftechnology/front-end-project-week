@@ -8,11 +8,11 @@ export const getNotes = () => {
   return dispatch => {
     dispatch({ type: LOADING })
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => {
+      .then( response => {
         dispatch({ type: SUCCESS, payload: response.data })
       })
-      .catch(err => {
-        dispatch({ type: ERROR, error: 'Failed to retrieve notes...'})
+      .catch( err => {
+        dispatch({ type: ERROR, error: "Failed to get notes..."})
       })
   }
 }
@@ -28,7 +28,7 @@ export const postNote = (newNote) => {
         dispatch({ type: ERROR, error: 'Failed to post new note...'})
       })
   }
-}
+};
 
 export const deleteNote = id => {
   return dispatch => {
@@ -41,7 +41,7 @@ export const deleteNote = id => {
         dispatch({ type: ERROR, error: 'Failed to delete note...'})
       })
   }
-}
+};
 
 export const updateNote = updatedNote => {
   return dispatch => {
@@ -54,4 +54,4 @@ export const updateNote = updatedNote => {
         dispatch({ type: ERROR, error: 'Failed to edit note...'})
       })
   }
-}
+};
