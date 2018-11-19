@@ -20,7 +20,10 @@ class NewNote extends React.Component {
     addNoteHandler = e => {
         e.preventDefault();
         // console.log(e.target.children[1].value);
-        this.props.addNoteAction(e.target.children[1].value, e.target.children[2].value);
+        this.props.addNoteAction(this.state.NoteTitle, this.state.NoteContent);
+        setTimeout(function() {
+            window.location.href = 'http://localhost:3000/';
+        }, 1000);
     }
 
     render() {
@@ -35,7 +38,7 @@ class NewNote extends React.Component {
                     <form className='new-note-form' onSubmit={this.addNoteHandler}>
                         <h4 className='notes-title'>Create New Note:</h4>
                         <input className='note-title-input' name='NoteTitle' placeholder='Note Title' onChange={this.handleInputChange}></input>
-                        <input className='note-content-input' name='NoteContent' placeholder='Note Content' onChange={this.handleInputChange}></input>
+                        <textarea className='note-content-input' name='NoteContent' placeholder='Note Content' onChange={this.handleInputChange}></textarea>
                         <button>Save</button>
                     </form>
                 </div>

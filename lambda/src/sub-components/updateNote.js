@@ -39,6 +39,9 @@ class UpdateNote extends React.Component {
         // console.log(this.props.match.params.id);
         // console.log(this.state.NoteTitle, this.state.NoteContent);
         this.props.updateNoteAction(this.state.NoteTitle, this.state.NoteContent, this.props.match.params.id);
+        setTimeout(function() {
+            window.location.href = 'http://localhost:3000/';
+        }, 1000);
     }
 
     render() {
@@ -53,7 +56,7 @@ class UpdateNote extends React.Component {
                     <form className='new-note-form' onSubmit={this.updateNoteHandler}>
                         <h4 className='notes-title'>Update Note:</h4>
                         <input className='note-title-input' name='NoteTitle' placeholder='Note Title' onChange={this.handleInputChange}></input>
-                        <input className='note-content-input' name='NoteContent' placeholder='Note Content' onChange={this.handleInputChange}></input>
+                        <textarea className='note-content-input' name='NoteContent' placeholder='Note Content' onChange={this.handleInputChange}></textarea>
                         <button>Save</button>
                     </form>
                 </div>

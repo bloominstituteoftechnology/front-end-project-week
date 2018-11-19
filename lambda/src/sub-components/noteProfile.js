@@ -58,46 +58,25 @@ class NoteProfile extends React.Component {
         // }
 
         this.props.deleteNoteAction(this.props.match.params.id);
-        const deleteModal = document.querySelector('.modal');
+        // this.props.history.go('http://localhost:3000/');
+       setTimeout(function() {
+           window.location.href = 'http://localhost:3000/';
+       }, 1000);
+
         // window.location.assign('http://localhost:3000/');
-        setTimeout(window.location.reload(true), 10000);
+        // setTimeout(window.location.reload(false), 10000);
 
         // // window.location.reload();
         // this.props.history.goBack(2);
         // window.location.reload();
         
-        // const deleter = this.props.deleteNoteAction;
-        // const past = this.props.history;
-        // const functionOne = function(value, callback) {
-        //     return (
-        //         deleter(value),
-        //         callback()
-        //     )
+        // const functionOne = function(value, callback){
+        //     this.props.
         // }
-        // const functionTwo = function(value, callback) {
-        //     return (
-        //         past.go(-2),
-        //         callback()
-        //     )
-        // }
-        // const functionThree = function(value) {
-        //     return (
-        //         window.location.reload()
-        //     )
-        // }
-        // functionOne(this.props.match.params.id, function() {
-        //     functionTwo(null, function() {
-        //         functionThree()
-        //     })
-        // })
 
         // setTimeout(this.props.deleteNoteAction(this.props.match.params.id), 10);
         // setTimeout(this.props.history.goBack(2), 10);
         // setTimeout(window.location.reload, 10);
-
-        // console.log(this.props.history.location);
-        // this.props.history.goBack();
-        // window.location.reload();
     }
 
     render() {
@@ -129,7 +108,7 @@ class NoteProfile extends React.Component {
                         <p className='specific-note-textbody'>{this.state.note.textBody}</p>
                     </div>
                 </div>
-                
+       
                 {/* <Route exact path='/notes/:id/update-note' render={ (props) => <UpdateNote {...props} pageReload={this.windowReload} />} /> */}
             </div>
         )
