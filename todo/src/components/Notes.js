@@ -26,7 +26,7 @@ class Notes extends Component {
                                 textBody={note.textBody}
                                 id={note._id}
                                 />
-                                <button type="x" onClick={event => this.deleteNote(note._id)}>Delete note</button>
+                                 <button className="button" type="x" onClick={event => this.deleteNote(note._id)}>Delete note</button>
                             </div>
                         )
                     })}

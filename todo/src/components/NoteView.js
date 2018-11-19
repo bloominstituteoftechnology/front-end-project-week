@@ -36,12 +36,9 @@ class NoteView extends Component {
                 <p>Test test</p>
                 <h2>{this.state.title}</h2>
                 <p>{this.state.textBody}</p>
-                <Link to={`/notes/${this.props.match.params.id}/edit/`}><button>Update me</button></Link>
+                <Link to={`/notes/${this.props.match.params.id}/edit/`}><button className="button" >Update me</button></Link>
             </div> 
         )
-        // const id = this.props.match.params.id;
-        // const note = this.props.notes.find(note => `${note._id}`);
-        // console.log(id)
         // need to call getNote somewhere in the render function
         // maybe move all CRUD elements into the main app and pass around
     }

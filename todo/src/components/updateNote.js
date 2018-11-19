@@ -62,7 +62,7 @@ class UpdateNote extends React.Component {
                     name='textBody'
                     placeholder='enter some content'
                     onChange={this.inputHandler}/>
-                <button type='submit'>Update this note</button>
+                <button type='submit' className="button" >Update this note</button>
                 </form>
             </div>
             
