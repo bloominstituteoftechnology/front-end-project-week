@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import { Title, NoteWrap, NoteContent } from '../Styles/ListViewStyle';
-import NoteView from './NoteView';
+
 
 
 class ListView extends Component {
@@ -26,15 +27,16 @@ class ListView extends Component {
         
 }
 
+   
+
     render() {
         return (
             <NoteWrap> 
             {this.state.notes.map( note => {
                 return (
-               <NoteContent key={note._id}>
-                    <Title>{note.title}</Title>
+               <NoteContent  key={note._id}>
+                   <Link  to={'/note/:id'}><Title>{note.title}</Title></Link> 
                     <p>{note.textBody}</p>
-                    <NoteView note={note} />
                </NoteContent>
                 )
             })}

@@ -3,29 +3,32 @@ import DeleteModal from './DeleteModal';
 import axios from 'axios';
 
 export default class NoteView extends Component {
+    constructor(props){
+        super(props)
+    this.state = {
 
-    state = {
-     
+    }
     }
 
 
     componentDidMount() {
-        // const id = this.props.params.id
-        // this.getNote(id);
-        console.log(this.props)
+    const id = this.props.match.params.id;
+        this.getNote(id);
     }
 
-    getNote = (id) => {
+        getNote = (id) => {
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-        .then(res => this.setState({ note: res.data }))
-        .catch(res => console.log( res ));
+        .then(res => { this.setState({ note: res.data })})
+        .catch(res => console.log( res.message ));
         }
 
+
   render() {
-    return (
-      <div>
-        <DeleteModal/>
-      </div>
-    )
-  }
+        return (
+            <div>
+               
+                <DeleteModal  />
+            </div>
+        )
+    }
 }

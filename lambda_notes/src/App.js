@@ -4,9 +4,21 @@ import {Route, NavLink} from 'react-router-dom';
 import ListView from './components/Display_Components/ListView';
 import CreateNewNote from './components/Display_Components/CreateNewNote';
 import NoteView from './components/Display_Components/NoteView';
+import axios from 'axios';
 
 
 class App extends Component {
+
+
+    componentDidMount() {
+
+      axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .then( res => {
+        this.setState({
+          notes: res.data,
+        })
+      })
+    }
 
   render() {
 
@@ -32,7 +44,7 @@ class App extends Component {
         />
 
         <Route path='/note/:id' exact
-          render={props => <NoteView />}
+          render={(props) => <NoteView someNotes={this.state} {...props}   />}
         />
       </div>
     );
