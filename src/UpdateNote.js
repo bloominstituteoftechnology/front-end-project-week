@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateNote } from './actions/index';
 import {withRouter} from 'react-router-dom';
-import { NoteContainer, NoteForm, FormTitle, FormText, SubmitButton, H2Header } from './StyledComponents';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
+import { NoteContainer, NoteForm, FormTitle, SubmitButton, H2Header } from './StyledComponents';
 
 class UpdateNote extends React.Component{
     constructor(props){
@@ -11,7 +14,6 @@ class UpdateNote extends React.Component{
             note: [],
             title: '',
             textBody: '',
-            __v: ''
         }
     }
 
@@ -21,7 +23,12 @@ class UpdateNote extends React.Component{
             note: note, 
             title: note.title,
             textBody: note.textBody,
-            __v: note.__v
+        })
+    }
+
+    handleChange = (value) => {
+        this.setState({
+            textBody: value
         })
     }
 
@@ -33,21 +40,13 @@ class UpdateNote extends React.Component{
 
     submitHandler = (e) => {
         e.preventDefault();
-        const newv = this.state.__v + 1;
         const updatedNote = {
             title: this.state.title,
             textBody: this.state.textBody,
             _id: this.state.note._id,
-            __v: newv
         }
         console.log(updatedNote);
-        this.props.updateNote(updatedNote.id, updatedNote);
-        this.setState({
-            note: '',
-            title: '',
-            textBody: '',
-            __v: 0
-        })
+        this.props.updateNote(this.state.note._id, updatedNote);
         setTimeout(()=>{this.props.history.push(`/notes/${this.state.note._id}`)}, 1000);
     }
 
@@ -57,7 +56,7 @@ class UpdateNote extends React.Component{
                 <H2Header>Edit Note:</H2Header>
             <NoteForm onSubmit={this.submitHandler}>
                 <FormTitle onChange={this.inputHandler} type="text" name="title" placeholder="Note Title" value={this.state.title}></FormTitle>
-                <FormText onChange={this.inputHandler} type="text" name="textBody" placeholder="Note Content" value={this.state.textBody}></FormText>
+                <ReactQuill value={this.state.textBody} onChange={this.handleChange} />
                 <SubmitButton type="submit">Update</SubmitButton>
             </NoteForm>
             </NoteContainer>

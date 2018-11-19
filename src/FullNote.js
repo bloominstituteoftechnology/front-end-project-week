@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from './actions/index';
 import { withRouter } from 'react-router-dom';
+import { Markup } from 'interweave';
 
 import { NoteButton, FullNoteContainer, NoteButtonContainer } from './StyledComponents';
 import DeleteModal from './DeleteModal';
@@ -48,6 +49,7 @@ class FullNote extends React.Component {
 
     render(){
         if(!this.state.note) return null;
+        const noteContent = this.state.note.textBody;
         return(
             <FullNoteContainer>
                 <NoteButtonContainer>
@@ -55,7 +57,7 @@ class FullNote extends React.Component {
                     <NoteButton onClick={this.popup}>delete</NoteButton>
                 </NoteButtonContainer>
                 <h2>{this.state.note.title}</h2>
-                <p>{this.state.note.textBody}</p>
+                <Markup content={noteContent} />
 
                 {this.state.delete ? <DeleteModal delete={this.deleter} closeForm={this.closeForm} /> : null }
 

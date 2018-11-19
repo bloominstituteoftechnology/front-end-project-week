@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 import { addNote } from './actions/index';
-import { H2Header, NoteContainer, NoteForm, FormTitle, FormText, SubmitButton } from './StyledComponents';
+import { H2Header, NoteContainer, NoteForm, FormTitle, SubmitButton } from './StyledComponents';
 
 
 
@@ -14,7 +14,6 @@ class CreateNote extends React.Component {
         this.state={
             title: '',
             textBody: '',
-            text: ''
         }
     }
 
@@ -58,6 +57,3 @@ class CreateNote extends React.Component {
 
 
 export default connect( ()=>({}), { addNote })(CreateNote); 
-
-
-{/* <FormText onChange={this.inputHandler} type="text" value={this.state.text} name="textBody" placeholder="Note Content" /> */}
