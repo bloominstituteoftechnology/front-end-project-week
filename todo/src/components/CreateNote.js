@@ -17,10 +17,12 @@ class CreateNote extends React.Component {
     submitHandler = (e) => {
         e.preventDefault();
         axios.post(`https://fe-notes.herokuapp.com/note/create`, this.state)
-        .then(response => 
-            {console.log(response)})
-        .catch(err => 
-            {console.log(err)})
+        .then(response => {
+            this.setState({response})
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render(){

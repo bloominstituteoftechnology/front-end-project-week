@@ -31,11 +31,39 @@ class UpdateNote extends React.Component {
         })
     }
 
+    inputHandler = (e) => {
+        this.setState({[e.target.name] : e.target.value})
+    }
+
+    submitHandler = (e) => {
+        e.preventDefault();
+        axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, this.state)
+        .then(response => {
+            this.setState({response})
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
     render(){
         return(
             <div>
-            <p>{this.props.match.params.id}</p>
-            <form></form>    
+                <h3>You're going to edit this note:</h3>
+                <h4>{this.state.title}</h4>
+                <p>{this.state.textBody}</p>
+                <h3>Update note</h3>
+                <form onSubmit={this.submitHandler}>
+                <input
+                    name='title'
+                    placeholder='enter a title'
+                    onChange={this.inputHandler}/>
+                <input
+                    name='textBody'
+                    placeholder='enter some content'
+                    onChange={this.inputHandler}/>
+                <button type='submit'>Update this note</button>
+                </form>
             </div>
             
         )
