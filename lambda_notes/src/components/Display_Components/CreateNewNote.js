@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import PropTypes from 'prop-types'
-import { noteTitle } from '../Styles/CreateNoteStyle';
+
 
 class CreateNewNote extends Component {
 
@@ -10,8 +10,7 @@ class CreateNewNote extends Component {
         textBody: "",
     }
 
-
-    inputHandler = (e) => {
+inputHandler = (e) => {
      this.setState({[e.target.name]: e.target.value})
  }
 
@@ -20,13 +19,12 @@ class CreateNewNote extends Component {
     this.newNote(this.state);
  }
 
-
 newNote = (note) => {
         axios
         .post(`https://fe-notes.herokuapp.com/note/create`, note)
         .then( res => {
             this.setState({
-                notes: Object.assign({}, this.props.notes, ...note, res._id)
+                notes: Object.assign({}, ...note, res._id, res.tags)
             })
         })
         .catch( err => {
@@ -36,6 +34,7 @@ newNote = (note) => {
 
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <form onSubmit={this.submitHandler}>
