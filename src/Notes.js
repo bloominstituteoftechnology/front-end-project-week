@@ -7,16 +7,46 @@ import { NotesContainer, StandardDiv } from './StyledComponents';
 
 
 class Notes extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            input: '',
+            currentlyDisplayed: []
+        }
+    }
     componentDidMount(){
         this.props.getNotes();
+        this.setState({
+            currentlyDisplayed: this.props.notes
+        })
+    }
+
+    inputHandler = (e) => {
+        const {value} = e.target;
+        console.log(value);
+        let newDisplay = this.props.notes.filter(note => JSON.stringify(note).toLowerCase().includes(value.toLowerCase()));
+        this.setState({
+            input: value,
+            currentlyDisplayed: newDisplay
+        })
+    }
+
+    preventDefault = (e) => {
+        e.preventDefault();
     }
 
     render(){
+        console.log(this.state.currentlyDisplayed);
         return(
             <StandardDiv>
-                <h1>Your Notes:</h1>
+                <div>
+                    <h1>Your Notes:</h1>
+                    <form onSubmit={this.preventDefault}>
+                        <input onChange={this.inputHandler} type="text" placeholder="&#x1f50D; Search"></input>
+                    </form>
+                </div>
                 <NotesContainer>
-                    {this.props.notes.map( note => 
+                    {this.state.currentlyDisplayed.map( note => 
                         < Note note={note} key={note._id} id={note._id} text={note.textBody} title={note.title} /> 
                     )}
                 </NotesContainer>

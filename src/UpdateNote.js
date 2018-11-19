@@ -10,7 +10,8 @@ class UpdateNote extends React.Component{
         this.state={
             note: [],
             title: '',
-            textBody: ''
+            textBody: '',
+            __v: ''
         }
     }
 
@@ -19,7 +20,8 @@ class UpdateNote extends React.Component{
         this.setState({
             note: note, 
             title: note.title,
-            textBody: note.textBody
+            textBody: note.textBody,
+            __v: note.__v
         })
     }
 
@@ -31,16 +33,20 @@ class UpdateNote extends React.Component{
 
     submitHandler = (e) => {
         e.preventDefault();
+        const newv = this.state.__v + 1;
         const updatedNote = {
             title: this.state.title,
             textBody: this.state.textBody,
-            id: this.state.note._id
+            _id: this.state.note._id,
+            __v: newv
         }
+        console.log(updatedNote);
         this.props.updateNote(updatedNote.id, updatedNote);
         this.setState({
-            name: '',
-            age: '',
-            height: ''
+            note: '',
+            title: '',
+            textBody: '',
+            __v: 0
         })
         setTimeout(()=>{this.props.history.push(`/notes/${this.state.note._id}`)}, 1000);
     }
