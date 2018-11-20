@@ -10,10 +10,24 @@ import Notes from './Notes';
 import UpdateNote from './UpdateNote';
 
 class App extends Component {
+
+  exportCsv = () => {
+    let CSVData = [['Note', 'id', 'Title', 'Content']];
+    this.props.notes.forEach((note, index) => CSVData.push([index+1, note._id, note.title, note.textBody]));
+    CSVData = CSVData.map(item => item.join(','));
+    CSVData = CSVData.join('%0A')
+    let a = document.createElement('a');
+    a.href = 'data:atachment/csv' + CSVData;
+    a.target = "_Blank";
+    a.download = 'Notes.csv';
+    document.body.appendChild(a);
+    a.click();
+  }
+
   render() {
     return (
       <div className="App">
-      <SideBar />
+      <SideBar export={this.exportCsv} />
       <Route exact path="/" component={Notes} />
       <Route path="/create" component={CreateNote} />
       <Route exact path="/notes" component={Notes} />
@@ -24,4 +38,10 @@ class App extends Component {
   }
 }
 
-export default withRouter(connect( ()=>({}) )(App));
+const mapStateToProps = (state) => {
+  return {
+    notes: state.notes
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(App));
