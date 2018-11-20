@@ -3,8 +3,10 @@ import { Route } from 'react-router-dom';
 import { instance } from './utils.js';
 
 import './App.css';
+import Sidebar from './components/Sidebar/Sidebar';
 import NotesList from './components/Notes/NotesList';
 import Note from './components/Notes/Note';
+import CreateNote from './components/Notes/CreatNote';
 
 class App extends Component {
   constructor() {
@@ -35,8 +37,12 @@ class App extends Component {
   }
 
   render() {
+    if (!this.state.notes) {
+      return <div>Sorry, there aren't any notes...</div>
+    }
     return (
       <div className="App">
+        <Sidebar />
         <Route
           exact
           path='/'
@@ -44,7 +50,7 @@ class App extends Component {
             <NotesList notes={this.state.notes} />
           )} />
           <Route path='/get/:id' component={Note} />
-        {/* <NotesList notes={this.state.notes} /> */}
+        <Route path='/create' component={CreateNote} />
       </div>
     );
   }
