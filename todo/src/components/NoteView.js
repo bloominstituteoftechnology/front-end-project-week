@@ -64,8 +64,8 @@ class NoteView extends Component {
                     onClose={this.handleClose}
                     >
                         <p>Are you sure you want to delete this note? I haven't learned enough React to undelete notes.</p>
-                        <button onClick={this.handleClose}>Cancel</button>
-                        <button onClick={this.handleClose} onClick={event => this.deleteNote(this.props.match.params.id)}>Delete</button>
+                        <button className="button" onClick={this.handleClose}>Cancel</button>
+                        <Link to="/"><button className="button" onClick={event => this.deleteNote(this.props.match.params.id)}>Delete</button></Link>
                     </Dialog>
             </div>
             </div> 

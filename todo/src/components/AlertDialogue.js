@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import NoteView from './NoteView'
+import NoteView from './NoteView';
 
 // realized I don't need a separate component for this, so moved this functionality to NoteView
 
