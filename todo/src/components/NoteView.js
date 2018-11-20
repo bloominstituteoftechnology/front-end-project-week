@@ -3,12 +3,15 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Note from './Note';
 import AlertDialogue from './AlertDialogue'
+import Dialog from '@material-ui/core/Dialog';
 
 
 // wrap individual note component in Note, and link using route
 // usually notes/$id
 
 // props aren't being passed into noteView
+
+
 
 class NoteView extends Component {
     constructor(props){
@@ -32,21 +35,39 @@ class NoteView extends Component {
     }
 
     deleteNote = (id) => {
+        // make this a method and then call it 
+        // new function deleter trips the deleteNote function
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         .then (response => {
             this.setState({notes: response.data})
         })
     }
+
+    handleClickOpen = () => {
+        this.setState({open: true})
+    }
+
+    handleClose = () => {
+        this.setState({open: false})
+    }
     
-    render(){
+    render() {
         return(
             <div className="note-view">
                 <h2>{this.state.title}</h2>
                 <p>{this.state.textBody}</p>
-                <button className="button" type="x" onClick={event => this.deleteNote(this.props.match.params.id)}>Delete note</button>
                 <Link to={`/notes/${this.props.match.params.id}/edit/`}><button className="button" >Update me</button></Link>
-                <button className="button">Delete modal</button>
-                <AlertDialogue />
+                <div className="alert-dialogue">
+                <button className="button" onClick={this.handleClickOpen}>Delete Note with new thing</button>
+                <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    >
+                        <p>Are you sure you want to delete this note? I haven't learned enough React to undelete notes.</p>
+                        <button onClick={this.handleClose}>Cancel</button>
+                        <button onClick={this.handleClose} onClick={event => this.deleteNote(this.props.match.params.id)}>Delete</button>
+                    </Dialog>
+            </div>
             </div> 
         )
     }
