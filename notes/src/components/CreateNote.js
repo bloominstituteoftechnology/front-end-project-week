@@ -33,6 +33,7 @@ class CreateNote extends Component {
         {/* <input type="text" name="summary" value={this.state.summary} onChange={this.inputHandler} placeholder="Summary"/> */}
         <input type="text" name="textBody" value={this.state.textBody} onChange={this.inputHandler} placeholder="Description"/>
         <input type="text" name="urlAddress" value={this.state.img} onChange={this.inputHandler} placeholder="URL"/>
+        <input type="text" name="tags" value={this.state.tags} onChange={this.inputHandler} placeholder="Tags"/>
         <button type="submit">SAVE</button>
       </form>
     )

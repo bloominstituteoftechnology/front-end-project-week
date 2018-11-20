@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+// import  { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom'
 
 import logo from './d2rdDroidEmoji.png';
