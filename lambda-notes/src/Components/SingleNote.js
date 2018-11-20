@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import '../App.css'
 import axios from 'axios';
 import DeleteModal from './DeleteModal'
+import {BrowserRouter as Router,Route, NavLink} from 'react-router-dom';
 
 class SingleNote extends Component {
     constructor(props) {
@@ -41,7 +42,9 @@ class SingleNote extends Component {
 
         <div className='notesSingle'>
             <div className='button'>
-                <h5>edit</h5>
+            <NavLink activeClassName='selected' to={{pathname: `/note/edit/${this.props.match.params.id}`, state:{ID: this.props.match.params.id, title: this.state.note.title, textBody: this.state.note.textBody}}}>
+            <h5>edit</h5>
+            </NavLink>
                 <h5 onClick={this.deleteHandler}>delete</h5>
             </div>
             <h3>{this.state.note.title}</h3>

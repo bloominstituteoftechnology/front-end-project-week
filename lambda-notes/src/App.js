@@ -8,6 +8,8 @@ import NotesNav from './Components/NotesNav'
 import Note from './Components/Note'
 import SingleNote from './Components/SingleNote'
 import DeleteModal from './Components/DeleteModal'
+import EditNote from './Components/EditNote'
+
 import axios from 'axios'
 class App extends Component {
   constructor (props) {
@@ -76,6 +78,7 @@ class App extends Component {
         <NotesNav clickForAllHandler={this.clickForAllHandler} clickForNewHandler={this.clickForNewHandler} />
         <Route exact path="/home" render={(props) =>  <NotesList {...props} selectedHandler={this.selectedHandler} notes={this.state.notes} />} />
         <Route exact path="/new" render={(props) =>  <NewNote {...props} this={this} notes={this.state.notes} />} />
+        <Route exact path="/note/edit/:id" render={(props) =>  <EditNote {...props} this={this} notes={this.state.notes} />} />
         <Route exact path="/note/:id" render={(props) =>  <SingleNote {...props} deleteHandler={this.deleteHandler} />} />
 
       </div>

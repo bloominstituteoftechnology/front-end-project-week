@@ -45,6 +45,7 @@ class NewNote extends Component {
             <NavLink activeClassName='selected' to='/home'>
             <button onClick={this.addNote}>Save</button>
             </NavLink>
+            
             </div>
             </div>
         )

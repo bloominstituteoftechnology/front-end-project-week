@@ -6,6 +6,7 @@ class DeleteModal extends Component {
     constructor() {
         super();
         this.state = {
+            home: false,
         }
     }
 
@@ -14,6 +15,10 @@ class DeleteModal extends Component {
         .then( response => this.setState({notes: response.data}))
         .then ( response => this.props.this.setState({deleteNote:false}))
         .catch(err => console.log(err))
+      }
+
+      homeHandler = () => {
+        window.location.reload();
       }
       
 
@@ -24,7 +29,7 @@ class DeleteModal extends Component {
             <p> Are you sure you want to delete this? </p>
             <div className='deleteButtons'>
             <NavLink activeClassName='selected' to='/home'>
-            <button onClick={this.propsclickForAllHandler} className='red' onClick={() => this.deleteNote(this.props.id)} >Delete</button>
+            <button onClick={this.homeHandler} onClick={this.props.clickForAllHandler} className='red' onClick={() => this.deleteNote(this.props.id)} >Delete</button>
             </NavLink>
             <button onClick={this.props.noHandler}>No</button>
             </div>
