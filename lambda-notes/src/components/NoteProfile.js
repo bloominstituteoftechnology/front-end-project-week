@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { Markup } from 'interweave';
 
 import { HomeContainer } from './Home';
 
@@ -29,12 +30,6 @@ const MainSection = styled.section`
     }
 `
 
-const NoteBody = styled.p`
-    font-size: 22px;
-    text-align: start;
-    line-height: 35px;
-`
-
 const NoteProfile = props => {
     const note = props.notes.find(note => `${note._id}` === props.match.params.id);
     if(!note) return null;
@@ -48,7 +43,7 @@ const NoteProfile = props => {
                         <span onClick={props.toggle} >delete</span>
                     </div>
                 </MainSection>
-                <NoteBody>{note.textBody}</NoteBody>                
+                <Markup content={note.textBody} />           
             </HomeContainer>
 }
 const mapStateToProps = state => {

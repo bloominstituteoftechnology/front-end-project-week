@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import ReactQuill from 'react-quill'; 
+import 'react-quill/dist/quill.snow.css';
 
 import { HomeContainer, HeaderContainer } from './Home';
 import { updateNote } from '../actions/actions';
@@ -17,12 +19,21 @@ const Form = styled.form`
         margin-bottom: 30px;
     }
 
+    > .quill {
+        height: 600px;
+        width: 100%;
+        margin-bottom: 50px;
+        background-color: white;
+        border: none;
+        font-size: 22px;
+    }
+
     > textarea {
         padding: 20px;
         font-size: 20px;
         margin-bottom: 30px;
     }
-    > div {
+    > .update {
         color: white;
         background-color: #16ccc9;
         width: 28.3%;
@@ -51,6 +62,14 @@ class EditForm extends React.Component{
         }
     }
 
+    componentDidMount() {
+        const note = this.props.notes.find(note => note._id === this.props.id)
+        this.setState({
+            title: note.title,
+            body: note.textBody
+        })
+    }
+
     changeHandler = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
@@ -61,8 +80,14 @@ class EditForm extends React.Component{
             textBody: this.state.body,
         }
         this.props.updateNote(note, this.props.id);
-        this.props.history.push('/')
+        this.props.history.push(`/note/${this.props.id}`);
+        this.setState({
+            title:'',
+            body: ''
+        })
     }
+
+    handleChange = value => this.setState({body: value})
 
     render() {
         return  <HomeContainer>
@@ -71,15 +96,19 @@ class EditForm extends React.Component{
                     </HeaderContainer>
                     <Form>
                         <input name='title' value={this.state.title} onChange={this.changeHandler} placeholder='Note Title' ></input>
-                        <textarea name='body' value={this.state.body} onChange={this.changeHandler} placeholder='Note Content' rows="25" cols="100" ></textarea>
-                        <div onClick={this.clickHandler} >Update</div>
+                        <ReactQuill className='quill' value={this.state.body} onChange={this.handleChange} />
+                        {/* <textarea name='body' value={this.state.body} onChange={this.changeHandler} placeholder='Note Content' rows="25" cols="100" ></textarea> */}
+                        <div className='update' onClick={this.clickHandler} >Update</div>
                     </Form>
                 </HomeContainer>
     }
 }
 
 const mapStateToProps = state => {
-    return {id: state.active_Id}
+    return {
+        id: state.active_Id,
+        notes: state.notes
+    }
 }
 
 export default connect(mapStateToProps, {updateNote}) (EditForm);

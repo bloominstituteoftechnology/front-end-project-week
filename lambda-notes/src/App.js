@@ -26,7 +26,7 @@ const Sidebar = styled.nav`
     flex-direction: column;
     align-items: center;
     background-color: #bfbcbc;
-    min-height: 100vw;
+    min-height: 100vh;
     > input {
         width: 85%;
         height: 60px;
@@ -132,7 +132,7 @@ class App extends Component {
 
   exportCsv = () => {
       let CSVData = [['Row','Note', 'id', 'Title', 'Content']];
-      this.props.notes.forEach((note, index) => CSVData.push([index, note._id, note.title, note.textBody]));
+      this.props.notes.forEach((note, index) => CSVData.push([index+1, note._id, note.title, note.textBody]));
       CSVData = CSVData.map(item => item.join(','));
       CSVData = CSVData.join('%0A')
       let a = document.createElement('a');

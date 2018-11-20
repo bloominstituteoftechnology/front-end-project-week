@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { handleId } from '../actions/actions';
 import styled from 'styled-components';
+import { Markup } from 'interweave';
 
 const NoteCard = styled.div`
     width: 27%;
@@ -13,7 +14,6 @@ const NoteCard = styled.div`
     background-color: #fbfafa;
     cursor: pointer;
     > div {
-        border-bottom: 1px solid #8e8b8b;
         height: 35px;
         > h2 {
             margin: 0;
@@ -38,8 +38,9 @@ const NoteCard = styled.div`
 const Note = props => <NoteCard onClick={() => {props.history.push(`/note/${props.id}`);props.handleId(props.id)}} >
                             <div>
                                 <h2>{props.title}</h2>
-                            </div>                            
-                            <p>{props.textBody}</p>
+                            </div>
+                            <hr></hr>                            
+                            <Markup content={props.textBody} />
                         </NoteCard>
 
 export default connect(()=>{return{}}, {handleId})(Note);

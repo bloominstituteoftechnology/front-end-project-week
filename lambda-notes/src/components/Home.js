@@ -9,6 +9,11 @@ export const HomeContainer = styled.div`
     flex-direction: column;
     padding: 35px;
     background-color: #e6e0e0;
+    > div {
+        font-size: 22px;
+        text-align: start;
+        line-height: 35px;
+    }
 `
 
 const CardWrapper = styled.div`

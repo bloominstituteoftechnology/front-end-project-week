@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import ReactQuill from 'react-quill'; 
+import 'react-quill/dist/quill.snow.css';
 
 import { HomeContainer, HeaderContainer } from './Home';
 import { createNote } from '../actions/actions';
@@ -17,12 +19,21 @@ const Form = styled.form`
         margin-bottom: 30px;
     }
 
+    > .quill {
+        height: 600px;
+        width: 100%;
+        margin-bottom: 50px;
+        background-color: white;
+        border: none;
+        font-size: 22px;
+    }
+
     > textarea {
         padding: 20px;
         font-size: 20px;
         margin-bottom: 30px;
     }
-    > div {
+    > .save {
         color: white;
         background-color: #16ccc9;
         width: 28.3%;
@@ -51,6 +62,8 @@ class CreateForm extends React.Component{
         }
     }
 
+    handleChange = value => this.setState({body: value})
+
     changeHandler = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
@@ -71,8 +84,9 @@ class CreateForm extends React.Component{
                     </HeaderContainer>
                     <Form>
                         <input name='title' value={this.state.title} onChange={this.changeHandler} placeholder='Note Title' ></input>
-                        <textarea name='body' value={this.state.body} onChange={this.changeHandler} placeholder='Note Content' rows="25" cols="100" ></textarea>
-                        <div onClick={this.clickHandler} >Save</div>
+                        <ReactQuill className='quill' value={this.state.body} onChange={this.handleChange} />
+                        {/* <textarea name='body' value={this.state.body} onChange={this.changeHandler} placeholder='Note Content' rows="25" cols="100" ></textarea> */}
+                        <div className='save' onClick={this.clickHandler} >Save</div>
                     </Form>
                 </HomeContainer>
     }
