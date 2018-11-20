@@ -35,7 +35,7 @@ class ListView extends Component {
             {this.state.notes.map( note => {
                 return (
                <NoteContent  key={note._id}>
-                   <Link  to={'/note/:id'}><Title>{note.title}</Title></Link> 
+                   <Link to={`/note/${note._id}`} note={this.props.notes} ><Title>{note.title}</Title></Link> 
                     <p>{note.textBody}</p>
                </NoteContent>
                 )

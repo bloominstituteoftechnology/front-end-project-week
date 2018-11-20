@@ -6,19 +6,22 @@ export default class NoteView extends Component {
     constructor(props){
         super(props)
     this.state = {
-
+        note: {},
     }
     }
 
+ 
 
     componentDidMount() {
     const id = this.props.match.params.id;
-        this.getNote(id);
+       this.getNote(id)
     }
 
-        getNote = (id) => {
+    getNote = (id) => {
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-        .then(res => { this.setState({ note: res.data })})
+        .then(res => { this.setState({
+            note: res.data
+        })})
         .catch(res => console.log( res.message ));
         }
 
@@ -26,7 +29,8 @@ export default class NoteView extends Component {
   render() {
         return (
             <div>
-               
+                <h2>{this.state.note.title}</h2>
+                <p>{this.state.note.textBody}</p>
                 <DeleteModal  />
             </div>
         )
