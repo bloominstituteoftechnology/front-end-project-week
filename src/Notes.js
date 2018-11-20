@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getNotes } from './actions/index';
+import { getNotes, getOneNote } from './actions/index';
 import Note from './Note';
 import '../src/index';
 import { NotesContainer, StandardDiv, SearchContainer } from './StyledComponents';
@@ -40,7 +40,7 @@ class Notes extends React.Component {
                 </SearchContainer>
                 <NotesContainer>
                     {currentDisplay.map( note => 
-                        < Note key={note._id} id={note._id} text={note.textBody} title={note.title} history={this.props.history}/> 
+                        < Note key={note._id} id={note._id} text={note.textBody} title={note.title} getOneNote={this.props.getOneNote} history={this.props.history}/> 
                     ).reverse()}
                 </NotesContainer>
             </StandardDiv>
@@ -56,4 +56,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getNotes })(Notes);
+export default connect(mapStateToProps, { getNotes, getOneNote })(Notes);

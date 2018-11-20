@@ -12,16 +12,8 @@ class FullNote extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            note: [],
             delete: false,
         }
-    }
-
-    componentDidMount(){
-        const note = this.props.notes.find(item=> `${item._id}` === this.props.match.params.id);
-        this.setState({
-            note: note,
-        })
     }
 
     popup = (e) => {
@@ -31,33 +23,32 @@ class FullNote extends React.Component {
         })
     }
 
-    closeForm = (e) => {
+    closeForm = () => {
         this.setState({
             delete: !this.state.delete
         })
     }
 
 
-    deleter = (e) => {
-        this.props.deleteNote(this.state.note._id)
-        setTimeout(()=>{this.props.history.push('/notes')}, 1000)
+    deleter = () => {
+        this.props.deleteNote(this.props.currentNote._id)
+        this.props.history.push('/notes')
     }
 
-    updateRoute = (e) => {
-        this.props.history.push(`/edit/${this.state.note._id}`)
+    updateRoute = () => {
+        this.props.history.push(`/edit/${this.props.currentNote._id}`)
     }
 
     render(){
-        if(!this.state.note) return null;
-        const noteContent = this.state.note.textBody;
+        if(!this.props.currentNote) return null;        
         return(
             <FullNoteContainer>
                 <NoteButtonContainer>
                     <NoteButton onClick={this.updateRoute}>edit</NoteButton>
                     <NoteButton onClick={this.popup}>delete</NoteButton>
                 </NoteButtonContainer>
-                <h2>{this.state.note.title}</h2>
-                <Markup content={noteContent} />
+                <h2>{this.props.currentNote.title}</h2>
+                <Markup content={this.props.currentNote.textBody} />
 
                 {this.state.delete ? <DeleteModal delete={this.deleter} closeForm={this.closeForm} /> : null }
 
@@ -68,7 +59,6 @@ class FullNote extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        notes: state.notes,
         currentNote: state.currentNote
     }
 };

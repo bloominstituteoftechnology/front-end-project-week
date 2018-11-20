@@ -11,19 +11,15 @@ class UpdateNote extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            note: [],
             title: '',
             textBody: '',
-            currentNote: ''
         }
     }
 
     componentDidMount(){
-        const note = this.props.notes.find(item=> `${item._id}` === this.props.match.params.id);
         this.setState({
-            note: note, 
-            title: note.title,
-            textBody: note.textBody,
+            title: this.props.currentNote.title,
+            textBody: this.props.currentNote.textBody,
         })
     }
 
@@ -44,21 +40,19 @@ class UpdateNote extends React.Component{
         const updatedNote = {
             title: this.state.title,
             textBody: this.state.textBody,
-            _id: this.state.note._id,
+            _id: this.props.currentNote._id,
         }
-        console.log(updatedNote);
-        this.props.updateNote(this.state.note._id, updatedNote);
-        setTimeout(()=>{this.props.history.push(`/notes/${this.state.note._id}`)}, 1000);
+        this.props.updateNote(this.props.currentNote._id, updatedNote);
+        this.props.history.push(`/notes/${this.props.currentNote._id}`);
     }
 
     render(){
-        console.log(this.state.currentNote)
         return(
             <NoteContainer>
                 <H2Header>Edit Note:</H2Header>
             <NoteForm onSubmit={this.submitHandler}>
                 <FormTitle onChange={this.inputHandler} type="text" name="title" placeholder="Note Title" value={this.state.title}></FormTitle>
-                <ReactQuill className="quillEditor" value={this.state.textBody} onChange={this.handleChange} />
+                <ReactQuill className="quillEditor" value={this.state.textBody || ''} onChange={this.handleChange} />
                 <SubmitButton type="submit">Update</SubmitButton>
             </NoteForm>
             </NoteContainer>
@@ -68,7 +62,6 @@ class UpdateNote extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        notes: state.notes ,
         currentNote: state.currentNote
     }
 }

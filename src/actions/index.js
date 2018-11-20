@@ -59,7 +59,7 @@ export const updateNote = (id, updatedNote) => {
         dispatch({type: LOADING})
         axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
             .then( response => {
-                dispatch(()=>{getOneNote(id)})
+                dispatch({type: GET_NOTE, currentNote: response.data})
             })
             .catch( err => {
                 dispatch({type: ERROR_MESSAGE, errorMessage: "This note prefers not to be changed and declined your requested edits."})

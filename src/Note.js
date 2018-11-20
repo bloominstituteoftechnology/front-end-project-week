@@ -5,7 +5,9 @@ import { Markup } from 'interweave';
 const Note = (props) => {
     const noteContent = props.text
     return(
-        <NoteDiv onClick={ () => props.history.push(`/notes/${props.id}`)}>
+        <NoteDiv onClick={ () => {
+            props.getOneNote(props.id);
+            props.history.push(`/notes/${props.id}`);}}>
                     <h2>{props.title}</h2>
                     <hr></hr>
                     <Markup content={noteContent} />
