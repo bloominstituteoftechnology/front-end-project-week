@@ -22,15 +22,11 @@ class CreateNote extends Component {
         }
     }
 
-    //handle change to input in form
-
     inputChangehandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
-
-    //add new friend through post and pass up friend data to app 
 
     addNew = (e) => {
         e.preventDefault();
@@ -39,7 +35,7 @@ class CreateNote extends Component {
                 title: this.state.title,
                 textBody: this.state.textBody,
             })
-            .then(response => {
+            .then((response) => {
                 this.props.refreshMain();
                 this.props.history.push('/');
             })

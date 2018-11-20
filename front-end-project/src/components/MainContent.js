@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import axios from 'axios';
 import NoteView from './NoteView.js'
 import CreateNote from './CreateNote.js'
+import DeleteNote from './DeleteNote.js'
 
 const MainContentContainer = styled.div`
     display: table-cell;
@@ -12,6 +13,7 @@ const MainContentContainer = styled.div`
     vertical-align: top;
     padding-left: 30px;
 `
+
 
 class MainContent extends Component {
     constructor(props){
@@ -64,7 +66,8 @@ class MainContent extends Component {
             //         "textBody": "Sample Body 3",
             //     },
             ],
-            loading: true
+            loading: true,
+            deleteScreenToggle: false
         }
     }
 
@@ -74,7 +77,7 @@ class MainContent extends Component {
             .then(response => {
                 this.setState({
                     notes: response.data,
-                    loading: false
+                    loading: false,
                 });
             })
             .catch(err => console.log(err));
@@ -87,6 +90,7 @@ class MainContent extends Component {
     render() {
         return (
             <MainContentContainer>
+                {this.state.deleteScreenToggle ? <DeleteNote toggleDeleteScreen={this.toggleDeleteScreen} refreshMain={this.refreshMain}/> : null} 
                 <Route 
                     path='/' 
                     exact
@@ -97,13 +101,19 @@ class MainContent extends Component {
                 <Route
                     path={`/notes/:id`}
                     render={props =>
-                        <NoteView {...props}/>
+                        <NoteView {...props} toggleDeleteScreen={this.toggleDeleteScreen} refreshMain={this.refreshMain}/>
                     }
                 />
                 <Route
                     path={`/create`}
                     render={props =>
                         <CreateNote {...props} refreshMain={this.refreshMain}/>
+                    }
+                />
+                <Route
+                    path={`/notes/delete/:id`}
+                    render={props =>
+                        <DeleteNote {...props} refreshMain={this.refreshMain}/>
                     }
                 />
             </MainContentContainer>
