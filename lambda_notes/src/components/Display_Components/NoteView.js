@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DeleteModal from './DeleteModal';
 import axios from 'axios';
 import EditView from './EditView';
+import { Link } from 'react-router-dom';
 
 export default class NoteView extends Component {
     constructor(props){
@@ -32,7 +33,7 @@ export default class NoteView extends Component {
             <div>
                 <h2>{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>
-                <EditView/>
+                <Link to={`/note/edit/${this.state.note._id}`} ><EditView /></Link>
                 <DeleteModal id={this.state.note._id} />
             </div>
         )

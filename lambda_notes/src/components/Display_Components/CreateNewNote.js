@@ -17,6 +17,11 @@ inputHandler = (e) => {
  submitHandler = (e) => {
     e.preventDefault();
     this.newNote(this.state);
+
+    this.setState({
+        title: "",
+        textBody: "",
+    })
  }
 
 newNote = (note) => {
