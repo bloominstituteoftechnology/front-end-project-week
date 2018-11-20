@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Note from './Note';
+
 export default class NotesList extends Component {
 
   render() {
@@ -11,7 +13,7 @@ export default class NotesList extends Component {
           </div>
           <div>
             {this.props.notes.map((note) => {
-              return <NoteDetails key={note.id} note={note} />
+              return <NoteDetails key={note._id} note={note} />
             })}
         </div>
       </div>
@@ -22,7 +24,7 @@ export default class NotesList extends Component {
 function NoteDetails({ note }) {
   const { title, textBody } = note;
   return (
-    <Link to={`/note/${note.id}`}>
+    <Link to={`/get/${note._id}`}>
       <div>
         <h2>{title}</h2>
         <div>{textBody}</div>

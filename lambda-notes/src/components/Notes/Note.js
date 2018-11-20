@@ -29,7 +29,7 @@ export default class Note extends Component {
   }
 
   render() {
-    if (!this.state.movie) {
+    if (!this.state.note) {
       return <div>Loading note information...</div>
     }
 
