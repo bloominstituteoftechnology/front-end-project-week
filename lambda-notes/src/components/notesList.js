@@ -1,34 +1,33 @@
 import React from 'react';
-import axios from 'axios';
 
 import Note from './note'
-import { MappedNotes } from './styledcomponents';
+import { connect } from 'react-redux';
+import  { MappedNotes }  from './styled-components';
+import { fetchNotes } from './actions';
 
 
 class NotesList extends React.Component{
     constructor(props){
         super(props)
-        this.state={
-            notes: []
-        }
+
     }
     componentDidMount(){
-        axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
-            .then(response =>{
-                this.setState({notes: response.data})})
-                .catch(err => console.log(err))
+       this.props.fetchNotes();
     }
 
     render(){
+        console.log(this.props)
         return (
             <MappedNotes>
-              {this.state.notes.map(item => 
-                <Note key={item.id} note={item} />
-              )}
+              {this.props.notes.map(item => 
+                <Note key={item._id} note={item} />
+              ).reverse()}
             </MappedNotes>
         )
     }
 
 }
-export default NotesList;
+const mapStateToProps =(state)=>{
+    return {notes: state.notes}
+}
+export default connect(mapStateToProps, { fetchNotes })(NotesList);

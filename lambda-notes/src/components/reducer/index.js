@@ -1,20 +1,20 @@
-import { LOADING, SUCCESS, FAILURE } from ../actions/actions
+import { LOADING, SUCCESS, FAILURE } from '../actions'
 
 const initialState = {
-        note: [],
+        notes: [],
         loding: false,
         loadingMsg: null,
         error: null
 }
 
-export default (state = initialState,  payload ) => {
+export default (state = initialState,  action ) => {
   switch (action.type) {
 
   case LOADING:
     return { ...state, loading: true, loadingMsg:[action.payload] }
 
     case SUCCESS:
-        return {...state, notes:[action.payload], loading:false}
+        return {...state, notes:[...action.payload], loading:false}
 
     case FAILURE:
         return {...state, error:[action.payload]}

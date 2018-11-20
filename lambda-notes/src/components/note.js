@@ -1,13 +1,15 @@
 import React from 'react';
-import { NoteContainer } from './styledcomponents';
+import { NoteContainer } from './styled-components';
+import { Link } from 'react-router-dom';
+
 
 const Note = props =>{
     return(
         <NoteContainer>
-
+            <Link to={`/note/${props.note._id}`}>
             <h1>{props.note.title}</h1>
             <p> {props.note.textBody}</p>
-            {props.note.tags.map(item => <p>item</p>)}
+            </Link>
         </NoteContainer>
     )
 }

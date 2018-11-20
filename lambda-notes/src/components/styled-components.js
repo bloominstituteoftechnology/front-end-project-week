@@ -12,6 +12,7 @@ export const MainAppContainer = styled.div `
 export const SideBar = styled.div `
   max-width: 800px; 
   width:100%;
+  height: 92vh;
   display: flex; 
   flex-direction: column;
   justify-content: flex-start; 
@@ -54,5 +55,12 @@ background-color:white;
  font-size:  1.8rem;
  text-align: left;
  padding: 8px;
+}
+a:link{
+  color: black;
+  text-decoration: none;
+}
+a:visited{
+  color:black;
 }
 `
