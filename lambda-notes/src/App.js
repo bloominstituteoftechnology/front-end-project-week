@@ -50,9 +50,7 @@ class App extends Component {
   //   // .catch(err => console.log('There is a Note Error'))
   // }
 
-  deleteHandler= (event) => {
-    this.setState({deleteNote:true})
-  }
+
 
   noHandler= (event) => {
     this.setState({deleteNote:false})
@@ -70,15 +68,14 @@ class App extends Component {
   }
 
   render() {
-    let Modal = '';
-    if (this.state.deleteNote === true) {Modal = <DeleteModal noHandler={this.noHandler} />}
-    else { Modal = ''}
+    // let Modal = '';
+    // if (this.state.deleteNote === true) {Modal = <DeleteModal noHandler={this.noHandler} notes={this.state.notes}/>}
+    // else { Modal = ''}
     return (
       <div className='Main'>
-        {Modal}
         <NotesNav clickForAllHandler={this.clickForAllHandler} clickForNewHandler={this.clickForNewHandler} />
         <Route exact path="/home" render={(props) =>  <NotesList {...props} selectedHandler={this.selectedHandler} notes={this.state.notes} />} />
-        <Route exact path="/new" render={(props) =>  <NewNote {...props} notes={this.state.notes} />} />
+        <Route exact path="/new" render={(props) =>  <NewNote {...props} this={this} notes={this.state.notes} />} />
         <Route exact path="/note/:id" render={(props) =>  <SingleNote {...props} deleteHandler={this.deleteHandler} />} />
 
       </div>
