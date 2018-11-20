@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import Note from './Note';
 
 
 
@@ -29,13 +30,20 @@ class NoteView extends Component {
             console.log(err)
         })
     }
+
+    deleteNote = (id) => {
+        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then (response => {
+            this.setState({notes: response.data})
+        })
+    }
     
     render(){
         return(
             <div className="note-view">
-                <p>Test test</p>
                 <h2>{this.state.title}</h2>
                 <p>{this.state.textBody}</p>
+                <button className="button" type="x" onClick={event => this.deleteNote(this.props.match.params.id)}>Delete note</button>
                 <Link to={`/notes/${this.props.match.params.id}/edit/`}><button className="button" >Update me</button></Link>
             </div> 
         )

@@ -5,13 +5,6 @@ import Note from './Note';
 
 class Notes extends Component { 
 
-    deleteNote = (id) => {
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-        .then (response => {
-            this.setState({notes: response.data})
-        })
-    }
-
     render() {
         return (
             <div className="notes">
@@ -26,7 +19,6 @@ class Notes extends Component {
                                 textBody={note.textBody}
                                 id={note._id}
                                 />
-                                 <button className="button" type="x" onClick={event => this.deleteNote(note._id)}>Delete note</button>
                             </div>
                         )
                     })}
