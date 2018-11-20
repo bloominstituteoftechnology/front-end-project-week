@@ -21,7 +21,7 @@ export default class DeleteModal extends Component {
 
     onDelete = (e) => {
         e.preventDefault();
-        this.deleteNote();
+        this.deleteNote(this.props.id);
     }
 
   deleteNote = (id) => {
