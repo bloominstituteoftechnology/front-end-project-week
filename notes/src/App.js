@@ -1,7 +1,7 @@
 import React from 'react';
 import "./App.css";
 import "./css/note.css"
-import axios from "axios";
+//import axios from "axios";
 import NoteList from './components/noteList';
 import NoteView from './components/noteView';
 import NoteCreate from './components/noteCreate';
@@ -143,7 +143,7 @@ class App extends React.Component {
           <div className="main-container">
             <Nav noteList={this.noteList} noteCreate={this.noteCreate} />
             <div className="main-display">
-              <NoteDelete id={this.state.id} />
+              <NoteDelete id={this.state.id} noteList={this.noteList}/>
             </div>
           </div>
         </div>;
@@ -151,11 +151,11 @@ class App extends React.Component {
       case 'noteEdit':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} />
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteEdit={this.noteEdit}/>
             <div className="main-display">
               <NoteEdit changeHandler={this.changeHandler} tags={this.tags} id={this.state.id} />
             </div>
-          </div>
+                      </div>
         </div>;
 
       case 'noteList':

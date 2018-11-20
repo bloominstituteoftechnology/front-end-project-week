@@ -27,17 +27,9 @@ export const getNotes = () => {
       })
       .catch(error => {
         dispatch({type: ERROR, payload: error})
-        //console.error('Server Error', error);
+     
       });
       
-      
-    /*   axios.get('http://localhost:3333/notes')
-        .then( response => {
-          dispatch({type: GET_NOTES, payload: response.data})
-        })
-        .catch( err => {
-          dispatch({type: ERROR, payload: err})
-        }) */
     }
   }
 
@@ -45,7 +37,6 @@ export const createNote = (newNote) => {
     return (dispatch) => {
       dispatch({type: CREATING_NOTE})
      
-    // axios.post('http://localhost:3333/notes', newNote)
     axios.post('https://fe-notes.herokuapp.com/note/create', newNote)       
     .then( response => {
  
@@ -58,45 +49,27 @@ export const createNote = (newNote) => {
     }
   } 
 
-  export const noteUpdate = (newNote) => {
- // noteUpdate = (e) => {
-   // e.preventDefault();
+  export const updateNote = (newNote, id) => {
+   console.log("newNote", newNote)
+   console.log("id", id)
+     
    return (dispatch) => {
     dispatch({type: UPDATING_NOTE})
-    const URL = 'https://fe-notes.herokuapp.com/note/edit/' + newNote;
+    const URL = 'https://fe-notes.herokuapp.com/note/edit/' + id;
     axios
-        .put(URL)
-        
+        .put(URL, {
+          title: newNote.title,
+    textBody: newNote.textBody,
+        })   
         .then(response => {
           dispatch({ type: UPDATE_NOTE, payload: response.data }) 
-         // this.setState(() => ({ notes: response.data }));
+        
         })
         .catch(error => {
           dispatch({ type: ERROR, payload: error }) 
-          //console.error('Server Error', error);
         });
 }
   }
-  /* axios.post('https://fe-notes.herokuapp.com/note/create', {
-    tags: this.state.tags,
-    title: this.state.title,
-    textBody: this.state.textBody,
-  })
-    .then(response => {
-      this.setState(() => ({ notes: response.data }));
-    })
-    .catch(error => {
-      console.log(error);
-    });
-
-  this.setState({
-    tags: '',
-    title: '',
-    textBody: '',
-  });
-  window.location.reload();
-}
- */
 
 export const viewNote = (id) => {
   return (dispatch) => {
@@ -107,17 +80,12 @@ export const viewNote = (id) => {
       .then(response => {
         dispatch({ type: SINGLE_NOTE, payload: response.data })
         console.log("in viewnote", response.data)
-       // this.setState(() => ({ notes: response.data }));
       })
       .catch(error => {
-        dispatch({ type: ERROR, payload: error })
-       // console.error('Server Error', error);
+        dispatch({ type: ERROR, payload: error })    
       });
     }
   }
-
-
-
 
 export const deleteNote = (id) => {
     return (dispatch) => {
@@ -127,7 +95,7 @@ export const deleteNote = (id) => {
       .delete(URL)
       .then(response => {
             dispatch({ type: DELETE_NOTE, payload: response.data });
-            dispatch({ type: SINGLE_NOTE, payload: {} });
+           // dispatch({ type: SINGLE_NOTE, payload: {} });
         })
         .catch( err => {
           dispatch({type: ERROR, payload: err })
@@ -136,24 +104,13 @@ export const deleteNote = (id) => {
     }
   }
 
-  /* noteDelete = (e) => {
-    e.preventDefault();
-    const URL = 'https://fe-notes.herokuapp.com/note/delete/' + this.props.id;
-    axios
-      .delete(URL)
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
-      })
-      .catch(error => {
-        console.error('Server Error', error);
-      });
-  } */
+  
 
-export const toggleShowUpdate = () => {
+/* export const toggleShowUpdate = () => {
   return {
     type: TOGGLE_UPDATE_NOTE
   };
-};
+}; */
 
 export const updateSingleNote = note => {
   return {

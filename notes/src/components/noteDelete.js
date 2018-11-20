@@ -1,8 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-import axios from 'axios';
- 
+//import axios from 'axios';
+import { connect } from 'react-redux';
+import { deleteNote } from '../actions';
+
 const customStyles = {
   content : {
     top                   : '50%',
@@ -43,11 +45,17 @@ class noteDelete extends React.Component {
     this.subtitle.style.color = '#f00';
   }
  
-  closeModal() {
+  closeModal = () => {
     this.setState({modalIsOpen: false});
+   // this.props.noteList;
   }
  
-  noteDelete = (e) => {
+  deleteRequest = (id) => {   
+   
+    this.props.deleteNote(id);
+    this.closeModal(); 
+  }
+ /*  noteDelete = (e) => {
     e.preventDefault();
     const URL = 'https://fe-notes.herokuapp.com/note/delete/' + this.props.id;
     axios
@@ -59,7 +67,7 @@ class noteDelete extends React.Component {
       .catch(error => {
         console.error('Server Error', error);
       });
-  }
+  } */
   render() {
     return (
       <div className="div-modal">   
@@ -71,7 +79,7 @@ class noteDelete extends React.Component {
         >
  
           {<h2 ref={subtitle => this.subtitle = subtitle}>Are you sure you want to delete this?</h2>}
-          <button className="delete2-button" onClick={this.noteDelete}>Delete</button>
+          <button className="delete2-button" onClick={this.deleteRequest(this.props.id)}>Delete</button>
           <button className="cancel-button" onClick={this.closeModal}>Cancel</button> 
           <form className="modal-form">
           </form>
@@ -81,4 +89,19 @@ class noteDelete extends React.Component {
   }
 }
 
-export default noteDelete;
+const mapStateToProps = state => {
+	const { notesReducer } = state;
+	return {
+	  deletingNote: state.notesReducer.deletingNote,
+	 // error: state.notesReducer.error,
+	 // showUpdate: state.singleNoteReducer.showUpdate,
+	 // noteSelected: state.singleNoteReducer.noteSelected
+	 
+	 error: notesReducer.error,
+	
+	};
+  };
+  
+  export default connect(mapStateToProps, {
+	deleteNote,
+	  })(noteDelete);

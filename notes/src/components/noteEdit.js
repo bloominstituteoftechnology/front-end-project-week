@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from "axios";
+//import axios from "axios";
 import "../css/note.css"
 import { viewNote } from '../actions';
-import { noteUpdate } from '../actions';
+import { updateNote } from '../actions';
 import { connect } from 'react-redux';
 
 
@@ -38,7 +38,8 @@ class NoteEdit extends Component {
     }
 
 
-    noteUpdate = () => {
+    noteUpdate = (e) => {
+       e.preventDefault();
         //const { tags, title, textBody } = this.props.noteSelected;
         const newRec = {
             tags: this.state.tags,
@@ -47,36 +48,16 @@ class NoteEdit extends Component {
         }
         console.log("newRec", newRec)
         
-        this.props.noteUpdate(newRec);
+        this.props.updateNote(newRec, this.props.id);
         //this.setState({ tags: '', title: '', textBody: '' });
         console.log("this.noteUpdate state:", this.state)
     };
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value });
+        console.log(this.state)
       } 
-  /*   noteUpdate = (e) => { */
 
-
-
-
-
-
-      /*   e.preventDefault();
-        const URL = 'https://fe-notes.herokuapp.com/note/edit/' + this.props.id;
-        axios
-            .put(URL, {
-                tags: this.props.tags,
-                title: this.props.title,
-                textBody: this.props.textBody,
-            })
-            .then(response => {
-                this.setState(() => ({ notes: response.data }));
-            })
-            .catch(error => {
-                console.error('Server Error', error);
-            }); */
-    
 
     render() {
         return (
@@ -110,7 +91,6 @@ const mapStateToProps = state => {
 	return {
 	 // deletingNote: state.notesReducer.deletingNote,
 	  error: state.notesReducer.error,
-	 // showUpdate: state.singleNoteReducer.showUpdate,
 	   noteSelected: state.singleNoteReducer.noteSelected 
 	/*  notes: notesReducer.notes,  */
 	/*  error: notesReducer.error, */
@@ -123,5 +103,5 @@ const mapStateToProps = state => {
 /* 	updateSingleNote, */
 	/* toggleShowUpdate, */
     viewNote,
-    noteUpdate, 
+    updateNote, 
   })(NoteEdit);

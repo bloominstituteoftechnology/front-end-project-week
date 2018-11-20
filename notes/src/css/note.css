@@ -231,10 +231,16 @@ height: auto;
     height: 24px;
     line-height: 18px;
     margin-top: 92px;
-    width: 938px;
+    width: 80%;
     color: rgb(74, 74, 74);
     font-size: 30px;
     font-weight: bold;
+   /*  border: 2px solid blue; */
+}
+
+.title-container {
+display: flex;
+flex-direction: row;
 }
 
 .list-container {
@@ -243,6 +249,16 @@ height: auto;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.csv-button {
+/* border: 2px solid green; */
+color: black;
+height: 24px;
+margin-top: 92px;
+cursor: pointer;
+text-decoration-line: underline;
+font-weight: 500;
 }
 
 .id-id {

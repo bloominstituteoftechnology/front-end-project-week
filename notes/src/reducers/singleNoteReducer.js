@@ -14,7 +14,11 @@ export const singleNoteReducer = (state = initialState, action) => {
       return { ...state, gettingSingleNote: true };
     case actionTypes.TOGGLE_UPDATE_NOTE:
       return { ...state, showUpdate: !state.showUpdate };
-    default:
+      case actionTypes.UPDATING_NOTE:
+      return { ...state, updatingNote: true };
+    case actionTypes.UPDATE_NOTE:
+      return { ...state, notes: action.payload, updatingNote: false };
+      default:
       return state;
   }
 };
