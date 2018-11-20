@@ -33,7 +33,7 @@ class DeleteNote extends Component {
     render() {
         return(
             <DeleteNoteContainer>
-                <Link to={`/`} onClick={this.deleteNote}>TestDelete</Link>
+                <Link to={`/`} onClick={this.deleteNote}>DELETE</Link>
                 <Link to={`/notes/${this.props.match.params.id}`}>NO DELETE</Link>
             </DeleteNoteContainer>
         )

@@ -6,6 +6,7 @@ import axios from 'axios';
 import NoteView from './NoteView.js'
 import CreateNote from './CreateNote.js'
 import DeleteNote from './DeleteNote.js'
+import EditNote from './EditNote.js'
 
 const MainContentContainer = styled.div`
     display: table-cell;
@@ -19,55 +20,8 @@ class MainContent extends Component {
     constructor(props){
         super(props);
         this.state = {
-            notes: [
-            //     {   
-            //         "tags": ["tag", "otherTag"],
-            //         "title": "Sample Title 1",
-            //         "textBody": "Sample Body 1",
-            //     },
-            //     {
-            //         "tags": ["tag", "otherTag"],
-            //         "title": "Sample Title 2",
-            //         "textBody": "Sample Body 2",
-            //     },
-            //     {
-            //         "tags": ["tag", "otherTag"],
-            //         "title": "Sample Title 3",
-            //         "textBody": "Sample Body 3",
-            //     },
-            //     {   
-            //         "tags": ["tag", "otherTag"],
-            //         "title": "Sample Title 1",
-            //         "textBody": "Sample Body 1",
-            //     },
-            //     {
-            //         "tags": ["tag", "otherTag"],
-            //         "title": "Sample Title 2",
-            //         "textBody": "Sample Body 2",
-            //     },
-            //     {
-            //         "tags": ["tag", "otherTag"],
-            //         "title": "Sample Title 3",
-            //         "textBody": "Sample Body 3",
-            //     },
-            //     {   
-            //         "tags": ["tag", "otherTag"],
-            //         "title": "Sample Title 1",
-            //         "textBody": "Sample Body 1",
-            //     },
-            //     {
-            //         "tags": ["tag", "otherTag"],
-            //         "title": "Sample Title 2",
-            //         "textBody": "Sample Body 2",
-            //     },
-            //     {
-            //         "tags": ["tag", "otherTag"],
-            //         "title": "Sample Title 3",
-            //         "textBody": "Sample Body 3",
-            //     },
-            ],
+            notes: [],
             loading: true,
-            deleteScreenToggle: false
         }
     }
 
@@ -90,7 +44,6 @@ class MainContent extends Component {
     render() {
         return (
             <MainContentContainer>
-                {this.state.deleteScreenToggle ? <DeleteNote toggleDeleteScreen={this.toggleDeleteScreen} refreshMain={this.refreshMain}/> : null} 
                 <Route 
                     path='/' 
                     exact
@@ -114,6 +67,12 @@ class MainContent extends Component {
                     path={`/notes/delete/:id`}
                     render={props =>
                         <DeleteNote {...props} refreshMain={this.refreshMain}/>
+                    }
+                />
+                <Route 
+                    path={`/edit/:id`}   
+                    render={props =>
+                        <EditNote {...props} refreshMain={this.refreshMain}/>
                     }
                 />
             </MainContentContainer>
