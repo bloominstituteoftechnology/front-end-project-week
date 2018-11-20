@@ -15,7 +15,7 @@ class Notes extends Component {
     render() {
         return (
             <div className="notes">
-                <h1>List of notes goes here</h1>
+                <h3>Your Notes</h3>
                 <p>
                     {this.props.notes.map(note => {
                         return (

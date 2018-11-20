@@ -5,8 +5,8 @@ class Sidebar extends Component {
     render() {
         return (
             <div className="sidebar">
-                <p>I am the sidebar</p>
-                <Link to="/"><button className="button">Go home, McDuff</button></Link>
+                <h3>Lambda Notes</h3>
+                <Link to="/"><button className="button">View your notes</button></Link>
                 <Link to="/create"><button className="button">Create note</button></Link>
             </div>
         )

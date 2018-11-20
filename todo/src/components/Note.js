@@ -6,7 +6,7 @@ const Note = props => {
     return (
         <Link to={`/notes/${props.id}`}>
         <div className="Note">
-                <h3>{props.title}</h3>
+                <div className="note-title"><p><strong>{props.title}</strong></p></div>
                 <p>{props.textBody}</p>
         </div>
         </Link>
