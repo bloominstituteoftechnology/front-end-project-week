@@ -47,13 +47,13 @@ class noteDelete extends React.Component {
  
   closeModal = () => {
     this.setState({modalIsOpen: false});
-   // this.props.noteList;
+  
   }
  
   deleteRequest = (id) => {   
-   
+    this.closeModal();
     this.props.deleteNote(id);
-    this.closeModal(); 
+    this.props.noteList();
   }
  /*  noteDelete = (e) => {
     e.preventDefault();
@@ -92,7 +92,7 @@ class noteDelete extends React.Component {
 const mapStateToProps = state => {
 	const { notesReducer } = state;
 	return {
-	  deletingNote: state.notesReducer.deletingNote,
+	  deletingNote: notesReducer.deletingNote,
 	 // error: state.notesReducer.error,
 	 // showUpdate: state.singleNoteReducer.showUpdate,
 	 // noteSelected: state.singleNoteReducer.noteSelected
