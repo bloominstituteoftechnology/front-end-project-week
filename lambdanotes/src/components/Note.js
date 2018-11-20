@@ -1,15 +1,31 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import './style.css'
+import { NotesContext } from '../contexts/NotesProvider'
 
-const Note = ({note})=> {
-  return (
-    <Link to="/note" style={{textDecoration:"none"}} className="noteCard">
-          <h3>{note.title}</h3>
-          <hr/>
-          <p>{note.textBody}</p>
-    </Link>
-  )
+const Note = (props) =>{
+
+    const {id} = props.match.params;
+
+    return (
+        <div>
+        <NotesContext.Consumer>
+            {data =>{
+                const notesArray = data.state.notes
+                let currNote = notesArray.find(note => note._id === id);
+                console.log('Note.js',currNote.title);
+            return (
+                <>
+                    <h1>{currNote.title}</h1>
+                    <p>{currNote.textBody}</p>
+                </>
+            )
+
+
+        }}
+        </NotesContext.Consumer>
+
+        </div>
+
+    )
 }
 
 export default Note

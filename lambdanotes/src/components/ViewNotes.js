@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { NotesContext } from '../contexts/NotesProvider';
 
-import Note from './Note'
+import NoteCard from './NoteCard'
 
 
 class ViewNotes extends Component{
@@ -17,7 +17,7 @@ class ViewNotes extends Component{
             {data =>{
                 const noteData = data.state.notes;
                 const notes = noteData.map(note =>{
-                    return <Note key={note._id} note={note} />
+                    return <NoteCard key={note._id} note={note} />
                 })
 
                 return (
