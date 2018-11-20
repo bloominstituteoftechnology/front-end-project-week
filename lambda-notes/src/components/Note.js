@@ -26,6 +26,7 @@ const NoteCard = styled.div`
         }
     }
     > p {
+        font-size: 22px;
         display: -webkit-box;
         -webkit-line-clamp: 9;
         -webkit-box-orient: vertical;

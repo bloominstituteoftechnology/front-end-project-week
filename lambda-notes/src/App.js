@@ -9,6 +9,7 @@ import NoteProfile from './components/NoteProfile';
 import { deleteNote, fetchNotes } from './actions/actions';
 import CreateForm from './components/CreateForm';
 import EditForm from './components/EditForm';
+import Login from './components/Login';
 
 const AppWrapper = styled.div`
 text-align: center;
@@ -144,7 +145,8 @@ class App extends Component {
   }
 
   render() {
-    return  <AppWrapper modal={this.state.modal} >
+    return !localStorage.getItem('username') ? <Login /> :
+            <AppWrapper modal={this.state.modal} >
                 <DeleteModal modal={this.state.modal}>
                     <h3>Are you sure you want to delete this?</h3>
                     <div>

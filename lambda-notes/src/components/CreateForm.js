@@ -28,11 +28,6 @@ const Form = styled.form`
         font-size: 22px;
     }
 
-    > textarea {
-        padding: 20px;
-        font-size: 20px;
-        margin-bottom: 30px;
-    }
     > .save {
         color: white;
         background-color: #16ccc9;
@@ -85,7 +80,6 @@ class CreateForm extends React.Component{
                     <Form>
                         <input name='title' value={this.state.title} onChange={this.changeHandler} placeholder='Note Title' ></input>
                         <ReactQuill className='quill' value={this.state.body} onChange={this.handleChange} />
-                        {/* <textarea name='body' value={this.state.body} onChange={this.changeHandler} placeholder='Note Content' rows="25" cols="100" ></textarea> */}
                         <div className='save' onClick={this.clickHandler} >Save</div>
                     </Form>
                 </HomeContainer>
