@@ -8,6 +8,7 @@ import Notes from './components/Notes';
 import NoteView from './components/NoteView';
 import UpdateNote from './components/updateNote'
 import CreateNote from './components/CreateNote'
+import Sidebar from './components/Sidebar'
 
 class App extends Component {
   constructor(props){
@@ -31,10 +32,11 @@ class App extends Component {
     return (
       <div>
       <BrowserRouter>
-      <div>
-      <NavLink to="/">Go home</NavLink>
-      <CreateNote />
-      <Route exact path="/notes/:id" render={(props) =>
+      <div class="container">
+      <Sidebar />
+      <Route exact path="/create" component={CreateNote} />
+      {/* <CreateNote /> */}
+      <Route path="/notes/:id" render={(props) =>
         <NoteView {...props}/>}/>
       <Route path="/notes/:id/edit" render={(props) => 
        <UpdateNote {...props} /> } />

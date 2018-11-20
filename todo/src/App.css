@@ -4,6 +4,10 @@
   max-width: 100%;
 }
 
+.container { 
+  display: flex;
+}
+
 .notes-div {
   border: 2px solid black;
   background-color: lightgrey;
@@ -18,7 +22,17 @@
 }
 
 .button { 
-  background-color: green;
-  border-radius: 20px;
-  width: 50px
+  background-color: rgb(87, 181, 187);
+  border-radius: 5px;
+  width: 100px;
+  margin: 10px;
+}
+
+.sidebar { 
+  height: 398vh;
+  width: 40vw;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
 }

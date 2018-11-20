@@ -49,19 +49,19 @@ class UpdateNote extends React.Component {
     render(){
         return(
             <div>
-                <h3>You're going to edit this note:</h3>
-                <h4>{this.state.title}</h4>
-                <p>{this.state.textBody}</p>
                 <h3>Update note</h3>
                 <form onSubmit={this.submitHandler}>
                 <input
                     name='title'
-                    placeholder='enter a title'
-                    onChange={this.inputHandler}/>
+                    onChange={this.inputHandler}
+                    value={this.state.title}
+                    />
                 <input
                     name='textBody'
                     placeholder='enter some content'
-                    onChange={this.inputHandler}/>
+                    onChange={this.inputHandler}
+                    value={this.state.textBody}
+                    />
                 <button type='submit' className="button" >Update this note</button>
                 </form>
             </div>
