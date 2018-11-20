@@ -37,12 +37,13 @@ export const Note = styled.div`
   .cards {
     width: 90%
   }
- h3 {
-    padding: 5%;
-    border-bottom: 2px solid gray;
-    font-weight: 900;
-  };
-  div {
-    padding: 5%;
-  };
+`
+export const Title = styled.h3`
+  padding: 5%;
+  border-bottom: 2px solid gray;
+  font-weight: 900;
+`;
+
+export const TextBody = styled.div`
+  padding: 5%
 `
