@@ -40,7 +40,7 @@ class Notes extends React.Component {
                 </SearchContainer>
                 <NotesContainer>
                     {currentDisplay.map( note => 
-                        < Note key={note._id} id={note._id} text={note.textBody} title={note.title} /> 
+                        < Note key={note._id} id={note._id} text={note.textBody} title={note.title} history={this.props.history}/> 
                     ).reverse()}
                 </NotesContainer>
             </StandardDiv>

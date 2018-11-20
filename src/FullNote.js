@@ -68,7 +68,8 @@ class FullNote extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        notes: state.notes
+        notes: state.notes,
+        currentNote: state.currentNote
     }
 };
 

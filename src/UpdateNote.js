@@ -14,6 +14,7 @@ class UpdateNote extends React.Component{
             note: [],
             title: '',
             textBody: '',
+            currentNote: ''
         }
     }
 
@@ -51,6 +52,7 @@ class UpdateNote extends React.Component{
     }
 
     render(){
+        console.log(this.state.currentNote)
         return(
             <NoteContainer>
                 <H2Header>Edit Note:</H2Header>
@@ -66,7 +68,8 @@ class UpdateNote extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        notes: state.notes 
+        notes: state.notes ,
+        currentNote: state.currentNote
     }
 }
 

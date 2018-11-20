@@ -30,6 +30,3 @@ export default (state = initialState, action) => {
             return state 
     }
 }
-
-
-//            return Object.assign({}, state, {notes: [ Object.assign( {}, state.notes, action.currentNote ) ], currentNote: action.currentNote, loading: false, error: ''})

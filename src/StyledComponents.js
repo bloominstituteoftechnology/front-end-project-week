@@ -166,17 +166,9 @@ export const NoteDiv = styled.div`
     height: 200px;
     background-color: white;
 
-    a:link{
-        color: black;
-        text-decoration: none;
-    }
-
-    a:visited{
-        color: black;
-    }
-
-    a:hover{
+    &:hover{
         color: rgb(0, 187, 191);
+        cursor: pointer;
     }
 
     h2 {
