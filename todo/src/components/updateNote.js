@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 
-// take an id DONE
-// has a form with title and textBody
-// onClick axios post? or put
-// new axios call with the ID in the url // first argument: props.params, second: input value
-// sends an updated note with the same id? idk sounds right
-// button? 
+// updateNote also deletes, sorry.
+
+
+// click delete note button
+// onClick, dialog box, are you sure?
+// if no, close dialog box
+// if yes, delete note
 
 
 

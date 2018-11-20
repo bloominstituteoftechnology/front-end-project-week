@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Note from './Note';
-
+import AlertDialogue from './AlertDialogue'
 
 
 // wrap individual note component in Note, and link using route
@@ -45,10 +45,10 @@ class NoteView extends Component {
                 <p>{this.state.textBody}</p>
                 <button className="button" type="x" onClick={event => this.deleteNote(this.props.match.params.id)}>Delete note</button>
                 <Link to={`/notes/${this.props.match.params.id}/edit/`}><button className="button" >Update me</button></Link>
+                <button className="button">Delete modal</button>
+                <AlertDialogue />
             </div> 
         )
-        // need to call getNote somewhere in the render function
-        // maybe move all CRUD elements into the main app and pass around
     }
 }
 

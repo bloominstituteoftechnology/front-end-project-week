@@ -41,6 +41,9 @@ class App extends Component {
       <Route path="/notes/:id/edit" render={(props) => 
        <UpdateNote {...props} /> } />
       <Route exact path="/" render={props => <Notes notes={this.state.notes} />}/>
+      <Route path="/notes/:id/delete" render={(props) => {
+        return (<NoteView {...props} />)
+      }} />
       </div>
       </BrowserRouter>
       </div>
