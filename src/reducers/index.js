@@ -6,7 +6,8 @@ import {
   ADDED_NOTE,
   DELETING_NOTE,
   UPDATING_NOTE,
-  NOTE_UPDATED
+  NOTE_UPDATED,
+  DELETED_NOTE
 } from '../actions';
 
 const initialState = {
@@ -37,6 +38,8 @@ export const noteReducer = (state = initialState, action) => {
     // spreading the existing notes from the state and adding our note from action.payload
     case DELETING_NOTE:
       return { ...state, deletingNote: true };
+    case DELETED_NOTE: 
+      return { ...state, deletedNote: true, deletingNote: false, notes: state.notes.filter( note => note.id !== action.id )}
     case UPDATING_NOTE:
       return { ...state, updatingNote: true };
     case NOTE_UPDATED:
@@ -44,7 +47,7 @@ export const noteReducer = (state = initialState, action) => {
         ...state,
         notes: state.notes.map((note) => {
           if (note.id === action.id) {
-            return action.payload;
+            return { id: action.id, textBody: action.textBody, title: action.title };
             // replacing the note with action.payload
           } else {
             return note;

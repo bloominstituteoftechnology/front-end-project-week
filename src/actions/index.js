@@ -85,7 +85,10 @@ export const deleteNote = (id) => {
       .delete(`https://suminotes-api.herokuapp.com/${id}`)
       .then((response) => {
         console.log(response);
-        fetchNotes(dispatch);
+        if (response.status === 200) {
+          const action = { type: DELETED_NOTE, id }
+          dispatch(action)
+        }
       })
       .catch((error) => {
         dispatch({ type: ERROR, message: 'error deleting note' });
@@ -101,8 +104,8 @@ export const updateNote = (id, editNote) => {
     axios
       .put(`https://suminotes-api.herokuapp.com/${id}`, editNote)
       .then((response) => {
-        console.log('this is the response', response);
-        dispatch({ type: NOTE_UPDATED, payload: { id, ...response.data } });
+        // console.log('this is the response', response);
+        dispatch({ type: NOTE_UPDATED, id, ...response.data });
       })
       .catch((error) => {
         console.log(error);

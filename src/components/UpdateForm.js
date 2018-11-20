@@ -12,19 +12,27 @@ class UpdateForm extends Component {
       textBody: ''
     };
   }
+  componentDidMount() {
+    // const noteId = this.props.match.params.id;
+    // console.log(noteId);
+    // const note = this.props.notes.find(note => note._id === noteId);
+    // this.setState({ ...note });
+    const { title, textBody, id } = this.props.location.state;
+    this.setState({ title, textBody, id });
+  }
 
   updateHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   handleUpdateSubmit = () => {
-    console.log('this is state', this.props.location.state);
-    const { id } = this.props.location.state;
-    const editNote = { title: this.state.title, textBody: this.state.textBody };
+    // console.log('this is state', this.props.location.state);
+    const { id, textBody, title } = this.state
+    const editNote = { title, textBody };
     // console.log(editNote);
     // console.log(this.props.location);
     this.props.updateNote(id, editNote);
-    this.setState({ title: '', textBody: '' });
+    this.setState({ id: null, title: '', textBody: '' });
   };
 
   render() {
@@ -43,6 +51,13 @@ class UpdateForm extends Component {
       </Container>
     )}
 }
+
+// const mapStateToProps = (state, ownProps) => {
+//   const { id } = ownProps.match.params;
+//   return {
+//     note: state.note.find((note) => note._id === id)
+//   };
+// };
 
 export default connect(
   null,

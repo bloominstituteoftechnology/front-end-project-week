@@ -93,16 +93,8 @@
 
 /* styling of a Link tag */
 .cards {
-  width: 200px;
-  height: 200px;
-  border: 2px solid #979797;
-  background-color: white;
   text-decoration: none;
-  padding: 20px;
-  margin: 10px;
-  color: #4a4a4a;
 }
-
 .cards:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }

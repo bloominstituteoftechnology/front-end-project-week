@@ -33,7 +33,7 @@ class App extends Component {
               {this.props.gettingNotes ? <Route exact path="/" component={Loading} /> : <Route exact path="/" render={(props) => <Notes notes={this.props.notes} />} />}
               <Route path="/new" render={(props) => <NoteForm addNote={this.props.addNote} />} />
               <Route path="/viewnote" component={SingleNote} />
-              <Route path="/update" component={UpdateForm} />
+              <Route path="/update/:id" component={UpdateForm} />
             </RightDiv>
           </Wrapper>
         </BrowserRouter>
