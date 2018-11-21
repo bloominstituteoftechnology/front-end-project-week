@@ -4,28 +4,22 @@ import { connect } from 'react-redux';
 import { createNote } from '../actions';
 
 class NoteCreate extends Component {
-/* 	constructor(props) {
-		super(props); */
-		state = {
-			tags: '',
-			title: '',
-			textBody: ''
-		};
-	
 
-	
+	state = {
+		tags: '',
+		title: '',
+		textBody: ''
+	};
+
 	handleInputChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-    };
+		this.setState({ [event.target.name]: event.target.value });
+	};
 
-
-    handleAddNote = _ => {
-        const { tags, title, textBody } = this.state;
-        this.props.createNote({ tags, title, textBody });
-        this.setState({ tags: '', title: '', textBody: '' });
-    };
-
-
+	handleAddNote = _ => {
+		const { tags, title, textBody } = this.state;
+		this.props.createNote({ tags, title, textBody });
+		this.setState({ tags: '', title: '', textBody: '' });
+	};
 
 	render() {
 		return (
@@ -57,4 +51,3 @@ const mapStateToProps = state => {
 	};
 };
 export default connect(mapStateToProps, { createNote })(NoteCreate);
-//export default NoteCreate;

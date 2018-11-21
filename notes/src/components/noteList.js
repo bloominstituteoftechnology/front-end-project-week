@@ -19,20 +19,17 @@ class NoteList extends Component {
 
 	componentDidMount() {
 		this.props.getNotes();
-		console.log(this.state)
 	}
 
 	render() {
 		return (
 			<div className="note-list"><div className="title-container"><div className="list-title">Notes:</div>
-			<div className="csv-button"><CSVLink data={this.props.notes}>Export to .csv</CSVLink></div></div>
-				<div className="list-container">        
+				<div className="csv-button"><CSVLink data={this.props.notes}>Export to .csv</CSVLink></div></div>
+				<div className="list-container">
 					{this.props.notes.map((note, index) => {
 						return <Note key={index} title={note.title} viewNote={this.props.viewNote} textBody={note.textBody} _id={note._id} noteView={this.props.noteView} notes={this.state.notes} />
 					})}
-
 				</div>
-
 			</div>
 		);
 	}
@@ -40,13 +37,12 @@ class NoteList extends Component {
 const mapStateToProps = state => {
 	const { notesReducer } = state;
 	return {
-	 // error: state.notesReducer.error,
-	 notes: notesReducer.notes,
-	 error: notesReducer.error,
-	 gettingNotes: notesReducer.gettingNotes
+		notes: notesReducer.notes,
+		error: notesReducer.error,
+		gettingNotes: notesReducer.gettingNotes
 	};
-  };
-  
-  export default connect(mapStateToProps, {
-	 getNotes 
-  })(NoteList);
+};
+
+export default connect(mapStateToProps, {
+	getNotes
+})(NoteList);

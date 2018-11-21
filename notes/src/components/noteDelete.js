@@ -1,86 +1,82 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-//import axios from 'axios';
 import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
 
 const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
   }
 };
- 
+
 class noteDelete extends React.Component {
   constructor() {
     super();
- 
+
     this.state = {
-        notes: [],
-        id: "",
+      notes: [],
+      id: "",
+      modals: false,
+      message: "",
       modalIsOpen: false
     };
- 
+
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
- 
-  componentDidMount() {
-    this.openModal();
-  }
 
+  componentDidMount() {
+    if (localStorage.getItem('modals')) {
+      let modals = localStorage.getItem('modals')
+      if (modals) {
+        this.setState(() => ({ modalIsOpen: modals }));    
+      } else {
+        let modals = false
+        localStorage.setItem('modals', false);
+        this.setState(() => ({ modalIsOpen: modals }));
+      }
+    }
+  }
 
   openModal() {
-    this.setState({modalIsOpen: true});
+    this.setState({ modalIsOpen: true });
   }
- 
+
   afterOpenModal() {
-    // references are now sync'd and can be accessed.
     this.subtitle.style.color = '#f00';
   }
- 
+
   closeModal = () => {
-    this.setState({modalIsOpen: false});
-  
+    this.setState({ modalIsOpen: false });
   }
- 
-  deleteRequest = (id) => {   
-    this.closeModal();
+
+  deleteRequest = (id) => {
     this.props.deleteNote(id);
-    this.props.noteList();
+    localStorage.setItem('modals', false);
+    this.closeModal();
+    let message = "Card has been deleted..."
+    this.setState({ message: message });
   }
- /*  noteDelete = (e) => {
-    e.preventDefault();
-    const URL = 'https://fe-notes.herokuapp.com/note/delete/' + this.props.id;
-    axios
-      .delete(URL)
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
-        this.closeModal();
-      })
-      .catch(error => {
-        console.error('Server Error', error);
-      });
-  } */
+
   render() {
     return (
-      <div className="div-modal">   
+      <div className="div-modal"><div className="modal-message">
+        {(this.state.message.length > 0) ? <p>Item Deleted, click View Notes to continue...</p> : <p></p>}</div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          style={customStyles}   
+          style={customStyles}
         >
- 
           {<h2 ref={subtitle => this.subtitle = subtitle}>Are you sure you want to delete this?</h2>}
-          <button className="delete2-button" onClick={this.deleteRequest(this.props.id)}>Delete</button>
-          <button className="cancel-button" onClick={this.closeModal}>Cancel</button> 
+          <button className="delete2-button" onClick={this.deleteRequest}>Delete</button>
+          <button className="cancel-button" onClick={this.closeModal}>Cancel</button>
           <form className="modal-form">
           </form>
         </Modal>
@@ -90,18 +86,13 @@ class noteDelete extends React.Component {
 }
 
 const mapStateToProps = state => {
-	const { notesReducer } = state;
-	return {
-	  deletingNote: notesReducer.deletingNote,
-	 // error: state.notesReducer.error,
-	 // showUpdate: state.singleNoteReducer.showUpdate,
-	 // noteSelected: state.singleNoteReducer.noteSelected
-	 
-	 error: notesReducer.error,
-	
-	};
+  const { singleNoteReducer } = state;
+  return {
+    deletingNote: singleNoteReducer.deletingNote,
+    error: singleNoteReducer.error,
   };
-  
-  export default connect(mapStateToProps, {
-	deleteNote,
-	  })(noteDelete);
+};
+
+export default connect(mapStateToProps, {
+  deleteNote,
+})(noteDelete);

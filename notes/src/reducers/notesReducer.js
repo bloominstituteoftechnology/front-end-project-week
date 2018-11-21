@@ -1,15 +1,5 @@
 import * as actionTypes from '../actions';
-/*
- Your initial/default state for this project could *Although does not have to* look a lot like this
- {
-   notes: [],
-   fetchingNotes: false
-   addingNote: false
-   updatingNote: false
-   deletingNote: false
-   error: null
- }
-*/
+
 const initialState = {
   notes: [],
   gettingNotes: false,
@@ -29,10 +19,6 @@ export const notesReducer = (state = initialState, action) => {
       return { ...state, updatingNote: true };
     case actionTypes.UPDATE_NOTE:
       return { ...state, notes: action.payload, updatingNote: false };
-    case actionTypes.DELETING_NOTE:
-      return { ...state, deletingNote: true };
-    case actionTypes.DELETE_NOTE:
-      return { ...state, notes: action.payload, deletingNote: false };
     case actionTypes.CREATING_NOTE:
       return { ...state, creatingNote: true };
     case actionTypes.CREATE_NOTE:

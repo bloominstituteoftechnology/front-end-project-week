@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import axios from "axios";
 import "../css/note.css"
 import { viewNote } from '../actions';
 import { updateNote } from '../actions';
@@ -19,44 +18,23 @@ class NoteEdit extends Component {
         };
     }
 
-
     componentDidMount() {
-            this.props.viewNote(this.props.id)
-            console.log("this.props.id", this.props.id)
-            
-         
-          
-      /*   const URL = 'https://fe-notes.herokuapp.com/note/get/' + this.props.id;
-        axios
-            .get(URL)
-            .then(response => {
-                this.setState(() => ({ notes: response.data }));
-            })
-            .catch(error => {
-                console.error('Server Error', error);
-            }); */
+        this.props.viewNote(this.props.id)
     }
 
-
     noteUpdate = (e) => {
-       e.preventDefault();
-        //const { tags, title, textBody } = this.props.noteSelected;
+        e.preventDefault();
         const newRec = {
             tags: this.state.tags,
             title: this.state.title,
             textBody: this.state.textBody,
         }
-        console.log("newRec", newRec)
-        
         this.props.updateNote(newRec, this.props.id);
-        //this.setState({ tags: '', title: '', textBody: '' });
-        console.log("this.noteUpdate state:", this.state)
     };
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value });
-        console.log(this.state)
-      } 
+    }
 
 
     render() {
@@ -87,21 +65,14 @@ class NoteEdit extends Component {
     };
 }
 const mapStateToProps = state => {
-	const { singleNoteReducer } = state;
-	return {
-	 // deletingNote: state.notesReducer.deletingNote,
-	  error: state.notesReducer.error,
-	   noteSelected: state.singleNoteReducer.noteSelected 
-	/*  notes: notesReducer.notes,  */
-	/*  error: notesReducer.error, */
-	
-	};
-  };
-  
-  export default connect(mapStateToProps, {
-	/* deleteNote, */
-/* 	updateSingleNote, */
-	/* toggleShowUpdate, */
+    const { singleNoteReducer } = state;
+    return {
+        error: state.notesReducer.error,
+        noteSelected: state.singleNoteReducer.noteSelected
+    };
+};
+
+export default connect(mapStateToProps, {
     viewNote,
-    updateNote, 
-  })(NoteEdit);
+    updateNote,
+})(NoteEdit);

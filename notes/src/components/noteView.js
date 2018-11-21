@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-//import axios from "axios";
 import "../css/note.css"
 import { connect } from 'react-redux';
 import { viewNote } from '../actions';
-//import { deleteNote } from '../actions';
 
 class NoteView extends Component {
   constructor(props) {
@@ -19,25 +17,8 @@ class NoteView extends Component {
   }
 
   componentDidMount() {
-  
- 
     this.props.viewNote(this.props.id)
-    
-  console.log("this.state", this.state)
-  
   }
- /*  noteDelete = (e) => {
-    e.preventDefault();
-    const URL = 'https://fe-notes.herokuapp.com/note/delete/' + this.props.id;
-    axios
-      .delete(URL)
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
-      })
-      .catch(error => {
-        console.error('Server Error', error);
-      });
-  } */
 
   render() {
     return (
@@ -45,29 +26,21 @@ class NoteView extends Component {
         <div className="spacer"></div>
         <button className="edit-button" onClick={() => this.props.noteEdit(this.props.id)}>edit</button>
         <button className="delete-button" onClick={() => this.props.noteDelete(this.props.id)}>delete</button></div>
-       <div className="note-name">{this.props.noteSelected.title}</div> 
-       <div className="note-body">{this.props.noteSelected.textBody}</div> 
+        <div className="note-name">{this.props.noteSelected.title}</div>
+        <div className="note-body">{this.props.noteSelected.textBody}</div>
       </div>
     )
   };
 }
 
 const mapStateToProps = state => {
-	const { singleNoteReducer } = state;
-	return {
-	 // deletingNote: state.notesReducer.deletingNote,
-	  error: state.notesReducer.error,
-	 // showUpdate: state.singleNoteReducer.showUpdate,
-	  noteSelected: state.singleNoteReducer.noteSelected
-	 /* notes: notesReducer.notes, */
-	/*  error: notesReducer.error, */
-	
-	};
+  const { singleNoteReducer } = state;
+  return {
+    error: state.notesReducer.error,
+    noteSelected: state.singleNoteReducer.noteSelected
   };
-  
-  export default connect(mapStateToProps, {
-	/* deleteNote, */
-/* 	updateSingleNote, */
-	/* toggleShowUpdate, */
-	viewNote 
-  })(NoteView);
+};
+
+export default connect(mapStateToProps, {
+  viewNote
+})(NoteView);

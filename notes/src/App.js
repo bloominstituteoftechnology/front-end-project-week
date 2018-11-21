@@ -1,7 +1,6 @@
 import React from 'react';
 import "./App.css";
 import "./css/note.css"
-//import axios from "axios";
 import NoteList from './components/noteList';
 import NoteView from './components/noteView';
 import NoteCreate from './components/noteCreate';
@@ -45,7 +44,7 @@ class App extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-   // this.props.getNotes();
+  
   }
 
   openModal() {
@@ -69,6 +68,9 @@ class App extends React.Component {
   }
 
   noteDelete = id => {
+    console.log("in the note delete, app.js")
+    let modalType = true;
+    localStorage.setItem('modals', modalType)
     localStorage.setItem('viewPage', "noteDelete");
     
     let pageType = `noteDelete`
@@ -97,32 +99,6 @@ class App extends React.Component {
     this.setState(() => ({ viewPage: pageType, id: _id }));
   }
 
- /*  saveNote = event => {
-    event.preventDefault();
-
-    axios.post('https://fe-notes.herokuapp.com/note/create', {
-      tags: this.state.tags,
-      title: this.state.title,
-      textBody: this.state.textBody,
-    })
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
-    this.setState({
-      tags: '',
-      title: '',
-      textBody: '',
-    });
-    window.location.reload();
-  }
-
-  changeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  } */
 
   render() {
 
