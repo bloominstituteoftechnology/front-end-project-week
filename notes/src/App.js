@@ -30,6 +30,14 @@ getNotes=()=>{
     
 }
 
+updateNote=(id,note)=>{
+axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    .then(() => this.getNotes())
+    .then(()=> this.props.history.push('/'))
+    .catch(err => console.log(err))
+}
+
 createNote=(note)=>{
   axios
     .post("https://fe-notes.herokuapp.com/note/create",note)
@@ -46,7 +54,7 @@ createNote=(note)=>{
         </div>
         <Route path="/create" render={props => <CreateNote createNote={this.createNote}/>}></Route>
         <Route exact path="/" render={(props => (<MainSection notes={this.state.notes}/>))}></Route>
-        <Route path="update/:id" render={(props=>(<UpdateNote notes={this.state.notes}/>))}></Route>
+        <Route path="/update/:id" render={(props=>(<UpdateNote {...props} updateNote={this.updateNote} notes={this.state.notes}/>))}></Route>
        </div>
     );
   }
