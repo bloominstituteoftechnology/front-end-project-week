@@ -21,6 +21,7 @@ const App = props =>{
           <Route exact path='/' component={NotesList} />
           <Route  path='/note/:id' render={ props => <SoloNote {...props} /> }/>
           <Route path='/new-note' render={props => <NewNoteForm {...props} /> }/>
+          {/* <Route path='/edit-note/:id' render={props => ??? } */}
       </MainAppContainer>
     );
 }
