@@ -24,7 +24,7 @@ const TitleInput = styled.input`
     border-radius: 3px;
     width: 50%;
     height: 35px;
-    padding-left: 5px;
+    padding: 0 5px 0 5px;
     font-size: 0.9rem;
     box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
     margin-bottom: 20px;
@@ -35,7 +35,7 @@ const TextBodyInput = styled.textarea`
     border-radius: 3px;
     width: 100%;
     height: 600px;
-    padding: 12px 0 0 5px;
+    padding: 12px 5px 0 5px;
     font-size: 0.9rem;
     box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
     margin-bottom: 20px;
@@ -79,7 +79,10 @@ class EditNote extends Component {
 
     updateTextBodyInputHandler = (e) => {
         this.setState({
-            updatedTextBody: e.target.value
+            updatedTextBody: e.target.value,
+            noteToEdit: {
+                textBody: e.target.value
+            }
         });
     }
 
@@ -134,10 +137,8 @@ class EditNote extends Component {
                     <TextBodyInput
                         name='textBody'
                         onChange={this.updateTextBodyInputHandler}
-                        defaultValue={this.state.noteToEdit.textBody}
-                    >
-                        {this.state.noteToEdit}
-                    </TextBodyInput>
+                        value={this.state.noteToEdit.textBody}
+                    />
                     <UpdateButton type='submit'>Update</UpdateButton>                    
                 </EditForm>
             </EditNoteContainer>

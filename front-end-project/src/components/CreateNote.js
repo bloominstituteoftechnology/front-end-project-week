@@ -24,7 +24,7 @@ const TitleInput = styled.input`
     border-radius: 3px;
     width: 50%;
     height: 35px;
-    padding-left: 5px;
+    padding: 0 5px 0 5px;
     font-size: 0.9rem;
     box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
     margin-bottom: 20px;
@@ -35,7 +35,7 @@ const TextBodyInput = styled.textarea`
     border-radius: 3px;
     width: 100%;
     height: 600px;
-    padding: 12px 0 0 5px;
+    padding: 12px 5px 0 5px;
     font-size: 0.9rem;
     box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
     margin-bottom: 20px;

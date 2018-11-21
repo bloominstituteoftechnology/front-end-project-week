@@ -36,6 +36,11 @@ const NoteBody = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: pre-line;
+    margin-bottom: 40px;
+`
+
+const SaveButton = styled.button`
+
 `
 
 class NoteView extends Component {
