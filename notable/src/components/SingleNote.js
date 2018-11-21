@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { Badge } from 'reactstrap';
 
 import { fetchSingleNote, deleteNote, setUpdate } from "../actions/index";
 import DeleteModal from "./DeleteModal";
@@ -21,9 +22,13 @@ const Note = styled.div`
   width: 95%;
   margin: 20px auto;
 
+  div {
+    padding: 20px 0px;
+  }
+
   h1 {
     font-size: 1.6rem;
-    padding: 20px 0px;
+    margin-right: 10px;
   }
 
   p {
@@ -68,7 +73,14 @@ class SingleNote extends React.Component {
           <h1>Please Wait</h1>
         ) : (
           <Note>
-            <h1>{this.props.note.title}</h1>
+              <h1>{this.props.note.title}</h1>
+            <div>
+              {this.props.note.tags.map(item => {
+                return (
+                <Badge>{item}</Badge>
+                );
+              })}
+            </div>
             <p>{this.props.note.textBody}</p>
           </Note>
         )}

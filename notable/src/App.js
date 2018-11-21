@@ -15,7 +15,7 @@ const MainDiv = styled.div`
 `;
 
 const SideBar = styled.div`
-  width: 22%;
+  width: 25%;
   height: 95vh;
   background-color: silver;
   padding: 15px;

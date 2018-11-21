@@ -1,17 +1,24 @@
-import { SUCCESS, FETCHING, ERROR, SUCCESS_SINGLE, UPDATE, FILTER } from "../actions";
+import {
+  SUCCESS,
+  FETCHING,
+  ERROR,
+  SUCCESS_SINGLE,
+  UPDATE,
+  FILTER
+} from "../actions";
 
 const initialState = {
   notes: [
     {
       tags: [],
-      title: '',
-      textBody: ''
+      title: "",
+      textBody: ""
     }
   ],
   singleNote: {
     tags: [],
-    title: '',
-    textBody: ''
+    title: "",
+    textBody: ""
   },
   filteredNotes: [],
   allTags: [],
@@ -27,16 +34,18 @@ export default (state = initialState, action) => {
     case SUCCESS:
       const tagList = [];
       action.payload.forEach(note => {
-        const strArr = note.textBody.split(' ');
+        const strArr = note.textBody.split(" ");
         strArr.forEach(word => {
-          if (word[0] === '#' && !tagList.includes(word.substr(1))) {
-            const tag = word.substr(1);
-            note.tags.push(tag)
-            tagList.push(tag)
+          const tag = word.substr(1).trim();
+          if (word[0] === "#" && !tagList.includes(word.substr(1))) {
+            note.tags.push(tag);
+            tagList.push(tag);
+          } else if (word[0] === "#" && tagList.includes(word.substr(1))) {
+            note.tags.push(tag);
           }
-        })
+        });
       });
-      tagList.push('ALL')
+      tagList.push("ALL");
       return Object.assign({}, state, {
         notes: action.payload,
         filteredNotes: action.payload,
@@ -47,6 +56,13 @@ export default (state = initialState, action) => {
     case ERROR:
       return Object.assign({}, state, { error: action.payload });
     case SUCCESS_SINGLE:
+      const strArr = action.payload.textBody.split(" ");
+      strArr.forEach(word => {
+        if (word[0] === '#') {
+        const tag = word.substr(1).trim();
+        action.payload.tags.push(tag);
+        }
+      });
       return Object.assign({}, state, {
         singleNote: action.payload,
         fetching: false,
@@ -56,7 +72,7 @@ export default (state = initialState, action) => {
     case UPDATE:
       return Object.assign({}, state, { updating: true });
     case FILTER:
-      return Object.assign({}, state, {filteredNotes: action.payload})
+      return Object.assign({}, state, { filteredNotes: action.payload });
     default:
       return state;
   }
