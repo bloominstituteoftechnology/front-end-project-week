@@ -36,10 +36,15 @@ class NoteView extends Component {
 
   render(){
     return(
-      <div className="view-wrapper">
-        <Link to={`/edit/${this.state.note._id}`}>Edit</Link>
-        <div onClick={this.clickHandler}>Delete</div>
-        <Note note={this.state.note} />
+      <div className="main-container view">
+        <div className="options-bar">
+          <Link to={`/edit/${this.state.note._id}`}>Edit</Link>
+          <div onClick={this.clickHandler}>Delete</div>
+        </div>
+        <div className="note-container">
+          <h2>{this.state.note.title}</h2>
+          <p>{this.state.note.textBody}</p>
+        </div>
       </div>
     )
   }

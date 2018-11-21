@@ -23,6 +23,7 @@ a {
   text-decoration: none;
 }
 
+/*NotesList View Syling*/
 .side-bar {
   background-color: #D2D1D2;
   border: 1px solid #B8B7B8;
@@ -71,6 +72,7 @@ a {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  padding-bottom: 142px;
 }
 
 .notes-list a {
@@ -103,3 +105,60 @@ a {
 .note-card p {
   font-size: 13px;
 }
+
+/* Forms Styling */
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  padding-bottom: 321px;
+}
+
+input {
+  border-radius: 5px;
+}
+
+.title-input {
+  width: 358px;
+  height: 42px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.content-input {
+  width: 608px;
+  padding: 14px 0px 334px 15px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.form button {
+  width: 190px;
+  height: 43px;
+  color: #F4FBFB;
+  border: 1px solid #B4BCBE;
+  background-color: #00B6BC;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* Note View Styling */
+
+.options-bar {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+}
+
+.options-bar a {
+  order: 1;
+}
+
+.options-bar div {
+  order: 0;
+}
+
+.note-container {
+  padding-bottom: 338px;
+}
+

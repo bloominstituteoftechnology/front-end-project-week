@@ -29,14 +29,14 @@ class EditView extends Component {
 
   render(){
     return (
-      <>
-        <h1>Edit Note</h1>
-        <form onSubmit={this.submitHandler}>
-          <input placeholder="Note Title" name="title" onChange={this.changeHandler} value={this.state.title} />
-          <input placeholder="Note Content" name="textBody" onChange={this.changeHandler} value={this.state.textBody} />
+      <div className="main-container edit">
+        <h2>Edit Note</h2>
+        <form onSubmit={this.submitHandler} className="form edit-form">
+          <input placeholder="Note Title" name="title" onChange={this.changeHandler} value={this.state.title} className="title-input" />
+          <input placeholder="Note Content" name="textBody" onChange={this.changeHandler} value={this.state.textBody} className="content-input" />
           <button type="text">Update</button>
         </form>
-      </>
+      </div>
     )
   }
 }
