@@ -57,7 +57,15 @@ updateContent = (event, id, editedNote) => {
          .catch( err => { this.setState({ errorMessage: "Cannot edit now"})
       })
 }
-
+deleteContent = (event,id) => {
+    event.preventDefault();
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+         .then( response => {
+             this.setState({notes:[response.data]})
+         })
+         .catch(err => { this.setState({ errorMessage: "Cannot delete it now"})
+    })
+}
   render() {
     const notes = this.state.notes;
     return (
@@ -67,9 +75,13 @@ updateContent = (event, id, editedNote) => {
           <Route exact path='/' render={ props => <Notes {...props} notes={notes}/>}></Route>
           {/* <Notes notes={this.state.notes} /> */}
           <Route exact path='/notes' render={ props => <CreateView {...props} addContent={this.addContent} notes={notes} />}></Route>
-          <Route path='/note/:id' render={ props => <MyNote    {...props} notes= {notes} /> } />
+          <Route path='/note/:id' render={ props =>
+                        <MyNote    {...props} notes= {notes} 
+                         deleteContent={this.deleteContent} /> } />
           <Route path='/edit/:id' render={ props => 
-                          <EditNote  {...props} notes={notes} updateContent={this.updateContent} />} />
+                          <EditNote  {...props} notes={notes}
+                                    updateContent={this.updateContent} />}  />
+                                 
           {/* <Route path="/avengers/:id" render={ props =>   <AvengerPage {...props} avengers={avengers} />}  /> */}
         </MainContainer>
       </div>

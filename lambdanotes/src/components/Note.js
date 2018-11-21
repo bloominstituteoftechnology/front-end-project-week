@@ -16,8 +16,7 @@ class Note extends Component {
                 <Link to={`/note/${note._id}`} >
                    <h3>{this.props.note.title}</h3>
                 </Link>
-                <p>{this.props.note._id}</p>
-                {this.props.note.textBody}
+                   {this.props.note.textBody}
                </div>
             </NoteStyles>   
             </>

@@ -21,7 +21,9 @@ class CreateView extends Component {
     }
     submitHandler = event => {
         event.preventDefault();
+        if(this.state.title && this.state.textBody) {
         this.props.addContent(event,this.state);
+        }
         this.setState({
             title:'',
             textBody:''
@@ -46,6 +48,7 @@ class CreateView extends Component {
             <>
                <Wrapper>
                 <h2>Create New Note:</h2>
+               
                 <Container>
                   <form className='form' onSubmit= {this.submitHandler}>
                       <Input className="input"

@@ -15,7 +15,7 @@ class Notes extends Component {
              <Wrapper>
                 <h2>Your Notes:</h2>
                 <Container>
-                    {this.props.notes.map( note => <Note note={note} key={note._id} />)} 
+                    {this.props.notes.map( (note,index) => <Note note={note} key={index} />)} 
                 </Container>
                </Wrapper> 
             </>

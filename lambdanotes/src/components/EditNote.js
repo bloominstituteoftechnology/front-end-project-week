@@ -20,7 +20,8 @@ componentDidMount() {
         const id = this.props.match.params.id;
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
               .then(res => {
-                 this.setState({note: res.data})
+                //  this.setState({note: res.data})
+                this.setState({title: res.data.title, textBody:res.data.textBody})
               })
  }
 inputHandler = event => {
@@ -31,7 +32,9 @@ inputHandler = event => {
 submitHandler = event => {
         event.preventDefault();
         const id = this.props.match.params.id;
+        if(this.state.title && this.state.textBody) {
         this.props.updateContent(event, id, this.state);
+        }
         this.setState({
             title:'',
             textBody:''
@@ -40,11 +43,12 @@ submitHandler = event => {
     }
 
     render() {
-        console.log(this.props.updateContent);
+        console.log(this.props.deleteContent);
         return (
             <>
                <Wrapper>
-                <h2>Create New Note:</h2>
+                 <h2>Create New Note:</h2>
+                
                 <Container>
                   <form className='form' onSubmit= {this.submitHandler}>
                       <Input className="input"
