@@ -75,6 +75,8 @@ class NotesList extends React.Component {
         let emptyArr4
         const emptyArr5 = [];
         let emptyArr6
+        const emptyArr7 = [];
+        let emptyArr8
         console.log("FROM PROPS", this.props.notes)       //after componentDidMount, this actually renders data
         console.log("FROM STATE", this.state.notes)
         //i need to push the entire object note into emptyArr
@@ -109,6 +111,15 @@ class NotesList extends React.Component {
             console.log(this.sortObjProperty2(emptyArr5, 'title'))
             let emptyArr6 = this.sortObjProperty2(emptyArr5, 'title');
             console.log(emptyArr6)
+        })}
+
+        //ID
+        {this.props.notes.map(note => {
+            emptyArr7.push(note)
+            console.log(emptyArr7)
+            console.log(this.sortObjProperty(emptyArr7, '_id'))
+            let emptyArr8 = this.sortObjProperty(emptyArr3, '_id');
+            console.log(emptyArr8)
         })}
        
         
@@ -161,6 +172,23 @@ class NotesList extends React.Component {
                                     </h2>
                                     <div className="contentbox">
                                         <p> {obj.textBody}</p>
+                                    </div>
+                                </div>
+                            ) 
+                    })}
+                </div>
+
+                <h2> BY ID: </h2>
+                <div className="notebox-container">
+                    {this.sortObjProperty2(emptyArr7, '_id').map(obj => {
+                        return(
+                                <div className="notebox">
+                                    <h2>
+                                        Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
+                                    </h2>
+                                    <div className="contentbox">
+                                        <p> {obj.textBody}</p>
+                                        <p> ID: {obj._id} </p>
                                     </div>
                                 </div>
                             ) 
