@@ -13,12 +13,12 @@ class App extends Component {
     return (
       <div className="App">
         <div className="side-bar">
-          <h1>Lambda Notes</h1>
+          <h1>Lambda<br/> Notes</h1>
           <div className="nav view">
             <NavLink exact to="/" className="nav-button">View Your Notes</NavLink>
           </div>
           <div className ="nav create">
-            <NavLink to="/create" className="nav-button">+Create New Note</NavLink>
+            <NavLink to="/create" className="nav-button">+ Create New Note</NavLink>
           </div>
         </div>
 

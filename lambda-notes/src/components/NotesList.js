@@ -16,15 +16,17 @@ class NotesList extends Component {
     const { notes } = this.props;
 
     return(
-        <div className="notes-list">
+        <div className="main-container">
           <h2>Your Notes:</h2>
-          {notes.map(note => {
-            console.log(note)
-            return (
-              <Link to={`/view/${note._id}`} key={note._id} className="note-link">
-                <Note note={note}/>
-              </Link>
-            )})}
+          <div className="notes-list">
+            {notes.map(note => {
+              console.log(note)
+              return (
+                <Link to={`/view/${note._id}`} key={note._id} className="note-link">
+                  <Note note={note}/>
+                </Link>
+              )})}
+            </div>
         </div>
     );
   }
