@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import '../src/App.css';
 import {Route, NavLink} from 'react-router-dom';
 import ListView from './components/Display_Components/ListView';
 import CreateNewNote from './components/Display_Components/CreateNewNote';
 import NoteView from './components/Display_Components/NoteView';
-import axios from 'axios';
+import EditView from './components/Display_Components/EditView';
+
 
 
 class App extends Component {
+
+  state = {
+    notes: {},
+  }
 
 
     componentDidMount() {
@@ -45,6 +51,10 @@ class App extends Component {
 
         <Route path={`/note/:id`}exact
           render={(props) => <NoteView someNotes={this.state} {...props}   />}
+        />
+
+        <Route path={`/note/edit/:id`} exact
+          render={(props) => <EditView notes={this.state.notes} {...props}   />}
         />
       </div>
     );

@@ -5,12 +5,12 @@ import EditView from './EditView';
 import { Link } from 'react-router-dom';
 
 export default class NoteView extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
     this.state = {
         note: {},
     }
-    }
+}
 
  
 
@@ -22,7 +22,7 @@ export default class NoteView extends Component {
     getNote = (id) => {
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(res => { this.setState({
-            note: res.data
+            note: res.data,
         })})
         .catch(res => console.log( res.message ));
         }
@@ -33,7 +33,7 @@ export default class NoteView extends Component {
             <div>
                 <h2>{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>
-                <Link to={`/note/edit/${this.state.note._id}`} ><EditView /></Link>
+                <Link to={`/note/edit/${this.state.note._id}` }  note={this.state.note} ><EditView/></Link>
                 <DeleteModal id={this.state.note._id} />
             </div>
         )
