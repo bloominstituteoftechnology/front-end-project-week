@@ -35,7 +35,6 @@ class NoteView extends React.Component {
     }
 
     render(){
-        console.log(this.state.note)
         return (
             <div>
                 <div className="note-menu">

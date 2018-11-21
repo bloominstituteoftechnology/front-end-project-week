@@ -27,11 +27,6 @@ class NotesList extends React.Component {
     }
 
     
-    // sortAscending = () => {
-    //     //have different functions that sort in different ways, then setState by different sort
-    //     this.setState({outcome_of_sort: ascending })
-    // }
-    //then CALL those states for display
 
     sortThings = (a, b) => {
         a = a.toLowerCase();
@@ -69,60 +64,32 @@ class NotesList extends React.Component {
     
 
     render(){
-        const emptyArr = [];
-        const emptyArr2 = [];
+   
         const emptyArr3 = [];
-        let emptyArr4
         const emptyArr5 = [];
-        let emptyArr6
         const emptyArr7 = [];
-        let emptyArr8
-        console.log("FROM PROPS", this.props.notes)       //after componentDidMount, this actually renders data
-        console.log("FROM STATE", this.state.notes)
-        //i need to push the entire object note into emptyArr
-        //sort array of objects by object keys - javascript list sorting by object property
 
-        {this.props.notes.map(note => {
-            console.log(note.title)
-            console.log(note._id)
-            emptyArr.push(note.title)
-            emptyArr2.push(note._id)
-            console.log(emptyArr)
-            console.log(emptyArr2)
-            emptyArr.sort(this.sortThings).join(", ") 
-            emptyArr2.sort(this.sortThings).join(", ")
-            console.log(emptyArr)
-            console.log(emptyArr2)
-        })}
+        //sort array of objects by object keys - javascript list sorting by object property
 
         //A-Z
         {this.props.notes.map(note => {
             emptyArr3.push(note)
-            console.log(emptyArr3)
-            console.log(this.sortObjProperty(emptyArr3, 'title'))
             let emptyArr4 = this.sortObjProperty(emptyArr3, 'title');
-            console.log(emptyArr4)
         })}
 
         //Z-A
         {this.props.notes.map(note => {
             emptyArr5.push(note)
-            console.log(emptyArr5)
-            console.log(this.sortObjProperty2(emptyArr5, 'title'))
             let emptyArr6 = this.sortObjProperty2(emptyArr5, 'title');
-            console.log(emptyArr6)
         })}
 
         //ID
         {this.props.notes.map(note => {
             emptyArr7.push(note)
-            console.log(emptyArr7)
-            console.log(this.sortObjProperty(emptyArr7, '_id'))
             let emptyArr8 = this.sortObjProperty(emptyArr3, '_id');
-            console.log(emptyArr8)
         })}
-       
-      
+
+
         
         return (
             <div className="noteslist-container">
@@ -147,11 +114,9 @@ class NotesList extends React.Component {
 
                 <h2> A-Z: </h2>
                 <div className="notebox-container">
-                    {console.log(emptyArr)}
-                    {console.log(emptyArr4)}
                     {this.sortObjProperty(emptyArr3, 'title').map(obj => {
                         return(
-                                <div className="notebox">
+                                <div className="notebox" key={obj._id}>
                                     <h2>
                                         Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
@@ -167,7 +132,7 @@ class NotesList extends React.Component {
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr5, 'title').map(obj => {
                         return(
-                                <div className="notebox">
+                                <div className="notebox" key={obj._id}>
                                     <h2>
                                         Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
@@ -183,7 +148,7 @@ class NotesList extends React.Component {
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr7, '_id').map(obj => {
                         return(
-                                <div className="notebox">
+                                <div className="notebox" key={obj._id}>
                                     <h2>
                                         Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
@@ -201,7 +166,6 @@ class NotesList extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state.notes)
     return {
         notes: state.notes,
         error: state.error,
@@ -238,3 +202,16 @@ export default connect(mapStateToProps, { getNotes })(NotesList)
 //     )
 // })}
 // </div> */}
+
+// {this.props.notes.map(note => {
+//     console.log(note.title)
+//     console.log(note._id)
+//     emptyArr.push(note.title)
+//     emptyArr2.push(note._id)
+//     console.log(emptyArr)
+//     console.log(emptyArr2)
+//     emptyArr.sort(this.sortThings).join(", ") 
+//     emptyArr2.sort(this.sortThings).join(", ")
+//     console.log(emptyArr)
+//     console.log(emptyArr2)
+// })}
