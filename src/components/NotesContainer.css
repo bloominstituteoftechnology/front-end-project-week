@@ -1,0 +1,20 @@
+.Header {
+    margin-left: 15px;
+
+}
+
+.NoteInput {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.Modal {
+    position: relative;
+    background-color: white;
+}
+
+.TextArea {
+    width: 600px;
+    height: 300px;
+}
