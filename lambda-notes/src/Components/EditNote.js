@@ -22,12 +22,12 @@ class EditNote extends Component {
                 this.setState({[property]: value})
         }
 
-        editNote = () => {
-            // const title = this.state.title;
-            // const textBody = this.state.textBody;
-            // axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {title,textBody})
-            // .then( response => this.setState({notes: response.data}))
-            // .catch(err => console.log(err))
+        editNote = (id) => {
+            const title = this.state.title;
+            const textBody = this.state.textBody;
+            axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {title,textBody})
+            .then( response => this.setState({notes: response.data}))
+            .catch(err => console.log(err))
           }
 
     render() {
@@ -40,7 +40,7 @@ class EditNote extends Component {
             <textarea defaultValue={this.props.location.state.textBody} onChange={this.inputHandler} name='textBody' rows="20" cols="100" placeholder='Content Title'></textarea>
             
             <NavLink activeClassName='selected' to='/home'>
-            <button onClick={this.editNote}>Update</button>
+            <button onClick={this.editNote(this.props.location.state.ID)}>Update</button>
             </NavLink>
             
             </div>

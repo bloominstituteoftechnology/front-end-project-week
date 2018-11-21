@@ -65,6 +65,7 @@
   flex-wrap: wrap;
   padding: 20px;
   z-index: 0;
+  background-color: #F2F1F2;
 }
 .notesList {
   height: 2000px;
@@ -74,7 +75,6 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   padding: 20px;
-  background-color: lightgray;
   z-index: 0;
 
 }
