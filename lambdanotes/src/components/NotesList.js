@@ -13,32 +13,76 @@ class NotesList extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            notes: []
+            notes: [],
+            // note_sortby_property: {
+            //     outcome_of_sort: '',
+            // }
         }
     }
+
+   
 
     componentDidMount(){
         this.props.getNotes()      //gets notes from actions, which comes from store
     }
 
+    
+    // sortAscending = () => {
+    //     //have different functions that sort in different ways, then setState by different sort
+    //     this.setState({outcome_of_sort: ascending })
+    // }
+    //then CALL those states for display
 
     sortThings = (a, b) => {
         a = a.toLowerCase();
         b = b.toLowerCase();
         return a > b ? 1 : b > a ? -1 : 0;
     }
+
+    sortObjProperty = (list, key) => {
+        const compare = (a, b) => {
+            a = a[key];
+            b = b[key];
+            const type = (typeof(a) === 'string' || 
+                        typeof(b) === 'string') ? 'string' : 'number';
+            let result;
+            if (type === 'string') result = a.localeCompare(b);
+            else result = a - b;
+            return result;
+        }
+        return list.sort(compare);
+    }
     
 
     render(){
         const emptyArr = [];
-        const emptyArr2 = []
-        console.log(this.props.notes)       //after componentDidMount, this actually renders data
+        const emptyArr2 = [];
+        const emptyArr3 = [];
+        let emptyArr4
+        console.log("FROM PROPS", this.props.notes)       //after componentDidMount, this actually renders data
+        console.log("FROM STATE", this.state.notes)
+        //i need to push the entire object note into emptyArr
+        //sort array of objects by object keys - javascript list sorting by object property
+
         {this.props.notes.map(note => {
             console.log(note.title)
+            console.log(note._id)
             emptyArr.push(note.title)
+            emptyArr2.push(note._id)
             console.log(emptyArr)
+            console.log(emptyArr2)
             emptyArr.sort(this.sortThings).join(", ") 
+            emptyArr2.sort(this.sortThings).join(", ")
             console.log(emptyArr)
+            console.log(emptyArr2)
+        })}
+
+        {this.props.notes.map(note => {
+            emptyArr3.push(note)
+            console.log(emptyArr3)
+            console.log(this.sortObjProperty(emptyArr3, 'title'))
+            let emptyArr4 = this.sortObjProperty(emptyArr3, 'title');
+            console.log(emptyArr4)
         })}
        
         
@@ -66,14 +110,18 @@ class NotesList extends React.Component {
                 <h2> THIRD: </h2>
                 <div className="notebox-container">
                     {console.log(emptyArr)}
-                    {emptyArr.map(e => {
+                    {console.log(emptyArr4)}
+                    {this.sortObjProperty(emptyArr3, 'title').map(obj => {
                         return(
-                            <div className="notebox">
-                                <h2>
-                                    {e.toUpperCase()}
-                                </h2>
-                            </div>
-                        )
+                                <div className="notebox">
+                                    <h2>
+                                        Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
+                                    </h2>
+                                    <div className="contentbox">
+                                        <p> {obj.textBody}</p>
+                                    </div>
+                                </div>
+                            ) 
                     })}
                 </div>
             </div>
@@ -82,10 +130,11 @@ class NotesList extends React.Component {
 }
 
 const mapStateToProps = state => {
+    console.log(state.notes)
     return {
         notes: state.notes,
         error: state.error,
-        loading: state.loading
+        loading: state.loading,
     }
 }
 
