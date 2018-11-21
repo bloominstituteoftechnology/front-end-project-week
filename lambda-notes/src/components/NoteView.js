@@ -3,14 +3,14 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { fetchNote, deleteNote } from '../actions/index';
+import { deleteNote } from '../actions/index';
 import Note from './Note';
 
 class NoteView extends Component {
   constructor(props){
     super(props)
     this.state = {
-      note: []
+      note: {}
     }
   }
 
@@ -31,7 +31,7 @@ class NoteView extends Component {
     e.preventDefault();
     const id = this.props.match.params.id;
     this.props.deleteNote(id)
-    this.setState({ note: [] })
+    this.setState({ note: {} })
   }
 
   render(){

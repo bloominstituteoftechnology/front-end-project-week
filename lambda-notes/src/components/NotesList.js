@@ -7,34 +7,32 @@ import Note from './Note';
 import { Link } from 'react-router-dom';
 
 class NotesList extends Component {
-  constructor(props){
-    super(props)
-  }
 
   componentDidMount(){
     this.props.getNotes()
   }
 
   render(){
+    const { notes } = this.props;
+
     return(
-      <>
-        <h1>Your Notes:</h1>
         <div className="notes-list">
-          {this.props.notes.map(note => {
+          <h2>Your Notes:</h2>
+          {notes.map(note => {
+            console.log(note)
             return (
-              <Link to={`/view/${note._id}`}>
-                <Note key={note._id} note={note}/>
+              <Link to={`/view/${note._id}`} key={note._id} className="note-link">
+                <Note note={note}/>
               </Link>
             )})}
         </div>
-      </>
     );
   }
 }
 
-/* NotesList.propTypes = {
-  notes: PropTypes.arrayOf(PropTypes.object)
-} */
+NotesList.propTypes = {
+  notes: PropTypes.array.isRequired
+}
 
 const mapStateToProps = state => {
   return {

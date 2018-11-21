@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
@@ -13,10 +12,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Lambda Notes</h1>
-
-        <NavLink to="/">View Your Notes</NavLink>
-        <NavLink to="/create">+Create New Note</NavLink>
+        <div className="side-bar">
+          <h1>Lambda Notes</h1>
+          <div className="nav view">
+            <NavLink exact to="/" className="nav-button">View Your Notes</NavLink>
+          </div>
+          <div className ="nav create">
+            <NavLink to="/create" className="nav-button">+Create New Note</NavLink>
+          </div>
+        </div>
 
         <Route exact path="/" component={NotesList} />
         <Route path="/create" component={CreateNote} />

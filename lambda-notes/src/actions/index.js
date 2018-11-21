@@ -8,7 +8,8 @@ export const getNotes = () => {
   return dispatch => {
     dispatch({ type: LOADING })
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
-      .then( response => {
+      .then(response => {
+        console.log(response)
         dispatch({ type: SUCCESS, payload: response.data })
       })
       .catch( err => {
