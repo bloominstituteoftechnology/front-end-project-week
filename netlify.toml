@@ -1,0 +1,5 @@
+[build]
+
+base = "./notable"
+publish = "./notable/build"
+command = "yarn build"
