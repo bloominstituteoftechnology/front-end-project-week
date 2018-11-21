@@ -18,14 +18,30 @@ const TagList = styled.div`
   justify-content: center;
 `;
 
-let colorWheel = 1;
+let colorWheel = 0;
+const colors = [
+  "red",
+  "green",
+  "blue",
+  "rebeccapurple",
+  "darkcyan",
+  "orangered"
+];
 
 const Tag = styled.div`
   padding: 10px;
   margin: 5px;
   border: 1px solid green;
   border-radius: 5px;
-  background-color: darkgreen;
+  background-color: ${() => {
+    console.log(colorWheel);
+    if (colorWheel > 5) {
+      colorWheel = 0;
+    } else {
+      colorWheel += 0.5;
+    }
+    return colors[colorWheel];
+  }};
   font-size: 1.2rem;
   color: white;
 `;
