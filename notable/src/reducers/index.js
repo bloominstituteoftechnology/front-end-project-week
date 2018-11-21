@@ -57,6 +57,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { error: action.payload });
     case SUCCESS_SINGLE:
       const strArr = action.payload.textBody.split(" ");
+      console.log(strArr);
       strArr.forEach(word => {
         if (word[0] === "#") {
           const tag = word.substr(1).trim();

@@ -75,8 +75,8 @@ class SingleNote extends React.Component {
           <Note>
             <h1>{this.props.note.title}</h1>
             <div>
-              {this.props.note.tags.map(item => {
-                return <Badge>{item}</Badge>;
+              {this.props.note.tags.map((item, index) => {
+                return <Badge key={index} >{item}</Badge>;
               })}
             </div>
             <p>{this.props.note.textBody}</p>

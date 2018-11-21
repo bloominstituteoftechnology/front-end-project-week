@@ -34,7 +34,6 @@ const Tag = styled.div`
   border: 1px solid green;
   border-radius: 5px;
   background-color: ${() => {
-    console.log(colorWheel);
     if (colorWheel > 5) {
       colorWheel = 0;
     } else {
