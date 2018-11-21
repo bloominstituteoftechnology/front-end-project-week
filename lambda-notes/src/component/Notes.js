@@ -4,7 +4,7 @@ import Note from './NoteCard';
 const Notes = props => {
   return (
     <div>
-      <h1>Notes:</h1>
+      <h1>Lambda Notes:</h1>
       <div>
         {props.notes.map(note => {
           return (

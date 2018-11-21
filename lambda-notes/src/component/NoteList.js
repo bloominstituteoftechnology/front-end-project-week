@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
-
-class NoteList extends Component {
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+class NoteView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,19 @@ class NoteList extends Component {
       modal: !this.state.modal
     });
   }
-
+  deleteNote = id => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        console.log('response', response);
+      })
+      .catch(error => console.log(error));
+  };
+  deleteHandler = event => {
+    event.preventDefault();
+    this.deleteNote(this.state.note._id);
+    this.props.history.push('/');
+  };
   getNote = id => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
@@ -40,13 +52,15 @@ class NoteList extends Component {
     }
     return (
       <div>
-        <div style={viewStyle}>
+        <div style={viewStyle} onDoubleClick={this.editHandler}>
           <h2>{this.state.note.title}</h2>
           <p>{this.state.note.textBody}</p>
         </div>
         <input
           name="title"
           type="text"
+          style={editStyle}
+          onKeyDown={this.editSubmitHandler}
           onChange={this.ChangeHandler}
           value={this.state.editedText}
         />
@@ -58,8 +72,28 @@ class NoteList extends Component {
           onChange={this.ChangeHandler}
           value={this.state.editedText}
         />
+        <div>
+          <Button color="danger" onClick={this.toggle}>
+            {this.props.buttonLabel}Delete
+          </Button>
+          <Modal
+            isOpen={this.state.modal}
+            toggle={this.toggle}
+            className={this.props.className}
+          >
+            <ModalBody>Are you sure you want to delete this note?</ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={this.deleteHandler}>
+                Delete
+              </Button>{' '}
+              <Button color="secondary" onClick={this.toggle}>
+                Cancel
+              </Button>
+            </ModalFooter>
+          </Modal>
+        </div>
       </div>
     );
   }
 }
-export default NoteList;
+export default NoteView;

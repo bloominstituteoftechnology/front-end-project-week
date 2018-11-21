@@ -7,8 +7,8 @@ class Side extends Component {
       <div>
         <h1>Lambda</h1>
         <h1>Notes</h1>
-        <Link to="/">View</Link>
-        <Link to="/new-note">Create</Link>
+        <Link to="/">List</Link>
+        <Link to="/new-note">Note+</Link>
       </div>
     );
   }

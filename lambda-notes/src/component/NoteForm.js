@@ -22,6 +22,20 @@ class NoteForm extends Component {
     this.props.history.push('/');
   };
 
+  deleteNote = id => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        console.log('response', response);
+      })
+      .catch(error => console.log(error));
+  };
+  deleteHandler = event => {
+    event.preventDefault();
+    this.deleteNote(this.state.note._id);
+    this.props.history.push('/');
+  };
+
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
