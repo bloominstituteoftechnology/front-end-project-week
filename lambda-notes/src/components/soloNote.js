@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteNote }from './actions';
 import { Modal } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 
@@ -44,7 +45,7 @@ deleteHandler=(id)=>{
                     </Modal>
                 </div>
                 <div className='solo-header'>
-                    <p>edit</p>
+                    <Link to={`/edit-note/${note._id}`} ><p>edit</p></Link>
                     <p onClick={this.toggle}> delete </p>
                 </div>
                 <div className='note-body'>

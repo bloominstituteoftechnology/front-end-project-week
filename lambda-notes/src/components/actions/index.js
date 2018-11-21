@@ -45,8 +45,6 @@ export const updatedNote = (id, note)=>{
   }
 }
 
-
-
 export const deleteNote = (id) =>{
   return dispatch=>{
     dispatch({ type: LOADING, payload: 'Sending your note to the schredder...'})

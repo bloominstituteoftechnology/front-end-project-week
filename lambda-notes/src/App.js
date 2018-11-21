@@ -6,6 +6,7 @@ import { Route, Link } from 'react-router-dom';
 
 import NotesList from './components/notesList';
 import SoloNote from './components/soloNote';
+import UpdateForm from './components/updateForm'
 
 
 
@@ -21,7 +22,7 @@ const App = props =>{
           <Route exact path='/' component={NotesList} />
           <Route  path='/note/:id' render={ props => <SoloNote {...props} /> }/>
           <Route path='/new-note' render={props => <NewNoteForm {...props} /> }/>
-          {/* <Route path='/edit-note/:id' render={props => ??? } */}
+          <Route path='/edit-note/:id' render={props => <UpdateForm {...props} /> } />
       </MainAppContainer>
     );
 }
