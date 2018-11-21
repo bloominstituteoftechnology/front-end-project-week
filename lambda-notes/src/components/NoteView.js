@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { deleteNote } from '../actions/index';
-import Note from './Note';
 
 class NoteView extends Component {
   constructor(props){
@@ -36,15 +35,18 @@ class NoteView extends Component {
 
   render(){
     return(
-      <div className="main-container view">
+      <div className="main-container note-view">
+
         <div className="options-bar">
-          <Link to={`/edit/${this.state.note._id}`}>Edit</Link>
-          <div onClick={this.clickHandler}>Delete</div>
+          <Link to={`/edit/${this.state.note._id}`}>edit</Link>
+          <div onClick={this.clickHandler}>delete</div>
         </div>
+
         <div className="note-container">
           <h2>{this.state.note.title}</h2>
           <p>{this.state.note.textBody}</p>
         </div>
+
       </div>
     )
   }
