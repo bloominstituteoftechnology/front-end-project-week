@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { filterText, sortBy } from '../actions/filters'
+import { connect } from 'react-redux';
+import { filterText, sortBy } from '../actions/filters';
 
 class NoteFilter extends React.Component {
     constructor(props) {

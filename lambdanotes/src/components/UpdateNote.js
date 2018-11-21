@@ -12,11 +12,12 @@ class UpdateNote extends React.Component {
         this.state = {
             title: '',
             textBody: '',
-            // note: {}
+            //note: {}
         }
     }
 
     // WHY NOT componentDidMount needed?
+  
 
     // componentDidMount(){
     //     const id = this.props.match.params.id

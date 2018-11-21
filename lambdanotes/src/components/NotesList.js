@@ -8,25 +8,19 @@ import { getNotes } from '../actions/noteAction'
 //import NoteFilter from './NoteFilter'
 
 
+
 //const NotesList = (props) => {
 class NotesList extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             notes: [],
-            // note_sortby_property: {
-            //     outcome_of_sort: '',
-            // }
         }
     }
-
-   
 
     componentDidMount(){
         this.props.getNotes()      //gets notes from actions, which comes from store
     }
-
-    
 
     sortThings = (a, b) => {
         a = a.toLowerCase();
@@ -61,10 +55,45 @@ class NotesList extends React.Component {
         }
         return list.sort(compare);
     }
+
+    myFunction = () => {
+        let x = document.getElementById("myDIV")
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none"
+        }
+    }
+
+    myFunctionAZ = () => {
+        let x = document.getElementById("myDIV2")
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none"
+        }
+    }
+
+    myFunctionZA = () => {
+        let x = document.getElementById("myDIV3")
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none"
+        }
+    }
+
+    myFunctionID = () => {
+        let x = document.getElementById("myDIV4")
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none"
+        }
+    }
     
 
     render(){
-   
         const emptyArr3 = [];
         const emptyArr5 = [];
         const emptyArr7 = [];
@@ -93,25 +122,42 @@ class NotesList extends React.Component {
         
         return (
             <div className="noteslist-container">
+
+                <div 
+                    className="menu"
+                    ref={(element) => {
+                        this.dropdownMenu = element;
+                    }}
+                >
+                    <button onClick={this.myFunction}> Your Notes (Unsorted) </button>
+                    <button onClick={this.myFunctionAZ}> A-Z </button>
+                    <button onClick={this.myFunctionZA}> Z-A </button>
+                    <button onClick={this.myFunctionID}> ID </button>
+                </div>
+
+
+
+            <div id="myDIV">
                 <h2> Your Notes (Unsorted): </h2>
                 <div className="notebox-container">
                     {this.props.notes.map(note => {
                         return(
                             <div className="notebox" key={note._id}>
                                 <h2>
-                                    <Link to={`/notes/${note._id}`}>{note.title.toUpperCase()}</Link>
+                                    Title: <Link to={`/notes/${note._id}`}>{note.title.toUpperCase()}</Link>
                                 </h2>
                                 <div className="contentbox">
-                                    <p> {note.textBody.slice(0, 100) + (note.textBody.length > 100 ? "..." : "")}</p>
-                                    <p> Tag: {note.tags}</p>
+                                    <p> <strong>Content:</strong> {note.textBody.slice(0, 100) + (note.textBody.length > 100 ? "..." : "")}</p>
                                 </div>
+                                <p> <strong>ID:</strong> {note._id}</p>
                             </div>
                         )
                     })}
                 </div>
+            </div>
                 
                   
-
+            <div id="myDIV2">
                 <h2> A-Z: </h2>
                 <div className="notebox-container">
                     {this.sortObjProperty(emptyArr3, 'title').map(obj => {
@@ -121,13 +167,16 @@ class NotesList extends React.Component {
                                         Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
-                                        <p> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
+                                        <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                                     </div>
+                                    <p> <strong>ID:</strong> {obj._id}</p>
                                 </div>
                             ) 
                     })}
                 </div>
+            </div>
 
+            <div id="myDIV3">
                 <h2> Z-A: </h2>
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr5, 'title').map(obj => {
@@ -137,13 +186,16 @@ class NotesList extends React.Component {
                                         Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
-                                        <p> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
+                                        <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                                     </div>
+                                    <p> <strong>ID:</strong> {obj._id}</p>
                                 </div>
                             ) 
                     })}
                 </div>
+            </div>
 
+            <div id="myDIV4">
                 <h2> BY ID: </h2>
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr7, '_id').map(obj => {
@@ -153,14 +205,16 @@ class NotesList extends React.Component {
                                         Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
-                                        <p> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
-                                        <p> ID: {obj._id} </p>
+                                        <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>    
                                     </div>
+                                        <p> <strong>ID:</strong> {obj._id} </p>
                                 </div>
                             ) 
                     })}
                 </div>
             </div>
+            
+            </div> //className="noteslist-container"
         )
     }
 }
@@ -176,42 +230,3 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, { getNotes })(NotesList)
 //export default NotesList
 
-
-{/* <Link to={`/notes/${note._id}`}>{note.title.toUpperCase()}</Link> */}
-
-// {emptyArr2.map(e => {
-//     return e
-// })}
-
-
-// {/* <h2> Get Visible Notes: </h2>
-// {/* <NoteFilter /> */}
-// <div className="notebox-container">
-// {this.props.notes.map(note => {
-//     emptyArr.push(note.title)       //as EACH note.titles are coming in, push into emptyArr
-//     emptyArr.sort(this.sortThings).join(", ")   
-//     //console.log(emptyArr)           //emptyArr is sequentially being filled AND sorted
-//     //console.log(note.title)
-//     return (
-//         <div className="notebox" key={note._id}>
-//             {note.title}
-//             <h4>{emptyArr}</h4>      {/* prints the WHOLE array out at once */}
-//             <h5>test</h5>
-//         </div>
-
-//     )
-// })}
-// </div> */}
-
-// {this.props.notes.map(note => {
-//     console.log(note.title)
-//     console.log(note._id)
-//     emptyArr.push(note.title)
-//     emptyArr2.push(note._id)
-//     console.log(emptyArr)
-//     console.log(emptyArr2)
-//     emptyArr.sort(this.sortThings).join(", ") 
-//     emptyArr2.sort(this.sortThings).join(", ")
-//     console.log(emptyArr)
-//     console.log(emptyArr2)
-// })}

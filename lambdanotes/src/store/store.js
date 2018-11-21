@@ -23,7 +23,7 @@ export default () => {
         combineReducers({
             filter: filtersReducer,
             notes: NoteReducer,
-        }),
+        })
     );
 };
 
