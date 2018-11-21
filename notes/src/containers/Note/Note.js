@@ -1,52 +1,63 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 // import {deleteNote} from '../../actions/noteActions'
 
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 30px 0;
+`;
+
 const NoteCard = styled.div`
-  display: inline-block;
+  flex: 1;
+  width: 250px;
+  height: 310px;
   border: 1px solid #ccc;
-  padding: 0px 10px;
-  width: 210px;
-  height: 250px;
-  margin: 0px 20px;
   background-color: white;
-  white-space: nowrap;
-  overflow: hidden;
+
   h1 {
+    white-space: nowrap;
     font-size: 24px;
     color: black;
+    margin: 10px 10px;
     cursor: pointer;
+
     overflow: hidden;
     text-overflow: ellipsis;
   }
   p {
-    flex: 1;
-    line-height: 30px;
     overflow: hidden;
+    line-height: 30px;
+    margin: 0px 10px;
     text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
   }
 `;
 
 const Note = ({ note }) => {
   return (
-    <NoteCard>
-      <h1>
-        <Link
-          to={`note/${note._id}`}
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          {note.title}
-        </Link>
-      </h1>
-      <hr />
-      <p>{note.textBody}</p>
-    </NoteCard>
+    <Container>
+      <NoteCard>
+        <h1>
+          <Link
+            to={`note/${note._id}`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            {note.title}
+          </Link>
+        </h1>
+        <hr />
+        <p>{note.textBody}</p>
+      </NoteCard>
+    </Container>
   );
 };
 
-const mapStateToProps = () => ({})
+const mapStateToProps = () => ({});
 
-
-export default connect(mapStateToProps, )(Note);
+export default connect(mapStateToProps)(Note);

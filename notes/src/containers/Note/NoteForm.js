@@ -1,6 +1,7 @@
-import React from "react";
+import React, {Component} from "react";
 import styled from "styled-components";
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import {fetchNotes, addNote} from '../../actions/noteActions'
 
 const Form = styled.form`
   display: flex;
@@ -36,33 +37,57 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const NoteForm = props => {
-    const createNote = e => {
-        e.preventDefault()
-        props.addNote()
-        props.history.push("/");
+class NoteForm extends Component {
+
+  constructor(props)
+  { super(props)
+    this.state = {
+      title: '',
+      textBody: ''
+
     }
+  }
 
-  return (
-    <Form>
-      <h1>Create New Note</h1>
-      <Input type="text" name="title" value={props.title} placeholder="Title" onChange={props.handleChange} />
-      <TextArea
-        name="textBody"
-        value={props.textBody}
-        id="props.id"
-        cols="60"
-        rows="30"
-        onChange={props.handleChange}
-        placeholder="Note Content"
-      />
-      <Button onClick={createNote}>Save</Button>
-    </Form>
-  );
-};
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  createNote = e => {
+    e.preventDefault()
+    this.props.addNote(this.state)
+    this.props.history.push("/");
+  }
 
-const mapStateToProps = state => ({
-  notes:state.noteReducer.notes
-})
 
-export default connect(mapStateToProps)(NoteForm);
+  render() {
+
+
+    // const createNote = e => {
+    //   e.preventDefault()
+    //   this.props.addNote()
+    //   this.props.history.push("/");
+    // }
+
+    return (
+      <Form>
+        <h1>Create New Note</h1>
+        <Input type="text" name="title" value={this.state.title} placeholder="Title" onChange={this.handleChange} />
+        <TextArea
+          name="textBody"
+          value={this.state.textBody}
+          id="props.id"
+          cols="60"
+          rows="30"
+          onChange={this.handleChange}
+          placeholder="Note Content"
+        />
+        <Button onClick={this.createNote}>Save</Button>
+      </Form>
+    );
+  }
+}
+
+const mapStateToProps = () => {
+  return{}
+}
+
+export default connect(mapStateToProps, {fetchNotes, addNote: addNote})(NoteForm);

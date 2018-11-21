@@ -1,5 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { fetchNotes, editNote } from "../../actions/noteActions";
 
 const Form = styled.form`
   display: flex;
@@ -35,38 +37,67 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const EditNote = props => {
-    console.log(props)
-  const note = props.notes.find(note => props.match.params.id === `${note._id}`);
-  const editNotes = e => {
-    e.preventDefault();
-    props.editNote(note._id);
-    props.history.push(`/note/${note._id}`);
+class EditNote extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      textBody: "",
+      id: null
+    };
+  }
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  return (
-    <Form>
-      <h1>Edit Note:</h1>
+  componentDidMount() {
+    const { notes, match } = this.props;
+    const note = notes.find(note => match.params.id === `${note._id}`);
+    this.setState(note);
+  }
 
-      <Input
-        type="text"
-        name="title"
-        value={props.title}
-        placeholder="Title"
-        onChange={props.handleChange}
-      />
-      <TextArea
-        name="textBody"
-        value={props.textBody}
-        id="note.id"
-        cols="60"
-        rows="30"
-        onChange={props.handleChange}
-        placeholder="Note Content"
-      />
-      <Button onClick={editNotes}>Save</Button>
-    </Form>
-  );
+  noteEdited = e => {
+    const { notes, match } = this.props;
+    const note = notes.find(note => match.params.id === `${note._id}`);
+    e.preventDefault();
+    this.props.editNote(this.state);
+    this.props.history.push(`/note/${note._id}`);
+  };
+
+  render() {
+    return (
+      <Form onSubmit={this.noteEdited}>
+        <h1>Edit Note:</h1>
+
+        <Input
+          type="text"
+          name="title"
+          value={this.state.title}
+          placeholder="Title"
+          onChange={this.handleChange}
+        />
+        <TextArea
+          name="textBody"
+          value={this.state.textBody}
+          id="note.id"
+          cols="60"
+          rows="30"
+          onChange={this.handleChange}
+          placeholder="Note Content"
+        />
+        <Button type="submit" value="Save">
+          Save
+        </Button>
+      </Form>
+    );
+  }
+}
+const mapStateToProps = state => {
+  return {
+    notes: state.noteReducer.notes
+  };
 };
-
-export default EditNote
+export default connect(
+  mapStateToProps,
+  { fetchNotes, editNote: editNote }
+)(EditNote);
