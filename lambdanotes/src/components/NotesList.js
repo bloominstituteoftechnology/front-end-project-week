@@ -15,6 +15,7 @@ class NotesList extends React.Component {
         super(props);
         this.state = {
             notes: [],
+            showNoteContainer: false,
         }
     }
 
@@ -119,10 +120,14 @@ class NotesList extends React.Component {
         })}
 
 
-        
+        //put the buttons to links - to - ROUTES
+        //each filter result is a separate component 
+        //all those filter components must connect to store through mapStateToProps
+        //
         return (
             <div className="noteslist-container">
 
+                
                 <div 
                     className="menu"
                     ref={(element) => {
@@ -137,7 +142,7 @@ class NotesList extends React.Component {
 
 
 
-            <div id="myDIV">
+            <div id="myDIV" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
                 <h2> Your Notes (Unsorted): </h2>
                 <div className="notebox-container">
                     {this.props.notes.map(note => {
@@ -157,7 +162,7 @@ class NotesList extends React.Component {
             </div>
                 
                   
-            <div id="myDIV2">
+            <div id="myDIV2" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
                 <h2> A-Z: </h2>
                 <div className="notebox-container">
                     {this.sortObjProperty(emptyArr3, 'title').map(obj => {
@@ -176,7 +181,7 @@ class NotesList extends React.Component {
                 </div>
             </div>
 
-            <div id="myDIV3">
+            <div id="myDIV3" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
                 <h2> Z-A: </h2>
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr5, 'title').map(obj => {
@@ -195,7 +200,7 @@ class NotesList extends React.Component {
                 </div>
             </div>
 
-            <div id="myDIV4">
+            <div id="myDIV4" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
                 <h2> BY ID: </h2>
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr7, '_id').map(obj => {
