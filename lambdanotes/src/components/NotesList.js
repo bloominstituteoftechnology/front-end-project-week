@@ -122,6 +122,7 @@ class NotesList extends React.Component {
             console.log(emptyArr8)
         })}
        
+      
         
         return (
             <div className="noteslist-container">
@@ -134,7 +135,7 @@ class NotesList extends React.Component {
                                     <Link to={`/notes/${note._id}`}>{note.title.toUpperCase()}</Link>
                                 </h2>
                                 <div className="contentbox">
-                                    <p> {note.textBody}</p>
+                                    <p> {note.textBody.slice(0, 100) + (note.textBody.length > 100 ? "..." : "")}</p>
                                     <p> Tag: {note.tags}</p>
                                 </div>
                             </div>
@@ -155,7 +156,7 @@ class NotesList extends React.Component {
                                         Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
-                                        <p> {obj.textBody}</p>
+                                        <p> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                                     </div>
                                 </div>
                             ) 
@@ -171,7 +172,7 @@ class NotesList extends React.Component {
                                         Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
-                                        <p> {obj.textBody}</p>
+                                        <p> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                                     </div>
                                 </div>
                             ) 
@@ -187,7 +188,7 @@ class NotesList extends React.Component {
                                         Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
-                                        <p> {obj.textBody}</p>
+                                        <p> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                                         <p> ID: {obj._id} </p>
                                     </div>
                                 </div>
