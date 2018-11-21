@@ -5,7 +5,7 @@ import logger from "redux-logger";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./index.css";
 import App from "./App";

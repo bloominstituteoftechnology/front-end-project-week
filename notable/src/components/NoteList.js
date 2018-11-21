@@ -37,7 +37,6 @@ const CardDiv = styled.div`
 `;
 
 class NoteList extends React.Component {
-
   componentDidMount() {
     this.props.fetchNotes();
   }
@@ -49,7 +48,9 @@ class NoteList extends React.Component {
 
   filterOnTag = tag => {
     if (tag !== "ALL") {
-      this.props.filterNotes(this.props.notes.filter(item => item.tags.includes(tag)));
+      this.props.filterNotes(
+        this.props.notes.filter(item => item.tags.includes(tag))
+      );
     } else {
       this.props.filterNotes(this.props.notes);
     }

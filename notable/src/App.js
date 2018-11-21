@@ -12,11 +12,14 @@ const MainDiv = styled.div`
   width: 100%;
   max-width: 1024px;
   margin: 5px auto;
+  -webkit-box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.52);
+  box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.52);
 `;
 
 const SideBar = styled.div`
   width: 25%;
-  height: 95vh;
+  min-height: 95vh;
   background-color: silver;
   padding: 15px;
   h1 {

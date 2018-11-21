@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { Badge } from 'reactstrap';
+import { Badge } from "reactstrap";
 
 import { fetchSingleNote, deleteNote, setUpdate } from "../actions/index";
 import DeleteModal from "./DeleteModal";
@@ -73,12 +73,10 @@ class SingleNote extends React.Component {
           <h1>Please Wait</h1>
         ) : (
           <Note>
-              <h1>{this.props.note.title}</h1>
+            <h1>{this.props.note.title}</h1>
             <div>
               {this.props.note.tags.map(item => {
-                return (
-                <Badge>{item}</Badge>
-                );
+                return <Badge>{item}</Badge>;
               })}
             </div>
             <p>{this.props.note.textBody}</p>
