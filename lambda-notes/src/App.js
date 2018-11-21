@@ -1,48 +1,38 @@
 import React, { Component } from 'react';
-import NoteList from './components/NoteList';
-import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
+import NoteList from './components/NoteList';
 import './App.css';
-import { NavLink } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import NewNote from './components/NewNote'
 
-
-
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       notes: []
-    };
+    }
   }
 
-componentDidMount() {
-  axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
-    .then(response => {
-      const notes = response.data;
-      this.setState({notes});
-    })
-    .catch(err=> {
-      console.log(err)
-    });
-}
+  componentDidMount() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(res => this.setState({ notes: res.data }))
+      .catch(e => { console.log(e) } )
+  }
+
+  // addToNotes = newNote => {
+  //   axios
+  //     .post("https://fe-notes.herokuapp.com/note/create", newNote)
+  //     .then(res => this.setState({ notes: res.data }, this.props.history.push('/')))
+  //     .catch(e => { console.log(e) } )
+  // }
 
   render() {
     return (
-      <Router>
       <div className="App">
-      <nav>
-      <Sidebar/>
-      <NavLink to = '/new-note'>Create Note</NavLink>
-      <NavLink to = '/'>Home</NavLink>
-      </nav>
-      <Route exact path='/' render={() => <NoteList notes={this.state.notes} />} /> 
-      <Route path='/new-note' component={NewNote} />
-       </div>
-       </Router>
-     );
-   }
- }
-
-export default App;
+        <Sidebar />
+        <Route exact path="/" render={(props) => <NoteList {...props} notes={this.state.notes} /> } />
+      </div> 
+    );
+  }
+}

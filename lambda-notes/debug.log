@@ -1,1 +1,9 @@
 [1115/111028.519:ERROR:process_info.cc(359)] UncheckedAllocate
+[1115/210626.604:ERROR:process_info.cc(359)] UncheckedAllocate
+[1115/210626.650:ERROR:process_reader_win.cc(242)] ReadMemory at 0x7ffcab572cb8 of 512 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[1115/210626.653:ERROR:process_reader_win.cc(242)] ReadMemory at 0x7ffcc078f6ea of 512 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[1115/210626.653:ERROR:process_reader_win.cc(242)] ReadMemory at 0x7ffcc0797a03 of 512 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[1116/125104.520:ERROR:process_info.cc(359)] UncheckedAllocate
+[1116/125114.741:ERROR:process_info.cc(359)] UncheckedAllocate
+[1116/125937.182:ERROR:process_info.cc(359)] UncheckedAllocate
+[1120/195711.131:ERROR:process_info.cc(359)] UncheckedAllocate
