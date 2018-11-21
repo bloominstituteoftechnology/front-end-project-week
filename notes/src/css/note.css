@@ -20,12 +20,15 @@ li {
 }
 
 .nav-left {
+    display: inline-block;
+    /* position: fixed; */
     max-width: 338px;
     width: 338px;
     font-size: 18px;
     background-color: rgb(216, 216, 216);
     height: 2000px;
     top: 0px;
+    left: 16%;
     border: 2px solid rgb(151, 151, 151);
 }
 
@@ -329,4 +332,53 @@ font-weight: bold;
     font-size: 28px;
     height: auto;
     color: rgb(74, 74, 74);
+}
+
+.nav-title-list {
+/* background-color: blue; */
+list-style-type: none;
+  border: 2px solid rgb(151, 151, 151);
+ width: 260px;
+ margin-left: 38px;
+ padding: 0px;
+ max-height: 280px;
+ overflow-y: scroll;
+ overflow-x: hidden;
+}
+
+.nav-note-lists-item {
+    font-weight: bold; 
+    font-size: 18px;
+    border: 2px solid white;
+    background-color: white;
+    color: black;
+    height: 28px;
+    line-height: 20px;
+    padding-top: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 10px;
+    cursor: pointer;
+   width: 256px;
+   text-align: left;
+  /*  border-left-color: rgb(43, 193, 196); */
+  /*  border-right-color: rgb(43, 193, 196); */
+    /* border-bottom-color: rgb(151, 151, 151); */
+}
+
+.nav-note-lists-item:hover {
+/* border: 2px solid gray; */
+background-color: rgb(43, 193, 196);
+}
+
+.sort-button {
+    border: 2px solid rgb(151, 151, 151);
+text-align: center;
+background-color: rgb(43, 193, 196);
+color: white;
+width: 200px;
+height: 30px;
+font-weight: bold;
+margin-left: auto;
+margin-right: auto; 
 }

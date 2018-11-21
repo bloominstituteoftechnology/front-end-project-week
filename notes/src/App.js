@@ -117,7 +117,7 @@ class App extends React.Component {
       case 'noteDelete':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} />
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate}  noteView={this.noteView}/>
             <div className="main-display">
               <NoteDelete id={this.state.id} noteList={this.noteList}/>
             </div>
@@ -127,7 +127,7 @@ class App extends React.Component {
       case 'noteEdit':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteEdit={this.noteEdit}/>
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteEdit={this.noteEdit} noteView={this.noteView}/>
             <div className="main-display">
               <NoteEdit changeHandler={this.changeHandler} tags={this.tags} id={this.state.id} />
             </div>
@@ -137,7 +137,7 @@ class App extends React.Component {
       case 'noteList':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} />
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView} />
             <div className="main-display">
               <NoteList noteView={this.noteView} notes={this.state.notes} />
             </div>
@@ -147,7 +147,7 @@ class App extends React.Component {
       case 'noteView':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} />
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView} />
             <div className="main-display">
               <NoteView id={this.state.id} notes={this.notes} selected={this.props.noteSelected} noteEdit={this.noteEdit} noteDelete={this.noteDelete} />
             </div>
