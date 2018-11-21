@@ -13,9 +13,9 @@ export default class NoteView extends Component {
 }
 
  
-
     componentDidMount() {
-    const id = this.props.match.params.id;
+
+   const id = this.props.match.params.id;
        this.getNote(id)
     }
 
@@ -33,7 +33,7 @@ export default class NoteView extends Component {
             <div>
                 <h2>{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>
-                <Link to={`/note/edit/${this.state.note._id}` }  note={this.state.note} ><EditView/></Link>
+                <Link to={`/note/edit/${this.state.note._id}`  } note={this.state.note} ><EditView note={this.state.note} /></Link>
                 <DeleteModal id={this.state.note._id} />
             </div>
         )
