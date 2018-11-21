@@ -5,20 +5,50 @@ class CreateNoteForm extends Component {
     super(props)
     this.state = {
       title: "",
-      textBody: "",
-      tags: ""
+      textBody: ""
     }
   }
 
-  handleChange = () => {}
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
 
-  handleSubmit = () => {}
+  handleSubmit = e => {
+    e.preventDefault()
+    let note = {
+      title: this.state.title,
+      textBody: this.state.textBody
+    }
+    this.props.addNote(note)
+    this.setState({
+      title: "",
+      textBody: ""
+    })
+  }
 
   render() {
     return (
-      <form>
-        <input type="text" />
-      </form>
+      <div>
+        <h2>Create New Note:</h2>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            onChange={this.handleChange}
+            placeholder="Note Title"
+            name="title"
+            type="text"
+            value={this.state.title}
+          />
+          <textarea
+            onChange={this.handleChange}
+            placeholder="Note Content"
+            name="textBody"
+            value={this.state.textBody}
+          />
+          <button type="submit">Save</button>
+        </form>
+      </div>
     )
   }
 }
