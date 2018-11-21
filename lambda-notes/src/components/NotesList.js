@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 
 import NoteCard from './NoteCard';
 
@@ -8,8 +10,6 @@ const NotesListContainer = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 0 4%;
-
-    border: 1px solid black;
 
     h2{
         font-size: 2.2rem;
@@ -25,14 +25,25 @@ const NotesContainer = styled.div`
 `;
 
 const NotesList = props=>{
+    if(props.fetching){
+        return <div>Loading data...</div>
+    }
+
     return(
         <NotesListContainer>
             <h2>Your Notes:</h2>
             <NotesContainer>
-                {props.notes.map(note=><NoteCard key={note._id} {...props} note={note} setCurrentNote={props.setCurrentNote}/>)}
+                {props.notes.map(note=><NoteCard key={note._id} {...props} note={note}/>)}
             </NotesContainer>
         </NotesListContainer>
     )
 }
 
-export default NotesList;
+const mapStateToProps = state=>{
+    return{
+        fetching: state.fetching,
+        notes: state.notes
+    }
+}
+
+export default withRouter(connect(mapStateToProps)(NotesList));

@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import {withRouter} from 'react-router';
+import {connect} from 'react-redux';
+
+import {addNote} from '../actions/actions';
 
 const CreateNoteContainer = styled.div`
     display: flex;
@@ -76,7 +80,7 @@ class CreateNote extends Component{
         this.props.addNote({
             title: this.state.name,
             textBody: this.state.text
-        })
+        }, this.props.notes)
 
         this.props.history.push('/');
     }
@@ -95,4 +99,10 @@ class CreateNote extends Component{
     }
 }
 
-export default CreateNote;
+const mapStateToProps = state=>{
+    return {
+        notes: state.notes
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {addNote})(CreateNote));

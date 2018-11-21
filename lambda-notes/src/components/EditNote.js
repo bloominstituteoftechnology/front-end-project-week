@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
+
+
+import {editNote, setCurrentNote} from '../actions/actions';
 
 const EditNoteContainer = styled.div`
     display: flex;
@@ -77,7 +82,7 @@ class EditNote extends Component{
         this.props.editNote(this.state.id, {
             title: this.state.name,
             textBody: this.state.text
-        })
+        }, this.props.notes)
         
         this.props.history.push(`/note/${this.props.note._id}`);
     }
@@ -99,4 +104,11 @@ class EditNote extends Component{
     }
 }
 
-export default EditNote;
+const mapStateToProps = state=>{
+    return{
+        notes: state.notes,
+        note: state.currentNote
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {editNote, setCurrentNote})(EditNote));

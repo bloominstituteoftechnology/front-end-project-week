@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 
 import DeleteNoteModal from './DeleteNoteModal';
+import {deleteNote, setCurrentNote} from '../actions/actions';
 
 const NoteContainer = styled.div`
     display: flex;
@@ -54,22 +57,20 @@ class DisplayNote extends Component{
         }
     }
 
-    componentDidMount(){
-        this.props.setCurrentNoteID(this.props.match.params.id);
-    }
-
-    editNote = ()=>{
+    editNote = (event)=>{
+        event.preventDefault();
         this.props.history.push(`/edit/${this.props.note._id}`);
     }
 
-    confirmDelete = ()=>{
+    confirmDelete = (event)=>{
+        event.preventDefault();
         this.setState({confirmDelete: true});
     }
 
     deleteNote = (deleteNote)=>{
         this.setState({confirmDelete: false});
         if(deleteNote){
-            this.props.deleteNote(this.props.note._id);
+            this.props.deleteNote(this.props.note._id, this.props.notes);
             this.props.history.push('/');
         }
     }
@@ -95,4 +96,11 @@ class DisplayNote extends Component{
     }
 }
 
-export default DisplayNote;
+const mapStateToProps = state=>{
+    return{
+        notes: state.notes,
+        note: state.currentNote
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {deleteNote, setCurrentNote})(DisplayNote));

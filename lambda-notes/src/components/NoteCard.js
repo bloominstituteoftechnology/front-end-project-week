@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
+
+import {setCurrentNote} from '../actions/actions';
 
 const NoteContainer = styled.div`
     display: flex;
@@ -34,8 +38,9 @@ const NoteContainer = styled.div`
 `;
 
 const NoteCard = props=>{
-    function selectNote(){
-        props.setCurrentNoteID(props.note._id);
+    function selectNote(event){
+        event.preventDefault();
+        props.setCurrentNote(props.note);
         props.history.push(`/note/${props.note._id}`);
     }
     
@@ -47,4 +52,8 @@ const NoteCard = props=>{
     )
 }
 
-export default NoteCard;
+const mapStateToProps = state=>{
+    return {}
+}
+
+export default withRouter(connect(mapStateToProps, {setCurrentNote})(NoteCard));

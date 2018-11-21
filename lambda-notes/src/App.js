@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 
+import {fetchNotes, setCurrentNote} from './actions/actions';
 import NavSideBar from './components/NavSideBar';
 import NotesList from './components/NotesList';
 import CreateNote from './components/CreateNote';
@@ -15,6 +17,8 @@ const AppContainer = styled.div`
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
+
+  ${props=>props.windowHeight > props.elementHeight ? `height: ${props.windowHeight}px;` : `height: ${props.elementHeight}px;`}
 `;
 
 const NavContainer = styled.div`
@@ -33,87 +37,66 @@ const BodyContainer = styled.div`
   border-bottom: 2px solid #ececec;
 `;
 
-class App extends Component {
+// TODO: fix styling to fit page or element which ever is longer
+// TODO: fix delete modal to overlay view with transparent color
+
+class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      notes: [],
-      currentNoteID: '',
-      error: ''
+      height: 0
     }
+
+    window.onbeforeunload = this.saveCurrentNote;
+  }
+
+  saveCurrentNote = ()=>{
+    window.localStorage.setItem("currentnote", JSON.stringify(this.props.currentNote));
   }
 
   componentDidMount(){
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-    .then(response=>{
-      this.setState({notes: response.data});
-    })
-    .catch(error=>{
-      // TODO: Add error element to dom
-      this.setState({error: 'Failed to load notes'});
-    })
+    this.props.fetchNotes();
+
+    const currentNote = JSON.parse(localStorage.getItem("currentnote"));
+    if(currentNote){
+      this.props.setCurrentNote(currentNote);
+    }
   }
 
-  setCurrentNoteID = id=>{
-    this.setState({currentNoteID: id});
+  componentDidUpdate(){
+    const height = document.getElementsByClassName('body-container')[0].scrollHeight;
+
+    if(height !== this.state.height){
+      this.setState({height: height});
+    }
   }
 
-  addNote = note=>{
-    axios.post('https://fe-notes.herokuapp.com/note/create', note)
-    .then(response=>{
-      const newNote = Object.assign({}, note, {'_id': response.data.success});
-      const newNotes = this.state.notes;
-      newNotes.push(newNote);
-      this.setState({notes: newNotes});
-    })
-    .catch(error=>{
-      this.setState({error: 'Failed to create note'});
-    })
-  }
-
-  deleteNote = id=>{
-    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-    .then(response=>{
-      const index = this.state.notes.findIndex(note=>note._id===id);
-      const newNotes = [...this.state.notes.slice(0, index), ...this.state.notes.slice(index + 1)];
-      this.setState({notes: newNotes});
-    })
-    .catch(error=>{
-      this.setState({error: 'Failed to delete note'});
-    })
-  }
-
-  editNote = (id, note)=>{
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
-    .then(response=>{
-      const index = this.state.notes.findIndex(note=>note._id===id)
-      const newNotes = this.state.notes;
-      newNotes[index] = response.data;
-      this.setState({notes: newNotes});
-    })
-    .catch(error=>{
-      this.setState({error: 'Failed to update note'});
-    })
-  }
-
-  render() {
+  render(){
+    console.log(window.innerHeight);
+    console.log(this.state.height);
     return (
-      <AppContainer>
-
+      <AppContainer windowHeight={window.innerHeight} elementHeight={this.state.height}>
+  
         <NavContainer>
           <Route path="/" render={props=><NavSideBar {...props}/>}/>
         </NavContainer>
-
-        <BodyContainer>
-          <Route exact path="/" render={props=><NotesList {...props} notes={this.state.notes} setCurrentNoteID={this.setCurrentNoteID}/>}/>
-          <Route path="/note/:id" render={props=><DisplayNote {...props} note={this.state.notes.find(note=>note._id===this.state.currentNoteID)} editNote={this.editNote} deleteNote={this.deleteNote} setCurrentNoteID={this.setCurrentNoteID}/>}/>
-          <Route path="/create-note" render={props=><CreateNote {...props} addNote={this.addNote}/>}/>
-          <Route path="/edit/:id" render={props=><EditNote {...props} note={this.state.notes.find(note=>note._id===this.state.currentNoteID)} editNote={this.editNote}/>}/>
+  
+        <BodyContainer className='body-container'>
+          <Route exact path="/" component={NotesList}/>
+          <Route path="/create-note" render={props=><CreateNote {...props}/>}/>
+          <Route path="/note/:id" render={props=><DisplayNote {...props}/>}/>
+          <Route path="/edit/:id" render={props=><EditNote {...props}/>}/>
         </BodyContainer>
         
       </AppContainer>
-    );
+    )
   }
 }
 
-export default App;
+const mapStateToProps = state=>{
+  return{
+    currentNote: state.currentNote
+  }
+}
+
+export default withRouter(connect(mapStateToProps, {fetchNotes, setCurrentNote})(App));

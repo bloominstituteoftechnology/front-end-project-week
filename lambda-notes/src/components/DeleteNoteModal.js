@@ -54,11 +54,13 @@ const DeleteNoteButtons = styled.div`
 
 const DeleteNoteModal = props=>{
 
-    function handleDelete(){
+    function handleDelete(event){
+        event.preventDefault();
+        event.stopPropagation();
         props.deleteNote(true);
     }
 
-    function handleNo(){
+    function handleNo(event){
         props.deleteNote(false);
     }
 
