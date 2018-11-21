@@ -1,20 +1,20 @@
-import { SUCCESS, FETCHING, ERROR, SUCCESS_SINGLE, UPDATE } from "../actions";
+import { SUCCESS, FETCHING, ERROR, SUCCESS_SINGLE, UPDATE, FILTER } from "../actions";
 
 const initialState = {
   notes: [
     {
       tags: [],
-      title: "My Very First Note",
-      textBody:
-        "This is the first note I have written. It will not be the last note. Nay, for it carries with it the force of a million notes. And on the wings of the note-flurry emanating from this one note, there exists the potential for a great many notes...each more powerful than the last.  Or it'll just be the one, I dunno. We'll see."
+      title: '',
+      textBody: ''
     }
   ],
   singleNote: {
     tags: [],
-    title: "My Very First Note",
-    textBody:
-      "This is the first note I have written. It will not be the last note. Nay, for it carries with it the force of a million notes. And on the wings of the note-flurry emanating from this one note, there exists the potential for a great many notes...each more powerful than the last.  Or it'll just be the one, I dunno. We'll see."
+    title: '',
+    textBody: ''
   },
+  filteredNotes: [],
+  allTags: [],
   fetching: false,
   updating: false,
   error: ""
@@ -25,10 +25,24 @@ export default (state = initialState, action) => {
     case FETCHING:
       return Object.assign({}, state, { fetching: true });
     case SUCCESS:
+      const tagList = [];
+      action.payload.forEach(note => {
+        const strArr = note.textBody.split(' ');
+        strArr.forEach(word => {
+          if (word[0] === '#' && !tagList.includes(word.substr(1))) {
+            const tag = word.substr(1);
+            note.tags.push(tag)
+            tagList.push(tag)
+          }
+        })
+      });
+      tagList.push('ALL')
       return Object.assign({}, state, {
         notes: action.payload,
+        filteredNotes: action.payload,
         fetching: false,
-        error: ""
+        error: "",
+        allTags: tagList
       });
     case ERROR:
       return Object.assign({}, state, { error: action.payload });
@@ -41,6 +55,8 @@ export default (state = initialState, action) => {
       });
     case UPDATE:
       return Object.assign({}, state, { updating: true });
+    case FILTER:
+      return Object.assign({}, state, {filteredNotes: action.payload})
     default:
       return state;
   }

@@ -5,6 +5,7 @@ export const SUCCESS = "SUCCESS";
 export const SUCCESS_SINGLE = "SUCCESS_SINGLE";
 export const ERROR = "ERROR";
 export const UPDATE = "UPDATE";
+export const FILTER = "FILTER";
 
 export const addNote = data => {
   return dispatch => {
@@ -92,4 +93,8 @@ export const updateNote = data => {
         });
       });
   };
+};
+
+export const filterNotes = list => {
+  return { type: FILTER, payload: list };
 };

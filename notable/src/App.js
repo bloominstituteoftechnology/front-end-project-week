@@ -16,6 +16,7 @@ const MainDiv = styled.div`
 
 const SideBar = styled.div`
   width: 22%;
+  height: 95vh;
   background-color: silver;
   padding: 15px;
   h1 {
@@ -64,13 +65,20 @@ class App extends Component {
           <Route
             path="/form"
             render={props => (
-              <NoteForm {...props} purpose="Create New Note:" buttonText="Save" />
+              <NoteForm
+                {...props}
+                purpose="Create New Note:"
+                buttonText="Save"
+              />
             )}
           />
           <Route path="/note/:id" render={props => <SingleNote {...props} />} />
-          <Route path='/update/:id' render={props => (
+          <Route
+            path="/update/:id"
+            render={props => (
               <NoteForm {...props} purpose="Edit Note:" buttonText="Update" />
-            )} />
+            )}
+          />
         </DisplayDiv>
       </MainDiv>
     );

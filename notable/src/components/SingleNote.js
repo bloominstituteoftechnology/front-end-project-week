@@ -55,7 +55,7 @@ class SingleNote extends React.Component {
   updateHandler = () => {
     this.props.setUpdate();
     this.props.history.push(`/update/${this.props.note._id}`);
-  }
+  };
 
   render() {
     return (
@@ -72,7 +72,11 @@ class SingleNote extends React.Component {
             <p>{this.props.note.textBody}</p>
           </Note>
         )}
-        <DeleteModal show={this.state.show} deleteHandler={this.deleteHandler} hideModal={this.hideModal} />
+        <DeleteModal
+          show={this.state.show}
+          deleteHandler={this.deleteHandler}
+          hideModal={this.hideModal}
+        />
       </div>
     );
   }

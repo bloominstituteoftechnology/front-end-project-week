@@ -73,9 +73,7 @@ class NoteForm extends React.Component {
         title: this.state.title,
         textBody: this.state.textBody
       });
-      console.log("update done");
       this.props.history.push(`/note/${this.props.note._id}`);
-      console.log("should be on single note page")
     } else {
       this.props.addNote({
         title: this.state.title,

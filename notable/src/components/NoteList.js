@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { fetchNotes, fetchSingleNote } from "../actions/index";
+import { fetchNotes, fetchSingleNote, filterNotes } from "../actions/index";
 import NoteCard from "./NoteCard";
 
 const ListDiv = styled.div`
@@ -12,6 +12,24 @@ const ListDiv = styled.div`
   }
 `;
 
+const TagList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+let colorWheel = 1;
+
+const Tag = styled.div`
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid green;
+  border-radius: 5px;
+  background-color: darkgreen;
+  font-size: 1.2rem;
+  color: white;
+`;
+
 const CardDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -19,6 +37,7 @@ const CardDiv = styled.div`
 `;
 
 class NoteList extends React.Component {
+
   componentDidMount() {
     this.props.fetchNotes();
   }
@@ -26,6 +45,14 @@ class NoteList extends React.Component {
   gotoSingleNote = id => {
     this.props.fetchSingleNote(id);
     this.props.history.push(`/note/${id}`);
+  };
+
+  filterOnTag = tag => {
+    if (tag !== "ALL") {
+      this.props.filterNotes(this.props.notes.filter(item => item.tags.includes(tag)));
+    } else {
+      this.props.filterNotes(this.props.notes);
+    }
   };
 
   render() {
@@ -36,15 +63,26 @@ class NoteList extends React.Component {
           <h1>Please Wait</h1>
         ) : (
           <CardDiv>
-            {this.props.notes.map(item => {
-              return (
-                <NoteCard
-                  key={`${item._id}`}
-                  note={item}
-                  gotoSingleNote={this.gotoSingleNote}
-                />
-              );
-            })}
+            <TagList>
+              {this.props.allTags.map((item, index) => {
+                return (
+                  <Tag key={index} onClick={() => this.filterOnTag(item)}>
+                    {item}
+                  </Tag>
+                );
+              })}
+            </TagList>
+            {this.props.filteredNotes
+              .map(item => {
+                return (
+                  <NoteCard
+                    key={`${item._id}`}
+                    note={item}
+                    gotoSingleNote={this.gotoSingleNote}
+                  />
+                );
+              })
+              .reverse()}
           </CardDiv>
         )}
       </ListDiv>
@@ -53,10 +91,15 @@ class NoteList extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { notes: state.notes, fetching: state.fetching };
+  return {
+    notes: state.notes,
+    allTags: state.allTags,
+    fetching: state.fetching,
+    filteredNotes: state.filteredNotes
+  };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchNotes, fetchSingleNote }
+  { fetchNotes, fetchSingleNote, filterNotes }
 )(NoteList);
