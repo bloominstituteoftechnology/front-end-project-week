@@ -46,8 +46,22 @@ class NotesList extends React.Component {
             const type = (typeof(a) === 'string' || 
                         typeof(b) === 'string') ? 'string' : 'number';
             let result;
-            if (type === 'string') result = a.localeCompare(b);
-            else result = a - b;
+            if (type === 'string') result = a.localeCompare(b);    //sort A-Z
+            else result = a - b;                                   //sort A-Z
+            return result;
+        }
+        return list.sort(compare);
+    }
+
+    sortObjProperty2 = (list, key) => {
+        const compare = (a, b) => {
+            a = a[key];
+            b = b[key];
+            const type = (typeof(a) === 'string' || 
+                        typeof(b) === 'string') ? 'string' : 'number';
+            let result;
+            if (type === 'string') result = b.localeCompare(a);   //reverses the order Z-A
+            else result = b - a;                                  //reverses the order Z-A
             return result;
         }
         return list.sort(compare);
@@ -59,6 +73,8 @@ class NotesList extends React.Component {
         const emptyArr2 = [];
         const emptyArr3 = [];
         let emptyArr4
+        const emptyArr5 = [];
+        let emptyArr6
         console.log("FROM PROPS", this.props.notes)       //after componentDidMount, this actually renders data
         console.log("FROM STATE", this.state.notes)
         //i need to push the entire object note into emptyArr
@@ -77,6 +93,7 @@ class NotesList extends React.Component {
             console.log(emptyArr2)
         })}
 
+        //A-Z
         {this.props.notes.map(note => {
             emptyArr3.push(note)
             console.log(emptyArr3)
@@ -84,11 +101,20 @@ class NotesList extends React.Component {
             let emptyArr4 = this.sortObjProperty(emptyArr3, 'title');
             console.log(emptyArr4)
         })}
+
+        //Z-A
+        {this.props.notes.map(note => {
+            emptyArr5.push(note)
+            console.log(emptyArr5)
+            console.log(this.sortObjProperty2(emptyArr5, 'title'))
+            let emptyArr6 = this.sortObjProperty2(emptyArr5, 'title');
+            console.log(emptyArr6)
+        })}
        
         
         return (
             <div className="noteslist-container">
-                <h2> Your Notes: </h2>
+                <h2> Your Notes (Unsorted): </h2>
                 <div className="notebox-container">
                     {this.props.notes.map(note => {
                         return(
@@ -107,11 +133,27 @@ class NotesList extends React.Component {
                 
                   
 
-                <h2> THIRD: </h2>
+                <h2> A-Z: </h2>
                 <div className="notebox-container">
                     {console.log(emptyArr)}
                     {console.log(emptyArr4)}
                     {this.sortObjProperty(emptyArr3, 'title').map(obj => {
+                        return(
+                                <div className="notebox">
+                                    <h2>
+                                        Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
+                                    </h2>
+                                    <div className="contentbox">
+                                        <p> {obj.textBody}</p>
+                                    </div>
+                                </div>
+                            ) 
+                    })}
+                </div>
+
+                <h2> Z-A: </h2>
+                <div className="notebox-container">
+                    {this.sortObjProperty2(emptyArr5, 'title').map(obj => {
                         return(
                                 <div className="notebox">
                                     <h2>
