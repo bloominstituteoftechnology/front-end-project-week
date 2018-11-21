@@ -53,10 +53,30 @@ h1{
 
   .card:hover {
       border: 1px solid black;
-      box-shadow: 7px 10px lightseagreen;
+      box-shadow: 7px 10px rgb(110, 161, 159);
       transition: .5s;
   }
   
   .card h4 {
     border-bottom: 1px solid lightgrey;
   }
+  .NewNote {
+    margin: 35px;
+  }
+   input {
+    border: 1px solid lightgrey;
+    width: 650px;
+  }
+   .input {
+    margin-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+  }
+   .inputBody {
+    margin-bottom: 25px;
+    height: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+  } 

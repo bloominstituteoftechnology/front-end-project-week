@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 import NoteList from './components/NoteList';
+import NewNote from './components/NewNote';
 import './App.css';
 import Sidebar from './components/Sidebar';
 
@@ -20,18 +21,19 @@ export default class App extends Component {
       .catch(e => { console.log(e) } )
   }
 
-  // addToNotes = newNote => {
-  //   axios
-  //     .post("https://fe-notes.herokuapp.com/note/create", newNote)
-  //     .then(res => this.setState({ notes: res.data }, this.props.history.push('/')))
-  //     .catch(e => { console.log(e) } )
-  // }
+  addToNotes = newNote => {
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", newNote)
+      .then(res => this.setState({ notes: res.data }, this.props.history.push('/')))
+      .catch(e => { console.log(e) } )
+  }
 
   render() {
     return (
       <div className="App">
         <Sidebar />
         <Route exact path="/" render={(props) => <NoteList {...props} notes={this.state.notes} /> } />
+        <Route path="/add-note" render={(props) => <NewNote {...props} notes={this.state.notes} postNote={this.addToNotes} /> } />
       </div> 
     );
   }
