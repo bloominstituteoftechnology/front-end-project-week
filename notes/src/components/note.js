@@ -8,11 +8,12 @@ const Note = props => {
 
 
   return (
-    <div key={note.id} className="note">
+    <Link key={note.id} className="note" to={`/view/${note._id}`}>
+    <div>
     <h2>{note.title}</h2>
     <p className="block-with-text">{note.textBody}</p>
-    <Link to={`/update/${note._id}`}>Update Note</Link>
     </div>
+    </Link>
   )
 }
 

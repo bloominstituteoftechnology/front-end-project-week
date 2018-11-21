@@ -19,7 +19,8 @@ class UpdateNote extends Component {
     console.log(notes,"notes")
     this.setState({
       title:note.title,
-      text: note.textBody})
+      text: note.textBody,
+      id: note._id})
   }
 
   inputHandle = e => {
@@ -28,9 +29,8 @@ class UpdateNote extends Component {
 
   submitHandler = (e,id) => {
   e.preventDefault()
-  const note={title: this.state.title, textBody: this.state.text}
-  const idToSubmit=this.props.match.params.id
-  this.props.updateNote(idToSubmit,note)
+  const note={title: this.state.title, textBody: this.state.text, id: this.state.id}
+  this.props.updateNote(note.id,note)
   this.props.history.push('/')
 
   }

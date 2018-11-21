@@ -6,6 +6,9 @@ import axios from 'axios'
 import CreateNote from './components/CreateNote'
 import UpdateNote from './components/UpdateNote'
 import {Route} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
+import ViewNote from './components/viewNote';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -45,6 +48,15 @@ createNote=(note)=>{
     .then(() => this.props.history.push('/'))
     .catch(err => console.log(err))
   }
+
+  deleteNote=(id)=>{
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(() => (this.getNotes()))
+      .then(() => this.props.history.push('/'))
+      .catch(err => console.log(err))
+
+  }
   render() {
     return (
       <div className="appContainer">
@@ -54,10 +66,11 @@ createNote=(note)=>{
         </div>
         <Route path="/create" render={props => <CreateNote createNote={this.createNote}/>}></Route>
         <Route exact path="/" render={(props => (<MainSection notes={this.state.notes}/>))}></Route>
-        <Route path="/update/:id" render={(props=>(<UpdateNote {...props} updateNote={this.updateNote} notes={this.state.notes}/>))}></Route>
-       </div>
+        <Route path="/update/:id" render={(props=>(<UpdateNote {...props} deleteNote={this.deleteNote} updateNote={this.updateNote} notes={this.state.notes}/>))}></Route>
+        <Route path="/view/:id" render={(props=>(<ViewNote {...props} deleteNote={this.deleteNote} updateNote={this.updateNote} notes={this.state.notes}/>))}> </Route>
+        </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
