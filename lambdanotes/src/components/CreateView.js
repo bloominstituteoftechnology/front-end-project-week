@@ -3,6 +3,7 @@ import Container from './styles/Container';
 import Wrapper from './styles/Wrapper';
 import Input from './styles/Input';
 import Button from './styles/Button';
+import {Redirect} from 'react-router-dom';
 
 
 class CreateView extends Component {
@@ -12,6 +13,7 @@ class CreateView extends Component {
         this.state ={
             title: "",
             textBody: "",
+            createdNote:false
         }
     }
     inputHandler = event => {
@@ -26,7 +28,9 @@ class CreateView extends Component {
         }
         this.setState({
             title:'',
-            textBody:''
+            textBody:'',
+            createdNote:true
+
         })    
         this.props.history.push("/");  
     }
@@ -44,6 +48,10 @@ class CreateView extends Component {
     // }
     render() {
         console.log(this.state.title, this.state.textBody);
+        if(this.state.createdNote) {
+                this.props.fetchNotes();
+                return <Redirect to='/' />
+        }
         return (
             <>
                <Wrapper>

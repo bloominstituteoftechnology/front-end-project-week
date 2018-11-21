@@ -19,7 +19,11 @@ constructor(props) {
    }
 }
 componentDidMount() {
-   axios.get('https://fe-notes.herokuapp.com/note/get/all')
+   this.fetNotes();
+}
+
+fetNotes = () => {
+  axios.get('https://fe-notes.herokuapp.com/note/get/all')
         .then( response => {
          
             this.setState({
@@ -57,14 +61,16 @@ updateContent = (event, id, editedNote) => {
          .catch( err => { this.setState({ errorMessage: "Cannot edit now"})
       })
 }
+
 deleteContent = (event,id) => {
     event.preventDefault();
     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
          .then( response => {
-             this.setState({notes:[response.data]})
+             this.fetNotes();
          })
          .catch(err => { this.setState({ errorMessage: "Cannot delete it now"})
     })
+   
 }
   render() {
     const notes = this.state.notes;
@@ -74,13 +80,18 @@ deleteContent = (event,id) => {
           <LambdaNotes />
           <Route exact path='/' render={ props => <Notes {...props} notes={notes}/>}></Route>
           {/* <Notes notes={this.state.notes} /> */}
-          <Route exact path='/notes' render={ props => <CreateView {...props} addContent={this.addContent} notes={notes} />}></Route>
+          <Route exact path='/notes' render={ props =>
+                        <CreateView {...props} 
+                           addContent={this.addContent} 
+                           notes={notes} />}
+                           fetNotes={this.fetNotes} />
           <Route path='/note/:id' render={ props =>
-                        <MyNote    {...props} notes= {notes} 
+                        <MyNote {...props} notes= {notes} 
                          deleteContent={this.deleteContent} /> } />
           <Route path='/edit/:id' render={ props => 
-                          <EditNote  {...props} notes={notes}
-                                    updateContent={this.updateContent} />}  />
+                        <EditNote {...props} notes={notes}
+                                    updateContent={this.updateContent} 
+                                    fetNotes={this.fetNotes}  />}  />
                                  
           {/* <Route path="/avengers/:id" render={ props =>   <AvengerPage {...props} avengers={avengers} />}  /> */}
         </MainContainer>

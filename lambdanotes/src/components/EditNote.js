@@ -11,9 +11,10 @@ class EditNote extends Component {
         super(props);
 
         this.state ={
+            note:[],
             title: "",
             textBody: "",
-            note:[]
+            noteAdded: false
         }
     }
 componentDidMount() {

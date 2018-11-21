@@ -26,7 +26,25 @@ componentDidMount() {
 
 toggleBox = () => {
     this.setState({showBox: !this.state.showBox})
-}     
+}  
+// delNote = (event, id) => {
+//     event.preventDefault();
+//    this.props.deleteContent(event,id);
+//    this.setState({
+//        showBox:false
+//    })
+// }   
+deleteContent = (event) => {
+    event.preventDefault();
+    const id = this.state.note._id;
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+         .then( response => {
+             this.setState({notes:[ response.data]})
+         })
+         .catch(err => { this.setState({ errorMessage: "Cannot delete it now"})
+    })
+   
+}
     render() {
         const id = this.props.match.params.id;
         console.log(this.state.note)
@@ -35,8 +53,10 @@ toggleBox = () => {
                 <DeleteContainer style={{display: this.state.showBox ? 'flex' : 'none' }}> 
                     <p>Are you sure you want to delete this?</p>
                     <div className="delete">
-                            <Button className='delete-button'>Delete</Button>
-                            <Button className='no-button' onClick={this.toggleBox}>No</Button>
+                      <Link exact to='/'>
+                          <Button className='delete-button' onClick={this.deleteContent}>Delete</Button>
+                     </Link>  
+                        <Button className='no-button' onClick={this.toggleBox}>No</Button>
                     </div>
                  </DeleteContainer> 
                 <SingleNote>
