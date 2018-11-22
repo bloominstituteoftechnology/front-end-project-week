@@ -5,6 +5,8 @@ import NavigationPanel from './components/NavigationPanel'
 import ViewNotes from './components/ViewNotes'
 import CreateNote from './components/CreateNote'
 import Note from './components/Note'
+import Edit from './components/Edit'
+import Delete from './components/Delete'
 import './App.css';
 
 class App extends Component {
@@ -38,8 +40,8 @@ class App extends Component {
           <Route exact path="/" component={ViewNotes} />
           <Route exact path="/create" component={CreateNote} />
           <Route exact path="/note/:id" component={Note} />
-          <Route exact path="/edit" component={CreateNote} />
-          <Route exact path="/delete" component={CreateNote} />
+          <Route exact path="/edit" component={Edit} />
+          <Route exact path="/delete" component={Delete} />
         </div>
       </div>
     );

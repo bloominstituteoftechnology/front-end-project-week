@@ -1,4 +1,4 @@
-/* NavigationPanel.js */
+/**************** NavigationPanel.js */
 .navContainer {
 
     background-color: #D3D2D3;
@@ -28,7 +28,7 @@
 }
 
 
-/* ViewNotes.js, Note.js */
+/******************* ViewNotes.js */
 .notesContainer {
     display: flex;
     flex-wrap: wrap;
@@ -73,7 +73,7 @@ hr {
 
 
 
-/* CreateNote.js */
+/*************** CreateNote.js */
 .createContainer {
     display: flex;
     flex-direction: column;
@@ -99,4 +99,25 @@ textarea {
     font-weight: bold;
 }
 
+/************* Note.js */
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav a {
+    color: #414141;
+    margin: 0 4% 0 1%;
+}
+
+.noteEnlarged {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 4%;
+}
+.noteEnlarged p {
+    text-align: left;
+}
 

@@ -1,5 +1,8 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { NotesContext } from '../contexts/NotesProvider'
+import './style.css'
+
 
 const Note = (props) =>{
 
@@ -7,16 +10,24 @@ const Note = (props) =>{
 
     return (
         <div>
+        <nav>
+            <Link to="/edit">
+                <p>Edit</p>
+            </Link>
+            <Link to="/delete">
+                <p>Delete</p>
+            </Link>
+        </nav>
         <NotesContext.Consumer>
             {data =>{
                 const notesArray = data.state.notes
                 let currNote = notesArray.find(note => note._id === id);
                 console.log('Note.js',currNote.title);
             return (
-                <>
-                    <h1>{currNote.title}</h1>
+                <div className="noteEnlarged">
+                    <h2>{currNote.title}</h2>
                     <p>{currNote.textBody}</p>
-                </>
+                </div>
             )
 
 
