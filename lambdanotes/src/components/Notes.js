@@ -3,6 +3,7 @@ import Note from './Note';
 import Container from './styles/Container';
 import Wrapper from './styles/Wrapper';
 import SearchInput from './styles/SearchInput';
+import SortButton from './styles/SortButton';
 
 
 
@@ -10,12 +11,24 @@ class Notes extends Component {
     constructor(props){
         super(props);
         this.state = {
-            text: ''
+            text: '',
+            flag: false
         }
     }
     inputHandler = event => {
         this.setState({
             [event.target.name]: event.target.value
+        })
+    }
+
+    hideSort = () => {
+        this.setState({
+            flag:true
+        })
+    }
+    showSort = () => {
+        this.setState({
+            flag:false
         })
     }
     submitHandler = event => {
@@ -29,11 +42,15 @@ class Notes extends Component {
         return (
             <>
              <Wrapper>
-                <form onSubmit={this.submitHandler} autoComplete="off">
+                <form className="form-element"onSubmit={this.submitHandler} autoComplete="off">
                     <SearchInput value={this.state.text}
                                  onChange={this.inputHandler} 
-                                 placeholder="Search....."  name="text" />
+                                 placeholder="Search....."  name="text"
+                                 onFocus={this.hideSort}
+                                 onBlur={this.showSort}  />
                 </form>
+                <SortButton style={{display: this.state.flag ? 'none' : 'block' }}>Sort</SortButton>  
+                <div></div>
                 <h2>Your Notes:</h2>
                 <Container>
                     {this.props.notes.map( (note,index) => {
