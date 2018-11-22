@@ -13,7 +13,11 @@ import UpdateNote from './components/UpdateNote'
 
 import styled from "styled-components"
 
-
+//subroutes - menu
+import UnSorted from './components/subroutes/unsorted'
+import AzSort from './components/subroutes/azsort'
+import ZaSort from './components/subroutes/zasort'
+import IdSort from './components/subroutes/idsort'
 
 
 const StyledLink = styled(Link)`
@@ -118,11 +122,12 @@ class App extends Component {
               <StyledLink to="/home"><div className="button">Home</div></StyledLink>
             </li>
             <li>
-              <StyledLink to="/notes"><div className="button">View Your Notes</div></StyledLink>
-            </li>
-            <li>
               <StyledLink to="/create"><div className="button"> +Create New Notes</div></StyledLink>
             </li>
+            <li>
+              <StyledLink to="/notes"><div className="button">View Your Notes</div></StyledLink>
+            </li>
+           
           </ul>
         </header>
 
@@ -134,6 +139,24 @@ class App extends Component {
                 render={props => <NotesList {...props} notes={this.state.notes}
                 handleDeleteNote={this.handleDeleteNote}/> }
               />
+
+              
+              <Route path="/unsorted"
+                render={props => <UnSorted {...props}/>}
+              />
+
+              <Route path="/azsort"
+                render={props => <AzSort {...props}/>}
+              />
+
+              <Route path="/zasort"
+                render={props => <ZaSort {...props}/>}
+              />
+
+               <Route path="/idsort"
+                render={props => <IdSort {...props}/>}
+              />
+
 
               <Route exact path="/create" 
                 render={props => <CreateNewNote {...props} handleAddNewNote={this.handleAddNewNote} />}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import { getNotes } from '../actions/noteAction'
@@ -16,6 +16,7 @@ class NotesList extends React.Component {
         this.state = {
             notes: [],
             showNoteContainer: false,
+            sortBy: '',
         }
     }
 
@@ -124,25 +125,29 @@ class NotesList extends React.Component {
         //each filter result is a separate component 
         //all those filter components must connect to store through mapStateToProps
         //
+        
+
+
         return (
             <div className="noteslist-container">
 
+            <div 
+                className="menu"
+                ref={(element) => {
+                    this.dropdownMenu = element;
+                }}
+            >
+                <Link to="unsorted"><button> Your Notes (Unsorted) </button></Link>
+                <Link to="azsort"><button> A-Z </button></Link>
+                <Link to="zasort"><button> Z-A </button></Link>
+                <Link to="idsort"><button> ID </button></Link>
+            </div>
                 
-                <div 
-                    className="menu"
-                    ref={(element) => {
-                        this.dropdownMenu = element;
-                    }}
-                >
-                    <button onClick={this.myFunction}> Your Notes (Unsorted) </button>
-                    <button onClick={this.myFunctionAZ}> A-Z </button>
-                    <button onClick={this.myFunctionZA}> Z-A </button>
-                    <button onClick={this.myFunctionID}> ID </button>
-                </div>
+          
 
 
 
-            <div id="myDIV" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
+            {/* <div id="myDIV" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
                 <h2> Your Notes (Unsorted): </h2>
                 <div className="notebox-container">
                     {this.props.notes.map(note => {
@@ -159,10 +164,10 @@ class NotesList extends React.Component {
                         )
                     })}
                 </div>
-            </div>
+            </div> */}
                 
-                  
-            <div id="myDIV2" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
+            
+            {/* <div id="myDIV2" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
                 <h2> A-Z: </h2>
                 <div className="notebox-container">
                     {this.sortObjProperty(emptyArr3, 'title').map(obj => {
@@ -179,9 +184,9 @@ class NotesList extends React.Component {
                             ) 
                     })}
                 </div>
-            </div>
+            </div> */}
 
-            <div id="myDIV3" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
+            {/* <div id="myDIV3" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
                 <h2> Z-A: </h2>
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr5, 'title').map(obj => {
@@ -198,9 +203,9 @@ class NotesList extends React.Component {
                             ) 
                     })}
                 </div>
-            </div>
+            </div> */}
 
-            <div id="myDIV4" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
+            {/* <div id="myDIV4" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
                 <h2> BY ID: </h2>
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr7, '_id').map(obj => {
@@ -217,7 +222,7 @@ class NotesList extends React.Component {
                             ) 
                     })}
                 </div>
-            </div>
+            </div> */}
             
             </div> //className="noteslist-container"
         )
@@ -234,4 +239,37 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, { getNotes })(NotesList)
 //export default NotesList
+
+
+//Original Buttons
+            // <div 
+            //     className="menu"
+            //     ref={(element) => {
+            //         this.dropdownMenu = element;
+            //     }}
+            // >
+            //     <button onClick={this.myFunction}> Your Notes (Unsorted) </button>
+            //     <button onClick={this.myFunctionAZ}> A-Z </button>
+            //     <button onClick={this.myFunctionZA}> Z-A </button>
+            //     <button onClick={this.myFunctionID}> ID </button>
+            // </div>
+
+
+
+
+
+//ERIC suggestion store sortBy in local react state
+
+{/* <select 
+value={}
+onChange={(element) => {
+    this.dropdownMenu = element;
+}}
+>
+    <option onClick={this.myFunction}> Your Notes (Unsorted) </option>
+    <option onClick={this.myFunctionAZ}> A-Z </option>
+    <option onClick={this.myFunctionZA}> Z-A </option>
+    <option onClick={this.myFunctionID}> ID </option>
+</select> */}
+
 
