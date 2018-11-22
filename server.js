@@ -73,7 +73,9 @@ let notes = [
 server.get('/notes', (req, res) => {
   res.json(notes);
 });
-let noteId = 0;
+let noteId = null; // ? notes.length ?
+
+
 
 server.post('/notes', (req, res) => {
   const { title, priority, textBody } = req.textBody;
@@ -98,6 +100,8 @@ server.post('/notes', (req, res) => {
   noteId++;
   res.json(notes);
 });
+
+
 
 server.put('/notes/:id', (req, res) => {
   const { id } = req.params;

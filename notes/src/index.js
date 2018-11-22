@@ -14,6 +14,7 @@ import NotesReducer from './reducers/notesReducer';
 const middleware = applyMiddleware(thunk)
 const store = createStore(NotesReducer, composeWithDevTools(middleware))
 
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>

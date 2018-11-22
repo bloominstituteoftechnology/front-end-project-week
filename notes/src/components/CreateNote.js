@@ -28,6 +28,7 @@ class CreateNote extends Component {
   render(){
     return (
       <form onSubmit={this.submitHandler}>
+            <p>CREATE NOTE FORM</p>
         <input type="text" name="title" value={this.state.title} onChange={this.inputHandler} placeholder="Title"/>
         <input type="text" name="priority" value={this.state.priority} onChange={this.inputHandler} placeholder="Priority"/>
         {/* <input type="text" name="summary" value={this.state.summary} onChange={this.inputHandler} placeholder="Summary"/> */}
