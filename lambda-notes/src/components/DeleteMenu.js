@@ -5,9 +5,13 @@ const DeleteMenu = (props) => {
     if (isMenuShowing === true) {
       return (
         <div className="delete-options">
-          <h3>Are you sure you want to delete this?</h3>
-          <button onClick={props.deleteHandler}>Delete</button>
-          <button onClick={props.clickHandler}>No</button>
+          <div className="inner-menu">
+            <h3>Are you sure you want to delete this?</h3>
+            <div className="button-container">
+              <button onClick={props.deleteHandler} className="delete-button">Delete</button>
+              <button onClick={props.clickHandler} className="no-button">No</button>
+            </div>
+          </div>
         </div>
       )
     } else {

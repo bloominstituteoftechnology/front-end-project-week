@@ -8,6 +8,8 @@
   background-color: #F2F1F2;
 }
 
+/* global styles */
+
 h1 {
   color: #444444;
 }
@@ -24,7 +26,7 @@ a {
   text-decoration: none;
 }
 
-/*NotesList View Syling*/
+/* NotesList View Syling */
 
 .side-bar {
   background-color: #D2D1D2;
@@ -187,3 +189,60 @@ input {
 
 /* Delete Options Styling */
 
+.delete-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+  border: 1px solid #AFAFAF;
+  background-color: #D7D7D7;
+  max-width: 1024px;
+  width: 100%;
+  min-height: 888px;
+  margin-top: -16px;
+  margin-left: -266px;
+  opacity: 0.8;
+}
+
+.inner-menu {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 530px;
+  height: 180px;
+  border: 1px solid #777777;
+  background-color: white;
+  opacity: 1;
+  margin-bottom: 390px;
+}
+
+.inner-menu h3 {
+  font-size: 15px;
+  color: solid black;
+  margin-bottom: 32px;
+}
+
+.button-container button {
+  border: 1px solid #B4BCBE;
+  width: 190px;
+  height: 42px;
+  color: #F4FBFB;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.button-container button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 8px rgb(66, 66, 66);
+}
+
+.delete-button {
+  background-color: #D01813;
+  margin-right: 18px;
+}
+
+.no-button {
+  background-color: #00B6BC;
+}
