@@ -44,7 +44,7 @@ class App extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-  
+
   }
 
   openModal() {
@@ -68,11 +68,11 @@ class App extends React.Component {
   }
 
   noteDelete = id => {
-    console.log("in the note delete, app.js")
+    // console.log("in the note delete, app.js")
     let modalType = true;
     localStorage.setItem('modals', modalType)
     localStorage.setItem('viewPage', "noteDelete");
-    
+
     let pageType = `noteDelete`
     let _id = id;
     this.setState(() => ({ viewPage: pageType, id: _id }))
@@ -95,7 +95,7 @@ class App extends React.Component {
     localStorage.setItem('viewPage', "noteView");
     let pageType = "noteView"
     let _id = id;
-    console.log("in noteView app.js")
+    //console.log("in noteView app.js")
     this.setState(() => ({ viewPage: pageType, id: _id }));
   }
 
@@ -117,9 +117,9 @@ class App extends React.Component {
       case 'noteDelete':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate}  noteView={this.noteView}/>
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView} />
             <div className="main-display">
-              <NoteDelete id={this.state.id} noteList={this.noteList}/>
+              <NoteDelete id={this.state.id} noteList={this.noteList} />
             </div>
           </div>
         </div>;
@@ -127,11 +127,11 @@ class App extends React.Component {
       case 'noteEdit':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteEdit={this.noteEdit} noteView={this.noteView}/>
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteEdit={this.noteEdit} noteView={this.noteView} />
             <div className="main-display">
               <NoteEdit changeHandler={this.changeHandler} tags={this.tags} id={this.state.id} />
             </div>
-                      </div>
+          </div>
         </div>;
 
       case 'noteList':

@@ -81,6 +81,10 @@ li {
     color: rgb(8, 89, 143);
 }
 
+.nav-button:active {
+    color: red;
+}
+
 .nav-left-icon-1 {
     background-repeat: no-repeat;
     width: 120px;
@@ -165,6 +169,13 @@ li {
 .delete2-button:hover,
 .cancel-button:hover {
     color: rgb(8, 89, 143);
+}
+
+.save-button:active,
+.update-button:active,
+.delete2-button:active,
+.cancel-button:active {
+    color: red;
 }
 
 .cancel-button {
@@ -275,6 +286,10 @@ li {
     color: white;
 }
 
+.csv-button:active {
+    color: red;
+}
+
 .id-id {
     color: black;
 }
@@ -316,6 +331,11 @@ li {
     color: white;
 }
 
+.edit-button:active,
+.delete-button:active {
+    color: red;
+}
+
 .note-name {
     color: black;
     font-weight: bold;
@@ -353,7 +373,7 @@ li {
     padding-top: 0px;
     overflow: hidden;
     white-space: nowrap;
-    padding-left: 10px;
+    padding-left: 6px;
     cursor: pointer;
     width: 256px;
     text-align: left;
@@ -361,6 +381,10 @@ li {
 
 .nav-note-lists-item:hover {
     background-color: rgb(43, 193, 196);
+}
+
+.nav-note-lists-item:active {
+    color: red;
 }
 
 .sort-button {
@@ -378,4 +402,8 @@ li {
 
 .sort-button:hover {
     color: rgb(8, 89, 143);
+}
+
+.sort-button:active {
+    color: red;
 }
