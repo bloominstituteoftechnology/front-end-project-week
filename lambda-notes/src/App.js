@@ -4,7 +4,7 @@ import Sidebar from './components/sidebar';
 import Notes from './components/Notes'; 
 import {Route} from 'react-router-dom'; 
 import  CreateNew  from './components/CreateNew';
-import { NoteView }  from './components/NoteView'; 
+import  NoteView   from './components/NoteView'; 
 import axios from 'axios'
 import { Edit } from './components/Edit.js'
 
