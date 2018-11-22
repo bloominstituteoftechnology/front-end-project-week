@@ -270,6 +270,6 @@ onChange={(element) => {
     <option onClick={this.myFunctionAZ}> A-Z </option>
     <option onClick={this.myFunctionZA}> Z-A </option>
     <option onClick={this.myFunctionID}> ID </option>
-</select> */}
+</select>  */}
 
 

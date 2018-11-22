@@ -109,9 +109,17 @@ class App extends Component {
     window.location.reload();
   }
   
+  // myFunction = () => {
+  //   document.getElementById("myDropdown").classList.toggle("show");
+  // }
+
+  
+  
 
 
   render() {
+
+   
     return (
       <div className="App">
         <header className="App-header"> 
@@ -127,6 +135,20 @@ class App extends Component {
             <li>
               <StyledLink to="/notes"><div className="button">View Your Notes</div></StyledLink>
             </li>
+
+            <li>
+                <div>
+                  <button onClick={this.myFunction} class="dropbtn">Dropdown</button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <Link to="/unsorted">Unsorted</Link>
+                      <Link to="/azsort">A-Z</Link>
+                      <Link to="/zasort">Z-A</Link>
+                      <Link to="/idsort">ID</Link>
+                    </div>
+                </div>
+            </li>
+
+
            
           </ul>
         </header>
