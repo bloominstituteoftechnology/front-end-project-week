@@ -5,7 +5,7 @@ const Card = styled.div`
         transition: 0.3s;
         height: 280px;
         padding:30px 20px 15px 20px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 10px 16px 0 rgba(0,0,0,0.45);
         overflow: hidden;
         text-overflow: ellipsis;
         text-align:justify;
