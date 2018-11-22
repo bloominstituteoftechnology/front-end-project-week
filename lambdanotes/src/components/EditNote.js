@@ -54,7 +54,6 @@ submitHandler = event => {
             <>
                <Wrapper>
                  <h2>Edit Note:</h2>
-                
                 <Container>
                   <form className='form' onSubmit= {this.submitHandler}>
                       <Input className="input"
