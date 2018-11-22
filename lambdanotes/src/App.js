@@ -41,7 +41,7 @@ fetNotes = () => {
 
 addContent = (event,newNotes) => {
   event.preventDefault();
-  axios.post(`https://fe-notes.herokuapp.com/note/create`, newNotes)
+  axios.post(`https://fe-notes.herokuapp.com/note/create`, {data:newNotes})
        .then( response => {
            console.log(newNotes.title);
            newNotes._id = response.data.success;
@@ -54,7 +54,7 @@ addContent = (event,newNotes) => {
 
 updateContent = (event, id, editedNote) => {
     event.preventDefault();
-    axios.put('https://fe-notes.herokuapp.com/note/edit/${id}', editedNote)
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editedNote)
          .then( response => {
             this.setState({notes:[editedNote, ...this.state.notes]})
          })
@@ -62,15 +62,15 @@ updateContent = (event, id, editedNote) => {
       })
 }
 
-deleteContent = (event,id) => {
-    event.preventDefault();
+deleteContent = (id) => {
+    
     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
          .then( response => {
              this.fetNotes();
          })
-         .catch(err => { this.setState({ errorMessage: "Cannot delete it now"})
+         .catch(err => {console.log("Cannot delete now");
     })
-   
+ 
 }
   render() {
     const notes = this.state.notes;
