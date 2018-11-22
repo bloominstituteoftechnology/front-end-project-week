@@ -1,5 +1,6 @@
 import React from 'react'
 
+import styles from '../css/Login.css';
 class Login extends React.Component{
     constructor(){
         super()
@@ -17,23 +18,29 @@ class Login extends React.Component{
     }
     render(){
         return(
-            <form>
-                <h1>Lambda Notes Login</h1>
-                <input
-                    type = 'text'
-                    name = 'username'
-                    value = {this.state.username}
-                    placeholder = 'Enter username'
-                    onChange = {this.inputHandler}
-                />
-                <input
-                    type = 'text'
-                    name = 'password'
-                    value = {this.state.password}
-                    placeholder = 'Enter username'
-                    onChange = {this.inputHandler}
-                />
-                <button onClick = {this.logInFunction}>Log in</button>
+            <form className = 'login-container'>
+                <div className = 'header-container'>
+                    <h1 className = 'login-header'>Lambda Notes Login</h1>
+                </div>
+                <div className = 'input-container'>
+                    <input
+                        className = 'username-input'
+                        type = 'text'
+                        name = 'username'
+                        value = {this.state.username}
+                        placeholder = 'Enter username'
+                        onChange = {this.inputHandler}
+                    />
+                    <input
+                        className = 'password-input'
+                        type = 'text'
+                        name = 'password'
+                        value = {this.state.password}
+                        placeholder = 'Enter password'
+                        onChange = {this.inputHandler}
+                    />
+                    <button className = 'login-button' onClick = {this.logInFunction}>Log in</button>
+                </div>
             </form>
         )
     }

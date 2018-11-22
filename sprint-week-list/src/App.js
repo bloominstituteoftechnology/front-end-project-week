@@ -12,12 +12,14 @@ import NewNoteForm from './Components/NewNoteForm';
 import EditNoteForm from './Components/EditNoteForm';
 
 import ExpandedNote from './Components/ExpandedNote';
+import Authenticate from './Components/Authenticate';
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
       notes: [],
+      search : '',
      
     }
   }
@@ -55,19 +57,41 @@ class App extends Component {
           console.log('Trouble deleting note' ,err)
         })
   }
+  updateNote = (updatedNote) =>{
+    axios   
+      .put(`https://fe-notes.herokuapp.com/note/edit/${updatedNote.id}`, updatedNote)
+        .then(response =>{
+          this.fetchNotes()
+        })
+    .catch(err =>{
+        console.log('Trouble adding new note', err)
+    })    
+  }
+  searchNotes = (searchValue) => {
+    const search = searchValue
+    const data = this.state.notes.filter((note) => {
+      return (note.title.includes(search) || note.textBody.includes(search))
+    })
+    search === '' ? this.fetchNotes() : this.setState({notes : data})
+  }
 
   render() {
-    return (
-      <div className="App">
-        <NavBar />
-        <Route exact path = '/' render = {(props) => <NotesContainer {...props} notes = {this.state.notes} />}/>
-        
-        <Route exact path = '/notes/:id' render = {(props) => <ExpandedNote {...props} notes = {this.state.notes} deleteNote = {this.deleteNote}/>}/>
-        <Route exact path = '/create' render = {(props) => <NewNoteForm {...props} notes = {this.state.notes} createNewNote = {this.createNewNote}/>}/>
-        <Route exact path = '/edit/:id' render = {(props) => <EditNoteForm {...props} notes = {this.state.notes} fetchNotes = {this.fetchNotes} updateNote = {this.updateNote}/>}/>
-      </div>
-    );
+    //const App = () => {
+      return ( 
+        <div className="App">
+          <NavBar />
+          <Route exact path = '/' render = {(props) => <NotesContainer {...props} notes = {this.state.notes} searchNotes = {this.searchNotes}/>}/>
+          <Route exact path = '/notes/:id' render = {(props) => <ExpandedNote {...props} notes = {this.state.notes} deleteNote = {this.deleteNote}/>}/>
+          <Route exact path = '/create' render = {(props) => <NewNoteForm {...props} notes = {this.state.notes} createNewNote = {this.createNewNote}/>}/>
+          <Route exact path = '/edit/:id' render = {(props) => <EditNoteForm {...props} notes = {this.state.notes} updateNote = {this.updateNote}/>}/>
+        </div>
+      );
+    //}
+    // const HOC = Authenticate(App);
+    //   return(
+    //     <HOC />
+    // )
   }
 }
 
-export default App;
+export default Authenticate(App);

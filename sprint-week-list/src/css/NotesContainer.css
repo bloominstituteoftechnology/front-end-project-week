@@ -4,11 +4,12 @@
     border: 2px solid #B7B7B7;
     border-left:none;
     display:flex;
+    flex-direction:column;
     
 }
 .notes-sub-container{
     width:94%;
-    margin: 70px auto;
+    margin: 50px auto;
     
   
 }

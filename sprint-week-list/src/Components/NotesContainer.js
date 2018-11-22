@@ -1,11 +1,16 @@
 import React from 'react';
 
 import Note from './Note';
+import SearchBar from './SearchBar';
 
 import styles from '../css/NotesContainer.css';
 
 class NotesContainer extends React.Component{
-   textBodyCutOff = (string) =>{
+   constructor(){
+       super()
+       
+   }
+    textBodyCutOff = (string) =>{
        return (string.length > 120 ? string.slice(0,120) + '...' : string)
    }
    titleCutOff = (string) =>{
@@ -16,6 +21,9 @@ class NotesContainer extends React.Component{
         
         return(
             <div className = 'notes-container'>
+                <div className = 'search-bar-container'>
+                    <SearchBar searchNotes = {this.props.searchNotes}/>
+                </div>
                 <div className = 'notes-sub-container'>
                     <h1 className = 'notes-container-header'>Your Notes: </h1>
                     <div className ='thing'>{this.props.notes.map(note =>{
