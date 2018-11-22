@@ -4,14 +4,20 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getNotes } from '../../actions/noteAction'
 
+import SearchBar from '../SearchBar'
+
 class UnSorted extends React.Component {
     constructor(){
-        super()
+        super();
+        this.state = {
+            data: []
+        }
     }
 
     componentDidMount(){
         this.props.getNotes()      //gets notes from actions, which comes from store
     }
+
 
     render(){
         return(

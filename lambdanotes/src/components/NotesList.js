@@ -6,7 +6,8 @@ import { connect } from 'react-redux'
 import { getNotes } from '../actions/noteAction'
 
 //import NoteFilter from './NoteFilter'
-
+import SearchBar from './SearchBar'
+import DisplayData from './DisplayData'
 
 
 //const NotesList = (props) => {
@@ -93,6 +94,14 @@ class NotesList extends React.Component {
             x.style.display = "none"
         }
     }
+
+    filterNote = str => {
+        const notes = this.props.notes;
+        const filterednote = notes.filter((note) => {
+            return note.title.includes(str)
+        })
+        this.setState({notes: filterednote})
+    }
     
 
     render(){
@@ -142,8 +151,11 @@ class NotesList extends React.Component {
                 <Link to="zasort"><button> Z-A </button></Link>
                 <Link to="idsort"><button> ID </button></Link>
             </div>
-                
-          
+            
+            {console.log(this.state.notes)}
+            <SearchBar filterNote={this.filterNote}/>
+            <DisplayData dummyData={this.state.notes}/>
+
 
 
 
