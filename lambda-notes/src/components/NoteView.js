@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { deleteNote } from '../actions/index';
+import DeleteMenu from './DeleteMenu';
 
 class NoteView extends Component {
   constructor(props){
     super(props)
     this.state = {
-      note: {}
+      note: {},
+      isMenuShowing: false
     }
   }
 
@@ -26,7 +28,11 @@ class NoteView extends Component {
       .catch(err => console.log(err))
   }
 
-  clickHandler = (e) => {
+  clickHandler = () => {
+    this.setState({ isMenuShowing: !this.state.isMenuShowing })
+  }
+
+  deleteHandler = (e) => {
     e.preventDefault();
     const id = this.props.match.params.id;
     this.props.deleteNote(id)
@@ -34,8 +40,16 @@ class NoteView extends Component {
   }
 
   render(){
+    const isMenuShowing = this.state.isMenuShowing;
+
     return(
-      <div className="main-container note-view">
+      <div className="main-container note-view">  
+
+        <DeleteMenu 
+          isMenuShowing={isMenuShowing}
+          clickHandler={this.clickHandler}
+          deleteHandler={this.deleteHandler}
+        />
 
         <div className="options-bar">
           <Link to={`/edit/${this.state.note._id}`}>edit</Link>
