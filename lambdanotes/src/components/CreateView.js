@@ -63,13 +63,13 @@ class CreateView extends Component {
                              placeholder="Note Title"
                              name="title"
                              onChange={this.inputHandler}
-                             value={this.state.title}></Input>
+                             value={this.state.title} required></Input>
                       <textarea 
                              className='textarea' rows="15" cols="90"
                              placeholder="New Content"
                              name="textBody"
                              value={this.state.textBody}
-                             onChange={this.inputHandler}></textarea>
+                             onChange={this.inputHandler} required></textarea>
                       <Button type='submit' className="save">Save</Button>
                   </form>
                 </Container>

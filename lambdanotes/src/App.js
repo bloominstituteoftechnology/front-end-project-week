@@ -40,8 +40,7 @@ fetNotes = () => {
 }
 
 addContent = (event,newNotes) => {
-  event.preventDefault();
-  axios.post(`https://fe-notes.herokuapp.com/note/create`, {data:newNotes})
+    axios.post(`https://fe-notes.herokuapp.com/note/create`, newNotes)
        .then( response => {
            console.log(newNotes.title);
            newNotes._id = response.data.success;
@@ -52,11 +51,11 @@ addContent = (event,newNotes) => {
        })
 }
 
-updateContent = (event, id, editedNote) => {
-    event.preventDefault();
+updateContent = (id, editedNote) => {
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editedNote)
          .then( response => {
-            this.setState({notes:[editedNote, ...this.state.notes]})
+            // this.setState({notes:[editedNote, ...this.state.notes]})
+            this.fetNotes();
          })
          .catch( err => { this.setState({ errorMessage: "Cannot edit now"})
       })

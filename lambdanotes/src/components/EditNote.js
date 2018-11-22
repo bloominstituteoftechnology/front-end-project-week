@@ -18,18 +18,18 @@ class EditNote extends Component {
         }
     }
 componentDidMount() {
-        console.log(this.props.notes)
-        this.props.notes.map( note =>{
-            if(this.props.match.params.id === note._id) {
-                this.setState({title:note.title, textBody:note.textBody})
-            }
-        })
-        // const id = this.props.match.params.id;
-        // axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-        //       .then(res => {
-        //         //  this.setState({note: res.data})
-        //         this.setState({title: res.data.title, textBody:res.data.textBody})
-        //       })
+        // console.log(this.props.notes)
+        // this.props.notes.map( note => {
+        //     if(this.props.match.params.id === note._id) {
+        //         this.setState({title:note.title, textBody:note.textBody})
+        //     }
+        // })
+        const id = this.props.match.params.id;
+        axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+              .then(res => {
+                //  this.setState({note: res.data})
+                this.setState({title: res.data.title, textBody:res.data.textBody})
+              })
  }
 inputHandler = event => {
         this.setState({
@@ -39,7 +39,7 @@ inputHandler = event => {
 submitHandler = event => {
         event.preventDefault();
         const id = this.props.match.params.id;
-        this.props.updateContent(event, id, this.state);
+        this.props.updateContent(id, this.state);
         this.setState({
             title:'',
             textBody:''
