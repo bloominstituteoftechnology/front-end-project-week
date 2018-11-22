@@ -10,20 +10,24 @@ const NoteContainer=styled.div`
     height: 230px;
     margin-bottom: 20px;
     text-align: left;
-
-h3,p{
+    overflow-x:hidden;
+    overflow-y:scroll;
+    white-space:pre-wrap;
+    padding-bottom:10px;
+h3,p,a{
     color:#000;
+}
+h3,p{
     word-wrap: break-word;
 }
 h3{
     font-size: 18px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+}
+p{
+    font-size:16px;
 }
 a{
-    text-decoration: none;
-    color: #000;
+    text-decoration:none;
 }
 `
 const Content=styled.div`
@@ -37,16 +41,9 @@ const Rule=styled.div`
     background-color:#c6c6c6;
 `
 const NoteTag=styled.div`
-    display: flex;
-    justify-content: flex-start;
-    height:40px;
-    font-size: 16px;
-    white-space: no-wrap;
-    overflow:hidden;
-    text-overflow: ellipsis;
-
     span{
         margin-right: 3%;
+        word-break:break-word;
     }
 `
 const Note=(props)=><NoteContainer>
@@ -54,11 +51,11 @@ const Note=(props)=><NoteContainer>
         <Content>
             <h3>{props.data.title}</h3>
             <Rule/>
-            {props.data.textBody.length<100?
-            <p>{props.data.textBody}</p>:
-            <p>{props.data.textBody.slice(0,101)+'...'}</p>}
+            <p>{props.data.textBody}</p>
             {props.data.tags!==null ?
-            <NoteTag><span style={{textDecoration:'underline'}}>{'tags: '}</span> {props.data.tags}</NoteTag>
+            <NoteTag>
+                <span><b>{'tags: '}{props.data.tags}</b></span> 
+            </NoteTag>
             :null}
         </Content>
     </Link>

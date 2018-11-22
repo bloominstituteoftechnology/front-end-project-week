@@ -20,6 +20,8 @@ const Note=styled.div`
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
+    white-space:pre-wrap;
+    padding-bottom:30px;
 `
 const NoteHeading=styled.h2`
     margin-left: 5%;
@@ -43,11 +45,8 @@ const Span=styled.span`
         margin-right: 2%;
     }
 `
-const NoteTag=styled.p`
+const NoteTag=styled.div`
     margin-left: 5%;
-    display: flex;
-    justify-content: flex-start;
-
     span{
         margin-right: 3%;
     }
@@ -71,7 +70,7 @@ class SingleNotePage extends React.Component {
                         <NoteInfo>{this.props.note.textBody}</NoteInfo>
                         {this.props.note.tags?
                         <NoteTag>
-                            <span style={{textDecoration:'underline'}}>{'tags: '}</span>{this.props.note.tags}
+                            <span><b>{'tags: '}<br/>{this.props.note.tags}</b></span>
                         </NoteTag>
                         :null}
                     </Note>
