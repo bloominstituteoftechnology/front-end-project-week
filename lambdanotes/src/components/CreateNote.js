@@ -25,7 +25,7 @@ class CreateNote extends Component{
     
     return (
       <div className="createContainer">
-        <h3 className="createHeader">Create New Note</h3>
+        <h3 className="createHeader">Create New Note:</h3>
         <input type="text" 
           name="title"
           placeholder="Note Title" 

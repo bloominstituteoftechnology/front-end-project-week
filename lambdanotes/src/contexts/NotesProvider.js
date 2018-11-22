@@ -7,8 +7,8 @@ export const NotesContext = React.createContext({})  //contextAPI
 class NotesProvider extends Component{
     //set default state
     state = {
-        notes: [],
-        loading: false,
+        notes: '',
+        loading: true,
         error: null
     }
 
@@ -19,10 +19,11 @@ class NotesProvider extends Component{
         axios.get('https://fe-notes.herokuapp.com/note/get/all')
             .then((response) => {
                 this.setState({ 
-                    notes: [...this.state.notes, response.data][0],
+                    notes: response.data,
                     loading: false,
                     error: null
                 })
+
             })
             .catch(err => {
                 this.setState({
@@ -51,10 +52,28 @@ class NotesProvider extends Component{
         .catch(err => {
             this.setState({
                 loading: false,
-                error: "Unable to load the notes, please try again.",
+                error: "Unable to create the note, please try again.",
             })
         })
     }
+
+        //*********.PUT - Edit note in notes array**************** */
+        editNote = (id, newNote) =>{
+            this.setState({loading: true})
+            axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, newNote)
+            .then((response) => {
+                console.log('response after put', response);
+                console.log('state notes after put', this.state.notes);
+                this.fetchNotes()
+                this.props.history.push('/')
+            })
+            .catch(err => {
+                this.setState({
+                    loading: false,
+                    error: "Unable to edit the note, please try again.",
+                })
+            })
+        }
 
     render(){
         return (
@@ -65,7 +84,8 @@ class NotesProvider extends Component{
                         error: this.state.error,
                         status: this.state.status },
                     actions: {fetchNotes: this.fetchNotes,
-                            createNote: this.createNote}}
+                            createNote: this.createNote,
+                            editNote: this.editNote}}
                 }
                 >
 

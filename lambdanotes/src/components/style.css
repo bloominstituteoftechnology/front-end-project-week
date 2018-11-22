@@ -73,8 +73,8 @@ hr {
 
 
 
-/*************** CreateNote.js */
-.createContainer {
+/*************** CreateNote.js, Edit.js */
+.createContainer, .editContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -85,18 +85,21 @@ input[name="title"] {
     width: 53%;
     margin: 10px 0 25px;
 }
+
+
 textarea {
     width: 90%;
     margin-bottom: 25px;
 }
 
-.createBtn {
+.createBtn, .editBtn {
     width: 28%;
     background-color: #24B8BD;
     border: none;
     height: 35px;
     color: #FFFFFF;
     font-weight: bold;
+    cursor: pointer;
 }
 
 /************* Note.js */

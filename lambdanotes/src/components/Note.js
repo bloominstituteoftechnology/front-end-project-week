@@ -11,7 +11,7 @@ const Note = (props) =>{
     return (
         <div>
         <nav>
-            <Link to="/edit">
+            <Link to={`/edit/${id}`}>
                 <p>Edit</p>
             </Link>
             <Link to="/delete">
@@ -22,7 +22,6 @@ const Note = (props) =>{
             {data =>{
                 const notesArray = data.state.notes
                 let currNote = notesArray.find(note => note._id === id);
-                console.log('Note.js',currNote.title);
             return (
                 <div className="noteEnlarged">
                     <h2>{currNote.title}</h2>
