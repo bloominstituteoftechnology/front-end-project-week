@@ -1,0 +1,26 @@
+
+/* DisplayData.css From NotesList.js */
+
+.noteslist-container {
+  background-color: whitesmoke;
+  border: 3px solid pink;
+}
+
+.notebox-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.notebox {
+  background-color: white;
+  border: 1px solid black;
+  width: 30%;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
+.contentbox {
+  border: 1px solid lime;
+  height: 120px;
+}
