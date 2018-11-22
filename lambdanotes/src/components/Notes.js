@@ -24,13 +24,15 @@ class Notes extends Component {
         this.setState({ text: " "})
     }
     render() {
-        let length = this.props.notes;
+        
         let inputValue = this.state.text.toUpperCase();
         return (
             <>
              <Wrapper>
-                <form onSubmit={this.submitHandler}>
-                    <SearchInput onChange={this.inputHandler} placeholder="Search....."  name="text" />
+                <form onSubmit={this.submitHandler} autoComplete="off">
+                    <SearchInput value={this.state.text}
+                                 onChange={this.inputHandler} 
+                                 placeholder="Search....."  name="text" />
                 </form>
                 <h2>Your Notes:</h2>
                 <Container>
