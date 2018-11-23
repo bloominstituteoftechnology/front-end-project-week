@@ -49,7 +49,7 @@ class App extends Component {
          render={props => <CreateNewNote />}
         />
 
-        <Route path={`/note/:id`}exact
+        <Route path={`/note/:id`} exact
           render={(props) => <NoteView someNotes={this.state} {...props} />}
         />
 

@@ -33,7 +33,7 @@ export default class NoteView extends Component {
             <div>
                 <h2>{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>
-                <Link to={`/note/edit/${this.state.note._id}`  } note={this.state.note} ><EditView note={this.state.note} /></Link>
+                <Link to={`/note/edit/${this.state.note._id}`  } note={this.state.note._id} ><EditView note={this.state.note._id} /></ Link>
                 <DeleteModal id={this.state.note._id} />
             </div>
         )
