@@ -2,9 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 const Note = ({_id, title, textBody, handleViewNote}) => {
-  const id ={_id}
-  
-  
+
   return (
     
   <li className='cardnote ' key ={_id} >

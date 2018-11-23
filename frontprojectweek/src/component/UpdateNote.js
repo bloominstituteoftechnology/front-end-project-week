@@ -1,5 +1,5 @@
 import React ,{Component}from 'react';
-import {Link, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from 'axios'
 
 
@@ -36,9 +36,11 @@ class UpdateNote extends Component {
           .catch(err => {
             console.log("IN CATCH", err);
           });
-          
-          this.state.titleUpdate =''
-          this.state.textBodyUpdate =''
+          this.setState({
+            titleUpdate :'',
+           textBodyUpdate :''
+          })
+         
           window.location.reload();
       };
      
@@ -55,8 +57,8 @@ render(){
   <div class="form-group">
     <textarea class="form-control textarea"  placeholder={this.props.textBody} name ="textBodyUpdate" onChange={this.handleInputChange2}></textarea>
   </div>
-  <Link to={`/Notes/${this.props.id}`} ><a href="#" type ="submit" className="btn btnhome btn-primary"onClick={this.handleUpdateNote}>Update</a></Link>
-    <Link to={`/Notes/${this.props.id}`} ><a href="#" className="btn btnhome btn-warning" >Cancel</a></Link>
+  <Link to={`/Notes/${this.props.id}`} type ="submit" className="btn btnhome btn-primary"onClick={this.handleUpdateNote}>Update</Link>
+    <Link to={`/Notes/${this.props.id}`} className="btn btnhome btn-warning" >Cancel</Link>
   </form>
   </div>
     

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+
 
 const CreateNote = ({handleInputChange , handleCreateNote}) => {
   return (
@@ -16,7 +16,7 @@ const CreateNote = ({handleInputChange , handleCreateNote}) => {
   </div>
 
 
-  <button type="submit" className="btn bt btn-primary">Submit</button>
+  <button type="submit" className="btn bt btngrey bb4">Submit</button>
 
 </form>
    
