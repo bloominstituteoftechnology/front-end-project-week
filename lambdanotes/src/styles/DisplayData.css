@@ -1,26 +1,22 @@
 
 /* DisplayData.css From NotesList.js */
 
-.noteslist-container {
+.display-container {
   background-color: whitesmoke;
-  border: 3px solid pink;
+  width: 100%;
+  margin-top: 50px;
+
+  /* display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; */
 }
 
-.notebox-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.notebox {
+.display-notebox {
   background-color: white;
-  border: 1px solid black;
-  width: 30%;
+  border: 1px solid gray;
+  width: 25%;
   height: 200px;
+  padding: 5px 10px 5px 10px;
   margin-bottom: 30px;
 }
 
-.contentbox {
-  border: 1px solid lime;
-  height: 120px;
-}

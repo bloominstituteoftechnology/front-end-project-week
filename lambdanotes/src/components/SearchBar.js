@@ -1,5 +1,7 @@
 import React from 'react'
 
+import '../styles/SearchBar.css'
+
 class SearchBar extends React.Component {
     constructor(){
         super();
@@ -15,8 +17,8 @@ class SearchBar extends React.Component {
 
     render(){
         return(
-            <div>
-                Search Bar: <input value={this.state.searchterm} onChange={this.handleChange} placeholder="Search" />
+            <div className="searchbar">
+                <input value={this.state.searchterm} onChange={this.handleChange} placeholder="Search By Title" />
             </div>
         )
     }

@@ -35,4 +35,5 @@ idsort.js
 
 .contentbox {
   height: 120px;
+  border-top: 2px solid gray;
 }

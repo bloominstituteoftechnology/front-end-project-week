@@ -137,12 +137,12 @@ class App extends Component {
               <StyledLink to="/create"><div className="button"> +Create New Notes</div></StyledLink>
             </li>
             <li>
-              <StyledLink to="/notes"><div className="button">View Your Notes</div></StyledLink>
+              <StyledLink to="/notes"><div className="button">Search Notes</div></StyledLink>
             </li>
 
             <li>
               <div>
-                    <button onClick={this.myFunction} class="dropbtn">Sort Views</button>
+                    <button onClick={this.myFunction} class="dropbtn">View Your Notes</button>
                       <div id="myDropdown" class="dropdown-content">
                         <Link to="/unsorted">Unsorted</Link>
                         <Link to="/azsort">A-Z</Link>

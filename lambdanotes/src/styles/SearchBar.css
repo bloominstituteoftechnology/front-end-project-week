@@ -1,0 +1,11 @@
+.searchbar {
+    /* border: 2px solid green; */
+    margin-top: 100px;
+    margin-left: 150px;
+}
+
+input {
+    height: 50px;
+    width: 50%;
+    font-size: 1.6rem;
+}

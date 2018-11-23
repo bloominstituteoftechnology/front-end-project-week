@@ -138,19 +138,9 @@ class NotesList extends React.Component {
 
 
         return (
-            <div className="noteslist-container">
+            <div className="noteslist">
 
-            <div 
-                className="menu"
-                ref={(element) => {
-                    this.dropdownMenu = element;
-                }}
-            >
-                <Link to="unsorted"><button> Your Notes (Unsorted) </button></Link>
-                <Link to="azsort"><button> A-Z </button></Link>
-                <Link to="zasort"><button> Z-A </button></Link>
-                <Link to="idsort"><button> ID </button></Link>
-            </div>
+
             
     
             <SearchBar filterNote={this.filterNote}/>
