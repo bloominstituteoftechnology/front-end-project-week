@@ -5,14 +5,19 @@ export const SUCCESS = "SUCCESS";
 export const VIEW = "VIEW";
 export const WORKING = "WORKING";
 
-export const getNotes = filter => dispatch => {
+export const getNotes = (filterSort = {}) => dispatch => {
+    const {filter, sort} = filterSort;
+
     dispatch({ type: WORKING });
 
     return axios
         .get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then(({ data }) => {
+            if (sort) {
+                data.sort((a, b) => (a[sort].toLowerCase() > b[sort].toLowerCase()) ? 1 : ((b[sort].toLowerCase() > a[sort].toLowerCase()) ? -1 : 0));
+            }
+
             if (filter) {
-                console.log(filter, data);
                 data = data.filter(d => d.title.toLowerCase().includes(filter) || d.textBody.toLowerCase().includes(filter));
             }
 
