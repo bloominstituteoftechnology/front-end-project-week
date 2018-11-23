@@ -58,14 +58,6 @@ class CreateNewNote extends React.Component {
                         value={this.state.textBody}
                         onChange={this.handleChange}
                     />
-                    <input 
-                        className="input-title"
-                        placeholder="Tags"
-                        type="text"
-                        name="tags"
-                        value={this.state.tags}
-                        onChange={this.handleChange}
-                    />
                 </form>
                 <div className="button save" onClick={this.handleSubmit}><StyledLink to="/notes" >Save</StyledLink></div>
             </div>

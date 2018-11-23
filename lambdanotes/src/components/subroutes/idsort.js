@@ -35,7 +35,7 @@ class IdSort extends React.Component {
 
         return(
             <div id="myDIV">
-                <div className="filter-title" ><h2> BY ID: </h2></div>
+                <div className="filter-title" ><h2> Most Recent (by ID): </h2></div>
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr7, '_id').map(obj => {
                         return(

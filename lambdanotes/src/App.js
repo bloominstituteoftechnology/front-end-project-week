@@ -147,7 +147,7 @@ class App extends Component {
                         <Link to="/unsorted">Unsorted</Link>
                         <Link to="/azsort">A-Z</Link>
                         <Link to="/zasort">Z-A</Link>
-                        <Link to="/idsort">ID</Link>
+                        <Link to="/idsort">Most Recent</Link>
                       </div>
               </div>
             </li>

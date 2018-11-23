@@ -11,7 +11,7 @@ class DisplayData extends React.Component {
             <div className="display-container">
 
                         {this.props.dummyData.map(data => (
-                        <div>
+              
                             <div className="display-notebox" key={data._id}>
                                 <h2>
                                     <Link to={`/notes/${data._id}`}>{data.title.toUpperCase()}</Link>
@@ -21,7 +21,7 @@ class DisplayData extends React.Component {
                                 </div>
                                 <p> <strong>ID:</strong> {data._id}</p>
                             </div>   
-                        </div>
+                 
                         ))}
           
             </div>
