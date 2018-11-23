@@ -48,8 +48,8 @@ submitHandler = (e) => {
         return (
             <form onSubmit={this.submitHandler}> 
                 <button type='submit'>Edit</button>
-                <input  type="text" name="title"  onInput={this.inputHandler} ></input>
-                <input  type="textBox" name="textBody"  onInput={this.inputHandler} />
+                <input  type="text" name="title" placeholder={this.props.title} onInput={this.inputHandler} ></input>
+                <input  type="textBox" name="textBody" value={this.state.textBody}  onInput={this.inputHandler} />
             </form>
         )
     }
