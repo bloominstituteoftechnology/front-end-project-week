@@ -1,0 +1,32 @@
+.loginform-container {
+    border: 5px solid slategray;
+    background: lightgray;
+    max-width: 550px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.loginform {
+    /* border: 1px solid blue; */
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.login-input {
+    width: 70%;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.login-button {
+    background-color: #20b0b5;
+    border: 2px solid gray;
+    width: 73%;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 60px;
+}
