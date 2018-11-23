@@ -12,21 +12,20 @@ import EditForm from './components/EditForm';
 import Login from './components/Login';
 
 const AppWrapper = styled.div`
-text-align: center;
-display: flex;
-width: 100%;
-/* ${props => props.modal ? `opacity: 0.5`: null } */
+    text-align: center;
+    display: flex;
+    width: 100%;
+    background-color: #bfbcbc;
+    ${props => props.modal ? `opacity: 0.5` : null }
 `
 
 const Sidebar = styled.nav`
     width: 25%;
-    border-right: 2px solid #8e8b8b;
     align-self: flex-start;
     justify-self: flex-start;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #bfbcbc;
     min-height: 100vh;
     > input {
         width: 85%;
@@ -147,7 +146,7 @@ class App extends Component {
   render() {
     return !localStorage.getItem('username') ? <Login /> :
             <AppWrapper modal={this.state.modal} >
-                <DeleteModal modal={this.state.modal}>
+                <DeleteModal className='modal' modal={this.state.modal}>
                     <h3>Are you sure you want to delete this?</h3>
                     <div>
                         <div onClick={this.deleteClickHandler} >Delete</div>
