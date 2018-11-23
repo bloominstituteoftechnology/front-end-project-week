@@ -59,7 +59,7 @@ class CreateNewNote extends React.Component {
                         onChange={this.handleChange}
                     />
                 </form>
-                <div className="button save" onClick={this.handleSubmit}><StyledLink to="/notes" >Save</StyledLink></div>
+                <div className="button save" onClick={this.handleSubmit}><StyledLink to="/idsort" >Save</StyledLink></div>
             </div>
         )
     }

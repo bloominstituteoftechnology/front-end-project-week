@@ -92,7 +92,7 @@ class UpdateNote extends React.Component {
                         onChange={this.handleChange}
                     />
                 </form>
-                <div className="button save" onClick={this.handleSubmit}><Link to="/notes" >Update</Link></div>
+                <div className="button save" onClick={this.handleSubmit}><Link to="/idsort" >Update</Link></div>
             </div>
         )
     }
