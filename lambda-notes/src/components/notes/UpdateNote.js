@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import './Notes.css';
 
 const URL = 'https://fe-notes.herokuapp.com/note';
 
-export default class OneNote extends Component {
+export default class UpdateNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: []
+            note: [],
             // title: '',
-            // textBody: ''
+            // textBody: '',
         };
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
@@ -34,23 +34,20 @@ export default class OneNote extends Component {
             });
     };
 
+    handleChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
     render() {
-        const id = this.props.match.params.id;
         return (
-                <div className="menu-container">
-                    <div className="link-container">
-                        <Link to={`/edit/${id}`} className="link">
-                            edit
-                        </Link>
-                        <Link to="/" className="link">
-                            delete
-                        </Link>
-                    </div>
-                    <div className="note-view">
-                        <h2 className="your-notes">{this.state.note.title}</h2>
-                        <p>{this.state.note.textBody}</p>
-                    </div>
-                </div>
-        );
+            <div className="notes-list">
+                <h2 className="your-notes">Edit Note:</h2>
+                    <form className="input-form">
+                        <input type="text" value={this.state.note.title} name="title" onChange={this.handleChange} />
+                        <textarea type="text" value={this.state.note.textBody} name="textBody" onChange={this.handleChange} />
+                        <button type="submit" className="submit-button">Update</button>
+                    </form>
+            </div>
+        )
     }
 };
