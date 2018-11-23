@@ -10,7 +10,7 @@ class App extends Component {
             <Router>
                 <FlexColumn height="100vh">
                     <TopBar />
-                    <Route path="/" component={Notes}/>
+                    <Route path="/" component={Notes} />
                 </FlexColumn>
             </Router>
         );

@@ -28,7 +28,7 @@ class TopBar extends Component {
                     <Button inverted onClick={this.loadMore}>LOAD NOTES</Button>
                 </FlexRow>
 
-                <Search />
+                <Search placeholder="Search" onChange={e => this.props.getNotes(e.target.value)} />
             </Bar>
         );
     }

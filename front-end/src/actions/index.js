@@ -5,12 +5,17 @@ export const SUCCESS = "SUCCESS";
 export const VIEW = "VIEW";
 export const WORKING = "WORKING";
 
-export const getNotes = () => dispatch => {
+export const getNotes = filter => dispatch => {
     dispatch({ type: WORKING });
 
     return axios
         .get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then(({ data }) => {
+            if (filter) {
+                console.log(filter, data);
+                data = data.filter(d => d.title.toLowerCase().includes(filter) || d.textBody.toLowerCase().includes(filter));
+            }
+
             dispatch({ type: SUCCESS, notes: data });
         })
         .catch(err => {
