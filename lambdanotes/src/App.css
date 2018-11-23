@@ -54,7 +54,7 @@ ul {
 .logoutbutton {
   margin-top: 200px;
   margin-left: 40px;
-  background: #20b0b5;
+  background: gray;
   height: 40px;
   width: 65%;
   padding-top: 10px;
@@ -62,14 +62,6 @@ ul {
   border: 2px solid gray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .Container {
   background-color: whitesmoke;
@@ -79,18 +71,19 @@ ul {
 /* DROP DOWN MENU */
 
 .dropbtn {
-  background-color: #3498DB;
+  background-color: #20b0b5;
+  border: 2px solid gray;
+  width: 80%;
   color: white;
   padding: 16px;
   font-size: 16px;
-  border: none;
   cursor: pointer;
 }
 
 /* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
+/* .dropbtn:hover, .dropbtn:focus {
   background-color: #2980B9;
-}
+} */
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -104,7 +97,7 @@ ul {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
   z-index: 1;
 }
 

@@ -23,6 +23,7 @@ import IdSort from './components/subroutes/idsort'
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: white;
+    font-size: 16px;
 `
 
 
@@ -141,7 +142,7 @@ class App extends Component {
 
             <li>
               <div>
-                    <button onClick={this.myFunction} class="dropbtn">Dropdown</button>
+                    <button onClick={this.myFunction} class="dropbtn">Sort Views</button>
                       <div id="myDropdown" class="dropdown-content">
                         <Link to="/unsorted">Unsorted</Link>
                         <Link to="/azsort">A-Z</Link>
