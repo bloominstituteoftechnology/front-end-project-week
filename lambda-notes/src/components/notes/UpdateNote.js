@@ -13,7 +13,7 @@ export default class UpdateNote extends Component {
             // title: '',
             // textBody: '',
         };
-        this.handleChange = this.handleChange.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
@@ -43,7 +43,7 @@ export default class UpdateNote extends Component {
             <div className="notes-list">
                 <h2 className="your-notes">Edit Note:</h2>
                     <form className="input-form">
-                        <input type="text" value={this.state.note.title} name="title" onChange={this.handleChange} />
+                        <input type="text" defaultValue={this.state.note.title} name="title" onChange={this.handleChange} />
                         <textarea type="text" value={this.state.note.textBody} name="textBody" onChange={this.handleChange} />
                         <button type="submit" className="submit-button">Update</button>
                     </form>
