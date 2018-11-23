@@ -1,9 +1,14 @@
 import { GET_NOTES, DELETE_NOTE, ADD_NOTE } from './types';
+import axios from 'axios'
 
-export const getNotes = () => {
-    return {
-        type: GET_NOTES
-    };
+const url = 'https://fe-notes.herokuapp.com/note';
+
+export const getNotes = () => async dispatch => {
+    const res= await axios.get(`${url}/get/all`);
+    dispatch ({
+        type: GET_NOTES,
+        payload: res.data
+    });
 };
 
 export const deletNote = (id) => {

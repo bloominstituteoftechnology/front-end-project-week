@@ -1,17 +1,28 @@
 import React, { Component } from 'react'
-import Navigation from './components/Navigation';
-import CreateNote from './components/CreateNote';
-import NoteCards from './components/NoteCards';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import CreateNewView from './Layouts/CreateNewView';
+import ListView from './Layouts/ListView';
+import Sidebar from './Sidebar';
+import NoteView from './Layouts/NoteView';
 
  class Main extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Navigation />
-        <NoteCards />
-        <CreateNote />
-      </div>
+      <Router>
+        <React.Fragment>
+        <div className="container-fluid">
+        
+          <Switch>
+              <Route exact path="/" component={ListView} />
+              <div className="container">
+              <Route exact path="/create" component={CreateNewView} />
+              <Route exact path="/notes/:id" component={NoteView} />
+              </div>
+          </Switch>
+        </div>
+        </React.Fragment>
+      </Router>
     )
   }
 }

@@ -8,21 +8,22 @@ onDeleteClick = (id) => {
   this.props.deletNote(id);
 }
   render() {
-    const { id, title, content} = this.props.note;
+    const { id, title, textBody} = this.props.note;
 
     return (
       <div>
-        <div className="card mb-4">
+        <a href ="#" class="card mb-4" alt="">
           <div className="title-box">
             <h4 className="card-title">{title}</h4>
         </div>
             <hr></hr>
-            <div className="card-body">{content}</div> 
+            <div className="card-body">{textBody}</div> 
             <div class="card-footer">
                 <i className="fa fa-edit"></i>
                 <i className="fa fa-trash" onClick={ this.onDeleteClick.bind(this, id)}></i>
+                
             </div>  
-        </div>
+        </a>
       </div>
     )
   }

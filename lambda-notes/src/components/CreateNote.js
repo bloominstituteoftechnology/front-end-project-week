@@ -39,7 +39,6 @@ class CreateNote extends Component {
       const { title, content }= this.state;
     return (
       <div>
-        <h1 className="page-title-heading"> Create Note</h1>
         <form onSubmit ={ this.onSubmit }>
             <div className="form-group">
                 <label htmlFor="title">Title:</label>
@@ -47,12 +46,12 @@ class CreateNote extends Component {
                 type="text"
                 name="title"
                 value={ title }
-                className="form-control form-control-lg"
+                className="form-control form-control-md"
                 placeholder="Enter Title..."
                 onChange={ this.onChange } 
             />
             </div>
-            <textarea class="form-control" id="exampleFormControlTextarea1" value={ content } name="content" onChange={ this.onChange } placeholder="Enter Note..." rows="10"></textarea>
+            <textarea class="form-control for-control md" id="exampleFormControlTextarea1" value={ content } name="content" onChange={ this.onChange } placeholder="Enter Note..." rows="10"></textarea>
             <input type="submit" value="Save" className="btn btn-lg" style={{marginTop: '10px', background:'#1da1f2', color:'#fff', padding:'370 30px'}} />
             <input type="#" value="Cancel" className="btn btn-outline btn-lg" style={{marginTop: '10px', color:'#1da1f2', border: '1px solid #1da1f2', marginLeft:'10px'}} />
         </form>
