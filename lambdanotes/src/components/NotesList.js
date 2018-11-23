@@ -152,7 +152,7 @@ class NotesList extends React.Component {
                 <Link to="idsort"><button> ID </button></Link>
             </div>
             
-            {console.log(this.state.notes)}
+    
             <SearchBar filterNote={this.filterNote}/>
             <DisplayData dummyData={this.state.notes}/>
 

@@ -1,25 +1,20 @@
 
 .App {
   /* text-align: center; */
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
 
-  max-width: 880px;
+  max-width: 950px;
   width: 100%;
   margin: 0 auto;
 
   font-size: 62.5%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 20vmin;
-}
-
 .App-header {
   background-color: lightgray;
   height: 1000px;
-  width: 30%;
+  width: 25%;
 
 
   display: flex;
@@ -38,8 +33,8 @@ h1 {
 }
 
 ul {
-  border: 1px solid green;
-  height: 200px;
+  /* border: 3px solid green; */
+  height: 300px;
   list-style-type: none;
 
   display: flex;
@@ -47,17 +42,25 @@ ul {
   justify-content: space-around;
 }
 
-
-
 .button {
   background: #20b0b5;
   height: 40px;
   width: 80%;
   padding-top: 10px;
   text-align: center;
+  border: 2px solid gray;
 }
 
-
+.logoutbutton {
+  margin-top: 200px;
+  margin-left: 40px;
+  background: #20b0b5;
+  height: 40px;
+  width: 65%;
+  padding-top: 10px;
+  text-align: center;
+  border: 2px solid gray;
+}
 
 @keyframes App-logo-spin {
   from {
@@ -70,7 +73,7 @@ ul {
 
 .Container {
   background-color: whitesmoke;
-  width: 70%;
+  width: 75%;
 }
 
 /* DROP DOWN MENU */
@@ -126,32 +129,23 @@ ul {
 
 .noteslist-container {
   background-color: whitesmoke;
-  border: 3px solid pink;
 }
 
-.notebox-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
 
-.notebox {
-  background-color: white;
-  border: 1px solid black;
-  width: 30%;
-  height: 200px;
-  margin-bottom: 30px;
-}
 
-.contentbox {
-  border: 1px solid lime;
-  height: 120px;
-}
+
+
+
+
+
+
+
 
 /*  CreateNewNote.js */
 
 .note-container {
-  border: 3px solid goldenrod;
+  /* border: 3px solid goldenrod; */
+  margin-top: 50px;
   height: 600px;
   padding-left: 20px;
   padding-right: 20px;
@@ -163,7 +157,7 @@ ul {
 }
 
 form {
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   height: 500px;
 
   display: flex;
@@ -184,7 +178,7 @@ form {
 /*  NoteView.js */
 
 .note-menu {
-  border: 1px solid salmon;
+  /* border: 1px solid salmon; */
   height: 40px;
 
   display: flex;

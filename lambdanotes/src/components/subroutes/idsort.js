@@ -34,14 +34,14 @@ class IdSort extends React.Component {
         })}
 
         return(
-            <div id="myDIV4">
-                <h2> BY ID: </h2>
+            <div id="myDIV">
+                <div className="filter-title" ><h2> BY ID: </h2></div>
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr7, '_id').map(obj => {
                         return(
                                 <div className="notebox" key={obj._id}>
                                     <h2>
-                                        Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
+                                        <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
                                         <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>    

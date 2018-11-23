@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getNotes } from '../../actions/noteAction'
 
+import '../../styles/unsorted.css'
+
 import SearchBar from '../SearchBar'
 
 class UnSorted extends React.Component {
@@ -22,13 +24,13 @@ class UnSorted extends React.Component {
     render(){
         return(
             <div id="myDIV">
-                    <h2> Your Notes (Unsorted): </h2>
+                    <div className="filter-title" ><h2> Your Notes (Unsorted): </h2></div>
                     <div className="notebox-container">
                         {this.props.notes.map(note => {
                             return(
                                 <div className="notebox" key={note._id}>
                                     <h2>
-                                        Title: <Link to={`/notes/${note._id}`}>{note.title.toUpperCase()}</Link>
+                                        <Link to={`/notes/${note._id}`}>{note.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
                                         <p> <strong>Content:</strong> {note.textBody.slice(0, 100) + (note.textBody.length > 100 ? "..." : "")}</p>

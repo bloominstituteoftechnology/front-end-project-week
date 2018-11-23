@@ -113,6 +113,9 @@ class App extends Component {
   //   document.getElementById("myDropdown").classList.toggle("show");
   // }
 
+  //RESUME DROPDOWN MENU: https://medium.com/@pitipatdop/little-neat-trick-to-capture-click-outside-react-component-5604830beb7f
+  //ORIGINAL DROPDOWN MENU: https://www.w3schools.com/howto/howto_js_dropdown.asp
+
   
   
 
@@ -124,7 +127,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header"> 
           <h1> Lambda Notes </h1>
-          <button onClick={this.handleLogOut}>Log Out </button>
+          
           <ul>
             <li>
               <StyledLink to="/home"><div className="button">Home</div></StyledLink>
@@ -137,20 +140,22 @@ class App extends Component {
             </li>
 
             <li>
-                <div>
-                  <button onClick={this.myFunction} class="dropbtn">Dropdown</button>
-                    <div id="myDropdown" class="dropdown-content">
-                      <Link to="/unsorted">Unsorted</Link>
-                      <Link to="/azsort">A-Z</Link>
-                      <Link to="/zasort">Z-A</Link>
-                      <Link to="/idsort">ID</Link>
-                    </div>
-                </div>
+              <div>
+                    <button onClick={this.myFunction} class="dropbtn">Dropdown</button>
+                      <div id="myDropdown" class="dropdown-content">
+                        <Link to="/unsorted">Unsorted</Link>
+                        <Link to="/azsort">A-Z</Link>
+                        <Link to="/zasort">Z-A</Link>
+                        <Link to="/idsort">ID</Link>
+                      </div>
+              </div>
             </li>
 
-
-           
           </ul>
+          
+          <div className="logoutbutton" onClick={this.handleLogOut}>Log Out </div>
+                
+            
         </header>
 
         <div className="Container">
@@ -192,13 +197,6 @@ class App extends Component {
               <Route path="/edit/:id"
                 render={props => <UpdateNote {...props} handleUpdateNote={this.handleUpdateNote} notes={this.state.notes}/>}
               />
-
-              <p>
-                Edit View (update).
-              </p>
-              <p>
-                Delete Modal
-              </p>
         </div>
 
       </div>

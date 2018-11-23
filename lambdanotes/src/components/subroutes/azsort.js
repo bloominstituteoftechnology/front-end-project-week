@@ -34,14 +34,14 @@ class AzSort extends React.Component {
         })}
 
         return(
-            <div id="myDIV2">
-                <h2> A-Z: </h2>
+            <div id="myDIV">
+                <div className="filter-title" ><h2> A-Z: </h2></div>
                 <div className="notebox-container">
                     {this.sortObjProperty(emptyArr3, 'title').map(obj => {
                         return(
                                 <div className="notebox" key={obj._id}>
                                     <h2>
-                                        Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
+                                        <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
                                         <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
