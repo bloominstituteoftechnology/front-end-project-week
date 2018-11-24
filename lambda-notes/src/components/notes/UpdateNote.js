@@ -10,6 +10,10 @@ export default class UpdateNote extends Component {
         super(props);
         this.state = {
             note: [],
+            // {
+            //     title: '',
+            //     textBody: '',
+            // }
             // title: '',
             // textBody: '',
         };
@@ -38,13 +42,36 @@ export default class UpdateNote extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
+    submitHandler = (e) => {
+        e.preventDefault();
+        const note = {
+            title: this.state.title,
+            textBody: this.state.textBody,
+        };
+        const id = this.props.match.params.id;
+        console.log(note);
+        console.log(id)
+        axios
+            .put(`${URL}/edit/${id}`, note)
+            .then(response => {
+                this.setState({ title: '', textBody: '' })
+                // textBody: '', could be added once working...
+                this.setState({ note: response.data })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     render() {
         return (
             <div className="notes-list">
                 <h2 className="your-notes">Edit Note:</h2>
-                    <form className="input-form">
+                    <form className="input-form" onSubmit={this.submitHandler} >
                         <input type="text" defaultValue={this.state.note.title} name="title" onChange={this.handleChange} />
-                        <textarea type="text" value={this.state.note.textBody} name="textBody" onChange={this.handleChange} />
+                        {this.state.title}
+                        {this.state.textBody}
+                        <textarea type="textarea" value={this.state.note.textBody} name="textBody" onChange={this.handleChange} />
                         <button type="submit" className="submit-button">Update</button>
                     </form>
             </div>

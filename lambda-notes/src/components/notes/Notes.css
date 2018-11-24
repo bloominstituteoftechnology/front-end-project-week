@@ -34,7 +34,7 @@
 .card-link {
     text-decoration: none;
     color: black;
-    /* this is taken from .single-note to keep styling */
+    /* this is taken from .single-note to keep styling now that Router added elements */
     border: 1px solid grey;
     width: 200px;
     background-color: white;
