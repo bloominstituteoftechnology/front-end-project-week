@@ -96,11 +96,11 @@ function NotesDetail({note}) {
           <Note>
         <Link to={{
             pathname: `/${_id}`,
-            state: {title: {title},
-            textBody: {textBody},
-            id: {_id}
+            title: `${title}`,
+            textBody: `${textBody}`,
+            id: `${_id}`
         }
-        }}>
+        }>
               <h2>{title}</h2>
               <p>{textBody}</p>
           </Link>

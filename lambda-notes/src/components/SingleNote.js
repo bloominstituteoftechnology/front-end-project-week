@@ -9,9 +9,16 @@ const SNote = styled.div`
   background-color: #F3F3F3;
   color: #4A4A4A;
 `
+
 const style = {
   display: "none"
 };
+
+const textBox = {
+  width: "100%",
+  height: "300px",
+  display: "flex",
+}
 
 const pointer = {
   cursor: "pointer",
@@ -21,56 +28,50 @@ const pointer = {
 class SingleNote extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      title: this.props.location.title,
+      textBody: this.props.location.textBody,
+      id: this.props.location.id
+    }
   }
- componentDidMount () {
-const { title } = this.props.location.state;
- }
 
-  inputTitleHandler = (e) => {
-    this.setState({ title: 'Abi'});
-    console.log(this.state.title);
+  inputHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state);
 }
 
-inputTextHandler = e => {
-  this.setState({ [this.state.note.textBody]: e.target.value });
-}
+  updateNoteHandler = e => {
+    e.preventDefault();
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.id}`, {
+        title: this.state.title,
+        textBody: this.state.textBody,
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    e.target.parentNode.style.display = "none";
+  };
 
   doubleClick = event => {
     event.target.nextSibling.style.display = "block";
     event.target.nextSibling.firstChild.focus();
   };
 
-  updateNoteHandler = event => {
-    event.preventDefault();
-    const id = this.state.id;
-    axios.put(`https://fe-notes.herokuapp.com/note/get/${id}`, {
-        title: this.state.note.title,
-        textBody: this.state.note.textBody,
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-      this.componentDidMount();
-      event.target.parentNode.style.display = "none";
-  }
-
 
   render() {
     return (
       <SNote>
-        { title }
-        {/* <h1 id="title" onDoubleClick={this.doubleClick} style={pointer}>
-            {this.state.title}</h1>
-            <form onSubmit={this.updateNoteHandler} style={style}>
-            <input onChange={this.inputTitleHandler} id="titleInput" name="title" />
+        <h1 onDoubleClick={this.doubleClick} style={pointer}>{this.state.title}</h1>
+        <form onSubmit={this.updateNoteHandler} style={style}>
+            <input value={this.state.title} onChange={this.inputHandler} id="titleInput" name="title" />
             <button onClick={this.updateNoteHandler}>Change</button>
-            </form>
-            <p id="textBody" onDoubleClick={this.doubleClick} style={pointer}>
-            {this.state.textBody}</p>
-            <form onSubmit={this.updateNoteHandler} style={style}>
-            <input onChange={this.inputTextHandler} id="textInput" name="textBody" />
+        </form>
+        <p onDoubleClick={this.doubleClick} style={pointer}>{this.state.textBody}</p>
+        <form onSubmit={this.updateNoteHandler} style={style}>
+            <textarea value={this.state.textBody}  style={textBox} onChange={this.inputHandler} id="textBodyInput" name="textBody" />
             <button onClick={this.updateNoteHandler}>Change</button>
-            </form> */}
+        </form>
       </SNote>
     );
   }
