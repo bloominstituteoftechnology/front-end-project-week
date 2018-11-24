@@ -1,6 +1,31 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // import { instance } from './../utils.js';
+import styled, { css } from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  background: #F2F1F2;
+  border: 1px solid #B7B7B7;
+  width: 80%;
+`;
+
+const Header = styled.div`
+  margin: 85px 25px 10px 10px;
+  width: 100%;
+`;
+
+const Title = styled.h3`
+  font-size: 25px;
+  font-weight: bold;
+`;
+
+const Text = styled.div`
+  width: 85%;
+  margin: 5px 10px;
+`;
 
 export default class Note extends Component {
   constructor(props) {
@@ -30,19 +55,19 @@ export default class Note extends Component {
 
   render() {
     if (!this.state.note) {
-      return <div>Loading note information...</div>
+      return <div className='Note'>Loading note information...</div>
     }
 
     const { title, textBody } = this.state.note;
     return (
-      <div>
-        <div>
-          <h3>{title}</h3>
-        </div>
-        <div>
+      <Container>
+        <Header>
+          <Title>{title}</Title>
+        </Header>
+        <Text>
           {textBody}
-        </div>
-      </div>
+        </Text>
+      </Container>
     );
   }
 }

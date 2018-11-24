@@ -49,7 +49,7 @@ class App extends Component {
           render={props => (
             <NotesList notes={this.state.notes} />
           )} />
-          <Route path='/get/:id' component={Note} />
+        <Route path='/get/:id' component={Note} />
         <Route path='/create' component={CreateNote} />
       </div>
     );
