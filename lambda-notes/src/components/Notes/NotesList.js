@@ -7,7 +7,7 @@ export default class NotesList extends Component {
 
   render() {
     return (
-      <div>
+      <div className='NotesList'>
         <div>
           <h3>Your Notes:</h3>
           </div>

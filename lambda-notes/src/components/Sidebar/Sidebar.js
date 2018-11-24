@@ -7,7 +7,7 @@ export default class Sidebar extends Component {
 
   render() {
     return (
-      <div>
+      <div className='Sidebar'>
         <h1>Lambda Notes</h1>
         <div>View Your Notes</div>
         <div>+ Create New Note</div>
