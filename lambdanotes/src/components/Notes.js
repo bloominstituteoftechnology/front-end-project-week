@@ -4,6 +4,8 @@ import Container from './styles/Container';
 import Wrapper from './styles/Wrapper';
 import SearchInput from './styles/SearchInput';
 import SortButton from './styles/SortButton';
+import FontAwesome from 'react-fontawesome';
+
 
 
 
@@ -43,12 +45,15 @@ class Notes extends Component {
             <>
              <Wrapper>
                 <form className="form-element"onSubmit={this.submitHandler} autoComplete="off">
+                   
                     <SearchInput value={this.state.text}
                                  onChange={this.inputHandler} 
                                  placeholder="Search....."  name="text"
                                  onFocus={this.hideSort}
                                  onBlur={this.showSort}  />
+                     <FontAwesome className='search' name='search' />                                 
                 </form>
+               
                 <SortButton style={{display: this.state.flag ? 'none' : 'block' }}>Sort</SortButton>  
                 <div></div>
                 <h2>Your Notes:</h2>

@@ -61,3 +61,8 @@
 /* .form-element {
   position: relative;
 } */
+
+.fa-search {
+  height: 30px;
+  width:24px;
+}

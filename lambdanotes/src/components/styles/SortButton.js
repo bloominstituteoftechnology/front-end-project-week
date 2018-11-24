@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const SortButton = styled.button`
   position: absolute;
   top: 9px;
-  left: 350px;
+  left: 370px;
   color: #fff;
   font-size: 1em;
   margin: 1em;
