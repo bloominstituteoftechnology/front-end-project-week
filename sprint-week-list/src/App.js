@@ -58,7 +58,7 @@ class App extends Component {
         })
   }
   updateNote = (updatedNote) =>{
-    console.log('Updating !!!', updatedNote)
+    
     const index = this.state.notes.findIndex(note => note._id === updatedNote.id);
     axios   
       .put(`https://fe-notes.herokuapp.com/note/edit/${updatedNote.id}`, updatedNote)
@@ -75,7 +75,7 @@ class App extends Component {
     const data = this.state.notes.filter((note) => {
       return (note.title.includes(search) || note.textBody.includes(search))
     })
-    search === '' ? this.fetchNotes() : this.setState({notes : data})
+    search === '' ? this.componentDidMount() : this.setState({notes : data})
   }
 
   render() {

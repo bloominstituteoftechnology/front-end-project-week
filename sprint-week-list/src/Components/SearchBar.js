@@ -2,11 +2,10 @@ import React from 'react';
 import styles from '../css/SearchBar.css';
 
 class SearchBar extends React.Component{
-    constructor(){
-        super()
-        // state = {
-        //     search : '',
-        // }
+    //Why did this only work when I took the constructor and super out?
+        state = {
+            search : '',
+        
     }
     inputHandler = (event) =>{
         this.setState({
@@ -23,12 +22,12 @@ class SearchBar extends React.Component{
     render(){
         return(
             <div className = 'search-container'>
-                <form className = 'search-form'>
+                <form className = 'search-form' onSubmit = {(event)=>{this.submitHandler(event)}}>
                     <input 
                         className = 'search-input'
                         placeholder = 'Search Lambda Notes 🔍'
                         onChange = {this.inputHandler}
-                        //value = {this.state.search}
+                        value = {this.state.search}
                         type = 'text'
                     />
                 </form>

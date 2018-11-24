@@ -23,7 +23,7 @@ class EditNoteForm extends React.Component{
         axios
           .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
-                console.log('Response in fetch', response, id)
+                
                 this.setState(() => ({
                 id: response.data._id,
                 title: response.data.title,
@@ -41,7 +41,7 @@ class EditNoteForm extends React.Component{
     }
 
     submitHandler = (event) =>{
-        console.log('Submit')
+       
         event.preventDefault()
          this.props.updateNote({
            id: this.state.id,
