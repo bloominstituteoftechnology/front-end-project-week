@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import {Form, Title, TextBody, StyledLink, MainDiv } from '../editView/styled'
+
 export default class CreateNote extends Component {
   state = {
     title: '',
@@ -17,14 +19,14 @@ export default class CreateNote extends Component {
 
   render() {
     return (
-      <div>
-        <form>
+      <MainDiv>
+        <Form>
           <h1>Create New Note</h1>
-          <input type='text' name='title' value={this.state.title} onChange={this.changeHandler} />
-          <textarea cols='40' rows='50' name='textBody' value={this.state.textBody} onChange={this.changeHandler} ></textarea>
-          <Link to={'/'}><div onClick={this.submitHandler}>Submit Note</div></Link>
-        </form>
-      </div>
+          <Title type='text' name='title' value={this.state.title} onChange={this.changeHandler} />
+          <TextBody name='textBody' value={this.state.textBody} onChange={this.changeHandler} />
+          <StyledLink to={'/'}><div onClick={this.submitHandler}>Submit Note</div></StyledLink>
+        </Form>
+      </MainDiv>
     )
   }
 }

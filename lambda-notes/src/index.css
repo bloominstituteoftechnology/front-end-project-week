@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 1024px;
 }
 
 code {
@@ -18,5 +19,7 @@ html {
 }
 
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
 }

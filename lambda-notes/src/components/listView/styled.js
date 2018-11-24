@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const List = styled.div `
   display: flex;
   flex-wrap: wrap
-  margin-left: 20px;
+  
 `
 
 export const MainDiv = styled.div `
@@ -17,7 +17,6 @@ export const MainDiv = styled.div `
   padding: 10px 20px;
 `
 export const MainList = styled.div `
-  margin-left: 250px;
 `
 export const StyledLink = styled(Link) `
   text-decoration: none;

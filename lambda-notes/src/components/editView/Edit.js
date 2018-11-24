@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Form, Title, TextBody, StyledLink, MainDiv } from './styled';
 
 export default class Edit extends Component {
   state = {
@@ -40,14 +40,14 @@ export default class Edit extends Component {
 
   render() {
     return (
-      <div>
-        <form>
-          <h1>Create New Note</h1>
-          <input type='text' name='title' value={this.state.title} onChange={this.changeHandler} />
-          <textarea cols='40' rows='50' name='textBody' value={this.state.textBody} onChange={this.changeHandler} ></textarea>
-          <Link to={'/'}><div onClick={this.submitHandler}>Submit Note</div></Link>
-        </form>
-      </div>
+      <MainDiv>
+        <Form>
+          <h1>Edit Note:</h1>
+          <Title type='text' name='title' value={this.state.title} onChange={this.changeHandler} />
+          <TextBody name='textBody' value={this.state.textBody} onChange={this.changeHandler} />
+          <StyledLink to={'/'}><div onClick={this.submitHandler}>Update</div></StyledLink>
+        </Form>
+      </MainDiv>
     )
   }
 }

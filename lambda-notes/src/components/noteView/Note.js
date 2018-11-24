@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+
+import { MainDiv, Links, StyledLink, Edit, Content, H1Header, PTag } from './styled' 
 
 export default class Note extends Component {
 
@@ -34,12 +35,16 @@ export default class Note extends Component {
 
   render() {
     return (
-      <div>
-        <Link to={`/note/${this.state.movie._id}/edit`}><h3>Edit</h3></Link>
-        <Link to={'/'}><h3 onClick={this.deleteNote}>Delete</h3></Link>
-        <h1>{this.state.movie.title}</h1>
-        <p>{this.state.movie.textBody}</p>
-      </div>
+      <MainDiv>
+        <Links>
+          <Edit to={`/note/${this.state.movie._id}/edit`}><h3>Edit</h3></Edit>
+          <StyledLink to={'/'}><h3 onClick={this.deleteNote}>Delete</h3></StyledLink>
+        </Links>
+        <Content>
+          <H1Header>{this.state.movie.title}</H1Header>
+          <PTag>{this.state.movie.textBody}</PTag>
+        </Content>
+      </MainDiv>
     )
   }
 }
