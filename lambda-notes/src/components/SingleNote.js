@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import LinkButton from './LinkButton';
 
 const SNote = styled.div`
   height: 100vh;
@@ -53,6 +54,22 @@ class SingleNote extends Component {
     e.target.parentNode.style.display = "none";
   };
 
+  deleteNote = e => {
+    e.preventDefault();
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.id}`)
+    .catch(function(error) {
+      console.log(error);
+    })
+    axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+    .then(res => {
+      const notes = res.data;
+      this.setState({ notes });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   doubleClick = event => {
     event.target.nextSibling.style.display = "block";
     event.target.nextSibling.firstChild.focus();
@@ -72,6 +89,7 @@ class SingleNote extends Component {
             <textarea value={this.state.textBody}  style={textBox} onChange={this.inputHandler} id="textBodyInput" name="textBody" />
             <button onClick={this.updateNoteHandler}>Change</button>
         </form>
+        <LinkButton to='../' onClick={this.deleteNote}>Delete Note</LinkButton>
       </SNote>
     );
   }
