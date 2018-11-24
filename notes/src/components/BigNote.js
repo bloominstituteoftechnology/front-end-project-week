@@ -8,32 +8,29 @@ import { getOneNote, deleteNote } from '../actions/noteActions';
 class BigNote extends Component {
     constructor(props){
         super(props)
-        this.state = {
-            title:'',
-            textBody:''
-        }
+        // this.state = {
+        //     title:'',
+        //     textBody:''
+        // }
     }
 
-    componentDidMount(){
-        this.props.getOneNote()
-        const { notes, match } = this.props
-        const BigNote = notes.find(item => `${item._id}` === match.params.id)
-        this.setState(BigNote)
+
+    clickHandler = () => {
+        deleteNote(this.props.notes._id)
     }
 
     render(){
-       
-        const clickHandler = () => {
-            deleteNote(BigNote._id)
-        }
+        const singleNote = this.props.notes.find(item => {
+            return item._id === this.props.match.params.id
+        })
        return(
             <div className="bigNote">
                 <div>
-                <Link to={`/update/${BigNote._id}`}>edit</Link>
-                <button onClick={clickHandler}>Delete</button>
+                <Link to={`/update/${singleNote._id}`}>edit</Link>
+                <button onClick={this.clickHandler}>Delete</button>
                 </div>
-                <h1>{BigNote.title}</h1>
-                <p>{BigNote.textBody}</p>
+                <h1>{singleNote.title}</h1>
+                <p>{singleNote.textBody}</p>
             </div>
            
         )

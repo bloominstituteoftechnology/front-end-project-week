@@ -23,7 +23,7 @@ export const getOneNote = (id) => {
         dispatch({type:LOADING})
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(response => {
-            dispatch({type:SUCCESS, notes:response.data})
+            dispatch({type:SUCCESS_NOTE, singleNote:response.data})
         })
         .catch(error => {
             dispatch({type:ERROR, errorMessage:"Could not get that one Note! Try again"})

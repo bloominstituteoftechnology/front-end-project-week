@@ -9,17 +9,20 @@ import '../App.css';
 const Note = props => {
     const { note, deleteNote } = props
 
-    // const clickHandler = () => {
-    //     deleteNote(note._id)
-    // }
+    const clickHandler = () => {
+        deleteNote(note._id)
+    }
     return(
-        <Link to={`/Noteview/${note._id}`}>
+        
         <div key={note._id} className="note-card">
+        <Link to={`/Noteview/${note._id}`}>
             <h1>{note.title}</h1>
             <p>{note.textBody}</p>
-            {/* <button onClick={clickHandler}>Delete</button> */}
+            </Link>
+            <button onClick={clickHandler}>Delete</button>
+            <Link to={`/update/${note._id}`}>edit</Link>
         </div>
-        </Link>
+        
     )
 }
 
