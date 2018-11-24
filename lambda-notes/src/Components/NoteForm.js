@@ -1,5 +1,36 @@
 import React, { Component } from "react";
 import axios from "axios";
+import styled from 'styled-components';
+
+const Button = styled.button`
+border-radius: 5px; //I don't like square buttons
+display: flex;
+background-color: #4dc3ff;
+color: white;
+font-size: 1em;
+margin: 1em;
+padding: 0.25em 1em;
+width: 30%;
+height: 40px;
+`
+
+const NoteFormDiv = styled.div`
+background-color: #ccffff;
+width: 100%;
+`
+
+const AddHeader = styled.div`
+margin-left: 1em;
+`
+
+const NoteTitle = styled.div`
+margin: 1em;
+width: 80%;
+`
+
+const NoteContent = styled.div`
+margin-left: 1em;
+`
 
 class NoteForm extends Component {
   constructor(props) {
@@ -43,36 +74,38 @@ class NoteForm extends Component {
 
   render() {
     return (
-      <div className="NoteForm">
-        <div className="add-header">
+      <NoteFormDiv>
+        <AddHeader>
           {" "}
-          <h1>Create New Note</h1>
-        </div>
+          <h1>Create New Note:</h1>
+        </AddHeader>
         <form onSubmit={this.addNote}>
-          <div>
+          <NoteTitle>
             <input
-              onChange={this.handleInputChange}
-              placeholder="Note Title"
-              value={this.state.title}
-              name="title"
+              onChange = {this.handleInputChange}
+              placeholder = "Note Title"
+              value = {this.state.title}
+              name = "title"
+              style = {{width: '80%', padding: '10px'}} 
             />
-          </div>
-          <div>
+          </NoteTitle>
+          <NoteContent>
             <textarea
               onChange={this.handleInputChange}
               placeholder="Note Content"
               value={this.state.textBody}
               name="textBody"
+              style = {{width: '80%', padding: '10px', height: '200px'}} 
             />
-          </div>
+          </NoteContent>
 
           <div>
-            <button className="form-submit" type="submit">
+            <Button type="submit">
               Save
-            </button>
+            </Button>
           </div>
         </form>
-      </div>
+      </NoteFormDiv>
     );
   }
 }

@@ -2,6 +2,102 @@ import React, { Component } from "react";
 import axios from "axios";
 import Modal from "react-responsive-modal";
 import PropTypes from "prop-types";
+import styled from 'styled-components';
+
+const Button = styled.button`
+border: none;
+background-color: #ccffff;
+font-size: 1em;
+margin: 1em;
+`
+
+const SubmitButton = styled(Button)`
+border-radius: 5px; //I don't like square buttons
+display: flex;
+background-color: #4dc3ff;
+color: white;
+font-size: 1em;
+margin: 1em;
+padding: 0.25em 1em;
+width: 30%;
+height: 40px;
+`
+
+const DeleteButton = styled(Button)`
+border-radius: 5px; //I don't like square buttons
+display: flex;
+background-color: #ff3300
+color: white;
+font-size: 1em;
+margin: 1em;
+padding: 0.25em 1em;
+width: 60%;
+height: 40px;
+`
+
+const NoButton = styled(Button)`
+border-radius: 5px; //I don't like square buttons
+display: flex;
+background-color: #4dc3ff;
+color: white;
+font-size: 1em;
+margin: 1em;
+padding: 0.25em 1em;
+width: 60%;
+height: 40px;
+`
+
+const NoteButtons = styled.div`
+display: flex;
+justify-content: flex-end;
+`
+
+const NoteHeader = styled.div`
+margin: 1em;
+`
+
+const NoteContainer = styled.div`
+background-color: #ccffff;
+width: 100%;
+`
+
+const NoteBody = styled.div`
+margin: 1em;
+font-size: 1.1rem;
+`
+
+const NoteTitle = styled.div`
+margin-top: 1em;
+font-weight: bold;
+font-size: 1.5rem
+`
+
+const EditForm = styled.div`
+width: 100%;
+background-color: #ccffff;
+`
+
+const Edithead = styled.div`
+margin: 1em;
+`
+
+const EditTitle = styled.div`
+margin: 1em;
+`
+
+const EditBody = styled.div`
+margin: 1em;
+`
+
+const ModalContainer = styled.div`
+display: flex;
+flex-direction: column;
+width: 100%;
+`
+
+const ButtonContainer = styled.div`
+display: flex;
+`
 
 //NoteView is the class that displays a single note. This class deploys the editNote() and deleteNote() functions, which live in the App.js file
 
@@ -93,59 +189,59 @@ class NoteView extends Component {
 
     if (this.state.editing) {
       return (
-        <div className="edit-form">
-          <div className="edit-head">
+        <EditForm>
+          <Edithead>
             <h1>Edit Note:</h1>
-          </div>
+          </Edithead>
 
           <form onSubmit={this.editSubmitHandler}>
-            <div>
+            <EditTitle>
               <input
-                className="edit-title"
                 name="title"
                 type="text"
                 placeholder="new title"
                 value={title}
                 onChange={this.handleChange}
+                style = {{width: '65%', padding: '10px'}} 
               />
-            </div>
-            <div>
+            </EditTitle>
+            <EditBody>
               <textarea
-                className="edit-body"
                 name="textBody"
                 type="textarea"
                 placeholder="new note"
                 value={textBody}
                 onChange={this.handleChange}
+                style = {{width: '80%', padding: '10px', height: '200px'}} 
               />
-            </div>
+            </EditBody>
             <div>
-              <button className="form-submit" type="submit">
+              <SubmitButton>
                 Update
-              </button>
+              </SubmitButton>
             </div>
           </form>
-        </div>
+        </EditForm>
       );
     }
 
     return (
-      <div className="note-view">
-        <div className="note-header">
-          <div className="note-buttons">
-            <button className="edit-button" onClick={this.toggleEdit}>
+      <NoteContainer>
+        <NoteHeader>
+          <NoteButtons>
+            <Button type = 'edit' onClick={this.toggleEdit}>
               edit
-            </button>
+            </Button>
 
-            <button className="delete-button" onClick={this.openModal}>
+            <Button type = "delete" onClick={this.openModal}>
               delete
-            </button>
-          </div>
-          <div className="note-title">{this.state.title}</div>
-        </div>
-        <div className="note-body">
+            </Button>
+          </NoteButtons>
+          <NoteTitle>{this.state.title}</NoteTitle>
+        </NoteHeader>
+        <NoteBody>
           <p>{this.state.textBody}</p>
-        </div>
+        </NoteBody>
 
         <Modal
           open={open}
@@ -153,18 +249,19 @@ class NoteView extends Component {
           center
           showCloseIcon={false}
         >
-          <div className="modal">
+          <ModalContainer>
             <p>Are you sure you want to delete this?</p>
-
-            <button className="modal-delete" onClick={this.delete}>
-              Delete
-            </button>
-            <button onClick={this.closeModal} className="modal-no">
-              No
-            </button>
-          </div>
+            <ButtonContainer>
+                <DeleteButton onClick={this.delete}>
+                    Delete
+                </DeleteButton>
+                <NoButton onClick={this.closeModal}>
+                    No
+                </NoButton>
+            </ButtonContainer>    
+          </ModalContainer>
         </Modal>
-      </div>
+      </NoteContainer>
     );
   }
 }

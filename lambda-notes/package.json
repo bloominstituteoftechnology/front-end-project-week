@@ -9,7 +9,8 @@
     "react-modal": "^3.6.1",
     "react-responsive-modal": "^3.5.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "styled-components": "^4.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -5,6 +5,19 @@ import NotesList from "./Components/NotesList";
 import NoteForm from "./Components/NoteForm";
 import Sidebar from "./Components/Sidebar";
 import NoteView from "./Components/NoteView";
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+display: flex;
+border: 1px solid black;
+width: 100%;
+max-width: 1080px;
+`
+
+const HomeView = styled.div`
+display: flex;
+width: 100%;
+`
 
 class App extends Component {
   constructor(props) {
@@ -58,8 +71,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="home-view">
+      <AppContainer>
+        <HomeView>
           <div>
             <Sidebar />
           </div>
@@ -103,8 +116,8 @@ class App extends Component {
               )}
             />
           </Switch>
-        </div>
-      </div>
+        </HomeView>
+      </AppContainer>
     );
   }
 }
