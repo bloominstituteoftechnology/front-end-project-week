@@ -3,6 +3,7 @@ import List from './components/List';
 import styled from 'styled-components';
 import { Route, Link } from 'react-router-dom';
 import SingleNote from './components/SingleNote';
+import AddNote from './components/AddNote';
 
 const AppWrapper = styled.div`
   width: 100%;
@@ -53,10 +54,11 @@ class App extends Component {
         <Sidebar>
           <h1>Lambda<br/>Notes</h1>
           <SbButton><Link to={`/`}><h2>View Your Notes</h2></Link></SbButton>
-          <SbButton><h2>+ Create New Note</h2></SbButton>
+          <SbButton><Link exact to={`/AddNote/new`}><h2>+ Create New Note</h2></Link></SbButton>
         </Sidebar>
         <Route exact path="/" component={List} />
-        <Route path="/:_id" component={SingleNote} />
+        <Route exact path="/AddNote/new" component={AddNote} />
+        <Route exact path="/:_id" component={SingleNote} />
       </AppWrapper>
     );
   }

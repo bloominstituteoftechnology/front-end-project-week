@@ -39,7 +39,6 @@ class SingleNote extends Component {
 
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state);
 }
 
   updateNoteHandler = e => {
@@ -52,6 +51,7 @@ class SingleNote extends Component {
         console.log(error);
       });
     e.target.parentNode.style.display = "none";
+    e.target.parentNode.previousSibling.style.display = "block";
   };
 
   deleteNote = e => {
@@ -61,10 +61,6 @@ class SingleNote extends Component {
       console.log(error);
     })
     axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
-    .then(res => {
-      const notes = res.data;
-      this.setState({ notes });
-    })
     .catch(function (error) {
       console.log(error);
     });
@@ -72,6 +68,7 @@ class SingleNote extends Component {
 
   doubleClick = event => {
     event.target.nextSibling.style.display = "block";
+    event.target.style.display = "none";
     event.target.nextSibling.firstChild.focus();
   };
 
