@@ -56,7 +56,7 @@ class ExpandedNote extends React.Component{
                         <p className = 'delete-question'>Are you sure you want to delete this?</p><br></br>
                         <div className = 'button-container'>
                             <Link className = 'link' exact to = '/'>
-                                <button className = 'delete-button' onClick = {this.props.deleteNote(this.state.note._id)}>Delete</button>
+                                <button className = 'delete-button' onClick = {()=>this.props.deleteNote(this.state.note._id)}>Delete</button>
                             </Link>    
                             <button className = 'no-button' onClick = {this.closeDelete}>No</button>
                         </div>

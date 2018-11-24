@@ -58,10 +58,13 @@ class App extends Component {
         })
   }
   updateNote = (updatedNote) =>{
+    console.log('Updating !!!', updatedNote)
+    const index = this.state.notes.findIndex(note => note._id === updatedNote.id);
     axios   
       .put(`https://fe-notes.herokuapp.com/note/edit/${updatedNote.id}`, updatedNote)
         .then(response =>{
-          this.fetchNotes()
+          console.log('I am response',response)
+            this.fetchNotes()
         })
     .catch(err =>{
         console.log('Trouble adding new note', err)

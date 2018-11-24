@@ -23,7 +23,7 @@ class SearchBar extends React.Component{
     render(){
         return(
             <div className = 'search-container'>
-                <form >
+                <form className = 'search-form'>
                     <input 
                         className = 'search-input'
                         placeholder = 'Search Lambda Notes 🔍'

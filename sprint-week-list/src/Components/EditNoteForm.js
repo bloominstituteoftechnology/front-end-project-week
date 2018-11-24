@@ -10,10 +10,30 @@ class EditNoteForm extends React.Component{
         super(props)
         this.state = {
           notes : [],
-          newTitle : '',
-          newTextBody : '',
+          title : '',
+          textBody : '',
         }
     }
+    componentDidMount(){
+        const id = this.props.match.params.id;
+        this.fetchIndividualNote(id);
+    }
+
+    fetchIndividualNote = (id) => {
+        axios
+          .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .then(response => {
+                console.log('Response in fetch', response, id)
+                this.setState(() => ({
+                id: response.data._id,
+                title: response.data.title,
+                textBody: response.data.textBody
+                }));
+            })
+            .catch(err => {
+                console.log('Trouble fetching ID',err);
+            });
+      };
 
     inputHandler = (event) =>{
         event.preventDefault()
@@ -21,17 +41,14 @@ class EditNoteForm extends React.Component{
     }
 
     submitHandler = (event) =>{
+        console.log('Submit')
         event.preventDefault()
-        const updatedNote = {
-            title : this.state.newTitle,
-            textBody : this.state.newTextBody,
-            id : this.props.match.params.id,
-        }
-        this.props.updateNote(updatedNote)
-        this.setState({
-            newTitle: '',
-            newTextBody : '',
-        })
+         this.props.updateNote({
+           id: this.state.id,
+           title : this.state.title,
+           textBody : this.state.textBody,
+       })
+       
     }
     render(){
         return(
@@ -43,19 +60,19 @@ class EditNoteForm extends React.Component{
                             className = 'title-input'
                             type = 'text'
                             placeholder = 'Note Title'
-                            value = {this.state.newTitle}
-                            name = 'newTitle'
+                            value = {this.state.title}
+                            name = 'title'
                             onChange = {this.inputHandler}/>
                         <input 
                             className = 'text-input'
                             type = 'text'
                             placeholder = 'Note Content'
-                            value = {this.state.newTextBody}
-                            name = 'newtextBody'
+                            value = {this.state.textBody}
+                            name = 'textBody'
                             onChange = {this.inputHandler}/>    
-                        <Link exact to = '/' >
+                        
                             <button className = 'submit-button' type = 'submit' >Save</button>
-                        </Link>
+                       
 
                     </form>
                 </div>
