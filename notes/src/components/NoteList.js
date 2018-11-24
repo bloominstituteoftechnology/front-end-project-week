@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { getNotes } from '../actions/noteActions';
 import Note from './Note';
+import '../App.css';
 
 class NoteList extends Component {
     constructor(props){

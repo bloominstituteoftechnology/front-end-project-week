@@ -30,3 +30,12 @@
     transform: rotate(360deg);
   }
 }
+
+.note-card {
+  border:2px solid black;
+  color:black;
+  text-decoration:none;
+  margin:5px;
+}
+
+

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateNote } from '../actions/noteActions';
+import '../App.css';
 
 
 class UpdateNote extends Component {
@@ -36,7 +37,7 @@ class UpdateNote extends Component {
     render(){
         return(
             <form onSubmit={this.submitHandler}>
-                <h1>Create New Note</h1>
+                <h1>Edit Note</h1>
                 <input type="text" name="title" value={this.state.title} onChange={this.inputHandler} placeholder="New Title" />
                 <textarea type="text" name="textBody" value={this.state.textBody} onChange={this.inputHandler} placeholder="New Content"/>
                 <button>Update</button>

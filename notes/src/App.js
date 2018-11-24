@@ -5,18 +5,25 @@ import './App.css';
 import NoteList from './components/NoteList';
 import CreateNote from './components/CreateNote';
 import UpdateNote from './components/UpdateNote';
+import BigNote from './components/BigNote'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavLink to="/create"><button>New Note</button></NavLink>
+        <div>
+          <h1>Lambda Notes</h1>
+          <NavLink to="/create"><button>+ Create New Note</button></NavLink>
+          <NavLink to="/NoteList"><button>View your Notes</button></NavLink>
+        </div>
 
-        <Route path="/create" component={CreateNote} />
-        <Route path="/update/:id" render={props => <UpdateNote {...props} />} />       
+        <Route path="/create" render={props => <CreateNote {...props} />} />
+        <Route path="/update/:id" render={props => <UpdateNote {...props} />} />
+        <Route path="/Noteview/:id" render={props => <BigNote {...props} />} />
+        <Route path="/NoteList" render={props => <NoteList {...props} />} />
 
-        <h1>Lambda Notes</h1>
-        <NoteList />
+        
+        {/* <NoteList /> */}
       </div>
     );
   }

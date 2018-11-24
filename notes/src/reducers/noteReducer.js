@@ -1,4 +1,4 @@
-import { LOADING, SUCCESS, ERROR} from '../actions/noteActions';
+import { LOADING, SUCCESS, SUCCESS_NOTE, ERROR} from '../actions/noteActions';
 
 
 const initialState = {
@@ -13,6 +13,8 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {loading:true});
         case SUCCESS:
         return Object.assign({}, state, {notes:[...action.notes], loading:false, error: ''});
+        // case SUCCESS_NOTE:
+        // return Object.assign({}, state,{BigNote: action.BigNote, loading:false, error:''})
         case ERROR:
         return Object.assign({}, state, {error:action.errorMessage, loading:false})
         default:

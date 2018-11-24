@@ -1,6 +1,7 @@
 import axios from 'axios';
 export const LOADING = "LOADING"
 export const SUCCESS = "SUCCESS"
+export const SUCCESS_NOTE = "SUCCESS_NOTE"
 export const ERROR = "ERROR"
 
 
@@ -13,6 +14,19 @@ export const getNotes = () => {
         })
         .catch(error => {
             dispatch({type:ERROR, errorMessage:"Trouble getting your Notes! Try Again"})
+        })
+    }
+}
+
+export const getOneNote = (id) => {
+    return (dispatch) => {
+        dispatch({type:LOADING})
+        axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .then(response => {
+            dispatch({type:SUCCESS, notes:response.data})
+        })
+        .catch(error => {
+            dispatch({type:ERROR, errorMessage:"Could not get that one Note! Try again"})
         })
     }
 }
