@@ -31,4 +31,9 @@
   cursor: pointer;
   overflow: hidden;
 }
- 
+ .form-showing{
+display: block;
+ }
+ .form-notshowing{
+   display:none;
+ }
