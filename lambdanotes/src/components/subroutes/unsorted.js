@@ -29,6 +29,9 @@ class UnSorted extends React.Component {
                         {this.props.notes.map(note => {
                             return(
                                 <div className="notebox" key={note._id}>
+                                    <div className="hoverinfo"><button>i</button> 
+                                        <p>{note.textBody}</p>
+                                    </div>
                                     <h2>
                                         <Link to={`/notes/${note._id}`}>{note.title.toUpperCase()}</Link>
                                     </h2>

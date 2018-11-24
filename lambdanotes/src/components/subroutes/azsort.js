@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getNotes } from '../../actions/noteAction'
 
+import "../../styles/azsort.css"
+
+
+
+
+
 class AzSort extends React.Component {
     constructor(){
         super()
@@ -27,6 +33,10 @@ class AzSort extends React.Component {
         return list.sort(compare);
     }
 
+  
+   
+    
+    
     render(){
         const emptyArr3 = [];
         {this.props.notes.map(note => {
@@ -40,13 +50,17 @@ class AzSort extends React.Component {
                     {this.sortObjProperty(emptyArr3, 'title').map(obj => {
                         return(
                                 <div className="notebox" key={obj._id}>
+                                    <div className="hoverinfo"><button>i</button> 
+                                        <p>{obj.textBody}</p>
+                                    </div>
                                     <h2>
                                         <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
                                         <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
+                                       
                                     </div>
-                                    <p> <strong>ID:</strong> {obj._id}</p>
+                                    
                                 </div>
                             ) 
                     })}
@@ -66,3 +80,14 @@ const mapStateToProps = state => {
 
 
 export default connect(mapStateToProps, {getNotes})(AzSort)
+
+
+// toggleMenu = () => {
+//     document.querySelector('.navigation').toggle('navigation--open')
+//     document.querySelector('.hamburger-close').toggle('hamburger--open')
+// };
+
+// toggleClose = () => {
+//     document.querySelector('.navigation').toggle('navigation--open');
+//     document.querySelector('.hamburger-close').toggle('hamburger--open');
+// }
