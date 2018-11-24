@@ -4,24 +4,9 @@ import { handleId } from '../actions/actions';
 import styled from 'styled-components';
 import { Markup } from 'interweave';
 import { findDOMNode } from 'react-dom';
-import { DragSource, 
-        DropTarget, 
-        ConnectDropTarget, 
-        ConnectDragSource, 
-        DropTargetMonitor, 
-        DropTargetConnector, 
-        DragSourceConnector, 
-        DragSourceMonitor
-        } from 'react-dnd';
-import flow from 'lodash/flow'
+import { DragSource, DropTarget} from 'react-dnd';
+import flow from 'lodash/flow';
 
-const style = {
-    border: '1px dashed gray',
-    padding: '0.5rem 1rem',
-    marginBottom: '.5rem',
-    backgroundColor: 'white',
-    cursor: 'move',
-}
 
 const cardSource = {
     beginDrag(props) {
@@ -96,20 +81,19 @@ class Note extends React.Component {
             connectDragSource,
             connectDropTarget,            
         } = this.props
-        return (
-            connectDragSource &&
-            connectDropTarget &&
-            connectDragSource(
-                connectDropTarget(  <NoteCard onClick={() => {this.props.history.push(`/note/${this.props.id}`);this.props.handleId(this.props.id)}} >
-                                        <div>
-                                            <h2>{this.props.title}</h2>
-                                        </div>
-                                        <hr></hr>                            
-                                        <Markup content={this.props.textBody.substring(0, 160)+'...'} />
-                                    </NoteCard>
-                    )
-                )
-            )
+        return (connectDragSource &&
+                    connectDropTarget &&
+                    connectDragSource(
+                        connectDropTarget(  <NoteCard onClick={() => {this.props.history.push(`/note/${this.props.id}`);this.props.handleId(this.props.id)}} >
+                                                <div>
+                                                    <h2>{this.props.title}</h2>
+                                                </div>
+                                                <hr></hr>                            
+                                                <Markup content={this.props.textBody.substring(0, 160)+'...'} />
+                                            </NoteCard>
+                            )
+                        )     
+                    )       
     }
 }
 

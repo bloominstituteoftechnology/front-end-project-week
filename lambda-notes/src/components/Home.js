@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Note from './Note';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import update from 'immutability-helper';
 
 export const HomeContainer = styled.div`
     width: 75%;
@@ -38,13 +39,35 @@ export const HeaderContainer = styled.div`
 `
 
 class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            notes: []
+        }
+    }
 
-    moveCard = () => {};
+    componentDidMount() {
+        this.setState({
+            notes: this.props.notes
+        })
+    }
+
+    moveCard = (dragIndex, hoverIndex) => {
+        const { notes } = this.state;
+        const dragNote = notes[dragIndex];
+        this.setState(
+            update(this.state, {
+                notes: {
+                    $splice: [[dragIndex, 1], [hoverIndex, 0, dragNote]]
+                }
+            })
+        )
+    };
 
     render() {
     const arr = this.props.search ? 
-    this.props.notes.filter(note => note.title.toLowerCase().includes(this.props.search.toLowerCase()) 
-    || note.textBody.toLowerCase().includes(this.props.search.toLowerCase())) : this.props.notes;
+    this.state.notes.filter(note => note.title.toLowerCase().includes(this.props.search.toLowerCase()) 
+    || note.textBody.toLowerCase().includes(this.props.search.toLowerCase())) : this.state.notes;
     return      <HomeContainer>
                     <HeaderContainer>
                         <h1>Your Notes:</h1>

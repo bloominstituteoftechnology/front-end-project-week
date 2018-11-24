@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "immutability-helper": "^2.8.1",
     "interweave": "^9.2.1",
     "lodash.flow": "^3.5.0",
     "prop-types": "^15.6.2",
