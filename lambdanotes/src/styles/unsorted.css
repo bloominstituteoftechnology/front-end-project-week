@@ -33,7 +33,14 @@ idsort.js
   margin-bottom: 30px;
 }
 
+.notebox:hover {
+  background-color: #20b0b5;
+  color: white;
+}
+
 .contentbox {
   height: 120px;
   border-top: 2px solid gray;
+  font-size: 1.2rem;
 }
+

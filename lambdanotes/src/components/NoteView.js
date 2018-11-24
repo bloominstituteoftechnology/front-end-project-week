@@ -11,7 +11,8 @@ class NoteView extends React.Component {
     constructor(){
         super();
         this.state ={
-            note: {}
+            note: {},
+            isToggleOn: false,
         }
     }
 
@@ -34,13 +35,31 @@ class NoteView extends React.Component {
         this.props.deleteNote(this.props.match.params.id)
     }
 
+    handleClick = () => {
+        this.setState(prevState => ({
+          isToggleOn: !prevState.isToggleOn
+        }));
+    }
+
+
     render(){
         return (
             <div>
                 <div className="note-menu">
                     <div><Link to={`/edit/${this.state.note._id}`}> edit </Link></div>
-                    <div onClick={this.handleDelete}><Link to="/notes" style={{cursor: "pointer"}} > delete </Link></div>     
+                    <div onClick={this.handleDelete}><Link to="/idsort" style={{cursor: "pointer"}} > delete </Link></div>     
                 </div>
+
+                <button onClick={this.handleClick}>
+                        {this.state.isToggleOn ? 'ON' : 'OFF'}
+                        {this.state.isToggleOn && (
+                            <div class="navigation">
+                                <h1> Are you sure you want to delete this? </h1>
+                                <div onClick={this.handleDelete}><Link to="/idsort" style={{cursor: "pointer"}} ><h2> Delete </h2> </Link></div> 
+                                <h2> No </h2>
+                            </div>
+                        )}
+                </button>
 
                 <div className="note-container">
                     <div key={this.state.note._id}>
