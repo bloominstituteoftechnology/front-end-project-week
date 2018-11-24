@@ -1,12 +1,22 @@
 import styled from 'styled-components';
 
 export const AppWrap = styled.div`
-    margin: 0 auto;
+    margin: 20% auto;
     height: auto;
     width: 880px;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: left;
+`
+export const NoteHeading = styled.div`
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+
+`
+export const NoteContent = styled.div`
+    display: flex;
+    
 `
 
 export const BtnStyle = styled.button`
@@ -20,8 +30,9 @@ export const BtnStyle = styled.button`
 `
 
 export const HeadStyle = styled.div`
+   margin-top: 10px; 
    border: 1px solid black;
-   width: 500px;
+   width: 200px;
    background-color: #d3d2d3 ;
    padding: 10px;
     h1 {
@@ -30,10 +41,11 @@ export const HeadStyle = styled.div`
     }
 
     button {
+
         margin: 20px 0 0 0;
     }
 `
 
 export const LambdaNotes = styled.div`
-    
+    font-family: 'Fira Sans', sans-serif;
 `

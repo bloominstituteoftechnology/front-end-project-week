@@ -31,7 +31,8 @@ class ListView extends Component {
 
     render() {
         return (
-            <NoteWrap> 
+            
+            <NoteWrap>
             {this.state.notes.map( note => {
                 return (
                <NoteContent  key={note._id}>

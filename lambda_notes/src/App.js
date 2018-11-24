@@ -6,7 +6,7 @@ import ListView from './components/Display_Components/ListView';
 import CreateNewNote from './components/Display_Components/CreateNewNote';
 import NoteView from './components/Display_Components/NoteView';
 import EditView from './components/Display_Components/EditView';
-import { AppWrap , BtnStyle, HeadStyle, LambdaNotes } from '../src/components/Styles/AppStyle';
+import { AppWrap , BtnStyle, HeadStyle, LambdaNotes, NoteContent, NoteHeading } from '../src/components/Styles/AppStyle';
 
 
 
@@ -33,7 +33,8 @@ class App extends Component {
 
     return (
       <AppWrap>
-        
+        <NoteHeading><h2>List View</h2></NoteHeading>
+        <NoteContent>
          <HeadStyle>
             <LambdaNotes>
               <h1>Lambda</h1>
@@ -46,20 +47,22 @@ class App extends Component {
                 <BtnStyle> + Create new note </BtnStyle>
             </NavLink>
           </HeadStyle>
-        <Route path='/' exact 
-          render={ props => <ListView/>}
-        />
-        <Route path='/create' exact
-         render={props => <CreateNewNote />}
-        />
+        
+            <Route path='/' exact 
+              render={ props => <ListView {...props}/>}
+            />
+            <Route path='/create' exact
+            render={props => <CreateNewNote {...props} />}
+            />
 
-        <Route path={`/note/:id`} exact
-          render={(props) => <NoteView someNotes={this.state} {...props} />}
-        />
+            <Route path={`/note/:id`} exact
+              render={(props) => <NoteView someNotes={this.state} {...props} />}
+            />
 
-        <Route path={`/note/edit/:id`} exact
-          render={(props) => <EditView notes={this.state.notes} {...props} />}
-        />
+            <Route path={`/note/edit/:id`} exact
+              render={(props) => <EditView notes={this.state.notes} {...props} />}
+            />
+        </NoteContent>
       </AppWrap>
     );
   }

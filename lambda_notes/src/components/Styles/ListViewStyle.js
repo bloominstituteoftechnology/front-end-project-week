@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
 export const NoteWrap = styled.div`
-    margin: 0 auto;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
+    justify-content: center ;
+    display: flex ;
+    flex-wrap: wrap ;
     background-color: #f2f1f2 ;
+    margin-top: 10px ; 
 `
 
 export const NoteContent = styled.div`
+
     width: 200px;
     height: 250px;
     border: 1px solid grey;
@@ -17,6 +18,7 @@ export const NoteContent = styled.div`
     text-align: center;
     overflow: hidden;
     background-color: #ffffff ;
+    
 `
 
 export const Title = styled.h1`
