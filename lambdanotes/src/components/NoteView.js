@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteNote } from '../actions/noteAction'
 
+import '../styles/NoteView.css'
+
 class NoteView extends React.Component {
     constructor(){
         super();
@@ -47,19 +49,23 @@ class NoteView extends React.Component {
             <div>
                 <div className="note-menu">
                     <div><Link to={`/edit/${this.state.note._id}`}> edit </Link></div>
-                    <div onClick={this.handleDelete}><Link to="/idsort" style={{cursor: "pointer"}} > delete </Link></div>     
-                </div>
-
-                <button onClick={this.handleClick}>
-                        {this.state.isToggleOn ? 'ON' : 'OFF'}
+                    <div onClick={this.handleClick}>
+                        {this.state.isToggleOn ? 'close' : 'delete'}
                         {this.state.isToggleOn && (
-                            <div class="navigation">
-                                <h1> Are you sure you want to delete this? </h1>
-                                <div onClick={this.handleDelete}><Link to="/idsort" style={{cursor: "pointer"}} ><h2> Delete </h2> </Link></div> 
-                                <h2> No </h2>
+                            <div className="navigation">
+                                <div className="delete-box">
+                                    <h2> Are you sure you want to delete this? </h2>
+                                    <div className="box-buttons">
+                                        <div className="delete-button"onClick={this.handleDelete}><Link to="/idsort" style={{cursor: "pointer"}} ><h2> Delete </h2> </Link></div> 
+                                        <div className="cancel-button"> <h2> No </h2> </div>
+                                    </div>
+                                </div>
                             </div>
                         )}
-                </button>
+                    </div>   
+                </div>
+
+              
 
                 <div className="note-container">
                     <div key={this.state.note._id}>
@@ -82,3 +88,5 @@ const mapStateToProps = () => {
 export default connect(mapStateToProps, { deleteNote })(NoteView)
 
 //export default NoteView
+
+//<div onClick={this.handleDelete}><Link to="/idsort" style={{cursor: "pointer"}} > delete </Link></div> 
