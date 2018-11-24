@@ -1,20 +1,27 @@
 import styled from 'styled-components';
 
 export const NoteWrap = styled.div`
+    margin: 0 auto;
+    justify-content: center;
     display: flex;
-    
+    flex-wrap: wrap;
+    background-color: #f2f1f2 ;
 `
 
 export const NoteContent = styled.div`
-    width: 1000px;
-    height: 500px;
-    border: 2px solid black;
-    flex-direction: column;
-    justify-content: space-between;
-
+    width: 200px;
+    height: 250px;
+    border: 1px solid grey;
+    flex-direction: row;
+    margin: 5px;
+    text-align: center;
+    overflow: hidden;
+    background-color: #ffffff ;
 `
 
 export const Title = styled.h1`
-    font-size: 1em;
-    color: blue;
+    text-align: center;
+    font-size: 1.3em;
+    color: #292522;
+    font-style: none;
 `

@@ -6,6 +6,9 @@ import ListView from './components/Display_Components/ListView';
 import CreateNewNote from './components/Display_Components/CreateNewNote';
 import NoteView from './components/Display_Components/NoteView';
 import EditView from './components/Display_Components/EditView';
+import { AppWrap , BtnStyle, HeadStyle, LambdaNotes } from '../src/components/Styles/AppStyle';
+
+
 
 
 
@@ -29,19 +32,20 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
-         <div >
-            <div >
+      <AppWrap>
+        
+         <HeadStyle>
+            <LambdaNotes>
               <h1>Lambda</h1>
               <h1> Notes</h1>
-            </div>
-              <NavLink exact to='/'>
-                <button>View Your Notes</button>
-              </NavLink>
-              <NavLink to='/create'>
-              <button >+ Create New Note</button>
+            </LambdaNotes>
+            <NavLink exact to='/'>
+                <BtnStyle> View your notes </BtnStyle>
             </NavLink>
-          </div>
+            <NavLink to='/create'>
+                <BtnStyle> + Create new note </BtnStyle>
+            </NavLink>
+          </HeadStyle>
         <Route path='/' exact 
           render={ props => <ListView/>}
         />
@@ -56,7 +60,7 @@ class App extends Component {
         <Route path={`/note/edit/:id`} exact
           render={(props) => <EditView notes={this.state.notes} {...props} />}
         />
-      </div>
+      </AppWrap>
     );
   }
 }

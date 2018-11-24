@@ -54,4 +54,4 @@ newNote = (note) => {
 
 
 
-export default CreateNewNote
+export default CreateNewNote;
