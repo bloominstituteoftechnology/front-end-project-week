@@ -42,7 +42,7 @@ class NewNote extends Component {
             <form><input onChange={this.inputHandler} name='title' className='title' placeholder='Note Title' type='text'></input></form>
             <textarea onChange={this.inputHandler} name='textBody' rows="20" cols="100" placeholder='Content Title'></textarea>
 
-            <NavLink activeClassName='selected' to='/home'>
+            <NavLink activeClassName='selected'  to='/home'>
             <button onClick={this.addNote}>Save</button>
             </NavLink>
             

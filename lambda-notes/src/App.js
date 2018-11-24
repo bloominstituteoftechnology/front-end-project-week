@@ -30,8 +30,7 @@ class App extends Component {
 
   componentDidUpdate() {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
-    .then(response => { if (response.data.length !== this.state.notes.length) {
-      this.setState({notes: response.data})}})
+    .then(response => this.setState({notes: response.data}))
     .catch(err => console.log('There is a Note Error'))}
     
 

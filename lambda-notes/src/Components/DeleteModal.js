@@ -29,7 +29,7 @@ class DeleteModal extends Component {
             <div className='deleteContainer'>
             <p> Are you sure you want to delete this? </p>
             <div className='deleteButtons'>
-            <NavLink activeClassName='selected' to='/home'>
+            <NavLink activeClassName='selected' to='/home' >
             <button onClick={this.homeHandler} onClick={this.props.clickForAllHandler} className='red' onClick={() => this.deleteNote(this.props.id)} >Delete</button>
             </NavLink>
             <button onClick={this.props.noHandler}>No</button>
