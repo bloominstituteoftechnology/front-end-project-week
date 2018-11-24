@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+}
+
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+
+.notes  {
+  padding: 15px;
+  width: 200px;
+  border: 1px solid grey;
+  background-color: white;
+  margin-bottom: 30px;
+  height: 22vh;
+  cursor: pointer;
+  overflow: hidden;
+}
+ .form-showing{
+display: block;
+ }
+ .form-notshowing{
+   display:none;
+ }
