@@ -33,7 +33,7 @@ class SingleNote extends Component {
 
     render(){
         let Modal = '';
-        if (this.state.deleteNote === true) {Modal = <DeleteModal clickForAllHandler={this.props.clickForAllHandler} this={this} id={this.state.note._id} noHandler={this.noHandler} notes={this.state.notes}/>}
+        if (this.state.deleteNote === true) {Modal = <DeleteModal clickForAllHandler={this.props.clickForAllHandler} id={this.state.note._id} noHandler={this.noHandler} notes={this.state.notes}/>}
         else { Modal = ''}
         console.log(this.state.note.id)
     return (

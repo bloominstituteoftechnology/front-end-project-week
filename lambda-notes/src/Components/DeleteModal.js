@@ -15,12 +15,13 @@ class DeleteModal extends Component {
         .then( response => this.setState({notes: response.data}))
         .then ( response => this.props.this.setState({deleteNote:false}))
         .catch(err => console.log(err))
+        
       }
 
       homeHandler = () => {
-        window.location.reload();
-      }
-      
+        console.log(window.location)
+        }
+
 
 
     render() {

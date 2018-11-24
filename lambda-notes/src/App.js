@@ -28,11 +28,21 @@ class App extends Component {
   }
   }
 
+  componentDidUpdate() {
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(response => { if (response.data.length !== this.state.notes.length) {
+      this.setState({notes: response.data})}})
+    .catch(err => console.log('There is a Note Error'))}
+    
+
+
   componentDidMount() {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log('There is a Note Error'))
 }
+
+
 
 
   // clickForNewHandler = () => {
@@ -59,7 +69,6 @@ class App extends Component {
   }
 
   clickForAllHandler = () => {
-        window.location.reload();
 
     this.setState ({
       allNotes: true,
@@ -73,6 +82,7 @@ class App extends Component {
     // let Modal = '';
     // if (this.state.deleteNote === true) {Modal = <DeleteModal noHandler={this.noHandler} notes={this.state.notes}/>}
     // else { Modal = ''}
+
     return (
       <div className='Main'>
         <NotesNav clickForAllHandler={this.clickForAllHandler} clickForNewHandler={this.clickForNewHandler} />

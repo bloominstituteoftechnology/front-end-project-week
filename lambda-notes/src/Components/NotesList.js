@@ -15,7 +15,7 @@ class NotesList extends Component {
         return (
             <div className='notesContainer'>
             <h2> Your Notes: </h2>
-            <div className='notesList'>
+            <div className='gridList'>
             {this.props.notes.map( jot => <Link to={`/note/${jot._id}`}><Note title={jot.title} key={jot._id} textBody={jot.textBody} jot={jot} /></Link>)}
             </div>
             </div>

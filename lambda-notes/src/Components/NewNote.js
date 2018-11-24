@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Note from './Note'
 import '../App.css'
 import axios from 'axios'
-import {BrowserRouter as Router,Route, NavLink} from 'react-router-dom';
+import {BrowserRouter as Router,Route, NavLink, Link} from 'react-router-dom';
 
 class NewNote extends Component {
 
@@ -23,7 +23,7 @@ class NewNote extends Component {
         }
 
         addNote = (event) => {
-            event.preventDefault();
+   
             console.log('This is working')
             const tags = this.state.tags;
             const title = this.state.title;

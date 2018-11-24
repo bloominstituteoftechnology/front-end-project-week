@@ -5,26 +5,12 @@
 
 
 
-.All {
-
-}
 
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .noteStyle {
   display: flex;
+  justify-content: center;
   width: 200px;
   flex-direction: column;
   background-color: white;
@@ -59,24 +45,22 @@
 }
 
 .notesContainer {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   padding: 20px;
   z-index: 0;
   background-color: #F2F1F2;
 }
-.notesList {
-  height: 2000px;
-  display: flex;
+.gridList {
+  display: grid;
+  width: 80%;
   flex-direction: column;
+  grid-template-columns: repeat(4, 1fr);
   align-items: flex-start;
   justify-content: flex-start;
-  flex-wrap: wrap;
   padding: 20px;
   z-index: 0;
-
 }
 
 .notesSingle {
@@ -102,15 +86,17 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  max-width: 2000px;
   width: 100%;
 }
 
 nav {
   display: flex;
+  width:30%;
   flex-direction: column;
   position: relative;
   background-color: #D3D2D3;
-  padding:20px;
+  padding:30px;
   z-index: 0;
 }
 
