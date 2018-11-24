@@ -62,7 +62,8 @@
   position: relative;
 } */
 
-.fa-search {
-  height: 30px;
-  width:24px;
+.search {
+  position: absolute;
+  top:32px;
+  left:60px;
 }
