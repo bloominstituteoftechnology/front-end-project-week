@@ -28,20 +28,17 @@ class App extends Component {
   }
   }
 
-  componentDidUpdate() {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-    .then(response => this.setState({notes: response.data}))
-    .catch(err => console.log('There is a Note Error'))}
-    
-
-
+  
   componentDidMount() {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log('There is a Note Error'))
 }
 
-
+  componentDidUpdate() {
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(response => this.setState({notes: response.data}))
+    .catch(err => console.log('There is a Note Error'))}
 
 
   // clickForNewHandler = () => {
