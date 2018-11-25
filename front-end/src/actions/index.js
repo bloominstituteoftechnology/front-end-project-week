@@ -13,6 +13,8 @@ export const getNotes = (filterSort = {}) => dispatch => {
     return axios
         .get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then(({ data }) => {
+            data = data.reverse();
+            
             for (let ind in data) {
                 let note = data[ind];
                 const regexp = /\B\#\w\w+\b/g;
