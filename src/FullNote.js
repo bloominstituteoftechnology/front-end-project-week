@@ -16,6 +16,10 @@ class FullNote extends React.Component {
         }
     }
 
+    componentDidMount(){
+        window.scrollTo(0,0)
+    }
+    
     popup = (e) => {
         e.preventDefault();
         this.setState({

@@ -13,6 +13,8 @@ export const SideBarDiv = styled.div`
     padding-left: 3%;
     padding-right: 2%;
     background-color: rgb(211,210,211);
+    min-height: 800px;
+    max-height: 2000px;
 `;
 
 export const SideBarButton = styled.button`
@@ -63,6 +65,7 @@ export const NoteContainer = styled.div`
     padding-left: 5%;
     background-color: rgb(242, 241, 242);
     flex-wrap: wrap;
+    min-height: 800px;
 `;
 
 export const NoteForm = styled.form`
