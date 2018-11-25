@@ -7,16 +7,22 @@ import SortButton from './styles/SortButton';
 import FontAwesome from 'react-fontawesome';
 
 
-
-
 class Notes extends Component {
     constructor(props){
         super(props);
         this.state = {
             text: '',
-            flag: false
+            flag: false,
+            newSort: false,
+            notes: this.props.notes
+          
         }
     }
+
+    componentDidMount() {
+        this.sortItems(this.props.notes);
+    }
+
     inputHandler = event => {
         this.setState({
             [event.target.name]: event.target.value
@@ -38,9 +44,37 @@ class Notes extends Component {
         
         this.setState({ text: " "})
     }
+    Sort = () => {
+        this.setState({
+            newSort: true
+        })
+    }
+    sortItems = () => {
+        // let newNotes = inputNotes;
+        console.log(this.props.notes);
+        if(this.state.newSort) {
+            for(let i=0; i< this.props.notes.length-1; i++) {
+                if(this.props.notes[i].title.toLowerCase() > this.props.notes[i+1].title.toLowerCase()) {
+                    let temp = this.props.notes[i+1];
+                    this.props.notes[i+1] = this.props.notes[i];
+                    this.props.notes[i] = temp;
+                    // console.log(this.props.notes[i].title)
+                  }
+                //   console.log('working');
+             }
+            
+         }         
+         this.setState({
+             notes:this.props.notes
+         })
+    }
     render() {
         
         let inputValue = this.state.text.toUpperCase();
+        let newNotes = this.props.notes || this.state.notes;
+       
+        
+    //    console.log(newNotes);
         return (
             <>
              <Wrapper>
@@ -51,14 +85,15 @@ class Notes extends Component {
                                  placeholder="Search....."  name="text"
                                  onFocus={this.hideSort}
                                  onBlur={this.showSort}  />
-                     <FontAwesome className='search' name='search' />                                 
+                                                 
                 </form>
                
-                <SortButton style={{display: this.state.flag ? 'none' : 'block' }}>Sort</SortButton>  
+                <SortButton style={{display: this.state.flag ? 'none' : 'block' }} 
+                            onMouseOver={this.Sort} onClick={this.sortItems}>Sort</SortButton>  
                 <div></div>
                 <h2>Your Notes:</h2>
                 <Container>
-                    {this.props.notes.map( (note,index) => {
+                    {newNotes.map( (note,index) => {
                         if(note.title.toUpperCase().includes(inputValue))
                         return(<Note note={note} key={index} />)
                         })} 

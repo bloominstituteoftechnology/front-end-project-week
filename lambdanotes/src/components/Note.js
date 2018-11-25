@@ -6,7 +6,7 @@ class Note extends Component {
     constructor(props){
         super(props);
     }
-
+  
     render() {
         const note = this.props.note;
         return (
