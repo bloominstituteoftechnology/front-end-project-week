@@ -11,7 +11,7 @@
 .noteStyle {
   display: flex;
   justify-content: center;
-  width: 200px;
+  width: 250px;
   flex-direction: column;
   background-color: white;
   align-items: flex-start;
@@ -56,7 +56,7 @@
   display: grid;
   width: 80%;
   flex-direction: column;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: flex-start;
   justify-content: flex-start;
   padding: 20px;
