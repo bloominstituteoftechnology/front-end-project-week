@@ -17,7 +17,7 @@ class App extends React.Component {
 
     /*****Set the initial state**** */
     this.state = {
-      viewPage: null,
+      viewPage: noteList,
       noteList: [],
       inputText: '',
       title: "",
@@ -32,15 +32,16 @@ class App extends React.Component {
   componentDidMount() {
 
     Modal.setAppElement('#root');
-
-    if (localStorage.getItem('viewPage')) {
+    const pageType = "noteList";
+    this.setState(() => ({ viewTrip: pageType }));
+    /* if (localStorage.getItem('viewPage')) {
       let pageType = localStorage.viewPage
 
       this.setState(() => ({ viewPage: pageType }));
     } else {
       let pageType = 'noteList'
       this.setState(() => ({ viewPage: pageType }));
-    }
+    } */
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -102,8 +103,8 @@ class App extends React.Component {
 
   render() {
 
-    let pageType = localStorage.getItem('viewPage');
-    switch (pageType) {
+    /* let pageType = localStorage.getItem('viewPage'); */
+    switch (this.state.viewPage) {
       case 'noteCreate':
         return <div className="App">
           <div className="main-container">
