@@ -15,6 +15,7 @@ export const SideBarDiv = styled.div`
     background-color: rgb(211,210,211);
     min-height: 800px;
     max-height: 2000px;
+    position: fixed;
 `;
 
 export const SideBarButton = styled.button`
@@ -66,6 +67,7 @@ export const NoteContainer = styled.div`
     background-color: rgb(242, 241, 242);
     flex-wrap: wrap;
     min-height: 800px;
+    margin-left: 30%;
 `;
 
 export const NoteForm = styled.form`
@@ -121,7 +123,7 @@ export const SearchContainer = styled.div`
     width: 92%;
     justify-content: space-between;
     align-items: center;
-    margin-left: 1%;
+    margin-left: -1%;
     margin-right: auto;
     margin-bottom: 10px;
 
@@ -141,14 +143,13 @@ export const StandardDiv = styled.div`
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-left: 30%;
 
     h1 {
         color: rgb(65, 65, 65);
         font-size: 2.6rem;
         margin-left: 3%;
         align-self: flex-start;
-        // border: 1px solid pink;
     }
 `;
 
@@ -159,7 +160,6 @@ export const NotesContainer = styled.div`
     justify-content: flex-start;
     background-color: rgb(242, 241, 242);
     flex-wrap: wrap;
-    // border: 1px solid blue;
 `;
 
 export const NoteDiv = styled.div`
@@ -183,19 +183,6 @@ export const NoteDiv = styled.div`
     hr{
         width: 85%;
         border: 1px solid rgb(220, 219, 220);
-    }
-
-    p {
-        font-size: 1.2rem;
-        text-align: left;
-        margin: 0 7% 0 7%;
-        line-height: 22px;
-        display: -webkit-box;
-        -webkit-line-clamp: 6;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        word-wrap: break-word;
-        text-overflow: ellipsis;
     }
 `;
 
@@ -231,16 +218,11 @@ export const FullNoteContainer = styled.div`
     padding-left: 5%;
     background-color: rgb(242, 241, 242);
     flex-wrap: wrap;
+    margin-left: 30%;
 
     h2{
         font-weight: bold;
         font-size: 2.6rem;
-    }
-
-    p{
-        font-size: 1.4rem;
-        width: 80%;
-        text-align: left;
     }
 `;
 

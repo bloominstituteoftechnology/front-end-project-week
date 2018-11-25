@@ -23,3 +23,64 @@
   background-color: white;
   margin-bottom: 10vh;
 }
+
+#markup-container{
+  font-size: 1.4rem;
+  width: 80%;
+  text-align: left;
+  min-width: 40vw;
+}
+
+.quill .ql-container.ql-snow {
+  border: none;
+}
+
+.notes-markup {
+  text-align: left;
+  font-size: 1.2rem;
+  margin: 0 7% 0 7%;
+  width: 90%;
+  overflow: auto;
+  line-height: 2.2rem;
+}
+
+#markup-header p {
+  text-align: left;
+  font-size: 1.2rem;
+  margin-top: 0;
+  width: 90%;
+  overflow: auto;
+  line-height: 2.2rem;
+}
+
+#markup-header h1 {
+  text-align: left;
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+  margin-top: 2%;
+  margin-left: 0;
+  overflow: auto;
+}
+
+#markup-header h2 {
+  text-align: left;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  margin-top: 2%;
+  margin-left: 0;
+  overflow: auto;
+}
+
+#markup-header h3 {
+  text-align: left;
+  font-size: 1.4rem;
+  line-height: 2.0rem;
+  margin-top: 2%;
+  margin-left: 0;
+  overflow: auto;
+}
+
+#markup-header h1:hover {
+  color: rgb(0, 187, 191);
+  cursor: pointer;
+}

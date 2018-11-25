@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { deleteNote } from './actions/index';
 import { withRouter } from 'react-router-dom';
 import { Markup } from 'interweave';
+import '../src/App.css';
 
 import { NoteButton, FullNoteContainer, NoteButtonContainer } from './StyledComponents';
 import DeleteModal from './DeleteModal';
@@ -19,7 +20,7 @@ class FullNote extends React.Component {
     componentDidMount(){
         window.scrollTo(0,0)
     }
-    
+
     popup = (e) => {
         e.preventDefault();
         this.setState({
@@ -52,7 +53,9 @@ class FullNote extends React.Component {
                     <NoteButton onClick={this.popup}>delete</NoteButton>
                 </NoteButtonContainer>
                 <h2>{this.props.currentNote.title}</h2>
-                <Markup content={this.props.currentNote.textBody} />
+                <div id='markup-container'>
+                    <Markup content={this.props.currentNote.textBody} />
+                </div>
 
                 {this.state.delete ? <DeleteModal delete={this.deleter} closeForm={this.closeForm} /> : null }
 
