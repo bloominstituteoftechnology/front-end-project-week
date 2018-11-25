@@ -19,6 +19,9 @@ import AzSort from './components/subroutes/azsort'
 import ZaSort from './components/subroutes/zasort'
 import IdSort from './components/subroutes/idsort'
 
+//react & redux -sort
+import ReactSort from './components/ReactSort'
+
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -142,8 +145,8 @@ class App extends Component {
 
             <li>
               <div>
-                    <button onClick={this.myFunction} class="dropbtn">View Your Notes</button>
-                      <div id="myDropdown" class="dropdown-content">
+                    <button onClick={this.myFunction} className="dropbtn">View Your Notes</button>
+                      <div id="myDropdown" className="dropdown-content">
                         <Link to="/unsorted">Unsorted</Link>
                         <Link to="/azsort">A-Z</Link>
                         <Link to="/zasort">Z-A</Link>
@@ -155,7 +158,9 @@ class App extends Component {
           </ul>
           
           <div className="logoutbutton" onClick={this.handleLogOut}>Log Out </div>
-                
+        
+          <StyledLink to="/reactsort"><div className="button"> React Sort </div></StyledLink>
+          <div className="button"> Redux Sort </div>
             
         </header>
 
@@ -198,6 +203,12 @@ class App extends Component {
               <Route path="/edit/:id"
                 render={props => <UpdateNote {...props} handleUpdateNote={this.handleUpdateNote} notes={this.state.notes}/>}
               />
+
+              <Route path="/reactsort"
+                render={props => <ReactSort {...props} />}
+              />
+
+
         </div>
 
       </div>

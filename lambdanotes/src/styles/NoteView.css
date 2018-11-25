@@ -8,10 +8,10 @@
     width: 680px;
     height: 950px;
     background-color: gray;
-    opacity: 0.9;
+    opacity: 0.8;
     z-index: -1;
     /* transition: 0.8s; */
-    border: 1px solid red;
+    border: 1px solid lightgray;
 }
 
 .delete-box {
@@ -42,7 +42,7 @@
 
 .delete-button {
     border: 1px solid gray;
-    background: red;
+    background: salmon;
     height: 40px;
     width: 120px;
     margin-bottom: 20px;
