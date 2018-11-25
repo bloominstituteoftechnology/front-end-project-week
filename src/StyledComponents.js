@@ -39,6 +39,10 @@ export const SideBarButton = styled.button`
         background: white;
         color: rgb(0, 187, 191);
     }
+
+    @media (max-width: 650px) {
+        height: 8vh;
+    }
 `;
 
 export const Header = styled.h1`
@@ -131,6 +135,19 @@ export const SearchContainer = styled.div`
         text-align: center;
         line-height: 2.0rem;
     }
+
+    @media (max-width: 650px) {
+        flex-direction: column-reverse;
+        width: 80%;
+        align-items: flex-end;
+
+        input{
+            width: 20vw;
+            margin-bottom: 20px;
+        }
+
+
+    }
 `;
 
 //NOTE
@@ -150,6 +167,10 @@ export const StandardDiv = styled.div`
         font-size: 2.6rem;
         margin-left: 3%;
         align-self: flex-start;
+    }
+
+    @media (max-width: 650px) {
+        margin-left: 38%;
     }
 `;
 
@@ -183,6 +204,15 @@ export const NoteDiv = styled.div`
     hr{
         width: 85%;
         border: 1px solid rgb(220, 219, 220);
+    }
+
+    @media (max-width: 800px) {
+        height: 225px;
+    }
+
+    @media (max-width: 650px) {
+        width: 80%;
+        height: 28vh;
     }
 `;
 

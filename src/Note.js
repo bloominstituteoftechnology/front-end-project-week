@@ -9,7 +9,7 @@ const Note = (props) => {
         <NoteDiv onClick={ () => {
             props.getOneNote(props.id);
             props.history.push(`/notes/${props.id}`);}}>
-                    <h2>{props.title}</h2>
+                    <h2 className="note-title">{props.title}</h2>
                     <hr></hr>
                     <div className="notes-markup" id="markup-header">
                         <Markup content={noteContent} />

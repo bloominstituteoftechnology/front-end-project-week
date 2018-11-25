@@ -84,3 +84,8 @@
   color: rgb(0, 187, 191);
   cursor: pointer;
 }
+
+.note-title{
+  width: 90%;
+  overflow: auto;
+}
