@@ -35,6 +35,18 @@ class App extends Component {
       });
   }
 
+  componentDidUpdate(prevState) {
+    instance.get('/get/all')
+      .then(response => {
+        if (this.state.notes.length !== response.data.length) {
+          this.setState(() => ({ notes: response.data }));
+        }
+      })
+      .catch(err => {
+        console.log(err, 'Whoops');
+      });
+  }
+
   render() {
     if (!this.state.notes) {
       return <div>Sorry, there aren't any notes...</div>
