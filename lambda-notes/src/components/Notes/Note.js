@@ -136,14 +136,55 @@ export default class Note extends Component {
 const DeleteModal = (props) => {
   return (
     <Modal isOpen={props.modal} toggle={props.toggle}>
-      <div>Are you sure you want to delete this?</div>
-      <div>
-        <div onClick={props.handleDelete}>Delete</div>
-        <div onClick={props.toggle}>No</div>
-      </div>
+      <ModalText>Are you sure you want to delete this?</ModalText>
+      <ButtonContainer>
+        <DeleteButton onClick={props.handleDelete}>Delete</DeleteButton>
+        <NoButton onClick={props.toggle}>No</NoButton>
+      </ButtonContainer>
     </Modal>
   )
 }
+
+// const ModalContainer = styled.Modal`
+//   border: 1px solid black;
+//   width: 600px;
+// `;
+
+const ModalText = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 45px auto 30px auto;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px;
+`;
+
+const DeleteButton = styled.div`
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0011B;
+  border: 1px solid #B7B7B7;
+  height: 45px;
+  width: 200px;
+  padding: 10px 0;
+`;
+
+const NoButton = styled.div`
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #2AC0C4;
+  border: 1px solid #B7B7B7;
+  height: 45px;
+  width: 200px;
+  padding: 10px 0;
+`;
 
 const Container = styled.div`
   display: flex;

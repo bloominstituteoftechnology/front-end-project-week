@@ -76,3 +76,8 @@ input, textarea {
 p {
 	padding-right: 15px;
 }
+
+.modal {
+	font-family: sans-serif;
+	margin-top: 200px;
+}
