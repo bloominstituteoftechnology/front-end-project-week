@@ -42,19 +42,13 @@ const SbButton = styled.button`
 `
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-
-
   render() {
     return (
       <AppWrapper>
         <Sidebar>
           <h1>Lambda<br/>Notes</h1>
           <SbButton><Link to={`/`}><h2>View Your Notes</h2></Link></SbButton>
-          <SbButton><Link exact to={`/AddNote/new`}><h2>+ Create New Note</h2></Link></SbButton>
+          <SbButton><Link to={`/AddNote/new`}><h2>+ Create New Note</h2></Link></SbButton>
         </Sidebar>
         <Route exact path="/" component={List} />
         <Route exact path="/AddNote/new" component={AddNote} />
