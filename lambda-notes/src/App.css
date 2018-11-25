@@ -55,7 +55,7 @@ body {
 .App {
 	font-family: sans-serif;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 900px;
   padding: 15px;
   margin: 0, auto;
@@ -64,4 +64,11 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+
+input, textarea {
+	-webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+	 -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+				box-sizing: border-box;
 }

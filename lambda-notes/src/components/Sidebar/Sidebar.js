@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 const SidebarContainer = styled.div`
@@ -17,8 +18,8 @@ const SidebarHeader = styled.h1`
 `;
 
 const SidebarButton = styled.div`
-  /* text-align: center; */
   display: flex;
+  justify-content: center;
   align-items: center;
   color: #FFFFFF;
   background: #24B8BD;
@@ -38,8 +39,12 @@ export default class Sidebar extends Component {
     return (
       <SidebarContainer>
         <SidebarHeader>Lambda Notes</SidebarHeader>
-        <SidebarButton>View Your Notes</SidebarButton>
-        <SidebarButton>+ Create New Note</SidebarButton>
+        <Link to='/'>
+          <SidebarButton>View Your Notes</SidebarButton>
+        </Link>
+        <Link to='/create'>
+          <SidebarButton>+ Create New Note</SidebarButton>
+        </Link>
       </SidebarContainer>
     )
   }
