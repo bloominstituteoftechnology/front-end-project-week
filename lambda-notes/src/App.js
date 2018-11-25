@@ -38,7 +38,7 @@ class App extends Component {
   componentDidUpdate(prevState) {
     instance.get('/get/all')
       .then(response => {
-        if (this.state.notes.length !== response.data.length) {
+        if (this.state.notes !== response.data) {
           this.setState(() => ({ notes: response.data }));
         }
       })
