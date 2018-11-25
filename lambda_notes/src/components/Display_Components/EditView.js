@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { NoteBody } from '../Styles/NoteViewStyle';
 import { BtnStyle } from '../Styles/AppStyle';
-import { FormStyle, TitleInputStyle, ContentInputStyle ,  FormWrap } from '../Styles/EditViewStyle';
+import { FormStyle, TitleInputStyle, ContentInputStyle , FormWrap, BtnWrap } from '../Styles/EditViewStyle';
 
 
 export default class EditView extends Component {
@@ -56,7 +56,9 @@ submitHandler = (e) => {
                     <TitleInputStyle  type="text" name="title" placeholder="Note Title" onInput={this.inputHandler} ></TitleInputStyle>
                     <ContentInputStyle  type="text" name="textBody" placeholder="Note Content"  onInput={this.inputHandler}>
                     </ContentInputStyle>
-                    <BtnStyle type='submit'>Save</BtnStyle>
+                    <BtnWrap>
+                        <BtnStyle type='submit'>Save</BtnStyle>
+                    </BtnWrap>
                 </FormStyle>
             </FormWrap>
             </NoteBody>

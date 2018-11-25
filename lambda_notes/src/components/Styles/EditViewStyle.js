@@ -14,6 +14,12 @@ export const FormWrap = styled.div`
     }
 `
 
+
+export const BtnWrap = styled.div`
+        margin: 0 0 0 10px;
+`
+
+
 export const TitleInputStyle = styled.input`
     height: 30px ;
     width: 300px ;

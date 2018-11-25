@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { FormStyle, ContentInputStyle, TitleInputStyle } from '../Styles/EditViewStyle';
 import { BtnStyle } from '../Styles/AppStyle';
-import { FormFormat } from '../Styles/CreateNoteStyle';
+import { FormFormat, BtnWrap } from '../Styles/CreateNoteStyle';
 
 
 class CreateNewNote extends Component {
@@ -46,11 +46,11 @@ newNote = (note) => {
             <FormFormat>
                 <h2>Create New Note:</h2>
                 <FormStyle onSubmit={this.submitHandler}>
-                    <TitleInputStyle type='text' name='title' onInput={this.inputHandler}></TitleInputStyle>
-                    <ContentInputStyle type='textBox' name='textBody' onInput={this.inputHandler}></ContentInputStyle>
-                    
-                    <BtnStyle type="submit">Add Note</BtnStyle>
-                
+                    <TitleInputStyle type='text' name='title' placeholder="Note Title" onInput={this.inputHandler}></TitleInputStyle>
+                    <ContentInputStyle type='textBox' name='textBody' placeholder="Note Content" onInput={this.inputHandler}></ContentInputStyle>
+                    <BtnWrap>
+                      <BtnStyle type="submit">Add Note</BtnStyle>
+                    </BtnWrap>
                 </FormStyle>
             </FormFormat>
         )
