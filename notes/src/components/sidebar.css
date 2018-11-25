@@ -1,0 +1,20 @@
+.button {
+	background-color: #24B8BD;
+	font-size: 16px;
+	width: 84%;
+	height: 36px;
+	color: white;
+	font-weight: bold;
+	justify-content: center;
+	margin: 17px auto;
+	display: flex;
+	align-items: center;
+	padding: 3px;
+	letter-spacing: 0.5;
+}
+.button:hover {
+	background-color: rgba(220, 202, 224, 0.89);
+	transition: 0.5s;
+	font-weight: bold;
+	font-size: 17px;
+}

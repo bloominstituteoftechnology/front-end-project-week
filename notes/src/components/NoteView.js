@@ -21,16 +21,16 @@ export default class NoteView extends React.Component  {
       .catch( (error) => console.error(error) );
   };
    
-  handleDelete = (event) => {
-    event.preventDefault();
+  handleDelete = (e) => {
+    e.preventDefault();
     document.querySelector(".deleteOverlay").classList.toggle("hidden");
   };
 
-  cancelDelete = (event) => {
+  cancelDelete = (e) => {
     document.querySelector(".deleteOverlay").classList.toggle("hidden");
   };
    
-  confirmedDelete = (event) => {
+  confirmedDelete = (e) => {
     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
       .then( () => {
         this.setState( () => ({ redirect: true }) );
@@ -45,9 +45,9 @@ export default class NoteView extends React.Component  {
       return(
         <div>
           <div className="deleteOverlay hidden">
-            <div className="deleteBox">
+            <div className="delete">
               <div className='deleteText'>Are you sure you want to delete this?</div>
-              <div className="deleteButtons">
+              <div className="deleteButton">
                 <div className= "buttonRed" onClick={this.confirmedDelete}>Delete</div>
                 <div className="buttonBlue" onClick={this.cancelDelete}>No</div>
               </div>
