@@ -1,4 +1,4 @@
 [build]
  base    = "front-end-project-week"
- publish = "notes/build"
+ publish = "/build"
  command = "yarn build"
