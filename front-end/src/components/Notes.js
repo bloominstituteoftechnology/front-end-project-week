@@ -4,12 +4,12 @@ import styled from "styled-components";
 import {Route, Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {getNotes} from "../actions";
-import {FlexRow} from "./Styled";
+import {FlexRow} from "./Styles/Components";
 import Note from "./Note";
 import CreateNote from "./CreateNote";
 import NoteView from "./ViewNote";
 import NoteEdit from "./EditNote";
-import {Modal} from "./Styled";
+import {Modal} from "./Styles/Components";
 
 const Container = styled(FlexRow)`
     color: #8C8C8C;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Link, withRouter} from "react-router-dom";
 import styled from "styled-components";
-import {FlexRow, FlexColumn, Button, Search} from "./Styled";
+import {FlexRow, FlexColumn, Button, Search} from "./Styles/Components";
 import {getNotes} from "../actions";
 import {connect} from "react-redux";
 

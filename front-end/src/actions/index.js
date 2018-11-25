@@ -13,6 +13,19 @@ export const getNotes = (filterSort = {}) => dispatch => {
     return axios
         .get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then(({ data }) => {
+            for (let ind in data) {
+                let note = data[ind];
+                const regexp = /\B\#\w\w+\b/g;
+                let tag = note.textBody.match(regexp);
+
+                if (tag) {
+                    note.tags = tag.map(t => {
+                        data[ind].textBody = note.textBody.replace(t, "");
+                        return t.replace("#", "")
+                    })
+                }
+            }
+
             if (sort) {
                 data.sort((a, b) => (a[sort].toLowerCase() > b[sort].toLowerCase()) ? 1 : ((b[sort].toLowerCase() > a[sort].toLowerCase()) ? -1 : 0));
             }
@@ -43,6 +56,10 @@ export const getNote = id => dispatch => {
 
 export const createNote = note => dispatch => {
     dispatch({ type: WORKING });
+
+    for (let tag of note.tags) {
+        note.textBody += ` #${tag} `
+    }
 
     return axios
         .post(`https://fe-notes.herokuapp.com/note/create`, note)

@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { PrimaryColor, SecondaryColor, InvertedColor, PrimaryHoverColor, TextColor, GreyBorderColor } from './Colors';
 
 export const FlexRow = styled.div.attrs({
     justifyContent: props => props.justifyEnd ? `flex-end` : props.justifyBetween ? `space-between` : props.justifyAround ? `space-around` : props.justifyCenter ? `center` : `flex-start`,
@@ -76,8 +77,8 @@ export const Paper = styled.div`
 `;
 
 export const Button = styled.button.attrs({
-    background: props => props.primary ? "#EA4C88" : props.inverted ? "#292929" : "transparent",
-    color: props => props.primary ? "white" : "#8C8C8C",
+    background: props => props.primary ? PrimaryColor : props.inverted ? InvertedColor : "transparent",
+    color: props => props.primary ? "white" : TextColor,
     width: props => props.full ? "100%" : "auto"
 })`
     background: ${({background}) => background};
@@ -90,13 +91,13 @@ export const Button = styled.button.attrs({
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: ${({border}) => border ? "1px solid #e0e0e0" : "none"};
+    border: ${({border}) => border ? `1px solid ${GreyBorderColor}` : "none"};
     border-radius: 6px;
     cursor: pointer;
     
     :hover {
-      background: ${props => props.primary ? "#d14578" : props.inverted ? "#191919" : "#ebebeb"};
-      color: ${props => props.primary || props.inverted ? "white" : "#292929"};
+      background: ${props => props.primary ? PrimaryHoverColor : props.inverted ? "#191919" : GreyBorderColor};
+      color: ${props => props.primary || props.inverted ? "white" : InvertedColor};
     }
 `;
 
@@ -110,10 +111,10 @@ export const Text = styled.p`
     overflow: hidden;
 `;
 
-export const Input = styled.input`
+export const InputL = styled.input`
     padding: 20px;
     width: 100%;
-    border: 4px dotted #e0e0e0;
+    border: 4px dotted ${GreyBorderColor};
     border-radius: 6px;
     box-sizing: border-box;
     margin: 20px 0;
@@ -121,12 +122,23 @@ export const Input = styled.input`
     font-weight: bold;
 `;
 
+export const Input = styled.input`
+    padding: 20px;
+    width: 100%;
+    border: 4px dotted ${GreyBorderColor};
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+`;
+
 export const TextArea = styled.textarea`
     padding: 20px;
     width: 100%;
     height: 200px;
-    border: 4px dotted #e0e0e0;
-    margin: 10px 0 40px 0;
+    border: 4px dotted ${GreyBorderColor};
+    margin: 10px 0;
     border-radius: 6px;
     box-sizing: border-box;
     font-size: 1.8rem;
@@ -141,4 +153,24 @@ export const Search = styled.input`
     box-sizing: border-box;
     background: #c8c7c7;
     font-size: 1.8rem;
+`;
+
+export const Tag = styled(FlexRow)`
+    border-radius: 6px;
+    padding: 5px;
+    border: thin solid ${SecondaryColor};
+    color: ${SecondaryColor};
+    font-size: 1.8rem;
+    margin: 0 10px;
+    cursor: pointer;
+    
+    &:first-child {
+        margin-left: 0;
+    }
+    
+    &:hover {
+        background: ${SecondaryColor};
+        color: white;
+        border: none;
+    }
 `;

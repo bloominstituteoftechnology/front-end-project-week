@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {Link, withRouter} from "react-router-dom";
-import {Modal, Paper} from './Styled';
+import {Modal, Paper} from './Styles/Components';
 import { getNote, deleteNote } from "../actions";
 import { connect } from "react-redux";
-import { FlexColumn, FlexRow, Title, Text, Button } from "./Styled";
+import { FlexColumn, FlexRow, Title, Text, Button } from "./Styles/Components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class NoteView extends Component {
