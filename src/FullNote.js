@@ -5,8 +5,9 @@ import { withRouter } from 'react-router-dom';
 import { Markup } from 'interweave';
 import '../src/App.css';
 
-import { NoteButton, FullNoteContainer, NoteButtonContainer } from './StyledComponents';
+import { NoteButton, FullNoteContainer, NoteButtonContainer, OuterDiv } from './StyledComponents';
 import DeleteModal from './DeleteModal';
+import Spinner from './Spinner';
 
 
 class FullNote extends React.Component {
@@ -14,11 +15,17 @@ class FullNote extends React.Component {
         super(props);
         this.state={
             delete: false,
+            loading: true,
         }
     }
 
     componentDidMount(){
-        window.scrollTo(0,0)
+        window.scrollTo(0,0);
+        setTimeout(()=>{
+            this.setState({
+                loading: false
+            })
+        }, 500)
     }
 
     popup = (e) => {
@@ -45,9 +52,12 @@ class FullNote extends React.Component {
     }
 
     render(){
-        if(!this.props.currentNote) return null;        
-        return(
-            <FullNoteContainer id="full-note">
+        if(!this.props.currentNote) return null; 
+               
+        return(            
+            <OuterDiv>
+            {this.state.loading ? <Spinner/> : (
+                <FullNoteContainer id="full-note">
                 <NoteButtonContainer>
                     <NoteButton onClick={this.updateRoute}>edit</NoteButton>
                     <NoteButton onClick={this.popup}>delete</NoteButton>
@@ -56,18 +66,17 @@ class FullNote extends React.Component {
                 <div id='markup-container'>
                     <Markup content={this.props.currentNote.textBody} />
                 </div>
-
-                {this.state.delete ? <DeleteModal delete={this.deleter} closeForm={this.closeForm} /> : null }
-
-            </FullNoteContainer>
+            </FullNoteContainer> )}
+            {this.state.delete ? <DeleteModal delete={this.deleter} closeForm={this.closeForm} /> : null }
+            </OuterDiv>   
+            
         )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        currentNote: state.currentNote
-    }
+        currentNote: state.currentNote    }
 };
 
 export default withRouter(connect(mapStateToProps, { deleteNote })(FullNote));

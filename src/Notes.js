@@ -4,6 +4,7 @@ import { getNotes, getOneNote } from './actions/index';
 import Note from './Note';
 import '../src/index';
 import { NotesContainer, StandardDiv, SearchContainer } from './StyledComponents';
+import Spinner from './Spinner';
 
 
 class Notes extends React.Component {
@@ -11,6 +12,7 @@ class Notes extends React.Component {
         super(props);
         this.state = {
             input: '',
+            loading: false
         }
     }
     componentDidMount(){
@@ -38,11 +40,12 @@ class Notes extends React.Component {
                         <input onChange={this.inputHandler} type="text" placeholder="&#x1f50D; Search"></input>
                     </form>
                 </SearchContainer>
+                {this.state.loading ? <Spinner/> : (
                 <NotesContainer>
                     {currentDisplay.map( note => 
                         < Note key={note._id} id={note._id} text={note.textBody} title={note.title} getOneNote={this.props.getOneNote} history={this.props.history}/> 
                     ).reverse()}
-                </NotesContainer>
+                </NotesContainer> ) }
             </StandardDiv>
         )
     }

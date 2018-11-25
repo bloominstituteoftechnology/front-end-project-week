@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 
 //SIDEBAR
@@ -259,12 +259,27 @@ export const NoteButtonContainer = styled.div`
 
 export const FullNoteContainer = styled.div`
     display: flex;
-    // height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: rgb(242, 241, 242);
+    flex-wrap: wrap;
+    overflow: scroll;
+
+    h2{
+        font-weight: bold;
+        font-size: 2.6rem;
+    }
+`;
+
+export const OuterDiv = styled.div`
+    display: flex;
     width: 75%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     padding-left: 5%;
+    padding-right: 5%;
     background-color: rgb(242, 241, 242);
     flex-wrap: wrap;
     margin-left: 30%;
@@ -274,17 +289,8 @@ export const FullNoteContainer = styled.div`
         font-weight: bold;
         font-size: 2.6rem;
     }
-
-    // @media (max-width: 450px) {
-    //     min-height: 100vh;
-    //     max-height: 5000px;
-
-    //     h2{
-    //         font-size: 2.4rem;
-    //         text-align: left;
-    //     }
-    }
 `;
+  
 
 //DELETE MODAL
 
