@@ -34,7 +34,6 @@
   height: 2px;
   background-color: #C4C4C4;
   width: 100%;
-
 }
 
 .fullText {
@@ -85,13 +84,14 @@
 .Main {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   max-width: 2000px;
   width: 100%;
 }
 
 nav {
   display: flex;
+  max-width:340px;
   width:30%;
   flex-direction: column;
   position: relative;
