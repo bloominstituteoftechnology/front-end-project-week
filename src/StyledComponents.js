@@ -43,12 +43,22 @@ export const SideBarButton = styled.button`
     @media (max-width: 650px) {
         height: 8vh;
     }
+
+    @media (max-width: 400px) {
+        height: 10vh;
+        font-size: 1.2rem;
+        width: 24vw;
+    }
 `;
 
 export const Header = styled.h1`
     color: rgb(65, 65, 65);
     text-align: left;
     font-size: 3.4rem;
+
+    @media (max-width: 415px) {
+        font-size: 2.4rem;
+    }
 `;
 
 //CREATENOTE
@@ -213,6 +223,10 @@ export const NoteDiv = styled.div`
     @media (max-width: 650px) {
         width: 80%;
         height: 28vh;
+    }
+
+    @media (max-width: 350px) {
+        height: 35vh;
     }
 `;
 
