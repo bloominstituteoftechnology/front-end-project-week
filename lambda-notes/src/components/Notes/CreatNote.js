@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { instance } from '../../utils';
 import styled, { css } from 'styled-components';
 
 const Form = styled.form`
@@ -44,6 +45,7 @@ const SaveButton = styled.div`
   width: 200px;
   padding: 10px 0;
   margin: 15px 0;
+  cursor: pointer;
 `;
 
 export default class CreateNote extends Component {
@@ -55,21 +57,47 @@ export default class CreateNote extends Component {
     }
   }
 
-  handleInput() {
-
+  handleInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
-  onSubmit() {
-
+  onSubmit = (e) => {
+    e.preventDefault();
+    instance.post('/create', {
+      title: this.state.noteTitle,
+      textBody: this.state.noteContent
+    })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log('Whoops, unable to create a note!', err);
+      })
+    this.setState({
+      noteTitle: '',
+      noteContent: ''
+    });
   }
 
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.onSubmit}>
         <Label for="New Note">Create New Note:</Label>
-        <TitleInput type="text" name="Title" placeholder="Note Title" />
-        <NoteContent type="textarea" name="Note Content" placeholder="Note Content" />
-        <SaveButton type="submit">Save</SaveButton>
+        <TitleInput
+          type="text"
+          name="noteTitle"
+          placeholder="Note Title"
+          value={this.state.noteTitle}
+          onChange={this.handleInput} />
+        <NoteContent
+          type="textarea"
+          name="noteContent"
+          placeholder="Note Content"
+          value={this.state.noteContent}
+          onChange={this.handleInput} />
+        <SaveButton type="submit" onClick={this.onSubmit}>Save</SaveButton>
       </Form>
     );
   }

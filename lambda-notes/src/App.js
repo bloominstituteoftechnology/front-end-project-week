@@ -28,7 +28,6 @@ class App extends Component {
   componentDidMount() {
     instance.get('/get/all')
       .then(response => {
-        console.log(response);
         this.setState(() => ({ notes: response.data }));
       })
       .catch(err => {
