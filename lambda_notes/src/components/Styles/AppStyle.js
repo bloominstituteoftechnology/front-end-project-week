@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const AppWrap = styled.div`
     margin: 20% auto;
-    height: auto;
     width: 880px;
     padding: 0;
     display: flex;
@@ -18,6 +17,7 @@ export const NoteContent = styled.div`
     display: flex;
     height: 800px;
     overflow: scroll ;
+    background-color: #f2f1f2;
     
     
 `
