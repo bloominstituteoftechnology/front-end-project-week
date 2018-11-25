@@ -1,54 +1,121 @@
-import React, { Component } from "react";
-import { Route } from "react-router-dom";
-import logo from "./logo.svg";
-import "./App.css";
-import NoteForm from "./components/NoteForm";
-import NoteList from "./components/NoteList";
-import axios from "axios";
+import React, { Component } from 'react';
+import './App.css';
+import Sidebar from './components/sidebar'; 
+import Notes from './components/Notes'; 
+import {Route} from 'react-router-dom'; 
+import  CreateNew  from './components/CreateNew';
+import  NoteView   from './components/NoteView'; 
+import axios from 'axios'
+import { Edit } from './components/Edit.js'
 
-class App extends React.Component {
-  constructor() {
-    super();
+class App extends Component {
+  constructor(){
+    super(); 
     this.state = {
-      notes: [{ _id: null }],
-      newId: 0
-    };
+      notes: [],
+      newId: 3,
+      id: null,
+      title: '',
+      textBody: ''
+    }  
   }
 
-  componentDidMount() {
+  componentDidMount(){
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+    .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(response => {
-        this.setState({ notes: response.data });
+        this.setState({notes: response.data})
       })
-      .catch(err => console.log(err));
-  }
+        .catch(err => console.log(err)); 
+}
 
-  noteSubmit = (title, content) => {
+  inputChange = e => {
+    e.preventDefault();
     this.setState({
-      notes: [
-        ...this.state.notes,
-        { title: title, textBody: content, id: this.state.newId }
-      ],
-      newID: this.state.newId + 1
+      newNote: {
+        ...this.state.newNote,
+        [e.target.name]: e.target.value
+      }
     });
   };
+
+  addNote = () => {
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", this.state.newNote)
+      .then(response =>
+        this.setState({
+          newNote: { title: "", textBody: "" }
+        })
+      )
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  updateNote = id => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
+      .then(response =>
+        this.setState({
+          newNote: { title: "", textBody: "" }
+        })
+      )
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+    newNote = (newtitle, content) => {
+      this.setState({
+        notes:[
+          ...this.state.notes, 
+          {title: newtitle, textBody: content, id: this.state.newId}
+        ],
+        newId: this.state.newId + 1
+      })
+    }
 
   render() {
     return (
       <div className="App">
-        <Route
-          path="/noteform"
-          render={props => (
-            <NoteForm
+        <div className="sidebar-container">
+          <Sidebar />
+        </div> 
+        <div className="notes-container">
+          <Route 
+            exact path='/' 
+            render = {props => <Notes {...props} 
+            notes={this.state.notes} />}  
+          />
+          
+          <Route 
+            path='/CreateNew' 
+            render = { props=> (
+              <CreateNew
+                {...props}
+                notes={this.state.notes}
+                id={this.state.newId}    
+                newNote={this.newNote}
+              />)}
+          /> 
+
+          <Route exact path='/NoteView/:id' render={props => (
+            <NoteView
               {...props}
               notes={this.state.notes}
-              id={this.state.newId}
-              noteSubmit={this.state.noteSubmit}
-            />
-          )}
-        />
-        <NoteList notes={this.state.notes} />
+            />)} 
+          />  
+
+          <Route exact path='/Edit/:id' render={props => (
+            <Edit 
+              {...props}
+              notes={this.state.notes}
+              inputChange={this.inputChange}
+              newNote={this.newNote}
+              updateNote={this.updateNote}
+            />)}
+          />
+        </div> 
       </div>
     );
   }
