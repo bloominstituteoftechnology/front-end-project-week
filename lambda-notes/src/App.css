@@ -194,7 +194,7 @@ h5:hover {
   justify-content: center;
   align-items: center;
   align-self: center;
-  box-shadow: 0 0 20px 5px black; 
+  box-shadow: 0 0 15px 5px black, 0 0 1000px 1000px rgba(0, 0, 0, 0.5); 
 }
 
 .singleContainer {
