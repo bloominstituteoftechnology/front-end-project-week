@@ -22,6 +22,7 @@
   height: 400px;
   background-color: white;
   margin-bottom: 10vh;
+  overflow: scroll;
 }
 
 #markup-container{
@@ -29,6 +30,7 @@
   width: 80%;
   text-align: left;
   min-width: 40vw;
+  overflow: scroll;
 }
 
 .quill .ql-container.ql-snow {

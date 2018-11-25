@@ -47,7 +47,7 @@ class FullNote extends React.Component {
     render(){
         if(!this.props.currentNote) return null;        
         return(
-            <FullNoteContainer>
+            <FullNoteContainer id="full-note">
                 <NoteButtonContainer>
                     <NoteButton onClick={this.updateRoute}>edit</NoteButton>
                     <NoteButton onClick={this.popup}>delete</NoteButton>

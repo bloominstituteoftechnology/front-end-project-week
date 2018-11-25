@@ -89,6 +89,7 @@ export const NoteForm = styled.form`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    }
 `;
 
 export const FormTitle = styled.input`
@@ -127,6 +128,10 @@ export const SubmitButton = styled.button`
         border: 2px solid rgb(0, 187, 191);
         background: white;
         color: rgb(0, 187, 191);
+    }
+
+    @media (max-width: 500px) {
+        margin-top: -30px;
     }
 `;
 
@@ -254,7 +259,7 @@ export const NoteButtonContainer = styled.div`
 
 export const FullNoteContainer = styled.div`
     display: flex;
-    height: 100vh;
+    // height: 100vh;
     width: 75%;
     flex-direction: column;
     justify-content: flex-start;
@@ -263,10 +268,21 @@ export const FullNoteContainer = styled.div`
     background-color: rgb(242, 241, 242);
     flex-wrap: wrap;
     margin-left: 30%;
+    overflow: scroll;
 
     h2{
         font-weight: bold;
         font-size: 2.6rem;
+    }
+
+    // @media (max-width: 450px) {
+    //     min-height: 100vh;
+    //     max-height: 5000px;
+
+    //     h2{
+    //         font-size: 2.4rem;
+    //         text-align: left;
+    //     }
     }
 `;
 
