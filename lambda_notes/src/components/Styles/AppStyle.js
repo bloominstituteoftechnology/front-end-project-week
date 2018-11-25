@@ -30,6 +30,9 @@ export const BtnStyle = styled.button`
     height: 40px;
     width: 200px;
     padding: 0;
+        :hover {
+          cursor: pointer;  
+        }
 `
 
 export const HeadStyle = styled.div`

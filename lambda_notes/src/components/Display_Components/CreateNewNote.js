@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-
+import { FormStyle, ContentInputStyle, TitleInputStyle } from '../Styles/EditViewStyle';
+import { BtnStyle } from '../Styles/AppStyle';
+import { FormFormat } from '../Styles/CreateNoteStyle';
 
 
 class CreateNewNote extends Component {
@@ -41,13 +43,16 @@ newNote = (note) => {
     render() {
         console.log(this.props)
         return (
-            <div>
-                <form onSubmit={this.submitHandler}>
-                    <input type='text' name='title' onInput={this.inputHandler}></input>
-                    <input type='textBox' name='textBody' onInput={this.inputHandler}></input>
-                    <button type="submit">Add Note</button>
-                </form>
-            </div>
+            <FormFormat>
+                <h2>Create New Note:</h2>
+                <FormStyle onSubmit={this.submitHandler}>
+                    <TitleInputStyle type='text' name='title' onInput={this.inputHandler}></TitleInputStyle>
+                    <ContentInputStyle type='textBox' name='textBody' onInput={this.inputHandler}></ContentInputStyle>
+                    
+                    <BtnStyle type="submit">Add Note</BtnStyle>
+                
+                </FormStyle>
+            </FormFormat>
         )
     }
 }

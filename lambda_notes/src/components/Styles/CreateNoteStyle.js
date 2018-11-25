@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 
 
-export const noteTitle = styled.input`
-        height: 300px;
-        width: 400px;
-
-
+export const FormFormat = styled.div`
+        margin: 20px 0 10px 250px ;
+        width: 600px;
 `

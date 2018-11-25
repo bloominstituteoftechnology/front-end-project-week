@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import {NoteBody} from '../Styles/NoteViewStyle';
+import { NoteBody } from '../Styles/NoteViewStyle';
+import { BtnStyle } from '../Styles/AppStyle';
+import { FormStyle, TitleInputStyle, ContentInputStyle ,  FormWrap } from '../Styles/EditViewStyle';
 
 
 export default class EditView extends Component {
@@ -48,11 +50,15 @@ submitHandler = (e) => {
     render() {
         return (
             <NoteBody>
-            <form onSubmit={this.submitHandler}> 
-                <button type='submit'>Save</button>
-                <input  type="text" name="title" placeholder={this.props.title} onInput={this.inputHandler} ></input>
-                <input  type="textBox" name="textBody" value={this.state.textBody}  onInput={this.inputHandler} />
-            </form>
+            <FormWrap>
+                <h2>Edit Note:</h2>
+                <FormStyle onSubmit={this.submitHandler}> 
+                    <TitleInputStyle  type="text" name="title" placeholder="Note Title" onInput={this.inputHandler} ></TitleInputStyle>
+                    <ContentInputStyle  type="text" name="textBody" placeholder="Note Content"  onInput={this.inputHandler}>
+                    </ContentInputStyle>
+                    <BtnStyle type='submit'>Save</BtnStyle>
+                </FormStyle>
+            </FormWrap>
             </NoteBody>
         )
     }
