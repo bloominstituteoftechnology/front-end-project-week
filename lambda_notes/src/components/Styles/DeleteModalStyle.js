@@ -1,6 +1,18 @@
 import styled from 'styled-components';
 
 
+export const ModalText = styled.p`
+    text-align: center ;
+`
+
+export const ButtonWrap = styled.div`
+    button {
+        margin: 5px;
+    }
+
+`
+
+
 export const DangerBtn = styled.button`
     background-color: #ca001a;
     color: #fbfafb;
