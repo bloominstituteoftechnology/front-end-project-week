@@ -52,6 +52,7 @@ class Notes extends Component {
     sortItems = () => {
         // let newNotes = inputNotes;
         console.log(this.props.notes);
+        let myNotes = [];
         if(this.state.newSort) {
             for(let i=0; i< this.props.notes.length-1; i++) {
                 if(this.props.notes[i].title.toLowerCase() > this.props.notes[i+1].title.toLowerCase()) {
@@ -60,12 +61,14 @@ class Notes extends Component {
                     this.props.notes[i] = temp;
                     // console.log(this.props.notes[i].title)
                   }
+                  myNotes.push(this.props.notes[i]);
                 //   console.log('working');
              }
             
          }         
          this.setState({
-             notes:this.props.notes
+             notes:myNotes,
+            
          })
     }
     render() {
