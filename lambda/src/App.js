@@ -3,8 +3,6 @@ import './App.css';
 
 import { connect } from 'react-redux';
 
-import axios from 'axios';
-
 import NotesList from './sub-components/notesList';
 import NewNote from './sub-components/newNote';
 import NoteProfile from './sub-components/noteProfile';

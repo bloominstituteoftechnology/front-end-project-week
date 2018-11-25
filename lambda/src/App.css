@@ -62,17 +62,15 @@ input {
 ::placeholder {
   padding-left: 2%;
   font-weight: bold;
+  font-size: 1rem;
 }
 input:focus {
   background-color: rgb(3, 190, 190);
   font-weight: bold;
 }
-::-webkit-input-placeholder:focus {
-  animation-name: PlaceholderMovement;
-  animation-duration: 2s;
-}
 textarea {
   font-family: sans-serif;
+  width: 99%;
 }
 textarea::placeholder {
   padding-top: 2%;
@@ -137,6 +135,12 @@ textarea:focus {
   font-size: .75rem;
   text-align: left;
 }
+.list-view .notes-section .notes-search {
+  height: 20px;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 1%;
+}
 .list-view .notes-section .notes-title {
   /* background-color: whitesmoke; */
   color: grey;
@@ -173,7 +177,6 @@ textarea:focus {
   margin-bottom: 5%;
 }
 .create-view .new-note-section {
-  border: 1px solid;
   width: 75%;
   margin-bottom: 250px;
 }
@@ -185,7 +188,6 @@ textarea:focus {
   flex-direction: column;
   justify-content: space-evenly;
   text-align: left;
-  border: 1px solid;
 }
 .create-view .new-note-section .new-note-form .note-title-input {
   width: 60%;
@@ -198,7 +200,6 @@ textarea:focus {
 .create-view .new-note-section .new-note-form button {
   width: 30%;
   height: 40px;
-  margin: auto;
   background-color: rgb(3, 190, 190);
   cursor: pointer;
   font-size: 1rem;

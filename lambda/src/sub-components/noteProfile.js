@@ -5,9 +5,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { deleteNoteAction } from '../Actions/notesActions';
 
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-import UpdateNote from './updateNote';
 
 class NoteProfile extends React.Component {
     constructor(props) {

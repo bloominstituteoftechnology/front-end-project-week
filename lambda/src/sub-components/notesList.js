@@ -11,6 +11,7 @@ const NotesList = props => {
                 </div>
                 <div className='notes-section'>
                     <h3 className='notes-title'>Your Notes:</h3>
+                    <input className='notes-search' placeholder='Search'></input>
                     {props.notesList.map((eachNote) => {
                         return (
                             <NavLink to={`/note/${eachNote._id}`} key={eachNote._id} className='navlink' exact activeClassName='navlink-selected' >
