@@ -48,15 +48,20 @@ this.props.deleteNote(id)
   render() {
     return (
       <div className="viewNote">
+      <div className="links">
+      <h3 onClick={this.submitHandler} >edit</h3>
+      <h3 onClick={this.toggle}>delete</h3>
+      </div>
       <h1>{this.state.title}</h1>
         <p>{this.state.text}</p>
-        <Button onClick={this.submitHandler} color="primary">Edit Note</Button>
-        <Button onClick={this.toggle} color="danger">Delete Note</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalBody>
+        
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <ModalBody className="deleteModal">
             <h1>Are You Sure You Want To Delete This Note?</h1>
+            <div className="buttonsModal">
             <Button onClick={this.deleteHandler}color="danger">Yes</Button>
             <Button onClick={this.toggle} color="primary">No</Button>
+            </div>
           </ModalBody>
          </Modal>
     

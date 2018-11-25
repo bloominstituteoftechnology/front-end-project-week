@@ -23,7 +23,7 @@ class CreateNote extends Component {
   render() {
     return (
       <div className="createNote">
-        <h1>Create Note</h1>
+        <h1>Create New Note:</h1>
         <form onSubmit={this.submitHandler}>
           <input name="title" onChange={this.changeHandler} value={this.state.title}></input>
           <textarea name="text" onChange={this.changeHandler} value={this.state.text} className="textArea"></textarea>
