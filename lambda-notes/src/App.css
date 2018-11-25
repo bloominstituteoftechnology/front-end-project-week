@@ -72,3 +72,7 @@ input, textarea {
 	 -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
 				box-sizing: border-box;
 }
+
+p {
+	padding-right: 15px;
+}

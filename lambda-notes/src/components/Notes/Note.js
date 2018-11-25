@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import { instance } from './../utils.js';
 import styled, { css } from 'styled-components';
@@ -13,13 +14,21 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
-  margin: 85px 25px 10px 10px;
+  /* margin: 85px 25px 10px 10px; */
   width: 100%;
+`;
+
+const Updates = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: underline;
+  margin: 10px;
 `;
 
 const Title = styled.h3`
   font-size: 25px;
   font-weight: bold;
+  margin: 75px 10px 25px 10px;
 `;
 
 const Text = styled.div`
@@ -62,6 +71,14 @@ export default class Note extends Component {
     return (
       <Container>
         <Header>
+          <Updates>
+            <Link to=''>
+              <p>edit</p>
+            </Link>
+            <Link to=''>
+              <p>delete</p>
+            </Link>
+          </Updates>
           <Title>{title}</Title>
         </Header>
         <Text>
