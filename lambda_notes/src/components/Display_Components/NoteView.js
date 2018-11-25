@@ -3,6 +3,7 @@ import DeleteModal from './DeleteModal';
 import axios from 'axios';
 import EditView from './EditView';
 import { Link } from 'react-router-dom';
+import { NoteBody, MenuWrap } from '../Styles/NoteViewStyle';
 
 export default class NoteView extends Component {
     constructor(props) {
@@ -30,12 +31,15 @@ export default class NoteView extends Component {
 
   render() {
         return (
-            <div>
-                <h2>{this.state.note.title}</h2>
+            <NoteBody>
+                <MenuWrap>
+                <p><Link to={`/note/edit/${this.state.note._id}`}
+                note={this.state.note._id} >Edit</ Link></p>
+                <p>{<Link to={DeleteModal}><DeleteModal id={this.state.note._id} /></Link>}</p>
+                </MenuWrap>
+                <h3>{this.state.note.title}</h3>
                 <p>{this.state.note.textBody}</p>
-                <Link to={`/note/edit/${this.state.note._id}`  } note={this.state.note._id} ><EditView note={this.state.note._id} /></ Link>
-                <DeleteModal id={this.state.note._id} />
-            </div>
+            </NoteBody>
         )
     }
 }

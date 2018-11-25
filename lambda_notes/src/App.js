@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import '../src/App.css';
-import {Route, NavLink} from 'react-router-dom';
-import ListView from './components/Display_Components/ListView';
-import CreateNewNote from './components/Display_Components/CreateNewNote';
-import NoteView from './components/Display_Components/NoteView';
-import EditView from './components/Display_Components/EditView';
-import { AppWrap , BtnStyle, HeadStyle, LambdaNotes, NoteContent, NoteHeading } from '../src/components/Styles/AppStyle';
+import React, { Component } from 'react' ;
+import axios from 'axios' ;
+import '../src/App.css' ;
+import {Route, NavLink} from 'react-router-dom' ;
+import ListView from './components/Display_Components/ListView' ;
+import CreateNewNote from './components/Display_Components/CreateNewNote' ;
+import NoteView from './components/Display_Components/NoteView' ;
+import EditView from './components/Display_Components/EditView' ;
+import { AppWrap , BtnStyle, HeadStyle, LambdaNotes, NoteContent, NoteHeading } from '../src/components/Styles/AppStyle' ;
 
 
 
@@ -49,14 +49,14 @@ class App extends Component {
           </HeadStyle>
         
             <Route path='/' exact 
-              render={ props => <ListView {...props}/>}
+              render={ props => <ListView />}
             />
             <Route path='/create' exact
-            render={props => <CreateNewNote {...props} />}
+            render={props => <CreateNewNote />}
             />
 
             <Route path={`/note/:id`} exact
-              render={(props) => <NoteView someNotes={this.state} {...props} />}
+              render={(props) => <NoteView  {...props} />}
             />
 
             <Route path={`/note/edit/:id`} exact

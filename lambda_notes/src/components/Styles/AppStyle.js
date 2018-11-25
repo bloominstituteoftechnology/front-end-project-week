@@ -16,6 +16,9 @@ export const NoteHeading = styled.div`
 `
 export const NoteContent = styled.div`
     display: flex;
+    height: 800px;
+    overflow: scroll ;
+    
     
 `
 
@@ -30,9 +33,10 @@ export const BtnStyle = styled.button`
 `
 
 export const HeadStyle = styled.div`
-   margin-top: 10px; 
+   position: fixed; 
    border: 1px solid black;
    width: 200px;
+   height: 760px;
    background-color: #d3d2d3 ;
    padding: 10px;
     h1 {

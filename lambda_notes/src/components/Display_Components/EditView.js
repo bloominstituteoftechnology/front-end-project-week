@@ -47,7 +47,7 @@ submitHandler = (e) => {
     render() {
         return (
             <form onSubmit={this.submitHandler}> 
-                <button type='submit'>Edit</button>
+                <button type='submit'>Save</button>
                 <input  type="text" name="title" placeholder={this.props.title} onInput={this.inputHandler} ></input>
                 <input  type="textBox" name="textBody" value={this.state.textBody}  onInput={this.inputHandler} />
             </form>
