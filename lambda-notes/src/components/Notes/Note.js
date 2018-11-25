@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-// import { instance } from './../utils.js';
+import { Modal } from 'reactstrap';
+import { instance } from '../../utils.js';
 import styled, { css } from 'styled-components';
 
 const Container = styled.div`
@@ -14,7 +14,6 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
-  /* margin: 85px 25px 10px 10px; */
   width: 100%;
 `;
 
@@ -40,7 +39,9 @@ export default class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: null
+      note: null,
+      isEditing: false,
+      modal: false
     };
   }
 
@@ -51,8 +52,7 @@ export default class Note extends Component {
   }
 
   fetchNote = id => {
-    axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      instance.get(`/get/${id}`)
       .then(response => {
         console.log(response);
         this.setState(() => ({ note: response.data }));
@@ -60,6 +60,29 @@ export default class Note extends Component {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  toggle = () => {
+    console.log(this.state.modal);
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
+  handleDelete = () => {
+    const id = this.props.match.params.id;
+    console.log(id);
+    instance.delete(`/delete/${this.state.note._id}`)
+      .then(response => {
+        console.log(response.data);
+        this.setState({
+          modal: false
+        });
+        this.props.history.push('/');
+      })
+      .catch(err => {
+        console.log('Sorry, we could not complete your request...');
+      })
   }
 
   render() {
@@ -72,19 +95,32 @@ export default class Note extends Component {
       <Container>
         <Header>
           <Updates>
-            <Link to=''>
-              <p>edit</p>
-            </Link>
-            <Link to=''>
-              <p>delete</p>
-            </Link>
+            <p>edit</p>
+            <p onClick={this.toggle}>delete</p>
           </Updates>
           <Title>{title}</Title>
         </Header>
         <Text>
           {textBody}
         </Text>
+        <DeleteModal
+          modal={this.state.modal}
+          toggle={this.toggle}
+          handleDelete={this.handleDelete}
+        />
       </Container>
     );
   }
+}
+
+const DeleteModal = (props) => {
+  return (
+    <Modal isOpen={props.modal} toggle={props.toggle}>
+      <div>Are you sure you want to delete this?</div>
+      <div>
+        <div onClick={props.handleDelete}>Delete</div>
+        <div onClick={props.toggle}>No</div>
+      </div>
+    </Modal>
+  )
 }
