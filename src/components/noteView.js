@@ -34,7 +34,7 @@ class NoteView extends Component {
 }
 
 const mapStateToProps = state => {
-  const { singleNoteReducer } = state;
+  //const { singleNoteReducer } = state;
   return {
     error: state.notesReducer.error,
     noteSelected: state.singleNoteReducer.noteSelected
