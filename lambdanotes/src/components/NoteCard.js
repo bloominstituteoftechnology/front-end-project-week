@@ -5,9 +5,11 @@ import './style.css'
 const NoteCard = ({note})=> {
   return (
     <Link to={`note/${note._id}`} style={{textDecoration:"none"}} className="noteCard">
+      <div className="noteContent">
+
           <h3>{note.title}</h3>
-          <hr/>
           <p>{note.textBody}</p>
+      </div>
     </Link>
   )
 }

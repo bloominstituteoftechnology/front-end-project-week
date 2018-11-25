@@ -4,7 +4,8 @@ const Delete = () =>{
 
     return(
         <div>
-            Delete Here!
+            <h1>Delete Here</h1>
+      
         </div>
     )
 }

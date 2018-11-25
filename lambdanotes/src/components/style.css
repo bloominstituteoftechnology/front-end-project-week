@@ -28,7 +28,7 @@
 }
 
 
-/******************* ViewNotes.js */
+/******************* ViewNotes.js, NoteCard.js */
 .notesContainer {
     display: flex;
     flex-wrap: wrap;
@@ -48,27 +48,39 @@
 .noteCard {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     width: 23%;
     background: #FFFFFF;
     border: 1px solid #414141;
     padding: 0 4%;
     margin-bottom: 20px;
     color: #414141;
+ 
 }
 
-.noteCard h3 {
+.noteContent h3 {
     margin-bottom: 5px;
-    height: 47px;
+    height: 65px;
+    border-bottom: 1px solid #414141;
+    text-align: left;
+    overflow-wrap: break-word;
+    overflow: hidden;
 }
-.noteCard p {
+.noteContent p {
     font-size: 1.0em;
+    text-align: left;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 10.8em;
+    line-height: 1.2em
 }
-hr {
-    width: 100%;
-    height: .5px;
-    background: #414141;
-    opacity: .4;
+
+
+
+.noteContent {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
 }
 
 

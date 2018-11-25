@@ -21,17 +21,12 @@ class App extends Component {
 
 
   render() {
-    //Grab loading and status properties of state
-    // const loading = this.props.data.state.loading
-    // const error = this.props.data.state.error
 
 
   
     return (
      
       <div className="App">
-        {/* {loading ? <h1>Loading...</h1> : null}
-        {error !== null ? <h1>{error}</h1> : null} */}
         <div className="navPanel">
           <NavigationPanel />
         </div>
@@ -41,7 +36,7 @@ class App extends Component {
           <Route exact path="/create" component={CreateNote} />
           <Route exact path="/note/:id" component={Note} />
           <Route exact path="/edit/:id" component={Edit} />
-          <Route exact path="/delete" component={Delete} />
+          <Route exact path="/delete/:id" component={Delete} />
         </div>
       </div>
     );

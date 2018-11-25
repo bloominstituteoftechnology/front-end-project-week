@@ -25,6 +25,7 @@ class Edit extends Component{
                 const textArea = document.querySelector('textarea')
                 textArea.value= this.state.content
             })
+        window.scrollTo(0,0)
     }
 
     changeHandler = (e) =>{
