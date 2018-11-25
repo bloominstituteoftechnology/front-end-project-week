@@ -1,4 +1,5 @@
-import { SUCCESS, LOADING, ERROR, HANDLE_ID, FILTER } from '../actions/actions'
+import { MOVE_CARD, SUCCESS, LOADING, ERROR, HANDLE_ID } from '../actions/actions'
+import update from 'immutability-helper';
 
 const initialState = {
     notes: [],
@@ -22,6 +23,15 @@ export default (state= initialState, action) => {
         return {...state, loading: false, error: action.payload};
         case HANDLE_ID:
         return {...state, active_Id: action.payload};
+        case MOVE_CARD:
+        {
+            const dragNote = state.notes[action.dragIndex];
+            return update(state, {
+                notes: {
+                    $splice: [[action.dragIndex, 1], [action.hoverIndex, 0, dragNote]]
+                }
+            })
+        }
         default:
             return state
     }

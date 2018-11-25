@@ -86,4 +86,4 @@ class CreateForm extends React.Component{
     }
 }
 
-export default connect(()=>{{}}, {createNote}) (CreateForm);
+export default connect(()=>{}, {createNote}) (CreateForm);

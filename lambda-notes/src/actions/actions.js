@@ -4,7 +4,7 @@ export const SUCCESS = 'SUCCESS';
 export const LOADING = 'LOADING';
 export const ERROR = 'ERROR';
 export const HANDLE_ID = 'HANDLE_ID';
-export const FILTER = 'FILTER';
+export const MOVE_CARD = 'MOVE_CARD';
 
 export const fetchNotes = () => {
     return dispatch => {
@@ -81,5 +81,13 @@ export const handleId = id => {
     return {
         type: HANDLE_ID,
         payload: id,
+    }
+}
+
+export const moveCard = (dragIndex, hoverIndex) => {
+    return {
+        type: MOVE_CARD,
+        dragIndex: dragIndex,
+        hoverIndex: hoverIndex
     }
 }
