@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Modal from 'react-responsive-modal';
+import { DangerBtn, BtnStyle } from '../Styles/DeleteModalStyle';
 
 
 
@@ -42,8 +43,8 @@ export default class DeleteModal extends Component {
                 <div onClick={this.onOpenModal}>Delete</div>
                 <Modal closeIconSize={0} open={open}  center>
                 <h4>Are you sure you want to delete this?</h4>
-                <button onClick={this.onDelete} onClickCapture={this.onCloseModal}>Delete</button>
-                <button onClick={this.onCloseModal}>No</button>
+                <DangerBtn onClick={this.onDelete} onClickCapture={this.onCloseModal}>Delete</DangerBtn>
+                <BtnStyle onClick={this.onCloseModal}>No</BtnStyle>
                 </Modal>
             </div>
         )
