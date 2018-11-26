@@ -338,3 +338,20 @@ export const ModalButtons = styled.div`
         color: ${props=> props.primary ? "rgb(0, 187, 191)" : "rgb(218, 0, 0)"};
     }
 `;
+
+//SPEECH NOTE
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+`;
+
+export const SpeechDirections = styled.div`
+    width: 80%;
+
+    p{
+        font-size: 1.2rem;
+        text-align: left;
+    }
+`;

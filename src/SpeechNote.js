@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 import { addNote } from './actions/index';
-import { H2Header, NoteContainer, NoteForm, FormTitle, SubmitButton } from './StyledComponents';
+import { H2Header, NoteContainer, NoteForm, FormTitle, SubmitButton, ButtonContainer, SpeechDirections } from './StyledComponents';
 
 
 
@@ -92,13 +92,18 @@ class SpeechNote extends React.Component {
     render(){
         return(
             <NoteContainer>
-                <H2Header>Create New Note:</H2Header>
+                <H2Header>Create a New Note</H2Header>
+                <SpeechDirections>
+                    <p>Use Speech-to-Text to create a new note! 
+                        <br/>Click <strong>Listen</strong> to begin and <strong>Stop</strong> when you are done.</p>
+                </SpeechDirections>
                 <NoteForm onSubmit={this.submitHandler} >
                     <FormTitle onChange={this.inputHandler} type="text" value={this.state.title} name="title" placeholder="Note Title" />
-                    <ReactQuill className="quillEditor" value={this.state.textBody} onChange={this.handleChange} />
-                    {/* <textarea className="quillEditor" value={this.state.textBody} onChange={this.handleChange} /> */}
-                    <SubmitButton onClick={this.toggleListen}>Listen / Stop</SubmitButton>
-                    <SubmitButton type="submit">Save</SubmitButton>
+                    <ReactQuill className="quillEditor" value={this.state.textBody} onChange={this.handleChange} placeholder="Hit Listen to record a note" />
+                    <ButtonContainer>
+                        <SubmitButton onClick={this.toggleListen}>Listen / Stop</SubmitButton>
+                        <SubmitButton type="submit">Save</SubmitButton>
+                    </ButtonContainer>
                 </NoteForm>
             </NoteContainer>
         )
