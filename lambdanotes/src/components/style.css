@@ -123,6 +123,8 @@ nav {
 nav a {
     color: #414141;
     margin: 0 4% 0 1%;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .noteEnlarged {
@@ -134,4 +136,54 @@ nav a {
 .noteEnlarged p {
     text-align: left;
 }
+
+
+/* Delete.js */
+.modalDisplay{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.modalHide{
+    display: none;
+}
+.modalContent{
+    background: #FFFFFF;
+    max-width: 576px;
+    width: 100%;
+    margin: 160px auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #414141;
+    padding: 20px 0 35px;
+}
+
+
+.modalButtons{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.modalDelete, .modalCancel{
+    width: 28%;
+    background-color: #24B8BD;
+    border: none;
+    height: 35px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modalDelete {
+    background-color: #CA001A;
+}
+
+.modalCancel {
+    margin-left: 4%;
+}
+
 

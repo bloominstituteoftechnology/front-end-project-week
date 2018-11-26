@@ -57,23 +57,42 @@ class NotesProvider extends Component{
         })
     }
 
-        //*********.PUT - Edit note in notes array**************** */
-        editNote = (id, newNote) =>{
-            this.setState({loading: true})
-            axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, newNote)
-            .then((response) => {
-                console.log('response after put', response);
-                console.log('state notes after put', this.state.notes);
-                this.fetchNotes()
-                this.props.history.push('/')
+    //*********.PUT - Edit note in notes array**************** */
+    editNote = (id, newNote) =>{
+        this.setState({loading: true})
+        axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, newNote)
+        .then((response) => {
+            this.fetchNotes()
+            this.props.history.push('/')
+        })
+        .catch(err => {
+            this.setState({
+                loading: false,
+                error: "Unable to edit the note, please try again.",
             })
-            .catch(err => {
-                this.setState({
-                    loading: false,
-                    error: "Unable to edit the note, please try again.",
-                })
+        })
+    }
+
+    //********.DELETE - Delete note in notes array******************* */
+    deleteNote = (id) =>{
+        this.setState({loading: true})
+        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then((response)=>{
+            this.setState({
+                loading: false,
+                error: null
             })
-        }
+            this.fetchNotes()
+            this.props.history.push('/')
+        })
+        .catch(err => {
+            this.setState({
+                loading: false,
+                error: "Unable to delete the note, please try again.",
+            })
+        })
+    }
+
 
     render(){
         return (
@@ -85,7 +104,8 @@ class NotesProvider extends Component{
                         status: this.state.status },
                     actions: {fetchNotes: this.fetchNotes,
                             createNote: this.createNote,
-                            editNote: this.editNote}}
+                            editNote: this.editNote,
+                            deleteNote: this.deleteNote}}
                 }
                 >
 
