@@ -13,4 +13,5 @@ import Note from './Note';
       </div>
     </div>
   );
+  
  export default NotesList; 

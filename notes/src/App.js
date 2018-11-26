@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 import NotesList from './components/NotesList';
-import Note from './components/Note';
+import SingleNote from './components/SingleNote';
 import SideBar from './components/SideBar';
 import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
@@ -17,6 +17,7 @@ class App extends Component {
       textBody: '',
       updatedTitle: '',
       updatedText: '',
+      deleting: false
     }
   }
 
@@ -30,17 +31,6 @@ class App extends Component {
         console.log('Error: ', err)
       })
   }
-
-  // componentDidUpdate() {
-  //   axios
-  //     .get('https://fe-notes.herokuapp.com/note/get/all')
-  //     .then(res => {
-  //       this.setState({ notes: res.data })
-  //     })
-  //     .catch(err => {
-  //       console.log('Error: ', err)
-  //     })
-  // }
 
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value })
@@ -74,6 +64,13 @@ class App extends Component {
       this.setState();
   };
 
+  toggleDeletingOn = () => {
+    this.setState({ deleting: true });
+  };
+  toggleDeletingOff = () => {
+    this.setState({ deleting: false });
+  };
+
   editingNote = (title, textBody) => {
     this.setState({ updatedTitle: title, updatedText: textBody });
   };
@@ -93,10 +90,35 @@ class App extends Component {
    render() {
     return (
       <div className="App">
+       <SideBar />
         <Route exact path='/' render={props => <NotesList 
         {...props}
-        notes={this.state.notes} 
+        notes={this.state.notes}
         handleInput={this.handleInput}
+        />} />
+        <Route exact path='/note/:id' render={props => <SingleNote 
+        {...props}
+        notes={this.state.notes}
+        deleting={this.state.deleting}
+        toggleDeletingOn={this.toggleDeletingOn}
+        toggleDeletingOff={this.toggleDeletingOff}
+        deleteNote={this.deleteItem}
+        editingNote={this.editingNote}
+        />} />
+        <Route exact path='/createnote' render={props => <CreateNote 
+        {...props}
+        title={this.state.title}
+        textBody={this.state.textBody}
+        handleInput={this.handleInput}
+        submit={this.handleSubmit}
+        />} />
+        <Route exact path='/note/:id/edit' render={props => <EditNote 
+        {...props}
+        notes={this.state.notes}
+        updatedTitle={this.state.updatedTitle}
+        updatedText={this.state.updatedText}
+        handleInput={this.handleInput}
+        editedNote={this.editedNote}
         />} />
       </div>
     );

@@ -10,4 +10,5 @@ const Note = props => (
       <p>{props.note.textBody}</p>
     </div>
   );
+  
  export default Note;  
