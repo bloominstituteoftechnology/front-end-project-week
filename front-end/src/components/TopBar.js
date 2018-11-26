@@ -22,7 +22,7 @@ const Sort = styled(FlexRow)`
     margin-right: 20px;
     border: thin solid #c8c7c7;
     border-radius: 6px;
-    padding: 10px;
+    padding: 20px 10px;
     height: 38px;
     box-sizing: border-box;
     z-index: 9;
@@ -90,7 +90,9 @@ class TopBar extends Component {
             showSort: false,
             filter: "",
             sort: ""
-        }
+        };
+
+        this.throttle = false;
     }
 
     loadMore = () => {
@@ -99,7 +101,14 @@ class TopBar extends Component {
 
     filter = e => {
         this.setState({filter: e.target.value});
-        this.props.getNotes(this.state);
+        if (!this.throttle) {
+            this.throttle = true;
+            setTimeout(() => {
+                this.props.getNotes(this.state);
+                this.throttle = false;
+            }, 800)
+        }
+
     };
 
     sort = sort => {

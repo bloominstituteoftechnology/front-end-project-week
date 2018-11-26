@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import styled from "styled-components";
 import {Route, Link} from "react-router-dom";
 import {connect} from "react-redux";
-import {getNotes} from "../actions";
+import {getNotes, editNote} from "../actions";
 import {FlexRow} from "./Styles/Components";
 import Note from "./Note";
 import CreateNote from "./CreateNote";
 import NoteView from "./ViewNote";
 import NoteEdit from "./EditNote";
-import {Modal} from "./Styles/Components";
+import {Modal, Margin} from "./Styles/Components";
+import {InvertedColor} from "./Styles/Colors";
 
 const Container = styled(FlexRow)`
     color: #8C8C8C;
@@ -22,21 +23,69 @@ const Container = styled(FlexRow)`
 class Notes extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            notes: null,
+            dragStart: null,
+            dragEnd: null,
+            dragEl: null
+        }
     }
 
     componentDidMount() {
         this.props.getNotes();
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (!this.state.notes && !!nextProps.notes.length) {
+        }
+            this.setState({notes: nextProps.notes});
+    }
+
+    handleDragOver = (e, i) => {
+        e.target.style.width = "450px";
+        this.setState({dragEnd: i})
+    };
+
+    handleDragLeave = (e) => {
+        let target = e.target;
+
+        setTimeout(() => {
+            target.style.width = "40px";
+        }, 250);
+    };
+
+    handleDragDrop = () => {
+        let {notes, dragEnd, dragStart, dragEl} = this.state;
+        dragEnd = dragStart > dragEnd ? dragEnd + 1 : dragEnd;
+
+        notes.splice(dragStart, 1);
+        notes.splice(dragEnd, 0, dragEl);
+        this.setState({notes});
+    };
+
     render() {
-        const {loading, error, notes} = this.props;
+        const {loading, error} = this.props;
+        const {notes} = this.state;
 
         return (
-            <Container width="100%" height="200px" grow wrap justifyCenter alignCenter>
+            <Container width="100%" height="200px" grow wrap justifyCenter>
                 {loading && <><Modal><h1>LOADING...</h1></Modal></>}
                 {error && <><h1>Error</h1><p>{error}</p></>}
-                {!error && !!notes.length && notes.map(note => {
-                    return <Link key={note._id} to={`/note/${note._id}`}><Note note={note}/></Link>
+                {!error && notes && !!notes.length && notes.map((note, i) => {
+                    return (
+                        <FlexRow key={note._id}>
+                            <Link to={`/note/${note._id}`}>
+                                <Note note={note}
+                                      handleDragStart={() => this.setState({dragStart: i, dragEl: note})}
+                                      handleDragDrop={this.handleDragDrop}/>
+                            </Link>
+
+                            <Margin height="350px" width="40px" onDragOver={e => this.handleDragOver(e, i)}
+                                    onDragLeave={e => this.handleDragLeave(e)}/>
+                        </FlexRow>
+                    )
+
                 })}
 
                 <Route path="/note/:id" render={({match}) => <NoteView id={match.params.id}/>}/>
@@ -57,4 +106,4 @@ const mapStateToProps = ({loading, error, notes}) => {
     }
 };
 
-export default connect(mapStateToProps, {getNotes})(Notes);
+export default connect(mapStateToProps, {getNotes, editNote})(Notes);

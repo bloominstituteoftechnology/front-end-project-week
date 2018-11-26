@@ -71,9 +71,15 @@ export const Paper = styled.div`
     box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.6784313725490196);
     padding: 25px;
     background: white;
-    margin: 20px;
+    margin-bottom: 40px;
     width: ${({width}) => width};
     height: ${({height}) => height};
+`;
+
+export const Margin = styled.div`
+    width: ${({width}) => width};
+    height: ${({height}) => height};
+    transition: all .25s;
 `;
 
 export const Button = styled.button.attrs({
@@ -156,17 +162,13 @@ export const Search = styled.input`
 `;
 
 export const Tag = styled(FlexRow)`
-    border-radius: 6px;
-    padding: 5px;
+    border-radius: 999px;
+    padding: 8px;
     border: thin solid ${SecondaryColor};
     color: ${SecondaryColor};
     font-size: 1.8rem;
-    margin: 0 10px;
+    margin: 10px 10px 0 0;
     cursor: pointer;
-    
-    &:first-child {
-        margin-left: 0;
-    }
     
     &:hover {
         background: ${SecondaryColor};

@@ -23,6 +23,10 @@ a {
   text-decoration: none;
 }
 
+a:focus {
+  outline: none;
+}
+
 textarea:focus, input:focus, button:focus {
   outline: none;
 }
