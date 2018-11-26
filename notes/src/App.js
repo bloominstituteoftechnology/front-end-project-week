@@ -20,6 +20,10 @@ max-width:  1040px;
 height: 100%;
 `;
 
+const Create = styled.div`
+justify-content: flex-start
+`;
+
 
 class App extends Component {
   constructor(props) {
@@ -47,7 +51,7 @@ class App extends Component {
           />
           <Route path="/login" component={Signin} />
           <Route path="/signup" component={Signup} />
-          <Route path="/create" component={CreateNote} />
+         <Create ><Route path="/create" component={CreateNote} /></Create>
           <Route
             path="/delete/:id/"
             render={props => {

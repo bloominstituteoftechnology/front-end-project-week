@@ -5,12 +5,13 @@ import axios from "axios";
 import styled from 'styled-components';
 
 const NoteView = styled.div`
-border-bottom: 1px solid lightgrey;
 display: flex;
-justify-content: space-between;
+justify-content: space-evenly;
 align-items: none;
-flex-direction: column;
-
+flex-direction: row;
+width: 100%;
+margin-top: 16px;
+flex-wrap: wrap;
 
 `; 
 const Title = styled.div`
@@ -18,9 +19,26 @@ font-size: 20px;
 padding: 20px;
 width: 100%;
 text-align: left;
-
+color: #4A4A4A;
+text-align: left;
+font-size: 20px;
+line-height: 30px;
+font-family: 'Helvetica', 'Arial', sans-serif;
+font-weight: bolder;
+margin-top: 30px;
 `; 
 
+const Card = styled(NoteView)`
+border-bottom: 1px solid lightgrey;
+display: flex;
+justify-content: space-between;
+align-items: none;
+flex-direction: column;
+background-color: #fff;
+width: 380px;
+margin-bottom: 16px;
+padding: 24px;
+`;
 
 
 class NoteList extends Component {
@@ -45,9 +63,10 @@ class NoteList extends Component {
       <div className ="notes">
       <Title>Your Notes:</Title>
         <NoteView>
+      
         
         {this.state.notes.length < 1 ? (
-          <h3>There are no notes!</h3>
+          <Card>There are no notes!</Card>
         ) : (
           this.state.notes.map(note => <NoteCard key={note._id} note={note} />)
         )}

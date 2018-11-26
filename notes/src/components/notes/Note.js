@@ -4,6 +4,36 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import DeleteModal from "./DeleteModal";
 
+import styled from "styled-components";
+
+const NoteTitle = styled.div`
+display: flex;
+flex-direction: column;
+text-aling: left;
+color: black;
+font-family: "Helvetica", "Arial", sans-serif;
+font-weight: bolder;
+padding: 24px;
+max-height: 250px;
+text-align: left;
+font-size: 25px;
+`;
+
+const NoteText = styled.div`
+display: flex;
+flex-direction: column;
+text-aling: left;
+color: black;
+font-family: "Helvetica", "Arial", sans-serif;
+font-weight: light;
+padding: 24px;
+max-height: 250px;
+text-align: left;
+font-size: 15px;
+`;
+
+
+
 
 class Note extends Component {
   constructor(props) {
@@ -37,7 +67,7 @@ class Note extends Component {
     return(
        <>
           <div>
-             <Link to={`/edit/${this.state.note._id}`} >
+             <Link to={`/edit/${this.state.note._id}`} style={{ textDecoration: 'none' }} >
                 <p>edit</p>
              </Link>
             
@@ -45,8 +75,8 @@ class Note extends Component {
             
           </div>
           <div>
-             <h2>{this.state.note.title}</h2>
-             <p>{this.state.note.textBody}</p>
+             <NoteTitle>{this.state.note.title}</NoteTitle>
+             <NoteText>{this.state.note.textBody}</NoteText>
 
                <DeleteModal show={this.state.isOpen} 
           onClose={this.toggleModal} key={this.state.note._id} note_id={this.state.note._id}>

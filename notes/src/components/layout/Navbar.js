@@ -17,8 +17,24 @@ const NavColor = styled.div`
     margin: 0;
     padding: 15px;
     width: 220px;
-    height: 700px;
+    height: 100%;
 `;
+
+const Title = styled.div`
+   text-decoration: none;
+   color: #4A4A4A;
+   text-align: left;
+   font-size: 35px;
+   line-height: 30px;
+   font-family: 'Helvetica', 'Arial', sans-serif;
+   font-weight: bold;
+   margin-bottom: 20px;
+
+`;
+
+
+
+
 
 const Navbar = () => {
   return (
@@ -26,8 +42,8 @@ const Navbar = () => {
     <nav>
     < NavColor>
       <div className="container">
-        <Link to="/">
-          <h1>Lambda Notes</h1>
+        <Link to="/" style={{ textDecoration: 'none' }} >
+          <Title >Lambda Notes</Title >
         </Link>
         <SignedInLinks />
         <SignedOutLinks />
