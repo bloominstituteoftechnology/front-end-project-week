@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { editNote } from '../Actions/index';
 import { NoteBody } from '../Styles/NoteViewStyle';
 import { BtnStyle } from '../Styles/AppStyle';
 import { FormStyle, TitleInputStyle, ContentInputStyle , FormWrap, BtnWrap } from '../Styles/EditViewStyle';
 
 
-export default class EditView extends Component {
+class EditView extends Component {
     constructor(props) {
         super(props)
     this.state = {
@@ -17,17 +19,6 @@ export default class EditView extends Component {
 }
 
 
-
-  
- editNote = (id , note) => {
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
-    .then( res => {
-        this.setState({ note: note})
-    })
-    .catch( err => {
-        throw new Error(err);
-    })
-}
 
 inputHandler = (e) => {
     e.preventDefault();
@@ -43,7 +34,7 @@ inputHandler = (e) => {
 submitHandler = (e) => {
     e.preventDefault();
     const id = this.props.match.params.id;
-    this.editNote(id , this.state.note);
+    this.props.editNote(id , this.state.note);
 }   
 
 
@@ -65,3 +56,13 @@ submitHandler = (e) => {
         )
     }
 }
+
+const mapStateToProps =(state)=> {
+    return {
+
+        notes: state.notes,
+        path: "Edit View",
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {editNote})(EditView))

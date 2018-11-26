@@ -10,6 +10,7 @@ import { FormFormat, BtnWrap } from '../Styles/CreateNoteStyle';
 class CreateNewNote extends Component {
 
  state = {
+     
         title: "",
         textBody: "",
     }

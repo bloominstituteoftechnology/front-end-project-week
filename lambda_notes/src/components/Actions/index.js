@@ -23,7 +23,7 @@ export const newNote = (note) => {
   return (dispatch) => {
     axios.post(`https://fe-notes.herokuapp.com/note/create`, note)
     .then( res => {
-      dispatch({type: SUCCESS, payload: res.data, fetching: false })
+      dispatch({type: SUCCESS, payload: res.data, path: "Create Note" , fetching: false })
     })
     .catch (err => {
       dispatch({type: ERROR, errorMessage: "Can not find smurfs"})
@@ -31,6 +31,14 @@ export const newNote = (note) => {
   }
 }
 
-
-
-  
+export const editNote = (id, note) => {
+  return (dispatch) => {
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    .then( res => {
+      dispatch({type: SUCCESS, payload: res.data, path: "Edit Note", fetching: false})
+    })
+    .catch( err => {
+        throw new Error(err);
+    })
+  }
+}
