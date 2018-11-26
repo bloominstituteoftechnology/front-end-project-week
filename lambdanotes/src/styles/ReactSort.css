@@ -47,7 +47,7 @@
 
 /* NON-MENU */
 .display-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
 
@@ -56,7 +56,7 @@
 }
 
 .notebox-container {
-    border: 1px solid greenyellow;
+    /* border: 1px solid greenyellow; */
 }
 
 .notebox1 {
@@ -69,7 +69,7 @@
 }
 
 
-/* Try with CSS */
+/* Try with CSS
 .clicker {
     background-color: dodgerblue;
 }
@@ -81,4 +81,4 @@
 
 .clicker + .hiddendiv {
     display: block;
-}
+} */

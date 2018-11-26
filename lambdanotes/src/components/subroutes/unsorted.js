@@ -38,7 +38,6 @@ class UnSorted extends React.Component {
                                     <div className="contentbox">
                                         <p> <strong>Content:</strong> {note.textBody.slice(0, 100) + (note.textBody.length > 100 ? "..." : "")}</p>
                                     </div>
-                                    <p> <strong>ID:</strong> {note._id}</p>
                                 </div>
                             )
                         })}
