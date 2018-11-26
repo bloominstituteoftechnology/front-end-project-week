@@ -34,7 +34,9 @@ class App extends Component {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then(response => {
-        this.setState({ notes: response.data });
+        this.setState({
+          notes: response.data
+        });
       })
       .catch(err => console.log(err));
   }
@@ -75,31 +77,31 @@ class App extends Component {
     if (this.state.id === "all") {
       return (
         <div className="App">
-          <Nav clickHandler={this.clickHandler} />
-          <NoteList notes={this.state.notes} clickHandler={this.clickHandler} />
+          <Nav clickHandler={this.clickHandler} />{" "}
+          <NoteList notes={this.state.notes} clickHandler={this.clickHandler} />{" "}
         </div>
       );
     } else if (this.state.id === "new") {
       return (
         <div className="App">
-          <Nav clickHandler={this.clickHandler} />
+          <Nav clickHandler={this.clickHandler} />{" "}
           <NewNote
             changeHandler={this.changeHandler}
             createNote={this.createNote}
-          />
+          />{" "}
         </div>
       );
     } else {
       return (
         <div className="App">
-          <Nav clickHandler={this.clickHandler} />
+          <Nav clickHandler={this.clickHandler} />{" "}
           <SingleNote
             id={this.state.id}
             notes={this.state.notes}
             toggleModal={this.toggleModal}
             deleteNote={this.deleteNote}
             toggle={this.state.toggle}
-          />
+          />{" "}
         </div>
       );
     }
