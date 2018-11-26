@@ -15,7 +15,7 @@ render() {
       <div className="note-container">
         {notes.map(note => (
             <NoteCard 
-                key={note.id}
+                key={note._id}
                 title={note.title}
                 note={note}
             />

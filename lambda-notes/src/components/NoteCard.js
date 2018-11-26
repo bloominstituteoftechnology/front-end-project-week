@@ -1,32 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deletNote } from '../actions/noteActions';
+import { deleteNote } from '../actions/noteActions';
+import { Link } from 'react-router-dom';
 
 class NoteCard extends Component {
 
 onDeleteClick = (id) => {
-  this.props.deletNote(id);
+  this.props.deleteNote(id);
 }
   render() {
-    const { id, title, textBody} = this.props.note;
+    const { _id, title, textBody} = this.props.note;
 
     return (
       <div>
-        <a href ="#" class="card mb-4" alt="">
+        <Link to={`/note/${_id}`} style={{textDecoration:'none'}}><a href ="#" class="card mb-4" alt="">
           <div className="title-box">
-            <h4 className="card-title">{title}</h4>
+            <h3 className="card-title">{title}</h3>
         </div>
             <hr></hr>
             <div className="card-body">{textBody}</div> 
             <div class="card-footer">
-                <i className="fa fa-edit"></i>
-                <i className="fa fa-trash" onClick={ this.onDeleteClick.bind(this, id)}></i>
-                
+              <Link to={`/edit/${_id}`}><i className="fa fa-pencil-alt"></i></Link>
             </div>  
-        </a>
+        </a></Link> 
       </div>
     )
   }
 }
 
-export default connect(null, { deletNote }) (NoteCard);
+export default connect(null, { deleteNote }) (NoteCard);

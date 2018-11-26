@@ -1,26 +1,42 @@
-import { GET_NOTES, DELETE_NOTE, ADD_NOTE } from './types';
+import { GET_NOTES, DELETE_NOTE, ADD_NOTE, GET_NOTE, UPDATE_NOTE } from './types';
 import axios from 'axios'
 
-const url = 'https://fe-notes.herokuapp.com/note';
-
 export const getNotes = () => async dispatch => {
-    const res= await axios.get(`${url}/get/all`);
+    const res= await axios.get('https://fe-notes.herokuapp.com/note/get/all');
     dispatch ({
         type: GET_NOTES,
         payload: res.data
     });
 };
 
-export const deletNote = (id) => {
-    return {
-        type: DELETE_NOTE,
-        payload: id
-    };
+export const getNote = (id) => async dispatch => {
+    const res= await axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`);
+    dispatch ({
+        type: GET_NOTE,
+        payload: res.data
+    });
 };
 
-export const addNote = (note) => {
-    return {
+export const deleteNote = (id) => async dispatch => {
+    await axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`);
+    dispatch ({
+        type: DELETE_NOTE,
+        payload: id
+    });
+};
+
+export const addNote = (note) => async dispatch => {
+    const res = await axios.post('https://fe-notes.herokuapp.com/note/create', note);
+    dispatch ({
         type: ADD_NOTE,
-        payload: note
-    };
+        payload: res.data
+    });
+};
+
+export const updateNote = note => async dispatch => {
+    const res= await axios.put(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, note);
+    dispatch ({
+        type: UPDATE_NOTE,
+        payload: res.data
+    });
 };
