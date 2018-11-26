@@ -95,12 +95,14 @@ nav a:hover {
     color: #1b1e1f;
     padding-bottom: 8px;
     border-bottom: 1px solid #cccccc;
+    word-wrap: break-word;
 }
 
 .note-card p {
     font-size: .9rem;
     margin: 10px 7%;
     color: #333333;
+    word-wrap: break-word;
 }
 
 .note {
@@ -113,6 +115,7 @@ nav a:hover {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    word-wrap: break-word;
 }
 
 .note header .options {
@@ -135,6 +138,7 @@ nav a:hover {
     margin: 7px 4%;
     font-size: 1rem;
     line-height: 1.6rem;
+    word-wrap: break-word;
 }
 
 .note-form {
