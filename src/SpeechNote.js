@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 import { addNote } from './actions/index';
-import { H2Header, NoteContainer } from './StyledComponents';
+import { H2Header, NoteContainer, NoteForm, FormTitle, SubmitButton } from './StyledComponents';
 
 
 
@@ -92,19 +93,13 @@ class SpeechNote extends React.Component {
         return(
             <NoteContainer>
                 <H2Header>Create New Note:</H2Header>
-
-
-                <div>
-                    <button id='microphone-btn' onClick={this.toggleListen}>START/STOP</button>
-                    <div id='final'>{this.state.textBody}</div>
-                </div>
-
-                {/* <NoteForm onSubmit={this.submitHandler} >
+                <NoteForm onSubmit={this.submitHandler} >
                     <FormTitle onChange={this.inputHandler} type="text" value={this.state.title} name="title" placeholder="Note Title" />
-                    <textarea className="quillEditor" value={this.state.textBody} onChange={this.handleChange} />
-                    <SubmitButton onClick={this.toggleListen}>Listen</SubmitButton>
+                    <ReactQuill className="quillEditor" value={this.state.textBody} onChange={this.handleChange} />
+                    {/* <textarea className="quillEditor" value={this.state.textBody} onChange={this.handleChange} /> */}
+                    <SubmitButton onClick={this.toggleListen}>Listen / Stop</SubmitButton>
                     <SubmitButton type="submit">Save</SubmitButton>
-                </NoteForm> */}
+                </NoteForm>
             </NoteContainer>
         )
     }
