@@ -1,7 +1,7 @@
 import React from 'react'
 import Note from './Note'
 import {NoteListDiv, NoteContainer, NoteTitle} from '../../Styles/NoteViewStyles';
-
+import '../../Styles/Notes.css';
 const NoteList = props => {
     return (
         <NoteContainer>

@@ -16,15 +16,18 @@ flex-wrap: wrap;
 `
 
 export const NoteTitle = styled.h2 `
-font-size: 175%;
+font-size: 300%;
 color: black;
 margin: 0;
 padding-top: 40px;
 padding-bottom: 18px;
+text-align:center;
+text-decoration:underline;
+letter-spacing:25px;
 `
 
 export const NoteDiv = styled.div `
-border: 1px solid #b7b7b7;
+border: 2px solid black;
 display: flex;
 flex-direction: column;
 width: 25%;
@@ -36,12 +39,12 @@ word-wrap:break-word;
 `
 
 export const NoteH2 = styled.h2 `
-font-size: 100%;
+font-size: 150%;
 margin: 0;
 `
 
 export const BorderDiv = styled.div `
-border-bottom: 1px solid #b7b7b7;
+border-bottom: 1px solid black;
 width: 100%;
 margin: 5px 0;
 `

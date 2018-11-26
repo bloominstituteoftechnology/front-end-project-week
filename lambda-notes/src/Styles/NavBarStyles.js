@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const NavDiv = styled.div`
   width: 25%;
   height:100vh;
-  background: #d3d2d3;
+  background: grey;
   position: sticky;
   top: 0;
-  margin-left:10%;
+  margin-left:5%;
 `;
 
 export const NavHeader = styled.h1`
@@ -27,7 +27,7 @@ export const NavLinkDiv = styled.div`
 `;
 
 export const NavBtn = styled.div`
-  background: white;
+  background: beige;
   border: 1px solid #b7b7b7;
   border-radius:5px;
   padding: 12px;
@@ -35,7 +35,8 @@ export const NavBtn = styled.div`
   font-size: 100%;
   font-weight: bold;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 70px;
+  margin-top:25px;
   text-align: center;
   `
 

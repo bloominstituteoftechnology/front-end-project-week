@@ -7,12 +7,12 @@ justify-content: space-evenly;
 
 export const ModalText = styled.p `
 font-size: 100%;
-color: #424242;
+color: black;
 text-align: center;
 font-weight: bold;
 `
 
-export const NoButton = styled.button `
+export const KeepButton = styled.button `
   background: green;
   border: 1px solid #b7b7b7;
   padding: 12px;
@@ -24,12 +24,12 @@ export const NoButton = styled.button `
   text-align: center;
 `
 
-export const NoButtonText = styled.p `
+export const KeepButtonText = styled.p `
  color: white;
   font-size: 100%;
   margin: 0;
   
-  ${NoButton}:hover & {
+  ${KeepButton}:hover & {
     text-decoration: underline;
     cursor: pointer;
   }
