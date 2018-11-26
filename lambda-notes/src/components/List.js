@@ -31,23 +31,6 @@ const Note = styled.div`
     overflow: hidden;
     margin: 10px;
     
-    a {
-        color: #4A4A4A;
-        text-decoration: none;
-    }
-
-    h2 {
-        width: 80%;
-        border-bottom: 1px solid darkgrey;
-        margin: 0px auto;
-        padding: 10px;
-        float: left;
-    }
-
-    button {
-        float: right;
-        margin: 10px;
-    }
 
     p {
         overflow: hidden;
@@ -63,6 +46,30 @@ const Note = styled.div`
         padding: 5px;     
      }
     }
+`
+
+const HeaderWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid darkgrey;
+    align-items: center;
+    padding: 0 10px;
+
+a {
+    color: #4A4A4A;
+    text-decoration: none;
+}
+
+button {
+    height: 20px;
+    width: 20px;
+    background-color: #2BC1C4;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 `
 
 class List extends Component {
@@ -114,15 +121,16 @@ class List extends Component {
        {this.state.notes.map(note => {
            return (
             <Note key={note._id}>
+               <HeaderWrapper>
                <Link to={{
                 pathname: `/${note._id}`,
                 title: `${note.title}`,
                 textBody: `${note.textBody}`,
                 id: `${note._id}`
-            }
-            }>
+            }}>
                   <h2>{note.title}</h2></Link>
                   <button onClick={() => this.deletenote(note._id)}>X</button>
+                  </HeaderWrapper>
                   <p>{note.textBody}</p>
               </Note>
            )
