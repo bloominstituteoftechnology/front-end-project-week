@@ -1,49 +1,105 @@
-import React from 'react'
+import React, {Component}          from 'react';
+import { FloatingActionButton,
+        MuiThemeProvider }         from 'material-ui';
+import MicrophoneOn                from 'material-ui/svg-icons/av/mic';
+import MicrophoneOff               from 'material-ui/svg-icons/av/stop';
 
-import { ReactMic } from 'react-mic';
- 
-export default class VoiceNote extends React.Component {
-  constructor(props) {
+import { ReactMic} from 'react-mic';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-98862819-1');
+
+export default class VoiceNote extends Component {
+  constructor(props){
     super(props);
     this.state = {
-      record: false
+      blobObject: null,
+      isRecording: false
     }
- 
   }
- 
-  startRecording = () => {
+
+  componentDidMount() {
+    ReactGA.pageview(window.location.pathname);
+  }
+
+  startRecording= () => {
     this.setState({
-      record: true
+      isRecording: true
     });
   }
- 
-  stopRecording = () => {
+
+  stopRecording= () => {
     this.setState({
-      record: false
+      isRecording: false
     });
   }
- 
-  onData(recordedBlob) {
+
+  onSave=(blobObject) => {
+  }
+
+  onStart=() => {
+    console.log('You can tap into the onStart callback');
+  }
+
+  onStop= (blobObject) => {
+    this.setState({
+      blobURL : blobObject.blobURL
+    });
+  }
+
+  onData(recordedBlob){
     console.log('chunk of real-time data is: ', recordedBlob);
   }
- 
-  onStop(recordedBlob) {
-    console.log('recordedBlob is: ', recordedBlob);
-  }
- 
+
   render() {
-    return (
-      <div>
-        <ReactMic
-          record={this.state.record}
-          className="sound-wave"
-          onStop={this.onStop}
-          onData={this.onData}
-          strokeColor="#000000"
-          backgroundColor="#FF4081" />
-        <button onClicl={this.startRecording} type="button">Start</button>
-        <button onClicl={this.stopRecording} type="button">Stop</button>
-      </div>
+    const { isRecording } = this.state;
+
+    return(
+      <MuiThemeProvider>
+        <div>
+          <h1>React-Mic</h1>
+          <p><a href="https://github.com/hackingbeauty/react-mic">Documentation</a></p>
+          <ReactMic
+            className="oscilloscope"
+            record={isRecording}
+            backgroundColor="#FF4081"
+            visualSetting="sinewave"
+            audioBitsPerSecond= {128000}
+            onStop={this.onStop}
+            onStart={this.onStart}
+            onSave={this.onSave}
+            onData={this.onData}
+            strokeColor="#000000" />
+          <div>
+            <audio ref="audioSource" controls="controls" src={this.state.blobURL}></audio>
+          </div>
+          <br />
+          <br />
+          <FloatingActionButton
+            className="btn"
+            secondary={true}
+            disabled={isRecording}
+            onClick={this.startRecording}>
+            <MicrophoneOn />
+          </FloatingActionButton>
+          <FloatingActionButton
+            className="btn"
+            secondary={true}
+            disabled={!isRecording}
+            onClick={this.stopRecording}>
+            <MicrophoneOff />
+          </FloatingActionButton>
+          <br />
+          <br />
+          <br />
+          <p>As featured in the course <br /><a href="http://professionalreactapp.com">How To Develop A Professional React App</a></p>
+          <br />
+          <br />
+          <p>Check out how I use it in my app
+          <br />
+            <a href="http://voicerecordpro.com" target="_blank">Voice Record Pro</a> (record your voice and publish it)</p>
+        </div>
+    </MuiThemeProvider>
     );
   }
 }
