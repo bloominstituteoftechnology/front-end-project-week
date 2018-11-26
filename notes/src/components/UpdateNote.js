@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import { updateNote } from '../actions/noteActions';
@@ -41,7 +42,7 @@ class UpdateNote extends Component {
                 <h1>Edit Note</h1>
                 <input type="text" name="title" value={this.state.title} onChange={this.inputHandler} placeholder="New Title" />
                 <textarea type="text" name="textBody" value={this.state.textBody} onChange={this.inputHandler} placeholder="New Content"/>
-                <button>Update</button>
+                <Button color="info">Update</Button>
             </form>
         )
     }

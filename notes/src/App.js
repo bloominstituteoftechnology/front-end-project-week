@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
+import { Button } from 'reactstrap';
 
 import './App.css';
 import NoteList from './components/NoteList';
@@ -11,10 +12,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
+        <div className="navbar">
           <h1>Lambda Notes</h1>
-          <NavLink to="/create"><button>+ Create New Note</button></NavLink>
-          <NavLink to="/NoteList"><button>View your Notes</button></NavLink>
+          <NavLink to="/create"><Button color="info">+ Create New Note</Button></NavLink>
+          <NavLink to="/NoteList"><Button color="info">View your Notes</Button></NavLink>
         </div>
 
         <Route path="/create" render={props => <CreateNote {...props} />} />

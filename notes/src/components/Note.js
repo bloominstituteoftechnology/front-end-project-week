@@ -9,9 +9,9 @@ import '../App.css';
 const Note = props => {
     const { note, deleteNote } = props
 
-    const clickHandler = () => {
-        deleteNote(note._id)
-    }
+    // const clickHandler = () => {
+    //     deleteNote(note._id)
+    // }
     return(
         
         <div key={note._id} className="note-card">

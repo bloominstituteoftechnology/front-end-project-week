@@ -1,6 +1,6 @@
 .App {
-  text-align: center;
   display: flex;
+  background:whitesmoke;
 }
 
 
@@ -21,14 +21,20 @@
   color:black;
   text-decoration:none;
   margin:5px;
+  width: 15%;
+  overflow: hidden;
 }
 
 .note-card h1 {
   color:black;
+  border-bottom: 1px solid lightgray;
 }
 
 .note-card p {
   color:black;
 }
 
-
+.navbar {
+  background:lightgray;
+  width:25%;
+}
