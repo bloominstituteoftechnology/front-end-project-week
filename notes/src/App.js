@@ -4,7 +4,6 @@ import NoteList from "./Components/NoteList";
 import Nav from "./Components/Nav";
 import SingleNote from "./Components/SingleNote.js";
 import NewNote from "./Components/NewNote";
-import EditNote from "./Components/NoteEdit";
 import "./App.css";
 
 class App extends Component {
@@ -31,7 +30,6 @@ class App extends Component {
       [e.target.name]: e.target.value
     });
   };
-
   componentDidMount() {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
@@ -66,7 +64,8 @@ class App extends Component {
       .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.id}`)
       .then(() => {
         this.setState({
-          id: "all"
+          id: "all",
+          toggle: false
         });
       })
       .catch(err => console.log(err));
@@ -97,7 +96,9 @@ class App extends Component {
           <SingleNote
             id={this.state.id}
             notes={this.state.notes}
+            toggleModal={this.toggleModal}
             deleteNote={this.deleteNote}
+            toggle={this.state.toggle}
           />
         </div>
       );
