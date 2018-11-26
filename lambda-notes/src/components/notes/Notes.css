@@ -6,6 +6,8 @@
     height: 100vh;
     height: 100%;
     padding: 5%;
+    /* I had a problem later on so I added this padding on bottom */
+    padding-bottom: 110px;
 }
 
 .your-notes {
@@ -21,15 +23,17 @@
     justify-content: space-between;
 }
 
-/* .single-note {
-    border: 1px solid grey;
+.single-note {
+    text-overflow: -o-ellipsis-lastline;
+    height: 3.6em;
+    /* border: 1px solid grey;
     width: 200px;
     background-color: white;
     padding: 2%;
     margin-top: 2%;
     margin-bottom: 2%;
-    height: 170px;
-} */
+    height: 170px; */
+}
 
 .card-link {
     text-decoration: none;
@@ -54,6 +58,7 @@
 .text-body {
     margin-top: 4%;
     line-height: 150%;
+
 
     /* overflow: hidden;
     text-overflow: ellipsis; */
@@ -125,6 +130,11 @@ textarea {
     font-weight: 700;
     font-size: .8rem;
     color: black;
+    text-decoration: underline;
+}
+
+.link:hover {
+    cursor: pointer;
 }
 
 .link:last-child {
@@ -137,3 +147,31 @@ textarea {
     min-height: 100vh;
 }
 
+.red-button {
+    width: 30%;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.red-button:hover {
+    cursor: pointer;
+}
+
+.modal {
+    background:grey;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1050;
+}
+
+/* .modal-open {
+    
+} */
+
+.modal-backdrop {
+    z-index: 1050;
+    position: relative;
+}
