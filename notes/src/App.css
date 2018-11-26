@@ -206,7 +206,7 @@ body {
   margin: 10px 5px;
   overflow-wrap: break-word;
   padding: 15px;
-  width: 27%;
+  width: 28%;
 }
 
 .note h3 {
@@ -220,6 +220,7 @@ body {
 form {
   display: flex;
   flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
   width: 90%;
 }
 
@@ -227,10 +228,11 @@ form h2 {
   color: #414141;
   font-size: 2rem;
   font-weight: bold;
+  margin: 50px 0 20px 0;
 }
 
 form input {
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
   margin: 5px 0;
   padding: 2%;
   width: 55%;
@@ -238,6 +240,7 @@ form input {
 
 form textarea {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
   height: 400px;
   margin: 5px 0;
   padding: 2%;
@@ -258,11 +261,78 @@ form button {
 }
 
 .view-note {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
   overflow-wrap: break-word;
+  position: relative;
   width: 90%;
+}
+
+.view-note a {
+  color: #414141;
+}
+
+.view-note-actions {
+  color: #414141;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  justify-content: flex-end;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .view-note span {
   cursor: pointer;
+  margin-left: 10px;
   text-decoration: underline;
+}
+
+.view-note h2 {
+  color: #414141;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 30px 0 30px 0;
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.modal-actions {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  height: auto;
+  justify-content: center;
+  left: 50%;
+  max-width: 600px;
+  padding: 1%;
+  position: fixed;
+  text-align: center;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+.modal-actions button {
+  background-color: #24b8bd;
+  border: 1px solid #a5a5a5;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: bold;
+  height: 40px;
+  margin: 10px;
+  width: 25%;
+}
+
+.modal-actions .delete {
+  background-color: #ca001a;
 }
