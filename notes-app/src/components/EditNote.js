@@ -33,11 +33,12 @@ class EditNote extends Component {
         })
       })
       .catch(err => console.log(err))
+    setTimeout(() => this.props.history.push("/"), 1000)
   }
 
   render() {
     return (
-      <div>
+      <div className="edit-note">
         <h2>Edit Note:</h2>
         <form onSubmit={this.handleEdit}>
           <input

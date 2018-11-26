@@ -12,7 +12,11 @@ const NoteList = props => {
             <div className="notes-container">
               <h2>{note.title}</h2>
               <hr />
-              <p>{note.textBody}</p>
+              <p>
+                {note.textBody.length > 40
+                  ? note.textBody.substring(0, 40) + "..."
+                  : note.textBody}
+              </p>
             </div>
           </Link>
         )
@@ -22,10 +26,10 @@ const NoteList = props => {
     )
 
   return (
-    <React.Fragment>
+    <div className="notes-wrapper">
       <h2>Your Notes:</h2>
       <div className="note-list">{Notes}</div>
-    </React.Fragment>
+    </div>
   )
 }
 

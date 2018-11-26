@@ -28,7 +28,7 @@ class Note extends Component {
   render() {
     return (
       <div className="note-container">
-        <div>
+        <div className="note-container-links">
           <Link to={`/notes/edit/${this.state.note._id}`}>
             <span>edit</span>
           </Link>
@@ -36,7 +36,7 @@ class Note extends Component {
             <span>delete</span>
           </Link>
         </div>
-        <div>
+        <div className="single-note">
           <h2>{this.state.note.title}</h2>
           <p>{this.state.note.textBody}</p>
         </div>

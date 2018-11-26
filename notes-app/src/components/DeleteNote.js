@@ -26,6 +26,7 @@ class DeleteNote extends Component {
     this.setState({
       deleteModal: false
     })
+    setTimeout(() => this.props.history.push(`/`), 1000)
   }
 
   render() {
@@ -33,11 +34,19 @@ class DeleteNote extends Component {
       this.state.deleteModal === true ? (
         <div className="delete-modal-box">
           <p>Are you sure you want to delete this?</p>
-          <button onClick={() => this.deleteNote(this.props.match.params.id)}>
+          <button
+            className="delete-button"
+            onClick={() => this.deleteNote(this.props.match.params.id)}
+          >
             Delete
           </button>
           <Link to={`/notes/${this.props.match.params.id}`}>
-            <button onClick={() => this.deleteModal()}>No</button>
+            <button
+              className="cancel-delete"
+              onClick={() => this.deleteModal()}
+            >
+              No
+            </button>
           </Link>
         </div>
       ) : null

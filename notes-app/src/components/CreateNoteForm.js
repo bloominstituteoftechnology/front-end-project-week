@@ -10,6 +10,7 @@ class CreateNoteForm extends Component {
   }
 
   handleChange = e => {
+    e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -26,11 +27,13 @@ class CreateNoteForm extends Component {
       title: "",
       textBody: ""
     })
+
+    setTimeout(() => this.props.history.push("/"), 1000)
   }
 
   render() {
     return (
-      <div>
+      <div className="note-form-wrapper">
         <h2>Create New Note:</h2>
         <form onSubmit={this.handleSubmit}>
           <input
