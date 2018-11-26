@@ -8,6 +8,7 @@ import CreateNote from './CreateNote';
 import FullNote from './FullNote';
 import Notes from './Notes';
 import UpdateNote from './UpdateNote';
+import SpeechNote from './SpeechNote';
 
 class App extends Component {
 
@@ -33,6 +34,7 @@ class App extends Component {
       <Route exact path="/notes" component={Notes} />
       <Route path="/notes/:id" render={ props => <FullNote {...props} /> } />
       <Route path="/edit/:id" render={ props => <UpdateNote {...props} /> } />
+      <Route path="/speech" component={SpeechNote} />
       </div>
     );
   }

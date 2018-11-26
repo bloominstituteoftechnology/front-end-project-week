@@ -9,6 +9,7 @@ const SideBar = (props) => {
             <Header>Lambda Notes</Header>
             <Link to="/notes"><SideBarButton>View Your Notes</SideBarButton></Link>
             <Link to="/create"><SideBarButton>+ Create New Note</SideBarButton></Link>
+            <Link to="/speech"><SideBarButton>Speak A New Note</SideBarButton></Link>
             <Link to="/notes"><SideBarButton onClick={props.export}>Export to CSV</SideBarButton></Link>
         </SideBarDiv>
     )
