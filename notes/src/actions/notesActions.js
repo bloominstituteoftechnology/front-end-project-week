@@ -9,7 +9,7 @@ export const getNotes = () => {
     dispatch({type: LOADING})
     axios.get('http://localhost:5000/notes')
       .then( response => {
-        dispatch({type: GET_NOTES, notes: response.data})
+        dispatch({type: GET_NOTES, payload: response.data})
       })
       .catch( err => {
         dispatch({type: ERROR, errorMessage: "Trouble getting notes.  Take another shot."})
@@ -23,7 +23,7 @@ export const createNote = (newNote) => {
     dispatch({type: LOADING})
     axios.post('http://localhost:5000/notes', newNote)
       .then( response => {
-        dispatch({type: GET_NOTES, notes: response.data})
+        dispatch({type: GET_NOTES, payload: response.data})
       })
       .catch( err => {
         dispatch({type: ERROR, errorMessage: "Can't create new note"})

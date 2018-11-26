@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
     case LOADING:
       return Object.assign({}, state, {loading: true})
     case GET_NOTES:
-      return Object.assign({}, state, {notes: action.notes, loading: false, error: ''})
+      return Object.assign({}, state, {notes: action.payload, loading: false, error: ''})
     case ERROR:
       return Object.assign({}, state, {error: action.errorMessage, loading: false})
     default:
