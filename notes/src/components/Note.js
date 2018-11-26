@@ -2,6 +2,22 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+const Modal = (props) => {
+    return (
+        <div className={props.display ? "modal display-block" : "modal display-none"}>
+            <section className="modal-main">
+                <section className="message">
+                    <p>Are you sure you want to delete this?</p>
+                </section>
+                <section className="controls">
+                    <button className="modal-submit" onClick={props.handleSubmit}>Delete</button>
+                    <button className="modal-cancel" onClick={props.handleCancel}>No</button>
+                </section>
+            </section>
+        </div>
+    );
+};
+
 class Note extends React.Component {
     constructor(props) {
         super(props);
@@ -15,13 +31,14 @@ class Note extends React.Component {
             deleting: false,
             error: null,
             loading: false,
-            note: this.note
+            note: this.note,
+            modal: false
         }
     }
 
     deleteHandler = e => {
-        e.preventDefault();
-        this.setState({...this.state, deleting: true});
+        this.props.history.push(`/delete/${this.state.note._id}`);
+        this.setState({...this.state, modal: false, deleting: true});
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
             .then( response => {
                 this.props.history.push(`/`);
@@ -30,6 +47,15 @@ class Note extends React.Component {
                 this.setState({error: "Unable to delete note on server", deleting: false});
             })
     }
+  
+    closeModal = () => {
+        this.setState({...this.state, modal: false});
+    };
+
+    displayModal = e => {
+        e.preventDefault();
+        this.setState({...this.state, modal: true});
+    };
 
     componentDidMount() {
         this.setState({...this.state, loading: true});
@@ -45,11 +71,12 @@ class Note extends React.Component {
     render() {
         return (
             <div className="note">
+                <Modal display={this.state.modal} handleCancel={this.closeModal} handleSubmit={this.deleteHandler}></Modal>
                 <header>
                     <h2>{this.state.note.title}</h2>
                     <div className="options">
                         <Link to={`/edit/${this.state.note._id}`}>edit</Link>
-                        <a href={`/delete/${this.state.note._id}`} onClick={this.deleteHandler}>delete</a>
+                        <a href={`/delete/${this.state.note._id}`} onClick={this.displayModal}>delete</a>
                     </div>
                 </header>
                 { this.state.loading === true ? <h1>Loading...</h1> : null }
