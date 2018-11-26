@@ -33,7 +33,7 @@ code {
   height: 35px;
 }
 
-.note-card div h2 {
+.note-card section h2 {
     margin: 0;
             display: -webkit-box;
             -webkit-line-clamp: 1;

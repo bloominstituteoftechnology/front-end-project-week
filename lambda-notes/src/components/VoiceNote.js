@@ -1,105 +1,88 @@
-import React, {Component}          from 'react';
-import { FloatingActionButton,
-        MuiThemeProvider }         from 'material-ui';
-import MicrophoneOn                from 'material-ui/svg-icons/av/mic';
-import MicrophoneOff               from 'material-ui/svg-icons/av/stop';
+import React, { Component } from 'react'
 
-import { ReactMic} from 'react-mic';
-import ReactGA from 'react-ga';
+import Recorder from 'react-mp3-recorder'
+import ReactAudioPlayer from 'react-audio-player'
 
-ReactGA.initialize('UA-98862819-1');
+import blobToBuffer from 'blob-to-buffer'
 
 export default class VoiceNote extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      blobObject: null,
-      isRecording: false
+    state = {
+        url: ''
     }
-  }
 
-  componentDidMount() {
-    ReactGA.pageview(window.location.pathname);
-  }
+    _onRecordingComplete = (blob) => {
+        blobToBuffer(blob, (err, buffer) => {
+        if (err) {
+            console.error(err)
+            return
+        }
 
-  startRecording= () => {
-    this.setState({
-      isRecording: true
-    });
-  }
+        console.log('recording', blob)
 
-  stopRecording= () => {
-    this.setState({
-      isRecording: false
-    });
-  }
+        if (this.state.url) {
+            window.URL.revokeObjectURL(this.state.url)
+        }
 
-  onSave=(blobObject) => {
-  }
+        this.setState({
+            url: window.URL.createObjectURL(blob)
+        })
+        })
+    }
 
-  onStart=() => {
-    console.log('You can tap into the onStart callback');
-  }
+    _onRecordingError = (err) => {
+        console.log('error recording', err)
 
-  onStop= (blobObject) => {
-    this.setState({
-      blobURL : blobObject.blobURL
-    });
-  }
+        if (this.state.url) {
+        window.URL.revokeObjectURL(this.state.url)
+        }
 
-  onData(recordedBlob){
-    console.log('chunk of real-time data is: ', recordedBlob);
-  }
+        this.setState({ url: null })
+    }
 
-  render() {
-    const { isRecording } = this.state;
+    render () {
+        const {
+        url
+        } = this.state
 
-    return(
-      <MuiThemeProvider>
+        return (
         <div>
-          <h1>React-Mic</h1>
-          <p><a href="https://github.com/hackingbeauty/react-mic">Documentation</a></p>
-          <ReactMic
-            className="oscilloscope"
-            record={isRecording}
-            backgroundColor="#FF4081"
-            visualSetting="sinewave"
-            audioBitsPerSecond= {128000}
-            onStop={this.onStop}
-            onStart={this.onStart}
-            onSave={this.onSave}
-            onData={this.onData}
-            strokeColor="#000000" />
-          <div>
-            <audio ref="audioSource" controls="controls" src={this.state.blobURL}></audio>
-          </div>
-          <br />
-          <br />
-          <FloatingActionButton
-            className="btn"
-            secondary={true}
-            disabled={isRecording}
-            onClick={this.startRecording}>
-            <MicrophoneOn />
-          </FloatingActionButton>
-          <FloatingActionButton
-            className="btn"
-            secondary={true}
-            disabled={!isRecording}
-            onClick={this.stopRecording}>
-            <MicrophoneOff />
-          </FloatingActionButton>
-          <br />
-          <br />
-          <br />
-          <p>As featured in the course <br /><a href="http://professionalreactapp.com">How To Develop A Professional React App</a></p>
-          <br />
-          <br />
-          <p>Check out how I use it in my app
-          <br />
-            <a href="http://voicerecordpro.com" target="_blank">Voice Record Pro</a> (record your voice and publish it)</p>
+            <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center',
+                minHeight: '100vh'
+            }}
+            >
+            <div>
+                <Recorder
+                onRecordingComplete={this._onRecordingComplete}
+                onRecordingError={this._onRecordingError}
+                style={{
+                    margin: '0 auto'
+                }}
+                />
+
+                <p>
+                Click and hold to start recording.
+                </p>
+
+                {url && (
+                <div>
+                    <ReactAudioPlayer
+                    src={url}
+                    controls
+                    style={{
+                        minWidth: '500px'
+                    }}
+                    />
+                </div>
+                )}
+            </div>
+            </div>
         </div>
-    </MuiThemeProvider>
-    );
-  }
+        )
+    }    
 }

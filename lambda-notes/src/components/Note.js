@@ -46,16 +46,15 @@ class Note extends React.Component {
             ConnectDragSource,
             ConnectDropTarget,            
         } = this.props;
-        if(!ConnectDragSource||!ConnectDropTarget) return <h1>Undefined</h1>;
         return (ConnectDragSource &&
                     ConnectDropTarget &&
                     ConnectDragSource(
                         ConnectDropTarget(  <div className='note-card' onClick={() => {this.props.history.push(`/note/${this.props.id}`);this.props.handleId(this.props.id)}} >
-                                                <div>
+                                                <section>
                                                     <h2>{this.props.title}</h2>
-                                                </div>
+                                                </section>
                                                 <hr></hr>                            
-                                                <Markup content={this.props.textBody.length > 70 ? this.props.textBody.substring(0, 70)+'...' : this.props.textBody} />
+                                                <Markup content={this.props.textBody.length > 80 ? this.props.textBody.substring(0, 80)+'...' : this.props.textBody} />
                                             </div>
                             )
                         )     
