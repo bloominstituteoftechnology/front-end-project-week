@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { newNote } from '../Actions/index';
 import { FormStyle, ContentInputStyle, TitleInputStyle } from '../Styles/EditViewStyle';
 import { BtnStyle } from '../Styles/AppStyle';
 import { FormFormat, BtnWrap } from '../Styles/CreateNoteStyle';
@@ -18,26 +20,9 @@ inputHandler = (e) => {
 
  submitHandler = (e) => {
     e.preventDefault();
-    this.newNote(this.state);
-
-    this.setState({
-        title: "",
-        textBody: "",
-    })
+    this.props.newNote(this.state);
  }
 
-newNote = (note) => {
-        axios
-        .post(`https://fe-notes.herokuapp.com/note/create`, note)
-        .then( res => {
-            this.setState({
-                notes: Object.assign({}, ...note, res._id, res.tags)
-            })
-        })
-        .catch( err => {
-            throw new Error(err);
-        })
-    }
 
 
     render() {
@@ -57,6 +42,12 @@ newNote = (note) => {
     }
 }
 
+const mapStateToProps =(state)=> {
+    return {
+        notes: state.notes,
+        path: state.path,
+    }
+}
 
 
-export default CreateNewNote;
+export default withRouter(connect(mapStateToProps, {newNote})(CreateNewNote)) ;

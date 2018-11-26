@@ -1,7 +1,8 @@
 import React, { Component } from 'react' ;
-import axios from 'axios' ;
 import '../src/App.css' ;
-import {Route, NavLink} from 'react-router-dom' ;
+import { connect } from 'react-redux';
+import { getNotes } from '../src/components/Actions/index';
+import {Route, NavLink, withRouter} from 'react-router-dom' ;
 import ListView from './components/Display_Components/ListView' ;
 import CreateNewNote from './components/Display_Components/CreateNewNote' ;
 import NoteView from './components/Display_Components/NoteView' ;
@@ -15,25 +16,21 @@ import { AppWrap , BtnStyle, HeadStyle, LambdaNotes, NoteContent, NoteHeading } 
 class App extends Component {
 
   state = {
-    notes: {},
+    path: 'List View',
   }
 
 
     componentDidMount() {
 
-      axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
-      .then( res => {
-        this.setState({
-          notes: res.data,
-        })
-      })
+     this.props.getNotes();
+    
     }
 
-  render() {
 
+  render() {
     return (
       <AppWrap>
-        <NoteHeading><h2>List View</h2></NoteHeading>
+        <NoteHeading><h2>{this.state.path}</h2></NoteHeading>
         <NoteContent>
          <HeadStyle>
             <LambdaNotes>
@@ -56,7 +53,7 @@ class App extends Component {
             />
 
             <Route path={`/note/:id`} exact
-              render={(props) => <NoteView  {...props} />}
+              render={(props) => <NoteView   {...props} />}
             />
 
             <Route path={`/note/edit/:id`} exact
@@ -68,4 +65,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) =>{
+  return {
+    notes: state.notes,
+    path: state.path,
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { getNotes })(App));

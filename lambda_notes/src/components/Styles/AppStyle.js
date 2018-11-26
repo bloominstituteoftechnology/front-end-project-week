@@ -18,8 +18,6 @@ export const NoteContent = styled.div`
     height: 800px;
     overflow: scroll ;
     background-color: #f2f1f2;
-    
-    
 `
 
 export const BtnStyle = styled.button`
@@ -31,7 +29,8 @@ export const BtnStyle = styled.button`
     width: 200px;
     padding: 0;
         :hover {
-          cursor: pointer;  
+          cursor: pointer;
+          border: 1px solid white;
         }
 `
 

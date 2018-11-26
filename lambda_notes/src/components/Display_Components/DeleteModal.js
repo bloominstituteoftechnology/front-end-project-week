@@ -23,6 +23,7 @@ export default class DeleteModal extends Component {
     onDelete = (e) => {
         e.preventDefault();
         this.deleteNote(this.props.id);
+         alert("Delete Successful");
     }
 
   deleteNote = (id) => {
@@ -42,7 +43,7 @@ export default class DeleteModal extends Component {
             <div>
                 <div onClick={this.onOpenModal}>Delete</div>
                 <Modal closeIconSize={0} open={open}  center>
-                    <ModalText>Are you sure you want to delete this?</ModalText>
+                <ModalText>Are you sure you want to delete this?</ModalText>
                     <ButtonWrap>
                         <DangerBtn onClick={this.onDelete} onClickCapture={this.onCloseModal}>Delete</DangerBtn>
                         <BtnStyle onClick={this.onCloseModal}>No</BtnStyle>

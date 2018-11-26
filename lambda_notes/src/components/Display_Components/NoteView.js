@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import DeleteModal from './DeleteModal';
 import axios from 'axios';
-import EditView from './EditView';
 import { Link } from 'react-router-dom';
 import { NoteBody, MenuWrap } from '../Styles/NoteViewStyle';
 
 export default class NoteView extends Component {
-    constructor(props) {
-        super(props)
-    this.state = {
+    state = {
         note: {},
+        path: "",
     }
-}
+
 
  
     componentDidMount() {
@@ -24,6 +22,7 @@ export default class NoteView extends Component {
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(res => { this.setState({
             note: res.data,
+            path:"Note View",
         })})
         .catch(res => console.log( res.message ));
         }

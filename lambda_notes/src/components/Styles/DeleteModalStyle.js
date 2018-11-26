@@ -22,7 +22,8 @@ export const DangerBtn = styled.button`
     width: 200px;
     padding: 0;
         :hover {
-          cursor: pointer;  
+          cursor: pointer;
+          border: 1px solid white;
         }
 `
 
@@ -36,6 +37,7 @@ export const BtnStyle = styled.button`
     width: 200px;
     padding: 0;
         :hover {
-          cursor: pointer;  
+          cursor: pointer;
+          border: 1px solid white;
         }
 `
