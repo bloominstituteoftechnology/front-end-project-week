@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-
-
-class Note extends Component {
-
-    render() {
-        return (
-            <div className="note" onClick={this.props.deleteMethod}>
-                {this.props.text}
-            </div>
-        );
-    }
+import React from 'react';
+ const Note = (props) => {
+    console.log('Note()');
+    console.log(props);
+    return (
+        <div className="note">
+            <h2>{props.note.title}</h2>
+            <p>{props.note.textBody}</p>
+        </div>
+    )
 }
-
-export default Note;
+ export default Note; 
