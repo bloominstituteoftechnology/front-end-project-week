@@ -2,6 +2,7 @@ import React from 'react'
 import {NotesContext} from '../contexts/NotesProvider'
 
 const Delete = ({id, showModal, closeModal}) =>{
+    //display modal based upon the status of showModal in Note.js
     const displayClassName = showModal ? 'modalDisplay' : 'modalHide';
 
     return(

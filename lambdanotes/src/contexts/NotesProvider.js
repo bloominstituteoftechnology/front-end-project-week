@@ -37,14 +37,18 @@ class NotesProvider extends Component{
     createNote = (newNote) =>{
         this.setState({loading: true})
         axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
+        //if successful, returns id of new note within response.data.success
         .then((response) => {
+            //grap individual newly created note
             axios.get(`https://fe-notes.herokuapp.com/note/get/${response.data.success}`)
                 .then((response) => {
                     this.setState({ 
+                        //add new note to notes array
                         notes: [...this.state.notes, response.data],
                         loading: false,
                         error: null
                 })
+                //go to '/' route - which displays ViewNotes.js
                 this.props.history.push('/')
             })
             
@@ -62,7 +66,7 @@ class NotesProvider extends Component{
         this.setState({loading: true})
         axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, newNote)
         .then((response) => {
-            this.fetchNotes()
+            this.fetchNotes()  //necessary to update this.state.notes
             this.props.history.push('/')
         })
         .catch(err => {
@@ -78,11 +82,7 @@ class NotesProvider extends Component{
         this.setState({loading: true})
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         .then((response)=>{
-            this.setState({
-                loading: false,
-                error: null
-            })
-            this.fetchNotes()
+            this.fetchNotes() //necessary to update this.state.notes
             this.props.history.push('/')
         })
         .catch(err => {
@@ -97,6 +97,7 @@ class NotesProvider extends Component{
     render(){
         return (
             <NotesContext.Provider
+                //Give access to any of the following to any element within NotesContext.Consumer
                 value={
                     {state: {notes: this.state.notes ,
                         loading: this.state.loading, 

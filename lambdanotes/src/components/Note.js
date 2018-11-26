@@ -9,15 +9,18 @@ class Note extends Component{
     constructor(props){
         super(props)
         this.state = {
+            //control whether Delete.js displays or not
             showModal: false
         }
     }
 
     componentDidMount(){
+        //page will always open at top of screen
         window.scrollTo(0,0)
     }
 
     openModal = () =>{
+        //used by Delete.js to control whether to display or not
         this.setState({
             showModal: true
         })

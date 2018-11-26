@@ -12,6 +12,7 @@ class CreateNote extends Component{
   }
 
   changeHandler = (e) =>{
+    //callback necessary to assure title and textBody are accurately obtained 
     this.setState({
       [e.target.name]: e.target.value,
     }, () =>{
