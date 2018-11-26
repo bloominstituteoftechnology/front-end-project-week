@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { deleteNote } from '../Actions/index';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Modal from 'react-responsive-modal';
 import { DangerBtn, BtnStyle, ModalText, ButtonWrap } from '../Styles/DeleteModalStyle';
 
 
 
-export default class DeleteModal extends Component {
+class DeleteModal extends Component {
 
     state = {
         deleteMessage: '',
@@ -22,20 +24,11 @@ export default class DeleteModal extends Component {
 
     onDelete = (e) => {
         e.preventDefault();
-        this.deleteNote(this.props.id);
+        this.props.deleteNote(this.props.id);
          alert("Delete Successful");
     }
 
-  deleteNote = (id) => {
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-        .then(res => {
-            this.setState({
-                notes: res.data,
-                deleteMessage: "Note deleted successfully",
-            })
-        })
-        .catch(err => console.log(err))
-    }
+
 
   render() {
     const { open } = this.state;
@@ -53,3 +46,11 @@ export default class DeleteModal extends Component {
         )
     }
 }
+
+const mapStateToProps =(state)=> {
+    return {
+        notes: state.notes,
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {deleteNote} )(DeleteModal))

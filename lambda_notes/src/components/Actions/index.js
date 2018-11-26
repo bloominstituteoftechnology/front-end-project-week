@@ -42,3 +42,15 @@ export const editNote = (id, note) => {
     })
   }
 }
+
+export const deleteNote =(id)=> {
+  return (dispatch) => {
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then( res => {
+      dispatch({type: SUCCESS, payload: res.data, fetching: false})
+    })
+    .catch( err => {
+        throw new Error(err);
+    })
+  }
+}
