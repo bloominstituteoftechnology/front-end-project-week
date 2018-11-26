@@ -34,7 +34,7 @@ class _Note extends Component {
 
         return (
             <Note className="flex-column justify-between" width="300px" height="300px" draggable="true"
-                  onDragStart={() => this.handleDragStart()} onDragEnd={() => this.handleDragEnd()}>
+                  onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd}>
                 <FlexColumn>
                     <Title>{note.title}</Title>
                     <Text>{note.textBody}</Text>

@@ -28,7 +28,8 @@ class Notes extends Component {
             notes: null,
             dragStart: null,
             dragEnd: null,
-            dragEl: null
+            dragEl: null,
+            timeout: 250
         }
     }
 
@@ -37,8 +38,6 @@ class Notes extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (!this.state.notes && !!nextProps.notes.length) {
-        }
         this.setState({notes: nextProps.notes});
     }
 
@@ -52,12 +51,14 @@ class Notes extends Component {
 
         setTimeout(() => {
             target.style.width = "40px";
-        }, 250);
+        }, this.state.timeout);
     };
 
     handleDragDrop = () => {
         let {notes, dragEnd, dragStart, dragEl} = this.state;
-        dragEnd = dragStart > dragEnd ? dragEnd + 1 : dragEnd;
+        if (dragStart > dragEnd) {
+            dragEnd = dragEnd + 1;
+        }
 
         notes.splice(dragStart, 1);
         notes.splice(dragEnd, 0, dragEl);
