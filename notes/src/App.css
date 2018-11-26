@@ -1,0 +1,265 @@
+.App {
+    width: 886px;
+    margin: 20px auto;
+    border: 1px solid #bebebe;
+    display: flex;
+}
+
+header {
+    height: 100px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+h1 {
+    color: #414141;
+    font-size: 2.1rem;
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+h2 {
+    color: #414141;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0 25px;
+}
+
+nav {
+    margin: 7px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav a {
+    width: 87%;
+    height: 45px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: #24b8bd;
+    border: 1px solid #acb7b8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a:hover {
+    color: #24b8bd;
+    background: #ffffff;
+    border: 1px solid #24b8bd;
+}
+
+.sidebar {
+    width: 25%;
+    background: #d3d2d3;
+    border-right: 1px solid #bebebe;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    width: 75%;
+    background: #f2f1f2;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-list {
+    width: 93%;
+    margin: 7px 4%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.note-card {
+    width: 31%;
+    margin-right: 1%;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid #cccccc;
+    background: #ffffff;
+}
+
+.note-card h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 10px 7%;
+    color: #1b1e1f;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #cccccc;
+    word-wrap: break-word;
+}
+
+.note-card p {
+    font-size: .9rem;
+    margin: 10px 7%;
+    color: #333333;
+    word-wrap: break-word;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+}
+
+.note header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    word-wrap: break-word;
+}
+
+.note header .options {
+    height: 75%;
+    margin: 0 5%;
+}
+
+.note header .options a {
+    margin-left: 12px;
+    font-size: .9rem;
+    font-weight: bold;
+    color: #555555;
+}
+
+.note header .options a:hover {
+    color: #999999;
+}
+
+.note p {
+    margin: 7px 4%;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    word-wrap: break-word;
+}
+
+.note-form {
+    margin: 7px 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-form input {
+    width: 58%;
+    padding: 11px;
+    margin-bottom: 17px;
+    font-size: .8rem;
+    border: 2px solid #cccccc;
+    border-radius: 3px;
+}
+
+.note-form textarea {
+    width: 100%;
+    height: 350px;
+    padding: 16px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    border: 2px solid #cccccc;
+    border-radius: 3px;
+}
+
+.note-form button {
+    width: 31%;
+    height: 45px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: #24b8bd;
+    border: 1px solid #acb7b8;
+}
+
+.note-form button:hover {
+    color: #24b8bd;
+    background: #ffffff;
+    border: 1px solid #24b8bd;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(127, 127, 127, 0.4);
+  }
+  
+  .modal-main {
+    position:fixed;
+    background: white;
+    border: 2px solid #999999;
+    width: 40%;
+    height: auto;
+    top:50%;
+    left:50%;
+    padding: 50px 0;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-main .message {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .modal-main .message p {
+      font-weight: bold;
+  }
+
+  .modal-main .controls {
+      width: 75%;
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .modal-main .controls button {
+      width: 46%;
+      height: 45px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+  }
+
+  .modal-main .controls .modal-submit {
+    color: #ffffff;
+    background: #ca001a;
+    border: 1px solid #b54f5e;
+  }
+
+  .modal-main .controls .modal-submit:hover {
+    color: #ca001a;
+    background: #ffffff;
+    border: 1px solid #ca001a;
+  }
+
+  .modal-main .controls .modal-cancel {
+    color: #ffffff;
+    background: #24b8bd;
+    border: 1px solid #acb7b8;
+  }
+
+  .modal-main .controls .modal-cancel:hover {
+    color: #24b8bd;
+    background: #ffffff;
+    border: 1px solid #24b8bd;
+  }
+  
+  .display-block {
+    display: block;
+  }
+  
+  .display-none {
+    display: none;
+  }
