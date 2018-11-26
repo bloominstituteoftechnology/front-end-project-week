@@ -6819,6 +6819,7 @@ react-scripts@2.1.1:
 react-sortablejs@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/react-sortablejs/-/react-sortablejs-1.4.0.tgz#4d9527c5b0186250767adaec597b0bdf937b36f9"
+  integrity sha512-wro0jY9h0BSDg4tC5pAFT6quwBL7lPn9D+CnAvqy2ftiA6+3WPFSDGM76buG8RnOPtssD2uDVrr4K8U7E70BPw==
   dependencies:
     prop-types ">=15.0.0"
 
@@ -7443,6 +7444,11 @@ sockjs@0.3.19:
   dependencies:
     faye-websocket "^0.10.0"
     uuid "^3.0.1"
+
+sortablejs@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.7.0.tgz#80a2b2370abd568e1cec8c271131ef30a904fa28"
+  integrity sha1-gKKyNwq9Vo4c7IwnETHvMKkE+ig=
 
 source-list-map@^2.0.0:
   version "2.0.1"

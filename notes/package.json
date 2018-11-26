@@ -9,7 +9,8 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-    "react-sortablejs": "^1.4.0"
+    "react-sortablejs": "^1.4.0",
+    "sortablejs": "^1.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
