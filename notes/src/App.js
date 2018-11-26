@@ -31,16 +31,16 @@ class App extends Component {
       })
   }
 
-  componentDidUpdate() {
-    axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(res => {
-        this.setState({ notes: res.data })
-      })
-      .catch(err => {
-        console.log('Error: ', err)
-      })
-  }
+  // componentDidUpdate() {
+  //   axios
+  //     .get('https://fe-notes.herokuapp.com/note/get/all')
+  //     .then(res => {
+  //       this.setState({ notes: res.data })
+  //     })
+  //     .catch(err => {
+  //       console.log('Error: ', err)
+  //     })
+  // }
 
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value })
