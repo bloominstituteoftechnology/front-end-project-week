@@ -1,3 +1,6 @@
+
+
+
 /* Everything has an X so as not to overlap with the side menu bar*/
 
 /* Dropdown Button */
@@ -41,3 +44,41 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdownX:hover .dropbtnX {background-color: #3e8e41;}
+
+/* NON-MENU */
+.display-container {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 710px;
+    width: 100%;
+}
+
+.notebox-container {
+    border: 1px solid greenyellow;
+}
+
+.notebox1 {
+  background-color: white;
+  border: 1px solid gray;
+  width: 80%;
+  height: 250px;
+  padding: 5px 10px 5px 10px;
+  margin-bottom: 30px;
+}
+
+
+/* Try with CSS */
+.clicker {
+    background-color: dodgerblue;
+}
+
+.hiddendiv {
+    display: none;
+    width: 500px;
+}
+
+.clicker + .hiddendiv {
+    display: block;
+}

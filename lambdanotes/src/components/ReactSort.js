@@ -88,6 +88,7 @@ class ReactSort extends React.Component {
 
         return (
             <div>
+
                 <div className="dropdownX" style={{float: "right"}}>
                     <button className="dropbtnX">Dropdown</button>
                     <div className="dropdown-contentX">
@@ -100,80 +101,80 @@ class ReactSort extends React.Component {
                     </div>
                 </div>
 
-
-
-                <div>
-                    ReactSort Testing: A-Z
-                    <div onClick={this.sortClick}>
-                        <h1>{this.state.sortAZ ? 'unsort' : 'a-z'}</h1>
-                        {this.state.sortAZ && (
-                            <div>
-                                {this.sortObjProperty(emptyArr, 'title').map(obj => {
-                                    return (
-                                        <div className="notebox" key={obj._id}>
-                                            Title: <h2>{obj.title.toUpperCase()}</h2>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        )}
+   
+                <div className="display-container">
+                    <div>
+                        ReactSort Testing: A-Z
+                        <div className="notebox-container" onClick={this.sortClick}>
+                            <h2>{this.state.sortAZ ? 'unsort' : 'a-z'}</h2>
+                            {this.state.sortAZ && (
+                                <div>
+                                    {this.sortObjProperty(emptyArr, 'title').map(obj => {
+                                        return (
+                                            <div className="notebox1" key={obj._id}>
+                                                Title: <h2>{obj.title.toUpperCase()}</h2>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    ReactSort Testing: UNSORT
-                    <div onClick={this.sortClick2}>
-                        <h1>{this.state.sortUN ? 'default' : 'sortUN'}</h1>
-                        {this.state.sortUN && (
-                            <div>
-                                {this.props.notes.map(note => {
-                                    return (
-                                        <div className="notebox" key={note._id}>
-                                            Title: <h2>{note.title.toUpperCase()}</h2>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        )}
+                    <div>
+                        ReactSort Testing: UNSORT
+                        <div onClick={this.sortClick2}>
+                            <h2>{this.state.sortUN ? 'default' : 'sortUN'}</h2>
+                            {this.state.sortUN && (
+                                <div>
+                                    {this.props.notes.map(note => {
+                                        return (
+                                            <div className="notebox1" key={note._id}>
+                                                Title: <h2>{note.title.toUpperCase()}</h2>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            )}
+                        </div>
+                    </div> 
+
+                    <div>
+                        ReactSort Testing: Z-A
+                        <div onClick={this.sortClick3}>
+                            <h2>{this.state.sortZA ? 'unsort' : 'z-a'}</h2>
+                            {this.state.sortZA && (
+                                <div>
+                                    {this.sortObjProperty2(emptyArr, 'title').map(obj => {
+                                        return (
+                                            <div className="notebox1" key={obj._id}>
+                                                Title: <h2>{obj.title.toUpperCase()}</h2>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div> 
 
-                <div>
-                    ReactSort Testing: Z-A
-                    <div onClick={this.sortClick3}>
-                        <h1>{this.state.sortZA ? 'unsort' : 'z-a'}</h1>
-                        {this.state.sortZA && (
-                            <div>
-                                {this.sortObjProperty2(emptyArr, 'title').map(obj => {
-                                    return (
-                                        <div className="notebox" key={obj._id}>
-                                            Title: <h2>{obj.title.toUpperCase()}</h2>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        )}
+                    <div>
+                        ReactSort Testing: by ID
+                        <div onClick={this.sortClick4}>
+                            <h2>{this.state.sortID ? 'unsort' : 'ID'}</h2>
+                            {this.state.sortID && (
+                                <div>
+                                    {this.sortObjProperty2(emptyArr, '_id').map(obj => {   //sortObjProperty2 same as Z-A
+                                        return (
+                                            <div className="notebox1" key={obj._id}>
+                                                Title: <h2>{obj.title.toUpperCase()}</h2>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div>
-
-                <div>
-                    ReactSort Testing: by ID
-                    <div onClick={this.sortClick4}>
-                        <h1>{this.state.sortID ? 'unsort' : 'ID'}</h1>
-                        {this.state.sortID && (
-                            <div>
-                                {this.sortObjProperty2(emptyArr, '_id').map(obj => {   //sortObjProperty2 same as Z-A
-                                    return (
-                                        <div className="notebox" key={obj._id}>
-                                            Title: <h2>{obj.title.toUpperCase()}</h2>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        )}
-                    </div>
-                </div>
-
+                </div>   {/* display-container */}
 
             </div>
         )
