@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from "react-router-dom";
+import PropTypes from 'prop-types';
 import {Modal, Paper} from './Styles/Components';
 import {getNote, editNote, getNotes} from "../actions";
 import {connect} from "react-redux";
@@ -50,10 +51,12 @@ class NoteEdit extends Component {
                         <form onSubmit={this.handleSubmit} style={{width: "100%"}}>
                             <FlexColumn width="full">
                                 <Input value={title} onChange={e => this.setState({title: e.target.value})}/>
-                                <TextArea value={textBody} onChange={e => this.setState({textBody: e.target.value})} style={{marginBottom: "40px"}}/>
+                                <TextArea value={textBody} onChange={e => this.setState({textBody: e.target.value})}
+                                          style={{marginBottom: "40px"}}/>
 
                                 <FlexRow width="full" justifyEnd>
-                                    <Button onClick={this.handleClose} border style={{marginRight: "10px"}}>CANCEL</Button>
+                                    <Button onClick={this.handleClose} border
+                                            style={{marginRight: "10px"}}>CANCEL</Button>
                                     <Button primary type="submit">UPDATE</Button>
                                 </FlexRow>
                             </FlexColumn>
@@ -66,7 +69,14 @@ class NoteEdit extends Component {
     }
 };
 
-NoteEdit.propTypes = {};
+NoteEdit.propTypes = {
+    loading: PropTypes.bool,
+    error: PropTypes.bool,
+    note: PropTypes.shape({
+        title: PropTypes.string,
+        textBody: PropTypes.string
+    })
+};
 
 const mapStateToProps = ({loading, error, note}) => {
     return {

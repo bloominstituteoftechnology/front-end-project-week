@@ -109,7 +109,10 @@ class CreateNote extends Component {
     }
 }
 
-CreateNote.propTypes = {};
+CreateNote.propTypes = {
+    loading: PropTypes.bool,
+    error: PropTypes.bool
+};
 
 const mapStateToProps = ({loading, error}) => {
     return {

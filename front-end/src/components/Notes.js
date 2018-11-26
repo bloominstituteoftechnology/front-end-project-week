@@ -39,7 +39,7 @@ class Notes extends Component {
     componentWillReceiveProps(nextProps) {
         if (!this.state.notes && !!nextProps.notes.length) {
         }
-            this.setState({notes: nextProps.notes});
+        this.setState({notes: nextProps.notes});
     }
 
     handleDragOver = (e, i) => {
@@ -96,7 +96,16 @@ class Notes extends Component {
     }
 }
 
-Notes.propTypes = {};
+Notes.propTypes = {
+    loading: PropTypes.bool,
+    error: PropTypes.bool,
+    notes: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string,
+            textBody: PropTypes.string,
+            tags: PropTypes.arrayOf(PropTypes.string)
+        }))
+};
 
 const mapStateToProps = ({loading, error, notes}) => {
     return {

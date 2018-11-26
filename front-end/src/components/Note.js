@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import styled from "styled-components";
 import {FlexRow, FlexColumn, Paper, Title, Text, Tag} from "./Styles/Components"
 
@@ -14,7 +15,7 @@ const Note = styled(Paper)`
     }
 `;
 
-export default class extends Component {
+class _Note extends Component {
     constructor(props) {
         super(props);
 
@@ -48,6 +49,14 @@ export default class extends Component {
         );
 
     }
-
-
 };
+
+_Note.propTypes = {
+    note: PropTypes.shape({
+        title: PropTypes.string,
+        textBody: PropTypes.string,
+        tags: PropTypes.arrayOf(PropTypes.string)
+    })
+};
+
+export default _Note
