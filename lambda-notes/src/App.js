@@ -10,6 +10,7 @@ import { deleteNote, fetchNotes } from './actions/actions';
 import CreateForm from './components/CreateForm';
 import EditForm from './components/EditForm';
 import Login from './components/Login';
+import VoiceNote from './components/VoiceNote';
 
 const AppWrapper = styled.div`
     text-align: center;
@@ -160,12 +161,14 @@ class App extends Component {
                     <input placeholder='&#x1F50D; Search Notes...' onChange={this.changeHandler} value={this.state.search} />
                     <div onClick={() => this.props.history.push('/')} >View Your Notes</div>
                     <div onClick={() => this.props.history.push('/create')} >+ Create New Note</div>
+                    <div onClick={() => this.props.history.push('/audio')} >+ Create Voice Note</div>
                     <div onClick={this.exportCsv} >Export CSV</div>                    
                 </Sidebar>
                 <Route exact path='/' render = {props => <Home search={this.state.search} {...props} />} />
                 <Route exact path='/note/:id' render = {props => <NoteProfile toggle={this.toggle} {...props} />} />
                 <Route exact path='/create' render = {props => <CreateForm {...props}/>} />
-                <Route path='/note/:id/edit' render = {props => <EditForm {...props}/>} />     
+                <Route path='/note/:id/edit' render = {props => <EditForm {...props}/>} />
+                <Route exact path='/audio' render = {props => <VoiceNote {...props}/>} />    
             </AppWrapper>
   }
 }

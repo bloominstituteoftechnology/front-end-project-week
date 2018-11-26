@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Note from './Note';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-//import update from 'immutability-helper';
 
 export const HomeContainer = styled.div`
     width: 75%;
@@ -51,18 +50,6 @@ class Home extends React.Component {
             notes: this.props.notes
         })
     }
-
-    // moveCard = (dragIndex, hoverIndex) => {
-    //     const { notes } = this.state;
-    //     const dragNote = notes[dragIndex];
-    //     this.setState(
-    //         update(this.state, {
-    //             notes: {
-    //                 $splice: [[dragIndex, 1], [hoverIndex, 0, dragNote]]
-    //             }
-    //         })
-    //     )
-    // };
 
     render() {
     const arr = this.props.search ? 

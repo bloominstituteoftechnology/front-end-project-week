@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { handleId, moveCard } from '../actions/actions';
-import styled from 'styled-components';
 import { Markup } from 'interweave';
 import { findDOMNode } from 'react-dom';
 import { DragSource, DropTarget} from 'react-dnd';
@@ -41,66 +40,26 @@ const cardTarget = {
     },
 }
 
-
-
-const NoteCard = styled.div`
-    width: 27%;
-    height: 250px;
-    border: 1px solid #8e8b8b;
-    padding: 10px 25px;
-    margin-bottom: 35px;    
-    text-align: start;
-    background-color: #fbfafa;
-    cursor: pointer;
-    > div {
-        height: 35px;
-        > h2 {
-            margin: 0;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            word-wrap: break-word;
-            text-overflow: ellipsis;
-        }
-    }
-    > p {
-        font-size: 22px;
-        display: -webkit-box;
-        -webkit-line-clamp: 9;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        word-wrap: break-word;
-        text-overflow: ellipsis;
-    }
-`
-
 class Note extends React.Component {
     render() {
-        // const {
-        //     connectDragSource,
-        //     connectDropTarget,            
-        // } = this.props;
-        return <NoteCard onClick={() => {this.props.history.push(`/note/${this.props.id}`);this.props.handleId(this.props.id)}} >
-                    <div>
-                        <h2>{this.props.title}</h2>
-                    </div>
-                    <hr></hr>                            
-                    <Markup content={this.props.textBody.length > 70 ? this.props.textBody.substring(0, 70)+'...' : this.props.textBody} />
-                </NoteCard>
-        // return (connectDragSource &&
-        //             connectDropTarget &&
-        //             connectDragSource(
-        //                 connectDropTarget(  <NoteCard onClick={() => {this.props.history.push(`/note/${this.props.id}`);this.props.handleId(this.props.id)}} >
-        //                                         <div>
-        //                                             <h2>{this.props.title}</h2>
-        //                                         </div>
-        //                                         <hr></hr>                            
-        //                                         <Markup content={this.props.textBody.substring(0, 160)+'...'} />
-        //                                     </NoteCard>
-        //                     )
-        //                 )     
-        //             )       
+        const {
+            ConnectDragSource,
+            ConnectDropTarget,            
+        } = this.props;
+        if(!ConnectDragSource||!ConnectDropTarget) return <h1>Undefined</h1>;
+        return (ConnectDragSource &&
+                    ConnectDropTarget &&
+                    ConnectDragSource(
+                        ConnectDropTarget(  <div className='note-card' onClick={() => {this.props.history.push(`/note/${this.props.id}`);this.props.handleId(this.props.id)}} >
+                                                <div>
+                                                    <h2>{this.props.title}</h2>
+                                                </div>
+                                                <hr></hr>                            
+                                                <Markup content={this.props.textBody.length > 70 ? this.props.textBody.substring(0, 70)+'...' : this.props.textBody} />
+                                            </div>
+                            )
+                        )     
+                    )       
     }
 }
 
@@ -108,7 +67,7 @@ export default connect(()=>{return{}}, {handleId, moveCard})(flow(DragSource(
                                                                 'card',
                                                                 cardSource,
                                                                 (conect, monitor) => ({
-                                                                    ConnectDropTarget: conect.dragSource(),
+                                                                    ConnectDragSource: conect.dragSource(),
                                                                     isDragging: monitor.isDragging(),
                                                                 }),
                                                             ),

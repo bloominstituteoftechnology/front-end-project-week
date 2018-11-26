@@ -17,3 +17,38 @@ code {
   border: none;
   font-size: 22px;
 }
+
+.note-card {
+  width: 27%;
+  height: 250px;
+  border: 1px solid #8e8b8b;
+  padding: 10px 25px;
+  margin-bottom: 35px;    
+  text-align: start;
+  background-color: #fbfafa;
+  cursor: pointer;
+}
+
+.note-card section {
+  height: 35px;
+}
+
+.note-card div h2 {
+    margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+}
+
+.note-card div {
+  font-size: 22px;
+        display: -webkit-box;
+        -webkit-line-clamp: 9;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        word-wrap: break-word;
+        text-overflow: ellipsis;
+}
