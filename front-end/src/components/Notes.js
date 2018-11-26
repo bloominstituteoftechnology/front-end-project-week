@@ -28,8 +28,7 @@ class Notes extends Component {
             notes: null,
             dragStart: null,
             dragEnd: null,
-            dragEl: null,
-            timeout: 250
+            dragEl: null
         }
     }
 
@@ -51,7 +50,7 @@ class Notes extends Component {
 
         setTimeout(() => {
             target.style.width = "40px";
-        }, this.state.timeout);
+        }, 250);
     };
 
     handleDragDrop = () => {
