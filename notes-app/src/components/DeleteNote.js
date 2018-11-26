@@ -26,7 +26,7 @@ class DeleteNote extends Component {
     this.setState({
       deleteModal: false
     })
-    setTimeout(() => this.props.history.push(`/`), 1000)
+    setTimeout(() => this.props.history.go(-2), 1000)
   }
 
   render() {
