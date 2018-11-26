@@ -17,8 +17,6 @@ const AppContainer = styled.div`
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
-
-  ${props=>props.windowHeight > props.elementHeight ? `height: ${props.windowHeight}px;` : `height: ${props.elementHeight}px;`}
 `;
 
 const NavContainer = styled.div`
@@ -37,14 +35,11 @@ const BodyContainer = styled.div`
   border-bottom: 2px solid #ececec;
 `;
 
-// TODO: fix styling to fit page or element which ever is longer
-// TODO: fix delete modal to overlay view with transparent color
-
 class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      height: 0
+      height: window.innerHeight
     }
 
     window.onbeforeunload = this.saveCurrentNote;
@@ -63,25 +58,15 @@ class App extends Component{
     }
   }
 
-  componentDidUpdate(){
-    const height = document.getElementsByClassName('body-container')[0].scrollHeight;
-
-    if(height !== this.state.height){
-      this.setState({height: height});
-    }
-  }
-
   render(){
-    console.log(window.innerHeight);
-    console.log(this.state.height);
     return (
-      <AppContainer windowHeight={window.innerHeight} elementHeight={this.state.height}>
+      <AppContainer>
   
         <NavContainer>
           <Route path="/" render={props=><NavSideBar {...props}/>}/>
         </NavContainer>
   
-        <BodyContainer className='body-container'>
+        <BodyContainer>
           <Route exact path="/" component={NotesList}/>
           <Route path="/create-note" render={props=><CreateNote {...props}/>}/>
           <Route path="/note/:id" render={props=><DisplayNote {...props}/>}/>

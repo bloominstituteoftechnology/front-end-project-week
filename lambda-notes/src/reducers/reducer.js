@@ -4,7 +4,8 @@ const initialState = {
     fetching: false,
     notes: [],
     currentNote: {},
-    error: ''
+    error: '',
+    height: window.innerHeight
 }
 
 export const reducer = (state = initialState, action)=>{

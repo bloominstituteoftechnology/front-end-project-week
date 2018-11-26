@@ -5,6 +5,7 @@ export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
 
 export const CURRENT_NOTE = 'CURRENT_NOTE';
+export const APP_HEIGHT = 'APP_HEIGHT';
 
 export const fetchNotes = ()=>{
     return dispatch=>{
