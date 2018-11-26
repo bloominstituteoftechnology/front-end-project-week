@@ -8,15 +8,15 @@ import { FormStyle, TitleInputStyle, ContentInputStyle , FormWrap, BtnWrap } fro
 
 
 class EditView extends Component {
-    constructor(props) {
-        super(props)
-    this.state = {
+
+   state = {
+        path: "Edit View",
         note: {
             title: "",
             textBody: "",
         }
     }
-}
+
 
 
 

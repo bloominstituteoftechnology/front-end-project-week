@@ -7,6 +7,7 @@ import ListView from './components/Display_Components/ListView' ;
 import CreateNewNote from './components/Display_Components/CreateNewNote' ;
 import NoteView from './components/Display_Components/NoteView' ;
 import EditView from './components/Display_Components/EditView' ;
+import Heading from './components/Display_Components/Heading';
 import { AppWrap , BtnStyle, HeadStyle, LambdaNotes, NoteContent, NoteHeading } from '../src/components/Styles/AppStyle' ;
 
 
@@ -30,7 +31,7 @@ class App extends Component {
   render() {
     return (
       <AppWrap>
-        <NoteHeading><h2>{this.state.path}</h2></NoteHeading>
+        <NoteHeading><Heading notePath={this.state.path}></Heading></NoteHeading>
         <NoteContent>
          <HeadStyle>
             <LambdaNotes>
