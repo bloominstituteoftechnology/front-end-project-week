@@ -46,15 +46,18 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+@import url('https://fonts.googleapis.com/css?family=Sedgwick+Ave');
 
 * {
 box-sizing: border-box;
 }
 
+
+
 html,
 body{
-  font-size: 62.5%;
-  margin:0 auto; 
-  padding: 0;
+	font-size: 62.5%;
+	margin:0 auto; 
+	padding: 0;
 }
 

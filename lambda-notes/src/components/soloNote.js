@@ -1,9 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteNote }from './actions';
-import { Modal } from 'reactstrap';
+import { Modal, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Markup } from 'interweave';
 
+import styled from 'styled-components'
+
+
+const SoloStyle = styled.div `
+    max-width:880px;
+    width:90%;
+    background-color: #DDDCE1;
+    height: 95vh;
+    p{
+        font-size:1.6rem;
+    }
+    a:link{
+    color: black;
+    text-decoration: none;
+    }
+    a:visited{
+      color:black;
+    }
+`
+const SoloLinks = styled.div `
+    display: flex;
+    justify-content: flex-end;
+
+    a{
+        font-size: 2rem;
+    }
+    p{
+        cursor: pointer;
+        font-size: 2rem;
+        margin-right: 15px;
+    }
+`
 
 
 class SoloNote extends React.Component{
@@ -32,27 +65,27 @@ deleteHandler=(id)=>{
                    return item._id === this.props.match.params.id
                 });
         return(
-            <div>
+            <SoloStyle>
                 <div className='modal'>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                         <div>
-                            <p>Are you sure you want to delete this note?</p>
+                            <p>Are you sure you want to delete this Note?</p>
                          </div>
                          <div>
-                            <button color="primary" onClick={ ()=>this.deleteHandler(note._id) }>Delete</button>{' '}
-                            <button color="secondary" onClick={this.toggle}>Cancel</button>
+                            <Button color="primary" onClick={ ()=>this.deleteHandler(note._id) }>Delete</Button>{' '}
+                            <Button color="danger" onClick={this.toggle}>Cancel</Button>
                         </div>
                     </Modal>
                 </div>
-                <div className='solo-header'>
-                    <Link to={`/edit-note/${note._id}`} ><p>edit</p></Link>
-                    <p onClick={this.toggle}> delete </p>
-                </div>
+                <SoloLinks>
+                    <Link to={`/edit-note/${note._id}`} ><p>Edit</p></Link>
+                    <p onClick={this.toggle}> Delete </p>
+                </SoloLinks>
                 <div className='note-body'>
                     <h1> {note.title}</h1>
-                    <h3>{note.textBody}</h3>
+                    <Markup content={note.textBody}/>
                 </div>
-            </div>
+            </SoloStyle>
         )
     }
 }

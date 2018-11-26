@@ -1,6 +1,7 @@
 import React from 'react';
 import { NoteContainer } from './styled-components';
 import { Link } from 'react-router-dom';
+import { Markup } from 'interweave';
 
 
 const Note = props =>{
@@ -8,7 +9,7 @@ const Note = props =>{
         <NoteContainer>
             <Link to={`/note/${props.note._id}`}>
             <h1>{props.note.title}</h1>
-            <p> {props.note.textBody}</p>
+             <Markup content={props.note.textBody}/>
             </Link>
         </NoteContainer>
     )

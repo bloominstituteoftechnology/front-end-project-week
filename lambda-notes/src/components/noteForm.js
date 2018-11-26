@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addNewNote, updatedNote } from './actions';
 import { Link } from 'react-router-dom';
 
+
 class NoteForm extends React.Component{
     constructor(props){
         super(props);
