@@ -4,6 +4,7 @@ import NoteList from "./Components/NoteList";
 import Nav from "./Components/Nav";
 import SingleNote from "./Components/SingleNote.js";
 import NewNote from "./Components/NewNote";
+import EditNote from "./Components/NoteEdit";
 import "./App.css";
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
     this.setState({
       id: id
     });
-    console.log(this.state.id);
+    console.log(this.state.notes);
   };
 
   changeHandler = e => {
@@ -30,6 +31,7 @@ class App extends Component {
       [e.target.name]: e.target.value
     });
   };
+
   componentDidMount() {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)

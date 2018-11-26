@@ -12,7 +12,7 @@ body {
 }
 
 .navbar {
-    background-color: lightgray;
+    background-color: #D8D8D8;
     border-right: 1px solid grey;
     width: 30%;
     max-width: 300px;
@@ -22,7 +22,7 @@ body {
 }
 
 .navbar h1 {
-    color: grey;
+    color: #4A4A4A;
     margin-left: 15px;
 }
 
@@ -30,7 +30,8 @@ body {
     padding: 12px;
     color: white;
     margin: 15px;
-    background-color: aquamarine;
+    background-color: #2BC1C4;
+    border: 1px solid grey;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
@@ -62,13 +63,13 @@ body {
 
 .notes h1 {
     font-size: 22px;
-    color: grey;
+    color: #4A4A4A;
     margin-bottom: 20px;
 }
 
 .note h1 {
     font-size: 16px;
-    color: grey;
+    color: #4A4A4A;
     border-bottom: 1px solid grey;
     padding-bottom: 10px;
 }
@@ -78,16 +79,13 @@ body {
     flex-direction: column;
     width: 100%;
     margin: 10px 20px 0px 28%;
-}
-
-.single-note .note-header {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
+    color: #4A4A4A;
 }
 
 .edit-buttons {
     display: flex;
+    text-decoration: underline;
+    justify-content: flex-end;
 }
 
 .edit-buttons p {
@@ -96,7 +94,7 @@ body {
 }
 
 .new-note h1 {
-    color: aquamarine;
+    color: #4A4A4A;
 }
 
 .new-note {
@@ -126,7 +124,7 @@ body {
 .save-button {
     padding: 10px;
     color: white;
-    background-color: aquamarine;
+    background-color: #2BC1C4;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
