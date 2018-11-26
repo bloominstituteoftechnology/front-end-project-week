@@ -11,6 +11,15 @@ import DeleteModal from "./components/notes/DeleteModal";
 import EditNote from "./components/notes/EditNote";
 import NoteList from "./components/notes/NoteList";
 import Note from "./components/notes/Note";
+import styled from 'styled-components';
+
+const DashBoard = styled.div`
+display: flex; 
+flex-direction: row;
+max-width:  1040px;
+height: 100%;
+`;
+
 
 class App extends Component {
   constructor(props) {
@@ -19,23 +28,34 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <DashBoard>
         <Navbar />
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route path="/notes/" component={NoteList} />
-          <Route path="/note/:id" render={(props) => {
-              return(<Note {...props}/>)}}
+          <Route
+            path="/note/:id"
+            render={props => {
+              return <Note {...props} />;
+            }}
           />
-           <Route path="/edit/:id" render={(props) => {
-              return(<EditNote {...props}/>)}}
+          <Route
+            path="/edit/:id"
+            render={props => {
+              return <EditNote {...props} />;
+            }}
           />
           <Route path="/login" component={Signin} />
           <Route path="/signup" component={Signup} />
           <Route path="/create" component={CreateNote} />
-          <Route path="/delete/:id/" render={(props) => {
-            return( <DeleteModal {...props}/>)}}
-        />  
+          <Route
+            path="/delete/:id/"
+            render={props => {
+              return <DeleteModal {...props} />;
+            }}
+          />
         </Switch>
+        </DashBoard>
       </div>
     );
   }

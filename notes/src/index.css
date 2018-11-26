@@ -107,6 +107,7 @@ section {
 }
 body {
   line-height: 1;
+  max-width: 1240px ;
 }
 ol,
 ul {

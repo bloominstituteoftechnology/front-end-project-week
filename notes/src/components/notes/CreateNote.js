@@ -1,38 +1,44 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 class CreateNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
-    textBody: ""
+      textBody: ""
     };
   }
-  
-
+ß
   addNote = event => {
     event.preventDefault();
-    const note= {
+    const note = {
       title: this.state.title,
       textBody: this.state.textBody
-    
-    }
-    axios.post('https://fe-notes.herokuapp.com/note/create', note).then(response => {
-      this.setState({
-        note: response.data
-      }, () => console.log(this.state))
+    };
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", note)
+      .then(response => {
+        this.setState(
+          {
+            note: response.data
+          },
+          () => console.log(this.state)
+        );
+      })
+      .catch(error => {
+        console.error("Server Error", error);
+      });
 
-    }).catch(error => {
-      console.error('Server Error', error);
-    });
-  }
+      this.setState({
+        title: "",
+      textBody: ""
+      });
+  };
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-;
 
   render() {
     return (
@@ -47,7 +53,9 @@ class CreateNote extends Component {
             onChange={this.handleChange}
             placeholder="Note Title"
           />
-          <textarea rows="8" cols="80"
+          <textarea
+            rows="8"
+            cols="80"
             type="text"
             name="textBody"
             id="textBody"
@@ -55,7 +63,7 @@ class CreateNote extends Component {
             onChange={this.handleChange}
             placeholder="Note Content"
           />
-          
+
           <button type="submit">Create</button>
         </form>
       </div>
