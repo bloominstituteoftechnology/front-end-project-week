@@ -1,0 +1,144 @@
+.App {
+  display: flex;
+  min-height: 1200px;
+}
+.App .header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  align-items: center;
+  color: white;
+}
+.App .header h1 {
+  font-size: 1.6rem;
+  padding: 20px;
+}
+.App .header h2 {
+  font-size: 1.2rem;
+}
+.App .body {
+  background-color: whitesmoke;
+  width: 80%;
+}
+.App .body .note-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0px auto;
+}
+.App .body .note-list .note {
+  width: 27%;
+  height: 200px;
+  margin-top: 25px;
+  margin-left: 5%;
+  background-color: white;
+  border: 0.1px solid Gainsboro;
+  overflow: hidden;
+  height: 198px;
+  text-overflow: -o-ellipsis-lastline;
+}
+.App .body .note-list .note .card-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 20px 15px;
+}
+.App .body .note-list .note .card-body {
+  margin: 5px 15px;
+  line-height: 1.2;
+  white-space: pre-wrap;
+}
+.App .body .note-detail,
+.App .body .note-form {
+  padding: 20px 50px;
+}
+.App .body .none {
+  display: none;
+}
+.App .body .hide {
+  opacity: 0;
+  transition: 0.5s;
+}
+.App .body .input-tags,
+.App .body .input-title,
+.App .body .input-body {
+  padding: 0;
+  display: block;
+  border: none;
+  width: 100%;
+  background: transparent;
+}
+.App .body .input-tags:focus,
+.App .body .input-title:focus,
+.App .body .input-body:focus {
+  outline: none;
+}
+.App .body .input-tags {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+.App .body .input-title,
+.App .body .note-title {
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 20px;
+}
+.App .body .input-body,
+.App .body .note-body {
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  white-space: pre-wrap;
+  min-height: 300px;
+  line-height: 25px;
+}
+.App .body .body-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.App .body .body-header .tags {
+  display: inline-block;
+  width: auto;
+}
+.App .body .body-header .tags .tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin: 0 10px 0 0;
+  background: #79B0D5;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.App .body .body-header .input-tags {
+  display: inline-block;
+  width: auto;
+}
+.App .body .body-header .btn-container {
+  display: flex;
+  align-items: center;
+}
+.App .body button {
+  display: flex;
+  justify-content: center;
+  font-size: 0.8rem;
+  width: 80px;
+  height: 30px;
+  border: 1px solid black;
+  outline: 0;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.App .body button:hover {
+  color: white;
+  background-color: black;
+}
+.App .body .save-btn {
+  transition: 1s;
+  margin-right: 20px;
+}
+.App .body textarea {
+  resize: none;
+}

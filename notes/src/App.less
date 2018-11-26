@@ -1,0 +1,144 @@
+.App {
+    // text-align: center;
+    display: flex;
+    min-height: 1200px;
+    .header {
+        background-color: #282c34;
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        align-items: center;
+        color: white;
+        h1 {
+            font-size: 1.6rem;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 1.2rem;
+        }
+    }
+    .body {
+        background-color: whitesmoke;
+        width: 80%;
+        .note-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            margin: 0px auto;
+            .note {
+                width: 27%;
+                height: 200px;
+                margin-top: 25px;
+                margin-left: 5%;
+                background-color: white;
+                border: .1px solid Gainsboro;
+                overflow: hidden;
+                height: 198px;
+                text-overflow: -o-ellipsis-lastline;
+                .card-title {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    margin: 20px 15px;
+                    ;
+                }
+                .card-body {
+                    margin: 5px 15px;
+                    line-height: 1.2;
+                    white-space: pre-wrap;
+                }
+            }
+        }
+        .note-detail,
+        .note-form {
+            padding: 20px 50px;
+        }
+        .none {
+            display: none;
+        }
+        .hide {
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .input-tags,
+        .input-title,
+        .input-body {
+            padding: 0;
+            display: block;
+            border: none;
+            width: 100%;
+            background: transparent;
+            &:focus {
+                outline: none;
+            }
+        }
+        .input-tags {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        .input-title,
+        .note-title {
+            font-size: 2rem;
+            font-weight: 400;
+            margin: 0;
+            margin-top: 20px;
+        }
+        .input-body,
+        .note-body {
+            margin-top: 20px;
+            margin-bottom: 0;
+            padding: 0;
+            font-size: 1.2rem;
+            white-space: pre-wrap;
+            min-height: 300px;
+            line-height: 25px;
+        }
+        .body-header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            .tags {
+                display: inline-block;
+                width: auto;
+                .tag {
+                    display: inline-block;
+                    font-size: 0.8rem;
+                    margin: 0 10px 0 0;
+                    background: #79B0D5;
+                    padding: 5px 10px;
+                    border-radius: 10px;
+                }
+            }
+            .input-tags {
+                display: inline-block;
+                width: auto;
+            }
+            .btn-container {
+                display: flex;
+                align-items: center;
+            }
+        }
+        button {
+            display: flex;
+            justify-content: center;
+            font-size: 0.8rem;
+            width: 80px;
+            height: 30px;
+            border: 1px solid black;
+            outline: 0;
+            cursor: pointer;
+            transition-duration: 0.2s;
+            &:hover {
+                color: white;
+                background-color: black;
+            }
+        }
+        .save-btn {
+            transition: 1s;
+            margin-right: 20px;
+        }
+        textarea {
+            resize: none;
+        }
+    }
+}
