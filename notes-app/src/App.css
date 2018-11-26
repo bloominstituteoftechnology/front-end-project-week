@@ -93,7 +93,7 @@
 
 .notes-container:not(last-child) {
   margin-right: 1rem;
-  height: 35vh;
+  height: 22vh;
   display: flex;
   border: 2px solid #d7d7d7;
   justify-content: flex-start;
@@ -106,10 +106,15 @@
   overflow: hidden;
 }
 
+h1 {
+  color: dimgrey;
+}
+
 h2 {
   margin: 0;
   text-align: left;
   margin-bottom: 10px;
+  color: dimgrey;
 }
 
 hr {
