@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import EditNote from "./NoteEdit";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 class SingleNote extends Component {
   constructor() {

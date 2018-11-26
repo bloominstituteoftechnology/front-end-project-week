@@ -21,7 +21,11 @@ class App extends Component {
     this.setState({
       id: id
     });
-    console.log(this.state.notes);
+    if (id === "all") {
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
+    }
   };
 
   changeHandler = e => {
@@ -50,11 +54,9 @@ class App extends Component {
     axios
       .post("https://fe-notes.herokuapp.com/note/create", note)
       .then(response => {
-        console.log(response);
         this.setState({
           id: response.data.success
         });
-        console.log(this.state);
       })
       .catch(err => console.log(err));
   };
@@ -66,9 +68,11 @@ class App extends Component {
       .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.id}`)
       .then(() => {
         this.setState({
-          id: "all",
-          toggle: false
+          id: "all"
         });
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
       })
       .catch(err => console.log(err));
   };
