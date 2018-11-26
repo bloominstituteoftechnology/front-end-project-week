@@ -36,7 +36,7 @@ https://trello.com/b/cJsEQO3P/lambda-notes-eric-whitcomb
   - [x] POST note
   - [x] PUT note
   - [x] DELETE note
-- [ ] Match CSS design to specification documents
+- [x] Match CSS design to specification documents
 - [ ] Set up modal to confirm before delete
 
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
