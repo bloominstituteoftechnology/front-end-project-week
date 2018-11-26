@@ -22,8 +22,6 @@ class App extends Component {
         <Route path="/Noteview/:id" render={props => <BigNote {...props} />} />
         <Route path="/NoteList" render={props => <NoteList {...props} />} />
 
-        
-        {/* <NoteList /> */}
       </div>
     );
   }

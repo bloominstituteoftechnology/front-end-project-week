@@ -8,15 +8,17 @@ import { getOneNote, deleteNote } from '../actions/noteActions';
 class BigNote extends Component {
     constructor(props){
         super(props)
-        // this.state = {
-        //     title:'',
-        //     textBody:''
-        // }
+
     }
 
 
     clickHandler = () => {
-        deleteNote(this.props.notes._id)
+        // deleteNote(this.props.notes._id)
+        const note = this.props.notes.find(item => {
+            return item._id === this.props.match.params.id
+        })
+        this.props.deleteNote(note._id)
+        this.props.history.push('/NoteList')
     }
 
     render(){

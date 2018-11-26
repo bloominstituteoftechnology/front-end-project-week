@@ -20,10 +20,12 @@ class CreateNote extends Component {
     submitHandler = (event) => {
         event.preventDefault()
         this.props.createNote(this.state)
+        this.props.history.push('/NoteList')
         this.setState({
             title:'',
             textBody:''
         })
+       
     }
 
     render(){

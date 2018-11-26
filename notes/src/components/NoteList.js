@@ -16,10 +16,11 @@ class NoteList extends Component {
 
     render(){
         return(
-            <div>
+            <div className="note-list">
                 {this.props.loading ? <h1>Loading</h1> : null}
 
                 {this.props.error !== '' ? <h1>{this.props.error}</h1> : null}
+                <h1>Your Notes:</h1>
 
                 {this.props.notes.map(note => <Note note={note} key={note._id} />).reverse()}
             </div>

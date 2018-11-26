@@ -28,6 +28,7 @@ class UpdateNote extends Component {
     submitHandler = event => {
         event.preventDefault()
         this.props.updateNote(this.state)
+        this.props.history.push('/NoteList')
         this.setState({
             title:'',
             textBody:''
