@@ -7,7 +7,6 @@ import Notes from './components/notes/Notes';
 import AddNote from './components/notes/AddNote';
 import OneNote from './components/notes/OneNote';
 import UpdateNote from './components/notes/UpdateNote';
-import DeleteModal from './components/notes/DeleteModal';
 
 class App extends Component {
   render() {
@@ -18,7 +17,6 @@ class App extends Component {
         <Route path="/create" component={AddNote} />
         <Route path={`/note/:id`} component={OneNote} />
         <Route path={`/edit/:id`} component={UpdateNote} />
-        <Route path={`/delete/:id`} component={DeleteModal} />
       </div>
     );
   }
