@@ -14,15 +14,22 @@ class ReactSort extends React.Component {
         super();
         this.state = {
             notes: [],
-            sortAZ: false,
-            sortUN: false,
-            sortZA: false,
-            sortID: false,
+            // sortAZ: false,
+            // sortUN: false,
+            // sortZA: false,
+            // sortID: false,
         }
     }
 
+    
     componentDidMount(){
         this.props.getNotes()
+    }
+
+    componentDidUpdate(prevProps){
+        if (!prevProps.notes.length && this.props.notes.length){
+            this.setState({ notes: this.props.notes })
+        }
     }
 
     //A-Z 
@@ -57,9 +64,11 @@ class ReactSort extends React.Component {
 
     //NEED separate sortClick for each "sort" variation
     sortClick = () => {
-        this.setState(prevState => ({
-            sortAZ: !prevState.sortAZ, sortUN: false, sortZA: false, sortID: false
-        }));
+        const notes = this.sortObjProperty(this.state.notes, 'title');
+        this.setState({notes})
+        // this.setState(prevState => ({
+        //     sortAZ: !prevState.sortAZ, sortUN: false, sortZA: false, sortID: false
+        // }));
     }
 
     sortClick2 = () => {
@@ -69,15 +78,21 @@ class ReactSort extends React.Component {
     }
 
     sortClick3 = () => {
-        this.setState(prevState => ({
-            sortZA: !prevState.sortZA, sortUN: false, sortAZ: false, sortID: false
-        }))
+        const notes = this.sortObjProperty2(this.state.notes, 'title');
+        this.setState({notes})
+
+        // this.setState(prevState => ({
+        //     sortZA: !prevState.sortZA, sortUN: false, sortAZ: false, sortID: false
+        // }))
     }
 
     sortClick4 = () => {
-        this.setState(prevState => ({
-            sortID: !prevState.sortID, sortUN: false, sortZA: false, sortAZ: false
-        }))
+        const notes = this.sortObjProperty2(this.state.notes, '_id');
+        this.setState({notes})
+
+        // this.setState(prevState => ({
+        //     sortID: !prevState.sortID, sortUN: false, sortZA: false, sortAZ: false
+        // }))
     }
 
     render(){
@@ -111,7 +126,7 @@ class ReactSort extends React.Component {
                             <h2>{this.state.sortUN ? 'Hide' : 'Unsorted'}</h2>
                             {this.state.sortUN && (
                                 <div>
-                                    {this.props.notes.map(note => {
+                                    {this.state.notes.map(note => {
                                         return (
                                             <div className="notebox1" key={note._id}>
                                                 <Link to={`/notes/${note._id}`}><h2>{note.title.toUpperCase()}</h2></Link>
@@ -125,63 +140,64 @@ class ReactSort extends React.Component {
                     </div> 
 
 
-                    <div>
-                        <div onClick={this.sortClick}>
-                            <h2>{this.state.sortAZ ? 'Hide' : 'A-Z'}</h2>
-                            {this.state.sortAZ && (
-                                <div>
-                                    {this.sortObjProperty(emptyArr, 'title').map(obj => {
-                                        return (
-                                            <div>
-                                                <div className="notebox1" key={obj._id}>
-                                                    <Link to={`/notes/${obj._id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
-                                                    <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            )}
-                        </div>
-                    </div>
+                  {/*   <div>
+                //         <div onClick={this.sortClick}>
+                //             <h2>{this.state.sortAZ ? 'Hide' : 'A-Z'}</h2>
+                //             {this.state.sortAZ && (        
+                //                 <div>
+                //                     {this.sortObjProperty(emptyArr, 'title').map(obj => {
+                //                         return (
+                //                             <div>
+                //                                 <div className="notebox1" key={obj._id}>
+                //                                     <Link to={`/notes/${obj._id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
+                //                                     <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
+                //                                 </div>
+                //                             </div>
+                //                         )
+                //                     })}
+                //                 </div>
+                //             )}
+                //         </div>
+                //     </div>
 
 
-                    <div>
-                        <div onClick={this.sortClick3}>
-                            <h2>{this.state.sortZA ? 'Hide' : 'Z-A'}</h2>
-                            {this.state.sortZA && (
-                                <div>
-                                    {this.sortObjProperty2(emptyArr, 'title').map(obj => {
-                                        return (
-                                            <div className="notebox1" key={obj._id}>
-                                                <Link to={`/notes/${obj._id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
-                                                <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            )}
-                        </div>
-                    </div>
+                //     <div>
+                //         <div onClick={this.sortClick3}>
+                //             <h2>{this.state.sortZA ? 'Hide' : 'Z-A'}</h2>
+                //             {this.state.sortZA && (
+                //                 <div>
+                //                     {this.sortObjProperty2(emptyArr, 'title').map(obj => {
+                //                         return (
+                //                             <div className="notebox1" key={obj._id}>
+                //                                 <Link to={`/notes/${obj._id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
+                //                                 <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
+                //                             </div>
+                //                         )
+                //                     })}
+                //                 </div>
+                //             )}
+                //         </div>
+                //     </div>
 
-                    <div>
-                        <div onClick={this.sortClick4}>
-                            <h2>{this.state.sortID ? 'Hide' : 'Most Recent'}</h2>
-                            {this.state.sortID && (
-                                <div>
-                                    {this.sortObjProperty2(emptyArr, '_id').map(obj => {   //sortObjProperty2 same as Z-A
-                                        return (
-                                            <div className="notebox1" key={obj._id}>
-                                                <Link to={`/notes/${obj._id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
-                                                <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>   {/* display-container */}
+                //     <div>
+                //         <div onClick={this.sortClick4}>
+                //             <h2>{this.state.sortID ? 'Hide' : 'Most Recent'}</h2>
+                //             {this.state.sortID && (
+                //                 <div>
+                //                     {this.sortObjProperty2(emptyArr, '_id').map(obj => {   //sortObjProperty2 same as Z-A
+                //                         return (
+                //                             <div className="notebox1" key={obj._id}>
+                //                                 <Link to={`/notes/${obj._id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
+                //                                 <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
+                //                             </div>
+                //                         )
+                //                     })}
+                //                 </div>
+                //             )}
+                //         </div>
+                //     </div>      */}
+                
+                </div>   
 
             </div>
         )

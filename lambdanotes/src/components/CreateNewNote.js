@@ -50,7 +50,7 @@ class CreateNewNote extends React.Component {
                         value={this.state.title}
                         onChange={this.handleChange}
                     />
-                    <input 
+                    <textarea 
                         className="input-content"
                         placeholder="Note Content"
                         type="text"

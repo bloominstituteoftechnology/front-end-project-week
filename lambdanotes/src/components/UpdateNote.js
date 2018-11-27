@@ -1,6 +1,6 @@
 import React from 'react'
 
-//import axios from 'axios'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
@@ -12,15 +12,32 @@ class UpdateNote extends React.Component {
         this.state = {
             title: '',
             textBody: '',
-            notes: [],
-            //note: {}
+            // notes: [],
+            // note: {
+            //     title: '',
+            //     textBody: '',
+            // },
         }
     }
 
     // WHY NOT componentDidMount needed?
+    // componentDidMount(){
+    //     let notes = this.props.getNotes();
+    //     this.setState({notes: notes})
+    // }
+
     componentDidMount(){
-        let notes = this.props.getNotes();
-        this.setState({notes: notes})
+        const id = this.props.match.params.id
+        axios
+        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .then(response => {
+            const {title, textBody} = response.data
+            this.setState({ title, textBody })
+            // this.setState({ note: response.data })
+        })
+        .catch(err => {
+            console.log("Fail to Get INDIVIDUAL note", err)
+        })
     }
 
     // componentDidMount(){
@@ -64,6 +81,7 @@ class UpdateNote extends React.Component {
         this.setState({
             [event.target.name]: event.target.value,
         })
+        console.log(this.state)
     }
 
     handleSubmit = event => {
@@ -87,7 +105,7 @@ class UpdateNote extends React.Component {
                         value={this.state.title}
                         onChange={this.handleChange}
                     />
-                    <input 
+                    <textarea 
                         className="input-content"
                         placeholder="Note Content"
                         type="text"

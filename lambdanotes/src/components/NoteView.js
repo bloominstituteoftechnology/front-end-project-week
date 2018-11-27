@@ -39,7 +39,7 @@ class NoteView extends React.Component {
 
     handleClick = () => {
         this.setState(prevState => ({
-          isToggleOn: !prevState.isToggleOn
+            isToggleOn: !prevState.isToggleOn
         }));
     }
 
