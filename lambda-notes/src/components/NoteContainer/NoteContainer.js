@@ -1,14 +1,19 @@
 import React from 'react'
 import Note from './Note'
-import './NoteContainer.css'
+import styled from 'styled-components'
+const NoteContainerStyle = styled.div `
+ display: flex ;
+ flex-direction: row ;
+ flex-wrap: wrap ;
+`
 const NoteContainer = props => {
   return (
-    <div className="note_container">
+    <NoteContainerStyle className="note_container">
        {props.notes.map((note, index) => <Note
         textBody={note.textBody}
         title={note.title}
          />)}
-    </div>
+    </NoteContainerStyle>
   )
 }
 

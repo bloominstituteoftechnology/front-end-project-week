@@ -1,5 +1,4 @@
 import React from 'react';
-// import './NoteContainer.css';
 import styled from 'styled-components' 
 
 const NoteContainer = styled.section `
