@@ -28,7 +28,7 @@ class NoteView extends Component {
   }
   handleDelete = e => {
     e.preventDefault();
-    this.setState({ toList: true });
+    this.setState({ backtoList: true });
     this.props.deleteNote(this.props.match.params.id);
   };
   truncateString(str, num) {
@@ -39,8 +39,7 @@ class NoteView extends Component {
       : str.slice(0, num) + "...";
   }
   render() {
-    if (this.state.toList) {
-      this.props.getNotes();
+    if (this.state.backtoList) {
       return <Redirect to="/" />;
     }
     return (
@@ -51,20 +50,20 @@ class NoteView extends Component {
           </NavLink>
           <button onClick={this.toggle}>delete</button>
         </div>
-        
-        
-        
-        <div className='singlenote'>  
-        {this.props.notes.map(note => {
-          if (this.props.match.params.id === note._id) {
-            return (
-              <div className="note" key={note._id}>
-                <h1 className="notetitle">{note.title}</h1>
-                <p className="notetext">{this.truncateString(note.textBody, 90)}</p>
-              </div>
-            );
-          }
-        })}
+
+        <div className="singlenote">
+          {this.props.notes.map(note => {
+            if (this.props.match.params.id === note._id) {
+              return (
+                <div className="note" key={note._id}>
+                  <h1 className="notetitle">{note.title}</h1>
+                  <p className="notetext">
+                    {this.truncateString(note.textBody, 90)}
+                  </p>
+                </div>
+              );
+            }
+          })}
         </div>
         <Modal
           isOpen={this.state.modal}
@@ -72,15 +71,11 @@ class NoteView extends Component {
           className={this.props.className}
           backdrop={this.state.backdrop}
         >
-        <ModalBody>
-            <p>Are you sure you want to delete this?</p>
+          <ModalBody>
+            <p>Are you sure you want to delete this note?</p>
             <div>
-              <button onClick={this.handleDelete}>
-                Yes
-              </button>{' '}
-              <button onClick={this.toggle}>
-                No
-              </button>
+              <button onClick={this.handleDelete}>Yes</button>{" "}
+              <button onClick={this.toggle}>No</button>
             </div>
           </ModalBody>
         </Modal>

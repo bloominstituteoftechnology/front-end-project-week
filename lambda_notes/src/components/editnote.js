@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class EditNote extends Component {
   constructor(props) {
@@ -44,6 +45,10 @@ class EditNote extends Component {
   };
 
   render() {
+    if (this.state.noteEdited) {
+      this.props.getNotes();
+      return <Redirect to="/" />;
+    }
     return (
       <div className="pageWrapper">
         <h1>Edit Note:</h1>
