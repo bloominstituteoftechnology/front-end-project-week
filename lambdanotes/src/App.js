@@ -36,7 +36,6 @@ class App extends Component {
           <Route exact path="/create" component={CreateNote} />
           <Route exact path="/note/:id" component={Note} />
           <Route exact path="/edit/:id" component={Edit} />
-          <Route exact path="/delete/:id" component={Delete} />
         </div>
       </div>
     );
