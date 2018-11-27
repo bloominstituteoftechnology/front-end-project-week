@@ -8,7 +8,7 @@ const NoteView = styled.div`
 display: flex;
 justify-content: space-evenly;
 align-items: none;
-flex-direction: row;
+flex-direction: row-reverse;
 width: 100%;
 margin-top: 16px;
 flex-wrap: wrap;
@@ -28,7 +28,7 @@ font-weight: bolder;
 margin-top: 30px;
 `; 
 
-const Card = styled(NoteView)`
+const Card = styled.div`
 border-bottom: 1px solid lightgrey;
 display: flex;
 justify-content: space-between;
@@ -36,8 +36,9 @@ align-items: none;
 flex-direction: column;
 background-color: #fff;
 width: 380px;
-margin-bottom: 16px;
+margin: 40px;
 padding: 24px;
+
 `;
 
 

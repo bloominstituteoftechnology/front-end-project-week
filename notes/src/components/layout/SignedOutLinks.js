@@ -32,7 +32,7 @@ const SignedOutLinks = () => {
         <Button>SignUp </Button></NavLink>
       </li>
       <li>
-        <NavLink to="/signin">
+        <NavLink to="/login">
         <Button>Log In</Button> </NavLink>
       </li>
     </ul>

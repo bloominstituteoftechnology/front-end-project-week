@@ -61,6 +61,11 @@ const ButtonNoStyle = {
 	cursor: 'pointer',
 	outline: 'inherit'
 }
+const Card = {
+
+  marginBottom:' 500px',
+  marginLeft:' 40px'
+};
 
 
 
@@ -114,7 +119,7 @@ class EditNote extends Component {
 
   render() {
     return (
-      <div >
+      <div  style={Card} >
         <form onSubmit={this.editNote}>
         <Title>Edit Note</Title>
          <Form><input

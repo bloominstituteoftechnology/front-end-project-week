@@ -12,9 +12,9 @@ align-items: none;
 flex-direction: column;
 background-color: #fff;
 width: 200px;
-margin-bottom: 16px;
-padding: 24px;
-max-height: 250px;
+margin 26px;
+padding: 20px;
+min-height: 250px;
 text-align: left;
 font-color: black;
 text-decoration; none;
@@ -29,16 +29,17 @@ overflow: hidden;
 text-overflow: ellipsis;
 text-aling: left;
 color: black;
-font-family: "Helvetica",
+font-family: "Helvetica", "Arial", sans-serif;
 font-weight: bolder;
 `;
 const Text = styled.div`
 text-decoration; none;
 color: black;
 margin-top: 5px;
-font-family: "Helvetica", 
+font-family: "Helvetica", "Arial", "sans-serif",
 font-weight: light;
 fontSize: 10px;
+
 `;
 
 const NoteCard = props => {

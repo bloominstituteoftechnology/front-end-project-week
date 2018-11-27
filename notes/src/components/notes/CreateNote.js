@@ -50,6 +50,7 @@ const Form = styled.div`
   align-content: flex-start;
   padding-left: 13px;
   padding-bottom: 13px;
+
 `;
 
 const ButtonNoStyle = {
@@ -61,6 +62,14 @@ const ButtonNoStyle = {
 	cursor: 'pointer',
 	outline: 'inherit'
 }
+
+const Card = {
+
+  marginBottom:' 500px',
+  marginLeft:' 40px'
+};
+
+
 
 
 class CreateNote extends Component {
@@ -104,7 +113,7 @@ class CreateNote extends Component {
 
   render() {
     return (
-      <form onSubmit={this.addNote}>
+      <form  style={Card} onSubmit={this.addNote}>
         <Title>
          Create New Note:
         </Title>

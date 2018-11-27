@@ -30,11 +30,13 @@ const NoteText = styled.div`
   max-height: 250px;
   text-align: left;
   font-size: 15px;
+  word-break: break-all;
 `;
 
 const Container = {
   display: "flex",
-  justifyContent: "right"
+  justifyContent: "right",
+  
 };
 
 const Update = {
@@ -67,6 +69,13 @@ const Text = {
   paddingTop: '10px'
   
 };
+
+const Card = {
+  marginBottom:' 800px',
+  marginLeft:' 40px'
+};
+
+
 
 
 
@@ -104,9 +113,10 @@ class Note extends Component {
     return (
       <>
         <div>
+          < div style={Card}>
           <NoteTitle style={Title} >{this.state.note.title}</NoteTitle>
           <NoteText style={Text} >{this.state.note.textBody}</NoteText>
-
+          </div>
           <DeleteModal
             show={this.state.isOpen}
             onClose={this.toggleModal}

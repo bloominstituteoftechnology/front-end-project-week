@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Alert } from 'reactstrap';
 
 const Modal = styled.div`
   display: block;

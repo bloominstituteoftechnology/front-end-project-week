@@ -16,7 +16,7 @@ const NavColor = styled.div`
     list-style-type: none;
     margin: 0;
     padding: 15px;
-    width: 220px;
+    width: 240px;
     height: 100%;
 `;
 
