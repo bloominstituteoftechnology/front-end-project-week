@@ -1,6 +1,7 @@
 import React from 'react'
 import Note from './Note'
 import styled from 'styled-components'
+import NoteTextArea from '../NoteContainer/NoteTextArea'
 const NoteContainerStyle = styled.div `
  display: flex ;
  flex-direction: row ;
@@ -13,6 +14,7 @@ const NoteContainer = props => {
         textBody={note.textBody}
         title={note.title}
          />)}
+         <NoteTextArea />
     </NoteContainerStyle>
   )
 }

@@ -7,14 +7,21 @@ const H1 = styled.h1 `
 font-size: 1.6rem ;
 font-family: 'Archivo Black'
 `
+
+const ContainerStyle = styled.div `
+border: 2px solid black ;
+width: 40%  ;
+height: 500px ;
+
+`
 export class NoteListContainer extends React.Component {
   render() {
     return (
-      <div className="note_list_container">
+      <ContainerStyle className="note_list_container">
       <H1>Lambda Notes</H1>
-      <Button color="success">View Your Notes.</Button>
-      <Button color="success">Add Note +</Button>
-      </div>
+      <Button outline color="success">View Your Notes.</Button>
+      <Button outline color="success">Add Note +</Button>
+      </ContainerStyle>
     )
   }
 }
