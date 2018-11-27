@@ -10,7 +10,7 @@ class NotesList extends React.Component {
     }
     updateSearch = e => {
         this.setState({search: e.target.value}) 
-    // }
+    }
     // onDragStart = (e, id, title, textBody, wholeNote) => {
     //     // console.log('dragstart:', wholeNote);
 
