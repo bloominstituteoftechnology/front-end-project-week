@@ -8,7 +8,7 @@ class DisplayData extends React.Component {
     render(){
         return (
 
-            <div className="display-container">
+            <div className="search-display-container">
 
                         {this.props.dummyData.map(data => (
               
@@ -19,7 +19,6 @@ class DisplayData extends React.Component {
                                 <div className="contentbox">
                                     <p> <strong>Content:</strong> {data.textBody.slice(0, 100) + (data.textBody.length > 100 ? "..." : "")}</p>
                                 </div>
-                                <p> <strong>ID:</strong> {data._id}</p>
                             </div>   
                  
                         ))}

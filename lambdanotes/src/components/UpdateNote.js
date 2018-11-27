@@ -4,7 +4,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
-import { updateNote } from '../actions/noteAction'
+import { getNotes, updateNote } from '../actions/noteAction'
 
 class UpdateNote extends React.Component {
     constructor(props){
@@ -12,12 +12,16 @@ class UpdateNote extends React.Component {
         this.state = {
             title: '',
             textBody: '',
+            notes: [],
             //note: {}
         }
     }
 
     // WHY NOT componentDidMount needed?
-  
+    componentDidMount(){
+        let notes = this.props.getNotes();
+        this.setState({notes: notes})
+    }
 
     // componentDidMount(){
     //     const id = this.props.match.params.id
@@ -104,5 +108,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateNote })(UpdateNote)
+export default connect(mapStateToProps, { getNotes, updateNote })(UpdateNote)
 //export default UpdateNote

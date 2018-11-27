@@ -1,21 +1,21 @@
 
 /* DisplayData.css From NotesList.js */
 
-.display-container {
+.search-display-container {
   background-color: whitesmoke;
   width: 100%;
   margin-top: 50px;
 
-  /* display: flex;
+  display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; */
+  flex-wrap: wrap; 
 }
 
 .display-notebox {
   background-color: white;
   border: 1px solid gray;
-  width: 25%;
-  height: 200px;
+  width: 30%;
+  height: 220px;
   padding: 5px 10px 5px 10px;
   margin-bottom: 30px;
 }
