@@ -37,6 +37,9 @@ const NoteCard = styled.div`
     -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
   }
+  hr {
+    width:  90%;
+  }
 `;
 
 const Note = ({ note }) => {

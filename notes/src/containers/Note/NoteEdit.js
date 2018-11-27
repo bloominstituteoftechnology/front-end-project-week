@@ -42,8 +42,7 @@ class EditNote extends Component {
     super(props);
     this.state = {
       title: "",
-      textBody: "",
-      id: null
+      textBody: ""
     };
   }
   handleChange = e => {
