@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import NoteListContainer from '../NoteListContainer/NoteListContainer'
+import NoteContainer from '../NoteContainer/NoteContainer'
 
 class NoteAppContainer extends React.Component {
  constructor(){
@@ -30,6 +31,7 @@ class NoteAppContainer extends React.Component {
   return (
    <div>
     <NoteListContainer notes={this.state.notes}  />
+    <NoteContainer notes={this.state.notes} />
    </div>
   );
  }

@@ -6,7 +6,6 @@ export class NoteListContainer extends React.Component {
       <div>
         {this.props.notes.map((note, index) => <NoteList
         title={note.title}
-        textBody={note.textBody}
          />)}
       </div>
     )

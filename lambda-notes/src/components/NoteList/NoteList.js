@@ -1,12 +1,10 @@
 import React from 'react'
+import './NoteList.css'
 
 const NoteList = props => {
  return (
   <div>
-   <h1>{props.title}</h1>
-   <article>
-    {props.textBody}
-   </article>
+   <h1 className="note_list_titles">{props.title}</h1>
   </div>
  );
 }

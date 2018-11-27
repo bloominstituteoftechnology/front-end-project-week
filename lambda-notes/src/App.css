@@ -47,6 +47,10 @@ table {
 	border-spacing: 0;
 }
 
+* {
+ font-size: 62.5%;
+}
+
 .App {
  margin: 0 auto ;
  width: 880px;
