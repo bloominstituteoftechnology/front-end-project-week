@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
-import { fetchNote, fetchNotes, deleteNote } from '../actions/actions';
+import { fetchNote, fetchNotes, deleteNote } from "../actions/actions";
 
 import "../styles/App.css";
 import "../styles/NotePage.css";
@@ -46,7 +46,7 @@ class NotePage extends React.Component {
                 className="first modalButton"
                 onClick={() => {
                   this.modalHandler();
-                  this.deleteHandler(id)
+                  this.deleteHandler(id);
                 }}
               >
                 Delete
@@ -69,6 +69,11 @@ class NotePage extends React.Component {
           </div>
           <h2>{this.props.note.title}</h2>
           <p className="noteText">{this.props.note.textBody}</p>
+          {this.props.tags
+            .filter(tag => tag.id === this.props.note._id)
+            .map(tag => (
+              <span key={tag.date}>{`#${tag.tagText},`}</span>
+            ))}
         </div>
       </>
     ) : (
@@ -79,6 +84,11 @@ class NotePage extends React.Component {
         </div>
         <h2>{this.props.note.title}</h2>
         <p className="noteText">{this.props.note.textBody}</p>
+        {this.props.tags
+          .filter(tag => tag.id === this.props.note._id)
+          .map(tag => (
+            <span key={tag.date}>{`#${tag.tagText},`}</span>
+          ))}
       </div>
     );
   }
@@ -86,8 +96,12 @@ class NotePage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    note: state.note
-  }
-}
+    note: state.note,
+    tags: state.tags
+  };
+};
 
-export default connect(mapStateToProps, { fetchNote, fetchNotes, deleteNote })(NotePage);
+export default connect(
+  mapStateToProps,
+  { fetchNote, fetchNotes, deleteNote }
+)(NotePage);

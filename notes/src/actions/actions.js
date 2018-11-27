@@ -10,11 +10,12 @@ export const DELETED = 'DELETED';
 export const ADD_TAG = 'ADD_TAG';
 export const ADD_TAG_TO_TAGS = 'ADD_TAG_TO_TAGS';
 export const ADD_TAGS_TO_NOTE = 'ADD_TAGS_TO_NOTE';
+export const CHANGE_TAG_IDS = 'CHANGE_TAG_IDS';
 
 const url = 'https://fe-notes.herokuapp.com/note'
 
 export const addTag = tag => dispatch => {
-    dispatch({type: ADD_TAG, payload: tag, id: Date.now()});
+    dispatch({type: ADD_TAG, payload: tag, id: Date.now(), date: Date.now()});
 
 }
 
@@ -22,8 +23,12 @@ export const addTagToTags = () => dispatch => {
     dispatch({type: ADD_TAG_TO_TAGS});
 }
 
-export const addTagsToNote = (id) => dispatch => {
-    dispatch({type: ADD_TAGS_TO_NOTE, payload: id});
+export const addTagsToNote = () => dispatch => {
+    dispatch({type: ADD_TAGS_TO_NOTE});
+}
+
+export const changeTagIds = id => dispatch => {
+    dispatch({type: CHANGE_TAG_IDS, payload: id})
 }
 
  export const fetchNotes = () => dispatch => {
@@ -45,11 +50,15 @@ export const addTagsToNote = (id) => dispatch => {
     return axios
         .get(`${url}/get/${id}`)
         .then(response => {
-            dispatch({ type: FETCHONE, payload: response.data });
+            dispatch({ type: FETCHONE, payload: response.data});
         })
         .then(response => {
-            dispatch({type: ADD_TAGS_TO_NOTE, payload: id});
+            dispatch({type: CHANGE_TAG_IDS, payload: id})
+        }) 
+        .then(response => {
+            dispatch({type: ADD_TAGS_TO_NOTE});
         })
+        
         .catch(error => {
             dispatch({ type: ERROR, payload: error });
         });

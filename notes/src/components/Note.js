@@ -18,7 +18,7 @@ const Note = props => {
     </h3>
     <hr />
       <p>{truncateString(props.note.textBody, 91)}</p>
-      {props.note.tags.map(tag => <span key={tag.id}>{`#${tag},`}</span>)}
+      {props.tags.filter(tag => tag.id === props.note._id).map(tag => <span key={tag.date}>{`#${tag.tagText},`}</span>)}
     
   </div>
 )};

@@ -22,7 +22,8 @@ class CreateNote extends React.Component {
       title: "",
       textBody: "",
       added: false,
-      tag: ""
+      tag: "",
+      tags: []
     };
   }
 
@@ -46,7 +47,8 @@ class CreateNote extends React.Component {
           title: "",
           textBody: "",
           tag: "",
-          added: true
+          added: true,
+          tags: []
         })
       );
   };
@@ -56,7 +58,7 @@ class CreateNote extends React.Component {
     //  this.setState({tag: ""})
     this.props.addTag(this.state.tag);
     this.props.addTagToTags();
-    this.setState({ tag: "" });
+    this.setState({ tag: ""});
   };
 
   render() {
@@ -106,8 +108,8 @@ class CreateNote extends React.Component {
         </div>
         <div>
           <h3>Tags:</h3>
-          {this.props.tags.map(tag => (
-            <span key={tag.id}>{`#${tag.tagText},`}</span>
+          {this.props.newTags.map(tag => (
+            <span key={tag.date}>{`#${tag.tagText},`}</span>
           ))}
         </div>
       </div>
@@ -121,7 +123,8 @@ const mapStateToProps = state => {
     tags: state.tags,
     tag: state.tag,
     newNote: state.newNote,
-    note: state.note
+    note: state.note,
+    newTags: state.newTags
   };
 };
 export default connect(

@@ -8,7 +8,8 @@ import {
   ERROR,
   ADD_TAG,
   ADD_TAG_TO_TAGS,
-  ADD_TAGS_TO_NOTE
+  ADD_TAGS_TO_NOTE,
+  CHANGE_TAG_IDS
 } from "../actions/actions";
 
 const initialState = {
@@ -18,7 +19,8 @@ const initialState = {
   newNote: "",
   error: null,
   tags: [],
-  tag: {}
+  tag: {},
+  newTags: [],
 };
 
 export default (state = initialState, action) => {
@@ -35,7 +37,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         fetching: false,
-        note: action.payload
+        note: action.payload,
       };
     case ADDED:
       return {
@@ -48,7 +50,6 @@ export default (state = initialState, action) => {
         notes: state.notes.map(note => {
           return note._id === action.payload._id ? action.payload : note;
         }),
-        tags: []
       };
     case DELETED:
       return {
@@ -63,19 +64,30 @@ export default (state = initialState, action) => {
     case ADD_TAG:
       return {
         ...state,
-        tag: {tagText: action.payload, id: action.id}
+        tag: {tagText: action.payload, id: action.id, date: action.date}
       }
     case ADD_TAG_TO_TAGS:
       return {
           ...state,
-          tags: [...state.tags, state.tag]
+          newTags: [...state.newTags, state.tag]
       }
+
+    case CHANGE_TAG_IDS:
+      return {
+        ...state,
+        newTags: state.newTags.map(tag => {
+            return {...tag, id: action.payload}
+          })
+      }
+
     case ADD_TAGS_TO_NOTE:
       return {
           ...state,
-          notes: state.notes.map(note => {
-              return note._id === action.payload ? {...note, tags: state.tags} : note;
-          }),
+          // notes: state.notes.map(note => {
+          //     return note._id === action.payload ? {...note, tags: state.tags} : note;
+          // }),
+          tags: [...state.tags, ...state.newTags],
+          newTags: [],
           tag: ""
       }
     default:
