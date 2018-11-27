@@ -60,7 +60,7 @@ class EditNote extends Component {
             value={this.state.title}
             onChange={this.handleInput}
           />
-          <input
+          <textarea
             required
             placeholder="Note Text"
             name="body"
