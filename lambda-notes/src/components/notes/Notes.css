@@ -24,8 +24,16 @@
 }
 
 .single-note {
-    text-overflow: -o-ellipsis-lastline;
-    height: 3.6em;
+
+    height: 10.5em;
+    overflow: hidden;
+    line-height: 2em;
+
+    /* overflow: hidden; */
+    
+    /* -webkit-line-clamp: 3;
+    text-overflow: -o-ellipsis-lastline; */
+
     /* border: 1px solid grey;
     width: 200px;
     background-color: white;
@@ -33,6 +41,20 @@
     margin-top: 2%;
     margin-bottom: 2%;
     height: 170px; */
+
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+    white-space: pre-line; */
+
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3; */
+
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
 }
 
 .card-link {
@@ -58,7 +80,13 @@
 .text-body {
     margin-top: 4%;
     line-height: 150%;
+    
 
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+    white-space: pre-line; */
 
     /* overflow: hidden;
     text-overflow: ellipsis; */
@@ -71,6 +99,24 @@
     /* white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; */
+
+    /* display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  */
+}
+
+.module {
+    overflow: hidden;
+
+    /* display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: horizontal; 
+    border: 1px solid red; */
+
+}
+
+.line-clamp {
+    display: -webkit-box;
 }
 
 /* AddNote Component */

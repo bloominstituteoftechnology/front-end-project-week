@@ -5,7 +5,6 @@ import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import styled from 'styled-components';
 
 import './Notes.css';
-import { linkSync } from 'fs';
 
 const MyModal = styled(Modal)`
     width: 50%;
@@ -75,11 +74,11 @@ export default class OneNote extends Component {
             .delete(`${URL}/delete/${id}`)
             .then(response => {
                 console.log(response);
-                
             })
             .catch(error => {
                 console.error(error);
             });
+            // this.props.history.push('/')
     };
 
     render() {
