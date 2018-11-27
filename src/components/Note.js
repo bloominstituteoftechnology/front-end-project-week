@@ -5,6 +5,7 @@ import React from 'react';
     return (
         <div className="note">
             <h2>{props.note.title}</h2>
+            <hr></hr>
             <p>{props.note.textBody}</p>
         </div>
     )

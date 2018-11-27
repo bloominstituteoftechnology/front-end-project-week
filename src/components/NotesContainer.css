@@ -1,4 +1,9 @@
 
+.CreateForm {
+    display: flex;
+    flex-direction: column;
+}
+
 .Header {
     margin-left: 15px;
 
@@ -15,11 +20,22 @@
     background-color: white;
 }
 
-.TextArea {
+#save {
+    width: 50px
+}
+
+#Title {
+    width: 300px;
+}
+
+#TextBody {
     width: 600px;
     height: 300px;
 }
 
 .NotesContainer{
     width: 1500px;
+    border-left: 3px solid grey;
+    padding-left: 15px;
 }
+

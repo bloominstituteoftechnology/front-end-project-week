@@ -40,8 +40,7 @@ class App extends Component {
           onRequestClose={this.closeSecondModal}
           >
           <button className="exit" onClick={this.closeSecondModal}>close</button>
-            <NotesContainer />
-            
+            <NotesContainer />           
         </Modal>
       </div>
 

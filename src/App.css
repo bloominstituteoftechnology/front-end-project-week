@@ -8,16 +8,12 @@ body {
   background: #f1f1f1;
 }
 
-hr {
-  height: 100%;
-}
-
 /* The note */
 .note {
   overflow: hidden;
   margin: 10px;
   width: 150px;
-  height: 250px;
+  height: 150px;
   color: black;
   font-weight: bold;
   padding: 20px;
@@ -69,4 +65,9 @@ hr {
   text-align: center;
 
 
+}
+
+
+.exit {
+  margin-left: 95%;
 }

@@ -11,6 +11,8 @@ import './NotesContainer.css';
             notes: []
         }
     }
+
+
      componentDidMount() {
         console.log('NoteList: componentDidMount()');
         axios.get('https://fe-notes.herokuapp.com/note/get/all')
