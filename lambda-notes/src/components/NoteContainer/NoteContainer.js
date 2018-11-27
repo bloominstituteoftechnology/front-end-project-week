@@ -1,10 +1,12 @@
 import React from 'react'
+import Note from './Note'
 
 const NoteContainer = props => {
   return (
     <div>
-       {this.props.notes.map((note, index) => <NoteList
+       {props.notes.map((note, index) => <Note
         textBody={note.textBody}
+        title={note.title}
          />)}
     </div>
   )

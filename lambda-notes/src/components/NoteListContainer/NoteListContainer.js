@@ -4,9 +4,7 @@ export class NoteListContainer extends React.Component {
   render() {
     return (
       <div>
-        {this.props.notes.map((note, index) => <NoteList
-        title={note.title}
-         />)}
+      <button>View Your Notes.</button>
       </div>
     )
   }
