@@ -82,9 +82,9 @@ const NoteContainer = styled.div`
 const NoteTitle = styled.h3`
   font-size: 23px;
   font-weight: bold;
-  white-space: nowrap;
+  /* white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
   border-bottom: 1px solid #B7B7B7;
   width: 85%;
   padding: 5px 0px;
