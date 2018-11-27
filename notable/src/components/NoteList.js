@@ -20,24 +20,25 @@ const TagList = styled.div`
 
 let colorWheel = 0;
 const colors = [
-  "red",
-  "green",
-  "blue",
-  "rebeccapurple",
+  "mediumaquamarine",
   "darkcyan",
+  "rebeccapurple",
+  "blue",
+  "green",
+  "red",
   "orangered"
 ];
 
 const Tag = styled.div`
   padding: 10px;
   margin: 5px;
-  border: 1px solid green;
+  border: 1px solid darkcyan;
   border-radius: 5px;
   background-color: ${() => {
     if (colorWheel > 5) {
       colorWheel = 0;
     } else {
-      colorWheel += 0.5;
+      // colorWheel += 0.5;
     }
     return colors[colorWheel];
   }};
@@ -78,7 +79,7 @@ class NoteList extends React.Component {
         {this.props.fetching ? (
           <h1>Please Wait</h1>
         ) : (
-          <CardDiv>
+          <div>
             <TagList>
               {this.props.allTags.map((item, index) => {
                 return (
@@ -88,18 +89,20 @@ class NoteList extends React.Component {
                 );
               })}
             </TagList>
-            {this.props.filteredNotes
-              .map(item => {
-                return (
-                  <NoteCard
-                    key={`${item._id}`}
-                    note={item}
-                    gotoSingleNote={this.gotoSingleNote}
-                  />
-                );
-              })
-              .reverse()}
-          </CardDiv>
+            <CardDiv>
+              {this.props.filteredNotes
+                .map(item => {
+                  return (
+                    <NoteCard
+                      key={`${item._id}`}
+                      note={item}
+                      gotoSingleNote={this.gotoSingleNote}
+                    />
+                  );
+                })
+                .reverse()}
+            </CardDiv>
+          </div>
         )}
       </ListDiv>
     );
