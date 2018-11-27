@@ -44,9 +44,8 @@ class App extends Component {
       })
       .catch(error => {
         console.error('Server Error', error);
-
       });
-  }
+}
   addNewNote = note => {
     axios.post('https://fe-notes.herokuapp.com/note/create', note)
       .then((response) => {

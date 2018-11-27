@@ -21,8 +21,7 @@ class EditNote extends Component {
     event.preventDefault();
     const id = this.props.match.params.id;
     this.props.updateNote(id, this.state);
-    // this.props.updateNoteList();
-    this.setState({
+      this.setState({
       title: '',
       textBody: '',
     });

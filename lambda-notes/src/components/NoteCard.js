@@ -6,7 +6,6 @@ class NoteCard extends Component {
         this.state = {
             title: '',
             textBody: '',
-
         };
     }
 
@@ -14,15 +13,13 @@ class NoteCard extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-
-    }
+}
     handleUpdateSubmit = (event) => {
         event.preventDefault();
         const id = this.props.match.params.id;
         this.props.updateNote(id, this.state);
         event.target.reset();
-
-    }
+}
 
     render() {
         const id = this.props.match.params.id;

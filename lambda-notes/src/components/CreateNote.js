@@ -7,17 +7,12 @@ class CreateNote extends Component {
     this.state = {
       title: '',
       textBody: '',
-
     };
   }
 
   createNote = event => {
     event.preventDefault();
     this.props.addnote(this.state)
-    this.setState({
-      title: '',
-      textBody: '',
-    });
     event.target.reset()
   }
 
@@ -41,8 +36,8 @@ class CreateNote extends Component {
             onChange={this.handleInputChange}
             placeholder="Note Content"
           >
-          </textarea><br/>
-          <button className="link"  type="submit">Save</button>
+          </textarea><br />
+          <button className="link" type="submit">Save</button>
         </form>
       </div>
     );
