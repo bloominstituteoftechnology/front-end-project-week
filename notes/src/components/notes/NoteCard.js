@@ -29,16 +29,16 @@ overflow: hidden;
 text-overflow: ellipsis;
 text-aling: left;
 color: black;
-font-family: "Helvetica", "Arial", sans-serif;
+font-family: "Helvetica",
 font-weight: bolder;
 `;
 const Text = styled.div`
 text-decoration; none;
 color: black;
 margin-top: 5px;
-font-family: "Helvetica", "Arial", sans-serif;
+font-family: "Helvetica", 
 font-weight: light;
-font-size: 10px;
+fontSize: 10px;
 `;
 
 const NoteCard = props => {

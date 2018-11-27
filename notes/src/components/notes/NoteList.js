@@ -66,7 +66,7 @@ class NoteList extends Component {
       
         
         {this.state.notes.length < 1 ? (
-          <Card>There are no notes!</Card>
+          <div>No Notes</div>
         ) : (
           this.state.notes.map(note => <NoteCard key={note._id} note={note} />)
         )}

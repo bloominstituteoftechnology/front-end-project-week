@@ -46,12 +46,22 @@ const Form = styled.div`
   display: flex;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrapcd..
-  
   -webkit-align-content: flex-start;
   align-content: flex-start;
   padding-left: 13px;
   padding-bottom: 13px;
 `;
+
+const ButtonNoStyle = {
+  background: 'none',
+	color: 'inherit',
+	border: 'none',
+	padding: 0,
+	font: 'inherit',
+	cursor: 'pointer',
+	outline: 'inherit'
+}
+
 
 class CreateNote extends Component {
   constructor(props) {
@@ -122,7 +132,7 @@ class CreateNote extends Component {
         />
          </Form>
 
-      <Button> <button type="submit">Create</button></Button>
+      <Button> <button style={ButtonNoStyle} type="submit">Create</button></Button>
       </form>
     );
   }
