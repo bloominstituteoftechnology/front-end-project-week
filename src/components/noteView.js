@@ -18,6 +18,7 @@ class NoteView extends Component {
   //"redux-logger": "^3.0.6",
   componentDidMount() {
     this.props.viewNote(this.props.id)
+    window.scrollTo(0, 0)
   }
 
   render() {

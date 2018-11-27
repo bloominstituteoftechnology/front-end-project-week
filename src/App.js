@@ -17,7 +17,7 @@ class App extends React.Component {
 
     /*****Set the initial state**** */
     this.state = {
-      viewPage: noteList,
+      viewPage: "noteList",
       noteList: [],
       inputText: '',
       title: "",
