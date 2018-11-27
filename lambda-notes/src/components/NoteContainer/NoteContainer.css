@@ -1,16 +1,24 @@
+.note_container {
+ display: flex ;
+ flex-direction: row ;
+ flex-wrap: wrap ;
+}
+
 .note_styling {
- display: flex;
- flex-flow: column wrap  ;
- justify-content: space-between ;
- margin: 60px 60px 60px 60px ;
+ margin: 20px 20px 20px 20px ;
 }
 .note_title {
- font-size: 1.2rem ;
- font-family: 'Archivo Black'
+ font-size: 1rem ;
+ font-family: 'Archivo Black';
+ overflow: hidden;
+ text-overflow: ellipsis;
+ width: 100px ;
 }
 
 .note_body {
  width: 150px ;
  height: 100px ;
- overflow: scroll
+ overflow: scroll ;
+ font-family: 'Courier New', Courier, monospace ;
+ font-size: 0.8rem ;
 }
