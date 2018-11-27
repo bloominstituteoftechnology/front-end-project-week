@@ -4,12 +4,25 @@ import NoteCard from './NoteCard'
 const NoteList = (props) => {
     return(
         <div className="note-list">
-            <h2>Notes and Lists : </h2>
+            <div className="btn-section">
+                <i className="fas fa-file-export export" onClick={() => props.export()}>Export As CSV</i>
+                <div className="size-btns">
+                    <i onClick={() => props.changeSize(true)} className="fas fa-th-large"></i>
+                    <i onClick={() => props.changeSize(false)} className="fas fa-th"></i>
+                </div>
+            </div>
             {props.notes.map(note => {
-                return (<NoteCard title={note.title} textBody={note.textBody} />)
+                return (<NoteCard 
+                    size={props.size}
+                    id={note._id} 
+                    key={note._id} 
+                    title={note.title} 
+                    textBody={note.textBody} 
+                    />)
             })}
         </div>
     );
 }
 
 export default NoteList;
+
