@@ -16,5 +16,6 @@ h4 {
 p {
 	margin-top: -50px;
 	font-size: 14px;
-	font-weight: 500;
+    font-weight: 500;
+    font-family: 'Abril Fatface', cursive;
 }

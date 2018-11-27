@@ -10,11 +10,14 @@
 	display: flex;
 	align-items: center;
 	padding: 3px;
-	letter-spacing: 0.5;
+    letter-spacing: 0.5;
+    font-family: 'Abril Fatface', cursive;
 }
 .button:hover {
-	background-color: rgba(220, 202, 224, 0.89);
-	transition: 0.5s;
+	background-color: aqua;
 	font-weight: bold;
-	font-size: 17px;
+    font-size: 18px;
+    font-family: 'Abril Fatface', cursive;
+    color: black;
+    border: solid 2px black;
 }

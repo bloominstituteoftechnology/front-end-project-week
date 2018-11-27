@@ -4,7 +4,7 @@ import {
 	Link
 } from 'react-router-dom'
 export const Note = (props) => {
-	return ( < div className = "note" > < h4 > < Link style = {
+	return ( <div className = "note"> <h4> <Link style = {
 			{
 				textDecoration: "none",
 				color: "black"
@@ -14,7 +14,7 @@ export const Note = (props) => {
 			`/NoteView/${props.id}`
 		} > {
 			props.note.title
-		} < /Link> < br / > < hr / > < br / > < /h4>  < p > {
+		} < /Link> <br /> <hr /> <br /> </h4>  <p> {
 			props.note.textBody
-		} < /p>  < /div> )
+		} </p>  </div> )
 }
