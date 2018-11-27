@@ -4,12 +4,12 @@
     margin: 0 auto;
 }
 body{
-    background-color: rgb(184, 184, 184);
+    background-color: white;
 }
 .container{
     height: 100%;
-    background-color: rgb(242, 241, 242);
-    border: 1px solid rgb(184, 184, 184);
+    background-color: white;
+    border: 1px solid silver;
 }
 .App{
     display: flex;
@@ -18,10 +18,10 @@ body{
 .side-bar{
     width: 200px;
     text-align: center;
-    background: rgb(184, 184, 184);
+    background: darkgray;
     margin-left: 0;
     border-right: 1px solid rgb(107, 107, 107);
-    margin-right: 10px;
+    
 }
 .side-button{
     height: 35px;
@@ -47,5 +47,5 @@ body{
 .lambda-notes{
     text-align: left;
     margin: 15px;
-    color: rgb(107, 107, 107);
+    color: dimgray;
 }

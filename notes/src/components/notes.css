@@ -3,11 +3,11 @@
     margin: 0 auto;
 }
 .container{
-    max-width: 900px;
+    max-width: 880px;
 }
 .main-view{
     width: 100%;
-    background: #F2F1F2;
+    background: lightgray;
 }
 .home-body{
     display: flex;
@@ -16,13 +16,13 @@
 }
 .note{
     height: 160px;
-    border: 1px solid #AFAEAF;
+    border: 1px solid dimgray;
     width: 160px;
     margin: 5px;
     background-color: white;
 }
 .note-title{
-    border-bottom: 1px solid #AFAEAF;
+    border-bottom: 1px solid dimgray;
     width: 85%;
     text-align: left;
     color: black;
@@ -48,7 +48,7 @@
 .home-title{
     margin:25px 15px;
     margin-top: 50px;
-    color: #414141;
+    color: dimgray;
 }
 .note-page-title{
     margin:25px;
