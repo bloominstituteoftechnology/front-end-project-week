@@ -39,15 +39,12 @@ const NoteBody = styled.div`
     margin-bottom: 40px;
 `
 
-const SaveButton = styled.button`
-
-`
-
 class NoteView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: {}
+            note: {},
+            loading: true
         }
     }
 
@@ -60,7 +57,10 @@ class NoteView extends Component {
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
-                this.setState({note: response.data})
+                this.setState({
+                    note: response.data,
+                    loading: false
+                })
             })
             .catch(err => {
                 console.log(err)
@@ -70,12 +70,14 @@ class NoteView extends Component {
     render() {
         return (
             <div>
+                    
                     <NoteViewContainer>
                     <EditDeleteContainer>
                         <EditDeleteLink to={`/edit/${this.props.match.params.id}`}>edit</EditDeleteLink>
                         <EditDeleteLink to={`/notes/delete/${this.props.match.params.id}`}>delete</EditDeleteLink>
                     </EditDeleteContainer>
                     <NoteContainer>
+                        {this.state.loading ? <NoteTitle>Loading...</NoteTitle> : null }
                         <NoteTitle>{this.state.note.title}</NoteTitle>
                         <NoteBody>{this.state.note.textBody}</NoteBody>
                     </NoteContainer>

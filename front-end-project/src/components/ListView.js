@@ -47,22 +47,17 @@ const PreviewBody = styled.p`
     line-height: 1.6;
     display: block;
     overflow: hidden;
-    text-overflow: ellipsis;
     white-space: pre-line;
 `
 
 class ListView extends Component {
-    constructor(props){
-        super(props);
-    }
-
     render() {
         return (
             <ListViewContainer>
                 {this.props.loading ? <ListHeader>Loading...</ListHeader> : <ListHeader>Your Notes:</ListHeader>}
                 <NotePreviewContainer>
                     {this.props.notes.map(note => 
-                        <NotePreview to={`/notes/${note._id}`}>
+                        <NotePreview to={`/notes/${note._id}`} key={Math.random()}>
                             <PreviewTitle>{note.title}</PreviewTitle>
                             <PreviewBody>{note.textBody}</PreviewBody>
                         </NotePreview>
