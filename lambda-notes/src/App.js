@@ -16,8 +16,6 @@ const AppWrapper = styled.div`
     text-align: center;
     display: flex;
     width: 100%;
-    background-color: #bfbcbc;
-    /* ${props => props.modal ? `opacity: 0.5` : null } */
 `
 
 const Sidebar = styled.nav`
@@ -67,12 +65,12 @@ const SidebarHeader = styled.h1`
 
 const ModalWrapper = styled.div`
 position: fixed;
-z-index: 1;
+z-index: 5;
 top: 0;
 left: 0;
 width: 100%;
 height: 100vw;
-opacity: 0.4;
+background-color: rgba(252,252,252,0.4);
 ${props => props.modal ? `display: flex; justify-content: column; align-items: center` : `display: none`}
 `
 
@@ -83,10 +81,10 @@ const DeleteModal = styled.div`
     border: 2px solid black;
     background-color: white;
     position: fixed;
-    /* z-index: 1;
+    z-index: 1;
     left: 20%;
-    top: 36%; */
-    /* ${props => props.modal ? `display: flex; flex-direction: column; align-items: center` : `display: none`} */
+    top: 36%;
+    ${props => props.modal ? `display: flex; flex-direction: column; align-items: center` : `display: none`}
     > h3 {
       margin-top: 50px;
       font-weight: normal;
@@ -159,14 +157,14 @@ class App extends Component {
     return !localStorage.getItem('username') ? <Login /> :
             <AppWrapper modal={this.state.modal} >
                 <ModalWrapper modal={this.state.modal}>
-                    <DeleteModal className='modal'>
+                    <DeleteModal className='modal' modal={this.state.modal}>
                         <h3>Are you sure you want to delete this?</h3>
                         <div>
                             <div onClick={this.deleteClickHandler} >Delete</div>
                             <div onClick={this.toggle} >No</div>
                         </div>
-                    </DeleteModal>
-                </ModalWrapper>                
+                    </DeleteModal>  
+                </ModalWrapper>              
                 <Sidebar>
                     <SidebarHeader>
                         Lambda <br/> Notes
