@@ -13,7 +13,6 @@ const NoteCard = ({note})=> {
       <div className="noteContent">
 
           <h3>{note.title}</h3>
-          {console.log('before display',noteText)}
           <p>{noteText}</p>
       </div>
     </Link>
