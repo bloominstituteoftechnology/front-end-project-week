@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="navbar">
-          <h1>Lambda Notes</h1>
+          <h1 className="mainHeader">Lambda Notes</h1>
           <NavLink to="/create"><Button color="info">+ Create New Note</Button></NavLink>
           <NavLink to="/NoteList"><Button color="info">View your Notes</Button></NavLink>
         </div>
