@@ -49,12 +49,12 @@ table {
 
 * {
  font-size: 62.5%;
+ /* border: 1px solid black !important; */
 }
-
 .App {
  margin: 0 auto ;
  width: 880px;
- border: 2px solid black ;
- height: 800px ;
+ height: 500px;
+ overflow: scroll;
  box-sizing: border-box
 }

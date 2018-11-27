@@ -1,0 +1,16 @@
+.note_styling {
+ display: flex;
+ flex-flow: column wrap  ;
+ justify-content: space-between ;
+ margin: 60px 60px 60px 60px ;
+}
+.note_title {
+ font-size: 1.2rem ;
+ font-family: 'Archivo Black'
+}
+
+.note_body {
+ width: 150px ;
+ height: 100px ;
+ overflow: scroll
+}

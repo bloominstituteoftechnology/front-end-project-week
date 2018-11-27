@@ -31,7 +31,7 @@ class NoteAppContainer extends React.Component {
  render() {
   return (
    <div className="note_app_container">
-    <NoteListContainer notes={this.state.notes}  />
+    <NoteListContainer />
     <NoteContainer notes={this.state.notes} />
    </div>
   );
