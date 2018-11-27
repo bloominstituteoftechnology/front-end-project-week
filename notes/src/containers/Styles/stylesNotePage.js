@@ -18,7 +18,7 @@ export const Modal = styled.div`
 `;
 export const Container = styled.div`
   flex-directon: column;
-  margin: 0 500px 250px;
+  margin: 0 400px 250px;
   padding: 50px 100px;
   border: 1px solid black;
   background: white;
