@@ -27,7 +27,7 @@ class Notes extends Component {
     render(){
         return(
             <div className="notesContent">
-                <h2>Your Notes:</h2>
+                <h2 className="notesTitle">Your Notes:</h2>
                 <div className="notesBlock">
                 {this.state.notes.map( item => (
                     <Link to={`/note/${item._id}`}>

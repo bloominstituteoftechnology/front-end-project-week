@@ -7,7 +7,6 @@ class UpdateForm extends Component {
         this.state={
             title: "",
             textBody: "",
-            tags: [],
             id: null
         }
     }
@@ -28,7 +27,6 @@ class UpdateForm extends Component {
             .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
                 title: this.state.title,
                 textBody: this.state.textBody,
-                tags: this.state.tags,
             })
             .then(response => {
                 console.log(response)
@@ -41,11 +39,11 @@ class UpdateForm extends Component {
     render() {
         return(
             <div>
-                <form onSubmit={this.submitHandler(this.state.id)}>
-                    <input type="text" name="title" value={this.state.title} placeholder="Title" onChange={this.inputHandler} />
-                    <input type="text" name="textBody" value={this.state.textBody} placeholder="Notes" onChange={this.inputHandler}/>
-                    <input type="text" name="tags" value={this.state.tags} placeholder="Tags" onChange={this.inputHandler}/>
-                    <input type="submit" value="Update Note" />
+                <form className="form" onSubmit={this.submitHandler(this.state.id)}>
+                    <h2 className="formHeading">Edit Note:</h2>
+                    <input className="formTitle" type="text" name="title" value={this.state.title} placeholder="Title" onChange={this.inputHandler} />
+                    <input className="formContent" type="text" name="textBody" value={this.state.textBody} placeholder="Notes" onChange={this.inputHandler}/>
+                    <input className="formSubmit" type="submit" value="Update" />
                 </form>
             </div>
         )

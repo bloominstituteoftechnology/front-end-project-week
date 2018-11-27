@@ -7,7 +7,6 @@ class CreateForm extends Component {
         this.state={
             title: "",
             textBody: "",
-            tags: []
         }
     }
 
@@ -32,19 +31,18 @@ class CreateForm extends Component {
 
         this.setState({
             title: "",
-            textBody: "",
-            tags: []
+            textBody: ""
         });
     }
 
     render() {
         return(
             <div>
-                <form onSubmit={this.submitHandler}>
-                    <input type="text" name="title" value={this.state.title} placeholder="Title" onChange={this.inputHandler} />
-                    <input type="text" name="textBody" value={this.state.textBody} placeholder="Notes" onChange={this.inputHandler}/>
-                    <input type="text" name="tags" value={this.state.tags} placeholder="Tags" onChange={this.inputHandler}/>
-                    <input type="submit" value="Add Note" />
+                <form className="form" onSubmit={this.submitHandler}>
+                    <h2 className="formHeading">Create New Note:</h2>
+                    <input className="formTitle" type="text" name="title" value={this.state.title} placeholder="Title" onChange={this.inputHandler} />
+                    <input className="formContent" type="text" name="textBody" value={this.state.textBody} placeholder="Notes" onChange={this.inputHandler}/>
+                    <input className="formSubmit" type="submit" value="Add Note" />
                 </form>
             </div>
         )

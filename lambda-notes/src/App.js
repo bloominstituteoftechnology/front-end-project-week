@@ -20,7 +20,7 @@ class App extends Component {
           <Route path ="/create" component={  CreateForm  } />
           <Route exact path ="/" component={ Notes } />
           <Route path="/note/:id" component={ SingleNote } />
-          <Route path="/update/:id" component={ UpdateForm }/>
+          <Route path="/edit/:id" component={ UpdateForm }/>
         </div>
       </div>
     );

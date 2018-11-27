@@ -51,11 +51,11 @@ class SingleNote extends Component {
         }
 
         return (
-            <div className="noteCard">
-                <h2 className="noteHeading">{this.state.note.title}</h2>
-                <p>{this.state.note.textBody}</p>
-                <p onClick={this.deleteHandler(this.state.id)}>Delete</p>
-                <Link to ={`/update/${this.state.id}`}>Update</Link>
+            <div className="singleNote">
+                <Link className="singleEdit" to ={`/edit/${this.state.id}`}>Edit</Link>
+                <p className="singleDelete" onClick={this.deleteHandler(this.state.id)}>Delete</p>
+                <h2 className="singleNoteHeading">{this.state.note.title}</h2>
+                <p className="singlePara">{this.state.note.textBody}</p>
             </div>
         )
     }
