@@ -17,7 +17,7 @@ const AppWrapper = styled.div`
     display: flex;
     width: 100%;
     background-color: #bfbcbc;
-    ${props => props.modal ? `opacity: 0.5` : null }
+    /* ${props => props.modal ? `opacity: 0.5` : null } */
 `
 
 const Sidebar = styled.nav`
@@ -65,17 +65,30 @@ const SidebarHeader = styled.h1`
     color: #545252;
 `
 
+const ModalWrapper = styled.div`
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+opacity: 0.4;
+display: flex;
+justify-content: center;
+align-items: center;
+${props => props.modal ? `display: flex; flex-direction: column; align-items: center` : `display: none`}
+`
+
 const DeleteModal = styled.div`
     width: 70%;
     height: 300px;
-    opacity: none;
+    /* opacity: none; */
     border: 2px solid black;
     background-color: white;
     position: fixed;
-    z-index: 1;
+    /* z-index: 1;
     left: 20%;
-    top: 36%;
-    ${props => props.modal ? `display: flex; flex-direction: column; align-items: center` : `display: none`}
+    top: 36%; */
+    /* ${props => props.modal ? `display: flex; flex-direction: column; align-items: center` : `display: none`} */
     > h3 {
       margin-top: 50px;
       font-weight: normal;
@@ -147,13 +160,15 @@ class App extends Component {
   render() {
     return !localStorage.getItem('username') ? <Login /> :
             <AppWrapper modal={this.state.modal} >
-                <DeleteModal className='modal' modal={this.state.modal}>
-                    <h3>Are you sure you want to delete this?</h3>
-                    <div>
-                        <div onClick={this.deleteClickHandler} >Delete</div>
-                        <div onClick={this.toggle} >No</div>
-                    </div>
-                </DeleteModal>
+                <ModalWrapper modal={this.state.modal}>
+                    <DeleteModal className='modal'>
+                        <h3>Are you sure you want to delete this?</h3>
+                        <div>
+                            <div onClick={this.deleteClickHandler} >Delete</div>
+                            <div onClick={this.toggle} >No</div>
+                        </div>
+                    </DeleteModal>
+                </ModalWrapper>                
                 <Sidebar>
                     <SidebarHeader>
                         Lambda <br/> Notes
@@ -168,7 +183,7 @@ class App extends Component {
                 <Route exact path='/note/:id' render = {props => <NoteProfile toggle={this.toggle} {...props} />} />
                 <Route exact path='/create' render = {props => <CreateForm {...props}/>} />
                 <Route path='/note/:id/edit' render = {props => <EditForm {...props}/>} />
-                <Route exact path='/audio' render = {props => <VoiceNote {...props}/>} />    
+                <Route exact path='/audio' render = {props => <VoiceNote {...props}/>} />              
             </AppWrapper>
   }
 }

@@ -40,6 +40,7 @@ const Form = styled.form`
         justify-content: center;
         font-weight: bolder;
         cursor: pointer;
+        position: relative;
         &:hover {
             color: #16ccc9;
             background-color: white;
@@ -86,4 +87,4 @@ class CreateForm extends React.Component{
     }
 }
 
-export default connect(()=>{}, {createNote}) (CreateForm);
+export default connect(()=>{return{}}, {createNote}) (CreateForm);
