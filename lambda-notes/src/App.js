@@ -64,14 +64,14 @@ const SidebarHeader = styled.h1`
 `
 
 const ModalWrapper = styled.div`
-position: fixed;
-z-index: 5;
-top: 0;
-left: 0;
-width: 100%;
-height: 100vw;
-background-color: rgba(252,252,252,0.4);
-${props => props.modal ? `display: flex; justify-content: column; align-items: center` : `display: none`}
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vw;
+    background-color: rgba(252,252,252,0.4);
+    ${props => props.modal ? `display: flex; justify-content: column; align-items: center` : `display: none`}
 `
 
 const DeleteModal = styled.div`
