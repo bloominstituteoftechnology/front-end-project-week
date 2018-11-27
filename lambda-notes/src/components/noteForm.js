@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addNewNote, updatedNote } from './actions';
 import { Link } from 'react-router-dom';
-
+import { Buttons, FormSteez } from './styled-components';
 
 class NoteForm extends React.Component{
     constructor(props){
@@ -49,7 +49,7 @@ class NoteForm extends React.Component{
 
     render(){
         return(
-            <div>
+            <FormSteez>
                 <h1>{this.props.purpose}</h1>
                <input type='text' 
                     name='title' 
@@ -63,13 +63,14 @@ class NoteForm extends React.Component{
                     placeholder={this.props.tbph}
                      onChange={this.inputHandler}/>
                <Link to={!this.state.updateNote?'/':`/note/${this.state.id}`} >
-                    <button 
+                    <Buttons 
                         onClick={!this.state.updateNote?
                             this.newNote:
                             this.updateNoteHandler}> 
-                    </button> 
+                            <p>{!this.state.updateNote?'Create note': 'Update Note'}</p>
+                    </Buttons> 
                 </Link>
-           </div>
+           </FormSteez>
 
         )
     }

@@ -8,8 +8,13 @@ const Note = props =>{
     return(
         <NoteContainer>
             <Link to={`/note/${props.note._id}`}>
-            <h1>{props.note.title}</h1>
-             <Markup content={props.note.textBody}/>
+            <div className='header'>
+                <h1>{props.note.title}</h1>
+            </div>
+            <div className='divider'></div>
+             <div className='body'>
+                 <Markup content={props.note.textBody}/>
+             </div>
             </Link>
         </NoteContainer>
     )

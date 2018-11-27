@@ -19,10 +19,13 @@ class NotesList extends React.Component{
         console.log(this.props)
         return (
             <MappedNotes>
-              {this.props.notes.map(item => 
-                <Note key={item._id} note={item} />
-              ).reverse()}
-            </MappedNotes>
+                <div className='list-header'>
+                     <h2  >Your List:</h2>
+                </div>
+                 {this.props.notes.map(item => 
+                   <Note key={item._id} note={item} />
+                 ).reverse()}
+                </MappedNotes>
         )
     }
 

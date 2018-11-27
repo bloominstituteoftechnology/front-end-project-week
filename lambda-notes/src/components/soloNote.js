@@ -4,39 +4,7 @@ import { deleteNote }from './actions';
 import { Modal, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Markup } from 'interweave';
-
-import styled from 'styled-components'
-
-
-const SoloStyle = styled.div `
-    max-width:880px;
-    width:90%;
-    background-color: #DDDCE1;
-    height: 95vh;
-    p{
-        font-size:1.6rem;
-    }
-    a:link{
-    color: black;
-    text-decoration: none;
-    }
-    a:visited{
-      color:black;
-    }
-`
-const SoloLinks = styled.div `
-    display: flex;
-    justify-content: flex-end;
-
-    a{
-        font-size: 2rem;
-    }
-    p{
-        cursor: pointer;
-        font-size: 2rem;
-        margin-right: 15px;
-    }
-`
+import { SoloStyle, SoloLinks, SoloContent } from './styled-components'
 
 
 class SoloNote extends React.Component{
@@ -78,13 +46,13 @@ deleteHandler=(id)=>{
                     </Modal>
                 </div>
                 <SoloLinks>
-                    <Link to={`/edit-note/${note._id}`} ><p>Edit</p></Link>
-                    <p onClick={this.toggle}> Delete </p>
+                    <Link to={`/edit-note/${note._id}`} ><p>edit</p></Link>
+                    <p onClick={this.toggle}> delete </p>
                 </SoloLinks>
-                <div className='note-body'>
+                <SoloContent className='note-body'>
                     <h1> {note.title}</h1>
-                    <Markup content={note.textBody}/>
-                </div>
+                    <div><Markup content={note.textBody}/> </div>
+                </SoloContent>
             </SoloStyle>
         )
     }
