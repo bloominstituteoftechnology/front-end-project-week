@@ -6,7 +6,6 @@ import LinkButton from './LinkButton';
 
 
 
-
 const ListWrapper = styled.div`
     width: 100%;
     min-height: 100vh;
@@ -23,30 +22,35 @@ const NotesWrapper = styled.div`
 
 `
 
-const Note = styled.div`
-    width: 30%;
-    height: 225px;
-    background-color: white;
-    border: 1px solid darkgrey;
-    overflow: hidden;
-    margin: 10px;
+// let rand = Math.floor(Math.random() * 6) - 3;
+
+const style = {
+ width: '30%',
+ height: '225px',
+ overflow: 'hidden',
+ margin: '10px',
+ color: '#333',
+ boxShadow: '0 10px 10px 2px rgba(0,0,0,0.3)',
+ background: '#eae672',
+ transform: `rotate(.5deg)`
+}
+
     
 
-    p {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 6; 
-        line-height: 1.2em;       
-        max-height: 7.2em;
-        margin: 10px;
-        height: 1fr;
-        clear: both;
-        padding: 5px;     
+ const p =  {
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        display: '-webkit-box',
+        WebkitBoxOrient: 'vertical',
+        WebkitLineClamp: '6',
+        lineHeight: '1.2em',       
+        maxHeight: '7.2em',
+        margin: '10px',
+        height: '1fr',
+        clear: 'both',
+        padding: '5px'     
      }
-    }
-`
+
 
 const HeaderWrapper = styled.div`
     display: flex;
@@ -96,8 +100,8 @@ class List extends Component {
         axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         .catch(function(error) {
           console.log(error);
-        });
-        this.componentDidMount();
+        })
+
     }
 
     componentDidUpdate() {
@@ -111,6 +115,8 @@ class List extends Component {
         });
     }
 
+   
+
 
 
   render() {
@@ -119,8 +125,9 @@ class List extends Component {
           <h1>Your Notes:</h1>
         <NotesWrapper>
        {this.state.notes.map(note => {
+   
            return (
-            <Note key={note._id}>
+            <div key={note._id} style={style}>
                <HeaderWrapper>
                <Link to={{
                 pathname: `/${note._id}`,
@@ -131,8 +138,8 @@ class List extends Component {
                   <h2>{note.title}</h2></Link>
                   <button onClick={() => this.deletenote(note._id)}>X</button>
                   </HeaderWrapper>
-                  <p>{note.textBody}</p>
-              </Note>
+                  <p style={p}>{note.textBody}</p>
+              </div>
            )
        })}
        </NotesWrapper>
