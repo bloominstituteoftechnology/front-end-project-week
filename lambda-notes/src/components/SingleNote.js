@@ -76,6 +76,7 @@ class SingleNote extends Component {
   render() {
     return (
       <SNote>
+        <h1><i>Single Note View - Double click Title and/or Body to edit</i></h1>
         <h1 onDoubleClick={this.doubleClick} style={pointer}>{this.state.title}</h1>
         <form onSubmit={this.updateNoteHandler} style={style}>
             <input value={this.state.title} onChange={this.inputHandler} id="titleInput" name="title" />
