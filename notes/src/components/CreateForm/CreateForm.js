@@ -4,7 +4,7 @@ import './createform.css';
 
 class CreateForm extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       title: '',
       text: '',
