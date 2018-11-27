@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../actions/index";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 // css
 import "../CSS/Register.css";
@@ -17,6 +18,10 @@ class Register extends React.Component {
     error: null,
     isRegistering: this.props.isRegistering
   };
+
+  static propTypes = {
+    isRegistering: PropTypes.bool
+  }
 
   handleOnChange = e => {
     this.setState({ [e.target.name]: e.target.value });

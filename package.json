@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "js-cookie": "^2.2.0",
-    "jscookie": "^1.1.0"
+    "jscookie": "^1.1.0",
+    "prop-types": "^15.6.2"
   }
 }
