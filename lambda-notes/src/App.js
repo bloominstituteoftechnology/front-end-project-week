@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { NavLink, Route } from 'react-router-dom'
 import './App.css';
 
 import Notes from "./components/Notes"
 import CreateForm from './components/CreateForm';
 import SingleNote from "./components/SingleNote";
+import UpdateForm from './components/UpdateForm';
 
 class App extends Component {
   render() {
@@ -12,13 +13,14 @@ class App extends Component {
       <div className="app">
         <div className="sideMenu">
           <h1>Lambda Notes</h1>
-          <p className="menuButton">View Your Notes</p>
-          <p className="menuButton">+ Create New Note</p>
+          <NavLink to="/" className="menuButton">View Your Notes</NavLink>
+          <NavLink to="/create" className="menuButton">+ Create New Note</NavLink>
         </div>
         <div className="mainContent">
           <Route path ="/create" component={  CreateForm  } />
           <Route exact path ="/" component={ Notes } />
           <Route path="/note/:id" component={ SingleNote } />
+          <Route path="/update/:id" component={ UpdateForm }/>
         </div>
       </div>
     );

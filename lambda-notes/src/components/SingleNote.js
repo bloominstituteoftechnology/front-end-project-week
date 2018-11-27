@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 class SingleNote extends Component {
     constructor(props) {
         super(props);
         this.state={
-            note: null
+            note: null,
+            id: null
         };
     }
 
     componentDidMount(){
         const id =this.props.match.params.id;
+        this.setState({
+            id: id
+        })
         console.log(this.props.match.params.id);
         this.fetchNote(id);
     }
@@ -26,6 +31,20 @@ class SingleNote extends Component {
             });
     };
 
+    deleteHandler=(id)=>{
+        return()=>{
+            axios
+                .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+                .then(response =>{
+                    console.log(response)
+                })
+                .catch(err => console.log(err))
+        }
+
+    }
+
+
+
     render() {
         if(!this.state.note){
             return <div>Loading note...</div>;
@@ -35,7 +54,8 @@ class SingleNote extends Component {
             <div className="noteCard">
                 <h2 className="noteHeading">{this.state.note.title}</h2>
                 <p>{this.state.note.textBody}</p>
-                <p>Delete</p>
+                <p onClick={this.deleteHandler(this.state.id)}>Delete</p>
+                <Link to ={`/update/${this.state.id}`}>Update</Link>
             </div>
         )
     }
