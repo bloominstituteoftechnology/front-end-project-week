@@ -7,9 +7,7 @@ import NotePage from "./containers/Note/NotePage";
 import NoteForm from "./containers/Note/NoteForm";
 import EditNote from "./containers/Note/NoteEdit";
 class App extends Component {
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+
 
   render() {
     return (
