@@ -112,7 +112,7 @@ class App extends Component {
              />}
              
              />
-          <Route exact  path="/Notes"   render={() => 
+          <Route exact  path="/"   render={() => 
           <ListNotes 
           notes ={this.state.notes} 
           handleViewNote ={this.handleViewNote}

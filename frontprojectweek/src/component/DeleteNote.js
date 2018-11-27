@@ -8,7 +8,7 @@ const DeleteNote = ({handleDeleteNote, id}) => {
       <div className='divdelete'>
       <h2 className="card-title">Are you sure ?</h2>
     <h5 className="card-text">You won't be able to revert this!</h5>
-    <Link to={`/Notes`}  className="btn2 btn3 btn-danger" onClick={handleDeleteNote(id)} >Yes, delete it</Link>
+    <Link to={`/`}  className="btn2 btn3 btn-danger" onClick={handleDeleteNote(id)} >Yes, delete it</Link>
     <Link to={`/Notes/${id}`}  className="btn2 btn3 btn-primary">Cancel</Link>
       </div>
   </div>

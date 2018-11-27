@@ -8,10 +8,10 @@ const NavBar = () => {
     LAMBDA//NOTES
           </NavLink>
     <div className="navdiv">
-          <NavLink activeClassName="selected" className="navlink" to="/Notes">
+          <NavLink activeClassName="selected" className="navlink" to="/">
           Home
           </NavLink>
-          <NavLink activeClassName="selected" className="navlink" to="/Notes">
+          <NavLink activeClassName="selected" className="navlink" to="/">
           Notes
           </NavLink>
       <form className="form-inline my-2 my-lg-0">

@@ -50,6 +50,7 @@ a{
 .btnhome{
   align-self: stretch;
   width: 100%;
+  text-align: center;
 }
 .card-title{
   margin:10px 0px;
@@ -236,8 +237,8 @@ color: #888;
  background: #f8f9fa;
  color : #222;
 display: flex;
+justify-content: center;
 
-align-items: flex-end;
 }
 .btnnote:hover{
   width: auto;
@@ -274,17 +275,9 @@ align-items: flex-end;
   border:   1px solid #ccc;
  
 }
+
 .cardUpdate{
-  height: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #fff;
-  width: 100px;
-  
-}
-.cardUpdate{
-  height: auto;
+  height: 350px;
   position: absolute;
   top: 0;
   background: #fff;
