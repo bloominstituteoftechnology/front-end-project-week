@@ -18,8 +18,13 @@ export const NoteContent = styled.div`
     flex-direction: row ;
     margin: 5px ;
     text-align: center ;
-    overflow: hidden ;
     background-color: #ffffff ;
+    overflow: hidden;
+
+
+     a {
+         text-decoration: none;
+     }
     
     
 `
@@ -29,4 +34,6 @@ export const Title = styled.h1`
     font-size: 1.3em;
     color: #292522;
     font-style: none;
+    border-bottom: 1px solid lightgray;
+    margin: 10px;
 `

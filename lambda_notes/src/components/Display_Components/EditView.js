@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { editNote } from '../Actions/index';
+import { editNote, getNotes } from '../Actions/index';
 import { NoteBody } from '../Styles/NoteViewStyle';
 import { BtnStyle } from '../Styles/AppStyle';
 import { FormStyle, TitleInputStyle, ContentInputStyle , FormWrap, BtnWrap } from '../Styles/EditViewStyle';
@@ -16,7 +16,6 @@ class EditView extends Component {
             textBody: "",
         }
     }
-
 
 
 
@@ -44,7 +43,7 @@ submitHandler = (e) => {
             <FormWrap>
                 <h2>Edit Note:</h2>
                 <FormStyle onSubmit={this.submitHandler}> 
-                    <TitleInputStyle  type="text" name="title" placeholder="Note Title" onInput={this.inputHandler} ></TitleInputStyle>
+                    <TitleInputStyle  type="text" name="title" placeholder="Note Title"  onInput={this.inputHandler} ></TitleInputStyle>
                     <ContentInputStyle  type="text" name="textBody" placeholder="Note Content"  onInput={this.inputHandler}>
                     </ContentInputStyle>
                     <BtnWrap>
@@ -59,10 +58,9 @@ submitHandler = (e) => {
 
 const mapStateToProps =(state)=> {
     return {
-
-        notes: state.notes,
+        note: state.notes,
         path: "Edit View",
     }
 }
 
-export default withRouter(connect(mapStateToProps, {editNote})(EditView))
+export default withRouter(connect(mapStateToProps, {editNote, getNotes})(EditView))

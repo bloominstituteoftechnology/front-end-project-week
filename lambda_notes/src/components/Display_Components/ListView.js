@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import {NoteHeading } from '../Styles/AppStyle';
 import { Title, NoteWrap, NoteContent } from '../Styles/ListViewStyle';
 
 
@@ -13,7 +14,7 @@ class ListView extends Component {
     }
 
 }
-    componentDidMount() {
+    componentDidUpdate() {
     
     axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then( res => {
@@ -33,6 +34,7 @@ class ListView extends Component {
         return (
             
             <NoteWrap>
+                <NoteHeading></NoteHeading>
             {this.state.notes.map( note => {
                 return (
                <NoteContent  key={note._id}>
