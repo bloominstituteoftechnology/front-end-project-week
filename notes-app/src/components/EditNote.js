@@ -28,7 +28,7 @@ class EditNote extends Component {
       )
       .then(res => {
         this.setState({
-          text: "",
+          title: "",
           textBody: ""
         })
       })
