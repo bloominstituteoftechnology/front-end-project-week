@@ -51,10 +51,10 @@ class Note extends React.Component {
                     ConnectDragSource(
                         ConnectDropTarget(  <div className='note-card' onClick={() => {this.props.history.push(`/note/${this.props.id}`);this.props.handleId(this.props.id)}} >
                                                 <section>
-                                                    <h2>{this.props.title}</h2>
+                                                    <h2 className='note-title'>{this.props.title}</h2>
                                                 </section>
                                                 <hr></hr>                            
-                                                <Markup content={this.props.textBody.length > 80 ? this.props.textBody.substring(0, 80)+'...' : this.props.textBody} />
+                                                <Markup content={this.props.textBody.length > 100 ? this.props.textBody.substring(0, 100)+'...' : this.props.textBody} />
                                             </div>
                             )
                         )     

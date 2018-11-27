@@ -34,7 +34,7 @@ code {
   height: 35px;
 }
 
-.sc-bwzfXH bGeDwM .note-card section h2 {
+.note-card section .note-title {
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 0;
