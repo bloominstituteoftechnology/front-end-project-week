@@ -67,21 +67,19 @@ const SidebarHeader = styled.h1`
 
 const ModalWrapper = styled.div`
 position: fixed;
+z-index: 1;
 top: 0;
 left: 0;
 width: 100%;
-height: 100vh;
+height: 100vw;
 opacity: 0.4;
-display: flex;
-justify-content: center;
-align-items: center;
-${props => props.modal ? `display: flex; flex-direction: column; align-items: center` : `display: none`}
+${props => props.modal ? `display: flex; justify-content: column; align-items: center` : `display: none`}
 `
 
 const DeleteModal = styled.div`
     width: 70%;
     height: 300px;
-    /* opacity: none; */
+    opacity: none;
     border: 2px solid black;
     background-color: white;
     position: fixed;
