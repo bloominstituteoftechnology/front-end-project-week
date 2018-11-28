@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './NavBar/index';
 import Notes from './Notes/index';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import AddNote from './AddNote/index';
 
 
 const Test = () => {
@@ -26,9 +27,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <NavBar addNote={this.addNote} />
+          <NavBar />
           <Route path='(/|/Notes/All)' component={Notes} />
-          <Route path='/Notes/New' component={Test} />
+          <Route path='/Notes/New' component={AddNote} />
 
         </div>
       </Router>

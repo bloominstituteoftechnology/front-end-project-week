@@ -7,6 +7,7 @@ const styles = {
   display: 'flex',
   margin: '100px auto 0px auto',
   width: '90vw',
+  maxWidth: '1400px',
   flexWrap: 'wrap',
   justifyContent: 'center',
   border: '1px solid black'
