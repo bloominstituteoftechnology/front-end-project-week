@@ -1,4 +1,4 @@
-# Front End Project Week
+# Front End Project Week(s)
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
