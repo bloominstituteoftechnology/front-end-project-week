@@ -60,6 +60,9 @@ const styles = {
     display: 'flex',
     justifyContent: 'flex-start',
     margin: '8px 0'
+  },
+  deleteIcon: {
+    color: '#ff1744',
   }
 };
 
@@ -101,13 +104,13 @@ class Note extends Component {
         <CardActions classes={{ root: classes.cardActions }}>
           <Tooltip title='Edit'>
             <IconButton aria-label='Edit'>
-              <EditIcon />
+              <EditIcon color='primary' />
             </IconButton>
           </Tooltip>
 
           <Tooltip title='Delete'>
             <IconButton aria-label='Delete'>
-              <DeleteIcon />
+              <DeleteIcon className={ classes.deleteIcon }/>
             </IconButton>
           </Tooltip>
         </CardActions>

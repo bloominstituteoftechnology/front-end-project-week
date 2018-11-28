@@ -21,6 +21,7 @@ const styles = {
     justifyContent: 'space-between',
   },
   titleField: {
+    width: '300px',
   },
   textField: {
     width: '100%',
@@ -56,7 +57,7 @@ class NewNote extends Component {
 
     this.state = {
       title: '',
-      text: '',
+      text: 'GitHub flavored markdown is enabled; Click the preview button to see the results',
     };
 
     this.handleChange = this.handleChange.bind(this);
