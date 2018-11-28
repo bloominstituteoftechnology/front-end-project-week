@@ -19,6 +19,7 @@ font-family: 'Archivo Black'
 const EditViewStyle = styled.div `
  display: flex;
  flex-direction: row;
+ width: 75% ;
 `
 export default class EditView extends Component {
   render() {

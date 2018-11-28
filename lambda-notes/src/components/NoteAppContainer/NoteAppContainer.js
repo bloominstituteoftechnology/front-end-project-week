@@ -1,41 +1,31 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import axios from 'axios'
+import { fetchNotes }from '../../actions/actions'
 import './NoteAppContainer.css'
 import NoteListContainer from '../NoteListContainer/NoteListContainer'
 import NoteContainer from '../NoteContainer/NoteContainer'
 
 class NoteAppContainer extends React.Component {
- constructor(){
-  super()
-  this.state = {
-   notes: [{
-    tags: [],
-    title: '',
-    body: ' '
-   }]
-  }
- }
 
  componentDidMount(){
-  axios
-  .get('https://fe-notes.herokuapp.com/note/get/all')
-  .then(response => {
-   this.setState({
-    notes: response.data
-   })
-  })
-  .catch(err => {
-   console.log(err)
-  })
+  this.props.fetchNotes()
  }
  render() {
   return (
    <div className="note_app_container">
     <NoteListContainer />
-    <NoteContainer notes={this.state.notes} />
+    <NoteContainer notes={this.props.notes} />
    </div>
   );
  }
 }
 
-export default NoteAppContainer;
+const mapStateToProps = state => {
+ const { notes } = state
+ return {
+  notes: notes
+ }
+}
+
+export default connect(mapStateToProps, { fetchNotes })(NoteAppContainer);
