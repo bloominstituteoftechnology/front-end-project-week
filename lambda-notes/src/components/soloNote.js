@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteNote }from './actions';
-import { Modal, Button } from 'reactstrap';
+import { Modal, Button, ModalBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Markup } from 'interweave';
-import { SoloStyle, SoloLinks, SoloContent } from './styled-components'
+import { SoloStyle, SoloLinks, SoloContent, ModalFooter } from './styled-components'
 
 
 class SoloNote extends React.Component{
@@ -36,13 +36,13 @@ deleteHandler=(id)=>{
             <SoloStyle>
                 <div className='modal'>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                        <div>
+                        <ModalBody>
                             <p>Are you sure you want to delete this Note?</p>
-                         </div>
-                         <div>
+                         </ModalBody>
+                         <ModalFooter>
                             <Button color="primary" onClick={ ()=>this.deleteHandler(note._id) }>Delete</Button>{' '}
                             <Button color="danger" onClick={this.toggle}>Cancel</Button>
-                        </div>
+                        </ModalFooter>
                     </Modal>
                 </div>
                 <SoloLinks>
@@ -51,7 +51,7 @@ deleteHandler=(id)=>{
                 </SoloLinks>
                 <SoloContent className='note-body'>
                     <h1> {note.title}</h1>
-                    <div><Markup content={note.textBody}/> </div>
+                    <p><Markup content={note.textBody}/></p>
                 </SoloContent>
             </SoloStyle>
         )

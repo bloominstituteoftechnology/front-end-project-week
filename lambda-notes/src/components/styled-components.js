@@ -126,12 +126,12 @@ export const NoteContainer = styled.div `
     }
 `
 
-//-------------->Single Notes<--------------------------
+//-------------->SoloNote.js<--------------------------
 
 export const SoloStyle = styled.div `
     max-width:880px;
     width:90%;
-    height: 95vh;
+    height: 92vh;
     p{
         font-size:1.6rem;
     }
@@ -166,8 +166,38 @@ export const SoloContent = styled.div `
         margin-bottom: 20px;
       }
 `
+export const ModalFooter = styled.div `
+display: flex;
+justify-content: center;
+align-items: center;
+`
+
 //---------->noteform.js<------------------
 
 export const FormSteez = styled.div `
+    padding-top: 24px;
+    display:flex;
+    flex-direction: column;
+      input{
+        width:40vw;
+        height: 5vh;
+        font-size:1.6rem;
+        margin:10px;
+        justify-self: flex-start;
+      }
+      textarea{
+        width:60vw;
+        margin: 10px;
+        height: 40vh;
+        resize: none;
+        font-size:1.6rem;
+      }
+      a:link{
+    color: black;
+    text-decoration: none;
+    }
+    a:visited{
+      color:black;
+    }
 
 `
