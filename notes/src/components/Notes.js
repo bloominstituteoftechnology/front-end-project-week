@@ -8,7 +8,7 @@ const Notes = props => {
       <ul>
         {props.notes.map(note => {
           return (
-            <div>
+            <div
               id=
               {note.id}
               title=
@@ -18,7 +18,7 @@ const Notes = props => {
               key=
               {note.id}
               deleteNote = {props.deleteNote}
-              editNote = {props.editNote}
+              editNote = {props.editNote}>
             </div>
           );
         })}

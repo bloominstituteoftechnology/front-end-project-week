@@ -80,8 +80,8 @@ class App extends Component {
         />
         <Route
           path="/note/:id"
-          render={() => (
-            <Note notes={this.state.notes} deleteNote={this.deleteNote} />
+          render={props => (
+            <Note {...props} deleteNote={this.deleteNote} />
           )}
         />
         <Route
