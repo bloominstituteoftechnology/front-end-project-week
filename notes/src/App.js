@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Route, NavLink } from "react-router-dom";
+import { Route } from "react-router-dom";
+import SideBar from "./components/SideBar";
 import NoteForm from "./components/NoteForm";
 import Notes from "./components/Notes";
 import Note from "./components/Note";
@@ -10,7 +11,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      newNote: [
+        {
+          title: "",
+          txt: ""
+        }
+      ]
     };
   }
 
@@ -35,7 +42,7 @@ class App extends Component {
 
   editNote = id => {
     axios
-      .put("https://fe-notes.herokuapp.com/note/edit/id")
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`)
       .then(res => {
         this.setState({ notes: res.data });
       })
@@ -44,7 +51,7 @@ class App extends Component {
 
   deleteNote = id => {
     axios
-      .delete("https://fe-notes.herokuapp.com/note/delete/id")
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(res => {
         console.log("you have successfully ditched this note");
         this.setState({ notes: res.data });
@@ -55,18 +62,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ul className="sidebar">
-          <li>
-            <NavLink exact to="/" activeClassName="activeNavButton">
-              View Your Notes
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/note-form" activeClassName="activeNavButton">
-              + Create New Note
-            </NavLink>
-          </li>
-        </ul>
+       
+        <SideBar />
 
         <Route
           path="/note-form"
@@ -80,9 +77,7 @@ class App extends Component {
         />
         <Route
           path="/note/:id"
-          render={props => (
-            <Note {...props} deleteNote={this.deleteNote} />
-          )}
+          render={props => <Note {...props} deleteNote={this.deleteNote} />}
         />
         <Route
           exact
