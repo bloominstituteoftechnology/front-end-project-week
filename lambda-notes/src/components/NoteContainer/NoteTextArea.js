@@ -1,16 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Input } from 'reactstrap'
+const TextAreaStyle = styled.div `
 
+`
 const NoteTextArea = props => {
   return (
     <div>
-      <textarea></textarea>
+      <Input bsSize="lg" />
     </div>
   )
 }
 
-NoteTextArea.propTypes = {
 
-}
 
 export default NoteTextArea
