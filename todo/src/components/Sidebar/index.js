@@ -1,18 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import './App.css';
-import App from './App';
-import CreateNewNote from './CreateNewNote';
+import '../App/index.css';
 
-const LeftBarDiv = styled.div`
+const SideBarDiv = styled.div`
     width: 26%;
     background-color: #D8D8D8;
     padding: 0px 1.5%;
     border-right: 2px solid #979797;
 `;
 
-const LeftBarH1 = styled.h1`
+const SideBarH1 = styled.h1`
     color: 4A4A4A;
     font-size: 5.2rem;
     text-align: left;
@@ -26,7 +24,7 @@ const LeftBarH1 = styled.h1`
     margin-bottom: 30px;
 `;
 
-const LeftBarButton = styled.div`
+const SideBarButton = styled.div`
     height: 62px;
     border: 2px solid #929898;
     background-color: #2BC1C4;
@@ -40,14 +38,14 @@ const LeftBarButton = styled.div`
     cursor: pointer;
 `;
 
-const LeftBar = props => {
+const SideBar = () => {
     return (
-        <LeftBarDiv>
-            <LeftBarH1>Lambda Notes</LeftBarH1>
-            <Link exact to='/'><LeftBarButton>View Your Notes</LeftBarButton></Link>
-            <Link to='/CreateNewNote'><LeftBarButton>+ Create New Note</LeftBarButton></Link>
-        </LeftBarDiv>
+        <SideBarDiv>
+            <SideBarH1>Lambda Notes</SideBarH1>
+            <Link to='/notes'><SideBarButton>View Your Notes</SideBarButton></Link>
+            <Link to='/create'><SideBarButton>+ Create New Note</SideBarButton></Link>
+        </SideBarDiv>
     )
 }
 
-export default LeftBar;
+export default SideBar;

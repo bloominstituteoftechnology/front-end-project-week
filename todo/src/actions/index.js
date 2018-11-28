@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 export const FETCHING = 'FETCHING';
-export const GOT_TODOS = 'GOT_TODOS';
+export const GET_TODOS = 'GET_TODOS';
+export const GET_TODO = 'GET_TODO';
 export const ERROR = 'ERROR';
+export const UPDATE_TODO = 'UPDATE_TODO'
 
 export const fetchingToDos = () => {
 	return (dispatch) => {
@@ -10,8 +12,8 @@ export const fetchingToDos = () => {
 		axios.get('https://fe-notes.herokuapp.com/note/get/all')
 			.then( response => {
 				dispatch({
-					type: GOT_TODOS,
-					toDos: response.data,
+					type: GET_TODOS,
+					notes: response.data,
 				})
 			})
 
@@ -24,14 +26,34 @@ export const fetchingToDos = () => {
 	}
 }
 
+export const getToDo = (id) => {
+	return(dispatch) => {
+		dispatch({ type: FETCHING });
+		axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+			.then ( response => {
+				dispatch ({
+					type: GET_TODO,
+					currentNote: response.data,
+				})
+			})
+
+			.catch ( error => {
+				dispatch({
+					type: ERROR,
+					errorMessage: 'Trouble finding To DO ...'
+				})
+			})
+	}
+}
+
 export const addingToDo = (newToDo) => {
 	return (dispatch) => {
 		dispatch({ type: FETCHING });
 		axios.post('https://fe-notes.herokuapp.com/note/create', newToDo)
 			.then( response => {
 				dispatch({
-					type: GOT_TODOS,
-					toDos: response.data,
+					type: GET_TODOS,
+					notes: response.data,
 				})
 			})
 			
@@ -48,12 +70,8 @@ export const deleteToDo = (id) => {
 	return (dispatch) => {
 		dispatch({ type: FETCHING });
 		axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-			.then( response => {
-				dispatch({
-					type: GOT_TODOS,
-					toDos: response.data,
-				});
-			})
+			.then( dispatch(getToDo))
+
   
 			.catch( error => {
 				dispatch({
@@ -63,22 +81,22 @@ export const deleteToDo = (id) => {
 			})
 	}
 }
-  
-export const updateToDo = (updatedToDo) => {
+
+export const updateToDo = (id, updatedToDo) => {
 	return (dispatch) => {
 		dispatch({ type: FETCHING })
-		axios.put(`https://fe-notes.herokuapp.com/note/edit/${updatedToDo.id}`, updatedToDo)
+		axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedToDo)
 			.then( response => {
-				dispatch({ 
-					type: GOT_TODOS,
-					toDos: response.data,
+				dispatch({
+					type: GET_TODO,
+					currentNote: response.data,
 				})
 			})
 
 			.catch( error => {
 				dispatch({
 					type: ERROR,
-					errorMessage: "Trouble updating Smurf",
+					errorMessage: "Trouble updating To Do",
 				})
 			})
 	}
