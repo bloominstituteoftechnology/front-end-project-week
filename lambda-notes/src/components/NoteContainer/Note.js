@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components' 
+import { Card, CardText, CardBody, CardTitle, CardLink} from 'reactstrap';
 
 const NoteContainer = styled.section `
   display: flex ;
@@ -31,8 +32,18 @@ const Note = props => {
     <div>
      <NoteContainer>
       <NoteStyling>
-       <NoteTitle>{props.title}</NoteTitle>
-        <NoteBody className="note_body">{props.textBody}</NoteBody>
+       <Card>
+        <CardBody>
+        <CardTitle>
+         <NoteTitle>{props.title}</NoteTitle>
+          </CardTitle>
+          <hr />
+          <CardText>
+           <NoteBody className="note_body">{props.textBody}</NoteBody>
+          </CardText>
+          <CardLink href="/edit">Edit</CardLink>
+        </CardBody>
+       </Card>
       </NoteStyling>
      </NoteContainer>
     </div>

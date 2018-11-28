@@ -22,6 +22,10 @@ const EditViewStyle = styled.div `
  width: 75% ;
 `
 export default class EditView extends Component {
+ componentDidMount(){
+  const id = this.props.match.params.noteId
+  console.log(id)
+ }
   render() {
     return (
       <div>
@@ -33,7 +37,6 @@ export default class EditView extends Component {
        </SideBar>
        <NoteTextArea/>
       </EditViewStyle>
-       
       </div>
     )
   }

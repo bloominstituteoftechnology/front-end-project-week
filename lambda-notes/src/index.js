@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import { reducer } from './reducers/reducers'
 import { createStore, applyMiddleware } from 'redux'
-import { ComposeWithDevTools, composeWithDevTools } from 'redux-devtools-extension'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';

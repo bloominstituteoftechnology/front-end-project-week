@@ -13,10 +13,18 @@ export const fetchNotes = () => dispatch => {
   })
   .catch(err => {
    console.log(err)
-   dispatch({type: FAILURE, payload: 'No notes fetched.'})
+   dispatch({type: FAILURE, payload: err})
   })
 }
 
 export const addNote = () => dispatch => {
+
+}
+
+export const editNote = () => dispatch => {
+
+}
+
+export const deleteNote = () => dispatch => {
 
 }
