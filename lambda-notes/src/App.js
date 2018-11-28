@@ -23,11 +23,17 @@ class App extends Component {
       }
     }
     console.log(this.state)
+    setInterval(this.getAllNotes, 1000)
   }
 
   componentDidMount() {
     this.getAllNotes()
-    this.setState(prev => { notes: prev.notes.reverse() })
+  }
+
+  componentDidUpdate() {
+    // live reload of data
+    // updates too fast
+    // this.getAllNotes()
   }
 
   getAllNotes = () => {
@@ -35,7 +41,7 @@ class App extends Component {
       .get(URL + '/note/get/all')
       .then(data => {
         this.setState({
-          notes: data.data
+          notes: data.data.reverse()
         })
       })
       .catch(err => {
@@ -122,7 +128,7 @@ class App extends Component {
               console.log(props)
               return (
                 <NoteView
-                  exact
+                  
                   {...props}
                   notes={this.state.notes}
                   note={

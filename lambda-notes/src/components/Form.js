@@ -10,13 +10,14 @@ const useInputValue = (initialValue) => {
   };
 }
 
-export const Form = ({ 
-  onSubmit, 
-  action, 
-  history, 
-  note,
-  formTitle 
-}) => {
+export const Form = (props) => {
+  const { 
+    onSubmit, 
+    action, 
+    history, 
+    note,
+    formTitle 
+  } = props
   if (note === undefined) {
     note = {
       title: '',
