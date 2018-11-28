@@ -26,7 +26,8 @@ export const fetchNotes = () => dispatch => {
 }
 
 //Adding a new note
-// new note is added to the api but doesnt update live, I have to refresh page to see new note
+// new note is added to the api but doesnt update live, I have to refresh page to see new note ---- fixed
+
 export const addNote = note => dispatch => {
   dispatch({type: ADDING})
     axios 

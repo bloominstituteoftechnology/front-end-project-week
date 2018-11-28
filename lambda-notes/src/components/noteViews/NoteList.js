@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
 import NoteCard from '../NoteCard';
 import {fetchNotes} from '../../actions/index';
+import './NoteList.css';;
 
 class NoteList extends Component {
 
@@ -12,16 +12,17 @@ class NoteList extends Component {
   
   render() { 
     return (
-      <div className="main-container">
-        <div className="header-container">
+      <div className="list-main-container">
+        <div className="list-header-container">
           <h1>Your Notes</h1>
         </div>
-        <div className="body-container">
+        <div className="list-body-container">
           {this.props.loading ? <h1>Loading Note List</h1> : null}
           {this.props.error !== '' ? <h1>{this.props.error}</h1> : null }
           {this.props.notes.map(note => {
             return (
               <NoteCard
+                key={note.textBody}
                 title={note.title}
                 textBody={note.textBody} 
               />
@@ -36,7 +37,7 @@ class NoteList extends Component {
 const mapStateToProps = state => ({
     notes: state.notes,
     error: state.error,
-    loadin: state.fetchingNotes,
+    loading: state.fetchingNotes,
 })
 
 export default connect(mapStateToProps, {fetchNotes})(NoteList);

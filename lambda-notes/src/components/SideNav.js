@@ -9,7 +9,7 @@ class SideNav extends Component {
   }
   render() { 
     return (
-      <div className="main-container">
+      <div className="nav-main-container">
         <div className="header-container">
           <h2>NOTES APP</h2>
           <i className="fas fa-arrow-left"></i>

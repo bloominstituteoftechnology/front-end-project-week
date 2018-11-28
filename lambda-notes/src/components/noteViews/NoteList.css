@@ -1,0 +1,23 @@
+.nav-main-container {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.list-main-container{
+  border: 1px solid black;
+  
+  
+}
+
+.list-body-container{
+  height: 85vh;
+  overflow-y: scroll;
+}
+
+.list-header-container{
+  border-bottom: 1px solid black;
+  width: 100%;
+  background-color: white;
+}
