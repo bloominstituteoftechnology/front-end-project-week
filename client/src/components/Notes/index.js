@@ -7,6 +7,9 @@ const styles = {
   display: 'flex',
   margin: '100px auto 0px auto',
   width: '90vw',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  border: '1px solid black'
 }
 
 class Notes extends Component {
@@ -21,10 +24,12 @@ class Notes extends Component {
 
   render() {
 
-    console.log(this.props.notes);
+
+    const notes = [...this.props.notes];
+
     return (
       <div style={styles}>
-        <Note />
+        {notes.map( note => <Note />)}
       </div>
     );
   }
