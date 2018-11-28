@@ -3,21 +3,21 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 15vw;
 }
 
 .list-main-container{
   border: 1px solid black;
-  
-  
+  height: 100vh;
+  width: 85vw;
 }
 
 .list-body-container{
-  height: 85vh;
+  height: 87.5%;
   overflow-y: scroll;
 }
 
 .list-header-container{
   border-bottom: 1px solid black;
-  width: 100%;
   background-color: white;
 }

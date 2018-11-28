@@ -16,7 +16,7 @@ class SideNav extends Component {
         </div>
         <div className="buttons-search-container">
           <div className="view-button">View Notes</div>
-          <div className="new-button">New Notes +</div>
+          <div className="new-button">New Note +</div>
         </div>
         <div className="search-container">
           <input 
