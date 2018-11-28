@@ -3,7 +3,7 @@ import axios from "axios";
 import { Route, NavLink } from "react-router-dom";
 import NoteForm from "./components/NoteForm";
 import Notes from "./components/Notes";
-import Note from './components/Note';
+import Note from "./components/Note";
 import "./App.css";
 
 class App extends Component {
@@ -13,6 +13,44 @@ class App extends Component {
       notes: []
     };
   }
+
+  componentDidMount() {
+    axios
+      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(res => {
+        this.setState({ notes: res.data });
+      })
+      .catch(err => console.log(err, "failed to get api"));
+  }
+
+  addNote = (e, obj) => {
+    e.preventDefault();
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create")
+      .then(res => {
+        this.setState({ notes: res.data });
+      })
+      .catch(err => console.log(err, "failed to create"));
+  };
+
+  updateNote = id => {
+    axios
+      .put("https://fe-notes.herokuapp.com/note/edit/id")
+      .then(res => {
+        this.setState({ notes: res.data });
+      })
+      .catch(err => console.log(err.res));
+  };
+
+  deleteNote = id => {
+    axios
+      .delete("https://fe-notes.herokuapp.com/note/delete/id")
+      .then(res => {
+        console.log("you have successfully ditched this note");
+        this.setState({ notes: res.data });
+      })
+      .catch(err => console.log(err, "note wasnt ditched"));
+  };
 
   render() {
     return (
@@ -40,10 +78,11 @@ class App extends Component {
             />
           )}
         />
-        <Route path='/note/:id'
-        render={() => (
-          <Note notes={this.state.notes} deleteNote={this.deleteNote} />
-        )}
+        <Route
+          path="/note/:id"
+          render={() => (
+            <Note notes={this.state.notes} deleteNote={this.deleteNote} />
+          )}
         />
         <Route
           exact
