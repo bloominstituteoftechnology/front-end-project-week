@@ -16,12 +16,12 @@ export const fetchNotes = () => dispatch => {
         type: GET_NOTES,
         payload: response.data,
       })
+    })
     .catch(err => {
       dispatch({
         type: ERROR,
         payload: err,
-      })
-    })
+      })  
   })
 }
 

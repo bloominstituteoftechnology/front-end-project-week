@@ -8,7 +8,7 @@ const NoteCard = props => {
       </div>
       {/* just show preview for now, implement SUMMRY api when mvp is done */}
       <div className="body-container">
-        <p className="text-body">{props.body}</p>
+        <p className="text-body">{props.textBody}</p>
       </div>
     </div>
   )
