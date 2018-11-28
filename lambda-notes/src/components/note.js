@@ -6,7 +6,7 @@ const Note = props => {
       <h2>{props.title}</h2>
       <div className="body-container">
         <p className="text-body">
-          {props.textBody}
+          {props.body}
         </p>
       </div>
     </div>
