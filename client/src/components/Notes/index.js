@@ -21,23 +21,26 @@ class Notes extends Component {
     this.props.getAllNotes()
   }
 
+  componentWillUpdate() {
+  }
+
 
   render() {
+
+
 
 
     const notes = [...this.props.notes];
 
     return (
       <div style={styles}>
-        {notes.map( note => <Note />)}
+        {notes.map( (note, i) => <Note key={i} title={note.title} text={note.textBody}/>)}
       </div>
     );
   }
-
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     isFetching: state.isFetching,
     notes: state.notes
