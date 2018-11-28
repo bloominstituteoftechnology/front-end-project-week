@@ -26,20 +26,22 @@ export const fetchNotes = () => dispatch => {
 }
 
 //Adding a new note
+// new note is added to the api but doesnt update live, I have to refresh page to see new note
 export const addNote = note => dispatch => {
   dispatch({type: ADDING})
     axios 
-      .post("https://fe-notes.herokuapp.com/note/get/all")
+      .post("https://fe-notes.herokuapp.com/note/create", note)
       .then(response => {
+        console.log(response.data)
         dispatch({
           type: ADDED,
           payload: response.data,
         })
+      })
       .catch(err => {
         dispatch({
           type: ERROR,
-          payload: err,
-      })
+          payload: err,   
     })
   })
 }

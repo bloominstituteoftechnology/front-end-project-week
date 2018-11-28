@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
     case ADDING:
       return {...state, savingNote: true}
     case ADDED:
-      return {...state, savingNote: false, notes: [...action.payload]}
+      return {...state, savingNote: false};
     case ERROR:
       return {...state, error: action.payload}
     default:

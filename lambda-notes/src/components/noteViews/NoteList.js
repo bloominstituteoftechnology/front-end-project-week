@@ -33,12 +33,10 @@ class NoteList extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
+const mapStateToProps = state => ({
     notes: state.notes,
     error: state.error,
     loadin: state.fetchingNotes,
-  }
-}
+})
 
 export default connect(mapStateToProps, {fetchNotes})(NoteList);
