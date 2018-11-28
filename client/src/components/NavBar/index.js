@@ -8,6 +8,7 @@ import NoteAdd from '@material-ui/icons/NoteAdd';
 import IconButton from '@material-ui/core/IconButton';
 import Search from './Search/index';
 import Tooltip from '@material-ui/core/Tooltip';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const styles = theme => ({
   root: {
@@ -41,29 +42,34 @@ class NavBar extends Component {
     const { classes } = this.props;
 
     return (
-      <AppBar>
-        <Toolbar classes={{root: classes.toolbarRoot}}>
-          <Typography variant='title' classes={{title: classes.title}}>
-            Lambda Notes
-          </Typography>
+        <AppBar>
+          <Toolbar classes={{root: classes.toolbarRoot}}>
+            <Typography variant='title' classes={{title: classes.title}}>
+              Lambda Notes
+            </Typography>
 
-          <div className={ classes.tools }>
-            <Search />
+            <div className={ classes.tools }>
+              <Search />
 
-            <Tooltip title='View Notes'>
-              <IconButton aria-label='View-Notes' classes={{root: classes.iconButton}}>
-                <Note className={ classes.icon } />
-              </IconButton>
-            </Tooltip>
+              <Link to='/Notes/All'>
+                <Tooltip title='View Notes'>
 
-            <Tooltip title='Add Note'>
-              <IconButton aria-label='Add Note' classes={{root: classes.iconButton}}>
-                <NoteAdd className={ classes.icon } />
-              </IconButton>
-            </Tooltip>
-          </div>
-        </Toolbar>
-      </AppBar>
+                  <IconButton aria-label='View-Notes' classes={{root: classes.iconButton}}>
+                    <Note className={ classes.icon } />
+                  </IconButton>
+                </Tooltip>
+              </Link>
+
+              <Link to='/Notes/New'>
+                <Tooltip title='Add Note'>
+                  <IconButton aria-label='Add Note' classes={{root: classes.iconButton}}>
+                    <NoteAdd className={ classes.icon } />
+                  </IconButton>
+                </Tooltip>
+              </Link>
+            </div>
+          </Toolbar>
+        </AppBar>
     );
   }
 }

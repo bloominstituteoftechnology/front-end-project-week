@@ -21,14 +21,7 @@ class Notes extends Component {
     this.props.getAllNotes()
   }
 
-  componentWillUpdate() {
-  }
-
-
   render() {
-
-
-
 
     const notes = [...this.props.notes];
 
