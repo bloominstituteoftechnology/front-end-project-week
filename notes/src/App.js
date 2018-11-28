@@ -23,7 +23,7 @@ class App extends Component {
       .catch(err => console.log(err, "failed to get api"));
   }
 
-  editNote = (e, obj) => {
+  addNote = (e, obj) => {
     e.preventDefault();
     axios
       .post("https://fe-notes.herokuapp.com/note/create")
@@ -33,7 +33,7 @@ class App extends Component {
       .catch(err => console.log(err, "failed to create"));
   };
 
-  updateNote = id => {
+  editNote = id => {
     axios
       .put("https://fe-notes.herokuapp.com/note/edit/id")
       .then(res => {
