@@ -27,3 +27,27 @@ export const getAllNotes = () => {
       });
   }
 }
+
+export const REQUEST_DELETE_NOTE = 'REQUEST_DELETE_NOTE';
+export const requestDeleteNote = () => {
+  return {
+    type: REQUEST_DELETE_NOTE,
+  }
+}
+
+export const DID_DELETE_NOTE = 'DID_DELETE_NOTE';
+export const didDeleteNote = delId => {
+  return {
+    type: DID_DELETE_NOTE,
+    delId,
+  };
+}
+
+export const deleteNote = id => {
+  return dispatch => {
+    dispatch(requestDeleteNote());
+    return axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => dispatch(didDeleteNote(id)))
+      .catch(err => console.log(err))
+  }
+}

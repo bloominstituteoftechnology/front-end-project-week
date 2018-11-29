@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { REQUEST_ALL_NOTES, RECEIVE_ALL_NOTES, ERROR } from './components/actions/index';
+import { REQUEST_ALL_NOTES, RECEIVE_ALL_NOTES, ERROR, REQUEST_DELETE_NOTE, DID_DELETE_NOTE } from './components/actions/index';
 import { ADD_NEW_NOTE, PREVIEW_NEW_NOTE, RESET_NEW_NOTE, REQUEST_ADD_NOTE, POST_ADD_NOTE } from './components/AddNote/actions/index';
 
 const defaultState = {
@@ -41,7 +41,6 @@ Click [here](https://cultofthepartyparrot.com/) to go somewhere.`
   }
 };
 
-
 export const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case REQUEST_ALL_NOTES:
@@ -56,6 +55,10 @@ export const reducer = (state = defaultState, action) => {
       return Object.assign({}, state, { isPosting: true });
     case POST_ADD_NOTE:
       return Object.assign({}, state, { isPosting: false, postId: action.postId });
+    case REQUEST_DELETE_NOTE:
+      return Object.assign({}, state, { isDeleting: true });
+    case DID_DELETE_NOTE:
+      return Object.assign({}, state, { isDeleting: false, delId: action.delId})
     default:
       return state;
   }

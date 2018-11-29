@@ -55,7 +55,7 @@ class ModalDelete extends Component {
                 </Typography>
               </Button>
 
-              <Button>
+              <Button onClick={this.props.handleDelete}>
                 <Typography>
                   Delete
                 </Typography>

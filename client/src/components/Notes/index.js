@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Note from './Note/index';
-import { getAllNotes } from '../actions/index';
+import { getAllNotes, deleteNote } from '../actions/index';
 import { connect } from 'react-redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { withStyles } from '@material-ui/core/styles';
@@ -43,8 +43,8 @@ class Notes extends Component {
 
   }
 
-  handleDelete(id) {
-    this.setState({ deleteNote: { modalOpen: true, id }});
+  handleDelete() {
+    this.props.deleteNote(this.state.deleteNote.id);
   }
 
   openDeleteModal(id) {
@@ -80,7 +80,7 @@ class Notes extends Component {
     return (
       <div style={styles.notes}>
         {loadNotes()}
-        <ModalDelete open={this.state.deleteNote.modalOpen} closeDeleteModal={this.closeDeleteModal} />
+        <ModalDelete handleDelete={this.handleDelete} open={this.state.deleteNote.modalOpen} closeDeleteModal={this.closeDeleteModal} />
       </div>
     );
   }
@@ -97,6 +97,9 @@ const mapDispatchToProps = dispatch => {
   return {
     getAllNotes: () => {
       dispatch(getAllNotes())
+    },
+    deleteNote: id => {
+      dispatch(deleteNote(id))
     }
   };
 }

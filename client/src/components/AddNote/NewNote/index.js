@@ -23,9 +23,11 @@ const styles = {
   },
   titleField: {
     width: '300px',
+    backgroundColor: '#EEEEEE',
   },
   textField: {
     width: '100%',
+    backgroundColor: '#EEEEEE',
   },
   titleLabel: {
     textAlign: 'center',
