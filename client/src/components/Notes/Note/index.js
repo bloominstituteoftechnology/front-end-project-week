@@ -11,6 +11,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles } from '@material-ui/core/styles'
 import { NavLink } from 'react-router-dom';
+import DownloadIcon from '@material-ui/icons/CloudDownload';
+import Divider from '@material-ui/core/Divider';
 
 const styles = {
   root: {
@@ -59,7 +61,7 @@ const styles = {
   },
   cardActions: {
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     margin: '8px 0'
   },
   deleteIcon: {
@@ -74,6 +76,9 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
+  },
+  downloadIcon: {
+    color: '#2196f3',
   },
 };
 
@@ -114,20 +119,31 @@ class Note extends Component {
             </NavLink>
         </CardActionArea>
 
+        <Divider variant='middle' />
+
         <CardActions classes={{ root: classes.cardActions }}>
-          <NavLink to={`/Notes/Edit/${this.props.id}`} className={ classes.navLink }>
-            <Tooltip title='Edit'>
-              <IconButton aria-label='Edit'>
-                <EditIcon color='primary' />
+          <div style={{ display: 'flex', width: '60px', justifyContent: 'space-between', }}>
+            <NavLink to={`/Notes/Edit/${this.props.id}`} className={ classes.navLink }>
+              <Tooltip title='Edit'>
+                <IconButton aria-label='Edit'>
+                  <EditIcon color='primary' />
+                </IconButton>
+              </Tooltip>
+            </NavLink>
+
+            <Tooltip title='Delete'>
+              <IconButton aria-label='Delete' onClick={() => { this.props.openDeleteModal(this.props.id) }}>
+                <DeleteIcon className={ classes.deleteIcon }/>
               </IconButton>
             </Tooltip>
-          </NavLink>
+          </div>
 
-          <Tooltip title='Delete'>
-            <IconButton aria-label='Delete' onClick={() => { this.props.openDeleteModal(this.props.id) }}>
-              <DeleteIcon className={ classes.deleteIcon }/>
+          <Tooltip title='Export'>
+            <IconButton aria-label='Export' >
+              <DownloadIcon className={ classes.downloadIcon }/>
             </IconButton>
           </Tooltip>
+
         </CardActions>
       </Card>
     );
