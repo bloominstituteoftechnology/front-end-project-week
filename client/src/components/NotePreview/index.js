@@ -16,9 +16,11 @@ const styles = {
   title: {
     textAlign: 'center',
     fontSize: '36px',
+    overflowWrap: 'break-word',
   },
   text: {
     fontSize: '18px',
+    overflowWrap: 'break-word',
   },
   button: {
     width: '80px',

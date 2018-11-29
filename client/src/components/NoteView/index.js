@@ -18,9 +18,11 @@ const styles = {
   title: {
     textAlign: 'center',
     fontSize: '36px',
+    overflowWrap: 'break-word',
   },
   text: {
     fontSize: '18px',
+    overflowWrap: 'break-word',
   },
   buttons: {
     display: 'flex',
@@ -57,6 +59,7 @@ class NoteView extends Component {
   parseMarkdown(md) {
     marked.setOptions({
       gfm: true,
+      breaks: true,
     });
     return marked(md);
   }
@@ -81,11 +84,11 @@ class NoteView extends Component {
         <div className={ classes.buttons }>
           <div style={{ width: '200px', display: 'flex', justifyContent: 'space-between', }}>
             <NavLink to={`/Notes/Edit/${this.props.id}`} className={ classes.navLink }>
-            <Button className={ classes.button } color='primary' size='small' variant='outlined'>
-              <Typography variant='button' color='primary'>
-                Edit
-              </Typography>
-            </Button>
+              <Button className={ classes.button } color='primary' size='small' variant='outlined'>
+                <Typography variant='button' color='primary'>
+                  Edit
+                </Typography>
+              </Button>
             </NavLink>
 
             <Button className={ classes.deleteButton } color='secondary' size='small' variant='outlined'>
