@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import NewNote from './NewNote/index';
 import { connect } from 'react-redux';
-import { marked } from 'marked';
+import marked from 'marked';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import NotePreview from '../NotePreview/index';
+import { addNewNote, previewNewNote } from './actions/index';
 
 const styles = {
   addNote: {
@@ -16,40 +18,39 @@ class AddNote extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      preview: {
-        title: '',
-        text: '',
-      },
-    }
 
+
+    this.handleSave = this.handleSave.bind(this);
     this.handlePreview = this.handlePreview.bind(this);
-
   }
 
-  handlePreview(md) {
-    marked.setOptions({
-      gfm: true,
-    });
-    return marked(md);
+  handleSave() {
+    
   }
 
-
+  handlePreview(title, text) {
+    this.props.previewNewNote(title, text);
+  }
 
   render() {
 
-    const newNote = () => {
-      return <NewNote handlePreview={this.handlePreview} />;
-    }
-
     return (
-      <Router>
-        <div style={styles.addNote}>
-          <Route path='' component={ newNote } />
-        </div>
-      </Router>
+      <div style={styles.addNote}>
+        <NewNote handleSave={this.handleSave} handlePreview={this.handlePreview} />
+      </div>
     );
   }
 }
 
-export default connect()(AddNote);
+const mapDispatchToProps = dispatch => {
+  return {
+    addNewNote: (title, text) => {
+      dispatch(addNewNote(title, text));
+    },
+    previewNewNote: (title, text) => {
+      dispatch(previewNewNote(title, text));
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(AddNote);

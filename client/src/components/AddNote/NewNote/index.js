@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 const styles = {
   root: {
@@ -47,6 +48,12 @@ const styles = {
   },
   buttonText: {
     color: 'white',
+  },
+  navLink: {
+    outline: 'none',
+    textDecoration: 'none',
+    color: 'inherit',
+    border: 'none',
   }
 
 }
@@ -56,9 +63,37 @@ class NewNote extends Component {
     super(props);
 
     this.state = {
-      title: '',
-      text: 'GitHub flavored markdown is enabled; Click the preview button to see the results',
-    };
+      title: 'Note Title',
+      text: `GitHub flavored markdown is enabled; Click the preview button to see the results
+
+Lorem ipsum dolor sit amet, luctus feugiat in proin suspendisse suspendisse nisl, mollis faucibus ac sodales dui. Sed eu lobortis. Aliquam odio gravida placerat malesuada in vehicula, eleifend adipiscing. Sit sed vitae elit nunc lacinia, erat quis amet elit eget velit pede, blandit mi vel nullam vivamus justo, dictum dolor vehicula. Dui in, est est, volutpat interdum mattis diam, a ut dolor volutpat, consectetuer torquent velit eget.
+
+Markdown Example
+===============
+
+This is the raw markdown used to generate the below web content.
+
+Bulleted List
+-------------
+
+* Foo
+* Bar
+
+Numbered List
+-------------
+
+1. Foo
+2. Bar
+
+Formatting
+----------
+
+Can be **bold** or *italic*
+
+Links
+-----
+
+Click [here](https://cultofthepartyparrot.com/) to go somewhere.`}
 
     this.handleChange = this.handleChange.bind(this);
 
@@ -67,7 +102,6 @@ class NewNote extends Component {
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-
 
   render() {
 
@@ -90,11 +124,13 @@ class NewNote extends Component {
               </Typography>
             </Button>
 
-            <Button variant='contained' color='secondary' className={ classes.button }>
-              <Typography variant='button' className={ classes.buttonText }>
-                Preview
-              </Typography>
-            </Button>
+            <NavLink className={ classes.navLink } to='/Notes/New/Preview'>
+              <Button onClick={ () => { this.props.handlePreview(this.state.title, this.state.text) }} variant='contained' color='secondary' className={ classes.button }>
+                <Typography variant='button' className={ classes.buttonText }>
+                  Preview
+                </Typography>
+              </Button>
+            </NavLink>
           </div>
         </form>
       </Paper>
