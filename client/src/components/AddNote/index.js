@@ -18,28 +18,36 @@ class AddNote extends Component {
   constructor(props) {
     super(props);
 
-
-
     this.handleSave = this.handleSave.bind(this);
     this.handlePreview = this.handlePreview.bind(this);
   }
 
-  handleSave() {
-    
+  handleSave(title, text) {
+    this.props.addNewNote(title, text);
   }
 
   handlePreview(title, text) {
     this.props.previewNewNote(title, text);
   }
 
+  handleChange(title, text) {
+  }
+
   render() {
 
     return (
       <div style={styles.addNote}>
-        <NewNote handleSave={this.handleSave} handlePreview={this.handlePreview} />
+        <NewNote handleSave={this.handleSave} handlePreview={this.handlePreview} title={this.props.title} text={this.props.text} />
       </div>
     );
   }
+}
+
+const mapStateToProps = state=> {
+  return {
+    title: state.newNote.title,
+    text: state.newNote.text,
+  };
 }
 
 const mapDispatchToProps = dispatch => {
@@ -53,4 +61,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AddNote);
+export default connect(mapStateToProps, mapDispatchToProps)(AddNote);

@@ -9,6 +9,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Search from './Search/index';
 import Tooltip from '@material-ui/core/Tooltip';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import { resetNewNote } from '../AddNote/actions/index';
 
 const styles = theme => ({
   root: {
@@ -54,7 +56,7 @@ class NavBar extends Component {
               <Link to='/Notes/All'>
                 <Tooltip title='View Notes'>
 
-                  <IconButton aria-label='View-Notes' classes={{root: classes.iconButton}}>
+                  <IconButton onClick={() => this.props.resetNewNote() } aria-label='View-Notes' classes={{root: classes.iconButton}}>
                     <Note className={ classes.icon } />
                   </IconButton>
                 </Tooltip>
@@ -62,7 +64,7 @@ class NavBar extends Component {
 
               <Link to='/Notes/New'>
                 <Tooltip title='Add Note'>
-                  <IconButton aria-label='Add Note' classes={{root: classes.iconButton}}>
+                  <IconButton onClick={() => this.props.resetNewNote() } aria-label='Add Note' classes={{root: classes.iconButton}}>
                     <NoteAdd className={ classes.icon } />
                   </IconButton>
                 </Tooltip>
@@ -74,4 +76,12 @@ class NavBar extends Component {
   }
 }
 
-export default withStyles(styles)(NavBar);
+const mapDispatchToProps = dispatch => {
+  return {
+    resetNewNote: () => {
+      dispatch(resetNewNote());
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(NavBar));

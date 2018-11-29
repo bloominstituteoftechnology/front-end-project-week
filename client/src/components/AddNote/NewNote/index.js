@@ -63,37 +63,9 @@ class NewNote extends Component {
     super(props);
 
     this.state = {
-      title: 'Note Title',
-      text: `GitHub flavored markdown is enabled; Click the preview button to see the results
-
-Lorem ipsum dolor sit amet, luctus feugiat in proin suspendisse suspendisse nisl, mollis faucibus ac sodales dui. Sed eu lobortis. Aliquam odio gravida placerat malesuada in vehicula, eleifend adipiscing. Sit sed vitae elit nunc lacinia, erat quis amet elit eget velit pede, blandit mi vel nullam vivamus justo, dictum dolor vehicula. Dui in, est est, volutpat interdum mattis diam, a ut dolor volutpat, consectetuer torquent velit eget.
-
-Markdown Example
-===============
-
-This is the raw markdown used to generate the below web content.
-
-Bulleted List
--------------
-
-* Foo
-* Bar
-
-Numbered List
--------------
-
-1. Foo
-2. Bar
-
-Formatting
-----------
-
-Can be **bold** or *italic*
-
-Links
------
-
-Click [here](https://cultofthepartyparrot.com/) to go somewhere.`}
+      title: this.props.title,
+      text: this.props.text,
+    }
 
     this.handleChange = this.handleChange.bind(this);
 
