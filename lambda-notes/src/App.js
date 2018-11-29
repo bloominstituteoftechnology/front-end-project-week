@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route, Switch} from 'react-router-dom';
 
 import './App.css';
 import NoteList from './components/noteViews/NoteList';
@@ -10,7 +11,11 @@ class App extends Component {
     return (
       <div className="App">
       <SideNav className="nav-component"/>
-      <NoteList className="list-component"/>
+      
+      <Switch>
+        <Route exact path='/' component={NoteList}/>
+        <Route path='/new' component={NewNote}/>
+      </Switch>
       {/* <NewNote/> */}
       </div>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {addNote} from '../../actions'
 
@@ -34,7 +35,7 @@ class NewNote extends React.Component {
       <div className="new-note-form">
         <h2>Add new Note</h2>
         <div className="form-container">
-          <form onSubmit={this.addNoteHandler}>
+          <form>
             <input 
               type="text"
               placeholder="Title"
@@ -47,7 +48,9 @@ class NewNote extends React.Component {
               name="textBody"
               value={this.state.textBody}
               onChange={this.inputHadler} />
-            <button type="submit">Add New Note</button>
+            <Link to="/">
+              <button onClick={this.addNoteHandler}>Add New Note</button>
+            </Link>
           </form>
         </div>
       </div>

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom'; 
 
 class SideNav extends Component {
   constructor(props) {
@@ -15,8 +16,12 @@ class SideNav extends Component {
           <i className="fas fa-arrow-left"></i>
         </div>
         <div className="buttons-search-container">
-          <div className="view-button">View Notes</div>
-          <div className="new-button">New Note +</div>
+          <Link to="/">
+            <div className="view-button">View Notes</div>
+          </Link>
+          <Link to="/new">
+            <div className="new-button">New Note +</div>
+          </Link>
         </div>
         <div className="search-container">
           <input 
