@@ -5,7 +5,8 @@ import SideBar from "./components/SideBar";
 import NoteForm from "./components/NoteForm";
 import Notes from "./components/Notes";
 import Note from "./components/Note";
-import "./App.css";
+// import "./App.css";
+import { AppWrapper } from "./components/Styled";
 
 class App extends Component {
   constructor() {
@@ -61,8 +62,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-       
+      <AppWrapper>
         <SideBar />
 
         <Route
@@ -86,7 +86,7 @@ class App extends Component {
             <Notes notes={this.state.notes} deleteNote={this.deleteNote} />
           )}
         />
-      </div>
+      </AppWrapper>
     );
   }
 }

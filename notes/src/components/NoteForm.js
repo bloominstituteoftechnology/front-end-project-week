@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {NoteFormWrapper, Form} from './Styled';
 
 class NoteForm extends Component {
   constructor(props) {
@@ -21,16 +22,23 @@ class NoteForm extends Component {
 
   render() {
     return (
-      <div className="NoteForm">
-        <form
-          onSubmit={e =>
-            this.add(e, {
-              title: this.state.title,
-              txt: this.state.textBody
-            })
-          }
-        />
-      </div>
+      <NoteFormWrapper>
+        <h2>Create New Note:</h2>
+       
+        <Form
+        onSubmit={e =>
+          this.add(e, {
+            title: this.state.title,
+            txt: this.state.textBody
+          })
+        }
+        >
+          <input placeholder="Note Title" />
+          <input placeholder="Note Content"/>
+          <button>Save</button>
+        </Form>
+       
+      </NoteFormWrapper>
     );
   }
 }
