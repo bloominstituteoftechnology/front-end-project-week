@@ -6,6 +6,8 @@ import marked from 'marked';
 import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
+import { deleteNote } from '../actions/index';
+import ModalDelete from './ModalDelete/index';
 
 const styles = {
   paper: {
@@ -54,6 +56,20 @@ const styles = {
 class NoteView extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      notesAreLoading: true,
+      deleteNote: {
+        modalOpen: false,
+        delete: false,
+        id: '',
+      }
+    }
+
+      this.handleDelete = this.handleDelete.bind(this);
+      this.openDeleteModal = this.openDeleteModal.bind(this);
+      this.closeDeleteModal = this.closeDeleteModal.bind(this);
+
   }
 
   parseMarkdown(md) {
@@ -62,6 +78,18 @@ class NoteView extends Component {
       breaks: true,
     });
     return marked(md);
+  }
+
+  handleDelete() {
+    this.props.deleteNote(this.props.id);
+  }
+
+  openDeleteModal(id) {
+    this.setState({ deleteNote: { modalOpen: true, id }});
+  }
+
+  closeDeleteModal() {
+    this.setState({ deleteNote: { modalOpen: false, id: '' }});
   }
 
   render() {
@@ -91,7 +119,7 @@ class NoteView extends Component {
               </Button>
             </NavLink>
 
-            <Button className={ classes.deleteButton } color='secondary' size='small' variant='outlined'>
+            <Button className={ classes.deleteButton } onClick={() => this.openDeleteModal(this.props.id)} color='secondary' size='small' variant='outlined'>
               <Typography variant='button' className={ classes.deleteBtnText }>
                 Delete
               </Typography>
@@ -106,6 +134,7 @@ class NoteView extends Component {
         </div>
         <Typography variant='h4' classes={{ h4: classes.title }} dangerouslySetInnerHTML={{__html: this.parseMarkdown(note.title) }} />
         <Typography variant='title' classes={{ title: classes.text }} dangerouslySetInnerHTML={{__html: this.parseMarkdown(note.textBody) }} />
+        <ModalDelete isDeleting={this.props.isDeleting} handleDelete={this.handleDelete} open={this.state.deleteNote.modalOpen} closeDeleteModal={this.closeDeleteModal} />
       </Paper>
     );
   }
@@ -113,8 +142,17 @@ class NoteView extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    isDeleting: state.isDeleting,
   };
 }
 
-export default connect(mapStateToProps, null)(withStyles(styles)(NoteView));
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteNote: id => {
+      dispatch(deleteNote(id));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(NoteView));

@@ -15,7 +15,7 @@ import { resetEditNote } from '../EditNote/actions/index';
 
 const styles = theme => ({
   root: {
-
+    // backgroundColor: '#1e88e5',
   },
   toolbarRoot: {
     display: 'flex',
@@ -50,7 +50,7 @@ class NavBar extends Component {
     }
 
     return (
-        <AppBar>
+        <AppBar classes={{ root: classes.root }}>
           <Toolbar classes={{root: classes.toolbarRoot}}>
             <Typography variant='title' classes={{title: classes.title}}>
               Lambda Notes
