@@ -48,11 +48,7 @@ class NotePreview extends Component {
 
   render() {
 
-    // console.log(marked(this.props.note.text));
-
     const { classes } = this.props;
-
-    console.log(this.props);
 
     return (
       <Paper classes={{ root: classes.paper }}>

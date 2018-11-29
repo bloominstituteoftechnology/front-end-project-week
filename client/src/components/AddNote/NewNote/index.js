@@ -90,7 +90,7 @@ class NewNote extends Component {
           </div>
           <TextField name='text' multiline rows='20' rowsMax="20" value={this.state.text} onChange={this.handleChange} className={classes.textField} variant='outlined' placeholder='Content' />
           <div className={classes.buttons}>
-            <Button variant='contained' color='primary' className={ classes.button }>
+            <Button onClick={ () => this.props.handleSave(this.state.title, this.state.text) } variant='contained' color='primary' className={ classes.button }>
               <Typography variant='button' className={ classes.buttonText }>
                 Save
               </Typography>

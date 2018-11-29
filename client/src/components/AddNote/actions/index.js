@@ -1,11 +1,19 @@
-export const ADD_NEW_NOTE = 'ADD_NEW_NOTE';
+import axios from 'axios';
+
 export const addNewNote = (title, text) => {
-  return {
-    type: ADD_NEW_NOTE,
-    newNote: {
-      title,
-      text,
-    }
+  return dispatch => {
+    dispatch(requestAddNote());
+    return axios.post('https://fe-notes.herokuapp.com/note/create', {
+      title: title,
+      textBody: text,
+  })
+  .then(res => {
+    console.log(res);
+    //dispatch(postAddNote(res))
+  })
+  .catch(err => {
+    console.log(err);
+  });
   }
 }
 
@@ -35,8 +43,9 @@ export const requestAddNote = () => {
 }
 
 export const POST_ADD_NOTE = 'POST_ADD_NOTE';
-export const postAddNote = () => {
+export const postAddNote = postId => {
   return {
     type: POST_ADD_NOTE,
+    postId,
   }
 };
