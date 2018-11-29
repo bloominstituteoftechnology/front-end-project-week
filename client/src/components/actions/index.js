@@ -51,3 +51,17 @@ export const deleteNote = id => {
       .catch(err => console.log(err))
   }
 }
+
+export const REQUEST_FILTER_NOTES = 'REQUEST_FILTER_NOTES';
+export const requestFilterNotes = () => {
+  return {
+    type: REQUEST_FILTER_NOTES,
+  }
+}
+
+export const RECEIVE_FILTER_NOTES = 'RECEIVE_FILTER_NOTES';
+export const receiveFilterNotes = () => {
+  return {
+    type: RECEIVE_FILTER_NOTES,
+  }
+}

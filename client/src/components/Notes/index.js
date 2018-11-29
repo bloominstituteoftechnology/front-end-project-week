@@ -7,13 +7,19 @@ import { withStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
 import ModalDelete from './ModalDelete/index';
+import Options from './Options/index';
 
 const styles = {
+  container: {
+    margin: '100px auto 0px auto',
+    // border: '1px solid black',
+    width: '90vw',
+    maxWidth: '1920px',
+    display: 'flex',
+  },
   notes: {
     display: 'flex',
-    margin: '100px auto 0px auto',
-    width: '90vw',
-    maxWidth: '1400px',
+    flex: '1',
     flexWrap: 'wrap',
     justifyContent: 'center',
     // border: '1px solid black',
@@ -78,9 +84,12 @@ class Notes extends Component {
     }
 
     return (
-      <div style={styles.notes}>
-        {loadNotes()}
-        <ModalDelete isDeleting={this.props.isDeleting} handleDelete={this.handleDelete} open={this.state.deleteNote.modalOpen} closeDeleteModal={this.closeDeleteModal} />
+      <div style={ styles.container }>
+        <Options />
+        <div style={styles.notes}>
+          {loadNotes()}
+          <ModalDelete isDeleting={this.props.isDeleting} handleDelete={this.handleDelete} open={this.state.deleteNote.modalOpen} closeDeleteModal={this.closeDeleteModal} />
+        </div>
       </div>
     );
   }
