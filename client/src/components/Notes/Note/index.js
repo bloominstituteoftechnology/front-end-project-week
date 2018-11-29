@@ -67,11 +67,14 @@ const styles = {
   },
   navLink: {
     textDecoration: 'none',
-    flex: '1',
+  },
+  actionNavLink: {
+    textDecoration: 'none',
+    flex:'1',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
-  }
+  },
 };
 
 class Note extends Component {
@@ -98,7 +101,7 @@ class Note extends Component {
     return (
       <Card classes={{ root: classes.root }}>
         <CardActionArea classes={{ root: classes.cardActionArea }}>
-          <NavLink to={`/Notes/View/${this.props.id}`} className={ classes.navLink }>
+          <NavLink to={`/Notes/View/${this.props.id}`} className={ classes.actionNavLink }>
             <CardContent classes={{ root: classes.cardContent }}>
               <Typography variant='h5' classes={{ h5: classes.noteTitle }}>
                 {this.props.title}
@@ -112,11 +115,13 @@ class Note extends Component {
         </CardActionArea>
 
         <CardActions classes={{ root: classes.cardActions }}>
-          <Tooltip title='Edit'>
-            <IconButton aria-label='Edit'>
-              <EditIcon color='primary' />
-            </IconButton>
-          </Tooltip>
+          <NavLink to={`/Notes/Edit/${this.props.id}`} className={ classes.navLink }>
+            <Tooltip title='Edit'>
+              <IconButton aria-label='Edit'>
+                <EditIcon color='primary' />
+              </IconButton>
+            </Tooltip>
+          </NavLink>
 
           <Tooltip title='Delete'>
             <IconButton aria-label='Delete' onClick={() => { this.props.openDeleteModal(this.props.id) }}>

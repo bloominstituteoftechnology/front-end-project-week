@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AddNote from './AddNote/index';
 import NotePreview from './NotePreview/index';
 import NoteView from './NoteView/index';
+import EditNote from './EditNote/index';
 import { connect } from 'react-redux';
 
 const Test = () => {
@@ -16,14 +17,15 @@ class App extends Component {
     super(props);
   }
   render() {
-
     return (
       <Router>
         <div>
           <NavBar />
           <Route exact path='(/|/Notes/All)' component={Notes} />
           <Route exact path='/Notes/New' component={AddNote} />
+          <Route exact path='/Notes/Edit/:id' component={({match}) => <EditNote id={match.params.id} />} />
           <Route exact path='/Notes/New/Preview' component={() => <NotePreview prevRoute='/Notes/New' note={this.props.newNote}/>} />
+          <Route exact path='/Notes/Edit/Preview/:id' component={({match}) => <NotePreview prevRoute={`/Notes/Edit/${match.params.id}`} note={this.props.editNote}/>} />
           <Route exact path='/Notes/View/:id' component={({match}) => <NoteView id={match.params.id}/>} />
         </div>
       </Router>
@@ -34,6 +36,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     newNote: state.newNote,
+    editNote: state.editNote,
   }
 }
 

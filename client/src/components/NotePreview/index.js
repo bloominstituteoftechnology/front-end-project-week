@@ -46,8 +46,12 @@ class NotePreview extends Component {
     return marked(md);
   }
 
-  render() {
+  componentDidMount() {
 
+  }
+
+  render() {
+    // console.log(this.props)
     const { classes } = this.props;
 
     return (

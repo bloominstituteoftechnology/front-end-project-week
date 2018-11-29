@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import { REQUEST_ALL_NOTES, RECEIVE_ALL_NOTES, ERROR, REQUEST_DELETE_NOTE, DID_DELETE_NOTE } from './components/actions/index';
 import { ADD_NEW_NOTE, PREVIEW_NEW_NOTE, RESET_NEW_NOTE, REQUEST_ADD_NOTE, POST_ADD_NOTE } from './components/AddNote/actions/index';
+import { PREVIEW_EDIT_NOTE, REQUEST_EDIT_NOTE, DID_EDIT_NOTE, RESET_EDIT_NOTE } from './components/EditNote/actions/index';
 
 const defaultState = {
   isFetching: false,
@@ -38,7 +39,13 @@ Links
 -----
 
 Click [here](https://cultofthepartyparrot.com/) to go somewhere.`
+  },
+  editNote: {
+    title: '',
+    text: '',
+    id: '',
   }
+
 };
 
 export const reducer = (state = defaultState, action) => {
@@ -59,6 +66,14 @@ export const reducer = (state = defaultState, action) => {
       return Object.assign({}, state, { isDeleting: true });
     case DID_DELETE_NOTE:
       return Object.assign({}, state, { isDeleting: false, delId: action.delId})
+    case PREVIEW_EDIT_NOTE:
+      return Object.assign({}, state, { editNote: action.editNote })
+    case RESET_EDIT_NOTE:
+      return Object.assign({}, state, { editNote: defaultState.editNote })
+    case REQUEST_EDIT_NOTE:
+      return Object.assign({}, state, {isEditing: true})
+      case DID_EDIT_NOTE:
+        return Object.assign({}, state, {isEditing: false})
     default:
       return state;
   }

@@ -80,11 +80,13 @@ class NoteView extends Component {
       <Paper classes={{ root: classes.paper }}>
         <div className={ classes.buttons }>
           <div style={{ width: '200px', display: 'flex', justifyContent: 'space-between', }}>
+            <NavLink to={`/Notes/Edit/${this.props.id}`} className={ classes.navLink }>
             <Button className={ classes.button } color='primary' size='small' variant='outlined'>
               <Typography variant='button' color='primary'>
                 Edit
               </Typography>
             </Button>
+            </NavLink>
 
             <Button className={ classes.deleteButton } color='secondary' size='small' variant='outlined'>
               <Typography variant='button' className={ classes.deleteBtnText }>
