@@ -1,35 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const cardSection=styled.div`
+const CardSection=styled.div`
 width:80%;
 background-color:#ccd3e0;
-color:orange;
+display:flex;
+height:100%;
+flex-wrap:wrap;
+justify-content:space-between;
+padding-left:5%;
+padding-right:5%
 `
 
-const styledCard=styled.div`
-width:30%;
+const StyledCard=styled.div`
+width:28%;
 background-color:white;
-height:40px;
-text-overflow:"-";
+height:30%;
 border:grey;
+padding:1rem;
 
+`
+const Heading=styled.h1`
+font-size:16px;
 `
 
 const NotesList=(props)=>{
     return(
-        <cardSection>
+        <CardSection>
             {props.notes.map((note)=>{
     return(
-            <styledCard>
-                {note.title}
+            <StyledCard>
+                <Heading>{note.title}</Heading>
+                
                 <hr/>
-                {note.textBody}
-            </styledCard>
+                {note.textBody.slice(0,100)}
+            </StyledCard>
 
     )
 })}
-        </cardSection>
+        </CardSection>
     )
     
 
