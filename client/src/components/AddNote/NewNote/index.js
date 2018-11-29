@@ -46,10 +46,10 @@ const styles = {
     margin: '15px 30px 0 30px',
   },
   button: {
-    width: '100px',
+    width: '80px',
   },
   buttonText: {
-    color: 'white',
+    // color: 'white',
   },
   navLink: {
     outline: 'none',
@@ -57,7 +57,6 @@ const styles = {
     color: 'inherit',
     border: 'none',
   }
-
 }
 
 class NewNote extends Component {
@@ -97,15 +96,15 @@ class NewNote extends Component {
           </div>
           <TextField name='text' multiline rows='20' rowsMax="20" value={this.state.text} onChange={this.handleChange} className={classes.textField} variant='outlined' placeholder='Content' />
           <div className={classes.buttons}>
-            <Button onClick={ this.handleSaveClick } variant='contained' color='primary' className={ classes.button }>
-              <Typography variant='button' className={ classes.buttonText }>
+            <Button onClick={ this.handleSaveClick } variant='outlined' size='small' color='primary' className={ classes.button }>
+              <Typography color='primary' variant='button' className={ classes.buttonText }>
                 Save
               </Typography>
             </Button>
 
             <NavLink className={ classes.navLink } to='/Notes/New/Preview'>
-              <Button onClick={ () => { this.props.handlePreview(this.state.title, this.state.text) }} variant='contained' color='secondary' className={ classes.button }>
-                <Typography variant='button' className={ classes.buttonText }>
+              <Button onClick={ () => { this.props.handlePreview(this.state.title, this.state.text) }} size='small' variant='outlined' color='secondary' className={ classes.button }>
+                <Typography color='secondary' variant='button' className={ classes.buttonText }>
                   Preview
                 </Typography>
               </Button>

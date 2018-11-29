@@ -21,10 +21,10 @@ const styles = {
     fontSize: '18px',
   },
   button: {
-    width: '100px',
+    width: '80px',
   },
   buttonText: {
-    color: 'white',
+    //color: 'black',
   },
   navLink: {
     outline: 'none',
@@ -53,8 +53,8 @@ class NotePreview extends Component {
     return (
       <Paper classes={{ root: classes.paper }}>
         <NavLink to={this.props.prevRoute} className={ classes.navLink }>
-          <Button color='primary' variant='contained' size='small' className={ classes.button }>
-            <Typography className={ classes.buttonText }>
+          <Button color='primary' variant='outlined' size='small' className={ classes.button }>
+            <Typography color='primary' className={ classes.buttonText }>
               Back
             </Typography>
           </Button>

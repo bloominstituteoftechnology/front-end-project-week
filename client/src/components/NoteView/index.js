@@ -12,7 +12,8 @@ const styles = {
     margin: '100px auto 0 auto',
     width: '60vw',
     padding: '40px 60px',
-    display: 'block',
+    display: 'flex',
+    flexDirection: 'column',
   },
   title: {
     textAlign: 'center',
@@ -21,8 +22,13 @@ const styles = {
   text: {
     fontSize: '18px',
   },
+  buttons: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   button: {
-    width: '100px',
+    width: '80px',
   },
   buttonText: {
     color: 'white',
@@ -32,8 +38,16 @@ const styles = {
     textDecoration: 'none',
     color: 'inherit',
     border: 'none',
+  },
+  deleteButton: {
+    width: '80px',
+    borderColor: '#ff1744',
+  },
+  deleteBtnText: {
+    color: '#ff1744',
   }
 };
+
 
 class NoteView extends Component {
   constructor(props) {
@@ -64,6 +78,27 @@ class NoteView extends Component {
 
     return (
       <Paper classes={{ root: classes.paper }}>
+        <div className={ classes.buttons }>
+          <div style={{ width: '200px', display: 'flex', justifyContent: 'space-between', }}>
+            <Button className={ classes.button } color='primary' size='small' variant='outlined'>
+              <Typography variant='button' color='primary'>
+                Edit
+              </Typography>
+            </Button>
+
+            <Button className={ classes.deleteButton } color='secondary' size='small' variant='outlined'>
+              <Typography variant='button' className={ classes.deleteBtnText }>
+                Delete
+              </Typography>
+            </Button>
+          </div>
+
+          <Button className={ classes.button } color='secondary'size='small' variant='outlined'>
+            <Typography variant='button' color='secondary'>
+              Export
+            </Typography>
+          </Button>
+        </div>
         <Typography variant='h4' classes={{ h4: classes.title }} dangerouslySetInnerHTML={{__html: this.parseMarkdown(note.title) }} />
         <Typography variant='title' classes={{ title: classes.text }} dangerouslySetInnerHTML={{__html: this.parseMarkdown(note.textBody) }} />
       </Paper>
