@@ -80,7 +80,7 @@ class Notes extends Component {
     return (
       <div style={styles.notes}>
         {loadNotes()}
-        <ModalDelete handleDelete={this.handleDelete} open={this.state.deleteNote.modalOpen} closeDeleteModal={this.closeDeleteModal} />
+        <ModalDelete isDeleting={this.props.isDeleting} handleDelete={this.handleDelete} open={this.state.deleteNote.modalOpen} closeDeleteModal={this.closeDeleteModal} />
       </div>
     );
   }
@@ -89,7 +89,8 @@ class Notes extends Component {
 const mapStateToProps = state => {
   return {
     isFetching: state.isFetching,
-    notes: state.notes
+    notes: state.notes,
+    isDeleting: state.isDeleting,
   };
 }
 
