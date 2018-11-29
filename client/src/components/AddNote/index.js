@@ -5,6 +5,7 @@ import marked from 'marked';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NotePreview from '../NotePreview/index';
 import { addNewNote, previewNewNote } from './actions/index';
+import ModalAdd from './ModalAdd/index';
 
 const styles = {
   addNote: {
@@ -18,8 +19,17 @@ class AddNote extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      addNote: {
+        save: false,
+        modalOpen: false,
+      }
+    }
+
     this.handleSave = this.handleSave.bind(this);
     this.handlePreview = this.handlePreview.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   handleSave(title, text) {
@@ -30,14 +40,21 @@ class AddNote extends Component {
     this.props.previewNewNote(title, text);
   }
 
-  handleChange(title, text) {
+  openModal() {
+    this.setState({ addNote: { modalOpen: true }});
+  }
+
+  closeModal() {
+    this.setState({ addNote: { modalOpen: false }})
   }
 
   render() {
 
+
     return (
       <div style={styles.addNote}>
-        <NewNote handleSave={this.handleSave} handlePreview={this.handlePreview} title={this.props.title} text={this.props.text} />
+        <NewNote openModal={this.openModal} handleSave={this.handleSave} handlePreview={this.handlePreview} title={this.props.title} text={this.props.text} />
+        <ModalAdd closeModal={this.closeModal} open={this.state.addNote.modalOpen} />
       </div>
     );
   }

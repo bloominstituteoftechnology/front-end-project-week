@@ -70,11 +70,16 @@ class NewNote extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
-
+    this.handleSaveClick = this.handleSaveClick.bind(this);
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleSaveClick() {
+    this.props.handleSave(this.state.title, this.state.text);
+    this.props.openModal();
   }
 
   render() {
@@ -92,7 +97,7 @@ class NewNote extends Component {
           </div>
           <TextField name='text' multiline rows='20' rowsMax="20" value={this.state.text} onChange={this.handleChange} className={classes.textField} variant='outlined' placeholder='Content' />
           <div className={classes.buttons}>
-            <Button onClick={ () => this.props.handleSave(this.state.title, this.state.text) } variant='contained' color='primary' className={ classes.button }>
+            <Button onClick={ this.handleSaveClick } variant='contained' color='primary' className={ classes.button }>
               <Typography variant='button' className={ classes.buttonText }>
                 Save
               </Typography>
