@@ -10,6 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles } from '@material-ui/core/styles'
+import { NavLink } from 'react-router-dom';
 
 const styles = {
   root: {
@@ -63,6 +64,13 @@ const styles = {
   },
   deleteIcon: {
     color: '#ff1744',
+  },
+  navLink: {
+    textDecoration: 'none',
+    flex: '1',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
   }
 };
 
@@ -77,7 +85,7 @@ class Note extends Component {
     let newText = text;
     let len = 270;
     if (newText.length > len) {
-      newText = newText.split('').slice(0, len).join('') + '...'
+      newText = newText.split('').slice(0, len).join('') + '...';
     }
     return newText;
 
@@ -90,15 +98,17 @@ class Note extends Component {
     return (
       <Card classes={{ root: classes.root }}>
         <CardActionArea classes={{ root: classes.cardActionArea }}>
-          <CardContent classes={{ root: classes.cardContent }}>
-            <Typography variant='h5' classes={{ h5: classes.noteTitle }}>
-              {this.props.title}
-            </Typography>
+          <NavLink to={`/Notes/View/${this.props.id}`} className={ classes.navLink }>
+            <CardContent classes={{ root: classes.cardContent }}>
+              <Typography variant='h5' classes={{ h5: classes.noteTitle }}>
+                {this.props.title}
+              </Typography>
 
-            <Typography classes={{ root: classes.noteContent }}>
-              {this.trimText(this.props.text)}
-            </Typography>
-          </CardContent>
+              <Typography classes={{ root: classes.noteContent }}>
+                {this.trimText(this.props.text)}
+              </Typography>
+            </CardContent>
+            </NavLink>
         </CardActionArea>
 
         <CardActions classes={{ root: classes.cardActions }}>
