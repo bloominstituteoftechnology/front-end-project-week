@@ -15,7 +15,7 @@ class App extends Component {
       newNote: [
         {
           title: "",
-          txt: ""
+          textBody: ""
         }
       ]
     };

@@ -5,7 +5,7 @@ class NoteForm extends Component {
     super(props);
     this.state = {
       title: "",
-      txt: ""
+      textBody: ""
     };
   }
 
@@ -16,7 +16,7 @@ class NoteForm extends Component {
   add = (e, obj) => {
     e.preventDefault();
     this.props.addNote(e, obj);
-    this.setState({ title: "", txt: "" });
+    this.setState({ title: "", textBody: "" });
   };
 
   render() {
@@ -26,7 +26,7 @@ class NoteForm extends Component {
           onSubmit={e =>
             this.add(e, {
               title: this.state.title,
-              txt: this.state.txt
+              txt: this.state.textBody
             })
           }
         />

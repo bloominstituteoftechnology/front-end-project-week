@@ -14,11 +14,12 @@ const Notes = props => {
               title=
               {note.title}
               txt=
-              {note.txt}
+              {note.textBody}
               key=
               {note.id}
               deleteNote = {props.deleteNote}
               editNote = {props.editNote}>
+              <h2>{note.title}</h2> {note.textBody}
             </div>
           );
         })}
