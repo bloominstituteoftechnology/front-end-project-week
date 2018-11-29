@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components' 
 import { Card, CardText, CardBody, CardTitle, CardLink} from 'reactstrap';
+import { Link } from 'react-router-dom'
 
 const NoteContainer = styled.section `
   display: flex ;
@@ -27,7 +28,11 @@ const NoteBody = styled.article `
  font-size: 0.8rem ;
 `
 
+
+
 const Note = props => {
+ const id = props.match.params.noteId
+ console.log("this is ID: ", id)
   return (
     <div>
      <NoteContainer>
@@ -35,13 +40,13 @@ const Note = props => {
        <Card>
         <CardBody>
         <CardTitle>
-         <NoteTitle>{props.title}</NoteTitle>
+          <Link to={`note/${id}`}><NoteTitle>{props.title}</NoteTitle></Link>
           </CardTitle>
           <hr />
           <CardText>
            <NoteBody className="note_body">{props.textBody}</NoteBody>
           </CardText>
-          <CardLink href="/edit">Edit</CardLink>
+          <CardLink href="/edit/">Edit</CardLink>
         </CardBody>
        </Card>
       </NoteStyling>

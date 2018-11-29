@@ -3,6 +3,8 @@ import axios from 'axios'
 export const FETCHING = 'FETCHING'
 export const SUCCESS = 'SUCCESS'
 export const FAILURE = 'FAILURE'
+export const ADDING = 'ADDING'
+export const ADDED = 'ADDED'
 
 
 export const fetchNotes = () => dispatch => {
@@ -13,12 +15,19 @@ export const fetchNotes = () => dispatch => {
   })
   .catch(err => {
    console.log(err)
-   dispatch({type: FAILURE, payload: err})
   })
 }
 
 export const addNote = () => dispatch => {
-
+ dispatch({type: ADDING })
+ axios
+ .post('https://fe-notes.herokuapp.com/note/create')
+ .then(response => {
+  dispatch({type: ADDED, payload: response.data})
+ })
+ .catch(() => {
+  dispatch({type: FAILURE, payload: 'Note not added.'})
+ })
 }
 
 export const editNote = () => dispatch => {

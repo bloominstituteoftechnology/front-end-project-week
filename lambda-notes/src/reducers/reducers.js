@@ -1,5 +1,4 @@
 import { FETCHING, SUCCESS, FAILURE } from '../actions/actions'
-
 const initState =  {
  notes: [{
   tags: [],
@@ -8,6 +7,9 @@ const initState =  {
  }],
  fetching: false,
  error: null,
+ adding: null,
+ creating: null,
+ deleting: null,
 }
 
 export const reducer = (state = initState, action) => {

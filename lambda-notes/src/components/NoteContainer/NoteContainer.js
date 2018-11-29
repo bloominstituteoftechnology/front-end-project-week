@@ -12,14 +12,23 @@ const NoteContainerStyle = styled.div `
 const NoteContainer = props => {
   return (
     <NoteContainerStyle className="note_container">
-       {props.notes.map((note, index) => <Note
-        textBody={note.textBody}
-        title={note.title}
-         />)}
          <NoteTextArea />
+         {props.notes.map((note, index) => <Note 
+          key={index}
+          title={note.title}
+          textBody={note.textBody}
+          match={props.match}
+         />)}
     </NoteContainerStyle>
   )
 }
 
+const mapStateToProps = state => {
+ const { notes } = state 
+ return {
+  notes: notes
+ }
+}
 
-export default connect()(NoteContainer)
+
+export default connect(mapStateToProps)(NoteContainer)
