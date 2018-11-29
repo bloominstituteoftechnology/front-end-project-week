@@ -109,7 +109,7 @@ class Note extends Component {
           </Tooltip>
 
           <Tooltip title='Delete'>
-            <IconButton aria-label='Delete'>
+            <IconButton aria-label='Delete' onClick={() => { this.props.openDeleteModal(this.props.id) }}>
               <DeleteIcon className={ classes.deleteIcon }/>
             </IconButton>
           </Tooltip>
