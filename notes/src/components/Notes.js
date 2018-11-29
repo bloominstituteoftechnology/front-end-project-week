@@ -1,14 +1,16 @@
 import React from "react";
 import Note from "./Note";
+import { NoteCard, NoteCardList, NoteCardTitle, NoteCardText} from './Styled';
+
 
 const Notes = props => {
   return (
     <div className="Notes">
       <h2>Your Notes:</h2>
-      <ul>
+      <NoteCardList>
         {props.notes.map(note => {
           return (
-            <div
+            <NoteCard
               id=
               {note.id}
               title=
@@ -19,11 +21,11 @@ const Notes = props => {
               {note.id}
               deleteNote = {props.deleteNote}
               editNote = {props.editNote}>
-              <h2>{note.title}</h2> {note.textBody}
-            </div>
+              <NoteCardTitle>{note.title}</NoteCardTitle> <NoteCardText>{note.textBody}</NoteCardText>
+            </NoteCard>
           );
         })}
-      </ul>
+      </NoteCardList>
     </div>
   );
 };
