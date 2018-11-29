@@ -47,38 +47,119 @@ table {
 	border-spacing: 0;
 }
 
-
-
-
-
-
-
-
-
-
+* {
+  font-family: helvetica;
+  text-decoration: none;
+}
 
 .App {
   text-align: center;
+  display: flex;
+  max-width: 880px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.side-bar{
+  background-color:#d2d2d2;
+  min-height: 1000px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.side-header {
+  font-family: helvetica;
+  font-weight: bold;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
+  padding: 10px;
+}
+.side-header h1 {
+  font-size: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+nav{
+  display: flex;
+  flex-direction: column;
+}
+
+.navbtn {
+  color: white;
+  background-color: #24B8BD;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: helvetica;
+  font-weight: bold;
+  margin: 10px;
+}
+
+/* ------------------Notes list-------------------- */
+
+.note-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #F1F1F1
+}
+.notes-header{
+  width: 100%;
+  display: flex;
+  padding: 15px;
+  font-weight: bold;
+  font-family: helvetica;
+}
+
+.notes{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note{
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #9F9F9F;
+  margin: 10px;
+  text-decoration: none;
+  color: #5E646F;
+  background-color: white;
+}
+
+.note h3{
+  border-bottom: 1px solid gray;
+  color: BLACK;
+  margin: 0 10px;
+  font-weight: bold;
+  font-family: helvetica;
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+.note p{
+  color: black;
+  font-family: helvetica;
+  padding: 10px 5px 0 5px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* ------------------Create Note-------------------- */
+
+.create-note{
+  display: flex;
+  flex-direction: column;
+}
+form{
+  display: flex;
+  flex-direction: column;
+}
+form button{
+  background-color: #24B8BD;
+  color: white;
+  font-family: helvetica;
+  height: 30px;
+  width: 150px;
 }
 
 @keyframes App-logo-spin {

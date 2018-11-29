@@ -74,8 +74,8 @@ class App extends Component {
             <h1>Notes</h1>
           </div>
           <nav>            
-            <NavLink to="/">View Your Notes</NavLink>
-            <NavLink to="/create" >Create a Note</NavLink>
+            <NavLink className='navbtn' to="/">View Your Notes</NavLink>
+            <NavLink className='navbtn' to="/create" >Create a Note</NavLink>
           </nav>          
         </div>
           <Route 

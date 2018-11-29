@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css';
 
 class CreateNote extends Component {
     constructor(props) {
@@ -28,23 +29,28 @@ class CreateNote extends Component {
 
     render() {
         return(
-            <form onSubmit={this.addNote}>                
-                <textarea 
-                    type='text' 
-                    name='noteTitle' 
-                    value={this.state.noteTitle} 
-                    onChange={this.handleChange}
-                    placeholder='Note Title' 
-                />                
-                <textarea 
-                    type='text' 
-                    name='noteContent' 
-                    value={this.state.noteContent} 
-                    onChange={this.handleChange}
-                    placeholder="Note Content" 
-                />            
-                <button type='submit' value='Submit' />
-            </form>
+            <div className='create-note'>
+                <h1>Create New Note:</h1>
+                <form onSubmit={this.addNote}>                
+                    <textarea 
+                        type='text' 
+                        name='noteTitle' 
+                        value={this.state.noteTitle} 
+                        onChange={this.handleChange}
+                        placeholder='Note Title'
+                        className='title' 
+                    />                
+                    <textarea 
+                        type='text' 
+                        name='noteContent' 
+                        value={this.state.noteContent} 
+                        onChange={this.handleChange}
+                        placeholder="Note Content" 
+                        className='note'
+                    />            
+                    <button type='submit' value='Submit' >Submit</button>
+                </form>
+            </div>
         )
     }
 }
