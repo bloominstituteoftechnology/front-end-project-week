@@ -33,6 +33,24 @@
     
 }
 
+.note-title {
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.note-links-container {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.note-link {
+    font-weight: bold;
+    margin: 10px;
+    color: black;
+}
+
 .card-link {
     margin: 1%;
     text-decoration: none;
@@ -48,6 +66,7 @@
 .display-note .note-header {
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-content: space-between;
 }
 
@@ -104,6 +123,21 @@
     width: 80vw;
     height: 80vh;
     border: 1px solid black;
+    padding: 10px;
+}
+
+.form-button {
+    width: 200px;
+    height: 50px;
+    background-color: #24B8BD;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    border: 1px inset grey;
+    cursor: pointer;
 }
 
 .title-input {

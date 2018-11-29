@@ -65,7 +65,7 @@ class NoteForm extends React.Component {
         return(
             <form onSubmit={this.submitForm} className='note-form'>
                 <p>
-                    <label>Title:</label>
+                    <h2>{this.props.type === 'Create' ? 'Create Note' : 'Edit Note'}</h2>
                     <input className='title-input' 
                         name='title' 
                         value={this.state.title} 
@@ -81,7 +81,7 @@ class NoteForm extends React.Component {
                         onChange={this.updateValue} 
                     />
                 </p>
-                <button type='submit'>{this.props.type === 'Create' ? 'Add Note' : 'Update Note'}</button>
+                <button className='form-button' type='submit'>{this.props.type === 'Create' ? 'Add Note' : 'Update Note'}</button>
             </form>
         )
     }

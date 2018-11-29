@@ -17,11 +17,11 @@ const DisplayNote = props => {
     return (
         <div className='display-note'>
             <header className='note-header'>
+                <div className='note-links-container'>
+                    <Link className='note-link' to={`${note._id}/edit`}>Edit</Link>
+                    <Link className='note-link' to={`${note._id}/delete`}>Delete</Link>
+                </div>
                 <div className='note-title'>{note.title}</div>
-                <form>
-                    <Link to={`${note._id}/edit`}>Edit</Link>
-                    <Link to={`${note._id}/delete`}>Delete</Link>
-                </form>
             </header>
             <div className='note-break'/>
             <div className='note-body'>{note.textBody}</div>
