@@ -118,7 +118,7 @@ class Notes extends Component {
 
         } else if (this.props.sortNotes.alpha.sort) {
 
-          let sortedNotes = [];
+          sortedNotes = [];
           if (this.props.sortNotes.alpha.dir === 'A-Z') {
             sortedNotes = notes.sort((a, b) => {
               const titleA = a.title.toUpperCase();
@@ -134,7 +134,6 @@ class Notes extends Component {
               return titleA > titleB ? -1 : 1
             });
           }
-          return sortedNotes.map( (note, i) => <Note handleDelete={this.handleDelete} openDeleteModal={this.openDeleteModal} key={note._id} id={note._id} title={note.title} text={note.textBody} note={ note } handleExport={ this.handleExport } />);
         } else if (this.props.sortNotes.title.sort) {
 
           if (this.props.sortNotes.title.dir === 'Ascend') {
@@ -154,7 +153,6 @@ class Notes extends Component {
               return titleA > titleB ? -1 : 1
             });
           }
-          return sortedNotes.map( (note, i) => <Note handleDelete={this.handleDelete} openDeleteModal={this.openDeleteModal} key={note._id} id={note._id} title={note.title} text={note.textBody} note={ note } handleExport={ this.handleExport } />);
         } else if (this.props.sortNotes.text.sort) {
 
           if (this.props.sortNotes.text.dir === 'Ascend') {
