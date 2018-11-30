@@ -18,15 +18,15 @@ import { noteSort, noteFilter } from './actions/index';
 const styles = theme => ({
   container: {
     width: '280px',
-    // height: '600px',
-    height: '50vh',
-    maxHeight: '600px',
+    height: '600px',
     marginRight: '20px',
     minWidth: '280px',
   },
   paperCtr: {
     width: '265px',
-    height: '600px',
+    minHeight: '360px',
+    height: '65vh',
+    maxHeight: '600px',
     marginRight: '20px',
     position: 'fixed',
     marginTop: '10px',

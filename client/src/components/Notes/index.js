@@ -14,7 +14,7 @@ const styles = {
   container: {
     margin: '100px auto 0px auto',
     // border: '1px solid black',
-    width: '90vw',
+    width: '95vw',
     maxWidth: '1920px',
     display: 'flex',
   },
