@@ -87,6 +87,7 @@ class Note extends Component {
     super(props);
 
     this.trimText = this.trimText.bind(this);
+    this.handleExport = this.handleExport.bind(this);
   }
 
   trimText(text) {
@@ -97,6 +98,10 @@ class Note extends Component {
     }
     return newText;
 
+  }
+
+  handleExport() {
+    this.props.handleExport([this.props.note], this.props.note.title);
   }
 
   render() {
@@ -139,8 +144,8 @@ class Note extends Component {
           </div>
 
           <Tooltip title='Export'>
-            <IconButton aria-label='Export' >
-              <DownloadIcon className={ classes.downloadIcon }/>
+            <IconButton aria-label='Export' onClick={ this.handleExport }>
+              <DownloadIcon className={ classes.downloadIcon } />
             </IconButton>
           </Tooltip>
 

@@ -26,7 +26,7 @@ class App extends Component {
           <Route exact path='/Notes/Edit/:id' component={({match}) => <EditNote id={match.params.id} />} />
           <Route exact path='/Notes/New/Preview' component={() => <NotePreview prevRoute='/Notes/New' note={this.props.newNote}/>} />
           <Route exact path='/Notes/Edit/Preview/:id' component={({match}) => <NotePreview prevRoute={`/Notes/Edit/${match.params.id}`} note={this.props.editNote}/>} />
-          <Route exact path='/Notes/View/:id' component={({match}) => <NoteView id={match.params.id}/>} />
+          <Route exact path='/Notes/View/:id' component={({match}) => <NoteView id={match.params.id} notes={ this.props.notes }/>} />
         </div>
       </Router>
     );
@@ -37,6 +37,7 @@ const mapStateToProps = state => {
   return {
     newNote: state.newNote,
     editNote: state.editNote,
+    notes: state.notes,
   }
 }
 

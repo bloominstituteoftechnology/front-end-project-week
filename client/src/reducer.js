@@ -4,9 +4,12 @@ import { REQUEST_ALL_NOTES, RECEIVE_ALL_NOTES, ERROR, REQUEST_DELETE_NOTE, DID_D
 import { ADD_NEW_NOTE, PREVIEW_NEW_NOTE, RESET_NEW_NOTE, REQUEST_ADD_NOTE, POST_ADD_NOTE } from './components/AddNote/actions/index';
 import { PREVIEW_EDIT_NOTE, REQUEST_EDIT_NOTE, DID_EDIT_NOTE, RESET_EDIT_NOTE } from './components/EditNote/actions/index';
 import {  NOTE_SORT, NOTE_FILTER, } from './components/Notes/Options/actions/index';
+import { SET_SORTED_NOTES } from './components/Notes/actions/index';
+
 const defaultState = {
   isFetching: false,
   notes: [],
+  sortedNotes: [],
   newNote: {
     title: 'Note Title',
     text: `GitHub flavored markdown is enabled; Click the preview button to see the results
@@ -83,19 +86,21 @@ export const reducer = (state = defaultState, action) => {
     case REQUEST_DELETE_NOTE:
       return Object.assign({}, state, { isDeleting: true });
     case DID_DELETE_NOTE:
-      return Object.assign({}, state, { isDeleting: false, delId: action.delId})
+      return Object.assign({}, state, { isDeleting: false, delId: action.delId});
     case PREVIEW_EDIT_NOTE:
-      return Object.assign({}, state, { editNote: action.editNote })
+      return Object.assign({}, state, { editNote: action.editNote });
     case RESET_EDIT_NOTE:
-      return Object.assign({}, state, { editNote: defaultState.editNote })
+      return Object.assign({}, state, { editNote: defaultState.editNote });
     case REQUEST_EDIT_NOTE:
-      return Object.assign({}, state, {isEditing: true})
-      case DID_EDIT_NOTE:
-        return Object.assign({}, state, {isEditing: false})
-      case NOTE_SORT:
-        return Object.assign({}, state, { sortNotes: action.sortNotes })
-      case NOTE_FILTER:
-        return Object.assign({}, state, { filterNotes: action.filterNotes });
+      return Object.assign({}, state, {isEditing: true});
+    case DID_EDIT_NOTE:
+      return Object.assign({}, state, {isEditing: false});
+    case NOTE_SORT:
+      return Object.assign({}, state, { sortNotes: action.sortNotes });
+    case NOTE_FILTER:
+      return Object.assign({}, state, { filterNotes: action.filterNotes });
+    case SET_SORTED_NOTES:
+      return Object.assign({}, state, { sortedNotes: action.sortedNotes });
     default:
       return state;
   }

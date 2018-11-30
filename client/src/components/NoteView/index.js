@@ -92,6 +92,37 @@ class NoteView extends Component {
     this.setState({ deleteNote: { modalOpen: false, id: '' }});
   }
 
+  handleExport(arr, title = 'Notes') {
+
+
+    let note = arr.filter(note => note._id === this.props.id);
+    title = note[0].title;
+
+    let csvContent = "data:text/csv;charset=utf-8,";
+    for (let i in note) {
+
+      let keyArr = Object.keys(arr[i]);
+
+      for (let j in keyArr) {
+        csvContent = `${csvContent}\n\r ${keyArr[j]}: ${arr[i][keyArr[j]]}\n\r`
+      }
+
+      csvContent = `${csvContent}\n\r----------------------------------\n\r\n\r`;
+
+    }
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `${title}.csv`);
+
+    document.body.appendChild(link); // Required for FF
+
+    link.click(); // This will download the data file named "my_data.csv".
+    link.remove();
+
+  }
+
   render() {
 
     const { classes } = this.props;
@@ -127,7 +158,7 @@ class NoteView extends Component {
           </div>
 
           <Button className={ classes.button } color='secondary'size='small' variant='outlined'>
-            <Typography variant='button' color='secondary'>
+            <Typography variant='button' color='secondary' onClick={ () => this.handleExport(this.props.notes) }>
               Export
             </Typography>
           </Button>

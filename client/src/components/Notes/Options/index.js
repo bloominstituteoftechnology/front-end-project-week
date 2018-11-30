@@ -51,6 +51,7 @@ class Options extends Component {
     this.handleSort = this.handleSort.bind(this);
     this.handleSwitch = this.handleSwitch.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
+    this.handleExport = this.handleExport.bind(this);
   }
 
   handleSort(sortNotes) {
@@ -65,6 +66,11 @@ class Options extends Component {
     this.props.noteFilter(filterNotes);
   }
 
+  handleExport() {
+    console.log(this.props.sortedNotes)
+    this.props.exportCsv(this.props.notes);
+  }
+
   render() {
 
     const { classes } = this.props;
@@ -77,7 +83,7 @@ class Options extends Component {
           <Filter handleFilter={this.handleFilter} filterNotes={this.props.filterNotes} />
           <Tags />
         </form>
-        <Button color='secondary' variant='outlined' size='large' className={ classes.exportBtn }>Export All</Button>
+        <Button onClick={ this.handleExport } color='secondary' variant='outlined' size='large' className={ classes.exportBtn }>Export All</Button>
       </Paper>
       </div>
     );
