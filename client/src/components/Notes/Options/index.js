@@ -70,8 +70,9 @@ class Options extends Component {
   }
 
   handleExport() {
-    console.log(this.props.sortedNotes)
-    this.props.exportCsv(this.props.notes);
+    // console.log(this.props)
+
+    this.props.exportCsv();
   }
 
   render() {

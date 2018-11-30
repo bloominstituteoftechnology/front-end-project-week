@@ -64,11 +64,9 @@ class Notes extends Component {
 
   handleExport(arr, title = 'Notes') {
 
-    // console.log(arr)
 
     let csvContent = "data:text/csv;charset=utf-8,";
     for (let i in arr) {
-      // console.log(csvContent);
 
       let keyArr = Object.keys(arr[i]);
       for (let j in keyArr) {
@@ -86,9 +84,9 @@ class Notes extends Component {
     link.setAttribute("href", encodedUri);
     link.setAttribute("download", `${title}.csv`);
 
-    document.body.appendChild(link); // Required for FF
+    document.body.appendChild(link);
 
-    link.click(); // This will download the data file named "my_data.csv".
+    link.click();
     link.remove();
 
   }
@@ -176,7 +174,9 @@ class Notes extends Component {
         } else {
           sortedNotes = notes;
         }
+
         sortedNotes = sortedNotes.filter( note => note.textBody.length > this.props.textLength );
+
         return sortedNotes.map( (note, i) => <Note handleDelete={this.handleDelete} openDeleteModal={this.openDeleteModal} key={note._id} id={note._id} title={note.title} text={note.textBody} note={ note } handleExport={ this.handleExport } />);
       } else {
         return <CircularProgress size={100} thickness={2.0} className={classes.progress} />
