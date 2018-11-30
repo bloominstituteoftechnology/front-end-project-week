@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from "axios";
 
+
 import Header from "./Components/Header";
 import NoteList from "./Components/NoteList";
+import CreateNote from "./Components/CreateNoteForm";
+import {AppContainer, DisplayContainer} from "./Styles/Styles";
 
 class App extends Component {
   constructor(){
@@ -24,8 +27,12 @@ class App extends Component {
   render() {
     return (
     <div className="App">
-        <Header />
-        <NoteList notes={this.state.notes}/>
+      <AppContainer>
+          <Header />
+        <DisplayContainer>
+          <NoteList notes={this.state.notes}/>
+        </DisplayContainer>
+      </AppContainer>
     </div>
     );
   }
