@@ -5,21 +5,20 @@ import SideBar from "./components/SideBar";
 import CreateNewView from "./components/CreateNewView";
 import ListView from "./components/ListView";
 import NoteView from "./components/NoteView";
-// import "./App.css";
 import { AppWrapper } from "./components/Styled";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notes: [],
-      newNote: [
-        {
-          title: "",
-          textBody: ""
-        }
-      ]
+      note: {
+        title: "",
+        textBody: ""
+      },
+      isUpdating: false
     };
+    // may not need this....depending on how i decide to organize
   }
 
   componentDidMount() {
@@ -31,21 +30,39 @@ class App extends Component {
       .catch(err => console.log(err, "failed to get api"));
   }
 
+  //
+  changeHandler = e => {
+    this.setState({
+      note: {
+        ...this.state.note,
+        [e.target.name]: e.target.value
+      }
+    });
+  };
+  //
+
   addNote = e => {
     e.preventDefault();
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", this.state.newNote)
+      .post("https://fe-notes.herokuapp.com/note/create", this.state.note)
       .then(res => {
         this.setState({ notes: res.data });
       })
       .catch(err => console.log(err, "failed to create"));
   };
 
+  //
+  goToEdit = (e, id) => {
+    e.preventDefault();
+    const editedNote = this.state.notes.find(note => note.id === id);
+    this.setState({ isUpdating: true, note: editedNote });
+  };
+
   editNote = id => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`)
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.note)
       .then(res => {
-        this.setState({ notes: res.data });
+        this.setState({ notes: res.data, isUpdating: false });
       })
       .catch(err => console.log(err.res));
   };
@@ -57,10 +74,13 @@ class App extends Component {
         console.log("you have successfully ditched this note");
         this.setState({ notes: res.data });
       })
-      .catch(err => console.log(err, "note wasnt ditched"));
+      .catch(err => console.log(err, "note could not be deleted"));
   };
 
   render() {
+    if (this.state.notes.length === 0) {
+      return <div>Loading...</div>;
+    }
     return (
       <AppWrapper>
         <SideBar />
@@ -69,21 +89,32 @@ class App extends Component {
           path="/note-form"
           render={() => (
             <CreateNewView
-              notes={this.state.notes}
+              note={this.state.note}
               addNote={this.addNote}
-              editNote={this.editNote}
+              changeHandler={this.changeHandler}
+              isUpdating={this.state.isUpdating}
             />
           )}
         />
         <Route
           path="/note/:id"
-          render={props => <NoteView {...props} deleteNote={this.deleteNote} />}
+          render={props => (
+            <NoteView
+              {...props}
+              // editNote={this.editNote}
+              // deleteNote={this.deleteNote}
+              //save for later
+            />
+          )}
         />
         <Route
           exact
           path="/"
-          render={() => (
-            <ListView notes={this.state.notes} deleteNote={this.deleteNote} />
+          render={props => (
+            <ListView
+              {...props}
+              notes={this.state.notes}
+            />
           )}
         />
       </AppWrapper>

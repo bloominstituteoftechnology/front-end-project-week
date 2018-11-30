@@ -1,17 +1,18 @@
 import React from "react";
 
-import { NoteCardTitle, NoteCardText } from "./Styled";
+
+import { NoteCardTitle, NoteCardText, NoteViewLinks } from "./Styled";
 
 const NoteView = props => {
   return (
     <div>
-      <div>
-        <span>edit</span>
-        <span>delete</span>
-      </div>
+      <NoteViewLinks>
+        <div>edit</div>
+        <div>delete</div>
+      </NoteViewLinks>
 
-      <NoteCardTitle>{props.note.title}</NoteCardTitle>
-      <NoteCardText>{props.note.textBody}</NoteCardText>
+      <NoteCardTitle>{props.title}</NoteCardTitle>
+      <NoteCardText>{props.textBody}</NoteCardText>
     </div>
   );
 };

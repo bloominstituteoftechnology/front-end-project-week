@@ -1,23 +1,27 @@
-import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom'
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import { SideBarWrapper,SideBarLinksWrapper, Btn } from "./Styled";
 
 class SideBar extends Component {
-render() {
+  render() {
     return (
-        <div>  <ul className="sidebar">
+      <SideBarWrapper>
+        <h1>Lambda Notes </h1>
+      <SideBarLinksWrapper>
         <li>
           <NavLink exact to="/" activeClassName="activeNavButton">
-            <button className="btn">View Your Notes</button>
+            <Btn>View Your Notes</Btn>
           </NavLink>
         </li>
         <li>
           <NavLink to="/note-form" activeClassName="activeNavButton">
-            <button className="btn">+ Create New Note</button>
+            <Btn>+ Create New Note</Btn>
           </NavLink>
         </li>
-      </ul> </div>
-    )
-}
+      </SideBarLinksWrapper>
+      </SideBarWrapper>
+    );
+  }
 }
 
-export default SideBar
+export default SideBar;
