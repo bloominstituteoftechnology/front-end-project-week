@@ -65,3 +65,33 @@ export const receiveFilterNotes = () => {
     type: RECEIVE_FILTER_NOTES,
   }
 }
+
+export const LOGOUT = 'LOGOUT';
+export const logout = () => {
+  return {
+    type: LOGOUT,
+  }
+}
+
+export const LOGIN = 'LOGIN';
+export const login = () => {
+  return {
+    type: LOGIN,
+  }
+}
+
+export const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
+export const createAccount = (userName, password) => {
+  return {
+    type: CREATE_ACCOUNT,
+    userName,
+    password,
+  }
+}
+
+export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
+export const deleteAccount = () => {
+  return {
+    type: DELETE_ACCOUNT,
+  }
+}

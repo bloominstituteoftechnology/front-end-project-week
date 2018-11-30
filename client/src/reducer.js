@@ -5,8 +5,14 @@ import { ADD_NEW_NOTE, PREVIEW_NEW_NOTE, RESET_NEW_NOTE, REQUEST_ADD_NOTE, POST_
 import { PREVIEW_EDIT_NOTE, REQUEST_EDIT_NOTE, DID_EDIT_NOTE, RESET_EDIT_NOTE } from './components/EditNote/actions/index';
 import {  NOTE_SORT, NOTE_FILTER, } from './components/Notes/Options/actions/index';
 import { SET_SORTED_NOTES } from './components/Notes/actions/index';
+import { LOGIN, LOGOUT, CREATE_ACCOUNT, DELETE_ACCOUNT } from './components/actions';
 
 const defaultState = {
+  user: {
+    loggedIn: false,
+    userName: '',
+    password: '',
+  },
   isFetching: false,
   notes: [],
   sortedNotes: [],
@@ -101,6 +107,12 @@ export const reducer = (state = defaultState, action) => {
       return Object.assign({}, state, { filterNotes: action.filterNotes });
     case SET_SORTED_NOTES:
       return Object.assign({}, state, { sortedNotes: action.sortedNotes });
+    case LOGIN:
+      return Object.assign({}, state, { user: { loggedIn: true }});
+    case LOGOUT:
+      return Object.assign({}, state, { user: { loggedIn: false }});
+    case CREATE_ACCOUNT:
+      return Object.assign({}, state, { user: { userName: action.userName, password: action.password }});
     default:
       return state;
   }

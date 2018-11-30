@@ -37,12 +37,13 @@ const styles = theme => ({
     justifyContent: 'flex-start',
   },
   exportBtn: {
-    margin: '15px auto 0px auto',
+    margin: '15px auto  auto',
   },
   form: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'space-between',
     flex: '1',
   },
 });
