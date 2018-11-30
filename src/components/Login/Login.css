@@ -55,6 +55,7 @@
   color: rgb(0, 53, 105);
 }
 
+/* Google Button */
 .login-card .google-button {
   background-color: rgb(228, 60, 30);
   height: 45px;
@@ -70,8 +71,12 @@
 
 .login-card .google-button:hover {
   text-decoration: none;
-  color: white;
   cursor: pointer;
+  background-color: rgb(202, 56, 30);
+}
+
+.login-card input:hover {
+  border: 1px solid blue;
 }
 
 .login-text {
@@ -83,6 +88,7 @@
   padding-top: 15px;
 }
 
+/* Register / Login Toggle */
 .login-text .register-link {
   cursor: pointer;
   color: rgb(9, 9, 194);
@@ -93,6 +99,13 @@
   text-decoration: underline;
 }
 
+/* Faux T&C's */
+.login-card .terms-conditions {
+  font-size: 11px;
+  width: 50%;
+}
+
+/* Signup / Login Button */
 .login-card .login-button {
   width: 100%;
   background-color: rgb(24, 185, 150);
@@ -100,11 +113,7 @@
   border: 1px solid rgb(24, 185, 150);
 }
 
-.login-card .terms-conditions {
-  font-size: 11px;
-  width: 50%;
-}
-
 .login-card .login-button:hover {
   cursor: pointer;
+  background-color: rgb(20, 155, 126);
 }
