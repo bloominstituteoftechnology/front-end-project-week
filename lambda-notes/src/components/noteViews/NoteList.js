@@ -4,6 +4,7 @@ import NoteCard from '../NoteCard';
 import {fetchNotes} from '../../actions/index';
 import './NoteList.css';;
 
+
 class NoteList extends Component {
 
   componentDidMount = () => {
@@ -23,6 +24,7 @@ class NoteList extends Component {
             return (
               <NoteCard
                 key={note.textBody}
+                id={note._id}
                 title={note.title}
                 textBody={note.textBody} 
               />

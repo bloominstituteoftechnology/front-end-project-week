@@ -1,10 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const NoteCard = props => {
   return (
     <div className="card-main-container">
       <div className="card-header-container">
-        <h3>{props.title}</h3>
+        <Link to={`/note/${props.id}`}><h3>{props.title}</h3></Link>
       </div>
       {/* just show preview for now, implement SUMMRY api when mvp is done */}
       <div className="card-body-container">
