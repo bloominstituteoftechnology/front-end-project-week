@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
 import SideBar from "./components/SideBar";
-import NoteForm from "./components/NoteForm";
-import Notes from "./components/Notes";
-import Note from "./components/Note";
+import CreateNewView from "./components/CreateNewView";
+import ListView from "./components/ListView";
+import NoteView from "./components/NoteView";
 // import "./App.css";
 import { AppWrapper } from "./components/Styled";
 
@@ -31,10 +31,10 @@ class App extends Component {
       .catch(err => console.log(err, "failed to get api"));
   }
 
-  addNote = (e, obj) => {
+  addNote = e => {
     e.preventDefault();
     axios
-      .post("https://fe-notes.herokuapp.com/note/create")
+      .post("https://fe-notes.herokuapp.com/note/create", this.state.newNote)
       .then(res => {
         this.setState({ notes: res.data });
       })
@@ -68,7 +68,7 @@ class App extends Component {
         <Route
           path="/note-form"
           render={() => (
-            <NoteForm
+            <CreateNewView
               notes={this.state.notes}
               addNote={this.addNote}
               editNote={this.editNote}
@@ -77,13 +77,13 @@ class App extends Component {
         />
         <Route
           path="/note/:id"
-          render={props => <Note {...props} deleteNote={this.deleteNote} />}
+          render={props => <NoteView {...props} deleteNote={this.deleteNote} />}
         />
         <Route
           exact
           path="/"
           render={() => (
-            <Notes notes={this.state.notes} deleteNote={this.deleteNote} />
+            <ListView notes={this.state.notes} deleteNote={this.deleteNote} />
           )}
         />
       </AppWrapper>
