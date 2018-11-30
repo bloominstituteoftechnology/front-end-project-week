@@ -10,7 +10,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = theme => ({
   tags: {
-    height: '300px',
+    // height: '300px',
+    // height: '100%',
+    flex: '1',
     padding: '0px 0px 20px 18px',
     border: '1px solid #bdbdbd',
     borderRadius: 4,

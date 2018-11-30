@@ -18,7 +18,9 @@ import { noteSort, noteFilter } from './actions/index';
 const styles = theme => ({
   container: {
     width: '280px',
-    height: '600px',
+    // height: '600px',
+    height: '50vh',
+    maxHeight: '600px',
     marginRight: '20px',
     minWidth: '280px',
   },
@@ -41,6 +43,7 @@ const styles = theme => ({
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
+    flex: '1',
   },
 });
 
