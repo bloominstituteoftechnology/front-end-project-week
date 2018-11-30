@@ -28,10 +28,9 @@ const NoteBody = styled.article `
  font-size: 0.8rem ;
 `
 
-
-
 const Note = props => {
- const id = props.match.params.noteId
+ const id = props.id
+ console.log(props.index)
  console.log("this is ID: ", id)
   return (
     <div>

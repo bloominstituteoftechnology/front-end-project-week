@@ -1,4 +1,4 @@
-import { FETCHING, SUCCESS, FAILURE } from '../actions/actions'
+import { FETCHING, SUCCESS, FAILURE, ADDED, ADDING } from '../actions'
 const initState =  {
  notes: [{
   tags: [],
@@ -18,8 +18,14 @@ switch(action.type){
   return {...state, fetching: true}
  case SUCCESS:
   return Object.assign({}, state, {
-   notes: action.payload, fetching: false
+   notes: [...action.payload], fetching: false
   })
+  case ADDING:
+  return {...state, adding: true}
+  case ADDED:
+  return Object.assign({}, state, {
+   notes: action.payload, adding: false
+  } )
   case FAILURE:
   return {state, error: 'error!'}
  default:

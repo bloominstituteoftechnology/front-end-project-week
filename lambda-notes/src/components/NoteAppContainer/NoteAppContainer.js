@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
-import { Route, Link } from 'react-router-dom'
-import { fetchNotes }from '../../actions/actions'
+import { Route } from 'react-router-dom'
+import { withRouter } from 'react-router'
+import { fetchNotes }from '../../actions'
+import Sidebar from '../Sidebar/Sidebar'
 import EditView from '../NoteAppViews/EditView'
 import CreateView from '../NoteAppViews/CreateView'
 import NoteView from '../NoteAppViews/NoteView'
 import './NoteAppContainer.css'
 import DefaultView from '../NoteAppViews/DefaultView'
-import NoteApp from './NoteApp'
 
 class NoteAppContainer extends React.Component {
  state = {
@@ -24,8 +24,9 @@ class NoteAppContainer extends React.Component {
  
   return (
    <div className="note_app_container">
-   <Route exact path="/" render={(props) => <NoteApp {...props} />} />
-     <Route exact path="/edit/:noteId" component={EditView}/>
+     <Sidebar />
+     <Route exact path="/" render={(props) => <DefaultView {...props} />} />
+     <Route exact path="/edit/" component={EditView}/>
      <Route exact path="/new/" component={CreateView} />
      <Route exact path='/note/:noteId' component={NoteView} />
    </div>
@@ -40,4 +41,4 @@ const mapStateToProps = state => {
  }
 }
 
-export default connect(mapStateToProps, { fetchNotes })(NoteAppContainer);
+export default withRouter(connect(mapStateToProps, { fetchNotes })(NoteAppContainer));

@@ -6,7 +6,7 @@ export default class DefaultView extends Component {
   render() {
     return (
       <div>
-         <NoteContainer match={this.props.match} />
+         <NoteContainer {...this.props} />
       </div>
     )
   }

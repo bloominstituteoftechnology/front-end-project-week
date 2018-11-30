@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const port = 3333;
+const port = 3002;
 
 const server = express();
 server.use(express.json());
@@ -23,6 +23,25 @@ let notes = [
 server.get('/note/get/all', (req, res) => {
   res.json(notes);
 });
+
+server.get("/note/get/:id", (req, res) => {
+ res.json(notes)
+ const id = req.params
+ const { title, tags, textBody} = req.body
+ const findNoteById = note => {
+  if (note.id === id) {return note}
+  else {
+   return sendUserError('No Note!')
+  }
+ }
+ const foundNote = notes.find(findNoteById)
+ if (!foundNote) {
+  return sendUserError('No Note!')
+ }
+ else {
+  res.json(foundNote)
+ }
+})
 
 server.post('/note/create', (req, res) => {
   const { tags, title, textBody } = req.body;

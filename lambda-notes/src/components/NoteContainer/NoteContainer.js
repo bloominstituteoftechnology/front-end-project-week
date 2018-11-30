@@ -9,18 +9,22 @@ const NoteContainerStyle = styled.div `
  flex-direction: row ;
  flex-wrap: wrap ;
 `
-const NoteContainer = props => {
+class NoteContainer extends React.Component {
+ render(){
   return (
     <NoteContainerStyle className="note_container">
          <NoteTextArea />
-         {props.notes.map((note, index) => <Note 
+         {this.props.notes.map((note, index) => <Note 
           key={index}
           title={note.title}
           textBody={note.textBody}
-          match={props.match}
+          {...this.props}
+          index={note.index}
          />)}
     </NoteContainerStyle>
   )
+ }
+  
 }
 
 const mapStateToProps = state => {
