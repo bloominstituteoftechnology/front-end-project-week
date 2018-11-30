@@ -10,8 +10,8 @@ import { LOGIN, LOGOUT, CREATE_ACCOUNT, DELETE_ACCOUNT } from './components/acti
 const defaultState = {
   user: {
     loggedIn: false,
-    userName: '',
-    password: '',
+    userName: null,
+    password: null,
   },
   isFetching: false,
   notes: [],
@@ -108,11 +108,13 @@ export const reducer = (state = defaultState, action) => {
     case SET_SORTED_NOTES:
       return Object.assign({}, state, { sortedNotes: action.sortedNotes });
     case LOGIN:
-      return Object.assign({}, state, { user: { loggedIn: true }});
+      return Object.assign({}, state, { user: { loggedIn: true, userName: state.user.userName, password: state.user.password, }});
     case LOGOUT:
-      return Object.assign({}, state, { user: { loggedIn: false }});
+      return Object.assign({}, state, { user: { loggedIn: false, userName: state.user.userName, password: state.user.password, }});
     case CREATE_ACCOUNT:
       return Object.assign({}, state, { user: { userName: action.userName, password: action.password }});
+    case DELETE_ACCOUNT:
+      return Object.assign({}, state, { user: { loggedin: false, userName: null, password: null, }})
     default:
       return state;
   }

@@ -5,13 +5,20 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Note from '@material-ui/icons/Note';
 import NoteAdd from '@material-ui/icons/NoteAdd';
+import MoreVert from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
 import Search from './Search/index';
 import Tooltip from '@material-ui/core/Tooltip';
+import InputLabel from '@material-ui/core/InputLabel';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { resetNewNote } from '../AddNote/actions/index';
 import { resetEditNote } from '../EditNote/actions/index';
+import { logout, deleteAccount } from '../actions/index';
 
 const styles = theme => ({
   root: {
@@ -40,6 +47,44 @@ const styles = theme => ({
 });
 
 class NavBar extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      anchorEl: null,
+    }
+
+    this.handleMenuClick = this.handleMenuClick.bind(this);
+    this.handleMenuClose = this.handleMenuClose.bind(this);
+    this.handleMyAccount = this.handleMyAccount.bind(this);
+    this.handleDeleteAccount = this.handleDeleteAccount.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleMenuClick(e) {
+    this.setState({ anchorEl: e.currentTarget });
+  }
+
+  handleMenuClose() {
+    this.setState({ anchorEl: null });
+  };
+
+  handleMyAccount() {
+    this.setState({ anchorEl: null });
+  }
+
+  handleDeleteAccount() {
+    this.setState({ anchorEl: null });
+    this.props.deleteAccount();
+  }
+
+  handleLogout() {
+    this.setState({ anchorEl: null });
+    this.props.logout();
+    console.log(this.props.userName);
+  }
+
   render() {
 
     const { classes } = this.props;
@@ -75,10 +120,28 @@ class NavBar extends Component {
                   </IconButton>
                 </Tooltip>
               </Link>
+
+              <Tooltip title='More'>
+                <IconButton aria-owns={ this.state.anchorEl ? 'simple-menu' : undefined } aria-label='Add Note' aria-haspopup="true" classes={{root: classes.iconButton}} onClick={this.handleMenuClick}>
+                  <MoreVert className={ classes.icon } />
+                </IconButton>
+              </Tooltip>
+              <Menu id="simple-menu" anchorEl={this.state.anchorEl} open={Boolean(this.state.anchorEl)} onClose={this.handleMenuClose}>
+                <MenuItem onClick={this.handleMyAccount}>My Account</MenuItem>
+                <MenuItem onClick={this.handleDeleteAccount}>Delete Account</MenuItem>
+                <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
+              </Menu>
             </div>
           </Toolbar>
         </AppBar>
     );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    userName: state.user.userName,
+    password: state.user.password,
   }
 }
 
@@ -89,8 +152,14 @@ const mapDispatchToProps = dispatch => {
     },
     resetEditNote: () => {
       dispatch(resetEditNote());
+    },
+    logout: () => {
+      dispatch(logout());
+    },
+    deleteAccount: () => {
+      dispatch(deleteAccount());
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(NavBar));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(NavBar));

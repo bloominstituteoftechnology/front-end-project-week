@@ -81,25 +81,8 @@ class Login extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    // if (this.state.password.value.length < 6) {
-    //   this.setState({
-    //     password: {
-    //       value: '',
-    //       helpText: 'Password must be at least 6 characters long!',
-    //       error: true,
-    //     }
-    //   });
-    // }
-    //
-    // if (this.state.password.value.length < 6) {
-    //   this.setState({
-    //     password: {
-    //       value: '',
-    //       helpText: 'Password must be at least 6 characters long!',
-    //       error: true,
-    //     }
-    //   });
-    // }
+    // console.log(this.state.userName.value);
+
 
     if (this.state.userName.value !== this.props.userName) {
       this.setState({
@@ -143,6 +126,7 @@ class Login extends Component {
 
   handleCreate(e) {
     e.preventDefault();
+    this.props.handleCreate();
   }
 
   componentDidUpdate() {

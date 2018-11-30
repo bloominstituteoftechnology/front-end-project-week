@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { login, logout, createAccount, deleteAccount } from '../actions/index';
 import Login from './Login/index';
+import Create from './Create/index';
 
 const styles = {
   modal: {
@@ -29,9 +30,12 @@ class LoginModal extends Component {
 
     this.state = {
       open: true,
+      login: true,
+      create: false,
     }
 
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleCreateAccount = this.handleCreateAccount.bind(this);
 
@@ -40,6 +44,11 @@ class LoginModal extends Component {
   handleLogin() {
     this.props.login();
   }
+
+  handleCreate() {
+    this.setState({open: true, login: false, create: true, });
+  }
+
 
   handleLogout() {
     this.props.logout();
@@ -56,7 +65,8 @@ class LoginModal extends Component {
     return (
       <Modal aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" open={this.state.open} classes={{ root: classes.modal }}>
         <Paper classes={{ root: classes.paper }}>
-          <Login handleLogin={ this.handleLogin }/>
+          { this.state.login && <Login handleLogin={ this.handleLogin } handleCreate={ this.handleCreate }/> }
+          { this.state.create && <Create handleLogin={ this.handleLogin } handleCreateAccount={ this.handleCreateAccount }/> }
         </Paper>
        </Modal>
     );
