@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {getNote} from '../actions';
+import { Link} from 'react-router-dom';
 
 class Note extends React.Component {
   constructor(){
@@ -15,6 +16,7 @@ class Note extends React.Component {
     this.setState({
       title: null,
       textBody: null,
+      id: null,
     })
   }
 
@@ -24,14 +26,26 @@ class Note extends React.Component {
       this.setState({
         title: this.props.note.title,
         textBody: this.props.note.textBody,
+        id: this.props.note._id,
       })
     }, 600);
   
-  return(
+    if (this.state.id !== this.props.match.params.id) {
+      return (
+        <div className="wait">
+          <h2>Loading Note...</h2>
+        </div>
+      )
+    } 
+    return(
     
     <div className="note-container">
-    {/* Need to find a way to get title and textbody from mapStateToProps via props from state*/}
+    {/* Need to find a way to get title and textbody from mapStateToProps via props from state --- fixed*/}
+      <div className="note-header">
       <h2>{this.state.title}</h2>
+      <Link to={`/note/edit/${this.state.id}`}><button>Update</button></Link>
+      <button>Delete</button>
+      </div>
       <div className="body-container">
         <p className="text-body">{this.state.textBody}</p>
       </div>

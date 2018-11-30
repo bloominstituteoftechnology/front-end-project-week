@@ -6,6 +6,7 @@ import NoteList from './components/noteViews/NoteList';
 import SideNav from './components/SideNav';
 import NewNote from './components/noteViews/NewNote';
 import Note from './components/note'
+import NoteEdit from './components/noteViews/NoteEdit'
 
 class App extends Component {
   render() {
@@ -16,7 +17,9 @@ class App extends Component {
       <Switch>
         <Route exact path='/' component={NoteList}/>
         <Route path='/new' component={NewNote}/>
-        <Route path='/note/:id' component={Note}/>
+        <Route exact path='/note/:id' component={Note}/>
+        <Route path='/note/edit/:id' component={NoteEdit}/>
+        
         
       </Switch>
       {/* <NewNote/> */}
