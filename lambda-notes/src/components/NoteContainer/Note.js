@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components' 
+import connect from 'react-redux'
 import { Card, CardText, CardBody, CardTitle, CardLink} from 'reactstrap';
 import { Link } from 'react-router-dom'
 
@@ -30,6 +31,11 @@ const NoteBody = styled.article `
 `
 
 const Note = props => {
+  const noteId = props.id
+  if (props.note.id !== noteId){
+   
+  }
+  console.log(props.id)
   return (
     <div>
      <NoteContainer>
@@ -37,7 +43,7 @@ const Note = props => {
        <Card>
         <CardBody>
         <CardTitle>
-          <Link to={`note/`}><NoteTitle>{props.title}</NoteTitle></Link>
+          <Link to={`note/${noteId}`}><NoteTitle>{props.title}</NoteTitle></Link>
           </CardTitle>
           <hr />
           <CardText>
@@ -51,5 +57,7 @@ const Note = props => {
     </div>
   )
 }
+
+
 
 export default Note
