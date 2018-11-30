@@ -23,7 +23,7 @@ class NoteList extends Component {
           {this.props.notes.map(note => {
             return (
               <NoteCard
-                key={note.textBody}
+                key={Math.random()}
                 id={note._id}
                 title={note.title}
                 textBody={note.textBody} 

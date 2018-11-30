@@ -5,7 +5,7 @@ import './App.css';
 import NoteList from './components/noteViews/NoteList';
 import SideNav from './components/SideNav';
 import NewNote from './components/noteViews/NewNote';
-import Note from './components/note';
+import Note from './components/note'
 
 class App extends Component {
   render() {
@@ -25,4 +25,5 @@ class App extends Component {
   }
 }
 
-export default App;
+
+export default App
