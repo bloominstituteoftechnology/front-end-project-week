@@ -9,7 +9,8 @@ font-family: 'Archivo Black'
 
 const ContainerStyle = styled.div `
 border: 2px solid black ;
-width: 20%  ;
+max-width: 150px  ;
+width: 100% ;
 height: 800px ;
 background: gray ;
 `

@@ -17,7 +17,8 @@ const NoteTitle = styled.div `
  font-family: 'Archivo Black';
  overflow: hidden;
  text-overflow: ellipsis;
- width: 100px ;
+ max-width: 100px ;
+ width: 100%
 `
 const NoteBody = styled.article ` 
  width: 150px ;

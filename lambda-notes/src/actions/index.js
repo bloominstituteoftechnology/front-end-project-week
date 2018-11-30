@@ -5,6 +5,10 @@ export const SUCCESS = 'SUCCESS'
 export const FAILURE = 'FAILURE'
 export const ADDING = 'ADDING'
 export const ADDED = 'ADDED'
+export const EDITING = 'EDITING'
+export const EDITED = 'EDITED'
+export const DELETING = 'DELETING'
+export const DELETED = 'DELETED'
 
 
 export const fetchNotes = () => {
@@ -28,7 +32,7 @@ export const addNote = data => {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => {
    dispatch({type: ADDED, payload: response.data})
-  })
+   })
    .catch(() => {
    dispatch({type: FAILURE, payload: 'Error getting notes.'})
   })
@@ -38,10 +42,27 @@ export const addNote = data => {
  })}
 }
 
-// export const editNote = () => dispatch => {
+export const deleteNote = id => {
+ return dispatch => {
+  dispatch({type: DELETING})
+  axios
+  .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+  .then(response => {
+   axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+  })
+  .then(() => {
+   dispatch({type: DELETED})
+  })
+  .catch(err => {console.log(err)})
+ }
 
-// }
+}
 
-// export const deleteNote = () => dispatch => {
+export const editNote = id => {
+ return dispatch => {
+  dispatch({type: EDITING})
+  axios
+  .delete(`https://fe-notes.herokuapp.com/note/edit/${id}`)
+ }
 
-// }
+}

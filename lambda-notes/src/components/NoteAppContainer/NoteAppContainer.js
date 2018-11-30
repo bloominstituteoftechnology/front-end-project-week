@@ -28,7 +28,7 @@ class NoteAppContainer extends React.Component {
      <Route exact path="/" render={(props) => <DefaultView {...props} />} />
      <Route exact path="/edit/" component={EditView}/>
      <Route exact path="/new/" component={CreateView} />
-     <Route exact path='/note/:noteId' component={NoteView} />
+     <Route exact path='/note/:noteId' render={(props) => <NoteView {...props}/>} />
    </div>
   );
  }

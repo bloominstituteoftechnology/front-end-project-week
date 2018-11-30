@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addNote } from '../../actions'
+import styled from 'styled-components'
 
+const CreateViewStyle = styled.div `
+ display: flex;
+ flex-direction: column;
+ justify-content: center ;
+
+`
 class CreateNote extends Component {
  constructor(){
   super()
@@ -28,8 +35,10 @@ class CreateNote extends Component {
   render() {
     return (
       <div>
+      <span>Create new note:</span>
        <form onSubmit={this.submitNote} >
-        <input 
+       <CreateViewStyle>
+         <input 
          name="title" 
          type="text"
          onChange={this.inputHandler}
@@ -47,7 +56,10 @@ class CreateNote extends Component {
         <button 
          color="success">Save Note
         </button>
+        </CreateViewStyle>
        </form>
+       
+       
       </div>
     )
   }
