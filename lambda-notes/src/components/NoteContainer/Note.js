@@ -30,9 +30,6 @@ const NoteBody = styled.article `
 `
 
 const Note = props => {
- const id = props.id
- console.log(props.index)
- console.log("this is ID: ", id)
   return (
     <div>
      <NoteContainer>
@@ -40,7 +37,7 @@ const Note = props => {
        <Card>
         <CardBody>
         <CardTitle>
-          <Link to={`note/${id}`}><NoteTitle>{props.title}</NoteTitle></Link>
+          <Link to={`note/`}><NoteTitle>{props.title}</NoteTitle></Link>
           </CardTitle>
           <hr />
           <CardText>

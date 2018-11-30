@@ -58,11 +58,20 @@ export const deleteNote = id => {
 
 }
 
-export const editNote = id => {
+export const editNote = (id, data) => {
  return dispatch => {
   dispatch({type: EDITING})
   axios
-  .delete(`https://fe-notes.herokuapp.com/note/edit/${id}`)
+  .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+  .then(() => {
+   axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
+    .then(response => {
+   dispatch({type: EDITED, payload: response.data})
+  })})
+  .catch(err => {console.log(err)})
+ 
+  
  }
 
 }
