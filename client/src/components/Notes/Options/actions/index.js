@@ -1,23 +1,15 @@
-export const SORT_NOTES_ALPHABETICAL = 'SORT_NOTES_ALPHABETICAL';
-export const sortNotesAlphabetical = dir => {
+export const NOTE_SORT = 'NOTE_SORT';
+export const noteSort = (sortNotes) => {
   return {
-    type: SORT_NOTES_ALPHABETICAL,
-    dir,
+    type: NOTE_SORT,
+    sortNotes,
   }
 }
 
-export const SORT_NOTES_TITLE_LENGTH = 'SORT_NOTES_TITLE_LENGTH';
-export const sortNotesTitleLength = dir => {
+export const NOTE_FILTER = 'NOTE_FILTER';
+export const noteFilter = (filterNotes) => {
   return {
-    type: SORT_NOTES_TITLE_LENGTH,
-    dir,
-  }
-}
-
-export const SORT_NOTES_TEXT_LENGTH = 'SORT_NOTES_TITLE_LENGTH';
-export const sortNotesTextLength = dir => {
-  return {
-    type: SORT_NOTES_TEXT_LENGTH,
-    dir,
+    type: NOTE_FILTER,
+    filterNotes,
   }
 }

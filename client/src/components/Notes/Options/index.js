@@ -12,6 +12,8 @@ import Button from '@material-ui/core/Button';
 import Sort from './Sort/index';
 import Filter from './Filter/index';
 import Tags from './Tags/index';
+import { connect } from 'react-redux';
+import { noteSort, noteFilter } from './actions/index';
 
 const styles = theme => ({
   container: {
@@ -45,6 +47,22 @@ const styles = theme => ({
 class Options extends Component {
   constructor(props) {
     super(props);
+
+    this.handleSort = this.handleSort.bind(this);
+    this.handleSwitch = this.handleSwitch.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
+  }
+
+  handleSort(sortNotes) {
+    this.props.noteSort(sortNotes);
+  }
+
+  handleSwitch(sortNotes) {
+    this.props.noteSort(sortNotes);
+  }
+
+  handleFilter(filterNotes) {
+    this.props.noteFilter(filterNotes);
   }
 
   render() {
@@ -55,8 +73,8 @@ class Options extends Component {
       <div className={ classes.container }>
       <Paper classes={{ root: classes.paperCtr }}>
         <form className={ classes.form }>
-          <Sort />
-          <Filter />
+          <Sort handleSort={this.handleSort} handleSwitch={this.handleSwitch} sortNotes={this.props.sortNotes}/>
+          <Filter handleFilter={this.handleFilter} filterNotes={this.props.filterNotes} />
           <Tags />
         </form>
         <Button color='secondary' variant='outlined' size='large' className={ classes.exportBtn }>Export All</Button>
@@ -67,4 +85,21 @@ class Options extends Component {
 
 }
 
-export default withStyles(styles)(Options);
+const mapStateToProps = state => {
+  return {
+    sortNotes: state.sortNotes,
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    noteSort: (sortNotes) => {
+      dispatch(noteSort(sortNotes));
+    },
+    noteFilter: (filterNotes) => {
+      dispatch(noteFilter(filterNotes));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Options));

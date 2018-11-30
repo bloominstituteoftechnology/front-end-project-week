@@ -33,6 +33,9 @@ class Filter extends Component {
 
   handleFilterChange(e) {
     this.setState({ filter: e.target.value });
+
+    this.props.handleFilter({ textLength: e.target.value });
+
   }
 
   componentDidMount() {
@@ -51,10 +54,12 @@ class Filter extends Component {
           Filter
         </InputLabel>
         <Select onChange={this.handleFilterChange} value={this.state.filter} input={<OutlinedInput labelWidth={this.state.labelWidth} name="filter" id="filter"/>}>
-          <MenuItem value='All'>All</MenuItem>
-          <MenuItem value='Length > 50'>{`Length > 50`}</MenuItem>
-          <MenuItem value='Length > 100'>{`Length > 100`}</MenuItem>
-          <MenuItem value='Length > 250'>{`Length > 250`}</MenuItem>
+          <MenuItem value={0}>All</MenuItem>
+          <MenuItem value={50}>{`Length > 50`}</MenuItem>
+          <MenuItem value={100}>{`Length > 100`}</MenuItem>
+          <MenuItem value={250}>{`Length > 250`}</MenuItem>
+          <MenuItem value={500}>{`Length > 500`}</MenuItem>
+          <MenuItem value={1000}>{`Length > 1000`}</MenuItem>
         </Select>
       </FormControl>
     );

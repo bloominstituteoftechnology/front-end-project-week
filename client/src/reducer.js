@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import { REQUEST_ALL_NOTES, RECEIVE_ALL_NOTES, ERROR, REQUEST_DELETE_NOTE, DID_DELETE_NOTE } from './components/actions/index';
 import { ADD_NEW_NOTE, PREVIEW_NEW_NOTE, RESET_NEW_NOTE, REQUEST_ADD_NOTE, POST_ADD_NOTE } from './components/AddNote/actions/index';
 import { PREVIEW_EDIT_NOTE, REQUEST_EDIT_NOTE, DID_EDIT_NOTE, RESET_EDIT_NOTE } from './components/EditNote/actions/index';
-
+import {  NOTE_SORT, NOTE_FILTER, } from './components/Notes/Options/actions/index';
 const defaultState = {
   isFetching: false,
   notes: [],
@@ -44,6 +44,24 @@ Click [here](https://cultofthepartyparrot.com/) to go somewhere.`
     title: '',
     text: '',
     id: '',
+  },
+  sortNotes: {
+    newest: false,
+    alpha: {
+      sort: false,
+      dir: 'A-Z',
+    },
+    title: {
+      sort: false,
+      dir: 'Ascend',
+    },
+    text: {
+      sort: false,
+      dir: 'Ascend',
+    }
+  },
+  filterNotes: {
+    textLength: 0,
   }
 
 };
@@ -74,6 +92,10 @@ export const reducer = (state = defaultState, action) => {
       return Object.assign({}, state, {isEditing: true})
       case DID_EDIT_NOTE:
         return Object.assign({}, state, {isEditing: false})
+      case NOTE_SORT:
+        return Object.assign({}, state, { sortNotes: action.sortNotes })
+      case NOTE_FILTER:
+        return Object.assign({}, state, { filterNotes: action.filterNotes });
     default:
       return state;
   }
