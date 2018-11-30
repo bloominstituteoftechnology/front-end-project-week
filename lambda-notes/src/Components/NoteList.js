@@ -1,19 +1,40 @@
 import React from "react";
 import Note from "./Note";
-import {DisplayHeader} from "../Styles/Styles";
+import axios from "axios";
+import {NoteListContainer} from "../Styles/Styles";
 
-const NoteList = (props) => {
-    return(
-        <div>
-            <DisplayHeader>Your Notes:</DisplayHeader>
-            {props.notes.length < 1 ? <div>There are no notes!</div> : props.notes.map(note => 
-            <Note 
-               key={note._id}
-               note={note}
-            />)
-         }
-        </div>
-    )
-}
-
-export default NoteList;
+class NoteList extends React.Component {
+    constructor(){
+       super()
+       this.state = {
+         notes: []
+       }
+     }
+ 
+     componentDidMount() {
+       axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+         .then(response => {
+           this.setState({notes: response.data})
+         })
+         .catch(err => {
+           console.log(err)
+         })
+     }
+ 
+    render() {
+       return(
+          <>
+             <h2>Your Notes:</h2>
+             <NoteListContainer>
+                {this.state.notes.length < 1 ? <h3>There are no notes!</h3> : this.state.notes.map(note => 
+                   <Note 
+                      key={note._id}
+                      note={note}
+                   />)
+                }
+             </NoteListContainer>
+          </>
+       )
+    }
+ }
+ export default NoteList;

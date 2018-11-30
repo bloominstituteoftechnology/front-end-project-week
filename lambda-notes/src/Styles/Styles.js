@@ -43,11 +43,17 @@ export const NoteContainer = styled.div`
     padding: 10px;
     margin: 20px 10px;
 `
-export const InputHandler = styled.input`
+export const InputHeader = styled.input`
     background-color: white;
     text: black;
 `
 export const InputBody = styled.input`
     background-color: white;
     text: black;
+`
+
+export const NoteListContainer = styled.div`
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
 `

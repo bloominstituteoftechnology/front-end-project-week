@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from "axios";
+import {Route} from 'react-router-dom';
 
 
 import Header from "./Components/Header";
@@ -30,7 +31,8 @@ class App extends Component {
       <AppContainer>
           <Header />
         <DisplayContainer>
-          <NoteList notes={this.state.notes}/>
+        <Route exact path="/" component={NoteList}/>
+        <Route path="/create" component={CreateNote}/>
         </DisplayContainer>
       </AppContainer>
     </div>
