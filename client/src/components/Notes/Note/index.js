@@ -45,6 +45,7 @@ const styles = {
     overflow: 'hidden',
     fontSize: '22px',
     height: '60px',
+    minHeight: '60px',
     marginBottom: '10px',
     // border: '1px solid black',
     display: 'flex',
