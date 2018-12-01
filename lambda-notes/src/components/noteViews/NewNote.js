@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+
 import {connect} from 'react-redux';
 import {addNote} from '../../actions'
 
@@ -28,6 +28,7 @@ class NewNote extends React.Component {
       title: '',
       textBody: '',
     })
+    this.props.history.push("/");
   }
 
   render() { 
@@ -48,9 +49,7 @@ class NewNote extends React.Component {
               name="textBody"
               value={this.state.textBody}
               onChange={this.inputHadler} />
-            <Link to="/">
               <button onClick={this.addNoteHandler}>Add New Note</button>
-            </Link>
           </form>
         </div>
       </div>

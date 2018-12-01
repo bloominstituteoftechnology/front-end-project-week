@@ -7,6 +7,8 @@ export const GET_NOTE = "GET_NOTE";
 export const ADDING = "ADDING";
 export const ADDED = "ADDED";
 export const ERROR = "ERROR";
+export const NOTE_UPDATING = 'NOTE_UPDATING';
+export const NOTE_UPDATED = "NOTE_UPDATED";
 
 //Fetching notes
 export const fetchNotes = () => dispatch => {
@@ -55,4 +57,17 @@ export const getNote = id => dispatch => {
     .catch(err => {
       dispatch({type: ERROR, payload: err})
     })
+}
+
+// Edit Note
+
+export const editNote =(id, note) => dispatch => {
+  dispatch({type: NOTE_UPDATING});
+  axios 
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    .then(() => fetchNotes()(dispatch))
+    .catch(err => {
+      dispatch({type: ERROR, payload: err})
+    })
+
 }
