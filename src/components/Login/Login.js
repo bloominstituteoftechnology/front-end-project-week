@@ -97,9 +97,15 @@ class Login extends React.Component {
                 SIGN IN WITH GOOGLE
               </div>
 
-              <p className="login-text">CREATE AN ACCOUNT</p>
-              <input type="text" onChange={this.addUsername} placeholder="Email" />
-              <input type="password" onChange={this.addPassword} placeholder="Password" />
+              <p className="login-text">
+                CREATE AN ACCOUNT /{" "}
+                <span className="register-link" onClick={this.toggleRegister}>
+                  {" "}
+                  LOGIN
+                </span>
+              </p>
+              <input type="text" onChange={this.addUsername} placeholder="Enter an Email" />
+              <input type="password" onChange={this.addPassword} placeholder="Enter a Password" />
               <p className="terms-conditions">
                 By clicking on Sign Up, you are agreeing to our <a href="#">Terms & Conditions</a>
               </p>

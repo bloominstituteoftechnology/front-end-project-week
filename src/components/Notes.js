@@ -7,7 +7,7 @@ class Notes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searched: "",
+      searched: false,
       inputSearch: ""
     };
   }
@@ -17,32 +17,18 @@ class Notes extends React.Component {
   };
 
   searchNotes = event => {
-    console.log("searchNotes clicked!");
-    this.setState({ inputSearch: event.target.value });
-  };
-  submitSearch = event => {
-    event.preventDefault();
-    if (this.state.inputSearch) {
-      let searched = this.props.notes.slice().filter(search => {
-        if (search.title.includes(this.state.inputSearch)) {
-          return search;
-        } else {
-          return;
-        }
-      });
-      this.setState({ searched: searched });
-    } else {
-      window.location.reload();
-    }
+    let searchMatch = event.target.value.toLowerCase();
+    this.setState({ searched: true, inputSearch: searchMatch });
   };
   render() {
+    console.log("inputSearch is: ", this.state.inputSearch);
     return (
       <div className="notesList">
         <div className="notes-top">
           <h2 className="your-notes">Your Notes: </h2>
           <div className="top-right">
-            <form onSubmit={this.submitSearch} onKeyDown={this.searchNotes} className="notesSearch">
-              <input placeholder="Search Note..." />
+            <form onSubmit={this.submitSearch} className="notesSearch">
+              <input onChange={this.searchNotes} placeholder="Search Note..." />
             </form>
             <p onClick={this.logout} className="logout-button">
               Log Out
@@ -51,15 +37,11 @@ class Notes extends React.Component {
         </div>
         {this.state.searched ? (
           <div className="cards">
-            {this.state.searched.map(sea => {
-              return (
-                <div className="ind-card">
-                  <Card>
-                    <CardTitle>{sea.title}</CardTitle>
-                    <CardBody>{sea.textBody}</CardBody>
-                  </Card>
-                </div>
-              );
+            {this.props.notes.map(note => {
+              console.log("note.title include?: ", note.title.includes(this.state.inputSearch));
+              if (note.title.toLowerCase().includes(this.state.inputSearch)) {
+                return <Note key={Math.random()} note={note} />;
+              }
             })}
           </div>
         ) : (

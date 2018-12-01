@@ -87,19 +87,6 @@ class ViewNote extends React.Component {
                 })}
               </div>
             ) : null}
-            <hr className="hr" />
-            <div className="checkList">
-              <p>To Do List</p>
-              {this.state.todos ? <li>{this.state.todos}</li> : null}
-
-              <form onSubmit={this.submitTodo}>
-                <input
-                  onChange={this.inputTodo}
-                  placeholder="Add a checklist"
-                  value={this.state.input}
-                />
-              </form>
-            </div>
           </div>
         )}
       </div>
