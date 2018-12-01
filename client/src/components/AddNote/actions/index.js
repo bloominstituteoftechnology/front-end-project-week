@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-export const addNewNote = (title, text) => {
+export const addNewNote = (title, text, tags) => {
+  console.log('AddNote/actions/index.js', tags);
   return dispatch => {
     dispatch(requestAddNote());
     return axios.post('https://fe-notes.herokuapp.com/note/create', {
+      tags: tags,
       title: title,
       textBody: text,
   })

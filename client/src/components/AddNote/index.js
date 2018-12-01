@@ -32,12 +32,12 @@ class AddNote extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  handleSave(title, text) {
-    this.props.addNewNote(title, text);
+  handleSave(title, text, tags) {
+    this.props.addNewNote(title, text, tags);
   }
 
-  handlePreview(title, text) {
-    this.props.previewNewNote(title, text);
+  handlePreview(title, text, tags) {
+    this.props.previewNewNote(title, text, tags);
   }
 
   openModal() {
@@ -64,13 +64,14 @@ const mapStateToProps = state=> {
   return {
     title: state.newNote.title,
     text: state.newNote.text,
+    tags: state.newNote.tags,
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    addNewNote: (title, text) => {
-      dispatch(addNewNote(title, text));
+    addNewNote: (title, text, tags) => {
+      dispatch(addNewNote(title, text, tags));
     },
     previewNewNote: (title, text) => {
       dispatch(previewNewNote(title, text));

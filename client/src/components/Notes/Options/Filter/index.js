@@ -15,7 +15,6 @@ const styles = theme => ({
     width: '100%',
     marginRight: theme.spacing.unit,
     marginBottom: '15px',
-    // border: '1px solid black',
     minHeight: '56px',
   }
 });

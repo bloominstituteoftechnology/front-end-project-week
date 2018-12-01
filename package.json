@@ -19,5 +19,7 @@
   "devDependencies": {
     "create-react-app": "^2.1.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }

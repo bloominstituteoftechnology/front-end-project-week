@@ -48,6 +48,8 @@ class Notes extends Component {
     this.openDeleteModal = this.openDeleteModal.bind(this);
     this.closeDeleteModal = this.closeDeleteModal.bind(this);
     this.handleExport = this.handleExport.bind(this);
+    this.sort = this.sort.bind(this);
+    this.filter = this.filter.bind(this);
   }
 
   handleDelete() {
@@ -99,93 +101,107 @@ class Notes extends Component {
     }, 1000);
   }
 
+  sort(notes) {
+    let sortedNotes = notes;
+    if (this.props.sortNotes.newest) {
+
+      sortedNotes = sortedNotes.reverse();
+      return sortedNotes;
+
+    } else if (this.props.sortNotes.alpha.sort) {
+
+      if (this.props.sortNotes.alpha.dir === 'A-Z') {
+        sortedNotes = sortedNotes.sort((a, b) => {
+          const titleA = a.title.toUpperCase();
+          const titleB = b.title.toUpperCase();
+
+          return titleA > titleB ? 1 : -1
+        });
+      } else if (this.props.sortNotes.alpha.dir === 'Z-A') {
+        sortedNotes = sortedNotes.sort((a, b) => {
+          const titleA = a.title.toUpperCase();
+          const titleB = b.title.toUpperCase();
+
+          return titleA > titleB ? -1 : 1
+        });
+      }
+      return sortedNotes;
+    } else if (this.props.sortNotes.title.sort) {
+
+      if (this.props.sortNotes.title.dir === 'Ascend') {
+        sortedNotes = sortedNotes.sort((a, b) => {
+
+          const titleA = a.title.length;
+          const titleB = b.title.length;
+
+          return titleA > titleB ? 1 : -1
+        });
+      } else if (this.props.sortNotes.title.dir === 'Descend') {
+        sortedNotes = sortedNotes.sort((a, b) => {
+
+          const titleA = a.title.length;
+          const titleB = b.title.length;
+
+          return titleA > titleB ? -1 : 1
+        });
+      }
+      return sortedNotes;
+    } else if (this.props.sortNotes.text.sort) {
+
+      if (this.props.sortNotes.text.dir === 'Ascend') {
+        sortedNotes = sortedNotes.sort((a, b) => {
+
+          const titleA = a.textBody.length;
+          const titleB = b.textBody.length;
+
+          return titleA > titleB ? 1 : -1
+        });
+        return sortedNotes;
+      } else if (this.props.sortNotes.text.dir === 'Descend') {
+        sortedNotes = sortedNotes.sort((a, b) => {
+
+          const titleA = a.textBody.length;
+          const titleB = b.textBody.length;
+
+          return titleA > titleB ? -1 : 1
+        });
+        return sortedNotes;
+      }
+
+    } else {
+      return notes;
+    }
+  }
+
+  filter(notes) {
+    return notes.filter( note => note.textBody.length > this.props.textLength );
+  }
+
   render() {
+
+
+
 
 
     const { classes } = this.props;
 
-    const notes = [...this.props.notes];
-    var sortedNotes = [];
+    const notes = this.props.notes;
+    const sortedNotes = this.filter(this.sort(notes));
+
     const loadNotes = () => {
 
       if (this.props.notes.length > 0 && this.props.isFetching === false && this.state.notesAreLoading === false) {
 
-        if (this.props.sortNotes.newest) {
-
-          sortedNotes = notes.reverse();
-
-        } else if (this.props.sortNotes.alpha.sort) {
-
-          sortedNotes = [];
-          if (this.props.sortNotes.alpha.dir === 'A-Z') {
-            sortedNotes = notes.sort((a, b) => {
-              const titleA = a.title.toUpperCase();
-              const titleB = b.title.toUpperCase();
-
-              return titleA > titleB ? 1 : -1
-            });
-          } else if (this.props.sortNotes.alpha.dir === 'Z-A') {
-            sortedNotes = notes.sort((a, b) => {
-              const titleA = a.title.toUpperCase();
-              const titleB = b.title.toUpperCase();
-
-              return titleA > titleB ? -1 : 1
-            });
-          }
-        } else if (this.props.sortNotes.title.sort) {
-
-          if (this.props.sortNotes.title.dir === 'Ascend') {
-            sortedNotes = notes.sort((a, b) => {
-
-              const titleA = a.title.length;
-              const titleB = b.title.length;
-
-              return titleA > titleB ? 1 : -1
-            });
-          } else if (this.props.sortNotes.title.dir === 'Descend') {
-            sortedNotes = notes.sort((a, b) => {
-
-              const titleA = a.title.length;
-              const titleB = b.title.length;
-
-              return titleA > titleB ? -1 : 1
-            });
-          }
-        } else if (this.props.sortNotes.text.sort) {
-
-          if (this.props.sortNotes.text.dir === 'Ascend') {
-            sortedNotes = notes.sort((a, b) => {
-
-              const titleA = a.textBody.length;
-              const titleB = b.textBody.length;
-
-              return titleA > titleB ? 1 : -1
-            });
-          } else if (this.props.sortNotes.text.dir === 'Descend') {
-            sortedNotes = notes.sort((a, b) => {
-
-              const titleA = a.textBody.length;
-              const titleB = b.textBody.length;
-
-              return titleA > titleB ? -1 : 1
-            });
-          }
-
-        } else {
-          sortedNotes = notes;
-        }
-
-        sortedNotes = sortedNotes.filter( note => note.textBody.length > this.props.textLength );
-
         return sortedNotes.map( (note, i) => <Note handleDelete={this.handleDelete} openDeleteModal={this.openDeleteModal} key={note._id} id={note._id} title={note.title} text={note.textBody} note={ note } handleExport={ this.handleExport } />);
       } else {
+
         return <CircularProgress size={100} thickness={2.0} className={classes.progress} />
       }
     }
 
     return (
       <div style={ styles.container }>
-        <Options exportCsv={ this.handleExport } notes={ notes } />
+        <Options exportCsv={ this.handleExport } notes={ sortedNotes } />
         <div style={styles.notes}>
           {loadNotes()}
           <ModalDelete isDeleting={this.props.isDeleting} handleDelete={this.handleDelete} open={this.state.deleteNote.modalOpen} closeDeleteModal={this.closeDeleteModal} />

@@ -13,6 +13,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { NavLink } from 'react-router-dom';
 import DownloadIcon from '@material-ui/icons/CloudDownload';
 import Divider from '@material-ui/core/Divider';
+import marked from 'marked';
 
 const styles = {
   root: {
@@ -89,6 +90,15 @@ class Note extends Component {
 
     this.trimText = this.trimText.bind(this);
     this.handleExport = this.handleExport.bind(this);
+    this.parseMarkdown = this.parseMarkdown.bind(this);
+  }
+
+  parseMarkdown(md) {
+    marked.setOptions({
+      gfm: true,
+      breaks: true,
+    });
+    return marked(md);
   }
 
   trimText(text) {
@@ -114,12 +124,10 @@ class Note extends Component {
         <CardActionArea classes={{ root: classes.cardActionArea }}>
           <NavLink to={`/Notes/View/${this.props.id}`} className={ classes.actionNavLink }>
             <CardContent classes={{ root: classes.cardContent }}>
-              <Typography variant='h5' classes={{ h5: classes.noteTitle }}>
-                {this.props.title}
+              <Typography variant='h5' classes={{ h5: classes.noteTitle }} dangerouslySetInnerHTML={{__html: this.parseMarkdown(this.props.title) }}>
               </Typography>
 
-              <Typography classes={{ root: classes.noteContent }}>
-                {this.trimText(this.props.text)}
+              <Typography classes={{ root: classes.noteContent }} dangerouslySetInnerHTML={{__html: this.parseMarkdown(this.trimText(this.props.text)) }}>
               </Typography>
             </CardContent>
             </NavLink>

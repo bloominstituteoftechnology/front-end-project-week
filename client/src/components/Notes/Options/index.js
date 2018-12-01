@@ -71,7 +71,6 @@ class Options extends Component {
   }
 
   handleExport() {
-    // console.log(this.props)
 
     this.props.exportCsv(this.props.notes);
   }
@@ -86,7 +85,7 @@ class Options extends Component {
         <form className={ classes.form }>
           <Sort handleSort={this.handleSort} handleSwitch={this.handleSwitch} sortNotes={this.props.sortNotes}/>
           <Filter handleFilter={this.handleFilter} filterNotes={this.props.filterNotes} />
-          <Tags />
+          <Tags notes={ this.props.notes }/>
         </form>
         <Button onClick={ this.handleExport } color='secondary' variant='outlined' size='large' className={ classes.exportBtn }>Export All</Button>
       </Paper>

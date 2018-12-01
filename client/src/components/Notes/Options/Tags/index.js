@@ -34,8 +34,22 @@ const styles = theme => ({
 class Tags extends Component {
   constructor(props) {
     super(props);
+
+    this.getTags = this.getTags.bind(this);
+
   }
 
+  getTags() {
+
+    const tags = [];
+
+    for (let i in tags) {
+      for (let j in this.props.notes.tags) {
+        tags[i] !== this.props.notes.tags[j] && tags.push(this.props.notes.tags[j]);
+      }
+    }
+    return tags.map(tag => <FormControlLabel control={ <Checkbox /> } label={tag} />);
+  }
 
   render() {
 
@@ -46,9 +60,10 @@ class Tags extends Component {
           <FormLabel component="legend" className={ classes.tagLabel }>Tags:</FormLabel>
           <Scrollbars className={ classes.scrollBar }>
             <FormGroup>
-              <FormControlLabel control={ <Checkbox /> } label="Tag One" />
-              <FormControlLabel control={ <Checkbox /> } label="Tag Two" />
-              <FormControlLabel control={ <Checkbox /> } label="Tag Three" />
+              <FormControlLabel control={ <Checkbox /> } label='Tag One' />
+              <FormControlLabel control={ <Checkbox /> } label='Tag Two' />
+              <FormControlLabel control={ <Checkbox /> } label='Tag Three' />
+              {this.getTags()}
             </FormGroup>
           </Scrollbars>
         </FormControl>

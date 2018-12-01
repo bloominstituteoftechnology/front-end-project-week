@@ -47,7 +47,8 @@ Can be **bold** or *italic*
 Links
 -----
 
-Click [here](https://cultofthepartyparrot.com/) to go somewhere.`
+Click [here](https://cultofthepartyparrot.com/) to go somewhere.`,
+    tags: [],
   },
   editNote: {
     title: '',
