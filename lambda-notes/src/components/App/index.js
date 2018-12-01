@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./idex.css";
+import "./index.css";
 
 class App extends Component {
     render() {
