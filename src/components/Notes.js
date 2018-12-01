@@ -11,10 +11,6 @@ class Notes extends React.Component {
       inputSearch: ""
     };
   }
-  logout = () => {
-    localStorage.clear();
-    window.location.reload();
-  };
 
   searchNotes = event => {
     let searchMatch = event.target.value.toLowerCase();
@@ -30,16 +26,16 @@ class Notes extends React.Component {
             <form onSubmit={this.submitSearch} className="notesSearch">
               <input onChange={this.searchNotes} placeholder="Search Note..." />
             </form>
-            <p onClick={this.logout} className="logout-button">
-              Log Out
-            </p>
           </div>
         </div>
         {this.state.searched ? (
           <div className="cards">
             {this.props.notes.map(note => {
               console.log("note.title include?: ", note.title.includes(this.state.inputSearch));
-              if (note.title.toLowerCase().includes(this.state.inputSearch)) {
+              if (
+                note.title.toLowerCase().includes(this.state.inputSearch) ||
+                note.textBody.toLowerCase().includes(this.state.inputSearch)
+              ) {
                 return <Note key={Math.random()} note={note} />;
               }
             })}
