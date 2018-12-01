@@ -9,7 +9,7 @@ class CreateNote extends React.Component {
         super(props)
         this.state = {
             title: "",
-            text: "",
+            textBody: "",
         }
     }
     
@@ -18,7 +18,7 @@ class CreateNote extends React.Component {
     }
     submitHandler = (e) => {
         e.preventDefault()
-        axios.post(`https://fe-notes.herokuapp.com/note/create`, this.state)
+        axios.post("https://fe-notes.herokuapp.com/note/create", this.state)
          .then(response => {this.setState({title: "", textBody: ""})})
          .catch(err => {console.log(err)})
     }

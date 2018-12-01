@@ -12,7 +12,7 @@ class NoteList extends React.Component {
      }
  
      componentDidMount() {
-       axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+       axios.get("https://fe-notes.herokuapp.com/note/get/all")
          .then(response => {
            this.setState({notes: response.data})
          })
@@ -26,7 +26,7 @@ class NoteList extends React.Component {
           <>
              <h2>Your Notes:</h2>
              <NoteListContainer>
-                {this.state.notes.length < 1 ? <h3>There are no notes!</h3> : this.state.notes.map(note => 
+                {this.state.notes.length < 1 ? <h3>There are no notes to load...</h3> : this.state.notes.map(note => 
                    <Note 
                       key={note._id}
                       note={note}
