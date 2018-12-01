@@ -23,7 +23,7 @@
 
 /* Left Side Menu Styling */
 .menu {
-  width: 25%;
+  width: 20.5%;
   background-color: #d8d8d8;
   min-height: 100vh;
   padding: 20px;
@@ -43,7 +43,7 @@
   padding-left: 35px;
   padding-bottom: 20px;
   min-height: 100vh;
-  width: 75%;
+  width: 80%;
 }
 
 .cards {
@@ -109,7 +109,6 @@
   position: fixed;
   right: 40px;
   top: 20px;
-
   display: flex;
 }
 
