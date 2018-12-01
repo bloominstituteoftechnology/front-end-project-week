@@ -13,6 +13,11 @@ const Sidebar = () => {
                     View Your Notes
                 </button>
             </Link>
+            <Link to="/notes/add">
+                <button>
+                    + Create New Note
+                </button>
+            </Link>
         </div>
     );
 }
