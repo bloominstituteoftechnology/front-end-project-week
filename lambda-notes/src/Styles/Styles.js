@@ -42,6 +42,7 @@ export const NoteContainer = styled.div`
     max-width: 250px;
     padding: 10px;
     margin: 20px 10px;
+    text-decoration: none;
 `
 export const InputHeader = styled.input`
     background-color: white;
@@ -49,11 +50,42 @@ export const InputHeader = styled.input`
 `
 export const InputBody = styled.input`
     background-color: white;
-    text: black;
+    color: black;
+    border-radius: 5px;
 `
 
 export const NoteListContainer = styled.div`
    display: flex;
    flex-wrap: wrap;
    justify-content: space-evenly;
+`
+export const Notes = styled.a`
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 6;
+overflow: hidden;
+white-space: pre-line;
+background-color: white;
+border: 1px solid grey;
+height: 285px;
+max-width: 260px;
+width: 50%;
+margin-bottom: 30px;
+:nth-child(3n-1){
+   margin-left: 1%;
+   margin-right: 1%;
+}
+h3 {
+   margin-left: 7%;
+   margin-right: 7%
+   margin-bottom: 5px;
+   text-decoration: none;
+}
+p {
+   margin-left: 7%;
+   width: 67%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   text-decoration: none;
+ }
 `

@@ -1,4 +1,5 @@
 .App {
+  max-width: 880px;
   text-align: center;
 }
 
@@ -21,7 +22,9 @@
 .App-link {
   color: #61dafb;
 }
-
+.NoteContainer {
+  max-width: 880px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -34,8 +34,8 @@ class CreateNote extends React.Component {
                     onChange={this.inputHandler}
                 />
                     <InputBody
-                     name="text"
-                     placeholder="Note Title"
+                     name="textBody"
+                     placeholder="Note body"
                      value={this.state.textBody}
                      onChange={this.inputHandler}
                 />

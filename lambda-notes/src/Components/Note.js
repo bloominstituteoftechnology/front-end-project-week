@@ -1,15 +1,15 @@
 // define props tomorrow
 
 import React from "react";
-import {NoteContainer} from "../Styles/Styles";
+import {Notes} from "../Styles/Styles";
 
 const Note = (props) => {
     return (
-        <NoteContainer>
+        <Notes href={`/note/${props.note._id}`}>
             <h3>{props.note.title}</h3>
             <hr/>
             <p>{props.note.textBody}</p>
-        </NoteContainer>
+        </Notes>
     )
 }
 
