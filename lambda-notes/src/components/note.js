@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getNote} from '../actions';
+import {getNote, deleteNote} from '../actions';
 import { Link} from 'react-router-dom';
 
 class Note extends React.Component {
@@ -18,6 +18,11 @@ class Note extends React.Component {
       textBody: null,
       id: null,
     })
+  }
+
+  deleteHandler = () => {
+    this.props.deleteNote(this.props.match.params.id)
+    this.props.history.push("/")
   }
 
   render(){
@@ -44,7 +49,7 @@ class Note extends React.Component {
       <div className="note-header">
       <h2>{this.state.title}</h2>
       <Link to={`/note/edit/${this.state.id}`}><button>Update</button></Link>
-      <button>Delete</button>
+      <button onClick={this.deleteHandler}>Delete</button>
       </div>
       <div className="body-container">
         <p className="text-body">{this.state.textBody}</p>
@@ -60,4 +65,4 @@ const mapStateToProps = state => ({
   note: state.note,
 })
 
-export default connect(mapStateToProps, {getNote})(Note);
+export default connect(mapStateToProps, {getNote, deleteNote})(Note);
