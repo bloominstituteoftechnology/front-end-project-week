@@ -82,7 +82,6 @@ class NavBar extends Component {
   handleLogout() {
     this.setState({ anchorEl: null });
     this.props.logout();
-    console.log(this.props.userName);
   }
 
   render() {
