@@ -56,6 +56,10 @@
   margin-top: 30px;
 }
 
+.ind-card:hover {
+  border: 1px solid white;
+}
+
 .ind-card a:hover {
   text-decoration: none;
 }
@@ -91,6 +95,7 @@
 
 .logout-button:hover {
   cursor: pointer;
+  color: rgb(36, 74, 196);
 }
 
 /* Single Note View Styling */
