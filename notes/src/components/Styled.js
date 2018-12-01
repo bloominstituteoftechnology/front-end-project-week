@@ -44,7 +44,7 @@ export const NoteCardList = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `;
-export const NoteCard = styled(Link)`
+export const NoteCard = styled.div`
   width: 200px;
   height: 200px;
   border: 1px solid #c5c5c5;

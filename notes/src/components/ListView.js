@@ -1,38 +1,52 @@
-import React from "react";
-// import NoteView from "./NoteView";
-import { NoteCard, NoteCardList, NoteCardTitle, NoteCardText} from './Styled';
+import React, {Component} from "react";
 
-// import { Link } from "react-router-dom";
 
-const ListView = props => {
+
+import { NoteCard, NoteCardList, NoteCardTitle, NoteCardText } from "./Styled";
+import axios from 'axios'
+import { Link } from "react-router-dom";
+
+class ListView extends Component {
+  constructor() {
+    super()
+    this.state={
+      notes: []
+    }
+  }
+  
+  componentDidMount() {
+    axios.get("https://fe-notes.herokuapp.com/note/get/all")
+      .then(res => {
+        this.setState({ notes: res.data });
+      })
+      .catch(err => console.log(err, "failed to get api"));
+  }
+
+render() {
   return (
     <div className="Notes">
       <h2>Your Notes:</h2>
 
       <NoteCardList>
-        {props.notes.map(note => {
+        {this.state.notes.map(note=> {
+          console.log(note, 'note in notecard list')
           return (
-            <NoteCard to ={`/note/&{note._id}`}
-              // id=
-              // {note.id}
-              // title=
-              // {note.title}
-              // txt=
-              // {note.textBody}
-              // key=
-              // {note.id}
-              >
-              <NoteCardTitle>{note.title}</NoteCardTitle> <NoteCardText>{note.textBody}</NoteCardText>
+            
+            <Link to={`/note/${note._id}`} key={note._id}>
+            <NoteCard  >
+
+              <NoteCardTitle>{note.title}</NoteCardTitle>
+              <NoteCardText>{note.textBody}</NoteCardText>
             </NoteCard>
+            </Link>
+           
+          
           );
         })}
       </NoteCardList>
     </div>
   );
 };
-
-ListView.defaultProps = {
-  notes: []
-};
+}
 
 export default ListView;
