@@ -186,6 +186,14 @@
   margin-left: 20px;
 }
 
+#logout {
+  background-color: #c4512b;
+}
+
+#logout:hover {
+  background-color: #6c757d;
+}
+
 /* Modal Styling */
 .modal {
   top: 300px;
@@ -217,18 +225,4 @@
   width: 225px;
   height: 50px;
   border-radius: 0;
-}
-
-.checkList input {
-  position: fixed;
-  bottom: 30px;
-  width: 400px;
-  height: 40px;
-  border-radius: 3px;
-  border: 1px solid #dddcdc;
-  padding-left: 10px;
-}
-
-.hr {
-  width: 100%;
 }

@@ -45,14 +45,6 @@ class Login extends React.Component {
       .catch(err => {
         alert("Invalid Username or Password");
       });
-    /*e.preventDefault();
-    auth.signInWithPopup(provider).then(result => {
-      const user = result.user;
-      localStorage.setItem("username", user.email);
-      localStorage.setItem("password", user.l);
-      window.location.reload();
-      //this.setState({ user });
-    });*/
   };
 
   GoogleLogin = e => {
