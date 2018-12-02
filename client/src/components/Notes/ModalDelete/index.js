@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { Link, NavLink } from 'react-router-dom';
 
 const styles = theme => ({
   paper: {
@@ -42,6 +43,9 @@ const styles = theme => ({
   },
   progress: {
 
+  },
+  navLink: {
+    textDecoration: 'none',
   }
 
 });
@@ -60,7 +64,7 @@ class ModalDelete extends Component {
 
   }
 
-  handleClose = () => {
+  handleCancel = () => {
     this.setState({ cancel: true });
   };
 
@@ -114,11 +118,13 @@ class ModalDelete extends Component {
                 Note successfully deleted!
               </Typography>
               <div className={classes.closeButton}>
-                <Button onClick={handleClose}>
+                <Link to='/Notes/All' className={ classes.navLink }>
+                <Button onClick={() => this.props.closeDeleteModal(this.state.cancel) }>
                   <Typography>
                     Close
                   </Typography>
                 </Button>
+                </Link>
               </div>
             </div>
           );

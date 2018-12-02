@@ -50,18 +50,27 @@ class Notes extends Component {
     this.handleExport = this.handleExport.bind(this);
     this.sort = this.sort.bind(this);
     this.filter = this.filter.bind(this);
+    this.getNotes = this.getNotes.bind(this);
   }
 
   handleDelete() {
     this.props.deleteNote(this.state.deleteNote.id);
   }
 
+  cancelDeleteModal() {
+    this.setState({ deleteNote: { modalOpen: false, id: '' }});
+  }
+
   openDeleteModal(id) {
     this.setState({ deleteNote: { modalOpen: true, id }});
   }
 
-  closeDeleteModal() {
+  closeDeleteModal(cancel) {
+
     this.setState({ deleteNote: { modalOpen: false, id: '' }});
+    if (!cancel) {
+      this.getNotes();
+    }
   }
 
   handleExport(arr, title = 'Notes') {
@@ -93,12 +102,17 @@ class Notes extends Component {
 
   }
 
-  componentDidMount() {
+  getNotes() {
     this.props.getAllNotes()
+    this.setState({ notesAreLoading: true });
     setTimeout(() =>{
       this.setState({ notesAreLoading: false });
 
     }, 1000);
+  }
+
+  componentDidMount() {
+    this.getNotes();
   }
 
   sort(notes) {

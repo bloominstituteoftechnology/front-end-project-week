@@ -93,7 +93,7 @@ export const reducer = (state = defaultState, action) => {
     case REQUEST_DELETE_NOTE:
       return Object.assign({}, state, { isDeleting: true });
     case DID_DELETE_NOTE:
-      return Object.assign({}, state, { isDeleting: false, delId: action.delId});
+      return Object.assign({}, state, { isDeleting: false, delId: action.delId, /* user: state.user */ });
     case PREVIEW_EDIT_NOTE:
       return Object.assign({}, state, { editNote: action.editNote });
     case RESET_EDIT_NOTE:
