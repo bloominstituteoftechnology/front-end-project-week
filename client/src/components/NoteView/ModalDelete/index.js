@@ -119,7 +119,7 @@ class ModalDelete extends Component {
               </Typography>
               <div className={classes.closeButton}>
                 <NavLink to='/Notes/All' className={ classes.closeLink }>
-                  <Button onClick={handleClose}>
+                  <Button>
                     <Typography>
                       Close
                     </Typography>
