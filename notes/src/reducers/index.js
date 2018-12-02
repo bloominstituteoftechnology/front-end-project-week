@@ -69,8 +69,13 @@ const FriendsReducer = (state = initialState, action) => {
 		case SAVING:
 			return { ...state, savingNote: true };
 		case SAVED:
+			let newNote = {
+				tags: [''],
+				title: action.payload.title,
+				textBody: action.payload.textBody
+			};
 			let newNotes = state.notes.slice();
-			newNotes.push(action.payload);
+			newNotes.push(newNote);
 			return { ...state, notes: newNotes, savingNote: false };
 		default:
 			return state;

@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SideBarStyled = styled.div`
-  background-color: #c8cbcc;
-  width:150%
+	background-color: #c8cbcc;
 	padding-bottom: 100%;
+	width: 100%;
 `;
 
 const SideBarContent = styled.div`
@@ -31,6 +31,10 @@ const SideBarButton = styled.button`
 	width: 85%;
 	border-color: grey;
 `;
+const Linky = styled.a`
+	text-decoration: none;
+	color: white;
+`;
 
 const SideBar = () => {
 	return (
@@ -42,8 +46,13 @@ const SideBar = () => {
 						<br /> Notes
 					</h1>
 				</SideBarHeader>
-				<SideBarButton>View Your Notes</SideBarButton>
-				<SideBarButton> &#43; Create New Note</SideBarButton>
+				<SideBarButton>
+					<Linky href="http://localhost:3000/">View Your Notes</Linky>
+				</SideBarButton>
+
+				<SideBarButton>
+					<Linky href="http://localhost:3000/add"> &#43; Create New Note</Linky>
+				</SideBarButton>
 			</SideBarContent>
 		</SideBarStyled>
 	);

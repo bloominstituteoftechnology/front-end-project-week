@@ -4,5 +4,6 @@ export const SAVING = 'SAVING';
 export const SAVED = 'SAVED';
 
 export const saveNote = data => dispatch => {
-	dispatch({ type: SAVED, payload: data.note });
+	dispatch({ type: SAVED, payload: data });
+	console.log('action saveNote fired');
 };
