@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import Sidebar from "../Sidebar";
 import NoteList from "../NoteList";
 import Form from "../Form";
@@ -12,7 +12,7 @@ class App extends Component {
         notes: [],
         title: "",
         textBody: ""
-    }
+    };
 
     componentDidMount() {
         this.refetchNotes();
@@ -41,7 +41,10 @@ class App extends Component {
         return (
             <div className="App">
                 <Sidebar />
-                <Route exact path="/" component={NoteList} />
+                <Route exact path="/" render={ props => 
+                    <NoteList notes={this.state.notes} />
+                }
+                />
                 <Route path="notes/add" render={ props =>
                     <Form
                         title={this.state.title}
