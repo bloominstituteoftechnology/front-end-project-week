@@ -71,6 +71,7 @@ export const Notes = styled.a`
     max-width: 260px;
     width: 50%;
     margin-bottom: 30px;
+
 :nth-child(3n-1){
    margin-left: 1%;
    margin-right: 1%;
@@ -88,4 +89,28 @@ p {
    text-overflow: ellipsis;
    text-decoration: none;
  }
+`
+export const LinkContainer = styled.span`
+   display: flex;
+   justify-content: flex-end;
+   a {
+      margin-right: 10px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-decoration-line: underline;
+   }
+   p {
+      margin-left: 2%
+   }
+`
+export const Content = styled.div`
+   h2 {
+       margin-top: 0px;
+       margin-bottom: 0px;
+   }
+
+   p {
+       white-space: pre-line;
+       margin-left: 0px;
+   }
 `
