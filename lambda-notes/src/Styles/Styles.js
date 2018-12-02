@@ -2,8 +2,17 @@ import styled from "styled-components"
 
 export const AppContainer = styled.div`
     display: flex;
-    width: 100%;
-    height: 100%;
+    margin: 0 auto;
+    min-height: 800px;
+
+    p, h2 form {
+   margin-left: 1%;
+}
+
+form {
+   display: flex;
+   flex-direction: column;
+}
 `
 
 export const HeaderContainer = styled.div`
@@ -14,13 +23,16 @@ export const HeaderContainer = styled.div`
     width: 30%;
 `
 export const Button = styled.button`
-    background-color: lightblue;
+    background-color: #24B8BD;
     color: white;
-    text-align: center;
     font-weight: bold;
-    padding: 5px 20px;
+    font-size: 1.2rem;
+    padding: 10px 25px;
+    margin-bottom: 14px;
     cursor: pointer;
-    width: 90%;
+    white-space: nowrap;
+    width: 95%;
+    max-width: 200px;
 `
 export const DisplayContainer = styled.div`
     background-color: whitesmoke;
@@ -29,7 +41,7 @@ export const DisplayContainer = styled.div`
     align-items: center;
     flex-wrap: wrap;
     padding: 30px;
-    width: 100%;
+    width: 80%;
 `
 export const DisplayHeader = styled.h2`
     width: 100%;
@@ -42,16 +54,30 @@ export const NoteContainer = styled.div`
     max-width: 250px;
     padding: 10px;
     margin: 20px 10px;
-    text-decoration: none;
 `
 export const InputHeader = styled.input`
-    background-color: white;
-    text: black;
-`
-export const InputBody = styled.input`
+    display: flex;
     background-color: white;
     color: black;
+    padding: 10px 5px;
+    margin-bottom: 14px;
+    max-width: 600px;
+    width: 60%;
     border-radius: 5px;
+`
+
+export const InputBody = styled.textarea `
+    background-color: white;
+    color: black;
+    vertical-align: top;
+    padding: 10px 12px;
+    max-width: 800px;
+    width: 95%;
+    margin-bottom: 14px;
+    border-radius: 5px;
+    height: 300px;
+    resize: both;
+    overflow: auto;
 `
 
 export const NoteListContainer = styled.div`
@@ -80,14 +106,12 @@ h3 {
    margin-left: 7%;
    margin-right: 7%
    margin-bottom: 5px;
-   text-decoration: none;
 }
 p {
    margin-left: 7%;
    width: 67%;
    overflow: hidden;
    text-overflow: ellipsis;
-   text-decoration: none;
  }
 `
 export const LinkContainer = styled.span`
@@ -97,7 +121,6 @@ export const LinkContainer = styled.span`
       margin-right: 10px;
       font-size: 1.6rem;
       font-weight: bold;
-      text-decoration-line: underline;
    }
    p {
       margin-left: 2%
@@ -112,5 +135,6 @@ export const Content = styled.div`
    p {
        white-space: pre-line;
        margin-left: 0px;
+       text-decoration: none;
    }
 `

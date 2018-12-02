@@ -10,7 +10,7 @@ const Header = () => {
             <Button>View Your Notes</Button>
         </Link>
         <Link to="/create">
-            <Button>Create New Note</Button>
+            <Button>+Create New Note</Button>
         </Link>
         </HeaderContainer>
     );
