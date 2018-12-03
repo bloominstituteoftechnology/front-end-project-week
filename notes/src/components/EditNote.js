@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { getIndividual } from '../actions/index.js';
+import { getIndividual, editNote } from '../actions/index.js';
 
 const FormWrapper = styled.div`
 	width: 690%;
@@ -52,6 +52,7 @@ class EditNote extends React.Component {
 		super(props);
 
 		this.state = {
+			_id: this.props.match.params.id,
 			title: '',
 			textBody: ''
 		};
@@ -81,8 +82,8 @@ class EditNote extends React.Component {
 
 	submitHandler = e => {
 		e.preventDefault();
-		this.props.saveNote(this.state);
-		this.props.history.push('/');
+		this.props.editNote(this.state);
+		this.props.history.push(`/${this.props.match.params.id}`);
 	};
 	render() {
 		const id = this.props.match.params.id;
@@ -119,5 +120,5 @@ const mapStateToProps = state => {
 
 export default connect(
 	mapStateToProps,
-	{ getIndividual }
+	{ getIndividual, editNote }
 )(EditNote);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { saveNote } from '../actions/index.js';
+import { saveNote, editNote } from '../actions/index.js';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
@@ -66,7 +66,7 @@ class AddForm extends React.Component {
 
 	submitHandler = e => {
 		e.preventDefault();
-		this.props.saveNote(this.state);
+		this.props.editNote(this.state);
 		this.props.history.push('/');
 	};
 
@@ -102,5 +102,5 @@ const mapStateToProps = state => {
 
 export default connect(
 	mapStateToProps,
-	{ saveNote }
+	{ saveNote, editNote }
 )(AddForm);

@@ -5,9 +5,13 @@ import {
 	FETCHING,
 	FETCHED,
 	FETCHINGNOTE,
-	FETCHEDNOTE
+	FETCHEDNOTE,
+	UPDATING,
+	UPDATED
 } from '../actions';
 const initialState = {
+	updating: false,
+	error: null,
 	savingNote: false,
 	notes: [],
 	fetchingNote: false,
@@ -42,7 +46,29 @@ const NotesReducer = (state = initialState, action) => {
 					textBody: action.payload.textBody
 				}
 			};
-
+		case UPDATING:
+			return { ...state, updating: true };
+		case UPDATED:
+			let newNotes = state.notes.slice();
+			console.log('newNotes=' + newNotes);
+			newNotes.map(note => {
+				if (note._id === action.payload._id) {
+					return action.payload._id;
+				}
+				return note;
+			});
+			return {
+				...state,
+				updating: false,
+				currentIndividual: {
+					_id: '',
+					title: '',
+					textBody: ''
+				},
+				notes: newNotes
+			};
+		case ERROR:
+			return { ...state, error: action.message };
 		default:
 			return state;
 	}

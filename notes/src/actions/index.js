@@ -7,6 +7,8 @@ export const FETCHEDNOTE = 'FETCHEDNOTE';
 export const SAVING = 'SAVING';
 export const SAVED = 'SAVED';
 export const ERROR = 'ERROR';
+export const UPDATING = 'UPDATING';
+export const UPDATED = 'UPDATED';
 
 export const getNotes = () => dispatch => {
 	dispatch({ type: FETCHING });
@@ -48,5 +50,22 @@ export const getIndividual = data => dispatch => {
 		})
 		.catch(err => {
 			dispatch({ type: ERROR, message: 'got an error in getIndividual' });
+		});
+};
+
+export const editNote = data => dispatch => {
+	dispatch({ type: UPDATING });
+	axios
+		.put(`https://fe-notes.herokuapp.com/note/edit/${data._id}`, {
+			title: data.title,
+			_id: data._id,
+			textBody: data.textBody
+		})
+		.then(response => {
+			console.log('response to put is =' + response);
+			dispatch({ type: UPDATED, payload: response.data });
+		})
+		.catch(err => {
+			dispatch({ type: ERROR, message: 'got an error in editNote' });
 		});
 };
