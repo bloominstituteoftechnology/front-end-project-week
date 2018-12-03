@@ -1,32 +1,64 @@
-import React from "react";
+import React, { Component } from "react";
+import axios from "axios";
 
-class CreateNote extends React.Component {
+
+class CreateNote extends Component {
    constructor(props){
-      super(props)
+      super(props);
       this.state = {
+         tag: [],
          title: "",
-         text: "",
+         text: ""
 
-      }
+      };
    }
+
+   inputHandler = event => {
+      event.preventDefault();
+      this.setState({ [event.target.name]: event.target.value });
+   };
+
+   submitHandler = event => {
+      event.preventDefault();
+      const note = {
+         title: this.state.title,
+         text: this.state.text
+      };
+      console.log(note);
+      axios
+         .post(`https://fe-notes.herokuapp.com/note/create`, note)
+         .then(result => {
+            console.log(result);
+            this.setState({ title: "", text: "" });
+         })
+         .catch(() => alert("Note adding error..."));
+   };
 
    render(){
       return (
-         <div>
-            <h2>Create New Note</h2>
-            <form>
+         <div className="page-wrapper">
+            <h2>Create New Note:</h2>
+            <form onSubmit={this.submitHandler}>
                <input 
+                  required
+                  className="inputTitle"
                   name="title"
                   placeholder="Note Title"
+                  value={this.state.title}
+                  onChange={this.inputHandler}
                />
                <input 
+                  required
+                  className="inputContent"
                   name="text"
-                  placeholder="Note Title"
+                  placeholder="Note Content"
+                  value={this.state.text}
+                  onChange={this.inputHandler}
                />
-               <button type="submit">Save</button>
+               <button type="Submit">Save</button>
             </form>
          </div>
-      )
+      );
    }
 }
 

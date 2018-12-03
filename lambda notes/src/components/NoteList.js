@@ -1,24 +1,29 @@
-import React from "react";
-import Banner from "./Banner";
-import Note from "./Note";
+import React, { Component }from "react";
 
 
-const NoteList = () => {
-   return(
-	<div>
-		<Banner />
-		<h2>Your Notes:</h2>
-      	<Note />
-      	<Note />
-      	<Note />
-      	<Note />
-      	<Note />
-      	<Note />
-      	<Note />
-      	<Note />
-      	<Note />
-	</div>
-   );
-};
+class NoteList extends Component {
+   constructor(props) {
+      super(props);
+   }
+
+   render() {
+      console.log("props", this.props.notes);
+      return (
+         <div className="page-wrapper">
+            <h2>Your Notes:</h2>
+            <div className="noteList">
+               {this.props.notes.map(note => {
+                  return(
+                     <div key={note.id} className="note">
+                     <p className="noteText"> {note.textBody} </p>
+                     </div>
+                  );
+               })}
+            </div>  
+         </div>
+      );
+   }
+}
+
 
 export default NoteList;

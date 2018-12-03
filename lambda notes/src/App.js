@@ -1,22 +1,52 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from "axios";
 import { Route, Link } from "react-router-dom";
+
 import NoteList from "./components/NoteList";
+import CreateNote from "./components/CreateNote";
 
 class App extends Component {
 	constructor() {
 		super();
-		this.state = [];
+		this.state = {
+			notes: []
+		};
 	}
 
 	componentDidMount() {
-
+		this.getNotes();
 	}
+
+	getNotes = () => {
+		axios
+			.get(`https://fe-notes.herokuapp.com/note/get/all`)
+			.then(response => {
+				console.log(response.data);
+				this.setState({ notes: response.data });
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	};
 
 	render() {
 		return (
-			<div>
-				<NoteList />
+			<div className="App">
+				<aside>
+					<h1>Lambda Notes</h1>
+					<Link to="/" onClick={this.getNotes}>
+						<div className="button">View Your Notes</div>
+					</Link>
+					<Link to="/create">
+						<div className="button">+ Create New Note</div>
+					</Link>
+				</aside>
+				<Route
+					path="/"
+					exact
+					render={props => <NoteList {...props} notes={this.state.notes} /> }
+				/>
 			</div>
 		);
 	}

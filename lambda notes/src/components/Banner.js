@@ -3,8 +3,8 @@ import Button from "./Button";
 
 const Banner = () => {
 	return (
-		<div>
-			<h1>Lambda Notes</h1>
+		<div className="banner">
+			<h1 className="banner-h1">Lambda Notes</h1>
 			<Button />
 			<Button />
 		</div>
