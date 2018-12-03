@@ -9,6 +9,7 @@ export const SAVED = 'SAVED';
 export const ERROR = 'ERROR';
 export const UPDATING = 'UPDATING';
 export const UPDATED = 'UPDATED';
+export const DELETING = 'DELETING';
 
 export const getNotes = () => dispatch => {
 	dispatch({ type: FETCHING });
@@ -42,10 +43,10 @@ export const saveNote = data => dispatch => {
 
 export const getIndividual = data => dispatch => {
 	dispatch({ type: FETCHINGNOTE });
+	console.log('url is' + data);
 	axios
 		.get(`https://fe-notes.herokuapp.com/note/get/${data}`)
 		.then(response => {
-			console.log('response is ' + response.data.title);
 			dispatch({ type: FETCHEDNOTE, payload: response.data });
 		})
 		.catch(err => {
@@ -68,4 +69,8 @@ export const editNote = data => dispatch => {
 		.catch(err => {
 			dispatch({ type: ERROR, message: 'got an error in editNote' });
 		});
+};
+
+export const deleting = data => dispatch => {
+	dispatch({ type: DELETING });
 };

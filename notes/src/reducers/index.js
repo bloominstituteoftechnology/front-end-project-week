@@ -7,7 +7,8 @@ import {
 	FETCHINGNOTE,
 	FETCHEDNOTE,
 	UPDATING,
-	UPDATED
+	UPDATED,
+	DELETING
 } from '../actions';
 const initialState = {
 	updating: false,
@@ -15,6 +16,7 @@ const initialState = {
 	savingNote: false,
 	notes: [],
 	fetchingNote: false,
+	deleting: false,
 	currentIndividual: {
 		_id: '',
 		title: '',
@@ -67,6 +69,8 @@ const NotesReducer = (state = initialState, action) => {
 				},
 				notes: newNotes
 			};
+		case DELETING:
+			return { ...state, deleting: true };
 		case ERROR:
 			return { ...state, error: action.message };
 		default:

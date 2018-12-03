@@ -53,7 +53,6 @@ class App extends Component {
 						render={props => <EditNote {...props} />}
 					/>
 					<Route
-						exact
 						path="/:id/delete"
 						render={props => <DeleteNote {...props} />}
 					/>
@@ -66,7 +65,8 @@ class App extends Component {
 const mapStateToProps = state => {
 	return {
 		notes: state.notes,
-		savingNote: state.savingNote
+		savingNote: state.savingNote,
+		deleting: state.deleting
 	};
 };
 

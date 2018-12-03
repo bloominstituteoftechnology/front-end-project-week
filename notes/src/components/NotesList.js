@@ -5,7 +5,7 @@ const CardSection = styled.div`
 	width: 80%;
 	background-color: #e6eef0;
 	display: flex;
-	height: 100%;
+	height: 800vh;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding-left: 10%;
@@ -16,7 +16,7 @@ const CardSection = styled.div`
 const StyledCard = styled.div`
 	width: 25%;
 	background-color: white;
-	height: 25%;
+	height: 15rem;
 	border: grey;
 	padding: 1rem;
 	font-size: 1.6rem;

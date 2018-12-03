@@ -8,7 +8,7 @@ const IndividualNoteWrapper = styled.div`
 	width: 690%;
 	background-color: #e6eef0;
 	display: flex;
-	height: 100%;
+	height: 500vh;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding-left: 10%;
@@ -54,18 +54,26 @@ class IndividualNote extends Component {
 	constructor(props) {
 		super(props);
 	}
+
 	componentDidMount() {
-		const id = this.props.match.params.id;
-		this.props.getIndividual(id);
+		console.log('deleting' + this.props.deleting);
+		if (this.props.deleting) {
+			console.log('state _id' + this.props.state.title);
+			const id = this.props.passedId;
+			console.log('passedid=' + this.props.passedId);
+			this.props.getIndividual(id);
+		} else {
+			const id = this.props.match.params.id;
+			this.props.getIndividual(id);
+		}
 	}
 	render() {
-		const id = this.props.match.params.id;
 		return (
 			<IndividualNoteWrapper>
 				<Title>{this.props.state.title}</Title>
 				<LinkWrapper>
-					<Linky href={`/${id}/edit`}>EDIT</Linky>
-					<Linky href={`/${id}/delete`}>DELETE</Linky>
+					<Linky href={`/${this.props.state._id}/edit`}>EDIT</Linky>
+					<Linky href={`/${this.props.state._id}/delete`}>DELETE</Linky>
 				</LinkWrapper>
 				<Text>{this.props.state.textBody}</Text>
 			</IndividualNoteWrapper>
@@ -74,8 +82,10 @@ class IndividualNote extends Component {
 }
 
 const mapStateToProps = state => {
+	console.log('title=' + state.currentIndividual.title);
 	return {
-		state: state.currentIndividual
+		state: state.currentIndividual,
+		deleting: state.deleting
 	};
 };
 

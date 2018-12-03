@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const SideBarStyled = styled.div`
 	background-color: #c8cbcc;
 	padding-bottom: 100%;
 	width: 190%;
+	${props => (props.type === 'true' ? `opacity:.2;` : null)}
 `;
 
 const SideBarContent = styled.div`
@@ -36,9 +38,9 @@ const Linky = styled.a`
 	color: white;
 `;
 
-const SideBar = () => {
+const SideBar = props => {
 	return (
-		<SideBarStyled>
+		<SideBarStyled type={props.deleting}>
 			<SideBarContent>
 				<SideBarHeader>
 					<h1>
@@ -58,4 +60,13 @@ const SideBar = () => {
 	);
 };
 
-export default SideBar;
+const mapStateToProps = state => {
+	return {
+		deleting: state.deleting.toString()
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	{}
+)(SideBar);
