@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
-import { NoteCardTitle, NoteCardText, NoteViewLinks } from "./Styled";
+// import { Link } from "react-router-dom";
+
+import { NoteViewWrapper, NoteWrapper,SingleNoteTitle, SingleNoteText, NoteViewLinks, EditLink, DeleteLink,} from "./Styled";
 
 class NoteView extends Component {
   constructor() {
@@ -26,23 +27,26 @@ class NoteView extends Component {
       })
       .catch(err => console.log(err));
   }
+ 
   render() {
     return (
-      <div>
+      <NoteViewWrapper>
+        <NoteWrapper>
         <NoteViewLinks>
-          <Link
+          <EditLink
             to={`/note/edit/${this.state.note._id}`}
             key={this.state.note._id}
           >
             edit
-          </Link>
+          </EditLink>
 
           <div>delete</div>
         </NoteViewLinks>
 
-        <NoteCardTitle>{this.state.title}</NoteCardTitle>
-        <NoteCardText>{this.state.textBody}</NoteCardText>
-      </div>
+        <SingleNoteTitle>{this.state.title}</SingleNoteTitle>
+        <SingleNoteText>{this.state.textBody}</SingleNoteText>
+        </NoteWrapper>
+      </NoteViewWrapper>
     );
   }
 }

@@ -1,25 +1,34 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { NoteFormWrapper, Form, TitleInput, ContentInput, Btn } from "./Styled";
+import { CreateViewWrapper, CreateHeader, Form, TitleInput, ContentInput, Btn } from "./Styled";
 
 class EditView extends Component {
-  constructor() {
-    super();
+  
+  constructor(props) {
+    super(props);
     this.state = {
+      notes: [],
+      note: {
       title: "",
-      textBody: "",
-      id: null
+      textBody: ""
+      },
+      isUpdating: false
     };
   }
 
+
+   
   editNote = e => {
     e.preventDefault();
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, this.state
+        `https://fe-notes.herokuapp.com/note/edit/${
+          this.props.match.params.id
+        }`,
+        this.state.note
       )
       .then(res => {
-        this.setState({ title: res.data.title, textBody: res.data.textBody });
+        this.setState({ notes: res.data });
       })
       .catch(err => console.log(err, "cannot edit this note"));
   };
@@ -31,8 +40,8 @@ class EditView extends Component {
   };
   render() {
     return (
-      <NoteFormWrapper>
-        <h2>Edit Note:</h2>
+      <CreateViewWrapper>
+        <CreateHeader>Edit Note:</CreateHeader>
 
         <Form onSubmit={this.editNote}>
           <TitleInput
@@ -49,9 +58,9 @@ class EditView extends Component {
             onChange={this.changeHandler}
             placeholder="Note Content"
           />
-          <Btn>Update</Btn>
+          <Btn type="submit">Update</Btn>
         </Form>
-      </NoteFormWrapper>
+      </CreateViewWrapper>
     );
   }
 }

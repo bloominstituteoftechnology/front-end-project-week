@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { NoteFormWrapper, Form, TitleInput, ContentInput, Btn } from "./Styled";
+import { CreateViewWrapper, CreateHeader, Form, TitleInput, ContentInput, Btn, } from "./Styled";
 import axios from 'axios';
 class CreateNewView extends Component {
   constructor() {
@@ -28,8 +28,8 @@ class CreateNewView extends Component {
   };
 render() {
   return (
-    <NoteFormWrapper>
-      <h2>Create New Note:</h2>
+    <CreateViewWrapper>
+      <CreateHeader>Create New Note:</CreateHeader>
 
       <Form
         onSubmit={
@@ -49,10 +49,10 @@ render() {
           onChange={this.changeHandler}
           placeholder="Note Content"
         />
-        <Btn>Save</Btn>
+        <Btn type="submit">Save</Btn>
 
       </Form>
-    </NoteFormWrapper>
+    </CreateViewWrapper>
   );
 };
 }
