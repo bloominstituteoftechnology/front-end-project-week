@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const CardSection = styled.div`
 	width: 80%;
@@ -21,6 +22,8 @@ const StyledCard = styled.div`
 	padding: 1rem;
 	font-size: 1.6rem;
 	margin-bottom: 2rem;
+	text-decoration: none;
+	color: black;
 `;
 const Heading = styled.h1`
 	font-size: 2rem;
@@ -39,6 +42,10 @@ const ViewHeader = styled.h1`
 const HeaderBar = styled.div`
 	background-color: #e6eef0;
 `;
+const LinkWrapper = styled.a`
+	text-decoration: none;
+	color: black;
+`;
 
 const NotesList = props => {
 	console.log(props.notes);
@@ -49,11 +56,13 @@ const NotesList = props => {
 				{props.notes.map(note => {
 					return (
 						<StyledCard>
-							<Heading>{note.title}</Heading>
+							<LinkWrapper href={`/${note._id}`}>
+								<Heading>{note.title}</Heading>
 
-							<hr />
-							{note.textBody.slice(0, 80)}
-							{note.textBody.length > 100 ? '-' : null}
+								<hr />
+								{note.textBody.slice(0, 80)}
+								{note.textBody.length > 100 ? '-' : null}
+							</LinkWrapper>
 						</StyledCard>
 					);
 				})}

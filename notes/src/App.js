@@ -8,6 +8,7 @@ import './App.css';
 import SideBar from './components/SideBar.js';
 import NotesList from './components/NotesList.js';
 import AddForm from './components/AddForm';
+import IndividualNote from './components/IndividualNote.js';
 
 const PageWrapper = styled.div`
 	height: 100vh;
@@ -38,6 +39,11 @@ class App extends Component {
 					/>
 
 					<Route exact path="/add" render={props => <AddForm {...props} />} />
+					<Route
+						exact
+						path="/:id"
+						render={props => <IndividualNote {...props} />}
+					/>
 				</PageWrapper>
 			</div>
 		);
