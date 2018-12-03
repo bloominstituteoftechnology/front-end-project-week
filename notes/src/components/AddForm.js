@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 const FormWrapper = styled.div`
-	width: 253%;
+	width: 690%;
 	background-color: #e6eef0;
 	display: flex;
 	height: 100%;

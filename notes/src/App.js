@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-import { saveNote } from './actions';
+import { saveNote, getNotes } from './actions';
 import './App.css';
 import SideBar from './components/SideBar.js';
 import NotesList from './components/NotesList.js';
@@ -19,6 +19,9 @@ const PageWrapper = styled.div`
 class App extends Component {
 	constructor() {
 		super();
+	}
+	componentDidMount() {
+		this.props.getNotes();
 	}
 
 	render() {
@@ -50,5 +53,5 @@ const mapStateToProps = state => {
 
 export default connect(
 	mapStateToProps,
-	{ saveNote }
+	{ saveNote, getNotes }
 )(App);

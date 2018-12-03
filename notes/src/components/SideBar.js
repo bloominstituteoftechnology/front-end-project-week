@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const SideBarStyled = styled.div`
 	background-color: #c8cbcc;
 	padding-bottom: 100%;
-	width: 100%;
+	width: 190%;
 `;
 
 const SideBarContent = styled.div`

@@ -20,6 +20,7 @@ const StyledCard = styled.div`
 	border: grey;
 	padding: 1rem;
 	font-size: 1.6rem;
+	margin-bottom: 2rem;
 `;
 const Heading = styled.h1`
 	font-size: 2rem;
@@ -40,6 +41,7 @@ const HeaderBar = styled.div`
 `;
 
 const NotesList = props => {
+	console.log(props.notes);
 	return (
 		<HeaderBar>
 			<ViewHeader>Your Notes:</ViewHeader>
