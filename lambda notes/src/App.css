@@ -56,6 +56,24 @@ aside a {
   font-weight: bold;
 }
 
+.page-wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-wrapper form button {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgb(151, 151, 151);
+  background-color: rgb(43, 193, 197);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 5px;
+  cursor: pointer;
+}
+
 .noteList {
   margin-left: 25%;
   display: flex;
@@ -63,7 +81,7 @@ aside a {
   flex-wrap: wrap;
 }
 
-.note{
+.note {
   border: 1px solid #E7E7E7;
   padding: 15px;
   width: 25%;
@@ -80,6 +98,8 @@ aside a {
 
 hr {
   background-color: rgb(151, 151, 151);
+  border-bottom: 1px solid black;
+
 }
 
 .noteTitle {
@@ -93,12 +113,36 @@ hr {
   font-size: 1.6rem;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
 
 
+.inputTitle {
+  width: 25%;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-left: 30%;
+}
 
+.inputContent {
+  width: 65%;
+  height: 500px;
+  margin-bottom: 10px;
+  margin-left: 30%;
+}
 
+.viewNoteTitle {
+  font-size: 1.4rem;
+  margin: 20px 0;
+  white-space: pre-wrap;
+}
 
-
+.viewNoteText {
+  font-size: 1rem;
+  white-space: pre-wrap;
+}
 
 
 

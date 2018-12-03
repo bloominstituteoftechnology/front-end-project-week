@@ -5,6 +5,7 @@ import { Route, Link } from "react-router-dom";
 
 import NoteList from "./components/NoteList";
 import CreateNote from "./components/CreateNote";
+import ViewNote from "./components/ViewNote";
 
 class App extends Component {
 	constructor() {
@@ -47,9 +48,21 @@ class App extends Component {
 					exact
 					render={props => <NoteList {...props} notes={this.state.notes} /> }
 				/>
+				<Route
+					path="/create"
+					render={props => (
+						<CreateNote {...props} createNewNote={this.createNewNote} />
+					)}
+				/>
+				<Route
+					path="/view/:id"
+					render={props => (
+						<ViewNote {...props} notes={this.state.notes} />
+					)}
+				/>
 			</div>
 		);
-	}
+	};
 }
 
 export default App;

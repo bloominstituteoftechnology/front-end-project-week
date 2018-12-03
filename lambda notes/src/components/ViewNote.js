@@ -1,7 +1,7 @@
 import React from "react";
 
 function ViewNote(props) {
-	console.log(prop.notes);
+	console.log(props.notes);
 	return (
 		<div className="page-wrapper">
 			<div>
@@ -9,12 +9,12 @@ function ViewNote(props) {
 				<div>Delete</div>
 			</div>
 			{props.notes.map(note => {
-				if (props.match.parms.id === note._id) {
+				if (props.match.params.id === note._id) {
 					console.log(note.title);
 					return (
 						<div>
 							<p className="ViewNoteTitle">{note.title}</p>
-							<p className="ViewNoteText">{note.text}</p>
+							<p className="ViewNoteText">{note.textBody}</p>
 						</div>
 					);
 				}
