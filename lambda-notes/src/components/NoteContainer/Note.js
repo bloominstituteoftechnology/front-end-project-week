@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components' 
-import connect from 'react-redux'
+import {connect} from 'react-redux'
 import { Card, CardText, CardBody, CardTitle, CardLink} from 'reactstrap';
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
+import SingleNoteView from '../NoteAppViews/SingleNoteView'
 
 const NoteContainer = styled.section `
   display: flex ;
@@ -31,19 +32,16 @@ const NoteBody = styled.article `
 `
 
 const Note = props => {
-  const noteId = props.id
-  if (props.note.id !== noteId){
-   
-  }
+ 
   console.log(props.id)
   return (
     <div>
      <NoteContainer>
       <NoteStyling>
-       <Card>
+       <Card  style={{ backgroundColor: '#d7dde5', borderColor: '#333' }} >
         <CardBody>
         <CardTitle>
-          <Link to={`note/${noteId}`}><NoteTitle>{props.title}</NoteTitle></Link>
+          <Link to={`/note/${props.id}`} style={{ textDecoration: 'none', color: 'black' }} ><NoteTitle>{props.title}</NoteTitle></Link>
           </CardTitle>
           <hr />
           <CardText>
@@ -58,6 +56,11 @@ const Note = props => {
   )
 }
 
+const mapStateToProps = state => {
+ const { notes } = state
+ return {
+  notes: notes 
+ }
+}
 
-
-export default Note
+export default connect(mapStateToProps)(Note)

@@ -11,6 +11,7 @@ export const DELETING = 'DELETING'
 export const DELETED = 'DELETED'
 
 
+
 export const fetchNotes = () => {
  return dispatch => {
  axios
@@ -74,4 +75,16 @@ export const editNote = (id, data) => {
   
  }
 
+}
+
+export const getNote = (id) => {
+ return dispatch => {
+  dispatch({type: FETCHING})
+  axios
+  .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+  .then(response => {
+    dispatch({type: SUCCESS, payload: response.data})
+  })
+  .catch(err => {console.log(err)})
+ }
 }

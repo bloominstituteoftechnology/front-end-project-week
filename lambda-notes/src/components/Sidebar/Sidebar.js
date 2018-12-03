@@ -19,8 +19,9 @@ const NoteList = props => {
  return (
       <ContainerStyle>
       <H1>Lambda Notes</H1>
-      <Link to="/"><Button outline color="success">View Your Notes.</Button></Link>
-      <Link to="/new"><Button outline color="success">Add Note +</Button></Link>
+      <Link to="/"><Button color="info">View Your Notes.</Button></Link>
+      {' '}
+      <Link to="/new"><Button color="info">Add Note +</Button></Link>
       </ContainerStyle>
     )
 }

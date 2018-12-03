@@ -2,6 +2,7 @@ import React from 'react'
 import Note from './Note'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import NoteView from '../NoteAppViews/NoteView'
 import NoteTextArea from '../NoteContainer/NoteTextArea'
 
 const NoteContainerStyle = styled.div `
@@ -14,7 +15,8 @@ class NoteContainer extends React.Component {
   return (
     <NoteContainerStyle className="note_container">
          <NoteTextArea />
-         {this.props.notes.map((note, index) => <Note 
+         {this.props.notes.map((note, index) => 
+         <Note 
           key={index}
           title={note.title}
           textBody={note.textBody}
@@ -22,7 +24,8 @@ class NoteContainer extends React.Component {
           id={note._id}
           note={note}
           index={note.index}
-         />)}
+         />
+         )}
     </NoteContainerStyle>
   )
  }
