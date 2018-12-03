@@ -23,6 +23,11 @@ class NoteView extends React.Component {
           .then(response => {this.setState({note: response.data})})
           .catch(err => console.log(err))
     }
+    deleteNote = id => {
+       axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+         .then(response => {this.setState({note: []})})
+         .catch(err => console.log(err))
+    }
     render(){
         return(
            <>
@@ -31,9 +36,9 @@ class NoteView extends React.Component {
                     <span>Edit</span>
                  </Link>
                  <Link to={`/note/${this.state.note._id}/delete`} >
-                    <span>Delete</span>
-                 </Link>
-              </LinkContainer>
+                  <span>Delete</span>
+               </Link>
+                </LinkContainer>
               <Content>
                  <h2>{this.state.note.title}</h2>
                  <p>{this.state.note.textBody}</p>

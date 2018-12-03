@@ -8,7 +8,9 @@ import Header from "./Components/Header";
 import NoteList from "./Components/NoteList";
 import CreateNote from "./Components/CreateNoteForm";
 import NoteView from "./Views/NoteView";
+import EditNote from "./Components/EditNoteForm";
 import {AppContainer, DisplayContainer} from "./Styles/Styles";
+import DeleteConfirmation from "./Components/DeleteConfirmation";
 
 class App extends Component {
   constructor(){
@@ -37,7 +39,13 @@ class App extends Component {
         <Route path="/note/:id" render={(props) => {
               return(<NoteView {...props}/>)}}
           />
+        <Route path="/edit/:id" render={(props) => {
+            return(<EditNote {...props}/>)}}
+        />
         </DisplayContainer>
+        <Route path="/note/:id/delete" render={(props) => {
+            return(<NoteView {...props}/>, <DeleteConfirmation {...props}/>)}}
+        />
       </AppContainer>
     </div>
     );

@@ -138,3 +138,27 @@ export const Content = styled.div`
        text-decoration: none;
    }
 `
+export const DeleteContainer = styled.div`
+   position: absolute;
+   text-align: center;
+   background: rgb(211, 211, 211, 0.9);
+   height: 100%;
+   width: 100%;
+   min-height: 800px;
+`
+
+export const DeleteBox = styled.div`
+   position: fixed;
+   left: 168px;
+   top: 112px;
+   background-color: white;
+   width: 50%;
+   margin: 50px auto;
+   border: 1px solid black;
+   padding: 40px;
+   z-index: 6;
+   p {
+      margin-bottom: 20px;
+      margin-left: 0;
+   }
+`
