@@ -4,11 +4,14 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { saveNote, getNotes } from './actions';
+
 import './App.css';
 import SideBar from './components/SideBar.js';
 import NotesList from './components/NotesList.js';
 import AddForm from './components/AddForm';
 import IndividualNote from './components/IndividualNote.js';
+import DeleteNote from './components/DeleteNote';
+import EditNote from './components/EditNote';
 
 const PageWrapper = styled.div`
 	height: 100vh;
@@ -43,6 +46,16 @@ class App extends Component {
 						exact
 						path="/:id"
 						render={props => <IndividualNote {...props} />}
+					/>
+					<Route
+						exact
+						path="/:id/edit"
+						render={props => <EditNote {...props} />}
+					/>
+					<Route
+						exact
+						path="/:id/delete"
+						render={props => <DeleteNote {...props} />}
 					/>
 				</PageWrapper>
 			</div>
