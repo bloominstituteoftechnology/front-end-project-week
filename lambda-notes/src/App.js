@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchNotes} from './actions'
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import './App.css';
 import NoteList from './components/noteViews/NoteList';
@@ -33,6 +34,8 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
+        
       <div className="App">
       <SideNav className="nav-component" 
         searchValue={this.state.searchValue}
@@ -42,12 +45,13 @@ class App extends Component {
         <Route exact path='/' render={() => <NoteList notes={this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.props.notes}/>}/>
         <Route path='/new' component={NewNote}/>
         <Route exact path='/note/:id' component={Note}/>
-        <Route path='/note/edit/:id' component={NoteEdit}/>
+        <Route exact path='/note/edit/:id' component={NoteEdit}/>
         
         
       </Switch>
       {/* <NewNote/> */}
       </div>
+      </Router>
     );
   }
 }

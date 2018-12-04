@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {getNote, deleteNote} from '../actions';
-import { Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import Switch from 'react-switch';
+
 
 class Note extends React.Component {
   constructor(){
@@ -9,7 +11,10 @@ class Note extends React.Component {
     this.state = {
       title: null,
       textBody: null,
+      checked: false,
     }
+
+    this.handleChange = this.handleChange.bind(this);
   }
   componentDidMount(){
     this.props.getNote(this.props.match.params.id);
@@ -18,6 +23,10 @@ class Note extends React.Component {
       textBody: null,
       id: null,
     })
+  }
+
+  handleChange = checked => {
+    this.setState({checked})
   }
 
   deleteHandler = () => {
@@ -51,8 +60,16 @@ class Note extends React.Component {
       <Link to={`/note/edit/${this.state.id}`}><button>Update</button></Link>
       <button onClick={this.deleteHandler}>Delete</button>
       </div>
+      <div className="markdown-switch">
+        <p>Switch between Normal and MarkDown view</p>
+        <Switch 
+          onChange={this.handleChange}
+          checked={this.state.checked}
+          className="switch" />
+      </div>
       <div className="body-container">
-        <p className="text-body">{this.state.textBody}</p>
+        {this.state.checked ? <p>Markdown Note view</p> : <p className="text-body">{this.state.textBody}</p> }
+        
       </div>
     </div>
   )
