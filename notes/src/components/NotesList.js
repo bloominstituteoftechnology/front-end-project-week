@@ -1,8 +1,6 @@
 import React from "react";
 
 const NotesList = props => {
-  // console.log(props.notes);
-  // const { notes } = props.notes;
   return (
     <div className="notes-container">
       {props.notes.map(note => {

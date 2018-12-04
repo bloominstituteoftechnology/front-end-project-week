@@ -1,6 +1,6 @@
 import React from "react";
 
-class AddNote extends React.Component {
+class NoteForm extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -10,24 +10,47 @@ class AddNote extends React.Component {
     };
   }
 
-  onChange = e => {
+  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  addNote = e => {
+    e.preventDefault();
+    console.log(this.state);
+    console.log(this.props.addNote);
+    this.props.addNote(this.state);
+    this.setState({
+      tags: "",
+      title: "",
+      textBody: ""
+    });
   };
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.addNote}>
         <h3>Create a New Note</h3>
-        <input name="tags">Tags</input>
-        <input name="title" required>
-          Note Title
-        </input>
-        <input name="textBody" required>
-          Note Text
-        </input>
+        <label>
+          Tags:
+          <input name="tags" onChange={this.handleChange} />
+        </label>
+        <label>
+          Title:
+          <input name="title" onChange={this.handleChange} required />
+        </label>
+        <label>
+          Note:
+          <input
+            type="textarea"
+            name="textBody"
+            onChange={this.handleChange}
+            required
+          />
+        </label>
+        <button>Add Note</button>
       </form>
     );
   }
 }
 
-export default AddNote;
+export default NoteForm;

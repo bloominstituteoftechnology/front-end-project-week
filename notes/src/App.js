@@ -3,6 +3,7 @@ import "./App.css";
 
 import NotesList from "./components/NotesList";
 import Note from "./components/SingleNote";
+import NoteForm from "./components/AddNote";
 
 import axios from "axios";
 import { Route, NavLink } from "react-router-dom";
@@ -26,10 +27,14 @@ class App extends Component {
   }
 
   addNote = data => {
-    axios
-      .post("https://fe-notes.herokuapp.com/note/create", data)
-      .then(res => this.setState({ notes: res.data }))
-      .catch(err => console.error(err));
+    axios.post("https://fe-notes.herokuapp.com/note/create", data).then(res => {
+      console.log(res);
+      return axios
+        .get("https://fe-notes.herokuapp.com/note/get/all")
+        .then(res => this.setState({ notes: res.data }))
+        .catch(err => console.log(err));
+    });
+    // .catch(err => console.error(err));
   };
 
   deleteNote = id => {
@@ -47,7 +52,10 @@ class App extends Component {
   editNote = (data, id) => {
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
-      .then(res => this.setState({ notes: res.data }))
+      .then(res => {
+        console.log(res);
+        // this.setState({ notes: res.data });
+      })
       .catch(err => console.error(err));
   };
 
@@ -57,6 +65,7 @@ class App extends Component {
         <nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/notes">Notes</NavLink>
+          <NavLink to="add-note">Add Note</NavLink>
         </nav>
         <h1>Welcome to the Lambda Notes App</h1>
 
@@ -73,6 +82,12 @@ class App extends Component {
               notes={this.state.notes}
               delete={this.deleteNote}
             />
+          )}
+        />
+        <Route
+          path="/add-note"
+          render={props => (
+            <NoteForm {...props} edit={this.editNote} addNote={this.addNote} />
           )}
         />
       </div>
