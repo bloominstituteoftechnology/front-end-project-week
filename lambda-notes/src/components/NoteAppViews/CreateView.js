@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addNote } from '../../actions'
+import { Button, Input } from 'reactstrap'
 import styled from 'styled-components'
+
+const CreateViewContainer = styled.div `
+display: flex ;
+flex-direction: column ;
+justify-content: center ;
+`
 
 const CreateViewStyle = styled.div `
  display: flex;
  flex-direction: column;
  justify-content: center ;
-
+`
+const CreateText = styled.span `
+font - family: 'Archivo Black'
 `
 class CreateNote extends Component {
  constructor(){
@@ -35,31 +44,29 @@ class CreateNote extends Component {
   render() {
     return (
       <div>
-      <span>Create new note:</span>
-       <form onSubmit={this.submitNote} >
+      <CreateText>Create new note:</CreateText>
+      <form onSubmit={this.submitNote} >
        <CreateViewStyle>
-         <input 
-         name="title" 
-         type="text"
-         onChange={this.inputHandler}
-         value={this.state.title}
-         />
-        <textarea 
-         name="body"
-         rows="10"
-         type="text"
-         cols="40"
-         value={this.state.body}
-         onChange={this.inputHandler}
-        >
-        </textarea>
-        <button 
-         color="success">Save Note
-        </button>
-        </CreateViewStyle>
-       </form>
-       
-       
+        <Input 
+        name="title" 
+        type="text"
+        onChange={this.inputHandler}
+        value={this.state.title}
+        />
+       <textarea 
+        name="body"
+        rows="10"
+        type="text"
+        cols="40"
+        value={this.state.body}
+        onChange={this.inputHandler}
+       >
+       </textarea>
+       <Button 
+         color="info">Save Note
+        </Button>
+       </CreateViewStyle>
+      </form>
       </div>
     )
   }

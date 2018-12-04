@@ -6,11 +6,11 @@ import { Link, Route } from 'react-router-dom'
 import SingleNoteView from '../NoteAppViews/SingleNoteView'
 
 const NoteContainer = styled.section `
-  display: flex ;
-  flex-direction: row ;
-  flex-wrap: wrap ;
-  margin: 5% 5% 5% 5%;
-  justify-content: space-between ;
+ display: flex ;
+ flex-direction: row ;
+ flex-wrap: wrap ;
+ margin: 5% 5% 5% 5%;
+ justify-content: space-between ;
 `
 const NoteStyling = styled.div ` 
  border: 1px solid black ;
@@ -35,30 +35,33 @@ const NoteBody = styled.article `
 
 const Note = props => {
  
-  console.log(props.id)
-  return (
-    <div>
-     <NoteContainer>
-      <NoteStyling>
-      <CardDeck>
-       <Card  style={{ backgroundColor: '#f9fbff', borderColor: '#333' }} >
-        <CardBody>
+ console.log(props.id)
+ return (
+  <div>
+   <NoteContainer>
+    <NoteStyling>
+     <CardDeck>
+      <Card  style={{ backgroundColor: '#f9fbff', borderColor: '#333' }} >
+       <CardBody>
         <CardTitle>
-          <Link to={`/note/${props.id}`} style={{ textDecoration: 'none', color: 'black' }} ><NoteTitle>{props.title}</NoteTitle></Link>
-          <Route path={`/note/${props.id}`} component={SingleNoteView}/>
-          </CardTitle>
-          <hr />
-          <CardText>
-           <NoteBody className="note_body">{props.textBody}</NoteBody>
-          </CardText>
-          <CardLink href="/edit/">Edit</CardLink>
-        </CardBody>
-       </Card>
-       </CardDeck>
-      </NoteStyling>
-     </NoteContainer>
-    </div>
-  )
+         <Link to={`/note/${props.id}`} 
+         style={{ textDecoration: 'none', color: 'black' }} >
+         <NoteTitle>{props.title}</NoteTitle>
+         </Link>
+         <Route path={`/note/${props.id}`} component={SingleNoteView}/>
+        </CardTitle>
+         <hr />
+        <CardText>
+         <NoteBody className="note_body">{props.textBody}</NoteBody>
+        </CardText>
+        <CardLink href="/edit/">Edit</CardLink>
+       </CardBody>
+      </Card>
+     </CardDeck>
+    </NoteStyling>
+   </NoteContainer>
+  </div>
+ )
 }
 
 const mapStateToProps = state => {

@@ -19,8 +19,6 @@ export default class SingleNoteView extends React.Component {
  }
 
  render(){
-
-  
   console.log('A STRING')
    return (
     <div>

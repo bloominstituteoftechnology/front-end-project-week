@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Button, Input} from 'reactstrap'
 import styled from 'styled-components'
-import { getNote, editNote } from '../../actions/'
+import { getNote } from '../../actions/'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
+
 const EditViewStyle = styled.div `
  display: flex;
  flex-direction: row;
@@ -49,24 +49,23 @@ export default class EditView extends Component {
 
   render() {
     return (
-      <InputStyles size="sm" >
+     <InputStyles size="sm" >
       <Input
        name="title"
        onChange={this.inputHandler}
-       />
+      />
       <EditViewStyle>
-        <textarea 
-      id="note"
-      name="body"
-      rows="10"
-      cols="40"
-      onChange={this.inputHandler}
+      <textarea 
+       id="note"
+       name="body"
+       rows="10"
+       cols="40"
+       onChange={this.inputHandler}
       >
       </textarea>
-       
       </EditViewStyle>
       <Button onSubmit={this.submitEdit} color="info">Save Changes</Button>
-      </InputStyles>
+     </InputStyles>
     )
   }
 }

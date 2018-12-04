@@ -10,14 +10,8 @@ import SingleNoteView from '../NoteAppViews/SingleNoteView'
 import NoteView from '../NoteAppViews/NoteView'
 import './NoteAppContainer.css'
 import DefaultView from '../NoteAppViews/DefaultView'
-import Note from '../NoteContainer/Note'
 
 class NoteAppContainer extends React.Component {
- state = {
-  adding: false,
-  editing: false,
-  creating: false,
- }
 
  componentDidMount(){
   this.props.fetchNotes()
