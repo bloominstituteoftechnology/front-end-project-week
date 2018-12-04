@@ -34,7 +34,6 @@ class App extends Component {
         .then(res => this.setState({ notes: res.data }))
         .catch(err => console.log(err));
     });
-    // .catch(err => console.error(err));
   };
 
   deleteNote = id => {
@@ -54,7 +53,10 @@ class App extends Component {
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
       .then(res => {
         console.log(res);
-        // this.setState({ notes: res.data });
+        return axios
+          .get("https://fe-notes.herokuapp.com/note/get/all")
+          .then(res => this.setState({ notes: res.data }))
+          .catch(err => console.error(err));
       })
       .catch(err => console.error(err));
   };
@@ -86,8 +88,13 @@ class App extends Component {
         />
         <Route
           path="/add-note"
+          render={props => <NoteForm {...props} addNote={this.addNote} />}
+        />
+        <Route
+          exact
+          path="/edit-note/:id"
           render={props => (
-            <NoteForm {...props} edit={this.editNote} addNote={this.addNote} />
+            <NoteForm {...props} editNote={this.editNote} edit />
           )}
         />
       </div>

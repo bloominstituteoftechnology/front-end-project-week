@@ -44,6 +44,13 @@ class Note extends React.Component {
         <button type="submit" onClick={this.delete}>
           Delete Item
         </button>
+        <button
+          onClick={() =>
+            this.props.history.push(`/edit-note/${this.props.match.params.id}`)
+          }
+        >
+          Edit
+        </button>
       </div>
     );
   }
