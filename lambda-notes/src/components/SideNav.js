@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom'; 
 
 class SideNav extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHidden: false,
-    }
+
+  inputChangeHandler = e => {
+    this.props.filter(e.target.value)
   }
+
+  searchChangeHandler = e => {
+    this.props.filter(e.target.value);
+  }
+
   render() { 
     return (
       <div className="nav-main-container">
@@ -28,8 +31,8 @@ class SideNav extends Component {
             type="text"
             placeholder="Search"
             className="search-imput"
-            value={this.props.handleSearchValue}
-            onChange={this.props.handleOnChange} />
+            value={this.props.searchValue}
+            onChange={this.searchChangeHandler} />
         </div>
       </div>
     );

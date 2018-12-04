@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import NoteCard from '../NoteCard';
 import {fetchNotes} from '../../actions/index';
-import './NoteList.css';;
+import './NoteList.css';
+
 
 
 class NoteList extends Component {
 
-  componentDidMount = () => {
-    this.props.fetchNotes()
-  }
+
   
   render() { 
+    let notes = this.props.notes;
     return (
       <div className="list-main-container">
         <div className="list-header-container">
@@ -20,7 +20,7 @@ class NoteList extends Component {
         <div className="list-body-container">
           {this.props.loading ? <h1>Loading Note List</h1> : null}
           {this.props.error !== '' ? <h1>{this.props.error}</h1> : null }
-          {this.props.notes.map(note => {
+          {notes.map(note => {
             return (
               <NoteCard
                 key={Math.random()}
@@ -37,7 +37,6 @@ class NoteList extends Component {
 }
 
 const mapStateToProps = state => ({
-    notes: state.notes,
     error: state.error,
     loading: state.fetchingNotes,
 })
