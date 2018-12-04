@@ -31,14 +31,14 @@ class NoteView extends React.Component {
     render(){
         return(
            <>
-              <LinkContainer>
+            <LinkContainer>
                  <Link to={`/edit/${this.state.note._id}`} >
                     <span>Edit</span>
                  </Link>
                  <Link to={`/note/${this.state.note._id}/delete`} >
                   <span>Delete</span>
-               </Link>
-                </LinkContainer>
+                 </Link>
+            </LinkContainer>
               <Content>
                  <h2>{this.state.note.title}</h2>
                  <p>{this.state.note.textBody}</p>
