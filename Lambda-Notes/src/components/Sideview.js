@@ -43,7 +43,7 @@ const Sideview = props => {
             <Nav>
                 <NavHeader>Lambda<br/>Notes</NavHeader>
                 <NavButton to='/'>View Your Notes</NavButton>
-                <NavButton to='/'>+ Create New Note</NavButton>
+                <NavButton to='/create'>+ Create New Note</NavButton>
             </Nav>
     )
 }
