@@ -1,34 +1,33 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { CreateViewWrapper, CreateHeader, Form, TitleInput, ContentInput, Btn } from "./Styled";
+import {
+  CreateViewWrapper,
+  CreateHeader,
+  Form,
+  TitleInput,
+  ContentInput,
+  Btn
+} from "./Styled";
 
 class EditView extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
       notes: [],
-      note: {
-      title: "",
-      textBody: ""
-      },
-      isUpdating: false
+      newTitle: "",
+      newTextBody: ""
     };
   }
 
-
-   
-  editNote = e => {
-    e.preventDefault();
+  editNote = noteId => {
     axios
       .put(
         `https://fe-notes.herokuapp.com/note/edit/${
-          this.props.match.params.id
-        }`,
-        this.state.note
+          noteId}`,
+        {title: this.state.newTextBody, textBody: this.state.newTextBody}
       )
       .then(res => {
-        this.setState({ notes: res.data });
+        this.setState({ notes: res.data});
       })
       .catch(err => console.log(err, "cannot edit this note"));
   };
@@ -38,27 +37,31 @@ class EditView extends Component {
       [e.target.name]: e.target.value
     });
   };
+  submitHandler = e => {
+    e.preventDefault();
+    this.editNote(this.state)
+  }
   render() {
     return (
       <CreateViewWrapper>
         <CreateHeader>Edit Note:</CreateHeader>
 
-        <Form onSubmit={this.editNote}>
+        <Form>
           <TitleInput
             name="title"
             type="text"
-            value={this.state.title}
+            value={this.state.newTitle}
             onChange={this.changeHandler}
             placeholder="Note Title"
           />
           <ContentInput
             name="textBody"
             type="text"
-            value={this.state.textBody}
+            value={this.state.newTextBody}
             onChange={this.changeHandler}
             placeholder="Note Content"
           />
-          <Btn type="submit">Update</Btn>
+          <Btn>Update</Btn>
         </Form>
       </CreateViewWrapper>
     );
