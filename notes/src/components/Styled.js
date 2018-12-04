@@ -4,33 +4,34 @@ import { Link } from "react-router-dom";
 //App.js
 export const AppWrapper = styled.div`
   box-sizing: border-box;
-  height: 100vh;
   width: 100%;
   margin: 0 auto;
   max-width: 885px;
   display: flex;
   border: 1px solid #afafaf;
-`;
+  height: 100vh;
+  `;
 
 //SideBar.js
 export const SideBarWrapper = styled.div`
   width: 100%;
   max-width: 220px;
-  height: 100vh;
   background: #d3d2d3;
   border-right: 2px solid #afafaf;
 `;
-export const SideBarContentWrapper = styled.div``;
+export const SideBarContentWrapper = styled.div`
+min-height: 100%;
+`;
 export const SideBarTitle = styled.h1`
   color: #414242;
   margin-left: 15px;
   margin-top: 15px;
 `;
-export const SideBarLinksWrapper = styled.ul`
+export const SideBarLinksWrapper = styled.div`
 list-style-type: none;
 width: 100%:
+
 `;
-export const ViewLinkWrapper = styled.li``;
 export const Btn = styled.button`
   width: 100%;
   max-width: 192px;
@@ -40,8 +41,8 @@ export const Btn = styled.button`
   color: #f3f7f6;
   font-weight: bold;
   font-size: 16px;
+  margin-bottom: 15px;
 `;
-export const CreateLinkWrapper = styled.li``;
 
 //CreateNewView.js
 export const CreateViewWrapper = styled.div`
@@ -79,6 +80,7 @@ export const ListViewWrapper = styled.div`
   background: #f2f1f2;
   width: 100%;
   height: 100vh;
+  overflow-y: scroll;
   max-width: 665px;
 `;
 export const NotesViewWrapper = styled.div`
@@ -90,10 +92,15 @@ export const NotesListTitle = styled.h2`
   color: #414242;
   text-decoration: none;
 `;
-export const NoteCardTitle = styled.h3``;
+export const NoteCardTitle = styled.h3`
+  color: #2c2829;
+`;
 
 export const NoteCardText = styled.p`
-  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  color: #807b78;
+  
 `;
 export const NoteCardList = styled.div`
   width: 665px;
@@ -112,8 +119,8 @@ export const NoteCard = styled.div`
   width: 192px;
   height: 200px;
   padding: 5px;
-  overflow: hidden;
-  text-overflow: -o-ellipsis-lastline;
+  overflow-y: scroll;
+  
   border: 2px solid #c5c5c5;
   color: black;
   cursor: pointer;
@@ -124,12 +131,10 @@ export const NoteCard = styled.div`
   }
 `;
 
-
 //NoteView.js
 export const NoteViewWrapper = styled.div`
   width: 100%;
   max-width: 665px;
-  height: 100vh;
   background: #f2f1f2;
 `;
 export const NoteWrapper = styled.div`
