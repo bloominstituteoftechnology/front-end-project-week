@@ -50,7 +50,7 @@ class ViewNote extends Component {
 					if (this.props.match.params.id === note._id) {
 						console.log(note.title);
 						return (
-							<div key={note._id}>
+							<div className="margin" key={note._id}>
 								<p className="ViewNoteTitle">{note.title}</p>
 								<p className="ViewNoteText">{note.textBody}</p>
 							</div>

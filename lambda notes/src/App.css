@@ -59,6 +59,7 @@ aside a {
 .page-wrapper form {
   display: flex;
   flex-direction: column;
+  font-size: 2rem;
 }
 
 .page-wrapper form button {
@@ -73,6 +74,10 @@ aside a {
   font-weight: bold;
   padding: 5px;
   cursor: pointer;
+}
+
+.margin {
+  margin-left: 23%;
 }
 
 .noteList {
@@ -106,12 +111,16 @@ hr {
 .noteTitle {
   font-weight: bold;
   font-size: 2.4rem;
+  white-space: pre-wrap;
+  color: rgb(65, 65, 65);
 }
 
 .noteText {
   letter-spacing: 1px;
   line-height: 2rem;
   font-size: 1.6rem;
+  white-space: pre-wrap;
+  color: rgb(65, 65, 65);
 }
 
 a {
@@ -125,6 +134,7 @@ a {
   padding: 5px;
   margin-bottom: 10px;
   margin-left: 30%;
+  outline-color: rgb(43, 193, 197);
 }
 
 .inputContent {
@@ -132,12 +142,14 @@ a {
   height: 500px;
   margin-bottom: 10px;
   margin-left: 30%;
+  outline-color: rgb(43, 193, 197);
 }
 
 .viewNoteTitle {
   font-size: 1.4rem;
-  margin: 20px 0;
+  margin: 25%;
   white-space: pre-wrap;
+  color: rgb(65, 65, 65);
 }
 
 .viewNoteText {
@@ -145,15 +157,58 @@ a {
   white-space: pre-wrap;
 }
 
+.action-btns {
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  font-size: 2.6rem;
+  text-decoration: underline;
+  color: rgb(65, 65, 65);
+  font-weight: bold;
+}
 
+.action-btns a {
+  margin: 0 .5%;
+  cursor: pointer;
+  color: rgb(65, 65, 65);
+}
 
+.modal {
+  margin: 80%;
+}
 
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  padding: 40px;
+}
 
+.modal-body div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
 
+.modal-body div .btn {
+  width: 40%;
+  padding: 5px;
+  margin: 0 2%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border: 1px solid rgb(216, 221, 222);
+}
 
+.btn-primary{
+  background-color: rgb(36, 184, 189);
+}
 
-
-
+.btn-primary:hover {
+  background-color: rgb(28,167,172);
+}
 
 
 

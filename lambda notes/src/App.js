@@ -6,6 +6,8 @@ import { Route, Link } from "react-router-dom";
 import NoteList from "./components/NoteList";
 import CreateNote from "./components/CreateNote";
 import ViewNote from "./components/ViewNote";
+import EditNote from "./components/EditNote";
+import DeleteNote from "./components/DeleteNote";
 
 class App extends Component {
 	constructor() {
@@ -31,17 +33,6 @@ class App extends Component {
 			});
 	};
 
-	deleteNote = id => {
-		axios
-			.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-			.then(response => {
-				this.getNotes();
-			})
-			.catch(error => {
-				console.log("Deletion error")
-			});
-	};
-
 	render() {
 		return (
 			<div className="App">
@@ -57,12 +48,20 @@ class App extends Component {
 				<Route
 					path="/"
 					exact
-					render={props => <NoteList {...props} notes={this.state.notes} /> }
+					render={props => (
+						<NoteList 
+							{...props} 
+							notes={this.state.notes} 
+						/> 
+					)}
 				/>
 				<Route
 					path="/create"
 					render={props => (
-						<CreateNote {...props} createNewNote={this.createNewNote} />
+						<CreateNote 
+							{...props} 
+							getNotes={this.getNotes} 
+						/>
 					)}
 				/>
 				<Route
@@ -71,9 +70,23 @@ class App extends Component {
 						<ViewNote 
 							{...props} 
 							notes={this.state.notes} 
-							deleteNote={this.deleteNote}
 						/>
 					)}
+				/>
+				<Route 
+					path="/edit/:id"
+					render={props => (
+						<EditNote
+							{...props}
+							notes={this.state.notes}
+							getNotes={this.getNotes}
+						/>
+					)}
+				/>
+				<Route 
+					exact
+					path="/delete/:id"
+					component={DeleteNote}
 				/>
 			</div>
 		);
