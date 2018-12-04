@@ -8,7 +8,8 @@ import {
 	FETCHEDNOTE,
 	UPDATING,
 	UPDATED,
-	DELETING
+	DELETING,
+	DELETED
 } from '../actions';
 const initialState = {
 	updating: false,
@@ -73,6 +74,8 @@ const NotesReducer = (state = initialState, action) => {
 			return { ...state, deleting: true };
 		case ERROR:
 			return { ...state, error: action.message };
+		case DELETED:
+			return { ...state, deleting: false, notes: action.payload };
 		default:
 			return state;
 	}

@@ -10,6 +10,7 @@ export const ERROR = 'ERROR';
 export const UPDATING = 'UPDATING';
 export const UPDATED = 'UPDATED';
 export const DELETING = 'DELETING';
+export const DELETED = 'DELETED';
 
 export const getNotes = () => dispatch => {
 	dispatch({ type: FETCHING });
@@ -73,4 +74,19 @@ export const editNote = data => dispatch => {
 
 export const deleting = data => dispatch => {
 	dispatch({ type: DELETING });
+};
+
+export const deleted = data => dispatch => {
+	axios
+		.delete(
+			`
+https://fe-notes.herokuapp.com/note/delete/${data}`
+		)
+		.then(response => {
+			dispatch({ type: DELETED, payload: response.data });
+		})
+
+		.catch(err => {
+			dispatch({ type: ERROR, message: 'delete got an error' });
+		});
 };
