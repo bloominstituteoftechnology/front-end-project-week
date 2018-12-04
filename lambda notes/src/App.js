@@ -31,6 +31,17 @@ class App extends Component {
 			});
 	};
 
+	deleteNote = id => {
+		axios
+			.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+			.then(response => {
+				this.getNotes();
+			})
+			.catch(error => {
+				console.log("Deletion error")
+			});
+	};
+
 	render() {
 		return (
 			<div className="App">
@@ -57,7 +68,11 @@ class App extends Component {
 				<Route
 					path="/view/:id"
 					render={props => (
-						<ViewNote {...props} notes={this.state.notes} />
+						<ViewNote 
+							{...props} 
+							notes={this.state.notes} 
+							deleteNote={this.deleteNote}
+						/>
 					)}
 				/>
 			</div>

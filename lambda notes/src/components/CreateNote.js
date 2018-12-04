@@ -47,7 +47,7 @@ class CreateNote extends Component {
                   value={this.state.title}
                   onChange={this.inputHandler}
                />
-               <input 
+               <textarea 
                   required
                   className="inputContent"
                   name="text"
@@ -55,7 +55,7 @@ class CreateNote extends Component {
                   value={this.state.text}
                   onChange={this.inputHandler}
                />
-               <button type="Submit">Save</button>
+               <button type="submit">Update</button>
             </form>
          </div>
       );
