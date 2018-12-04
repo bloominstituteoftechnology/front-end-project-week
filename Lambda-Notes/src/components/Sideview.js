@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const Nav = styled.nav`
     display: table-cell;
-    width: 20%;
+    width: 15%;
     min-width: 250px;
     height: 100%;
     padding: 0 1.5% 0 1.5%;
