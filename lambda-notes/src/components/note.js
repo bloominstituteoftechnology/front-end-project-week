@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getNote, deleteNote} from '../actions';
 import {Link} from 'react-router-dom';
 import Switch from 'react-switch';
+import ReactMarkdown from 'react-markdown';
 
 
 class Note extends React.Component {
@@ -51,6 +52,9 @@ class Note extends React.Component {
         </div>
       )
     } 
+
+    const markdownInput = this.state.textBody;
+
     return(
     
     <div className="note-container">
@@ -68,7 +72,7 @@ class Note extends React.Component {
           className="switch" />
       </div>
       <div className="body-container">
-        {this.state.checked ? <p>Markdown Note view</p> : <p className="text-body">{this.state.textBody}</p> }
+        {this.state.checked ? <ReactMarkdown source={markdownInput}/> : <p className="text-body">{this.state.textBody}</p> }
         
       </div>
     </div>
