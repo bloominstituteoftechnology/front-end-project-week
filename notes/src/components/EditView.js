@@ -37,16 +37,13 @@ class EditView extends Component {
       [e.target.name]: e.target.value
     });
   };
-  submitHandler = e => {
-    e.preventDefault();
-    this.editNote(this.state)
-  }
+
   render() {
     return (
       <CreateViewWrapper>
         <CreateHeader>Edit Note:</CreateHeader>
 
-        <Form>
+        <Form onSubmit={this.editNote}>
           <TitleInput
             name="title"
             type="text"
