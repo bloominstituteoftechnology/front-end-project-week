@@ -6,9 +6,15 @@ import NoteView from '../NoteAppViews/NoteView'
 import NoteTextArea from '../NoteContainer/NoteTextArea'
 
 const NoteContainerStyle = styled.div `
+
  display: flex ;
- flex-direction: row ;
- flex-wrap: wrap ;
+  flex-direction: row ;
+  flex-wrap: wrap ;
+  margin: 5% 5% 5% 5%;
+  padding: 5%;
+  width: 80% ;
+  border: 1px solid black ;
+  justify-content: space-between ;
 `
 class NoteContainer extends React.Component {
  render(){

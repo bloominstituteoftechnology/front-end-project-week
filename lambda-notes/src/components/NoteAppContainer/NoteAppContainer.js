@@ -28,10 +28,11 @@ class NoteAppContainer extends React.Component {
    <div className="note_app_container">
      <Sidebar />
      <Route exact path="/" render={(props) => <DefaultView {...props} />} />
-     <Route path="/edit/" component={EditView}/>
+     <Route path="/edit/" render={(props) => <EditView notes={this.props.notes} {...props}/> }/>
      <Route path ="/edit/:noteId" component={EditView} />
      <Route exact path="/new/" component={CreateView} />
      <Route exact path='note/' render={(props) => <NoteView notes={this.props.notes} {...props}/>}/>
+     <Link to="/note/:noteId"/>
      <Route path='note/:noteId' component={SingleNoteView} />
    </div>
   );

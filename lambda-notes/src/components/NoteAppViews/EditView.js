@@ -9,9 +9,19 @@ const EditViewStyle = styled.div `
  flex-direction: row;
  width: 75% ;
 `
+
+const InputStyles = styled.div `
+ display: flex;
+ flex-direction: column;
+ border: 1px solid black ;
+ justify-content: center ;
+ width: 100% ;
+ height: 200px ;
+ align-items: flex-start ;
+`
 export default class EditView extends Component {
- constructor(){
-  super()
+ constructor(props){
+  super(props)
   this.state = {
     title: '',
     body: ''
@@ -39,7 +49,7 @@ export default class EditView extends Component {
 
   render() {
     return (
-      <div>
+      <InputStyles size="sm" >
       <Input
        name="title"
        onChange={this.inputHandler}
@@ -53,9 +63,10 @@ export default class EditView extends Component {
       onChange={this.inputHandler}
       >
       </textarea>
-       <Button onSubmit={this.submitEdit} color="info">Save Changes</Button>
+       
       </EditViewStyle>
-      </div>
+      <Button onSubmit={this.submitEdit} color="info">Save Changes</Button>
+      </InputStyles>
     )
   }
 }
@@ -66,4 +77,4 @@ const mapStateToProps = state => {
   notes: notes
  }
 }
-withRouter(connect(mapStateToProps, { getNote })(EditView))
+connect(mapStateToProps, { getNote })(EditView)

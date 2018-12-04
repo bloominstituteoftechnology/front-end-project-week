@@ -14,9 +14,8 @@ export default class SingleNoteView extends React.Component {
  singleNote = this.props.notes.find(note => `${note.id}` === `${this.id}`)
 
  componentDidMount(){
-  // const id = this.props.match.params.noteId
-   return () => this.props.getNote()
-  console.log('Here')
+  const id = this.props.match.params.noteId
+   return () => this.props.getNote(id)
  }
 
  render(){
@@ -26,6 +25,7 @@ export default class SingleNoteView extends React.Component {
    return (
     <div>
     {this.props.title}
+    {this.singleNote}
     I'M HERE
     </div>
   )}
