@@ -7,6 +7,18 @@ const MainContainer = styled.div`
     padding: 20px 3% 0 0;
 `
 
+const LinkContainer = styled.div`
+    float: right;
+`
+
+const Links = styled(Link)`
+    color: #4A494A;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 15px;
+`
+
 const NoteContainer = styled.section`
     padding-top: 40px;
 `
@@ -25,18 +37,6 @@ const NoteBody = styled.p`
     text-overflow: ellipsis;
     white-space: pre-line;
     margin-bottom: 40px;
-`
-
-const LinkContainer = styled.div`
-    float: right;
-`
-
-const Links = styled(Link)`
-    color: #4A494A;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-decoration: underline;
-    margin-left: 15px;
 `
 
 class ViewNote extends Component {

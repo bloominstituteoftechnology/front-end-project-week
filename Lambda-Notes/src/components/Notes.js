@@ -11,10 +11,9 @@ import EditNote from './EditNote.js'
 
 const ContentContainer = styled.div`
     display: table-cell;
-    width: 85%;
+    max-width: 450px;
     vertical-align: top;
-    padding-left: 3%;
-    padding-top: 4%;
+    padding-left: 30px;
 `
 
 class Notes extends Component {

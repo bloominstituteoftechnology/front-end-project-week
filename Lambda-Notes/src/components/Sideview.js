@@ -5,7 +5,8 @@ import { NavLink } from 'react-router-dom';
 
 const Nav = styled.nav`
     display: table-cell;
-    min-width: 200px;
+    width: 20%;
+    min-width: 250px;
     height: 100%;
     padding: 0 1.5% 0 1.5%;
     background-color: #D8D8D8;
@@ -22,8 +23,8 @@ const NavHeader = styled.h1`
 
 const NavButton = styled(NavLink)`
     display: block;
-    margin-bottom: 10px;
     border: 1px solid #959898;
+    outline: none;
     text-decoration: none;
     background-color: #5DBEC3;
     color: #ffffff;
@@ -34,6 +35,7 @@ const NavButton = styled(NavLink)`
     font-weight: bold;
     padding: 0.8rem 0;
     width: 100%;
+    margin-bottom: 10px;
     -webkit-appearance: none;
     -moz-appearance: none; 
 `
