@@ -75,7 +75,10 @@ const NotesReducer = (state = initialState, action) => {
 		case ERROR:
 			return { ...state, error: action.message };
 		case DELETED:
-			return { ...state, deleting: false, notes: action.payload };
+			let afterDeleted = state.notes
+				.slice()
+				.filter(note => note._id !== action.payload);
+			return { ...state, deleting: false, notes: afterDeleted };
 		default:
 			return state;
 	}

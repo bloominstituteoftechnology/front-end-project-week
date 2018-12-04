@@ -66,6 +66,7 @@ class DeleteNote extends React.Component {
 
 	deleteHandler = e => {
 		this.props.deleted(this.props.match.params.id);
+		this.props.history.push(`/`);
 	};
 
 	render() {

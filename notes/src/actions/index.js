@@ -83,7 +83,7 @@ export const deleted = data => dispatch => {
 https://fe-notes.herokuapp.com/note/delete/${data}`
 		)
 		.then(response => {
-			dispatch({ type: DELETED, payload: response.data });
+			dispatch({ type: DELETED, payload: data });
 		})
 
 		.catch(err => {
