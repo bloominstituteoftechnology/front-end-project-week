@@ -3,11 +3,11 @@ import React from 'react';
 import NoteContianer from './NoteContainer'
 
 const NoteList = props => {
-    console.log(props._id)
         return(
             <div>
-                {props.notes.map(notes => 
-                    <NoteContianer key={notes._id} title={notes.title} body={notes.TextBody} id={notes._id} />
+                <h2>Your Notes:</h2>
+                {props.notes.map(note => 
+                    <NoteContianer key={note._id} title={note.title} body={note.textBody} id={note._id} />
                 )}
             </div>
         )
