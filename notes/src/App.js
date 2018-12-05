@@ -17,6 +17,7 @@ class App extends Component {
       filtered: []
     };
   }
+
   reset = () => {
     this.setState({ filtered: [] });
   };
