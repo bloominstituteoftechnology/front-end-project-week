@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Sidebar from "../Sidebar";
 import NoteList from "../NoteList";
 import Form from "../Form";
+import Note from "../Note";
 import axios from "axios";
 import "./index.css";
 
@@ -24,17 +25,37 @@ class App extends Component {
             );
     };
 
-    handleFormSubmit() {}
+    handleFormSubmit = event => {
+        event.preventDefault();
+
+    const newNote = {
+        title: this.state.title,
+        textBody: this.state.textBody
+    };
+
+    axios
+        .post(`https://fe-notes.herokuapp.com/note/create`, newNote)
+        .then(response => {
+            this.refetchNotes();
+            this.setState({
+                title: "",
+                textBody: ""
+            });
+        })
+        .catch(error => console.log(error));
+    
+    this.props.history.push("/");
+    };
 
     refetchNotes() {
         axios
-            .get("https://fe-notes.herokuapp.com/note/get/all")
+            .get(`https://fe-notes.herokuapp.com/note/get/all`)
             .then(response => {
                 this.setState(
                     {notes: response.data}
                 )
-            });
-            // .catch(error => console.log(error));
+            })
+            .catch(error => console.log(error));
     };
 
     render() {
@@ -45,6 +66,8 @@ class App extends Component {
                     <NoteList notes={this.state.notes} />
                 }
                 />
+
+                <Switch>
                 <Route path="notes/add" render={ props =>
                     <Form
                         title={this.state.title}
@@ -53,6 +76,10 @@ class App extends Component {
                         handleInputChange={this.handleInputChange}
                     />}
                 />
+                <Route path="notes/:id" render={props =>
+                    <Note {...props} refetchNotes={this.refetchNotes} />}
+                />
+                </Switch>
             </div>
         )
     }

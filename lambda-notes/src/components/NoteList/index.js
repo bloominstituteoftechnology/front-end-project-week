@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const NoteList = props => {
     if (!props.notes) {
     return (
-        <div>Notes are loading...</div>
+        <div>Loading notes...</div>
         )
     }
 

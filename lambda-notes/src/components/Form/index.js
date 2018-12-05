@@ -1,8 +1,10 @@
 import React from "react";
 
 const Form = props => {
-    const heading = "Form Heading";
-    const buttonName = "Save";
+    const heading = props.type === "new" ? 
+        "Create New Note" : "Edit Note:";
+    const buttonName = props.type === "new" ? 
+        "Save" : "Update";
 
     return (
         <div className="create-new-view">
