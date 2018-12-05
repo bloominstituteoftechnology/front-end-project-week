@@ -3,7 +3,14 @@ import axios from "axios";
 
 // import { Link } from "react-router-dom";
 
-import { NoteViewWrapper, NoteWrapper,SingleNoteTitle, SingleNoteText, NoteViewLinks, EditLink, DeleteLink,} from "./Styled";
+import {
+  NoteViewWrapper,
+  NoteWrapper,
+  SingleNoteTitle,
+  SingleNoteText,
+  ModifyNoteWrapper,
+  ModifyNoteLink
+} from "./Styled";
 
 class NoteView extends Component {
   constructor() {
@@ -27,24 +34,36 @@ class NoteView extends Component {
       })
       .catch(err => console.log(err));
   }
- 
+
+  deleteNote = id => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(res => {
+        console.log("note was successfully deleted");
+        this.setState({ notes: res.data });
+      })
+      .catch(err => console.log(err, "note could not be deleted"));
+  };
+
   render() {
     return (
       <NoteViewWrapper>
         <NoteWrapper>
-        <NoteViewLinks>
-          <EditLink
-            to={`/note/edit/${this.state.note._id}`}
-            key={this.state.note._id}
-          >
-            edit
-          </EditLink>
+          <ModifyNoteWrapper>
+            <ModifyNoteLink
+              to={`/note/edit/${this.state.note._id}`}
+              key={this.state.note._id}
+            >
+              edit
+            </ModifyNoteLink>
 
-          <div>delete</div>
-        </NoteViewLinks>
+            <ModifyNoteLink onClick={this.deleteNote} to={`/note/delete/${this.state.note._id}`} key={this.state.note._id}>
+              delete
+            </ModifyNoteLink>
+          </ModifyNoteWrapper>
 
-        <SingleNoteTitle>{this.state.title}</SingleNoteTitle>
-        <SingleNoteText>{this.state.textBody}</SingleNoteText>
+          <SingleNoteTitle>{this.state.title}</SingleNoteTitle>
+          <SingleNoteText>{this.state.textBody}</SingleNoteText>
         </NoteWrapper>
       </NoteViewWrapper>
     );

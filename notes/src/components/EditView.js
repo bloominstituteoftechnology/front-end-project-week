@@ -13,21 +13,35 @@ class EditView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [],
-      newTitle: "",
-      newTextBody: ""
+      notes: {},
+      note: {},
+      title: "",
+      textBody: "",
+      isUpdating: false
     };
   }
+
+  updateHandler = (e, id) => {
+    e.preventDefault();
+    const updatedNote = this.state.notes.find(note => note._id === id);
+    this.setState({ isUpdating: true, note: updatedNote });
+  };
 
   editNote = noteId => {
     axios
       .put(
         `https://fe-notes.herokuapp.com/note/edit/${
-          noteId}`,
-        {title: this.state.newTextBody, textBody: this.state.newTextBody}
+          this.props.match.params.id
+        }`,
+        { title: "", textBody: "" }
       )
       .then(res => {
-        this.setState({ notes: res.data});
+        this.setState({
+          notes: res.data,
+          isUpdating: false,
+          title: "",
+          textBody: ""
+        });
       })
       .catch(err => console.log(err, "cannot edit this note"));
   };
@@ -47,14 +61,14 @@ class EditView extends Component {
           <TitleInput
             name="title"
             type="text"
-            value={this.state.newTitle}
+            value={this.state.title}
             onChange={this.changeHandler}
             placeholder="Note Title"
           />
           <ContentInput
             name="textBody"
             type="text"
-            value={this.state.newTextBody}
+            value={this.state.textBody}
             onChange={this.changeHandler}
             placeholder="Note Content"
           />

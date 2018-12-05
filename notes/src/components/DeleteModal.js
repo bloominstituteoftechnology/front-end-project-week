@@ -1,14 +1,20 @@
 import React, { Component } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal,ModalBody, ModalFooter } from "reactstrap";
 
 class DeleteModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      title: '',
+      textBody: '',
+      isModalOpen: false
     };
 
-    this.toggle = this.toggle.bind(this);
+  
+
+ 
+
+    this.toggle = this.toggle.bind(this)
   }
 
   toggle() {
@@ -16,6 +22,9 @@ class DeleteModal extends Component {
       modal: !this.state.modal
     });
   }
+
+  
+
 
   render() {
     return (
@@ -25,28 +34,25 @@ class DeleteModal extends Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+    
           <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Are you sure you want to delete this?
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>
-              Do Something
-            </Button>{" "}
+            <Button color="danger" onClick={this.toggle}>
+              Delete
+            </Button>
             <Button color="secondary" onClick={this.toggle}>
-              Cancel
+              No
             </Button>
           </ModalFooter>
         </Modal>
       </div>
     );
   }
+  
 }
+
+
 
 export default DeleteModal;

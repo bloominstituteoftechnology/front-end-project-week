@@ -27,6 +27,7 @@ export const SideBarTitle = styled.h1`
 `;
 export const SideBarLinksWrapper = styled.div`
   list-style-type: none;
+  margin-left: 13px;
 `;
 export const Btn = styled.button`
   width: 100%;
@@ -90,7 +91,6 @@ export const NotesViewWrapper = styled.div`
 `;
 export const NotesListTitle = styled.h2`
   color: #414242;
-  text-decoration: none;
 `;
 export const NoteCardTitle = styled.h3`
   color: #2c2829;
@@ -149,6 +149,9 @@ export const ModifyNoteLink = styled(Link)`
   margin: 5px;
   text-decoration: underline;
   font-weight: bold;
+  :hover {
+    color: #57b5bb;
+  }
 `;
 
 export const SingleNoteTitle = styled.h3``;

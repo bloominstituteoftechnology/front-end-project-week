@@ -10,15 +10,7 @@ import DeleteModal from "./components/DeleteModal";
 import { AppWrapper } from "./components/Styled";
 
 class App extends Component {
-  // deleteNote = id => {
-  //   axios
-  //     .delete(`https://fe-notes.herokuapp.com/note/delete/:id`)
-  //     .then(res => {
-  //       console.log("you have successfully ditched this note");
-  //       this.setState({ notes: res.data });
-  //     })
-  //     .catch(err => console.log(err, "note could not be deleted"));
-  // };
+
 
   render() {
     return (
@@ -29,7 +21,7 @@ class App extends Component {
         <Route exact path="/note/:id" component={NoteView} />
         <Route exact path="/" component={ListView} />
         <Route exact path="/note/edit/:id" component={EditView} />
-        <Route exact path="/note/delete/:id" component={DeleteModal} />
+        {/* <Route exact path="/note/delete/:id" component={ListView} /> */}
       </AppWrapper>
     );
   }
