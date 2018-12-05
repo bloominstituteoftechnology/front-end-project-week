@@ -32,15 +32,21 @@ const Form = styled.form`
     border: 1px solid grey;
   }
 
-  button {
+  div {
     width: 15%;
     height: 40px;
     color: #ffffff;
     background-color: #2ac0c4;
     font-weight: bold;
     font-size: 1rem;
+    vertical-align: middle;
+    border: 1px solid grey;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &:hover {
-      background-color: white;
+      background-color: #ffffff;
       color: #2ac0c4;
     }
   }
@@ -86,7 +92,9 @@ class NoteForm extends React.Component {
           required={!this.props.edit}
           placeholder="Note content"
         />
-        <button>{this.props.edit ? "Edit Note" : "Add Note"}</button>
+        <div onClick={this.submitHandler}>
+          {this.props.edit ? "Edit Note" : "Add Note"}
+        </div>
       </Form>
     );
   }
