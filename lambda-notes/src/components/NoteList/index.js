@@ -16,7 +16,7 @@ const NoteList = props => {
             <div className="notes-previews-container">
                 {notes.map(note => {
                     return(
-                        <Link to={`/notes/${note.id}`} key={Math.random()}>
+                        <Link to={`/notes/${note._id}`} key={ note._id }>
                             <div className="note-preview-container">
                                 <h3>{note.title}</h3>
                                 <p>{note.textBody}</p>

@@ -15,6 +15,7 @@ export default class Note extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.match.params, "text")
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${this.id}`)
             .then(response => {
@@ -55,7 +56,7 @@ export default class Note extends Component {
     }
 
     toggleEditMode = event => {
-        event.prevent.default();
+        event.preventDefault();
         this.setState({ isEditing: true });
     }
 

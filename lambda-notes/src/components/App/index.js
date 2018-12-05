@@ -62,13 +62,12 @@ class App extends Component {
         return (
             <div className="App">
                 <Sidebar />
+                <Switch>
                 <Route exact path="/" render={ props => 
                     <NoteList notes={this.state.notes} />
                 }
                 />
-
-                <Switch>
-                <Route path="notes/add" render={ props =>
+                <Route exact path="/notes/add" render={ props =>
                     <Form
                         title={this.state.title}
                         textBody={this.state.textBody}
@@ -76,7 +75,7 @@ class App extends Component {
                         handleInputChange={this.handleInputChange}
                     />}
                 />
-                <Route path="notes/:id" render={props =>
+                <Route exact path="/notes/:id" render={props =>
                     <Note {...props} refetchNotes={this.refetchNotes} />}
                 />
                 </Switch>
