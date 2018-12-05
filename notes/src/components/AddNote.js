@@ -1,10 +1,41 @@
 import React from "react";
+import styled from "styled-components";
+
+const Form = styled.form`
+  margin-left: 275px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2%;
+  background-color: #d7d7d7;
+  height: 100vh;
+  input {
+    width: 20%;
+    padding: 1%;
+    margin-bottom: 1%;
+  }
+  textarea {
+    height: 300px;
+    margin-bottom: 3%;
+    vertical-align: top;
+    width: 60%;
+    padding: 1%;
+  }
+  button {
+    width: 15%;
+    height: 40px;
+    color: #ffffff;
+    background-color: #2ac0c4;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+`;
 
 class NoteForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      tags: "",
       title: "",
       textBody: ""
     };
@@ -13,18 +44,6 @@ class NoteForm extends React.Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  // addNote = e => {
-  //   e.preventDefault();
-  //   console.log(this.state);
-  //   console.log(this.props.addNote);
-  //   this.props.addNote(this.state);
-  //   this.setState({
-  //     tags: "",
-  //     title: "",
-  //     textBody: ""
-  //   });
-  // };
 
   submitHandler = e => {
     e.preventDefault();
@@ -39,31 +58,22 @@ class NoteForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
+      <Form onSubmit={this.submitHandler}>
         <h3>{this.props.edit ? "Edit Note" : "Create New Note"}</h3>
-        <label>
-          Tags:
-          <input name="tags" onChange={this.handleChange} />
-        </label>
-        <label>
-          Title:
-          <input
-            name="title"
-            onChange={this.handleChange}
-            required={!this.props.edit}
-          />
-        </label>
-        <label>
-          Note:
-          <input
-            type="textarea"
-            name="textBody"
-            onChange={this.handleChange}
-            required={!this.props.edit}
-          />
-        </label>
+        <input
+          name="title"
+          onChange={this.handleChange}
+          required={!this.props.edit}
+          placeholder="Note title"
+        />
+        <textarea
+          name="textBody"
+          onChange={this.handleChange}
+          required={!this.props.edit}
+          placeholder="Note content"
+        />
         <button>{this.props.edit ? "Edit Note" : "Add Note"}</button>
-      </form>
+      </Form>
     );
   }
 }

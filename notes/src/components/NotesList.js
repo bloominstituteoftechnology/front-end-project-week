@@ -1,4 +1,73 @@
 import React from "react";
+import styled from "styled-components";
+
+const MainContent = styled.div`
+  background-color: #f3f3f3;
+  margin-left: 275px;
+  margin-top: -20px;
+  text-align: left;
+  padding: 5% 0 0 2%;
+`;
+
+const NoteList = styled.div`
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+  display: flex;
+  flex-flow: row wrap;
+`;
+
+const NoteWrapper = styled.div`
+  box-sizing: border-box;
+  background-color: #ffffff;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  border: 1px solid black;
+  align-items: left;
+  padding: 2%;
+  width: 30%;
+  height: auto;
+  cursor: pointer;
+  margin-bottom: 4%;
+  &:hover {
+    border: 1px solid blue;
+    box-shadow: 3px -1.5px black;
+  }
+  div {
+    width: 100%;
+    border-bottom: 1px solid #000000;
+  }
+  h2 {
+    margin: 0;
+    font-weight: bold;
+  }
+  p {
+    margin: 0;
+  }
+`;
+
+const Search = styled.div`
+  box-sizing: border-box;
+  padding-bottom: 3%;
+  width: 30%;
+  display: flex,
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  input {
+    width: 80%;
+    height: auto;
+    font-size: 1rem;
+    border:1px solid lightslategrey;
+    padding: 0 5%;
+    &:hover {
+      border:1px solid blue;
+      cursor: pointer;
+      font-color: blue;
+    }
+  }
+`;
 
 class NotesList extends React.Component {
   state = {
@@ -16,30 +85,33 @@ class NotesList extends React.Component {
 
   render() {
     return (
-      <div className="notes-container">
-        <div className="searchbar">
+      <MainContent>
+        <h2>Your Notes:</h2>
+        <Search>
           <input
             type="text"
             name="search"
             value={this.state.search}
-            placeholder="&#x1F50D;    Search (title)"
+            placeholder="&#x1F50D;    Search by title"
             onChange={this.handleChange}
           />
-        </div>
-
-        {this.props.notes.map(note => {
-          return (
-            <div
-              key={note._id}
-              onClick={() => this.props.history.push(`/notes/${note._id}`)}
-            >
-              <h2>{note.title}</h2>
-              <p>{note.textBody}</p>
-              <span>{note.tags}</span>
-            </div>
-          );
-        })}
-      </div>
+        </Search>
+        <NoteList>
+          {this.props.notes.map(note => {
+            return (
+              <NoteWrapper
+                key={note._id}
+                onClick={() => this.props.history.push(`/notes/${note._id}`)}
+              >
+                <div>
+                  <h2>{note.title}</h2>
+                </div>
+                <p>{note.textBody}</p>
+              </NoteWrapper>
+            );
+          })}
+        </NoteList>
+      </MainContent>
     );
   }
 }

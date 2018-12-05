@@ -8,6 +8,51 @@ import NoteForm from "./components/AddNote";
 
 import axios from "axios";
 import Fuse from "fuse.js";
+import styled from "styled-components";
+
+const Nav = styled.nav`
+  height: 100%;
+  width: 275px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #d7d7d7;
+  overflow-x: hidden;
+  padding-top: 1%;
+  box-sizing: border-box;
+  border-right: 1px solid grey;
+
+  h1 {
+    color: #4a494a;
+    width: auto;
+    font-size: 3rem;
+
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 10%;
+    margin-bottom: 10%;
+  }
+`;
+
+const Link = styled(NavLink)`
+  text-decoration: none;
+  color: #ffffff;
+  width: 80%;
+  height: 7.5%;
+  margin: 2% auto;
+  background-color: #2ac0c4;
+  font-weight: bold;
+  text-align: center;
+  line-height: 250%;
+  border: 1px solid grey;
+  &:hover {
+    background-color: #ffffff;
+    color: #2ac0c4;
+  }
+`;
 
 class App extends Component {
   constructor() {
@@ -80,12 +125,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/notes">Notes</NavLink>
-          <NavLink to="add-note">Add Note</NavLink>
-        </nav>
-        <h1>Welcome to the Lambda Notes App</h1>
+        <Nav>
+          <h1>Lambda Notes</h1>
+          {/* <Link to="/">Home</Link> */}
+          <Link to="/notes">View Your Notes</Link>
+          <Link to="add-note">+ Create New Note</Link>
+        </Nav>
 
         <Route
           exact
