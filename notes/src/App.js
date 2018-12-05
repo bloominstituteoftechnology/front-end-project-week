@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 
 import NotesList from "./components/NotesList";
@@ -6,15 +7,19 @@ import Note from "./components/SingleNote";
 import NoteForm from "./components/AddNote";
 
 import axios from "axios";
-import { Route, NavLink } from "react-router-dom";
+import Fuse from "fuse.js";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      filtered: []
     };
   }
+  reset = () => {
+    this.setState({ filtered: [] });
+  };
 
   componentDidMount() {
     axios
@@ -31,7 +36,7 @@ class App extends Component {
       console.log(res);
       return axios
         .get("https://fe-notes.herokuapp.com/note/get/all")
-        .then(res => this.setState({ notes: res.data }))
+        .then(res => this.setState({ notes: res.data, filtered: [] }))
         .catch(err => console.log(err));
     });
   };
@@ -43,7 +48,7 @@ class App extends Component {
         console.log(res);
         return axios
           .get("https://fe-notes.herokuapp.com/note/get/all")
-          .then(res => this.setState({ notes: res.data }))
+          .then(res => this.setState({ notes: res.data, filtered: [] }))
           .catch(err => console.error(err));
       });
   };
@@ -55,13 +60,28 @@ class App extends Component {
         console.log(res);
         return axios
           .get("https://fe-notes.herokuapp.com/note/get/all")
-          .then(res => this.setState({ notes: res.data }))
+          .then(res => this.setState({ notes: res.data, filtered: [] }))
           .catch(err => console.error(err));
       })
       .catch(err => console.error(err));
   };
 
+  searchFilter = e => {
+    var options = {
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 0,
+      keys: ["title", "textBody"]
+    };
+    var fuse = new Fuse(this.state.notes, options);
+    var result = fuse.search(e.target.value);
+    this.setState({ filtered: result });
+  };
+
   render() {
+    console.log(this.state.filtered);
     return (
       <div className="App">
         <nav>
@@ -74,14 +94,29 @@ class App extends Component {
         <Route
           exact
           path="/notes"
-          render={props => <NotesList {...props} notes={this.state.notes} />}
+          render={props => (
+            <NotesList
+              {...props}
+              notes={
+                this.state.filtered.length > 0
+                  ? this.state.filtered
+                  : this.state.notes
+              }
+              search={this.searchFilter}
+              reset={this.reset}
+            />
+          )}
         />
         <Route
           path="/notes/:id"
           render={props => (
             <Note
               {...props}
-              notes={this.state.notes}
+              notes={
+                this.state.filtered.length > 0
+                  ? this.state.filtered
+                  : this.state.notes
+              }
               delete={this.deleteNote}
             />
           )}
