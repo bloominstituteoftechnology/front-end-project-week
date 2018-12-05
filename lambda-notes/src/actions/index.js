@@ -71,10 +71,7 @@ export const editNote = (id, data) => {
    dispatch({type: EDITED, payload: response.data})
   })})
   .catch(err => {console.log(err)})
- 
-  
  }
-
 }
 
 export const getNote = (id) => {

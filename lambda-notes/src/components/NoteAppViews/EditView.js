@@ -13,7 +13,6 @@ const EditViewStyle = styled.div `
 const InputStyles = styled.div `
  display: flex;
  flex-direction: column;
- border: 1px solid black ;
  justify-content: center ;
  width: 100% ;
  height: 200px ;
@@ -24,14 +23,26 @@ export default class EditView extends Component {
   super(props)
   this.state = {
     title: '',
-    body: ''
+    body: '',
+    note: {}
   }
  }
- singleNote = this.props.notes.find(note => `${note.id}` === `${this.id}`)
+
+
  componentDidMount(){
   const id = this.props.match.params.noteId
-    // this.props.getNote(id)
-  console.log('Here')
+  console.log(this.singleNote)
+  console.log(id)
+
+ const singleNote = this.props.notes.filter((note) => { 
+  if (note.id === this.id){
+   this.setState({
+    note: note
+    })
+   } 
+   
+ })
+   // return () => this.props.getNote(id)
  }
 
  inputHandler = event => {
@@ -50,6 +61,7 @@ export default class EditView extends Component {
   render() {
     return (
      <InputStyles size="sm" >
+     {/* {this.singleNote.title} */}
       <Input
        name="title"
        onChange={this.inputHandler}

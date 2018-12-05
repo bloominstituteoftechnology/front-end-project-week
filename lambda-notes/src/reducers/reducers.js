@@ -20,13 +20,13 @@ switch(action.type){
   return Object.assign({}, state, {
    notes: [...action.payload], fetching: false
   })
-  case ADDING:
+ case ADDING:
   return {...state, adding: true}
-  case ADDED:
+ case ADDED:
   return Object.assign({}, state, {
    notes: action.payload, adding: false
   } )
-  case FAILURE:
+ case FAILURE:
   return {state, error: 'error!'}
  default:
   return state

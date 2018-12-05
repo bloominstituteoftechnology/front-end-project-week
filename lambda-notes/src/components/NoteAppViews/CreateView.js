@@ -4,12 +4,11 @@ import { addNote } from '../../actions'
 import { Button, Input } from 'reactstrap'
 import styled from 'styled-components'
 
-const CreateViewContainer = styled.div `
+/* const CreateViewContainer = styled.div `
 display: flex ;
 flex-direction: column ;
 justify-content: center ;
-`
-
+` */
 const CreateViewStyle = styled.div `
  display: flex;
  flex-direction: column;

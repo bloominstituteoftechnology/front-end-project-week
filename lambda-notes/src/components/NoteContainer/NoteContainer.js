@@ -2,7 +2,6 @@ import React from 'react'
 import Note from './Note'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import NoteView from '../NoteAppViews/NoteView'
 import NoteTextArea from '../NoteContainer/NoteTextArea'
 
 const NoteContainerStyle = styled.div `
@@ -12,7 +11,6 @@ display: flex ;
  margin: 5% 5% 5% 5%;
  padding: 5%;
  width: 80% ;
- border: 1px solid black ;
  justify-content: space-between ;
 `
 class NoteContainer extends React.Component {

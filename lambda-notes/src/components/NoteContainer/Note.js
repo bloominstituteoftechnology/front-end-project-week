@@ -13,7 +13,6 @@ const NoteContainer = styled.section `
  justify-content: space-between ;
 `
 const NoteStyling = styled.div ` 
- border: 1px solid black ;
 `
 
 const NoteTitle = styled.div `
@@ -35,7 +34,6 @@ const NoteBody = styled.article `
 
 const Note = props => {
  
- console.log(props.id)
  return (
   <div>
    <NoteContainer>

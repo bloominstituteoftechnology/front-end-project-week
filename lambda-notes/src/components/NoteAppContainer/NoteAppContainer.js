@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { fetchNotes }from '../../actions'
 import Sidebar from '../Sidebar/Sidebar'
 import EditView from '../NoteAppViews/EditView'
 import CreateView from '../NoteAppViews/CreateView'
-import SingleNoteView from '../NoteAppViews/SingleNoteView'
 import NoteView from '../NoteAppViews/NoteView'
 import './NoteAppContainer.css'
 import DefaultView from '../NoteAppViews/DefaultView'
+import DeleteView from '../NoteAppViews/DeleteView';
 
 class NoteAppContainer extends React.Component {
 
@@ -23,11 +23,10 @@ class NoteAppContainer extends React.Component {
      <Sidebar />
      <Route exact path="/" render={(props) => <DefaultView {...props} />} />
      <Route path="/edit/" render={(props) => <EditView notes={this.props.notes} {...props}/> }/>
-     <Route path ="/edit/:noteId" component={EditView} />
+     <Route path ="/edit/:noteId" render={() => EditView} />
      <Route exact path="/new/" component={CreateView} />
-     <Route exact path='note/' render={(props) => <NoteView notes={this.props.notes} {...props}/>}/>
-     <Link to="/note/:noteId"/>
-     <Route path='note/:noteId' component={SingleNoteView} />
+     <Route exact path="/delete/" component={DeleteView}/>
+     <Route path='/note/:noteId' render={(props) => <NoteView notes={this.props.notes} {...props}/>}/>
    </div>
   );
  }
