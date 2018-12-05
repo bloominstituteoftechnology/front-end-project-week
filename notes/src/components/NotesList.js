@@ -1,6 +1,5 @@
 import React from "react";
 
-// const NotesList = props => {
 class NotesList extends React.Component {
   state = {
     search: ""
@@ -16,7 +15,6 @@ class NotesList extends React.Component {
   };
 
   render() {
-    console.log(this.state.search);
     return (
       <div className="notes-container">
         <div className="searchbar">

@@ -25,7 +25,6 @@ class App extends Component {
     axios
       .get("https://fe-notes.herokuapp.com/note/get/all")
       .then(res => {
-        console.log(res.data);
         this.setState({ notes: res.data });
       })
       .catch(err => console.error(err));
@@ -33,7 +32,6 @@ class App extends Component {
 
   addNote = data => {
     axios.post("https://fe-notes.herokuapp.com/note/create", data).then(res => {
-      console.log(res);
       return axios
         .get("https://fe-notes.herokuapp.com/note/get/all")
         .then(res => this.setState({ notes: res.data, filtered: [] }))
@@ -45,7 +43,6 @@ class App extends Component {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(res => {
-        console.log(res);
         return axios
           .get("https://fe-notes.herokuapp.com/note/get/all")
           .then(res => this.setState({ notes: res.data, filtered: [] }))
@@ -57,7 +54,6 @@ class App extends Component {
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
       .then(res => {
-        console.log(res);
         return axios
           .get("https://fe-notes.herokuapp.com/note/get/all")
           .then(res => this.setState({ notes: res.data, filtered: [] }))
@@ -81,7 +77,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.filtered);
     return (
       <div className="App">
         <nav>
