@@ -28,11 +28,11 @@ export default class EditView extends Component {
   }
  }
 
-
  componentDidMount(){
   const id = this.props.match.params.noteId
   console.log(this.singleNote)
   console.log(id)
+  console.log(this.state.note)
 
  const singleNote = this.props.notes.filter((note) => { 
   if (note.id === this.id){
@@ -40,9 +40,7 @@ export default class EditView extends Component {
     note: note
     })
    } 
-   
  })
-   // return () => this.props.getNote(id)
  }
 
  inputHandler = event => {
