@@ -11,7 +11,6 @@ import {
   NoteCardText
 } from "./Styled";
 import axios from "axios";
-// import { Link } from "react-router-dom";
 
 class ListView extends Component {
   constructor() {
@@ -38,7 +37,6 @@ class ListView extends Component {
 
           <NoteCardList>
             {this.state.notes.map(note => {
-              console.log(note, "note in notecard list");
               return (
                 <NoteCardLink to={`/note/${note._id}`} key={note._id}>
                   <NoteCard>

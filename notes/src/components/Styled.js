@@ -50,6 +50,7 @@ export const CreateViewWrapper = styled.div`
 width: 75%
 max-width: 665px;
 background: #F2F1F2;
+margin-top: 50px;
 `;
 export const CreateHeader = styled.h3`
   margin-left: 25px;

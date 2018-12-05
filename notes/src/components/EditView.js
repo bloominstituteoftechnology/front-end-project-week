@@ -13,37 +13,42 @@ class EditView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: {},
-      note: {},
       title: "",
       textBody: "",
-      isUpdating: false
+      id: ""
     };
   }
 
-  updateHandler = (e, id) => {
-    e.preventDefault();
-    const updatedNote = this.state.notes.find(note => note._id === id);
-    this.setState({ isUpdating: true, note: updatedNote });
-  };
-
-  editNote = noteId => {
+  componentDidMount() {
+    console.log("TEST");
     axios
-      .put(
-        `https://fe-notes.herokuapp.com/note/edit/${
-          this.props.match.params.id
-        }`,
-        { title: "", textBody: "" }
+      .get(
+        `https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
       )
       .then(res => {
+        console.log(res, "check res");
         this.setState({
-          notes: res.data,
-          isUpdating: false,
-          title: "",
-          textBody: ""
+          textBody: res.data.textBody,
+          title: res.data.title,
+          id: res.data._id
         });
       })
-      .catch(err => console.log(err, "cannot edit this note"));
+      .catch(err => console.log(err));
+  }
+
+  editNote = e => {
+    e.preventDefault();
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.id}`, {
+        title: this.state.title,
+        textBody: this.state.textBody
+      })
+      .then(() => {
+        console.log("SUCCESS");
+      })
+      .catch(err => {
+        console.log(err, "cannot edit this note");
+      });
   };
 
   changeHandler = e => {

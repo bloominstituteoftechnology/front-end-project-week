@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-
-// import { Link } from "react-router-dom";
-
 import {
   NoteViewWrapper,
   NoteWrapper,
@@ -18,30 +15,34 @@ class NoteView extends Component {
     this.state = {
       title: "",
       textBody: "",
-      note: {}
+      id: ''
     };
   }
 
   componentDidMount() {
-    console.log(this.props, "check params");
+    console.log('TEST')
     axios
       .get(
         `https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
       )
       .then(res => {
         console.log(res, "check res");
-        this.setState({ textBody: res.data.textBody, title: res.data.title });
+        this.setState({ textBody: res.data.textBody, title: res.data.title, id: res.data._id });
       })
       .catch(err => console.log(err));
   }
 
+
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(
+        `https://fe-notes.herokuapp.com/note/delete/${
+          this.state.id
+        }`
+      )
       .then(res => {
         console.log("note was successfully deleted");
-        this.setState({ notes: res.data });
-      })
+        this.props.history.push('/')})
       .catch(err => console.log(err, "note could not be deleted"));
   };
 
@@ -51,15 +52,13 @@ class NoteView extends Component {
         <NoteWrapper>
           <ModifyNoteWrapper>
             <ModifyNoteLink
-              to={`/note/edit/${this.state.note._id}`}
-              key={this.state.note._id}
+          to={`/note/edit/${this.state.id}`}
+             
             >
               edit
             </ModifyNoteLink>
-
-            <ModifyNoteLink onClick={this.deleteNote} to={`/note/delete/${this.state.note._id}`} key={this.state.note._id}>
-              delete
-            </ModifyNoteLink>
+            <div onClick={this.deleteNote}>delete
+            </div>
           </ModifyNoteWrapper>
 
           <SingleNoteTitle>{this.state.title}</SingleNoteTitle>
