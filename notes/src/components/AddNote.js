@@ -8,20 +8,30 @@ const Form = styled.form`
   flex-direction: column;
   align-items: flex-start;
   padding: 2%;
-  background-color: #d7d7d7;
+  background-color: #f3f3f3;
   height: 100vh;
+
+  h3 {
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+
   input {
     width: 20%;
     padding: 1%;
     margin-bottom: 1%;
+    border: 1px solid grey;
   }
+
   textarea {
     height: 300px;
     margin-bottom: 3%;
     vertical-align: top;
     width: 60%;
     padding: 1%;
+    border: 1px solid grey;
   }
+
   button {
     width: 15%;
     height: 40px;

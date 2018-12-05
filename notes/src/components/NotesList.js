@@ -29,20 +29,26 @@ const NoteWrapper = styled.div`
   height: auto;
   cursor: pointer;
   margin-bottom: 4%;
+  min-height: 200px;
+
   &:hover {
     border: 1px solid blue;
     box-shadow: 3px -1.5px black;
   }
+
   div {
     width: 100%;
     border-bottom: 1px solid #000000;
   }
+
   h2 {
     margin: 0;
     font-weight: bold;
   }
+
   p {
     margin: 0;
+    margin-top: 5%;
   }
 `;
 
