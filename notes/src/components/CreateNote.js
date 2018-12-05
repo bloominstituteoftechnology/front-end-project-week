@@ -15,7 +15,6 @@ class CreateNote extends Component {
 
     //Set path back to default
     submitHandler = e=>{
-        console.log('inhere')
         e.preventDefault();
         
         this.props.addNote({

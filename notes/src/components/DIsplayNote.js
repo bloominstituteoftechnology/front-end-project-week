@@ -24,9 +24,11 @@ class DisplayNote extends Component{
         console.log('Edit Note');
     }
 
-    deleteNote = note=>{
-        console.log('Delete Note');
-    }
+    deleteNote = () => {
+        console.log(this.props.match.params.id);
+        this.props.delete(this.props.match.params.id);
+        this.props.history.push("/notes");
+    };
 
     render(){
         if(!this.state.note){

@@ -42,13 +42,27 @@ class App extends Component {
       this.setState({error: 'Failed to create note'});
     })
 }
+
+  deleteNote = id =>{
+    axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      console.log(response)
+      return axios
+        .get("https://fe-notes.herokuapp.com/note/get/all")
+        .then(response =>  this.setState({ notes: response.data }))
+        .catch(error=>{
+          this.setState({error: 'Failed to delete a note'});
+        })
+    })
+  }
   render() {
     return (
       <div className="App">
         <NavBar />
         <Route exact path='/' render={props=> <NoteList notes={this.state.notes}/>}/>
         <Route path='/create-note' render={props=><CreateNote {...props} addNote={this.addNote}/>}/>
-        <Route path='/:id' render={props=><DisplayNote {...props} notes={this.state.notes}/>}/>
+        <Route path='/view-note/:id'  render={props=><DisplayNote {...props} notes={this.state.notes} delete={this.deleteNote}/>}/>
       </div>
     );
   }
