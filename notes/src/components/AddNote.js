@@ -39,6 +39,10 @@ const Form = styled.form`
     background-color: #2ac0c4;
     font-weight: bold;
     font-size: 1rem;
+    &:hover {
+      background-color: white;
+      color: #2ac0c4;
+    }
   }
 `;
 

@@ -4,9 +4,14 @@ import styled from "styled-components";
 const MainContent = styled.div`
   background-color: #f3f3f3;
   margin-left: 275px;
-  margin-top: -20px;
+  height: 100vh;
   text-align: left;
-  padding: 5% 0 0 2%;
+  padding: 2%;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
 `;
 
 const NoteList = styled.div`
@@ -48,7 +53,7 @@ const NoteWrapper = styled.div`
 
   p {
     margin: 0;
-    margin-top: 5%;
+    margin-top: %;
   }
 `;
 
