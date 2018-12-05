@@ -9,6 +9,7 @@ import ViewNote from "./components/ViewNote";
 import EditNote from "./components/EditNote";
 import DeleteNote from "./components/DeleteNote";
 
+
 class App extends Component {
 	constructor() {
 		super();
@@ -82,11 +83,6 @@ class App extends Component {
 							getNotes={this.getNotes}
 						/>
 					)}
-				/>
-				<Route 
-					exact
-					path="/delete/:id"
-					component={DeleteNote}
 				/>
 			</div>
 		);

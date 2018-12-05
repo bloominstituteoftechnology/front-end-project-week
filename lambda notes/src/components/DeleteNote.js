@@ -7,7 +7,7 @@ class DeleteNote extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			modal: false
+			isModalOpen: false
 		};
 
 		this.toggle =this.toggle.bind(this);
@@ -27,17 +27,17 @@ class DeleteNote extends Component {
 					toggle={this.toggle}
 					className={this.props.className}
 				>
-					<ModalBody
-						Are you sure you want to delete this
-						
+					<ModalBody>
+						Are you sure you want to delete this?
+
 							<Button color="danger" onClick={this.toggle}>
-								Delete
+								<p>Delete</p>
 							</Button>
 							<Button color="primary" onClick={this.toggle}>
 								No 
 							</Button> 
-						
-					</ModalBody>
+					</ModalBody>	
+					
 				</Modal>
 			</div>
 		);
