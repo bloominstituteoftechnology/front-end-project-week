@@ -22,7 +22,7 @@ class NotesList extends React.Component {
             type="text"
             name="search"
             value={this.state.search}
-            placeholder="&#x1F50D; Search"
+            placeholder="&#x1F50D;    Search (title)"
             onChange={this.handleChange}
           />
         </div>

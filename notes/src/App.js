@@ -69,7 +69,7 @@ class App extends Component {
       distance: 100,
       maxPatternLength: 32,
       minMatchCharLength: 0,
-      keys: ["title", "textBody"]
+      keys: ["title"]
     };
     var fuse = new Fuse(this.state.notes, options);
     var result = fuse.search(e.target.value);
