@@ -18,21 +18,22 @@ const NoteView = props => {
     }
     
     return (
-        <div>
-            <header>
-                <div>
-                    <Link className='note-link' to={`${note._id}/edit`}>
+        <div className = 'noteView'>
+            <header className = 'noteViewHeader'>
+                <div className = 'noteLinksContainer'>
+                    <Link className='noteLink' to={`${note._id}/edit`}>
                         Edit
                     </Link>
-                    <Link className='note-link' to={`${note._id}/delete`}>
+                    <Link className='noteLink' to={`${note._id}/delete`}>
                         Delete
                     </Link>
                 </div>
-                <div>
+                <div className = 'noteTitle'>
                     {note.title}
                 </div>
             </header>
-            <div>
+            <div className = 'lineBreak' />
+            <div className = 'noteBody'>
                 {note.textBody}
             </div>
         </div>

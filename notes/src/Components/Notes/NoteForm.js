@@ -59,20 +59,13 @@ class NoteForm extends Component {
     }
 
     render() {
-        if (this.state.note === undefined & this.props.type === 'Edit') {
-            return (
-                <h1>
-                    Sorry, there's no note with that ID!
-                </h1>
-            )
-        }
         return (
-            <form onSubmit = {this.submitForm}>
+            <form onSubmit = {this.submitForm} className = 'noteForm'>
                 <p>
                     <h2>
                         {this.props.type === 'Create' ? 'Create Note' : 'Edit Note'}
                     </h2>
-                    <input 
+                    <input className = 'title'
                         name='title' 
                         value={this.state.title} 
                         placeholder={this.props.type === 'Create' ? 'Note Title' : ''} 
@@ -80,14 +73,14 @@ class NoteForm extends Component {
                     />
                 </p>
                 <p>
-                    <textarea
+                    <textarea className = 'textBody'
                         name='textBody' 
                         value={this.state.textBody} 
                         placeholder={this.props.type === 'Create' ? 'Note Content' : ''} 
                         onChange={this.updateValue} 
                     />
                 </p>
-                <button type='submit'>
+                <button className = 'submitButton' type='submit'>
                     {this.props.type === 'Create' ? 'Add Note' : 'Update Note'}
                 </button>
             </form>

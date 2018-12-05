@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   getNotes = () => {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
     .then(response => {
       this.setState({
         notes: response.data
@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   createNote = (note) => {
-    axios.post('https://fe-notes.herokuapp.com/note/create', note)
+    axios.post(`https://fe-notes.herokuapp.com/note/create`, note)
     .then( () => {
       this.getNotes();
     })
@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   updateNote = (id, note) => {
-    axios.put('https://fe-notes.herokuapp.com/note/edit/${id}', note)
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
     .then( () => {
       this.getNotes();
     })
@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   deleteNote = (id) => {
-    axios.delete('https://fe-notes.herokuapp.com/note/delete/${id}')
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then( () => {
       this.getNotes();
     })
@@ -65,12 +65,12 @@ class App extends Component {
 
   render() {
     return(
-    <div>
-    <nav>
+    <div className = 'App'>
+    <nav className = 'menu'>
       <h1>Lambda<br/>Notes</h1>
       <Menu />
     </nav>
-    <main >
+    <main className = 'notes-section'>
       <Route exact path='/'
           render={(props) => <NotesList {...props} notes={this.state.notes}/>}
       />

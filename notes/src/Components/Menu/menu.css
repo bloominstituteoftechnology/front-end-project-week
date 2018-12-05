@@ -1,0 +1,16 @@
+
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+}
+
+ .menu-button {
+    background-color: #33CCCC;
+    color: white;
+    font-weight: bolder;
+    padding: 5%;
+    margin: 1%;
+    text-align: center;
+    border: 1px inset #808080;
+}

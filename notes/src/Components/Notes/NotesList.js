@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import Note from './Notes';
+import './notes.css'
 
 const NotesList = props => {
     return(
@@ -9,11 +10,11 @@ const NotesList = props => {
             <h2>
                 Your Notes: 
             </h2>
-            <div>
+            <div className = 'noteList'>
                 {props.notes.map(note =>{
                     return (
-                        <Link to = {'note/${note.id}'} key = {note.id}>
-                            <Note key = {note.id} note={note} />
+                        <Link to = {`/note/${note._id}`} key = {note._id + note.title}>
+                            <Note key = {note._id} note={note} />
                         </Link>
                     )
                 })}
