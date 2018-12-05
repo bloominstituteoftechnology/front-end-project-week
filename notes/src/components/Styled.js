@@ -10,17 +10,15 @@ export const AppWrapper = styled.div`
   display: flex;
   border: 1px solid #afafaf;
   height: 100vh;
-  `;
+`;
 
 //SideBar.js
 export const SideBarWrapper = styled.div`
   width: 100%;
   max-width: 220px;
   background: #d3d2d3;
+  height: 100vh;
   border-right: 2px solid #afafaf;
-`;
-export const SideBarContentWrapper = styled.div`
-min-height: 100%;
 `;
 export const SideBarTitle = styled.h1`
   color: #414242;
@@ -28,9 +26,7 @@ export const SideBarTitle = styled.h1`
   margin-top: 15px;
 `;
 export const SideBarLinksWrapper = styled.div`
-list-style-type: none;
-width: 100%:
-
+  list-style-type: none;
 `;
 export const Btn = styled.button`
   width: 100%;
@@ -42,6 +38,10 @@ export const Btn = styled.button`
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 15px;
+  :hover {
+    background-color: white;
+    color: black;
+  }
 `;
 
 //CreateNewView.js
@@ -100,7 +100,6 @@ export const NoteCardText = styled.p`
   font-size: 12px;
   font-weight: bold;
   color: #807b78;
-  
 `;
 export const NoteCardList = styled.div`
   width: 665px;
@@ -120,7 +119,7 @@ export const NoteCard = styled.div`
   height: 200px;
   padding: 5px;
   overflow-y: scroll;
-  
+  overflow-wrap: break-word;
   border: 2px solid #c5c5c5;
   color: black;
   cursor: pointer;
@@ -140,19 +139,21 @@ export const NoteViewWrapper = styled.div`
 export const NoteWrapper = styled.div`
   margin: 4%;
 `;
-export const NoteViewLinks = styled.div`
-  text-decoration: underline;
+export const ModifyNoteWrapper = styled.div`
   display: flex;
+  justify-content: flex-end;
 `;
-export const EditLink = styled(Link)`
+export const ModifyNoteLink = styled(Link)`
   color: #414242;
   cursor: pointer;
+  margin: 5px;
+  text-decoration: underline;
+  font-weight: bold;
 `;
-export const DeleteLink = styled(Link)`
-  color: #414242;
-`;
+
 export const SingleNoteTitle = styled.h3``;
 
 export const SingleNoteText = styled.p`
   text-decoration: none;
+  overflow-wrap: break-word;
 `;
