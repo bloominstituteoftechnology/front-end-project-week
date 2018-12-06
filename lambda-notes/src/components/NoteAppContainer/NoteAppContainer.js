@@ -6,7 +6,7 @@ import { fetchNotes }from '../../actions'
 import Sidebar from '../Sidebar/Sidebar'
 import EditView from '../NoteAppViews/EditView'
 import CreateView from '../NoteAppViews/CreateView'
-import NoteView from '../NoteAppViews/NoteView'
+import SingleNoteView from '../NoteAppViews/SingleNoteView'
 import './NoteAppContainer.css'
 import DefaultView from '../NoteAppViews/DefaultView'
 import DeleteView from '../NoteAppViews/DeleteView';
@@ -26,7 +26,7 @@ class NoteAppContainer extends React.Component {
      {/* <Route exact path ="/edit/:noteId" render={() => <EditView {...this.props} />} /> */}
      <Route exact path="/new/" component={CreateView} />
      <Route  path="note/:noteId/delete/" component={DeleteView}/>
-     <Route path='/note/:noteId' render={(props) => <NoteView notes={this.props.notes} {...props}/>}/>
+     <Route path='/note/:noteId' render={(props) => <SingleNoteView notes={this.props.notes} {...props}/>}/>
    </div>
   );
  }

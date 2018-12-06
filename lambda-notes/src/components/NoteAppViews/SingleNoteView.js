@@ -6,28 +6,27 @@ export default class SingleNoteView extends React.Component {
  constructor(props){
   super(props)
   this.state = {
-   note: {}
+   noteTitle: '',
+   noteBody: ''
   }
  }
 
  componentDidMount(){
-  const id = this.props.match.params.noteId
-   this.props.notes.filter(note => {
-    if (note.id === id){
-     this.setState({
-      note: note
-     })
-    }})
+  const singleNote = this.props.notes.find(note => this.props.match.params.url === note.id)
+  this.setState({
+   noteTitle: singleNote.title,
+   noteBody: singleNote.textBody
+  })
  }
 
  render(){
-  const singleNote = this.props.notes.find(note => this.props.match.params.id === note.id)
-  console.log(singleNote.body)
+  
+  
   
    return (
     <div>
-    {singleNote.title}
-    {singleNote.textBody}
+    {this.state.noteTitle}
+    {this.state.noteBody}
     </div>
   )}
 }
