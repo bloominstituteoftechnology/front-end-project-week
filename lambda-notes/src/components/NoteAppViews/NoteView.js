@@ -6,7 +6,14 @@ import SingleNoteView from './SingleNoteView'
 
 export default class NoteView extends React.Component {
 
+ componentDidMount(){
+  const id = this.props.match.params.noteId
+ 
+  console.log(id)
+ }
+singleNote = this.props.notes.find((note) => note.id === this.id)
  render(){
+  console.log(this.singleNote)
   return (
     <div>
     {this.props.notes.map((note) => <SingleNoteView
@@ -14,6 +21,7 @@ export default class NoteView extends React.Component {
      textBody={note.textBody}
      key={note.id}
      id={note.id}
+     singleNote={this.singleNote}
      {...this.props}
      />)}
     </div>

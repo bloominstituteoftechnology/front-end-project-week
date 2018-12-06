@@ -30,17 +30,9 @@ export default class EditView extends Component {
 
  componentDidMount(){
   const id = this.props.match.params.noteId
-  console.log(this.singleNote)
+ const singleNote = this.props.notes.find((note) => note.id === this.id)
   console.log(id)
-  console.log(this.state.note)
-
- const singleNote = this.props.notes.filter((note) => { 
-  if (note.id === this.id){
-   this.setState({
-    note: note
-    })
-   } 
- })
+  console.log(singleNote)
  }
 
  inputHandler = event => {
@@ -50,6 +42,7 @@ export default class EditView extends Component {
  }
  
  submitEdit = event => {
+  event.preventDefault()
   this.props.editNote({
    title: this.state.title,
    textBody: this.state.body
@@ -57,9 +50,9 @@ export default class EditView extends Component {
  }
 
   render() {
+   console.log()
     return (
      <InputStyles size="sm" >
-     {/* {this.singleNote.title} */}
       <Input
        name="title"
        onChange={this.inputHandler}

@@ -10,11 +10,8 @@ export default class SingleNoteView extends React.Component {
   }
  }
 
-
-
  componentDidMount(){
- 
-    const id = this.props.match.params.noteId
+  const id = this.props.match.params.noteId
    this.props.notes.filter(note => {
     if (note.id === id){
      this.setState({
@@ -24,15 +21,13 @@ export default class SingleNoteView extends React.Component {
  }
 
  render(){
-  const singleNote = this.props.notes.filter(note => this.props.match.params.id === note.id)
-  console.log(singleNote)
+  const singleNote = this.props.notes.find(note => this.props.match.params.id === note.id)
+  console.log(singleNote.body)
   
    return (
     <div>
-    {/* {this.props.title} */}
     {singleNote.title}
-    {singleNote.body}
-    {/* {this.singleNote.title} */}
+    {singleNote.textBody}
     </div>
   )}
 }

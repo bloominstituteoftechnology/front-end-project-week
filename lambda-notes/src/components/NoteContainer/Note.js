@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components' 
 import {connect} from 'react-redux'
-import { Card, CardText, CardBody, CardTitle, CardLink, CardDeck} from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle, CardDeck} from 'reactstrap';
 import { Link, Route } from 'react-router-dom'
 import SingleNoteView from '../NoteAppViews/SingleNoteView'
 
@@ -52,7 +52,7 @@ const Note = props => {
         <CardText>
          <NoteBody className="note_body">{props.textBody}</NoteBody>
         </CardText>
-        <CardLink href="/edit/">Edit</CardLink>
+        <Link to={`/edit/${props.id}`}>Edit</Link>
        </CardBody>
       </Card>
      </CardDeck>
