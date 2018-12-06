@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
+// importing reducers
+import reducers from './store/reducers';
 
 // importing components
 import App from './App';
@@ -13,7 +15,7 @@ const persistedData = JSON.parse(window.localStorage.getItem('redux-notes')) || 
 
 // Redux Store
 // TODO: change first input to reducers
-const store = createStore(()=>{}, persistedData);
+const store = createStore(reducers, persistedData);
 
 // subscribe local storage to get updated data
 store.subscribe(() => {
