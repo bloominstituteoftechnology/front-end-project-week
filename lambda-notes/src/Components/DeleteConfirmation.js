@@ -11,14 +11,14 @@ class DeleteConfirmation extends React.Component {
         }
     }
     deleteItem = id => {
-      axios
-        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-        .then(res => {
-          console.log("note was successfully deleted");
-          this.setState({ note: res.data });
-        })
-        .catch(err => console.log(err, "note could not be deleted"));
-    };
+      axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+       .then(response => {this.setState({open: false})})
+       .catch(err => console.log(err))
+    this.closeBox()
+  }
+  closeBox = () => {
+      this.setState({open: false})
+  }
     render() {
         return(
            this.state.open === true ?
