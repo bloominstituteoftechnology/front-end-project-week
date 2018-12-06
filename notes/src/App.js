@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Route, NavLink } from "react-router-dom";
 import "./App.css";
-
 import NotesList from "./components/NotesList";
 import Note from "./components/SingleNote";
 import NoteForm from "./components/AddNote";
@@ -10,9 +9,14 @@ import axios from "axios";
 import Fuse from "fuse.js";
 import styled from "styled-components";
 
+const API = "https://fe-notes.herokuapp.com/note";
+
+const AppWrapper = styled.div`
+  box-sizing: border-box;
+`;
 const Nav = styled.nav`
   height: 100%;
-  width: 275px;
+  width: 250px;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -21,33 +25,34 @@ const Nav = styled.nav`
   left: 0;
   background-color: #d7d7d7;
   overflow-x: hidden;
-  padding-top: 1%;
   box-sizing: border-box;
   border-right: 1px solid grey;
 
   h1 {
     color: #4a494a;
     width: auto;
-    font-size: 3rem;
-
+    font-size: 2.75rem;
+    padding-top: 3%;
     margin: 0 auto;
     text-align: left;
     padding-left: 10%;
     margin-bottom: 10%;
   }
 `;
-
 const Link = styled(NavLink)`
-  text-decoration: none;
   color: #ffffff;
   width: 80%;
-  height: 7.5%;
-  margin: 2% auto;
+  height: 7%;
+  margin: 0 auto;
+  margin-bottom: 8%;
   background-color: #2ac0c4;
+  text-decoration: none;
   font-weight: bold;
-  text-align: center;
-  line-height: 250%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid grey;
+
   &:hover {
     background-color: #ffffff;
     color: #2ac0c4;
@@ -69,7 +74,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get(`${API}/get/all`)
       .then(res => {
         this.setState({ notes: res.data });
       })
@@ -77,31 +82,29 @@ class App extends Component {
   }
 
   addNote = data => {
-    axios.post("https://fe-notes.herokuapp.com/note/create", data).then(res => {
+    axios.post(`${API}/create`, data).then(res => {
       return axios
-        .get("https://fe-notes.herokuapp.com/note/get/all")
+        .get(`${API}/get/all`)
         .then(res => this.setState({ notes: res.data, filtered: [] }))
         .catch(err => console.log(err));
     });
   };
 
   deleteNote = id => {
-    axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      .then(res => {
-        return axios
-          .get("https://fe-notes.herokuapp.com/note/get/all")
-          .then(res => this.setState({ notes: res.data, filtered: [] }))
-          .catch(err => console.error(err));
-      });
+    axios.delete(`${API}/delete/${id}`).then(res => {
+      return axios
+        .get(`${API}/get/all`)
+        .then(res => this.setState({ notes: res.data, filtered: [] }))
+        .catch(err => console.error(err));
+    });
   };
 
   editNote = (data, id) => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
+      .put(`${API}/edit/${id}`, data)
       .then(res => {
         return axios
-          .get("https://fe-notes.herokuapp.com/note/get/all")
+          .get(`${API}/get/all`)
           .then(res => this.setState({ notes: res.data, filtered: [] }))
           .catch(err => console.error(err));
       })
@@ -124,12 +127,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <AppWrapper>
         <Nav>
           <h1>Lambda Notes</h1>
-          {/* <Link to="/">Home</Link> */}
-          <Link to="/notes">View Your Notes</Link>
-          <Link to="add-note">+ Create New Note</Link>
+          <Link to="/notes">
+            <span>View Your Notes</span>
+          </Link>
+          <Link to="/add-note">
+            <span>+ Create New Note</span>
+          </Link>
         </Nav>
 
         <Route
@@ -173,7 +179,7 @@ class App extends Component {
             <NoteForm {...props} editNote={this.editNote} edit />
           )}
         />
-      </div>
+      </AppWrapper>
     );
   }
 }

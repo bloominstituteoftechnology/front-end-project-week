@@ -2,18 +2,19 @@ import React from "react";
 import styled from "styled-components";
 
 const Form = styled.form`
-  margin-left: 275px;
+  margin-left: 250px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 2%;
   background-color: #f3f3f3;
-  height: 100vh;
+  min-height: 100vh;
 
   h3 {
     font-size: 1.75rem;
     font-weight: bold;
+    margin-top: 1rem;
   }
 
   input {
@@ -21,6 +22,7 @@ const Form = styled.form`
     padding: 1%;
     margin-bottom: 1%;
     border: 1px solid grey;
+    font-size: 1.2rem;
   }
 
   textarea {
@@ -30,6 +32,7 @@ const Form = styled.form`
     width: 60%;
     padding: 1%;
     border: 1px solid grey;
+    font-size: 1.1rem;
   }
 
   div {
