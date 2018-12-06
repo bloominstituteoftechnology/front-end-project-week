@@ -4,21 +4,21 @@ import {Link} from "react-router-dom";
 import {DeleteContainer, DeleteBox, Button} from "../Styles/Styles";
 
 class DeleteConfirmation extends React.Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             open: true,
         }
     }
     deleteItem = id => {
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-         .then(response => {this.setState({open: false})})
-         .catch(err => console.log(err))
-      this.closeBox()
-    }
-    closeBox = () => {
-        this.setState({open: false})
-    }
+      axios
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then(res => {
+          console.log("note was successfully deleted");
+          this.setState({ note: res.data });
+        })
+        .catch(err => console.log(err, "note could not be deleted"));
+    };
     render() {
         return(
            this.state.open === true ?
@@ -31,7 +31,7 @@ class DeleteConfirmation extends React.Component {
                        margin="10px"
                        onClick={() => this.deleteItem(this.props.match.params.id)}>Delete</Button>
                  </Link>
-                 <Link to={`/note/${this.props.match.params.id}`} >
+                 <Link to={`/`} >
                     <Button 
                     margin="10px" 
                     onClick={() => this.closeBox()}>No</Button>

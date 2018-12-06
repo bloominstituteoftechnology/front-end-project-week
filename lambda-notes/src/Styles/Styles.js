@@ -54,6 +54,7 @@ export const NoteContainer = styled.div`
     max-width: 250px;
     padding: 10px;
     margin: 20px 10px;
+
 `
 export const InputHeader = styled.input`
     display: flex;
