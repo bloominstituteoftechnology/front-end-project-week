@@ -1,53 +1,8 @@
 import React from "react";
 import SmallNote from "./SmallNote";
-import styled from "styled-components";
+import { MainContent, NoteList, Search } from "../styled/NotesList";
 import axios from "axios";
 import { API } from "../App";
-
-const MainContent = styled.div`
-  background-color: #f3f3f3;
-  margin-left: 250px;
-  min-height: 100vh;
-  text-align: left;
-  padding: 2%;
-
-  h2 {
-    font-size: 1.75rem;
-    font-weight: bold;
-    margin-top: 1rem;
-  }
-`;
-
-const NoteList = styled.div`
-  box-sizing: border-box;
-  background-color: #f3f3f3;
-  display: flex;
-  flex-flow: row wrap;
-`;
-
-const Search = styled.div`
-  box-sizing: border-box;
-  padding-bottom: 3%;
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-
-  input {
-    width: 90%;
-    line-height: 1.75rem;
-    font-size: 1rem;
-    border: 1px solid lightslategrey;
-    padding: 0 5%;
-    text-align: center;
-    &:hover {
-      border: 1px solid blue;
-      cursor: pointer;
-      font-color: blue;
-    }
-  }
-`;
 
 class NotesList extends React.Component {
   constructor() {

@@ -1,74 +1,28 @@
 import React, { Component } from "react";
-import { Route, NavLink, withRouter } from "react-router-dom";
-import "./App.css";
+import { Route, withRouter } from "react-router-dom";
 import NotesList from "./components/NotesList";
 import Note from "./components/SingleNote";
 import NoteForm from "./components/AddNote";
+import { Link, Nav, AppWrapper, WelcomeBanner } from "./styled/App";
 
 import axios from "axios";
 import Fuse from "fuse.js";
-import styled from "styled-components";
 
 export const API = "https://fe-notes.herokuapp.com/note";
-
-const AppWrapper = styled.div`
-  box-sizing: border-box;
-  background-color: #f3f3f3;
-  min-height: 100vh;
-`;
-const Nav = styled.nav`
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #d7d7d7;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  border-right: 1px solid grey;
-
-  h1 {
-    color: #4a494a;
-    width: auto;
-    font-size: 2.75rem;
-    padding-top: 3%;
-    margin: 0 auto;
-    text-align: left;
-    padding-left: 10%;
-    margin-bottom: 10%;
-  }
-`;
-const Link = styled(NavLink)`
-  color: #ffffff;
-  width: 80%;
-  height: 7%;
-  margin: 0 auto;
-  margin-bottom: 8%;
-  background-color: #2ac0c4;
-  text-decoration: none;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid grey;
-
-  &:hover {
-    background-color: #ffffff;
-    color: #2ac0c4;
-  }
-`;
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       notes: [],
-      filtered: []
+      filtered: [],
+      hidden: false
     };
   }
+
+  hide = () => {
+    this.setState({ hidden: true });
+  };
 
   reset = () => {
     this.setState({ filtered: [] });
@@ -124,18 +78,20 @@ class App extends Component {
 
   render() {
     const { filtered, notes } = this.state;
-    console.log(this.props.history);
     return (
       <AppWrapper>
         <Nav>
           <h1>Lambda Notes</h1>
-          <Link to="/notes">
+          <Link to="/notes" onClick={this.hide}>
             <span>View Your Notes</span>
           </Link>
-          <Link to="/add-note">
+          <Link to="/add-note" onClick={this.hide}>
             <span>+ Create New Note</span>
           </Link>
         </Nav>
+        {!this.state.hidden && (
+          <WelcomeBanner>WELCOME TO LAMBDA NOTES BABYYYY</WelcomeBanner>
+        )}
 
         <Route
           exact
