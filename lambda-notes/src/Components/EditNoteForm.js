@@ -23,7 +23,7 @@ class EditNote extends React.Component {
   submitHandler = (e) => {
     e.preventDefault()
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, this.state)
-      .then(response => {this.setState({title: "", textBody: ""[this.history.push("/")]})})
+    .then(() => this.props.history.push('/'))
       .catch(err => {console.log(err)})
   }
 
