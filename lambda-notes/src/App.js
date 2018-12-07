@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { NavLink, Route } from 'react-router-dom';
 import MyNotes from './components/myNotes';
 import NoteForm from './components/noteForm';
+import ViewNote from './components/viewNote';
 
 class App extends Component {
   render() {
@@ -16,8 +17,9 @@ class App extends Component {
         </nav>
 
         <div className='main-page'>
-          <Route path='/myNotes' component={MyNotes}/>
+          <Route exact path='/myNotes' component={MyNotes}/>
           <Route path='/createNote' component={NoteForm} />
+          <Route path='/myNotes/:id' component={ViewNote} />
         </div>
 
       </AppContainer>
