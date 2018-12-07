@@ -74,14 +74,18 @@ class App extends Component {
     this.setState({ filtered: [] });
   };
 
-  componentDidMount() {
-    axios
-      .get(`${API}/get/all`)
-      .then(res => {
-        this.setState({ notes: res.data });
-      })
-      .catch(err => console.error(err));
-  }
+  // componentDidMount() {
+  //   axios
+  //     .get(`${API}/get/all`)
+  //     .then(res => {
+  //       this.setState({ notes: res.data });
+  //     })
+  //     .catch(err => console.error(err));
+  // }
+
+  getState = info => {
+    this.setState({ notes: info });
+  };
 
   addNote = data => {
     axios.post(`${API}/create`, data).then(res => {
@@ -151,6 +155,7 @@ class App extends Component {
               notes={filtered.length > 0 ? filtered : notes}
               search={this.searchFilter}
               reset={this.reset}
+              get={this.getState}
             />
           )}
         />

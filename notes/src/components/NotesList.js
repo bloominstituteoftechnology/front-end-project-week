@@ -69,12 +69,13 @@ class NotesList extends React.Component {
   }
 
   componentDidMount() {
-    // axios
-    //   .get(`${API}/get/all`)
-    //   .then(res => {
-    //     this.setState({ notes: res.data });
-    //   })
-    //   .catch(err => console.error(err));
+    axios
+      .get(`${API}/get/all`)
+      .then(res => {
+        this.setState({ notes: res.data });
+        this.props.get(res.data);
+      })
+      .catch(err => console.error(err));
   }
 
   handleChange = e => {
@@ -110,7 +111,7 @@ class NotesList extends React.Component {
           />
         </Search>
         <NoteList>
-          {this.props.notes.map((note, index) => {
+          {this.state.notes.map((note, index) => {
             return (
               <SmallNote
                 key={note._id}
