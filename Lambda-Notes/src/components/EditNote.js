@@ -90,7 +90,6 @@ class EditNote extends Component {
                 textBody: this.state.updatedText,
             })
             .then((response) => {
-                this.props.refresh();
                 this.props.history.push(`/notes/${this.props.match.params.id}`);
             })
             .catch(err => console.log(err));
