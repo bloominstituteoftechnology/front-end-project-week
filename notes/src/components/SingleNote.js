@@ -9,15 +9,6 @@ class Note extends React.Component {
     showModal: false
   };
 
-  toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
-  };
-
-  delete = () => {
-    this.props.delete(this.props.match.params.id);
-    this.props.history.push("/notes");
-  };
-
   componentDidMount() {
     const id = this.props.match.params.id;
     axios
@@ -27,6 +18,15 @@ class Note extends React.Component {
 
     window.scrollTo(0, 0);
   }
+
+  toggleModal = () => {
+    this.setState({ showModal: !this.state.showModal });
+  };
+
+  delete = () => {
+    this.props.delete(this.props.match.params.id);
+    this.props.history.push("/notes");
+  };
 
   render() {
     const { note } = this.state;
