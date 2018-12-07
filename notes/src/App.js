@@ -74,15 +74,6 @@ class App extends Component {
     this.setState({ filtered: [] });
   };
 
-  // componentDidMount() {
-  //   axios
-  //     .get(`${API}/get/all`)
-  //     .then(res => {
-  //       this.setState({ notes: res.data });
-  //     })
-  //     .catch(err => console.error(err));
-  // }
-
   getState = info => {
     this.setState({ notes: info });
   };
@@ -145,7 +136,7 @@ class App extends Component {
             <span>+ Create New Note</span>
           </Link>
         </Nav>
-        {/* <Route exact path="/" render={() => <div>Home</div>} /> */}
+
         <Route
           exact
           path="/notes"

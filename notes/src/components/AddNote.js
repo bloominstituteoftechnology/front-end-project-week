@@ -100,7 +100,6 @@ class NoteForm extends React.Component {
   };
 
   render() {
-    this.props.edit && console.log(this.state);
     return (
       <Form onSubmit={this.submitHandler}>
         <h3>{this.props.edit ? "Edit Note" : "Create New Note"}</h3>

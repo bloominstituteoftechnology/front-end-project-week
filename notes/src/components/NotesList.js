@@ -2,7 +2,6 @@ import React from "react";
 import SmallNote from "./SmallNote";
 import styled from "styled-components";
 import axios from "axios";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { API } from "../App";
 
 const MainContent = styled.div`
@@ -50,14 +49,6 @@ const Search = styled.div`
   }
 `;
 
-const reorder = (list, startIndex, endIndex) => {
-  const result = Array.from(list);
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed);
-
-  return result;
-};
-
 class NotesList extends React.Component {
   constructor() {
     super();
@@ -65,7 +56,6 @@ class NotesList extends React.Component {
       notes: [],
       search: ""
     };
-    // this.onDragEnd = this.onDragEnd.bind(this);
   }
 
   componentDidMount() {
@@ -81,20 +71,6 @@ class NotesList extends React.Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
     this.props.search(e);
-  };
-
-  onDragEnd = result => {
-    if (!result.destination) {
-      return;
-    }
-
-    const items = reorder(
-      this.state.items,
-      result.source.index,
-      result.destination.index
-    );
-
-    this.setState({ notes: items });
   };
 
   render() {
