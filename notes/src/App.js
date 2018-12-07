@@ -43,14 +43,14 @@ class App extends Component {
   //   });
   // };
 
-  deleteNote = id => {
-    axios.delete(`${API}/delete/${id}`).then(res => {
-      return axios
-        .get(`${API}/get/all`)
-        .then(res => this.setState({ notes: res.data, filtered: [] }))
-        .catch(err => console.error(err));
-    });
-  };
+  // deleteNote = id => {
+  //   axios.delete(`${API}/delete/${id}`).then(res => {
+  //     return axios
+  //       .get(`${API}/get/all`)
+  //       .then(res => this.setState({ notes: res.data, filtered: [] }))
+  //       .catch(err => console.error(err));
+  //   });
+  // };
 
   // editNote = (data, id) => {
   //   axios

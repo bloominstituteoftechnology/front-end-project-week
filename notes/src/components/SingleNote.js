@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "./Modal";
 import { NoteCard } from "../styled/SingleNote";
-import { fetchSingle } from "../actions";
+import { fetchSingle, deleteNote } from "../actions";
 
 // import axios from "axios";
 import { connect } from "react-redux";
@@ -26,7 +26,7 @@ class Note extends React.Component {
   };
 
   delete = () => {
-    this.props.delete(this.props.match.params.id);
+    this.props.deleteNote(this.props.match.params.id);
     this.toggleModal();
     this.props.history.push("/notes");
   };
@@ -66,11 +66,12 @@ class Note extends React.Component {
 const mapStateToProps = state => {
   return {
     note: state.note,
+    notes: state.note,
     error: state.error
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchSingle }
+  { fetchSingle, deleteNote }
 )(Note);

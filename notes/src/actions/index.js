@@ -21,11 +21,9 @@ export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCHING });
   notes
     .then(res => {
-      // console.log(res.data);
       dispatch({ type: FETCHED, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
       dispatch({ type: FETCHING_ERROR, payload: err });
     });
 };
@@ -43,8 +41,7 @@ export const saveNote = info => dispatch => {
   dispatch({ type: SAVING });
   saved
     .then(res => {
-      // console.log(res.data);
-      dispatch({ type: SAVED, payload: info });
+      dispatch({ type: SAVED, payload: { ...info, _id: res.data.success } });
     })
     .catch(err => dispatch({ type: ERROR, paylaod: err }));
 };
@@ -54,7 +51,6 @@ export const editNote = (info, id) => dispatch => {
   dispatch({ type: UPDATING });
   updated
     .then(res => {
-      // console.log(res.data);
       dispatch({ type: UPDATED, payload: res.data });
     })
     .catch(err => dispatch({ type: ERROR, payload: err }));
@@ -65,8 +61,7 @@ export const deleteNote = id => dispatch => {
   dispatch({ type: DELETING });
   deleted
     .then(res => {
-      // console.log(res.data);
-      dispatch({ type: DELETED, payload: res.data });
+      dispatch({ type: DELETED, payload: id });
     })
     .catch(err => dispatch({ type: ERROR, payload: err }));
 };
