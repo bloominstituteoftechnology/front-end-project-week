@@ -9,7 +9,16 @@ const NoteDetail = (props) => {
       <div>Cannot Find Friend</div> : 
       <div className="note-detail">
         <div>
-          <span>Edit</span> <span>Delete</span>
+          <div
+            onClick={() => {
+              console.log('click')
+              props.deleteNote(note.id);
+              props.history.push('/');
+            }}
+          >
+            Delete
+          </div>
+          <div>Edit</div>
         </div>
         <div>
           <h1>{note.title}</h1>
