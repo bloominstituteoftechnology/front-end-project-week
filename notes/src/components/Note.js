@@ -1,18 +1,17 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const NoteLink = styled.div`
-    border: 1px solid blue;
-    display: block;
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    :hover{
-        cursor: pointer;
-    }
+	border: 1px solid blue;
+	display: block;
+	height: 100%;
+	width: 100%;
+	text-decoration: none;
+	:hover {
+		cursor: pointer;
+	}
 `;
-
 
 const Note = props => {
 	return (

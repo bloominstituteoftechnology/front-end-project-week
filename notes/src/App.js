@@ -9,7 +9,8 @@ import { ListView, CreateView, NoteView, EditView } from "./components";
 const AppWrapper = styled.div`
 	display: flex;
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
+	min-height: 100vh;
 `;
 
 const Sidebar = styled.div`
