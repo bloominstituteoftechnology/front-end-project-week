@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 // import actions creators
 import {
   addNote,
+  updateNote,
 } from '../store/actions';
 
 // importing components
@@ -23,5 +24,6 @@ export default connect(
   }),
   {
     addNote,
+    updateNote,
   }
 )(FormView)

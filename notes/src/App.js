@@ -24,6 +24,9 @@ class App extends React.Component {
         <Route path="/notes/:id" render={
           props => <DetailView {...props} />
         } />
+        <Route path="/notes/edit/:id" render={
+          props => <FormView update {...props} />
+        } />
       </div>
     );
   }

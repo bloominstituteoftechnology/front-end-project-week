@@ -2,6 +2,7 @@ import React from 'react';
 
 class NotesForm extends React.Component {
   state = {
+    id: '',
     title: '',
     textBody: '',
     tags: '',
@@ -13,14 +14,36 @@ class NotesForm extends React.Component {
     })
   }
 
+  componentDidMount() {
+    if (this.props.update) {
+      const note = this.props.notes.find(
+        note => note.id === this.props.match.params.id
+      )
+      this.setState({
+        id: note.id,
+        title: note.title,
+        textBody: note.textBody,
+        tags: note.tags.join(','),
+      })
+    }
+  }
+
   onSubmit = e => {
     e.preventDefault();
-    this.props.addNote({
-      id: Date.now().toString(),
+
+    const note = {
+      id: this.state.id || Date.now().toString(),
       title: this.state.title,
       textBody: this.state.textBody,
       tags: this.state.tags.split(',')
-    });
+    };
+
+    if (this.props.update) {
+      console.log('update');
+      this.props.updateNote(note, this.state.id)
+    } else {
+      this.props.addNote(note)
+    }
 
     this.setState({
       title: '',

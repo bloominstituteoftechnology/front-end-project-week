@@ -11,14 +11,19 @@ const NoteDetail = (props) => {
         <div>
           <div
             onClick={() => {
-              console.log('click')
               props.deleteNote(note.id);
               props.history.push('/');
             }}
           >
             Delete
           </div>
-          <div>Edit</div>
+          <div
+            onClick={() => {
+              props.history.push(`/notes/edit/${note.id}`);
+            }}
+          >
+            Edit
+          </div>
         </div>
         <div>
           <h1>{note.title}</h1>
