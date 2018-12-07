@@ -13,12 +13,12 @@ class App extends Component {
     return (
      <div className="App">
       <Sidebar/>
-       <Switch>
+      <Switch>
        <Route exact path="/" component={NoteContainer} />
-        <Route  exact path="/edit/:id" component={EditView}/>
-        <Route exact path="/new/" component={CreateView} />
-        <Route path='/note/:id' render={SingleNoteView}/>
-     </Switch>
+       <Route exact path="/edit/:id" component={EditView}/>
+       <Route exact path="/new/" component={CreateView} />
+       <Route path='/note/:id' render={SingleNoteView}/>
+      </Switch>
      </div>
     );
   }
