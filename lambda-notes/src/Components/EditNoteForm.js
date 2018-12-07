@@ -1,3 +1,7 @@
+
+/*Edit Note Form
+  Takes in user input and edits the note they previously clicked on
+*/
 import React from "react";
 import axios from "axios"
 import {InputHeader, InputBody, Button} from "../Styles/Styles"
@@ -6,6 +10,7 @@ class EditNote extends React.Component {
   constructor(props){
       super(props)
       this.state = {
+         
          title: "",
          textBody: "",
       }
@@ -18,9 +23,10 @@ class EditNote extends React.Component {
   submitHandler = (e) => {
     e.preventDefault()
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, this.state)
-      .then(response => {this.setState({title: "", textBody: ""})})
+      .then(response => {this.setState({title: "", textBody: ""[this.history.push("/")]})})
       .catch(err => {console.log(err)})
   }
+
 
   render(){
      console.log(this.props)
@@ -31,7 +37,7 @@ class EditNote extends React.Component {
               <InputHeader 
                 name="title"
                 placeholder="Note Title"
-                value={this.state.title}
+               value={this.state.title}
                 onChange= {this.inputHandler}
               />
               <InputBody
@@ -47,4 +53,4 @@ class EditNote extends React.Component {
   }
 }
 
-export default EditNote;
+export default EditNote
