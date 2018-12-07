@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 // importing components
 import NotesView from './views/NotesView';
 import FormView from './views/FormView';
+import DetailView from './views/DetailView';
 import NavBar from './components/NavBar';
 
 class App extends React.Component {
@@ -14,9 +15,14 @@ class App extends React.Component {
         <Route path="/" render={
           props => <NavBar {...props} />
         } />
-        <Route exact path="/" component={NotesView} />
+        <Route exact path="/" render={
+          props => <NotesView {...props} />
+        } />
         <Route path="/add" render={
           props => <FormView {...props}/>
+        } />
+        <Route path="/notes/:id" render={
+          props => <DetailView {...props} />
         } />
       </div>
     );

@@ -4,18 +4,19 @@ import { connect } from 'react-redux';
 
 // import actions creators
 import {
-  addNote,
   deleteNote,
   updateNote,
 } from '../store/actions';
 
 // import components
-import NotesList from '../components/NotesList';
+import NoteDetail from '../components/NoteDetail';
 
-class NotesView extends React.Component {
+class DetailView extends React.Component {
   render() {
     return (
-      <NotesList {...this.props}/>
+      <NoteDetail
+        {...this.props}
+      />
     )
   }
 }
@@ -25,8 +26,7 @@ export default connect(
     notes: state,
   }),
   {
-    addNote,
     deleteNote,
     updateNote,
   }
-)(NotesView)
+)(DetailView)
