@@ -59,14 +59,13 @@ class DeleteNote extends Component {
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
             .then(response => {
-                this.props.refresh();
+                this.props.history.push('/');
             })
             .catch(err => console.log(err));
             this.setState({
                 title: '',
                 textBody: ''
             });  
-        this.props.history.push('/');
     }
 
     render() {

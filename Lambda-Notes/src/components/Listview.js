@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 // list view styled components
 
@@ -51,12 +52,34 @@ const Note = styled(Link)`
 `
 
 class ListView extends Component {
+     constructor(props){
+        super(props);
+        this.state = {
+            notes: [],
+            loading: true,
+        }
+    }
+    
+    componentDidMount() {
+        axios
+            .get(`https://fe-notes.herokuapp.com/note/get/all`)
+            .then(response => {
+                this.setState({
+                    notes: response.data,
+                    loading: false,
+                });
+            })
+            .catch(err => console.log(err));
+    }
+    
+    
+    
     render() {
         return (
             <ListContainer>
                 {this.props.loading ? <Header>Loading...</Header> : <Header>Your Notes:</Header>}
                 <PreviewContainer>
-                    {this.props.notes.map(note => 
+                    {this.state.notes.map(note => 
                         <Note to={`/notes/${note._id}`}>
                             <Title>{note.title}</Title>
                             <Body>{note.textBody}</Body>

@@ -77,8 +77,7 @@ class CreateNote extends Component {
                 title: this.state.title,
                 textBody: this.state.textBody,
             })
-            .then((response) => {
-                this.props.refresh();
+            .then(() => {
                 this.props.history.push('/');
             })
             .catch(err => console.log(err));
