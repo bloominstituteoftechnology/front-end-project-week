@@ -115,7 +115,7 @@ class App extends Component {
             <Note
               {...props}
               notes={filtered.length > 0 ? filtered : notes}
-              delete={this.deleteNote}
+              delete={this.props.deleteNote}
             />
           )}
         />

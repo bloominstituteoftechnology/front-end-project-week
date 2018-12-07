@@ -27,6 +27,7 @@ class Note extends React.Component {
 
   delete = () => {
     this.props.delete(this.props.match.params.id);
+    this.toggleModal();
     this.props.history.push("/notes");
   };
 

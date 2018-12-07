@@ -18,6 +18,7 @@ const rootReducer = (state = initialState, action) => {
     case act.FETCHING:
       return { ...state, fetchingNotes: true };
     case act.FETCHED:
+      console.log(action.payload);
       return {
         ...state,
         fetchingNotes: false,
@@ -29,19 +30,21 @@ const rootReducer = (state = initialState, action) => {
     case act.SAVING:
       return { ...state, savingNote: true };
     case act.SAVED:
+      console.log(action.payload);
       return {
         ...state,
         savingNote: false,
-        notes: [...state.notes, action.payload],
+        notes: [...state.notes],
         filtered: []
       };
     case act.DELETING:
       return { ...state, deletingNote: true };
     case act.DELETED:
+      const deleted = state.notes.filter(note => note._id !== action.payload);
       return {
         ...state,
         deletingNote: false,
-        notes: action.payload,
+        notes: deleted,
         filtered: []
       };
     case act.SINGLE_FETCHING:
@@ -56,10 +59,10 @@ const rootReducer = (state = initialState, action) => {
     case act.UPDATING:
       return { ...state, updatingNote: true };
     case act.UPDATED:
-      const updated = state.notes.map(
-        note => [...action.payload].find(n => n._id === note._id) || note
+      const updated = state.notes.filter(
+        note => note._id !== action.payload._id
       );
-      return { ...state, notes: updated };
+      return { ...state, notes: [...updated, action.payload] };
     case act.FILTER:
       const options = {
         threshold: 0.6,

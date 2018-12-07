@@ -44,7 +44,7 @@ export const saveNote = info => dispatch => {
   saved
     .then(res => {
       // console.log(res.data);
-      dispatch({ type: SAVED, payload: res.data });
+      dispatch({ type: SAVED, payload: info });
     })
     .catch(err => dispatch({ type: ERROR, paylaod: err }));
 };
@@ -54,7 +54,7 @@ export const editNote = (info, id) => dispatch => {
   dispatch({ type: UPDATING });
   updated
     .then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       dispatch({ type: UPDATED, payload: res.data });
     })
     .catch(err => dispatch({ type: ERROR, payload: err }));
