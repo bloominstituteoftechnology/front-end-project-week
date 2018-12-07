@@ -69,7 +69,7 @@ class Note extends React.Component {
 
   render() {
     const { note } = this.state;
-
+    console.log(this.props.match.params.id);
     return (
       <>
         <Modal

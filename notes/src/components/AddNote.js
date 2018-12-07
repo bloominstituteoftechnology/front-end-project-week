@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 const Form = styled.form`
   margin-left: 250px;
@@ -18,11 +19,13 @@ const Form = styled.form`
   }
 
   input {
-    width: 20%;
+    width: 25%;
     padding: 1%;
     margin-bottom: 1%;
     border: 1px solid grey;
     font-size: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   textarea {
@@ -33,6 +36,7 @@ const Form = styled.form`
     padding: 1%;
     border: 1px solid grey;
     font-size: 1.1rem;
+    overflow-y: scroll;
   }
 
   div {
@@ -64,6 +68,22 @@ class NoteForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.edit) {
+      let id = this.props.match.params.id;
+      // let note = this.props.notes.filter(item => item._id === id)[0];
+      // this.setState({ title: note.title, textBody: note.textBody });
+      // console.log(note);
+      // console.log(this.props.notes);
+      axios
+        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .then(res =>
+          this.setState({ title: res.data.title, textBody: res.data.textBody })
+        )
+        .catch(err => console.error(err));
+    }
+  }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -80,6 +100,7 @@ class NoteForm extends React.Component {
   };
 
   render() {
+    this.props.edit && console.log(this.state);
     return (
       <Form onSubmit={this.submitHandler}>
         <h3>{this.props.edit ? "Edit Note" : "Create New Note"}</h3>
@@ -87,10 +108,12 @@ class NoteForm extends React.Component {
           name="title"
           onChange={this.handleChange}
           required={!this.props.edit}
+          value={this.state.title}
           placeholder="Note title"
         />
         <textarea
           name="textBody"
+          value={this.state.textBody}
           onChange={this.handleChange}
           required={!this.props.edit}
           placeholder="Note content"

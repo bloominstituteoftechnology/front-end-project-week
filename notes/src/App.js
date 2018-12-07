@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, withRouter } from "react-router-dom";
 import "./App.css";
 import NotesList from "./components/NotesList";
 import Note from "./components/SingleNote";
@@ -9,10 +9,12 @@ import axios from "axios";
 import Fuse from "fuse.js";
 import styled from "styled-components";
 
-const API = "https://fe-notes.herokuapp.com/note";
+export const API = "https://fe-notes.herokuapp.com/note";
 
 const AppWrapper = styled.div`
   box-sizing: border-box;
+  background-color: #f3f3f3;
+  min-height: 100vh;
 `;
 const Nav = styled.nav`
   height: 100%;
@@ -126,6 +128,8 @@ class App extends Component {
   };
 
   render() {
+    const { filtered, notes } = this.state;
+    console.log(this.props.history);
     return (
       <AppWrapper>
         <Nav>
@@ -137,38 +141,32 @@ class App extends Component {
             <span>+ Create New Note</span>
           </Link>
         </Nav>
-
+        {/* <Route exact path="/" render={() => <div>Home</div>} /> */}
         <Route
           exact
           path="/notes"
           render={props => (
             <NotesList
               {...props}
-              notes={
-                this.state.filtered.length > 0
-                  ? this.state.filtered
-                  : this.state.notes
-              }
+              notes={filtered.length > 0 ? filtered : notes}
               search={this.searchFilter}
               reset={this.reset}
             />
           )}
         />
         <Route
+          exact
           path="/notes/:id"
           render={props => (
             <Note
               {...props}
-              notes={
-                this.state.filtered.length > 0
-                  ? this.state.filtered
-                  : this.state.notes
-              }
+              notes={filtered.length > 0 ? filtered : notes}
               delete={this.deleteNote}
             />
           )}
         />
         <Route
+          exact
           path="/add-note"
           render={props => <NoteForm {...props} addNote={this.addNote} />}
         />
@@ -176,7 +174,12 @@ class App extends Component {
           exact
           path="/edit-note/:id"
           render={props => (
-            <NoteForm {...props} editNote={this.editNote} edit />
+            <NoteForm
+              {...props}
+              notes={filtered.length > 0 ? filtered : notes}
+              editNote={this.editNote}
+              edit
+            />
           )}
         />
       </AppWrapper>
@@ -184,4 +187,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
