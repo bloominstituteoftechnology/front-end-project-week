@@ -7,6 +7,8 @@ import { Link, Nav, AppWrapper, WelcomeBanner } from "./styled/App";
 
 import axios from "axios";
 import Fuse from "fuse.js";
+import { connect } from "react-redux";
+import { saveNote, editNote, deleteNote, filterNotes } from "./actions";
 
 export const API = "https://fe-notes.herokuapp.com/note";
 
@@ -32,14 +34,14 @@ class App extends Component {
     this.setState({ notes: info });
   };
 
-  addNote = data => {
-    axios.post(`${API}/create`, data).then(res => {
-      return axios
-        .get(`${API}/get/all`)
-        .then(res => this.setState({ notes: res.data, filtered: [] }))
-        .catch(err => console.log(err));
-    });
-  };
+  // addNote = data => {
+  //   axios.post(`${API}/create`, data).then(res => {
+  //     return axios
+  //       .get(`${API}/get/all`)
+  //       .then(res => this.setState({ notes: res.data, filtered: [] }))
+  //       .catch(err => console.log(err));
+  //   });
+  // };
 
   deleteNote = id => {
     axios.delete(`${API}/delete/${id}`).then(res => {
@@ -50,17 +52,17 @@ class App extends Component {
     });
   };
 
-  editNote = (data, id) => {
-    axios
-      .put(`${API}/edit/${id}`, data)
-      .then(res => {
-        return axios
-          .get(`${API}/get/all`)
-          .then(res => this.setState({ notes: res.data, filtered: [] }))
-          .catch(err => console.error(err));
-      })
-      .catch(err => console.error(err));
-  };
+  // editNote = (data, id) => {
+  //   axios
+  //     .put(`${API}/edit/${id}`, data)
+  //     .then(res => {
+  //       return axios
+  //         .get(`${API}/get/all`)
+  //         .then(res => this.setState({ notes: res.data, filtered: [] }))
+  //         .catch(err => console.error(err));
+  //     })
+  //     .catch(err => console.error(err));
+  // };
 
   searchFilter = e => {
     var options = {
@@ -120,7 +122,9 @@ class App extends Component {
         <Route
           exact
           path="/add-note"
-          render={props => <NoteForm {...props} addNote={this.addNote} />}
+          render={props => (
+            <NoteForm {...props} saveNote={this.props.saveNote} />
+          )}
         />
         <Route
           exact
@@ -129,7 +133,7 @@ class App extends Component {
             <NoteForm
               {...props}
               notes={filtered.length > 0 ? filtered : notes}
-              editNote={this.editNote}
+              editNote={this.props.editNote}
               edit
             />
           )}
@@ -139,4 +143,17 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    note: state.note,
+    filtered: state.filtered
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { saveNote, editNote, deleteNote, filterNotes }
+  )(App)
+);

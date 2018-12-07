@@ -1,9 +1,7 @@
 import React from "react";
 import SmallNote from "./SmallNote";
 import { MainContent, NoteList, Search } from "../styled/NotesList";
-// import { fetchNotes } from "../actions";
-// import axios from "axios";
-// import { API } from "../App";
+
 import { connect } from "react-redux";
 import { fetchNotes } from "../actions";
 
@@ -32,7 +30,7 @@ class NotesList extends React.Component {
   };
 
   render() {
-    console.log(this.props.notes);
+    // console.log(this.props.notes);
     return (
       <MainContent>
         <h2>Your Notes:</h2>

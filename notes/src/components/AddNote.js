@@ -1,6 +1,9 @@
 import React from "react";
 import { Form } from "../styled/AddNote";
-import axios from "axios";
+import { fetchSingle } from "../actions";
+
+import { connect } from "react-redux";
+// import axios from "axios";
 
 class NoteForm extends React.Component {
   constructor() {
@@ -18,13 +21,19 @@ class NoteForm extends React.Component {
       // this.setState({ title: note.title, textBody: note.textBody });
       // console.log(note);
       // console.log(this.props.notes);
-      axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-        .then(res =>
-          this.setState({ title: res.data.title, textBody: res.data.textBody })
-        )
-        .catch(err => console.error(err));
+      // axios
+      //   .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      //   .then(res =>
+      //     this.setState({ title: res.data.title, textBody: res.data.textBody })
+      //   )
+      //   .catch(err => console.error(err));
+      // this.props.fetchSingle(id);
+      this.setState({
+        title: this.props.note.title,
+        textBody: this.props.note.textBody
+      });
     }
+    window.scrollTo(0, 0);
   }
 
   handleChange = e => {
@@ -35,14 +44,17 @@ class NoteForm extends React.Component {
     e.preventDefault();
     let id = this.props.match.params.id;
     if (this.props.edit) {
+      // this.props.editNote(this.state, id);
       this.props.editNote(this.state, id);
     } else {
-      this.props.addNote(this.state);
+      // this.props.addNote(this.state);
+      this.props.saveNote(this.state);
     }
     this.props.history.push("/notes");
   };
 
   render() {
+    // console.log(this.props.note);
     return (
       <Form onSubmit={this.submitHandler}>
         <h3>{this.props.edit ? "Edit Note" : "Create New Note"}</h3>
@@ -68,4 +80,15 @@ class NoteForm extends React.Component {
   }
 }
 
-export default NoteForm;
+const mapStateToProps = state => {
+  return {
+    note: state.note,
+    error: state.error,
+    fetchSingle: state.fetchSingle
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchSingle }
+)(NoteForm);
