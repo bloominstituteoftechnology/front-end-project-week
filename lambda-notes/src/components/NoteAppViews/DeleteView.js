@@ -4,7 +4,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 export default class DeleteView extends React.Component {
  constructor(props) {
    super(props)
- 
    this.state = {
       toggle: false
    };

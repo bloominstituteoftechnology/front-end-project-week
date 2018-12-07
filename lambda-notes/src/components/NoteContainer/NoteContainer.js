@@ -2,7 +2,8 @@ import React from 'react'
 import Note from './Note'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import NoteTextArea from '../NoteContainer/NoteTextArea'
+import { fetchNotes } from '../../actions/index'
+import { withRouter } from 'react-router'
 
 const NoteContainerStyle = styled.div `
 display: flex ;
@@ -13,20 +14,21 @@ display: flex ;
  width: 80% ;
  justify-content: space-between ;
 `
+
 class NoteContainer extends React.Component {
+
+ componentDidMount(){
+  this.props.fetchNotes()
+ }
  render(){
   return (
     <NoteContainerStyle className="note_container">
-     <NoteTextArea />
      {this.props.notes.map((note, index) => 
      <Note 
       key={index}
       title={note.title}
       textBody={note.textBody}
-      {...this.props}
       id={note._id}
-      note={note}
-      index={note.index}
      />
      )}
     </NoteContainerStyle>
@@ -35,6 +37,7 @@ class NoteContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
+ console.log(state)
  const { notes } = state 
  return {
   notes: notes
@@ -42,4 +45,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps)(NoteContainer)
+export default withRouter(connect(mapStateToProps, { fetchNotes })(NoteContainer))

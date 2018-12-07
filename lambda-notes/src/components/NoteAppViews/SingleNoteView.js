@@ -23,8 +23,6 @@ export default class SingleNoteView extends React.Component {
 
  render(){
   
-  
-  
    return (
     <div>
     <div>
