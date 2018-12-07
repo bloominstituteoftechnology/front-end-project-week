@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
-import { withRouter } from 'react-router'
+import { withRouter, Switch } from 'react-router'
 import { fetchNotes }from '../../actions'
 import Sidebar from '../Sidebar/Sidebar'
 import EditView from '../NoteAppViews/EditView'
@@ -25,7 +25,7 @@ class NoteAppContainer extends React.Component {
      <Route path="/edit/:noteId" render={(props) => <EditView notes={this.props.notes} {...props}/> }/>
      {/* <Route exact path ="/edit/:noteId" render={() => <EditView {...this.props} />} /> */}
      <Route exact path="/new/" component={CreateView} />
-     <Route  path="note/:noteId/delete/" component={DeleteView}/>
+     <Route  path="/note/:noteId/delete/" component={DeleteView}/>
      <Route path='/note/:noteId' render={(props) => <SingleNoteView notes={this.props.notes} {...props}/>}/>
    </div>
   );

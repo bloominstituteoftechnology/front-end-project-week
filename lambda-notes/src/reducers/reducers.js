@@ -1,4 +1,4 @@
-import { FETCHING, SUCCESS, FAILURE, ADDED, ADDING } from '../actions'
+import { FETCHING, SUCCESS, FAILURE, ADDED, ADDING, EDITING, EDITED, DELETING, DELETED } from '../actions'
 const initState =  {
  notes: [{
   tags: [],
@@ -10,6 +10,7 @@ const initState =  {
  adding: null,
  creating: null,
  deleting: null,
+ editing: null
 }
 
 export const reducer = (state = initState, action) => {
@@ -25,7 +26,11 @@ switch(action.type){
  case ADDED:
   return Object.assign({}, state, {
    notes: action.payload, adding: false
-  } )
+  })
+ case EDITING:
+  return {...state, editing: true}
+ case EDITED:
+  return Object.assign({}, state, {notes: action.payload})  
  case FAILURE:
   return {state, error: 'error!'}
  default:

@@ -49,9 +49,12 @@ export const deleteNote = id => {
   axios
   .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
   .then(response => {
-   axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+   axios
+   .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
   })
   .then(() => {
+   axios
+   .get('https://fe-notes.herokuapp.com/note/get/all')
    dispatch({type: DELETED})
   })
   .catch(err => {console.log(err)})
@@ -69,7 +72,9 @@ export const editNote = (id, data) => {
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
     .then(response => {
    dispatch({type: EDITED, payload: response.data})
-  })})
+  })
+ 
+ })
   .catch(err => {console.log(err)})
  }
 }

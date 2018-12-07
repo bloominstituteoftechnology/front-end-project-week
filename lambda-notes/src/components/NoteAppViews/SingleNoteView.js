@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getNote } from '../../actions/'
+import { Link, Route } from 'react-router-dom'
+import DeleteView from './DeleteView';
 
 export default class SingleNoteView extends React.Component {
  constructor(props){
@@ -25,8 +27,17 @@ export default class SingleNoteView extends React.Component {
   
    return (
     <div>
-    {this.state.noteTitle}
+    <div>
+     {this.state.noteTitle}
     {this.state.noteBody}
+    </div>
+    
+    <button>
+    <Route path="/delete" render={() => <DeleteView/>} />
+    <Link to="/delete/">
+     Delete
+    </Link>
+    </button>
     </div>
   )}
 }
