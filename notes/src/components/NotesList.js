@@ -1,26 +1,29 @@
 import React from "react";
 import SmallNote from "./SmallNote";
 import { MainContent, NoteList, Search } from "../styled/NotesList";
-import axios from "axios";
-import { API } from "../App";
+// import { fetchNotes } from "../actions";
+// import axios from "axios";
+// import { API } from "../App";
+import { connect } from "react-redux";
+import { fetchNotes } from "../actions";
 
 class NotesList extends React.Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
       search: ""
     };
   }
 
   componentDidMount() {
-    axios
-      .get(`${API}/get/all`)
-      .then(res => {
-        this.setState({ notes: res.data });
-        this.props.get(res.data);
-      })
-      .catch(err => console.error(err));
+    this.props.fetchNotes();
+    // axios
+    //   .get(`${API}/get/all`)
+    //   .then(res => {
+    //     this.setState({ notes: res.data });
+    //     this.props.get(res.data);
+    //   })
+    //   .catch(err => console.error(err));
   }
 
   handleChange = e => {
@@ -29,6 +32,7 @@ class NotesList extends React.Component {
   };
 
   render() {
+    console.log(this.props.notes);
     return (
       <MainContent>
         <h2>Your Notes:</h2>
@@ -42,7 +46,7 @@ class NotesList extends React.Component {
           />
         </Search>
         <NoteList>
-          {this.state.notes.map((note, index) => {
+          {this.props.notes.map((note, index) => {
             return (
               <SmallNote
                 key={note._id}
@@ -58,4 +62,15 @@ class NotesList extends React.Component {
   }
 }
 
-export default NotesList;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    fetchingNotes: state.fetchingNotes,
+    error: state.error
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchNotes }
+)(NotesList);
