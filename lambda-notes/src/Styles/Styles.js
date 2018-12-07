@@ -62,7 +62,6 @@ export const NoteListContainer = styled.div`
    max-width: 260px;
    width: 50%;
    margin-bottom: 30px;
-   cursor: pointer;
    text-decoration: none;
    
    :nth-child(3n-1){
