@@ -55,7 +55,7 @@ class Notes extends Component {
                 <Route
                     path={`/notes/:id`}
                     render={props =>
-                        <ViewNote {...props} toggleDeleteScreen={this.toggleDeleteScreen} refresh={this.refresh}/>
+                        <ViewNote {...props} refresh={this.refresh}/>
                     }
                 />
             
