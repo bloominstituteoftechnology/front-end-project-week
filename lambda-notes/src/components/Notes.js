@@ -14,23 +14,26 @@ function Notes(props) {
         
     }
     return (
-        <div className="Notes">
+        <div>
             <h1>Deez Notes</h1>
-            {props.notes.map(note => {
-                console.log(note._id);
-                return (
-                    <div onClick={ev => routeToNote(ev, note)}>
-                        <h2>{note.tags}</h2>
-                        <h3>{note.title}</h3>
-            
-                        <hr/>
-                        <p>{note.textBody}</p>
+                    <div className="notes">
+                        {props.notes.map(note => {
+                            console.log(note._id);
+                            return (
+                                <div className = "mapped-notes" onClick={ev => routeToNote(ev, note)}>
+                                    <h2>{note.tags}</h2>
+                                    <h3>{note.title}</h3>
+                        
+                                    <hr/>
+                                    <p>{note.textBody}</p>
+                                </div>
+                            )
+                        })}
                     </div>
-                )
-            })}
         </div>
-    )
-}
+                )
+            }
+       
 
 export default Notes;
 

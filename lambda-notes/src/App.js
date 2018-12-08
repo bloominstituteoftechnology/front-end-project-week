@@ -56,6 +56,7 @@ class App extends Component {
   }
 
   handleInputChange = e => {
+    console.log(e.target.name)
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -114,12 +115,13 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <nav className = "nav-container">
-            <h1>Lambda Notes</h1>
-            <NavLink exact to="/">
+            <h1 className = "lambda">Lambda</h1>
+            <h1 className = "notes">Notes</h1>
+            <NavLink className = "NavLink" exact to="/">
                 Home
             </NavLink>
-            <NavLink exact to="/notes">View Your Notes</NavLink>
-            <NavLink exact to="/note-form">+ Create New Note</NavLink>
+            <NavLink className = "NavLink" exact to="/notes">View Your Notes</NavLink>
+            <NavLink className = "NavLink" exact to="/note-form">+ Create New Note</NavLink>
           </nav>
         </header>
 
