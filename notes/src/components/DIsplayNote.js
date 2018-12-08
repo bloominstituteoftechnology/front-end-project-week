@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import { Route } from 'react-router-dom';
+import  EditNote  from './EditNote'
+
 
 class DisplayNote extends Component{
     constructor(props){
@@ -20,15 +23,18 @@ class DisplayNote extends Component{
         }
     }
 
-    editNote = note=>{
-        console.log('Edit Note');
-    }
+    editNote = e => {
+        console.log(this.props.match.params.id)
+        this.props.history.push(`/view-note/${this.props.match.params.id}/edit`);
+        
+      };
 
     deleteNote = () => {
         console.log(this.props.match.params.id);
         this.props.delete(this.props.match.params.id);
-        this.props.history.push("/notes");
+        this.props.history.push("/");
     };
+
 
     render(){
         if(!this.state.note){
@@ -42,9 +48,14 @@ class DisplayNote extends Component{
                 <button onClick={this.deleteNote}>delete</button>
                 <h3>{this.state.note.title}</h3>
                 <p>{this.state.note.textBody}</p>
+                <Route path='/view-note/:id/edit'
+                    render={props => <EditNote {...props} note={this.state.note}  updateNote={this.props.edit}/>} />
             </div>
         )
     }
 }
+
+
+
 
 export default DisplayNote;

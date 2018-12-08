@@ -9,7 +9,7 @@ class CreateNote extends Component {
     }    
     }
     inputHandler = e => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({[e.target.title]: e.target.value});
     }
 
 

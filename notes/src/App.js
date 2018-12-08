@@ -4,7 +4,7 @@ import axios from 'axios';
 import NavBar from './components/NavBar';
 import NoteList from './components/NoteList';
 import CreateNote from './components/CreateNote';
-import DisplayNote from './components/DIsplayNote'
+import DisplayNote from './components/DisplayNote'
 import { Route } from 'react-router-dom';
 
 class App extends Component {
@@ -20,8 +20,7 @@ class App extends Component {
   }
 
   fetchNotes = () => {
-    axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         this.setState({ notes: response.data});
       })
@@ -31,21 +30,19 @@ class App extends Component {
   }
 
   addNote = note=>{
-    axios.post('https://fe-notes.herokuapp.com/note/create', note)
-    .then(response=>{
-      const newNote = Object.assign({}, note, {'_id': response.data.success});
-      const newNotes = this.state.notes;
-      newNotes.push(newNote);
-      this.setState({notes: newNotes});
-    })
-    .catch(error=>{
-      this.setState({error: 'Failed to create note'});
-    })
-}
+    axios.post("https://fe-notes.herokuapp.com/note/create", note).then(response => {
+      console.log(response);
+      return axios
+        .get("https://fe-notes.herokuapp.com/note/get/all")
+        .then(response => this.setState({ notes: response.data }))
+        .catch(error=>{
+          this.setState({error: 'Failed to add a note'});
+        })
+    });
+};
 
   deleteNote = id =>{
-    axios
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
       console.log(response)
       return axios
@@ -56,16 +53,33 @@ class App extends Component {
         })
     })
   }
+
+  editNote = (id, note) => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+      .then(response => {
+        console.log(response);
+        return axios
+          .get("https://fe-notes.herokuapp.com/note/get/all")
+          .then(response => this.setState({ notes: response.data }))
+          .catch(error=>{
+            this.setState({error: 'Failed to update a note'});
+          })
+      })
+  };
+
   render() {
     return (
       <div className="App">
         <NavBar />
         <Route exact path='/' render={props=> <NoteList notes={this.state.notes}/>}/>
         <Route path='/create-note' render={props=><CreateNote {...props} addNote={this.addNote}/>}/>
-        <Route path='/view-note/:id'  render={props=><DisplayNote {...props} notes={this.state.notes} delete={this.deleteNote}/>}/>
+        <Route path='/view-note/:id'  render={props=><DisplayNote {...props} notes={this.state.notes} delete={this.deleteNote} edit={this.editNote}/>}/>
       </div>
     );
   }
 }
+
+
 
 export default App;
