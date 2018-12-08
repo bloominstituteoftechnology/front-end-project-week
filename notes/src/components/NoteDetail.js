@@ -27,15 +27,14 @@ const Note = styled.div`
   }
   `;
 
-const NoteDetail = (props) => {
-  const note = props.note;
+const NoteDetail = ({ note, fetchingNote, history, deleteNote }) => {
   return (
     <Note>
       <div className="menu">
         <div
           className="menu-item"
           onClick={() => {
-            props.history.push(`/notes/edit/${note._id}`);
+            history.push(`/notes/edit/${note._id}`);
           }}
         >
           Edit
@@ -43,19 +42,25 @@ const NoteDetail = (props) => {
         <div
           className="menu-item"
           onClick={() => {
-            props.deleteNote(note._id);
-            props.history.push('/');
+            deleteNote(note._id);
+            history.push('/');
           }}
         >
           Delete
         </div>
       </div>
-      <div className="content">
-        <h2>{note.title}</h2>
-        <div>
-          <p>{note.textBody}</p>
-        </div>
-      </div>
+      {
+        fetchingNote ?
+        <div>Fetching Friend ...</div> :
+        !note || !note._id ?
+          <div>Something has gone teribbly wrong</div> :
+          <div className="content">
+            <h2>{note.title}</h2>
+            <div>
+              <p>{note.textBody}</p>
+            </div>
+          </div>
+      }
     </Note>
   );
 }

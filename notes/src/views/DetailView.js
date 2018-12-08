@@ -17,14 +17,8 @@ class DetailView extends React.Component {
   }
 
   render() {
-    const { fetchingNote, note } = this.props;
-    
     return (
-      fetchingNote ?
-        <div>Fetching Friend ...</div> :
-        !note || !note._id ?
-          <div>Something has gone teribbly wrong</div> :
-          <NoteDetail {...this.props} />
+      <NoteDetail {...this.props} />
     )
   }
 }
