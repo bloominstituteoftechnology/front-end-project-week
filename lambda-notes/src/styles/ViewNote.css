@@ -1,0 +1,21 @@
+.edit-delete-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+.viewBtn {
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.notes-page-title {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.note-text-Container {
+    width: 500px;
+    line-height: 1.5;
+}
