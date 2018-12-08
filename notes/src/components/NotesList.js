@@ -16,10 +16,10 @@ const NotesWrapper = styled.div`
   .notes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     .note-item {
-      border: 1px solid black;
+      border: 1px solid #414141;
       margin: 2rem;
       font-size: 1.6rem;
       background-color: #FFFFFF;
@@ -32,7 +32,7 @@ const NotesWrapper = styled.div`
         font-weigth: bold;
         margin-bottom: 2rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #414141;
       }
     }
   }
