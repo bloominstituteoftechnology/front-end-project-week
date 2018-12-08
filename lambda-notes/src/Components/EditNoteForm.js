@@ -4,7 +4,7 @@
 */
 import React from "react";
 import axios from "axios"
-import {InputHeader, InputBody, Button} from "../Styles/Styles"
+import {InputHeader, InputBody, Buttons} from "../Styles/Styles"
 
 class EditNote extends React.Component {
   constructor(props){
@@ -46,7 +46,7 @@ class EditNote extends React.Component {
                 value={this.state.textBody}
                 onChange= {this.inputHandler}
               />
-              <Button type="submit">Update</Button>
+              <Buttons type="submit">Update</Buttons>
           </form>
         </>
     )

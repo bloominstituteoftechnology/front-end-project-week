@@ -11,7 +11,7 @@ export const AppContainer = styled.div`
       display: flex;
       flex-direction: column;
    }
-`
+`;
 
 export const HeaderContainer = styled.div`
    display: flex;
@@ -20,9 +20,9 @@ export const HeaderContainer = styled.div`
    background-color: silver;
    width: 20%;
    min-width: 130px;
-`
+`;
 
-export const Button = styled.button `
+export const Buttons = styled.button `
    background-color: ${props => props.bgColor || "lightseagreen"};
    color: white;
    font-weight: bold;
@@ -33,7 +33,7 @@ export const Button = styled.button `
    white-space: nowrap;
    width: ${props => props.width || "95%"};
    max-width: ${props => props.maxWidth || "200px"};
-`
+`;
 
 export const DisplayContainer = styled.div`
    display: flex;
@@ -42,13 +42,13 @@ export const DisplayContainer = styled.div`
    width: 80%;
    padding: 0px 30px;
    padding-top: 30px;
-`
+`;
 
 export const NoteListContainer = styled.div`
    display: flex;
    flex-wrap: wrap;
    justify-content: space-evenly;
-`
+`;
 
    export const Notes = styled.a`
    display: -webkit-box;
@@ -76,7 +76,7 @@ export const NoteListContainer = styled.div`
    p {
       margin-left: 7%;
       width: 67%;
-      overflow: hidden;
+      overflow: auto;
       text-overflow: ellipsis;
     }
 `;
@@ -92,7 +92,7 @@ export const LinkContainer = styled.span`
    p {
       margin-left: 2%
    }
-`
+`;
 
 export const Content =styled.div`
    h2 {
@@ -102,7 +102,7 @@ export const Content =styled.div`
    p {
       white-space: pre-line;
    }
-`
+`;
 
 export const InputHeader = styled.input `
    display: flex;
@@ -113,7 +113,7 @@ export const InputHeader = styled.input `
    max-width: 600px;
    width: 60%;
    border-radius: 5px;
-`
+`;
 
 export const InputBody = styled.textarea `
    background-color: white;
@@ -126,4 +126,29 @@ export const InputBody = styled.textarea `
    border-radius: 5px;
    height: 300px;
    resize: none;
-`
+`;
+
+export const DeleteContainer = styled.div`
+   position: absolute;
+   text-align: center;
+   background: rgb(211, 211, 211, 0.9);
+   height: 100%;
+   width: 100%;
+   min-height: 800px;
+`;
+
+export const DeleteBox = styled.div`
+   position: fixed;
+   left: 168px;
+   top: 112px;
+   background-color: white;
+   width: 50%;
+   margin: 50px auto;
+   border: 1px solid black;
+   padding: 40px;
+   z-index: 6;
+   p {
+      margin-bottom: 20px;
+      margin-left: 0;
+   }
+`;

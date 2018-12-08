@@ -6,7 +6,7 @@ import NoteList from "./Components/NoteList"
 import CreateNote from "./Components/CreateNoteForm"
 import NoteView from "./Views/NoteView"
 import EditNote from "./Components/EditNoteForm"
-import DeleteConfirmation from './Components/DeleteConfirmation';
+import DeleteModal from './Components/DeleteModal';
 import {AppContainer, DisplayContainer} from "./Styles/Styles"
 
 class App extends Component {
@@ -25,7 +25,7 @@ class App extends Component {
           />
         </DisplayContainer>
         <Route path="/note/:id/delete" render={(props) => {
-            return(<NoteView {...props}/>, <DeleteConfirmation {...props}/>)}}
+            return(<NoteView {...props}/>, <DeleteModal {...props}/>)}}
         />
       </AppContainer>
     )

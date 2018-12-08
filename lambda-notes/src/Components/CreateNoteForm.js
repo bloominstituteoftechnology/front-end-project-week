@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {InputHeader, InputBody, Button} from "../Styles/Styles"
+import {InputHeader, InputBody, Buttons} from "../Styles/Styles"
 
 
 
@@ -39,7 +39,7 @@ class CreateNote extends React.Component {
                      value={this.state.textBody}
                      onChange={this.inputHandler}
                 />
-                <Button type="submit">Save</Button>
+                <Buttons type="submit">Save</Buttons>
             </form>
             </div>
         )
