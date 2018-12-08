@@ -10,6 +10,10 @@ import Note from "./components/Note";
 import styled, { createGlobalStyle } from "styled-components";
 import Login from "./components/Login";
 
+// ==============================
+// ======   STYLED COMPS   ======
+// ==============================
+
 const GlobalStyles = createGlobalStyle`
   html, body {
     padding: 0;
@@ -23,6 +27,10 @@ const GlobalStyles = createGlobalStyle`
 const AppDiv = styled.div`
   display: flex;
 `;
+
+// ==============================
+// ======    COMPONENTS    ======
+// ==============================
 
 class App extends Component {
   componentDidMount = () => {

@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+// ==============================
+// ======   STYLED COMPS   ======
+// ==============================
+
 const Nav = styled.nav`
   width: 300px;
+  position: fixed;
   height: 100vh;
   padding: 20px 15px;
   background: #d8d8d8;
@@ -29,7 +34,7 @@ const StyledLink = styled(Link)`
   padding: 15px;
   text-align: center;
   cursor: pointer;
-  border: 1px solid;
+  border: 1px solid #979797;
   transition: all 0.3s ease-in-out;
   display: block;
 
@@ -42,6 +47,10 @@ const StyledLink = styled(Link)`
     opacity: 0.5;
   }
 `;
+
+// ==============================
+// ======    COMPONENTS    ======
+// ==============================
 
 function NavSideBar() {
   return (
