@@ -1,4 +1,57 @@
+// importing libraries
 import React from 'react';
+import styled from 'styled-components';
+
+// styled form
+// styled Notes List
+const FormWrapper = styled.div`
+  padding: 4rem 4rem;
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  form {
+    input {
+      all: unset;
+      background-color: white;
+      border: 1px solid #424142;
+      padding: .5rem;
+      width: 50%;
+      font-size: 1.6rem;
+      border-radius: .3rem;
+      margin-bottom: 2rem;
+
+      &:focus {
+        background-color: lightyellow;
+      }
+    }
+  }
+
+  textarea {
+    all: unset;
+    background-color: white;
+    border: 1px solid #424142;
+    border-radius: .3rem;
+    width: 100%;
+    height: 40vh;
+    padding: .5rem;
+    margin-bottom: 2rem;
+  }
+
+  button {
+    width: 20%;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: #24B8BD;
+    color: white;
+    border: 1px solid #424142;
+    cursor: pointer;
+  }
+  
+`;
 
 class NotesForm extends React.Component {
   state = {
@@ -52,10 +105,10 @@ class NotesForm extends React.Component {
   render() {
     const {title, textBody, tags} = this.state;
     const { update } = this.props;
-    
+
     return (
-      <div className="form-container">
-        <h3>{update ? 'Update Note:' : 'Create New Note:'}</h3>
+      <FormWrapper>
+        <h2>{update ? 'Update Note:' : 'Create New Note:'}</h2>
         <form action="submit" onSubmit={this.onSubmit}>
           <input type="text"
             onChange={this.onChange}
@@ -77,7 +130,7 @@ class NotesForm extends React.Component {
           /><br/>
           <button type="submit">{update ? 'Update' : 'Save'}</button>
         </form>
-      </div>
+      </FormWrapper>
     )
   }
 }
