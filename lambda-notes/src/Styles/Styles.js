@@ -50,36 +50,6 @@ export const NoteListContainer = styled.div`
    justify-content: space-evenly;
 `;
 
-   export const Notes = styled.a`
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 6;
-   overflow: hidden;
-   white-space: pre-line;
-   background-color: white;
-   border: 1px solid grey;
-   height: 285px;
-   max-width: 260px;
-   width: 50%;
-   margin-bottom: 30px;
-   text-decoration: none;
-   
-   :nth-child(3n-1){
-      margin-left: 1%;
-      margin-right: 1%;
-   }
-   h3 {
-      margin-left: 7%;
-      margin-right: 7%
-      margin-bottom: 5px;
-   }
-   p {
-      margin-left: 7%;
-      width: 67%;
-      overflow: auto;
-      text-overflow: ellipsis;
-    }
-`;
 export const LinkContainer = styled.span`
    display: flex;
    justify-content: flex-end;

@@ -57,3 +57,19 @@ span {
   cursor: pointer;
   font-size: 1.8rem;
 }
+.Notes {
+    display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 6;
+   white-space: pre-line;
+   background-color: white;
+   border: 1px solid grey;
+   height: 285px;
+   max-width: 260px;
+   width: 40%;
+   margin-bottom: 30px;
+   overflow: auto;
+   text-overflow: ellipsis;
+   text-decoration: none;
+}
+

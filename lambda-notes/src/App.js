@@ -4,7 +4,7 @@ import {Route} from "react-router-dom";
 import Header from "./Components/Header"
 import NoteList from "./Components/NoteList"
 import CreateNote from "./Components/CreateNoteForm"
-import NoteView from "./Views/NoteView"
+import NoteView from "./Components/NoteView"
 import EditNote from "./Components/EditNoteForm"
 import DeleteModal from './Components/DeleteModal';
 import {AppContainer, DisplayContainer} from "./Styles/Styles"

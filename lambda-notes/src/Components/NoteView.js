@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import {Link} from "react-router-dom";
-import DeleteModal from "../Components/DeleteModal";
+import DeleteModal from "./DeleteModal";
 import {LinkContainer, Content} from "../Styles/Styles";
 
 class NoteView extends React.Component {
