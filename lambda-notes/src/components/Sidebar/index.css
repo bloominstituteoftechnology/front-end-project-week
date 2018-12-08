@@ -1,6 +1,27 @@
 .sidebar-container {
-    height: 100%;
-    width: 100%;
-    border: 1px solid green;
-    background: #D3D2D3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 15px;
+    width: 250px;
+    background: #D8D8D8;
+    border: 2px solid #979797;
+    box-sizing: border-box;
+    height: 90vh;
+    margin-left: 10%;
+
+}
+
+sidebar-container h1 {
+    font-size: 35px;
+    line-height: 0.9;
+}
+sidebar-container button {
+    margin-bottom: 15px;
+}
+
+sidebar-container input {
+    width: 200px;
+    margin-bottom: 10px;
 }

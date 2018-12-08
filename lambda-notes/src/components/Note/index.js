@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Form from "../Form";
+import "./index.css";
+import Modal from "react-modal";
 
 export default class Note extends Component {
     state = {
@@ -40,7 +42,6 @@ export default class Note extends Component {
             title: this.state.title,
             textBody: this.state.textBody
         };
-
         axios
             .put(`https://fe-notes.herokuapp.com/note/edit/${this.id}`, editedNote)
             .then(response => {
@@ -60,9 +61,21 @@ export default class Note extends Component {
         this.setState({ isEditing: true });
     }
 
+    openModal = event => {
+        event.preventDefault();
+        this.setState({
+            modalIsOpen: true
+        })
+    };
+
+    closeModal = event => {
+        this.setState({
+            modalIsOpen: false
+        })
+    };
+
     handleDelete = event => {
         event.preventDefault();
-
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${this.id}`)
             .then(response => {
@@ -99,17 +112,33 @@ render() {
 
         return (
             <div className="main-container note">
-                <div className="action-container">
-                    <h5 onClick={this.toggleEditMode}>
-                        edit
-                    </h5>
-                </div>
-                <h2>
-                    {this.state.title}
-                </h2>
-                <div className="note-body">
-                    {this.state.textBody}
-                </div>
+                 <Modal
+                    isOpen={this.state.modalIsOpen}
+                    onAfterOpen={this.afterOpenModal}
+                    onRequestClose={this.closeModal}
+                    className="modal"
+                    overlayClassName="overlay"
+                >
+                    <h3>Are you sure you want to delete this?</h3>
+                    <div className="modal-buttons">
+                        <button onClick={this.handleDelete}>Delete</button>
+                        <button onClick={this.closeModal}>No</button>
+                    </div>
+                </Modal>
+                    <div className="action-container">
+                        <h5 onClick={this.toggleEditMode}>
+                            edit
+                        </h5>
+                        <h5 onClick={this.openModal}>
+                            delete
+                        </h5>
+                    </div>
+                    <h2>
+                        {this.state.title}
+                    </h2>
+                    <div className="note-body">
+                        {this.state.textBody}
+                    </div>
             </div>
         )
     }

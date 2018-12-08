@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./index.css";
 
 const NoteList = props => {
     if (!props.notes) {
@@ -8,7 +9,7 @@ const NoteList = props => {
         )
     }
 
-    const notes = props.notes;
+    const notes = props.notes.slice().reverse();
 
     return (
         <div className="your-notes-container">
