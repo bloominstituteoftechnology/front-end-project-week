@@ -2,7 +2,7 @@ import React from 'react';
 
 class NotesForm extends React.Component {
   state = {
-    id: '',
+    _id: '',
     title: '',
     textBody: '',
     tags: '',
@@ -15,35 +15,30 @@ class NotesForm extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.update) {
-      const note = this.props.notes.find(
-        note => note.id === this.props.match.params.id
-      )
-      this.setState({
-        id: note.id,
-        title: note.title,
-        textBody: note.textBody,
-        tags: note.tags.join(','),
-      })
-    }
+    const { update, note } = this.props;
+    
+    update && this.setState({
+      _id: note._id,
+      title: note.title,
+      textBody: note.textBody,
+      tags: note.tags.join(',')
+    })
   }
+
 
   onSubmit = e => {
     e.preventDefault();
 
+    const { _id, title, textBody, tags } = this.state;
+    const { update, updateNote, addNote, history } = this.props;
+
     const note = {
-      id: this.state.id || Date.now().toString(),
-      title: this.state.title,
-      textBody: this.state.textBody,
-      tags: this.state.tags.split(',')
+      title,
+      textBody,
+      tags: tags.split(',')
     };
 
-    if (this.props.update) {
-      console.log('update');
-      this.props.updateNote(note, this.state.id)
-    } else {
-      this.props.addNote(note)
-    }
+    update ? updateNote(note, _id) : addNote(note);
 
     this.setState({
       title: '',
@@ -51,14 +46,16 @@ class NotesForm extends React.Component {
       tags: '',
     })
 
-    this.props.history.push('/');
+    history.push('/');
   }
 
   render() {
-    const {title, textBody, tags} = this.state
+    const {title, textBody, tags} = this.state;
+    const { update } = this.props;
+    
     return (
       <div className="form-container">
-        <h3>Create New Note:</h3>
+        <h3>{update ? 'Update Note:' : 'Create New Note:'}</h3>
         <form action="submit" onSubmit={this.onSubmit}>
           <input type="text"
             onChange={this.onChange}
@@ -78,7 +75,7 @@ class NotesForm extends React.Component {
             name="tags"
             value={tags}
           /><br/>
-          <button type="submit">Save</button>
+          <button type="submit">{update ? 'Update' : 'Save'}</button>
         </form>
       </div>
     )

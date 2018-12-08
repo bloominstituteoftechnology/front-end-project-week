@@ -4,29 +4,35 @@ import { connect } from 'react-redux';
 
 // import actions creators
 import {
-  addNote,
-  deleteNote,
-  updateNote,
+  getNotes
 } from '../store/actions';
 
 // import components
 import NotesList from '../components/NotesList';
 
 class NotesView extends React.Component {
+  componentDidMount() {
+    this.props.getNotes();
+  }
+
   render() {
     return (
-      <NotesList {...this.props}/>
+        this.props.fetchingNotes ?
+          <div>Loading ... </div> :
+          !this.props.notes[0] ?
+              <div>Something has gone teribbly wrong.</div> :
+              <NotesList {...this.props}/>
     )
   }
 }
 
 export default connect(
   state => ({
-    notes: state,
+    notes: state.notes,
+    fetchingNotes: state.fetchingNotes,
+    error: state.error,
   }),
   {
-    addNote,
-    deleteNote,
-    updateNote,
+    getNotes
   }
 )(NotesView)

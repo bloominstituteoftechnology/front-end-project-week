@@ -8,9 +8,9 @@ const NotesList = ({notes, history}) => {
         notes.map(note => (
           <div
             className="note-item"
-            key={note.id}
+            key={note._id}
             onClick = { () => {
-              history.push(`/notes/${note.id}`)
+              history.push(`/notes/${note._id}`)
             }}
           >
             <h4>{note.title}</h4>

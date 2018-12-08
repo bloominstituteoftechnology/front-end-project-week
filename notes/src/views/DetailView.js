@@ -4,29 +4,39 @@ import { connect } from 'react-redux';
 
 // import actions creators
 import {
+  getNote,
   deleteNote,
-  updateNote,
 } from '../store/actions';
 
 // import components
 import NoteDetail from '../components/NoteDetail';
 
 class DetailView extends React.Component {
+  componentDidMount() {
+    this.props.getNote(this.props.match.params._id);
+  }
+
   render() {
+    const { fetchingNote, note } = this.props;
+    
     return (
-      <NoteDetail
-        {...this.props}
-      />
+      fetchingNote ?
+        <div>Fetching Friend ...</div> :
+        !note || !note._id ?
+          <div>Something has gone teribbly wrong</div> :
+          <NoteDetail {...this.props} />
     )
   }
 }
 
 export default connect(
   state => ({
-    notes: state,
+    note: state.note,
+    fetchingNote: state.fetchingNotes,
+    error: state.error,
   }),
   {
+    getNote,
     deleteNote,
-    updateNote,
   }
 )(DetailView)

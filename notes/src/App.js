@@ -21,10 +21,10 @@ class App extends React.Component {
         <Route path="/add" render={
           props => <FormView {...props}/>
         } />
-        <Route path="/notes/:id" render={
+        <Route exact path="/notes/:_id" render={
           props => <DetailView {...props} />
         } />
-        <Route path="/notes/edit/:id" render={
+        <Route path="/notes/edit/:_id" render={
           props => <FormView update {...props} />
         } />
       </div>
