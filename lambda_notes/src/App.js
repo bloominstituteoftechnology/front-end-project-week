@@ -1,9 +1,61 @@
 import React, { Component } from "react";
+import { Route, withRouter } from "react-router-dom";
+import NavSideBar from "./containers/NavSideBar";
+import NotesList from "./containers/NotesList";
+import { getNotes } from "./store/actions";
+import { connect } from "react-redux";
+import AddNoteForm from "./components/AddNoteForm";
+import EditNoteForm from "./components/EditNoteForm";
+import Note from "./components/Note";
+import styled, { createGlobalStyle } from "styled-components";
+import Login from "./components/Login";
+
+const GlobalStyles = createGlobalStyle`
+  html, body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  }
+`;
+
+const AppDiv = styled.div`
+  display: flex;
+`;
 
 class App extends Component {
+  componentDidMount = () => {
+    this.props.getNotes();
+  };
+
   render() {
-    return <div className="App">TEST</div>;
+    return (
+      <AppDiv>
+        <GlobalStyles />
+        <NavSideBar />
+        <Route exact to="/" component={Login} />
+        <Route
+          to="/notes"
+          render={props => <NotesList {...props} notes={this.props.notes} />}
+        />
+        <Route path="/note/:noteId" render={props => <Note {...props} />} />
+        <Route path="/note-add" component={AddNoteForm} />
+        <Route path="/note-edit/:noteId" component={EditNoteForm} />
+      </AppDiv>
+    );
   }
 }
 
-export default App;
+const mapStateToProps = ({ notes, fetchingNotes, error }) => ({
+  notes,
+  fetchingNotes,
+  error
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getNotes }
+  )(App)
+);
