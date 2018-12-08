@@ -22,7 +22,6 @@ const NoteList = props => {
        <Link to="/"><Button color="info">View Your Notes.</Button></Link>
        {' '}
        <Link to="/new"><Button color="info">Add Note +</Button></Link>
-       <Link to="/delete" ><Button>Delete</Button></Link>
       </ContainerStyle>
     )
 }

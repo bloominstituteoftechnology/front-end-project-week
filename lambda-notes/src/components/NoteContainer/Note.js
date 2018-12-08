@@ -4,13 +4,13 @@ import { Card, CardText, CardBody, CardTitle, CardDeck} from 'reactstrap';
 import { Link } from 'react-router-dom'
 import SingleNoteView from '../NoteAppViews/SingleNoteView'
 
-// const NoteContainer = styled.section `
-//  display: flex ;
-//  flex-direction: row ;
-//  flex-wrap: wrap ;
-//  margin: 5% 5% 5% 5%;
-//  justify-content: space-between ;
-// `
+const NoteContainer = styled.CardDeck`
+ display: flex ;
+ flex-direction: row ;
+ flex-wrap: wrap ;
+ margin: 5% 5% 5% 5%;
+ justify-content: space-between ;
+`
 // const NoteStyling = styled.div ` 
 // `
 
@@ -35,10 +35,7 @@ const Note = props => {
  
  return (
   <div>
-   {/* <NoteContainer>
-    <NoteStyling> */}
-     <CardDeck>
-      <Card  style={{ backgroundColor: '#f9fbff', borderColor: '#333' }} >
+      <NoteContainer  style={{ backgroundColor: '#f9fbff', borderColor: '#333' }} >
        <CardBody>
         <CardTitle>
          <Link to={`/note/${props.id}`} 
@@ -51,10 +48,7 @@ const Note = props => {
          {/* <NoteBody className="note_body">{props.textBody}</NoteBody> */}
         </CardText>
        </CardBody>
-      </Card>
-     </CardDeck>
-    {/* </NoteStyling>
-   </NoteContainer> */}
+      </NoteContainer>
   </div>
  )
 }
