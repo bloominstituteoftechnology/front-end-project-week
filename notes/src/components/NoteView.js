@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getNotes, deleteNote } from "../actions";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { ActiveTitle, NoteBox } from "./ListView";
 
 const NoteViewWrapper = styled.div`
 	display: flex;
@@ -12,6 +13,13 @@ const NoteViewWrapper = styled.div`
 const NoteViewHeader = styled.header`
 	align-self: flex-end;
 	position: relative;
+	margin: 25px 30px;
+`;
+
+const NavA = styled.a`
+	color: rgb(60, 60, 60);
+	font-size: 1.2rem;
+	margin: 10px;
 `;
 
 const Delete = styled.div`
@@ -25,17 +33,33 @@ const Delete = styled.div`
 
 const DeleteBox = styled.div`
 	margin: 0 auto;
-	width: 40%;
+	width: 58%;
 	border: 1px solid black;
 	background: white;
-	margin-top: 100px;
-	height: 200px;
+	margin-top: 195px;
+	height: 195px;
 	z-index: 1;
+	padding: 5px ;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 `;
 
 const DeleteButton = styled.button`
-	background: red;
+	background: ${props => (props.red ? "red" : "teal")};
 	color: white;
+    height: 50px;
+    margin-top: 35px;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 200px;
+    font-size: 1.2rem;
+    font-weight: bold;
+`;
+
+const ActiveTitle2x = styled(ActiveTitle)`
+	margin-top: 5px;
 `;
 
 class NoteView extends Component {
@@ -44,11 +68,11 @@ class NoteView extends Component {
 		this.state = {
 			displayDelete: false
 		};
-    }
-   
-    componentDidMount(){
-        this.props.getNotes();
-    }
+	}
+
+	componentDidMount() {
+		this.props.getNotes();
+	}
 
 	showDeleteModal(ev, id) {
 		ev.preventDefault();
@@ -78,36 +102,43 @@ class NoteView extends Component {
 		return (
 			<NoteViewWrapper>
 				<NoteViewHeader>
-					<Link to={`/edit/${note._id}`}> EDIT</Link>
-					<a
+					<NavA as={Link} to={`/edit/${note._id}`}>
+						{" "}
+						edit
+					</NavA>
+					<NavA
 						href='/'
 						onClick={ev => this.showDeleteModal(ev, note._id)}>
-						DELETE
-					</a>
+						delete
+					</NavA>
 				</NoteViewHeader>
 				<section>
-					<h1>{note.title} </h1>
-					<p> {note.textBody} </p>
+					<ActiveTitle2x>{note.title} </ActiveTitle2x>
+					<NoteBox>
+						<p> {note.textBody} </p>
+					</NoteBox>
 				</section>
 				{this.state.displayDelete ? (
 					<Delete onClick={ev => this.hideDeleteModal(ev, "outside")}>
 						<DeleteBox
 							onClick={ev => this.hideDeleteModal(ev, "inside")}>
 							{/* what the EFFFFF i do not know why ^this^ works */}
-							<h2>Are you sure you want to delete this?</h2>
-							<DeleteButton
-								onClick={ev =>
-									this.deleteHandler(ev, note._id)
-								}>
-								Delete
-							</DeleteButton>
-							<DeleteButton
-								onClick={ev =>
-									this.hideDeleteModal(ev, "outside")
-								}>
-								{" "}
-								No{" "}
-							</DeleteButton>
+							<p>Are you sure you want to delete this?</p>
+							<div>
+								<DeleteButton
+									red
+									onClick={ev =>
+										this.deleteHandler(ev, note._id)
+									}>
+									Delete
+								</DeleteButton>
+								<DeleteButton
+									onClick={ev =>
+										this.hideDeleteModal(ev, "outside")
+									}>
+									No
+								</DeleteButton>
+							</div>
 						</DeleteBox>
 					</Delete>
 				) : (

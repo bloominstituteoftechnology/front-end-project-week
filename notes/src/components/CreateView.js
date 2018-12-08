@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getNotes, addNote, deleteNote, editNote } from "../actions";
+import { getNotes, addNote} from "../actions";
 import Form from "./NoteForm";
+import { ActiveTitle} from "./ListView";
 
 class CreateView extends Component {
 	render() {
 		return (
-			<div>
-				<h2>Create new Note</h2>
+			<>
+				<ActiveTitle>Create new Note</ActiveTitle>
                 <Form
 					{...this.props}
 					addNote={this.props.addNote}
@@ -15,16 +16,15 @@ class CreateView extends Component {
 					getNotes={this.props.getNotes}
 					>
 				</Form>
-			</div>
+			</>
 		);
 	}
 }
+
 export default connect(
 	({ notes }) => ({ notes }),
 	{
 		getNotes,
-		addNote,
-		deleteNote,
-		editNote
+		addNote
 	}
 )(CreateView);

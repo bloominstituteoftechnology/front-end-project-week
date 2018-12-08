@@ -52,6 +52,29 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
       box-sizing: border-box;
-      font-size: 1.6rem;
+	  font-size: 62.5%;
+	  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+  }
+  h1{
+	  font-weight: bold;
+	  font-size: 3.2rem; 
+	  color: rgb(60,60,60);
+  }
+  h2{
+	  font-weight: bold;
+	  font-size: 2rem;
+	  color: rgb(60,60,60);
+  }
+  h3{
+	  font-weight: bold;
+	  font-size: 1.6rem;
+	  color: black;
+  }
+
+  p{
+	  line-height: 2rem;
+	  font-size: 1.2rem;
   }
 `;

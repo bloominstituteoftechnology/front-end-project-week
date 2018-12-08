@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getNotes, addNote, deleteNote, editNote } from "../actions";
 import Form from "./NoteForm";
+import { ActiveTitle, NoteBox } from "./ListView";
 
 class EditView extends Component {
 	render() {
@@ -13,13 +14,14 @@ class EditView extends Component {
 		);
 		return (
 			<>
-                <h2>Edit Note</h2>
+				<ActiveTitle>Edit Note</ActiveTitle>
 				<Form
+					as={NoteBox}
 					{...this.props}
 					editNote={this.props.editNote}
-					buttonText="Update"
-                    note={note}
-                    getNotes={this.props.getNotes}
+					buttonText='Update'
+					note={note}
+					getNotes={this.props.getNotes}
 					edit>
 					<h1>{note.title} </h1>
 					<p> {note.textBody} </p>

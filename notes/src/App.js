@@ -14,23 +14,32 @@ const AppWrapper = styled.div`
 `;
 
 const Sidebar = styled.div`
-	background-color: gray;
-	width: 300px;
+	background-color: lightgrey;
+	width: 340px;
 	display: flex;
 	flex-direction: column;
+	border-right: 1px solid darkgrey;
 `;
 
 const Main = styled.div`
-	background-color: lightgray;
+	background-color: whitesmoke;
 	width: 100%;
 `;
 
 const Title = styled.h1`
-	font-size: 4rem;
+	margin: 20px;
 `;
 
-const SideBarButton = styled(Link)`
+export const SideBarButton = styled(Link)`
 	background-color: teal;
+	margin: 10px 20px;
+	text-align: center;
+	padding: 15px 0;
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+	border: 1px solid darkgrey;
+	font-size: 1.4rem;
 `;
 
 class App extends Component {
@@ -45,7 +54,7 @@ class App extends Component {
 				<AppWrapper>
 					<Sidebar>
 						<Title>Lambda Notes</Title>
-						<SideBarButton to='/'> View Your Notes </SideBarButton>
+						<SideBarButton to='/' onClick={()=>this.props.getNotes()}> View Your Notes </SideBarButton>
 						<SideBarButton to='/create'>
 							+ Create New Note
 						</SideBarButton>

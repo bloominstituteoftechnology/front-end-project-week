@@ -45,7 +45,7 @@ export const addNote = note => dispatch => {
 			dispatch({
 				type: ADD_NOTE_SUCCESS,
 				payload: response.data.success
-            });
+			});
 		})
 		.catch(err => {
 			console.log("Add Failed", err);
@@ -60,7 +60,7 @@ export const deleteNote = id => dispatch => {
 		.then(responce => {
 			console.log("Deleted succeeded", responce);
 			dispatch({
-				type: DELETE_NOTE_SUCCESS,
+				type: DELETE_NOTE_SUCCESS
 			});
 		})
 		.catch(err => {
@@ -76,7 +76,7 @@ export const editNote = (id, payload) => dispatch => {
 		.then(responce => {
 			console.log("Edit succeeded", responce);
 			dispatch({
-				type: EDIT_NOTE_SUCCESS,
+				type: EDIT_NOTE_SUCCESS
 			});
 		})
 		.catch(err => {

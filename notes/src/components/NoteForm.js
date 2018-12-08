@@ -2,24 +2,48 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const FormWrapper = styled.form`
-	margin-top: 10px;
-	width: 100%;
+	margin: 0px;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	padding: 10px;
+	align-items: flex-start;
+	padding-left: 30px;
+`;
+
+const Input = styled.input`
+	margin: 0px;
+	margin: 0;
+	margin-bottom: 15px;
+	font-size: 1.2rem;
+	padding: 15px;
+	border: 1px solid darkgrey;
+	width: 50%;
+	
+`;
+
+const Button = styled.button`
+	background-color: teal;
 	text-align: center;
+	padding: 15px 0;
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+	border: 1px solid darkgrey;
+    font-size: 1.4rem;
+    width: 30%;
+`;
 
-	input {
-		width: 90%;
-		margin: 0 auto;
-		margin-bottom: 5px;
-	}
-
-	button {
-		margin: 10px;
-		width: 60%;
-	}
+const TextArea = styled.textarea`
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    margin: 0px;
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    padding: 20px;
+    border: 1px solid darkgrey; 
+    width: 85%;
+    height: 360px;
 `;
 
 class Form extends Component {
@@ -54,21 +78,22 @@ class Form extends Component {
 	render() {
 		return (
 			<FormWrapper onSubmit={this.submitHandler}>
-				<input
+				<Input
 					type='title'
 					name='title'
-					placeholder='Title'
+					placeholder='Note Title'
 					onChange={this.handleChange}
 					value={this.state.title}
 				/>
-				<input
+				<TextArea
 					type='textBody'
 					name='textBody'
-					placeholder='Text'
+					placeholder='Note Content'
 					onChange={this.handleChange}
 					value={this.state.textBody}
+					extra
 				/>
-				<button type='submit'>{this.props.buttonText}</button>
+				<Button type='submit'>{this.props.buttonText}</Button>
 			</FormWrapper>
 		);
 	}
