@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components' 
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
@@ -45,4 +46,4 @@ const Note = props => {
  )
 }
 
-export default Note
+export default withRouter(Note)

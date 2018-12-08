@@ -28,12 +28,12 @@ export default class EditView extends Component {
   }
  }
 
- componentDidMount(){
-  const id = this.props.match.params.noteId
- const singleNote = this.props.notes.find((note) => note.id === this.id)
-  console.log(id)
-  console.log(singleNote)
- }
+ // componentDidMount(){
+ //  const id = this.props.match.params.noteId
+ // const singleNote = this.props.notes.find((note) => note.id === this.id)
+ //  console.log(id)
+ //  console.log(singleNote)
+ // }
 
  inputHandler = event => {
   this.setState({

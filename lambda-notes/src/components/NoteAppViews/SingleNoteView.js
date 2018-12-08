@@ -1,41 +1,36 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getNote } from '../../actions/'
-import { Link, Route } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import DeleteView from './DeleteView';
 
-export default class SingleNoteView extends React.Component {
- constructor(props){
-  super(props)
-  this.state = {
-   noteTitle: '',
-   noteBody: ''
-  }
- }
+class SingleNoteView extends React.Component {
 
- componentDidMount(){
-  const singleNote = this.props.notes.find(note => this.props.match.params.url === note.id)
-  this.setState({
-   noteTitle: singleNote.title,
-   noteBody: singleNote.textBody
-  })
- }
+ // componentDidMount = () => {
+ //  const singleNote = this.props.notes.find(note => this.props.match.params.url === note.id)
+ //  this.setState({
+ //   noteTitle: singleNote.title,
+ //   noteBody: singleNote.textBody
+ //  })
+ // }
 
- render(){
-  
+
+
+
+   render(){
    return (
     <div>
     <div>
-     {this.state.noteTitle}
-    {this.state.noteBody}
+     {this.props.noteTitle}
+    {this.props.noteBody}
     </div>
     
-    <button>
+    {/* <button>
     <Route path="/delete" render={() => <DeleteView/>} />
     <Link to="/delete/">
      Delete
     </Link>
-    </button>
+    </button> */}
     </div>
   )}
 }
@@ -46,5 +41,4 @@ const mapStateToProps = state => {
   notes: notes,
  }
 }
-
-connect(mapStateToProps, { getNote })(SingleNoteView)
+export default withRouter(connect(mapStateToProps, { getNote })(SingleNoteView))

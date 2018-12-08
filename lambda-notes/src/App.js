@@ -4,25 +4,34 @@ import Sidebar from './components/Sidebar/Sidebar'
 import EditView from './components/NoteAppViews/EditView'
 import CreateView from './components/NoteAppViews/CreateView'
 import Note from './components/NoteContainer/Note'
-import SingleNoteView from './components/NoteAppViews/SingleNoteView'
+import { connect } from 'react-redux'
+import NoteView from './components/NoteAppViews/NoteView'
 import './App.css';
 import NoteContainer from './components/NoteContainer/NoteContainer'
+import SingleNoteView from './components/NoteAppViews/SingleNoteView';
 
 class App extends Component {
   render() {
     return (
      <div className="App">
       <Sidebar/>
-      <NoteContainer/>
       <Switch>
-      <Route exact path="/" component={Note} />
+      <Route exact path="/" component={NoteContainer}/>
       <Route exact path="/edit/:id" component={EditView}/>
-      <Route exact path="/new/" component={CreateView} />
-      <Route path='/note/:id' render={SingleNoteView}/>
+      <Route path="/new/" component={CreateView} />
+      <Route exact path='/note/' render={() => <NoteView {...this.props} notes={this.props.notes}/>}/>
+      <Route exact path='/note/:noteId' component={EditView} />
       </Switch>
      </div>
     );
   }
 }
 
-export default App
+const mapStateToProps = state => {
+ const { notes } = state
+ return {
+  notes: notes
+ }
+}
+
+export default connect(mapStateToProps)(App)
