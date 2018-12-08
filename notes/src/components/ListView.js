@@ -10,7 +10,8 @@ export const ActiveTitle = styled.h2`
 `;
 
 export const NoteBox = styled.div`
-	margin-left: 30px;
+    margin-left: 30px;
+    padding-right: 30px;
 	display: flex;
 	flex-wrap: wrap;
 `;
@@ -26,7 +27,7 @@ const NoteListNote = styled.div`
 class ListView extends Component {
 	render() {
 		if (!this.props.notes.map.length) {
-			return <div> Loading Notes... </div>;
+			return <ActiveTitle> Loading Notes... </ActiveTitle>;
 		}
 		return (
 			<>

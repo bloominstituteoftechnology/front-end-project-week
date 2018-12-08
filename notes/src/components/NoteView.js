@@ -94,7 +94,7 @@ class NoteView extends Component {
 
 	render() {
 		if (!this.props.notes.length) {
-			return <div>Loading note... </div>;
+			return <ActiveTitle>Loading note... </ActiveTitle>;
 		}
 		const note = this.props.notes.find(
 			note => this.props.match.params.id === note._id
