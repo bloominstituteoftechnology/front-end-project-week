@@ -11,23 +11,18 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // importing reducers
 import reducers from './store/reducers';
 
+// importing styles
+import './index.css';
+
 // importing components
 import App from './App';
 
-// use local storage for data persistance
-// const persistedData = JSON.parse(window.localStorage.getItem('redux-notes')) || [];
 
 // Redux Store
-// TODO: change first input to reducers
 const store = createStore(
   reducers, 
   applyMiddleware(thunk, logger)
 );
-
-// subscribe local storage to get updated data
-// store.subscribe(() => {
-//   localStorage.setItem('redux-notes', JSON.stringify(store.getState()));
-// })
 
 ReactDOM.render(
   <Provider store={store}>

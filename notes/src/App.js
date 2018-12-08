@@ -1,6 +1,7 @@
 // importing libraries
 import React from 'react'
 import { Route } from 'react-router-dom';
+import styled from 'styled-components';
 
 // importing components
 import NotesView from './views/NotesView';
@@ -8,26 +9,45 @@ import FormView from './views/FormView';
 import DetailView from './views/DetailView';
 import NavBar from './components/NavBar';
 
+// styled component for the App
+const AppWrapper = styled.div`
+  width: 100%;
+  display: flex;
+
+  .navbar-container {
+    background-color: #D3D2D3;
+    min-width: 25vw;
+  }
+
+  .content-container {
+    background-color: #F2F1F2;
+  }
+`;
+
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <Route path="/" render={
-          props => <NavBar {...props} />
-        } />
-        <Route exact path="/" render={
-          props => <NotesView {...props} />
-        } />
-        <Route path="/add" render={
-          props => <FormView {...props}/>
-        } />
-        <Route exact path="/notes/:_id" render={
-          props => <DetailView {...props} />
-        } />
-        <Route path="/notes/edit/:_id" render={
-          props => <FormView update {...props} />
-        } />
-      </div>
+      <AppWrapper className="App">
+        <div className="navbar-container">
+          <Route path="/" render={
+            props => <NavBar {...props} />
+          } />
+        </div>
+        <div className="content-container">
+          <Route exact path="/" render={
+            props => <NotesView {...props} />
+          } />
+          <Route path="/add" render={
+            props => <FormView {...props}/>
+          } />
+          <Route exact path="/notes/:_id" render={
+            props => <DetailView {...props} />
+          } />
+          <Route path="/notes/edit/:_id" render={
+            props => <FormView update {...props} />
+          } />
+        </div>
+      </AppWrapper>
     );
   }
 }
