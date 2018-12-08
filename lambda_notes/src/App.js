@@ -34,9 +34,9 @@ class App extends Component {
       <AppDiv>
         <GlobalStyles />
         <NavSideBar />
-        <Route exact to="/" component={Login} />
+        <Route exact path="/" component={Login} />
         <Route
-          to="/notes"
+          path="/notes"
           render={props => <NotesList {...props} notes={this.props.notes} />}
         />
         <Route path="/note/:noteId" render={props => <Note {...props} />} />

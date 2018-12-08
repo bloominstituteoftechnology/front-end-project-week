@@ -21,7 +21,7 @@ const URL = "https://fe-notes.herokuapp.com/note/";
 export const getNotes = () => dispatch => {
   dispatch({ type: FETCH_NOTES });
   axios
-    .get(`${URL}all`)
+    .get(`${URL}get/all/`)
     .then(({ data }) => dispatch({ type: FETCH_NOTES_SUCCESS, payload: data }))
     .catch(err => dispatch({ type: FETCH_NOTES_FAILURE, payload: err }));
 };
@@ -29,7 +29,7 @@ export const getNotes = () => dispatch => {
 export const getSingleNote = note => dispatch => {
   dispatch({ type: FETCH_SINGLE_NOTE });
   axios
-    .get(`${URL}${note}`)
+    .get(`${URL}${note}/`)
     .then(({ data }) =>
       dispatch({ type: FETCH_SINGLE_NOTE_SUCCESS, payload: data })
     )
@@ -39,7 +39,7 @@ export const getSingleNote = note => dispatch => {
 export const addNote = () => dispatch => {
   dispatch({ type: ADD_NOTE });
   axios
-    .post(`${URL}create`)
+    .post(`${URL}create/`)
     .then(({ data }) => dispatch({ type: ADD_NOTE_SUCCESS, payload: data }))
     .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));
 };
@@ -47,7 +47,7 @@ export const addNote = () => dispatch => {
 export const editNote = note => dispatch => {
   dispatch({ type: EDIT_NOTE });
   axios
-    .put(`${URL}${note}`)
+    .put(`${URL}${note}/`)
     .then(({ data }) => dispatch({ type: EDIT_NOTE_SUCCESS, payload: data }))
     .catch(err => dispatch({ type: EDIT_NOTE_FAILURE, payload: err }));
 };
@@ -55,7 +55,7 @@ export const editNote = note => dispatch => {
 export const deleteNote = note => dispatch => {
   dispatch({ type: DELETE_NOTE });
   axios
-    .delete(`${URL}delete/${note}`)
+    .delete(`${URL}delete/${note}/`)
     .then(({ data }) => dispatch({ type: DELETE_NOTE_SUCCESS, payload: data }))
     .catch(err => dispatch({ type: DELETE_NOTE_FAILURE, payload: err }));
 };

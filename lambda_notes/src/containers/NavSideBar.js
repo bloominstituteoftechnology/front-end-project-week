@@ -49,12 +49,8 @@ function NavSideBar() {
       <H1>
         Lambda <Span>Notes</Span>
       </H1>
-      <StyledLink exact to="/">
-        View Your Notes
-      </StyledLink>
-      <StyledLink exact to="/note-add">
-        + Create New Note
-      </StyledLink>
+      <StyledLink to="/notes">View Your Notes</StyledLink>
+      <StyledLink to="/note-add">+ Create New Note</StyledLink>
     </Nav>
   );
 }
