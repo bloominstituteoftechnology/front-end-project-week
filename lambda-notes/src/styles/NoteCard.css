@@ -19,7 +19,6 @@
 }
 
 .noteCard-textBody {
-    /* width: 200px; */
     height: 112px;;
     text-overflow: ellipsis;
     overflow: hidden;

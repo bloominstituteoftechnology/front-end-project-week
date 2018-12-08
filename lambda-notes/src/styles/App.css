@@ -1,18 +1,17 @@
-.App {
-  /* text-align: center; */
-}
 
 .app-container {
-  width: 100%;
-  height: 100%;
   display: flex;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .left-nav-container {
   width: 20vw;
   min-width: 250px;
   max-width: 250px;
-  /* height: 100vh; */
   background-color: rgb(137, 151, 168);
   padding: 2rem 2rem;
 }
@@ -42,8 +41,9 @@
 }
 
 .main-notes-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
   background-color: rgb(214, 214, 214);
   padding: 4rem 3rem;
 }

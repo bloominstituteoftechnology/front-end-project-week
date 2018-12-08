@@ -15,16 +15,22 @@ class NotesList extends React.Component {
     }
 
     render() {
+        if(this.props.adding) {
+            return <h3>Adding Note ...</h3>
+        }
         if(this.props.fetching) {
             return <h3>Loading Notes ...</h3>
         }
         return (
-            <div className='noteList-card-container'>
-                {this.props.notes.map(note => {
-                    return (
-                        <div key={note._id}><NoteCard noteInfo={note}/></div>
-                    );
-                })}
+            <div>
+                <h3 className='notes-page-title'>Your Notes:</h3>
+                <div className='noteList-card-container'>
+                    {this.props.notes.map(note => {
+                        return (
+                            <div key={note._id}><NoteCard noteInfo={note}/></div>
+                        );
+                    })}
+                </div>
             </div>
         );
     }
@@ -35,6 +41,7 @@ const mapStateToProps = state => {
     return {
         notes: state.notes,
         fetching: state.fetching,
+        adding: state.adding,
     };
 }
 
