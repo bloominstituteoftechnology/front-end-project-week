@@ -11,7 +11,7 @@ export default class NoteView extends React.Component {
  
   console.log(id)
  }
-singleNote = this.props.notes.find((note) => note.id === this.id)
+// singleNote = this.props.notes.find((note) => note.id === this.id)
  render(){
   console.log(this.singleNote)
   return (

@@ -15,7 +15,7 @@ height: 800px ;
 background: gray ;
 `
 
-const NoteList = props => {
+const Sidebar = props => {
  return (
       <ContainerStyle>
        <H1>Lambda Notes</H1>
@@ -26,4 +26,4 @@ const NoteList = props => {
     )
 }
 
-export default NoteList
+export default Sidebar

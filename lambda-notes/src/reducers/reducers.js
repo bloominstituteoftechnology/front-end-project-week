@@ -31,6 +31,10 @@ switch(action.type){
   return {...state, editing: true}
  case EDITED:
   return Object.assign({}, state, {notes: action.payload})  
+ case DELETING:
+  return {}
+ case DELETED: 
+  return {}
  case FAILURE:
   return {state, error: 'error!'}
  default:

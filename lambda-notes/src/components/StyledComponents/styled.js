@@ -11,12 +11,14 @@ display: flex ;
  justify-content: space-between ;
 `
 
-export const NoteContainer = styled.CardDeck`
+const NoteContainer = styled.div`
  display: flex ;
  flex-direction: row ;
  flex-wrap: wrap ;
  margin: 5% 5% 5% 5%;
  justify-content: space-between ;
+ backgroundColor: #f9fbff; 
+ borderColor: #333
 `
 
 export const App = styled.div `
