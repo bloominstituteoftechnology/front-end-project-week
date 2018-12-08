@@ -16,13 +16,15 @@ const AppWrapper = styled.div`
 
   .navbar-container {
     background-color: #D3D2D3;
-    min-width: 30rem
+    min-width: 30rem;
+    min-height: 100vh;
     width: 25%;
   }
 
   .content-container {
     background-color: #F2F1F2;
     width: 75%;
+    min-height: 100vh;
   }
 `;
 
