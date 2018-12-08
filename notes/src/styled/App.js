@@ -5,6 +5,11 @@ export const AppWrapper = styled.div`
   box-sizing: border-box;
   background-color: #f3f3f3;
   min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 `;
 export const Nav = styled.nav`
   height: 100%;

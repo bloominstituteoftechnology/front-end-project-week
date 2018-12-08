@@ -11,7 +11,7 @@ const Modal = props => {
       <ModalWrapper>
         <p>Are you sure you want to delete this?</p>
         <div>
-          <Delete onClick={props.kill}>Delete</Delete>
+          <Delete onClick={props.delete}>Delete</Delete>
           <Cancel onClick={props.close}>Cancel</Cancel>
         </div>
       </ModalWrapper>

@@ -3,7 +3,6 @@ import Modal from "./Modal";
 import { NoteCard } from "../styled/SingleNote";
 import { fetchSingle, deleteNote } from "../actions";
 
-// import axios from "axios";
 import { connect } from "react-redux";
 
 class Note extends React.Component {
@@ -13,10 +12,6 @@ class Note extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    // axios
-    //   .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    //   .then(res => this.setState({ note: res.data }))
-    //   .catch(err => console.error(err));
     this.props.fetchSingle(id);
     window.scrollTo(0, 0);
   }
@@ -27,18 +22,16 @@ class Note extends React.Component {
 
   delete = () => {
     this.props.deleteNote(this.props.match.params.id);
-    this.toggleModal();
     this.props.history.push("/notes");
   };
 
   render() {
     const { note } = this.props;
-    // console.log(this.props.match.params.id);
     return (
       <>
         <Modal
           show={this.state.showModal}
-          kill={this.delete}
+          delete={this.delete}
           close={this.toggleModal}
         />
         <NoteCard>

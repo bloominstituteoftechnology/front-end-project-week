@@ -24,8 +24,6 @@ const rootReducer = (state = initialState, action) => {
         notes: action.payload,
         filtered: []
       };
-    case act.FETCHING_ERROR:
-      return { ...state, fetchingNotes: false, error: action.payload };
     case act.SAVING:
       return { ...state, savingNote: true };
     case act.SAVED:
@@ -57,7 +55,6 @@ const rootReducer = (state = initialState, action) => {
     case act.UPDATING:
       return { ...state, updatingNote: true };
     case act.UPDATED:
-      // console.log(action.payload);
       const updated = state.notes.map(note => {
         if (note._id === action.payload._id) {
           return action.payload;
@@ -67,16 +64,16 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, notes: updated };
     case act.FILTER:
       const options = {
-        threshold: 0.6,
+        threshold: 0.5,
         location: 0,
         distance: 100,
         maxPatternLength: 32,
         minMatchCharLength: 0,
-        keys: ["title"]
+        keys: ["title", "textBody"]
       };
       const fuse = new Fuse(state.notes, options);
       const result = fuse.search(action.payload);
-      return { ...state, filtered: result };
+      return { ...state, filtered: [...result] };
     case act.ERROR:
       return {
         ...state,
@@ -93,5 +90,3 @@ const rootReducer = (state = initialState, action) => {
 };
 
 export default rootReducer;
-
-// const filtered = state.notes.filter(note => note._id === action.payload);

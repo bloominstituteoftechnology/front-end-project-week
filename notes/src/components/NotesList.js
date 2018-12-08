@@ -3,7 +3,7 @@ import SmallNote from "./SmallNote";
 import { MainContent, NoteList, Search } from "../styled/NotesList";
 
 import { connect } from "react-redux";
-import { fetchNotes } from "../actions";
+import { fetchNotes, filterNotes } from "../actions";
 
 class NotesList extends React.Component {
   constructor() {
@@ -15,22 +15,17 @@ class NotesList extends React.Component {
 
   componentDidMount() {
     this.props.fetchNotes();
-    // axios
-    //   .get(`${API}/get/all`)
-    //   .then(res => {
-    //     this.setState({ notes: res.data });
-    //     this.props.get(res.data);
-    //   })
-    //   .catch(err => console.error(err));
+    window.scrollTo(0, 0);
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    this.props.search(e);
+    this.props.filterNotes(e.target.value);
   };
 
   render() {
-    // console.log(this.props.notes);
+    const notes =
+      this.props.filtered.length > 0 ? this.props.filtered : this.props.notes;
     return (
       <MainContent>
         <h2>Your Notes:</h2>
@@ -44,11 +39,10 @@ class NotesList extends React.Component {
           />
         </Search>
         <NoteList>
-          {this.props.notes.map((note, index) => {
+          {notes.map(note => {
             return (
               <SmallNote
                 key={note._id}
-                index={index}
                 note={note}
                 history={this.props.history}
               />
@@ -63,6 +57,7 @@ class NotesList extends React.Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
+    filtered: state.filtered,
     fetchingNotes: state.fetchingNotes,
     error: state.error
   };
@@ -70,5 +65,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchNotes }
+  { fetchNotes, filterNotes }
 )(NotesList);
