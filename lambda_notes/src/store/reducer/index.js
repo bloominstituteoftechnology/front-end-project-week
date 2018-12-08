@@ -57,7 +57,7 @@ const notesReducer = (state = initialState, action) => {
     case FETCH_SINGLE_NOTE_SUCCESS:
       return {
         ...state,
-        fetchingNotes: true,
+        fetchingNotes: false,
         error: null,
         note: action.payload
       };

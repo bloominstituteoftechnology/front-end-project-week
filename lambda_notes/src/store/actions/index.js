@@ -29,7 +29,7 @@ export const getNotes = () => dispatch => {
 export const getSingleNote = note => dispatch => {
   dispatch({ type: FETCH_SINGLE_NOTE });
   axios
-    .get(`${URL}${note}/`)
+    .get(`${URL}get/${note}/`)
     .then(({ data }) =>
       dispatch({ type: FETCH_SINGLE_NOTE_SUCCESS, payload: data })
     )
@@ -47,7 +47,7 @@ export const addNote = () => dispatch => {
 export const editNote = note => dispatch => {
   dispatch({ type: EDIT_NOTE });
   axios
-    .put(`${URL}${note}/`)
+    .put(`${URL}edit/${note}/`)
     .then(({ data }) => dispatch({ type: EDIT_NOTE_SUCCESS, payload: data }))
     .catch(err => dispatch({ type: EDIT_NOTE_FAILURE, payload: err }));
 };

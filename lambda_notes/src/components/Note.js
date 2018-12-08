@@ -4,29 +4,54 @@ import { deleteNote, getSingleNote } from "../store/actions";
 import { connect } from "react-redux";
 
 class Note extends Component {
-  componentDidMount = () => {
-    getSingleNote(this.props.match.params._id);
-  };
+  constructor() {
+    super();
+    this.state = {
+      note: {}
+    };
+  }
+  componentDidMount() {
+    if (this.props.notes.length > 0) {
+      let singleNote = this.props.notes.find(
+        note => note.id === this.props.match.params.noteId
+      );
+      this.setState({
+        // note: this.props.note
+        note: singleNote
+      });
+    }
+  }
+  // }
 
   render() {
-    if (!this.props.note || this.props.fetchingNote) {
+    let SingleNote = this.props.notes.filter(
+      note => note._id === this.props.match.params.noteId
+    );
+
+    if (!SingleNote.length) {
       return <h3>Retrieving Note...</h3>;
     }
     return (
-      <div>
-        <nav>
-          <Link to={`/note-edit/${this.props.note.id}`}>edit</Link>
-          <p
-            onClick={() => {
-              deleteNote(this.props.match.params._id);
-              this.props.history.push("/");
-            }}
-          >
-            delete
-          </p>
-        </nav>
-        <h2>{this.props.textBody}</h2>
-      </div>
+      <>
+        {console.log(SingleNote[0].textBody)}
+        <div>
+          <nav>
+            <Link to={`/note-edit/${this.props.match.params.noteId}`}>
+              edit
+            </Link>
+            <p
+              onClick={() => {
+                deleteNote(this.props.match.params.noteId);
+                this.props.history.push("/notes");
+              }}
+            >
+              delete
+            </p>
+          </nav>
+          <h2>{SingleNote[0].title}</h2>
+          <p>{SingleNote[0].textBody}</p>
+        </div>
+      </>
     );
   }
 }

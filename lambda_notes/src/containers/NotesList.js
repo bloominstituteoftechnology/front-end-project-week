@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { getNotes } from "../store/actions";
 import { connect } from "react-redux";
+import { getSingleNote } from "../store/actions/index";
 
 const List = styled.div`
   width: 100%;
@@ -50,8 +51,11 @@ class NotesList extends Component {
         </Header>
         {this.props.notes.map(note => (
           <Div
-            onClick={() => this.props.history.push(`/note/${note.id}`)}
-            key={note.id}
+            onClick={() => {
+              this.props.history.push(`/note/${note._id}`);
+              getSingleNote(note._id);
+            }}
+            key={note._id}
           >
             <H2>{note.title}</H2>
             <P>{note.textBody}</P>

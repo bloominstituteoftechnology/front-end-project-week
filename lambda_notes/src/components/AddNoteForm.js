@@ -40,6 +40,7 @@ class AddNoteForm extends Component {
           placeholder="Note Content"
           onChange={this.handleInputChange}
           name="textBody"
+          value={this.state.textBody}
         />
         <button>Save</button>
       </form>
