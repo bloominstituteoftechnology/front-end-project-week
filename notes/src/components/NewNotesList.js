@@ -9,14 +9,12 @@ class NotesList extends React.Component {
   constructor() {
     super();
     this.state = {
-      // notes: [],
       search: ""
     };
   }
 
   componentDidMount() {
     this.props.fetchNotes();
-    // this.setState({ notes: this.props.notes });
     window.scrollTo(0, 0);
   }
 

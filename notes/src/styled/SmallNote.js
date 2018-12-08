@@ -42,4 +42,5 @@ export const HeaderWrap = styled.div`
 
 export const WrappedText = styled(TextTruncate)`
   line-height: 2rem;
+  white-space: pre-wrap;
 `;
