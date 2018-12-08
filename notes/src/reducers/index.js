@@ -7,6 +7,7 @@ const initialState = {
   savingNote: false,
   updatingNote: false,
   deletingNote: false,
+  isDragging: false,
   notes: [],
   note: [],
   filtered: [],
@@ -18,6 +19,7 @@ const rootReducer = (state = initialState, action) => {
     case act.FETCHING:
       return { ...state, fetchingNotes: true };
     case act.FETCHED:
+      console.log(action.payload);
       return {
         ...state,
         fetchingNotes: false,
@@ -84,6 +86,10 @@ const rootReducer = (state = initialState, action) => {
         deletingNote: false,
         error: action.payload
       };
+    case act.DRAGGING:
+      return { ...state, isDragging: true };
+    case act.DROPPED:
+      return { ...state, notes: [...action.payload] };
     default:
       return state;
   }

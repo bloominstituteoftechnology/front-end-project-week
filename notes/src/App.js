@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, withRouter } from "react-router-dom";
-import NotesList from "./components/NotesList";
+import NotesList from "./components/NewNotesList";
 import Note from "./components/SingleNote";
 import NoteForm from "./components/AddNote";
 import { Link, Nav, AppWrapper } from "./styled/App";
@@ -11,10 +11,10 @@ class App extends Component {
       <AppWrapper>
         <Nav>
           <h1>Lambda Notes</h1>
-          <Link to="/notes" onClick={this.hide}>
+          <Link to="/notes">
             <span>View Your Notes</span>
           </Link>
-          <Link to="/add-note" onClick={this.hide}>
+          <Link to="/add-note">
             <span>+ Create New Note</span>
           </Link>
         </Nav>

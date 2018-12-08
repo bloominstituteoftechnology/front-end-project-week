@@ -2,7 +2,6 @@ import React from "react";
 import Modal from "./Modal";
 import { NoteCard } from "../styled/SingleNote";
 import { fetchSingle, deleteNote } from "../actions";
-
 import { connect } from "react-redux";
 
 class Note extends React.Component {
