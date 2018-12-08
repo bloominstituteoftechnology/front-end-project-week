@@ -21,7 +21,7 @@ class App extends Component {
         <Route exact path="/note/:id" component={NoteView} />
         <Route exact path="/" component={ListView} />
         <Route exact path="/note/edit/:id" component={EditView} />
-        {/* <Route exact path="/note/delete/:id" component={ListView} /> */}
+        <Route exact path="/note/delete/:id" component={DeleteModal} />
       </AppWrapper>
     );
   }

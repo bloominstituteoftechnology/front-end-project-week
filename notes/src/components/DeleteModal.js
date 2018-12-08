@@ -1,58 +1,36 @@
-import React, { Component } from "react";
-import { Button, Modal,ModalBody, ModalFooter } from "reactstrap";
-
-class DeleteModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      textBody: '',
-      isModalOpen: false
-    };
-
-  
-
- 
-
-    this.toggle = this.toggle.bind(this)
-  }
-
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
-
-  
-
+import React from "react";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
+import axios from "axios";
+class ModalExample extends React.Component {
+  deleteNote = id => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.id}`)
+      .then(res => {
+        console.log("note was successfully deleted");
+        this.props.history.push("/");
+      })
+      .catch(err => console.log(err, "note could not be deleted"));
+  };
 
   render() {
     return (
-      <div>
-        <Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-          className={this.props.className}
-        >
-    
-          <ModalBody>
-            Are you sure you want to delete this?
-          </ModalBody>
-          <ModalFooter>
-            <Button color="danger" onClick={this.toggle}>
-              Delete
-            </Button>
-            <Button color="secondary" onClick={this.toggle}>
-              No
-            </Button>
-          </ModalFooter>
-        </Modal>
-      </div>
+      <Modal
+        isOpen={this.props.modal}
+        toggle={this.props.toggle}
+        className={this.props.className}
+      >
+        <ModalBody>Are you sure you want to delete this?</ModalBody>
+        <ModalFooter>
+          <Button color="danger" onClick={this.deleteNote}>
+            Delete
+          </Button>
+          <Button color="#f3f7f6" onClick={this.props.toggle}>
+            No
+          </Button>
+        </ModalFooter>
+      </Modal>
     );
   }
-  
 }
 
-
-
-export default DeleteModal;
+export default ModalExample;

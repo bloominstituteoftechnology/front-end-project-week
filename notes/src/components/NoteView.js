@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
+import DeleteModal from './DeleteModal';
 import {
   NoteViewWrapper,
   NoteWrapper,
   SingleNoteTitle,
   SingleNoteText,
   ModifyNoteWrapper,
-  ModifyNoteLink
+  EditLink, Delete
 } from "./Styled";
+
 
 class NoteView extends Component {
   constructor() {
@@ -15,9 +17,12 @@ class NoteView extends Component {
     this.state = {
       title: "",
       textBody: "",
-      id: ''
-    };
+      id: '',
+      modal: false,
+    }
+    this.toggle = this.toggle.bind(this)
   }
+
 
   componentDidMount() {
     console.log('TEST')
@@ -32,39 +37,48 @@ class NoteView extends Component {
       .catch(err => console.log(err));
   }
 
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
 
-  deleteNote = id => {
-    axios
-      .delete(
-        `https://fe-notes.herokuapp.com/note/delete/${
-          this.state.id
-        }`
-      )
-      .then(res => {
-        console.log("note was successfully deleted");
-        this.props.history.push('/')})
-      .catch(err => console.log(err, "note could not be deleted"));
-  };
+
+
+  // deleteNote = id => {
+  //   axios
+  //     .delete(
+  //       `https://fe-notes.herokuapp.com/note/delete/${
+  //         this.state.id
+  //       }`
+  //     )
+  //     .then(res => {
+  //       console.log("note was successfully deleted");
+  //       this.props.history.push('/')})
+  //     .catch(err => console.log(err, "note could not be deleted"));
+  // };
 
   render() {
     return (
       <NoteViewWrapper>
         <NoteWrapper>
           <ModifyNoteWrapper>
-            <ModifyNoteLink
+            <EditLink
           to={`/note/edit/${this.state.id}`}
              
             >
               edit
-            </ModifyNoteLink>
-            <div onClick={this.deleteNote}>delete
-            </div>
+            </EditLink>
+            <Delete onClick={this.toggle}>delete
+            </Delete>
           </ModifyNoteWrapper>
 
           <SingleNoteTitle>{this.state.title}</SingleNoteTitle>
           <SingleNoteText>{this.state.textBody}</SingleNoteText>
         </NoteWrapper>
+        <DeleteModal modal={this.state.modal} toggle={this.toggle} id={this.state.id} />
       </NoteViewWrapper>
+
     );
   }
 }

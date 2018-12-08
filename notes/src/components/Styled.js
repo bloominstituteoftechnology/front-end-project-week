@@ -144,7 +144,7 @@ export const ModifyNoteWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-export const ModifyNoteLink = styled(Link)`
+export const EditLink = styled(Link)`
   color: #414242;
   cursor: pointer;
   margin: 5px;
@@ -153,6 +153,17 @@ export const ModifyNoteLink = styled(Link)`
   :hover {
     color: #57b5bb;
   }
+`;
+
+export const Delete = styled.div`
+text-decoration: underline;
+cursor: pointer;
+font-weight: bold;
+color: #414242;
+margin-top: 5px;
+:hover {
+  color: #57b5bb;
+}
 `;
 
 export const SingleNoteTitle = styled.h3``;
