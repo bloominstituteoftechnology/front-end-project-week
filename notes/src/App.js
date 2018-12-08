@@ -11,16 +11,18 @@ import NavBar from './components/NavBar';
 
 // styled component for the App
 const AppWrapper = styled.div`
-  width: 100%;
+  max-width: 100%;
   display: flex;
 
   .navbar-container {
     background-color: #D3D2D3;
-    min-width: 25vw;
+    min-width: 30rem
+    width: 25%;
   }
 
   .content-container {
     background-color: #F2F1F2;
+    width: 75%;
   }
 `;
 

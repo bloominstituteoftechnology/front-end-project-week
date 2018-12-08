@@ -8,8 +8,8 @@ const NavBarWrapper = styled.div`
   justify-content: flex-end;
 
   .navbar {
-    width: 30rem;
-    padding: 4rem 2rem;
+    min-width: 30rem;
+    padding: 4rem;
 
     h1 {
       font-size: 3.8rem;
