@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Notes from './components/Notes';
 import Note from './components/Note';
+import NoteForm from './components/NoteForm';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         {/*create Routes here*/}
         <Route path="/notes" component={Notes} />
         <Route path="/note/:id" component={Note} />
+        <Route path="/form" component={NoteForm} />
       </div>
     );
   }
