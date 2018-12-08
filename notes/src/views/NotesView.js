@@ -17,11 +17,7 @@ class NotesView extends React.Component {
 
   render() {
     return (
-        this.props.fetchingNotes ?
-          <div>Loading ... </div> :
-          !this.props.notes[0] ?
-              <div>Something has gone teribbly wrong.</div> :
-              <NotesList {...this.props}/>
+      <NotesList {...this.props}/>
     )
   }
 }

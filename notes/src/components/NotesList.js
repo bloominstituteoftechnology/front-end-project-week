@@ -16,7 +16,7 @@ const NotesWrapper = styled.div`
   .notes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 
     .note-item {
       border: 1px solid #414141;
@@ -25,7 +25,7 @@ const NotesWrapper = styled.div`
       background-color: #FFFFFF;
       padding: 1.5rem;
       width: 25rem;
-      height: 25rem;
+      min-height: 25rem;
 
       h3 {
         font-size: 2.2rem;
@@ -39,24 +39,28 @@ const NotesWrapper = styled.div`
 `;
 
 
-const NotesList = ({notes, history}) => {
+const NotesList = ({notes, history, fetchingNotes}) => {
   return (
     <NotesWrapper>
       <h2>Notes:</h2>
       <div className="notes">
         {
-          notes.map(note => (
-            <div
-              className="note-item"
-              key={note._id}
-              onClick = { () => {
-                history.push(`/notes/${note._id}`)
-              }}
-            >
-              <h3>{truncate(note.title, 15)}</h3>
-              <p>{truncate(note.textBody, 200)}</p>
-            </div>
-          ))
+          fetchingNotes ?
+          <div>Loading ... </div> :
+          !notes[0] ?
+              <div>Something has gone teribbly wrong.</div> :
+              notes.map(note => (
+                <div
+                  className="note-item"
+                  key={note._id}
+                  onClick = { () => {
+                    history.push(`/notes/${note._id}`)
+                  }}
+                >
+                  <h3>{truncate(note.title, 15)}</h3>
+                  <p>{truncate(note.textBody, 200)}</p>
+                </div>
+              ))
         }
       </div>
     </NotesWrapper>
