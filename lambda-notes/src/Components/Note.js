@@ -1,15 +1,15 @@
 
 import React from "react"
-import {Notes} from "../Styles/Styles"
+import {Link} from "react-router-dom"
 
 const Note = (props) => {
    return (
 
-      <Notes href={`/note/${props.note._id}`}>
+      <Link to={`/note/${props.note._id}`}>
          <h3>{props.note.title}</h3>
          <hr />
          <p>{props.note.textBody}</p>
-      </Notes>
+      </Link>
    )
 }
 
