@@ -43,7 +43,8 @@ export const addNote = note => dispatch => {
 		.then(response => {
 			console.log("Add succeeded", response);
 			dispatch({
-				type: ADD_NOTE_SUCCESS
+				type: ADD_NOTE_SUCCESS,
+				payload: response.data.success
             });
 		})
 		.catch(err => {

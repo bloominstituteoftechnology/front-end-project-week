@@ -21,7 +21,7 @@ const initialState = {
 	savingNote: false,
 	deletingNote: false,
 	editingNote: false,
-
+	newNoteId: '',
 	notes: [],
 	error: null
 };
@@ -56,6 +56,7 @@ const notesReducer = (state = initialState, action) => {
 			return {
 				...state,
 				savingNote: false,
+				newNoteId: action.payload,
 			};
 		case ADD_NOTE_FAILURE:
 			return {
