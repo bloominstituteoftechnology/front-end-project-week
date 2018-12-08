@@ -12,7 +12,7 @@ class App extends Component {
       <AppContainer>
         <nav className='main-nav'>
           <h1>Lambda Notes</h1>
-          <NavLink to='/myNotes'>View Your Notes</NavLink>
+          <NavLink exact to='/myNotes'>View Your Notes</NavLink>
           <NavLink to='/createNote'>+ Create New Note</NavLink>
         </nav>
 
@@ -72,13 +72,16 @@ const AppContainer = styled.div`
         background: white;
         color: #29B7BC;
       }
-
+      &.active {
+        border: 2px solid white;
+      }
     }
 
   }
   .main-page {
       padding: 20px;
       color: #454544;
+      width: 100%;
     }
 `
 
