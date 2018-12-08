@@ -11,8 +11,8 @@ export const UPDATED = "UPDATED";
 export const SINGLE_FETCHING = "SINGLE_FETCHING";
 export const SINGLE_FETCHED = "SINGLE_FETCHED";
 export const FILTER = "FILTER";
-export const DRAGGING = "DRAGGING";
-export const DROPPED = "DROPPED";
+// export const DRAGGING = "DRAGGING";
+// export const DROPPED = "DROPPED";
 export const ERROR = "ERROR";
 
 const host = "https://fe-notes.herokuapp.com/note";
@@ -68,10 +68,10 @@ export const filterNotes = id => {
   };
 };
 
-export const reorder = list => dispatch => {
-  const order = axios.post(`${host}/create`, list);
-  dispatch({ type: DRAGGING });
-  order
-    .then(() => dispatch({ type: DROPPED, payload: list }))
-    .catch(err => dispatch({ type: ERROR, payload: err }));
-};
+// export const reorder = list => dispatch => {
+//   const order = axios.post(`${host}/create`, list);
+//   dispatch({ type: DRAGGING });
+//   order
+//     .then(() => dispatch({ type: DROPPED, payload: list }))
+//     .catch(err => dispatch({ type: ERROR, payload: err }));
+// };

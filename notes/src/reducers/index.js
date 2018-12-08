@@ -86,10 +86,10 @@ const rootReducer = (state = initialState, action) => {
         deletingNote: false,
         error: action.payload
       };
-    case act.DRAGGING:
-      return { ...state, isDragging: true };
-    case act.DROPPED:
-      return { ...state, notes: [...action.payload] };
+    // case act.DRAGGING:
+    //   return { ...state, isDragging: true };
+    // case act.DROPPED:
+    //   return { ...state, notes: [...action.payload] };
     default:
       return state;
   }

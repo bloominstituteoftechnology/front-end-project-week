@@ -1,20 +1,30 @@
 import React from "react";
 import { MainContent, Search } from "../styled/NotesList";
 import { connect } from "react-redux";
-import { fetchNotes, filterNotes, reorder } from "../actions";
-import { arrayMove } from "react-sortable-hoc";
+import { fetchNotes, filterNotes } from "../actions";
 import SortableList from "./SortableList";
+import { DragDropContext } from "react-beautiful-dnd";
+
+const reorder = (notes, startIndex, endIndex) => {
+  const result = Array.from(notes);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+
+  return result;
+};
 
 class NotesList extends React.Component {
   constructor() {
     super();
     this.state = {
+      notes: [],
       search: ""
     };
   }
 
   componentDidMount() {
-    this.props.fetchNotes();
+    this.props.fetchNotes(); //can't figure out how to get axios to persist
+    this.setState({ notes: this.props.notes });
     window.scrollTo(0, 0);
   }
 
@@ -23,14 +33,24 @@ class NotesList extends React.Component {
     this.props.filterNotes(e.target.value);
   };
 
-  onSortEnd = ({ oldIndex, newIndex }) => {
-    let order = arrayMove(this.props.notes, oldIndex, newIndex);
-    this.props.reorder(order);
+  onDragEnd = result => {
+    if (!result.destination) {
+      return;
+    }
+    const notes = reorder(
+      this.state.notes,
+      result.source.index,
+      result.destination.index
+    );
+    this.setState({
+      notes
+    });
   };
 
   render() {
-    const notes =
-      this.props.filtered.length > 0 ? this.props.filtered : this.props.notes;
+    // const notes =
+    //   this.props.filtered.length > 0 ? this.props.filtered : this.props.notes; SEARCH NOT WORKING IN THIS VERSION
+    const { notes } = this.state;
     return (
       <MainContent>
         <h2>Your Notes:</h2>
@@ -43,12 +63,9 @@ class NotesList extends React.Component {
             onChange={this.handleChange}
           />
         </Search>
-        <SortableList
-          notes={notes}
-          history={this.props.history}
-          onSortEnd={this.onSortEnd}
-          pressDelay={100}
-        />
+        <DragDropContext onDragEnd={this.onDragEnd}>
+          <SortableList notes={notes} history={this.props.history} />
+        </DragDropContext>
       </MainContent>
     );
   }
@@ -65,5 +82,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchNotes, filterNotes, reorder }
+  { fetchNotes, filterNotes }
 )(NotesList);
