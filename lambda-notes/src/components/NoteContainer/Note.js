@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 // const NoteStyling = styled.div ` 
@@ -30,6 +29,7 @@ const Note = props => {
  
  return (
   <div>
+      <Card>
        <CardBody>
         <CardTitle>
          <Link to={`/note/${props.id}`} 
@@ -42,6 +42,7 @@ const Note = props => {
          <NoteBody className="note_body">{props.textBody}</NoteBody>
         </CardText>
        </CardBody>
+       </Card>
   </div>
  )
 }

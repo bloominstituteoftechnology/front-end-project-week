@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Input} from 'reactstrap'
 import styled from 'styled-components'
-import { getNote } from '../../actions/'
+import { fetchNote } from '../../actions/'
 import { connect } from 'react-redux'
 
 const EditViewStyle = styled.div `
@@ -79,4 +79,4 @@ const mapStateToProps = state => {
   notes: notes
  }
 }
-connect(mapStateToProps, { getNote })(EditView)
+connect(mapStateToProps, { fetchNote })(EditView)

@@ -37,7 +37,6 @@ class NoteContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
- console.log(state)
  const { notes } = state 
  return {
   notes: notes

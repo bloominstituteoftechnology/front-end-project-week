@@ -34,3 +34,4 @@ export const App = styled.div `
  background: rgb(241, 240, 240) ;
 `
 /* ^ Note Container*/
+

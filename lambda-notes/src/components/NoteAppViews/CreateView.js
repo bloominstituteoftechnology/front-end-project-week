@@ -39,6 +39,10 @@ class CreateNote extends Component {
     tags: [],
     title: this.state.title, 
     textBody: this.state.body})
+    this.setState({
+     title: '',
+     body: ''
+    })
  }
   render() {
     return (
@@ -66,15 +70,17 @@ class CreateNote extends Component {
         </Button>
        </CreateViewStyle>
       </form>
+      {this.props.added ? this.props.history.push('/') : null}
+
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
- const { notes } = state
+ const { added } = state
  return {
-  notes: notes
+  added: added
  }
 }
 

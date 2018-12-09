@@ -3,12 +3,9 @@ import { Route, Switch } from 'react-router-dom'
 import Sidebar from './components/Sidebar/Sidebar'
 import EditView from './components/NoteAppViews/EditView'
 import CreateView from './components/NoteAppViews/CreateView'
-import Note from './components/NoteContainer/Note'
-import { connect } from 'react-redux'
-import NoteView from './components/NoteAppViews/NoteView'
 import './App.css';
 import NoteContainer from './components/NoteContainer/NoteContainer'
-import SingleNoteView from './components/NoteAppViews/SingleNoteView';
+import SingleNote from './components/NoteAppViews/SingleNote'
 
 class App extends Component {
   render() {
@@ -16,22 +13,16 @@ class App extends Component {
      <div className="App">
       <Sidebar/>
       <Switch>
-      <Route exact path="/" component={NoteContainer}/>
-      <Route exact path="/edit/:id" component={EditView}/>
-      <Route path="/new/" component={CreateView} />
-      <Route exact path='/note/' render={() => <NoteView {...this.props} notes={this.props.notes}/>}/>
-      <Route exact path='/note/:noteId' component={EditView} />
+       <Route exact path="/" component={NoteContainer}/>
+       <Route exact path='/note/:id' component={SingleNote}/>
+       <Route exact path="/edit/:id" component={EditView}/>
+       <Route exact path="/create/" component={CreateView} />
       </Switch>
      </div>
     );
   }
 }
 
-const mapStateToProps = state => {
- const { notes } = state
- return {
-  notes: notes
- }
-}
 
-export default connect(mapStateToProps)(App)
+
+export default App

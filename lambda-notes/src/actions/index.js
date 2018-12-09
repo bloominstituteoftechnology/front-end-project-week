@@ -1,45 +1,41 @@
 import axios from 'axios'
 
-export const FETCHING = 'FETCHING'
-export const SUCCESS = 'SUCCESS'
-export const FAILURE = 'FAILURE'
+export const FETCHING_NOTES = 'FETCHING_NOTES'
+export const NOTES_FETCHED = 'NOTES_FETCHED'
+export const FETCHING_NOTE = 'FETCHING_NOTE'
+export const NOTE_FETCHED = 'NOTE_FETCHED'
 export const ADDING = 'ADDING'
 export const ADDED = 'ADDED'
 export const EDITING = 'EDITING'
 export const EDITED = 'EDITED'
 export const DELETING = 'DELETING'
 export const DELETED = 'DELETED'
-
+export const ERROR = 'ERROR'
 
 
 export const fetchNotes = () => {
  return dispatch => {
+  dispatch({type: FETCHING_NOTES})
  axios
   .get('https://fe-notes.herokuapp.com/note/get/all')
   .then(response => {
-   dispatch({type: SUCCESS, payload: response.data})
+   dispatch({type: NOTES_FETCHED, payload: response.data})
   })
-  .catch(err => {
-   console.log(err)
+  .catch(() => {
+   dispatch({type: ERROR, payload: 'Error Fetching Notes'})
   })}
 }
 
-export const addNote = data => {
+export const addNote = note => {
  return dispatch => {
   dispatch({type: ADDING })
   axios
-   .post('https://fe-notes.herokuapp.com/note/create', data)
+   .post('https://fe-notes.herokuapp.com/note/create', note)
    .then(() => {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-    .then(response => {
-   dispatch({type: ADDED, payload: response.data})
+   dispatch({type: ADDED})
    })
-   .catch(() => {
-   dispatch({type: FAILURE, payload: 'Error getting notes.'})
-  })
-})
  .catch(() => {
-  dispatch({type: FAILURE, payload: 'Note not added.'})
+  dispatch({type: ERROR, payload: 'Error Adding Note.'})
  })}
 }
 
@@ -47,46 +43,41 @@ export const deleteNote = id => {
  return dispatch => {
   dispatch({type: DELETING})
   axios
-  .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-  .then(response => {
-   axios
-   .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-  })
+  .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
   .then(() => {
-   axios
-   .get('https://fe-notes.herokuapp.com/note/get/all')
    dispatch({type: DELETED})
   })
-  .catch(err => {console.log(err)})
+  .catch(() => {
+   dispatch({type: ERROR, payload: 'Error Deleting Note'})
+  })
  }
 
 }
 
-export const editNote = (id, data) => {
+export const editNote = (id, note) => {
  return dispatch => {
   dispatch({type: EDITING})
   axios
   .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
   .then(() => {
-   axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
-    .then(response => {
-   dispatch({type: EDITED, payload: response.data})
+   dispatch({type: EDITED})
   })
- 
- })
-  .catch(err => {console.log(err)})
+  .catch(() => {
+   dispatch({type: ERROR, payload: 'Error Editing Note'})
+  })
  }
 }
 
-export const getNote = (id) => {
+export const fetchNote = (id) => {
  return dispatch => {
-  dispatch({type: FETCHING})
+  dispatch({type: FETCHING_NOTE})
   axios
   .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
   .then(response => {
-    dispatch({type: SUCCESS, payload: response.data})
+    dispatch({type: NOTE_FETCHED, payload: response.data})
   })
-  .catch(err => {console.log(err)})
+  .catch(() => {
+   dispatch({type: ERROR, payload: 'Error Getting Note'})
+  })
  }
 }
