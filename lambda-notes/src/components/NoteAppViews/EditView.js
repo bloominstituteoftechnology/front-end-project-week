@@ -3,6 +3,7 @@ import { Button, Input} from 'reactstrap'
 import styled from 'styled-components'
 import { fetchNote, editNote } from '../../actions/'
 import { connect } from 'react-redux'
+import { debug } from 'util';
 
 const EditViewStyle = styled.div `
  display: flex;
@@ -27,8 +28,9 @@ export default class EditView extends Component {
   }
  }
 
- componentDidCatch(){
+ componentDidMount = () => {
   this.props.fetchNote(this.props.match.params.id)
+  // console.log(this.props.match.params.id)
  }
 
 
@@ -39,14 +41,10 @@ export default class EditView extends Component {
  }
  
  submitEdit = (id, event) => {
-  console.log(id)
   event.preventDefault()
   id = this.props.match.params.id
-  this.props.editNote(id, {
-  tags: [],
-   title: this.state.title,
-   textBody: this.state.body
-  })
+  console.log(id)
+  this.props.editNote(id, {title: this.state.title, textBody: this.state.body})
   this.setState({
    title: '',
    body: ''
