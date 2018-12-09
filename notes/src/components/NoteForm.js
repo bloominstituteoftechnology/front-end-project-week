@@ -1,4 +1,6 @@
 import React from 'react';
+import {addNote} from '../store/actions';
+import {connect} from 'react-redux';
 
 class NoteForm extends React.Component {
   constructor() {
@@ -16,6 +18,7 @@ class NoteForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log('submit');
+    this.props.addNote(this.state);
   };
 
   makeInput = (name, type) => {
@@ -28,6 +31,7 @@ class NoteForm extends React.Component {
       />
     );
   };
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -42,4 +46,7 @@ class NoteForm extends React.Component {
   }
 }
 
-export default NoteForm;
+export default connect(
+  null,
+  {addNote},
+)(NoteForm);
