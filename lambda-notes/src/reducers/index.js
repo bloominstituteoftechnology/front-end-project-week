@@ -15,11 +15,7 @@ const notesReducer = (state = initialState, action) => {
         case ADD_NOTE:
             return {
                 ...state,
-                notes: [...state.notes, {
-                    tags: [],
-                    title: action.payload.title,
-                    textBody: action.payload.textBody,
-                }]
+                notes: [...state.notes, action.payload],
             }
         default:
             return state;
