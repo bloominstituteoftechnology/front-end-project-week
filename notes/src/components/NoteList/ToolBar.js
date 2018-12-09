@@ -1,6 +1,7 @@
 // importing libraries
 import React from 'react';
 import styled from 'styled-components';
+import {downloadCSV} from '../../helper/helper';
 
 // styled ToolBar
 const ToolBarWrapper = styled.div`
@@ -34,13 +35,14 @@ const ToolBarWrapper = styled.div`
   }
 `;
 
-const ToolBar = ({searchText, sort, onInputChange, onSortChange}) => {
+const ToolBar = ({notes, searchText, sort, onInputChange, onSortChange}) => {
   return (
     <ToolBarWrapper>
       <input value={searchText} onChange={onInputChange} type="text" placeholder="Search"/>
       <div className="sort-container" onClick={onSortChange}>
         Sort: {!sort ? 'None' : sort === 'asc' ? 'A-Z' : 'Z-A'}
       </div>
+      <div className="sort-container" onClick={() => downloadCSV(notes)} >download</div>
     </ToolBarWrapper>
   );
 }

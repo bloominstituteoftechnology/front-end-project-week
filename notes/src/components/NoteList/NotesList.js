@@ -88,6 +88,7 @@ class NotesList extends React.Component {
       <NotesWrapper>
         <h2>Notes:</h2>
         <ToolBar
+          notes = {notes}
           searchText = {searchText}
           onInputChange = {this.onInputChange}
           sort = {sort}
