@@ -8,7 +8,7 @@ class NotesContainer extends React.Component {
     return (
       <div>
         <h2 style={{display: 'inline'}}>notes container</h2>
-        <Notes notes={this.props.notes} />
+        <Notes {...this.props} />
       </div>
     );
   }
