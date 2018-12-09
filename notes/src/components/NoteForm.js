@@ -32,6 +32,9 @@ class NoteForm extends React.Component {
   handleSubmit = e => {
     ('');
     e.preventDefault();
+    const func = this.props.isEditing
+      ? this.props.editMode
+      : this.props.addNote;
     this.props.addNote(this.state);
     this.clearState();
   };
