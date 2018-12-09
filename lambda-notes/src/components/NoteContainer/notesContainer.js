@@ -7,6 +7,8 @@ import Note from './note';
 import './Notes.css';
 
 
+const url = process.env.REACT_APP_DB_URL;
+
 class NotesContainer extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +23,7 @@ class NotesContainer extends Component {
 
     componentDidMount() {
         axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
+            .get(`${url}/note/get/all`)
             .then(response => {
                 console.log(response);
                 this.setState({ notes: response.data })
@@ -33,7 +35,7 @@ class NotesContainer extends Component {
 
 
     changeState = () => {
-        axios.get("https://fe-notes.herokuapp.com/note/get/all").then(res =>
+        axios.get(`${url}/note/get/all`).then(res =>
             this.setState({
                 notes: res.data
             })

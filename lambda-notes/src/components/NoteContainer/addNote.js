@@ -3,6 +3,7 @@ import axios from 'axios';
 import './NoteEdit.css';
 
 
+const url = process.env.REACT_APP_DB_URL; 
 
 
 class AddNote extends Component {
@@ -23,7 +24,7 @@ class AddNote extends Component {
         event.preventDefault();
         const newNote = { title: this.state.title, textBody: this.state.textBody }
         axios
-            .post('https://fe-notes.herokuapp.com/note/create', newNote)
+            .post(`${url}/note/create`, newNote)
             .then(response => {
                 console.log('ADDING', response);
                 this.props.changeState(response.data)

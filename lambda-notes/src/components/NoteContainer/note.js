@@ -4,6 +4,7 @@ import DeleteModal from './deleteModal';
 import EditNote from './editNote';
 import './NoteView.css';
 
+const url = process.env.REACT_APP_DB_URL;
 
 class Note extends Component {
 
@@ -25,7 +26,7 @@ class Note extends Component {
 
     fetchNote = id => {
         axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .get(`${url}/note/get/${id}`)
             .then(response => {
                 this.setState(() => ({ note: response.data }))
             })
@@ -40,7 +41,7 @@ class Note extends Component {
     deleteNote = event => {
         event.preventDefault();
         axios
-            .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
+            .delete(`${url}/note/delete/${this.state.note._id}`)
             .then(response => {
                 this.props.changeState(response.data)
             })
@@ -67,7 +68,7 @@ class Note extends Component {
             textBody: this.state.editTextBody
         }
         axios
-            .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, saveEditNotes)
+            .put(`${url}/note/edit/${this.state.note._id}`, saveEditNotes)
             .then(response => {
                 this.setState({
                     note: response.data
