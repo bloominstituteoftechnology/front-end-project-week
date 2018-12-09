@@ -12,6 +12,10 @@ export const EDITING_NOTE = 'EDITING_NOTE';
 export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 
+export const DELETING_NOTE = 'DELETING_NOTE';
+export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
+export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
+
 export const fetchNotes = () => dispatch => {
   dispatch({type: FETCHING_NOTES});
 };
@@ -30,4 +34,8 @@ export const startEditMode = () => dispatch => {
 
 export const editNote = note => dispatch => {
   dispatch({type: EDIT_NOTE_SUCCESS, payload: note});
+};
+
+export const deleteNote = id => dispatch => {
+  dispatch({type: DELETING_NOTE, payload: id});
 };

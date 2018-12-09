@@ -8,6 +8,9 @@ import {
   EDITING_NOTE,
   EDIT_NOTE_SUCCESS,
   EDIT_NOTE_FAILURE,
+  DELETING_NOTE,
+  DELETE_NOTE_SUCCESS,
+  DELETE_NOTE_FAILURE,
 } from '../actions';
 const initialState = {
   notes: [
@@ -62,6 +65,11 @@ export default (state = initialState, action) => {
             return n;
           }
         }),
+      };
+    case DELETING_NOTE:
+      return {
+        ...state,
+        notes: state.notes.filter(n => n.id !== action.payload),
       };
     default:
       return state;

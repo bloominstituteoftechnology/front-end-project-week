@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {selectNote, startEditMode} from '../store/actions';
+import {selectNote, startEditMode, deleteNote} from '../store/actions';
 
 // is there a better way to do this? should this be a class component?
 const Note = props => {
@@ -20,6 +20,13 @@ const Note = props => {
         }}>
         Edit Note
       </button>
+      <button
+        onClick={() => {
+          props.deleteNote(props.note.id);
+          props.history.push('/notes');
+        }}>
+        Delete Note
+      </button>
     </div>
   );
 };
@@ -30,5 +37,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {selectNote, startEditMode},
+  {selectNote, startEditMode, deleteNote},
 )(Note);
