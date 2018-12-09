@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { addNote, editNote } from '../actions';
 
 class NoteForm extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             tags: [],
             title: '',
@@ -16,22 +17,20 @@ class NoteForm extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    addNote = event => {
+    submitHandler = event => {
         event.preventDefault();
-        this.props.addNote(this.state);
-        this.props.history.push('/');
-    }
-
-    editNote = event => {
-        event.preventDefault();
-        this.props.editNote(this.state, this.props.match.params.id);
+        if (this.props.edit) {
+            this.props.editNote(this.state, this.props.match.params.id);
+        } else {
+            this.props.addNote(this.state);
+        }
         this.props.history.push('/');
     }
 
     componentDidMount() {
         if(this.props.edit) {
-            const currentNote = this.props.notes.find(note => {
-                return note.id.toString() === this.props.match.params.id
+            const currentNote = this.props.notesData.find(note => {
+                return note._id.toString() === this.props.match.params.id
             });
             if (currentNote) {
                 this.setState({
@@ -46,7 +45,7 @@ class NoteForm extends React.Component {
     render() {
         return(
             <div className='notes-input-form'>
-                <form onSubmit={this.addNote}>
+                <form onSubmit={this.submitHandler}>
                     <input
                         className='title-input' 
                         type='text'
@@ -65,17 +64,13 @@ class NoteForm extends React.Component {
                         onChange={this.handlesChanges}
                         required
                     />
-                    <button>Add Note</button>
+                    <button>{this.props.edit? 'Submit Edit' : 'Add Note'}</button>
                 </form>
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        notes: state.notes,
-    }
-}
-
-export default connect(mapStateToProps, { addNote, editNote })(NoteForm);
+export default withRouter(
+    connect(null, { addNote, editNote })(NoteForm)
+);

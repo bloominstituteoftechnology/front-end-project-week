@@ -8,6 +8,8 @@ const IndividualNote = props => {
 
     return(
         <div className='note-page'>
+            <button onClick={() => props.history.push(`/edit-note/${note._id}`)}>Edit Note</button>
+            <button>Delete Note</button>
             <h2 className='note-page-title'>{note.title}</h2>
             <p className='note-page-text'>{note.textBody}</p>
         </div>

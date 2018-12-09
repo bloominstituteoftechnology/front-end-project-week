@@ -27,14 +27,12 @@ export const fetchNotes = () => dispatch => {
         });
 }
 
-export const addNote = note => (dispatch, getState) => {
+export const addNote = note => dispatch => {
     dispatch({ type: ADD_NOTE_START })
     axios
         .post(`${url}create`, note)
-        .then(response => {
-            console.log(response);
+        .then(() => {
             dispatch({ type: ADD_NOTE_SUCCESS })
-            console.log(getState())
         })
         .catch(error => {
             dispatch({ type: ADD_NOTE_FAILURE, payload: error })
@@ -45,7 +43,7 @@ export const editNote = (noteData, id) => dispatch => {
     dispatch({ type: EDIT_NOTE_START })
     axios
         .put(`${url}edit/${id}`, noteData)
-        .then(response => {
+        .then(() => {
             dispatch({ type: EDIT_NOTE_SUCCESS })
         })
         .catch(error => {
