@@ -41,7 +41,7 @@ const Label = styled.label`
   color: #4a4a4a;
   border-bottom: 2px solid #4a4a4a;
   font-weight: bold;
-  z-index: 2000;
+  /* z-index: 2000; */
 
   &:hover {
     opacity: 0.7;
@@ -139,6 +139,11 @@ const NoteDiv = styled.div`
   padding: 20px;
   padding-left: 350px;
   letter-spacing: 0.6px;
+
+  @media (max-width: 650px) {
+    padding-left: 20px;
+    padding-top: 300px;
+  }
 `;
 
 const H2 = styled.h2`

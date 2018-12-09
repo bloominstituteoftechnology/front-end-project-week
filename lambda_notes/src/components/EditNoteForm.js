@@ -13,6 +13,11 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  @media (max-width: 650px) {
+    padding-left: 20px;
+    padding-top: 300px;
+  }
 `;
 
 const Button = styled.button`

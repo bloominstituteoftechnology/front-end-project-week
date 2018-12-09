@@ -13,6 +13,13 @@ const Nav = styled.nav`
   padding: 20px 15px;
   background: #d8d8d8;
   border-right: 1px solid #979797;
+
+  @media (max-width: 650px) {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #979797;
+    border-right: none;
+  }
 `;
 
 const H1 = styled.h1`
@@ -22,6 +29,10 @@ const H1 = styled.h1`
 
 const Span = styled.span`
   display: block;
+
+  @media (max-width: 650px) {
+    display: inline-block;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -46,6 +57,10 @@ const StyledLink = styled(Link)`
   &:active {
     opacity: 0.5;
   }
+
+  @media (max-width: 650px) {
+    width: 70%;
+  }
 `;
 
 // ==============================
@@ -58,8 +73,8 @@ function NavSideBar() {
       <H1>
         Lambda <Span>Notes</Span>
       </H1>
-      <StyledLink to="/notes">View Your Notes</StyledLink>
-      <StyledLink to="/note-add">+ Create New Note</StyledLink>
+      <StyledLink to="/notes">View&nbsp;Your&nbsp;Notes</StyledLink>
+      <StyledLink to="/note-add">+&nbsp;Create&nbsp;New&nbsp;Note</StyledLink>
     </Nav>
   );
 }

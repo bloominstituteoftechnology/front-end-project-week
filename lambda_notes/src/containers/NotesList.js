@@ -16,6 +16,11 @@ const List = styled.div`
   padding: 50px 20px;
   padding-left: 350px;
   background: #f3f3f3;
+
+  @media (max-width: 650px) {
+    padding-left: 20px;
+    padding-top: 300px;
+  }
 `;
 
 const Header = styled.header`
