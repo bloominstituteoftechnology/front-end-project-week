@@ -6,7 +6,7 @@ import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import NoteList from "./components/NoteList/NoteList";
 import AddNewNote from "./components/AddNewNote/AddNewNote";
-import Note from './components/Note/Note';
+import Note from "./components/Note/Note";
 
 const AppContainer = styled.div`
 	height: 100%;
@@ -15,17 +15,37 @@ const AppContainer = styled.div`
 
 // ========== END OF STYLES ==================
 
-
-
 class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+			notes: [],
+			id: "",
+			title: "",
+			tags: "",
+			textBody: "",
+		};
+  }
+  
+
 	render() {
+		console.log("App props", this.props);
 		return (
 			<>
 				<AppContainer>
 					<Sidebar />
 					<Route exact path="/" component={NoteList} />
 					<Route path="/addnewnote" component={AddNewNote} />
-          <Route path="/addnewnote" component={Note} />
+					<Route
+						path="/notes/:noteId"
+						render={props => (
+							<Note
+								{...props}
+								notes={this.state.notes}
+								// deleteItem={this.deleteItem}
+							/>
+						)}
+					/>
 				</AppContainer>
 			</>
 		);

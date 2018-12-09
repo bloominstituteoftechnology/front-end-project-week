@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 import Note from "../Note/Note";
 
@@ -42,18 +43,25 @@ class NoteList extends React.Component {
 			});
 	}
 
+
+
 	render() {
+		console.log('Notelist props', this.props)
 		return (
 			<NoteListContainer>
 				<h2 className="lamba-notes-header">Your Notes:</h2>
 				{this.state.notes.map(note => {
 					return (
+						// <Link to={`/notes/${note._id}`}>
                         <Note 
-                            key={note.id}
+                            key={note._id}
                             title={note.title}
                             tags={note.tags}
-                            textBody={note.textBody}
+							textBody={note.textBody}
+							id={note._id}
+							// onClick={this.props.history.push(`/notes/${note._id}`)}
                         />
+						// </Link>
                     )
 				})}
 			</NoteListContainer>

@@ -26,7 +26,6 @@ const Note = props => {
     console.log(props)
 	return (
 		<NoteCardContainer>
-			<h3>{props.id}</h3>
 			<NoteCardTitle>{props.title}</NoteCardTitle>
 			<NoteCardContent>{props.textBody}</NoteCardContent>
 		</NoteCardContainer>
