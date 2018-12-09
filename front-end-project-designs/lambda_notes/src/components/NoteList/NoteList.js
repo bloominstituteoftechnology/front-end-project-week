@@ -2,25 +2,28 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-import Todo from "../Todo/Todo";
+import Note from "../Note/Note";
 
-const TodoListContainer = styled.div`
+const NoteListContainer = styled.div`
 	background-color: #f2f1f2;
     width: 100%;
 	padding: 40px;
 	display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     
     h2 {
-        width: 100%;
+		width: 100%;
+		color: #414242;
+		order: 1;
     }
 `;
 
-class TodoList extends React.Component {
+class NoteList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            todos: [],
+			notes: [],
+			id: '',
             title: '',
             tags: '',
             textBody: ''
@@ -32,7 +35,7 @@ class TodoList extends React.Component {
 			.get("https://fe-notes.herokuapp.com/note/get/all")
 			.then(res => {
 				console.log("Server Response :", res);
-				this.setState({ todos: res.data });
+				this.setState({ notes: res.data });
 			})
 			.catch(err => {
 				console.log("Server Error: ", err);
@@ -41,21 +44,21 @@ class TodoList extends React.Component {
 
 	render() {
 		return (
-			<TodoListContainer>
+			<NoteListContainer>
 				<h2 className="lamba-notes-header">Your Notes:</h2>
-				{this.state.todos.map(todo => {
+				{this.state.notes.map(note => {
 					return (
-                        <Todo 
-                            key={todo.id}
-                            title={todo.title}
-                            tags={todo.tags}
-                            textBody={todo.textBody}
+                        <Note 
+                            key={note.id}
+                            title={note.title}
+                            tags={note.tags}
+                            textBody={note.textBody}
                         />
                     )
 				})}
-			</TodoListContainer>
+			</NoteListContainer>
 		);
 	}
 }
 
-export default TodoList;
+export default NoteList;

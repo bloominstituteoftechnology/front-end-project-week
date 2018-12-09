@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const TodoCardContainer = styled.div`
+const NoteCardContainer = styled.div`
 	background-color: #ffffff;
 	color: #20272d;
 	width: 10%;
@@ -13,29 +13,30 @@ const TodoCardContainer = styled.div`
 	border: 1px solid #dbdbdb;
 `;
 
-const TodoCardTitle = styled.h4`
+const NoteCardTitle = styled.h4`
 	color: #20272d;
 	border-bottom: 1px solid #20272d;
 	margin: 0 0 5px;
 `;
 
-const TodoCardContent = styled.div``;
+const NoteCardContent = styled.div``;
 
-const Todo = props => {
+const Note = props => {
     
     console.log(props)
 	return (
-		<TodoCardContainer>
-			<TodoCardTitle>{props.title}</TodoCardTitle>
-			<TodoCardContent>{props.textBody}</TodoCardContent>
-		</TodoCardContainer>
+		<NoteCardContainer>
+			<h3>{props.id}</h3>
+			<NoteCardTitle>{props.title}</NoteCardTitle>
+			<NoteCardContent>{props.textBody}</NoteCardContent>
+		</NoteCardContainer>
 	);
 };
 
-Todo.defaultProps = {
+Note.defaultProps = {
     title: '',
     tags: '',
     textBody: '',
 }
 
-export default Todo;
+export default Note;
