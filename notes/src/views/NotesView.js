@@ -8,7 +8,7 @@ import {
 } from '../store/actions';
 
 // import components
-import NotesList from '../components/NotesList';
+import NotesList from '../components/NoteList/NotesList';
 
 class NotesView extends React.Component {
   componentDidMount() {
