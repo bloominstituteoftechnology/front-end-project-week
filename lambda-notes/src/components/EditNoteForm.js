@@ -2,27 +2,33 @@ import React from 'react';
 import '../styles/Forms.css';
 import { connect } from 'react-redux';
 import { editNote } from '../actions';
+import axios from 'axios';
 
 class EditNoteForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             title: '',
-            text: ''
+            text: '',
         }
     }
 
     componentDidMount() {
-        this.props.notes.filter(note => {
-            if(note._id !== this.props.match.params.noteId){
-                return <></>
-            }
-            this.setState({
-                title: note.title,
-                text: note.textBody,
+        this.getNote();
+    }
+
+    getNote() {
+        axios
+            .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.noteId}`)
+            .then(res => {
+                this.setState({
+                    title: res.data.title,
+                    text: res.data.textBody,
+                });
+            })
+            .catch(err => {
+                console.log(err);
             });
-            return <></>
-        })
     }
 
     handleChange = e => {
@@ -40,13 +46,10 @@ class EditNoteForm extends React.Component {
             text: ''
         });
         
-        this.props.history.replace('/');
+        this.props.history.push(`/view/${this.props.match.params.noteId}`);
     }
 
     render() {
-        if(this.state.title === ""){
-            return <></>
-        }
         return (
             <div>
                 <h3 className='notes-page-title'>Edit Note:</h3>

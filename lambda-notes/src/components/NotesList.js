@@ -11,7 +11,14 @@ class NotesList extends React.Component {
     }
 
     componentDidMount() {
-        setTimeout(() => this.props.fetchNotes(), 100);
+
+        if(this.props.updating || this.props.adding) {
+            setTimeout(() => this.props.fetchNotes(), 100);
+        }
+        else {
+            this.props.fetchNotes();
+        }
+        
     }
 
     render() {
