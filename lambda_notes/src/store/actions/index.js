@@ -24,32 +24,32 @@ export const getNotes = () => dispatch => {
 };
 
 export const addNote = note => dispatch => {
-  console.log("ANUTTUEHWSLK");
-  return (
-    // dispatch({ type: ADD_NOTE });
-    axios
-      // .post(`${URL}create`, note)
-      .post("https://fe-notes.herokuapp.com/note/create", note)
-      .then(({ data }) =>
-        dispatch({
-          type: ADD_NOTE_SUCCESS,
-          payload: { ...note, _id: data.success }
-        })
-      )
-      .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }))
-  );
+  dispatch({ type: ADD_NOTE });
+  axios
+    .post(`${URL}create`, note)
+    .then(({ data }) =>
+      dispatch({
+        type: ADD_NOTE_SUCCESS,
+        payload: { ...note, _id: data.success }
+      })
+    )
+    .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));
 };
 
 export const editNote = note => dispatch => {
   dispatch({ type: EDIT_NOTE });
   axios
-    .put(`${URL}edit/${note}/`)
-    .then(({ data }) => dispatch({ type: EDIT_NOTE_SUCCESS, payload: data }))
+    .put(`${URL}edit/${note._id}/`, note)
+    .then(({ data }) =>
+      dispatch({
+        type: EDIT_NOTE_SUCCESS,
+        payload: data
+      })
+    )
     .catch(err => dispatch({ type: EDIT_NOTE_FAILURE, payload: err }));
 };
 
 export const deleteNote = note => dispatch => {
-  console.log("FIRING");
   dispatch({ type: DELETE_NOTE });
   axios
     .delete(`${URL}delete/${note}`)

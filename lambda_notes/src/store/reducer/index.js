@@ -69,7 +69,9 @@ const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingNotes: true,
-        notes: [...state.notes, { ...action.payload }],
+        notes: state.notes.map(note =>
+          note._id === action.payload._id ? action.payload : note
+        ),
         error: null
       };
     case EDIT_NOTE_FAILURE:

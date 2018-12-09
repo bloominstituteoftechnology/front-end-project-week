@@ -65,6 +65,18 @@ class EditNoteForm extends Component {
     textBody: ""
   };
 
+  componentDidMount = () => {
+    let singleNote = this.props.notes.filter(
+      note => note._id === this.props.match.params.noteId
+    );
+    if (singleNote.length) {
+      this.setState({
+        title: singleNote[0].title,
+        textBody: singleNote[0].textBody
+      });
+    }
+  };
+
   handleInputChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -74,11 +86,15 @@ class EditNoteForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.title && this.state.textBody) {
-      editNote(this.state);
+      this.props.editNote({
+        ...this.state,
+        _id: this.props.match.params.noteId
+      });
       this.setState({
         title: "",
         textBody: ""
       });
+      this.props.history.push("/notes");
     }
     return null;
   };
@@ -98,6 +114,7 @@ class EditNoteForm extends Component {
           placeholder="Note Content"
           onChange={this.handleInputChange}
           name="textBody"
+          value={this.state.textBody}
         />
         <Button>Update</Button>
       </Form>
@@ -105,7 +122,11 @@ class EditNoteForm extends Component {
   }
 }
 
+const mapStateToProps = ({ notes }) => ({
+  notes
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { editNote }
 )(EditNoteForm);
