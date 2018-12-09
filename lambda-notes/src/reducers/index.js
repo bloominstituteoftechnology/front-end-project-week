@@ -1,22 +1,77 @@
-import { ADD_NOTE } from '../actions';
+import { ADD_NOTE_START,
+         ADD_NOTE_SUCCESS, 
+         ADD_NOTE_FAILURE, 
+         FETCH_NOTE_START, 
+         FETCH_NOTE_SUCCESS, 
+         FETCH_NOTE_FAILURE, 
+         EDIT_NOTE_START, 
+         EDIT_NOTE_SUCCESS, 
+         EDIT_NOTE_FAILURE 
+        } from '../actions';
 
 const initialState = {
-    notes: [{
-        tags:['tester','super tester'],
-        title: 'Test note title',
-        textBody: 'note body',
-        id: 0,
-    }],
+    notes: [],
     fetchingNotes: false,
+    addingNotes: false,
+    editingNotes: false,
+    deletingNotes: false,
     error: null,
 }
 
 const notesReducer = (state = initialState, action) => {
     switch(action.type) {
-        case ADD_NOTE:
+        case FETCH_NOTE_START:
             return {
                 ...state,
-                notes: [...state.notes, action.payload],
+                fetchingNotes: true,
+            }
+        case FETCH_NOTE_SUCCESS:
+            return {
+                ...state,
+                notes: action.payload,
+                fetchingNotes: false,
+                error: null,
+            }
+        case FETCH_NOTE_FAILURE:
+            return {
+                ...state,
+                fetchingNotes: false,
+                error: action.payload,
+            }
+        case ADD_NOTE_START:
+            return {
+                ...state,
+                addingNotes: true,
+            }
+        case ADD_NOTE_SUCCESS:
+            return {
+                ...state,
+                addingNotes: false,
+                error: null,
+                // notes: action.payload,
+            }
+        case ADD_NOTE_FAILURE:
+            return {
+                ...state,
+                addingNotes: false,
+                error: action.payload,
+            }
+        case EDIT_NOTE_START:
+            return {
+                ...state,
+                editingNotes: true,
+            }
+        case EDIT_NOTE_SUCCESS:
+            return {
+                ...state,
+                editingNotes: false,
+                error: null,
+            }
+        case EDIT_NOTE_FAILURE:
+            return {
+                ...state,
+                editingNotes: false,
+                error: action.payload,
             }
         default:
             return state;

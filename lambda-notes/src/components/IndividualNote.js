@@ -1,7 +1,7 @@
 import React from 'react';
 
 const IndividualNote = props => {
-    const note = props.notesData.find(note => `${note.id}` === props.match.params.id);
+    const note = props.notesData.find(note => `${note._id}` === props.match.params.id);
     if (!note) {
         return <h2>Note not found...</h2>
     }

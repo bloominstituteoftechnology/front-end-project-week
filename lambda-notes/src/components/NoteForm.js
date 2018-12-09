@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNote } from '../actions';
+import { addNote, editNote } from '../actions';
 
 class NoteForm extends React.Component {
     constructor(){
@@ -9,7 +9,6 @@ class NoteForm extends React.Component {
             tags: [],
             title: '',
             textBody: '',
-            id: Date.now(),
         }
     }
 
@@ -21,6 +20,27 @@ class NoteForm extends React.Component {
         event.preventDefault();
         this.props.addNote(this.state);
         this.props.history.push('/');
+    }
+
+    editNote = event => {
+        event.preventDefault();
+        this.props.editNote(this.state, this.props.match.params.id);
+        this.props.history.push('/');
+    }
+
+    componentDidMount() {
+        if(this.props.edit) {
+            const currentNote = this.props.notes.find(note => {
+                return note.id.toString() === this.props.match.params.id
+            });
+            if (currentNote) {
+                this.setState({
+                    tags: currentNote.tags,
+                    title: currentNote.title,
+                    textBody: currentNote.textBody,
+                })
+            }
+        }
     }
 
     render() {
@@ -52,4 +72,10 @@ class NoteForm extends React.Component {
     }
 }
 
-export default connect(null, { addNote })(NoteForm);
+const mapStateToProps = state => {
+    return {
+        notes: state.notes,
+    }
+}
+
+export default connect(mapStateToProps, { addNote, editNote })(NoteForm);

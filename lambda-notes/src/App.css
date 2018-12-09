@@ -30,3 +30,9 @@
     transform: rotate(360deg);
   }
 }
+
+.individual-note {
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
+}
