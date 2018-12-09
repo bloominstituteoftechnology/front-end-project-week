@@ -30,7 +30,7 @@ class NotesList extends React.Component {
                 <div className='noteList-card-container'>
                     {this.props.notes.map(note => {
                         return (
-                            <div key={note._id}><NoteCard noteInfo={note}/></div>
+                            <div key={note._id}><NoteCard noteInfo={note} /></div>
                         );
                     })}
                 </div>

@@ -10,6 +10,7 @@
     font-size: 1.2rem;
     margin-left: 10px;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .viewBtn:hover {

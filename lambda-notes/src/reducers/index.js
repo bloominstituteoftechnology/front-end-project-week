@@ -8,6 +8,9 @@ import {
     EDIT_NOTE_START,
     EDIT_NOTE_SUCCESS,
     EDIT_NOTE_FAILURE,
+    DELETE_NOTE_START,
+    DELETE_NOTE_SUCCESS,
+    DELETE_NOTE_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -15,11 +18,31 @@ const initialState = {
     fetching: false,
     adding: false,
     updating: false,
+    deleting: false,
     error: null,
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        // Deleting Note Cases
+        case DELETE_NOTE_START:
+            return {
+                ...state,
+                deleting: true,
+            };
+        case DELETE_NOTE_SUCCESS:
+            return {
+                ...state,
+                error: null,
+                deleting: false,
+            };
+        case DELETE_NOTE_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                deleting: false,
+            };
+
         // Updating Note Cases
         case EDIT_NOTE_START:
             return {

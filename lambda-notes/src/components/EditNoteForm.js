@@ -21,6 +21,7 @@ class EditNoteForm extends React.Component {
                 title: note.title,
                 text: note.textBody,
             });
+            return <></>
         })
     }
 
