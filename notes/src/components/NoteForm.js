@@ -1,6 +1,32 @@
 import React from 'react';
 import {addNote, editNote} from '../store/actions';
 import {connect} from 'react-redux';
+import styled from 'styled-components';
+import {Button} from './NavBar';
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted blue;
+  background-color: #F2F1F2;
+  margin-left: 16.5%;
+  padding-left: 2%;2%
+`;
+
+const StyledInput = styled.input`
+  padding: 7px;
+  width: 40%;
+  margin-bottom: 10px;
+`;
+
+const StyledTextArea = styled.textarea`
+  height: 30rem;
+  width: 80%;
+`;
+
+const FormButton = styled(Button)`
+  width: 8%;
+`;
 
 class NoteForm extends React.Component {
   constructor() {
@@ -42,7 +68,7 @@ class NoteForm extends React.Component {
 
   makeInput = (name, type) => {
     return (
-      <input
+      <StyledInput
         type={type}
         name={name}
         value={this.state[name]}
@@ -52,15 +78,18 @@ class NoteForm extends React.Component {
   };
 
   render() {
+    const buttonText = this.props.isEditing ? 'Update' : 'Save';
     return (
-      <form onSubmit={this.handleSubmit}>
+      <StyledForm onSubmit={this.handleSubmit}>
+        <h2>Create a Note</h2>
         {this.makeInput('title', 'text')}
-        <textarea
+        <StyledTextArea
           name="textBody"
           value={this.state.textBody}
           onChange={this.handleChange}
         />
-      </form>
+        <FormButton>{buttonText}</FormButton>
+      </StyledForm>
     );
   }
 }
