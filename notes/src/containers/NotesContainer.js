@@ -1,18 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Notes from '../components/Notes';
 
-class Notes extends React.Component {
+class NotesContainer extends React.Component {
   render() {
     console.log('notes', this.props);
     return (
       <div>
-        <h2 style={{display: 'inline'}}>notes component</h2>
-        {this.props.notes.map(note => (
-          <div>
-            <h2>{note.title}</h2>
-            <h3>{note.textBody}</h3>
-          </div>
-        ))}
+        <h2 style={{display: 'inline'}}>notes container</h2>
+        <Notes notes={this.props.notes} />
       </div>
     );
   }
@@ -24,4 +20,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Notes);
+export default connect(mapStateToProps)(NotesContainer);
