@@ -1,5 +1,3 @@
-//actions!
-//
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 
 export const ADDING_NOTE = 'ADDING_NOTE';
@@ -30,4 +28,6 @@ export const startEditMode = () => dispatch => {
   dispatch({type: EDITING_NOTE});
 };
 
-export const editNote = note => dispatch => {};
+export const editNote = note => dispatch => {
+  dispatch({type: EDIT_NOTE_SUCCESS, payload: note});
+};

@@ -49,6 +49,20 @@ export default (state = initialState, action) => {
         ...state,
         isEditing: true,
       };
+    case EDIT_NOTE_SUCCESS:
+      return {
+        ...state,
+        notes: state.notes.map(n => {
+          if (n.id === state.selectedNote.id) {
+            return {
+              ...action.payload,
+              id: n.id,
+            };
+          } else {
+            return n;
+          }
+        }),
+      };
     default:
       return state;
   }
