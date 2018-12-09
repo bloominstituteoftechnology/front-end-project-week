@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Input} from 'reactstrap'
 import styled from 'styled-components'
-import { fetchNote } from '../../actions/'
+import { fetchNote, editNote } from '../../actions/'
 import { connect } from 'react-redux'
 
 const EditViewStyle = styled.div `
@@ -24,16 +24,13 @@ export default class EditView extends Component {
   this.state = {
     title: '',
     body: '',
-    note: {}
   }
  }
 
- // componentDidMount(){
- //  const id = this.props.match.params.noteId
- // const singleNote = this.props.notes.find((note) => note.id === this.id)
- //  console.log(id)
- //  console.log(singleNote)
- // }
+ componentDidCatch(){
+  this.props.fetchNote(this.props.match.params.id)
+ }
+
 
  inputHandler = event => {
   this.setState({
@@ -41,18 +38,26 @@ export default class EditView extends Component {
   })
  }
  
- submitEdit = event => {
+ submitEdit = (id, event) => {
+  console.log(id)
   event.preventDefault()
-  this.props.editNote({
+  id = this.props.match.params.id
+  this.props.editNote(id, {
+  tags: [],
    title: this.state.title,
    textBody: this.state.body
+  })
+  this.setState({
+   title: '',
+   body: ''
   })
  }
 
   render() {
    console.log()
     return (
-     <InputStyles size="sm" >
+     <form onSubmit={this.submitEdit}>
+     <InputStyles>
       <Input
        name="title"
        onChange={this.inputHandler}
@@ -67,8 +72,9 @@ export default class EditView extends Component {
       >
       </textarea>
       </EditViewStyle>
-      <Button onSubmit={this.submitEdit} color="info">Save Changes</Button>
+      <Button color="info">Save Changes</Button>
      </InputStyles>
+     </form>
     )
   }
 }
@@ -79,4 +85,4 @@ const mapStateToProps = state => {
   notes: notes
  }
 }
-connect(mapStateToProps, { fetchNote })(EditView)
+connect(mapStateToProps, { fetchNote, editNote })(EditView)

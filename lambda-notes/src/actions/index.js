@@ -58,9 +58,9 @@ export const editNote = (id, note) => {
  return dispatch => {
   dispatch({type: EDITING})
   axios
-  .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-  .then(() => {
-   dispatch({type: EDITED})
+  .get(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+  .then((response) => {
+   dispatch({type: EDITED, payload: response.data})
   })
   .catch(() => {
    dispatch({type: ERROR, payload: 'Error Editing Note'})

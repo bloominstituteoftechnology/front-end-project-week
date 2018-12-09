@@ -45,11 +45,11 @@ switch(action.type){
  case EDITING:
   return Object.assign({}, state, {editing: true})
  case EDITED:
-  return Object.assign({}, state, {editing: false, edited: false})  
+  return Object.assign({}, ...state, {editing: false, edited: false, notes: action.payload})  
  case DELETING:
-  return Object.assign({}, state, {}, {deleting: true})
+  return Object.assign({}, state, {deleting: true })
  case DELETED: 
-  return Object.assign({}, state, {deleting: false, deleted: true})
+  return Object.assign({}, state, {deleting: false})
  case ERROR:
   return Object.assign({}, state, {error: true, errorString: action.payload})
  default:
