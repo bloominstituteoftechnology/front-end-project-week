@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { getNotes } from "../store/actions";
 import { connect } from "react-redux";
-import { getSingleNote } from "../store/actions/index";
 
 // ==============================
 // ======   STYLED COMPS   ======
@@ -53,8 +52,28 @@ const P = styled.p`
 // ==============================
 
 class NotesList extends Component {
+  state = {
+    noteString: ""
+  };
   componentDidMount = () => {
     getNotes();
+    this.getNoteString();
+  };
+
+  getNoteString = (text, limit) => {
+    if (text) {
+      let finalStr = "",
+        str1 = text.replace(/\s+/g, " "),
+        str2 = str1.split(" "),
+        wordsNum = str2.length;
+
+      if (wordsNum > limit) {
+        for (let i = 0; i < limit; i++) {
+          finalStr = `${finalStr} ${str2[i]} `;
+        }
+        return `${finalStr}...`;
+      } else return text;
+    } else return null;
   };
 
   render() {
@@ -71,12 +90,11 @@ class NotesList extends Component {
           <Div
             onClick={() => {
               this.props.history.push(`/note/${note._id}`);
-              getSingleNote(note._id);
             }}
             key={note._id}
           >
-            <H2>{note.title}</H2>
-            <P>{note.textBody}</P>
+            <H2>{this.getNoteString(note.title, 10)}</H2>
+            <P>{this.getNoteString(note.textBody, 25)}</P>
           </Div>
         ))}
       </List>

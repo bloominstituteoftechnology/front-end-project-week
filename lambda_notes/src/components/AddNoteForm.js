@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addNote } from "../store/actions";
+import { addNote, getNotes } from "../store/actions";
 import styled from "styled-components";
+import { withRouter } from "react-router-dom";
 
 // ==============================
 // ======   STYLED COMPS   ======
@@ -74,11 +75,13 @@ class AddNoteForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.title && this.state.textBody) {
-      addNote(this.state);
+      addNote({ title: this.state.title, textBody: this.state.textBody });
       this.setState({
         title: "",
         textBody: ""
       });
+      getNotes();
+      this.props.history.push("/notes");
     }
     return null;
   };
@@ -100,13 +103,15 @@ class AddNoteForm extends Component {
           name="textBody"
           value={this.state.textBody}
         />
-        <Button>Save</Button>
+        <Button type="submit">Save</Button>
       </Form>
     );
   }
 }
 
-export default connect(
-  null,
-  { addNote }
-)(AddNoteForm);
+export default withRouter(
+  connect(
+    null,
+    { addNote, getNotes }
+  )(AddNoteForm)
+);

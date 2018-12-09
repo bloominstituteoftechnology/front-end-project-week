@@ -22,9 +22,9 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 ## MVP Features:
 
-- [ ] Display a list of notes
+- [x] Display a list of notes
 - [ ] Create a note with a title and content
-- [ ] View an existing note
+- [x] View an existing note
 - [ ] Edit an existing note
 - [ ] Delete an existing note
 - [ ] Wire up your static React App to our Notes API.

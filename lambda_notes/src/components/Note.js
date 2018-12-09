@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { deleteNote, getSingleNote } from "../store/actions";
+import { deleteNote } from "../store/actions";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -82,13 +82,12 @@ class Note extends Component {
   }
 }
 
-const mapStateToProps = ({ fetchingNote, note, notes }) => ({
+const mapStateToProps = ({ fetchingNote, notes }) => ({
   notes,
-  note,
   fetchingNote
 });
 
 export default connect(
   mapStateToProps,
-  { deleteNote, getSingleNote }
+  { deleteNote }
 )(Note);

@@ -3,9 +3,6 @@ import axios from "axios";
 export const FETCH_NOTES = "FETCH_NOTES",
   FETCH_NOTES_SUCCESS = "FETCH_NOTES_SUCCESS",
   FETCH_NOTES_FAILURE = "FETCH_NOTES_FAILURE",
-  FETCH_SINGLE_NOTE = "FETCH_SINGLE_NOTE",
-  FETCH_SINGLE_NOTE_SUCCESS = "FETCH_SINGLE_NOTE_SUCCESS",
-  FETCH_SINGLE_NOTE_FAILURE = "FETCH_SINGLE_NOTE_FAILURE",
   ADD_NOTE = "ADD_NOTE",
   ADD_NOTE_SUCCESS = "ADD_NOTE_SUCCESS",
   ADD_NOTE_FAILURE = "ADD_NOTE_FAILURE",
@@ -26,22 +23,12 @@ export const getNotes = () => dispatch => {
     .catch(err => dispatch({ type: FETCH_NOTES_FAILURE, payload: err }));
 };
 
-export const getSingleNote = note => dispatch => {
-  dispatch({ type: FETCH_SINGLE_NOTE });
-  axios
-    .get(`${URL}get/${note}/`)
-    .then(({ data }) =>
-      dispatch({ type: FETCH_SINGLE_NOTE_SUCCESS, payload: data })
-    )
-    .catch(err => dispatch({ type: FETCH_SINGLE_NOTE_FAILURE, payload: err }));
-};
-
-export const addNote = () => dispatch => {
+export const addNote = note => dispatch => {
   dispatch({ type: ADD_NOTE });
   axios
-    .post(`${URL}create/`)
-    .then(({ data }) => dispatch({ type: ADD_NOTE_SUCCESS, payload: data }))
-    .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));
+    .post(`${URL}create/`, note)
+    .then(({ data }) => console.log(data))
+    .catch(err => console.log(err));
 };
 
 export const editNote = note => dispatch => {
@@ -53,9 +40,12 @@ export const editNote = note => dispatch => {
 };
 
 export const deleteNote = note => dispatch => {
+  console.log("FIRING");
   dispatch({ type: DELETE_NOTE });
   axios
-    .delete(`${URL}delete/${note}/`)
-    .then(({ data }) => dispatch({ type: DELETE_NOTE_SUCCESS, payload: data }))
+    .delete(`${URL}delete/${note}`)
+    .then(res => {
+      dispatch({ type: DELETE_NOTE_SUCCESS, payload: res });
+    })
     .catch(err => dispatch({ type: DELETE_NOTE_FAILURE, payload: err }));
 };
