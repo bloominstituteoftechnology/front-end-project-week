@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/Forms.css';
 import { connect } from 'react-redux';
-import { addNote } from '../actions';
+import { editNote } from '../actions';
 
-class CreateNoteForm extends React.Component {
+class EditNoteForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,6 +12,17 @@ class CreateNoteForm extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.props.notes.filter(note => {
+            if(note._id !== this.props.match.params.noteId){
+                return <></>
+            }
+            this.setState({
+                title: note.title,
+                text: note.textBody,
+            });
+        })
+    }
 
     handleChange = e => {
         this.setState({
@@ -20,22 +31,26 @@ class CreateNoteForm extends React.Component {
         console.log(this.state.title + this.state.text);
     }
 
-    addNewNote = e => {
+    editNote = e => {
         e.preventDefault();
-        this.props.addNote(this.state.title, this.state.text);
+        this.props.editNote(this.state.title, this.state.text, this.props.match.params.noteId);
         this.setState({
             title: '',
             text: ''
         });
+        
         this.props.history.replace('/');
     }
 
     render() {
+        if(this.state.title === ""){
+            return <></>
+        }
         return (
             <div>
-                <h3 className='notes-page-title'>Create New Note:</h3>
+                <h3 className='notes-page-title'>Edit Note:</h3>
                 <div className='createNewNote-Container'>
-                    <form className='form-content-container' onSubmit={this.addNewNote}>
+                    <form className='form-content-container' onSubmit={this.editNote}>
                         <input 
                             onChange={this.handleChange}
                             name='title'
@@ -55,7 +70,7 @@ class CreateNoteForm extends React.Component {
                             className='createNote-text-input'
                             rows='20'
                         />
-                        <button className='navBtn saveBtn' type='submit'>SAVE</button>
+                        <button className='navBtn saveBtn' type='submit'>SAVE EDIT</button>
                     </form>
                 </div>
             </div>
@@ -63,8 +78,15 @@ class CreateNoteForm extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        notes: state.notes,
+        updating: state.updating,
+    };
+}
+
 
 export default connect(
-    null,
-    { addNote }
-)(CreateNoteForm);
+    mapStateToProps,
+    { editNote }
+)(EditNoteForm);

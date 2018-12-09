@@ -8,6 +8,10 @@ export const ADD_NOTE_START = 'ADD_NOTE_START';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const ADD_NOTE_FAILURE = 'ADD_NOTE_FAILURE';
 
+export const EDIT_NOTE_START = 'EDIT_NOTE_START';
+export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
+export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
+
 export const fetchNotes = () => dispatch => {
     dispatch({ type: FETCHING_START });
     axios
@@ -27,13 +31,26 @@ export const addNote = (title, text) => dispatch => {
     axios
         .post('https://fe-notes.herokuapp.com/note/create', {title: title, textBody: text})
         .then(res => {
-            console.log(res);
+            // console.log(res);
             dispatch({ type: ADD_NOTE_SUCCESS });
-            // return fetchNotes();
         })
         .catch(err => {
             // console.log(err);
             dispatch({ type: ADD_NOTE_FAILURE, payload: err});
+        });
+};
+
+export const editNote = (title, text, id) => dispatch => {
+    dispatch({ type: EDIT_NOTE_START });
+    axios
+        .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {title: title, textBody: text})
+        .then(res => {
+            console.log(res);
+            dispatch({ type: EDIT_NOTE_SUCCESS, payload: res.data });
+        })
+        .catch(err => {
+            // console.log(err);
+            dispatch({ type: EDIT_NOTE_FAILURE, payload: err});
         });
 };
 

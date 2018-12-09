@@ -7,6 +7,7 @@ import { Route, NavLink } from 'react-router-dom';
 import NotesList from './components/NotesList';
 import CreateNoteForm from './components/CreateNoteForm';
 import ViewNote from './components/ViewNote';
+import EditNoteForm from './components/EditNoteForm';
 
 class App extends Component {
   constructor() {
@@ -44,7 +45,7 @@ class App extends Component {
             </div>
 
             <div className='create-note-container'>
-              <Route path='/create new note' 
+              <Route exact path='/create new note' 
                 render={props => 
                   <CreateNoteForm 
                     {...props} 
@@ -60,7 +61,17 @@ class App extends Component {
                     {...props}
                   />
                 } 
-            />
+              />
+            </div>
+
+            <div className='create-note-container'>
+              <Route exact path='/edit/:noteId'
+                render={props =>
+                  <EditNoteForm
+                    {...props}
+                  />
+                }
+              />
             </div>
 
           </div>

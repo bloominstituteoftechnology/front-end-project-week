@@ -2,11 +2,18 @@
     display: flex;
     justify-content: flex-end;
     margin-right: 50px;
+    max-width: 650px;
+    min-width: 500px;
 }
 
 .viewBtn {
     font-size: 1.2rem;
     margin-left: 10px;
+    text-decoration: underline;
+}
+
+.viewBtn:hover {
+    font-weight: bold;
 }
 
 .notes-page-title {

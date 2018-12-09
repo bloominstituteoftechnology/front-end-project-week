@@ -33,7 +33,7 @@ componentDidMount() {
 }
 
 missingData = e => {
-    if(this.state.count === 0) {
+    if(this.state.count === 0 || this.state.note.length === 0) {
         this.setState({
             count: this.state.count +1,
         });
@@ -42,8 +42,8 @@ missingData = e => {
         this.setState({
             count: 0
         });
-        this.props.history.replace('/');
-    }
+        this.props.history.push('/');
+        }
 }
 
     render() {

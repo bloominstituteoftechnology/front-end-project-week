@@ -11,10 +11,13 @@ class NotesList extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchNotes();
+        setTimeout(() => this.props.fetchNotes(), 100);
     }
 
     render() {
+        if(this.props.updating) {
+            return <h3>Updating Note ...</h3>
+        }
         if(this.props.adding) {
             return <h3>Adding Note ...</h3>
         }
@@ -42,6 +45,7 @@ const mapStateToProps = state => {
         notes: state.notes,
         fetching: state.fetching,
         adding: state.adding,
+        updating: state.updating,
     };
 }
 

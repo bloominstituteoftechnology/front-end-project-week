@@ -5,22 +5,45 @@ import {
     ADD_NOTE_START,
     ADD_NOTE_SUCCESS,
     ADD_NOTE_FAILURE,
+    EDIT_NOTE_START,
+    EDIT_NOTE_SUCCESS,
+    EDIT_NOTE_FAILURE,
 } from '../actions';
 
 const initialState = {
     notes: [],
     fetching: false,
     adding: false,
+    updating: false,
     error: null,
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        // Updating Note Cases
+        case EDIT_NOTE_START:
+            return {
+                ...state,
+                updating: true,
+            };
+        case EDIT_NOTE_SUCCESS:
+            return {
+                ...state,
+                error: null,
+                updating: false,
+            };
+        case EDIT_NOTE_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                updating: false,
+            };
+
         // Adding Note Cases
         case ADD_NOTE_START:
             return {
                 ...state,
-                // adding: true,
+                adding: true,
             };
         case ADD_NOTE_SUCCESS:
             return {
