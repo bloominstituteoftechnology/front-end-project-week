@@ -21,12 +21,13 @@ const Button = styled.button`
   color: white;
   font-weight: bold;
   text-decoration: none;
-  padding: 12px 55px;
+  padding: 12px 0;
   cursor: pointer;
   border: 1px solid #979797;
   transition: all 0.3s ease-in-out;
   display: inline-block;
   width: 25%;
+  min-width: 100px;
 
   &:hover {
     background: white;

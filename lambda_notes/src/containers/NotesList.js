@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { getNotes } from "../store/actions";
 import { connect } from "react-redux";
+import { CSVLink } from "react-csv";
+import download from "../img/download.svg";
 
 // ==============================
 // ======   STYLED COMPS   ======
@@ -47,6 +49,32 @@ const P = styled.p`
   font-size: 12px;
 `;
 
+const StyledCSVLink = styled(CSVLink)`
+  text-decoration: none;
+  color: #00c6d1;
+  font-weight: bold;
+  border-bottom: 2px solid #00c6d1;
+  margin-left: 15px;
+`;
+
+const PAnchor = styled.p`
+  font-size: 12px;
+  color: #00c6d1;
+  cursor: pointer;
+
+  & > a {
+    color: #00c6d1;
+    text-decoration: none;
+  }
+`;
+
+const IconFooter = styled.div`
+  width: 100%;
+  text-align: left;
+  padding: 20px 20px 0;
+  margin-bottom: 0;
+`;
+
 // ==============================
 // ======    COMPONENTS    ======
 // ==============================
@@ -77,6 +105,12 @@ class NotesList extends Component {
   };
 
   render() {
+    const headers = [
+      { label: "title", key: "title" },
+      { label: "text body", key: "textBody" },
+      { label: "ID", key: "_id" },
+      { label: "Tags", key: "tags" }
+    ];
     if (!this.props.notes || this.props.fetchingNotes) {
       return <h3>Retrieving Notes, One Moment...</h3>;
     }
@@ -84,7 +118,17 @@ class NotesList extends Component {
     return (
       <List>
         <Header>
-          <p>Your Notes:</p>
+          <p>
+            Your Notes:&nbsp;
+            <StyledCSVLink data={this.props.notes} headers={headers}>
+              <img
+                src={download}
+                style={{ width: 20, marginRight: 10 }}
+                alt="a sgv download icon"
+              />
+              CSV
+            </StyledCSVLink>
+          </p>
         </Header>
         {this.props.notes.map(note => (
           <Div
@@ -97,6 +141,18 @@ class NotesList extends Component {
             <P>{this.getNoteString(note.textBody, 25)}</P>
           </Div>
         ))}
+        <IconFooter>
+          <PAnchor>
+            icon from{" "}
+            <a
+              href="https://fontawesome.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              fontawesome.com
+            </a>
+          </PAnchor>
+        </IconFooter>
       </List>
     );
   }

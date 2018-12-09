@@ -1,0 +1,4 @@
+#navi-toggle:checked ~ .delete-modal {
+  opacity: 1;
+  width: 100%;
+}
