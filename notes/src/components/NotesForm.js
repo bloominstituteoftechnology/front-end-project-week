@@ -42,6 +42,7 @@ const FormWrapper = styled.div`
 
   button {
     width: 20%;
+    min-width: 20rem;
     font-size: 1.6rem;
     font-weight: bold;
     padding: 1rem;

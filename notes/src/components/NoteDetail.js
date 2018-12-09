@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// importing component
+import Modal from './Modal';
+
 // styled Note
 const Note = styled.div`
   padding: 4rem;
@@ -27,42 +30,56 @@ const Note = styled.div`
   }
   `;
 
-const NoteDetail = ({ note, fetchingNote, history, deleteNote }) => {
-  return (
-    <Note>
-      <div className="menu">
-        <div
-          className="menu-item"
-          onClick={() => {
-            history.push(`/notes/edit/${note._id}`);
-          }}
-        >
-          Edit
-        </div>
-        <div
-          className="menu-item"
-          onClick={() => {
-            deleteNote(note._id);
-            history.push('/');
-          }}
-        >
-          Delete
-        </div>
-      </div>
-      {
-        fetchingNote ?
-        <div>Fetching Friend ...</div> :
-        !note || !note._id ?
-          <div>Something has gone teribbly wrong</div> :
-          <div className="content">
-            <h2>{note.title}</h2>
-            <div>
-              <p>{note.textBody}</p>
-            </div>
+class NoteDetail extends React.Component {
+  state = {
+    modal: false,
+  }
+
+  toggleModal = () => {
+    this.setState(state => ({
+      modal: !state.modal,
+    }))
+  }
+
+  render () {
+    const { note, fetchingNote, history} = this.props;
+    return (
+      <Note>
+        {
+          this.state.modal && 
+          <Modal {...this.props} toggleModal={this.toggleModal} /> 
+        }
+        <div className="menu">
+          <div
+            className="menu-item"
+            onClick={() => {
+              history.push(`/notes/edit/${note._id}`);
+            }}
+          >
+            Edit
           </div>
-      }
-    </Note>
-  );
+          <div
+            className="menu-item"
+            onClick={this.toggleModal}
+          >
+            Delete
+          </div>
+        </div>
+        {
+          fetchingNote ?
+          <div>Fetching Friend ...</div> :
+          !note || !note._id ?
+            <div>Something has gone teribbly wrong</div> :
+            <div className="content">
+              <h2>{note.title}</h2>
+              <div>
+                <p>{note.textBody}</p>
+              </div>
+            </div>
+        }
+      </Note>
+    );
+  }
 }
  
 export default NoteDetail;
