@@ -48,7 +48,15 @@ export const startEditMode = () => dispatch => {
 };
 
 export const editNote = note => dispatch => {
-  dispatch({type: EDIT_NOTE_SUCCESS, payload: note});
+  console.log('id', note._id);
+  axios
+    .put(`${url}note/edit/${note._id}`)
+    .then(res => {
+      //console.log('action res:', res);
+      dispatch({type: EDIT_NOTE_SUCCESS, payload: note});
+    })
+    .catch(err => console.log(err));
+  //dispatch({type: EDIT_NOTE_SUCCESS, payload: note});
 };
 
 export const deleteNote = id => dispatch => {

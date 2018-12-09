@@ -42,7 +42,7 @@ class NoteForm extends React.Component {
     if (this.props.isEditing) {
       this.setState({
         title: this.props.selectedNote.title,
-        textBody: this.props.selectedNote.title,
+        textBody: this.props.selectedNote.textBody,
       });
     }
   }
@@ -60,8 +60,10 @@ class NoteForm extends React.Component {
     const func = this.props.isEditing
       ? this.props.editNote
       : this.props.addNote;
-    console.log(func);
-    func(this.state);
+    const args = this.props.isEditing
+      ? {...this.state, _id: this.props.match.params.id}
+      : this.state;
+    func(args);
     this.clearState();
     this.props.history.push('/notes');
   };
@@ -78,6 +80,7 @@ class NoteForm extends React.Component {
   };
 
   render() {
+    console.log(this.props.match.params.id);
     const buttonText = this.props.isEditing ? 'Update' : 'Save';
     return (
       <StyledForm onSubmit={this.handleSubmit}>

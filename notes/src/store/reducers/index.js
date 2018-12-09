@@ -76,10 +76,10 @@ export default (state = initialState, action) => {
       return {
         ...state,
         notes: state.notes.map(n => {
-          if (n.id === state.selectedNote.id) {
+          if (n._id === state.selectedNote._id) {
             return {
               ...action.payload,
-              id: n.id,
+              _id: n._id,
             };
           } else {
             return n;

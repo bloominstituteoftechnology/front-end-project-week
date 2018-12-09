@@ -17,13 +17,13 @@ const Note = props => {
       <button
         onClick={() => {
           props.startEditMode();
-          props.history.push(`/edit/${props.note.id}`);
+          props.history.push(`/edit/${props.note._id}`);
         }}>
         Edit Note
       </button>
       <button
         onClick={() => {
-          props.deleteNote(props.note.id);
+          props.deleteNote(props.note._id);
           props.history.push('/notes');
         }}>
         Delete Note
