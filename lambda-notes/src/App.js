@@ -6,14 +6,16 @@ import { connect } from 'react-redux';
 import Navigation from './components/Navigation';
 import NotesList from './components/NotesList';
 import NoteForm from './components/NoteForm';
+import IndividualNote from './components/IndividualNote';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Navigation />
-        <Route exact path='/' render={() => <NotesList notesData={this.props.notes} />} />
+        <Route exact path='/' render={props => <NotesList {...props} notesData={this.props.notes} />} />
         <Route exact path='/add-note' component={NoteForm} />
+        <Route exact path='/note/:id' render={props => <IndividualNote {...props} notesData={this.props.notes}/>} />
       </div>
     );
   }

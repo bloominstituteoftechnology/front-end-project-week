@@ -5,6 +5,7 @@ const initialState = {
         tags:['tester','super tester'],
         title: 'Test note title',
         textBody: 'note body',
+        id: 0,
     }],
     fetchingNotes: false,
     error: null,

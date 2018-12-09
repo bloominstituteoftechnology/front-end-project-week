@@ -1,11 +1,11 @@
 import React from 'react';
-import Note from './Note';
+import SmallNote from './SmallNote';
 
 const NotesList = props => {
     return(
         <div className='notes-container'>
             {props.notesData.map(note => {
-                return <Note noteData={note} />
+                return <SmallNote {...props} key={note.id} noteData={note} />
             })}
         </div>
     );

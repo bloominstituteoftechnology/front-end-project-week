@@ -9,6 +9,7 @@ class NoteForm extends React.Component {
             tags: [],
             title: '',
             textBody: '',
+            id: Date.now(),
         }
     }
 
@@ -19,11 +20,7 @@ class NoteForm extends React.Component {
     addNote = event => {
         event.preventDefault();
         this.props.addNote(this.state);
-        this.setState({
-            tags: [],
-            title: '',
-            textBody: '',
-        })
+        this.props.history.push('/');
     }
 
     render() {

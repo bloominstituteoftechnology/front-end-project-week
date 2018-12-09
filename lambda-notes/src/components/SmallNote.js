@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Note = props => {
+const SmallNote = props => {
     return(
-        <div className='individual-note'>
+        <div className='individual-note' onClick={() => props.history.push(`/note/${props.noteData.id}`)}>
             <h3 className='note-title'>{props.noteData.title}</h3>
             <p className='note-text'>{props.noteData.textBody}</p>
         </div>
     );
 }
 
-export default Note;
+export default SmallNote;
