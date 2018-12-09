@@ -20,7 +20,10 @@ class TodoList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			todos: [],
+            todos: [],
+            title: '',
+            tags: '',
+            textBody: ''
 		};
 	}
 
@@ -41,7 +44,14 @@ class TodoList extends React.Component {
 			<TodoListContainer>
 				<h2 className="lamba-notes-header">Your Notes:</h2>
 				{this.state.todos.map(todo => {
-					return <Todo />;
+					return (
+                        <Todo 
+                            key={todo.id}
+                            title={todo.title}
+                            tags={todo.tags}
+                            textBody={todo.textBody}
+                        />
+                    )
 				})}
 			</TodoListContainer>
 		);

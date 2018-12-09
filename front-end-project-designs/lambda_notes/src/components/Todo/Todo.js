@@ -21,19 +21,21 @@ const TodoCardTitle = styled.h4`
 
 const TodoCardContent = styled.div``;
 
-const Todo = () => {
+const Todo = props => {
+    
+    console.log(props)
 	return (
 		<TodoCardContainer>
-			<TodoCardTitle>Note Title</TodoCardTitle>
-			<TodoCardContent>
-				Laboris aliqua sit nostrud amet excepteur. Consequat pariatur
-				laborum dolore officia aliquip. Et ea adipisicing pariatur
-				dolore sint excepteur excepteur exercitation ipsum est ex.
-				Nostrud irure deserunt esse et cillum ad cupidatat nisi culpa
-				consequat eu sunt commodo fugiat.
-			</TodoCardContent>
+			<TodoCardTitle>{props.title}</TodoCardTitle>
+			<TodoCardContent>{props.textBody}</TodoCardContent>
 		</TodoCardContainer>
 	);
 };
+
+Todo.defaultProps = {
+    title: '',
+    tags: '',
+    textBody: '',
+}
 
 export default Todo;
