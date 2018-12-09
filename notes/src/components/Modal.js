@@ -37,7 +37,7 @@ const ModalWrapper = styled.div`
     h3 {
       margin-bottom: 3rem;
     }
-    
+
     button {
       min-width: 18rem;
       margin: 0 2rem;

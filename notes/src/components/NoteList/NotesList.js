@@ -45,6 +45,7 @@ const NotesWrapper = styled.div`
 class NotesList extends React.Component { 
   state = {
     searchText: '',
+    sort: null,
   }
 
   onInputChange = (e) => {
@@ -53,9 +54,34 @@ class NotesList extends React.Component {
     })
   }
 
+  onSortChange = () => {
+    this.setState(state => ({
+      sort: !state.sort ? 'asc' : state.sort === 'asc' ? 'desc' : null,
+    }))
+  }
+
   render () {
     const { notes, history, fetchingNotes } = this.props;
-    const { searchText } = this.state;
+    const { searchText, sort } = this.state;
+
+    console.log(sort);
+    let computedNotes;
+
+    if (!fetchingNotes && notes.length > 0) {
+      computedNotes = notes.filter (
+        note => note.title.toLowerCase().includes(searchText.toLowerCase())
+      )
+      if (sort) {
+        computedNotes.sort(
+          (note1, note2) => {
+            if (sort === 'asc') {
+              return note1.title.toLowerCase() < note2.title.toLowerCase() ? -1 : 0;
+            }
+            return note1.title.toLowerCase() > note2.title.toLowerCase() ? -1 : 0;
+          }
+        )
+      }
+    }
 
     return (
       <NotesWrapper>
@@ -63,6 +89,8 @@ class NotesList extends React.Component {
         <ToolBar
           searchText = {searchText}
           onInputChange = {this.onInputChange}
+          sort = {sort}
+          onSortChange = {this.onSortChange}
         />
         <div className="notes">
           {
@@ -70,10 +98,7 @@ class NotesList extends React.Component {
             <div>Loading ... </div> :
             !notes[0] ?
                 <div>Something has gone teribbly wrong.</div> :
-                notes
-                  .filter( note => (
-                    note.title.toLowerCase().includes(searchText.toLowerCase())
-                  ))
+                computedNotes
                   .map(note => (
                   <div
                     className="note-item"
