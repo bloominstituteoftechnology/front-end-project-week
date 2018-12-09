@@ -1,21 +1,51 @@
-import React from 'react';
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
+import axios from "axios";
 
-import Todo from '../Todo/Todo';
+import Todo from "../Todo/Todo";
 
 const TodoListContainer = styled.div`
-    background-color: #F2F1F2;
+	background-color: #f2f1f2;
     width: 100%;
-    padding: 40px;
-`
+	padding: 40px;
+	display: flex;
+    flex-wrap: wrap;
+    
+    h2 {
+        width: 100%;
+    }
+`;
 
-const TodoList = () => {
-    return (
-        <TodoListContainer>
-            <h2 className="lamba-notes-header">Your Notes:</h2>
-            <Todo />
-        </TodoListContainer>
-    )
+class TodoList extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			todos: [],
+		};
+	}
+
+	componentDidMount() {
+		axios
+			.get("https://fe-notes.herokuapp.com/note/get/all")
+			.then(res => {
+				console.log("Server Response :", res);
+				this.setState({ todos: res.data });
+			})
+			.catch(err => {
+				console.log("Server Error: ", err);
+			});
+	}
+
+	render() {
+		return (
+			<TodoListContainer>
+				<h2 className="lamba-notes-header">Your Notes:</h2>
+				{this.state.todos.map(todo => {
+					return <Todo />;
+				})}
+			</TodoListContainer>
+		);
+	}
 }
 
 export default TodoList;
