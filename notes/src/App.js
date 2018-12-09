@@ -9,7 +9,6 @@ import NoteForm from './components/NoteForm';
 const App = () => {
   return (
     <div className="App">
-      <h1 style={{display: 'inline'}}>Lambda Notes</h1>
       <Route path="/" component={NavBar} />
       {/*create Routes here*/}
       <Route path="/notes" component={NotesContainer} />
