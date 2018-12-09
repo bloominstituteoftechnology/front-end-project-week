@@ -43,4 +43,7 @@ export const Search = styled.div`
       font-color: blue;
     }
   }
+  button {
+    cursor: s-resize;
+  }
 `;
