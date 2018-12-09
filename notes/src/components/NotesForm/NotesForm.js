@@ -75,7 +75,7 @@ class NotesForm extends React.Component {
       _id: note._id,
       title: note.title,
       textBody: note.textBody,
-      tags: note.tags.join(',')
+      tags: note.tags.join(', ')
     })
   }
 
@@ -89,8 +89,10 @@ class NotesForm extends React.Component {
     const note = {
       title,
       textBody,
-      tags: tags.split(',')
+      tags: [tags.split(',').map(tag => tag.trim())]
     };
+
+    console.log(note);
 
     update ? updateNote(note, _id) : addNote(note);
 

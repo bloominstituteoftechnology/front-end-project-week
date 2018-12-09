@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import NotesView from './views/NotesView';
 import FormView from './views/FormView';
 import DetailView from './views/DetailView';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 
 // styled component for the App
 const AppWrapper = styled.div`

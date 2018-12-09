@@ -27,6 +27,7 @@ const NavBarWrapper = styled.div`
       text-align: center;
       font-size: 1.8rem;
       font-weight: bold;
+      cursor: pointer;
     }
   }
 `;

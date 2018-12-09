@@ -9,7 +9,7 @@ import {
 } from '../store/actions';
 
 // import components
-import NoteDetail from '../components/NoteDetail';
+import NoteDetail from '../components/NoteDetail/NoteDetail';
 
 class DetailView extends React.Component {
   componentDidMount() {

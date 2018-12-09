@@ -29,6 +29,7 @@ const NotesWrapper = styled.div`
       padding: 1.5rem;
       width: 25rem;
       min-height: 25rem;
+      cursor: pointer;
 
       h3 {
         font-size: 2.2rem;

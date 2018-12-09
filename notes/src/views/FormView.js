@@ -11,7 +11,7 @@ import {
 } from '../store/actions';
 
 // importing components
-import NotesForm from '../components/NotesForm';
+import NotesForm from '../components/NotesForm/NotesForm';
 
 class FormView extends React.Component { 
   componentDidMount() {
