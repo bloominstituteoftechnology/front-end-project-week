@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {selectNote, startEditMode, deleteNote} from '../store/actions';
+import styled from 'styled-components';
 
 // is there a better way to do this? should this be a class component?
 const Note = props => {
