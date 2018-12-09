@@ -24,11 +24,20 @@ export const getNotes = () => dispatch => {
 };
 
 export const addNote = note => dispatch => {
-  dispatch({ type: ADD_NOTE });
-  axios
-    .post(`${URL}create/`, note)
-    .then(({ data }) => console.log(data))
-    .catch(err => console.log(err));
+  console.log("ANUTTUEHWSLK");
+  return (
+    // dispatch({ type: ADD_NOTE });
+    axios
+      // .post(`${URL}create`, note)
+      .post("https://fe-notes.herokuapp.com/note/create", note)
+      .then(({ data }) =>
+        dispatch({
+          type: ADD_NOTE_SUCCESS,
+          payload: { ...note, _id: data.success }
+        })
+      )
+      .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }))
+  );
 };
 
 export const editNote = note => dispatch => {
@@ -44,8 +53,8 @@ export const deleteNote = note => dispatch => {
   dispatch({ type: DELETE_NOTE });
   axios
     .delete(`${URL}delete/${note}`)
-    .then(res => {
-      dispatch({ type: DELETE_NOTE_SUCCESS, payload: res });
+    .then(() => {
+      dispatch({ type: DELETE_NOTE_SUCCESS, payload: note });
     })
     .catch(err => dispatch({ type: DELETE_NOTE_FAILURE, payload: err }));
 };

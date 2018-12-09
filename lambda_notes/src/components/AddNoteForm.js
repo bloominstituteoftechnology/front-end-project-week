@@ -75,12 +75,14 @@ class AddNoteForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.title && this.state.textBody) {
-      addNote({ title: this.state.title, textBody: this.state.textBody });
+      this.props.addNote({
+        title: this.state.title,
+        textBody: this.state.textBody
+      });
       this.setState({
         title: "",
         textBody: ""
       });
-      getNotes();
       this.props.history.push("/notes");
     }
     return null;

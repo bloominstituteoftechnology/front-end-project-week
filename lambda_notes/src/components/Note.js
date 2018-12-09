@@ -68,7 +68,7 @@ class Note extends Component {
           </StyledLink>
           <Delete
             onClick={() => {
-              deleteNote(this.props.match.params.noteId);
+              this.props.deleteNote(this.props.match.params.noteId);
               this.props.history.push("/notes");
             }}
           >

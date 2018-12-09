@@ -41,23 +41,19 @@ const notesReducer = (state = initialState, action) => {
         error: action.payload
       };
     case ADD_NOTE:
-      console.log("PAYLOAD", action.payload);
       return {
         ...state,
         fetchingNotes: false,
         error: null
       };
     case ADD_NOTE_SUCCESS:
-      console.log("PAYLOAD", action.payload);
       return {
         ...state,
-        title: action.payload.title,
-        textBody: action.payload.textBody,
+        notes: [...state.notes, action.payload],
         fetchingNotes: false,
         error: null
       };
     case ADD_NOTE_FAILURE:
-      console.log("PAYLOAD", action.payload);
       return {
         ...state,
         fetchingNotes: false,
@@ -91,6 +87,7 @@ const notesReducer = (state = initialState, action) => {
     case DELETE_NOTE_SUCCESS:
       return {
         ...state,
+        notes: state.notes.filter(note => note._id !== action.payload),
         fetchingNotes: false,
         error: null
       };
