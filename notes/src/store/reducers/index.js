@@ -36,8 +36,6 @@ const initialState = {
   fetching: false,
 };
 
-let id = 2;
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_NOTES:
@@ -62,12 +60,12 @@ export default (state = initialState, action) => {
       console.log('adding note reducer');
       return {
         ...state,
-        notes: state.notes.concat({...action.payload, id: id++}),
+        notes: state.notes.concat({...action.payload}),
       };
     case SELECTING_NOTE:
       return {
         ...state,
-        selectedNote: state.notes.find(n => `${n.id}` === action.payload),
+        selectedNote: state.notes.find(n => `${n._id}` === action.payload),
       };
     case EDITING_NOTE:
       return {

@@ -32,7 +32,7 @@ const Notes = props => {
       <h2>Your Notes:</h2>
       <DivNotes>
         {props.notes.map(note => (
-          <StyledNote onClick={() => props.history.push(`/note/${note.id}`)}>
+          <StyledNote onClick={() => props.history.push(`/note/${note._id}`)}>
             {/*<Link key={note.id} to={`/note/${note.id}`}>*/}
             <h2>{note.title}</h2>
             <hr />
