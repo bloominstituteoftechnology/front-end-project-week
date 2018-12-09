@@ -14,6 +14,8 @@ const StyledNote = styled.div`
   width: 29.5%;
   margin: 10px;
   min-height: 15rem;
+  max-height: 20rem;
+  overflow: scroll;
   text-align: left;
 `;
 
@@ -26,13 +28,14 @@ const DivNotes = styled.div`
 `;
 
 const Notes = props => {
-  console.log('notes', props);
   return (
     <NotesWrapper>
       <h2>Your Notes:</h2>
       <DivNotes>
         {props.notes.map(note => (
-          <StyledNote onClick={() => props.history.push(`/note/${note._id}`)}>
+          <StyledNote
+            key={note.id}
+            onClick={() => props.history.push(`/note/${note._id}`)}>
             {/*<Link key={note.id} to={`/note/${note.id}`}>*/}
             <h2>{note.title}</h2>
             <hr />

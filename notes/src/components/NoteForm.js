@@ -65,6 +65,9 @@ class NoteForm extends React.Component {
       : this.state;
     func(args);
     this.clearState();
+    while (this.props.deleting) {
+      console.log('deleting...');
+    }
     this.props.history.push('/notes');
   };
 
@@ -100,6 +103,7 @@ class NoteForm extends React.Component {
 const mapStateToProps = state => ({
   isEditing: state.isEditing,
   selectedNote: state.selectedNote,
+  deleting: state.deleting,
 });
 
 export default connect(

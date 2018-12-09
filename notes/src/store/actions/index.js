@@ -37,6 +37,17 @@ export const fetchNotes = () => dispatch => {
 
 export const addNote = note => dispatch => {
   dispatch({type: ADDING_NOTE, payload: note});
+  console.log('action:', note);
+  axios
+    .post(`${url}note/create`, note)
+    .then(res => {
+      console.log('add note action', res);
+      dispatch({type: ADD_NOTE_SUCCESS, payload: note});
+    })
+    .catch(err => {
+      dispatch({type: ADD_NOTE_FAILURE, payload: err});
+      console.log('add note err', err);
+    });
 };
 
 export const selectNote = id => dispatch => {
@@ -61,4 +72,14 @@ export const editNote = note => dispatch => {
 
 export const deleteNote = id => dispatch => {
   dispatch({type: DELETING_NOTE, payload: id});
+  axios
+    .delete(`${url}note/delete/${id}`)
+    .then(res => {
+      dispatch({type: DELETE_NOTE_SUCCESS});
+      console.log('then delete:', res);
+    })
+    .catch(err => {
+      console.log('delete catch', err);
+      dispatch({type: DELETE_NOTE_FAILURE, payload: err});
+    });
 };

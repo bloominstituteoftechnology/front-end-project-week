@@ -8,11 +8,19 @@ class NotesContainer extends React.Component {
     this.props.fetchNotes();
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      console.log('update');
+    }
+  }
+
   render() {
-    console.log('notes', this.props);
+    console.log(this.props);
+    if (this.props.deleting || this.props.fetching) {
+      return <h2>loading...</h2>;
+    }
     return (
       <div>
-        <h2 style={{display: 'inline'}}>notes container</h2>
         <Notes {...this.props} notes={this.props.notes} />
       </div>
     );
@@ -22,6 +30,8 @@ class NotesContainer extends React.Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
+    deleting: state.deleting,
+    fetching: state.fetching,
   };
 };
 

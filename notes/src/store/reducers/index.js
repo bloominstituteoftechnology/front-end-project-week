@@ -34,6 +34,7 @@ const initialState = {
   error: null,
   isEditing: false,
   fetching: false,
+  deleting: false,
 };
 
 export default (state = initialState, action) => {
@@ -60,7 +61,7 @@ export default (state = initialState, action) => {
       console.log('adding note reducer');
       return {
         ...state,
-        notes: state.notes.concat({...action.payload}),
+        //notes: state.notes.concat({...action.payload}),
       };
     case SELECTING_NOTE:
       return {
@@ -89,7 +90,19 @@ export default (state = initialState, action) => {
     case DELETING_NOTE:
       return {
         ...state,
-        notes: state.notes.filter(n => n.id !== action.payload),
+        deleting: true,
+      };
+    case DELETE_NOTE_SUCCESS:
+      return {
+        ...state,
+        //notes: state.notes.filter(n => n.id !== action.payload),
+        deleting: false,
+      };
+    case DELETE_NOTE_FAILURE:
+      return {
+        ...state,
+        deleting: false,
+        error: action.payload,
       };
     default:
       return state;
