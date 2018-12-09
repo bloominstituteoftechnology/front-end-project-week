@@ -41,7 +41,6 @@ const Label = styled.label`
   color: #4a4a4a;
   border-bottom: 2px solid #4a4a4a;
   font-weight: bold;
-  /* z-index: 2000; */
 
   &:hover {
     opacity: 0.7;

@@ -20,6 +20,9 @@ const List = styled.div`
   @media (max-width: 650px) {
     padding-left: 20px;
     padding-top: 300px;
+    padding: 260px 15px 15px;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -42,6 +45,11 @@ const Div = styled.div`
   margin: 10px;
   overflow: hidden;
   cursor: pointer;
+
+  @media (max-width: 650px) {
+    width: 90%;
+    height: 120px;
+  }
 `;
 
 const H2 = styled.h2`
