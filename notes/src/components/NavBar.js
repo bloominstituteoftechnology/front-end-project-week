@@ -4,20 +4,35 @@ import styled from 'styled-components';
 
 const DivNavBar = styled.div`
   border: 1px solid black;
+  background-color: #d7d7d7;
   flex-direction: column;
   max-width: 15%;
   height: 100vh;
   display: flex;
   position: absolute;
-  padding: 5px;
+  padding: 10px;
+`;
+
+const Button = styled.button`
+  background-color: #2ac0c4;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  width: 100%;
+  margin: 10px 0;
 `;
 
 const NavBar = () => {
   return (
     <DivNavBar>
       <h1>Lambda Notes</h1>
-      <NavLink to="/notes">View Your Notes</NavLink>
-      <NavLink to="/create">+ Create New Note</NavLink>
+      <NavLink to="/notes">
+        <Button>View Your Notes</Button>
+      </NavLink>
+      <NavLink to="/create">
+        <Button>+ Create New Note</Button>
+      </NavLink>
     </DivNavBar>
   );
 };
