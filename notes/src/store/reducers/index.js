@@ -1,4 +1,11 @@
-import {ADDING_NOTE} from '../actions';
+import {
+  ADDING_NOTE,
+  ADD_NOTE_SUCCESS,
+  ADD_NOTE_FAILURE,
+  SELECTING_NOTE,
+  SELECT_NOTE_SUCCESS,
+  SELECT_NOTE_FAILURE,
+} from '../actions';
 const initialState = {
   notes: [
     {
@@ -14,6 +21,7 @@ const initialState = {
       id: 1,
     },
   ],
+  selectedNote: null,
 };
 
 let id = 2;
@@ -26,7 +34,11 @@ export default (state = initialState, action) => {
         ...state,
         notes: state.notes.concat({...action.payload, id: id++}),
       };
-
+    case SELECTING_NOTE:
+      return {
+        ...state,
+        selectedNote: state.notes.find(n => `${n.id}` === action.payload),
+      };
     default:
       return state;
   }
