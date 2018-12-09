@@ -19,12 +19,23 @@ const Nav = styled.nav`
     height: auto;
     border-bottom: 1px solid #979797;
     border-right: none;
+    text-align: center;
   }
 `;
 
 const H1 = styled.h1`
   color: #4a4a4a;
   display: block;
+
+  @media (max-width: 650px) {
+    border-bottom: 2px dotted #979797;
+    letter-spacing: 5px;
+    display: inline-block;
+    width: 75%;
+    padding-left: 5px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+  }
 `;
 
 const Span = styled.span`
