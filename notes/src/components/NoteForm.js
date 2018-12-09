@@ -1,5 +1,5 @@
 import React from 'react';
-import {addNote} from '../store/actions';
+import {addNote, editNote} from '../store/actions';
 import {connect} from 'react-redux';
 
 class NoteForm extends React.Component {
@@ -11,6 +11,16 @@ class NoteForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    console.log('cdm', this.props);
+    if (this.props.isEditing) {
+      this.setState({
+        title: this.props.selectedNote.title,
+        textBody: this.props.selectedNote.title,
+      });
+    }
+  }
+
   clearState() {
     this.setState({title: '', textBody: ''});
   }
@@ -20,6 +30,7 @@ class NoteForm extends React.Component {
   };
 
   handleSubmit = e => {
+    ('');
     e.preventDefault();
     this.props.addNote(this.state);
     this.clearState();
@@ -50,7 +61,12 @@ class NoteForm extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  isEditing: state.isEditing,
+  selectedNote: state.selectedNote,
+});
+
 export default connect(
-  null,
-  {addNote},
+  mapStateToProps,
+  {addNote, editNote},
 )(NoteForm);

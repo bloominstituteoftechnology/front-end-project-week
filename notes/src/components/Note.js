@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {selectNote} from '../store/actions';
+import {selectNote, startEditMode} from '../store/actions';
 
 // is there a better way to do this? should this be a class component?
 const Note = props => {
+  console.log('note', props);
   props.selectNote(props.match.params.id);
   if (!props.note) {
     return <h3>loading...</h3>;
@@ -12,6 +13,13 @@ const Note = props => {
     <div>
       <h2>{props.note.title}</h2>
       <h3>{props.note.textBody}</h3>
+      <button
+        onClick={() => {
+          props.startEditMode();
+          props.history.push(`/edit/${props.note.id}`);
+        }}>
+        Edit Note
+      </button>
     </div>
   );
 };
@@ -22,5 +30,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {selectNote},
+  {selectNote, startEditMode},
 )(Note);

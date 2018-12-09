@@ -5,6 +5,9 @@ import {
   SELECTING_NOTE,
   SELECT_NOTE_SUCCESS,
   SELECT_NOTE_FAILURE,
+  EDITING_NOTE,
+  EDIT_NOTE_SUCCESS,
+  EDIT_NOTE_FAILURE,
 } from '../actions';
 const initialState = {
   notes: [
@@ -22,6 +25,8 @@ const initialState = {
     },
   ],
   selectedNote: null,
+  error: null,
+  isEditing: false,
 };
 
 let id = 2;
@@ -38,6 +43,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         selectedNote: state.notes.find(n => `${n.id}` === action.payload),
+      };
+    case EDITING_NOTE:
+      return {
+        ...state,
+        isEditing: true,
       };
     default:
       return state;

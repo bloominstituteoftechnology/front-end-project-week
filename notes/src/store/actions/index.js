@@ -10,6 +10,10 @@ export const SELECTING_NOTE = 'SELECTING_NOTE';
 export const SELECT_NOTE_SUCCESS = 'SELECT_NOTE_SUCCESS';
 export const SELECT_NOTE_FAILURE = 'SELECT_NOTE_FAILURE';
 
+export const EDITING_NOTE = 'EDITING_NOTE';
+export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
+export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
+
 export const fetchNotes = () => dispatch => {
   dispatch({type: FETCHING_NOTES});
 };
@@ -21,3 +25,9 @@ export const addNote = note => dispatch => {
 export const selectNote = id => dispatch => {
   dispatch({type: SELECTING_NOTE, payload: id});
 };
+
+export const startEditMode = () => dispatch => {
+  dispatch({type: EDITING_NOTE});
+};
+
+export const editNote = note => dispatch => {};
