@@ -1,4 +1,7 @@
 import {
+  FETCHING_NOTES,
+  FETCH_NOTES_SUCCESS,
+  FETCH_NOTES_FAILURE,
   ADDING_NOTE,
   ADD_NOTE_SUCCESS,
   ADD_NOTE_FAILURE,
@@ -14,28 +17,47 @@ import {
 } from '../actions';
 const initialState = {
   notes: [
-    {
-      tags: ['tag', 'otherTag'],
-      title: 'Test Note One',
-      textBody: 'This is a test note!',
-      id: 0,
-    },
-    {
-      tags: ['tag', 'otherTag'],
-      title: 'Test Note Two',
-      textBody: 'This is another test note!',
-      id: 1,
-    },
+    //{
+    //tags: ['tag', 'otherTag'],
+    //title: 'Test Note One',
+    //textBody: 'This is a test note!',
+    //id: 0,
+    //},
+    //{
+    //tags: ['tag', 'otherTag'],
+    //title: 'Test Note Two',
+    //textBody: 'This is another test note!',
+    //id: 1,
+    //},
   ],
   selectedNote: null,
   error: null,
   isEditing: false,
+  fetching: false,
 };
 
 let id = 2;
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case FETCHING_NOTES:
+      return {
+        ...state,
+        fetching: true,
+      };
+    case FETCH_NOTES_SUCCESS:
+      return {
+        ...state,
+        fetching: false,
+        notes: action.payload,
+      };
+    case FETCH_NOTES_FAILURE:
+      console.log('reducer failure', action.payload);
+      return {
+        ...state,
+        fetching: false,
+        error: action.payload,
+      };
     case ADDING_NOTE:
       console.log('adding note reducer');
       return {

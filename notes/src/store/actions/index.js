@@ -1,4 +1,9 @@
+import axios from 'axios';
+const url = 'https://fe-notes.herokuapp.com/';
+
 export const FETCHING_NOTES = 'FETCHING_NOTES';
+export const FETCH_NOTES_SUCCESS = 'FETCH_NOTES_SUCCESS';
+export const FETCH_NOTES_FAILURE = 'FETCH_NOTES_FAILURE';
 
 export const ADDING_NOTE = 'ADDING_NOTE';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
@@ -18,6 +23,16 @@ export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 
 export const fetchNotes = () => dispatch => {
   dispatch({type: FETCHING_NOTES});
+  axios
+    .get(`${url}note/get/all`)
+    .then(res => {
+      console.log('notes fetched', res);
+      dispatch({type: FETCH_NOTES_SUCCESS, payload: res.data});
+    })
+    .catch(err => {
+      dispatch({type: FETCH_NOTES_FAILURE, payload: err});
+      console.log(err);
+    });
 };
 
 export const addNote = note => dispatch => {

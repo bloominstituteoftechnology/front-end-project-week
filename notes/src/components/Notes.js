@@ -26,6 +26,7 @@ const DivNotes = styled.div`
 `;
 
 const Notes = props => {
+  console.log('notes', props);
   return (
     <NotesWrapper>
       <h2>Your Notes:</h2>
