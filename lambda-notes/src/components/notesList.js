@@ -3,13 +3,13 @@ import Note from './note'
 
 const NotesList = props => {
   return (
-    <div className='notes-container'>
+    <div onDragOver={()=>{}} className='notes-container'>
       <h2 className='your-notes'>Your Notes:</h2>
       <button onClick={props.sortNotesAZ} className='sort-button'>Sort A-Z</button>
       {props.notes.map(note => {
         const id = note._id
         return (
-          <Note key={id} id ={id} note={note} delete={props.delete}  />
+          <Note draggable key={id} id ={id} note={note} delete={props.delete}  />
         );
       })}
     </div>

@@ -55,7 +55,7 @@ export const editNote = note => dispatch => {
 };
 
 export const sortNote = () => dispatch => {
-  dispatch({ type: SORTING_A_Z })
+  dispatch({ type: SORTING_A_Z });
 }
 
 export const deleteNote = id => dispatch => {

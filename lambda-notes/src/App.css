@@ -51,11 +51,12 @@
   display: flex;
   flex-flow: row wrap;
   width: 75%;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   background-color: whitesmoke;
   padding-top: 60px;
   padding-bottom: 20px;
   box-sizing: border-box;
+  
 }
 .notes-container .your-notes {
   width: 30%;
@@ -63,6 +64,7 @@
   margin-bottom: 0;
   font-weight: bold;
   font-size: 1.4rem;
+  
 }
 .notes-container .sort-button {
   font-family: 'Courier New', Courier, monospace;
@@ -92,6 +94,7 @@
   text-decoration: none;
   box-sizing: border-box;
   word-wrap: break-word;
+  margin-left: 15px;
 }
 .note h2 {
   font-size: 1.2rem;
