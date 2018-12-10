@@ -15,7 +15,7 @@ class NotesContainer extends React.Component {
       this.props.adding !== prevProps.adding ||
       this.props.deleting !== prevProps.deleting
     ) {
-      console.log('update');
+      //console.log('update');
       this.props.fetchNotes();
     }
   }

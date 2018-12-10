@@ -17,6 +17,8 @@ export const EDITING_NOTE = 'EDITING_NOTE';
 export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 
+export const SHOW_MODAL = 'SHOW_MODAL';
+
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
 export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
@@ -68,6 +70,10 @@ export const editNote = note => dispatch => {
     })
     .catch(err => console.log(err));
   //dispatch({type: EDIT_NOTE_SUCCESS, payload: note});
+};
+
+export const showModal = () => dispatch => {
+  dispatch({type: SHOW_MODAL});
 };
 
 export const deleteNote = id => dispatch => {

@@ -11,6 +11,7 @@ import {
   EDITING_NOTE,
   EDIT_NOTE_SUCCESS,
   EDIT_NOTE_FAILURE,
+  SHOW_MODAL,
   DELETING_NOTE,
   DELETE_NOTE_SUCCESS,
   DELETE_NOTE_FAILURE,
@@ -36,6 +37,7 @@ const initialState = {
   fetching: false,
   deleting: false,
   adding: false,
+  showingModal: false,
 };
 
 export default (state = initialState, action) => {
@@ -44,6 +46,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         fetching: true,
+        isEditing: false,
       };
     case FETCH_NOTES_SUCCESS:
       return {
@@ -90,6 +93,7 @@ export default (state = initialState, action) => {
     case EDIT_NOTE_SUCCESS:
       return {
         ...state,
+        isEditing: false,
         notes: state.notes.map(n => {
           if (n._id === state.selectedNote._id) {
             return {
@@ -100,6 +104,11 @@ export default (state = initialState, action) => {
             return n;
           }
         }),
+      };
+    case SHOW_MODAL:
+      return {
+        ...state,
+        showingModal: true,
       };
     case DELETING_NOTE:
       return {

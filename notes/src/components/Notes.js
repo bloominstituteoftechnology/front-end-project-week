@@ -1,13 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
+//import {connect} from 'react-redux';
 
 const NotesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-left: 16.5%;
+  margin-left: 14%;
 `;
 
 const StyledNote = styled.div`
@@ -28,9 +28,6 @@ const DivNotes = styled.div`
   flex-wrap: wrap;
 `;
 
-{
-  /*<Link key={note.id} to={`/note/${note.id}`}>*/
-}
 const Notes = props => {
   //console.log('notes props', props);
   //if (props.adding || props.deleting) {

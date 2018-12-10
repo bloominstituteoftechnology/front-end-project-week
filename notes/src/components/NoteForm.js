@@ -3,7 +3,7 @@ import {addNote, editNote} from '../store/actions';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {Button} from './NavBar';
-import {withRouter} from 'react-router';
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -40,9 +40,12 @@ class NoteForm extends React.Component {
   componentDidMount() {
     console.log('cdm', this.props);
     if (this.props.isEditing) {
+      const note = this.props.notes.find(
+        n => n._id === this.props.match.params.id,
+      );
       this.setState({
-        title: this.props.selectedNote.title,
-        textBody: this.props.selectedNote.textBody,
+        title: note.title,
+        textBody: note.textBody,
       });
     }
   }
@@ -83,8 +86,8 @@ class NoteForm extends React.Component {
   };
 
   render() {
-    console.log(this.props, 'noteform');
-    console.log(this.props.match.params.id);
+    //console.log(this.props, 'noteform');
+    //console.log(this.props.match.params.id);
     const buttonText = this.props.isEditing ? 'Update' : 'Save';
     return (
       <StyledForm onSubmit={this.handleSubmit}>
@@ -106,6 +109,7 @@ const mapStateToProps = state => ({
   selectedNote: state.selectedNote,
   deleting: state.deleting,
   adding: state.adding,
+  notes: state.notes,
 });
 
 export default connect(

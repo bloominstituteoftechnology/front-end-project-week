@@ -6,10 +6,10 @@ const DivNavBar = styled.div`
   border: 1px solid black;
   background-color: #d7d7d7;
   flex-direction: column;
-  max-width: 15%;
+  width: 12%;
   height: 100%;
   display: flex;
-  position: absolute;
+  position: fixed;
   padding: 10px;
 `;
 
