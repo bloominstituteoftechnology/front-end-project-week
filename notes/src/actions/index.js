@@ -3,6 +3,9 @@ import axios from 'axios';
 export const NOTES_FETCHING = 'NOTES_FETCHING';
 export const NOTES_FETCH_SUCCESS = 'NOTES_FETCH_SUCCESS';
 export const NOTES_FETCH_FAILURE = 'NOTES_FETCH_FAILURE';
+export const DELETE_NOTE_START = 'DELETE_NOTE_START';
+export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
+export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 
 export const getNotes = () => dispatch => {
     dispatch({ type: NOTES_FETCHING });
@@ -18,7 +21,7 @@ export const getNotes = () => dispatch => {
 export const deleteNote = id => dispatch => {
     dispatch({ type: DELETE_NOTE_START });
     axios
-        .get(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         .then(response => {
             console.log(response);
             dispatch({ type: DELETE_NOTE_SUCCESS, payload: response.data });
