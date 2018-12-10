@@ -36,6 +36,7 @@ class NotesList extends React.Component {
             if(note.title.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1 || note.textBody.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1) {
                 return note;
             }
+            return null;
         })
         return (
             <div>
