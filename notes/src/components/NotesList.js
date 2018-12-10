@@ -21,7 +21,7 @@ class NotesList extends React.Component {
             {this.props.notes.map(note => (
                 <NoteCard onClick={() => this.props.history.push(`/note/${note._id}`)} key={note._id}>
                 <h3>{note.title}</h3>
-                <p>${note.textBody}</p>
+                <p>{note.textBody}</p>
                 </NoteCard>
             ))}
             </>

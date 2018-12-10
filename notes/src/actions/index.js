@@ -9,6 +9,9 @@ export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 export const ADD_NOTE_START = 'ADD_NOTE_START';
 export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const ADD_NOTE_FAILURE = 'ADD_NOTE_FAILURE';
+export const EDIT_NOTE_START = 'EDIT_NOTE_START';
+export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
+export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 
 export const getNotes = () => dispatch => {
     dispatch({ type: NOTES_FETCHING });
@@ -31,7 +34,7 @@ export const deleteNote = id => dispatch => {
             axios
                 .get('https://fe-notes.herokuapp.com/note/get/all')
                 .then(response => {
-                    console.log(response);
+                    // console.log(response);
                     dispatch({ type: NOTES_FETCH_SUCCESS, payload: response.data })
                 })
                 .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }))
@@ -40,8 +43,6 @@ export const deleteNote = id => dispatch => {
 };
 
 export const addNote = (title, textBody) => dispatch => {
-    console.log(title);
-    console.log(textBody);
     dispatch({ type: ADD_NOTE_START });
     axios
         .post('https://fe-notes.herokuapp.com/note/create', {
@@ -49,15 +50,39 @@ export const addNote = (title, textBody) => dispatch => {
             textBody: `${textBody}`
         })
         .then(response => {
-            console.log(response);
+            // console.log(response);
             dispatch({ type: ADD_NOTE_SUCCESS });
             axios
                 .get('https://fe-notes.herokuapp.com/note/get/all')
                 .then(response => {
-                    console.log(response);
+                    // console.log(response);
                     dispatch({ type: NOTES_FETCH_SUCCESS, payload: response.data })
                 })
                 .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }))
         })
         .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));
 };
+
+export const editNote = (id, title, textBody) => dispatch => {
+    // console.log(id);
+    // console.log(title);
+    // console.log(textBody);
+    dispatch({ type: EDIT_NOTE_START });
+    axios
+        .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+            title: `${title}`,
+            textBody: `${textBody}`
+        })
+        .then(response => {
+            console.log(response);
+            dispatch({ type: EDIT_NOTE_SUCCESS })
+            axios
+            .get('https://fe-notes.herokuapp.com/note/get/all')
+            .then(response => {
+                // console.log(response);
+                dispatch({ type: NOTES_FETCH_SUCCESS, payload: response.data })
+            })
+            .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }))
+        })
+        .catch(err => dispatch({ type: EDIT_NOTE_FAILURE, payload: err }));
+}
