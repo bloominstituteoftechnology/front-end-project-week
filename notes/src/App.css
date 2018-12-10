@@ -1,0 +1,388 @@
+.App {
+  text-align: left;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 36px;
+  margin-top: 10px;
+  line-height: 36px;
+  margin-left: 10px;
+}
+
+.sidebar {
+  width: 250px;
+  text-align: left;
+  border: 1px solid grey;
+  height: auto;
+  padding: 10px;
+  background-color: #D3D2D3;
+}
+
+.button, button {
+  background-color: #25B8BD;
+  color: white;
+  padding: 10px;
+  border: 1px solid darkgrey !important;
+  margin: 6px;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 215px !important;
+  font-size: 17px;
+  font-family: sans-serif !important;
+  font-weight: normal !important;
+}
+
+.button a:link, .button a:hover, .button a:visited, .button a:active {
+  text-decoration: none;
+  color: white;
+}
+
+.notesOuterDiv {
+  display: flex;
+  flex-flow: column wrap;
+  width: 800px;
+  border: 1px solid grey;
+  min-height: 100vh;
+}
+
+.notesInnerDiv {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  padding: 0 20px;
+}
+
+.notesInnerDiv a {
+  color: black;
+  text-decoration: none;
+}
+
+.notesListTitle {
+  margin: 30px 0 0px 30px;
+  font-size: 22px;
+}
+
+.noteListBox {
+  width: 220px;
+  height: 225px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 30px;
+  overflow: hidden;
+  position: relative;
+  line-height: 1.2em;
+  max-height: 230px;
+  text-align: left;
+  margin-right: -1em;
+  padding-right: 1em;
+}
+
+.noteListBox h4:hover, .noteListBox p:hover, .notesInnerDiv a:hover{
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.noteListBox:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.noteListBox:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: white;
+}
+
+.noteListBox h4 {
+  margin: 0;
+}
+
+.createNote {
+  width: 800px;
+  min-height: 100vh;
+}
+
+.createForm, .editForm {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 30px;
+}
+
+.createNoteTitle, .editNoteTitle {
+  padding-left: 30px;
+  margin-top: 65px;
+  font-size: 22px;
+}
+
+.createFormTitleInput {
+  width: 405px;
+  height: 48px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.createFormTextInput {
+  width: 685px;
+  height: 390px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.saveButton {
+  margin-top: 20px;
+}
+
+.singleNoteView {
+  display: flex;
+  flex-flow: column wrap;
+  width: 800px;
+  border: 1px solid grey;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.singleNoteTitle {
+  margin-top: 15px;
+}
+
+.singleNoteText {
+  line-height: 24px;
+}
+
+.singleLinks {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.singleLinks a:link, .singleLinks a:hover, .singleLinks a:active, .singleLinks a:visited {
+  color: black;
+}
+
+.editNote {
+  display: flex;
+  flex-flow: column wrap;
+  width: 800px;
+  border: 1px solid grey;
+  min-height: 100vh;
+}
+
+.CSV {
+  margin: 0 auto;
+}
+
+.btn-danger {
+  background-color: #CF493B !important;
+  height: 50px;
+  font-size: 17px;
+  font-family: sans-serif !important;
+  font-weight: normal !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto !important;
+}
+
+.btn-danger, .btn-info {
+  width: 215px !important;
+  border-radius: 0 !important;
+  height: 50px !important;
+}
+
+.btn-info {
+  background-color: #25B8BD !important;
+  padding-left: 10px !important;
+  margin: 0 auto !important;
+}
+
+.modal-footer {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  justify-content: center !important;
+  padding-bottom: 40px !important;
+}
+
+.modal-header {
+  display: none !important;
+}
+
+.modal-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  margin: 190px auto 0 -50px !important;
+  width: 600px !important;
+  border-radius: 0 !important;
+  height: 200px !important;
+}
+
+.sort-btn {
+  width: 13% !important;
+  height: 2em;
+  background-color: lightcyan !important;
+  color: black !important;
+  padding: 0px !important;
+  margin: 0 !important;
+  margin-left: 10px !important;
+}
+
+.sorting {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.btn-link {
+  color: black !important;
+  text-decoration: none !important;
+  width: 100px !important;
+  margin: 0 10px 0 10px;
+}
+
+.btn-sidebar {
+  margin: 20px auto;
+}
+
+div.btn-danger.btn-sidebar {
+  margin-top: 10px !important;
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 50vw;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .notesOuterDiv {
+    width: 100vw;
+  }
+
+  .notesInnerDiv {
+    flex-flow: row wrap;
+  }
+
+  .sorting {
+    flex-flow: row wrap;
+  }
+
+  .sort-btn {
+    width: 13% !important;
+  }
+
+  h1 {
+    margin: 0 auto;
+  }
+
+  .singleNoteView {
+    width: 100vw;
+  }
+
+  .createNote {
+    width: 100vw;
+  }
+
+  .editNote {
+    width: 100vw;
+  }
+
+  .createFormTextInput, .createFormTitleInput {
+    width: 80vw;
+  }
+
+  .noteListBox {
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sort-btn {
+    width: 25% !important;
+  }
+
+  .btn-sidebar {
+    width: 100% !important;
+  }
+
+  .sidebar {
+    width: 100vw;
+  }
+
+  .saveButton {
+    width: 80vw !important;
+  }
+
+  .noteListBox {
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .modal-content {
+    max-width: 100vw !important;
+    margin: 0 auto !important;
+  }
+
+  .modal-btn {
+    width: 45vw;
+  }
+}
