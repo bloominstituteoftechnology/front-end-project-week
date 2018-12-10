@@ -19,7 +19,7 @@ export const SORTING_A_Z = 'SORTING_A_Z'
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCHING_NOTES  });
   axios
-    .get(`https://fe-notes.herokuapp.com/note/get/all`)
+    .get(`http://localhost:6969/api/notes`)
     .then(response => {
       dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data 
       });
@@ -33,7 +33,7 @@ export const fetchNotes = () => dispatch => {
 export const addNote = note => dispatch => {
   dispatch({ type: ADDING_NOTE });
   axios
-    .post('https://fe-notes.herokuapp.com/note/create', note)
+    .post(`http://localhost:6969/api/notes`, note)
     .then(response =>{
       dispatch({ type: ADD_NOTE_SUCCESS, payload: response.data });      
     })
@@ -45,7 +45,7 @@ export const addNote = note => dispatch => {
 export const editNote = note => dispatch => {
   dispatch({ type: EDITING_NOTE})
   axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${note._id}`, note)
+    .put(`http://localhost:6969/api/notes/${note._id}`, note)
     .then(response => {
       dispatch({ type: EDIT_NOTE_SUCCESS, payload: response.data });   
     })
@@ -61,7 +61,7 @@ export const sortNote = () => dispatch => {
 export const deleteNote = id => dispatch => {
   dispatch({ type: DELETING_NOTE });
   axios
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .delete(`http://localhost:6969/api/notes/${id}`)
     .then(response =>{ fetchNotes()
       dispatch({ type: DELETE_NOTE_SUCCESS, payload: response.data }) 
     })

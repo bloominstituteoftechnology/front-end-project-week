@@ -9,7 +9,7 @@ const NotesList = props => {
       {props.notes.map(note => {
         const id = note._id
         return (
-          <Note draggable key={id} id ={id} note={note} delete={props.delete}  />
+          <Note draggable key={id} id ={id} note={props.note} delete={props.delete}  />
         );
       })}
     </div>

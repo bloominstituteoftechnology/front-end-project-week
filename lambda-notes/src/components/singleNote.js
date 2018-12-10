@@ -16,11 +16,11 @@ class SingleNote extends Component {
   componentDidMount(){
     const {id} = this.props.match.params;
     this.singleNote(id);
-    this.setState(() => ({ currentId: id }));
+    this.setState({ currentId: id });
   };
   singleNote(id) {
     Axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:6969/api/notes/${id}`)
       .then(response => {
         this.setState(() => ({ note: response.data }));
       })

@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchNotes, addNote, deleteNote, sortNote } from './actions';
 import Navigation from './components/navigation';
 import NotesList from './components/notesList';
-import { connect } from 'react-redux';
-import { Switch, Route, withRouter } from'react-router-dom';
+import { Route } from'react-router-dom';
 import AddNoteForm from './components/addNoteForm';
 import EditForm from './components/editForm';
 import SingleNote from './components/singleNote';
+import Axios from 'axios';
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      title: '',
-      textBody: ''
+      notes:[]
     }
   };
   componentWillMount() {
-    this.props.fetchNotes();
+    Axios.get('http://localhost:6969/api/notes')
+      .then(response => this.setState({ notes: response.data }))
+      .catch(err => console.log(err, 'Request Failed'))
   };
   handleInputChange = event => this.setState({ 
     [event.target.name]: event.target.value 
@@ -43,33 +43,23 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation className='nav-bar'/>
-        <Switch>  
-          <Route exact path='/notes' render={()=>
-            <NotesList {...this.props} sortNotesAZ={this.sortNotesAZ} delete={this.handleDelete} notes={this.props.notes} />
-          } />        
-          <Route path='/new-note' render={()=>
-            <AddNoteForm 
-              {...this.props}
-              inputChange={this.handleInputChange} 
-              data={this.state}
-              clickHandler={this.clickHandler}/>
-          } />
-          <Route path='/edit-form/:id' component={EditForm} /> 
-          <Route path="/notes/:id" render={props => (
-              <SingleNote {...props} handleDelete={this.handleDelete}/>
-            )}
-          />
-        </Switch>
+        <Route exact path='/notes' render={()=>
+          <NotesList sortNotesAZ={this.sortNotesAZ} delete={this.handleDelete} notes={this.state.notes} />
+        }/>        
+        <Route path='/new-note' render={()=>
+          <AddNoteForm 
+            {...this.props}
+            inputChange={this.handleInputChange} 
+            data={this.state}
+            clickHandler={this.clickHandler}/>
+        } />
+        <Route path='/edit-form/:id' component={EditForm} /> 
+        <Route path="/notes/:id" render={props => (
+          <SingleNote {...props} handleDelete={this.handleDelete}/>
+        )}/>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes,
-    fetching: state.fetching,
-  };
-};
-
-export default withRouter(connect(mapStateToProps,{ fetchNotes, addNote, deleteNote, sortNote })(App));
+export default App;
