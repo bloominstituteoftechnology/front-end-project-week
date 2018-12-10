@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './NoteForm.css';
+const baseUrl = 'http://localhost:9000';
 
 class NoteForm extends Component {
     constructor() {
@@ -21,7 +22,7 @@ class NoteForm extends Component {
         const { title, textBody } = this.state;
         const newNote = { title, textBody };
         axios 
-            .post(`https://fe-notes.herokuapp.com/note/create`, newNote)
+            .post(`${baseUrl}/notes`, newNote)
             .then(response => {
                 console.log('newnote response', response)
                 this.setState({ title: '', textBody: '' })

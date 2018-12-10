@@ -5,6 +5,8 @@ import axios from 'axios';
 import Modal from './Modal';
 import './Note.css';
 
+const baseUrl = 'http://localhost:9000';
+
 class Note extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +19,7 @@ class Note extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         axios 
-        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .get(`${baseUrl}/notes/${id}`)
         .then(response => this.setState({ note: response.data }))
         .catch(error => console.log(error))
     }

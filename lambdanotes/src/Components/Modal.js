@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import './Modal.css';
 
+const baseUrl = 'http://localhost:9000';
+
 class Modal extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +18,7 @@ class Modal extends Component {
     deleteNote = () => {  
         let id = this.props.id
         axios 
-            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+            .delete(`${baseUrl}/notes/${id}`)
             .then(response => this.setState({ note: response.data }))   
             .catch(error => console.log(error))
         this.props.hideModal()

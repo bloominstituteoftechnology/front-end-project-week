@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+const baseUrl = 'http://localhost:9000';
+
 class Edit extends Component {
     constructor() {
         super();
@@ -14,7 +16,7 @@ class Edit extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .get(`${baseUrl}/notes/${id}`)
         .then(response => this.setState({ note: response.data, title: response.data.title, textBody: response.data.textBody }))
         .catch(error => console.log(error))
     }
@@ -31,7 +33,7 @@ class Edit extends Component {
             _id: this.props.match.params.id
         }
         axios 
-            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
+            .put(`${baseUrl}/notes/${id}`, updatedNote)
             .then(response => {
                 console.log('edit response', response)
                 this.setState({ note: response.data })
@@ -42,7 +44,7 @@ class Edit extends Component {
 
     render() {
         return(
-            <div className="edit-note">  
+            <div className="edit-note-container">  
                 <h3 className="page-title">Edit Note:</h3>  
                 <input className="title"
                     type='text'

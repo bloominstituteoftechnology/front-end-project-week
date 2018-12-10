@@ -9,6 +9,8 @@ import SideBar from './Components/SideBar';
 import Note from './Components/Note';
 import Edit from './Components/Edit';
 
+const baseUrl = 'http://localhost:9000';
+
 class App extends Component {
   constructor() {
     super();
@@ -20,7 +22,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .get(`${baseUrl}/notes`)
       .then(response => this.setState({ list: response.data }))
       .catch(error => console.log(error))
   }; 
