@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { fetch_todos } from '../actions/actions';
+import { fetch_todos, onHandleSubmit } from '../actions/actions';
 import Todos from './Todos';
 import TodoForm from './TodoForm';
 
@@ -27,11 +27,12 @@ class App extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log('handle submit event ==', event)
     this.props.onHandleSubmit(this.state);
   }
 
   render() {
-    console.log('state from app render', this.state)
+    // console.log('state from app render', this.state)
     return (
       <div className="App">
           {this.props.todos.map((todo, index) => {
@@ -48,14 +49,12 @@ class App extends Component {
   }
 }
 
-// {this.props.smurfs.map((smurf, index) => {
-//     return <Smurf smurf={smurf} key={index}/>
-//   })}
 
 const mapStateToProps = (state) => {
   return {
     todos: state.todosReducer.todos,
-    fetchingtodos: state.todosReducer.fetchingtodos
+    fetchingTodos: state.todosReducer.fetchingTodos,
+    addingTodos: state.todosReducer.addingTodos
   }
 }
 
@@ -63,5 +62,6 @@ export default connect(
   mapStateToProps,
   {
     fetch_todos,
+    onHandleSubmit
   }
 )(App)

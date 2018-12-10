@@ -1,16 +1,19 @@
 import {
     FETCH_START,
     FETCH_SUCCESS,
-    FETCH_FAILURE
+    FETCH_FAILURE,
+    ON_HANDLE_SUBMIT
 } from '../actions/actions';
 
 const initialState = {
-    todos: [{
-        tags: '',
-        title: '',
-        textBody: ''
-    }],
-    fetchingtodos: false,
+    // todos: [{
+    //     tags: '',
+    //     title: '',
+    //     textBody: ''
+    // }],
+    todos: [],
+    fetchingTodos: false,
+    addingTodos: false,
     error: null
 }
 
@@ -19,20 +22,29 @@ export const todosReducer = (state = initialState, action) => {
         case FETCH_START:
             return {
                 ...state, 
-                fetchingtodos: true
+                fetchingTodos: true,
+                addingTodos: false
             }
         case FETCH_SUCCESS:
             return {
                 ...state,
-                fetchingtodos: false,
+                fetchingTodos: false,
+                addingTodos: false,
                 error: null,
                 todos: action.payload
             }
         case FETCH_FAILURE: 
             return {
                 ...state,
-                fetchingtodos: false,
+                fetchingTodos: false,
                 error: action.payload
+            }
+        case ON_HANDLE_SUBMIT: 
+            return {
+                ...state,
+                fetchingTodos: false,
+                addingTodos: true,
+                error: null
             }
         default:
             return state;
