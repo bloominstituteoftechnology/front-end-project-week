@@ -62,12 +62,16 @@ export const startEditMode = () => dispatch => {
 };
 
 export const editNote = note => dispatch => {
-  console.log('id', note._id);
+  console.log('id', note._id, typeof note._id);
   axios
-    .put(`${url}note/edit/${note._id}`)
+    .put(`${url}note/edit/${note._id}`, {
+      title: note.title,
+      textBody: note.textBody,
+    })
     .then(res => {
-      //console.log('action res:', res);
-      dispatch({type: EDIT_NOTE_SUCCESS, payload: note});
+      console.log('action res:', res);
+      console.log('typeofdata', typeof res.data._id);
+      dispatch({type: EDIT_NOTE_SUCCESS, payload: res.data});
     })
     .catch(err => console.log(err));
   //dispatch({type: EDIT_NOTE_SUCCESS, payload: note});

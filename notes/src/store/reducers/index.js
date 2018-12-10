@@ -47,7 +47,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         fetching: true,
-        isEditing: false,
       };
     case FETCH_NOTES_SUCCESS:
       return {
@@ -92,18 +91,19 @@ export default (state = initialState, action) => {
         isEditing: true,
       };
     case EDIT_NOTE_SUCCESS:
+      console.log('edit success', action.payload);
       return {
         ...state,
         isEditing: false,
-        notes: state.notes.map(n => {
-          if (n._id === action.payload._id) {
-            return {
-              ...action.payload,
-            };
-          } else {
-            return n;
-          }
-        }),
+        //notes: state.notes.map(n => {
+        //if (n._id === action.payload._id) {
+        //return {
+        //...action.payload,
+        //};
+        //} else {
+        //return n;
+        //}
+        //}),
       };
     case SHOW_MODAL:
       return {

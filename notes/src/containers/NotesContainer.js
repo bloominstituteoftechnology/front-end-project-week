@@ -40,6 +40,7 @@ const mapStateToProps = state => {
     deleting: state.deleting,
     fetching: state.fetching,
     adding: state.adding,
+    isEditing: state.isEditing,
   };
 };
 

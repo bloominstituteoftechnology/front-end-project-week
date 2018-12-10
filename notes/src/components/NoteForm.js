@@ -68,6 +68,7 @@ class NoteForm extends React.Component {
     const args = this.props.isEditing
       ? {...this.state, _id: this.props.match.params.id}
       : this.state;
+    console.log('handle', args);
     func(args);
     this.clearState();
     this.props.history.push('/notes');
