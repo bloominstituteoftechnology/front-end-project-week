@@ -26,7 +26,6 @@ export const getNotes = () => {
     axios
       .get(`${URL}`)
       .then(response => {
-        console.log("response", response);
         dispatch({ type: GET_NOTES, payload: response.data });
       })
       .catch(err => {
@@ -42,7 +41,6 @@ export const getNote = id => {
     axios
       .get(`${URL}/${id}`)
       .then(response => {
-        console.log("RESPONSE GET NOTE", response);
         dispatch({ type: GET_NOTE, payload: response.data });
       })
       .catch(err => {
@@ -58,6 +56,7 @@ export const addNote = note => {
     axios
       .post(`${URL}/create`, note)
       .then(response => {
+        console.log("ADD NOTE ACTION RES", response);
         dispatch({ type: ADD_NOTE, payload: response.data });
       })
       .catch(err => {

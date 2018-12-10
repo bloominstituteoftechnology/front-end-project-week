@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { getNotes, getNote, editNote } from "../actions";
 
 import EditNote from "../components/Notes/EditNote";
@@ -68,7 +69,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { getNotes, getNote, editNote }
-)(EditNoteView);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getNotes, getNote, editNote }
+  )(EditNoteView)
+);

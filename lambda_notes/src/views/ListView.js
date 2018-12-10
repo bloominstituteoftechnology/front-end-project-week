@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { getNotes } from "../actions";
 
 import NotesList from "../components/Notes/NotesList";
@@ -27,7 +28,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { getNotes }
-)(ListView);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getNotes }
+  )(ListView)
+);

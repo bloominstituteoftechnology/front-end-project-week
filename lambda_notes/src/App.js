@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { Route, withRouter } from "react-router-dom";
+import { getNotes } from "./actions";
 import "./App.css";
 
 import NavigationBar from "./components/Navigation/NavigationBar";
@@ -9,6 +11,9 @@ import ListView from "./views/ListView";
 import EditNoteView from "./views/EditNoteView";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getNotes();
+  }
   render() {
     return (
       <div className="app-container">
@@ -27,4 +32,9 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(
+  connect(
+    null,
+    { getNotes }
+  )(App)
+);

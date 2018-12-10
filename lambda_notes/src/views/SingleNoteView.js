@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { getNotes, getNote, deleteNote } from "../actions";
 
 import SingleNote from "../components/Notes/SingleNote";
@@ -56,7 +57,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { getNotes, getNote, deleteNote }
-)(SingleNoteView);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getNotes, getNote, deleteNote }
+  )(SingleNoteView)
+);
