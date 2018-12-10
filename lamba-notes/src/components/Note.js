@@ -1,16 +1,15 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import Modal from "react-responsive-modal";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Modal from 'react-responsive-modal';
 
 class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
       note: {},
-      editTitle: "",
-      editBody: "",
-      // edit: true,
+      editTitle: '',
+      editBody: '',
       open: false // modal closed by default
     };
   }
@@ -18,14 +17,19 @@ class Note extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:9000/api/notes/${id}`)
       .then(response => {
         this.setState({
           note: response.data,
-          editBody: response.data.textBody,
-          editTitle: response.data.title
+          editTitle: response.data[0].title,
+          editBody: response.data[0].content
         });
-        console.log("NOTE RESPONSE", response);
+        console.log(
+          'NOTE RESPONSE',
+          response,
+          this.state.note[0].title,
+          this.state.note[0].content
+        );
       })
       .catch(error => console.log(error));
   }
@@ -36,7 +40,7 @@ class Note extends Component {
 
   onOpenModal = () => {
     this.setState({ open: true });
-    console.log("modal opened");
+    console.log('modal opened');
   };
 
   onCloseModal = () => {
@@ -45,19 +49,19 @@ class Note extends Component {
 
   render() {
     return (
-      <div className="singleNote">
-        <div className="note__options">
+      <div className='singleNote'>
+        <div className='note__options'>
           <Link
-            className="singleNote__edit"
-            to={`/note/edit/${this.state.note._id}`}
+            className='singleNote__edit'
+            to={`/note/edit/${this.state.note.id}`}
           >
             edit
           </Link>
           <span
-            className="singleNote__delete"
+            className='singleNote__delete'
             onClick={() => {
               this.onOpenModal();
-              this.props.deleteNote(this.state.note._id);
+              this.props.deleteNote(this.state.note.id);
             }}
           >
             delete

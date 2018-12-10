@@ -1,34 +1,34 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Route } from "react-router-dom";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Route } from 'react-router-dom';
 
-import Note from "./components/Note";
-import Notes from "./components/Notes";
-import NoteForm from "./components/NoteForm";
-import NoteEdit from "./components/NoteEdit";
-import Nav from "./components/Nav";
-import "./styles.css";
+import Note from './components/Note';
+import Notes from './components/Notes';
+import NoteForm from './components/NoteForm';
+import NoteEdit from './components/NoteEdit';
+import Nav from './components/Nav';
+import './styles.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       notes: [],
-      id: "",
-      updatedTitle: "",
-      updatedTextBody: ""
+      id: '',
+      updatedTitle: '',
+      updatedTextBody: ''
     };
   }
 
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get('http://localhost:9000/api/notes')
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
 
   editNote = id => {
-    axios.put(`http://fe-notes.herokuapp.com/note/edit/${id}`, {
+    axios.put(`http://localhost:9000/api/notes/${id}`, {
       title: this.state.updatedTitle,
       textBody: this.state.updatedTextBody
     });
@@ -36,14 +36,12 @@ class App extends Component {
   };
 
   deleteNote = id => {
-    axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => {
-        console.log(response);
-        const updatedNotes = this.state.notes.filter(note => note._id !== id);
-        this.setState({ notes: updatedNotes });
-        console.log(this.state.notes.length);
-      });
+    axios.delete(`http://localhost:9000/api/notes/${id}`).then(response => {
+      console.log(response);
+      const updatedNotes = this.state.notes.filter(note => note._id !== id);
+      this.setState({ notes: updatedNotes });
+      console.log(this.state.notes.length);
+    });
   };
 
   handleInputChange = event => {
@@ -56,29 +54,29 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <Nav />
-        <div className="content">
+        <div className='content'>
           {/* d i s p l a y   n o t e s */}
           <Route
             exact
-            path="/"
+            path='/'
             render={() => <Notes notes={this.state.notes.reverse()} />}
           />
 
           {/* d i s p l a y  s i n g l e  n o t e  */}
           {/* with   d e l e t e   m e t h o d   passed  */}
           <Route
-            path="/note/get/:id"
+            path='/note/get/:id'
             render={props => <Note {...props} deleteNote={this.deleteNote} />}
           />
 
           {/* a d d  n o t e  */}
-          <Route path="/submit" component={NoteForm} />
+          <Route path='/submit' component={NoteForm} />
 
           {/* e d i t  n o t e  */}
           <Route
-            path="/note/edit/:id"
+            path='/note/edit/:id'
             render={props => (
               <NoteEdit
                 {...props}
