@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Notes from '../components/Notes';
 import {fetchNotes} from '../store/actions';
+import {withRouter} from 'react-router';
 
 class NotesContainer extends React.Component {
   componentDidMount() {
@@ -35,7 +36,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {fetchNotes},
-)(NotesContainer);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {fetchNotes},
+  )(NotesContainer),
+);

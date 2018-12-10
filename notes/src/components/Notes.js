@@ -27,6 +27,9 @@ const DivNotes = styled.div`
   margin-left: 16.5%;
 `;
 
+{
+  /*<Link key={note.id} to={`/note/${note.id}`}>*/
+}
 const Notes = props => {
   return (
     <NotesWrapper>
@@ -36,7 +39,6 @@ const Notes = props => {
           <StyledNote
             key={note.id}
             onClick={() => props.history.push(`/note/${note._id}`)}>
-            {/*<Link key={note.id} to={`/note/${note.id}`}>*/}
             <h2>{note.title}</h2>
             <hr />
             <p>{note.textBody}</p>

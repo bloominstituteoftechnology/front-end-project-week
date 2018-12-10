@@ -3,7 +3,7 @@ import {addNote, editNote} from '../store/actions';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {Button} from './NavBar';
-
+import {withRouter} from 'react-router';
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {selectNote, startEditMode, deleteNote} from '../store/actions';
 import styled from 'styled-components';
+import {withRouter} from 'react-router';
 
 const SingleNote = styled.div`
   width: 50%;
