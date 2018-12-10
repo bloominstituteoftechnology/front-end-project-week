@@ -2,6 +2,7 @@ import React from 'react';
 import NotesList from './NotesList';
 import styled from 'styled-components';
 import styleVars from '../helpers/styleVars';
+import { Route } from 'react-router-dom';
 
 const Div = styled.div`
     width: ${100 - styleVars.sideBarWidth}%;
