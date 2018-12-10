@@ -1,12 +1,21 @@
 import React from 'react';
 
-const Note = props => {
-    return (
+class Note extends React.Component {
+
+    render() {
+        const selectedNote = this.props.notes.find(note => `${note._id}` === this.props.match.params.noteId)
+
+        if(selectedNote === undefined) {
+            return <div>Loading...</div>
+        }
+
+        return (
             <div>
-                <h3>{props.note.title}</h3>
-                <p>{props.note.textBody}</p>
+                <h2>{selectedNote.title}</h2>
+                <p>{selectedNote.textBody}</p>
             </div>
-    )
+        )
+    }
 }
 
 export default Note;
