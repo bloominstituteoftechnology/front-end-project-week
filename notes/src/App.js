@@ -9,6 +9,8 @@ import AddNoteForm from "./components/AddNoteForm";
 import SingleNote from "./components/SingleNote";
 import EditNoteForm from "./components/EditNoteForm";
 
+const url = "https://notes-api-backend.herokuapp.com/note";
+
 class App extends Component {
   constructor() {
     super();
@@ -24,13 +26,13 @@ class App extends Component {
   }
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get(`${url}/get/all`)
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
   componentDidUpdate() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get(`${url}/get/all`)
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
@@ -40,7 +42,7 @@ class App extends Component {
   };
   addNote = () => {
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", {
+      .post(`${url}/create`, {
         title: this.state.title,
         textBody: this.state.textBody
       })
@@ -53,7 +55,7 @@ class App extends Component {
   };
   editNote = id => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+      .put(`${url}/edit/${id}`, {
         title: this.state.utitle,
         textBody: this.state.utextBody
       })
@@ -70,7 +72,7 @@ class App extends Component {
   };
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`${url}/delete/${id}`)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
     this.setState();
