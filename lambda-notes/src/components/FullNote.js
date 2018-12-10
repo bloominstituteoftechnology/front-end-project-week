@@ -18,7 +18,7 @@ class FullNote extends React.Component {
     };
   }
 
-  url = "http://localhost:7000/api/notes";
+  url = "https://fsw14-lambda-notes.herokuapp.com/api/notes";
 
   //sets particular note on state for viewing based on url the user was pushed to
   componentDidMount() {

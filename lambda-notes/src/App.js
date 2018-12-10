@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   //? for future reference: this url is for after backend project is being implement, originally the url used was from fe-notes.herokuapp.com
-  url = "http://localhost:7000/api/notes";
+  url = "https://fsw14-lambda-notes.herokuapp.com/api/notes";
 
   //basic GET call that is used when initally loading the page and also to refresh the notelist
   getNoteList = () => {
