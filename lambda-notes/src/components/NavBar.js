@@ -1,17 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { NavWrapper, Nav} from '../style'
+
 
 const NavBar = () => {
     return(
-        <div className='nav-wrapper'>
-            <div className='nav'>
+        <NavWrapper>
+            <Nav>
                 <h1>Lambda <br/> Notes</h1>
-               
+                    
                     <NavLink to='/' className='nav-links'>View Your Notes</NavLink>
                     <NavLink to='' className='nav-links'>+ Create New Note</NavLink>
-                </div>
+                </Nav>
             
-        </div>
+        </NavWrapper>
     );
 };
 

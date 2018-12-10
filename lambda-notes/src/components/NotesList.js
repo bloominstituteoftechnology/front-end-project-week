@@ -1,18 +1,18 @@
 import React from 'react';
-
+import {NotesWrapper, NotesContent, Notes } from '../style'
 const NotesList = (props) => {
-    console.log(props)
     return(
-        <div className='notes-wrapper'>
+        <NotesWrapper>
             {props.notes.map(note => 
-                <div className='notes-content'>
-                <div className='notes'>
+            
+                <NotesContent>
+                <Notes key={note._id} onClick={ () => props.history.push(`/note/${note._id}`)}>
                     <h3>{note.title}</h3>
                     <p>{note.textBody}</p>
-                </div>
-                </div>
+                </Notes>
+                </NotesContent>
                 )}
-        </div>
+        </NotesWrapper>
     );
 };
 

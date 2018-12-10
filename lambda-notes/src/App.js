@@ -4,7 +4,10 @@ import axios from 'axios'
 
 import NavBar from './components/NavBar';
 import NotesList from './components/NotesList';
-import './App.css';
+import Note from './components/Note';
+
+import { AppWrapper } from './style'
+import './App.css'
 
 class App extends Component {
   constructor(){
@@ -24,10 +27,10 @@ class App extends Component {
   render() {
     const { notes } = this.state;
     return (
-      <div className="App">
+      <AppWrapper>
         <NavBar />
         <Route 
-          path ='/'
+          exact path ='/'
           render={props =>
             <NotesList
               {...props}
@@ -35,7 +38,17 @@ class App extends Component {
             />
           }
         />
-      </div>
+
+        <Route
+          exact path ='/note/:_id'
+          render={props =>
+            <Note
+              {...props}
+              notes={notes}
+            />
+          }
+        />
+      </AppWrapper>
     );
   }
 }
