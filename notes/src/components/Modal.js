@@ -10,9 +10,8 @@ const ModalWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0.7;
   z-index: 1;
-  background-color: gray;
+  background-color: rgba(0, 0, 0, 0.4);
 `;
 
 const StyledModal = styled.div`
@@ -21,11 +20,11 @@ const StyledModal = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50, -50%);
+  //transform: translate(-50, -50%);
   border: 1px solid red;
-  background-color: white;
-  opacity: 1;
+  background-color: #ffffff;
   z-index: 2;
+  padding: 10px;
 `;
 
 // for some reason import buttons from NavBar is displaying the entire navbar when i use them here??

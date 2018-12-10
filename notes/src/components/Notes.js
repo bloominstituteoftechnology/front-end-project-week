@@ -27,6 +27,7 @@ const StyledNote = styled.div`
   height: 15rem;
   overflow: hidden;
   text-align: left;
+  white-space: pre-wrap;
 
   h2 {
     font-weight: bold;

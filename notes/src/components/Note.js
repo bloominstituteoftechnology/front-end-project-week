@@ -9,16 +9,6 @@ import {
 import styled from 'styled-components';
 import Modal from './Modal';
 
-const customStyles = {
-  content: {
-    top: ' 50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    transform: 'translate(-50%, -50%)',
-  },
-};
-
 //Modal.setAppElement('#root');
 const DivButtons = styled.div`
   //border: 1px solid blue;
@@ -37,8 +27,12 @@ const SingleNote = styled.div`
   //border: 1px solid black;
   margin-left: 23%;
   text-align: left;
-  width: 80%;
+  width: 70%;
+  padding: 10px;
 
+  p {
+    whitespace: pre-wrap;
+  }
   h2 {
     margin-top: 10px;
     margin-bottom: 20px;
