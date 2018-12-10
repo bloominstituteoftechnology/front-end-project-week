@@ -32,6 +32,20 @@ export const EDIT_NOTE_FAILURE = "EDIT_NOTE_FAILURE";
    D - deleteSmurf
 */
 
+export const addNote = item => dispatch => {
+    dispatch({ type: ADD_NOTE_START });
+    axios
+      .post('https://fe-notes.herokuapp.com/note/create', item)
+      .then(response => {
+        console.log(response);
+        dispatch({
+          type: ADD_NOTE_SUCCESS,
+          payload: response.data
+        });
+      })
+      .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));
+  };
+
 export const getNotes = () => dispatch => {
   dispatch({ type: FETCH_NOTES_START });
   axios
@@ -44,19 +58,7 @@ export const getNotes = () => dispatch => {
 };
 
 
-export const addNote = item => dispatch => {
-  dispatch({ type: ADD_NOTE_START });
-  axios
-    .post('https://fe-notes.herokuapp.com/note/create', item)
-    .then(response => {
-      console.log(response);
-      dispatch({
-        type: ADD_NOTE_SUCCESS,
-        payload: response.data
-      });
-    })
-    .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));
-};
+
 
 export const deleteNote = id => dispatch => {
   dispatch({ type: DELETE_NOTE_START });

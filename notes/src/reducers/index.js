@@ -62,7 +62,7 @@ import {
           ...state,
           fetching: false,
           error: false,
-          notes: action.payload
+        //   notes: action.payload
         };
       case ADD_NOTE_FAILURE:
         return {

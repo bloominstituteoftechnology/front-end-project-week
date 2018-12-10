@@ -27,12 +27,12 @@ class App extends Component {
         </nav>
 
         <Route
-          path="/"
+          exact path="/"
           component={NotesListView}
         />
 
         <Route
-          path="/add-note"
+          path="/create-note"
           component={AddNoteView}
         />
 

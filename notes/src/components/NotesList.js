@@ -8,19 +8,20 @@ const NotesList = props => {
   return (
     <Fragment>
         <h2>Your Notes:</h2>
-        <ul>
+
           {props.notes.map(note => {
             return (
               <div
                 className="note"
                 onClick={() => props.history.push(`/notes/${note.id}`)}
+                key={note.id}
               >
                 <h3 className='note-title'>{note.title}</h3>
                 <p>{note.textBody}</p>
               </div>
             );
           })}
-        </ul>
+
       </Fragment>
   );
 };

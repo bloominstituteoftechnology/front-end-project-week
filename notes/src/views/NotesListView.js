@@ -10,6 +10,12 @@ class NotesListView extends React.Component {
     this.props.getNotes();
   }
 
+//   componentDidUpdate(prevProps) {
+//       if(this.props.notes !== prevProps.notes){
+//         this.props.getNotes();
+//       }
+//   }
+
   render() {
     console.log('running render function');
     return (
