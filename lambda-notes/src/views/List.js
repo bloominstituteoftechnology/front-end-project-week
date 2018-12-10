@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const H1 = styled.h1`
     color: ${styleVars.pageHeaderColor};
+    overflow: scroll;
 `;
 
 const List = props => {
