@@ -2,10 +2,54 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addNote, editNote } from '../actions';
+import styled from 'styled-components';
+
+const NotesInputForm = styled.div`
+    padding: 3rem;
+    margin-left: 22rem;
+
+    h2 {
+        margin: 3rem 0;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        width: 19rem;
+        height: 4.5rem;
+        border: 1px solid #AFAFAF;
+        background-color: #24B8BD;
+        color: #EAF4F3;
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+    }
+`
+
+const TitleInput = styled.input`
+    height: 4rem;
+    width: 35.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+`
+const BodyInput = styled.textarea`
+    height: 34rem;
+    width: 60.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-family: sans-serif;
+`
 
 class NoteForm extends React.Component {
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state = {
             tags: [],
             title: '',
@@ -29,7 +73,7 @@ class NoteForm extends React.Component {
 
     componentDidMount() {
         if(this.props.edit) {
-            const currentNote = this.props.notesData.find(note => {
+            const currentNote = this.props.notes.find(note => {
                 return note._id.toString() === this.props.match.params.id
             });
             if (currentNote) {
@@ -44,10 +88,10 @@ class NoteForm extends React.Component {
 
     render() {
         return(
-            <div className='notes-input-form'>
+            <NotesInputForm>
+                <h2>{this.props.edit? 'Edit Note:' : 'Create New Note:'}</h2>
                 <form onSubmit={this.submitHandler}>
-                    <input
-                        className='title-input' 
+                    <TitleInput
                         type='text'
                         name='title'
                         value={this.state.title}
@@ -55,22 +99,27 @@ class NoteForm extends React.Component {
                         onChange={this.handlesChanges}
                         required
                     />
-                    <input 
-                        className='body-input'
+                    <BodyInput
                         type='text'
                         name='textBody'
                         value={this.state.textBody}
-                        placeholder='Type something here ;)'
+                        placeholder='Note Content'
                         onChange={this.handlesChanges}
                         required
                     />
-                    <button>{this.props.edit? 'Submit Edit' : 'Add Note'}</button>
+                    <button>{this.props.edit? 'Update' : 'Add Note'}</button>
                 </form>
-            </div>
+            </NotesInputForm>
         );
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        notes: state.notes
+    }
+}
+
 export default withRouter(
-    connect(null, { addNote, editNote })(NoteForm)
+    connect(mapStateToProps, { addNote, editNote })(NoteForm)
 );

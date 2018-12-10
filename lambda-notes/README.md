@@ -1,3 +1,7 @@
+## Trello URL for Project
+
+The Trello Board for this project can be found [here](https://trello.com/b/Ayuvixim/lambda-notes-eileen).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

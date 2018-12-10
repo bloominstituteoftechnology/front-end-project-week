@@ -1,34 +1,78 @@
 import React from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 import { deleteNote } from '../actions';
 
-class IndividualNote extends React.Component {
-    constructor(props){
-        super(props);
+const NotePage = styled.div`
+    width: 100%;
+    padding: 3rem;
+    margin-left: 22rem;
+    position: relative;
+
+    h2 {
+        margin: 3rem 0;
+        font-size: 2rem;
+        font-weight: bold;
     }
 
-    deleteNote = event => {
-        event.preventDefault();
-        this.props.deleteNote(this.props.match.params.id);
-        this.props.history.push('/');
+    p {
+        width: 90%;
     }
-    
+`
+
+const EditButton = styled.button`
+    position: absolute;
+    right: 13.5rem;
+    top: 1.5rem;
+    border: none;
+    background-color: #F2F1F2;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+`
+
+const DeleteButton = styled.button`
+    position: absolute;
+    right: 8rem;
+    top: 1.5rem;
+    border: none;
+    background-color: #F2F1F2;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+`
+
+class IndividualNote extends React.Component {
     render(){
-        const note = this.props.notesData.find(note => `${note._id}` === this.props.match.params.id);
+        const note = this.props.notes.find(note => `${note._id}` === this.props.match.params.id);
         if (!note) {
             return <h2>Note not found...</h2>
         }
 
         return(
-            <div className='note-page'>
-                <button onClick={() => this.props.history.push(`/edit-note/${note._id}`)}>Edit Note</button>
-                <button onClick={this.deleteNote}>Delete Note</button>
+            <NotePage>
+                <EditButton onClick={() => this.props.history.push(`/edit-note/${note._id}`)}>edit</EditButton>
+                <DeleteButton onClick={event => {
+                    event.preventDefault();
+                    this.props.deleteNote(note._id);
+                    this.props.history.push('/');
+                }}>
+                    delete
+                </DeleteButton>
                 <h2 className='note-page-title'>{note.title}</h2>
                 <p className='note-page-text'>{note.textBody}</p>
-            </div>
+            </NotePage>
         );
     }
 }
 
-export default connect(null, { deleteNote })(IndividualNote);
+const mapStateToProps = state => {
+    return {
+        notes: state.notes
+    }
+}
+
+export default connect(mapStateToProps, { deleteNote })(IndividualNote);

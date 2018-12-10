@@ -34,8 +34,8 @@ export const addNote = note => dispatch => {
     dispatch({ type: ADD_NOTE_START });
     axios
         .post(`${url}create`, note)
-        .then(() => {
-            dispatch({ type: ADD_NOTE_SUCCESS })
+        .then(response => {
+            dispatch({ type: ADD_NOTE_SUCCESS, payload: {...note, _id: response.data.success} })
         })
         .catch(error => {
             dispatch({ type: ADD_NOTE_FAILURE, payload: error })
@@ -46,8 +46,8 @@ export const editNote = (noteData, id) => dispatch => {
     dispatch({ type: EDIT_NOTE_START });
     axios
         .put(`${url}edit/${id}`, noteData)
-        .then(() => {
-            dispatch({ type: EDIT_NOTE_SUCCESS })
+        .then(response => {
+            dispatch({ type: EDIT_NOTE_SUCCESS, payload: response.data })
         })
         .catch(error => {
             dispatch({ type: EDIT_NOTE_FAILURE, payload: error })
@@ -59,7 +59,7 @@ export const deleteNote = id => dispatch => {
     axios
         .delete(`${url}delete/${id}`)
         .then(() => {
-            dispatch({ type: DELETE_NOTE_SUCCESS })
+            dispatch({ type: DELETE_NOTE_SUCCESS, payload: id })
         })
         .catch(error => {
             dispatch({ type: DELETE_NOTE_FAILURE, payload: error })

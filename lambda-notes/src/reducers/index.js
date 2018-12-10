@@ -51,7 +51,7 @@ const notesReducer = (state = initialState, action) => {
                 ...state,
                 addingNotes: false,
                 error: null,
-                // notes: action.payload,
+                notes: [...state.notes, action.payload],
             }
         case ADD_NOTE_FAILURE:
             return {
@@ -69,6 +69,7 @@ const notesReducer = (state = initialState, action) => {
                 ...state,
                 editingNotes: false,
                 error: null,
+                notes: [...state.notes, action.payload],
             }
         case EDIT_NOTE_FAILURE:
             return {
@@ -86,6 +87,7 @@ const notesReducer = (state = initialState, action) => {
                 ...state,
                 deletingNotes: false,
                 error: null,
+                notes: state.notes.filter(note => note._id !== action.payload),
             }
         case DELETE_NOTE_FAILURE:
             return {
