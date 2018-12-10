@@ -309,7 +309,7 @@ export const LambdaH1 = styled.div`
   font-family: Verdana;
 
   /* backup plan */
-  margin-top: 203px;
+  margin-top: 100px;
   margin-left: 35%;
 `;
 
