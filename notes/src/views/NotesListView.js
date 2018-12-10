@@ -13,7 +13,7 @@ class NotesListView extends React.Component {
     render() {
         return (
             <div>
-                <NotesList notes={this.props.notes} />
+                <NotesList {...this.props} />
             </div>
         );
     }
