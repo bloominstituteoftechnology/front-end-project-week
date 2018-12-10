@@ -5,6 +5,14 @@ import Content from './components/Content';
 import styled from 'styled-components';
 import axios from 'axios';
 
+const StyledApp = styled.div`
+    border: 2px grey solid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 48.2%;
+`;
+
 class App extends Component {
     constructor() {
         super();
@@ -26,10 +34,10 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
+            <StyledApp className="App">
                 <SideBar />
                 <Content notes={this.state.notes} />
-            </div>
+            </StyledApp>
         );
     }
 }
