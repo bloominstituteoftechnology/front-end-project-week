@@ -37,14 +37,16 @@ class EditNote extends React.Component {
     const updatedNote = {
       title: this.state.title,
       content: this.state.content,
-      id: this.state.id
+      id: this.props.note.note[0].id
     };
 
     axios
       .put(url, updatedNote)
       .then(response => {
-        updatedNote.id = response.data.success;
-        this.props.updateNotes(updatedNote.id);
+        console.log(response);
+        console.log(updatedNote);
+
+        this.props.updateNotes(updatedNote);
       })
       .catch(error => {
         console.error(error);

@@ -25,9 +25,9 @@ class NotesPage extends Component {
   }
 
   updateNotes = updatedNote => {
-    console.log(updatedNote);
+    // console.log(updatedNote);
     const updatedNotes = this.state.notes.map(note => {
-      if (note.id === updatedNotes.id) {
+      if (note.id === updatedNote.id) {
         return updatedNote;
       }
       return note;
