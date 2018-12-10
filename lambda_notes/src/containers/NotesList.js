@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { getNotes, filterNotes } from "../store/actions";
+import { getNotes, filterNotes, sortNotes } from "../store/actions";
 import { connect } from "react-redux";
 import { CSVLink } from "react-csv";
 import download from "../img/download.svg";
@@ -69,6 +69,34 @@ const StyledCSVLink = styled(CSVLink)`
   font-weight: bold;
   border-bottom: 2px solid #00c6d1;
   margin-left: 15px;
+
+  &:hover {
+    opacity: 0.5;
+  }
+`;
+
+const AZSpan = styled.span`
+  color: #00c6d1;
+  border-bottom: 2px solid #00c6d1;
+  margin-left: 15px;
+  cursor: pointer;
+  font-weight: bold;
+
+  &:hover {
+    opacity: 0.5;
+  }
+`;
+
+const ZASpan = styled.span`
+  color: #00c6d1;
+  border-bottom: 2px solid #00c6d1;
+  margin-left: 15px;
+  cursor: pointer;
+  font-weight: bold;
+
+  &:hover {
+    opacity: 0.5;
+  }
 `;
 
 const PAnchor = styled.p`
@@ -146,6 +174,22 @@ class NotesList extends Component {
                 />
                 CSV
               </StyledCSVLink>
+              <AZSpan
+                onClick={() => {
+                  this.props.sortNotes("ascending");
+                  this.props.history.push(`/notes`);
+                }}
+              >
+                Sort A-Z
+              </AZSpan>
+              <ZASpan
+                onClick={() => {
+                  this.props.sortNotes("descending");
+                  this.props.history.push(`/notes`);
+                }}
+              >
+                Sort Z-A
+              </ZASpan>
             </p>
           </Header>
           {this.props.notes.map(note => (
@@ -188,6 +232,12 @@ class NotesList extends Component {
               />
               CSV
             </StyledCSVLink>
+            <AZSpan onClick={() => this.props.filteredNotes("ascending")}>
+              Sort A-Z
+            </AZSpan>
+            <ZASpan onClick={() => this.props.filteredNotes("descending")}>
+              Sort Z-A
+            </ZASpan>
           </p>
         </Header>
         {this.props.filteredNotes.map(note => (
@@ -224,5 +274,5 @@ const mapStateToProps = ({ filteredNotes }) => ({
 
 export default connect(
   mapStateToProps,
-  { getNotes, filterNotes }
+  { getNotes, filterNotes, sortNotes }
 )(NotesList);

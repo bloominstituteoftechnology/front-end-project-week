@@ -11,7 +11,8 @@ import {
   DELETE_NOTE,
   DELETE_NOTE_SUCCESS,
   DELETE_NOTE_FAILURE,
-  FILTER_NOTES
+  FILTER_NOTES,
+  SORT_NOTES
 } from "../actions";
 
 const initialState = {
@@ -114,6 +115,14 @@ const notesReducer = (state = initialState, action) => {
               })
             : "",
         notes: state.filteredNotes.length ? state.filteredNotes : state.notes
+      };
+    case SORT_NOTES:
+      return {
+        ...state,
+        notes:
+          action.payload === "ascending"
+            ? state.notes.sort((a, b) => a["title"].localeCompare(b["title"]))
+            : state.notes.sort((a, b) => b["title"].localeCompare(a["title"]))
       };
     default:
       return state;

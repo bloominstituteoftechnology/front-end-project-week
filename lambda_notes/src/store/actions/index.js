@@ -12,7 +12,8 @@ export const FETCH_NOTES = "FETCH_NOTES",
   DELETE_NOTE = "DELETE_NOTE",
   DELETE_NOTE_SUCCESS = "DELETE_NOTE_SUCCESS",
   DELETE_NOTE_FAILURE = "DELETE_NOTE_FAILURE",
-  FILTER_NOTES = "FILTER_NOTES";
+  FILTER_NOTES = "FILTER_NOTES",
+  SORT_NOTES = "SORT_NOTES";
 
 const URL = "https://fe-notes.herokuapp.com/note/";
 
@@ -62,4 +63,8 @@ export const deleteNote = note => dispatch => {
 
 export const filterNotes = filterState => dispatch => {
   dispatch({ type: FILTER_NOTES, payload: filterState });
+};
+
+export const sortNotes = type => dispatch => {
+  dispatch({ type: SORT_NOTES, payload: type });
 };
