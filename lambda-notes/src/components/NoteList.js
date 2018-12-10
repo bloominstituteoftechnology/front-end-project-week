@@ -10,8 +10,8 @@ const NoteList = props => {
             <div className="main-content">
                 <h2>Your Notes:</h2>
                 {props.noteList.map(note => {
-                    return <Thumbnail note={note} key={note._id} />;
-                })};
+                    return <Thumbnail note={note} key={note.id} />;
+                })}
             </div>
         );
     }

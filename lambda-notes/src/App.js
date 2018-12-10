@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   finishEdit = (note, history) => {
-    const id = note._id;
+    const id = note.id;
     axios
       // .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
       .put(`http://localhost:9000/api/notes/${id}`, note)
@@ -51,7 +51,7 @@ class App extends Component {
         this.setState({
           notes: [
             ...this.state.notes,
-            {...note, _id: response.data.success}
+            {...note, id: response.data.success}
           ]
         });
       })

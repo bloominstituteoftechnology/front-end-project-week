@@ -26,7 +26,7 @@ export default class NewNoteForm extends React.Component {
             }
         }, () => {
             this.props.finishAdd(this.state.note, this.props.history);
-            // this.props.history.push(`/note/${this.state.note._id}`);
+            // this.props.history.push(`/note/${this.state.note.id}`);
         });
     }
 
