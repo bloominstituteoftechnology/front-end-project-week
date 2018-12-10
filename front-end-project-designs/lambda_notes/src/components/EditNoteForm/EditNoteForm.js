@@ -85,7 +85,7 @@ class EditNoteForm extends React.Component {
 			)
 			.catch(err => console.log("PUT Server Error: ", err));
 
-		// this.props.history.push('/notes')
+		this.props.history.push(`/notes/${this.props.note._id}`)
 	};
 
 	render() {

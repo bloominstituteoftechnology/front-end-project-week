@@ -25,8 +25,7 @@ class App extends Component {
 			tags: "",
 			textBody: "",
 		};
-  }
-  
+	}
 
 	render() {
 		console.log("App props", this.props);
