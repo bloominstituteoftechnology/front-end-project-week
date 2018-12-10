@@ -28,21 +28,20 @@ const NoteBody = styled.article `
 const Note = props => {
  
  return (
-  <div>
-      <Card>
-       <CardBody>
-        <CardTitle>
-         <Link to={`/note/${props.id}`} 
-         style={{ textDecoration: 'none', color: 'black' }} >
-         <NoteTitle>{props.title}</NoteTitle>
-         </Link>
-         </CardTitle>
-         <hr />
-         <CardText>
-         <NoteBody className="note_body">{props.textBody}</NoteBody>
-        </CardText>
-       </CardBody>
-       </Card>
+  <div> 
+   <Link to={`/note/${props.id}`} style={{ textDecoration: 'none', color: 'black' }} >
+    <Card>
+     <CardBody>
+      <CardTitle>
+       <NoteTitle>{props.title}</NoteTitle>
+       </CardTitle>
+       <hr />
+       <CardText>
+       <NoteBody className="note_body">{props.textBody}</NoteBody>
+       </CardText>
+      </CardBody>
+     </Card>
+   </Link>
   </div>
  )
 }

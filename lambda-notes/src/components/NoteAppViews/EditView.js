@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Button, Input} from 'reactstrap'
 import styled from 'styled-components'
-import { fetchNote, editNote } from '../../actions/'
+import { fetchNote, editNote } from '../../actions/index'
 import { connect } from 'react-redux'
-import { debug } from 'util';
+import { withRouter } from 'react-router-dom'
 
 const EditViewStyle = styled.div `
  display: flex;
@@ -29,8 +29,8 @@ export default class EditView extends Component {
  }
 
  componentDidMount = () => {
-  this.props.fetchNote(this.props.match.params.id)
-  // console.log(this.props.match.params.id)
+  console.log(this.props.match.params.id)
+  return () => this.props.fetchNote(this.props.match.params.id)
  }
 
 
@@ -42,9 +42,9 @@ export default class EditView extends Component {
  
  submitEdit = (id, event) => {
   event.preventDefault()
-  id = this.props.match.params.id
   console.log(id)
-  this.props.editNote(id, {title: this.state.title, textBody: this.state.body})
+  this.props.editNote(this.props.match.params.id, 
+   {title: this.state.title, textBody: this.state.body})
   this.setState({
    title: '',
    body: ''
@@ -54,7 +54,7 @@ export default class EditView extends Component {
   render() {
    console.log()
     return (
-     <form onSubmit={this.submitEdit}>
+     <form>
      <InputStyles>
       <Input
        name="title"
@@ -70,7 +70,7 @@ export default class EditView extends Component {
       >
       </textarea>
       </EditViewStyle>
-      <Button color="info">Save Changes</Button>
+      <Button onSubmit={this.submitEdit} color="info">Save Changes</Button>
      </InputStyles>
      </form>
     )
@@ -80,7 +80,7 @@ export default class EditView extends Component {
 const mapStateToProps = state => {
  const { notes } = state
  return {
-  notes: notes
+  notes: notes,
  }
 }
-connect(mapStateToProps, { fetchNote, editNote })(EditView)
+ withRouter(connect(mapStateToProps, { fetchNote, editNote })(EditView))

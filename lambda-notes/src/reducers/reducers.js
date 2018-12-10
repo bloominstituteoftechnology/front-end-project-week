@@ -37,7 +37,7 @@ switch(action.type){
  case FETCHING_NOTE: 
  return Object.assign({}, state, {fetchingNote: true})
  case NOTE_FETCHED:
-  return Object.assign(state, {fetchingNote: false, noteFetched: true, note: action.payload}) 
+  return Object.assign({}, state, {fetchingNote: false, noteFetched: true, note: action.payload}) 
  case ADDING:
   return Object.assign({}, state, {adding: true})
  case ADDED:
@@ -45,7 +45,7 @@ switch(action.type){
  case EDITING:
   return Object.assign({}, state, {editing: true})
  case EDITED:
-  return Object.assign({}, ...state, {editing: false, edited: false, notes: action.payload})  
+  return Object.assign({}, state, {editing: false, edited: false, note: action.payload})  
  case DELETING:
   return Object.assign({}, state, {deleting: true })
  case DELETED: 
