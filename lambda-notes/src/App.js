@@ -28,13 +28,13 @@ class App extends Component {
   }
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("https://localhost:8000/api/notes")
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
   componentDidUpdate() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("https://localhost:8000/api/notes")
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
@@ -45,7 +45,7 @@ class App extends Component {
 
   addNote = () => {
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", {
+      .post("https://localhost:8000/api/notes", {
       title: this.state.title,
       textBody: this.state.textBody
     });
@@ -54,7 +54,7 @@ class App extends Component {
 
   editNote = id => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+      .put(`https://localhost:8000/api/notes/${id}`, {
       title: this.state.newTitle,
       textBody: this.state.newTextBody
     });
@@ -75,10 +75,9 @@ class App extends Component {
 
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`https://localhost:8000/api/notes/${id}`)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
-    this.setState();
   };
 
   render() {
