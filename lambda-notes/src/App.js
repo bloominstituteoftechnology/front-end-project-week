@@ -246,6 +246,5 @@ class App extends Component {
     );
   }
 }
-
 //passed through HOC Authenticate along with Login. Authenticate will display App if state props 'loggedIn' is true, else displays Login component
 export default Authenticate(App, Login);
