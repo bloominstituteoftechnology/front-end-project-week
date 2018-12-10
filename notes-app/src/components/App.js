@@ -36,7 +36,7 @@ class App extends Component {
     console.log(this.state.notes)
     axios.post('https://fe-notes.herokuapp.com/note/create', obj)
     .then(response => {
-      console.log(response)
+      
       this.setState({
         notes: [ ...this.state.notes, { ...obj, id:response.data.success}]
       })
@@ -45,9 +45,37 @@ class App extends Component {
     console.log(this.state.notes)
   }
 
-  startUpdate(obj){
+  updateToList = (id, obj) => {
+    console.log(id)
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, obj)
+      .then(response => {
+        console.log(response)
+        console.log(this.state.notes)
+         this.setState({
+          notes:  this.state.notes.map(note => {
+            if(note._id === id){
+              return response.data;
+            }else{
+              return note;
+            }
+          })
+         });
+      })
+      .catch(err => {
+        console.log(err);
+      })
+      console.log(this.state.notes)
+  }
+
+  startUpdate =(obj) =>{
     this.setState({
       editNote: obj
+    })
+  }
+  resetEdit = () => {
+    this.setState({
+      editNote: {}
     })
   }
 
@@ -71,6 +99,9 @@ class App extends Component {
           <CreateNoteForm 
             {...props}
             addToList={this.addToList}
+            updateToList={this.updateToList}
+            resetEdit={this.resetEdit}
+            editNote={this.state.editNote}
           />
         )}
           

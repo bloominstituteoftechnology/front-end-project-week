@@ -10,23 +10,47 @@ class CreateNoteForm extends Component {
         };
     }
 
-    addNote = (e) => {
-        e.preventDefault();
-        this.props.addToList(this.state);
-        this.setState({
-            title: '',
-            textBody:''
-        })
+    componentDidMount(){
+        let editNote = this.props.editNote;
+        console.log(editNote);
+
+        if(editNote.title){
+            this.setState({
+                title: editNote.title,
+                textBody: editNote.textBody
+            })
+            
+        }
+    }
+    componentWillUnmount(){
+        this.props.resetEdit();
     }
 
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
 
+    handleSumbit = e => {
+        e.preventDefault();
+
+        if(!this.props.editNote.title){
+            this.props.addToList(this.state);
+        }else{
+            this.props.updateToList(this.props.editNote._id, this.state)
+        }
+        this.props.history.push('/');
+        
+        this.setState({
+            title: '',
+            textBody:''
+        })
+    }
+
     render() {
         return (
             <div className='NoteForm'>
-                <form onSubmit={this.addNote}>
+            <h2>{this.props.editNote.title ? 'Edit Note' : 'Create New Note'}:</h2>
+                <form onSubmit={this.handleSumbit}>
                     <input
                         className='inputs' 
                         onChange={this.handleChange}

@@ -26,7 +26,10 @@ class Note extends Component {
         return (
             <div className = 'note-view'>
                  <div className='links'>
-                    <NavLink to='/form' onClick={() =>this.props.startUpdate(this.state.note)}>edit</NavLink>
+                    <NavLink to='/form' onClick={(e) =>{
+                        e.preventDefault();
+                        this.props.history.push('/form')
+                        this.props.startUpdate(this.state.note)}}>edit</NavLink>
                     <NavLink to='/'>delete</NavLink>
                  </div>
                 <h2>{this.state.note.title}</h2>

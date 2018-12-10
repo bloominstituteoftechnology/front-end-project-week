@@ -4,6 +4,7 @@ import NoteCard from './NoteCard';
 
 class NoteList extends Component {
 
+
     render() {
         return (
             <div className = 'note-list-view'> 
