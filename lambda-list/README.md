@@ -1,3 +1,5 @@
+TRELLO LINK: https://trello.com/invite/b/d75vT9bm/5c48fd540d7bfc641f7ec0e7f589d71c/lambda-notes
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
@@ -73,3 +75,5 @@ Once your MVP has been approved, you have been given a feature list that the cli
 - [ ] Create a login system around the MVP
 
 You will notice that this repository does not have any starter code. This is on purpose. You are to start from scratch using any files you have built throughout your time here at Lambda School.
+
+TRELLO LINK: https://trello.com/invite/b/d75vT9bm/5c48fd540d7bfc641f7ec0e7f589d71c/lambda-notes
