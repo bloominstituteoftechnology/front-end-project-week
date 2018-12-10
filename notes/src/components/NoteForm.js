@@ -9,13 +9,14 @@ const StyledForm = styled.form`
   flex-direction: column;
   border: 1px dotted blue;
   background-color: #F2F1F2;
-  margin-left: 16.5%;
-  padding-left: 2%;2%
+  margin-left: 23%;
+  padding-top: 32px;
 `;
 
 const StyledInput = styled.input`
-  padding: 7px;
+  padding: 10px 5px;
   width: 40%;
+  margin-top: 15px;
   margin-bottom: 10px;
 `;
 
@@ -25,7 +26,8 @@ const StyledTextArea = styled.textarea`
 `;
 
 const FormButton = styled(Button)`
-  width: 8%;
+  width: 20%;
+  //padding: 5px 10px;
 `;
 
 class NoteForm extends React.Component {

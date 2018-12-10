@@ -7,7 +7,7 @@ const DivNavBar = styled.div`
   background-color: #d7d7d7;
   flex-direction: column;
   text-align: left;
-  width: 12%;
+  width: 20%;
   height: 100%;
   display: flex;
   position: fixed;

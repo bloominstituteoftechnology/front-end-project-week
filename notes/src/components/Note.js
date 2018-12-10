@@ -20,22 +20,28 @@ const customStyles = {
 };
 
 //Modal.setAppElement('#root');
-
-const SingleNote = styled.div`
-  border: 1px solid black;
-  margin-left: 14%;
-  text-align: left;
-  width: 50%;
-`;
-
 const DivButtons = styled.div`
-  border: 1px solid blue;
+  //border: 1px solid blue;
   display: flex;
   justify-content: flex-end;
-  padding-right: 10%;
+  padding-right: 5%;
+  padding-top: 10px;
 
   p {
     padding: 0 10px;
+    text-decoration: underline;
+  }
+`;
+
+const SingleNote = styled.div`
+  //border: 1px solid black;
+  margin-left: 23%;
+  text-align: left;
+  width: 80%;
+
+  h2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -62,9 +68,9 @@ const Note = props => {
             props.startEditMode();
             props.history.push(`/edit/${note._id}`);
           }}>
-          Edit
+          edit
         </p>
-        <p onClick={() => props.showModal()}>Delete</p>
+        <p onClick={() => props.showModal()}>delete</p>
       </DivButtons>
       {props.showingModal && <Modal {...props} id={note._id} />}
       <SingleNote>

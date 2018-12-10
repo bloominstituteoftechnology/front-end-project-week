@@ -7,25 +7,30 @@ const NotesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-left: 14%;
+  margin-left: 23%;
+  padding-top: 40px;
+`;
+
+const DivNotes = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 20px;
 `;
 
 const StyledNote = styled.div`
   border: 1px solid black;
+  background-color: #ffffff;
   padding: 10px;
-  width: 29.5%;
-  margin: 10px;
-  min-height: 15rem;
-  max-height: 20rem;
+  width: 28.5%;
+  margin: 5px;
+  height: 15rem;
   overflow: hidden;
   text-align: left;
-`;
 
-const DivNotes = styled.div`
-  border: 1px solid red;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  h2 {
+    font-weight: bold;
+  }
 `;
 
 const Notes = props => {

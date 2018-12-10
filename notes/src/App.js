@@ -16,11 +16,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: green;
     font-size: 1.6rem;
+    background-color: #f3f3f3;
 
-    h1 {
-      font-size: 2.3rem;
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: bold;
   }
   }
 `;
