@@ -14,6 +14,33 @@ const reorder = (notes, startIndex, endIndex) => {
   return result;
 };
 
+function newSort(server, local) {
+  const result = [];
+  let extra = [];
+  let item;
+
+  const uniqueToServer = server.filter(function(obj) {
+    return !local.some(function(obj2) {
+      return obj._id === obj2._id;
+    });
+  });
+  let length = server.length > local.length ? local.length : server.length;
+
+  for (let i = 0; i < length; i++) {
+    let key;
+    if (local[i]["_id"]) {
+      key = local[i]["_id"];
+    }
+    for (let j = 0; j < length; j++) {
+      if (server[j]["_id"] === key) {
+        result.push(server[j]);
+      }
+    }
+  }
+  Array.prototype.push.apply(result, uniqueToServer);
+  return result;
+}
+
 class NotesList extends React.Component {
   constructor() {
     super();
@@ -24,9 +51,29 @@ class NotesList extends React.Component {
   }
   componentDidMount() {
     this.props.fetchNotes(); //can't figure out how to get axios to persist
-    this.setState({ notes: this.props.notes });
-
+    if (localStorage.getItem("notes")) {
+      let notes = JSON.parse(localStorage.getItem("notes"));
+      let newNotes = this.props.notes;
+      let sorted = newSort(newNotes, notes);
+      console.log(sorted);
+      this.setState({ notes: sorted });
+    }
     window.scrollTo(0, 0);
+  }
+
+  componentWillUnmount() {
+    let notes = [...this.state.notes];
+    let ids = notes.filter(obj =>
+      Object.keys(obj).map(key => {
+        if (key === "_id") return key;
+        else {
+          delete obj[key];
+          return null;
+        }
+      })
+    );
+    console.log(ids);
+    localStorage.setItem("notes", JSON.stringify(ids));
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -69,7 +116,7 @@ class NotesList extends React.Component {
     // const notes =
     //   this.props.filtered.length > 0 ? this.props.filtered : this.props.notes;
     // SEARCH NOT WORKING IN THIS VERSION BECAUSE DnD issues
-    const { notes } = this.props;
+    const { notes } = this.state;
     return (
       <MainContent>
         <h2>Your Notes:</h2>
