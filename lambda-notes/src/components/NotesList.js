@@ -1,9 +1,12 @@
 import React from 'react';
+import Note from './Note';
 
 const NotesList = props => {
     return (
         <>
-            <h1>This is gonna be a list of notes</h1>
+            {props.notes.map(note => (
+                <Note note={note} />
+            ))}
         </>
     );
 };
