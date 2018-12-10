@@ -20,12 +20,12 @@ const CreateNote = props => {
                 />
                 <textarea 
                     type="text"
-                    name="textBody"
+                    name="content"
                     cols="35"
                     rows="15"
                     placeholder="Note Content"
                     onChange={props.handleInput}
-                    value={props.textBody}
+                    value={props.content}
                 />
                 <button type="submit">
                     Save

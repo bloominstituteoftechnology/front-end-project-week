@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       notes: [],
       title: '',
-      text: '',
+      content: '',
       updatedTitle: '',
       updatedText: '',
       deleting: false,
@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const endpoint = 'https://fe-notes.herokuapp.com/note/get/all';
+    const endpoint = 'http://localhost:9000/api/notes';
 
     axios
       .get(endpoint)
@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    const endpoint = 'https://fe-notes.herokuapp.com/note/get/all';
+    const endpoint = 'http://localhost:9000/api/notes';
 
     axios
       .get(endpoint)
@@ -56,9 +56,9 @@ class App extends Component {
 
   handleSubmit = () => {
     axios
-      .post('https://fe-notes.herokuapp.com/note/create', {
+      .post('http://localhost:9000/api/notes', {
         title: this.state.title,
-        textBody: this.state.textBody
+        content: this.state.content
       })
       .then(response => {
         console.log(response.data)
@@ -68,7 +68,7 @@ class App extends Component {
       });
       this.setState({
           title: '',
-          textBody: ''
+          content: ''
         });
   };
 
@@ -81,7 +81,7 @@ class App extends Component {
 
   deleteItem = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:9000/api/notes/${id}`)
       .then(response => {
         console.log(response)
       })
@@ -90,15 +90,15 @@ class App extends Component {
   };
 
 
- editingNote = (title, textBody) => {
-    this.setState({ updatedTitle: title, updatedText: textBody });
+ editingNote = (title, content) => {
+    this.setState({ updatedTitle: title, updatedText: content });
   };
 
   editedNote = id => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+      .put(`http://localhost:9000/api/notes/${id}`, {
         title: this.state.updatedTitle,
-        textBody: this.state.updatedText
+        content: this.state.updatedText
       })
       .then(response => console.log(response.data))
       .catch(error => console.log(error));

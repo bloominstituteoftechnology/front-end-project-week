@@ -4,12 +4,12 @@ import './Components.css';
 const EditNote = props => {
     if (props.notes.length) {
         let note = props.notes.find(
-          note => `${note._id}` === props.match.params.id
+          note => `${note.id}` === props.match.params.id
         );
         const editTheNote = event => {
           event.preventDefault();
-          props.editedNote(note._id);
-          props.history.push(`/note/${note._id}`);
+          props.editedNote(note.id);
+          props.history.push(`/note/${note.id}`);
         };
         return (
           <form className="form" onSubmit={editTheNote}>
