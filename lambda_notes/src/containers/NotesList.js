@@ -121,6 +121,8 @@ const IconFooter = styled.div`
   }
 `;
 
+const Tags = styled.p``;
+
 // ==============================
 // ======    COMPONENTS    ======
 // ==============================
@@ -249,6 +251,7 @@ class NotesList extends Component {
           >
             <H2>{this.getNoteString(note.title, 10)}</H2>
             <P>{this.getNoteString(note.textBody, 25)}</P>
+            <Tags>{note.tags[0]}</Tags>
           </Div>
         ))}
         <IconFooter>

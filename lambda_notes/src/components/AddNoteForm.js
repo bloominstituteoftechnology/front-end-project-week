@@ -73,7 +73,8 @@ const Textarea = styled.textarea`
 class AddNoteForm extends Component {
   state = {
     title: "",
-    textBody: ""
+    textBody: "",
+    tags: []
   };
 
   handleInputChange = e => {
@@ -87,11 +88,13 @@ class AddNoteForm extends Component {
     if (this.state.title && this.state.textBody) {
       this.props.addNote({
         title: this.state.title,
-        textBody: this.state.textBody
+        textBody: this.state.textBody,
+        tags: this.state.tags
       });
       this.setState({
         title: "",
-        textBody: ""
+        textBody: "",
+        tags: []
       });
       this.props.history.push("/notes");
     }
@@ -114,6 +117,13 @@ class AddNoteForm extends Component {
           onChange={this.handleInputChange}
           name="textBody"
           value={this.state.textBody}
+        />
+        <Input
+          type="text"
+          value={this.state.tags}
+          placeholder="Note Tags"
+          onChange={this.handleInputChange}
+          name="tags"
         />
         <Button type="submit">Save</Button>
       </Form>

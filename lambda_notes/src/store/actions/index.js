@@ -32,7 +32,7 @@ export const addNote = note => dispatch => {
     .then(({ data }) =>
       dispatch({
         type: ADD_NOTE_SUCCESS,
-        payload: { ...note, _id: data.success }
+        payload: { ...note, tags: note.tags, _id: data.success }
       })
     )
     .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));

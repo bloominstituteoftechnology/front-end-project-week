@@ -72,7 +72,9 @@ const Textarea = styled.textarea`
 class EditNoteForm extends Component {
   state = {
     title: "",
-    textBody: ""
+    textBody: "",
+    tags: [],
+    tag: ""
   };
 
   componentDidMount = () => {
@@ -82,7 +84,8 @@ class EditNoteForm extends Component {
     if (singleNote.length) {
       this.setState({
         title: singleNote[0].title,
-        textBody: singleNote[0].textBody
+        textBody: singleNote[0].textBody,
+        tags: singleNote[0].tags
       });
     }
   };
@@ -102,7 +105,8 @@ class EditNoteForm extends Component {
       });
       this.setState({
         title: "",
-        textBody: ""
+        textBody: "",
+        tags: []
       });
       this.props.history.push("/notes");
     }
@@ -125,6 +129,13 @@ class EditNoteForm extends Component {
           onChange={this.handleInputChange}
           name="textBody"
           value={this.state.textBody}
+        />
+        <Input
+          type="text"
+          value={this.state.tags}
+          placeholder="Note Tags"
+          onChange={this.handleInputChange}
+          name="tags"
         />
         <Button>Update</Button>
       </Form>
