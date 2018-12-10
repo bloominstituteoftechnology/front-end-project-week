@@ -3,10 +3,15 @@
     margin: 10px 1.5% 20px 0;
     font-size: 1.6rem;
     border: 1.3px solid #B1B1B1
-
 }
 
 .search-form{
     display: flex;
     justify-content: flex-end;
+}
+
+@media (max-width: 650px) {
+    .search-form{
+    padding: 0 3%;
+    }
 }

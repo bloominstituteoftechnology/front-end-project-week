@@ -10,7 +10,6 @@
 .notes-header{
     font-size: 2.3rem;
     font-weight: bold;
-
 }
 
 .all-note-cards{
@@ -84,6 +83,7 @@
         flex-direction: column;
         width: 100%;
         align-items: center;
+        padding: 0 3%;
     }
 
     .note-links{
@@ -101,5 +101,9 @@
 
     .notes{
         padding: 0 1%;
+    }
+
+    .notes-header{
+        padding: 0 3%;
     }
 }
