@@ -17,6 +17,10 @@ const DivPageWrapper = styled.div`
   width: 85%;
 `;
 
+const H2LoadingMessage = styled.h2`
+  margin: 85px 0 0 0;
+`;
+
 const HeaderNote = styled.header`
   display: flex;
   justify-content: flex-end;
@@ -57,7 +61,7 @@ class NoteView extends Component {
     return (
       <DivPageWrapper>
         {this.props.fetchingNote ? (
-          <h2>Loading Note...</h2>
+          <H2LoadingMessage>Loading Note...</H2LoadingMessage>
         ) : (
           <div>
             <HeaderNote>

@@ -13,7 +13,7 @@ const DivWrapper = styled.div``;
 const NoteDetails = props => {
   return (
     <DivWrapper>
-      <h1>{props.note.title}</h1>
+      <h2>{props.note.title}</h2>
       <p>{props.note.textBody}</p>
     </DivWrapper>
   );

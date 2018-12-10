@@ -11,8 +11,12 @@ const DivPageWrapper = styled.div`
   width: 85%;
 `;
 
+const H2LoadingMessage = styled.h2`
+  margin: 85px 0 0 0;
+`;
+
 const H2PageTitle = styled.h2`
-  margin: 10px;
+  margin: 85px 10px 10px 10px;
 `;
 
 /***************************************************************************************************
@@ -27,7 +31,7 @@ class ListNotesView extends Component {
     return (
       <DivPageWrapper>
         {this.props.fetchingNotes ? (
-          <h2>Loading Notes...</h2>
+          <H2LoadingMessage>Loading Notes...</H2LoadingMessage>
         ) : (
           <div>
             <H2PageTitle>Your Notes:</H2PageTitle>
