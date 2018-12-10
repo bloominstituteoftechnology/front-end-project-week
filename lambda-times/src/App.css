@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+.notes-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.note-card {
+  width: 30%;
+  border: 1px solid black;
+}
