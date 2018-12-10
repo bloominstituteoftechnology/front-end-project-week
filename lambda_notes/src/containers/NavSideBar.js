@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -74,20 +74,60 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const SearchBar = styled.input`
+  color: #4a4a4a;
+  font-weight: bold;
+  background: #f3f3f3;
+  font-family: "Font Awesome 5 Free", "Open Sans", sans-serif;
+  width: 88%;
+  text-decoration: none;
+  margin: 0 auto 10px;
+  padding: 10px;
+  border: 1px solid #979797;
+  transition: all 0.3s ease-in-out;
+  display: block;
+
+  &:focus {
+    outline: 1px solid #2bc1c4;
+  }
+
+  @media (max-width: 650px) {
+    width: 72%;
+  }
+`;
+
 // ==============================
 // ======    COMPONENTS    ======
 // ==============================
 
-function NavSideBar() {
-  return (
-    <Nav>
-      <H1>
-        Lambda <Span>Notes</Span>
-      </H1>
-      <StyledLink to="/notes">View&nbsp;Your&nbsp;Notes</StyledLink>
-      <StyledLink to="/note-add">+&nbsp;Create&nbsp;New&nbsp;Note</StyledLink>
-    </Nav>
-  );
+class NavSideBar extends Component {
+  state = {
+    filteredNotes: ""
+  };
+
+  handleInputChange = e => {
+    this.setState({
+      filteredNotes: e.target.value
+    });
+  };
+
+  render() {
+    return (
+      <Nav>
+        <H1>
+          Lambda <Span>Notes</Span>
+        </H1>
+        <StyledLink to="/notes">View&nbsp;Your&nbsp;Notes</StyledLink>
+        <StyledLink to="/note-add">+&nbsp;Create&nbsp;New&nbsp;Note</StyledLink>
+        <SearchBar
+          value={this.props.filteredNotes}
+          onChange={this.handleInputChange}
+          placeholder="&#xf002; Search"
+          className="fa fa-input"
+        />
+      </Nav>
+    );
+  }
 }
 
 export default NavSideBar;

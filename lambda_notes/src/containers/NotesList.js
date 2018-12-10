@@ -20,7 +20,7 @@ const List = styled.div`
   @media (max-width: 650px) {
     padding-left: 20px;
     padding-top: 300px;
-    padding: 260px 15px 15px;
+    padding: 290px 15px 15px;
     flex-direction: column;
     align-items: center;
   }
@@ -45,6 +45,7 @@ const Div = styled.div`
   margin: 10px;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.15);
 
   @media (max-width: 650px) {
     width: 90%;
