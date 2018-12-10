@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Redux Imports
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import rootReducer from './reducers';
@@ -18,6 +18,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // Store Definition
+const store = createStore(
+    rootReducer,
+    applyMiddleware(
+        logger,
+        thunk
+    )
+)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
