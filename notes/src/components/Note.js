@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {selectNote, startEditMode, deleteNote} from '../store/actions';
 import styled from 'styled-components';
-import {withRouter} from 'react-router';
 
 const SingleNote = styled.div`
   width: 50%;
@@ -13,24 +12,31 @@ const SingleNote = styled.div`
 // is there a better way to do this? should this be a class component?
 const Note = props => {
   console.log('note', props);
-  props.selectNote(props.match.params.id);
-  if (!props.note) {
-    return <h3>loading...</h3>;
+  // if no notes in state, push back to /notes
+  if (props.notes.length === 0) props.history.push('/notes');
+  const note = props.notes.find(n => n._id === props.match.params.id);
+  console.log('note note', note);
+  props.selectNote(note._id);
+  //if (!props.note) {
+  //return <h3>loading...</h3>;
+  //}
+  if (!note) {
+    props.history.push('/notes');
   }
   return (
     <SingleNote>
-      <h2>{props.note.title}</h2>
-      <h3>{props.note.textBody}</h3>
+      <h2>{note.title}</h2>
+      <h3>{note.textBody}</h3>
       <button
         onClick={() => {
           props.startEditMode();
-          props.history.push(`/edit/${props.note._id}`);
+          props.history.push(`/edit/${note._id}`);
         }}>
         Edit Note
       </button>
       <button
         onClick={() => {
-          props.deleteNote(props.note._id);
+          props.deleteNote(note._id);
           props.history.push('/notes');
         }}>
         Delete Note
@@ -40,7 +46,7 @@ const Note = props => {
 };
 
 const mapStateToProps = state => ({
-  note: state.selectedNote,
+  notes: state.notes,
 });
 
 export default connect(

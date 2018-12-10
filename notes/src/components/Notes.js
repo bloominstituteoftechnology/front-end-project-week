@@ -32,10 +32,10 @@ const DivNotes = styled.div`
   /*<Link key={note.id} to={`/note/${note.id}`}>*/
 }
 const Notes = props => {
-  console.log('notes props', props);
-  if (props.adding || props.deleting) {
-    return <h2>loading</h2>;
-  }
+  //console.log('notes props', props);
+  //if (props.adding || props.deleting) {
+  //return <h2>loading</h2>;
+  //}
   return (
     <NotesWrapper>
       <h2>Your Notes:</h2>
@@ -55,9 +55,9 @@ const Notes = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  adding: state.adding,
-  deleting: state.deleting,
-});
+//const mapStateToProps = state => ({
+//adding: state.adding,
+//deleting: state.deleting,
+//});
 
-export default connect(mapStateToProps)(Notes);
+export default Notes;

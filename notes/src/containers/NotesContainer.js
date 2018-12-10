@@ -9,11 +9,16 @@ class NotesContainer extends React.Component {
     this.props.fetchNotes();
   }
 
-  //componentDidUpdate(prevProps) {
-  //if (this.props !== prevProps) {
-  //console.log('update');
-  //}
-  //}
+  componentDidUpdate(prevProps) {
+    // added this to fix refresh issue
+    if (
+      this.props.adding !== prevProps.adding ||
+      this.props.deleting !== prevProps.deleting
+    ) {
+      console.log('update');
+      this.props.fetchNotes();
+    }
+  }
 
   render() {
     console.log(this.props);
@@ -37,9 +42,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    {fetchNotes},
-  )(NotesContainer),
-);
+export default connect(
+  mapStateToProps,
+  {fetchNotes},
+)(NotesContainer);
