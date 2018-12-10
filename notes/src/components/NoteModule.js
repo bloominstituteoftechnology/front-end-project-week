@@ -1,5 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import { getNote, deleteNote, updateNote, activeNoteHandler } from '../actions';
 
 import { 
     ButtonsContainer, 
@@ -13,59 +15,62 @@ import {
 
 import DeleteConfirm from './DeleteConfirm';
 
-const NoteModule = ({
-    note, 
-    getNote,
-    deleteNote,
-    updateNote,
-    activeNoteHandler,
-    history, 
-    match
-}) => {
+class NoteModule extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            gotNote: false,
+            showDelete: false
+        }
+    }
+    componentDidUpdate() {
+        if(this.state.gotNote) return;
 
-    const [gotNote, setGotNote] = useState(false)
-    const [showDelete, setShowDelete] = useState(false)
-
-    useEffect(() => {
-        if(gotNote) return;
-
-        const { id } = match.params;
-        getNote(id);
-        setGotNote(true);
-    });
-    return (
-        <NoteModuleContainer>
-            <NoteModuleForm onSubmit={e => {
-                updateNote(note);
-                history.push('/');
-            }}>
-                <CloseIcon onClick={e => {e.preventDefault(); history.push('/');}}><i className="fas fa-times"></i></CloseIcon>
-                <NoteModuleInput type="text" name="title" value={note.title} onChange={activeNoteHandler}/>
-                <NoteModuleTextArea type="text" name="textBody" value={note.textBody} onChange={activeNoteHandler}/>
-                <ButtonsContainer display={true}>
-                    <StyledButton type="button" onClick={e => {
-                        e.preventDefault();
-                        setShowDelete(true);
-                    }}
-                    >Delete</StyledButton>
-                    <StyledButton type="submit" active="true">Save</StyledButton>
-                </ButtonsContainer>
-            </NoteModuleForm>
-
-            {
-                !showDelete ? null
-                    : <DeleteConfirm 
-                        setShowDelete={setShowDelete} 
-                        deleteNote={deleteNote} 
-                        history={history} 
-                        id={note.id} 
-                    />
-            }
-        </NoteModuleContainer>
-    );
+        const { id } = this.props.match.params;
+        this.props.getNote(id);
+        this.setState({gotNote: true})
+    }
+    
+    render() {
+        
+        return (
+            <NoteModuleContainer>
+                <NoteModuleForm onSubmit={e => {
+                    this.props.updateNote(this.props.activeNote);
+                    this.props.history.push('/');
+                }}>
+                    <CloseIcon onClick={e => {e.preventDefault(); this.props.history.push('/');}}><i className="fas fa-times"></i></CloseIcon>
+                    <NoteModuleInput type="text" name="title" value={this.props.activeNote.title} onChange={this.props.activeNoteHandler}/>
+                    <NoteModuleTextArea type="text" name="textBody" value={this.props.activeNote.textBody} onChange={this.props.activeNoteHandler}/>
+                    <ButtonsContainer display={true}>
+                        <StyledButton type="button" onClick={e => {
+                            e.preventDefault();
+                            this.setState({showDelete: true})
+                        }}
+                        >Delete</StyledButton>
+                        <StyledButton type="submit" active="true">Save</StyledButton>
+                    </ButtonsContainer>
+                </NoteModuleForm>
+    
+                {
+                    !this.props.showDelete ? null
+                        : <DeleteConfirm 
+                            setShowDelete={this.props.setShowDelete} 
+                            deleteNote={this.props.deleteNote} 
+                            history={this.props.history} 
+                            id={this.props.activeNote.id} 
+                        />
+                }
+            </NoteModuleContainer>
+        );
+    }
 }
 
-export default NoteModule;
+const mapStateToProps = state => {
+    const { activeNote } = state;
+    return {
+        activeNote
+    }
+}
 
-
-
+export default connect(mapStateToProps, {getNote, deleteNote, updateNote, activeNoteHandler})(NoteModule);

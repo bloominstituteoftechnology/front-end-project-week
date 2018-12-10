@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { menuToggle } from '../actions' 
 
 import {
     SideBar,
@@ -10,32 +12,44 @@ import {
     SectionTitle,
 } from '../styles';
 
-const ToolBar = ({ notes, showMenu, menuToggle}) => {
-    return (
-        <SideBar showMenu={showMenu}>
-            <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="logo" />   
-            <Section to='/' exact notes="true" onClick={e => menuToggle()}>
-                <SVGIcon notes="true" />
-                <SectionTitle title="Notes" />
-            </Section>
-            <Section to='/select' select="true" onClick={e => menuToggle()}>
-                <SVGIcon select="true" />
-                <SectionTitle title="Multi select" />
-            </Section>
-            <Seperator />
-            <ToolBarLabel export="true" />
-            <StyledCSV data={notes} onClick={e => menuToggle()}>
-                <SVGIcon csv="true" />
-                <SectionTitle title="CSV"/>
-            </StyledCSV>
-            <Seperator />
-            <ToolBarLabel account="true"/>
-            <Section to='/logout' logout="true" onClick={e => menuToggle()}>
-                <SVGIcon logout="true" />
-                <SectionTitle title="Logout" />
-            </Section>
-        </SideBar>
-    );
+
+class ToolBar extends Component {
+    render() {
+        return (
+            <SideBar showMenu={this.props.showMenu}>
+                <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="logo" />   
+                <Section to='/' exact notes="true" onClick={e => this.props.menuToggle()}>
+                    <SVGIcon notes="true" />
+                    <SectionTitle title="Notes" />
+                </Section>
+                <Section to='/select' select="true" onClick={e => this.props.menuToggle()}>
+                    <SVGIcon select="true" />
+                    <SectionTitle title="Multi select" />
+                </Section>
+                <Seperator />
+                <ToolBarLabel export="true" />
+                <StyledCSV data={this.props.notes} onClick={e => this.props.menuToggle()}>
+                    <SVGIcon csv="true" />
+                    <SectionTitle title="CSV"/>
+                </StyledCSV>
+                <Seperator />
+                <ToolBarLabel account="true"/>
+                <Section to='/logout' logout="true" onClick={e => this.props.menuToggle()}>
+                    <SVGIcon logout="true" />
+                    <SectionTitle title="Logout" />
+                </Section>
+            </SideBar>
+        );
+    }
 }
 
-export default ToolBar;
+const mapStateToProps = state => {
+    const { notes, showMenu } = state;
+    return {
+        notes,
+        showMenu
+    }
+}
+
+export default connect( mapStateToProps, { menuToggle })(ToolBar);
+
