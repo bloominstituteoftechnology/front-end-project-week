@@ -15,6 +15,7 @@ const DivWrapper = styled.div`
   margin-right: 20px;
   padding: 0 20px;
   height: 100%;
+  position: fixed;
 `;
 
 const H1Title = styled.h1`

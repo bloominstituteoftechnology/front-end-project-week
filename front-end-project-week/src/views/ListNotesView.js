@@ -9,6 +9,7 @@ import ListNotes from '../components/ListNotes';
  **************************************************************************************************/
 const DivPageWrapper = styled.div`
   width: 85%;
+  margin-left: 250px;
 `;
 
 const H2LoadingMessage = styled.h2`
