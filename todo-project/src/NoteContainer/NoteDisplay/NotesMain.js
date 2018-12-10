@@ -27,15 +27,18 @@ export default class NotesMain extends Component {
     username = localStorage.getItem('user')
 
     componentDidMount() {
+       setInterval(() => {
         axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
-            .then(response => {
-                console.log(response)
-                this.setState({ notes: response.data })
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        .get('https://fe-notes.herokuapp.com/note/get/all')
+        .then(response => {
+            console.log(response)
+            this.setState({ notes: response.data })
+            console.log('refreshed')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+       }, 500) 
     }
 
     logout = function() {

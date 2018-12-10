@@ -48,7 +48,7 @@ export default class CreateNote extends Component {
         .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {title: this.state.title, textBody: this.state.textBody})
         .then(response => {
           console.log(response)
-          window.location.reload()
+          // window.location.reload()
         })
         .catch(err => {
           console.log(err)

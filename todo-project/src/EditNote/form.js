@@ -2,33 +2,36 @@ import React from 'react'
 import './form.css'
 import { NavLink } from 'react-router-dom'
 
-function form(props) {
+class Form extends React.Component {
+    
 
+    render(){
     return (
     <div className='form'>
         <input 
         className='titleForm'
         type='text'
-        onChange={props.handleInput}
-        placeholder={props.note.title}
+        onChange={this.props.handleInput}
+        placeholder={this.props.note.title}
         name='title'
-        value={props.title}
+        value={this.props.title}
         />
         <textarea
         className='textBody'
         type='text'
-        onChange={props.handleInput}
-        placeholder={props.note.textBody}
+        onChange={this.props.handleInput}
+        placeholder={this.props.note.textBody}
         name='textBody'
-        value={props.textBody}
+        value={this.props.textBody}
         />
-        <NavLink exact to='/' ><button onClick={() => props.updateNote(props.note._id)} className='formButton' >Update</button></NavLink>
+        <NavLink exact to='/' ><button onClick={() => this.props.updateNote(this.props.note._id)} className='formButton' >Update</button></NavLink>
     </div>
     );
+}
 }
 
 
 
 
-export default form;
+export default Form;
 

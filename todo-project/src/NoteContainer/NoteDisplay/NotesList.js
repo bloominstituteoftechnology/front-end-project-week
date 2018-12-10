@@ -15,5 +15,3 @@ const NoteList = props => {
 
 export default NoteList;
 
-
-//return <Note  key={note.id} note={note} />
