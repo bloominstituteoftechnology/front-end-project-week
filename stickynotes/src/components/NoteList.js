@@ -1,15 +1,23 @@
 import React from 'react';
-import { Main, Section, H1, P } from '../style';
+import { Main, Section, H2, P, H1, Div } from '../style';
+import {Link} from 'react-router-dom';
 
 const NoteList = (props) => {
+
 	return (
 		<Main>
-			{props.notes.map((note) => 
+			<H1>Notes</H1>
+			<Div>
+			{props.notes.slice(0,12).map((note) => 
+				<Link to={`/${note._id}`}>
 				<Section key={note._id}>
-					<H1>{note.title}</H1>
+					<H2>{note.title}</H2>
 					<P>{note.textBody}</P>
 				</Section>
+				</Link>
 			)}
+			</Div>
+			
 		</Main>
 	);
 };

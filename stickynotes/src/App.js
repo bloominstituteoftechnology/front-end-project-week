@@ -1,49 +1,110 @@
 import React, { Component } from 'react';
-import {GlobalStyle, AppContainer} from './style';
-import {Route} from 'react-router-dom';
+import { GlobalStyle, AppContainer } from './style';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
 import SideNav from './components/SideNav';
 import NoteList from './components/NoteList';
+import NoteForm from './components/NoteForm';
+import NoteView from './components/NoteView'
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      notes: []
-    }
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			notes: [],
+			newNote: {
+				id: '',
+				title: '',
+				textBody: ''
+			}
+		};
+	}
 
-  componentDidMount(){
-    axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response =>{
-        console.log(response)
-        this.setState({
-          notes: response.data
-        })
-      })
-      .catch(err =>{
-        console.log(err)
-      });
-  }
-  render() {
-    return (
-      <React.Fragment>
-        <GlobalStyle />
-      <AppContainer>
-        <SideNav />
-        <Route 
-        exact path= {'/'}
+	componentDidMount() {
+		axios
+			.get('https://fe-notes.herokuapp.com/note/get/all')
+			.then((response) => {
+				this.setState({
+					notes: response.data
+				});
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
+
+	addNote = (event) => {
+		event.preventDefault();
+
+		axios
+			.post(`https://fe-notes.herokuapp.com/note/create`, this.state.newNote)
+			.then((response) => {
+				this.setState({
+					...this.state,
+					newNote: {
+						...this.state.newNote,
+						id: `${response.data.success}`
+					}
+				});
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
+	handleChange = (event) => {
+		event.preventDefault();
+		this.setState({
+			...this.state,
+			newNote: {
+				...this.state.newNote,
+				[event.target.name]: event.target.value
+			}
+		});
+	};
+	render() {
+		return (
+			<React.Fragment>
+				<GlobalStyle />
+				<AppContainer>
+					<SideNav />
+					<Route
+						exact
+						path={'/'}
+						render={(props) => <NoteList {...props} notes={this.state.notes} />}
+					/>
+					<Route
+						exact
+						path={'/create'}
+						render={(props) => (
+							<NoteForm
+								{...props}
+								mode={'create'}
+								handleChange={this.handleChange}
+                addNote={this.addNote}
+                id={this.state.newNote.id}
+							/>
+						)}
+					/>
+          <Route 
+          path={'/:id'}
+          render={props => (
+            <NoteView
+              {...props}
+              notes={this.state.notes}
+            />
+          )}
+          />
+					{/* <Route 
+        exact path= {'/edit/:id'}
         render={props => 
-          <NoteList {...props} notes={this.state.notes} />
+          <NoteForm {...props} mode={'edit'} />
         }
-        
-        />
-      </AppContainer>
-      </React.Fragment>
-      
-    );
-  }
+        /> */}
+				</AppContainer>
+			</React.Fragment>
+		);
+	}
 }
 
 export default App;
