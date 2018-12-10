@@ -17,8 +17,8 @@ class EditNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.note.title,
-      text: this.props.note.content
+      title: this.props.note.note[0].title,
+      content: this.props.note.note[0].content
     };
   }
 
@@ -30,17 +30,21 @@ class EditNote extends React.Component {
   editNote = event => {
     console.log(this.state.editTitle, this.state.editBody);
     event.preventDefault();
-    const url = `http://localhost:7000/notes${
-      this.props.note.id
+    const url = `http://localhost:7000/notes/${
+      this.props.note.note[0].id
     }`;
+
+    const updatedNote = {
+      title: this.state.title,
+      content: this.state.content,
+      id: this.state.id
+    };
+
     axios
-      .put(url, {
-        title: this.state.title,
-        content: this.state.content
-      })
+      .put(url, updatedNote)
       .then(response => {
-        console.log(response);
-        this.props.updateNotes(response.data);
+        updatedNote.id = response.data.success;
+        this.props.updateNotes(updatedNote.id);
       })
       .catch(error => {
         console.error(error);
@@ -68,9 +72,9 @@ class EditNote extends React.Component {
           />
           <BodyInput
             type="text"
-            name="text"
+            name="content"
             placeholder="text body"
-            value={this.state.text}
+            value={this.state.content}
             onChange={this.handleInputChange}
           />
           <Formbtn type="submit">Update</Formbtn>
