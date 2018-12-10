@@ -76,7 +76,7 @@ refresh () {
           />
 
           <Route 
-                exact path='/note/:id' 
+                exact path='/notes/:id' 
                 render=
                 {props =>
                     <NoteView
@@ -90,7 +90,7 @@ refresh () {
                 />
 
               <Route
-                exact path='/note/edit/:id'
+                exact path='/notes/edit/:id'
                 render=
                   {props =>     
                     (<EditNoteForm 

@@ -24,6 +24,7 @@ class NoteView extends React.Component {
         axios
           .get(`http://localhost:9000/api/notes/${id}`)
           .then(response => {
+            
             this.setState(() => ({ note: response.data }))
             
           })
