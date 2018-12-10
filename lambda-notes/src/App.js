@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import SideBar from './components/SideBar';
 import Content from './components/Content';
 import styled from 'styled-components';
