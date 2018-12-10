@@ -11,10 +11,12 @@ const NoteView = (props) => {
 					return (
 						<Div view='single' key={note._id}>
 							<div>
-								<P >
+								<Link to={`/edit/${note._id}`}>
+								<P>
 									Edit
 								</P>
-								<P onClick={props.deleteNote(note._id)}>Delete</P>
+								</Link>
+								<Link exact to='/'><P onClick={props.deleteNote}>Delete</P></Link>
 							</div>
 							<H2>{note.title}</H2>
 							<P>{note.textBody}</P>

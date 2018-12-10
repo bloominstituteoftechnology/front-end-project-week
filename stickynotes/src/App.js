@@ -5,7 +5,7 @@ import axios from 'axios';
 import SideNav from './components/SideNav';
 import NoteList from './components/NoteList';
 import NoteForm from './components/NoteForm';
-import NoteView from './components/NoteView'
+import NoteView from './components/NoteView';
 
 class App extends Component {
 	constructor(props) {
@@ -16,7 +16,7 @@ class App extends Component {
 				id: '',
 				title: '',
 				textBody: ''
-			},
+			}
 		};
 	}
 
@@ -54,29 +54,27 @@ class App extends Component {
 
 	editNote = (id) => {
 		axios
-		.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
-		.then((response) => {
-			this.setState({
-				...this.state,
-				notes: [
-					...this.state.notes,
-					response.data
-				]
+			.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
+			.then((response) => {
+				this.setState({
+					...this.state,
+					notes: [...this.state.notes, response.data]
+				});
 			})
-		})
-		.catch((err) => {
-			console.log(err);
-		});
+			.catch((err) => {
+				console.log(err);
+			});
 	};
-	
-	deleteNote = (id) => {
+
+	deleteNote = (event) => {
+		event.preventDefault();
 		axios
-		.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-		.then(null)
-		.catch((err) => {
-			console.log(err);
-		});
-	}
+			.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+			.then(null)
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 
 	handleChange = (event) => {
 		event.preventDefault();
@@ -107,28 +105,33 @@ class App extends Component {
 								{...props}
 								mode={'create'}
 								handleChange={this.handleChange}
-                addNote={this.addNote}
-                id={this.state.newNote.id}
+								addNote={this.addNote}
+								id={this.state.newNote.id}
+								buttonText="Save"
 							/>
 						)}
 					/>
-          <Route 
-          path={'/:id'}
-          render={props => (
-            <NoteView
-              {...props}
-			  notes={this.state.notes}
-			  editNote={this.editNote}
-			  deleteNote={this.deleteNote}
-            />
-          )}
-          />
-					{/* <Route 
-        exact path= {'/edit/:id'}
-        render={props => 
-          <NoteForm {...props} mode={'edit'} />
-        }
-        /> */}
+					<Route
+						path={'/:id'}
+						render={(props) => (
+							<NoteView
+								{...props}
+								notes={this.state.notes}
+								deleteNote={this.deleteNote}
+							/>
+						)}
+					/>
+					<Route
+						exact
+						path={'/edit/:id'}
+						render={(props) => 
+						<NoteForm
+						 {...props} 
+						 mode={'edit'}
+						 buttonText='Update' 
+						 editNote={this.editNote}
+						 />}
+					/>
 				</AppContainer>
 			</React.Fragment>
 		);
