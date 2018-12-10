@@ -87,6 +87,10 @@ const IconFooter = styled.div`
   text-align: left;
   padding: 20px 20px 0;
   margin-bottom: 0;
+
+  @media (max-width: 650px) {
+    padding: 20px 0 0 30px;
+  }
 `;
 
 // ==============================
