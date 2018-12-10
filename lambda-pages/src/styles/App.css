@@ -1,0 +1,29 @@
+.App {
+  display: flex;
+}
+
+.View {
+  padding: 5rem 2.5rem 0;
+  width: 75%;
+  margin-left: 25%;
+}
+
+.View h2 {
+  font-weight: 400;
+  font-size: 3rem;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.NoteView {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .View {
+    width: 65%;
+    margin-left: 35%;
+  }
+}
