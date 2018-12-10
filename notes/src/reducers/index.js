@@ -20,11 +20,11 @@ const rootReducer = (state = initialState, action) => {
     case act.FETCHING:
       return { ...state, fetchingNotes: true };
     case act.FETCHED:
-      if (local) {
-        let server = [...action.payload];
-        let sorted = newSort(server, local);
-        localStorage.setItem("state", JSON.stringify(sorted));
-      }
+      // if (local) {
+      //   let server = [...action.payload];
+      //   let sorted = newSort(server, local);
+      //   localStorage.setItem("state", JSON.stringify(sorted));
+      // }
       return {
         ...state,
         fetchingNotes: false,
@@ -34,8 +34,11 @@ const rootReducer = (state = initialState, action) => {
     case act.SAVING:
       return { ...state, savingNote: true };
     case act.SAVED:
-      let saved = [...state.notes, action.payload];
-      localStorage.setItem("state", JSON.stringify(saved));
+      let saved = [
+        ...JSON.parse(localStorage.getItem("state")),
+        action.payload
+      ];
+      // localStorage.setItem("state", JSON.stringify(saved));
       return {
         ...state,
         savingNote: false,
@@ -46,7 +49,7 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, deletingNote: true };
     case act.DELETED:
       const deleted = state.notes.filter(note => note._id !== action.payload);
-      localStorage.setItem("state", JSON.stringify(deleted));
+      // localStorage.setItem("state", JSON.stringify(deleted));
       return {
         ...state,
         deletingNote: false,
@@ -71,7 +74,7 @@ const rootReducer = (state = initialState, action) => {
         }
         return note;
       });
-      localStorage.setItem("state", JSON.stringify(updated));
+      // localStorage.setItem("state", JSON.stringify(updated));
       return { ...state, notes: updated };
     // case act.FILTER:
     //   const options = {

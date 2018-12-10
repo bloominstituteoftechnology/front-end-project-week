@@ -14,21 +14,29 @@ export const FILTER = "FILTER";
 // export const DRAGGING = "DRAGGING";
 // export const DROPPED = "DROPPED";
 export const ERROR = "ERROR";
-
 const host = "https://fe-notes.herokuapp.com/note";
-
 export const local = JSON.parse(localStorage.getItem("state"));
 
 export const fetchNotes = () => dispatch => {
   const notes = axios.get(`${host}/get/all`);
   dispatch({ type: FETCHING });
   notes
-    .then(res =>
-      dispatch({
-        type: FETCHED,
-        payload: res.data
-      })
-    )
+    .then(res => {
+      if (local) {
+        let server = res.data;
+        let sorted = newSort(server, local);
+        // console.log(sorted);
+        dispatch({
+          type: FETCHED,
+          payload: sorted
+        });
+      } else {
+        dispatch({
+          type: FETCHED,
+          payload: res.data
+        });
+      }
+    })
     .catch(err => {
       dispatch({ type: ERROR, payload: err });
     });
@@ -46,9 +54,12 @@ export const saveNote = info => dispatch => {
   const saved = axios.post(`${host}/create`, info);
   dispatch({ type: SAVING });
   saved
-    .then(res =>
-      dispatch({ type: SAVED, payload: { ...info, _id: res.data.success } })
-    )
+    .then(res => {
+      // if (local) {
+
+      // }
+      dispatch({ type: SAVED, payload: { ...info, _id: res.data.success } });
+    })
     .catch(err => dispatch({ type: ERROR, paylaod: err }));
 };
 
