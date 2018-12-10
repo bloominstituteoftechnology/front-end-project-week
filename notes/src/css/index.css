@@ -1,0 +1,345 @@
+/*COLORS*/
+.title-font {
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 3.1rem;
+  color: #414141;
+  line-height: 2.8rem;
+  letter-spacing: 0.1rem;
+}
+.subtitle-font {
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #414141;
+}
+.note-title-font {
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+}
+.note-body-font {
+  font-family: helvetica;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+.view-note-body-font {
+  font-family: helvetica;
+  font-size: 1.35rem;
+  line-height: 2.4rem;
+}
+.link-font {
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #414141;
+  margin-left: 20px;
+}
+body {
+  background-color: #f2f1f2;
+}
+.app {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.notes-display {
+  width: 75%;
+  margin-left: 25%;
+  background-color: #f2f1f2;
+}
+.note-list {
+  height: 100vh;
+  padding: 90px 40px 90px 40px;
+  box-sizing: border-box;
+  background-color: #f2f1f2;
+}
+.note-list .note-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 45px;
+  background-color: #f2f1f2;
+}
+.side-bar {
+  width: 25vw;
+  height: 100vh;
+  background-color: #d3d2d3;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #afafaf;
+  z-index: 0;
+}
+.side-bar .title-container {
+  padding: 35px 20px 35px 20px;
+}
+.side-bar .button-container {
+  width: 100%;
+  height: 154px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.side-bar .button-container .button {
+  width: 86%;
+  height: 65px;
+  background-color: #24b8bd;
+  border: 1px solid #afafaf;
+  font-family: helvetica;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+  flex-shrink: 1;
+}
+.note-card {
+  width: 290px;
+  height: 300px;
+  background-color: white;
+  border: 1px solid #d3d2d3;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 20px 25px 20px 25px;
+  margin-bottom: 40px;
+  margin-right: 3%;
+}
+.note-card .divider {
+  width: 100%;
+  height: 2px;
+  border-top: 1px solid black;
+  margin: 10px 0px 10px 0px;
+}
+.note-card:nth-child(3) {
+  margin-right: 0px;
+}
+.add-edit-note {
+  box-sizing: border-box;
+  padding: 90px 46px 90px 46px;
+}
+.add-edit-note .title {
+  margin-bottom: 48px;
+}
+.add-edit-note .title-input {
+  width: 548px;
+  height: 60px;
+  background-color: white;
+  border: 2px solid #d3d2d3;
+  border-radius: 3px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 1.1rem;
+  font-family: arial;
+}
+.add-edit-note .text-input {
+  width: 100%;
+  height: 530px;
+  background-color: white;
+  border: 2px solid #d3d2d3;
+  border-radius: 4px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  padding: 30px;
+  font-size: 1.1rem;
+  font-family: arial;
+}
+.add-edit-note .button {
+  width: 295px;
+  height: 65px;
+  background-color: #24b8bd;
+  border: 1px solid #afafaf;
+  font-family: helvetica;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+/*MODAL*/
+.modal-container {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: rgba(175, 175, 175, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container .modal {
+  width: 60%;
+  height: 275px;
+  background-color: white;
+  border: 2px solid #414141;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container .modal .button-container {
+  margin-top: 50px;
+  width: 76%;
+  display: flex;
+  justify-content: space-between;
+}
+.modal-container .modal .button-container .button {
+  width: 295px;
+  height: 65px;
+  background-color: #24b8bd;
+  border: 1px solid #afafaf;
+  font-family: helvetica;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.modal-container .modal .button-container .red {
+  background-color: #ca001a;
+}
+.hidden {
+  display: none;
+}
+/*VIEW NOTES*/
+.view-note {
+  box-sizing: border-box;
+  padding: 28px 46px 28px 46px;
+}
+.view-note .link-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+}
+.view-note .title {
+  margin-bottom: 45px;
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
