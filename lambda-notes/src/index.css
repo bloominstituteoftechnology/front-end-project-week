@@ -12,6 +12,7 @@
     font-size: 1.6rem;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    background: var(--light-gray);
   }
 
   :root {
