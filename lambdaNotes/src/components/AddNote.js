@@ -18,8 +18,8 @@ class AddNote extends React.Component {
     super(props);
     this.state = {
       title: this.props.notes.title,
-      text: this.props.notes.textBody,
-      _id: this.props.notes._id
+      content: this.props.notes.content,
+      id: this.props.notes.id
     };
   }
 
@@ -33,13 +33,13 @@ class AddNote extends React.Component {
     const newNote = {
       tags: [],
       title: this.state.title,
-      textBody: this.state.text,
-      _id: this.state._id
+      content: this.state.content,
+      id: this.state.id
     };
-    Axios.post("https://fe-notes.herokuapp.com/note/create", newNote)
+    Axios.post("http://localhost:7000/addNote", newNote)
       .then(response => {
         console.log(response.data);
-        newNote._id = response.data.success;
+        newNote.id = response.data.success;
         this.props.addNewNotes(newNote);
       })
       .catch(error => {
@@ -68,9 +68,9 @@ class AddNote extends React.Component {
           />
           <BodyInput
             type="textarea"
-            name="text"
+            name="content"
             placeholder="Note content"
-            value={this.state.text}
+            value={this.state.content}
             onChange={this.handleInputChange}
           />
           <Formbtn type="submit">Save</Formbtn>

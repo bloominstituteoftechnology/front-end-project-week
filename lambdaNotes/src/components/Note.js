@@ -21,7 +21,7 @@ class Note extends React.Component {
     this.state = {
       editing: false,
       title: this.props.notes.title,
-      textBody: this.props.notes.textBody
+      content: this.props.notes.content
     };
   }
 
@@ -32,14 +32,14 @@ class Note extends React.Component {
 
   deleteNote = event => {
     event.preventDefault();
-    const url = `https://fe-notes.herokuapp.com/note/delete/${
-      this.state.note._id
+    const url = `http://localhost:7000/notes/${
+      this.state.note.id
     }`;
     axios
       .delete(url)
       .then(response => {
         console.log(response);
-        this.props.updateDeleted(this.state.note._id);
+        this.props.updateDeleted(this.state.note.id);
       })
       .catch(error => {
         console.error(error);
@@ -60,7 +60,7 @@ class Note extends React.Component {
   fetchNote = id => {
     // console.log(this.state.id);
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:7000/notes/${id}`)
       .then(response => {
         this.setState(() => ({ note: response.data }));
       })
@@ -104,7 +104,7 @@ class Note extends React.Component {
           <EditNoteLink onClick={this.editNote}>Edit</EditNoteLink>
           <DeleteNoteLink onClick={this.deleteModal}>Delete</DeleteNoteLink>
           <NoteTitle>{this.state.note.title}</NoteTitle>
-          <NoteP>{this.state.note.textBody}</NoteP>
+          <NoteP>{this.state.note.content}</NoteP>
         </NoteCardContainer>
         <div className="modal">
           <div className="innerModal">

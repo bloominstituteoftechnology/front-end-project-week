@@ -18,7 +18,7 @@ class EditNote extends React.Component {
     super(props);
     this.state = {
       title: this.props.note.title,
-      text: this.props.note.textBody
+      text: this.props.note.content
     };
   }
 
@@ -30,13 +30,13 @@ class EditNote extends React.Component {
   editNote = event => {
     console.log(this.state.editTitle, this.state.editBody);
     event.preventDefault();
-    const url = `https://fe-notes.herokuapp.com/note/edit/${
-      this.props.note._id
+    const url = `http://localhost:7000/notes${
+      this.props.note.id
     }`;
     axios
       .put(url, {
         title: this.state.title,
-        textBody: this.state.text
+        content: this.state.content
       })
       .then(response => {
         console.log(response);

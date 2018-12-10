@@ -9,7 +9,6 @@ import {
   TitleH1,
   ExportBtn,
   SignOut,
-  SearchInput
 } from "../Styles";
 
 import NoteCard from "./NoteCard";
@@ -25,7 +24,7 @@ class NotesList extends React.Component {
 
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:7000/notes")
       .then(response => this.setState({ data: response.data }))
       .catch(error => console.log(error));
   }
@@ -50,14 +49,14 @@ class NotesList extends React.Component {
     a.click();
   }
 
-  searchNotesHandler = e => {
-    const notes = this.props.notes.filter(note => {
-      if (note.title.includes(e.target.value)) {
-        return note;
-      }
-    });
-    this.setState({ filteredNotes: notes });
-  };
+  // searchNotesHandler = e => {
+  //   const notes = this.props.notes.filter(note => {
+  //     if (note.title.includes(e.target.value)) {
+  //       return note;
+  //     }
+  //   });
+  //   this.setState({ filteredNotes: notes });
+  // };
 
   render() {
     return (
@@ -80,7 +79,7 @@ class NotesList extends React.Component {
           <NotesH2>Your Notes:</NotesH2>
           <ContainCards>
             {this.props.notes.map(note => (
-              <NoteCard key={note._id} note={this.state.filteredNotes.length > 0 ? this.state.filteredNotes : note} />
+              <NoteCard key={note.id} note={this.state.filteredNotes.length > 0 ? this.state.filteredNotes : note } />
             ))}
           </ContainCards>
         </CardList>

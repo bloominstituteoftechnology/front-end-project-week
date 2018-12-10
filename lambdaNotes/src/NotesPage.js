@@ -19,7 +19,7 @@ class NotesPage extends Component {
 
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:7000/notes")
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
@@ -27,7 +27,7 @@ class NotesPage extends Component {
   updateNotes = updatedNote => {
     console.log(updatedNote);
     const updatedNotes = this.state.notes.map(note => {
-      if (note._id === updatedNote._id) {
+      if (note.id === updatedNote.id) {
         return updatedNote;
       }
       return note;
@@ -38,7 +38,7 @@ class NotesPage extends Component {
   updateDeleted = targetID => {
     console.log(targetID);
     const updatedLists = this.state.notes.filter(note => {
-      if (note._id === targetID) {
+      if (note.id === targetID) {
         return false;
       }
       return true;
