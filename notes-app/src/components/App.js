@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 
 import NoteList from './NoteList/NoteList';
 import Nav from './nav';
+import CreateNoteForm from './CreateNote/CreateNoteForm';
 
 class App extends Component {
   constructor(){
@@ -28,6 +29,20 @@ class App extends Component {
       });
   }
 
+  addToList = (obj) => {
+    
+    console.log(this.state.notes)
+    axios.post('https://fe-notes.herokuapp.com/note/create', obj)
+    .then(response => {
+      console.log(response)
+      this.setState({
+        notes: [ ...this.state.notes, { ...obj, id:response.data.success}]
+      })
+    })
+    .catch(err => console.log(err))
+    console.log(this.state.notes)
+  }
+
 
   render() {
     console.log(this.state.notes)
@@ -44,7 +59,12 @@ class App extends Component {
         )}
           
         />
-        <Route path='/form'
+        <Route path='/form' render={props => ( 
+          <CreateNoteForm 
+            {...props}
+            addToList={this.addToList}
+          />
+        )}
           
         />
           

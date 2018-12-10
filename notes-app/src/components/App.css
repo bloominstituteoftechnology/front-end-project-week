@@ -65,7 +65,8 @@ nav a:hover{
 
 .view{
   width: 75%;
-  padding-left: 25px;
+  padding: 50px 25px;
+  padding-right: 0;
   margin-left: 25%;
   text-align: left;
   background: #F2F1F2;
@@ -95,6 +96,12 @@ nav a:hover{
   height: 195px;
   overflow: hidden;
 }
+/* form==========================*/
+form{
+  display: flex;
+  flex-direction: column;
+}
+form{ }
 
 
 

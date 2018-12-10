@@ -6,23 +6,39 @@ class CreateNoteForm extends Component {
         super(props);
         this.state = {
             title: '',
-            content:''
+            textBody:''
         };
     }
+
+    addNote = (e) => {
+        e.preventDefault();
+        this.props.addToList(this.state);
+        this.setState({
+            title: '',
+            textBody:''
+        })
+    }
+
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+      };
 
     render() {
         return (
             <div className='NoteForm'>
-                <form>
+                <form onSubmit={this.addNote}>
                     <input 
                         onChange={this.handleChange}
                         placeholder='title'
                         value={this.state.title}
                         name='title'
                     />
-                    <textarea name='content'>Content</textarea>
+                    <textarea name='textBody' onChange={this.handleChange} value={this.state.textBody} placeholder='content'></textarea>
+                    <button type='submit'>Submit</button>
                 </form>
             </div>
         )
     }
 }
+
+export default CreateNoteForm;
