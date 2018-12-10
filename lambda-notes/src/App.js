@@ -18,7 +18,7 @@ class App extends Component {
     editNote: false,
     notePage: false,
     chosenNote: {},
-    newNote: {'title': '', 'textBody': '', 'tags': []}
+    newNote: {'title': '', 'content': '', 'tags': []}
   }
 
   inputHandler = (e) => {
@@ -26,12 +26,12 @@ class App extends Component {
   }
 
   saveNote = () => {
-    axios.post('https://fe-notes.herokuapp.com/note/create', this.state.newNote)
+    axios.post('http://localhost:8888/note/create', this.state.newNote)
         .then(res => {console.log('success',res)
         
   }).then(res => this.updateNotes())
         .catch(err => console.log(err))
-    this.setState({newNote: {title: '', textBody: '', tags: []} });
+    this.setState({newNote: {title: '', content: '', tags: []} });
 
     this.props.history.push('/');
     
@@ -44,7 +44,7 @@ class App extends Component {
 
   updateNotes = () => {
 
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:8888/note/get/all')
     .then(res => {console.log('hiUN',res);
      this.setState({notes: res.data})  
      })
@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   submitNote = (id, note) => {
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    axios.put(`http://localhost:8888/note/edit/${id}`, note)
          .then(res => {console.log('put success', res)
                        }).then(res => this.updateNotes())
          .catch(err => console.log(err))

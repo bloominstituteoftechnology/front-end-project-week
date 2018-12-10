@@ -32,7 +32,7 @@ toggleDelete = () => {
 
 
 deleteNote = () => {
-    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
+    axios.delete(`http://localhost:8888/note/delete/${this.state.note.id}`)
          .then(res => console.log(res))
          .then(res => this.props.update())
          .catch(err => console.log(err));
@@ -44,7 +44,7 @@ deleteNote = () => {
 
 submitNote = () => {
     
-    this.props.submitNote(this.state.note._id, this.state.note);
+    this.props.submitNote(this.state.note.id, this.state.note);
     this.setState({editNote: !this.state.editNote})
     
 }
@@ -53,17 +53,21 @@ componentWillMount(){
 }
 
 componentDidMount(){
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:8888/note/get/all')
     .then(res => {
-     console.log('works',res);
-     let note = res.data.filter(note => note._id === this.props.match.params.id );
+     
+     let note = res.data.filter(note => {
+         
+        return `${note.id}` === `${this.props.match.params.id}`
+        } );
+     
      this.setState({note: note[0]})  
      })
     .catch(err => console.log(err));
 }
     render(){
 
-        
+            
         return (
             
             <div className="cont-body">
@@ -93,9 +97,9 @@ componentDidMount(){
 
                 <div className="bottom-cont">
                 
-                {!this.state.editNote ? <p>{this.state.note.textBody}</p> :
+                {!this.state.editNote ? <p>{this.state.note.content}</p> :
                 <div className='txt-cont'>
-                <textarea id='textarea' name='textBody' onChange={this.inputChange}>{this.state.note.textBody}</textarea>
+                <textarea id='textarea' name='content' onChange={this.inputChange}>{this.state.note.content}</textarea>
                 <div className='button' onClick={this.submitNote}>SAVE</div>
                 </div> }
                 </div>

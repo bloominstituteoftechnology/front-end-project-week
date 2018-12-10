@@ -7,13 +7,13 @@ export default class NotesView extends React.Component {
             <div className="cont-body">
           
             {this.props.notes.map(note => ( 
-            <div onDoubleClick={() => this.props.history.push(`/note/${note._id}`)} className="note">
+            <div onDoubleClick={() => this.props.history.push(`/note/${note.id}`)} className="note">
             
             <div className='note-title'>
                 <h3>{note.title}</h3>
             </div>
             
-            <div className="note-body">{note.textBody}</div>
+            <div className="note-body">{note.content}</div>
             
             </div>
             

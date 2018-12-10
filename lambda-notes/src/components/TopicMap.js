@@ -23,19 +23,19 @@ export default class TopicMap extends React.Component {
             dots: dotsArr
             
         }],
-        selectedDot: {}
+        selectedDot: {},
+        submitting: true,
+        selectedMap: {}
     }
-    selectDot = (id) => {
-        let selectedMap = this.state.miniMaps.find(map => {
-                                                    return map.dots.filter(dot => { console.log('Dot IDs',dot.dotID);
-        
-                                                    return dot.dotID === id })[0].dotID === id} );
-        let selectedDot = selectedMap.dots.filter(dot => dot.dotID === id)[0];
-        this.setState({selectedDot})
+    selectDot = (dot) => {
+                                      
         
         
-        console.log('Selected Map',selectedMap);
-        console.log('Selected Dot', selectedDot);
+        this.setState({selectedDot: dot})
+        console.log(this)
+        
+        
+       
     }
 
     inputHandler = (e) => {
@@ -70,6 +70,62 @@ export default class TopicMap extends React.Component {
                                                             });
     }
     }
+    addMiniMap = () => {
+        this.setState({miniMaps: [...this.state.miniMaps, {
+            id: Date.now(),
+            bgColor: '',
+            subtopics: [],
+            dots: [{number: 'one', dotID: Math.floor(Math.random() * 1000000), bgColor: '', lit: false, loaded: false},
+            {number: 'two', dotID: Math.floor(Math.random() * 1000000), bgColor: '', lit: false, loaded: false},
+            {number: 'three', dotID: Math.floor(Math.random() * 1000000), bgColor: '', lit: false, loaded: false},
+            {number: 'four', dotID: Math.floor(Math.random() * 1000000), bgColor: '', lit: false, loaded: false},
+            {number: 'five', dotID: Math.floor(Math.random() * 1000000), bgColor: '', lit: false, loaded: false}
+          ]
+            
+        }]})
+    }
+
+    selectMap = (selectedMap) => {
+        this.setState({selectedMap})
+    }
+
+    saveToDot = () => {
+        let {title, textBody} = this.state.newNote;
+        let updatedDot = {...this.state.selectedDot, title, textBody}
+        let newMapDots = this.state.selectedMap.dots.map(dot => {
+            if(dot.dotID === this.state.selectedDot.dotID){
+                let dotMod = {...dot, title, textBody};
+                return dotMod
+            }
+            return dot
+        });
+        let newMap = {...this.state.selectedMap, dots: newMapDots}
+        let newMiniMaps = this.state.miniMaps.map(map => {
+            if(map.id === newMap.id){
+                return newMap
+            }
+            return map
+        })
+
+        this.setState({
+            selectedDot: updatedDot,
+            selectedMap: newMap,
+            miniMaps: newMiniMaps,
+            newNote: {'title': '', 'textBody': '', 'tags': []}
+        })
+    }
+
+    static getDerivedStateFromProp(props, state){
+        console.log("getDerivedStatesTOPICMAP State:", state.selectedDot)
+    }
+
+    /* componentDidUpdate(props){
+        console.log('cdu', props)
+    } */
+
+    componentDidMount(){
+        this.setState({selectedMap: this.state.miniMaps[0]})
+    }
 
 
     render(){
@@ -86,12 +142,20 @@ export default class TopicMap extends React.Component {
                 {this.state.miniMaps.map(miniMap => <MiniMap miniMap={miniMap} 
                                                              subtopics={this.state.subtopics} 
                                                              selectDot={this.selectDot}
-                                                             dots={miniMap.dots}/>)
+                                                             dots={miniMap.dots}
+                                                             newNote={this.state.newNote}
+                                                             submitted={this.state.submitting}
+                                                             selectMap={()=> this.selectMap(miniMap)}
+                                                             selectedDot={this.state.selectedDot}
+                                                             selectedMap={this.state.selectedMap}
+                                                             key={miniMap.id}/>)
                 }
                 
                 </div>
+                <div className='button' onClick={this.addMiniMap}>+Add MiniMap</div>
                 <div className="subtopic-area">
                     <table>
+                        <tbody>
                         <tr>
                             <td>
                                 <span className="td-txt">SUBTOPICS</span>
@@ -120,6 +184,7 @@ export default class TopicMap extends React.Component {
                                 </div>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <input name="title" 
@@ -134,7 +199,7 @@ export default class TopicMap extends React.Component {
                           placeholder="New note..."> </textarea>
                 
                 <div className='button' 
-                     onClick={this.saveNote}>Save</div>
+                     onClick={this.saveToDot}>Save</div>
             
             </div>
         )
