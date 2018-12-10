@@ -36,14 +36,14 @@ const ConfirmNoteLink = styled(Link)`
 `;
 
 const ConfirmNoteButton = styled.span`
-    display: inline-block;
-    margin: 0 10px
-    padding: 15px 0;
-    font-size: 1.2rem;
-    border: 1px solid #ABB5B5;
-    width: 40%;
-    color: white;
-    font-weight: bold;
+  display: inline-block;
+  margin: 0 10px;
+  padding: 15px 0;
+  font-size: 1.2rem;
+  border: 1px solid #abb5b5;
+  width: 40%;
+  color: white;
+  font-weight: bold;
 `;
 
 const DeleteButton = styled(ConfirmNoteButton)`
