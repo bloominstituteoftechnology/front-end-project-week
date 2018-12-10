@@ -70,9 +70,6 @@ class NoteForm extends React.Component {
       : this.state;
     func(args);
     this.clearState();
-    while (this.props.adding) {
-      console.log('adding...');
-    }
     this.props.history.push('/notes');
   };
 

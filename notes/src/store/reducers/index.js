@@ -96,10 +96,9 @@ export default (state = initialState, action) => {
         ...state,
         isEditing: false,
         notes: state.notes.map(n => {
-          if (n._id === state.selectedNote._id) {
+          if (n._id === action.payload._id) {
             return {
               ...action.payload,
-              _id: n._id,
             };
           } else {
             return n;

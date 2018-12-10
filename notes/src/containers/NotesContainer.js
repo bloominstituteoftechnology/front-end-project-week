@@ -13,7 +13,8 @@ class NotesContainer extends React.Component {
     // added this to fix refresh issue
     if (
       this.props.adding !== prevProps.adding ||
-      this.props.deleting !== prevProps.deleting
+      this.props.deleting !== prevProps.deleting ||
+      this.props.isEditing !== prevProps.isEditing
     ) {
       //console.log('update');
       this.props.fetchNotes();
