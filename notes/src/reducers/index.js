@@ -45,7 +45,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 deletingNote: false,
                 error: false,
-                notes: action.payload
+                // notes: action.payload
             }
         case DELETE_NOTE_FAILURE:
             return {

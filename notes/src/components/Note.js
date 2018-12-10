@@ -16,7 +16,7 @@ class Note extends React.Component {
             <div>
                 <div>
                     <button>Edit</button>
-                    <button onClick={() => this.props.deleteNote(selectedNote._id)}>Delete</button>
+                    <button onClick={() => {this.props.deleteNote(selectedNote._id); this.props.history.push("/")}}>Delete</button>
                 </div>
                 <h2>{selectedNote.title}</h2>
                 <p>{selectedNote.textBody}</p>
@@ -25,4 +25,4 @@ class Note extends React.Component {
     }
 }
 
-export default connect(null, { deleteNote} )(Note);
+export default connect(null, { deleteNote } )(Note);

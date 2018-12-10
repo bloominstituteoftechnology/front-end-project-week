@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
-import LandingPageView from './views/LandingPageView';
 import NotesListView from './views/NotesListView';
 import Note from './components/Note';
 
@@ -17,8 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" component={LandingPageView} />
-        <Route path="/notes" render={props => <NotesListView {...props} notes={this.props.notes} /> } />
+        <Route exact path="/" render={props => <NotesListView {...props} notes={this.props.notes} /> } />
         <Route path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
       </div>
     );

@@ -10,17 +10,23 @@ const NoteCard = styled.div`
     padding: 20px;
 `;
 
-const NotesList = props => {
-    return (
-        <>
-          {props.notes.map(note => (
-            <NoteCard onClick={() => props.history.push(`/note/${note._id}`)} key={note._id}>
-              <h3>{note.title}</h3>
-              <p>${note.textBody}</p>
-            </NoteCard>
-          ))}
-        </>
-      );
+class NotesList extends React.Component {
+
+    render() {
+        if(this.props.notes === undefined) {
+            return <div>Loading...</div>
+        }
+        return (
+            <>
+            {this.props.notes.map(note => (
+                <NoteCard onClick={() => this.props.history.push(`/note/${note._id}`)} key={note._id}>
+                <h3>{note.title}</h3>
+                <p>${note.textBody}</p>
+                </NoteCard>
+            ))}
+            </>
+        );
+    }
 }
 
 export default NotesList;

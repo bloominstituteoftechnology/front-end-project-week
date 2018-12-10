@@ -5,6 +5,9 @@ import NotesList from '../components/NotesList';
 class NotesListView extends React.Component {
 
     render() {
+        if(this.props.notes === undefined) {
+            return <div>Loading...</div>
+        }
         return (
             <div>
                 <NotesList {...this.props} />
