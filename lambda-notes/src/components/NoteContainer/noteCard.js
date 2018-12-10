@@ -2,11 +2,7 @@ import React from 'react';
 
 import './Notes.css';
 
-
-
 const NoteCard = props => {
-
-
 
     return (
         <div className='note-card'>

@@ -11,8 +11,8 @@ const NotesList = props => {
             <h3 className='notes-header'>Your Notes:</h3>
             <div className='all-note-cards'>
                 {props.notes.map(note => (
-                    <Link to={`/notes/${note._id}`} id={note._id} key={note._id} className='note-links'>
-                        <NoteCard key={note._id} note={note} />
+                    <Link to={`/notes/${note.id}`} id={note.id} key={note.id} className='note-links'>
+                        <NoteCard key={note.id} note={note} />
                     </Link>
                 ))}
             </div>

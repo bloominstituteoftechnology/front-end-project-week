@@ -4,7 +4,8 @@ import DeleteModal from './deleteModal';
 import EditNote from './editNote';
 import './NoteView.css';
 
-const url = process.env.REACT_APP_DB_URL;
+
+const url = process.env.REACT_APP_DB_URL; 
 
 class Note extends Component {
 
@@ -41,7 +42,7 @@ class Note extends Component {
     deleteNote = event => {
         event.preventDefault();
         axios
-            .delete(`${url}/note/delete/${this.state.note._id}`)
+            .delete(`${url}/note/delete/${this.state.note.id}`)
             .then(response => {
                 this.props.changeState(response.data)
             })
@@ -57,7 +58,7 @@ class Note extends Component {
 
     componentWillReceiveProps(newProps) {
         if (this.props.match.params.id !== newProps.match.params.id) {
-            this.fetchNote(newProps.match.params._id);
+            this.fetchNote(newProps.match.params.id);
         }
     }
 
@@ -68,7 +69,7 @@ class Note extends Component {
             textBody: this.state.editTextBody
         }
         axios
-            .put(`${url}/note/edit/${this.state.note._id}`, saveEditNotes)
+            .put(`${url}/note/edit/${this.state.note.id}`, saveEditNotes)
             .then(response => {
                 this.setState({
                     note: response.data

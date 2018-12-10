@@ -6,8 +6,7 @@ import { Route } from 'react-router-dom';
 import Note from './note';
 import './Notes.css';
 
-
-const url = process.env.REACT_APP_DB_URL;
+const url = process.env.REACT_APP_DB_URL; 
 
 class NotesContainer extends Component {
     constructor(props) {
@@ -16,9 +15,8 @@ class NotesContainer extends Component {
             notes: [],
             searchedPost: [],
             searchResult: '',
-
         };
-    }
+    };
 
 
     componentDidMount() {
