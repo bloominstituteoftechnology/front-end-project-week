@@ -44,9 +44,9 @@ class ListView extends Component {
         </div>
         
           {this.props.notes.reverse().map(note => (
-            <NavLink exact to={`/notes/${note._id}`} key={note._id}>
+            <NavLink exact to={`/notes/${note.id}`} key={note.id}>
               
-               <Note note={note} id={note._id} />
+               <Note note={note} id={note.id} />
             
             </NavLink>
           ))}

@@ -82,7 +82,6 @@ class SoloNote extends React.Component {
     this.state = {
       title: "",
       textBody: "",
-      tags: [],
       formView: false,
       deleteView:false
     };
@@ -90,7 +89,7 @@ class SoloNote extends React.Component {
 
   componentDidMount = () => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${this.props.id}`)
+      .get(`http://localhost:3334/api/notes/${this.props.id}`)
       .then(({ data }) => this.setState({ ...data }))
       .catch(err => console.log(err));
   };
@@ -125,7 +124,7 @@ class SoloNote extends React.Component {
   };
 
   render() {
-    if (this.state.message || this.state.errorMessage) {
+    if (this.state.message || this.state.error) {
       this.props.history.push("/");
     }
     return (

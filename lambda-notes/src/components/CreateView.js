@@ -9,7 +9,6 @@ class CreateView extends Component {
     this.state = {
       title: "",
       textBody: "",
-      tags: []
     };
   }
 
@@ -24,9 +23,8 @@ class CreateView extends Component {
     this.setState({
       title: "",
       textBody: "",
-      tags: []
     } );
-    this.props.history.push('/')
+    setTimeout(this.props.history.push('/'),500) 
     
   };
   render() {

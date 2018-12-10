@@ -13,12 +13,12 @@ export const TOGGLE_DELETED = "TOGGLE_DELETED";
 export const TOGGLE_ADDED = "TOGGLE_ADDED";
 export const SORT_BY_TITLE = "SORT_BY_TITLE";
 
-const URL = "https://fe-notes.herokuapp.com/note";
+const URL = "http://localhost:3334/api/notes";
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: GETTING_NOTES });
   axios
-    .get(`${URL}/get/all`)
+    .get(URL)
     .then(({ data }) => dispatch({ type: NOTES_GOT, payload: data }))
     .catch(err => {
       dispatch({ type: FAILURE, payload: err });
@@ -28,11 +28,11 @@ export const fetchNotes = () => dispatch => {
 export const notePost = note => dispatch => {
   dispatch({ type: ADDING_NOTE });
   axios
-    .post(`${URL}/create`, note)
+    .post(URL, note)
     .then(data =>
       dispatch({
         type: NOTE_ADDED,
-        payload: { ...data.config.data, _id: data.data.success }
+        payload: { ...data.config.data, id: data.data.success }
       })
     )
     .catch(err => {
@@ -42,14 +42,14 @@ export const notePost = note => dispatch => {
 
 export const deleteNote = id => dispatch => {
   dispatch({ type: DELETING_NOTE });
-  axios.delete(`${URL}/delete/${id}`).then(({ data }) => {
+  axios.delete(`${URL}/${id}`).then(({ data }) => {
     dispatch({ type: NOTE_DELETED, payload: data });
   });
 };
 
 export const editNote = (id, newNote) => dispatch => {
   dispatch({ type: EDITING_NOTE });
-  axios.put(`${URL}/edit/${id}`, newNote).then(dispatch({ type: NOTE_EDITED }));
+  axios.put(`${URL}/${id}`, newNote).then(dispatch({ type: NOTE_EDITED }));
 };
 
 export const toggleDeleted = () => {
