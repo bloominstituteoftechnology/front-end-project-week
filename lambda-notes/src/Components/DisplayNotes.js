@@ -4,9 +4,11 @@ import NoteCard from './NoteCard'
 const DisplayNotes = props => {
   return (
     <div className={'display-cards'}>
-      <NoteCard />
-      <NoteCard />
-      <NoteCard />
+
+      {props.notes.map( note => {
+        return <NoteCard key={note._id} note={note} />
+      })}
+
     </div>
   )
 }
