@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
+import CreateNewNote from './components/CreateNewNote';
 import NotesListView from './views/NotesListView';
 import Note from './components/Note';
 
@@ -16,8 +17,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Link to="/createnewnote"><div>+ Create New Note</div></Link>
         <Route exact path="/" render={props => <NotesListView {...props} notes={this.props.notes} /> } />
         <Route path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
+        <Route path="/createnewnote" component={CreateNewNote} />
       </div>
     );
   }
