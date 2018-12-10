@@ -20,7 +20,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:4000/api/notes/")
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
@@ -28,7 +28,7 @@ class App extends Component {
   addNote = (e, newNote) => {
     e.preventDefault();
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", newNote)
+      .post("http://localhost:4000/api/notes", newNote)
       .then(res => {
         newNote._id = res.data.success;
         this.setState({ notes: [newNote, ...this.state.notes] });
@@ -39,7 +39,7 @@ class App extends Component {
   deleteNote = (e, id) => {
     e.preventDefault();
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:4000/api/notes/${id}`)
 
       .then(() => {
         const deletedNote = this.state.notes.filter(note => {
@@ -55,7 +55,7 @@ class App extends Component {
   editNote = (e, id, state) => {
     e.preventDefault();
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, state)
+      .put(`http://localhost:4000/api/notes//${id}`, state)
       .then(res => {
         const updatedArray = this.state.notes.map(note => {
           if (note._id === res.data._id) {
@@ -97,9 +97,9 @@ class App extends Component {
   };
 
   render() {
-    if (this.state.username === "") {
-      return <LoginPage loginHandler={this.loginHandler} />;
-    }
+    // if (this.state.username === "") {
+    //   return <LoginPage loginHandler={this.loginHandler} />;
+    // }
 
     return (
       <div className="App">
