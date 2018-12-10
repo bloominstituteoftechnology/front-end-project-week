@@ -33,13 +33,13 @@ class Note extends React.Component {
   deleteNote = event => {
     event.preventDefault();
     const url = `http://localhost:7000/notes/${
-      this.state.note.id
+      this.state.note.note[0].id
     }`;
     axios
       .delete(url)
       .then(response => {
         console.log(response);
-        this.props.updateDeleted(this.state.note.id);
+        this.props.updateDeleted(this.state.note.note[0].id);
       })
       .catch(error => {
         console.error(error);
