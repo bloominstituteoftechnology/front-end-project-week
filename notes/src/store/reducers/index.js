@@ -12,6 +12,7 @@ import {
   EDIT_NOTE_SUCCESS,
   EDIT_NOTE_FAILURE,
   SHOW_MODAL,
+  HIDE_MODAL,
   DELETING_NOTE,
   DELETE_NOTE_SUCCESS,
   DELETE_NOTE_FAILURE,
@@ -109,6 +110,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         showingModal: true,
+      };
+    case HIDE_MODAL:
+      return {
+        ...state,
+        showingModal: false,
       };
     case DELETING_NOTE:
       return {

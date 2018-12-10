@@ -9,6 +9,18 @@ import {
 import styled from 'styled-components';
 import Modal from './Modal';
 
+const customStyles = {
+  content: {
+    top: ' 50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
+//Modal.setAppElement('#root');
+
 const SingleNote = styled.div`
   border: 1px solid black;
   margin-left: 14%;
@@ -48,7 +60,7 @@ const Note = props => {
         <p onClick={() => props.showModal()}>Edit</p>
         <p>Delete</p>
       </DivButtons>
-      {props.showingModal && <Modal />}
+      {props.showingModal && <Modal {...props} id={note._id} />}
       <SingleNote>
         <h2>{note.title}</h2>
         <p>{note.textBody}</p>

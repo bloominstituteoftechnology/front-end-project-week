@@ -18,6 +18,7 @@ export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 
 export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';
 
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
@@ -74,6 +75,10 @@ export const editNote = note => dispatch => {
 
 export const showModal = () => dispatch => {
   dispatch({type: SHOW_MODAL});
+};
+
+export const hideModal = () => dispatch => {
+  dispatch({type: HIDE_MODAL});
 };
 
 export const deleteNote = id => dispatch => {
