@@ -1,8 +1,10 @@
 import React from 'react';
+import NotesList from './NotesList';
 const Content = props => {
     return (
         <>
-            <h1>This is gonna be the main content</h1>
+            <h1>Your Notes:</h1>
+            <NotesList />
         </>
     );
 };
