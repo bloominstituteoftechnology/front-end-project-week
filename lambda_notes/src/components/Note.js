@@ -10,7 +10,6 @@ import "./Note.css";
 // ==============================
 
 const Nav = styled.nav`
-  /* width: 100%; */
   display: flex;
   justify-content: flex-end;
   padding: 10px;

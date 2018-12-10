@@ -20,6 +20,7 @@ const Nav = styled.nav`
     border-bottom: 1px solid #979797;
     border-right: none;
     text-align: center;
+    padding: 0 0 20px;
   }
 `;
 
@@ -101,16 +102,6 @@ const SearchBar = styled.input`
 // ==============================
 
 class NavSideBar extends Component {
-  state = {
-    filteredNotes: ""
-  };
-
-  handleInputChange = e => {
-    this.setState({
-      filteredNotes: e.target.value
-    });
-  };
-
   render() {
     return (
       <Nav>
@@ -121,7 +112,7 @@ class NavSideBar extends Component {
         <StyledLink to="/note-add">+&nbsp;Create&nbsp;New&nbsp;Note</StyledLink>
         <SearchBar
           value={this.props.filteredNotes}
-          onChange={this.handleInputChange}
+          onChange={this.props.handleInputChange}
           placeholder="&#xf002; Search"
           className="fa fa-input"
         />

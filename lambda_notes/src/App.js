@@ -33,15 +33,28 @@ const AppDiv = styled.div`
 // ==============================
 
 class App extends Component {
+  state = {
+    filteredNotes: ""
+  };
+
   componentDidMount = () => {
     this.props.getNotes();
+  };
+
+  handleInputChange = e => {
+    this.setState({
+      filteredNotes: e.target.value
+    });
   };
 
   render() {
     return (
       <AppDiv>
         <GlobalStyles />
-        <NavSideBar />
+        <NavSideBar
+          handleInputChange={this.handleInputChange}
+          filteredNotes={this.state.filteredNotes}
+        />
         <Route exact path="/" component={Login} />
         <Route
           path="/notes"
