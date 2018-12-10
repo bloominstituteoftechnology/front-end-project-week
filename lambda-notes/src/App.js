@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route} from 'react-router-dom';
-
+import { Route, NavLink } from 'react-router-dom';
+import Notes from './components/Notes';
 import './App.css';
 
 
@@ -29,6 +29,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="main-container">
+          <nav>
+            <h1>Lambda Notes</h1>
+            <NavLink className="nav-link" to="/">View your notes</NavLink>
+            <NavLink className="nav-link" to="/">+Create New Note</NavLink>
+          </nav>
           <Route 
               exact 
               path="/"
@@ -40,6 +45,11 @@ class App extends Component {
               );
             
             }} />
+
+            {this.state.notes.length &&
+            <Route 
+            path="/get/:_id" 
+            render={props => <div {...props} notes={this.state.notes} /> } /> }
           </div>
       </div>
     );
