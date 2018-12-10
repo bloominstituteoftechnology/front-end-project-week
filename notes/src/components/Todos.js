@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Todos.css';
+import './index.less';
 
 const Todos = props => {
     return (
