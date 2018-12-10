@@ -3,7 +3,6 @@ import styled from "styled-components";
 import axios from 'axios';
 
 const NewNoteForm = styled.form`
-    border: 1px solid red;
     background: #F2F1F2;
     width: 100%;
     padding: 30px;
@@ -25,7 +24,7 @@ const NewNoteFormTextArea = styled.textarea`
     font-family: inherit;
     letter-spacing: inherit;
     font-size: 1rem;
-    border-radius: 3px;/
+    border-radius: 3px;
     resize: none;
     width: 600px;
     height: 400px;
@@ -73,15 +72,20 @@ class AddNewNote extends React.Component {
         axios
             .post('https://fe-notes.herokuapp.com/note/create', newNote)
             .then( 
-                res => console.log('POST Server Response: ', res),
-                this.setState({
-                    title: '',
-                    textBody: '',
-                })
+                res => (
+                    console.log('POST Server Response: ', res),
+                    this.setState({
+                        title: '',
+                        textBody: '',
+                        id: res,
+                    })
+                )
             )
             .catch(
                 err => console.log('POST Server Error: ', err)
             )
+        
+        this.props.history.push('/notes')
     } 
 
 	render() {
