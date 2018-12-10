@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './form.css'
 
 function form(props) {
@@ -20,7 +21,7 @@ function form(props) {
         name='content'
         value={props.content}
         />
-        <button onClick={props.saveNote} className='formButton' >Save</button>
+       <NavLink exact to='/' ><button onClick={props.saveNote} className='formButton' >Save</button></NavLink>
     </div>
     );
 }
