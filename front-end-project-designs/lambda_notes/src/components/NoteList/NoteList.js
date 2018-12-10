@@ -61,7 +61,7 @@ class NoteList extends React.Component {
 	}
 
 	render() {
-		console.log("Notelist props", this.props);
+		// console.log("Notelist props", this.props);
 		return (
 			<NoteListContainer>
 				<h2 className="lamba-notes-header">Your Notes:</h2>

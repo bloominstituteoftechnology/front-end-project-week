@@ -38,28 +38,39 @@ const DeleteButton = styled(ModalButton)`
 
 // ===================== END STYLES
 
-const deleteNote = () => {
-    axios
-        .delete(
-            `https://fe-notes.herokuapp.com/note/delete/${this.props.note.id}`
-        )
-        .then(res => console.log("Delete Note ", res))
-        .catch(err => console.log("Delete Server Error", err));
-}
 
 
 
-const DeleteModal = props => {
-    console.log('modal props', props)
-	return (
-		<ModalOverlay>
-			<ModalContainer>
-				<h2>Are you sure you want to delete this?</h2>
-				<DeleteButton onClick={deleteNote}>Delete</DeleteButton>
-				<ModalButton onClick={props.history.goBack}>No</ModalButton>
-			</ModalContainer>
-		</ModalOverlay>
-	);
+class DeleteModal extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    // }
+
+    deleteNote = () => {
+        axios
+            .delete(
+                `https://fe-notes.herokuapp.com/note/delete/${this.props.note._id}`
+            )
+            .then(res => {
+                console.log("Delete Note ", res)
+                this.props.history.push(`/`)
+            })
+            .catch(err => console.log("Delete Server Error", err));
+    }
+
+    render(){
+        console.log(this.props.note._id)
+        return (
+            <ModalOverlay>
+                <ModalContainer>
+                    <h2>Are you sure you want to delete this?</h2>
+                    <DeleteButton onClick={this.deleteNote}>Delete</DeleteButton>
+                    <ModalButton onClick={this.props.history.goBack}>No</ModalButton>
+                </ModalContainer>
+            </ModalOverlay>
+	    );  
+    }
+	
 };
 
 export default DeleteModal;
