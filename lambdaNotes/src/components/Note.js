@@ -103,8 +103,8 @@ class Note extends React.Component {
           <button onClick={this.deleteModal}>Delete</button> */}
           <EditNoteLink onClick={this.editNote}>Edit</EditNoteLink>
           <DeleteNoteLink onClick={this.deleteModal}>Delete</DeleteNoteLink>
-          <NoteTitle>{this.state.note.title}</NoteTitle>
-          <NoteP>{this.state.note.content}</NoteP>
+          <NoteTitle>{this.state.note.note[0].title}</NoteTitle>
+          <NoteP>{this.state.note.note[0].content}</NoteP>
         </NoteCardContainer>
         <div className="modal">
           <div className="innerModal">
