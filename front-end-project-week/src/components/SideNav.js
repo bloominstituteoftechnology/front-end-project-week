@@ -7,22 +7,23 @@ import { Link } from 'react-router-dom';
  ********************************************** Styles *********************************************
  **************************************************************************************************/
 const DivWrapper = styled.div`
-  width: 210px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   border-right: 2px solid rgb(151, 151, 151);
   background-color: rgb(216, 216, 216);
   margin-right: 20px;
+  padding: 0 20px;
 `;
 
 const H1Title = styled.h1`
+  display: flex;
   user-select: none;
 `;
 
 const DivLinkButtons = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
 const LinkNavButton = styled(Link)`
@@ -31,7 +32,6 @@ const LinkNavButton = styled(Link)`
   align-items: center;
   text-decoration: none;
   border: 1px solid rgb(151, 151, 151);
-  width: 85%;
   height: 40px;
   margin-bottom: 20px;
   color: white;
