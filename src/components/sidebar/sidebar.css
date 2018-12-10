@@ -22,14 +22,11 @@
     font-weight: bold;
     color:#4A4A4A;
     text-decoration: none;
-     
 }
 
 .button-view-notes{
     padding: 10px 13%;
-    margin: 25px 0 10px 0
-    
-
+    margin: 25px 0 10px 0;
 }
 
 .button-create{
@@ -39,4 +36,35 @@
 
 .sidebar-wrapper a{
     text-decoration: none;
+}
+
+@media (max-width: 850px) {
+    .sidebar-wrapper{
+        width: 25%;;
+    }
+}
+
+@media (max-width: 650px){
+    
+    .sidebar-wrapper {
+        width: 100%;
+        align-items: center;
+    }
+
+    .sidebar-wrapper a {
+        width: 100%;
+    }
+
+    .lambda-notes{
+        display: flex;
+        justify-content: center;
+    }
+
+    .button-view-notes{
+        width: 100%;
+    }
+
+    .button-create{
+        width: 100%;
+    }
 }

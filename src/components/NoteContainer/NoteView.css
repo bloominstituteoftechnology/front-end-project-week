@@ -8,7 +8,6 @@
 
 .single-note-view{
     width: 100%;
-
 }
 
 .edit-delete{
@@ -43,4 +42,23 @@
     white-space: pre-line;
 }
 
+@media (max-width: 850px) {
+    .edit-delete{
+        padding: 36px 3% 10px 0;
+    }
 
+    .note-title-body {
+        width: 73%;
+     }
+}
+
+@media (max-width: 650px) {
+
+    .edit-delete{
+        padding: 36px 3% 4px 0;
+    }
+
+    .note-title-body p{
+       width: 90%;
+    }
+}

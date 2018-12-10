@@ -40,7 +40,7 @@
 
 .note-card p{
     font-size: 1.8rem;
-    margin: 15px 0;
+    padding: 15px 0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     width: 100%;
@@ -67,3 +67,40 @@
     overflow: hidden;
 }
 
+@media (max-width: 850px) {
+    .all-note-cards{
+        border: 1px solid blue;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+    .note-links{
+        width: 48%;
+    }
+}
+
+@media (max-width: 650px) {
+    .all-note-cards{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .note-links{
+        width: 95%;
+    }
+
+    .all-notes{
+        width: 100%;
+    }
+
+    .notes-wrapper{
+        width: 100%;
+        margin: 20px 1%;
+    }
+
+    .notes{
+        padding: 0 1%;
+    }
+}
