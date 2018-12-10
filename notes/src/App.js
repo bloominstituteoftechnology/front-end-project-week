@@ -6,7 +6,7 @@ import Notes from './Notes';
 import NewNote from './NewNote';
 import SingleNote from './SingleNote';
 
-const URL = 'https://fe-notes.herokuapp.com/note/';
+const URL = 'http://localhost:5200/api/';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,9 +15,8 @@ class App extends React.Component {
       activeNote: null,
       notes: [],
       note: {
-        tags: ["example one", "example two"],
         title: '',
-        textBody: ''
+        content: ''
       },
       isEditing: false,
       editingId: null
@@ -28,8 +27,10 @@ class App extends React.Component {
 
 componentDidMount() {
   axios
-    .get(`${URL}get/all`)
-    .then(response => this.setState({ notes: response.data }))
+    .get(`${URL}notes`)
+    .then(response => {
+       console.log(response.data)
+       this.setState({ notes: response.data })})
     .catch(error => {
       console.error('Error collecting notes!', error)
     });
@@ -37,7 +38,7 @@ componentDidMount() {
 
 getNoteById = id => {
   axios
-    .get(`${URL}get/${id}`)
+    .get(`${URL}notes/${id}`)
     .then(res => {
       console.log(res.data)
       this.setState({ activeNote: res.data })})
@@ -56,7 +57,7 @@ addNote = () => {
        ],
        note: {
         title: '',
-        textBody: ''
+        content: ''
        }
     })})
     .catch(error => {
@@ -64,13 +65,13 @@ addNote = () => {
     })
 }
 
-deleteNote = (ev, _id) => {
-  console.log(ev, _id)
+deleteNote = (ev, id) => {
+  console.log(ev, id)
   ev.preventDefault();
-  const foundNote = this.state.notes.find(note => note._id === _id)
+  const foundNote = this.state.notes.find(note => note.id === id)
     console.log(foundNote)
-  const newNotesArray = this.state.notes.filter(note => note._id !== _id)
-  axios.delete(`${URL}delete/${_id}`)
+  const newNotesArray = this.state.notes.filter(note => note.id !== id)
+  axios.delete(`${URL}edit/${id}`)
     .then(response => {
       console.log(response)
       this.setState({
@@ -97,9 +98,8 @@ editNote = () => {
         editingId: null,
         isEditing: false,
         note: {
-          tags: ["example one", "example two"],
           title: '',
-          textBody: ''
+          content: ''
         }
       });
     })
@@ -120,7 +120,7 @@ prepareUpdateForm = ( event, note) => {
   this.setState({
     note,
     isEditing: true,
-    editingId: note._id
+    editingId: note.id
   })
 }
 
@@ -168,7 +168,7 @@ prepareUpdateForm = ( event, note) => {
             )}
           />
           <Route
-            path='/notes/:_id'
+            path='/notes/:id'
             render={props => (
               <SingleNote 
                 {...props}

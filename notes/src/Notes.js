@@ -6,8 +6,8 @@ import './Notes.css'
 function Notes(props) {
   function routeToNote(event, note) {
     event.preventDefault();
-    props.history.push(`/notes/${note._id}`);
-    props.getNoteById(note._id)
+    props.history.push(`/notes/${note.id}`);
+    props.getNoteById(note.id)
   }
 
   return( 
@@ -17,12 +17,13 @@ function Notes(props) {
         {props.notes.map((note, i)=> {
           return (
               <Card
+                note={note}
                 className="miniNote"
                 onClick={event => routeToNote(event, note)}
                 key={i}>                
                 <CardBody className='cardBody'>
                   <CardTitle className='title'>{note.title}</CardTitle>
-                  <CardText className='note'>{note.textBody}</CardText>
+                  <CardText className='note'>{note.content}</CardText>
                 </CardBody>
               </Card>
             )

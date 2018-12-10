@@ -9,7 +9,7 @@ class SingleNote extends React.Component {
       deleteModal: false,
       note: {
         title: '',
-        textBody: ''
+        content: ''
       }
     }
   }
@@ -24,11 +24,11 @@ class SingleNote extends React.Component {
 
   componentDidMount() {
     console.log(this.props)
-    const myId = this.props.match.params._id;
+    const myId = this.props.match.params.id;
     console.log(myId)
     console.log(this.props.notes)
     // console.log(this.props.notes)
-    const foundNote = this.props.notes.find(note => note._id === myId)
+    const foundNote = this.props.notes.find(note => note.id === myId)
     console.log(foundNote)
     this.setState({
       note: foundNote
@@ -37,7 +37,7 @@ class SingleNote extends React.Component {
   }
 
   deleteConfirmed = (event) => {
-    this.props.deleteNote(event, this.state.note._id);
+    this.props.deleteNote(event, this.state.note.id);
     this.props.history.push('/notes/')
   }
 
@@ -64,7 +64,7 @@ class SingleNote extends React.Component {
           </Modal>
         </div>
         <h2 className='singleNoteTitle'>{this.state.note.title}</h2>
-        <p>{this.state.note.textBody}</p>
+        <p>{this.state.note.content}</p>
       </div>
     )
   //   console.log(this.props)

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Button, Form, FormGroup, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 import './NewNote.css'
 
 
@@ -35,7 +35,7 @@ const NewNote = (props) => {
                 id="exampleText" 
                 placeholder="Note Content"
                 onChange={props.handleInputChange}
-                value={props.note.textBody} />
+                value={props.note.content} />
           </FormGroup>
           <Button className='formButton'type="submit">
             {props.isEditing ? "Update" : "Save"}
