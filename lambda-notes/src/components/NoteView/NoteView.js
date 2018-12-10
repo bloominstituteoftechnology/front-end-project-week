@@ -10,7 +10,7 @@ class NoteView extends React.Component {
           modal: false,
           editing: false,
           editedTitle: '',
-          editedTextBody: ''
+          editedcontent: ''
         };
         this.toggle = this.toggle.bind(this);
       }
@@ -22,7 +22,7 @@ class NoteView extends React.Component {
     //gets api based off of matching id's
       fetchNote = id => {
         axios
-          .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+          .get(`http://localhost:9000/api/notes/${id}`)
           .then(response => {
             this.setState(() => ({ note: response.data }))
             
@@ -33,7 +33,7 @@ class NoteView extends React.Component {
 //puts new note to the api
       editNote = (id) => {
         axios
-        .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.note)
+        .put(`http://localhost:9000/api/notes/edit/${id}`, this.state.note)
         .then(response => {
           console.log('response', response)
           this.setState({ note: response.data })
@@ -49,7 +49,7 @@ class NoteView extends React.Component {
       
       editHandler = event => {
           event.preventDefault();
-          this.setState({ editing: true, editedTitle: this.state.note.title, editedTextBody: this.state.note.textBody })
+          this.setState({ editing: true, editedTitle: this.state.note.title, editedcontent: this.state.note.content })
 
       }
 
@@ -57,11 +57,11 @@ class NoteView extends React.Component {
         event.preventDefault();
         this.setState({ editing: false, note: {
           title: this.state.editedTitle, 
-          textBody: this.state.editedTextBody,
-           _id: this.state.note._id, 
+          content: this.state.editedcontent,
+           id: this.state.note.id, 
            tags: []} 
           })
-        setTimeout(() => { this.editNote(this.state.note._id); }, 500);
+        setTimeout(() => { this.editNote(this.state.note.id); }, 500);
     };
     
 
@@ -75,7 +75,7 @@ class NoteView extends React.Component {
       deleteNoteButton = (id) => {
         
         axios
-        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .delete(`http://localhost:9000/api/notes/delete/${id}`)
         .then(response => {
           console.log('response', response)
         })
@@ -86,7 +86,7 @@ class NoteView extends React.Component {
 //runs function ^^^^ and then pushed back to home page and forces reload
         deleteHandler = event => {
           event.preventDefault();
-          this.deleteNoteButton(this.state.note._id);
+          this.deleteNoteButton(this.state.note.id);
           this.props.history.push('/')
           window.location.reload();
           
@@ -133,7 +133,7 @@ class NoteView extends React.Component {
            </div>
            <div className="notes-container">
             <h1 className = 'noteTitle'>{this.state.note.title}</h1>
-            <p>{this.state.note.textBody}</p>
+            <p>{this.state.note.content}</p>
             </div>
             
                 <form className = 'editform' onSubmit={this.saveHandler}>
@@ -148,12 +148,12 @@ class NoteView extends React.Component {
                     value={this.state.editedTitle}/>
                   <input
                     className = 'input2'
-                    name="editedTextBody"
+                    name="editedcontent"
                     type="textarea"
                     style={editStyle}
                     onKeyDown={this.submitHandler}
                     onChange={this.changeHandler}
-                    value={this.state.editedTextBody}/>
+                    value={this.state.editedcontent}/>
 
                     <Button className = 'links' onClick={this.saveHandler} style={editStyle} >Save</Button>
                 </form>

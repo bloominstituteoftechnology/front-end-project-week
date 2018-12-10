@@ -8,7 +8,7 @@ class CreateNew extends Component {
         super(props);
         this.state = {
             title: '',
-            textBody: '',
+            content: '',
         }
     }
 
@@ -20,11 +20,11 @@ addNew = event => {
 
     const newNote = {
         title: this.state.title,
-        textBody: this.state.textBody,
+        content: this.state.content,
     }
 
     axios
-        .post ('https://fe-notes.herokuapp.com/note/create',newNote)
+        .post ('http://localhost:9000/api/notes/create',newNote)
         .then(response => {
             console.log('ADDING NOTE', response);
             
@@ -37,7 +37,7 @@ addNew = event => {
 
         this.setState({
             title: '',
-            textBody: ''
+            content: ''
           });
 
         // this.props.history.push('/');
@@ -72,8 +72,8 @@ render() {
                     className = 'noteContent'
                     onChange = {this.handleInputChange} 
                     placeholder = 'Note Content'
-                    value = {this.state.textBody}
-                    name = 'textBody'
+                    value = {this.state.content}
+                    name = 'content'
                 />
                 {/* <Redirect to="/"> */}
                 <button onClick = { this.saveHandler} className = 'links' > Save</button>

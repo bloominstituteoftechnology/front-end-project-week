@@ -13,12 +13,12 @@ class All extends Component {
                 
                 {this.props.notes.slice(0).reverse().map(note => {
                     return (
-                        <Link to={`/note/${note._id}`} key={note._id}>
+                        <Link to={`/notes/${note.id}`} key={note.id}>
                             <NoteCard
                                 title = {note.title}
-                                textBody = {note.textBody}
+                                content = {note.content}
                                 notes = {note}
-                                key = {note._id}
+                                key = {note.id}
                                 />
                          </Link>
                     )

@@ -6,7 +6,7 @@ const NoteCard = props => {
         <div className ='card'>
             
                 <h3 className = 'noteCardTitle'> {props.title} </h3>
-                <p>{props.textBody}</p>
+                <p>{props.content}</p>
             
 
             

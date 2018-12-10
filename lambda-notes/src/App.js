@@ -21,7 +21,7 @@ class App extends Component {
   //gets all the data from the api
   componentDidMount () {
     axios
-    .get('https://fe-notes.herokuapp.com/note/get/all')
+    .get('http://localhost:9000/api/notes')
     .then(response => {
       console.log(response);
       this.setState({notes: response.data})
