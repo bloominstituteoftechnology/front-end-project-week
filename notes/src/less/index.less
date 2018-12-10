@@ -1,0 +1,218 @@
+@import './variables';
+@import './mixins';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.App {
+    .flex(space-between, flex-start, row);
+    @media @tablet {
+        .flex(flex-start, flex-start, column);
+    }
+    .nav {
+        .flex(flex-start, flex-start, column);
+        width: 300px;
+        background-color: @medium-grey;
+        position: fixed;
+        height: 100vh;
+        @media @tablet {
+            height: 20vh;
+            width: 100%;
+            .flex(space-evenly, center, column);
+            z-index: 2;
+        }
+        @media @phone {
+            height: 30vh;
+        }
+        .nav-title {
+            font-size: 4rem;
+            color: @dark-grey;
+            margin: 20px 20px 10px;
+        }
+        .nav-links {
+            margin: 10px auto;
+            .flex(center, center, column);
+            @media @tablet {
+                .flex(center, center, row);
+            }
+            @media @phone {
+                .flex(center, center, column);
+            }
+            .nav-link {
+                .button(@teal, white);
+                margin: 10px;
+                max-width: 95%;
+            }
+        }
+    }
+    .current-page {
+        width: 80%;
+        min-height: 100vh;
+        margin-left: 300px;
+        padding: 10px 30px;
+        background-color: @light-grey;
+        @media @tablet {
+            min-height: 80vh;
+            margin: 20vh 0 0;
+            width: 100%;
+        }
+        @media @phone {
+            margin: 30vh 0 0;
+        }
+    }
+}
+
+.note-list {
+    margin-top: 50px;
+    @media @phone {
+        text-align: center;
+    }
+    h2 {
+        font-size: 3rem;
+        color: @dark-grey;
+        margin-left: 10px;
+        @media @phone {
+            margin-left: 0;
+        }
+    }
+    .searchbar {
+        margin-left: 10px;
+        padding: 10px;
+        width: 250px;
+        font-size: 1.8rem;
+        border: 1px solid @medium-grey;
+        @media @phone {
+            margin-left: 0;
+        }
+    }
+    .notes-container {
+        .flex(flex-start, flex-start, row);
+        flex-wrap: wrap;
+        @media @phone {
+            .flex(center, flex-start, row);
+        }
+        a {
+            text-decoration: none;
+            padding: 10px 0;
+            color: black;
+        }
+    }
+}
+
+.note-card {
+    border: 1px solid @dark-grey;
+    padding: 10px 20px;
+    margin: 10px;
+    width: 250px;
+    height: 270px;
+    background-color: white;
+    .note-title {
+        font-size: 2.4rem;
+        padding: 5px 0 10px;
+        border-bottom: 1px solid @dark-grey;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .note-body {
+        line-height: 1.8rem;
+        font-size: 1.8rem;
+        height: 180px;
+        word-break: break-word;
+        hyphens: auto;
+        -moz-hyphens: auto;
+        overflow: hidden;
+        padding-bottom: 10px;
+    }
+}
+
+.note-page {
+    .flex(space-between, flex-start, column);
+    .note-btns {
+        align-self: flex-end;
+        .flex(space-evenly, center, row);
+        margin: 10px 30px;
+        .note-btn {
+            font-size: 1.8rem;
+            text-decoration: underline;
+            color: black;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    }
+    .full-note {
+        .full-title {
+            font-size: 4rem;
+            font-weight: 600;
+            color: @dark-grey;
+        }
+        .full-body {
+            font-size: 2rem;
+            color: @dark-grey;
+            margin-top: 30px;
+        }
+    }
+}
+
+.form {
+    .flex(flex-start, flex-start, column);
+    font-size: 4rem;
+    font-weight: 600;
+    color: @dark-grey;
+    margin: 40px 10px;
+    .title-input {
+       .input(50%, auto, 30px 0 10px);
+       @media @phone {
+           width: 100%;
+       }
+    }
+    .content-input {
+        .input(70%, 400px, 10px 0 20px);
+        @media @phone {
+            width: 100%;
+        }
+    }
+    .important-container {
+        .flex(center, center, row);
+        margin-bottom: 20px;
+        .important-checkbox {
+            height: 40px;
+            width: 40px;
+        }
+        .important {
+            font-size: 2.2rem;
+        }
+    }
+    .form-submit {
+        .button(@teal, white);
+        @media @phone {
+            margin: auto;
+        }
+    }
+}
+
+.modal {
+    padding: 60px 80px;
+    font-size: 2rem;
+    text-align: center;
+    .modal-btns {
+        .flex(center, center, row);
+        margin-top: 30px;
+        .modal-delete {
+            .button(@red, white);
+            margin-right: 30px;
+        }
+        .modal-no {
+            .button(@teal, white);
+        }
+    }
+}
+
+.loading {
+    margin: 30vh auto;
+}
