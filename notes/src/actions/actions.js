@@ -42,7 +42,10 @@ export const onUpdateTodos = (myTodos) => dispatch => {
     axios
         .put(`https://fe-notes.herokuapp.com/note/edit/${myTodos.id}`, myTodos)
         .then(response => {
-            dispatch({ type: FETCH_SUCCESS, payload: response.data })
+            axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+            .then(updateResponse => {
+                dispatch({ type: FETCH_SUCCESS, payload: updateResponse.data })
+            })
         })
         .catch(err => {
             dispatch({ type: FETCH_FAILURE, payload: err })
@@ -55,10 +58,10 @@ export const onDeleteTodos = (deleteTodos) => dispatch => {
     axios
         .delete(`https://fe-notes.herokuapp.com/note/delete/${deleteTodos.id}`, deleteTodos)
         .then(response => {
-            console.log('from delete todos', response)
+            // console.log('from delete todos', response)
             axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
             .then(deleteResponse => {
-                console.log('deleteResponse', deleteResponse)
+                // console.log('deleteResponse', deleteResponse)
                 dispatch({ type: FETCH_SUCCESS, payload: deleteResponse.data })
             }) 
         })
