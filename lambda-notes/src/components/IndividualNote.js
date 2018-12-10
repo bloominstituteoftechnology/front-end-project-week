@@ -54,6 +54,10 @@ class IndividualNote extends React.Component {
         }
     }
 
+    toggleWillDelete = () => {
+        this.setState({ willDelete: !this.state.willDelete });
+    }
+
     render(){
         const note = this.props.notes.find(note => `${note._id}` === this.props.match.params.id);
         if (!note || !note.title) {
@@ -63,12 +67,12 @@ class IndividualNote extends React.Component {
         return(
             <NotePage>
                 <EditButton onClick={() => this.props.history.push(`/edit-note/${note._id}`)}>edit</EditButton>
-                <DeleteButton onClick={() => this.setState({ willDelete: !this.state.willDelete })}>
+                <DeleteButton onClick={this.toggleWillDelete}>
                     delete
                 </DeleteButton>
                 <h2 className='note-page-title'>{note.title}</h2>
                 <p className='note-page-text'>{note.textBody}</p>
-                <DeleteModal {...this.props} note={note} show={this.state.willDelete}/>
+                <DeleteModal {...this.props} note={note} show={this.state.willDelete} toggle={this.toggleWillDelete}/>
             </NotePage>
         );
     }

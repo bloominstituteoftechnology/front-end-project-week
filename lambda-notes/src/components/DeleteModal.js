@@ -4,13 +4,22 @@ import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
 
 const ModalContainer = styled.div`
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(165, 165, 165, 0.33);
+    position: fixed;
+    top: 0;
+    left: 0;
+`
+
+const Modal = styled.div`
     height: 18rem;
     width: 53rem;
     border: 1px solid #AFAFAF;
     background-color: #FBFAFB;
     position: absolute;
-    top: 17.5rem;
-    left: -4rem;
+    top: 20.5rem;
+    left: 17.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,6 +49,7 @@ const ModalButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 `
 
 const DeleteModalButton = styled(ModalButton)`
@@ -50,18 +60,20 @@ const DeleteModal = props => {
     if(props.show) {
         return(
             <ModalContainer>
-                <p>Are you sure you want to delete this?</p>
-                <ButtonContainer>
-                    <DeleteModalButton onClick={event => {
-                        event.preventDefault();
-                        props.deleteNote(props.note._id);
-                        props.history.push('/');
-                    }}>
-                        Delete
-                    </DeleteModalButton>
-                    <ModalButton>No</ModalButton>
-                </ButtonContainer>
+                <Modal>
+                    <p>Are you sure you want to delete this?</p>
+                    <ButtonContainer>
+                        <DeleteModalButton onClick={event => {
+                            event.preventDefault();
+                            props.deleteNote(props.note._id);
+                            props.history.push('/');
+                        }}>
+                            Delete
+                        </DeleteModalButton>
+                        <ModalButton onClick={props.toggle}>No</ModalButton>
+                    </ButtonContainer>
 
+                </Modal>
             </ModalContainer>
     );
     } else {
