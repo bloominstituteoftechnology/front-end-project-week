@@ -1,5 +1,7 @@
 import React from "react";
 
+import { NavLink } from "react-router-dom";
+
 import "./Navigation.css";
 
 const Navigation = () => {
@@ -11,8 +13,8 @@ const Navigation = () => {
           <br />
           Notes
         </h1>
-        <div className="top-btn btn">View Your Notes</div>
-        <div className="btn">+ Create New Note</div>
+        <NavLink exact to="/"><div className="top-btn btn">View Your Notes</div></NavLink>
+        <NavLink to="/add-note"><div className="btn">+ Create New Note</div></NavLink>  
       </div>
     </nav>
   );

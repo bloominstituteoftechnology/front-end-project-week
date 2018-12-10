@@ -11,6 +11,9 @@
     display: flex;
     flex-direction: column;
 }
+.nav-bar .nav-container a {
+    text-decoration: none;
+}
 
 .nav-bar .nav-container h1 {
     color: var(--dark-gray);
