@@ -16,7 +16,7 @@ class App extends Component {
 				id: '',
 				title: '',
 				textBody: ''
-			}
+			},
 		};
 	}
 
@@ -51,6 +51,32 @@ class App extends Component {
 				console.log(err);
 			});
 	};
+
+	editNote = (id) => {
+		axios
+		.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
+		.then((response) => {
+			this.setState({
+				...this.state,
+				notes: [
+					...this.state.notes,
+					response.data
+				]
+			})
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+	};
+	
+	deleteNote = (id) => {
+		axios
+		.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+		.then(null)
+		.catch((err) => {
+			console.log(err);
+		});
+	}
 
 	handleChange = (event) => {
 		event.preventDefault();
@@ -91,7 +117,9 @@ class App extends Component {
           render={props => (
             <NoteView
               {...props}
-              notes={this.state.notes}
+			  notes={this.state.notes}
+			  editNote={this.editNote}
+			  deleteNote={this.deleteNote}
             />
           )}
           />

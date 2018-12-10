@@ -9,8 +9,8 @@ const NoteList = (props) => {
 			<H1>Notes</H1>
 			<Div>
 			{props.notes.slice(0,12).map((note) => 
-				<Link to={`/${note._id}`}>
-				<Section key={note._id}>
+				<Link to={`/${note._id}`} key={note._id}>
+				<Section >
 					<H2>{note.title}</H2>
 					<P>{note.textBody}</P>
 				</Section>

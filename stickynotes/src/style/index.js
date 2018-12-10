@@ -68,7 +68,7 @@ export const Button = styled.button`
 export const Main = styled.main`
 	background: white;
 	border-left: 1px solid black;
-	width: 75%;
+	width: 70%;
 	padding: 5% 0;
 	display: flex;
 	flex-flow: column nowrap;
