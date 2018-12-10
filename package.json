@@ -1,0 +1,24 @@
+{
+  "name": "front-end-project-week",
+  "version": "1.0.0",
+  "description": "Frontend Project Week",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmarker1101/front-end-project-week.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kmarker1101/front-end-project-week/issues"
+  },
+  "homepage": "https://github.com/kmarker1101/front-end-project-week#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.7"
+  }
+}

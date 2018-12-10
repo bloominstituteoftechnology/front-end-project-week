@@ -7,10 +7,11 @@ import logger from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
+import rootReducer from "./reducers";
 
 const middleware = applyMiddleware(thunk, logger);
 
-const store = createStore(() => {}, middleware);
+const store = createStore(rootReducer, middleware);
 
 store.subscribe(() => {
 	console.log(store.getState());
