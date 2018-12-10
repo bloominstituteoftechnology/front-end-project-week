@@ -94,7 +94,7 @@ class NotesList extends React.Component {
       <h3>Your Notes:</h3>
         {this.state.currentNotes.map(note => {
           return (
-            <Link to={`/${note._id}`} key={note._id}>
+            <Link to={`/${note.id}`} key={note.id}>
               <NotePreview note={note} />
             </Link>)
         })}

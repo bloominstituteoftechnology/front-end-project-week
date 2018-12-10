@@ -14,7 +14,7 @@ class Form extends React.Component {
   componentDidMount(){
     if (this.props.note) {
       this.setState({
-        id: this.props.note._id,
+        id: this.props.note.id,
         tags: this.props.note.tags,
         title: this.props.note.title,
         textBody: this.props.note.textBody,
