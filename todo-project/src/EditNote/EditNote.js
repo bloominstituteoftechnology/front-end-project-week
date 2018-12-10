@@ -26,7 +26,7 @@ export default class CreateNote extends Component {
 
   fetchData() {
     axios
-          .get('http://localhost:9000/notes')
+          .get('https://fsw-14-project-notes.herokuapp.com/notes')
           .then(response => {
               console.log(response)
               this.setState({ notes: response.data })
@@ -45,7 +45,7 @@ export default class CreateNote extends Component {
 
     updateNote = (id) => {
       axios 
-        .put(`http://localhost:9000/${id}/edit-note`, {title: this.state.title, content: this.state.content})
+        .put(`https://fsw-14-project-notes.herokuapp.com/${id}/edit-note`, {title: this.state.title, content: this.state.content})
         .then(response => {
           console.log(response)
         })

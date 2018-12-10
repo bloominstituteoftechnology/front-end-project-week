@@ -25,7 +25,7 @@ export default class CreateNote extends Component {
     saveNote = () => {
       const myObj = { title: this.state.title, content: this.state.content }
       axios
-        .post('http://localhost:9000/notes/', myObj)
+        .post('https://fsw-14-project-notes.herokuapp.com/notes', myObj)
         .then(response => {
           console.log(response)
         })
