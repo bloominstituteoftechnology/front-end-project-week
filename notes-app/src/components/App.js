@@ -18,6 +18,9 @@ class App extends Component {
   }
 
   componentDidMount(){
+    this.getNotes();
+  }
+  getNotes = () =>{
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then(response => {
@@ -68,6 +71,19 @@ class App extends Component {
       console.log(this.state.notes)
   }
 
+  deleteNote = (id) => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        console.log(response)
+        this.getNotes();
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+  }
+
   startUpdate =(obj) =>{
     this.setState({
       editNote: obj
@@ -111,6 +127,7 @@ class App extends Component {
           <Note
           {...props}
           startUpdate={this.startUpdate}
+          deleteNote={this.deleteNote}
           />
         )}
           

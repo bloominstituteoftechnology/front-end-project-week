@@ -155,5 +155,38 @@ button:hover{
   margin-right: 20px;
 }
 
+/* Delete ---------------------*/
+
+.delete-page{
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(2,2,2,0.3);
+  ;
+ 
+}
+.delete-page .delete-block{
+  width: 530px;
+  height: 180px;
+  margin: 290px auto;
+  background: white;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.delete-block p{
+  text-align: center;
+}
+.delete{
+  background: red;
+}
+.delete:hover{
+  color: red;
+}
+
 
 
