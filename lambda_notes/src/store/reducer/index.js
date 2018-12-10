@@ -10,11 +10,13 @@ import {
   EDIT_NOTE_FAILURE,
   DELETE_NOTE,
   DELETE_NOTE_SUCCESS,
-  DELETE_NOTE_FAILURE
+  DELETE_NOTE_FAILURE,
+  FILTER_NOTES
 } from "../actions";
 
 const initialState = {
   notes: [],
+  filteredNotes: [],
   fetchingNotes: false,
   error: null
 };
@@ -25,6 +27,7 @@ const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingNotes: true,
+        filteredNotes: [],
         error: null
       };
     case FETCH_NOTES_SUCCESS:
@@ -98,6 +101,19 @@ const notesReducer = (state = initialState, action) => {
         ...state,
         fetchingNotes: false,
         error: action.payload
+      };
+    case FILTER_NOTES:
+      return {
+        ...state,
+        filteredNotes:
+          action.payload !== ""
+            ? state.notes.filter(note => {
+                return note.title
+                  .toLowerCase()
+                  .includes(action.payload.toLowerCase());
+              })
+            : "",
+        notes: state.filteredNotes.length ? state.filteredNotes : state.notes
       };
     default:
       return state;

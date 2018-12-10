@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { getNotes } from "../store/actions";
+import { getNotes, filterNotes } from "../store/actions";
 import { connect } from "react-redux";
 import { CSVLink } from "react-csv";
 import download from "../img/download.svg";
@@ -132,13 +132,55 @@ class NotesList extends Component {
     if (!this.props.notes || this.props.fetchingNotes) {
       return <h3>Retrieving Notes, One Moment...</h3>;
     }
+    if (!this.props.filteredNotes.length) {
+      return (
+        <List>
+          <Header>
+            <p>
+              Your Notes:&nbsp;
+              <StyledCSVLink data={this.props.notes} headers={headers}>
+                <img
+                  src={download}
+                  style={{ width: 20, marginRight: 10 }}
+                  alt="a sgv download icon"
+                />
+                CSV
+              </StyledCSVLink>
+            </p>
+          </Header>
+          {this.props.notes.map(note => (
+            <Div
+              onClick={() => {
+                this.props.history.push(`/note/${note._id}`);
+              }}
+              key={note._id}
+            >
+              <H2>{this.getNoteString(note.title, 10)}</H2>
+              <P>{this.getNoteString(note.textBody, 25)}</P>
+            </Div>
+          ))}
+          <IconFooter>
+            <PAnchor>
+              icon from{" "}
+              <a
+                href="https://fontawesome.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                fontawesome.com
+              </a>
+            </PAnchor>
+          </IconFooter>
+        </List>
+      );
+    }
 
     return (
       <List>
         <Header>
           <p>
             Your Notes:&nbsp;
-            <StyledCSVLink data={this.props.notes} headers={headers}>
+            <StyledCSVLink data={this.props.filteredNotes} headers={headers}>
               <img
                 src={download}
                 style={{ width: 20, marginRight: 10 }}
@@ -148,7 +190,7 @@ class NotesList extends Component {
             </StyledCSVLink>
           </p>
         </Header>
-        {this.props.notes.map(note => (
+        {this.props.filteredNotes.map(note => (
           <Div
             onClick={() => {
               this.props.history.push(`/note/${note._id}`);
@@ -176,7 +218,11 @@ class NotesList extends Component {
   }
 }
 
+const mapStateToProps = ({ filteredNotes }) => ({
+  filteredNotes
+});
+
 export default connect(
-  null,
-  { getNotes }
+  mapStateToProps,
+  { getNotes, filterNotes }
 )(NotesList);

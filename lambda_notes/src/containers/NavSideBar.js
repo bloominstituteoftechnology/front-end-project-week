@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { filterNotes, getNotes } from "../store/actions";
+import { connect } from "react-redux";
 
 // ==============================
 // ======   STYLED COMPS   ======
@@ -102,6 +104,12 @@ const SearchBar = styled.input`
 // ==============================
 
 class NavSideBar extends Component {
+  handleInputChange = e => {
+    e.target.value === ""
+      ? this.props.getNotes()
+      : this.props.filterNotes(e.target.value);
+  };
+
   render() {
     return (
       <Nav>
@@ -112,7 +120,7 @@ class NavSideBar extends Component {
         <StyledLink to="/note-add">+&nbsp;Create&nbsp;New&nbsp;Note</StyledLink>
         <SearchBar
           value={this.props.filteredNotes}
-          onChange={this.props.handleInputChange}
+          onChange={this.handleInputChange}
           placeholder="&#xf002; Search"
           className="fa fa-input"
         />
@@ -121,4 +129,11 @@ class NavSideBar extends Component {
   }
 }
 
-export default NavSideBar;
+const mapStateToProps = ({ notes }) => ({
+  notes
+});
+
+export default connect(
+  mapStateToProps,
+  { filterNotes, getNotes }
+)(NavSideBar);

@@ -11,7 +11,8 @@ export const FETCH_NOTES = "FETCH_NOTES",
   EDIT_NOTE_FAILURE = "EDIT_NOTE_FAILURE",
   DELETE_NOTE = "DELETE_NOTE",
   DELETE_NOTE_SUCCESS = "DELETE_NOTE_SUCCESS",
-  DELETE_NOTE_FAILURE = "DELETE_NOTE_FAILURE";
+  DELETE_NOTE_FAILURE = "DELETE_NOTE_FAILURE",
+  FILTER_NOTES = "FILTER_NOTES";
 
 const URL = "https://fe-notes.herokuapp.com/note/";
 
@@ -57,4 +58,8 @@ export const deleteNote = note => dispatch => {
       dispatch({ type: DELETE_NOTE_SUCCESS, payload: note });
     })
     .catch(err => dispatch({ type: DELETE_NOTE_FAILURE, payload: err }));
+};
+
+export const filterNotes = filterState => dispatch => {
+  dispatch({ type: FILTER_NOTES, payload: filterState });
 };
