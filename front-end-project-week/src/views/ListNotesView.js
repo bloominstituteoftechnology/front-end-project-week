@@ -7,9 +7,13 @@ import ListNotes from '../components/ListNotes';
 /***************************************************************************************************
  ********************************************** Styles *********************************************
  **************************************************************************************************/
-const DivPageWrapper = styled.div``;
+const DivPageWrapper = styled.div`
+  width: 85%;
+`;
 
-const H1PageTitle = styled.h1``;
+const H2PageTitle = styled.h2`
+  margin: 10px;
+`;
 
 /***************************************************************************************************
  ********************************************* Component *******************************************
@@ -22,7 +26,11 @@ class ListNotesView extends Component {
   render() {
     return (
       <DivPageWrapper>
-        <H1PageTitle>Your Notes:</H1PageTitle>
+        {this.props.fetchingNotes ? (
+          <h2>Loading Notes...</h2>
+        ) : (
+          <H2PageTitle>Your Notes:</H2PageTitle>
+        )}
         <ListNotes {...this.props} />
       </DivPageWrapper>
     );

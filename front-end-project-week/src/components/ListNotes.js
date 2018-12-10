@@ -18,7 +18,6 @@ const ListNotes = props => {
   console.log(props);
   return (
     <DivListNotesPage>
-      {props.fetchingNotes ? <h2>Loading Notes...</h2> : null}
       <DivListNotesBoard>
         {props.notes.map(note => {
           console.log(note);
@@ -27,6 +26,9 @@ const ListNotes = props => {
               id={note._id}
               title={note.title}
               textBody={note.textBody}
+              noteDetailsLink={`${props.urlLinks.home}${
+                props.urlLinks.readNote
+              }/${note._id}`}
             />
           );
         })}

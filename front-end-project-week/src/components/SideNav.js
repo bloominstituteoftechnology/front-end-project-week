@@ -6,11 +6,46 @@ import { Link } from 'react-router-dom';
 /***************************************************************************************************
  ********************************************** Styles *********************************************
  **************************************************************************************************/
-const DivWrapper = styled.div``;
+const DivWrapper = styled.div`
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid rgb(151, 151, 151);
+  background-color: rgb(216, 216, 216);
+  margin-right: 20px;
+`;
 
-const H1Title = styled.h1``;
+const H1Title = styled.h1`
+  user-select: none;
+`;
 
-const LinkNavButton = styled(Link)``;
+const DivLinkButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const LinkNavButton = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: 1px solid rgb(151, 151, 151);
+  width: 85%;
+  height: 40px;
+  margin-bottom: 20px;
+  color: white;
+  background-color: rgb(43, 193, 196);
+  font-weight: bold;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: -1px 3px 10px 1px rgba(0, 0, 0, 0.2);
+  user-select: none;
+
+  &:hover {
+    background-color: white;
+    color: rgb(43, 193, 196);
+  }
+`;
 
 /***************************************************************************************************
  ********************************************* Component *******************************************
@@ -19,8 +54,12 @@ const SideNav = props => {
   return (
     <DivWrapper>
       <H1Title>Lambda Notes</H1Title>
-      <LinkNavButton to={props.viewNotesLink}>View Your Notes</LinkNavButton>
-      <LinkNavButton to={props.createNoteLink}>+ Create New Note</LinkNavButton>
+      <DivLinkButtons>
+        <LinkNavButton to={props.viewNotesLink}>View Your Notes</LinkNavButton>
+        <LinkNavButton to={props.createNoteLink}>
+          + Create New Note
+        </LinkNavButton>
+      </DivLinkButtons>
     </DivWrapper>
   );
 };
