@@ -13,10 +13,17 @@ class App extends Component {
   constructor() {
     super();
     this.state ={ 
-      url: ''
+      // url: '',
+      searchText: '',
     }
   }
 
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+    console.log(this.state.searchText);
+  }
 
   render() {
     return (
@@ -29,6 +36,14 @@ class App extends Component {
             <div>
               <NavLink exact to='/'><button className='navBtn'>View Your Notes</button></NavLink>
               <NavLink to='/create new note'><button className='navBtn'>+ Create New Note</button></NavLink>
+              <input 
+                onChange={this.handleChange}
+                type="text"
+                name='searchText'
+                value={this.state.searchText}
+                className='searchInput'
+                placeholder='Search for ...'
+              />
             </div>
           </div> 
 
@@ -39,6 +54,7 @@ class App extends Component {
                 render={props => 
                   <NotesList 
                     {...props} 
+                    search={this.state.searchText}
                   /> 
                 }
               />

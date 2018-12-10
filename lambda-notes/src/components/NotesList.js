@@ -31,11 +31,17 @@ class NotesList extends React.Component {
         if(this.props.fetching) {
             return <h3>Loading Notes ...</h3>
         }
+
+        let filtered = this.props.notes.filter(note => {
+            if(note.title.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1 || note.textBody.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1) {
+                return note;
+            }
+        })
         return (
             <div>
                 <h3 className='notes-page-title'>Your Notes:</h3>
                 <div className='noteList-card-container'>
-                    {this.props.notes.map(note => {
+                    {filtered.map(note => {
                         return (
                             <div key={note._id}><NoteCard noteInfo={note} /></div>
                         );
