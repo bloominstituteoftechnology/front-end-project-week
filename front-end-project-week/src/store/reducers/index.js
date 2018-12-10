@@ -9,6 +9,7 @@ import {
 
 const initialState = {
   notes: [],
+  note: {},
   fetchingNotes: false,
   fetchingNote: false,
   addingNote: false,
@@ -51,8 +52,8 @@ export const notesReducer = (state = initialState, action) => {
     case FETCH_NOTE_LOADING:
       return {
         ...state,
-        fetchingNotes: true,
-        fetchingNote: false,
+        fetchingNotes: false,
+        fetchingNote: true,
         addingNote: false,
         deletingNote: false,
         editingNote: false

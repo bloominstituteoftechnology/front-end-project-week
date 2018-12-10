@@ -15,7 +15,7 @@ export const FETCH_NOTE_FAILURE = 'FETCH_NOTE_FAILURE';
 /***************************************************************************************************
  ********************************************** Actions ********************************************
  **************************************************************************************************/
-export const getNotes = link => dispatch => {
+export const getNotes = () => dispatch => {
   dispatch({ type: FETCH_NOTES_LOADING });
   axios
     .get(`${urlLinks.server}${urlLinks.home}${urlLinks.readNotes}`)
@@ -25,10 +25,10 @@ export const getNotes = link => dispatch => {
     .catch(err => dispatch({ type: FETCH_NOTES_FAILURE, payload: err }));
 };
 
-export const getNote = (link, id) => dispatch => {
+export const getNote = id => dispatch => {
   dispatch({ type: FETCH_NOTE_LOADING });
   axios
-    .get(`${urlLinks.server}${urlLinks.home}${urlLinks.readNote}/${id}`)
+    .get(`${urlLinks.server}${urlLinks.home}${urlLinks.readNoteServer}/${id}`)
     .then(res => {
       dispatch({ type: FETCH_NOTE_SUCCESS, payload: res.data });
     })

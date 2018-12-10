@@ -29,16 +29,17 @@ class ListNotesView extends Component {
         {this.props.fetchingNotes ? (
           <h2>Loading Notes...</h2>
         ) : (
-          <H2PageTitle>Your Notes:</H2PageTitle>
+          <div>
+            <H2PageTitle>Your Notes:</H2PageTitle>
+            <ListNotes {...this.props} />
+          </div>
         )}
-        <ListNotes {...this.props} />
       </DivPageWrapper>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     notes: state.notes,
     fetchingNotes: state.fetchingNotes,

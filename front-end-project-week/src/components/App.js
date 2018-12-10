@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import SideNav from './SideNav';
 import ListNotesView from '../views/ListNotesView';
+import NoteView from '../views/NoteView';
 
 /***************************************************************************************************
  ********************************************* Variables *******************************************
@@ -14,9 +15,10 @@ const server = isTestServerOn
 export const urlLinks = {
   server: server,
   home: '/',
-  readNote: `note/get`,
+  readNoteServer: `note/get`,
   readNotes: `note/get/all`,
-  readNoteId: `note/get/:id`,
+  readNoteClient: `note/get/single`,
+  readNoteId: `note/get/single/:id`,
   createNote: `note/create`,
   deleteNote: 'note/delete/id',
   editNote: 'note/edit/id'
@@ -28,6 +30,7 @@ export const urlLinks = {
 const DivWrapper = styled.div`
   display: flex;
   background-color: rgb(243, 243, 243);
+  height: 100%;
 `;
 
 /***************************************************************************************************
@@ -46,6 +49,11 @@ class App extends Component {
           exact
           path={`${urlLinks.home}${urlLinks.readNotes}`}
           render={props => <ListNotesView {...props} urlLinks={urlLinks} />}
+        />
+        <Route
+          exact
+          path={`${urlLinks.home}${urlLinks.readNoteId}`}
+          render={props => <NoteView {...props} urlLinks={urlLinks} />}
         />
       </DivWrapper>
     );

@@ -14,6 +14,7 @@ const DivWrapper = styled.div`
   background-color: rgb(216, 216, 216);
   margin-right: 20px;
   padding: 0 20px;
+  height: 100%;
 `;
 
 const H1Title = styled.h1`

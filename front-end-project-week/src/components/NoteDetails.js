@@ -5,10 +5,7 @@ import styled from 'styled-components';
 /***************************************************************************************************
  ********************************************** Styles *********************************************
  **************************************************************************************************/
-const DivWrapper = styled.div`
-  background-color: black;
-  color: white;
-`;
+const DivWrapper = styled.div``;
 
 /***************************************************************************************************
  ********************************************* Component *******************************************
@@ -16,7 +13,8 @@ const DivWrapper = styled.div`
 const NoteDetails = props => {
   return (
     <DivWrapper>
-      <h1>This is the NoteDetails Component</h1>
+      <h1>{props.note.title}</h1>
+      <p>{props.note.textBody}</p>
     </DivWrapper>
   );
 };

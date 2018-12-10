@@ -15,19 +15,18 @@ const DivListNotesBoard = styled.div`
  ********************************************* Component *******************************************
  **************************************************************************************************/
 const ListNotes = props => {
-  console.log(props);
   return (
     <DivListNotesPage>
       <DivListNotesBoard>
         {props.notes.map(note => {
-          console.log(note);
           return (
             <NoteSticky
+              key={note._id}
               id={note._id}
               title={note.title}
               textBody={note.textBody}
               noteDetailsLink={`${props.urlLinks.home}${
-                props.urlLinks.readNote
+                props.urlLinks.readNoteClient
               }/${note._id}`}
             />
           );
