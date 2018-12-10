@@ -8,3 +8,10 @@ export {
   FETCH_NOTE_FAILURE,
   getNote
 } from './FetchNotes';
+
+export {
+  ADD_NOTE_LOADING,
+  ADD_NOTE_SUCCESS,
+  ADD_NOTE_FAILURE,
+  addNote
+} from './CreateNote';

@@ -4,7 +4,10 @@ import {
   FETCH_NOTES_FAILURE,
   FETCH_NOTE_LOADING,
   FETCH_NOTE_SUCCESS,
-  FETCH_NOTE_FAILURE
+  FETCH_NOTE_FAILURE,
+  ADD_NOTE_LOADING,
+  ADD_NOTE_SUCCESS,
+  ADD_NOTE_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -18,8 +21,9 @@ const initialState = {
   error: null
 };
 
-export const notesReducer = (state = initialState, action) => {
+export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    // List of notes
     case FETCH_NOTES_LOADING:
       return {
         ...state,
@@ -49,6 +53,7 @@ export const notesReducer = (state = initialState, action) => {
         editingNote: false,
         error: action.payload
       };
+    // Single note
     case FETCH_NOTE_LOADING:
       return {
         ...state,
@@ -78,9 +83,39 @@ export const notesReducer = (state = initialState, action) => {
         editingNote: false,
         error: action.payload
       };
+    // Create note
+    case ADD_NOTE_LOADING:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchingNote: false,
+        addingNote: true,
+        deletingNote: false,
+        editingNote: false
+      };
+    case ADD_NOTE_SUCCESS:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchingNote: false,
+        addingNote: false,
+        deletingNote: false,
+        editingNote: false,
+        notes: action.payload
+      };
+    case ADD_NOTE_FAILURE:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchingNote: false,
+        addingNote: false,
+        deletingNote: false,
+        editingNote: false,
+        error: action.payload
+      };
     default:
       return state;
   }
 };
 
-export default notesReducer;
+export default rootReducer;
