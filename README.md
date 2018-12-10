@@ -1,3 +1,23 @@
+## info for backend portion of project completed a month later:
+
+# Trello board for backend week project(server):
+
+https://trello.com/b/uXg6FHtF/lambda-notes-backend-adam-mckenney
+
+# Link to backend project repo:
+
+https://github.com/DaftBeowulf/back-end-project-week
+
+# Link to heroku-deployed server for backend:
+
+https://fsw14-lambda-notes.herokuapp.com/
+
+# Link to netlify-deployed frontend:
+
+https://confident-heisenberg-b35ad1.netlify.com/
+
+## original project
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
