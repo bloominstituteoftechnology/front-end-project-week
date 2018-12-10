@@ -29,10 +29,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="main-container">
-          <nav>
-            <h1>Lambda Notes</h1>
+          <nav className="main-nav">
+            <h1 className="nav-header">Lambda<br/> Notes</h1>
             <NavLink className="nav-link" to="/">View your notes</NavLink>
-            <NavLink className="nav-link" to="/">+Create New Note</NavLink>
+            <NavLink className="nav-link" to="/create">+ Create New Note</NavLink>
           </nav>
           <Route 
               exact 

@@ -8,7 +8,7 @@ class Notes extends Component {
   render() {
     return (
       <div className="notes-container">
-        <h1>Your notes:</h1>
+        <h2 className="notes-heading">Your notes:</h2>
         <div className="note-cards">
           {this.props.notes.map(note => {
             return (
