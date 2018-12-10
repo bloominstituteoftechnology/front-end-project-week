@@ -5,11 +5,11 @@ import { Route, withRouter } from 'react-router-dom';
 import { NotesContainer }from '../styles';
 import { getNotes } from '../actions';
 
-import Header from './Header';
-import ToolBar from './ToolBar';
-import NoteList from './NoteList'
-import NoteForm from './NoteForm'
-import NoteModule from './NoteModule'
+import Header from './Header/container';
+import ToolBar from './ToolBar/container';
+import NoteList from './NoteList/container';
+import NoteForm from './NoteForm/container';
+import NoteModule from './NoteModule/container'
 
 
 class App extends Component {

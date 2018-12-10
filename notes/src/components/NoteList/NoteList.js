@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import { Route, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { noteChecked, noteUnChecked } from '../actions'
+import { Route } from 'react-router-dom';
+
+import { NoteListContainer, NoteListTitle} from '../../styles';
+
 import Note from './Note';
 import NoteSelect from './NoteSelect'
-import Loading from './Loading';
-import { NoteListContainer, NoteListTitle} from '../styles';
+import Loading from '../Loading';
 
 
 class NoteList extends Component {
@@ -110,32 +110,5 @@ class NoteList extends Component {
 }
 
 
-const mapStateToProps = state => {
-    const {
-        notes,
-        noteChecked, 
-        noteUnChecked,
-        fetchingNote,
-        fetchingNotes,
-        addingNote,
-        updatingNote,
-        deletingNote,
-        searchValue,
-        sortMode,
-    } = state;
-    return {
-        notes,
-        noteChecked, 
-        noteUnChecked, 
-        fetchingNote,
-        fetchingNotes,
-        addingNote,
-        updatingNote,
-        deletingNote,
-        searchValue,
-        sortMode
-    };
-}
-
-export default withRouter(connect(mapStateToProps, { noteChecked, noteUnChecked })(NoteList));
+export default NoteList;
 

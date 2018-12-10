@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-
-import { deleteChecked, addNote } from '../actions';
 
 import { 
     ButtonsContainer, 
@@ -13,7 +10,7 @@ import {
     InitialInput,
     FormContainer,
     NoteActions
-} from '../styles';
+} from '../../styles';
 
 
 class NoteForm extends Component {
@@ -102,12 +99,6 @@ class NoteForm extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    const { checkedNotes } = state;
-    return {
-        checkedNotes
-    };
-}
 
-export default connect(mapStateToProps, { deleteChecked, addNote })(NoteForm);
+export default NoteForm;
 

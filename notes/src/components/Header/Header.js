@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { 
-    searchHandler, 
-    getNotes, 
-    setSortMode, 
-    menuToggle 
-} from '../actions';
 
 import { 
     SVGIcon, 
@@ -16,7 +9,7 @@ import {
     SearchInput, 
     Search, 
     MenuLogoContainer 
-} from '../styles';
+} from '../../styles';
 
 
 class Header extends Component {
@@ -69,12 +62,5 @@ class Header extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    const { sortMode } = state;
-    return {
-        sortMode
-    }
-}
-
-export default connect(mapStateToProps, {searchHandler, getNotes, setSortMode, menuToggle})(Header);
+export default Header;
 

@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { menuToggle } from '../actions' 
-
 import {
     SideBar,
     StyledCSV,
@@ -10,7 +7,7 @@ import {
     ToolBarLabel,
     SVGIcon,
     SectionTitle,
-} from '../styles';
+} from '../../styles';
 
 
 class ToolBar extends Component {
@@ -43,13 +40,5 @@ class ToolBar extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    const { notes, showMenu } = state;
-    return {
-        notes,
-        showMenu
-    }
-}
-
-export default connect( mapStateToProps, { menuToggle })(ToolBar);
+export default ToolBar;
 

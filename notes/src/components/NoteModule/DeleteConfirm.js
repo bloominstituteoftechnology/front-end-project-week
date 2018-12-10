@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { deleteNote } from '../actions'
 
-import { DeleteContainer, DeleteModule, ButtonsContainer, StyledButton } from '../styles';
-
+import { DeleteContainer, DeleteModule, ButtonsContainer, StyledButton } from '../../styles';
 
 class DeleteConfirm extends Component {
     render() {
@@ -34,12 +31,5 @@ class DeleteConfirm extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    const { activeNote } = state;
-    return {
-        id: activeNote.id
-    };
-}
-
-export default connect(mapStateToProps, {deleteNote})(DeleteConfirm);
+export default DeleteConfirm;
 

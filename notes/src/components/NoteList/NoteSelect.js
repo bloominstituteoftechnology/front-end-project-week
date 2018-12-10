@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NoteContainer, NoteTitle, NoteBody, CheckContainer } from '../styles';
+import { NoteContainer, NoteTitle, NoteBody, CheckContainer } from '../../styles';
 
 const NoteSelect = ({ note, noteChecked, noteUnChecked }) => {
 

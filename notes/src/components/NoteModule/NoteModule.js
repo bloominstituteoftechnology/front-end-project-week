@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import { getNote, updateNote, activeNoteHandler } from '../actions';
 
 import { 
     ButtonsContainer, 
@@ -11,7 +8,7 @@ import {
     NoteModuleTextArea,  
     NoteModuleForm,
     CloseIcon
-} from '../styles';
+} from '../../styles';
 
 import DeleteConfirm from './DeleteConfirm';
 
@@ -54,18 +51,16 @@ class NoteModule extends Component {
     
                 {
                     this.state.showDelete 
-                        ? <DeleteConfirm setShowDelete={this.setShowDelete} /> : null
+                        ? <DeleteConfirm 
+                            setShowDelete={this.setShowDelete} 
+                            deleteNote={this.props.deleteNote}
+                            id={this.props.activeNote.id}
+                            history={this.props.history}
+                        /> : null
                 }
             </NoteModuleContainer>
         );
     }
 }
 
-const mapStateToProps = state => {
-    const { activeNote } = state;
-    return {
-        activeNote
-    }
-}
-
-export default connect(mapStateToProps, {getNote, updateNote, activeNoteHandler})(NoteModule);
+export default NoteModule;

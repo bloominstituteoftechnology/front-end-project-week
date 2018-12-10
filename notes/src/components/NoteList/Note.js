@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { NoteEditIcon, NoteContainer, NoteTitle, NoteBody } from '../styles'
+import { NoteEditIcon, NoteContainer, NoteTitle, NoteBody } from '../../styles'
 
 
 const Note = ({ note, noteClicked }) => {
