@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import EllipsisText from 'react-ellipsis-text';
 
 const IndividualNote = styled.div`
     height: 19rem;
@@ -18,22 +19,15 @@ const IndividualNote = styled.div`
         font-weight: bold;
         padding-bottom: 0.5rem;
         border-bottom: 1.5px solid #AFAFAF;
-        margin-bottom: 0.5rem;
-    }
-
-    P {
-        height: 80%;
-        overflow: hidden;
-        white-space: pre-wrap;
-        text-overflow: ellipsis;
+        margin-bottom: 1rem;
     }
 `
 
 const SmallNote = props => {
     return(
         <IndividualNote>
-            <h3 className='note-title'>{props.noteData.title}</h3>
-            <p className='note-text'>{props.noteData.textBody}</p>
+            <h3>{props.noteData.title}</h3>
+            <EllipsisText text={props.noteData.textBody} length={'90'} />
         </IndividualNote>
     );
 }

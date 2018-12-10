@@ -18,8 +18,13 @@ const Modal = styled.div`
     border: 1px solid #AFAFAF;
     background-color: #FBFAFB;
     position: absolute;
-    top: 20.5rem;
-    left: 17.5rem;
+    /* top: 20.5rem;
+    left: 17.5rem; */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
