@@ -9,7 +9,6 @@ const StyledApp = styled.div`
     border: 2px grey solid;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     width: 48.2%;
 `;
 
