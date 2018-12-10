@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SideBar from './components/SideBar';
 import Content from './components/Content';
-import notes from './testNotes';
+import styled from 'styled-components';
 import axios from 'axios';
 
 class App extends Component {
