@@ -29,21 +29,27 @@ class NotesList extends React.Component {
     this.setState({ notes: JSON.parse(localStorage.getItem("state")) });
   }
   componentDidMount() {
+    window.addEventListener("beforeunload", this.saveNotes);
     this.props.fetchNotes();
-    if (this.props.notes.length > this.state.notes.length) {
-      let notes = [...this.state.notes];
-      let newNotes = this.props.notes;
-      let sorted = newSort(newNotes, notes);
+    // console.log(this.props.notes);
+    if (!isEqual(this.props.notes, [...this.state.notes])) {
+      const notes = [...this.state.notes];
+      const newNotes = this.props.notes;
+      const sorted = newSort(newNotes, notes);
       this.setState({ notes: sorted });
+      // window.scrollTo(0, 0);
     }
     window.scrollTo(0, 0);
   }
+  // componentDidUpdate() {
+  //   console.log(JSON.parse(localStorage.getItem("state")));
+  // }
 
   componentWillUnmount() {
-    console.log(JSON.parse(localStorage.getItem("state")));
-    console.log(this.props.notes);
-    console.log(this.state.notes);
-    this.saveNotes();
+    window.removeEventListener("beforeunload", this.saveNotes);
+    if (this.state.notes.length > 0) {
+      this.saveNotes();
+    }
   }
 
   handleChange = e => {
@@ -83,11 +89,9 @@ class NotesList extends React.Component {
 
   downloadCSV = args => {
     var data, filename, link;
-
+    filename = args.filename || "export.csv";
     var csv = Papa.unparse([...this.props.notes]);
     if (csv == null) return;
-
-    filename = args.filename || "export.csv";
 
     if (!csv.match(/^data:text\/csv/i)) {
       csv = "data:text/csv;charset=utf-8," + csv;
@@ -142,3 +146,47 @@ export default connect(
   mapStateToProps,
   { fetchNotes, filterNotes }
 )(NotesList);
+
+const isEqual = function(value, other) {
+  var type = Object.prototype.toString.call(value);
+
+  if (type !== Object.prototype.toString.call(other)) return false;
+
+  if (["[object Array]", "[object Object]"].indexOf(type) < 0) return false;
+
+  var valueLen =
+    type === "[object Array]" ? value.length : Object.keys(value).length;
+  var otherLen =
+    type === "[object Array]" ? other.length : Object.keys(other).length;
+  if (valueLen !== otherLen) return false;
+
+  var compare = function(item1, item2) {
+    var itemType = Object.prototype.toString.call(item1);
+
+    if (["[object Array]", "[object Object]"].indexOf(itemType) >= 0) {
+      if (!isEqual(item1, item2)) return false;
+    } else {
+      if (itemType !== Object.prototype.toString.call(item2)) return false;
+
+      if (itemType === "[object Function]") {
+        if (item1.toString() !== item2.toString()) return false;
+      } else {
+        if (item1 !== item2) return false;
+      }
+    }
+  };
+
+  if (type === "[object Array]") {
+    for (var i = 0; i < valueLen; i++) {
+      if (compare(value[i], other[i]) === false) return false;
+    }
+  } else {
+    for (var key in value) {
+      if (value.hasOwnProperty(key)) {
+        if (compare(value[key], other[key]) === false) return false;
+      }
+    }
+  }
+
+  return true;
+};
