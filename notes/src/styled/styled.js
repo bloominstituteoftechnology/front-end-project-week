@@ -11,7 +11,31 @@ export const Button = styled.button`
   border: 1px solid #424142;
   cursor: pointer;
 
+  &:hover {
+    opacity: .75;
+    background-color: darkslategray;
+  }
+
   &.red {
     background-color: #CA001A;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+`;
+
+export const Input = styled.input`
+  all: unset;
+  background-color: white;
+  border: 1px solid #424142;
+  padding: .5rem;
+  width: 60%;
+  font-size: 1.6rem;
+  border-radius: .3rem;
+  margin-bottom: 2rem;
+
+  &:focus {
+    background-color: lightyellow;
   }
 `;

@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// importing styled component
+import { Button, Input } from '../../styled/styled';
+
 // styled form
 // styled Notes List
 const FormWrapper = styled.div`
@@ -10,23 +13,6 @@ const FormWrapper = styled.div`
   h2 {
     font-size: 3rem;
     margin-bottom: 4rem;
-  }
-
-  form {
-    input {
-      all: unset;
-      background-color: white;
-      border: 1px solid #424142;
-      padding: .5rem;
-      width: 50%;
-      font-size: 1.6rem;
-      border-radius: .3rem;
-      margin-bottom: 2rem;
-
-      &:focus {
-        background-color: lightyellow;
-      }
-    }
   }
 
   textarea {
@@ -39,19 +25,6 @@ const FormWrapper = styled.div`
     padding: .5rem;
     margin-bottom: 2rem;
   }
-
-  button {
-    width: 20%;
-    min-width: 20rem;
-    font-size: 1.6rem;
-    font-weight: bold;
-    padding: 1rem;
-    background-color: #24B8BD;
-    color: white;
-    border: 1px solid #424142;
-    cursor: pointer;
-  }
-  
 `;
 
 class NotesForm extends React.Component {
@@ -92,8 +65,6 @@ class NotesForm extends React.Component {
       tags: [tags.split(',').map(tag => tag.trim())]
     };
 
-    console.log(note);
-
     update ? updateNote(note, _id) : addNote(note);
 
     this.setState({
@@ -113,7 +84,7 @@ class NotesForm extends React.Component {
       <FormWrapper>
         <h2>{update ? 'Update Note:' : 'Create New Note:'}</h2>
         <form action="submit" onSubmit={this.onSubmit}>
-          <input type="text"
+          <Input type="text"
             onChange={this.onChange}
             placeholder="Add title"
             name="title"
@@ -125,13 +96,13 @@ class NotesForm extends React.Component {
             name="textBody"
             value={textBody}
           /><br/>
-          <input type="text"
+          <Input type="text"
             onChange={this.onChange}
             placeholder="Add tags"
             name="tags"
             value={tags}
           /><br/>
-          <button type="submit">{update ? 'Update' : 'Save'}</button>
+          <Button style={{margin: '0'}} type="submit">{update ? 'Update' : 'Save'}</Button>
         </form>
       </FormWrapper>
     )

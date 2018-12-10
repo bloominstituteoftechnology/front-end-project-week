@@ -1,6 +1,7 @@
 // imporing libraries
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 // styled Navbar
 const NavBarWrapper = styled.div`
@@ -8,6 +9,8 @@ const NavBarWrapper = styled.div`
   justify-content: flex-end;
 
   .navbar {
+    display: flex;
+    flex-direction: column;
     min-width: 30rem;
     padding: 4rem;
 
@@ -18,16 +21,27 @@ const NavBarWrapper = styled.div`
       line-height: 3.4rem;
     }
 
-    .menu {
+    a, .menu {
+      width: 20rem;
+      text-decoration: none;
       background-color: #24B8BD;
       color: white;
       border: 1px solid #414141;
-      margin: 2rem auto;
+      margin: 1rem auto;
       padding: 1rem;
       text-align: center;
       font-size: 1.8rem;
       font-weight: bold;
       cursor: pointer;
+
+      &:hover {
+        background-color: darkslategray;
+        opacity: .75;
+      }
+    }
+
+    .active {
+      background-color: darkslategray;
     }
   }
 `;
@@ -37,18 +51,16 @@ const NavBar = (props) => {
     <NavBarWrapper>
       <div className="navbar">
         <h1>Lambda <br /> Notes</h1>
-        <div
-          className="menu"
-          onClick={() => {props.history.push('/')}}
+        <NavLink
+          exact to='/'
         >
           View Your Notes
-        </div>
-        <div
-          className="menu"
-          onClick={() => {props.history.push('/add')}}
+        </NavLink>
+        <NavLink
+          to='/add'
         >
           + Create New Note
-        </div>
+        </NavLink>
         <div
           className="menu"
           onClick={() => {

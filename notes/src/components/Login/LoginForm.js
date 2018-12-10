@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button } from '../../styled/styled';
+import { Button, Input } from '../../styled/styled';
 
 const LoginWrapper = styled.div`
   position: absolute;
@@ -44,21 +44,6 @@ const LoginWrapper = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-
-      input {
-        all: unset;
-        background-color: white;
-        border: 1px solid #424142;
-        padding: .5rem;
-        width: 60%;
-        font-size: 1.6rem;
-        border-radius: .3rem;
-        margin-bottom: 2rem;
-  
-        &:focus {
-          background-color: lightyellow;
-        }
-      }
     }
   }
 `;
@@ -98,14 +83,14 @@ class LoginForm extends React.Component{
         <div className="content">
           <h3>Lambda Notes</h3>
           <form onSubmit={this.onSubmit}>
-            <input
+            <Input
               type="text"
               name="username"
               value={this.state.username}
               onChange={this.onChange}
               placeholder="Enter username"
             />
-            <input
+            <Input
               type="password"
               name="password"
               value={this.state.password}

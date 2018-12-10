@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// importing styled components
+import { Button } from '../../styled/styled';
+
 // styled Modal
 const ModalWrapper = styled.div`
   position: absolute;
@@ -37,22 +40,6 @@ const ModalWrapper = styled.div`
     h3 {
       margin-bottom: 3rem;
     }
-
-    button {
-      min-width: 18rem;
-      margin: 0 2rem;
-      font-size: 1.6rem;
-      font-weight: bold;
-      padding: 1rem;
-      background-color: #24B8BD;
-      color: white;
-      border: 1px solid #424142;
-      cursor: pointer;
-
-      &.red {
-        background-color: #CA001A;
-      }
-    }
   }
 `;
 
@@ -65,7 +52,7 @@ const Modal = ({ toggleModal, deleteNote, note, history }) => {
           <h3>Are you sure you want to delete this?</h3>
         </div>
         <div className="content-buttons">
-          <button 
+          <Button 
             onClick={ () => {
               deleteNote(note._id);
               history.push('/');
@@ -73,8 +60,8 @@ const Modal = ({ toggleModal, deleteNote, note, history }) => {
             className="red"
           >
             Delete
-          </button>
-          <button onClick={ toggleModal }>No</button>
+          </Button>
+          <Button onClick={ toggleModal }>No</Button>
         </div>
       </div>
     </ModalWrapper>

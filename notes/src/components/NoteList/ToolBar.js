@@ -3,46 +3,32 @@ import React from 'react';
 import styled from 'styled-components';
 import {downloadCSV} from '../../helper/helper';
 
+// importing styled components
+import { Input, Button } from '../../styled/styled';
+
 // styled ToolBar
 const ToolBarWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border: 1px solid #424142;
   padding: 2rem;
-
-  input {
-    all: unset;
-    background-color: white;
-    border: 1px solid #424142;
-    padding: .5rem;
-    width: 20rem;
-    font-size: 1.6rem;
-    border-radius: .3rem;
-
-    &:focus {
-      background-color: lightyellow;
-    }
-  }
-
-  .sort-container {
-    margin-left: 2rem;
-    border: 1px solid #424142;
-    padding: .5rem;
-    border-radius: .3rem;
-    width: 14rem;
-    text-align: center;
-    cursor: pointer;
-  }
 `;
 
 const ToolBar = ({notes, searchText, sort, onInputChange, onSortChange}) => {
   return (
     <ToolBarWrapper>
-      <input value={searchText} onChange={onInputChange} type="text" placeholder="Search"/>
-      <div className="sort-container" onClick={onSortChange}>
-        Sort: {!sort ? 'None' : sort === 'asc' ? 'A-Z' : 'Z-A'}
-      </div>
-      <div className="sort-container" onClick={() => downloadCSV(notes)} >download</div>
+      <Input style={{margin: '0 1rem'}} value={searchText} onChange={onInputChange} type="text" placeholder="Search"/>
+      <Button
+        style={{margin: '0 1rem'}}
+        onClick={onSortChange} >
+          Sort: {!sort ? 'None' : sort === 'asc' ? 'A-Z' : 'Z-A'}
+      </Button>
+      <Button
+        style={{margin: '0 1rem'}}
+        onClick={() => downloadCSV(notes)} >
+          download
+      </Button>
     </ToolBarWrapper>
   );
 }
