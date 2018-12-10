@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { BrowserRouter, Route} from 'react-router-dom';
 import Login from "./components/Login";
 import axios from "axios";
 import NotesList from "./components/NotesList";
@@ -54,6 +54,8 @@ class NotesPage extends Component {
 
   render() {
     return (
+      <BrowserRouter>
+      
       <Container>
         <Route path="/login" component={Login} />
         <Route
@@ -90,6 +92,7 @@ class NotesPage extends Component {
           render={props => <EditNote {...props} signOut={this.props.signOut}/>}
         />
       </Container>
+      </BrowserRouter>
     );
   }
 }

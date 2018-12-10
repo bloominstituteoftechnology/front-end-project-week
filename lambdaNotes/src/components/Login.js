@@ -9,12 +9,10 @@ import {
   LambdaH1,
   LoginBackground
 } from "../Styles";
-import Header from "./Header";
 
 const Login = props => {
   return (
     <LoginBackground>
-      <Header />
       <LambdaH1>Lambda Notes</LambdaH1>
       <LoginContainer>
         <LoginH1>Login</LoginH1>
