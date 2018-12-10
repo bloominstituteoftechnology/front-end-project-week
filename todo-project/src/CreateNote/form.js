@@ -17,8 +17,8 @@ function form(props) {
         type='text'
         onChange={props.handleInput}
         placeholder=' Note Content'
-        name='textBody'
-        value={props.textBody}
+        name='content'
+        value={props.content}
         />
         <button onClick={props.saveNote} className='formButton' >Save</button>
     </div>

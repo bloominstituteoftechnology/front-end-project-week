@@ -14,7 +14,7 @@ export default class ViewNote extends Component {
 
     componentDidMount() {
         axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
+            .get(`http://localhost:9000/notes`)
             .then(response => {
                 console.log(response)
                 this.setState({ notes: response.data })
@@ -26,7 +26,7 @@ export default class ViewNote extends Component {
 
     deleteNote = (id) => {
         axios
-            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+            .delete(`http://localhost:9000/notes/${id}`)
             .then(response => {
                 console.log(response)
             })
@@ -38,7 +38,7 @@ export default class ViewNote extends Component {
   render() {
       return (
           <div>{this.state.notes.map(note => {
-              return <Route key={note._id} path={`/${note._id}`} render={props => (
+              return <Route key={note.id} path={`/${note.id}`} render={props => (
               <View 
               {...props} 
               note={note} 

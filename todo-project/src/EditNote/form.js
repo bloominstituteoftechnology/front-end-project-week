@@ -20,11 +20,11 @@ class Form extends React.Component {
         className='textBody'
         type='text'
         onChange={this.props.handleInput}
-        placeholder={this.props.note.textBody}
-        name='textBody'
-        value={this.props.textBody}
+        placeholder={this.props.note.content}
+        name='content'
+        value={this.props.content}
         />
-        <NavLink exact to='/' ><button onClick={() => this.props.updateNote(this.props.note._id)} className='formButton' >Update</button></NavLink>
+        <NavLink exact to='/' ><button onClick={() => this.props.updateNote(this.props.note.id)} className='formButton' >Update</button></NavLink>
     </div>
     );
 }

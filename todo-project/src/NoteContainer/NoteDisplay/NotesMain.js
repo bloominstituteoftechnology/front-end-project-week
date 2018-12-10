@@ -29,7 +29,7 @@ export default class NotesMain extends Component {
     componentDidMount() {
        setInterval(() => {
         axios
-        .get('https://fe-notes.herokuapp.com/note/get/all')
+        .get('http://localhost:9000/notes')
         .then(response => {
             console.log(response)
             this.setState({ notes: response.data })

@@ -14,7 +14,7 @@ export default class CreateNote extends Component {
         super(props)
         this.state = {
             title: '',
-            textBody: '',
+            content: '',
         }
     }
 
@@ -23,16 +23,16 @@ export default class CreateNote extends Component {
     }
 
     saveNote = () => {
-      const myObj = { title: this.state.title, textBody: this.state.textBody }
+      const myObj = { title: this.state.title, content: this.state.content }
       axios
-        .post('https://fe-notes.herokuapp.com/note/create', myObj)
+        .post('http://localhost:9000/notes/', myObj)
         .then(response => {
           console.log(response)
         })
         .catch(err => {
           console.log(err)
         })
-        this.setState({ title: '', textBody: '' })
+        this.setState({ title: '', content: '' })
     }
  
   render() {
@@ -42,7 +42,7 @@ export default class CreateNote extends Component {
           <Form 
           handleInput={this.handleInput}
           title={this.state.title}
-          textBody={this.state.textBody}
+          content={this.state.content}
           saveNote={this.saveNote}
           />
       </div>

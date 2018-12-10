@@ -29,7 +29,7 @@ class View extends React.Component {
             <section className='modal-main'>
               {children}
               <div className='buttonDiv'>
-              <NavLink exact to='/' ><p  onClick={() => this.props.deleteNote(this.props.note._id)} className='modalButton1'>Delete</p></NavLink>
+              <NavLink exact to='/' ><p  onClick={() => this.props.deleteNote(this.props.note.id)} className='modalButton1'>Delete</p></NavLink>
               <p onClick={handleClose} className='modalButton2'>No</p>
               </div>
             </section>
@@ -42,7 +42,7 @@ class View extends React.Component {
     return (
         <div>
             <div className='links'>
-        <NavLink exact to={`/${this.props.note._id}/edit-note`} className='spacing' >edit</NavLink> 
+        <NavLink exact to={`/${this.props.note.id}/edit-note`} className='spacing' >edit</NavLink> 
                 <this.Modal show={this.state.show} handleClose={this.hideModal} >
                     <p>Are you sure you want to delete this?</p>
                 </this.Modal>
@@ -50,7 +50,7 @@ class View extends React.Component {
             </div>
         <div className='containNote'>
         <h1>{this.props.note.title}</h1>
-        <div>{this.props.note.textBody}</div>
+        <div>{this.props.note.content}</div>
         </div>
         </div>
     )
