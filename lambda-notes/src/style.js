@@ -3,43 +3,61 @@ import styled from 'styled-components'
 export const AppWrapper = styled.div` 
   display: flex;
   background-color: #F2F1F2;
+  // height: auto;
+  // border: 3px solid red;
 `;
 
 export const NavWrapper = styled.div` 
   display: flex;
-  /* justify-content: center; */
-  width: 20%;
-  height: 100vh;
+  justify-content: center;
+  width: 25%;
+  // height: 100vh;
+  posotion: fixed;
+  top: 0;
+  left: 0;
   background-color: #d3d2d3;
-  border: 1px solid #C3C2C3;
+  // border: 1.5px solid #C3C2C3;
+  border: 1px solid orange;
 `;
 
 export const Nav = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   width: 100%;
+  /* align-items: center; */
   margin: 0 1rem;
-  /* border: 1px solid green; */
+   border: 1px solid green; 
+`;
+export const NavHeader = styled.p`
+  font-size: 55px;
+  font-weight: bold;
+  line-height: 3rem;
+  margin-top: 0px;
+  padding-top: 1.9rem;
+  // border: 1px solid red;
 `;
 
-// export const NavLinks = styled.a`
-//   display: flex;
-//   text-decoration: none;
-//   justify-content: center;
-//   align-items: center;
-//   margin-bottom: 2rem;
-//   width: 90%;
-//   height: 50px;
-//   background-color: #26B7BD;
-//   color: white;
-//   border: 1px solid #B1B7B8;
-// `;
+export const NavContent = styled.div `
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+  margin-top: 15px;
+  width: 100%;
+  // border: 1px solid orange;
+`;
 
+export const NotesHeader = styled.h2 `
+  font-size: 35px;
+  font-weight: bold;
+  margin-top: 100px;
+  margin-left: 45px;
+  border: 1px solid salmon;
+`;
 export const NotesWrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 65%;
+  // width: 5%;
   flex-wrap: wrap;
   margin: 0 auto;
   border: 1px solid green;
@@ -52,9 +70,17 @@ export const NotesContent = styled.div`
   width: 30%;
   height: 270px;
   margin: 10px;
+  background-color: #ffff;
   border: 1px solid red;
 `;
 
 export const Notes =  styled.div`
   /* margin: 10px; */
+`;
+
+export const NoteWrapper = styled.div`
+  height: 100vh;
+  width: 75%;
+  padding-left: 15px;
+  border: 1px solid red;
 `;

@@ -3,10 +3,17 @@
     text-decoration: none;
      justify-content: center;
      align-items: center;
-     margin-bottom: 2rem;
-     width: 90%;
-     height: 50px;
+     margin-left: 9px;
+     width: 95%;
+     height: 60px;
      background-color: #26B7BD;
    color: white;
+   font-size: 25px;
+   font-weight: bold;
    border: 1px solid #B1B7B8;
+}
+
+.notes-view {
+  width: 80%;
+  border: 1px solid pink;
 }

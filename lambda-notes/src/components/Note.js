@@ -1,25 +1,15 @@
 import React from 'react';
+import { NoteWrapper } from '../style';
 
-class Note extends  React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            notes: this.props.notes
-        }
-    }
-
-   render() {
-    
-    const note = this.props.notes.find( note  => { return this.props.match.params._id === `${note._id}`})
-    console.log(note)
+const Note = props => {
+    const note = props.notes.find( note  => { return props.match.params._id === `${note._id}`})
+        console.log(note)
     return (
-        <div>
+        <NoteWrapper>
             <h2>{note.title}</h2>
             <p>{note.textBody}</p>
-
-        </div>
+        </NoteWrapper>
     );
-   }
-};
+}
 
 export default Note

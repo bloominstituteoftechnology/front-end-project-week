@@ -1,11 +1,16 @@
 import React from 'react';
-import {NotesWrapper, NotesContent, Notes } from '../style'
+import {NotesHeader, NotesWrapper, NotesContent, Notes } from '../style'
 const NotesList = (props) => {
+    console.log(props)
     return(
+        <div className='notes-view'>
+            <NotesHeader>Your Notes:</NotesHeader>
         <NotesWrapper>
+            
             {props.notes.map(note => 
             
                 <NotesContent>
+                    
                 <Notes key={note._id} onClick={ () => props.history.push(`/note/${note._id}`)}>
                     <h3>{note.title}</h3>
                     <p>{note.textBody}</p>
@@ -13,6 +18,7 @@ const NotesList = (props) => {
                 </NotesContent>
                 )}
         </NotesWrapper>
+        </div>
     );
 };
 
