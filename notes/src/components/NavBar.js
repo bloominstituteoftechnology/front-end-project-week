@@ -6,11 +6,16 @@ const DivNavBar = styled.div`
   border: 1px solid black;
   background-color: #d7d7d7;
   flex-direction: column;
+  text-align: left;
   width: 12%;
   height: 100%;
   display: flex;
   position: fixed;
   padding: 10px;
+
+  h1 {
+    font-weight: bold;
+  }
 `;
 
 export const Button = styled.button`
@@ -26,7 +31,10 @@ export const Button = styled.button`
 const NavBar = () => {
   return (
     <DivNavBar>
-      <h1>Lambda Notes</h1>
+      <h1>
+        Lambda <br />
+        Notes
+      </h1>
       <NavLink to="/notes">
         <Button>View Your Notes</Button>
       </NavLink>

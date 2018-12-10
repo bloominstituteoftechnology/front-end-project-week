@@ -11,7 +11,6 @@ const ModalWrapper = styled.div`
   top: 0;
   left: 0;
   opacity: 0.7;
-  border: 1px solid yellow;
   z-index: 1;
   background-color: gray;
 `;
@@ -37,7 +36,7 @@ const Button = styled.button`
   font-weight: bold;
   font-size: 18px;
   width: 100%;
-  margin: 10px 0;
+  margin: 10px;
 `;
 
 //const deleteNoteButton = id => {

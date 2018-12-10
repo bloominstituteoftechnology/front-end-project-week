@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 import rootReducer from './store/reducers';
-import './index.css';
+//import './index.css';
 import App from './App';
 
 //setup for Redux dev tools
