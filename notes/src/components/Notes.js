@@ -1,11 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
 
 const NotesWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
+  margin-left: 16.5%;
 `;
 
 const StyledNote = styled.div`
@@ -15,7 +17,7 @@ const StyledNote = styled.div`
   margin: 10px;
   min-height: 15rem;
   max-height: 20rem;
-  overflow: scroll;
+  overflow: hidden;
   text-align: left;
 `;
 
@@ -24,20 +26,23 @@ const DivNotes = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: 16.5%;
 `;
 
 {
   /*<Link key={note.id} to={`/note/${note.id}`}>*/
 }
 const Notes = props => {
+  console.log('notes props', props);
+  if (props.adding || props.deleting) {
+    return <h2>loading</h2>;
+  }
   return (
     <NotesWrapper>
       <h2>Your Notes:</h2>
       <DivNotes>
         {props.notes.map(note => (
           <StyledNote
-            key={note.id}
+            key={note._id}
             onClick={() => props.history.push(`/note/${note._id}`)}>
             <h2>{note.title}</h2>
             <hr />
@@ -50,4 +55,9 @@ const Notes = props => {
   );
 };
 
-export default Notes;
+const mapStateToProps = state => ({
+  adding: state.adding,
+  deleting: state.deleting,
+});
+
+export default connect(mapStateToProps)(Notes);

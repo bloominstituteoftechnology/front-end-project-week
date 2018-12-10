@@ -35,6 +35,7 @@ const initialState = {
   isEditing: false,
   fetching: false,
   deleting: false,
+  adding: false,
 };
 
 export default (state = initialState, action) => {
@@ -61,8 +62,21 @@ export default (state = initialState, action) => {
       console.log('adding note reducer');
       return {
         ...state,
+        adding: true,
         //notes: state.notes.concat({...action.payload}),
       };
+    case ADD_NOTE_SUCCESS:
+      return {
+        ...state,
+        adding: false,
+      };
+    case ADD_NOTE_FAILURE:
+      return {
+        ...state,
+        adding: false,
+        error: action.payload,
+      };
+
     case SELECTING_NOTE:
       return {
         ...state,

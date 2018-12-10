@@ -36,7 +36,7 @@ export const fetchNotes = () => dispatch => {
 };
 
 export const addNote = note => dispatch => {
-  dispatch({type: ADDING_NOTE, payload: note});
+  dispatch({type: ADDING_NOTE});
   console.log('action:', note);
   axios
     .post(`${url}note/create`, note)

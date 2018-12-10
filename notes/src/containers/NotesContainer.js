@@ -9,15 +9,15 @@ class NotesContainer extends React.Component {
     this.props.fetchNotes();
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) {
-      console.log('update');
-    }
-  }
+  //componentDidUpdate(prevProps) {
+  //if (this.props !== prevProps) {
+  //console.log('update');
+  //}
+  //}
 
   render() {
     console.log(this.props);
-    if (this.props.deleting || this.props.fetching) {
+    if (this.props.deleting || this.props.fetching || this.props.adding) {
       return <h2>loading...</h2>;
     }
     return (
@@ -33,6 +33,7 @@ const mapStateToProps = state => {
     notes: state.notes,
     deleting: state.deleting,
     fetching: state.fetching,
+    adding: state.adding,
   };
 };
 
