@@ -1,4 +1,4 @@
-import * as actionTypes from '../actions';
+import * as actionTypes from "../actions";
 
 const initialState = {
   notes: [],
@@ -7,10 +7,10 @@ const initialState = {
   deletingNote: false,
   editingNote: false,
   error: null
-}
+};
 
 export default (state = initialState, action) => {
-  console.log('ACTION PAYLOAD', action.payload)
+  console.log("ACTION PAYLOAD", action.payload);
   switch (action.type) {
     case actionTypes.GETTING_NOTES:
       return { ...state, gettingNotes: true };
@@ -50,4 +50,4 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
-}
+};

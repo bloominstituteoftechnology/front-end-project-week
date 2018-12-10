@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { customLayout, customButton } from '../../mixins/index';
+import styled from "styled-components";
+import { customLayout, customButton } from "../../mixins/index";
 
 // NAVIGATION STYLES
 export const Container = styled.div`
@@ -9,8 +9,8 @@ export const Container = styled.div`
   width: 30%;
   min-height: 100vh;
   max-height: 100%;
-  border-right: 1px solid #B7B5B7;
-  background-color: #D3D2D3;
+  border-right: 1px solid #b7b5b7;
+  background-color: #d3d2d3;
 `;
 
 export const Wrapper = styled.section`
@@ -25,10 +25,11 @@ export const Heading = styled.h1`
   margin-bottom: 20px;
   font-size: 4.5rem;
   font-weight: bold;
-  color: #4B4B4A;
+  color: #4b4b4a;
 `;
 
 export const Button = styled.button`
   ${customButton}
   width: 100%;
+  color: #fff;
 `;

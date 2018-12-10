@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { customLayout, customButton } from '../../mixins';
+import styled from "styled-components";
+import { customLayout, customButton } from "../../mixins";
 
 // NotesList component
 export const NotesContainer = styled.div`
@@ -11,7 +11,7 @@ export const SubHeading = styled.h2`
   margin-left: 2%;
   font-weight: bold;
   font-size: 2.5rem;
-  color: #4B4B4A;
+  color: #4b4b4a;
 `;
 
 export const NotesWrapper = styled.section`
@@ -27,9 +27,9 @@ export const NoteCard = styled.div`
   height: 280px;
   margin: 0 2%;
   margin-bottom: 30px;
-  border: 1px solid #B7B5B7;
+  border: 1px solid #b7b5b7;
   padding: 20px;
-  background-color: #FFF;
+  background-color: #fff;
 `;
 
 export const TitleHeading = styled.h3`
@@ -39,14 +39,14 @@ export const TitleHeading = styled.h3`
 `;
 
 export const Hr = styled.hr`
-  border: 1px solid #B7B5B7;
+  border: 1px solid #b7b5b7;
 `;
 
 export const TextBody = styled.p`
   height: 170px;
   font-size: 1.4rem;
   line-height: 25px;
-  color: #4B4B4A;
+  color: #4b4b4a;
   word-break: break-all;
   overflow: hidden;
 `;
@@ -57,9 +57,10 @@ export const SingleNoteContainer = styled.div`
   width: 100%;
   flex-wrap: wrap;
 
-  h2, p {
+  h2,
+  p {
     width: 98%;
-    color: #4B4B4A;
+    color: #4b4b4a;
   }
 
   h2 {
@@ -76,7 +77,7 @@ export const SingleNoteContainer = styled.div`
 `;
 
 export const SingleNoteActions = styled.div`
-  ${customLayout('flex-end')}
+  ${customLayout("flex-end")}
   width: 98%;
 
   button {
@@ -84,7 +85,7 @@ export const SingleNoteActions = styled.div`
     border: none;
     text-decoration: underline;
     background-color: transparent;
-    color: #4B4B4A;
+    color: #4b4b4a;
     font-weight: bold;
     font-size: 1.6rem;
     cursor: pointer;
@@ -97,7 +98,7 @@ export const FormContainer = styled.div`
     margin-bottom: 20px;
     font-weight: bold;
     font-size: 2.5rem;
-    color: #4B4B4A;
+    color: #4b4b4a;
   }
 `;
 
@@ -105,9 +106,10 @@ export const FormGroup = styled.form`
   ${customLayout()}
   flex-wrap: wrap;
 
-  input, textarea {
+  input,
+  textarea {
     margin-bottom: 20px;
-    border: 1px solid #B7B5B7;
+    border: 1px solid #b7b5b7;
     border-radius: 3px;
     font-size: 1.6rem;
     padding: 15px 10px;
@@ -127,7 +129,7 @@ export const FormGroup = styled.form`
 export const ActionButton = styled.button`
   ${customButton}
   width: 30%;
-  color: #FFF;
+  color: #fff;
   font-size: 2rem;
   padding: 15px 0;
 `;

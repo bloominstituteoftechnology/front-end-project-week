@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   NotesContainer,
@@ -9,7 +9,7 @@ import {
   TitleHeading,
   Hr,
   TextBody
-} from './Styles';
+} from "./Styles";
 
 const NotesList = props => {
   return (
@@ -19,7 +19,7 @@ const NotesList = props => {
       <NotesWrapper>
         {props.notes.map((note, i) => (
           <NoteCard key={i}>
-            <Link to={`/notes/${note._id}`} style={{ color: '#000' }} >
+            <Link to={`/notes/${note._id}`} style={{ color: "#000" }}>
               <TitleHeading>{note.title}</TitleHeading>
             </Link>
             <Hr />
@@ -27,7 +27,6 @@ const NotesList = props => {
           </NoteCard>
         ))}
       </NotesWrapper>
-
     </NotesContainer>
   );
 };

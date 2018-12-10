@@ -1,10 +1,9 @@
-export const customLayout = (justify = 'flex-start', align = 'flex-start') => (
+export const customLayout = (justify = "flex-start", align = "flex-start") =>
   `display: flex;
   justify-content: ${justify};
-  align-items: ${align};`
-);
+  align-items: ${align};`;
 
-export const customButton = () => (
+export const customButton = () =>
   `margin: 10px 0;
   border-color: #B7B5B7;
   padding: 20px;
@@ -15,5 +14,4 @@ export const customButton = () => (
 
   a {
     color: #FFF;
-  }`
-);
+  }`;

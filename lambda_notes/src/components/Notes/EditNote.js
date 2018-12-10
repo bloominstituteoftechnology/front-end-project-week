@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import { FormContainer, FormGroup, ActionButton } from './Styles';
-import EditNoteModal from './EditNoteModal';
+import { FormContainer, FormGroup, ActionButton } from "./Styles";
+import EditNoteModal from "./EditNoteModal";
 
 const EditNote = props => {
   return (
     <FormContainer>
       <h2>Edit Note:</h2>
 
-      <FormGroup onSubmit={(e) => props.editNote(e, props.note._id)}>
+      <FormGroup onSubmit={e => props.editNote(e, props.note._id)}>
         <input
           type="text"
           placeholder="Note Title"
@@ -25,7 +25,9 @@ const EditNote = props => {
           value={props.textBody}
         />
 
-        <ActionButton type="submit" onClick={props.showModal}>Update</ActionButton>
+        <ActionButton type="submit" onClick={props.showModal}>
+          Update
+        </ActionButton>
         <EditNoteModal
           show={props.show}
           hideModal={props.hideModal}
@@ -34,6 +36,6 @@ const EditNote = props => {
       </FormGroup>
     </FormContainer>
   );
-}
+};
 
 export default EditNote;

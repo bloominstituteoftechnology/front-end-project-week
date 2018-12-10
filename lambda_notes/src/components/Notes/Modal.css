@@ -19,7 +19,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: #FFF;
+  background: #fff;
 }
 
 .modal-main p {
@@ -31,18 +31,18 @@
 .modal-main button {
   width: 35%;
   margin: 15px;
-  border: 1px solid #B7B5B7;
+  border: 1px solid #b7b5b7;
   padding: 15px;
-  background-color: #23B8BD;
+  background-color: #23b8bd;
   font-size: 1.8rem;
   font-weight: bold;
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
 
 .modal-main .delete-btn {
-  background-color: #D0011B;
+  background-color: #d0011b;
 }
 
 .display-block {

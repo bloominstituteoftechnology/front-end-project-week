@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { FormContainer, FormGroup, ActionButton } from './Styles';
+import { FormContainer, FormGroup, ActionButton } from "./Styles";
 
 const NewNote = props => {
   return (
@@ -28,6 +28,6 @@ const NewNote = props => {
       </FormGroup>
     </FormContainer>
   );
-}
+};
 
 export default NewNote;
