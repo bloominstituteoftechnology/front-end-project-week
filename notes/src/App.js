@@ -17,9 +17,9 @@ class App extends Component {
     this.state = {
       notes: this.props.notes,
       note: {
-        tags: [],
-        title: '',
-        textBody: ''
+        Title: '',
+        Content: '',
+        user_id: 1,
       }
     }
   }
@@ -27,13 +27,12 @@ class App extends Component {
 
 
   componentDidMount() {
-    console.log(this.props)
     this.props.fetchNotes();
      
   };
 
   changeHandler = (ev) => {
-    if(ev.target.name === 'title'|| ev.target.name === 'textBody') {
+    if(ev.target.name === 'Title'|| ev.target.name === 'Content') {
       this.setState({note: {
         ...this.state.note,
         [ev.target.name]: ev.target.value

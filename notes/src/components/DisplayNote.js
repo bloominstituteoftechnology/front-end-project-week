@@ -5,13 +5,13 @@ const DisplayNote = (props) => {
     return (
         <div className ='displayNoteContainer'>
             <div className='content-manipulation'>
-                <NavLink style= {{textDecoration: 'none', color: 'black'}} to={`/note/edit/${props.note._id}`} activeClassName="selected">
+                <NavLink style= {{textDecoration: 'none', color: 'black'}} to={`/note/edit/${props.note.id}`} activeClassName="selected">
                     <span>edit</span>
                 </NavLink>
             <span onClick={props.overlayToggle}>delete</span>
             </div>
-            <h2>{props.note.title}</h2>
-            <p>{props.note.textBody}</p>
+            <h2>{props.note.Title}</h2>
+            <p>{props.note.Content}</p>
         </div>
     );
 }

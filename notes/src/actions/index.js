@@ -37,9 +37,8 @@ export const fetchNotes = () => dispatch => {
 export const postNote = (note) => dispatch => {
     dispatch({type: POSTING_NOTE});
     return axios
-    .post('https://fe-notes.herokuapp.com/note/create', note)
+    .post('http://localhost:6300/api/notes', note)
     .then(response => {
-        console.log(response)
         dispatch({type: POSTING_NOTE_SUCCESS})
     }) 
     .catch(error => {

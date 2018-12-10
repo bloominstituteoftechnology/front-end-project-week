@@ -13,8 +13,8 @@ class Note extends Component {
       super(props);
       this.state = {
           note: {
-            title: '',
-            textBody: '',
+            Title: '',
+            Content: '',
           },
       }
     }
@@ -22,7 +22,7 @@ class Note extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .get(`http://localhost:6300/api/notes/${id}`)
         .then(response => this.setState({note: response.data}))
         .catch(error => console.log(error));
         this.props.setNote(id);
@@ -38,7 +38,7 @@ class Note extends Component {
     }
 
     editingNote = (ev) => {
-        this.props.editNote(this.state.note._id, this.state.note).then(() => this.props.fetchNotes());
+        this.props.editNote(this.state.note.id, this.state.note).then(() => this.props.fetchNotes());
     }
 
     togglingOverlay = (ev) => {
