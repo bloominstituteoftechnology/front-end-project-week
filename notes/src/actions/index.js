@@ -17,8 +17,8 @@ export const SINGLE_NOTE = 'SINGLE_NOTE';
 
 
 
-// const url = 'https://fe-notes.herokuapp.com/note/'
-const url = 'https://lambda-notes-backend-kf.herokuapp.com/'
+const url = 'https://fe-notes.herokuapp.com/note/'
+// const url = 'https://lambda-notes-backend-kf.herokuapp.com/'
 
 export const getNotes = () => dispatch => {
   dispatch({ type: FETCH_NOTES })

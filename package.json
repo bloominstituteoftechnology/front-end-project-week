@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon"
   },
   "dependencies": {
     "axios": "^0.18.0",
