@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 
 // Router Imports
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // Middleware
 import thunk from 'redux-thunk';
@@ -30,7 +31,9 @@ const rootElement = document.getElementById('root');
 
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <Router>
+            <App/>
+        </Router>
     </Provider>, 
     rootElement
 );
