@@ -6,7 +6,12 @@ import Content from './components/Content';
 
 class App extends Component {
     render() {
-        return <div className="App" />;
+        return (
+            <div className="App">
+                <SideBar />
+                <Content />
+            </div>
+        );
     }
 }
 
