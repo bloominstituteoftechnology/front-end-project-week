@@ -11,9 +11,10 @@ export const fetchNotes = () => dispatch => {
         .get("https://fe-notes.herokuapp.com/note/get/all")
         .then(response => {
             console.log(response);
+            dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data })
         })
         .catch(error => {
-            dispatch({ type: FETCHING_NOTES_FAILURE, payload: error})
+            dispatch({ type: FETCHING_NOTES_FAILURE, payload: error })
         })
 }
 

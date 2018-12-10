@@ -19,7 +19,7 @@ class App extends Component {
       <div className="App">
         <div className="home-container">
         <Navigation />
-        <NoteList />
+        <NoteList notes={this.props.notes}/>
         </div>
       </div>
     );
