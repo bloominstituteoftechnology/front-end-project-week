@@ -37,7 +37,7 @@ export const onHandleSubmit = (newTodo) => dispatch => {
         });
 };
 
-export const onUpdateTodo = (myTodos) => dispatch => {
+export const onUpdateTodos = (myTodos) => dispatch => {
     dispatch({ type: UPDATE_TODOS })
     axios
         .put(`https://fe-notes.herokuapp.com/note/edit/${myTodos.id}`, myTodos)
@@ -49,12 +49,18 @@ export const onUpdateTodo = (myTodos) => dispatch => {
         });
 };
 
-export const onDeleteTodo = (deleteTodos) => dispatch => {
+export const onDeleteTodos = (deleteTodos) => dispatch => {
     dispatch({ type: DELETE_TODOS })
+    // console.log('onDeleteTodos props..', deleteTodos.id)
     axios
         .delete(`https://fe-notes.herokuapp.com/note/delete/${deleteTodos.id}`, deleteTodos)
         .then(response => {
-            dispatch({ type: FETCH_SUCCESS, payload: response.data })
+            console.log('from delete todos', response)
+            axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+            .then(deleteResponse => {
+                console.log('deleteResponse', deleteResponse)
+                dispatch({ type: FETCH_SUCCESS, payload: deleteResponse.data })
+            }) 
         })
         .catch(err => {
             dispatch({ type: FETCH_FAILURE, payload: err })

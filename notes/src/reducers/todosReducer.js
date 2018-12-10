@@ -47,12 +47,11 @@ export const todosReducer = (state = initialState, action) => {
                 error: action.payload
             }
         case ON_HANDLE_SUBMIT: 
-        console.log('handle submit action payload...',  action.payload)
+        // console.log('handle submit action payload...',  action.payload)
             return {
                 ...state,
                 fetchingTodos: false,
                 addingTodos: true,
-                // todos: action.payload,
                 error: null
             }
         case UPDATE_TODOS:

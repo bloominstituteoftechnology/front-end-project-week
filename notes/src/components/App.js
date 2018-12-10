@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { fetch_todos, onHandleSubmit, onUpdateTodo, onDeleteTodo } from '../actions/actions';
+import { fetch_todos, onHandleSubmit, onUpdateTodos, onDeleteTodos } from '../actions/actions';
 import Todos from './Todos';
 import TodoForm from './TodoForm';
 
@@ -66,7 +66,7 @@ class App extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps state..', state.todosReducer)
+  // console.log('mapStateToProps state..', state.todosReducer)
   return {
     todos: state.todosReducer.todos,
     fetchingTodos: state.todosReducer.fetchingTodos,
@@ -81,7 +81,7 @@ export default connect(
   {
     fetch_todos,
     onHandleSubmit,
-    onUpdateTodo,
-    onDeleteTodo
+    onUpdateTodos,
+    onDeleteTodos
   }
 )(App)

@@ -11,8 +11,8 @@ const TodoForm = props => {
                 <input type='text' name='id' placeholder='Add ID..' onChange={props.handleChange}/> 
                 <input type='submit' value='Add Todo' onClick={props.handleSubmit}/>
             </form>
-                <input type='submit' value='Update Todo' onClick={props.updateTodos}/>
-                <input type='submit' value='Delete Todo' onClick={props.deleteTodos}/>
+            <input type='submit' value='Update Todo' onClick={props.updateTodos}/>
+            <input type='submit' value='Delete Todo' onClick={props.deleteTodos}/>
         </div>
     )};
 
