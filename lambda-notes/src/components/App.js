@@ -6,9 +6,9 @@ import styled from 'styled-components';
 import { fetchNotes, addNote, viewNote, editNote, deleteNote } from '../store/actions';
 import Navigation from './Navigation';
 import NotesList from './NotesList';
-// import NewNote from './NewNote';
-// import NoteView from './NoteView';
-// import EditNote from './EditNote';
+import NewNote from './NewNote';
+import NoteView from './NoteView';
+import EditNote from './EditNote';
 
 const AppDiv = styled.div`
   margin: 15px;
@@ -35,7 +35,7 @@ class App extends Component {
             notes={this.props.notes}
           />} 
         />
-        {/* <Route exact path="/create" render={routerProps =>
+        <Route exact path="/create" render={routerProps =>
           <NewNote
             {...routerProps}
             addNote={this.props.addNote}
@@ -61,7 +61,7 @@ class App extends Component {
             note={this.props.note}
             deleteNote={this.props.deleteNote}
           />}
-        /> */}
+        />
       </AppDiv>
     );
   }

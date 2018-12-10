@@ -35,6 +35,9 @@ const TitleDiv = styled.div`
 `
 
 const NoteContent = styled.div`
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;  
     height: 82%;
     white-space: pre-wrap;
     padding: 1rem 0;
