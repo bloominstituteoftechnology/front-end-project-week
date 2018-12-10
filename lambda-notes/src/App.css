@@ -1,8 +1,13 @@
+
+.App .home-container {
+    display: flex;
+}
+
 .btn {
     padding: 1rem 2rem;
     background: var(--blue);
     color: var(--white);
-    border: 1px solid #C3C2C3;
+    border: 1px solid var(--border-gray);
     font-size: 1.6rem;
     font-weight: 800;
     text-align: center;

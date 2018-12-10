@@ -16,6 +16,7 @@
 
   :root {
       --white: #ffffff;
+      --border-gray: #A9A9A9;
       --dark-gray: #414142;
       --medium-gray: #d3d2d3;
       --light-gray: #f2f1f2;

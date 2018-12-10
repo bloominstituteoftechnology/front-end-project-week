@@ -4,7 +4,7 @@
     max-width: 25rem;
     padding: 1rem 1rem;
     height: 100vh;
-    border: 1px solid #C3C2C3;
+    border: 1px solid var(--border-gray);
 }
 
 .nav-bar .nav-container {
