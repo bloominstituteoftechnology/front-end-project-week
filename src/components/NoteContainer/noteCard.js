@@ -8,7 +8,7 @@ const NoteCard = props => {
         <div className='note-card'>
             <div className='notes'>
                 <h2>{props.note.title.substring(0, 33)}</h2>
-                <p>{props.note.textBody}</p>
+                <p>{props.note.textBody.substring(0, 123)}</p>
             </div>
         </div>
     )
