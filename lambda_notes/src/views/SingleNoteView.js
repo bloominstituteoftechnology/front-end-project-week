@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getNotes, deleteNote } from "../actions";
+import { getNotes, getNote, deleteNote } from "../actions";
 
 import SingleNote from "../components/Notes/SingleNote";
 
@@ -8,7 +8,7 @@ class SingleNoteView extends Component {
   state = { show: false };
 
   componentDidMount() {
-    this.props.getNotes();
+    this.props.getNote(this.props.match.params.id);
   }
 
   deleteNote = (e, id) => {
@@ -27,10 +27,9 @@ class SingleNoteView extends Component {
   };
 
   render() {
-    const noteId = this.props.match.params.id;
-    const note = this.props.notes.find(note => note._id === noteId);
+    const note = this.props.note;
 
-    if (this.props.gettingNotes) {
+    if (this.props.gettingNote) {
       return <h2>Loading note...</h2>;
     }
 
@@ -52,12 +51,12 @@ class SingleNoteView extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
-    gettingNotes: state.gettingNotes
+    note: state.note,
+    gettingNote: state.gettingNote
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getNotes, deleteNote }
+  { getNotes, getNote, deleteNote }
 )(SingleNoteView);

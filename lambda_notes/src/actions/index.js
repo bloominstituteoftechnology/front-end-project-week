@@ -5,6 +5,9 @@ export const ERROR = "ERROR";
 export const GET_NOTES = "GET_NOTES";
 export const GETTING_NOTES = "GETTING_NOTES";
 
+export const GET_NOTE = "GET_NOTE";
+export const GETTING_NOTE = "GETTING_NOTE";
+
 export const ADD_NOTE = "ADD_NOTE";
 export const ADDING_NOTE = "ADDING_NOTE";
 
@@ -25,6 +28,22 @@ export const getNotes = () => {
       .then(response => {
         console.log("response", response);
         dispatch({ type: GET_NOTES, payload: response.data });
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, payload: err });
+      });
+  };
+};
+
+export const getNote = id => {
+  return dispatch => {
+    dispatch({ type: GETTING_NOTE });
+
+    axios
+      .get(`${URL}/${id}`)
+      .then(response => {
+        console.log("RESPONSE GET NOTE", response);
+        dispatch({ type: GET_NOTE, payload: response.data });
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });

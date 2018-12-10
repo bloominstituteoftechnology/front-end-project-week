@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getNotes, editNote } from "../actions";
+import { getNotes, getNote, editNote } from "../actions";
 
 import EditNote from "../components/Notes/EditNote";
 
 class EditNoteView extends Component {
   state = {
-    title: "",
-    textBody: "",
+    title: this.props.note.title,
+    textBody: this.props.note.textBody,
     show: false
   };
+
+  componentDidMount() {
+    this.props.getNote(this.props.match.params.id);
+  }
 
   showModal = () => {
     this.setState({ show: true });
@@ -18,16 +22,6 @@ class EditNoteView extends Component {
   hideModal = () => {
     this.setState({ show: false });
   };
-
-  componentDidMount() {
-    const noteId = this.props.match.params.id;
-    const note = this.props.notes.find(note => note._id === noteId);
-
-    this.setState({
-      title: note.title,
-      textBody: note.textBody
-    });
-  }
 
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -46,8 +40,8 @@ class EditNoteView extends Component {
   };
 
   render() {
-    const noteId = this.props.match.params.id;
-    const note = this.props.notes.find(note => note._id === noteId);
+    const note = this.props.note;
+    console.log("RENDER note", note);
 
     return (
       <EditNote
@@ -67,12 +61,14 @@ class EditNoteView extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
-    gettingNotes: state.gettingNotes
+    // notes: state.notes,
+    note: state.note,
+    gettingNote: state.gettingNote
+    // gettingNotes: state.gettingNotes
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getNotes, editNote }
+  { getNotes, getNote, editNote }
 )(EditNoteView);
