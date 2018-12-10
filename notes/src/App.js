@@ -7,7 +7,8 @@ import styled from 'styled-components';
 import NotesView from './views/NotesView';
 import FormView from './views/FormView';
 import DetailView from './views/DetailView';
-import NavBar from './components/NavBar/NavBar';
+import NavBarView from './views/NavBarView';
+import LoginView from './views/LoginView';
 
 // styled component for the App
 const AppWrapper = styled.div`
@@ -34,7 +35,7 @@ class App extends React.Component {
       <AppWrapper className="App">
         <div className="navbar-container">
           <Route path="/" render={
-            props => <NavBar {...props} />
+            props => <NavBarView {...props} />
           } />
         </div>
         <div className="content-container">
@@ -49,6 +50,9 @@ class App extends React.Component {
           } />
           <Route path="/notes/edit/:_id" render={
             props => <FormView update {...props} />
+          } />
+          <Route path="/login" render={
+            props => <LoginView {...props} />
           } />
         </div>
       </AppWrapper>

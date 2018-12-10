@@ -13,7 +13,12 @@ import NoteDetail from '../components/NoteDetail/NoteDetail';
 
 class DetailView extends React.Component {
   componentDidMount() {
-    this.props.getNote(this.props.match.params._id);
+    const { loggedIn, history, match, getNote } = this.props;
+
+    // push to login page if not already logged in
+    !loggedIn && history.push('/login');
+
+    getNote(match.params._id);
   }
 
   render() {
@@ -26,6 +31,7 @@ class DetailView extends React.Component {
 export default connect(
   state => ({
     note: state.note,
+    loggedIn: state.loggedIn,
     fetchingNote: state.fetchingNotes,
     error: state.error,
   }),

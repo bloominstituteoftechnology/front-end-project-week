@@ -65,7 +65,6 @@ class NotesList extends React.Component {
     const { notes, history, fetchingNotes } = this.props;
     const { searchText, sort } = this.state;
 
-    console.log(sort);
     let computedNotes;
 
     if (!fetchingNotes && notes.length > 0) {

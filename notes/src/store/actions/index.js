@@ -18,6 +18,14 @@ export const DELETE_SUCCESS = 'DELETE_SUCCESS';
 
 export const REQUEST_ERROR = 'REQUEST_ERROR';
 
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+
+export const LOGOUT = 'LOGOUT';
+
+export const LOGGEDIN = 'LOGGEDIN';
+export const LOGGEDOUT = 'LOGGEDOUT';
+
 const BASE_URL = 'https://fe-notes.herokuapp.com/note';
 
 // actions creators
@@ -102,3 +110,41 @@ export const deleteNote = (_id) => dispatch => {
   })
 }
 
+export const login = (username, password) => {
+  const cred = JSON.parse(localStorage.getItem('notes-login'));
+
+  if (cred.username === username && cred.password === password) {
+    localStorage.setItem('notes-login', JSON.stringify({
+      username: username,
+      password: password,
+      status: true,
+    }))
+    return ({ type: LOGIN_SUCCESS, payload: username});
+  }
+  return({ type: LOGIN_FAILURE });
+}
+
+export const logout = () => {
+  const cred = JSON.parse(localStorage.getItem('notes-login'));
+  cred.status = false;
+  localStorage.setItem('notes-login', JSON.stringify(cred));
+  return ({ type: LOGOUT });
+}
+
+export const checkLogin = () => {
+  let cred = JSON.parse(localStorage.getItem('notes-login'));
+
+  if (!cred) {
+    cred = {
+      username: 'lambda',
+      password: 'fsw15',
+      status: false,
+    }
+    localStorage.setItem('notes_login', JSON.stringify(cred))
+  }
+
+  if (cred.status) {
+    return {type: LOGGEDIN, payload: cred }
+  }
+  return {type: LOGGEDOUT}
+}

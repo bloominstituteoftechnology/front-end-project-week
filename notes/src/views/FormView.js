@@ -15,7 +15,12 @@ import NotesForm from '../components/NotesForm/NotesForm';
 
 class FormView extends React.Component { 
   componentDidMount() {
-    this.props.update && this.props.getNote(this.props.match.params._id);
+    const { loggedIn, history, update, getNote } = this.props;
+
+    // push to login page if not already logged in
+    !loggedIn && history.push('/login');
+
+    update && getNote(this.props.match.params._id);
   }
   render () {
     const { update, fetchingNote, note } = this.props;
@@ -35,6 +40,7 @@ class FormView extends React.Component {
 export default connect(
   state => ({
     note: state.note,
+    loggedIn: state.loggedIn,
     fetchingNote: state.fetchingNote,
     addingNote: state.addingNote,
     updatingNote: state.updatingNote,

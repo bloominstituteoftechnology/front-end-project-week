@@ -12,7 +12,12 @@ import NotesList from '../components/NoteList/NotesList';
 
 class NotesView extends React.Component {
   componentDidMount() {
-    this.props.getNotes();
+    const {loggedIn, history, getNotes } = this.props;
+
+    // push to login page if not already logged in
+    !loggedIn && history.push('/login');
+
+    getNotes();
   }
 
   render() {
@@ -25,6 +30,7 @@ class NotesView extends React.Component {
 export default connect(
   state => ({
     notes: state.notes,
+    loggedIn: state.loggedIn,
     fetchingNotes: state.fetchingNotes,
     error: state.error,
   }),

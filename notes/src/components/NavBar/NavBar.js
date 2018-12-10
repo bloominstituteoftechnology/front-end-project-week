@@ -49,6 +49,15 @@ const NavBar = (props) => {
         >
           + Create New Note
         </div>
+        <div
+          className="menu"
+          onClick={() => {
+            props.logout();
+            props.history.push('/login');
+          }}
+        >
+          Sign Out
+        </div>
       </div>
     </NavBarWrapper>
   );

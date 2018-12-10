@@ -5,11 +5,14 @@ import * as actions from '../actions';
 const initialState = {
   notes: [],
   note: null,
+  loggedIn: false,
+  username: '',
   fetchingNotes: false,
   fetchingNote: false,
   addingNote: false,
   updatingNote: false,
   deletingNote: false,
+  loginSuccess: null,
   error: null,
 };
 
@@ -66,20 +69,20 @@ export default (state = initialState, action ) => {
         updatingNote: false,
         error: null,
       }
-      case actions.POST_SUCCESS:
-        return {
-          ...state,
-          notes: [ ...(state.notes), action.payload],
-          addingNote: false,
-          error: null,
-        }
-      case actions.DELETE_SUCCESS:
-        return {
-          ...state,
-          notes: state.notes.filter( note => note["_id"] !== action.payload["_id"]),
-          deletingNote: false,
-          error: null,
-        }
+    case actions.POST_SUCCESS:
+      return {
+        ...state,
+        notes: [ ...(state.notes), action.payload],
+        addingNote: false,
+        error: null,
+      }
+    case actions.DELETE_SUCCESS:
+      return {
+        ...state,
+        notes: state.notes.filter( note => note["_id"] !== action.payload["_id"]),
+        deletingNote: false,
+        error: null,
+      }
     case actions.REQUEST_ERROR:
       return {
         ...state,
@@ -90,7 +93,30 @@ export default (state = initialState, action ) => {
         deletingNote: false,
         error: action.payload
       }
-
+    case actions.LOGIN_SUCCESS:
+      return {
+        ...state,
+        loggedIn: true,
+        username: action.payload,
+        signupSuccess: true,
+        loginSuccess: true,
+      }
+    case actions.LOGIN_FAILURE:
+      return {
+        ...state,
+        loggedIn: false,
+        username: '',
+        loginSuccess: false,
+      }
+    case actions.LOGGEDIN:
+      return {
+        ...state,
+        loggedIn: true,
+        username: action.payload.username,
+      }
+    case actions.LOGOUT:
+    case actions.LOGGEDOUT:
+      return initialState;
     default:
       return state;
   }
