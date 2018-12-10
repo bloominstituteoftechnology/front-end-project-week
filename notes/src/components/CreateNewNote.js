@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { addNote } from '../actions';
 
 class CreateNewNote extends React.Component {
     constructor(props) {
@@ -15,7 +18,7 @@ class CreateNewNote extends React.Component {
     
       submitHandler = event => {
         event.preventDefault();
-        this.props.addNote(this.state);
+        this.props.addNote(this.state.title, this.state.textBody);
         this.props.history.push("/");
       }
 
@@ -34,10 +37,10 @@ class CreateNewNote extends React.Component {
                 value={this.state.textBody}
                 name="textBody"
             />
-            <button type="submit">Add to the village</button>
+            <button type="submit">Submit</button>
             </form>
         )
     }
 }
 
-export default CreateNewNote;
+export default connect(null, { addNote })(CreateNewNote);

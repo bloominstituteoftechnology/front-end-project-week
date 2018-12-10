@@ -5,6 +5,9 @@ import {
     DELETE_NOTE_START,
     DELETE_NOTE_SUCCESS,
     DELETE_NOTE_FAILURE,
+    ADD_NOTE_START,
+    ADD_NOTE_SUCCESS,
+    ADD_NOTE_FAILURE
  } from '../actions';
 
 const initialState = {
@@ -12,6 +15,7 @@ const initialState = {
     fetchingNotes: false,
     error: false,
     deletingNote: false,
+    addingNote: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -39,6 +43,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 deletingNote: true,
+                error: false,
             }
         case DELETE_NOTE_SUCCESS:
             return {
@@ -52,6 +57,24 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 deletingNote: false,
                 error: action.payload
+            }
+        case ADD_NOTE_START:
+            return {
+                ...state,
+                addingNote: true,
+                error: false,
+            }
+        case ADD_NOTE_SUCCESS:
+            return {
+                ...state,
+                addingNote: false,
+                error: false,
+            }
+        case ADD_NOTE_FAILURE:
+            return {
+                ...state,
+                addingNote: false,
+                error: action.payload,
             }
 
         default:
