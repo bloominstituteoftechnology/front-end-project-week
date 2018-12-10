@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const NoteListViewContainer = styled.div`
   padding-top: 50px;
+  padding-left: 40px;
 `;
 
 const NoteListHeader = styled.h2`
