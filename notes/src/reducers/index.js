@@ -42,7 +42,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         savingNote: false,
-        notes: [...state.notes, action.payload],
+        notes: [...saved],
         filtered: []
       };
     case act.DELETING:

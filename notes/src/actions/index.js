@@ -55,9 +55,6 @@ export const saveNote = info => dispatch => {
   dispatch({ type: SAVING });
   saved
     .then(res => {
-      // if (local) {
-
-      // }
       dispatch({ type: SAVED, payload: { ...info, _id: res.data.success } });
     })
     .catch(err => dispatch({ type: ERROR, paylaod: err }));
