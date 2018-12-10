@@ -39,7 +39,7 @@ class AddNote extends React.Component {
     Axios.post("http://localhost:7000/addNote", newNote)
       .then(response => {
         console.log(response.data);
-        newNote.id = response.data.success;
+        newNote.id = response.data.id;
         this.props.addNewNotes(newNote);
       })
       .catch(error => {
