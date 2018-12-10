@@ -16,7 +16,6 @@ class NoteList extends Component {
     }
 
     noteClicked = (ev, id) => {
-        console.log(this.props);
         ev.preventDefault();
         this.props.history.push(`/note/${id}`)
     }
@@ -89,11 +88,7 @@ class NoteList extends Component {
                     exact
                     render={props => 
                     this.filterdNotes().map(note => 
-                        <Note 
-                            note={note} 
-                            key={note.id} 
-                            noteClicked={e => this.noteClicked(e, note.id)}
-                        />)
+                        <Note note={note} key={note.id} noteClicked={e => this.noteClicked(e, note.id)} />)
                     }
                 />
                 <Route

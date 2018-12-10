@@ -37,6 +37,3 @@ class App extends Component {
 }
 
 export default withRouter(connect(state => ({showMenu: state.showMenu}), { getNotes })(App));
-
-
-
