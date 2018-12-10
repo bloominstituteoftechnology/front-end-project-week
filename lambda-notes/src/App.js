@@ -20,7 +20,8 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      // .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:9000/api/notes")
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
@@ -28,11 +29,13 @@ class App extends Component {
   finishEdit = (note, history) => {
     const id = note._id;
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+      // .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+      .put(`http://localhost:9000/api/notes/${id}`, note)
       .then(() => {
         history.push(`/note/${id}`);
         axios
-          .get("https://fe-notes.herokuapp.com/note/get/all")
+          // .get("https://fe-notes.herokuapp.com/note/get/all")
+          .get("http://localhost:9000/api/notes")
           .then(response => this.setState({ notes: response.data }))
           .catch(error => console.log(error));
       })
@@ -41,7 +44,8 @@ class App extends Component {
 
   finishAdd = (note, history) => {
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", note)
+      // .post("https://fe-notes.herokuapp.com/note/create", note)
+      .post("http://localhost:9000/api/notes", note)
       .then(response => {
         history.push(`/note/${response.data.success}`);
         this.setState({
@@ -56,11 +60,13 @@ class App extends Component {
 
   deleteNote = (id, history) => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      // .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:9000/api/notes/${id}`)
       .then(() => {
         history.push("/");
         axios
-          .get("https://fe-notes.herokuapp.com/note/get/all")
+          // .get("https://fe-notes.herokuapp.com/note/get/all")
+          .get("http://localhost:9000/api/notes")
           .then(response => this.setState({ notes: response.data }))
           .catch(error => console.log(error));
       })
