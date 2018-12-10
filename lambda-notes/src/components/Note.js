@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Div = styled.div`
-    width: 25%;
-    border: 1px solid grey;
-    margin: 20px;
+    width: 31.3%;
+    height: 270px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 35px;
+    background: white;
     h1 {
         display: flex;
         font-size: 1.5rem;
