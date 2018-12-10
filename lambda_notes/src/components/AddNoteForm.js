@@ -60,6 +60,10 @@ const Textarea = styled.textarea`
   margin-bottom: 15px;
   height: 50vh;
   resize: none;
+
+  @media (max-width: 650px) {
+    height: 25vh;
+  }
 `;
 
 // ==============================
