@@ -11,6 +11,7 @@ class NoteList extends React.Component {
     if (this.props.fetching) {
       return (
         <div className="note-list">
+
           <h3>Loading...</h3>
         </div>
       );
@@ -18,6 +19,7 @@ class NoteList extends React.Component {
       return (
         <div className="note-list">
           <h2 className="your-notes">Your Notes:</h2>
+
           <ul>
             {this.props.notes.map(note => {
               return (
@@ -30,6 +32,7 @@ class NoteList extends React.Component {
               );
             })}
           </ul>
+
         </div>
       );
     }
@@ -47,3 +50,4 @@ export default connect(
   mapStateToProps,
   { getNotes }
 )(NoteList);
+

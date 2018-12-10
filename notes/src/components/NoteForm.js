@@ -68,3 +68,4 @@ export default connect(
   mapStateToProps,
   { editNote }
 )(NoteForm);
+
