@@ -1,6 +1,9 @@
 import React from "react";
+import { Route, Link } from "react-router-dom";
 import styled from "styled-components";
-import axios from 'axios';
+import axios from "axios";
+
+import EditNoteForm from '../EditNoteForm/EditNoteForm';
 
 const NoteCardContainer = styled.div`
 	background-color: #ffffff;
@@ -8,8 +11,8 @@ const NoteCardContainer = styled.div`
 	/* width: 10%; */
 	width: 180px;
 	/* min-width: 150px; */
-    min-height: 150px;
-    margin: 20px;
+	min-height: 150px;
+	margin: 20px;
 	padding: 15px;
 	border: 1px solid #dbdbdb;
 	border: 2px solid red;
@@ -24,49 +27,58 @@ const NoteCardTitle = styled.h4`
 const NoteCardContent = styled.div``;
 
 class Note extends React.Component {
-	constructor(){
+	constructor() {
 		super();
 		this.state = {
-			note: null
-		}
+			note: null,
+		};
 	}
 
 	componentDidMount() {
-		console.log('Note params', this.props)
+		console.log("Note params", this.props);
 		axios
-			.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.noteId}`)
-			.then( 
-				res => {
-					console.log('Note > Server Response: ', res)
-					this.setState({
-						note: res.data
-					})
-					console.log('Note State', this.state.note.title)
-				}
-				
+			.get(
+				`https://fe-notes.herokuapp.com/note/get/${
+					this.props.match.params.noteId
+				}`
 			)
-			.catch(
-				err => console.log('Note > Server Error: ', err)
-			)
-			
+			.then(res => {
+				console.log("Note > Server Response: ", res);
+				this.setState({
+					note: res.data,
+				});
+				// console.log("Note State", this.state.note.title);
+			})
+			.catch(err => console.log("Note > Server Error: ", err));
 	}
-    
+
 	render() {
 		const note = this.state.note;
-		if (!note) return <h2>Loading...</h2>
+		if (!note) return <h2>Loading...</h2>;
 		return (
-			<NoteCardContainer
-				history={this.props.history}
-				notes={this.props.notes}
-			>
-				<NoteCardTitle>{this.state.note.title}</NoteCardTitle>
-				<NoteCardContent>{this.state.note.textBody}</NoteCardContent>
-			</NoteCardContainer>
-			
+			<>
+				<NoteCardContainer
+					history={this.props.history}
+					notes={this.props.notes}
+				>
+					<Link to={`/notes/${note._id}/edit`}>Edit</Link>
+					<NoteCardTitle>{this.state.note.title}</NoteCardTitle>
+					<NoteCardContent>
+						{this.state.note.textBody}
+					</NoteCardContent>
+				</NoteCardContainer>
+				<Route 
+					path={`/notes/${note._id}/edit`}
+					render={
+						props => (
+							<EditNoteForm {...props} note={note} />
+						)
+					}
+				/>
+			</>
 		);
-		
 	}
-};
+}
 
 // Note.defaultProps = {
 //     title: '',
