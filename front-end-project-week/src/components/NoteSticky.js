@@ -2,13 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 /***************************************************************************************************
+ ********************************************* Variables *******************************************
+ **************************************************************************************************/
+const maxTitleLimit = 20;
+const maxTextBodyLimit = 180;
+
+/***************************************************************************************************
  ********************************************** Methods ********************************************
  **************************************************************************************************/
 const shortenText = (text, limitCharsDisplayed) => {
-  if (text.length > limitCharsDisplayed) {
-    return text.slice(0, limitCharsDisplayed);
+  let modifiedText = text;
+  if (modifiedText.length > limitCharsDisplayed) {
+    modifiedText = modifiedText.slice(0, limitCharsDisplayed);
+    if (modifiedText.indexOf(' ') >= 0) {
+      modifiedText = modifiedText.slice(0, modifiedText.lastIndexOf(' '));
+      modifiedText = modifiedText.trim() + ' ';
+    }
   }
-  return text;
+  return modifiedText;
 };
 
 /***************************************************************************************************
@@ -21,7 +32,7 @@ const DivNoteSticky = styled.div`
 `;
 const H3NoteTitle = styled.h3``;
 const NoteText = styled.p``;
-const SpanElipsis = styled.span`
+const SpanEllipsis = styled.span`
   color: gray;
 `;
 
@@ -32,10 +43,16 @@ const NoteSticky = props => {
   return (
     <DivNoteSticky>
       <H3NoteTitle>
-        {shortenText(props.title, 20)} <SpanElipsis>. . .</SpanElipsis>
+        {shortenText(props.title, maxTitleLimit)}{' '}
+        {props.title.length > maxTitleLimit && (
+          <SpanEllipsis>. . .</SpanEllipsis>
+        )}
       </H3NoteTitle>
       <NoteText>
-        {shortenText(props.textBody, 180)} <SpanElipsis>. . .</SpanElipsis>
+        {shortenText(props.textBody, maxTextBodyLimit)}{' '}
+        {props.textBody.length > maxTextBodyLimit && (
+          <SpanEllipsis>. . .</SpanEllipsis>
+        )}
       </NoteText>
     </DivNoteSticky>
   );
