@@ -3,7 +3,7 @@ const Note = props => {
     return (
         <>
             <h1>{props.note.title}</h1>
-            <p>{props.note.content}</p>
+            <p>{props.note.textBody}</p>
         </>
     );
 };
