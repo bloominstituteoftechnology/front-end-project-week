@@ -9,7 +9,7 @@ import CreateNoteView from '../views/CreateNoteView';
 /***************************************************************************************************
  ********************************************* Variables *******************************************
  **************************************************************************************************/
-const isTestServerOn = false;
+const isTestServerOn = true;
 const server = isTestServerOn
   ? 'http://localhost:3333'
   : 'https://fe-notes.herokuapp.com';

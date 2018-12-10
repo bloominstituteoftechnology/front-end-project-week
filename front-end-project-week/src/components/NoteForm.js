@@ -89,8 +89,6 @@ class NoteForm extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    console.log(this.props);
-    console.log(this.state.newNote);
     if (this.props.create) {
       if (this.state.newNote.title && this.state.newNote.textBody) {
         this.props.addNote(this.state.newNote);

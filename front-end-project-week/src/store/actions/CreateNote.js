@@ -14,7 +14,7 @@ export const ADD_NOTE_FAILURE = 'ADD_NOTE_FAILURE';
 export const addNote = newNote => dispatch => {
   dispatch({ type: ADD_NOTE_LOADING });
   axios
-    .get(`${urlLinks.server}${urlLinks.home}${urlLinks.createNote}`, newNote)
+    .post(`${urlLinks.server}${urlLinks.home}${urlLinks.createNote}`, newNote)
     .then(res => {
       dispatch({ type: ADD_NOTE_SUCCESS, payload: res.data });
     })

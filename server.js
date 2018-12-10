@@ -114,8 +114,8 @@ let notes = [
   {
     tags: [],
     _id: '14',
-    title: 'test',
-    textBody: 'test',
+    title: 'testing123',
+    textBody: 'testing1234',
     __v: 0
   }
 ];
