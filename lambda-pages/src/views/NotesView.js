@@ -1,13 +1,38 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getAllNotes } from '../actions';
+import Notes from '../components/Notes';
 
- class NotesView extends Component {
+// dummy data
+// import notesData from '../notes';
+
+class NotesView extends Component {
+  componentDidMount() {
+    this.props.getAllNotes();
+  }
   render() {
+    const { notes, isFetching } = this.props;
     return (
-      <div>
-        <h1>Notes View</h1>
+      <div className="View NoteView">
+        <h2>Your Notes:</h2>
+        {isFetching ? (
+          <div>Loading Your Notes...</div>
+        ) : (
+          <Notes notes={notes} />
+        )}
       </div>
     );
   }
 }
 
- export default NotesView;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes.notes,
+    isFetching: state.notes.isFetching
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getAllNotes }
+)(NotesView);

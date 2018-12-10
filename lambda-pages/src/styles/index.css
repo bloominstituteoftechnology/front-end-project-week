@@ -5,6 +5,7 @@ RESET
 v2.0b1 | 201101 
 NOTE:WORK IN PROGRESS
 USE WITH CAUTION AND TEST WITH ABANDON */
+
 html,
 body,
 div,
@@ -129,26 +130,31 @@ ins {
 del {
   text-decoration: line-through;
 }
- table {
+
+table {
   border-collapse: collapse;
   border-spacing: 0;
 }
- * {
+
+* {
   box-sizing: border-box;
 }
- html {
+
+html {
   font-size: 62.5%;
 }
- body {
+
+body {
   margin: 0;
-  padding: 0.4rem;
   line-height: 1.5;
   font-size: 1.6rem;
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   background: #f2f1f2;
+  color: #414141;
 }
- code {
+
+code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
