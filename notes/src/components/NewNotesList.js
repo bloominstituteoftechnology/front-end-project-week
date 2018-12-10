@@ -1,11 +1,12 @@
 import React from "react";
 import { MainContent, Search } from "../styled/NotesList";
 import { connect } from "react-redux";
-import { fetchNotes, filterNotes } from "../actions";
+import { fetchNotes, filterNotes, newSort } from "../actions";
 import SortableList from "./SortableList";
 import { DragDropContext } from "react-beautiful-dnd";
 import Papa from "papaparse";
 import Fuse from "fuse.js";
+// import { newSort} from
 
 const reorder = (notes, startIndex, endIndex) => {
   const result = Array.from(notes);
@@ -13,31 +14,6 @@ const reorder = (notes, startIndex, endIndex) => {
   result.splice(endIndex, 0, removed);
   return result;
 };
-
-function newSort(server, local) {
-  const result = [];
-  let key;
-
-  const uniqueToServer = server.filter(function(obj) {
-    return !local.some(function(obj2) {
-      return obj._id === obj2._id;
-    });
-  });
-
-  let length = server.length > local.length ? local.length : server.length;
-  for (let i = 0; i < length; i++) {
-    if (local[i]["_id"]) {
-      key = local[i]["_id"];
-    }
-    for (let j = 0; j < length; j++) {
-      if (server[j]["_id"] === key) {
-        result.push(server[j]);
-      }
-    }
-  }
-  Array.prototype.push.apply(result, uniqueToServer);
-  return result;
-}
 
 class NotesList extends React.Component {
   constructor() {
@@ -65,6 +41,7 @@ class NotesList extends React.Component {
   componentWillUnmount() {
     console.log(JSON.parse(localStorage.getItem("state")));
     console.log(this.props.notes);
+    console.log(this.state.notes);
     this.saveNotes();
   }
 
@@ -100,6 +77,7 @@ class NotesList extends React.Component {
     this.setState({
       notes
     });
+    this.saveNotes();
   };
 
   downloadCSV = args => {

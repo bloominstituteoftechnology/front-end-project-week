@@ -17,6 +17,8 @@ export const ERROR = "ERROR";
 
 const host = "https://fe-notes.herokuapp.com/note";
 
+export const local = JSON.parse(localStorage.getItem("state"));
+
 export const fetchNotes = () => dispatch => {
   const notes = axios.get(`${host}/get/all`);
   dispatch({ type: FETCHING });
@@ -72,3 +74,28 @@ export const filterNotes = id => {
     payload: id
   };
 };
+
+export function newSort(server, local) {
+  const result = [];
+  let key;
+
+  const uniqueToServer = server.filter(function(obj) {
+    return !local.some(function(obj2) {
+      return obj._id === obj2._id;
+    });
+  });
+
+  let length = server.length > local.length ? local.length : server.length;
+  for (let i = 0; i < length; i++) {
+    if (local[i]["_id"]) {
+      key = local[i]["_id"];
+    }
+    for (let j = 0; j < length; j++) {
+      if (server[j]["_id"] === key) {
+        result.push(server[j]);
+      }
+    }
+  }
+  Array.prototype.push.apply(result, uniqueToServer);
+  return result;
+}
