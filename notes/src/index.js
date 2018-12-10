@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// Redux Imports
+
+
+// Router Imports
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// Store Definition
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
