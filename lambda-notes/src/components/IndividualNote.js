@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { deleteNote } from '../actions';
+import DeleteModal from './DeleteModal';
 
 const NotePage = styled.div`
     width: 100%;
@@ -18,6 +18,7 @@ const NotePage = styled.div`
 
     p {
         width: 90%;
+        word-break: break-all;
     }
 `
 
@@ -46,24 +47,28 @@ const DeleteButton = styled.button`
 `
 
 class IndividualNote extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            willDelete: false,
+        }
+    }
+
     render(){
         const note = this.props.notes.find(note => `${note._id}` === this.props.match.params.id);
-        if (!note) {
+        if (!note || !note.title) {
             return <h2>Note not found...</h2>
         }
 
         return(
             <NotePage>
                 <EditButton onClick={() => this.props.history.push(`/edit-note/${note._id}`)}>edit</EditButton>
-                <DeleteButton onClick={event => {
-                    event.preventDefault();
-                    this.props.deleteNote(note._id);
-                    this.props.history.push('/');
-                }}>
+                <DeleteButton onClick={() => this.setState({ willDelete: !this.state.willDelete })}>
                     delete
                 </DeleteButton>
                 <h2 className='note-page-title'>{note.title}</h2>
                 <p className='note-page-text'>{note.textBody}</p>
+                <DeleteModal {...this.props} note={note} show={this.state.willDelete}/>
             </NotePage>
         );
     }
@@ -75,4 +80,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { deleteNote })(IndividualNote);
+export default connect(mapStateToProps, null)(IndividualNote);
