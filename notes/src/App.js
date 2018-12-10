@@ -1,17 +1,26 @@
 import React from 'react';
-import SideBar from './components/SideBar'
-import './Reset.css'
-import {fetchNotes} from './actions'
+
 import { connect } from 'react-redux'
+import styled from 'styled-components'
+import './Reset.css'
+import { fetchNotes } from './actions'
+import { Route } from 'react-router-dom'
+
+import ListContent from './components/ListView/ListContent'
+
+const AppDiv = styled.div`
+    display: flex;
+    width: 100%;
+`
 class App extends React.Component{
     componentDidMount(){
         this.props.fetchNotes()
     }
     render(){
         return(
-        <div className = 'App' >
-            <SideBar />
-        </div>
+        <AppDiv>
+            <Route exact path = '/' render = {() => <ListContent list = {this.props.notes} error = {this.props.error}/>} />
+        </AppDiv>
         )
     }
 }

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const SideBarDiv = styled.div`
     width:20%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     border: 1px solid #b2b2b2;
