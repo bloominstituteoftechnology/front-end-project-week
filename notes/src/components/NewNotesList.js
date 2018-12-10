@@ -5,29 +5,27 @@ import { fetchNotes, filterNotes } from "../actions";
 import SortableList from "./SortableList";
 import { DragDropContext } from "react-beautiful-dnd";
 import Papa from "papaparse";
+import Fuse from "fuse.js";
 
 const reorder = (notes, startIndex, endIndex) => {
   const result = Array.from(notes);
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
-
   return result;
 };
 
 function newSort(server, local) {
   const result = [];
-  let extra = [];
-  let item;
+  let key;
 
   const uniqueToServer = server.filter(function(obj) {
     return !local.some(function(obj2) {
       return obj._id === obj2._id;
     });
   });
-  let length = server.length > local.length ? local.length : server.length;
 
+  let length = server.length > local.length ? local.length : server.length;
   for (let i = 0; i < length; i++) {
-    let key;
     if (local[i]["_id"]) {
       key = local[i]["_id"];
     }
@@ -46,39 +44,50 @@ class NotesList extends React.Component {
     super();
     this.state = {
       notes: [],
-      search: ""
+      search: "",
+      filtered: []
     };
   }
+
   componentDidMount() {
-    this.props.fetchNotes(); //can't figure out how to get axios to persist
-    if (localStorage.getItem("notes")) {
-      let notes = JSON.parse(localStorage.getItem("notes"));
+    this.props.fetchNotes();
+
+    let notes = localStorage.getItem("state");
+    if (notes) {
+      notes = JSON.parse(localStorage.getItem("state"));
       let newNotes = this.props.notes;
       let sorted = newSort(newNotes, notes);
-      console.log(sorted);
       this.setState({ notes: sorted });
     }
     window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {
-    let notes = [...this.state.notes];
-    let ids = notes.filter(obj =>
-      Object.keys(obj).map(key => {
-        if (key === "_id") return key;
-        else {
-          delete obj[key];
-          return null;
-        }
-      })
-    );
-    console.log(ids);
-    localStorage.setItem("notes", JSON.stringify(ids));
+    console.log(JSON.parse(localStorage.getItem("state")));
+    console.log(this.props.notes);
+    this.saveNotes();
   }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    this.props.filterNotes(e.target.value);
+    const options = {
+      threshold: 0.5,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 0,
+      keys: ["title", "textBody"]
+    };
+    const fuse = new Fuse(this.state.notes, options);
+    const result = fuse.search(e.target.value);
+    this.setState({ filtered: result });
   };
+
+  saveNotes = () => {
+    const notes = JSON.stringify(this.state.notes);
+    localStorage.setItem("state", notes);
+  };
+
   onDragEnd = result => {
     if (!result.destination) {
       return;
@@ -113,10 +122,9 @@ class NotesList extends React.Component {
   };
 
   render() {
-    // const notes =
-    //   this.props.filtered.length > 0 ? this.props.filtered : this.props.notes;
-    // SEARCH NOT WORKING IN THIS VERSION BECAUSE DnD issues
-    const { notes } = this.state;
+    const notes =
+      this.state.filtered.length > 0 ? this.state.filtered : this.state.notes;
+
     return (
       <MainContent>
         <h2>Your Notes:</h2>

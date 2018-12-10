@@ -1,5 +1,5 @@
 import * as act from "../actions";
-import Fuse from "fuse.js";
+// import Fuse from "fuse.js";
 
 const initialState = {
   fetchingNotes: false,
@@ -63,18 +63,18 @@ const rootReducer = (state = initialState, action) => {
         return note;
       });
       return { ...state, notes: updated };
-    case act.FILTER:
-      const options = {
-        threshold: 0.5,
-        location: 0,
-        distance: 100,
-        maxPatternLength: 32,
-        minMatchCharLength: 0,
-        keys: ["title", "textBody"]
-      };
-      const fuse = new Fuse(state.notes, options);
-      const result = fuse.search(action.payload);
-      return { ...state, filtered: [...result] };
+    // case act.FILTER:
+    //   const options = {
+    //     threshold: 0.5,
+    //     location: 0,
+    //     distance: 100,
+    //     maxPatternLength: 32,
+    //     minMatchCharLength: 0,
+    //     keys: ["title", "textBody"]
+    //   };
+    //   const fuse = new Fuse(state.notes, options);
+    //   const result = fuse.search(action.payload);
+    //   return { ...state, filtered: [...result] };
     case act.ERROR:
       return {
         ...state,

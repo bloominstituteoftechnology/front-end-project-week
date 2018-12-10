@@ -21,7 +21,12 @@ export const fetchNotes = () => dispatch => {
   const notes = axios.get(`${host}/get/all`);
   dispatch({ type: FETCHING });
   notes
-    .then(res => dispatch({ type: FETCHED, payload: res.data }))
+    .then(res =>
+      dispatch({
+        type: FETCHED,
+        payload: res.data
+      })
+    )
     .catch(err => {
       dispatch({ type: ERROR, payload: err });
     });
@@ -67,11 +72,3 @@ export const filterNotes = id => {
     payload: id
   };
 };
-
-// export const reorder = list => dispatch => {
-//   const order = axios.post(`${host}/create`, list);
-//   dispatch({ type: DRAGGING });
-//   order
-//     .then(() => dispatch({ type: DROPPED, payload: list }))
-//     .catch(err => dispatch({ type: ERROR, payload: err }));
-// };
