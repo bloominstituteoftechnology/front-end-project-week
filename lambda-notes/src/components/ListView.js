@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// list view styled components
 
 const ListViewContainer = styled.div`
     padding-top: 50px;
@@ -44,7 +43,12 @@ const PreviewTitle = styled.h3`
 `
 
 const PreviewBody = styled.p`
-    font-size: 0.9rem;
+    font-size: 1.6;
+    line-height: 1.6;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
 `
 
 class ListView extends Component {
@@ -58,7 +62,7 @@ class ListView extends Component {
                 <ListHeader>Your Notes:</ListHeader>
                 <NotePreviewContainer>
                     {this.props.notes.map(note =>
-                        <NotePreview note={note} to='/'>
+                        <NotePreview to={`/notes/${note._id}`}>
                             <PreviewTitle>{note.title}</PreviewTitle>
                             <PreviewBody>{note.textBody}</PreviewBody>
                         </NotePreview>

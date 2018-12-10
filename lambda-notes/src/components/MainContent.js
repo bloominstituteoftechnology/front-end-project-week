@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ListView from './ListView.js'
 import { Route } from 'react-router-dom';
+import axios from 'axios';
+import NoteView from './NoteView.js'
+import CreateNote from './CreateNote.js'
 
 const MainContentContainer = styled.div`
     display: table-cell;
@@ -64,6 +67,21 @@ class MainContent extends Component {
         }
     }
 
+    componentDidMount() {
+        axios
+            .get(`https://fe-notes.herokuapp.com/note/get/all`)
+            .then(response => {
+                this.setState({
+                    notes: response.data
+                });
+            })
+            .catch(err => console.log(err));
+    }
+
+    addNote = response => {
+        window.location.reload();
+    }
+
     render() {
         return (
             <MainContentContainer>
@@ -71,7 +89,19 @@ class MainContent extends Component {
                     path='/'
                     exact
                     render={props =>
-                        <ListView props={props} notes={this.state.notes} />
+                        <ListView {...props} notes={this.state.notes} />
+                    }
+                />
+                <Route
+                    path={`/notes/:id`}
+                    render={props =>
+                        <NoteView {...props} />
+                    }
+                />
+                <Route
+                    path={`/create`}
+                    render={props =>
+                        <CreateNote {...props} addNote={this.addNote} />
                     }
                 />
             </MainContentContainer>
