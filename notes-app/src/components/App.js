@@ -6,20 +6,22 @@ import { Route } from 'react-router-dom';
 import NoteList from './NoteList/NoteList';
 import Nav from './nav';
 import CreateNoteForm from './CreateNote/CreateNoteForm';
+import Note from './NoteList/Note';
 
 class App extends Component {
   constructor(){
     super();
     this.state={
-      notes: []
+      notes: [],
+      editNote: {}
     }
   }
 
   componentDidMount(){
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then(response => {
-        console.log(response);
+        
         this.setState({ 
           notes: response.data 
         });
@@ -43,10 +45,15 @@ class App extends Component {
     console.log(this.state.notes)
   }
 
+  startUpdate(obj){
+    this.setState({
+      editNote: obj
+    })
+  }
+
 
   render() {
-    console.log(this.state.notes)
-    console.log(this.state.notes[0])
+    
     return (
       <div className="clearfix App">
         <Nav />
@@ -59,10 +66,20 @@ class App extends Component {
         )}
           
         />
+
         <Route path='/form' render={props => ( 
           <CreateNoteForm 
             {...props}
             addToList={this.addToList}
+          />
+        )}
+          
+        />
+
+        <Route path='/card/:_id' render={props => ( 
+          <Note
+          {...props}
+          startUpdate={this.startUpdate}
           />
         )}
           

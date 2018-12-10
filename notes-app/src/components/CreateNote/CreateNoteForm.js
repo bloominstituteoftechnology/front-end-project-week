@@ -27,14 +27,20 @@ class CreateNoteForm extends Component {
         return (
             <div className='NoteForm'>
                 <form onSubmit={this.addNote}>
-                    <input 
+                    <input
+                        className='inputs' 
                         onChange={this.handleChange}
                         placeholder='title'
                         value={this.state.title}
                         name='title'
                     />
-                    <textarea name='textBody' onChange={this.handleChange} value={this.state.textBody} placeholder='content'></textarea>
-                    <button type='submit'>Submit</button>
+                    <textarea
+                        className='inputs'
+                        name='textBody' 
+                        onChange={this.handleChange} 
+                        value={this.state.textBody} 
+                        placeholder='content'></textarea>
+                    <button type='submit'>Save</button>
                 </form>
             </div>
         )

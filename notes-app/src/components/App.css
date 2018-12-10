@@ -10,7 +10,8 @@
   margin: 0 auto;
   background: lightgray;
   position: relative;
-  height: auto;
+  height:  ;
+  box-shadow: 1px 0 10px 5px #282c34;
 }
 
 .App-logo {
@@ -64,12 +65,15 @@ nav a:hover{
 }
 
 .view{
+  box-sizing: border-box;
   width: 75%;
-  padding: 50px 25px;
+  height: 100%;
+  padding: 50px 25px 0;
   padding-right: 0;
   margin-left: 25%;
   text-align: left;
   background: #F2F1F2;
+  position: relative;
 }
 
 .view h3{
@@ -88,6 +92,7 @@ nav a:hover{
   
 }
 .note-card{
+  cursor: pointer;
   background: white;
   width: 195px;
   border: 2px solid black;
@@ -101,7 +106,54 @@ form{
   display: flex;
   flex-direction: column;
 }
-form{ }
+.inputs{
+  margin-bottom: 20px;
+  margin-right: 30px;
+  padding: 15px;
+  border-radius: 5px;
+}
+input{
+  width: 340px;
+}
+textarea{
+  height: 350px;
+  overflow: auto;
+}
+button{
+  width: 200px;
+  border: 1px solid gray;
+  background: #24B8BD;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px;
+}
+button:hover{
+  
+  color: #24B8BD;
+  background: white;
+
+}
+
+
+/* note view */
+.note-view{
+  
+  height: 93vh;
+  background: #F2F1F2
+}
+.NoteForm{
+  height: 95vh;
+  background: #F2F1F2
+}
+.links{
+  position: absolute;
+  right:20px;
+  top: 20px;
+}
+.links a{
+  margin-right: 20px;
+}
 
 
 

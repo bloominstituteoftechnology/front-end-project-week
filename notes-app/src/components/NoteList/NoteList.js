@@ -14,6 +14,7 @@ class NoteList extends Component {
                         this.props.notes.map(note => 
                             <NoteCard
                             note={note}
+                            history={this.props.history}
                             />
                         )
                     }
