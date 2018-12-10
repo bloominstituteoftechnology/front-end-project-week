@@ -30,7 +30,8 @@ export const DELETE_NOTE_SUCCESS = 'delete_note_success';
 export const DELETE_NOTE_FAILURE = 'delete_note_failure';
 
 // const url = 'http://localhost:3333';
-const url = 'https://fe-notes.herokuapp.com';
+// const url = 'https://fe-notes.herokuapp.com';
+const url = 'http://localhost:9001';
 
 export const deleteChecked = noteIds => async dispatch => {
   await noteIds.forEach(async id => {
@@ -87,7 +88,6 @@ export const activeNoteHandler = (ev) => {
     payload: {name: ev.target.name, value: ev.target.value}
   }
 }
-
 export const getNote = (id) => async dispatch => {
   try {
     dispatch({type: GET_NOTE});
@@ -98,7 +98,6 @@ export const getNote = (id) => async dispatch => {
     dispatch({type: GET_NOTE_FAILURE, payload: err})
   }
 }
-
 export const getNotes = () => async dispatch => {
   try {
     dispatch({type: GET_NOTES});
@@ -108,7 +107,6 @@ export const getNotes = () => async dispatch => {
     dispatch({type: GET_NOTES_FAILURE, payload: err})
   }
 }
-
 export const addNote = (note) => async dispatch => {
   try {
     dispatch({type: ADD_NOTE});
@@ -121,17 +119,15 @@ export const addNote = (note) => async dispatch => {
     dispatch({type: ADD_NOTE_FAILURE, payload: err})
   }
 }
-
 export const updateNote = (note) => async dispatch => {
   try {
     dispatch({type: UPDATE_NOTE});
-    const res = await axios.put(`${url}/note/edit/${note._id}`, note)
+    const res = await axios.put(`${url}/note/edit/${note.id}`, note)
     dispatch({type: UPDATE_NOTE_SUCCESS, payload: res.data})
   } catch(err) {
     dispatch({type: UPDATE_NOTE_FAILURE, payload: err})
   }
 }
-
 export const deleteNote = (id) => async dispatch => {
   try {
     dispatch({type: DELETE_NOTE});

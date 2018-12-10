@@ -58,6 +58,9 @@ export const NoteModuleForm = styled.form`
     margin: 132px auto 16px auto;
     position: relative;
     background-color: white;
+    @media (max-width: 650px) {
+        width: 90%;
+    }
 `;
 
 export const CloseIcon = styled.div`

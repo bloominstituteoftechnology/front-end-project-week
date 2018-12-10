@@ -10,7 +10,7 @@ const NoteSelect = ({ note, noteChecked, noteUnChecked }) => {
             onClick={e => {
                 e.preventDefault();
                 setChecked(!checked);
-                !checked ? noteChecked(note._id) : noteUnChecked(note._id)
+                !checked ? noteChecked(note.id) : noteUnChecked(note.id)
             }}
             checked={checked}
         >
@@ -21,7 +21,7 @@ const NoteSelect = ({ note, noteChecked, noteUnChecked }) => {
                     onChange={e => {
                         e.preventDefault();
                         setChecked(!checked);
-                        !checked ? noteChecked(note._id) : noteUnChecked(note._id)
+                        !checked ? noteChecked(note.id) : noteUnChecked(note.id)
                     }}
                 />
                 {

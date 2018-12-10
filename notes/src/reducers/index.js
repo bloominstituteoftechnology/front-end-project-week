@@ -122,7 +122,7 @@ import {
           ...state, 
           updatingNote: false,
           notes: state.notes.map(
-            note => note._id === action.payload._id ? action.payload : note)
+            note => note.id === action.payload.id ? action.payload : note)
         }
   
       case DELETE_NOTE : return {...state, deletingNote: true}
@@ -131,7 +131,7 @@ import {
         return {
           ...state, 
           deletingNote: false,
-          notes: state.notes.filter(note => note._id !== action.payload)
+          notes: state.notes.filter(note => note.id !== action.payload)
         }
   
       default: return {...state};

@@ -18,13 +18,13 @@ let notes = [
         "tags": ["tag", "otherTag"],
         "title": "Note Title",
         "textBody": "Note Body 1",
-        "_id": "0",
+        "id": "0",
     },
     {
       "tags": ["tag", "otherTag"],
       "title": "Note Title",
       "textBody": "Note Body 2",
-      "_id": "1",
+      "id": "1",
     },
 ];
 server.get('/notes', (req, res) => {
@@ -43,7 +43,7 @@ server.get('/note/:id', (req, res) => {
 
 findById = (id) => {
   return new Promise((res, rej) => {
-    let index = notes.findIndex(note => Number(note._id) === Number(id))
+    let index = notes.findIndex(note => Number(note.id) === Number(id))
     res(notes[index]);
   })
 }
@@ -51,7 +51,7 @@ findById = (id) => {
 
 server.post('/notes', (req, res) => {
   const { title, body, tags } = req.body;
-  const newNote = {title, textBody: body, _id: noteId, tags};
+  const newNote = {title, textBody: body, id: noteId, tags};
   if (!title || !body) {
     return sendUserError(
       'Title and Body are required to create a note in note DB.',
@@ -78,7 +78,7 @@ server.put('/note/:id', (req, res) => {
   const { id } = req.params;
   const { title, textBody } = req.body;
   const findByNoteId = note => {
-    return note._id == id;
+    return note.id == id;
   };
 
   const foundNote = notes.find(findByNoteId);
@@ -93,11 +93,11 @@ server.put('/note/:id', (req, res) => {
 
 server.delete('/notes/:id', (req, res) => {
   const { id } = req.params;
-  const foundNote = notes.find(note => note._id == id);
+  const foundNote = notes.find(note => note.id == id);
 
   if (foundNote) {
     const noteFound = { ...foundNote };
-    notes = notes.filter(note => note._id != id);
+    notes = notes.filter(note => note.id != id);
     res.status(200).json(notes);
   } else {
     sendUserError('No smurf by that ID exists in the smurf DB', res);

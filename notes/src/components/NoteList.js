@@ -65,7 +65,6 @@ class NoteList extends Component {
     render() {
 
         const {
-            notes,
             noteChecked, 
             noteUnChecked,
             fetchingNote,
@@ -92,8 +91,8 @@ class NoteList extends Component {
                     this.filterdNotes().map(note => 
                         <Note 
                             note={note} 
-                            key={note._id} 
-                            noteClicked={e => this.noteClicked(e, note._id)}
+                            key={note.id} 
+                            noteClicked={e => this.noteClicked(e, note.id)}
                         />)
                     }
                 />
@@ -104,7 +103,7 @@ class NoteList extends Component {
                         this.filterdNotes().map(note => 
                             <NoteSelect
                                 note={note} 
-                                key={note._id} 
+                                key={note.id} 
                                 noteChecked={noteChecked}
                                 noteUnChecked={noteUnChecked}
                         />)

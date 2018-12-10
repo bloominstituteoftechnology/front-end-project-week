@@ -43,13 +43,7 @@ class App extends Component {
   render() {
     return (
       <div className={'app-container'}>
-        <Header 
-          searchHandler={this.props.searchHandler}
-          refreshList={this.props.getNotes}
-          sortMode={this.props.sortMode}
-          setSortMode={this.props.setSortMode}
-          menuToggle={this.props.menuToggle}
-        />
+        <Header/>
         <ToolBar 
           notes={this.props.notes}
           showMenu={this.props.showMenu}

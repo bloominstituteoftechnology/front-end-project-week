@@ -58,7 +58,7 @@ const NoteModule = ({
                         setShowDelete={setShowDelete} 
                         deleteNote={deleteNote} 
                         history={history} 
-                        id={note._id} 
+                        id={note.id} 
                     />
             }
         </NoteModuleContainer>
