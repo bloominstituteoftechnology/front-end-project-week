@@ -10,9 +10,6 @@ h3, h1, h2, h4, h5, h6 {
   margin: 0;
 }
 
-
-
-
 .App-header {
   display: flex;
   border-bottom: 1px solid lightgray;
@@ -76,14 +73,13 @@ button {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .note {
   border: 1px solid lightgray;
-  width: 25%;
+  width: 27%;
   height: 200px;
-  margin: 2% 0;
   padding: 1% 2%;
   overflow: hidden;
  
@@ -111,14 +107,23 @@ h1 {
 }
 
 .page-header {
- 
-  margin-left: 3%;
-  margin-bottom: 2%;
-
+  margin-bottom: 3%;
 }
 
-.list-page {
-  padding: 5% 2%;
-  display: flex;
-  flex-direction: column;
+.text-area {
+  border: 2px solid rgb(194, 194, 194);
+  /* height: 300px; */
+  padding: 1.5%;
+  border-radius: 2px;
+  
 }
+
+.input {
+  border: 2px solid rgb(194, 194, 194);
+  width: 40%;
+  margin: 5% 0;
+  padding: 1.5% ;
+  border-radius: 2px;
+}
+
+
