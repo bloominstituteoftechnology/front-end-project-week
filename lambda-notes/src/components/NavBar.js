@@ -3,10 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return(
-        <div>
-            <h1>Lambda Notes</h1>
-            <NavLink to='/'>View Your Notes</NavLink>
-            <NavLink to='/'>+ Create New Note</NavLink>
+        <div className='nav-wrapper'>
+            <div className='nav'>
+                <h1>Lambda <br/> Notes</h1>
+               
+                    <NavLink to='/' className='nav-links'>View Your Notes</NavLink>
+                    <NavLink to='' className='nav-links'>+ Create New Note</NavLink>
+                </div>
+            
         </div>
     );
 };

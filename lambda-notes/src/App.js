@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import axios from 'axios'
 
 import NavBar from './components/NavBar';
-import Home from './components/NotesList';
+import NotesList from './components/NotesList';
 import './App.css';
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
   componentDidMount () {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(res => this.setState({
-        noted: res.data
+        notes: res.data
       }))
       .catch(err => console.log(err))
   }
@@ -27,9 +27,9 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Route 
-          exact path ='/'
+          path ='/'
           render={props =>
-            <Home
+            <NotesList
               {...props}
               notes={notes}
             />
