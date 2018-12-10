@@ -2,9 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Redux Imports
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
+import rootReducer from './reducers';
 
 // Router Imports
+
+// Middleware
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 import './index.css';
 import App from './App';
