@@ -20,7 +20,8 @@ class App extends Component {
 
   componentDidMount = () => {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      // .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:3600/notes")
       .then(response => {
         console.log(response.data);
         this.setState({notes: response.data});
@@ -29,40 +30,66 @@ class App extends Component {
   };
 
   addNewNote = newNote => {
+    console.log("newNote", newNote);
+
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", newNote)
+      // .post("https://fe-notes.herokuapp.com/note/create", newNote)
+      .post("http://localhost:3600/notes", newNote)
       .then(res => {
+        console.log("newNote:", res.data);
+
         const newN = {
-          tags: newNote.tags,
-          _id: res.data.success,
+          // tags: newNote.tags,
+          // _id: res.data.success,
+          // id: res.data.success,
           title: newNote.title,
           textBody: newNote.textBody
         };
         console.log(newN);
         this.setState({notes: this.state.notes.concat(newN)});
-      });
+      })
+      .catch(err => console.log("addNewNote catch", err));
   };
 
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      // .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:3600/notes/${id}`)
       .then(response => {
-        const filteredNotes = this.state.notes.filter(note => note._id !== id);
+        // const filteredNotes = this.state.notes.filter(note => note._id !== id);
+        const filteredNotes = this.state.notes.filter(note => note.id !== id);
         this.setState({notes: filteredNotes});
       })
       .then(res => {
-        axios.get("https://fe-notes.herokuapp.com/note/get/all");
+        // axios.get("https://fe-notes.herokuapp.com/note/get/all");
+        axios.get("http://localhost:3600/notes");
       })
       .catch(err => console.log(err));
   };
 
   updateNote = (id, updated) => {
+    console.log("id:", id);
+    console.log("updated:", updated);
+
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updated)
+      // .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updated)
+      .put(`http://localhost:3600/notes/${id}`, updated)
       .then(res => {
-        axios
-          .get("https://fe-notes.herokuapp.com/note/get/all")
-          .then(res => this.setState({notes: res.data}));
+        const updatedNotes = this.state.notes.map(note => {
+          console.log("note.id:", note.id);
+          console.log("res.data:", res.data);
+          console.log(Number(note.id) === Number(res.data.id));
+
+          if (Number(note.id) === Number(res.data.id)) {
+            return res.data;
+          } else {
+            return note;
+          }
+        });
+        console.log("updatedNotes:", updatedNotes);
+        console.log("this.state.notes:", this.state.notes);
+
+        this.setState({notes: updatedNotes});
       });
   };
 
@@ -93,7 +120,7 @@ class App extends Component {
             />
 
             <Route
-              path="/:id"
+              path="/notes/:id"
               render={props => (
                 <NoteView
                   {...props}

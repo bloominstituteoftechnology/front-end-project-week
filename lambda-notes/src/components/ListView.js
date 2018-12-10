@@ -25,12 +25,12 @@ class ListView extends React.Component {
     });
 
     if (!this.props.notes.length) {
-      return <h2>Loading</h2>;
+      return <h2 className="loading">Loading</h2>;
     }
     return (
       <div className="list-view">
         <span>
-          <i class="fas fa-search" />
+          <i className="fas fa-search" />
           <input
             type="search"
             className="search"
@@ -50,8 +50,8 @@ class ListView extends React.Component {
         </span>
         <h1>Your Notes:</h1>
         <div className="note-card-container">
-          {filteredNotes.map(note => {
-            return <NoteCard note={note} key={note._id} />;
+          {filteredNotes.map((note, index) => {
+            return <NoteCard note={note} key={index} />;
           })}
         </div>
       </div>

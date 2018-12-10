@@ -10,7 +10,7 @@ const authenticate = App => {
       super(props);
       this.state = {
         username: "",
-        isLoggedIn: false
+        isLoggedIn: true
       };
     }
 

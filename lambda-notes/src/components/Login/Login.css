@@ -31,11 +31,11 @@ input:focus {
 
 .login-form button {
   background: rgb(89, 21, 248);
-  width: 120px;
+  width: 130px;
   border: 1px solid rgb(89, 21, 248);
   border-radius: 25px;
-  padding: 8px 10px;
-  margin: 25px 60px;
+  padding: 13px 15px;
+  margin: 25px 55px;
   font-size: 14px;
   text-transform: uppercase;
 }
@@ -47,7 +47,7 @@ button:hover {
 .login-page {
   display: flex;
   justify-content: space-between;
-  width: 900px;
+  width: 880px;
   align-items: center;
   margin: 0 auto;
   height: 100vh;

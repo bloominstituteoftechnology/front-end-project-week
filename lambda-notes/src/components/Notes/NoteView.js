@@ -7,9 +7,11 @@ import CheckList from "./CheckList";
 class NoteView extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.notes);
 
     this.note = this.props.notes.find(
-      note => `${note._id}` === this.props.match.params.id
+      // note => `${note._id}` === this.props.match.params.id
+      note => `${note.id}` === this.props.match.params.id
     );
 
     this.state = {
@@ -39,10 +41,10 @@ class NoteView extends React.Component {
 
   handleSubmit = id => {
     console.log(id);
-    const {tags, title, textBody} = this.state;
-    const updatedNote = {tags, title, textBody};
+    const {title, textBody} = this.state;
+    const updatedNote = {title, textBody};
     this.props.update(id, updatedNote);
-    this.setState({tags: [], title: "", textBody: ""});
+    this.setState({title: "", textBody: ""});
     this.props.history.push("/notes");
   };
 
@@ -68,7 +70,8 @@ class NoteView extends React.Component {
               <div>
                 <button
                   className="cancel"
-                  onClick={e => this.handleDelete(e, this.note._id)}
+                  // onClick={e => this.handleDelete(e, this.note._id)}
+                  onClick={e => this.handleDelete(e, this.note.id)}
                 >
                   Delete
                 </button>
@@ -87,7 +90,8 @@ class NoteView extends React.Component {
         ) : (
           <div className="new-note">
             <h1>Edit Note:</h1>
-            <form onSubmit={() => this.handleSubmit(this.note._id)}>
+            {/* <form onSubmit={() => this.handleSubmit(this.note._id)}> */}
+            <form onSubmit={() => this.handleSubmit(this.note.id)}>
               <input
                 required
                 type="text"

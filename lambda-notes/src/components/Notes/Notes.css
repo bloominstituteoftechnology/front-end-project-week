@@ -1,3 +1,7 @@
+.new-note {
+   padding: 20px;
+}
+
 .new-note input,
 .new-note textarea {
   font-size: 20px;
