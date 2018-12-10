@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
- class CreateNoteView extends Component {
-  state = {};
+import { connect } from 'react-redux';
+import { addNote } from '../actions';
+import NoteForm from '../components/NoteForm';
+
+class CreateNoteView extends Component {
+  state = {
+    note: {
+      title: '',
+      body: ''
+    }
+  };
+
+  addNewNote = note => {
+    this.props.addNote(note);
+    this.props.history.push('/');
+  };
+
   render() {
     return (
-      <div>
-        <h1>Create New Note</h1>
+      <div className="View">
+        <h2>Create New Note</h2>
+        <NoteForm addNewNote={this.addNewNote} />
       </div>
     );
   }
 }
- export default CreateNoteView;
+
+export default connect(
+  null,
+  { addNote }
+)(CreateNoteView);
+
+
+// M

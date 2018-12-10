@@ -1,15 +1,33 @@
 import React, { Component } from 'react';
 import NoteCard from './NoteCard';
- class Notes extends Component {
+
+class Notes extends Component {
   render() {
+    const FilterResults = this.props.FilterResults;
+    const fuseConfig = {
+      keys: ['title', 'textBody']
+    };
     const { notes } = this.props;
     return (
-      <React.Fragment>
-        {notes.map(note => (
-            <NoteCard key={note._id} note={note} />
-        ))}
-      </React.Fragment>
+      <FilterResults items={notes} fuseConfig={fuseConfig}>
+        {filteredItems => {
+          return (
+            <>
+              {filteredItems.map((note, index) => (
+                <NoteCard
+                  index={index}
+                  key={note._id}
+                  note={note}
+                  handleRedirectToNoteView={this.props.handleRedirectToNoteView}
+                />
+              ))}
+            </>
+          );
+        }}
+      </FilterResults>
     );
   }
 }
- export default Notes;
+
+export default Notes;
+// E
