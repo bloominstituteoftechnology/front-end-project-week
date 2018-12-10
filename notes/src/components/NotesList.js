@@ -13,7 +13,7 @@ const NotesList = props => {
             return (
               <div
                 className="note"
-                onClick={() => props.history.push(`/notes/${note.id}`)}
+                onClick={() => props.history.push(`/notes/${note._id}`)}
                 key={note.id}
               >
                 <h3 className='note-title'>{note.title}</h3>

@@ -9,6 +9,10 @@ export const FETCH_NOTES_START = "FETCH_NOTES_START";
 export const FETCH_NOTES_SUCCESS = "FETCH_NOTES_SUCCESS";
 export const FETCH_NOTES_FAILURE = "FETCH_NOTES_FAILURE";
 
+export const FETCH_NOTES_BY_ID_START = "FETCH_NOTES_BY_ID_START";
+export const FETCH_NOTES_BY_ID_SUCCESS = "FETCH_NOTES_BY_ID_SUCCESS";
+export const FETCH_NOTES_BY_ID_FAILURE = "FETCH_NOTES_BY_ID_FAILURE";
+
 export const ADD_NOTE_START = "ADD_NOTE_START";
 export const ADD_NOTE_SUCCESS = "ADD_NOTE_SUCCESS";
 export const ADD_NOTE_FAILURE = "ADD_NOTE_FAILURE";
@@ -56,6 +60,21 @@ export const getNotes = () => dispatch => {
     })
     .catch(err => dispatch({ type: FETCH_NOTES_FAILURE, payload: err }));
 };
+
+
+
+
+export const getNotesById = id => dispatch => {
+    dispatch({ type: FETCH_NOTES_BY_ID_START });
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        console.log('fetch finished');
+        dispatch({ type: FETCH_NOTES_BY_ID_SUCCESS, payload: response.data });
+      })
+      .catch(err => dispatch({ type: FETCH_NOTES_BY_ID_FAILURE, payload: err }));
+  };
+
 
 
 
