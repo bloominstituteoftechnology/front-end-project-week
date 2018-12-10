@@ -1,9 +1,10 @@
 .noteCard {
     border: 1px solid grey;
-    width: 31%;
+    width: 23%;
     margin-bottom: 1%;
     background: #FFFFFF;
     overflow: hidden;
+    height: 33.04vh;
 }
 .title {
     font-size: 1.5rem;
