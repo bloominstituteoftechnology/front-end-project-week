@@ -9,6 +9,7 @@
   margin: 1% 0%;
   background: #F2F1F2;
   border: 1px solid grey;
+  height: 100%;
 }
 /* .headerContainer {
   border: 1px solid red;
@@ -17,5 +18,5 @@
   border: 1px solid grey;
   width: 15%;
   margin: 1% 0%;
-  background: #D3D2D3
+  background: #D3D2D3;
 }

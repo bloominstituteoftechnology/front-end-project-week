@@ -33,7 +33,6 @@ export default class NotesMain extends Component {
         .then(response => {
             console.log(response)
             this.setState({ notes: response.data })
-            console.log('refreshed')
         })
         .catch(error => {
             console.log(error)

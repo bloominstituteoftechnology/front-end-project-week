@@ -29,7 +29,6 @@ export default class ViewNote extends Component {
             .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
             .then(response => {
                 console.log(response)
-                // window.location.reload()
             })
             .catch(err => {
                 console.log(err)
