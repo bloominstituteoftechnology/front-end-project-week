@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { fetch_todos, onHandleSubmit } from '../actions/actions';
+import { fetch_todos, onHandleSubmit, onUpdateTodo, onDeleteTodo } from '../actions/actions';
 import Todos from './Todos';
 import TodoForm from './TodoForm';
 
@@ -9,9 +9,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      tags: '',
+      tags: [],
       title: '',
-      textBody: ''
+      textBody: '',
+      id: ''
     }
   }
 
@@ -27,23 +28,37 @@ class App extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log('handle submit event ==', event)
+    // console.log('handle submit event ==', event)
     this.props.onHandleSubmit(this.state);
   }
 
+  updateTodos = (event) => {
+    event.preventDefault();
+    this.props.onUpdateTodos(this.state)
+  }
+
+  deleteTodos = (event) => {
+    event.preventDefault();
+    this.props.onDeleteTodos(this.state)
+  }
+
   render() {
-    // console.log('state from app render', this.state)
+    console.log('props from app render', this.props.todos)
     return (
-      <div className="App">
+      <div>
+        <div>
           {this.props.todos.map((todo, index) => {
-            return (
-              <Todos todo={todo} key={index} />
-            )
+            return <Todos todo={todo} key={index} />
           })}
+        </div>
+        <div>
           <TodoForm 
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
+            updateTodos={this.updateTodos}
+            deleteTodos={this.deleteTodos}
           />
+        </div>
       </div>
     );
   }
@@ -51,10 +66,13 @@ class App extends Component {
 
 
 const mapStateToProps = (state) => {
+  console.log('mapStateToProps state..', state.todosReducer)
   return {
     todos: state.todosReducer.todos,
     fetchingTodos: state.todosReducer.fetchingTodos,
-    addingTodos: state.todosReducer.addingTodos
+    addingTodos: state.todosReducer.addingTodos,
+    updatingTodos: state.todosReducer.updatingTodos,
+    deletingTodos: state.todosReducer.deletingTodos
   }
 }
 
@@ -62,6 +80,8 @@ export default connect(
   mapStateToProps,
   {
     fetch_todos,
-    onHandleSubmit
+    onHandleSubmit,
+    onUpdateTodo,
+    onDeleteTodo
   }
 )(App)

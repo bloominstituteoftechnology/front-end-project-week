@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import './Todos.css';
 
 const Todos = props => {
     return (
-        <div>
-            {props.todo.title}
-            {props.todo.textBody}
+        <div className='todos-wrapper'>
+            <div className='todos-title'>
+                {props.todo.title}
+            </div>
+            <div className='todos-textbody'>
+                {props.todo.textBody}
+            </div>
         </div>
     )
 }

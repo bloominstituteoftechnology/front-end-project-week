@@ -2,18 +2,22 @@ import {
     FETCH_START,
     FETCH_SUCCESS,
     FETCH_FAILURE,
-    ON_HANDLE_SUBMIT
+    ON_HANDLE_SUBMIT,
+    UPDATE_TODOS,
+    DELETE_TODOS
 } from '../actions/actions';
 
 const initialState = {
     // todos: [{
-    //     tags: '',
+    //     tags: [],
     //     title: '',
     //     textBody: ''
     // }],
     todos: [],
     fetchingTodos: false,
     addingTodos: false,
+    updatingTodos: false,
+    deletingTodos: false,
     error: null
 }
 
@@ -23,9 +27,12 @@ export const todosReducer = (state = initialState, action) => {
             return {
                 ...state, 
                 fetchingTodos: true,
-                addingTodos: false
+                addingTodos: false,
+                updatingTodos: false,
+                deletingTodos: false
             }
         case FETCH_SUCCESS:
+            // console.log('fetch success', action.payload)
             return {
                 ...state,
                 fetchingTodos: false,
@@ -40,11 +47,27 @@ export const todosReducer = (state = initialState, action) => {
                 error: action.payload
             }
         case ON_HANDLE_SUBMIT: 
+        console.log('handle submit action payload...',  action.payload)
             return {
                 ...state,
                 fetchingTodos: false,
                 addingTodos: true,
+                // todos: action.payload,
                 error: null
+            }
+        case UPDATE_TODOS:
+            return {
+                ...state,
+                fetchingTodos: false,
+                updatingTodos: true,
+                deletingTodos: false
+            }
+        case DELETE_TODOS:
+            return {
+                ...state,
+                fetchingTodos: false,
+                updatingTodos: false,
+                deletingTodos: true
             }
         default:
             return state;

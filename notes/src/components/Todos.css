@@ -1,0 +1,11 @@
+.todos-wrapper {
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.todos-title {
+    /* color: red; */
+}
+/* 
+randomElement { display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 5rem; } */
