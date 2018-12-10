@@ -4,7 +4,7 @@ const Content = props => {
     return (
         <>
             <h1>Your Notes:</h1>
-            <NotesList />
+            <NotesList notes={props.notes} />
         </>
     );
 };
