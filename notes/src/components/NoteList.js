@@ -17,7 +17,7 @@ class NoteList extends React.Component {
   
     componentDidMount() {
       axios
-        .get('https://fe-notes.herokuapp.com/note/get/all')
+        .get('http://localhost:7000/api/notes')
         .then(response => {
           this.setState({ notes: response.data })
         })

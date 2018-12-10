@@ -22,7 +22,7 @@ class Note extends Component {
 
     getNote = id => {
         axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .get(`http://localhost:7000/api/notes/${id}`)
             .then(response => this.setState({ note: response.data }))
             .catch(response=> console.log(response));
         }
@@ -32,7 +32,7 @@ class Note extends Component {
       const id = this.state.note._id
       console.log(id)
       axios
-        .delete(`http://fe-notes.herokuapp.com/note/delete/${id}`)
+        .delete(`http://localhost:7000/api/notes/${id}`)
         .then(response => {
           console.log('DELETE RESPONSE: ', response)
           this.setState({ notes: response.data })

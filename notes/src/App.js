@@ -18,7 +18,7 @@ constructor() {
 
 componentDidMount() {  
   axios
-    .get("https://fe-notes.herokuapp.com/note/get/all")
+    .get("http://localhost:7000/api/notes")
     .then(response => this.setState({ notes: response.data }))
     .catch(error => console.log(error))
 }
@@ -26,7 +26,7 @@ componentDidMount() {
 addNote = (event, newNote) => {
   event.preventDefault();
   axios
-    .post("https://fe-notes.herokuapp.com/note/create", newNote)
+    .post("http://localhost:7000/api/notes", newNote)
     .then(response => {
       newNote._id = response.data.success;
       this.setState({ notes: [newNote, ...this.state.notes] })
@@ -38,7 +38,7 @@ addNote = (event, newNote) => {
 editNote = (event, id, state) => {
   event.preventDefault();
   axios
-  .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, state)
+  .put(`http://localhost:7000/api/notes/${id}`, state)
   .then(response => {
     const updateArray = this.state.notes.map(note => {
       if (note._id === response.data._id) {

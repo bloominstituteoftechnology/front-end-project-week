@@ -20,7 +20,7 @@ class EditNote extends Component {
 
     getNote = id => {
         axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .get(`http://localhost:7000/api/notes/${id}`)
             .then(response => this.setState({ note: response.data }))
             .catch(response => console.log(response));
         }
