@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { fetchNotes } from "./Actions";
 
-import { fetchNotes } from "./Actions/index"
-
-
-import Navigation from "./Components/Navigation/Navigation";
-import NoteList from './Components/NoteList/NoteList';
+import Navigation from "./Components/Navigation/Navigation.js";
+import NoteList from './Components/NoteList/NoteList.js';
 
 import './App.css';
 
@@ -27,4 +26,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  notes: state.notes,
+  fetchingNotes: state.fetchingNotes
+})
+
+export default connect(
+  mapStateToProps,
+  { fetchNotes }
+)(App);
+

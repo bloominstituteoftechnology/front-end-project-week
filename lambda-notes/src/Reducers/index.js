@@ -1,8 +1,9 @@
+
 import {
   FETCHING_NOTES_START,
   FETCHING_NOTES_SUCCESS,
   FETCHING_NOTES_FAILURE
-} from "../Actions/index";
+} from "../Actions";
 
 const initialState = {
   notes: [],
