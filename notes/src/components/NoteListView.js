@@ -11,8 +11,8 @@ const NoteListView = (props) => {
                 return (
                     <NavLink style= {{textDecoration: 'none', color: 'black'}}to={`/note/${note._id}`} activeClassName="selected">
                         <div className='singleNote' key={note._id}>
-                            <h3>{note.title}</h3>
-                            <p>{note.textBody}</p>
+                            <h3>{note.Title}</h3>
+                            <p>{note.Content}</p>
                         </div>
                     </NavLink>
                 );

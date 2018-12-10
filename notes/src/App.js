@@ -9,7 +9,6 @@ import { Route } from 'react-router-dom';
 import {withRouter} from 'react-router';
 import Note from './components/Note';
 import { NavLink} from 'react-router-dom';
-import axios from 'axios';
 
 
 class App extends Component {

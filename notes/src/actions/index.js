@@ -25,7 +25,7 @@ export const SETTING_NOTE_FAILURE = 'SETTING_NOTE_FAILURE';
 export const fetchNotes = () => dispatch => {
     dispatch({type: FETCHING_NOTES});
     return axios
-    .get('https://fe-notes.herokuapp.com/note/get/all')
+    .get('http://localhost:6300/api/notes')
     .then(response => {
         dispatch({type: FETCHING_NOTES_SUCCESS, payload: response.data})
     }) 
