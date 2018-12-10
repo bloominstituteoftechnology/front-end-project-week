@@ -14,3 +14,14 @@ export const getNotes = () => dispatch => {
         })
         .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }));
 }
+
+export const deleteNote = id => dispatch => {
+    dispatch({ type: DELETE_NOTE_START });
+    axios
+        .get(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then(response => {
+            console.log(response);
+            dispatch({ type: DELETE_NOTE_SUCCESS, payload: response.data });
+        })
+        .catch(err => dispatch({ type: DELETE_NOTE_FAILURE, payload: err }));
+};
