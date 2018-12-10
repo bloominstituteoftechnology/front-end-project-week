@@ -8,19 +8,24 @@ const Div = styled.div`
     margin-bottom: 35px;
     background: white;
     h1 {
-        display: flex;
+        display: block;
         font-size: 1.5rem;
         border-bottom: 2px solid grey;
         width: 85%;
         margin-left: auto;
         margin-right: auto;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
     p {
+        display: block;
+        text-overflow: ellipsis;
         width: 85%;
         margin-left: auto;
         margin-right: auto;
-        display: flex;
         font-size: 1.2rem;
+        overflow: hidden;
     }
 `;
 
