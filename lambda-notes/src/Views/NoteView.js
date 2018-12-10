@@ -19,7 +19,7 @@ export const NoteView = props => {
   // const urlParam = props.location.state.id;
   const id = props.match.params.id
   const note = props.notes.find(note => (
-    note._id == props.match.params.id)
+    note.id == props.match.params.id)
   )
   // const { note } = props
   console.log('note', note)
@@ -50,7 +50,7 @@ export const NoteView = props => {
         {note.title}
       </h2>
       <p>
-        {note.textBody}
+        {note.content}
       </p>
     </div>
     )

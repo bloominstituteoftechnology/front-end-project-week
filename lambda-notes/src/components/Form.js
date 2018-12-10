@@ -18,14 +18,14 @@ export const Form = (props) => {
     note,
     formTitle 
   } = props
+  let title, content
   if (note === undefined) {
-    note = {
-      title: '',
-      textBody: ''
-    }
+    title = useInputValue('');
+    content = useInputValue('')
+  } else {
+    title = useInputValue(note.title !== undefined ? note.title : '');
+    content = useInputValue(note.content !== undefined ? note.content : '')
   }
-  const title = useInputValue(note.title);
-  const textBody = useInputValue(note.textBody)
 
   return (
     <div className="note-form">
@@ -33,13 +33,13 @@ export const Form = (props) => {
         e.preventDefault();
         onSubmit({
           title: title.value,
-          textBody: textBody.value
+          content: content.value
         })
         history.push('/')
       }}>
         <h2>{formTitle}</h2>
         <input {...title} className="title"/>
-        <input {...textBody} className="textBody"/>
+        <input {...content} className="content"/>
         <button type="submit">{action}</button>
       </form>
     </div>

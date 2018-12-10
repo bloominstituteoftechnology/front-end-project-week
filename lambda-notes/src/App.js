@@ -10,7 +10,7 @@ import {
   EditNoteView
 } from './Views';
 
-const URL = 'https://fe-notes.herokuapp.com'
+const URL = process.env.REACT_APP_API_URL
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class App extends Component {
       notes: [],
       draftNote: {
         title: '',
-        textBody: ''
+        content: ''
       }
     }
     console.log(this.state)
@@ -38,7 +38,7 @@ class App extends Component {
 
   getAllNotes = () => {
     axios
-      .get(URL + '/note/get/all')
+      .get(URL + '/notes')
       .then(data => {
         this.setState({
           notes: data.data.reverse()
@@ -51,12 +51,12 @@ class App extends Component {
 
   createNote = note => {
     axios
-      .post(URL + '/note/create', note)
+      .post(URL + '/notes', note)
       .then(data => {
         const newNote = {
-          _id: data.data.success,
+          id: data.data.success,
           title: note.title,
-          textBody: note.textBody
+          content: note.content
         }
 
         this.setState(prev => {
@@ -64,14 +64,14 @@ class App extends Component {
           if (newNote.title === tempDraft.title) {
             tempDraft = {
               title: '',
-              textBody: ''
+              content: ''
             }
           }
           return {
             notes: [newNote, ...prev.notes],
             draftNote: {
               title: '',
-              textBody: ''
+              content: ''
             } 
           } 
         })
@@ -83,10 +83,10 @@ class App extends Component {
 
   editNote = note => {
     axios
-      .put(URL + '/note/edit/' + note._id, note)
+      .put(URL + '/notes/' + note.id, note)
       .then(data => {
         console.log('edit response', data)
-        const matchIds = n => n._id == data.data._id
+        const matchIds = n => n.id == data.data.id
         this.setState(prev => {
           // const newNote = JSON.parse(JSON.stringify(data.data))
           const editedIndex = prev.notes.findIndex(matchIds)
@@ -102,10 +102,10 @@ class App extends Component {
 
   deleteNote = note => {
     axios
-      .delete(URL + '/note/delete/' + note._id)
+      .delete(URL + '/notes' + note.id)
       .then(data => {
         console.log('baleted!', data)
-        const filterNote = n => n._id !== note._id
+        const filterNote = n => n.id !== note.id
         this.setState(prev => {
           return { notes: prev.notes.filter(filterNote) }
         })
@@ -133,7 +133,7 @@ class App extends Component {
                   notes={this.state.notes}
                   note={
                     this.state.notes.find(note => (
-                      note._id == props.match.params.id)
+                      note.id == props.match.params.id)
                     )
                   }
                   deleteNote={this.deleteNote}
@@ -158,7 +158,7 @@ class App extends Component {
                 {...props}
                 note={
                   this.state.notes.find(note => (
-                    note._id == props.match.params.id)
+                    note.id == props.match.params.id)
                   )
                 }
                 onSubmit={this.editNote}  

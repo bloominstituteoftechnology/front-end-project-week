@@ -11,8 +11,8 @@ export const ListView = props => {
       <div className="NotesWrapper" >
         {props.notes.map((note, i) => (
           <Link
-            key={note._id}
-            to={ `/note/${note._id}` }>
+            key={note.id}
+            to={ `/note/${note.id}` }>
             <NoteCard {...note} />
           </Link>
         ))}
