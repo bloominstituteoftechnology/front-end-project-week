@@ -20,7 +20,7 @@ class App extends Component {
 
   // brings in the notes from the server
   componentDidMount() {
-      axios.get('https://fe-notes.herokuapp.com/note/get/all')
+      axios.get('https://vellumnotes.herokuapp.com/note/get/all')
       .then(res => this.setState({
         notes: res.data
        }))
@@ -29,7 +29,7 @@ class App extends Component {
 
   // brings in the notes from the server (mindful of updates)
   componentDidUpdate() {
-      axios.get('https://fe-notes.herokuapp.com/note/get/all')
+      axios.get('https://vellumnotes.herokuapp.com/note/get/all')
         .then(res => this.setState({
           notes: res.data
         }))

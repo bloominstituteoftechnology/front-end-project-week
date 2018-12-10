@@ -20,7 +20,7 @@ class FullPageNote extends Component {
 
     // GET the note by using the API endpoint and passing in the id
     fetchNote = id => {
-        axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        axios.get(`https://vellumnotes.herokuapp.com/note/get/${id}`)
              .then(response => {
                 this.setState(() => ({ note: response.data }));
              })
@@ -29,7 +29,7 @@ class FullPageNote extends Component {
 
     // DELETE the note by using the API endpoint and passing in the id
     deleteHandler = id => {
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        axios.delete(`https://vellumnotes.herokuapp.com/note/delete/${id}`)
              .then(res => {this.setState({
                  deleted: true,
              })})

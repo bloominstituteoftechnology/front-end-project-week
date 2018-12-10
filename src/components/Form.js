@@ -51,13 +51,13 @@ class Form extends Component {
           console.log(newNote)
           // if there's a note on state to edit, start PUT
           if (this.state.note !== null) {
-            axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, newNote)
+            axios.put(`https://vellumnotes.herokuapp.com/note/edit/${this.state.note._id}`, newNote)
                  .then(res => {console.log(res)})
                  .catch(err => {console.log(err)})
           }
           // else POST
           else {
-            axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
+            axios.post('https://vellumnotes.herokuapp.com/note/create', newNote)
                  .then(res => {console.log(res)})
                  .catch(err => console.log(err))
           }
