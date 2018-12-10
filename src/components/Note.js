@@ -8,7 +8,7 @@ import ReactMarkdown from 'react-markdown';
 
 const Note = props => (
     <Route render={({history}) => (
-        <div className='note' onClick={() => { history.push(`/notes/${props.note._id}`) }}>
+        <div className='note' onClick={() => { history.push(`/notes/${props.note.id}`) }}>
             <h2>{props.note.title.length > 17 ? props.note.title.substring(0,16) + "..." : props.note.title}</h2>
             <ReactMarkdown source={props.note.textBody.length > 200 ? props.note.textBody.substring(0,200) + "..." : props.note.textBody} />
             {/* {props.note.tags.map(tag => <p>{tag}</p>)} */}

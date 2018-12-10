@@ -74,7 +74,7 @@ class FullPageNote extends Component {
                     <div className='modal'>
                         <h3>Are you sure you want to delete this note?</h3>
                         <div className='buttons'>
-                            <div className='delete-confirm' onClick={() => this.deleteHandler(this.state.note._id)}>Delete</div>
+                            <div className='delete-confirm' onClick={() => this.deleteHandler(this.state.note.id)}>Delete</div>
                             <div className='cancel' onClick={this.deleteModal}>Cancel</div>
                         </div>
                     </div>

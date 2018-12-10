@@ -4,7 +4,7 @@ import { CSVLink } from "react-csv";
 
 // header labels for the CSV download
 const headers = [
-  { label: "Note ID", key: "_id" },
+  { label: "Note ID", key: "id" },
   { label: "Title", key: "title" },
   { label: "Text", key: "textBody" },
   { label: "Tags", key: "tags"}
@@ -33,7 +33,7 @@ let Notes = props => {
             {/* Code for sort button that doesn't work: <button onClick={() => props.AZSort(props.notes)}>Sort</button> */}
             
             <div className='notes'>
-                {props.notes.map(note => <Note key={note._id} note={note} deleteHandler={props.deleteHandler}/>)}
+                {props.notes.map(note => <Note key={note.id} note={note} deleteHandler={props.deleteHandler}/>)}
             </div>
         </div>  
     )
