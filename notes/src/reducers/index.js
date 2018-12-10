@@ -14,6 +14,7 @@ const initialState = {
     updatingNote: false,
     deletingNote: false,
     notes: [],
+    note: null,
     error: null
 };
 
