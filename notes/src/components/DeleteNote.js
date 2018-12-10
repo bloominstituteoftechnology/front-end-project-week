@@ -27,7 +27,7 @@ const DeleteNote = props => {
       </div>
     );
   } else {
-    return <p>Note Deleted</p>;
+    return <p>All Notes Deleted</p>;
   }
 };
 

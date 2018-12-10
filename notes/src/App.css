@@ -2,7 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Arial"
+  font-family: "Arial";
 }
 
 .App {
@@ -30,7 +30,7 @@ button {
   width: 180px;
   cursor: pointer;
   height: 33px;
-  font-size: 16px
+  font-size: 16px;
 }
 
 .aside-button {
@@ -41,12 +41,12 @@ button {
 .note-list {
   background-color: whitesmoke;
   width: 75%;
-  border: 1px solid black;
-  height: 100vh;
+
+  height: 100%;
 }
 
 .note {
-  border: 1px solid grey;
+  border: 1.1px solid grey;
   width: 200px;
   height: 200px;
   margin: 20px;
@@ -196,23 +196,23 @@ a {
   justify-content: center;
 }
 .delete-content {
-background-color: white;
-border: 1px solid black;
-padding: 25px;
-width: 450px;
-height: 200px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-position: relative;
-bottom: 250px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 25px;
+  width: 450px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 250px;
 }
 .delete-btn-1 {
- background-color: crimson;
- color: white;
- width: 150px;
- margin-left: 12px;
+  background-color: crimson;
+  color: white;
+  width: 150px;
+  margin-left: 12px;
   margin-right: 12px;
 }
 
@@ -228,4 +228,8 @@ bottom: 250px;
 .delete-msg {
   font-weight: normal;
   font-size: 18px;
+}
+
+.note {
+  display: inline-block;
 }
