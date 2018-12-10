@@ -33,7 +33,7 @@ const LinkNavButton = styled(Link)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  border: 1px solid rgb(151, 151, 151);
+  border: 2px solid rgb(151, 151, 151);
   height: 40px;
   margin-bottom: 20px;
   color: white;

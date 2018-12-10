@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import SideNav from './SideNav';
 import ListNotesView from '../views/ListNotesView';
 import NoteView from '../views/NoteView';
+import CreateNoteView from '../views/CreateNoteView';
 
 /***************************************************************************************************
  ********************************************* Variables *******************************************
@@ -52,6 +53,11 @@ class App extends Component {
           exact
           path={`${urlLinks.home}${urlLinks.readNoteId}`}
           render={props => <NoteView {...props} urlLinks={urlLinks} />}
+        />
+        <Route
+          exact
+          path={`${urlLinks.home}${urlLinks.createNote}`}
+          render={props => <CreateNoteView {...props} urlLinks={urlLinks} />}
         />
       </DivWrapper>
     );
