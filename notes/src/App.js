@@ -13,9 +13,6 @@ import { getNotes } from './actions/';
 
 const AppWrapper = styled.div`
   display: flex;
-  /* position: relative; */
-  /* height: 100%; */
-  /* overflow: hidden; */
   margin: auto 0;
 `;
 const MainWrapper = styled.div`
@@ -24,17 +21,33 @@ const MainWrapper = styled.div`
 `;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        filteredNotes: []
+    }
+  }
 
   componentDidMount() {
     this.props.getNotes();
   }
 
+  searchNotes = event => {
+    const searchNotes = this.props.notes.filter(note => {
+      if (note.textBody.includes(event.target.value) || note.title.includes(event.target.value)) {
+        return note;
+      }
+    });
+    this.setState({ filteredNotes: searchNotes })
+  }
+
   render() {
     return (
       <AppWrapper>
-        <Route path="/" component={Sidebar} />
+        {/* <Route path="/" component={Sidebar}/> */}
+        <Route path="/" render={props => <Sidebar {...props} searchNotes={this.searchNotes} />} />
           <MainWrapper>
-            <Route exact path="/" render={props => <NotesListView {...props} notes={this.props.notes} /> } />
+            <Route exact path="/" render={props => <NotesListView {...props} notes={this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.props.notes} /> } />
             <Route exact path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
             <Route path="/createnewnote" component={CreateNewNote} />
             <Route path="/note/edit/:noteId" render={props => <EditNote {...props} notes={this.props.notes} />} />

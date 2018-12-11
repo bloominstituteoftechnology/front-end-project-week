@@ -8,22 +8,21 @@ const NotesListWrapper = styled.div`
 `;
 const NoteCard = styled.div`
     border: 2px solid lightgrey;
-    width: 175px;
+    width: 190px;
     height: 175px;
     margin: 20px;
-    padding: 5px 10px;;
+    padding: 8px 10px;
     background: #FFFFFF;
     overflow: hidden;
 `;
 const CardHeader = styled.h3`
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     border-bottom: 2px solid lightgrey;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
     overflow: hidden;
     white-space: nowrap;
 `;
-
 const CardBody = styled.p`
     font-size: 12px;
     padding: 10px 0;

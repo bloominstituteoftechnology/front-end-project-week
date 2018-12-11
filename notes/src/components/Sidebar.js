@@ -2,16 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-// const SidebarWrapper = styled.div`
-//     background: #D3D2D3;
-//     padding: 25px 15px;
-//     display: flex;
-//     align-items: center;
-//     flex-direction: column;
-//     min-height: 100%;
-//     width: 200px;
-// `;
-
 const SidebarWrapper = styled.div`
     height: 100%;
     width: 200px;
@@ -42,6 +32,9 @@ const StyledHeader = styled.h1`
     font-size: 30px;
     padding-bottom: 30px;
 `;
+const SearchInput = styled.input`
+
+`;
 
 const Sidebar = props => {
     return (
@@ -49,6 +42,7 @@ const Sidebar = props => {
             <StyledHeader>Lambda <br></br> Notes</StyledHeader>
             <NavButton to="/">View Your Notes</NavButton>
             <NavButton to="/createnewnote">+ Create New Note</NavButton>
+            <SearchInput type="search" placeholder="Search..." onKeyDown={props.searchNotes} />
         </SidebarWrapper>
     )
 }
