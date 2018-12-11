@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import ReactMarkdown from 'react-markdown';
 
 import DeleteModal from './DeleteModal';
 
@@ -18,7 +19,7 @@ const NotePage = styled.div`
 
     p {
         width: 90%;
-        word-break: break-all;
+        word-break: break-word;
     }
 `
 
@@ -70,8 +71,8 @@ class IndividualNote extends React.Component {
                 <DeleteButton onClick={this.toggleWillDelete}>
                     delete
                 </DeleteButton>
-                <h2 className='note-page-title'>{note.title}</h2>
-                <p className='note-page-text'>{note.textBody}</p>
+                <h2>{note.title}</h2>
+                <ReactMarkdown source={note.textBody} />
                 <DeleteModal {...this.props} note={note} show={this.state.willDelete} toggle={this.toggleWillDelete}/>
             </NotePage>
         );

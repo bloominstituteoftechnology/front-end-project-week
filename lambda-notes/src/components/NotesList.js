@@ -2,7 +2,10 @@ import React from 'react';
 import SmallNote from './SmallNote';
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { sortAToZ, sortZToA } from '../actions';
 
 const NotesContainer = styled.div`
     width: 100%;
@@ -10,7 +13,7 @@ const NotesContainer = styled.div`
     margin-left: 22rem;
 
     h2 {
-        margin: 3rem 0;
+        margin: 3rem 0 2rem 0;
         font-size: 2rem;
         font-weight: bold;
     }
@@ -47,6 +50,26 @@ const NotesLink = styled(Link)`
     }
 `
 
+const SortDiv = styled.div`
+    width: 100%;
+    display: flex;
+    align-items:center;
+    margin-bottom: 1.5rem;
+
+    h3 {
+        font-size: 1.4rem;
+        margin-right: 1rem;
+    }
+
+    button {
+        padding: 0.5rem;
+        border: 1px solid #AFAFAF;
+        background-color: #24B8BD;
+        color: #EAF4F3;
+        margin-right: 1rem;
+    }
+`
+
 class NotesList extends React.Component {
     constructor(props){
         super(props);
@@ -58,6 +81,7 @@ class NotesList extends React.Component {
     handlesChanges = event => {
         this.setState({ [event.target.name]: event.target.value });
     }
+
     render(){
         return(
             <NotesContainer>
@@ -73,6 +97,11 @@ class NotesList extends React.Component {
                         />
                     </form>
                 </TopOfPage>
+                <SortDiv>
+                    <h3>Sort By Title: </h3>
+                    <button onClick={this.props.toggleSearchingAToZ}>A - Z</button>
+                    <button onClick={() => this.props.sortZToA(this.props.notes)}>Z - A</button>
+                </SortDiv>
                 <YourNotes>
                     {this.props.notes
                         .filter(note => 
@@ -89,4 +118,6 @@ class NotesList extends React.Component {
     }
 } 
 
-export default NotesList;
+export default withRouter(
+    connect(null, { sortAToZ, sortZToA })(NotesList)
+);

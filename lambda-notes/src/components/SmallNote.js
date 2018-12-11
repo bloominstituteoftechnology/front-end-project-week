@@ -10,6 +10,7 @@ const IndividualNote = styled.div`
     margin:  0 2rem 3rem 0;
     color: #1F1F1F;
     background-color: white;
+    word-break: break-word;
 
     h3 {
         overflow: hidden;
@@ -25,9 +26,9 @@ const IndividualNote = styled.div`
 
 const SmallNote = props => {
     return(
-        <IndividualNote>
+        <IndividualNote draggable>
             <h3>{props.noteData.title}</h3>
-            <EllipsisText text={props.noteData.textBody} length={'90'} />
+            <EllipsisText text={props.noteData.textBody} length={90} />
         </IndividualNote>
     );
 }

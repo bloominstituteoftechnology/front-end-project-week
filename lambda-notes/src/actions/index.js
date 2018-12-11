@@ -16,6 +16,9 @@ export const DELETE_NOTE_START = 'DELETE_NOTE_START';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
 export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 
+export const SORT_A_TO_Z = 'SORT_A_TO_Z';
+export const SORT_Z_TO_A = 'SORT_Z_TO_A';
+
 const url = 'https://fe-notes.herokuapp.com/note/';
 
 export const fetchNotes = () => dispatch => {
@@ -64,4 +67,32 @@ export const deleteNote = id => dispatch => {
         .catch(error => {
             dispatch({ type: DELETE_NOTE_FAILURE, payload: error })
         });
+}
+
+export const sortAToZ = notes => dispatch => {
+    const sortedNotes = notes.sort((obj1, obj2) => {
+        if(obj1.title < obj2.title) {
+            return -1;
+        } else if (obj1.title > obj2.title) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    dispatch({ type: SORT_A_TO_Z, payload: sortedNotes });
+
+}
+
+export const sortZToA = notes => dispatch => {
+    const sortedNotes = notes.sort((obj1, obj2) => {
+        if(obj1.title < obj2.title) {
+            return -1;
+        } else if (obj1.title > obj2.title) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    dispatch({ type: SORT_Z_TO_A, payload: sortedNotes.reverse() });
+
 }

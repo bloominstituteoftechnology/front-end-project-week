@@ -9,7 +9,9 @@ import { ADD_NOTE_START,
          EDIT_NOTE_FAILURE, 
          DELETE_NOTE_START,
          DELETE_NOTE_SUCCESS,
-         DELETE_NOTE_FAILURE
+         DELETE_NOTE_FAILURE,
+         SORT_A_TO_Z,
+         SORT_Z_TO_A
         } from '../actions';
 
 const initialState = {
@@ -94,6 +96,16 @@ const notesReducer = (state = initialState, action) => {
                 ...state,
                 deletingNotes: false,
                 error: action.payload,
+            }
+        case SORT_A_TO_Z:
+            return {
+                ...state,
+                notes: action.payload
+            }
+        case SORT_Z_TO_A:
+            return {
+                ...state,
+                notes: action.payload
             }
         default:
             return state;
