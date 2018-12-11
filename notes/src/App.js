@@ -62,18 +62,20 @@ export const SideBarButton = styled(Link)`
 
 const Form = styled.form`
 	margin: 10px 20px;
+	border: 1px solid darkgrey;
 	background-color: white;
 `;
 
 const Input = styled.input`
-	border: 1px solid darkgrey;
-	width: 100%;
+	border: none;
 	text-align: center;
-	padding: 15px 0;
+	padding: 14px 0;
 	text-decoration: none;
 	font-weight: bold;
 	color: teal;
 	font-size: 1.4rem;
+	width: 100%;
+	
 `;
 
 class App extends Component {

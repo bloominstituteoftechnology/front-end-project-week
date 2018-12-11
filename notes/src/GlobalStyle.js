@@ -46,13 +46,20 @@ export const GlobalStyle = createGlobalStyle`
 		border-spacing: 0;
     } 
  
+	html {
+  
+}
+
+*{
+	box-sizing: border-box;
+}
   html {
-    
+    font-size: 62.5%;
   }
 
   body {
+	font-size: 1.6rem;
       box-sizing: border-box;
-	  font-size: 62.5%;
 	  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
 	  sans-serif;
