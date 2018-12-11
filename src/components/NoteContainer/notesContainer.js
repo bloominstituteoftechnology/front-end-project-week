@@ -6,31 +6,49 @@ import { Route } from 'react-router-dom';
 import Note from './note';
 import './Notes.css';
 
-const url = process.env.REACT_APP_DB_URL; 
+const url = process.env.REACT_APP_DB_URL;
 
 class NotesContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loggedIn: false,
             notes: [],
             searchedPost: [],
             searchResult: '',
         };
     };
 
+    authenticate = () => {
+        const token = localStorage.getItem('bit_token');
+        const options = {
+            headers: {
+                authorization: token,
+            },
+        };
+        if (token) {
+            axios
+                .get(`${url}/note/get/all`, options)
+                .then((res) => {
+                    console.log(res);
+                    if (res.status === 200 && res.data) {
+                        this.setState({ loggedIn: true, notes: res.data });
+                    } else {
+                        throw new Error();
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        } else {
+            throw new Error();
+        }
+    }
+    
 
     componentDidMount() {
-        axios
-            .get(`${url}/note/get/all`)
-            .then(response => {
-                console.log(response);
-                this.setState({ notes: response.data })
-            })
-            .catch(err => {
-                console.log(err)
-            })
+       this.authenticate();
     };
-
 
     changeState = () => {
         axios.get(`${url}/note/get/all`).then(res =>
