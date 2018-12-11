@@ -14,7 +14,8 @@ class FullNote extends React.Component {
         content: ""
       },
       isEditing: false,
-      showDeleteModal: false
+      showDeleteModal: false,
+      tags: []
     };
   }
 
@@ -23,6 +24,11 @@ class FullNote extends React.Component {
 
   //sets particular note on state for viewing based on url the user was pushed to
   componentDidMount() {
+    this.getNote();
+    this.getTags();
+  }
+
+  getNote = () => {
     axios
       .get(`${this.noteUrl}/${this.props.match.params.id}`)
       .then(response =>
@@ -36,7 +42,20 @@ class FullNote extends React.Component {
       .catch(error => {
         console.log("The server failed to retrieve this note: ", error);
       });
-  }
+  };
+
+  getTags = () => {
+    // parseInt necessary because anything coming off the params will be a string and 2 !== "2"
+    const id = parseInt(this.props.match.params.id);
+    axios
+      .get(this.tagUrl)
+      .then(response => {
+        this.setState({
+          tags: response.data.filter(tag => tag.notes_id === id)
+        });
+      })
+      .catch(err => console.log("Error occurred while retrieving tags: ", err));
+  };
 
   //allows single page to render either view state or edit state without being taken to separate page/url
   toggleEditing = event => {
@@ -104,6 +123,16 @@ class FullNote extends React.Component {
           <Markdown className="full-note-text">
             {this.state.activeNote.content}
           </Markdown>
+          <section className="tag-wrapper">
+            {this.state.tags.map(tag => (
+              <div className="tag" key={tag.id}>
+                <div className="tag-delete-button" onClick={this.deleteTag}>
+                  X
+                </div>
+                <div className="tag-text">{tag.text}</div>
+              </div>
+            ))}
+          </section>
           <Route
             render={ownProps => (
               <DeleteModal

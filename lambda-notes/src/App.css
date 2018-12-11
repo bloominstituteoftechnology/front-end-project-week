@@ -40,7 +40,7 @@
 
 .sidebar .tag-wrapper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -50,11 +50,11 @@
   font-weight: bold;
   background: grey;
   text-align: center;
-  margin: 10px 1%;
+  margin: 10px 5%;
   color: white;
   overflow: hidden;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 10px;
   border: 2px solid #30bec3;
 }
 
@@ -228,6 +228,28 @@
 
 .note-full-view .full-note-text {
   margin: 60px 0;
+}
+
+.note-full-view .tag-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.note-full-view .tag-wrapper .tag {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 2% 0 0;
+  background: grey;
+  color: white;
+  font-size: 15px;
+  padding: 10px 2%;
+}
+
+.note-full-view .tag-wrapper .tag .tag-delete-button {
+  position: fixed;
+  color: red;
+  margin: -8px 0 0 -20px;
 }
 
 .edit-note-wrapper {

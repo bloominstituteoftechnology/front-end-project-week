@@ -180,6 +180,7 @@ class App extends Component {
       .catch(error => {
         console.log("We were unable to delete this note: ", error);
       });
+    // written in the endpoint, but deleting a note now also deletes all of its tags
   };
 
   createNote = event => {
