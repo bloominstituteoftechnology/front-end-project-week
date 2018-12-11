@@ -11,10 +11,10 @@ class NoteCard extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.props.singleNote.title}</h1>
-        <p>{this.props.singleNote.textBody}</p>
+        <h1 className="note-title">{this.props.singleNote.title}</h1>
+        <p className="note-text">{this.props.singleNote.textBody}</p>
         <Link to={`/edit-note/${this.props.singleNote._id}`}>
-          <button>Edit Note</button>{" "}
+          <button>Edit Note</button>
           <button onClick={this.deleteHandler}>Delete Note</button>
         </Link>
       </div>

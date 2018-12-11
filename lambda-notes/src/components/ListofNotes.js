@@ -5,6 +5,8 @@ export default class ListOfNotes extends React.Component {
 
   render() {
     return (
+        <>
+        <h2 className="notes-list-header">Your Notes:</h2>
       <div className="notes-container">
         {this.props.state.notes.map(note => (
           <Note
@@ -17,6 +19,7 @@ export default class ListOfNotes extends React.Component {
           />
         ))}
       </div>
+      </>
     );
   }
 }

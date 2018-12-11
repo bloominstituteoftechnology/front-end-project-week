@@ -1,15 +1,69 @@
 .App {
-  text-align: center;
+  display: flex;
+  border: 1px solid gray;
 }
 
 .notes-container {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  padding-left: 3.5%;
 }
 
 .note-card {
   max-width: 30%;
-  width: 30%;
+  width: 28%;
+  height: 200px;
   border: 1px solid black;
+  background-color: #ffffff;
+  margin: 1%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0 1%;
 }
+
+.note-card a {
+  text-decoration: none;
+  color: black;
+}
+
+/* .note-card .note-text {
+
+} */
+
+
+
+.nav-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 25%;
+  height: 100vh;
+  color: #4a494a;
+  padding: 1%;
+  background-color: #d7d7d7;
+}
+
+.nav-section a {
+  border: 1px solid gray;
+  margin: 3%;
+  padding: 3%;
+  width: 90%;
+  color: white;
+  text-decoration: none;
+  background-color: #5bbdc2;
+  font-weight: bold;
+  text-align: center;
+}
+
+.content-container {
+  padding: 3%;
+  background-color: #f3f3f3;
+  width: 75%;
+}
+
+.notes-list-header {
+  padding-left: 4.5%;
+  color: #4a494a;
+  
+} 

@@ -86,10 +86,11 @@ class App extends Component {
     return (
       <div className="App">
         <section className="nav-section">
+        <h1>Lambda Notes</h1>
           <NavLink exact to={"/"}>
-            Home
+            View Your Notes
           </NavLink>
-          <NavLink to={"/add-note"}>Add Note</NavLink>
+          <NavLink to={"/add-note"}>+ Create New Note</NavLink>
 
           <Route
             path="/add-note"
