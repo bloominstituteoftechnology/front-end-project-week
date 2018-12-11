@@ -10,7 +10,7 @@ class EditNoteView extends Component {
   }
 
   updateNote = note => {
-    this.props.updateNote({ ...note, _id: this.props.note._id });
+    this.props.updateNote({ ...note, id: this.props.note.id });
     this.props.history.push('/');
   };
 

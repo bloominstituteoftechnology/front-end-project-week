@@ -33,15 +33,14 @@ class NoteForm extends Component {
     super();
     this.state = {
       title: '',
-      content: '',
-      tags: []
+      content: ''
     };
   }
 
   componentDidMount() {
     if (this.props.note) {
-      const { title, content, tags } = this.props.note;
-      this.setState({ title, content, tags });
+      const { title, content } = this.props.note;
+      this.setState({ title, content });
     }
   }
 
@@ -49,12 +48,12 @@ class NoteForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   handleFormSubmit = e => {
-    const { title, content, tags } = this.state;
+    const { title, content } = this.state;
     e.preventDefault();
     if (this.props.addNewNote) {
-      this.props.addNewNote({ title, content, tags });
+      this.props.addNewNote({ title, content });
     } else if (this.props.updateNote) {
-      this.props.updateNote({ title, content, tags });
+      this.props.updateNote({ title, content });
     }
   };
   render() {

@@ -52,11 +52,11 @@ export const getNote = id => dispatch => {
 export const addNote = note => dispatch => {
   dispatch({ type: ADD_NOTE });
   axios
-    .post(url, note)
+    .post(url, { ...note, user_id: 1 })
     .then(res => {
       dispatch({
         type: ADD_NOTE_SUCCESS,
-        payload: { ...note, id: res.data.success }
+        payload: { ...note, id: res.data.id }
       });
     })
     .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));

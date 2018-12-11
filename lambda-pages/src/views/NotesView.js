@@ -9,8 +9,18 @@ import StyledSpinner from '../styles/StyledSpinner';
 
 class NotesView extends Component {
   componentDidMount() {
-    // return !this.props.notes.length ? this.props.getAllNotes() : null;
-    this.props.getAllNotes();
+    console.log('get notes.');
+    return !this.props.notes.length
+      ? console.log('got notes') || this.props.getAllNotes()
+      : null;
+
+    // this.props.getAllNotes();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.notes.length !== this.props.notes.length) {
+      this.props.getAllNotes();
+    }
   }
 
   handleRedirectToNoteView = id => {
@@ -19,7 +29,7 @@ class NotesView extends Component {
 
   render() {
     const { notes, isFetching } = this.props;
-
+    console.log('NOTES VIEW Render');
     return (
       <div className="View NoteView">
         <nav

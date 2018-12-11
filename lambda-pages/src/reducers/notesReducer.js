@@ -87,8 +87,8 @@ export const notesReducer = (state = initalState, action) => {
       };
     case UPDATE_NOTE_SUCCESS:
       let index;
-      state.notes.forEach(
-        (note, i) => (note._id === action.payload._id ? (index = i) : null)
+      state.notes.forEach((note, i) =>
+        note.id === action.payload.id ? (index = i) : null
       );
       const newStateNotes = [...state.notes];
       newStateNotes.splice(index, 1, action.payload);
@@ -109,7 +109,7 @@ export const notesReducer = (state = initalState, action) => {
         isDeletingNote: true
       };
     case DELETE_NOTE_SUCCESS:
-      const newNotes = state.notes.filter(note => note._id !== action.payload);
+      const newNotes = state.notes.filter(note => note.id !== action.payload);
       return {
         ...state,
         notes: [...newNotes],

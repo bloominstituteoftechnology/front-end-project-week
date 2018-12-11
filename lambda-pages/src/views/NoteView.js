@@ -27,12 +27,11 @@ const StyledNote = styled.div`
 
 class NoteView extends Component {
   state = {
-    id: this.props.match.params.id,
     showModal: false
   };
 
   componentDidMount() {
-    const { id } = this.state;
+    const { id } = this.props.match.params;
     this.props.getNote(id);
   }
 
@@ -41,7 +40,7 @@ class NoteView extends Component {
   };
 
   deleteNote = () => {
-    const { id } = this.state;
+    const { id } = this.props.match.params;
     this.props.deleteNote(id);
     this.props.history.push('/');
   };

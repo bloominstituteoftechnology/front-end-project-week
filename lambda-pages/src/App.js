@@ -15,28 +15,15 @@ import './styles/App.css';
 const { InputFilter, FilterResults } = fuzzyFilterFactory();
 
 class App extends Component {
-  state = {
-    path: this.props.location.pathname
-  };
-
-  componentDidMount() {
-    this.setState({ path: this.props.location.pathname });
-  }
-
-  componentDidUpdate() {
-    if (this.state.path !== this.props.location.pathname) {
-      this.setState({ path: this.props.location.pathname });
-    }
-  }
-
   render() {
+    console.log('APP Render');
     return (
       <div className="App">
         {/* LOGIN */}
         <Route path="/login" component={LoginView} />
 
         {/* SIDEBAR DOESNT DISPLAY ON LOGIN */}
-        {this.state.path !== '/login' && (
+        {this.props.location.pathname !== '/login' && (
           <Route
             component={routerProps => (
               <Sidebar {...routerProps} InputFilter={InputFilter} />
