@@ -34,10 +34,18 @@ class ViewNote extends Component {
       <ViewNotesBox>
         <NoteWrapper>
 
+          <ModifyNoteWrapper>
+
+            
+
+            
+
+          </ModifyNoteWrapper>
+
 
         </NoteWrapper>
 
-        
+
       </ViewNotesBox>
 
     );
