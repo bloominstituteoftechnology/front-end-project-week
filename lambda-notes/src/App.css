@@ -144,6 +144,8 @@
 
 .edit-delete {
   color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .note-view h2{
@@ -158,4 +160,51 @@
 .sm-padding {
   padding-left: 0;
   padding-top: 20px;
+}
+
+
+/* Delete View */
+.delete-view {
+  background: rgba(153, 153, 153, .7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-box {
+  width: 700px;
+  height: 300px;
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.delete-box h3 {
+  font-size: 2.2rem;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.btn-container {
+  display: flex;
+  width: 600px;
+  margin: 0 auto;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.nav-link-sm-height {
+  height: 65px;
+  cursor: pointer;
+}
+
+.nav-link-red {
+  background: #d0011b;
+  cursor: pointer;
 }

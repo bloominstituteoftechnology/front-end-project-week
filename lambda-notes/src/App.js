@@ -13,7 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [],
+      notes: []
     };
   }
 
@@ -86,7 +86,7 @@ class App extends Component {
             {this.state.notes.length &&
             <Route 
             path="/get/:_id" 
-            render={props => <NoteView {...props} notes={this.state.notes} editNote={this.editNote}/> } /> }
+            render={props => <NoteView {...props} notes={this.state.notes} editNote={this.editNote}  /> } /> }
 
             <Route 
             path="/create" 

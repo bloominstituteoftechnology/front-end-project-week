@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import EditNote from './EditNote';
+import DeleteView from './DeleteView';
 import '../App.css';
 
 class NoteView extends Component {
@@ -9,7 +10,8 @@ class NoteView extends Component {
         this.state = {
             title: '',
             textBody: '',
-            _id: ''
+            _id: '',
+            deleteView: false
         }
     }
 
@@ -20,6 +22,18 @@ class NoteView extends Component {
             title: noteVar.title,
             textBody: noteVar.textBody,
             _id: noteVar._id
+        })
+    }
+
+    toggleDeleteView = () => {
+        let toggle = this.state.deleteView;
+        if(toggle === true){
+            toggle = false
+        } else {
+            toggle = true;
+        }
+        this.setState({
+          deleteView: toggle
         })
     }
 
@@ -36,7 +50,7 @@ class NoteView extends Component {
                 {...props}>
                 <div className="edit-delete-container">
                     <NavLink className="edit-delete" to={`/get/${this.state._id}/edit`}>edit</NavLink>
-                    <NavLink className="edit-delete" to="/delete">delete</NavLink>
+                    <div onClick={this.toggleDeleteView} className="edit-delete">delete</div>
                 </div>
                 <h2>{this.state.title}</h2>
                 <p>{this.state.textBody}</p>
@@ -48,9 +62,8 @@ class NoteView extends Component {
                 path="/get/:_id/edit" 
                 render={props =>  <EditNote {...props} title={this.state.title} textBody={this.state.textBody} _id={this.state._id} editNote={this.props.editNote} /> } />
 
-                <Route 
-                path="/delete" 
-                render={props => <div {...props} /> } />
+                {this.state.deleteView && <DeleteView toggleDeleteView={this.toggleDeleteView}/>}
+
             </div>
         );
     }
