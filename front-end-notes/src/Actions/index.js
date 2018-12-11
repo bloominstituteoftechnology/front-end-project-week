@@ -51,10 +51,10 @@ export const getNotes = () => dispatch => {
       .catch(err => dispatch({ type: DELETE_NOTES_FAILURE, payload: err }));
   };
 
-  export const updateSmurf = (note) => dispatch => {
+  export const updateNote = (note) => dispatch => {
     dispatch({ type: UPDATE_NOTES_REQUEST });
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${smurf.id}`, note)
+      .put(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, note)
       //LOL THIS WORKS CUZ YOU HAVE THE WHOLE OBJECT! YOU ARE UNSTOPABLE!
       .then(response => {
         console.log('smurf fetch finished');
