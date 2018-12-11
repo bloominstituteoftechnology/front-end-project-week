@@ -1,14 +1,8 @@
 import React, { Component } from "react";
 import { Route, NavLink } from "react-router-dom";
-// import {connect} from 'react-redux';
-
-// import { getNotes, addNote, deleteNote, editNote } from '../actions';
-
-import NotesListView from './views/NotesListView';
-import AddNoteView from './views/AddNoteView';
-import Note from './components/Note';
-// import AddNote from './components/AddNote';
-
+import NotesListView from "./views/NotesListView";
+import AddNoteView from "./views/AddNoteView";
+import Note from "./components/Note";
 import "./App.css";
 
 class App extends Component {
@@ -27,45 +21,21 @@ class App extends Component {
           </div>
         </nav>
 
-        <Route
-          exact path="/"
-          component={NotesListView}
-        />
+        <Route exact path="/" component={NotesListView} />
 
-        <Route
-          path="/create-note"
-          component={AddNoteView}
-        />
+        <Route path="/create-note" component={AddNoteView} />
 
-        <Route
-          path="/notes/:noteId"
-          component={Note}
-        />
+        <Route path="/notes/:noteId" component={Note} />
 
         <Route
           path="/edit-note/:noteId"
           render={props => (
-            <AddNoteView {...props} note={this.props.note} edit/>
-          )} 
+            <AddNoteView {...props} note={this.props.note} edit />
+          )}
         />
-
       </div>
     );
   }
 }
 
 export default App;
-
-// function mapStateToProps(state){
-//   console.log(state);
-//   return{
-//     notes: state.notes,
-//     isFetching: state.fetching,
-//     error: state.error
-//   };
-// }
-
-// export default connect(
-//   mapStateToProps,
-//   {getNotes, addNote, deleteNote, editNote}
-// )(App);

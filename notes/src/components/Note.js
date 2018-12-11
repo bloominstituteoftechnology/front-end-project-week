@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getNotesById, deleteNote, getNotes } from "../actions";
-
 class Note extends React.Component {
   constructor() {
     super();

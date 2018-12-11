@@ -1,23 +1,15 @@
-import React from 'react';
-import { connect } from 'react-redux';
-
-import { getNotes } from '../actions';
-
-import NotesList from '../components/NotesList';
+import React from "react";
+import { connect } from "react-redux";
+import { getNotes } from "../actions";
+import NotesList from "../components/NotesList";
 
 class NotesListView extends React.Component {
   componentDidMount() {
     this.props.getNotes();
   }
 
-//   componentDidUpdate(prevProps) {
-//       if(this.props.notes !== prevProps.notes){
-//         this.props.getNotes();
-//       }
-//   }
-
   render() {
-    console.log('running render function');
+    console.log("running render function");
     return (
       <div className="notes-list-wrapper">
         <NotesList {...this.props} />
@@ -27,9 +19,9 @@ class NotesListView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    notes: state.notes,
-    isFetching: state.fetching,
-    error: state.error
+  notes: state.notes,
+  isFetching: state.fetching,
+  error: state.error
 });
 
 export default connect(

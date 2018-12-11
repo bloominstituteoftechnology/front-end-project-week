@@ -1,11 +1,10 @@
-import React from 'react';
-
+import React from "react";
 class AddNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      textBody: ''
+      title: "",
+      textBody: ""
     };
   }
 
@@ -19,19 +18,17 @@ class AddNote extends React.Component {
     event.preventDefault();
     if (this.props.edit) {
       this.props.editNote(this.props.match.params.noteId, this.state);
-
     } else {
       this.props.addNote(this.state);
-      
     }
     this.props.getNotes();
-    this.props.history.push('/');
+    this.props.history.push("/");
   };
 
   render() {
     return (
-      <div className='form'>
-        <h2>{this.props.edit ? 'Edit Item' : 'Add New Item'}</h2>
+      <div className="form">
+        <h2>{this.props.edit ? "Edit Item" : "Add New Item"}</h2>
         <form onSubmit={this.submitHandler}>
           <input
             onChange={this.changeHandler}
@@ -46,11 +43,13 @@ class AddNote extends React.Component {
             type="text"
             name="textBody"
             value={this.state.textBody}
-            placeholder={this.props.edit ? `${this.props.note.textBody}` : "text"}
+            placeholder={
+              this.props.edit ? `${this.props.note.textBody}` : "text"
+            }
           />
           <div className="baseline" />
           <button className="md-button form-button">
-            {this.props.edit ? 'Edit Item' : 'Add Item'}
+            {this.props.edit ? "Edit Item" : "Add Item"}
           </button>
         </form>
       </div>
