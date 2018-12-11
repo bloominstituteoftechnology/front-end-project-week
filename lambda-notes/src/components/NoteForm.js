@@ -29,11 +29,7 @@ const TextArea = styled.textarea`
     width: 95.4%;
     display: flex;
     resize: none;
-    overflow: scroll;
-`;
-
-const Title = styled(Input)`
-    width: 51.5%;
+    overflow-y: auto;
 `;
 
 const StyledButton = styled(Button)`
@@ -41,11 +37,53 @@ const StyledButton = styled(Button)`
 `;
 
 export default class NoteForm extends Component {
+    constructor(props) {
+        super();
+        this.props = props;
+        this.state = {
+            title: props.title,
+            textBody: props.textBody,
+            id: props.id,
+            tags: props.tags
+        };
+    }
+
+    handleChange = e => {
+        this.setState({
+            ...this.state,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    submit = e => {
+        e.preventDefault();
+        this.props.post({
+            title: this.state.title,
+            textBody: this.state.textBody
+        });
+        this.setState({
+            ...this.state,
+            title: '',
+            textBody: ''
+        });
+    };
+
     render() {
         return (
-            <Form>
-                <Input placeholder="Note Title" />
-                <TextArea type="textarea" placeholder="Note Content" />
+            <Form onSubmit={this.submit}>
+                <Input
+                    value={this.state.title}
+                    placeholder="Note Title"
+                    name="title"
+                    onChange={this.handleChange}
+                />
+                <TextArea
+                    value={this.state.textBody}
+                    name="textBody"
+                    type="textarea"
+                    placeholder="Note Content"
+                    onChange={this.handleChange}
+                />
                 <StyledButton text="Save" />
             </Form>
         );
