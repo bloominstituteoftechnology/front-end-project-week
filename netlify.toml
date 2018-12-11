@@ -8,6 +8,6 @@ ID = "547b5886-a382-481d-96af-ea32e55306bd"
   base    = "notes/"
   # NOTE: This is where we will look for package.json/.nvmrc/etc, not root.
   # This is the directory that you are publishing from (relative to root of your repo)
-  publish = "instagram/build/"
+  publish = "notes/build/"
   # This will be your default build command
   command = "yarn build"
