@@ -45,7 +45,7 @@ class Note extends Component {
                     </div>
                 </div>
                 <div className="modal">
-                {this.state.showModal ? <Modal id={this.state.note._id} hideModal={this.hideModal} /> : null}
+                {this.state.showModal ? <Modal id={this.state.note.id} hideModal={this.hideModal} /> : null}
                 </div>
                 <div className="body-container">
                     <h3>{this.state.note.title}</h3>

@@ -15,8 +15,8 @@ class ListView extends Component {
                 <div className='list-container'>
                 {this.props.list.map(note => {
                     return (
-                        <div className='note-card' key={note._id}>
-                            <Link to={`/Note/${note._id}`}>
+                        <div className='note-card' key={note.id}>
+                            <Link to={`/Note/${note.id}`}>
                                 <h2>{note.title}</h2>
                                 <p>{note.textBody}</p> 
                             </Link>   

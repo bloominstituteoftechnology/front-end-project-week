@@ -29,16 +29,16 @@ class Edit extends Component {
         const updatedNote = {
             title: this.state.title,
             textBody: this.state.textBody,
-            tags: [],
-            _id: this.props.match.params.id
+            id: id
         }
+        console.log('edit state', this.state)
         axios 
             .put(`${baseUrl}/notes/${id}`, updatedNote)
             .then(response => {
                 console.log('edit response', response)
                 this.setState({ note: response.data })
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error.message))
 
     }; 
 
