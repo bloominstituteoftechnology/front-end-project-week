@@ -132,6 +132,7 @@ export const logout = () => {
 }
 
 export const checkLogin = () => {
+  console.log('CHECK LOGIN');
   let cred = JSON.parse(localStorage.getItem('notes-login'));
 
   if (!cred) {
@@ -140,7 +141,7 @@ export const checkLogin = () => {
       password: 'fsw15',
       status: false,
     }
-    localStorage.setItem('notes_login', JSON.stringify(cred))
+    localStorage.setItem('notes-login', JSON.stringify(cred))
   }
 
   if (cred.status) {
