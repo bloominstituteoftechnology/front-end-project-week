@@ -13,7 +13,8 @@ const DivButtons = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-right: 5%;
-  padding-top: 10px;
+  padding-top: 2rem;
+  width: 100%;
 
   p {
     padding: 0 10px;
@@ -22,17 +23,23 @@ const DivButtons = styled.div`
 `;
 
 const SingleNote = styled.div`
-  margin-left: 23%;
+  margin-left: 28%;
   text-align: left;
-  width: 70%;
-  padding: 10px;
+  width: 65%;
+  padding: 1rem;
+
+  @media (min-width: 1200px) {
+    margin-left: 31%;
+  }
 
   p {
     white-space: pre-wrap;
+    line-height: 1.5;
   }
   h2 {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 0.3rem;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
   }
 `;
 

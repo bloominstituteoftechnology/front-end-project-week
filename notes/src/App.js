@@ -16,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-size: 1.6rem;
-    background-color: #f3f3f3;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -33,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
   }
       .App {
         max-width: 880px;
-      //display: flex;
+    background-color: #f3f3f3;
     }
   }
 `;

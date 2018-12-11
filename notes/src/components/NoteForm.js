@@ -11,7 +11,11 @@ const StyledForm = styled.form`
   margin-left: 28%;
   padding-top: 5.9rem;
   padding-left: 0.5rem;
-  width: 96%;
+  width: 70%;
+
+  @media (min-width: 1200px) {
+    margin-left: 31%;
+  }
 
   h2 {
     font-size: 2.1rem;

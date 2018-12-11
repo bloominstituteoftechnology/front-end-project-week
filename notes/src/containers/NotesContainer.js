@@ -9,7 +9,9 @@ class NotesContainer extends React.Component {
     filteredNotes: [],
     filterOptions: {
       shouldSort: true,
-      threshold: 0.6,
+      threshold: 0.2,
+      tokenize: true,
+      distance: 200,
       includeMatches: true, //don't forget to use this
       minMatchCharLength: 2,
       keys: ['title', 'textBody'],
@@ -40,7 +42,7 @@ class NotesContainer extends React.Component {
     this.setState({searchText: e.target.value});
     //console.log(this.props.notes);
     const fuse = new Fuse(this.props.notes, this.state.filterOptions);
-    //console.log(fuse.search(this.state.searchText));
+    console.log(fuse.search(this.state.searchText));
     const result = fuse.search(this.state.searchText);
     this.setState({filteredNotes: result.map(i => i.item)});
   };

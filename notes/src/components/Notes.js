@@ -8,6 +8,10 @@ const NotesWrapper = styled.div`
   margin-left: 28%;
   padding-top: 6rem;
 
+  @media (max-width: 800px) {
+    align-items: center;
+  }
+
   @media (min-width: 1200px) {
     margin-left: 30%;
   }
@@ -26,6 +30,11 @@ const DivNotes = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   padding-top: 20px;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const StyledNote = styled.div`
@@ -38,6 +47,10 @@ const StyledNote = styled.div`
   overflow: hidden;
   text-align: left;
   white-space: pre-wrap;
+
+  @media (min-width: 1200px) {
+    width: 24%;
+  }
 
   h2 {
     font-weight: bold;
