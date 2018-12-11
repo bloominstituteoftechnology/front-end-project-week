@@ -94,7 +94,7 @@ const Authenticate = App =>
                             />
                             <label htmlFor="password">Password</label>
                             <input
-                                type="text"
+                                type="password"
                                 id="password"
                                 name="password"
                                 value={this.state.user.password}
