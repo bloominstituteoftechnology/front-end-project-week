@@ -34,7 +34,7 @@ class App extends Component {
 				<AppContainer>
 					<Sidebar />
 					<Route exact path="/" component={NoteList} />
-					<Route path="/addnewnote" component={AddNewNote} />
+					<Route exact path="/addnewnote" component={AddNewNote} />
 					<Route
 						path="/notes/:noteId"
 						render={props => (

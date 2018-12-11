@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 const SidebarContainer = styled.div`
 	background-color: #d3d2d3;
 	min-height: 100vh;
-	width: 300px;
+	width: 20%;
+	min-width: 200px;
 	padding: 20px;
 	display: flex;
 	flex-direction: column;
-	border-left: 1px solid #cac9ca;
-	border-right: 1px solid #cac9ca;
+	border-left: 2px solid #BEBEBE;
+	border-right: 2px solid #BEBEBE;
 `;
 
 const MainHeader = styled.h1`

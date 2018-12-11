@@ -75,8 +75,8 @@ class AddNewNote extends React.Component {
                 res => (
                     console.log('POST Server Response: ', res),
                     this.setState({
-                        title: '',
-                        textBody: '',
+                        title: res.data.title,
+                        textBody: res.data.textBody,
                         id: res,
                     })
                 )
@@ -85,7 +85,8 @@ class AddNewNote extends React.Component {
                 err => console.log('POST Server Error: ', err)
             )
         
-        this.props.history.push('/notes')
+        this.props.history.push('/')
+        // this.setState(this.state)
     } 
 
 	render() {

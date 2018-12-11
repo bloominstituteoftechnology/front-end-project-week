@@ -4,13 +4,17 @@ import axios from 'axios';
 
 const ModalOverlay = styled.div`
 	height: 100vh;
-	width: 100vh;
-	background-color: rgba(221, 221, 221, 0.5);
+	width: 100%;
+    background-color: rgba(221, 221, 221, 0.5);
+    z-index: 1;
 `;
 
 const ModalContainer = styled.div`
 	border: 2px solid #a5a5a5;
-	background-color: #fbfbfb;
+    background-color: #fbfbfb;
+    position: fixed;
+    top: 35%;
+    left: 40%;
 	width: 500px;
 	height: 250px;
 	display: flex;

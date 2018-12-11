@@ -15,13 +15,23 @@ const NoteCardContainer = styled.div`
 	min-height: 150px;
 	margin: 20px;
 	padding: 15px;
-	border: 1px solid #dbdbdb;
-	/* border: 2px solid red; */
 `;
 
-const NoteCardTitle = styled.h4`
+const NoteCardHeader = styled.div`
+	display: flex;
+	justify-content: flex-end;
+
+	.note-header-link {
+		margin: 0 10px;
+		color: #20272d;
+		text-decoration: underline;
+		font-weight: bold;
+	}
+`;
+
+const NoteCardTitle = styled.h2`
 	color: #20272d;
-	border-bottom: 1px solid #20272d;
+	/* border-bottom: 1px solid #20272d; */
 	margin: 0 0 5px;
 `;
 
@@ -53,17 +63,6 @@ class Note extends React.Component {
 			.catch(err => console.log("Note > Server Error: ", err));
 	}
 
-	// deleteNote() {
-	// 	axios
-	// 		.delete(
-	// 			`https://fe-notes.herokuapp.com/note/delete/${
-	// 				this.props.match.params.noteId
-	// 			}`
-	// 		)
-	// 		.then(res => console.log("Delete Note ", res))
-	// 		.catch(err => console.log("Delete Server Error", err));
-	// }
-
 	render() {
 		const note = this.state.note;
 		if (!note) return <h2>Loading...</h2>;
@@ -73,18 +72,33 @@ class Note extends React.Component {
 					history={this.props.history}
 					notes={this.props.notes}
 				>
-					<Link to={`/notes/${note._id}/edit`}>Edit</Link>
-					<Link to={`/notes/${note._id}/delete`}>Delete</Link>
+					<NoteCardHeader>
+						<Link
+							to={`/notes/${note._id}/edit`}
+							className="note-header-link"
+						>
+							edit
+						</Link>
+						<Link
+							to={`/notes/${note._id}/delete`}
+							className="note-header-link"
+						>
+							delete
+						</Link>
+					</NoteCardHeader>
+
 					<NoteCardTitle>{this.state.note.title}</NoteCardTitle>
 					<NoteCardContent>
 						{this.state.note.textBody}
 					</NoteCardContent>
 				</NoteCardContainer>
 				<Route
+					exact
 					path={`/notes/${note._id}/edit`}
 					render={props => <EditNoteForm {...props} note={note} />}
 				/>
 				<Route
+					exact
 					path={`/notes/${note._id}/delete`}
 					render={props => <DeleteModal {...props} note={note} />}
 				/>
@@ -92,11 +106,5 @@ class Note extends React.Component {
 		);
 	}
 }
-
-// Note.defaultProps = {
-//     title: '',
-//     tags: '',
-//     textBody: '',
-// }
 
 export default Note;

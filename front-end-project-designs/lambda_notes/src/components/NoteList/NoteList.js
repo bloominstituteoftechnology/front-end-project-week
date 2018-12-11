@@ -27,13 +27,20 @@ const NoteCardContainer = styled.div`
 	background-color: #ffffff;
 	color: #20272d;
 	/* width: 10%; */
-	width: 180px;
+	max-width: 180px;
+	min-width: 120px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
 	/* min-width: 150px; */
 	min-height: 150px;
 	margin: 20px;
 	padding: 15px;
 	border: 1px solid #dbdbdb;
 	/* border: 2px solid red; */
+
+	h4 {
+		border-bottom: 1px solid #20272d;
+	}
 `;
 
 class NoteList extends React.Component {
@@ -62,6 +69,9 @@ class NoteList extends React.Component {
 
 	render() {
 		// console.log("Notelist props", this.props);
+		if (!this.state.notes) {
+			return <h2>Loading...</h2>
+		}
 		return (
 			<NoteListContainer>
 				<h2 className="lamba-notes-header">Your Notes:</h2>
@@ -73,7 +83,7 @@ class NoteList extends React.Component {
 								key={note._id}
 								className="note-card"
 							>
-								<p>{note.title}</p>
+								<h4>{note.title}</h4>
 								<p>{note.textBody}</p>
 							</NoteCardContainer>
 							{/* <Note 
