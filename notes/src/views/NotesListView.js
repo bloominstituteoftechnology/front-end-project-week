@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getNotes } from "../actions";
 import NotesList from "../components/NotesList";
+import '../App.css';
 
 class NotesListView extends React.Component {
   componentDidMount() {

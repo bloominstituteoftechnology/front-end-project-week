@@ -9,14 +9,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav>
+        <nav className="nav-main">
           <h1 className="nav-header">Lambda Notes</h1>
-          <div className="nav-links">
-            <NavLink exact to="/">
-              <button>View Your Notes</button>
+          <div className="nav-links-container">
+            <NavLink className="nav-links" exact to="/">
+              <button className="nav-main-btn">View Your Notes</button>
             </NavLink>
             <NavLink to="/create-note">
-              <button>+ Create New Note</button>
+              <button className="nav-main-btn">+ Create New Note</button>
             </NavLink>
           </div>
         </nav>

@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 class AddNote extends React.Component {
   constructor(props) {
     super(props);
@@ -28,28 +29,31 @@ class AddNote extends React.Component {
   render() {
     return (
       <div className="form">
-        <h2>{this.props.edit ? "Edit Item" : "Add New Item"}</h2>
-        <form onSubmit={this.submitHandler}>
+        <h2>{this.props.edit ? "Edit Note:" : "Create New Note:"}</h2>
+        <form className="form-container" onSubmit={this.submitHandler}>
           <input
+            className="input-title"
             onChange={this.changeHandler}
             type="text"
             name="title"
             value={this.state.title}
-            placeholder={this.props.edit ? `${this.props.note.title}` : "title"}
+            placeholder={
+              this.props.edit ? `${this.props.note.title}` : "Note Title"
+            }
           />
-          <div className="baseline" />
-          <input
+          <textarea
+            className="input-content"
             onChange={this.changeHandler}
             type="text"
             name="textBody"
             value={this.state.textBody}
             placeholder={
-              this.props.edit ? `${this.props.note.textBody}` : "text"
+              this.props.edit ? `${this.props.note.textBody}` : "Note Content"
             }
           />
           <div className="baseline" />
           <button className="md-button form-button">
-            {this.props.edit ? "Edit Item" : "Add Item"}
+            {this.props.edit ? "Update" : "Save"}
           </button>
         </form>
       </div>
