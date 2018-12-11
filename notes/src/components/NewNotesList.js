@@ -1,19 +1,12 @@
 import React from "react";
 import { MainContent, Search } from "../styled/NotesList";
 import { connect } from "react-redux";
-import { fetchNotes, filterNotes, newSort, isEqual } from "../actions";
+import { fetchNotes, filterNotes, newSort, isEqual, reorder } from "../actions";
 import SortableList from "./SortableList";
 import { DragDropContext } from "react-beautiful-dnd";
 import Papa from "papaparse";
 import Fuse from "fuse.js";
 // import { newSort} from
-
-const reorder = (notes, startIndex, endIndex) => {
-  const result = Array.from(notes);
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed);
-  return result;
-};
 
 class NotesList extends React.Component {
   constructor() {
@@ -30,7 +23,7 @@ class NotesList extends React.Component {
   componentDidMount() {
     window.addEventListener("beforeunload", this.saveNotes);
     this.props.fetchNotes();
-    if (!isEqual(this.props.notes, [...this.state.notes])) {
+    if (!isEqual([...this.props.notes], [...this.state.notes])) {
       const notes = [...this.state.notes];
       const newNotes = this.props.notes;
       const sorted = newSort(newNotes, notes);

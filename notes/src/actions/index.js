@@ -151,3 +151,10 @@ export const isEqual = function(value, other) {
 
   return true;
 };
+
+export const reorder = (notes, startIndex, endIndex) => {
+  const result = Array.from(notes);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+  return result;
+};
