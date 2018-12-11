@@ -6,7 +6,6 @@ class EditModal extends React.Component{
     this.state = {
       title: this.props.title,
       textBody: this.props.textBody,
-      tabs: this.props.tabs,
       editModalState: false
     }
   }
@@ -19,7 +18,6 @@ class EditModal extends React.Component{
     const newNoteData = {
       title: this.state.title,
       textBody: this.state.textBody,
-      tabs: this.state.tabs
     }
     this.props.updateNote(this.props.currentId, newNoteData);
     this.props.editModalToggle();

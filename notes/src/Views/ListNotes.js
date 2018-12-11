@@ -9,12 +9,11 @@ class ListNotes extends Component {
     return (
       <div className="view note-list">
         {this.props.notes.map(note => (
-          <Link to={`/n/${note._id}`} key={note._id}>
+          <Link to={`/n/${note.id}`} key={note.id}>
             <Note
-              id={note._id}
+              id={note.id}
               title={note.title}
               content={note.textBody}
-              tags={note.tags}
             />
           </Link>
         ))}

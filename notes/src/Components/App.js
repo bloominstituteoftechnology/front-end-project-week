@@ -10,7 +10,7 @@ import Sidebar from "./Sidebar";
 
 import "./App.css";
 
-const url = "https://fe-notes.herokuapp.com/note";
+const url = "http://localhost:9000";
 
 class App extends Component {
   constructor() {
@@ -27,22 +27,24 @@ class App extends Component {
   getNotes() {
     console.log("getNotes called");
     axios
-      .get(`${url}/get/all`)
-      .then(response => this.setState({ notes: response.data }))
+      .get(`${url}/notes`)
+      .then(res => {
+        console.log(res.data);
+        this.setState({ notes: res.data })
+      })
       .catch(error => console.log(error));
   }
 
   getNoteById(id) {
     console.log("getNoteById called");
     axios
-      .get(`${url}/get/${id}`)
+      .get(`${url}/notes/${id}`)
       .then(response => {
         console.log(response);
         this.setState({ 
         title: response.title, 
         textBody: response.textBody, 
-        tags: response.tags, 
-        activeId: response._id })
+        activeId: response.id })
       })
       .catch(error => console.log(error));
 
@@ -52,7 +54,7 @@ class App extends Component {
   postNote(newNote) {
     console.log('Posting new note');
     axios
-      .post(`${url}/create`, newNote)
+      .post(`${url}/notes`, newNote)
       .then(this.getNotes)
       .catch(error => console.log(error));
   }
@@ -60,7 +62,7 @@ class App extends Component {
   editNote(id, newNoteContent) {
     console.log('Updating note: ' + id + '\nwith: ', newNoteContent);
     axios
-      .put(`${url}/edit/${id}`, newNoteContent)
+      .put(`${url}/notes/${id}`, newNoteContent)
       .then(this.getNotes)
       .catch(error => console.log(error));
   }
@@ -68,7 +70,7 @@ class App extends Component {
   deleteNote(id) {
     console.log('Deleting note: ' + id);
     axios
-      .delete(`${url}/delete/${id}`)
+      .delete(`${url}/notes/${id}`)
       .then(this.getNotes)
       .catch(error => console.log(error));
   }
@@ -80,9 +82,15 @@ class App extends Component {
 
   renderNote = ({ match }) => {
     const selectedNote = this.state.notes.find(
-      note => note._id === match.params.noteId
+      note => note.id === match.params.currentId
     );
-    return <ReadNote {...selectedNote} deleteNote={this.deleteNote} editNote={this.editNote} />;
+    console.log("match params\n" + match.params);
+    if(!selectedNote){
+      console.log("note not found");
+      return null;
+    } else {
+      return <ReadNote id={selectedNote.id} title={selectedNote.title} textBody={selectedNote.textBody} deleteNote={this.deleteNote} editNote={this.editNote} />;
+    }
   };
 
   addNote = () => {
@@ -91,7 +99,7 @@ class App extends Component {
 
   updateNote = ({ match }) => {
     const selectedNote = this.state.notes.find(
-      note => note._id === match.params.noteId
+      note => note.id === match.params.currentId
     );
     return <AddEditNote {...selectedNote} putNote={this.putNote} />;
   };

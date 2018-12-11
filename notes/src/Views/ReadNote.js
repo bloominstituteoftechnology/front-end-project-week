@@ -11,10 +11,9 @@ class ReadNote extends React.Component{
     this.state = {
       deleteModalToggle: false,
       editModalToggle: false,
-      _id: '',
+      id: '',
       title: '',
-      textBody: '',
-      tabs: []
+      textBody: ''
     }
   }
 
@@ -27,29 +26,28 @@ class ReadNote extends React.Component{
   }
 
   handleEditClick = () => {
-    console.log('readNote props: ', this.props);
+    console.log('edit click props: ', this.props);
     const newNoteContent = {
       title: this.props.title,
-      textBody: this.props.textBody,
-      tags: this.props.tags
+      textBody: this.props.textBody
     }
-    this.props.editNote(this.props._id, newNoteContent);
+    this.props.editNote(this.props.id, newNoteContent);
   }
 
   render() {
-    console.log(this.props)
+    console.log("ReadNote props\n" + this.props)
     return (
       <div className="full-page-note">
         <DeleteModal 
           deleteModalState={this.state.deleteModalToggle} 
           deleteNote={this.props.deleteNote} 
-          currentId={this.props._id}
+          currentId={this.props.id}
           modalToggle={this.deleteModalToggleButton}
         />
         <EditModal
           editModalState={this.state.editModalToggle} 
           editNote={this.props.editNote}
-          currentId={this.props._id}
+          currentId={this.props.id}
           editModalToggle={this.props.editModalToggleBottmo}
         />
 

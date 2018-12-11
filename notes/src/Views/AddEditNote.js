@@ -7,21 +7,20 @@ class AddEditNote extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      _id: '',
+      id: '',
       title: '',
-      textBody: '',
-      tags: []
+      textBody: ''
     }
   }
 
+  
   componentDidMount(){
-    if(this.props._id){
+    if(this.props.id){
       console.log('addedit: ', this.props);
       this.setState({
-        _id: this.props._id,
+        id: this.props.id,
         title: this.props.title,
-        textBody: this.props.textBody,
-        tags: this.props.tags
+        textBody: this.props.textBody
       });
     }
   }
@@ -32,7 +31,6 @@ class AddEditNote extends React.Component {
     const newNote = {
       title: this.state.title,
       textBody: this.state.textBody,
-      tags: this.state.tags
     }
 
     this.props.postNote(newNote);
