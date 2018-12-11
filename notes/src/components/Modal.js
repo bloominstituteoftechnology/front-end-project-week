@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-//import Button from './NavBar';
+import {Button} from './NavBar';
 import {connect} from 'react-redux';
 import {deleteNote, hideModal} from '../store/actions';
 
@@ -11,31 +11,26 @@ const ModalWrapper = styled.div`
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
 `;
 
 const StyledModal = styled.div`
-  width: 20%;
+  width: 40%;
   height: auto;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 20%;
+  left: 30%;
   //transform: translate(-50, -50%);
   border: 1px solid red;
   background-color: #ffffff;
   z-index: 2;
-  padding: 10px;
+  padding: 40px;
 `;
 
-// for some reason import buttons from NavBar is displaying the entire navbar when i use them here??
-const Button = styled.button`
-  background-color: #2ac0c4;
-  color: white;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 18px;
-  width: 100%;
+const ModalButton = styled(Button)`
   margin: 10px;
+  background-color: ${props => (props.delete ? '#CA001A' : null)};
+  padding: 10px 20px;
 `;
 
 //const deleteNoteButton = id => {
@@ -49,8 +44,8 @@ const Modal = props => {
       <StyledModal>
         <p>Are you sure you want to delete this?</p>
         <div style={{display: 'flex'}}>
-          <Button
-            style={{backgroundColor: 'red'}}
+          <ModalButton
+            delete
             onClick={() => {
               console.log('click');
               props.deleteNote(props.id);
@@ -58,8 +53,8 @@ const Modal = props => {
               props.history.push('/notes');
             }}>
             Delete
-          </Button>
-          <Button onClick={() => props.hideModal()}>No</Button>
+          </ModalButton>
+          <ModalButton onClick={() => props.hideModal()}>No</ModalButton>
         </div>
       </StyledModal>
     </ModalWrapper>
