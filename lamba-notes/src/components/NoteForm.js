@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+let APIUrl = 'https://bummingsnotes.herokuapp.com';
+
 class NoteForm extends React.Component {
   constructor(props) {
     super();
@@ -12,10 +14,9 @@ class NoteForm extends React.Component {
 
   addNote = event => {
     event.preventDefault();
-    // props.history.push(`/note/get/${note._id}`); history push here
 
     axios
-      .post('http://localhost:9000/api/notes', {
+      .post(`${APIUrl}/api/notes`, {
         title: this.state.title,
         content: this.state.content
         // textBody: this.state.textBody

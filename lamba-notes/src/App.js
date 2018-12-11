@@ -9,6 +9,8 @@ import NoteEdit from './components/NoteEdit';
 import Nav from './components/Nav';
 import './styles.css';
 
+let APIUrl = 'https://bummingsnotes.herokuapp.com';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,13 +24,13 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:9000/api/notes')
+      .get(`${APIUrl}/api/notes`)
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
 
   editNote = id => {
-    axios.put(`http://localhost:9000/api/notes/${id}`, {
+    axios.put(`${APIUrl}/api/notes/${id}`, {
       title: this.state.updatedTitle,
       content: this.state.updatedTextBody
     });
@@ -36,7 +38,7 @@ class App extends Component {
   };
 
   deleteNote = id => {
-    axios.delete(`http://localhost:9000/api/notes/${id}`).then(response => {
+    axios.delete(`${APIUrl}/api/notes/${id}`).then(response => {
       console.log(response);
       const updatedNotes = this.state.notes.filter(note => note.id !== id);
       this.setState({ notes: updatedNotes });

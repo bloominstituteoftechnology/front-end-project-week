@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Modal from 'react-responsive-modal';
 
+let APIUrl = 'https://bummingsnotes.herokuapp.com';
+
 class Note extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ class Note extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     axios
-      .get(`http://localhost:9000/api/notes/${id}`)
+      .get(`${APIUrl}/api/notes/${id}`)
       .then(response => {
         this.setState({
           note: response.data,

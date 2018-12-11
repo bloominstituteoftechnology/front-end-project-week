@@ -18,7 +18,6 @@ class Notes extends React.Component {
               <br />
               <p className='card__text' key={note.id}>
                 {note.content}
-                {/* {note.textBody} */}
               </p>
             </div>
           );
