@@ -20,7 +20,11 @@ class CreateNewOnes extends Component {
     }
   }
 
- 
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
 
   addNewNote = e => {
     e.preventDefault();
