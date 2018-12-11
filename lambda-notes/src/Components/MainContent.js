@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 
 // routing done in this component
 
-const MainContent = props => {
+const MainContent = ({ addNote, content, update }) => {
   return (
     <div className='main-content' >
 
@@ -14,16 +14,22 @@ const MainContent = props => {
         return (
           <React.Fragment>
             <h1>Your Notes:</h1>
-            <DisplayNotes notes={props.content} />
+            <DisplayNotes notes={content} />
           </React.Fragment>
         )
       }} />
 
-      <Route path={'/create'} render={() => {
+      <Route path={'/create'} render={ props => {
         return (
           <React.Fragment>
+
             <h1>Create New Note:</h1>
-            <CreateNoteForm notes={props.content} />
+
+            <CreateNoteForm 
+              {...props}
+              addNote={addNote}
+              update={update}/>
+
           </React.Fragment>
         )
       }} />

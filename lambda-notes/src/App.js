@@ -13,13 +13,38 @@ class App extends Component {
 
   componentDidMount() {
     axios     
-    .get(`https://fe-notes.herokuapp.com/note/get/all`)
-       .then(response => {
-        this.setState({notes: response.data}) 
-       })
-       .catch(err => {
-         console.log(err)
-       });
+      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .then(response => {
+      this.setState({notes: response.data}) 
+      })
+      .catch(err => {
+        console.log(err)
+      });
+  }
+
+  update() {
+    // console.log(this.props.history)
+    axios     
+      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .then(response => {
+      this.setState({notes: response.data}) 
+      })
+      .catch(err => {
+        console.log(err)
+      });
+  }
+
+  addNote = ( e, data) => {
+    e.preventDefault();
+
+    console.log(data)
+
+    axios
+      .post('https://fe-notes.herokuapp.com/note/create', data)
+      .then( response => this.update())
+      .catch(err => console.log(err))
+
+
   }
 
   render() {
@@ -28,7 +53,10 @@ class App extends Component {
     return (
       <div className="App">
         <SideBar />
-        <MainContent content={this.state.notes} />
+        <MainContent 
+          content={this.state.notes}
+          addNote={this.addNote}
+          update={this.update} />
       </div>
     );
   }
