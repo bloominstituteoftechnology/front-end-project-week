@@ -27,7 +27,6 @@ class CreateNoteForm extends React.Component {
               title: '',
               textBody: '',
             })
-            this.props.update();
             this.props.history.push('/');
           }}>
 

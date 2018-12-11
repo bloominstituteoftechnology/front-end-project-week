@@ -7,7 +7,7 @@ import { Route } from 'react-router-dom';
 
 // routing done in this component https://fe-notes.herokuapp.com/note/get/id
 
-const MainContent = ({ addNote, content, update }) => {
+const MainContent = ({ addNote, content, deleteNote }) => {
   return (
     <div className='main-content' >
 
@@ -23,7 +23,7 @@ const MainContent = ({ addNote, content, update }) => {
       }} />
 
       <Route path={'/note/:id'} render={ props => {
-        return <DisplayCard {...props} content={content}  />
+        return <DisplayCard {...props} content={content} deleteNote={deleteNote}  />
       }} />
 
       <Route path={'/create'} render={ props => {
@@ -35,7 +35,7 @@ const MainContent = ({ addNote, content, update }) => {
             <CreateNoteForm 
               {...props}
               addNote={addNote}
-              update={update}/>
+            />
 
           </React.Fragment>
         )

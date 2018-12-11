@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   update() {
-    
+
     axios     
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then(response => {
@@ -45,6 +45,14 @@ class App extends Component {
 
   }
 
+  deleteNote = (id) => {
+    console.log('here testing delete',id)
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then( response => this.update())
+      .catch(err => console.log(err))
+  }
+
   render() {
     console.log(this.state)
     if(this.state.notes === 0) return <h1>loading...</h1>
@@ -54,7 +62,8 @@ class App extends Component {
         <MainContent 
           content={this.state.notes}
           addNote={this.addNote}
-          update={this.update} />
+          deleteNote={this.deleteNote}  
+        />
       </div>
     );
   }
