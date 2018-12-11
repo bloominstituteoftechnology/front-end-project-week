@@ -6,7 +6,7 @@ const NoteView = (props) => {
     const id = props.match.params.id
 	return (
 		<Main>
-			{props.notes.map((note) => {
+			{props.notes.slice(0,12).map((note) => {
 				if (note._id === id) {
 					return (
 						<Div view='single' key={note._id}>
@@ -16,7 +16,7 @@ const NoteView = (props) => {
 									Edit
 								</P>
 								</Link>
-								<Link exact to='/'><P onClick={props.deleteNote}>Delete</P></Link>
+								<P onClick={(event) =>{event.preventDefault(); props.history.push('/'); props.deleteNote(id)}}>Delete</P>
 							</div>
 							<H2>{note.title}</H2>
 							<P>{note.textBody}</P>

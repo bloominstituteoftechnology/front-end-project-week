@@ -13,14 +13,19 @@ class App extends Component {
 		this.state = {
 			notes: [],
 			newNote: {
-				id: '',
 				title: '',
 				textBody: ''
-			}
+			},
+			newId: ''
 		};
+
 	}
 
 	componentDidMount() {
+		this.getnotes();
+	}
+
+	getnotes = () => {
 		axios
 			.get('https://fe-notes.herokuapp.com/note/get/all')
 			.then((response) => {
@@ -35,16 +40,12 @@ class App extends Component {
 
 	addNote = (event) => {
 		event.preventDefault();
-
 		axios
 			.post(`https://fe-notes.herokuapp.com/note/create`, this.state.newNote)
 			.then((response) => {
 				this.setState({
 					...this.state,
-					newNote: {
-						...this.state.newNote,
-						id: `${response.data.success}`
-					}
+						newId: `${response.data.success}`
 				});
 			})
 			.catch((err) => {
@@ -53,24 +54,24 @@ class App extends Component {
 	};
 
 	editNote = (id) => {
+		console.log('editing')
 		axios
 			.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
 			.then((response) => {
-				this.setState({
-					...this.state,
-					notes: [...this.state.notes, response.data]
-				});
+				this.getnotes();
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	};
 
-	deleteNote = (event) => {
-		event.preventDefault();
+	deleteNote = (id) => {
 		axios
 			.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-			.then(null)
+			.then(response => {
+				console.log(response)
+				this.getnotes();
+			})
 			.catch((err) => {
 				console.log(err);
 			});
@@ -103,10 +104,10 @@ class App extends Component {
 						render={(props) => (
 							<NoteForm
 								{...props}
+								header={'Create New Note'}
 								mode={'create'}
 								handleChange={this.handleChange}
 								addNote={this.addNote}
-								id={this.state.newNote.id}
 								buttonText="Save"
 							/>
 						)}
@@ -127,6 +128,7 @@ class App extends Component {
 						render={(props) => 
 						<NoteForm
 						 {...props} 
+						 header={'Update Existing Note'}
 						 mode={'edit'}
 						 buttonText='Update' 
 						 editNote={this.editNote}
