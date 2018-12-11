@@ -42,9 +42,8 @@ class Form extends Component {
         event.preventDefault();
         if (this.state.title !== '' && this.state.body !== '') {
           // create a new note
-          // const tags = this.state.tags.split(',')
           const newNote = {
-            // tags: tags,
+            tags: this.state.tags,
             title: this.state.title,
             textBody: this.state.body,
           }
@@ -66,6 +65,7 @@ class Form extends Component {
               added: true,
               title: '',
               body: '',
+              tags: '',
               note: null,
           })
         }

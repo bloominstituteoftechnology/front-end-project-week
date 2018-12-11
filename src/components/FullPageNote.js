@@ -65,6 +65,7 @@ class FullPageNote extends Component {
                 <div className='fullpage'>
                     <h2 className='title'>{this.state.note.title}</h2>
                     <ReactMarkdown className='body' source={this.state.note.textBody} />
+                    {this.state.note.tags ? this.state.note.tags.split(', ' || ',').map(tag => <p className='tag'>{tag}</p>) : null}
                     {/* <p className='body'>{this.state.note.textBody}</p> */}
                     <span className='delete' onClick={this.deleteModal}>✖</span>
                     <Link className='edit' to={{ pathname: '/add', state: { note: this.state.note} }}>EDIT</Link>

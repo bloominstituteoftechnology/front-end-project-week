@@ -327,3 +327,14 @@ input[type='submit']:hover {
   text-align: center;
   border: 1px solid #0d1c49;
 }
+
+.tag {
+  display: inline;
+  font-size: 12px;
+  background: #32488b;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin: 0 10px 0 0;
+  text-align: center;
+}
