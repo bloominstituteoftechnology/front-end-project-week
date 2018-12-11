@@ -9,7 +9,7 @@ const StyledButton = styled.button`
     outline: rgba(0, 0, 0, 0.2) solid 2px;
     background: ${styleVars.buttonColor};
     color: ${styleVars.buttonFontColor};
-    padding: 15px;
+    padding: 16px;
 `;
 
 function Button(props) {
