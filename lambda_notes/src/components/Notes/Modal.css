@@ -28,6 +28,19 @@
   padding: 20px;
 }
 
+.modal-main button {
+  width: 35%;
+  margin: 15px;
+  border: 1px solid #b7b5b7;
+  padding: 15px;
+  background-color: #23b8bd;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .display-block {
   display: block;
 }
