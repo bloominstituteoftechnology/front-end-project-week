@@ -73,7 +73,7 @@ class DeleteModal extends React.Component {
 					<DeleteButton
 						onClick={() => {
                             this.props.deleteNote(this.props.match.params.noteId);
-                            setTimeout( () => this.props.history.push(`/`), 250);
+                            setTimeout( () => this.props.history.push(`/notes`), 250);
 						}}
 					>
 						Delete

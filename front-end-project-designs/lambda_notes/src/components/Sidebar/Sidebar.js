@@ -33,7 +33,7 @@ const Sidebar = () => {
 	return (
 		<SidebarContainer>
 			<MainHeader>Lambda Notes</MainHeader>
-			<Link to="/">
+			<Link to="/notes">
 				<SidebarButton>View Your Notes</SidebarButton>
 			</Link>
 			<Link to="/addnewnote"><SidebarButton href="#">+ Create New Note</SidebarButton></Link>

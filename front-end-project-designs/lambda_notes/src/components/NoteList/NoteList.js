@@ -48,46 +48,49 @@ class NoteList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			notes: [],
-			id: "",
-			title: "",
-			tags: "",
-			textBody: "",
+			// notes: [],
+			// id: "",
+			// title: "",
+			// tags: "",
+			// textBody: "",
 		};
 	}
 
 	componentDidMount() {
-		axios
-			.get("https://fe-notes.herokuapp.com/note/get/all")
-			.then(res => {
-				console.log("Server Response :", res);
-				this.setState({ notes: res.data });
-			})
-			.catch(err => {
-				console.log("Server Error: ", err);
-			});
+		this.props.getNotes();
 	}
 
 	render() {
-		// console.log("Notelist props", this.props);
-		if (!this.state.notes) {
-			return <h2>Loading...</h2>
+		console.log("Notelist props", this.props);
+		if (!this.props.notes) {
+			return <h2>Loading...</h2>;
 		}
 		return (
 			<NoteListContainer>
 				<h2 className="lamba-notes-header">Your Notes:</h2>
-				{this.state.notes.map(note => {
+				{this.props.notes.map(note => {
 					return (
 						<>
 							<NoteCardContainer
-								onClick={() => {this.props.history.push(`/notes/${note._id}`)}}
+								onClick={() => {
+									this.props.history.push(
+										`/notes/${note._id}`
+									);
+								}}
 								key={note._id}
 								className="note-card"
 							>
 								<h4>{note.title}</h4>
-								<p>{note.textBody}</p>
+								<p>
+									{" "}
+									{note.textBody.length > 180
+										? note.textBody
+												.slice(0, 180)
+												.concat("...")
+										: note.textBody}
+								</p>
 							</NoteCardContainer>
-							
+
 							<Route
 								path="/notes/:noteId"
 								render={props => (

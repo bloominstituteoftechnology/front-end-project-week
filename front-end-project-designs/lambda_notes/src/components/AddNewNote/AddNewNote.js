@@ -86,7 +86,7 @@ class AddNewNote extends React.Component {
 				.catch(err => console.log("POST Server Error: ", err));
             
         }
-        setTimeout( () => this.props.history.push(`/`), 250);
+        setTimeout( () => this.props.history.push(`/notes`), 250);
 	};
 
 	render() {
