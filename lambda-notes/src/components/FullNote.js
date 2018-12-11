@@ -57,6 +57,14 @@ class FullNote extends React.Component {
       .catch(err => console.log("Error occurred while retrieving tags: ", err));
   };
 
+  deleteTag = (event, id) => {
+    event.preventDefault();
+    axios
+      .delete(`${this.tagUrl}/${id}`)
+      .then(this.getTags)
+      .catch(err => console.log("Error while deleting this tag: ", err));
+  };
+
   //allows single page to render either view state or edit state without being taken to separate page/url
   toggleEditing = event => {
     event.preventDefault();
@@ -126,7 +134,10 @@ class FullNote extends React.Component {
           <section className="tag-wrapper">
             {this.state.tags.map(tag => (
               <div className="tag" key={tag.id}>
-                <div className="tag-delete-button" onClick={this.deleteTag}>
+                <div
+                  className="tag-delete-button"
+                  onClick={event => this.deleteTag(event, tag.id)}
+                >
                   X
                 </div>
                 <div className="tag-text">{tag.text}</div>
