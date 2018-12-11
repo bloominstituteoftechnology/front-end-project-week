@@ -21,10 +21,13 @@ class App extends Component {
         };
     }
     componentDidMount() {
+        this.get();
+    }
+
+    get() {
         axios
             .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(response => {
-                console.log('response: ', response);
                 this.setState({ notes: response.data });
             })
             .catch(err => {
@@ -32,13 +35,21 @@ class App extends Component {
             });
     }
 
+    post = data => {
+        axios
+            .post('https://fe-notes.herokuapp.com/note/create', data)
+            .then(this.get())
+            .catch(err => {
+                console.log(err);
+            });
+    };
+
     render() {
-        console.log(this.state.notes);
         return (
             <Router>
                 <StyledApp className="App">
                     <SideBar />
-                    <Content notes={this.state.notes} />
+                    <Content notes={this.state.notes} post={this.post} />
                 </StyledApp>
             </Router>
         );
