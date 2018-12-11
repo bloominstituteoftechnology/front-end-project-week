@@ -4,11 +4,15 @@ import NavigationBar from "./components/NavBar/NavBar";
 import NoteList from "./components/ListView/NoteList";
 import IndividualNote from "./components/ListView/IndividualNote";
 import NoteForm from "./components/NewNoteView/NoteForm";
+import Login from "./components/LoginComponents/Login";
+import RegistrationPage from './components/LoginComponents/RegistrationPage.js'
 import { AppDiv } from "./Styles/AppStyles";
-import { Route } from "react-router-dom";
+import { Route, withRouter, Redirect } from "react-router-dom";
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
-const URL = 'https://jstodd-projectweek-backend.herokuapp.com/api/notes/'
+const URL = "https://jstodd-projectweek-backend.herokuapp.com/api/notes/";
+const URL2 = "https://jstodd-projectweek-backend.herokuapp.com/api";
 
 const existingNote = {
   title: "",
@@ -29,15 +33,22 @@ class App extends Component {
       isEditing: false,
       editingID: null,
       filteredNotes: [],
-      filterTarget: ""
+      filterTarget: "",
+      loggedIn: false,
+      username: "",
+      password: ""
     };
   }
 
-  componentDidMount() {
-    axios
-      .get(`${URL}`)
-      .then(response => this.setState({ notes: response.data }))
-      .catch(error => alert(error));
+  componentDidUpdate() {
+    if (this.state.loggedIn === true) {
+      axios
+        .get(`${URL}`)
+        .then(response => this.setState({ notes: response.data }))
+        .catch(error =>
+          console.log(`You must log in to see notes content: ${error}`)
+        );
+    }
   }
 
   // New/Edit Input Change Handler
@@ -50,6 +61,7 @@ class App extends Component {
     });
   };
 
+  // Tags Input Change Handler
   tagsHandler = ev => {
     this.setState({
       noteObj: {
@@ -79,6 +91,7 @@ class App extends Component {
     });
   };
 
+  // Add Note Function
   addNote = () => {
     if (
       this.state.noteObj.title === "" ||
@@ -104,24 +117,21 @@ class App extends Component {
       .catch(error => alert(error));
   };
 
+  // Delete Note Function
   deleteNote = (ev, id) => {
     ev.preventDefault();
-    axios
-      .delete(`${URL}/${id}`)
-      .then(response => {
-        // console.log(this.state.notes.filter(note => note.id.toString() !== id))
-        // console.log(id)
-        const deletedNotes = this.state.notes.filter(note => note.id.toString() !== id);
-        this.setState({ notes: deletedNotes });
-      });
+    axios.delete(`${URL}/${id}`).then(response => {
+      const deletedNotes = this.state.notes.filter(
+        note => note.id.toString() !== id
+      );
+      this.setState({ notes: deletedNotes });
+    });
   };
 
+  // Edit Note Function
   editNote = () => {
     axios
-      .put(
-        `${URL}/${this.state.editingID}`,
-        this.state.noteObj
-      )
+      .put(`${URL}/${this.state.editingID}`, this.state.noteObj)
       .then(response => {
         const updatedNotes = this.state.notes.map(note => {
           if (response.data.id == note.id) {
@@ -138,6 +148,7 @@ class App extends Component {
       .catch(error => alert(error));
   };
 
+  // Toggle Edit Note Form
   toggleEditNoteForm = (ev, note) => {
     ev.preventDefault();
     this.setState({
@@ -147,6 +158,7 @@ class App extends Component {
     });
   };
 
+  // Modal Functions
   openDLAModal = () => {
     this.setState({ downloadAllModal: true });
   };
@@ -155,30 +167,109 @@ class App extends Component {
     this.setState({ downloadAllModal: false });
   };
 
+  getCookie = () => {
+    sessionStorage.getItem("");
+  };
+
+  // Register Function
+
+  registerFunction = ev => {
+    ev.preventDefault()
+    axios
+    .post(`${URL2}/register`, {username: this.state.username, password: this.state.password})
+    .then(res => {
+      this.setState({loggedIn: true})
+      this.props.history.push('/home')
+    })
+  }
+
+
+  // Login Function
+  loginFunction = ev => {
+    ev.preventDefault();
+    axios
+      .post(`${URL2}/login`, {
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(res => {
+        console.log(res);
+        this.setState({ loggedIn: true });
+        this.props.history.push("/home");
+      });
+  };
+  // Logout Function
+
+  logoutFunction = ev => {
+    ev.preventDefault();
+    axios.get(`${URL2}/logout`).then(res => {
+      this.setState({ loggedIn: false });
+      this.props.history.push("/");
+    });
+  };
+
   render() {
     return (
       <AppDiv>
-        <NavigationBar
-          filterTarget={this.state.filterTarget}
-          filter={this.filter}
-          notes={this.state.notes}
-          downloadAllModal={this.state.downloadAllModal}
-          openDLAModal={this.openDLAModal}
-          closeDLAModal={this.closeDLAModal}
+        {this.state.loggedIn ? (
+          <NavigationBar
+            filterTarget={this.state.filterTarget}
+            filter={this.filter}
+            notes={this.state.notes}
+            downloadAllModal={this.state.downloadAllModal}
+            openDLAModal={this.openDLAModal}
+            closeDLAModal={this.closeDLAModal}
+            logoutFunction={this.logoutFunction}
+          />
+        ) : null}
+
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <Login
+              {...props}
+              loggedIn={this.state.loggedIn}
+              searchBarHandler={this.searchBarHandler}
+              password={this.state.password}
+              username={this.state.username}
+              loginFunction={this.loginFunction}
+            />
+          )}
         />
+
+        <Route 
+        path="/register"
+        render={props => (
+          <RegistrationPage
+          {...props}
+          loggedIn={this.state.loggedIn}
+          searchBarHandler={this.searchBarHandler}
+          password={this.state.password}
+          username={this.state.username}
+          registerFunction={this.registerFunction}
+        />
+        
+        )}
+        />
+
         <Route
           exact
           path="/home"
-          render={props => (
-            <NoteList
-              {...props}
-              notes={
-                this.state.filteredNotes.length > 0
-                  ? this.state.filteredNotes
-                  : this.state.notes
-              }
-            />
-          )}
+          render={props =>
+            !this.state.loggedIn ? (
+              <Redirect to="/" />
+            ) : (
+              <NoteList
+                {...props}
+                notes={
+                  this.state.filteredNotes.length > 0
+                    ? this.state.filteredNotes
+                    : this.state.notes
+                }
+              />
+            )
+          }
         />
         <Route
           path="/home/:id"
@@ -211,4 +302,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
