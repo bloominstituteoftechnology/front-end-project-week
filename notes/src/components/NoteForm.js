@@ -55,7 +55,7 @@ class Form extends Component {
 		this.state = {
 			title: `${this.props.edit ? this.props.note.title : ""}`,
             textBody: `${this.props.edit ? this.props.note.textBody : ""}`,
-            _id: this.props.edit ? this.props.note._id : 'new-note'
+            _id: this.props.edit ? this.props.note._id : `new-note${Math.random()}`
 		};
     }
     

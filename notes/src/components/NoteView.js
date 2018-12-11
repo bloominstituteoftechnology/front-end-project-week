@@ -74,14 +74,9 @@ class NoteView extends Component {
 		};
 	}
 
-	componentDidMount() {
-		//this.props.getNotes();
-	}
-
-	componentWillUnmount() {
-		// this.props.resetNewNoteId();
-		// this.props.getNotes();
-	}
+    componentDidMount(){
+        // 
+    }
 
 	showDeleteModal(ev) {
 		ev.preventDefault();
@@ -96,12 +91,13 @@ class NoteView extends Component {
 	deleteHandler(ev, id) {
 		ev.preventDefault();
 		this.props.deleteNote(id);
-		this.setState({ displayDelete: false });
-		this.props.history.push("/");
+        this.setState({ displayDelete: false });
+        this.props.history.push("/");
 	}
 
 	render() {
 		let note = {};
+
 		if (
 			!this.props.notes.length ||
 			this.props.fetchingNotes ||
@@ -109,6 +105,7 @@ class NoteView extends Component {
 		) {
 			return <ActiveTitle>Loading note... </ActiveTitle>;
 		}
+
 		if (this.props.savingNote) {
 			return <ActiveTitle>Saving Note...</ActiveTitle>;
 		}
@@ -121,23 +118,23 @@ class NoteView extends Component {
 			note = this.props.notes.find(
 				note => this.props.newNoteId === note._id
 			);
-			if (this.props.match.params.id === "new-note") {
-				// this.props.history.push(`/note/${this.props.newNoteId}`);
-			}
 		}
 
 		if (note === undefined) {
 			return <ActiveTitle>Note doesn't exists...</ActiveTitle>;
 		}
+
 		return (
 			<NoteViewWrapper>
 				<NoteViewHeader>
 					{this.props.newNoteId === "" ? (
 						<NavA as={Link} to={`/edit/${note._id}`}>
+							{console.log(note._id)}
 							edit
 						</NavA>
 					) : (
 						<NavA as={Link} to={`/edit/${this.props.newNoteId}`}>
+							{console.log(this.props.newNoteId)}
 							edit
 						</NavA>
 					)}
@@ -161,7 +158,12 @@ class NoteView extends Component {
 								<DeleteButton
 									red
 									onClick={ev =>
-										this.deleteHandler(ev, note._id)
+										this.props.newNoteId === ""
+											? this.deleteHandler(ev, note._id)
+											: this.deleteHandler(
+													ev,
+													this.props.newNoteId
+											  )
 									}>
 									Delete
 								</DeleteButton>
