@@ -18,16 +18,23 @@ class MainBox extends React.Component {
     };
   }
 
+  componentDidMount() {
+    axios
+      .get(`http://localhost:9000/note/get/all`)
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+  }
+
   componentDidUpdate() {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .get(`http://localhost:9000/note/get/all`)
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
 
   addNote = newNote => {
     axios
-      .post(`https://fe-notes.herokuapp.com/note/create`, newNote)
+      .post(`http://localhost:9000/notes`, newNote)
       .then(response => this.setState({ note: response.data }))
       .catch(error => console.log(error));
   };

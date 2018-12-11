@@ -11,15 +11,18 @@ class FullNote extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount() {}
+
+  componentWillUnmount() {
     const id = this.props.match.params.id;
     this.getNote(id);
   }
 
   getNote = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:9000/notes/${id}`)
       .then(response => {
+        // console.log(response);
         this.setState(() => ({ notes: response.data }));
       })
       .catch(err => {
@@ -29,10 +32,7 @@ class FullNote extends React.Component {
 
   deleteNote = id => {
     axios
-      .delete(
-        `https://fe-notes.herokuapp.com/note/delete/${id}`,
-        this.state.notes
-      )
+      .delete(`http://localhost:9000/notes/${id}`, this.state.notes)
       .then(response => {
         this.setState({ deleted: true });
       })
@@ -58,7 +58,7 @@ class FullNote extends React.Component {
       <div>
         <h2 className="header">{this.state.notes.title}</h2>
         <div className="note-paragraph">
-          <p>{this.state.notes.textBody}</p>
+          <p>{this.state.notes.message}</p>
         </div>
         <Link className="e-d" to={`/edit/${this.state.notes._id}`}>
           edit
@@ -72,7 +72,7 @@ class FullNote extends React.Component {
             <div className="modal-button-wrapper">
               <button
                 className="modal-btn-delete"
-                onClick={() => this.deleteNote(this.state.notes._id)}
+                onClick={() => this.deleteNote(this.state.notes.id)}
               >
                 Delete
               </button>

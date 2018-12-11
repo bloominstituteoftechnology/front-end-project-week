@@ -7,7 +7,7 @@ class EditNote extends React.Component {
     super(props);
     this.state = {
       title: "",
-      textBody: "",
+      message: "",
       _id: "",
       updatedNote: false
     };
@@ -25,21 +25,18 @@ class EditNote extends React.Component {
   editNote = e => {
     e.preventDefault();
     axios
-      .put(
-        `https://fe-notes.herokuapp.com/note/edit/${this.state._id}`,
-        this.state
-      )
+      .put(`http://localhost:9000/note/edit/${this.state._id}`, this.state)
       .then(response => this.props.history.push(`/note/${response.data._id}`))
       .catch(err => console.log(err));
   };
 
   getNoteID = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:9000/note/get/${id}`)
       .then(response =>
         this.setState({
           title: response.data.title,
-          textBody: response.data.textBody,
+          message: response.data.message,
           _id: response.data._id
         })
       )
@@ -69,8 +66,8 @@ class EditNote extends React.Component {
             className="input2"
             onChange={this.handleInputChange}
             type="text"
-            name="textBody"
-            value={this.state.textBody}
+            name="message"
+            value={this.state.message}
             placeholder="New Content"
             required
           />

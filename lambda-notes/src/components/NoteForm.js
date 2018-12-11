@@ -6,7 +6,7 @@ class NoteForm extends React.Component {
     super(props);
     this.state = {
       title: "",
-      textBody: "",
+      message: "",
       addedNote: false
     };
   }
@@ -15,14 +15,14 @@ class NoteForm extends React.Component {
     event.preventDefault();
     const newNote = {
       title: this.state.title,
-      textBody: this.state.textBody
+      message: this.state.message
     };
     console.log("newNote", newNote);
     this.props.addNote(newNote);
 
     this.setState({
       title: "",
-      textBody: ""
+      message: ""
     });
     this.setState({
       addedNote: true
@@ -51,10 +51,10 @@ class NoteForm extends React.Component {
           />
           <input
             onChange={this.handleInputChange}
-            name="textBody"
+            name="message"
             placeholder="Note Content"
             className="input2"
-            value={this.state.textBody}
+            value={this.state.message}
             required
           />
           <button className="submit" type="submit">
