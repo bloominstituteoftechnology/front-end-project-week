@@ -24,6 +24,7 @@ const DivModel = styled.div`
 
 const H3Message = styled.h3`
   font-weight: normal;
+  user-select: none;
 `;
 
 const ButtonModel = styled.button`

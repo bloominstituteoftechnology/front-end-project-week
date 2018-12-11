@@ -36,6 +36,10 @@ const NavNoteLinks = styled.nav`
   margin: 20px;
 `;
 
+const LinkEdit = styled(Link)`
+  pointer-events: ${props => props.showdeletemodel && 'none'};
+`;
+
 const ButtonLink = styled.button`
   border: none;
   background-color: inherit;
@@ -107,12 +111,16 @@ class NoteView extends Component {
             <DivNotePageDisplay showdeletemodel={this.state.showDeleteModel}>
               <HeaderNote>
                 <NavNoteLinks>
-                  <ButtonLink
-                    notenavitem={NoteNavItems.edit}
-                    showdeletemodel={this.state.showDeleteModel}
-                  >
-                    {NoteNavItems.edit}
-                  </ButtonLink>
+                  <LinkEdit to='' showdeletemodel={this.state.showDeleteModel}>
+                    <ButtonLink
+                      notenavitem={NoteNavItems.edit}
+                      showdeletemodel={this.state.showDeleteModel}
+                      onClick="location.href=''"
+                      type='button'
+                    >
+                      {NoteNavItems.edit}
+                    </ButtonLink>
+                  </LinkEdit>
                   <ButtonLink
                     notenavitem={NoteNavItems.delete}
                     showdeletemodel={this.state.showDeleteModel}
