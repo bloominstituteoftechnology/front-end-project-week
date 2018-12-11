@@ -24,7 +24,7 @@ const H2LoadingMessage = styled.h2`
 `;
 
 const DivNotePageDisplay = styled.div`
-  opacity: ${props => (props.showdeletemodel ? 0.4 : 1)};
+  opacity: ${props => (props.showdeletemodel === 'true' ? 0.4 : 1)};
 `;
 
 const HeaderNote = styled.header`
@@ -37,7 +37,7 @@ const NavNoteLinks = styled.nav`
 `;
 
 const LinkEdit = styled(Link)`
-  pointer-events: ${props => props.showdeletemodel && 'none'};
+  pointer-events: ${props => props.showdeletemodel === 'true' && 'none'};
 `;
 
 const ButtonLink = styled.button`
@@ -57,19 +57,20 @@ const ButtonLink = styled.button`
   }
 
   &:hover {
-    text-decoration: ${props => !props.showdeletemodel && 'underline'};
-    cursor: ${props => !props.showdeletemodel && 'pointer'};
+    text-decoration: ${props =>
+      props.showdeletemodel === 'false' && 'underline'};
+    cursor: ${props => props.showdeletemodel === 'false' && 'pointer'};
 
     /* Edit Note Button */
     color: ${props =>
       props.notenavitem === NoteNavItems.edit &&
-      !props.showdeletemodel &&
+      props.showdeletemodel === 'false' &&
       'rgb(43, 193, 196)'};
 
     /* Delete Note Button */
     color: ${props =>
       props.notenavitem === NoteNavItems.delete &&
-      !props.showdeletemodel &&
+      props.showdeletemodel === 'false' &&
       'red'};
   }
 `;
@@ -106,24 +107,27 @@ class NoteView extends Component {
             <DeleteModel
               {...this.props}
               hideDeleteModel={this.hideDeleteModel}
-              visible={this.state.showDeleteModel}
+              visible={this.state.showDeleteModel.toString()}
             />
-            <DivNotePageDisplay showdeletemodel={this.state.showDeleteModel}>
+            <DivNotePageDisplay
+              showdeletemodel={this.state.showDeleteModel.toString()}
+            >
               <HeaderNote>
                 <NavNoteLinks>
-                  <LinkEdit to='' showdeletemodel={this.state.showDeleteModel}>
+                  <LinkEdit
+                    to=''
+                    showdeletemodel={this.state.showDeleteModel.toString()}
+                  >
                     <ButtonLink
                       notenavitem={NoteNavItems.edit}
-                      showdeletemodel={this.state.showDeleteModel}
-                      onClick="location.href=''"
-                      type='button'
+                      showdeletemodel={this.state.showDeleteModel.toString()}
                     >
                       {NoteNavItems.edit}
                     </ButtonLink>
                   </LinkEdit>
                   <ButtonLink
                     notenavitem={NoteNavItems.delete}
-                    showdeletemodel={this.state.showDeleteModel}
+                    showdeletemodel={this.state.showDeleteModel.toString()}
                     onClick={e => this.showDeleteModel(e)}
                   >
                     {NoteNavItems.delete}
@@ -132,7 +136,7 @@ class NoteView extends Component {
               </HeaderNote>
               <NoteDetails
                 {...this.props}
-                showDeleteModel={this.state.showDeleteModel}
+                showDeleteModel={this.state.showDeleteModel.toString()}
               />
             </DivNotePageDisplay>
           </div>

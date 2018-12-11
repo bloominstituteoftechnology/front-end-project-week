@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Redirect } from 'react-router';
 // import PropTypes from 'prop-types';
 
 /***************************************************************************************************
@@ -15,7 +16,7 @@ const DivModel = styled.div`
   margin-right: auto;
   width: 30%;
   height: 200px;
-  display: ${props => (props.visible ? `flex` : `none`)};
+  display: ${props => (props.visible === 'true' ? `flex` : `none`)};
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -47,9 +48,15 @@ const ButtonModel = styled.button`
  ********************************************* Component *******************************************
  **************************************************************************************************/
 class DeleteModel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { redirect: false };
+  }
+
   deleteNote = e => {
     e.preventDefault();
     this.props.hideDeleteModel(e);
+    this.setState({ redirect: true });
   };
 
   cancel = e => {
@@ -58,11 +65,22 @@ class DeleteModel extends Component {
   };
 
   render() {
+    console.log(this.state);
+    if (this.state.redirect) {
+      console.log(this.state);
+      return (
+        <Redirect
+          push
+          to={`${this.props.urlLinks.home}${this.props.urlLinks.readNotes}`}
+        />
+      );
+    }
+
     return (
       <DivModel visible={this.props.visible}>
         <H3Message>Are you sure you want to delete this?</H3Message>
         <div>
-          <ButtonModel delete onClick={e => this.deleteNote(e)}>
+          <ButtonModel delete onClick={e => this.deleteNote(e)} type='button'>
             Delete
           </ButtonModel>
           <ButtonModel no onClick={e => this.cancel(e)}>
