@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 
-export const Buttons = styled.button`
+const Buttons = styled.button`
   width: 100%;
   max-width: 165px;
   height: 44px;
@@ -19,17 +19,17 @@ export const Buttons = styled.button`
   }
 `;
 
-export const NavPannelTle = styled.h1`
+const NavPannelTle = styled.h1`
   Margin: 11px 11px;
   color: #415156;
 `;
 
-export const NavPannelLinksWpr = styled.div`
+const NavPannelLinksWpr = styled.div`
   list-style-type: none;
   margin-left: 13px;
 `;
 
-export const NavPannelWpr = styled.div`
+const NavPannelWpr = styled.div`
   height: 700px;
   max-width: 185px;
   width: 100%;
