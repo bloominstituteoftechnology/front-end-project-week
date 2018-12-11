@@ -8,9 +8,11 @@ import { ListView, CreateView, NoteView, EditView } from "./components";
 
 const AppWrapper = styled.div`
 	display: flex;
+	flex-direction: column;
 	width: 100vw;
 	height: 100%;
 	min-height: 100vh;
+	
 `;
 
 const Sidebar = styled.div`
@@ -23,12 +25,23 @@ const Sidebar = styled.div`
 	position: fixed;
 	top: 0px;
 	left: 0px;
+
+	@media (max-width: 540px) {
+		width: 100%;
+		position: relative;
+		padding-bottom: 15px;
+		text-align: center;
+	}
 `;
 
 const Main = styled.div`
-	background-color: whitesmoke;
-	width: 100%;
 	margin-left: 255px;
+	height: 100%;
+
+	@media (max-width: 540px) {
+		margin-left: 0px;
+		justify-content: center;
+	}
 `;
 
 const Title = styled.h1`
@@ -47,9 +60,47 @@ export const SideBarButton = styled(Link)`
 	font-size: 1.4rem;
 `;
 
+const Form = styled.form`
+	margin: 10px 20px;
+	background-color: white;
+`;
+
+const Input = styled.input`
+	border: 1px solid darkgrey;
+	width: 100%;
+	text-align: center;
+	padding: 15px 0;
+	text-decoration: none;
+	font-weight: bold;
+	color: teal;
+	font-size: 1.4rem;
+`;
+
 class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+			filter: ""
+		};
+	}
+
+	handleChange = event => {
+		this.setState({
+			[event.target.name]: event.target.value
+		});
+	};
+
 	componentDidMount() {
 		this.props.getNotes();
+	}
+
+	filterNotes() {
+		if (this.state.filter === "") return this.props.notes;
+		return this.props.notes.filter(note => {
+			return JSON.stringify(note)
+				.toLowerCase()
+				.includes(this.state.filter.toLowerCase());
+		});
 	}
 
 	render() {
@@ -67,9 +118,31 @@ class App extends Component {
 						<SideBarButton to='/create'>
 							+ Create New Note
 						</SideBarButton>
+						{this.props.location.pathname === "/" ? (
+							<Form>
+								<Input
+									name='filter'
+									type='text'
+									value={this.state.filter}
+									placeholder='Search...'
+									onChange={this.handleChange}
+								/>
+							</Form>
+						) : (
+							<></>
+						)}
 					</Sidebar>
 					<Main>
-						<Route exact path='/' component={ListView} />
+						<Route
+							exact
+							path='/'
+							render={props => (
+								<ListView
+									{...props}
+									notes={this.filterNotes()}
+								/>
+							)}
+						/>
 						<Route path='/create' component={CreateView} />
 						<Route exact path='/note/:id' component={NoteView} />
 						<Route exact path='/edit/:id' component={EditView} />

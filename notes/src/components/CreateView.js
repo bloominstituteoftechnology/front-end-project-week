@@ -30,7 +30,7 @@ class CreateView extends Component {
 
 		return (
 			<>
-				<ActiveTitle>Create new Note</ActiveTitle>
+				<ActiveTitle>Create New Note</ActiveTitle>
 				<Form
 					buttonText='Save'
 					submitHandler={this.submitHandler}

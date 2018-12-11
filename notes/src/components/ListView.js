@@ -8,13 +8,24 @@ export const ActiveTitle = styled.h2`
 	margin-top: 70px;
 	margin-left: 30px;
 	margin-bottom: 30px;
+
+	@media (max-width: 540px) {
+		justify-content: center;
+		text-align: center;
+		margin-right: 30px;
+	}
 `;
 
 export const NoteBox = styled.div`
 	margin-left: 30px;
-	padding-right: 30px;
 	display: flex;
-	flex-wrap: wrap;
+    flex-wrap: wrap;
+
+	@media (max-width: 540px) {
+		justify-content: center;
+		margin: 10px;
+		padding: 10px;
+	}
 `;
 
 const NoteListNote = styled.div`
@@ -22,7 +33,12 @@ const NoteListNote = styled.div`
 	width: 220px;
 	height: 225px;
 	margin-bottom: 30px;
-	border: 1px solid darkgrey;
+    border: 1px solid darkgrey;
+    background-color: white;
+
+	@media (max-width: 540px) {
+		margin: 10px;
+	}
 `;
 
 class ListView extends Component {
@@ -50,8 +66,7 @@ class ListView extends Component {
 	}
 }
 export default connect(
-	({ notes, deletingNote, fetchingNotes }) => ({
-		notes,
+	({ deletingNote, fetchingNotes }) => ({
 		deletingNote,
 		fetchingNotes
 	}),

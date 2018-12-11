@@ -22,7 +22,7 @@ const NoteTitle = styled.h3`
 `;
 
 const Note = props => {
-	let noteLength = 140;
+	let noteLength = 135;
 	let smallText = false;
 	if (props.note.title.length > noteLength) smallText = true;
 	return (

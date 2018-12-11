@@ -55,7 +55,8 @@ export const GlobalStyle = createGlobalStyle`
 	  font-size: 62.5%;
 	  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
+	  sans-serif;
+	  background-color: whitesmoke;
   }
   h1{
 	  font-weight: bold;
