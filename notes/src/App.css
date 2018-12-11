@@ -44,6 +44,7 @@
 .notes-list-wrapper {
   width: 210rem;
   padding: 2.5rem 2.5rem;
+  background-color: rgb(242,241,242);
 }
 
 .notes-list-wrapper h2 {
@@ -74,6 +75,7 @@
   margin-bottom: 3rem;
   padding: 1rem 2rem;
   text-align: left;
+  background-color: white;
 }
 
 .note h3 {
@@ -91,6 +93,7 @@
 .form {
   width: 210rem;
   padding: 5rem 2.5rem;
+  background-color: rgb(242,241,242);;
 }
 
 .form h2 {
@@ -198,6 +201,7 @@ textarea {
 .note-wrapper {
   width: 210rem;
   padding: 1rem 2.5rem;
+  background-color: rgb(242,241,242);
 }
 
 .sub-nav{
