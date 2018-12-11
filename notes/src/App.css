@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Arial";
+}
+
+.App {
+  width: 1000px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+}
+
+.aside {
+  display: flex;
+  width: 25%;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 10px;
+  background-color: lightgray;
+  border: 1px solid black;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: turquoise;
+  width: 180px;
+  cursor: pointer;
+  height: 33px;
+  font-size: 16px;
+}
+
+.aside-button {
+  margin: 10px 15px 0;
+  width: 90%;
+}
+
+.note-list {
+  background-color: whitesmoke;
+  width: 75%;
+
+  height: 100%;
+}
+
+.note {
+  border: 1.1px solid grey;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.the-notes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  width: 85%;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-bottom: 1px solid black;
+  margin-top: 8px;
+}
+
+.content {
+  width: 70%;
+  margin: 0 auto;
+  margin-left: 20px;
+  line-height: 26px;
+  font-size: 14px;
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.lambda-notes {
+  font-size: 36px;
+  margin-left: 5px;
+}
+
+.your-notes {
+  margin-top: 35px;
+  margin-left: 20px;
+  padding: 5px;
+}
+
+.create-view {
+  background-color: whitesmoke;
+  width: 75%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.title-input {
+  width: 55%;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  outline: none;
+}
+
+.content-input {
+  width: 85%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+  outline: none;
+}
+
+.create-note-header {
+  margin-top: 30px;
+  margin-left: 20px;
+  padding: 5px;
+}
+
+.save-button {
+  margin: 10px 0;
+}
+
+.note-page {
+  background-color: whitesmoke;
+  width: 75%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+}
+.note-links {
+  text-decoration: underline;
+  margin: 8px 0;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.note-page-title {
+  margin-top: 15px;
+  margin-left: 20px;
+  padding: 5px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.note-page-content {
+  margin-top: 15px;
+  margin-left: 20px;
+  padding: 5px;
+  width: 90%;
+  overflow: hidden;
+  line-height: 30px;
+  margin-bottom: 35px;
+}
+
+.delete-page {
+  background-color: lightgrey;
+  width: 65%;
+  height: 100vh;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.delete-content {
+  background-color: white;
+  border: 1px solid black;
+  padding: 25px;
+  width: 450px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 250px;
+}
+.delete-btn-1 {
+  background-color: crimson;
+  color: white;
+  width: 150px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.delete-btn-2 {
+  width: 150px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.delete-buttons {
+  margin-top: 25px;
+}
+
+.delete-msg {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.note {
+  display: inline-block;
+}
