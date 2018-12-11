@@ -31,7 +31,7 @@ const SingleNote = styled.div`
   padding: 10px;
 
   p {
-    whitespace: pre-wrap;
+    white-space: pre-wrap;
   }
   h2 {
     margin-top: 10px;
@@ -68,22 +68,7 @@ const Note = props => {
       </DivButtons>
       {props.showingModal && <Modal {...props} id={note._id} />}
       <SingleNote>
-        <h2>{note.title}</h2>
-        <p>{note.textBody}</p>
-        {/*<button
-          //onClick={() => {
-            //props.startEditMode();
-            //props.history.push(`/edit/${note._id}`);
-          //}}>
-          //Edit Note
-          //</button> 
-        <button
-          onClick={() => {
-            props.deleteNote(note._id);
-            props.history.push('/notes');
-          }}>
-          Delete Note
-        </button>*/}
+        <h2>{note.title}</h2> <p>{note.textBody}</p>
       </SingleNote>
     </>
   );
