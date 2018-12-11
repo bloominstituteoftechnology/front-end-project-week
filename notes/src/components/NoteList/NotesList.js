@@ -23,6 +23,7 @@ const NotesWrapper = styled.div`
 
     .note-item {
       border: 1px solid #414141;
+      overflow-wrap:break-word;
       margin: 2rem;
       font-size: 1.6rem;
       background-color: #FFFFFF;
