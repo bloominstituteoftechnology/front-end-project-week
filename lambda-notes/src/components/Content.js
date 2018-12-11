@@ -10,10 +10,13 @@ const Div = styled.div`
     width: ${100 - styleVars.sideBarWidth}%;
     padding: 56px 0 0 32px;
     background: ${styleVars.mainContentBG};
+    height: 100vh;
+    overflow-y: auto;
 `;
 
 const Content = props => {
     console.log(props);
+    //TODO this router is weird is that normal that I would have to use a different variable for routerProps and passed in props?
     return (
         <Div>
             <Route
@@ -23,8 +26,13 @@ const Content = props => {
                     <List {...routeProps} notes={props.notes} />
                 )}
             />
-            <Route exact path="/add" component={AddNote} />
-            {/* <List notes={props.notes} /> */}
+            <Route
+                exact
+                path="/add"
+                render={routeProps => (
+                    <AddNote {...routeProps} post={props.post} />
+                )}
+            />
         </Div>
     );
 };
