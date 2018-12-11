@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  color: #424242;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+  background: #f2f1f2;
+}
+
+h1 {
+  font-size: 52px;
+}
+
+h2 {
+  font-size: 38px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+p,
+a {
+  font-size: 22px;
+  text-decoration: none;
+}
