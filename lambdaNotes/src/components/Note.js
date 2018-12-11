@@ -32,7 +32,7 @@ class Note extends React.Component {
 
   deleteNote = event => {
     event.preventDefault();
-    const url = `http://localhost:7000/notes/${
+    const url = `http://localhost:5000/notes/${
       this.state.note.note[0].id
     }`;
     axios
@@ -60,7 +60,7 @@ class Note extends React.Component {
   fetchNote = id => {
     // console.log(this.state.id);
     axios
-      .get(`http://localhost:7000/notes/${id}`)
+      .get(`http://localhost:5000/notes/${id}`)
       .then(response => {
         this.setState(() => ({ note: response.data }));
       })

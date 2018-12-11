@@ -30,7 +30,7 @@ class EditNote extends React.Component {
   editNote = event => {
     console.log(this.state.editTitle, this.state.editBody);
     event.preventDefault();
-    const url = `http://localhost:7000/notes/${
+    const url = `http://localhost:5000/notes/${
       this.props.note.note[0].id
     }`;
 

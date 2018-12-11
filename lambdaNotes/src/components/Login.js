@@ -13,6 +13,9 @@ import {
 const Login = props => {
   return (
     <LoginBackground>
+      <div>
+        <a href="/auth/google">Login With Google</a>
+      </div>
       <LambdaH1>Lambda Notes</LambdaH1>
       <LoginContainer>
         <LoginH1>Login</LoginH1>

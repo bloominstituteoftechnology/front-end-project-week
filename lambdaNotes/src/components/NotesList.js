@@ -24,7 +24,7 @@ class NotesList extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:7000/notes")
+      .get("http://localhost:5000/notes")
       .then(response => this.setState({ data: response.data }))
       .catch(error => console.log(error));
   }
