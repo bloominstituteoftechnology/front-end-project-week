@@ -20,7 +20,7 @@ export const FETCH_NOTE_ID = 'FETCH_NOTE_ID';
 export const FETCH_NOTE_ID_SUCCESS = 'FETCH_NOTE_ID_SUCCESS';
 export const FETCH_NOTE_ID_FAILURE = 'FETCH_NOTE_ID_FAILURE';
 
-const url = `http://localhost:9000/notes`;
+const url = `https://lambda-notes-backend-kyran.herokuapp.com`;
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCH_NOTES });
