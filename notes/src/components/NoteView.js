@@ -50,7 +50,6 @@ const DeleteBox = styled.div`
         height: 250px;
         width: 48%;
         min-width: 300px;
-
 	}
 `;
 

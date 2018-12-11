@@ -12,7 +12,6 @@ const AppWrapper = styled.div`
 	width: 100vw;
 	height: 100%;
 	min-height: 100vh;
-	
 `;
 
 const Sidebar = styled.div`
@@ -75,7 +74,6 @@ const Input = styled.input`
 	color: teal;
 	font-size: 1.4rem;
 	width: 100%;
-	
 `;
 
 class App extends Component {
@@ -120,19 +118,21 @@ class App extends Component {
 						<SideBarButton to='/create'>
 							+ Create New Note
 						</SideBarButton>
-						{this.props.location.pathname === "/" ? (
-							<Form>
-								<Input
-									name='filter'
-									type='text'
-									value={this.state.filter}
-									placeholder='Search...'
-									onChange={this.handleChange}
-								/>
-							</Form>
-						) : (
-							<></>
-						)}
+						<Route
+							exact
+							path='/'
+							render={props => (
+								<Form {...props}>
+									<Input
+										name='filter'
+										type='text'
+										value={this.state.filter}
+										placeholder='Search...'
+										onChange={this.handleChange}
+									/>
+								</Form>
+							)}
+						/>
 					</Sidebar>
 					<Main>
 						<Route
