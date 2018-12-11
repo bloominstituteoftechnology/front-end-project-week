@@ -54,7 +54,6 @@ class App extends Component {
   }
 
   refreshState(){
-    console.log("REFRESH")
     axios.get('http://localhost:9000/note/get/all')
     .then(response => this.setState({notes : response.data}))
     .catch(error => console.log("Refresh State:", error))
@@ -79,7 +78,7 @@ class App extends Component {
   //        End Functions
 
   componentDidMount() {
-    this.interval = setInterval(() => this.refreshState(), 500);
+    this.interval = setInterval(() => this.refreshState(), 300);
   }
   componentWillUnmount() {
     clearInterval(this.interval);
