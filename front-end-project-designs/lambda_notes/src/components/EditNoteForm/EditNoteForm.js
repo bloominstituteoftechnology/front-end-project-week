@@ -78,7 +78,7 @@ class EditNoteForm extends React.Component {
 					console.log("PUT Server Response: ", res),
 					this.setState({
 						title: res.data.title,
-						textBody: "",
+						textBody: res.data.textBody,
 						id: res,
 					})
 				)

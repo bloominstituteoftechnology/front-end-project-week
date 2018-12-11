@@ -58,7 +58,6 @@ class Note extends React.Component {
 				this.setState({
 					note: res.data,
 				});
-				// console.log("Note State", this.state.note.title);
 			})
 			.catch(err => console.log("Note > Server Error: ", err));
 	}
@@ -92,16 +91,16 @@ class Note extends React.Component {
 						{this.state.note.textBody}
 					</NoteCardContent>
 				</NoteCardContainer>
-				<Route
+				{/* <Route
 					exact
 					path={`/notes/${note._id}/edit`}
 					render={props => <EditNoteForm {...props} note={note} />}
-				/>
-				<Route
+				/> */}
+				{/* <Route
 					exact
 					path={`/notes/${note._id}/delete`}
 					render={props => <DeleteModal {...props} note={note} />}
-				/>
+				/> */}
 			</>
 		);
 	}

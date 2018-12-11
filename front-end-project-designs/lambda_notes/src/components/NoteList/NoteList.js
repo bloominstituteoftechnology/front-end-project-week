@@ -7,7 +7,7 @@ import Note from "../Note/Note";
 
 const NoteListContainer = styled.div`
 	background-color: #f2f1f2;
-	/* width: 100%; */
+	width: 100%;
 	padding: 40px;
 	display: flex;
 	flex-wrap: wrap-reverse;
@@ -37,6 +37,7 @@ const NoteCardContainer = styled.div`
 	padding: 15px;
 	border: 1px solid #dbdbdb;
 	/* border: 2px solid red; */
+	cursor: pointer;
 
 	h4 {
 		border-bottom: 1px solid #20272d;
@@ -77,34 +78,27 @@ class NoteList extends React.Component {
 				<h2 className="lamba-notes-header">Your Notes:</h2>
 				{this.state.notes.map(note => {
 					return (
-						<Link to={`/notes/${note._id}`} className="note-link">
+						<>
 							<NoteCardContainer
-								// onClick={this.props.history.push(`/notes/${note._id}`)}
+								onClick={() => {this.props.history.push(`/notes/${note._id}`)}}
 								key={note._id}
 								className="note-card"
 							>
 								<h4>{note.title}</h4>
 								<p>{note.textBody}</p>
 							</NoteCardContainer>
-							{/* <Note 
-                            key={note._id}
-                            title={note.title}
-                            tags={note.tags}
-							textBody={note.textBody}
-							id={note._id}
-							// onClick={this.props.history.push(`/notes/${note._id}`)}
-						/> */}
+							
 							<Route
 								path="/notes/:noteId"
 								render={props => (
 									<Note
 										{...props}
 										notes={this.state.notes}
-										// deleteItem={this.deleteItem}
+										deleteNote={this.props.deleteNote}
 									/>
 								)}
 							/>
-						</Link>
+						</>
 					);
 				})}
 			</NoteListContainer>
