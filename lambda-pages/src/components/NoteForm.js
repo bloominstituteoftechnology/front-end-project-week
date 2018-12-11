@@ -33,15 +33,15 @@ class NoteForm extends Component {
     super();
     this.state = {
       title: '',
-      textBody: '',
+      content: '',
       tags: []
     };
   }
 
   componentDidMount() {
     if (this.props.note) {
-      const { title, textBody, tags } = this.props.note;
-      this.setState({ title, textBody, tags });
+      const { title, content, tags } = this.props.note;
+      this.setState({ title, content, tags });
     }
   }
 
@@ -49,16 +49,16 @@ class NoteForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   handleFormSubmit = e => {
-    const { title, textBody, tags } = this.state;
+    const { title, content, tags } = this.state;
     e.preventDefault();
     if (this.props.addNewNote) {
-      this.props.addNewNote({ title, textBody, tags });
+      this.props.addNewNote({ title, content, tags });
     } else if (this.props.updateNote) {
-      this.props.updateNote({ title, textBody, tags });
+      this.props.updateNote({ title, content, tags });
     }
   };
   render() {
-    const { title, textBody } = this.state;
+    const { title, content } = this.state;
     return (
       <StyledForm onSubmit={this.handleFormSubmit}>
         <input
@@ -74,8 +74,8 @@ class NoteForm extends Component {
           type="text"
           placeholder="Note Content"
           onChange={this.handleInputChange}
-          name="textBody"
-          value={textBody}
+          name="content"
+          value={content}
         />
 
         <Button>Save</Button>

@@ -20,11 +20,13 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
 export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 
+const url = 'http://localhost:5000/api/notes';
+
 // GET request
 export const getAllNotes = () => dispatch => {
   dispatch({ type: GET_ALL_NOTES });
   axios
-    .get('https://fe-notes.herokuapp.com/note/get/all')
+    .get(url)
     .then(res => {
       dispatch({ type: GET_ALL_NOTES_SUCCESS, payload: res.data });
     })
@@ -37,7 +39,7 @@ export const getAllNotes = () => dispatch => {
 export const getNote = id => dispatch => {
   dispatch({ type: GET_NOTE });
   axios
-    .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    .get(`${url}/${id}`)
     .then(res => {
       dispatch({ type: GET_NOTE_SUCCESS, payload: res.data });
     })
@@ -50,11 +52,11 @@ export const getNote = id => dispatch => {
 export const addNote = note => dispatch => {
   dispatch({ type: ADD_NOTE });
   axios
-    .post('https://fe-notes.herokuapp.com/note/create', note)
+    .post(url, note)
     .then(res => {
       dispatch({
         type: ADD_NOTE_SUCCESS,
-        payload: { ...note, _id: res.data.success }
+        payload: { ...note, id: res.data.success }
       });
     })
     .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));
@@ -64,7 +66,7 @@ export const addNote = note => dispatch => {
 export const updateNote = note => dispatch => {
   dispatch({ type: UPDATE_NOTE });
   axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${note._id}`, note)
+    .put(`${url}/${note.id}`, note)
     .then(res => {
       dispatch({
         type: UPDATE_NOTE_SUCCESS,
@@ -78,7 +80,7 @@ export const updateNote = note => dispatch => {
 export const deleteNote = id => dispatch => {
   dispatch({ type: DELETE_NOTE });
   axios
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .delete(`${url}/${id}`)
     .then(res => {
       dispatch({
         type: DELETE_NOTE_SUCCESS,

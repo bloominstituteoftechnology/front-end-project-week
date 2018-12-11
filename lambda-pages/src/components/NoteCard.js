@@ -8,11 +8,11 @@ class NoteCard extends Component {
     // const input = note.textBody;
     return (
       <StyledNoteCard
-        onClick={() => this.props.handleRedirectToNoteView(note._id)}
+        onClick={() => this.props.handleRedirectToNoteView(note.id)}
       >
         <h3>{note.title}</h3>
         <hr />
-        <span>{note.textBody}</span>
+        <span>{note.content}</span>
       </StyledNoteCard>
     );
   }

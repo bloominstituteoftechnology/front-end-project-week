@@ -63,7 +63,7 @@ class NoteView extends Component {
                 />
               </Portal>
             ) : null}
-            <NoteNav id={this.props.note._id} toggleModal={this.toggleModal} />
+            <NoteNav id={this.props.note.id} toggleModal={this.toggleModal} />
             <StyledNote>
               <h2>{this.props.note.title} </h2>
               <hr />

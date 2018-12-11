@@ -5,7 +5,7 @@ class Notes extends Component {
   render() {
     const FilterResults = this.props.FilterResults;
     const fuseConfig = {
-      keys: ['title', 'textBody']
+      keys: ['title', 'content']
     };
     const { notes } = this.props;
     return (
