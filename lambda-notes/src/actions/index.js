@@ -24,8 +24,8 @@ export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 
 const getUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/all';
 const postUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/create';
-const deleteUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/delete/';
-const putUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/edit/';
+const deleteUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/delete';
+const putUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/edit';
 
 export const getNotes = () => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
@@ -33,7 +33,6 @@ export const getNotes = () => dispatch => {
   axios
     .get(getUrl)
     .then(response => {
-      console.log('Response from getNotes is: ', response);
       dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
     })
     .catch(error => {
@@ -50,7 +49,6 @@ export const addNote = note => dispatch => {
       return axios
         .get(getUrl)
         .then(response => {
-          console.log('Response from getNotes is: ', response);
           dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
         })
         .catch(error => {
@@ -79,7 +77,6 @@ export const hideDeleteModal = () => dispatch => {
 };
 
 export const deleteNote = id => dispatch => {
-  console.log('this is the id kid', id);
   dispatch({ type: DELETE_NOTE });
   axios
     .delete(`${deleteUrl}/${id}`)
@@ -89,17 +86,14 @@ export const deleteNote = id => dispatch => {
       return axios
         .get(getUrl)
         .then(response => {
-          console.log('Response from deleteNote is: ', response);
           dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
         })
         .catch(error => {
-          console.log('this is the id kid', id);
           dispatch({ type: FETCHING_NOTES_FAILURE, payload: error });
         });
     })
 
     .catch(error => {
-      console.log(error);
       dispatch({ type: DELETING_NOTE_FAILURE, payload: error });
     });
 };
@@ -109,7 +103,6 @@ export const editingNote = () => dispatch => {
 };
 
 export const editNote = (id, note) => dispatch => {
-  console.log('this is the id kid', id);
   axios
     .put(`${putUrl}/${id}`, note)
     .then(response => {
@@ -118,7 +111,6 @@ export const editNote = (id, note) => dispatch => {
       return axios
         .get(getUrl)
         .then(response => {
-          console.log('Response from editNote is: ', response);
           dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
         })
         .catch(error => {
@@ -127,7 +119,6 @@ export const editNote = (id, note) => dispatch => {
     })
 
     .catch(error => {
-      console.log(error);
       dispatch({ type: EDIT_NOTE_FAILURE, payload: error });
     });
 };
