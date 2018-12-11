@@ -7,15 +7,12 @@ const DivNavBar = styled.div`
   background-color: #d7d7d7;
   flex-direction: column;
   text-align: left;
-  width: 20%;
+  max-width: 23%;
   height: 100%;
   display: flex;
   position: fixed;
-  padding: 10px;
-
-  h1 {
-    font-weight: bold;
-  }
+  padding: 2rem 1.6%;
+  line-height: 0.9;
 `;
 
 export const Button = styled.button`

@@ -5,8 +5,8 @@ const NotesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-left: 23%;
-  padding-top: 40px;
+  margin-left: 28%;
+  padding-top: 6rem;
 `;
 
 const DivNotes = styled.div`
@@ -20,9 +20,9 @@ const StyledNote = styled.div`
   border: 1px solid black;
   background-color: #ffffff;
   padding: 10px 15px;
-  width: 28.5%;
-  margin: 5px;
-  height: 15rem;
+  width: 25%;
+  margin: 1.2rem 1.5%;
+  height: 17.5rem;
   overflow: hidden;
   text-align: left;
   white-space: pre-wrap;

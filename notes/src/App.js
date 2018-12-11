@@ -11,21 +11,30 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
   ${reset}
   html {
-    font-size: 16px;
-    box-sizing: border-box;
+    font-size: 62.5%;
   }
 
   body {
     font-size: 1.6rem;
     background-color: #f3f3f3;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
     h1, h2, h3, h4, h5, h6 {
       font-weight: bold;
+      margin-bottom: 12px;
+    box-sizing: border-box;
+
   }
+    h1 {
+      font-size: 3.7rem;
+  }
+      .App {
+        max-width: 880px;
+      display: flex;
+    }
   }
 `;
 
