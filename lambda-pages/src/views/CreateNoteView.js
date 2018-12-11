@@ -12,8 +12,8 @@ class CreateNoteView extends Component {
   };
 
   addNewNote = note => {
-    this.props.addNote(note);
-    this.props.history.push('/');
+    const redirect = () => this.props.history.push('/');
+    this.props.addNote(note, redirect);
   };
 
   render() {

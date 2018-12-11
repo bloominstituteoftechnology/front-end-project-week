@@ -41,8 +41,8 @@ class NoteView extends Component {
 
   deleteNote = () => {
     const { id } = this.props.match.params;
-    this.props.deleteNote(id);
-    this.props.history.push('/');
+    const redirect = () => this.props.history.push('/');
+    this.props.deleteNote(id, redirect);
   };
 
   render() {

@@ -9,24 +9,18 @@ import StyledSpinner from '../styles/StyledSpinner';
 
 class NotesView extends Component {
   componentDidMount() {
-    // console.log('get notes.');
-    // return !this.props.notes.length
-    //   ? console.log('got notes') || this.props.getAllNotes()
-    //   : null;
-    // if (!this.props.isDeletingNote || !this.props.notes.length) {
     this.props.getAllNotes();
-    // }
   }
 
-  componentDidUpdate(prevProps) {
-    if (
-      this.props.isDeletingNote &&
-      prevProps.notes.length !== this.props.notes.length
-    ) {
-      console.log('CDU get notes.', prevProps.notes, this.props.notes);
-      this.props.getAllNotes();
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (
+  //     this.props.isDeletingNote &&
+  //     prevProps.notes.length !== this.props.notes.length
+  //   ) {
+  //     console.log('CDU get notes.', prevProps.notes, this.props.notes);
+  //     this.props.getAllNotes();
+  //   }
+  // }
 
   handleRedirectToNoteView = id => {
     this.props.history.push(`/note/${id}`);

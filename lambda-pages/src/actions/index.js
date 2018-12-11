@@ -54,7 +54,7 @@ export const getNote = id => dispatch => {
 };
 
 // POST request
-export const addNote = note => dispatch => {
+export const addNote = (note, cb) => dispatch => {
   dispatch({ type: ADD_NOTE });
   axios
     .post(url, { ...note, user_id: 1 })
@@ -63,6 +63,9 @@ export const addNote = note => dispatch => {
         type: ADD_NOTE_SUCCESS,
         payload: { ...note, id: res.data.id }
       });
+    })
+    .then(() => {
+      if (cb) cb();
     })
     .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));
 };
@@ -82,7 +85,7 @@ export const updateNote = note => dispatch => {
 };
 
 // DELETE request
-export const deleteNote = id => dispatch => {
+export const deleteNote = (id, cb) => dispatch => {
   dispatch({ type: DELETE_NOTE });
   axios
     .delete(`${url}/${id}`)
@@ -91,6 +94,9 @@ export const deleteNote = id => dispatch => {
         type: DELETE_NOTE_SUCCESS,
         payload: id
       });
+    })
+    .then(() => {
+      if (cb) cb();
     })
     .catch(err => dispatch({ type: DELETE_NOTE_FAILURE, payload: err }));
 };
