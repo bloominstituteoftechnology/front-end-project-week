@@ -23,7 +23,8 @@ class Note extends Component {
         const id = this.props.match.params.id;
         axios
         .get(`http://localhost:6300/api/notes/${id}`)
-        .then(response => this.setState({note: response.data}))
+        .then(response => 
+            this.setState({note: response.data[0]}))
         .catch(error => console.log(error));
         this.props.setNote(id);
     }
@@ -47,6 +48,7 @@ class Note extends Component {
     }
 
     render() {
+        console.log(this.state.note)
       return (
         <div className="Note">
            <Route exact path='/note/:id' render ={(props) => (

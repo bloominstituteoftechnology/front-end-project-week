@@ -55,8 +55,9 @@ class App extends Component {
   }
 
   deletingNote = (ev) => {
+    console.log(this.props.note[0])
     this.props.overlayToggle();
-    this.props.deleteNote(this.props.note._id).then(() => this.props.fetchNotes());
+    this.props.deleteNote(this.props.note[0].id).then(() => this.props.fetchNotes());
   }
 
   render() {

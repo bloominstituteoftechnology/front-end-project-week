@@ -50,7 +50,7 @@ export const postNote = (note) => dispatch => {
 export const editNote = (id, note) => dispatch => {
     dispatch({type: EDITING_NOTE});
     return axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    .put(`http://localhost:6300/api/notes/${id}`, note)
     .then(response => {
         dispatch({type: EDITING_NOTE_SUCCESS, payload: response.data})
     })
@@ -67,7 +67,7 @@ export const overlayToggle = () => dispatch => {
 export const deleteNote = (id) => dispatch => {
     dispatch({type: DELETING_NOTE});
     return axios
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .delete(`http://localhost:6300/api/notes/${id}`)
     .then(response => {
         dispatch({type: DELETING_NOTE_SUCCESS, payload: response.data})
     })
@@ -80,7 +80,7 @@ export const deleteNote = (id) => dispatch => {
 export const setNote = (id) => dispatch => {
     dispatch({type: SETTING_NOTE});
     axios
-    .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    .get(`http://localhost:6300/api/notes/${id}`)
     .then(response => {
         dispatch({type: SETTING_NOTE_SUCCESS, payload: response.data})
     }) 

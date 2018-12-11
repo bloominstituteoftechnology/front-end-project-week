@@ -8,7 +8,7 @@ const EditContent = (props) => {
         <form onSubmit={props.editingNote}>
             <h2>Edit Note:</h2>
             <input className ='titleInput' onChange={props.changeHandler} name='Title' value={props.note.Title} placeholder={props.note.Title}></input>
-            <input className ='textBodyInput' onChange={props.changeHandler}  name='Content' value={props.note.textBody} placeholder={props.note.Content}></input>
+            <input className ='textBodyInput' onChange={props.changeHandler}  name='Content' value={props.note.Content} placeholder={props.note.Content}></input>
             <NavLink to={`/note/${props.note.id}`}>
                 <button onClick={props.editingNote}>Save</button>
             </NavLink>
