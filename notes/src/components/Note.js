@@ -1,48 +1,3 @@
-// import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
-// import axios from 'axios';
-// import React from 'react';
-
-
-
-// function Note({note, deleteNote, history, updateNote}) {
-
-//   if (!note) {
-//     return <h2>Loading note data...</h2>;
-//   }
-
-//   return (
-//     <div>
-//         <div>
-
-//           <button
-//           onClick={event =>{
-//             updateNote(event, note);
-//             history.push('/create-new-note');}}>      
-//             <p>edit</p>
-
-//           </button> 
-//           <button
-//             onClick={event => {
-//               deleteNote(event, note.id);
-//               history.push('/');
-//             }}>
-//             <p>delete</p>
-//           </button>
-//         </div>
-//         <div>
-//           {console.log(note)}
-//             <h1>{note.title}</h1>
-//             <p>{note.textBody}</p>
-//         </div>
-//     </div>
-//    )
-// }
-
-
-// export default Note;
-
-
-
 import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
 import axios from 'axios';
 import React from 'react';
@@ -64,7 +19,7 @@ class Note extends React.Component {
 
   fetchNote = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:8000/api/notes/${id}`)
       .then(response => this.setState({ note: response.data }))
       .catch(response => console.log(response));
   }
@@ -77,7 +32,7 @@ class Note extends React.Component {
   deleteNote = (ev) => {
     const id = this.state.note._id
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:8000/api/notes/delete/${id}`)
       .then(response => {
         this.setState({ notes: response.data });
 
@@ -98,14 +53,14 @@ class Note extends React.Component {
 
     // const note = this.props.notes[id]
 
-    const { title, textBody, _id } = this.state.note
+    const { title, textBody, id } = this.state.note
 
 
     return (
       <div>
         <div className='edit-delete'>
           <div>
-            <NavLink to={`/edit/${_id}`}>
+            <NavLink to={`/edit/${id}`}>
               <p className='edit'>edit</p>
             </NavLink>
           </div>
@@ -115,7 +70,7 @@ class Note extends React.Component {
         </div>
         <div className='note-full-body'>
         <h2 className='home-title'>{this.state.note.title}</h2>
-        <p className='note-home-body' >{this.state.note.textBody}</p>
+        <p className='note-home-body' >{this.state.note.body}</p>
         </div>
         <Modal
           className='modal'

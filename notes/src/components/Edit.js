@@ -1,5 +1,6 @@
 
 
+
 import React from 'react';
 import axios from 'axios';
 import './Edit.css';
@@ -10,7 +11,7 @@ class EditNote extends React.Component {
         this.state = {
             note: [],
             title: '',
-            textBody: '',
+            body: '',
         }
     }
 
@@ -21,8 +22,8 @@ class EditNote extends React.Component {
    
 
     submitNote = e => {
-        this.props.editNote(e, this.state.note._id, this.state);
-        this.setState({ title: "", textBody: "" });
+        this.props.editNote(e, this.state.note.id, this.state);
+        this.setState({ title: "", body: "" });
         this.props.history.push("/");
       };
 
@@ -33,7 +34,7 @@ class EditNote extends React.Component {
     
     fetchNote = id => {
         axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .get(`http://localhost:8000/api/notes/${id}`)
         .then(response => this.setState({ note: response.data }))
         .catch(response => console.log(response));
     }
@@ -65,10 +66,10 @@ class EditNote extends React.Component {
                         name="textBody"
                         cols='80'
                         rows='30'
-                        value={this.state.textBody}
+                        value={this.state.body}
                         onChange={this.changeHandler}
                         type="text"
-                        placeholder={this.state.note.textBody}
+                        placeholder={this.state.note.body}
                     />
                     <br/>
                     <button className="update-button">Update</button>
