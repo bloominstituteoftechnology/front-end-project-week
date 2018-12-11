@@ -26,7 +26,7 @@ const SingleNote = styled.div`
   margin-left: 28%;
   text-align: left;
   width: 65%;
-  padding: 1rem;
+  padding: 2rem 1rem;
 
   @media (min-width: 1200px) {
     margin-left: 31%;

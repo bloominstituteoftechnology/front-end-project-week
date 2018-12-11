@@ -15,16 +15,26 @@ const ModalWrapper = styled.div`
 `;
 
 const StyledModal = styled.div`
-  width: 40%;
-  height: auto;
+  width: 46%;
+  height: 13rem;
   position: fixed;
-  top: 20%;
-  left: 30%;
+  top: 16%;
+  text-align: center;
+  left: 19%;
   //transform: translate(-50, -50%);
   border: 1px solid red;
   background-color: #ffffff;
   z-index: 2;
-  padding: 40px;
+  padding: 4.5rem 4rem 2rem;
+
+  p {
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+  }
+
+  ModalButton {
+    margin-top: ;
+  }
 `;
 
 const ModalButton = styled(Button)`
