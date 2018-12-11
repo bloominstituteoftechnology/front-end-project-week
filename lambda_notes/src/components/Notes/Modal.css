@@ -39,10 +39,20 @@
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+  transition: all linear 0.2s;
+}
+
+.modal-main button:hover {
+  background-color: #0ea5aa;
 }
 
 .modal-main .delete-btn {
   background-color: #d0011b;
+  transition: all linear 0.2s;
+}
+
+.modal-main .delete-btn:hover {
+  background-color: #c0051e;
 }
 
 .display-block {
