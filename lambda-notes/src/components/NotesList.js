@@ -1,23 +1,25 @@
 import React from 'react';
 import Note from './Note';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import NoteView from '../views/NoteView';
 
 const Div = styled.div`
-    width: 95%;
+    width: 96.6%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 41px;
-    margin-left: 4px;
+    margin-top: 37px;
+    margin-left: 6px;
 `;
 
 const NotesList = props => {
     return (
         <Div>
             {props.notes.length === 0 ? (
-                <h1>Be patient we are loading the notes</h1>
+                <h1>Be patient the hamsters are getting really tired.</h1>
             ) : (
-                props.notes.map(note => <Note key={note._id} note={note} />)
+                props.notes.map(note => <Note note={note} />)
             )}
         </Div>
     );
