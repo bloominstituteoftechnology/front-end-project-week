@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
 const DivNavBar = styled.div`
-  border: 1px solid black;
+  border: 1px solid #C4C3C4;
   background-color: #d7d7d7;
   flex-direction: column;
   text-align: left;
@@ -13,6 +13,12 @@ const DivNavBar = styled.div`
   position: fixed;
   padding: 2rem 1.8%;
   line-height: 0.9;
+
+  @media (max-width: 600px) {
+    position: static;
+    width: 90%;
+    margin: 0 auto;
+  }
 `;
 
 export const Button = styled.button`

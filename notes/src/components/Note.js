@@ -23,14 +23,15 @@ const DivButtons = styled.div`
 `;
 
 const SingleNote = styled.div`
-  margin-left: 28%;
+  //margin-left: 28%;
+  margin-left: 300px;
   text-align: left;
   width: 65%;
   padding: 2rem 1rem;
 
-  @media (min-width: 1200px) {
-    margin-left: 31%;
-  }
+  //@media (min-width: 1200px) {
+  //margin-left: 31%;
+  //}
 
   p {
     white-space: pre-wrap;

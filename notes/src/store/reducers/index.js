@@ -52,6 +52,7 @@ export default (state = initialState, action) => {
       console.log('adding note reducer');
       return {
         ...state,
+        isEditing: false,
         adding: true,
         //notes: state.notes.concat({...action.payload}),
       };

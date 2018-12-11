@@ -31,8 +31,13 @@ const GlobalStyle = createGlobalStyle`
       font-size: 3.7rem;
   }
       .App {
-        max-width: 880px;
+        //max-width: 880px;
     background-color: #f3f3f3;
+      //display: flex;
+
+      //@media(max-width: 600px) {
+        //flex-direction: column;
+    }
     }
   }
 `;

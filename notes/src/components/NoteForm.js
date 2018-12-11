@@ -8,21 +8,22 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #f2f1f2;
-  margin-left: 28%;
+  //margin-left: 28%;
+  margin-left: 300px;
   padding-top: 5.9rem;
   padding-left: 0.5rem;
   width: 70%;
 
-  @media (min-width: 1200px) {
-    margin-left: 31%;
-  }
+  //@media (min-width: 1200px) {
+  //margin-left: 31%;
+  //}
 
   h2 {
     font-size: 2.1rem;
   }
 `;
 
-const StyledInput = styled.input`
+export const StyledInput = styled.input`
   border-radius: 5px;
   margin-top: 15px;
   margin-bottom: 10px;
