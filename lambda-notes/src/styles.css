@@ -1,0 +1,127 @@
+.App {
+  display: flex;
+  height: 100vh;
+}
+
+.home {
+  display: flex;
+}
+
+.card {
+  margin: 20px;
+  background-color: #fff;
+  padding: 10px;
+  width: 20vw;
+  overflow: hidden;
+}
+
+.card__hr {
+  width: 250px;
+  float: left;
+}
+
+.sideBar {
+  background: #d3d2d3;
+  color: #000;
+}
+
+.sideBar__headline {
+  margin: 20px;
+}
+
+.content {
+  background-color: #f2f1f2;
+}
+
+.btn {
+  background-color: #24b8bd;
+  color: #fff;
+  height: 65px;
+  width: 200px;
+  margin: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.singleNote {
+  margin: 50px;
+  width: 75vw;
+}
+
+.singleNote__edit {
+  font-size: 16px;
+  text-decoration: none;
+  margin-right: 20px;
+  color: black;
+}
+
+.singleNote__delete {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav__btn {
+  background-color: #24b8bd;
+  color: #fff;
+  height: 65px;
+  width: 200px;
+  margin: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.note__list {
+  display: flex;
+  flex-direction: row;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+}
+
+.note {
+  border: 1px solid rgb(167, 167, 167);
+  padding: 10px;
+  width: 150px;
+  height: 200px;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  margin-bottom: 30px;
+  background: white;
+}
+
+.card__title {
+  text-decoration: none !important;
+  color: black;
+}
+
+.note__options {
+  float: right;
+}
+.noteSubmit {
+  width: 75vw;
+  margin: 50px;
+}
+
+.noteForm__input {
+  height: 40px;
+  width: 450px;
+}
+
+.noteForm__input--big {
+  height: 300px;
+  width: 450px;
+  text-align: start;
+}
+
+.form {
+  width: 75vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
