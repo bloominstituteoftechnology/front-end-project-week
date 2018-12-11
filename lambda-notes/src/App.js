@@ -3,6 +3,7 @@ import SideBar from './components/SideBar';
 import Content from './components/Content';
 import styled from 'styled-components';
 import axios from 'axios';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const StyledApp = styled.div`
     border: 2px grey solid;
@@ -31,11 +32,14 @@ class App extends Component {
     }
 
     render() {
+        console.log(this.state.notes);
         return (
-            <StyledApp className="App">
-                <SideBar />
-                <Content notes={this.state.notes} />
-            </StyledApp>
+            <Router>
+                <StyledApp className="App">
+                    <SideBar />
+                    <Content notes={this.state.notes} />
+                </StyledApp>
+            </Router>
         );
     }
 }
