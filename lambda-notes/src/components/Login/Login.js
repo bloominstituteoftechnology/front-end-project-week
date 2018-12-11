@@ -33,6 +33,14 @@ class Login extends React.Component {
             <a
               href="https://github.com/gsamaniego41/front-end-project-week"
               target="_blank"
+              title="front-end"
+            >
+              <i class="fab fa-github" />
+            </a>
+            <a
+              href="https://github.com/gsamaniego41/back-end-project-week"
+              target="_blank"
+              title="back-end"
             >
               <i class="fab fa-github" />
             </a>
@@ -59,6 +67,10 @@ class Login extends React.Component {
           />
           <br />
           <button>Log in</button>
+          <div className="register-cta">
+            <p>Don't have an account?</p>
+            <a href="www.google.com">Register</a>
+          </div>
           <img
             src="https://www.afgri.co.za/wp-content/uploads/2018/07/AppStoreLogo.png"
             alt="Google Play App Store"
