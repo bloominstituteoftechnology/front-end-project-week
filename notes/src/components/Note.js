@@ -9,9 +9,7 @@ import {
 import styled from 'styled-components';
 import Modal from './Modal';
 
-//Modal.setAppElement('#root');
 const DivButtons = styled.div`
-  //border: 1px solid blue;
   display: flex;
   justify-content: flex-end;
   padding-right: 5%;
@@ -24,7 +22,6 @@ const DivButtons = styled.div`
 `;
 
 const SingleNote = styled.div`
-  //border: 1px solid black;
   margin-left: 23%;
   text-align: left;
   width: 70%;
@@ -41,15 +38,9 @@ const SingleNote = styled.div`
 
 // is there a better way to do this? should this be a class component?
 const Note = props => {
-  //console.log('note', props);
   // if no notes in state, push back to /notes
   if (props.notes.length === 0) props.history.push('/notes');
   const note = props.notes.find(n => n._id === props.match.params.id);
-  //console.log('note note', note);
-  //props.selectNote(note._id);
-  //if (!props.note) {
-  //return <h3>loading...</h3>;
-  //}
   if (!note) {
     props.history.push('/notes');
     return null;

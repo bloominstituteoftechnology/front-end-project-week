@@ -1,7 +1,5 @@
 import React from 'react';
-//import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-//import {connect} from 'react-redux';
 
 const NotesWrapper = styled.div`
   display: flex;
@@ -21,7 +19,7 @@ const DivNotes = styled.div`
 const StyledNote = styled.div`
   border: 1px solid black;
   background-color: #ffffff;
-  padding: 10px;
+  padding: 10px 15px;
   width: 28.5%;
   margin: 5px;
   height: 15rem;
@@ -35,13 +33,19 @@ const StyledNote = styled.div`
 `;
 
 const Notes = props => {
-  //console.log('notes props', props);
-  //if (props.adding || props.deleting) {
-  //return <h2>loading</h2>;
-  //}
+  //console.log('notes', props);
+
   return (
     <NotesWrapper>
       <h2>Your Notes:</h2>
+      <form onSubmit={e => props.clearSearchText()}>
+        <input
+          type="text"
+          placeholder="search"
+          value={props.searchText}
+          onChange={e => props.searchNotes(e)}
+        />
+      </form>
       <DivNotes>
         {props.notes.map(note => (
           <StyledNote
@@ -57,10 +61,5 @@ const Notes = props => {
     </NotesWrapper>
   );
 };
-
-//const mapStateToProps = state => ({
-//adding: state.adding,
-//deleting: state.deleting,
-//});
 
 export default Notes;
