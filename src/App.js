@@ -92,7 +92,7 @@ class App extends Component {
   };
 
   editingNote = id => {
-    return this.state.notes.find(note => note.id === id);
+    return this.state.notes.find(note => note.id == id);
   };
 
   render() {

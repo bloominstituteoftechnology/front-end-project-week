@@ -20,7 +20,7 @@ class Note extends Component {
 
   fetchNote = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:4000/api/notes/${id}`)
       .then(res => this.setState({ note: res.data }))
       .catch(res => console.log(res));
   };
@@ -35,7 +35,7 @@ class Note extends Component {
 
   deleteNoteHelper = e => {
     e.preventDefault(e);
-    this.props.deleteNote(e, this.state.note._id);
+    this.props.deleteNote(e, this.state.note.id);
     this.props.history.push("/");
   };
 
@@ -43,11 +43,11 @@ class Note extends Component {
     if (!this.state.note) {
       return <div>loading note</div>;
     }
-    const { title, textBody, _id } = this.state.note;
+    const { noteTitle, noteBody, id } = this.state.note;
     return (
       <div>
         <div className="edit-delete-container">
-          <Link className="rr-link" to={`/edit/${_id}`}>
+          <Link className="rr-link" to={`/edit/${id}`}>
             <p className="edit-note-link">edit</p>
           </Link>
           <p className="delete-note-link" onClick={this.openModal}>
@@ -55,8 +55,8 @@ class Note extends Component {
           </p>
         </div>
         <div>
-          <h3>{title}</h3>
-          <Markdown>{textBody}</Markdown>
+          <h3>{noteTitle}</h3>
+          <Markdown>{noteBody}</Markdown>
         </div>
         <div>
           <Modal

@@ -7,7 +7,7 @@ class EditNoteForm extends Component {
     this.state = {
       noteTitle: this.props.note.noteTitle,
       noteBody: this.props.note.noteBody,
-      note: []
+      note: null
     };
   }
 
