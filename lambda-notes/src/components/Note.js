@@ -1,6 +1,7 @@
 import React from 'react';
 import './Note.css';
 import { Link, NavLink } from 'react-router-dom';
+import Modal from './Modal';
 // import UpdateNoteForm from './UpdateNoteForm';
 
 class Note extends React.Component {
@@ -8,7 +9,8 @@ class Note extends React.Component {
     super(props);
     this.state = {
       id: null,
-      notes: []
+      notes: [],
+      show: false
     };
 
 
@@ -19,6 +21,14 @@ class Note extends React.Component {
     const id = this.props.match.params._id;
     console.log(id)
     this.setState({ id: id, notes: this.props.notes });
+  }
+
+  showModal = () => {
+    this.setState({ show: true })
+  }
+
+  hideModal = () => {
+    this.setState({ show: false })
   }
 
   filterNotes = note => {
@@ -38,7 +48,8 @@ class Note extends React.Component {
     return (
         <div className = "Note">
          <div className="note-div">{this.state.notes.map(this.filterNotes)}</div>
-            <Link exact to = "/"><button onClick = {(_id) => this.props.deleteNote(this.props.match.params._id)}>Delete Note</button></Link>
+            <button onClick = { this.showModal }>Delete Note</button>
+            <Modal show = {this.state.show} hideModal = { this.hideModal } deleteNote = {this.props.deleteNote}/>
         <NavLink exact to={`/notes/update/${this.props.match.params._id}`}><button>Update Note</button></NavLink>
             
         </div>

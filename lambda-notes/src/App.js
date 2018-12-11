@@ -28,20 +28,21 @@ class App extends Component {
       editingId: null,
       activeNote: null,
       isEditing: false,
-      loading: true
+      loading: true,
+      show: false,
     }
   }
 
   componentDidMount(){
     axios
-    .get('https://fe-notes.herokuapp.com/note/get/all')
+    .get('https://vast-retreat-70533.herokuapp.com/api/notes')
     .then(response => this.setState({ notes: response.data, loading: false }))
     .catch(error => console.log(error));
   }
 
   getNoteById = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`https://vast-retreat-70533.herokuapp.com/api/notes/${id}`)
       .then(response => this.setState({activeNote: response.data }))
       .catch(error => console.log(error));
   }
@@ -62,9 +63,11 @@ class App extends Component {
 
 
 
+
+
   addNewNote = () => {
     axios
-      .post('https://fe-notes.herokuapp.com/note/create', this.state.note)
+      .post('https://vast-retreat-70533.herokuapp.com/api/notes', this.state.note)
       .then(response => {
         this.setState({ notes: response.data })
       })
@@ -74,7 +77,7 @@ class App extends Component {
   deleteNote = (_id) => {
     // ev.preventDefault();
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${_id}`)
+      .delete(`https://vast-retreat-70533.herokuapp.com/api/notes/${_id}`)
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -84,7 +87,7 @@ class App extends Component {
   updateNote = (_id) => {
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/edit/${_id}`,
+        `https://vast-retreat-70533.herokuapp.com/api/notes/${_id}`,
         this.state.note
       )
       .then(response => {

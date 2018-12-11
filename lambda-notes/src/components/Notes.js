@@ -14,7 +14,7 @@ function Notes(props) {
         
     }
     return (
-        <div>
+        <div className = "deez-notes">
             <h1>Deez Notes</h1>
                     <div className="notes">
                         {props.notes.map(note => {
