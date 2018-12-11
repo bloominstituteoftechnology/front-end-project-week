@@ -4,28 +4,18 @@ import {LoginPageCont, HeroGirlImgDiv, WhiteBoxDiv1,
     LoginParagraph, LoginForm, LoginInput, LoginButton, NavButtonText} from '../../Styles/LoginPageStyles'
 
 
+
+
 class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            usernameInput: "",
-            passwordInput: "",
+
         }
     }
 
-changeHandler = event => {
-    this.setState({
-        [event.target.name]: event.target.value
-    })
-}
-loginFunction = event => {
-    event.preventDefault();
-    localStorage.setItem("username", this.state.usernameInput)
-    window.location.reload()
-}
-
-
 render() {
+    
     return (
         <LoginPageCont>
             <LambdaLogo></LambdaLogo>
@@ -38,23 +28,26 @@ render() {
             <LoginTitle>A Revolutionary New App</LoginTitle>
                 <LoginTitle2>That Takes Your Notes</LoginTitle2>
                 <LoginParagraph>Front End Project Week is a one week, immersive sprint that gives you the practice you need to launch your new React or Redux Notes App—from the comfort of your own home.</LoginParagraph>
-            <LoginForm onSubmit={this.loginFunction}>
+            <LoginForm onSubmit={this.props.loginFunction}>
             <LoginInput 
             placeholder="username"
-            onChange={this.changeHandler}
-            name="usernameInput"
-            value={this.state.userInput}
+            onChange={this.props.searchBarHandler}
+            name="username"
+            value={this.props.username}
             type="text"
             />
             <LoginInput 
             placeholder="password"
-            onChange={this.changeHandler}
-            name="passwordInput"
-            value={this.state.passwordInput}
+            onChange={this.props.searchBarHandler}
+            name="password"
+            value={this.props.password}
             type="password"
             />
-            <LoginButton type="submit"><NavButtonText>See How it Works</NavButtonText></LoginButton>
+            <LoginButton type="submit"><NavButtonText>Login</NavButtonText></LoginButton>
             </LoginForm>
+
+            <p className="regTitle">New user? Register Here:</p>
+            <button className="regButton" onClick={(ev => {ev.preventDefault(); this.props.history.push('/register')})}>Register</button>
         </LoginPageCont>
     )
 }
