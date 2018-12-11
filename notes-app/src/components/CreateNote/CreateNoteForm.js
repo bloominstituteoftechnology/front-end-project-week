@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from "react-router-dom";
+import { Route,NavLink } from "react-router-dom";
 
 class CreateNoteForm extends Component {
     constructor(props) {
@@ -49,7 +49,17 @@ class CreateNoteForm extends Component {
     render() {
         return (
             <div className='NoteForm'>
-            <h2>{this.props.editNote.title ? 'Edit Note' : 'Create New Note'}:</h2>
+                <div className='links'>
+                    {this.props.editNote.title 
+                    ?<NavLink to='/' onClick={(e) =>{
+                        e.preventDefault();
+                        this.props.history.goBack();
+                    }}>View Note</NavLink> 
+                    :null
+                    }
+                    
+                </div>
+                <h2>{this.props.editNote.title ? 'Edit Note' : 'Create New Note'}:</h2>
                 <form onSubmit={this.handleSumbit}>
                     <input
                         className='inputs' 

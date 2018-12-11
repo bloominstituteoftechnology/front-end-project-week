@@ -14,7 +14,7 @@ class Note extends Component {
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params._id}`)
             .then(response => {
-                console.log(response);
+                
                 this.setState({ 
                 note: response.data 
                 });
