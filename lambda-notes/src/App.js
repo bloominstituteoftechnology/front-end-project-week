@@ -9,7 +9,8 @@ const StyledApp = styled.div`
     border: 2px grey solid;
     display: flex;
     flex-direction: row;
-    width: 48.2%;
+    width: 48.3vw;
+    min-width: 1024px;
 `;
 
 class App extends Component {
