@@ -5,7 +5,7 @@ import EditNote from './editNote';
 import './NoteView.css';
 
 
-const url = process.env.REACT_APP_DB_URL; 
+const url = process.env.REACT_APP_DB_URL;
 
 class Note extends Component {
 
@@ -17,7 +17,6 @@ class Note extends Component {
             editTitle: '',
             editTextBody: '',
         };
-
     }
 
     componentDidMount() {
@@ -26,31 +25,46 @@ class Note extends Component {
     }
 
     fetchNote = id => {
-        axios
-            .get(`${url}/note/get/${id}`)
-            .then(response => {
-                this.setState(() => ({ note: response.data }))
-            })
-            .then(() => {
-                this.setState({ editTextBody: this.state.note.textBody, editTitle: this.state.note.title })
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        const token = localStorage.getItem('bit_token');
+        const options = {
+            headers: {
+                authorization: token,
+            },
+        };
+        if (token) {
+            axios
+                .get(`${url}/note/get/${id}`, options)
+                .then(response => {
+                    this.setState(() => ({ note: response.data }))
+                })
+                .then(() => {
+                    this.setState({ editTextBody: this.state.note.textBody, editTitle: this.state.note.title })
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        } else { this.props.history('/') }
     };
 
     deleteNote = event => {
         event.preventDefault();
-        axios
-            .delete(`${url}/note/delete/${this.state.note.id}`)
-            .then(response => {
-                this.props.changeState(response.data)
-            })
-            .catch(err =>
-                console.log(err));
-
-        this.props.history.push('/');
-    }
+        const token = localStorage.getItem('bit_token');
+        const options = {
+            headers: {
+                authorization: token,
+            },
+        };
+        if (token) {
+            axios
+                .delete(`${url}/note/delete/${this.state.note.id}`, options)
+                .then(response => {
+                    this.props.changeState(response.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                });
+        } else { this.props.history.push('/') }
+    };
 
     openEditForm = () => {
         this.setState({ noteEditor: !this.state.noteEditor });
@@ -68,8 +82,14 @@ class Note extends Component {
             title: this.state.editTitle,
             textBody: this.state.editTextBody
         }
+        const token = localStorage.getItem('bit_token');
+        const options = {
+            headers: {
+                authorization: token,
+            },
+        };
         axios
-            .put(`${url}/note/edit/${this.state.note.id}`, saveEditNotes)
+            .put(`${url}/note/edit/${this.state.note.id}`, saveEditNotes, options)
             .then(response => {
                 this.setState({
                     note: response.data
