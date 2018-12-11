@@ -1,5 +1,7 @@
 import React from "react";
 
+import DeleteNote from "../DeleteNote/DeleteNote"
+
 import "./Note.css";
 
 const Note = props => {
@@ -25,6 +27,7 @@ const Note = props => {
       </div>
       <h2 className="title">{note.title}</h2>
       <p>{note.textBody}</p>
+      <DeleteNote/>
     </div>
   );
 };
