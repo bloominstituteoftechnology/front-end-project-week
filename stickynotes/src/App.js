@@ -5,6 +5,7 @@ import axios from 'axios';
 import SideNav from './components/SideNav';
 import NoteList from './components/NoteList';
 import NoteSingle from './components/NoteSingle';
+import ConfirmDelete from './components/ConfirmDelete';
 
 class App extends Component {
 	constructor(props) {
@@ -12,7 +13,7 @@ class App extends Component {
 		this.state = {
 			notes: [],
 			newId: '',
-			mode: 'create'
+			mode: 'default'
 		};
 	}
 
@@ -37,9 +38,11 @@ class App extends Component {
 					...this.state,
 					newId: `${response.data.success}`
 				});
-				return axios.get(`https://fe-notes.herokuapp.com/note/get/${response.data.success}`)
+				return axios.get(
+					`https://fe-notes.herokuapp.com/note/get/${response.data.success}`
+				);
 			})
-			.then(response => {
+			.then((response) => {
 				this.setState({
 					...this.state,
 					notes: [response.data, ...this.state.notes]
@@ -70,7 +73,7 @@ class App extends Component {
 			.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
 			.then((response) => {
 				console.log(response);
-				return axios.get('https://fe-notes.herokuapp.com/note/get/all')
+				return axios.get('https://fe-notes.herokuapp.com/note/get/all');
 			})
 			.then((response) => {
 				this.setState({
@@ -117,13 +120,25 @@ class App extends Component {
 					<Route
 						path={'/:id'}
 						render={(props) => (
-							<NoteSingle
-								{...props}
-								notes={this.state.notes}
-								toggleMode={this.toggleMode}
-								deleteNote={this.deleteNote}
-								editNote={this.editNote}
-								mode={this.state.mode}
+							<React.Fragment>
+								<NoteSingle
+									{...props}
+									notes={this.state.notes}
+									toggleMode={this.toggleMode}
+									deleteNote={this.deleteNote}
+									editNote={this.editNote}
+									mode={this.state.mode}
+								/>
+							</React.Fragment>
+						)}
+					/>
+					<Route
+						path={`/:id/delete`}
+						render={(props) => (
+							<ConfirmDelete
+								deleteNote={props.deleteNote}
+								toggleMode={props.toggleMode}
+								history={props.history}
 							/>
 						)}
 					/>

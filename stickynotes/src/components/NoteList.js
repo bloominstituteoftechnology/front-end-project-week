@@ -19,12 +19,11 @@ const NoteList = (props) => {
 		return (
 			<Main>
 				<H1>Notes</H1>
-				<Div>
+				<Div component='list'>
 					{props.notes.slice(0, 12).map((note) => (
-						<Link to={`/${note._id}`} key={note._id}>
+						<Link to={`/${note._id}`} key={note._id} style={{textDecoration: 'none'}}>
 							<Section>
-								<H2>{note.title}</H2>
-								<P>{note.textBody}</P>
+								<H2 component='list'>{note.title}</H2>
 							</Section>
 						</Link>
 					))}
