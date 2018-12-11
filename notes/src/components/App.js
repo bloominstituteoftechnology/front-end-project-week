@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { fetch_todos, onHandleSubmit, onUpdateTodos, onDeleteTodos, onFilterTodos } from '../actions/actions';
+import { fetch_todos, onHandleSubmit, onUpdateTodos, onDeleteTodos, onFilterTodos, onSortTodos } from '../actions/actions';
 import Todos from './Todos';
 import TodoForm from './TodoForm';
 import TodoSearch from './TodoSearch';
@@ -54,6 +54,12 @@ class App extends Component {
     this.props.onFilterTodos(this.state.filterInput)
   }
 
+  sortTodos = (event) => {
+    event.preventDefault();
+    console.log('clicked!!!')
+    this.props.onSortTodos();
+  }
+
   render() {
     console.log('props from render', this.props)
     return (
@@ -61,6 +67,7 @@ class App extends Component {
         <TodoSearch 
           handleChange={this.handleChange}
           filterTodos={this.filterTodos}
+          sortTodos={this.sortTodos}
         />
         <div>
           {this.props.todos.map((todo, index) => {
@@ -104,6 +111,7 @@ export default connect(
     onHandleSubmit,
     onUpdateTodos,
     onDeleteTodos,
-    onFilterTodos
+    onFilterTodos,
+    onSortTodos
   }
 )(App)

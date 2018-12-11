@@ -7,6 +7,7 @@ export const ON_HANDLE_SUBMIT = 'ON_HANDLE_SUBMIT';
 export const UPDATE_TODOS = 'UPDATE_TODOS';
 export const DELETE_TODOS = 'DELETE_TODOS';
 export const FILTER_TODOS = 'FILTER_TODOS';
+export const SORT_TODOS = 'SORT_TODOS';
 
 export const fetch_todos = () => dispatch => {
     dispatch({ type: FETCH_START });
@@ -82,6 +83,21 @@ export const onFilterTodos = (filterInput) => dispatch => {
                 payload: response.data.filter(
                     e => e.title.includes(filterInput)
                 )
+            })
+        })
+        .catch(err => {
+            dispatch({ type: FETCH_FAILURE, payload: err })
+        });
+};
+
+export const onSortTodos = () => dispatch => {
+    dispatch({ type: SORT_TODOS });
+    axios 
+        .get('https://fe-notes.herokuapp.com/note/get/all')
+        .then(response => {
+            console.log('response from filter', response)
+            dispatch({ type: FETCH_SUCCESS, 
+                payload: response.data.sort()
             })
         })
         .catch(err => {

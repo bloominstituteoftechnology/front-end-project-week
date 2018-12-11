@@ -34,6 +34,7 @@ import './TodoSearch.css';
 const SearchBar = props => {
     return (
         <div>
+            <button onClick={props.sortTodos}>Sort</button>
             <form className="search" onSubmit={props.filterTodos}>
                 <input className="search-input" 
                     type="text" 
