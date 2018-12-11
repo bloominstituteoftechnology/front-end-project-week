@@ -7,7 +7,7 @@ function NoteForm(props) {
     event.preventDefault();
 
     if (props.isUpdating) {
-      props.handleUpdateNote(props.note._id);
+      props.handleUpdateNote(props.note.id);
       props.history.push('/');
     } else {
       props.handleAddNewNote();
@@ -38,7 +38,7 @@ function NoteForm(props) {
               wraps="physical"
               className="content-input"
               type="text"
-              value={props.note.textBody}
+              value={props.note.body}
               name="textBody"
               onChange={props.handleChange}
             />

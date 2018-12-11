@@ -10,10 +10,10 @@ function NotesList(props) {
     <div className="note-container">
       <h1 className="notes-title">Your Notes:</h1>
       {props.notesList.map(note => (
-        <div key={note._id} className="note-card">
+        <div key={note.id} className="note-card">
           <h1
             className="note-title"
-            onClick={() => props.history.push(`/${note._id}`)}
+            onClick={() => props.history.push(`/${note.id}`)}
           >
             {note.title.length > 20
               ? `${note.title.slice(0, 20)}...`
@@ -21,9 +21,9 @@ function NotesList(props) {
           </h1>
           <span className="line" />
           <p className="note-text">
-            {note.textBody.length > 120
-              ? `${note.textBody.slice(0, 120)}...`
-              : note.textBody}
+            {note.body.length > 120
+              ? `${note.body.slice(0, 120)}...`
+              : note.body}
           </p>
         </div>
       ))}

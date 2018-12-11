@@ -46,7 +46,7 @@ class App extends React.Component {
   }
   fetchNotes = () => {
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .get('https://localhost:9000/api/notes')
       .then(response => {
         this.setState({ notesData: response.data });
       })
@@ -66,10 +66,10 @@ class App extends React.Component {
 
   handleAddNewNote = () => {
     axios
-      .post('https://fe-notes.herokuapp.com/note/create', this.state.note)
+      .post('https://localhost:9000/api/notes', this.state.note)
       .then(response => {
         let newNote = this.state.note;
-        newNote._id = response.data.success;
+        newNote.id = response.data.success;
         this.setState({
           notesData: [...this.state.notesData, newNote],
           note: blankNoteForm
@@ -79,10 +79,10 @@ class App extends React.Component {
 
   handleDeleteNote = noteId => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${noteId}`)
+      .delete(`https://localhost:9000/api/notes/${noteId}`)
       .then(response => {
         const filteredNotes = this.state.notesData.filter(
-          note => note._id !== noteId
+          note => note.id !== noteId
         );
         this.setState({ notesData: filteredNotes });
       })
@@ -102,13 +102,13 @@ class App extends React.Component {
   handleUpdateNote = noteId => {
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/edit/${noteId}`,
+        `https://localhost:9000/api/notes/${noteId}`,
         this.state.note
       )
       .then(response => {
         console.log('response', response);
         const updatedNotes = this.state.notesData.map(note => {
-          if (note._id === response.data._id) {
+          if (note.id === response.data.id) {
             return response.data;
           } else {
             return note;

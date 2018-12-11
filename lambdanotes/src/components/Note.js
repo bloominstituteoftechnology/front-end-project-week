@@ -8,12 +8,12 @@ ReactModal.setAppElement('#root');
 function Note(props) {
   console.log(props);
   const note = props.notesList.find(
-    note => note._id == props.match.params.noteId
+    note => note.id == props.match.params.noteId
   );
   console.log(note);
 
   function handleDelete() {
-    props.handleDeleteNote(note._id);
+    props.handleDeleteNote(note.id);
     props.history.push(`/`);
   }
   console.log(props);
@@ -55,7 +55,7 @@ function Note(props) {
 
         <div>
           <h1 className="note-name">{note.title}</h1>
-          <h4 className="note-body">{note.textBody}</h4>
+          <h4 className="note-body">{note.body}</h4>
         </div>
       </div>
     </Fragment>
