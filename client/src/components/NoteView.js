@@ -25,13 +25,13 @@ class NoteView extends Component {
   //Fetches an individual note by id and sets its values to state of this component.
   fetch = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`https://lambda-notes-sgear.herokuapp.com/notes/${id}`)
       .then(res => {
         console.log("noteview", res);
         this.setState(() => ({
-          id: res.data._id,
-          title: res.data.title,
-          textBody: res.data.textBody
+          id: res.data[0].id,
+          title: res.data[0].title,
+          textBody: res.data[0].textBody
         }));
       })
       .catch(err => {
@@ -171,7 +171,7 @@ class NoteView extends Component {
 
 //Type validation for props
 NoteView.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
   editNote: PropTypes.func.isRequired,
   deleteNote: PropTypes.func.isRequired
 };

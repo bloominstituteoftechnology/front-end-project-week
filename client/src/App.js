@@ -22,58 +22,52 @@ class App extends Component {
     this.fetchNotes();
   }
 
-  componentDidUpdate() {
-    this.fetchNotes();
-  }
-
   //Gets all notes from database
   fetchNotes = () => {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("https://lambda-notes-sgear.herokuapp.com/notes")
       .then(res => this.setState({ notes: res.data }))
-      .catch(err => console.log(err));
+      .catch(err => console.log(err.message));
+  };
+
+  //Adds new note to API
+  addNote = obj => {
+    axios
+      .post("https://lambda-notes-sgear.herokuapp.com/notes", obj)
+      .then(res => {
+        this.setState({ notes: res.data.notes });
+      })
+      .catch(error => console.log(error));
   };
 
   //Edits notes, takes an object as a parameter
   editNote = obj => {
-    const index = this.state.notes.findIndex(note => note._id === obj.id);
-    console.log(index);
-
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${obj.id}`, obj)
+      .put(`https://lambda-notes-sgear.herokuapp.com/notes/${obj.id}`, obj)
       .then(res => {
-        this.setState({ notes: this.state.notes.splice(index, 1, res.data) });
+        this.setState({ notes: res.data.notes });
         console.log("edited", res);
       })
-      .catch(err => console.dir(err));
+      .catch(err => console.dir(err.message));
   };
 
   //Deletes note by id
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`https://lambda-notes-sgear.herokuapp.com/notes/${id}`)
       .then(res => {
+        this.setState({ notes: res.data.notes });
         console.log("deleted", res);
       })
       .catch(err => console.dir(err));
   };
-
-  // //Search
-  // search = e => {
-  //   const arr = this.state.notes.filter(n => {
-  //     if (n.title === `${e.target.value}`) {
-  //       return n;
-  //     }
-  //   });
-  //   return this.setState({ fnotes: arr });
-  // };
 
   render() {
     return (
       <div className="App">
         <div className="home-view">
           <div>
-            <Sidebar search={this.search} />
+            <Sidebar notes={this.state.notes} addNote={this.addNote} />
           </div>
 
           <Switch>
@@ -83,11 +77,7 @@ class App extends Component {
               render={props => (
                 <NotesList
                   {...props}
-                  notes={
-                    this.state.fnotes.length > 0
-                      ? this.state.fnotes
-                      : this.state.notes
-                  }
+                  notes={this.state.notes}
                   editNote={this.editNote}
                   deleteNote={this.deleteNote}
                 />
@@ -97,7 +87,13 @@ class App extends Component {
             <Route
               exact
               path="/create"
-              render={props => <NoteForm {...props} notes={this.state.notes} />}
+              render={props => (
+                <NoteForm
+                  {...props}
+                  notes={this.state.notes}
+                  addNote={this.addNote}
+                />
+              )}
             />
 
             <Route
@@ -120,5 +116,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

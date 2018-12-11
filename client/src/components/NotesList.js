@@ -22,12 +22,12 @@ const NotesList = props => {
             {props.notes
               .map(note => {
                 return (
-                  <Link to={`/${note._id}`} id={note._id} key={note._id}>
+                  <Link to={`/${note.id}`} key={note.id}>
                     <Note
                       title={note.title}
-                      id={note._id}
+                      id={note.id}
                       textBody={note.textBody}
-                      key={note._id}
+                      key={note.id}
                     />
                   </Link>
                 );
@@ -48,6 +48,6 @@ NotesList.propTypes = {
   notes: PropTypes.array,
   title: PropTypes.string,
   textBody: PropTypes.string,
-  _id: PropTypes.string
+  id: PropTypes.string
 };
 export default NotesList;

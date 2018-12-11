@@ -1,39 +1,30 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 class NoteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
-      textBody: "",
-      s: ""
+      textBody: ""
     };
   }
 
-  //Adds new note to API
-  addNote = event => {
-    event.preventDefault();
-
-    //Validates form input
+  addNoteHandler = e => {
+    e.preventDefault();
     if (this.state.title.length < 1 || this.state.textBody.length < 1) {
-      alert("Please fill out all fields!");
+      alert("Field cannot be empty!");
+    } else {
+      this.props.addNote({
+        title: this.state.title,
+        textBody: this.state.textBody
+      });
+      this.setState({
+        title: "",
+        textBody: ""
+      });
     }
-
-    //Adds new note, renders the notes list, sets to top of page
-    else {
-      axios
-        .post("https://fe-notes.herokuapp.com/note/create", this.state)
-        .then(() =>
-          this.setState({
-            title: "",
-            textBody: ""
-          })
-        )
-        .catch(error => console.log(error));
-      this.props.history.push("/");
-      window.scrollTo(0, 0);
-    }
+    this.props.history.push("/");
+    window.scrollTo(0, 0);
   };
 
   //Change handler for form input
@@ -48,7 +39,7 @@ class NoteForm extends Component {
           {" "}
           <h1>Create New Note</h1>
         </div>
-        <form onSubmit={this.addNote}>
+        <form onSubmit={this.addNoteHandler}>
           <div>
             <input
               onChange={this.handleInputChange}
