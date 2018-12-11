@@ -18,52 +18,53 @@ class MainContent extends Component {
         super(props);
         this.state = {
             notes: [
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 1",
-                    "textBody": "Sample Body 1",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 2",
-                    "textBody": "Sample Body 2",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 3",
-                    "textBody": "Sample Body 3",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 1",
-                    "textBody": "Sample Body 1",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 2",
-                    "textBody": "Sample Body 2",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 3",
-                    "textBody": "Sample Body 3",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 1",
-                    "textBody": "Sample Body 1",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 2",
-                    "textBody": "Sample Body 2",
-                },
-                {
-                    "tags": ["tag", "otherTag"],
-                    "title": "Sample Title 3",
-                    "textBody": "Sample Body 3",
-                },
-            ]
+                //     {   
+                //         "tags": ["tag", "otherTag"],
+                //         "title": "Sample Title 1",
+                //         "textBody": "Sample Body 1",
+                //     },
+                //     {
+                //         "tags": ["tag", "otherTag"],
+                //         "title": "Sample Title 2",
+                //         "textBody": "Sample Body 2",
+                //     },
+                //     {
+                //         "tags": ["tag", "otherTag"],
+                //         "title": "Sample Title 3",
+                //         "textBody": "Sample Body 3",
+                //     },
+                //     {   
+                //         "tags": ["tag", "otherTag"],
+                //         "title": "Sample Title 1",
+                //         "textBody": "Sample Body 1",
+                //     },
+                //     {
+                //         "tags": ["tag", "otherTag"],
+                //         "title": "Sample Title 2",
+                //         "textBody": "Sample Body 2",
+                //     },
+                //     {
+                //         "tags": ["tag", "otherTag"],
+                //         "title": "Sample Title 3",
+                //         "textBody": "Sample Body 3",
+                //     },
+                //     {   
+                //         "tags": ["tag", "otherTag"],
+                //         "title": "Sample Title 1",
+                //         "textBody": "Sample Body 1",
+                //     },
+                //     {
+                //         "tags": ["tag", "otherTag"],
+                //         "title": "Sample Title 2",
+                //         "textBody": "Sample Body 2",
+                //     },
+                //     {
+                //         "tags": ["tag", "otherTag"],
+                //         "title": "Sample Title 3",
+                //         "textBody": "Sample Body 3",
+                //     },
+            ],
+            loading: true
         }
     }
 
@@ -72,13 +73,14 @@ class MainContent extends Component {
             .get(`https://fe-notes.herokuapp.com/note/get/all`)
             .then(response => {
                 this.setState({
-                    notes: response.data
+                    notes: response.data,
+                    loading: false
                 });
             })
             .catch(err => console.log(err));
     }
 
-    addNote = response => {
+    refreshMain = response => {
         window.location.reload();
     }
 
@@ -89,7 +91,7 @@ class MainContent extends Component {
                     path='/'
                     exact
                     render={props =>
-                        <ListView {...props} notes={this.state.notes} />
+                        <ListView {...props} notes={this.state.notes} loading={this.state.loading} />
                     }
                 />
                 <Route
@@ -101,7 +103,7 @@ class MainContent extends Component {
                 <Route
                     path={`/create`}
                     render={props =>
-                        <CreateNote {...props} addNote={this.addNote} />
+                        <CreateNote {...props} refreshMain={this.refreshMain} />
                     }
                 />
             </MainContentContainer>

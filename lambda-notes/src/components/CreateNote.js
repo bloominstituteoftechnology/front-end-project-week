@@ -22,12 +22,12 @@ class CreateNote extends Component {
         }
     }
 
-
     inputChangehandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
 
     addNew = (e) => {
         e.preventDefault();
@@ -37,7 +37,7 @@ class CreateNote extends Component {
                 textBody: this.state.textBody,
             })
             .then(response => {
-                this.props.addNote();
+                this.props.refreshMain();
                 this.props.history.push('/');
             })
             .catch(err => console.log(err));
