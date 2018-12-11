@@ -3,7 +3,6 @@ import Note from './Note';
 import styled from 'styled-components';
 
 const Div = styled.div`
-    outline: 1px solid red;
     width: 95%;
     display: flex;
     flex-wrap: wrap;
