@@ -5,7 +5,11 @@ import Form from "./NoteForm";
 import { ActiveTitle} from "./ListView";
 
 class CreateView extends Component {
-	render() {
+    componentWillUnmount(){
+		this.props.getNotes();
+	}
+    
+    render() {
 		return (
 			<>
 				<ActiveTitle>Create new Note</ActiveTitle>

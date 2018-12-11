@@ -11,19 +11,27 @@ const AppWrapper = styled.div`
 	width: 100vw;
 	height: 100%;
 	min-height: 100vh;
+	/* position: relative; */
 `;
 
 const Sidebar = styled.div`
 	background-color: lightgrey;
-	width: 340px;
+	width: 255px;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	border-right: 1px solid darkgrey;
+	
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	
 `;
 
 const Main = styled.div`
 	background-color: whitesmoke;
 	width: 100%;
+	margin-left: 255px;
 `;
 
 const Title = styled.h1`

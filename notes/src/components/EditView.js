@@ -5,6 +5,10 @@ import Form from "./NoteForm";
 import { ActiveTitle, NoteBox } from "./ListView";
 
 class EditView extends Component {
+	componentDidMount(){
+		//this.props.getNotes();
+	}
+	
 	render() {
 		if (!this.props.notes.length) {
 			return <ActiveTitle>Loading note... </ActiveTitle>;
@@ -22,10 +26,8 @@ class EditView extends Component {
 					buttonText='Update'
 					note={note}
 					getNotes={this.props.getNotes}
-					edit>
-					<h1>{note.title} </h1>
-					<p> {note.textBody} </p>
-				</Form>
+					edit
+				/>
 			</>
 		);
 	}

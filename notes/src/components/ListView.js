@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import Note from "./Note";
+import { getNotes } from "../actions";
 
 export const ActiveTitle = styled.h2`
 	margin-top: 70px;
@@ -10,8 +11,8 @@ export const ActiveTitle = styled.h2`
 `;
 
 export const NoteBox = styled.div`
-    margin-left: 30px;
-    padding-right: 30px;
+	margin-left: 30px;
+	padding-right: 30px;
 	display: flex;
 	flex-wrap: wrap;
 `;
@@ -25,8 +26,22 @@ const NoteListNote = styled.div`
 `;
 
 class ListView extends Component {
+	componentDidMount() {
+		//this.props.getNotes();
+	}
+
+	componentWillMount() {
+		//this.props.getNotes();
+	}
+
 	render() {
-		if (!this.props.notes.map.length) {
+		if (this.props.deletingNote) {
+			return <ActiveTitle> Deleting note... </ActiveTitle>;
+		}
+		if (this.props.savingNote) {
+			return <ActiveTitle> Saving note... </ActiveTitle>;
+		}
+		if (!this.props.notes.length || this.props.fetchingNotes) {
 			return <ActiveTitle> Loading Notes... </ActiveTitle>;
 		}
 		return (
@@ -44,6 +59,11 @@ class ListView extends Component {
 	}
 }
 export default connect(
-	({ notes }) => ({ notes }),
-	{}
+	({ notes, deletingNote, fetchingNotes, savingNote }) => ({
+		notes,
+		deletingNote,
+		fetchingNotes,
+		savingNote
+	}),
+	{ getNotes }
 )(ListView);

@@ -76,5 +76,6 @@ export const GlobalStyle = createGlobalStyle`
   p{
 	  line-height: 2rem;
 	  font-size: 1.2rem;
+	  word-wrap: break-word;
   }
 `;

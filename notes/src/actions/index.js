@@ -10,17 +10,29 @@ export const ADD_NOTE_START = "ADD_NOTE_START";
 export const ADD_NOTE_SUCCESS = "ADD_NOTE_SUCCESS";
 export const ADD_NOTE_FAILURE = "ADD_NOTE_FAILURE";
 
+export const ADD_STATE_NOTE = "ADD_STATE_NOTE";
+
+export const RESET_NEWNOTEID = "RESET_NEWNOTEID";
+
 //Delete Notes
 export const DELETE_NOTE_START = "DELETE_NOTE_START";
 export const DELETE_NOTE_SUCCESS = "DELETE_NOTE_SUCCESS";
 export const DELETE_NOTE_FAILURE = "DELETE_NOTE_FAILURE";
+
+export const DELETE_STATE_NOTE = "DELETE_STATE_NOTE";
 
 //Edit Notes
 export const EDIT_NOTE_START = "EDIT_NOTE_START";
 export const EDIT_NOTE_SUCCESS = "EDIT_NOTE_SUCCESS";
 export const EDIT_NOTE_FAILURE = "EDIT_NOTE_FAILURE";
 
+export const EDIT_STATE_NOTE = "EDIT_STATE_NOTE";
+
 const URL = "https://fe-notes.herokuapp.com/note";
+
+export const resetNewNoteId = () => dispatch => {
+	dispatch({ type: RESET_NEWNOTEID });
+};
 
 export const getNotes = () => dispatch => {
 	dispatch({ type: FETCH_NOTES_START });
@@ -37,6 +49,7 @@ export const getNotes = () => dispatch => {
 };
 
 export const addNote = note => dispatch => {
+	dispatch({ type: ADD_STATE_NOTE, payload: note });
 	dispatch({ type: ADD_NOTE_START });
 	axios
 		.post(`${URL}/create`, note)
@@ -54,6 +67,7 @@ export const addNote = note => dispatch => {
 };
 
 export const deleteNote = id => dispatch => {
+	dispatch({ type: DELETE_STATE_NOTE, payload: id });
 	dispatch({ type: DELETE_NOTE_START });
 	axios
 		.delete(`${URL}/delete/${id}`)
@@ -69,10 +83,11 @@ export const deleteNote = id => dispatch => {
 		});
 };
 
-export const editNote = (id, payload) => dispatch => {
+export const editNote = (id, note) => dispatch => {
+	dispatch({ type: EDIT_STATE_NOTE, payload: note });
 	dispatch({ type: EDIT_NOTE_START });
 	axios
-		.put(`${URL}/edit/${id}`, payload)
+		.put(`${URL}/edit/${id}`, note)
 		.then(responce => {
 			console.log("Edit succeeded", responce);
 			dispatch({

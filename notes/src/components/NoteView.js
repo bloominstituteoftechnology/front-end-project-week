@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getNotes, deleteNote } from "../actions";
+import { getNotes, deleteNote, resetNewNoteId } from "../actions";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ActiveTitle, NoteBox } from "./ListView";
@@ -34,12 +34,12 @@ const Delete = styled.div`
 const DeleteBox = styled.div`
 	margin: 0 auto;
 	width: 58%;
-	border: 1px solid black;
+	border: 1px solid darkgrey;
 	background: white;
 	margin-top: 195px;
 	height: 195px;
 	z-index: 1;
-	padding: 5px ;
+	padding: 5px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -49,13 +49,17 @@ const DeleteBox = styled.div`
 const DeleteButton = styled.button`
 	background: ${props => (props.red ? "red" : "teal")};
 	color: white;
-    height: 50px;
-    margin-top: 35px;
-    margin-right: 20px;
-    margin-left: 20px;
-    width: 200px;
-    font-size: 1.2rem;
-    font-weight: bold;
+	height: 50px;
+	margin-top: 35px;
+	margin-right: 20px;
+	margin-left: 20px;
+	width: 200px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	border: 1px solid darkgrey;
+	:hover {
+		cursor: pointer;
+	}
 `;
 
 const ActiveTitle2x = styled(ActiveTitle)`
@@ -71,10 +75,15 @@ class NoteView extends Component {
 	}
 
 	componentDidMount() {
-		this.props.getNotes();
+		//this.props.getNotes();
 	}
 
-	showDeleteModal(ev, id) {
+	componentWillUnmount() {
+		// this.props.resetNewNoteId();
+		// this.props.getNotes();
+	}
+
+	showDeleteModal(ev) {
 		ev.preventDefault();
 		this.setState({ displayDelete: true });
 	}
@@ -88,27 +97,51 @@ class NoteView extends Component {
 		ev.preventDefault();
 		this.props.deleteNote(id);
 		this.setState({ displayDelete: false });
-		this.props.getNotes();
 		this.props.history.push("/");
 	}
 
 	render() {
-		if (!this.props.notes.length) {
+		let note = {};
+		if (
+			!this.props.notes.length ||
+			this.props.fetchingNotes ||
+			this.props.editingNote
+		) {
 			return <ActiveTitle>Loading note... </ActiveTitle>;
 		}
-		const note = this.props.notes.find(
+		if (this.props.savingNote) {
+			return <ActiveTitle>Saving Note...</ActiveTitle>;
+		}
+
+		note = this.props.notes.find(
 			note => this.props.match.params.id === note._id
 		);
+
+		if (note === undefined) {
+			note = this.props.notes.find(
+				note => this.props.newNoteId === note._id
+			);
+			if (this.props.match.params.id === "new-note") {
+				// this.props.history.push(`/note/${this.props.newNoteId}`);
+			}
+		}
+
+		if (note === undefined) {
+			return <ActiveTitle>Note doesn't exists...</ActiveTitle>;
+		}
 		return (
 			<NoteViewWrapper>
 				<NoteViewHeader>
-					<NavA as={Link} to={`/edit/${note._id}`}>
-						{" "}
-						edit
-					</NavA>
-					<NavA
-						href='/'
-						onClick={ev => this.showDeleteModal(ev, note._id)}>
+					{this.props.newNoteId === "" ? (
+						<NavA as={Link} to={`/edit/${note._id}`}>
+							edit
+						</NavA>
+					) : (
+						<NavA as={Link} to={`/edit/${this.props.newNoteId}`}>
+							edit
+						</NavA>
+					)}
+					<NavA href='/' onClick={ev => this.showDeleteModal(ev)}>
 						delete
 					</NavA>
 				</NoteViewHeader>
@@ -149,9 +182,16 @@ class NoteView extends Component {
 	}
 }
 export default connect(
-	({ notes }) => ({ notes }),
+	({ notes, newNoteId, fetchingNotes, editingNote, savingNote }) => ({
+		notes,
+		newNoteId,
+		fetchingNotes,
+		editingNote,
+		savingNote
+	}),
 	{
 		getNotes,
-		deleteNote
+		deleteNote,
+		resetNewNoteId
 	}
 )(NoteView);

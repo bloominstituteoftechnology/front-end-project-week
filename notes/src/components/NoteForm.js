@@ -17,7 +17,6 @@ const Input = styled.input`
 	padding: 15px;
 	border: 1px solid darkgrey;
 	width: 50%;
-	
 `;
 
 const Button = styled.button`
@@ -28,22 +27,26 @@ const Button = styled.button`
 	font-weight: bold;
 	color: white;
 	border: 1px solid darkgrey;
-    font-size: 1.4rem;
-    width: 30%;
+	font-size: 1.4rem;
+	width: 30%;
+    margin-bottom: 30px;
+    :hover{
+        cursor: pointer;
+    }
 `;
 
 const TextArea = styled.textarea`
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
-    margin: 0px;
-    margin: 0;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    padding: 20px;
-    border: 1px solid darkgrey; 
-    width: 85%;
-    height: 360px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
+	margin: 0px;
+	margin: 0;
+	margin-bottom: 15px;
+	font-size: 1.2rem;
+	padding: 20px;
+	border: 1px solid darkgrey;
+	width: 85%;
+	height: 360px;
 `;
 
 class Form extends Component {
@@ -51,8 +54,13 @@ class Form extends Component {
 		super(props);
 		this.state = {
 			title: `${this.props.edit ? this.props.note.title : ""}`,
-			textBody: `${this.props.edit ? this.props.note.textBody : ""}`
+            textBody: `${this.props.edit ? this.props.note.textBody : ""}`,
+            _id: this.props.edit ? this.props.note._id : 'new-note'
 		};
+    }
+    
+    componentDidMount(){
+	//	this.props.getNotes();
 	}
 
 	handleChange = event => {
@@ -64,16 +72,17 @@ class Form extends Component {
 	submitHandler = event => {
 		event.preventDefault();
 		if (this.props.edit) {
-			console.log(this.props);
 			this.props.editNote(this.props.note._id, this.state);
-			this.props.getNotes();
 			this.props.history.push(`/note/${this.props.note._id}`);
 		} else {
 			this.props.addNote(this.state);
-			this.props.getNotes();
-			this.props.history.push(`/`);
+			this.props.history.push(`/note/${this.state._id}`);
 		}
-	};
+    };
+    
+    componentWillUnmount(){
+		//this.props.getNotes();
+	}
 
 	render() {
 		return (
