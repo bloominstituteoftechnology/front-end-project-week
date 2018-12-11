@@ -1,31 +1,68 @@
-import React from 'react';
-import NoteContainer from './Components/Maincontent/NoteContainer';
-import SidebarContainer from './Components/Sidebar/SidebarContainer';
-import NewNote from './Components/Maincontent/NewNote';
-import styled from 'styled-components';
-import FullNote from './Components/Maincontent/FullNote';
-import EditNote from './Components/Maincontent/EditNote';
-import { Route } from 'react-router-dom';
-// import Navbar from './Components/NavBar/Navbar';
+import React, { Component } from 'react';
+import { Route, withRouter, Switch } from 'react-router-dom';
+import { CreateView, NoteView, ListView } from './views';
+import './App.css';
+import { Authentication } from './components';
+// import { DeleteModal } from './components';
+// import { connect } from 'react-redux';
+// import { deleteNote } from './actions';
 
-const App = (props) => {
-	return (
-		<StyledContainer>
-			<Route path="*" render={() => <SidebarContainer />} />
-			<Route exact path="/" component={NoteContainer} />
-			<Route path="/create-new-note" component={NewNote} />
-			<Route path="/:id/edit-note" component={EditNote} />
-			<Route path="/:id/note" component={FullNote} />
-			{/* <Route exact path="/note/:id" render={(props) => <Navbar {...props} />} /> */}
-		</StyledContainer>
-	);
-};
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      sortedByTitleAsc: false,
+      sortedByTitleDes: false,
+      sortedByLengthAsc: false,
+      sortedByLengthDes: false,
+    }
+  }
 
-export default App;
+  sortHelper = (type, dir) => {
+    if ((type === 'title') && (dir === 'asc')) {
+      this.setState({
+        sortedByTitleAsc: true,
+        sortedByTitleDes: false,
+        sortedByLengthAsc: false,
+        sortedByLengthDes: false,
+      })
+    }
+    if ((type === 'title') && (dir === 'des')) {
+      this.setState({
+      sortedByTitleAsc: false,
+      sortedByTitleDes: true,
+      sortedByLengthAsc: false,
+      sortedByLengthDes: false,
+      })
+    }
+    if ((type === 'length') && (dir === 'asc')) {
+      this.setState({
+        sortedByTitleAsc: false,
+        sortedByTitleDes: false,
+        sortedByLengthAsc: true,
+        sortedByLengthDes: false,
+      })
+    }
+    if ((type === 'length') && (dir === 'des')){
+      this.setState({
+        sortedByTitleAsc: false,
+        sortedByTitleDes: false,
+        sortedByLengthAsc: false,
+        sortedByLengthDes: true,
+      })
+    }
+  }
+  render() {
+    return (
+      <div className="App">
+      <Switch>
+        <Route exact path='/' render={(props) => (<ListView {...props} sortHelper={this.sortHelper} titleAsc={this.state.sortedByTitleAsc} titleDes={this.state.sortedByTitleDes} lengthAsc={this.state.sortedByLengthAsc} lengthDes={this.state.sortedByLengthDes}/>)} />
+        <Route path='/add' render={(props) => (<CreateView {...props} />)} />
+        <Route path='/:id' render={(props) => (<NoteView {...props} />)} />
+      </Switch>
+      </div>
+    );
+  }
+}
 
-export const StyledContainer = styled.div`
-	display: flex;
-	max-width: 100%;
-	flex-direction: row;
-	margin: 0;
-`;
+export default withRouter(Authentication(App));
