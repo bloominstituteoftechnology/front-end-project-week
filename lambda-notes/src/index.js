@@ -23,7 +23,7 @@ const store = createStore(rootReducer, enhancer);
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Route path="/" component={App} />
+      <Route path="/front-end-project-week" component={App} />
     </Router>
   </Provider>,
   document.getElementById('root')
