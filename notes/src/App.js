@@ -6,9 +6,6 @@ import NoteForm from "./components/AddNote";
 import { Link, Nav, AppWrapper } from "./styled/App";
 
 class App extends Component {
-  componentDidMount() {
-    console.log("yahhh");
-  }
   render() {
     return (
       <AppWrapper>

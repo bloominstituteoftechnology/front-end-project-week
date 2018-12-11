@@ -24,27 +24,13 @@ class NotesList extends React.Component {
       filtered: []
     };
   }
-
-  // componentWillMount() {
-  //   this.setState({ notes: JSON.parse(localStorage.getItem("state")) });
-  // }
   componentDidMount() {
     window.addEventListener("beforeunload", this.saveNotes);
     this.props.fetchNotes();
     this.setState({ notes: this.props.notes });
-    // console.log(this.props.notes);
-    // if (!isEqual(this.props.notes, [...this.state.notes])) {
-    //   const notes = [...this.state.notes];
-    //   const newNotes = this.props.notes;
-    //   const sorted = newSort(newNotes, notes);
-    //   this.setState({ notes: sorted });
-    //   // window.scrollTo(0, 0);
-    // }
+
     window.scrollTo(0, 0);
   }
-  // componentDidUpdate() {
-  //   console.log(JSON.parse(localStorage.getItem("state")));
-  // }
 
   componentWillUnmount() {
     window.removeEventListener("beforeunload", this.saveNotes);

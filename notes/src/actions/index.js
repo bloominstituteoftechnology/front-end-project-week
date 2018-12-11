@@ -25,7 +25,6 @@ export const fetchNotes = () => dispatch => {
       if (local) {
         let server = res.data;
         let sorted = newSort(server, local);
-        // console.log(sorted);
         dispatch({
           type: FETCHED,
           payload: sorted

@@ -1,5 +1,5 @@
 import * as act from "../actions";
-import { newSort, local } from "../actions";
+// import { newSort, local } from "../actions";
 // import Fuse from "fuse.js";
 
 const initialState = {
@@ -25,6 +25,7 @@ const rootReducer = (state = initialState, action) => {
       //   let sorted = newSort(server, local);
       //   localStorage.setItem("state", JSON.stringify(sorted));
       // }
+      console.log("render");
       return {
         ...state,
         fetchingNotes: false,
