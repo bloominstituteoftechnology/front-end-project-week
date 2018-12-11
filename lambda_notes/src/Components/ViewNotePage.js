@@ -18,14 +18,14 @@ class ViewNote extends Component {
   componentDidMount() {
     console.log('TESTcomponentDidMount.axios.get');
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${this.props.}`)
+      .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
       .then()
   }
 
 
 
   render() {
-   
+    return();
   }
 }
 
