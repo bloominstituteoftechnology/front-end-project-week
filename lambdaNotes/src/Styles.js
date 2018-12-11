@@ -346,6 +346,26 @@ export const SignOut = styled.div`
   }
 `;
 
+export const Credits = styled.div`
+  margin-top: 100px;
+  width: 75%;
+  padding: 15px;
+  margin-left: 7%;
+  color: white;
+  text-align: center;
+  background-color: #24b8bd;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+
+  &:hover {
+    background: #d3d2d3;
+    color: crimson;
+    border: 1.5px solid crimson;
+    box-shadow: 5px 10px #888888;
+  }
+`;
+
 export const LoginBackground = styled.div`
   /* background-image: url(https://lambdaschool.com/static/images/herogirl.png);
   background-size: auto;
