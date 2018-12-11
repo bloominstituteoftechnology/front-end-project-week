@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import styleVars from '../helpers/styleVars';
 import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 
 const Div = styled.div`
     height: 100vh;
@@ -29,8 +30,12 @@ const SideBar = props => {
     return (
         <Div>
             <H1>Lambda Notes</H1>
-            <StyledButton text={'View Your Notes'} />
-            <StyledButton text={'+ Create New Note'} />
+            <Link to={'/'}>
+                <StyledButton text={'View Your Notes'} />
+            </Link>
+            <Link to={'/add'}>
+                <StyledButton text={'+ Create New Note'} />
+            </Link>
         </Div>
     );
 };
