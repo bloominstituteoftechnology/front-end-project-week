@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 
 import ListNotes from "../views/ListNotes";
-import AddEditNote from "../views/AddEditNote";
+import AddNote from "../views/AddNote";
+import EditNote from "../views/EditNote";
 import ReadNote from "../views/ReadNote";
 
 import Sidebar from "./Sidebar";
@@ -82,9 +83,9 @@ class App extends Component {
 
   renderNote = ({ match }) => {
     const selectedNote = this.state.notes.find(
-      note => note.id === match.params.currentId
+      note => note.id === +match.params.noteId
     );
-    console.log("match params\n" + match.params);
+
     if(!selectedNote){
       console.log("note not found");
       return null;
@@ -94,14 +95,14 @@ class App extends Component {
   };
 
   addNote = () => {
-    return <AddEditNote postNote={this.postNote} />;
+    return <AddNote postNote={this.postNote} />;
   }
 
   updateNote = ({ match }) => {
     const selectedNote = this.state.notes.find(
-      note => note.id === match.params.currentId
+      note => note.id === +match.params.noteId
     );
-    return <AddEditNote {...selectedNote} putNote={this.putNote} />;
+    return <EditNote {...selectedNote} putNote={this.putNote} />;
   };
 
   render() {

@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/Styles.css';
 
 
-class AddEditNote extends React.Component {
+class EditNote extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -13,10 +13,10 @@ class AddEditNote extends React.Component {
     }
   }
 
-  
+
   componentDidMount(){
     if(this.props.id){
-      console.log('addedit: ', this.props);
+      console.log(' edit: ', this.props);
       this.setState({
         id: this.props.id,
         title: this.props.title,
@@ -25,7 +25,7 @@ class AddEditNote extends React.Component {
     }
   }
 
-  addNote = event => {
+  Note = event => {
     event.preventDefault();
 
     const newNote = {
@@ -50,9 +50,9 @@ class AddEditNote extends React.Component {
 
   render() {
     return (
-      <div className='add-edit-note-form'>
+      <div className='edit-note-form'>
         <h1>Create New Note:</h1>
-        <form onSubmit={this.addNote}>
+        <form onSubmit={this.updateNote}>
           <input onChange={this.handleInputChange} type="text" name="title" className="title" placeholder='Note Title'/>
           <br/>
           <textarea onChange={this.handleInputChange} className='textBody' name='textBody' placeholder="Note Content">
@@ -65,4 +65,4 @@ class AddEditNote extends React.Component {
   }
 }
 
-export default AddEditNote;
+export default EditNote;
