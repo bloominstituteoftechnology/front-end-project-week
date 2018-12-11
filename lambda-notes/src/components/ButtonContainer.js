@@ -39,7 +39,7 @@ class ButtonContainer extends Component {
   render() {
     return (
       <SideBar>
-        <Link to="/">
+        <Link to="/front-end-project-week">
           {' '}
           <NoteAppButton onClick={this.ViewNotesClickHandler}>View Your Notes</NoteAppButton>
         </Link>
