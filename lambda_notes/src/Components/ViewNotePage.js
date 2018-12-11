@@ -31,7 +31,15 @@ class ViewNote extends Component {
 
   render() {
     return (
-      
+      <ViewNotesBox>
+        <NoteWrapper>
+
+
+        </NoteWrapper>
+
+        
+      </ViewNotesBox>
+
     );
   }
 }
