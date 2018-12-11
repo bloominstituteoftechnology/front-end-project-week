@@ -20,7 +20,9 @@ class App extends Component {
     this.state = {
       //controls views on NoteList
       notes: [],
-      //controls form in CreatNote, used to add new note in POST request
+      // pulls list of tags from db
+      tags: [],
+      //controls form in CreateNote, used to add new note in POST request
       newNote: {
         title: "",
         content: ""
@@ -33,14 +35,13 @@ class App extends Component {
   }
 
   //? for future reference: this url is for after backend project is being implement, originally the url used was from fe-notes.herokuapp.com
-  url = "https://fsw14-lambda-notes.herokuapp.com/api/notes";
+  noteUrl = "https://fsw14-lambda-notes.herokuapp.com/api/notes";
+  tagUrl = "https://fsw14-lambda-notes.herokuapp.com/api/tags";
 
   //basic GET call that is used when initally loading the page and also to refresh the notelist
   getNoteList = () => {
     axios
-
-      .get(this.url)
-
+      .get(this.noteUrl)
       .then(response => this.setState({ notes: response.data }))
       .catch(err => {
         console.log(
@@ -50,13 +51,20 @@ class App extends Component {
       });
   };
 
+  getTags = () => {
+    axios
+      .get(this.tagUrl)
+      .then(response => this.setState({ tags: response.data }))
+      .catch(err => console.log("Error occurred while retrieving tags: ", err));
+  };
+
   //these 3 functions are a little complicated because they need to run ONLY if the notes are not arranged in that specified order. I would prefer they just rearrange the current notes on state instead of--
   //--having to make a new axios call, but there's not a good way to undo the sorting that happens in sortalphebetically
   // sort method via button: passed down to Notelist, a new GET call that reverses the order of the notes coming in (most recent notes in server are typically the last in the array) if note already reversed
   sortNewToOld = () => {
     if (!this.state.reversed || this.state.alphabetized) {
       axios
-        .get(this.url)
+        .get(this.noteUrl)
         .then(response =>
           this.setState({
             notes: response.data.reverse(),
@@ -77,7 +85,7 @@ class App extends Component {
   sortOldToNew = () => {
     if (this.state.reversed || this.state.alphabetized) {
       axios
-        .get(this.url)
+        .get(this.noteUrl)
         .then(response =>
           this.setState({
             notes: response.data,
@@ -98,7 +106,7 @@ class App extends Component {
   sortAlphabetically = () => {
     if (!this.state.alphabetized) {
       axios
-        .get(this.url)
+        .get(this.noteUrl)
         .then(response =>
           this.setState({
             notes: response.data.sort((a, b) => a.title.localeCompare(b.title)),
@@ -118,13 +126,14 @@ class App extends Component {
   //initial loading of notes
   componentDidMount() {
     this.getNoteList();
+    this.getTags();
   }
 
   //triggered in every onChange in the searchbar from inside searchHandler function, filters list view by note titles containing the current searchTerm
   searchFilter = () => {
     if (this.state.searchTerm !== "") {
       axios
-        .get(this.url)
+        .get(this.noteUurl)
         //added toLowerCase for both the titles coming from server and the searchTerm to make sure cases won't block a search
         .then(response =>
           this.setState({
@@ -166,7 +175,7 @@ class App extends Component {
   deleteNote = (event, id) => {
     event.preventDefault();
     axios
-      .delete(`${this.url}/${id}`)
+      .delete(`${this.noteUrl}/${id}`)
       .then(this.getNoteList)
       .catch(error => {
         console.log("We were unable to delete this note: ", error);
@@ -178,7 +187,7 @@ class App extends Component {
     let note = this.state.newNote;
     if (note.title !== "" && note.content !== "") {
       axios
-        .post(this.url, note)
+        .post(this.noteUrl, note)
         .then(response => {
           this.setState({
             notes: [...this.state.notes, { ...note, _id: response.data }]
@@ -200,10 +209,43 @@ class App extends Component {
     }
   };
 
+  // passed down to Sidebar's individula tag elements. upon click, will first retrieve list of all
+  // tags in tagDB containing the text of the clicked tag (for when multiple notes have same tag, but the tags will still have different ids)
+  // then gets list of notes and filters so only the notes with the found note_ids are set on state
+  filterByTag = (event, tagText) => {
+    event.preventDefault();
+    axios
+      .get(this.tagUrl)
+      .then(response => {
+        let tagArr = response.data.filter(tag => tag.text === tagText);
+        let tagIds = [];
+        tagArr.forEach(tag =>
+          !tagIds.includes(tag.notes_id) ? tagIds.push(tag.notes_id) : null
+        );
+        axios
+          .get(this.noteUrl)
+          .then(response => {
+            this.setState({
+              notes: response.data.filter(note => tagIds.includes(note.id))
+            });
+          })
+          .catch(error =>
+            console.log("Error occurred while retrieving notes: ", error)
+          );
+      })
+      .catch(error =>
+        console.log("Error occurred while accessing the tag database: ", error)
+      );
+  };
+
   render() {
     return (
       <div className="App">
-        <Sidebar getNoteList={this.getNoteList} />
+        <Sidebar
+          getNoteList={this.getNoteList}
+          tags={this.state.tags}
+          filterByTag={this.filterByTag}
+        />
         <Route
           exact
           path="/"

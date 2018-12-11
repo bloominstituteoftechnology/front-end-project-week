@@ -18,12 +18,13 @@ class FullNote extends React.Component {
     };
   }
 
-  url = "https://fsw14-lambda-notes.herokuapp.com/api/notes";
+  noteUrl = "https://fsw14-lambda-notes.herokuapp.com/api/notes";
+  tagUrl = "https://fsw14-lambda-notes.herokuapp.com/api/tags";
 
   //sets particular note on state for viewing based on url the user was pushed to
   componentDidMount() {
     axios
-      .get(`${this.url}/${this.props.match.params.id}`)
+      .get(`${this.noteUrl}/${this.props.match.params.id}`)
       .then(response =>
         this.setState({
           activeNote: {
@@ -67,7 +68,10 @@ class FullNote extends React.Component {
     let note = this.state.activeNote;
     if (note.title !== "" && note.content !== "") {
       axios
-        .put(`${this.url}/${this.props.match.params.id}`, this.state.activeNote)
+        .put(
+          `${this.noteUrl}/${this.props.match.params.id}`,
+          this.state.activeNote
+        )
         .then(response => {
           this.setState({ ...this.state, activeNote: response.data });
         })

@@ -22,6 +22,17 @@ class Sidebar extends React.Component {
         <button className="logout-button" onClick={this.logout}>
           Logout
         </button>
+        <section className="tag-wrapper">
+          {this.props.tags.map(tag => (
+            <div
+              className="tag"
+              key={tag.id}
+              onClick={event => this.props.filterByTag(event, tag.text)}
+            >
+              {tag.text}
+            </div>
+          ))}
+        </section>
       </div>
     );
   }

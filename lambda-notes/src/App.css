@@ -8,92 +8,110 @@
 }
 
 .sidebar {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  background: #D6D6D6;
-  color: #4B4A4B;
-  width:25%;
-  height:100vh;
+  background: #d6d6d6;
+  color: #4b4a4b;
+  width: 25%;
+  height: 100vh;
   padding: 0 1%;
-  font-size:38px;
-  text-align:left;
-  line-height:60px;
-  border:2px solid #BDBDBD;
-  position:fixed;
+  font-size: 38px;
+  text-align: left;
+  line-height: 60px;
+  border: 2px solid #bdbdbd;
+  position: fixed;
 }
 
-
-
 .sidebar button {
-  width:100%;
-  background:#30BEC3;
-  color:#ffffff;
-  font-size:32px;
+  width: 100%;
+  background: #30bec3;
+  color: #ffffff;
+  font-size: 32px;
   font-weight: bold;
-  padding:25px 0;
-  margin:15px 0;
-border: 2px solid #8A9B9C;
-cursor: pointer;
+  padding: 25px 0;
+  margin: 15px 0;
+  border: 2px solid #8a9b9c;
+  cursor: pointer;
 }
 
 .sidebar .logout-button {
-  background: #C80A1D;
+  background: #c80a1d;
+}
+
+.sidebar .tag-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.sidebar .tag-wrapper .tag {
+  width: 40%;
+  font-size: 15px;
+  font-weight: bold;
+  background: grey;
+  text-align: center;
+  margin: 10px 1%;
+  color: white;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 2px solid #30bec3;
 }
 
 .note-list-wrapper {
-  width:75%;
-min-height:100vh;
+  width: 75%;
+  min-height: 100vh;
   margin: 0 0 0 25%;
-  background: #F2F0F1;
-  color: #4B4A4B; 
-  padding:50px 3%;
-text-align: left;
-font-size:42px;
+  background: #f2f0f1;
+  color: #4b4a4b;
+  padding: 50px 3%;
+  text-align: left;
+  font-size: 42px;
 }
 
 .note-list-wrapper h2 {
-  margin:65px 0 40px;
-  font-size:42px;
+  margin: 65px 0 40px;
+  font-size: 42px;
 }
 
 .note-list-wrapper .searchbar-form {
-  width:31%;
-  margin:0 auto;
-  padding-bottom:20px;
+  width: 31%;
+  margin: 0 auto;
+  padding-bottom: 20px;
 }
 
 .note-list-wrapper .searchbar-input {
-  width:100%;
-  padding:10px;
-  border-radius:5px;
-  border: 2px solid #8A9B9C;  
-font-size:26px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #8a9b9c;
+  font-size: 26px;
 }
 
 .note-list-wrapper .sort-options {
-  display:flex;
+  display: flex;
   justify-content: space-between;
 }
 
 .note-list-wrapper .sort-options button {
-  width:31%;
-  background:#30BEC3;
-  color:#ffffff;
-  font-size:24px;
+  width: 31%;
+  background: #30bec3;
+  color: #ffffff;
+  font-size: 24px;
   font-weight: bold;
-  padding:15px 0;
-  margin:15px 0;
-border: 2px solid #8A9B9C;
-cursor: pointer;
+  padding: 15px 0;
+  margin: 15px 0;
+  border: 2px solid #8a9b9c;
+  cursor: pointer;
 }
 
 .note-list-wrapper .sort-options button:focus {
-  color: #30BEC3;
+  color: #30bec3;
   background: #ffffff;
 }
 
 .note-list {
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -101,44 +119,44 @@ cursor: pointer;
 .note {
   background: #ffffff;
   color: #161514;
-  width:31%;
-  margin:25px 0;
-  height:420px;
-border:3px solid #8A9B9C;
-padding: 0 2.5% 10px;
-overflow-y: hidden;
-cursor: pointer;
+  width: 31%;
+  margin: 25px 0;
+  height: 420px;
+  border: 3px solid #8a9b9c;
+  padding: 0 2.5% 10px;
+  overflow-y: hidden;
+  cursor: pointer;
 }
 
 .note h3 {
   font-size: 36px;
-  margin:0;
-  padding:20px 0;
-  text-overflow:ellipsis;
+  margin: 0;
+  padding: 20px 0;
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  border-bottom: 4px solid #8A9B9C;
+  border-bottom: 4px solid #8a9b9c;
 }
 
 .note h4 {
-  font-size:28px;
-margin:0;
-padding:10px 0;
+  font-size: 28px;
+  margin: 0;
+  padding: 10px 0;
 }
 
 .create-note-wrapper {
-  width:75%;
+  width: 75%;
   margin: 0 0 0 25%;
-  background: #F2F0F1;
-  color: #4B4A4B; 
-  padding:50px 3%;
-text-align: left;
-font-size:28px;
-height:200vh;
+  background: #f2f0f1;
+  color: #4b4a4b;
+  padding: 50px 3%;
+  text-align: left;
+  font-size: 28px;
+  height: 200vh;
 }
 
 .create-note-wrapper h2 {
-  padding:30px 0;
+  padding: 30px 0;
 }
 
 .create-note-form {
@@ -146,66 +164,65 @@ height:200vh;
   flex-direction: column;
 }
 
-.create-note-title, .create-note-text {
-  font-size:28px;
-  font-weight:bold;
-  padding:25px 2%;
+.create-note-title,
+.create-note-text {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 25px 2%;
   border: none;
   border-radius: 5px;
-  border: 2px solid #8A9B9C;
-  margin-bottom:30px;
+  border: 2px solid #8a9b9c;
+  margin-bottom: 30px;
 }
 
 .create-note-title {
-  width:60%;
-  
+  width: 60%;
 }
 
 .create-note-text {
-  height:735px;
+  height: 735px;
   padding: 0 4% 600px;
 }
 
 .create-note-form button {
-    width:32%;
-    background:#30BEC3;
-    color:#ffffff;
-    font-size:32px;
-    font-weight: bold;
-    padding:25px 0;
-    cursor: pointer;
-  border: 2px solid #8A9B9C;
-  
+  width: 32%;
+  background: #30bec3;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 25px 0;
+  cursor: pointer;
+  border: 2px solid #8a9b9c;
 }
 
 .note-full-view {
-  width:75%;
+  width: 75%;
   margin: 0 0 0 25%;
-  background: #F2F0F1;
-  color: #4B4A4B; 
-  padding:0 3%;
-text-align: left;
-font-size:28px;
-min-height:100vh;
+  background: #f2f0f1;
+  color: #4b4a4b;
+  padding: 0 3%;
+  text-align: left;
+  font-size: 28px;
+  min-height: 100vh;
 }
 
-
 .edit-delete-wrapper {
-  display:flex;
+  display: flex;
   justify-content: flex-end;
 }
 
-.edit-button, .delete-button {
+.edit-button,
+.delete-button {
   text-decoration: underline;
-  padding:20px 0 0 2%;
-  font-size:28px;
-  font-weight:bold;
+  padding: 20px 0 0 2%;
+  font-size: 28px;
+  font-weight: bold;
   cursor: pointer;
 }
 
 .note-full-view .full-note-title {
-  margin:20px 0;
-  font-size:44px;
+  margin: 20px 0;
+  font-size: 44px;
   font-weight: bold;
 }
 
@@ -214,18 +231,18 @@ min-height:100vh;
 }
 
 .edit-note-wrapper {
-  width:75%;
+  width: 75%;
   margin: 0 0 0 25%;
-  background: #F2F0F1;
-  color: #4B4A4B; 
-  padding:50px 3%;
-text-align: left;
-font-size:28px;
-height:150vh;
+  background: #f2f0f1;
+  color: #4b4a4b;
+  padding: 50px 3%;
+  text-align: left;
+  font-size: 28px;
+  height: 150vh;
 }
 
 .edit-note-wrapper h2 {
-  padding:30px 0;
+  padding: 30px 0;
 }
 
 .edit-note-form {
@@ -233,148 +250,148 @@ height:150vh;
   flex-direction: column;
 }
 
-.edit-note-title, .edit-note-text {
-  font-size:28px;
-  font-weight:bold;
-  padding:25px 2%;
+.edit-note-title,
+.edit-note-text {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 25px 2%;
   border: none;
   border-radius: 5px;
-  border: 2px solid #8A9B9C;
-  margin-bottom:30px;
+  border: 2px solid #8a9b9c;
+  margin-bottom: 30px;
 }
 
 .edit-note-title {
-  width:60%;
-  
+  width: 60%;
 }
 
 .edit-note-text {
-  height:735px;
+  height: 735px;
   padding: 0 4% 600px;
 }
 
 .edit-note-form button {
-    width:32%;
-    background:#30BEC3;
-    color:#ffffff;
-    font-size:32px;
-    font-weight: bold;
-    padding:25px 0;
-    cursor: pointer;
-  border: 2px solid #8A9B9C;
+  width: 32%;
+  background: #30bec3;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 25px 0;
+  cursor: pointer;
+  border: 2px solid #8a9b9c;
 }
 
 .modal {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.5);
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
   position: fixed;
-  background:white;
-  width:60%;
-  height:auto;
-  top:50%;
-  left:50%;
+  background: white;
+  width: 60%;
+  height: auto;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -35%);
-  display:flex;
+  display: flex;
   flex-direction: column;
   text-align: center;
   font-size: 30px;
-  font-weight:bold;
-  padding:60px 0;
+  font-weight: bold;
+  padding: 60px 0;
 }
 
 .modal-content p {
-  padding:20px 0;
+  padding: 20px 0;
 }
 
 .modal-content .button-wrapper {
-  display:flex;
+  display: flex;
   justify-content: center;
-padding:20px 0;
+  padding: 20px 0;
 }
 
 .show-modal {
-  display:block;
+  display: block;
 }
 
 .hide-modal {
-  display:none;
+  display: none;
 }
 
-.modal-cancel-button, .modal-delete-button {
-  width:35%;
-  color:#ffffff;
-  font-size:32px;
+.modal-cancel-button,
+.modal-delete-button {
+  width: 35%;
+  color: #ffffff;
+  font-size: 32px;
   font-weight: bold;
-  padding:25px 0;
+  padding: 25px 0;
   cursor: pointer;
-border: 2px solid #8A9B9C;
-margin: 0 2%;
+  border: 2px solid #8a9b9c;
+  margin: 0 2%;
 }
 
-.modal-delete-button{
-  background: #C80A1D;
+.modal-delete-button {
+  background: #c80a1d;
 }
 
 .modal-cancel-button {
-  background: #30BEC3;
+  background: #30bec3;
 }
 
 .login-page {
-  background:#4B4A4B;
-  width:100%;
-  height:102.5vh;
-  margin-top:-25px;
-  padding-top:300px;
+  background: #4b4a4b;
+  width: 100%;
+  height: 102.5vh;
+  margin-top: -25px;
+  padding-top: 300px;
 }
 
 .login-content-wrapper {
-  background:#D6D6D6;
-  width:30%;
-  margin:0 auto;
-  text-align:center;
-  border: 10px solid #30BEC3;
-  border-radius:10px;
+  background: #d6d6d6;
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  border: 10px solid #30bec3;
+  border-radius: 10px;
 }
 
 .login-content-wrapper h1 {
-padding:20px;
-font-size:50px;
+  padding: 20px;
+  font-size: 50px;
 }
 
 .login-content-wrapper p {
-  font-size:20px;
+  font-size: 20px;
 }
 
 .login-form {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  padding:20px;
-  width:50%;
-  margin:0 auto;
+  padding: 20px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .login-form input {
-  padding:10px 2%;
-margin:10px 0;
+  padding: 10px 2%;
+  margin: 10px 0;
 }
 
 .login-form button {
-  width:80%;
-  background:#30BEC3;
-  color:#ffffff;
-  font-size:20px;
+  width: 80%;
+  background: #30bec3;
+  color: #ffffff;
+  font-size: 20px;
   font-weight: bold;
-  padding:15px 0;
-  margin:5px auto;
-border: 2px solid #8A9B9C;
-cursor: pointer;
-border-radius:5px;
+  padding: 15px 0;
+  margin: 5px auto;
+  border: 2px solid #8a9b9c;
+  cursor: pointer;
+  border-radius: 5px;
 }
