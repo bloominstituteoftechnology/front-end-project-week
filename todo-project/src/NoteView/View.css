@@ -52,6 +52,7 @@
     margin-right: 1.5%;
     padding: .5rem 4rem;
     cursor: pointer;
+    word-wrap: normal;
   }
   .buttonDiv {
     display: flex;

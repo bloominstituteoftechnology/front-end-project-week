@@ -1,6 +1,5 @@
 import React from 'react'
 import './form.css'
-import { NavLink } from 'react-router-dom'
 
 class Form extends React.Component {
     
@@ -24,7 +23,7 @@ class Form extends React.Component {
         name='content'
         value={this.props.content}
         />
-        <NavLink exact to='/' ><button onClick={() => this.props.updateNote(this.props.note.id)} className='formButton' >Update</button></NavLink>
+        <button onClick={() => this.props.updateNote(this.props.note.id)} className='formButton' >Update</button>
     </div>
     );
 }

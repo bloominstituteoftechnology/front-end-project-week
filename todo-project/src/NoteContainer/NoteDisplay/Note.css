@@ -5,12 +5,14 @@
     background: #FFFFFF;
     overflow: hidden;
     height: 33.04vh;
+    word-wrap: break-word;
 }
 .title {
     font-size: 1.5rem;
     padding-bottom: 2%;
     border-bottom: 2px solid grey;
-
+    overflow: hidden;
+    white-space: nowrap;
 }
 .innerContent {
     padding: 0 5%;

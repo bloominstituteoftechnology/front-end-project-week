@@ -9,19 +9,20 @@ import Authentication from './Authentication/Authenticate'
 import './App.css';
 
 class App extends Component {
+  
   render() {
     return (
-      <div className="App">
-        <div className='navContainer'>
-        <Route path='/' component={NavContainer} />
-        </div>
-        <div className='mainContent'>
-        <Route exact path='/' component={NoteContainer} />
-        <Route path='/create-note' component={CreateNote} />
-        <Route exact path='/:id' component={ViewNote} />
-        <Route path='/:id/edit-note' component={EditNote} />
-        </div>
-      </div>
+        <div className="App">
+            <div className='navContainer'>
+            <Route path='/' component={NavContainer} />
+            </div>
+            <div className='mainContent'>
+            <Route exact path='/' component={NoteContainer} />
+            <Route path='/create-note' component={CreateNote} />
+            <Route exact path='/:id' component={ViewNote} />
+            <Route path='/:id/edit-note' component={EditNote} />
+            </div>
+          </div>
     );
   }
 }
