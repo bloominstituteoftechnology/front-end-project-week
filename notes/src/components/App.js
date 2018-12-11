@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetch_todos, onHandleSubmit, onUpdateTodos, onDeleteTodos } from '../actions/actions';
 import Todos from './Todos';
 import TodoForm from './TodoForm';
+import TodoSearch from './TodoSearch';
 
 class App extends Component {
   constructor() {
@@ -12,7 +13,8 @@ class App extends Component {
       tags: [],
       title: '',
       textBody: '',
-      id: ''
+      id: '',
+      filterInput: ''
     }
   }
 
@@ -42,13 +44,31 @@ class App extends Component {
     this.props.onDeleteTodos(this.state)
   }
 
+  filterTodos = (event) => {
+    event.preventDefault();
+    this.setState({
+      title: this.state.title.filter(
+        e => e.title.includes(this.state.filterInput)
+      )
+    })
+  }
+
   render() {
-    console.log('props from app render', this.props.todos)
+    // console.log('props from render', props.state)
     return (
       <div>
+        <TodoSearch 
+          handleChange={this.handleChange}
+          filterTodos={this.filterTodos}
+        />
         <div>
           {this.props.todos.map((todo, index) => {
-            return <Todos todo={todo} key={index} />
+            return <Todos 
+              todo={todo} 
+              key={index} 
+              deleteTodos={this.deleteTodos}
+              handleChange={this.handleChange}
+            />
           })}
         </div>
         <div>
@@ -66,7 +86,7 @@ class App extends Component {
 
 
 const mapStateToProps = (state) => {
-  // console.log('mapStateToProps state..', state.todosReducer)
+  console.log('mapStateToProps state..', state.todosReducer)
   return {
     todos: state.todosReducer.todos,
     fetchingTodos: state.todosReducer.fetchingTodos,

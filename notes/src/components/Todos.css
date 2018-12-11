@@ -9,7 +9,7 @@
     background: #DFE3E6;
     border-radius: 3px;
     width: 100%;
-    height: 250px;
+    height: 300px;
     margin: auto;
     padding: 3.5%;
     border-radius: 5px;
@@ -31,3 +31,22 @@
     padding: 3%;
 }
 
+.card-buttons {
+    position: relative;
+    bottom: 15%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+.delete-button {
+    width: 100px;
+    cursor: pointer;
+}
+
+.id-input {
+    padding: 2%;
+    margin: 2%;
+    border-radius: 5px;
+}
