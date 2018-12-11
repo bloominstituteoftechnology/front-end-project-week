@@ -56,6 +56,7 @@ class DeleteModel extends Component {
   deleteNote = e => {
     e.preventDefault();
     this.props.hideDeleteModel(e);
+    this.props.deleteNote(this.props.match.params.id);
     this.setState({ redirect: true });
   };
 
@@ -65,9 +66,7 @@ class DeleteModel extends Component {
   };
 
   render() {
-    console.log(this.state);
     if (this.state.redirect) {
-      console.log(this.state);
       return (
         <Redirect
           push

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { getNote } from '../store/actions';
+import { getNote, deleteNote } from '../store/actions';
 import NoteDetails from '../components/NoteDetails';
 import DeleteModel from '../components/DeleteModel';
 
@@ -156,5 +156,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getNote }
+  { getNote, deleteNote }
 )(NoteView);

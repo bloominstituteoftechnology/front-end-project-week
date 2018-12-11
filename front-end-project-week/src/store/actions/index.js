@@ -15,3 +15,10 @@ export {
   ADD_NOTE_FAILURE,
   addNote
 } from './CreateNote';
+
+export {
+  DELETE_NOTE_LOADING,
+  DELETE_NOTE_SUCCESS,
+  DELETE_NOTE_FAILURE,
+  deleteNote
+} from './DeleteNote';

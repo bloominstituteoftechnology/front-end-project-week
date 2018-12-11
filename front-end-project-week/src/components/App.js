@@ -21,7 +21,7 @@ export const urlLinks = {
   readNoteClient: `note/get/single`,
   readNoteId: `note/get/single/:id`,
   createNote: `note/create`,
-  deleteNote: 'note/delete/id',
+  deleteNote: 'note/delete',
   editNote: 'note/edit/id'
 };
 

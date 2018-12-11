@@ -7,7 +7,10 @@ import {
   FETCH_NOTE_FAILURE,
   ADD_NOTE_LOADING,
   ADD_NOTE_SUCCESS,
-  ADD_NOTE_FAILURE
+  ADD_NOTE_FAILURE,
+  DELETE_NOTE_LOADING,
+  DELETE_NOTE_SUCCESS,
+  DELETE_NOTE_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -104,6 +107,36 @@ export const rootReducer = (state = initialState, action) => {
         notes: action.payload
       };
     case ADD_NOTE_FAILURE:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchingNote: false,
+        addingNote: false,
+        deletingNote: false,
+        editingNote: false,
+        error: action.payload
+      };
+    // Delete note
+    case DELETE_NOTE_LOADING:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchingNote: false,
+        addingNote: false,
+        deletingNote: true,
+        editingNote: false
+      };
+    case DELETE_NOTE_SUCCESS:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchingNote: false,
+        addingNote: false,
+        deletingNote: false,
+        editingNote: false,
+        notes: action.payload
+      };
+    case DELETE_NOTE_FAILURE:
       return {
         ...state,
         fetchingNotes: false,
