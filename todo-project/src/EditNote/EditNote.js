@@ -46,6 +46,8 @@ export default class CreateNote extends Component {
     updateNote = (id) => {
       if(this.state.title.length >= 60) {
         window.alert('Please keep title under 60 charecters')
+      } else if (!this.state.title || !this.state.content) {
+        window.alert('Please provide a title and content')
       } else {
       axios 
         .put(`https://fsw-14-project-notes.herokuapp.com/${id}/edit-note`, {title: this.state.title, content: this.state.content})

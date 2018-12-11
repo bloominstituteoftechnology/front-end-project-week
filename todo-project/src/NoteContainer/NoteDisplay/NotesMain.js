@@ -52,7 +52,7 @@ export default class NotesMain extends Component {
     <div>
         <p style={logoutButton} onClick={this.logout} >Logout</p>
       <div>
-          <p style={titleBold} >{this.username}'s Notes:</p>
+          <p style={titleBold} >{this.username}'s notes:</p>
           <NotesList notes={this.state.notes} />
       </div>
     </div>
