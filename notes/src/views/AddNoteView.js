@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addNote, getNotes } from '../actions';
+import { addNote, getNotes, editNote } from '../actions';
 import AddNote from '../components/AddNote';
 
 function AddNoteView(props) {
@@ -10,5 +10,5 @@ function AddNoteView(props) {
 
 export default connect(
   null,
-  { addNote, getNotes }
+  { addNote, getNotes, editNote }
 )(AddNoteView);

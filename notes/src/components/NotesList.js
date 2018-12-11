@@ -2,7 +2,7 @@ import React, {Fragment} from "react";
 
 const NotesList = props => {
     console.log('rendering NotesList component');
-  if (!props.notes || props.isFetching) {
+  if (props.isFetching) {
     return <h4>Loading items...</h4>;
   }
   return (

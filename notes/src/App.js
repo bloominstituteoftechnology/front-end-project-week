@@ -7,6 +7,7 @@ import { Route, NavLink } from "react-router-dom";
 import NotesListView from './views/NotesListView';
 import AddNoteView from './views/AddNoteView';
 import Note from './components/Note';
+// import AddNote from './components/AddNote';
 
 import "./App.css";
 
@@ -39,6 +40,14 @@ class App extends Component {
         <Route
           path="/notes/:noteId"
           component={Note}
+        />
+
+        <Route
+          path="/edit-note/:noteId"
+          render={props => (
+            <AddNoteView {...props} edit/>
+          )}
+          
         />
 
       </div>

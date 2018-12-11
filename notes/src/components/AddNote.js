@@ -18,12 +18,13 @@ class AddNote extends React.Component {
   submitHandler = event => {
     event.preventDefault();
     if (this.props.edit) {
-      this.props.editNote(this.state, this.props.match.params.noteId);
+      this.props.editNote(this.props.match.params.noteId, this.state);
+
     } else {
       this.props.addNote(this.state);
-      this.props.getNotes();
+      
     }
-    
+    this.props.getNotes();
     this.props.history.push('/');
   };
 

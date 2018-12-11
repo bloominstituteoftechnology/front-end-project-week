@@ -23,11 +23,11 @@ class Note extends React.Component {
       <div className="notes-wrapper">
         <nav className="sub-nav">
           <div className="sub-nav-links">
-            <NavLink exact to="/">
+            <NavLink exact to={`/edit-note/${this.props.note._id}`}>
               <button>Edit</button>
             </NavLink>
             <NavLink to="/create-note">
-              <button>Delete</button>
+              <button>Delete Note</button>
             </NavLink>
           </div>
         </nav>
