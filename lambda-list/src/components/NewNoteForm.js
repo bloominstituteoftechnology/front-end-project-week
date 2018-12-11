@@ -23,16 +23,25 @@ const Form = styled.form`
 const NewNoteForm = props => {
     return (
 
-        <Form>
+        <Form onSubmit={props.submitHandler}>
             <input 
                 className="input"
-                type='text'
-                placeholder="Note Title"/>
+                name="title"
+                type="text"
+                placeholder="Note Title"
+                onChange={props.handleChange}
+                value={props.title}
+                />
+                
                 
             <textarea className='text-area' 
+            name="textBody"
             placeholder='Note Content' 
-            rows="30" cols="50">
-            </textarea>
+            rows="30" cols="50"
+            onChange={props.handleChange}
+            value={props.textBody}
+            />
+            
             <Button>Save</Button>
         </Form>
         

@@ -23,13 +23,12 @@ const NoteList = props => {
                     return(
                         <Note 
                         key={notes.id}
-        
                         tags={notes.tags}
                         title={notes.title}
                         textBody={notes.textBody}
                         />
                     )
-                })
+                
                 })}
                 
             </div>

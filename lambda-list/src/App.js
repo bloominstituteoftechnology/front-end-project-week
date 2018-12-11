@@ -17,16 +17,26 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('inside component did mount')
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
-        console.log(response)
         this.setState({
           note: response.data
         })
       })
 
   }
+
+  addNote = data => {
+    console.log('addnote')
+    axios.post('https://fe-notes.herokuapp.com/note/create', data)
+  .then(response => {
+    this.setState({
+        title: response.title,
+        textBody: response.textBody
+    })
+//   .catch(err => console.log(err)) 
+  })
+}
 
 
   render() {
@@ -37,8 +47,8 @@ class App extends Component {
 
         <div className="appBody">
                <Menu />
-               <Route exact path="/" render={props => <NoteList notes={this.state.note} />} />
-               <Route path="/new-note" component={NewNote} />
+               <Route exact path="/" render={props => <NoteList {...props} notes={this.state.note} />} />
+               <Route path="/new-note" render={props => <NewNote {...props} notes={this.state.note} addNote={this.addNote}/>} />
         </div> 
         
       </div>//app
