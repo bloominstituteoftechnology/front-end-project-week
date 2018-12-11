@@ -4,7 +4,8 @@ import {
     FETCH_FAILURE,
     ON_HANDLE_SUBMIT,
     UPDATE_TODOS,
-    DELETE_TODOS
+    DELETE_TODOS,
+    FILTER_TODOS
 } from '../actions/actions';
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
     addingTodos: false,
     updatingTodos: false,
     deletingTodos: false,
+    filteringTodos: false,
     error: null
 }
 
@@ -37,6 +39,7 @@ export const todosReducer = (state = initialState, action) => {
                 ...state,
                 fetchingTodos: false,
                 addingTodos: false,
+                filteringTodos: false,
                 error: null,
                 todos: action.payload
             }
@@ -66,7 +69,12 @@ export const todosReducer = (state = initialState, action) => {
                 ...state,
                 fetchingTodos: false,
                 updatingTodos: false,
-                deletingTodos: true
+                deletingTodos: true,
+            }
+        case FILTER_TODOS:
+            return {
+                ...state,
+                filteringTodos: true
             }
         default:
             return state;
