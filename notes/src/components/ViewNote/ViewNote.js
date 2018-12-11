@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Modal from '../Modal/Modal';
-import { NoteView, NoteTitle, NoteLinkContainer, NoteLink, NoteTextContainer, NoteContent, NoteLinkText } from './styles';
+import {
+  NoteView,
+  NoteTitle,
+  NoteLinkContainer,
+  NoteLink,
+  NoteTextContainer,
+  NoteContent,
+  NoteLinkText,
+} from './styles';
 
 export default class ViewNote extends Component {
   state = {
@@ -29,18 +37,16 @@ export default class ViewNote extends Component {
 
   deleteNote = () => {
     // const result = window.confirm('Are you sure you want to delete this note?');
-    this.displayModal()
-      axios
-        .delete(
-          `http://localhost:9000/note/delete/${this.state.note.id}`
-        )
-        .then(() => this.props.history.push('/'))
-        .catch((error) => console.error(error));
+    this.displayModal();
+    axios
+      .delete(`http://localhost:9000/note/delete/${this.state.note.id}`)
+      .then(() => this.props.history.push('/'))
+      .catch((error) => console.error(error));
   };
 
   displayModal = () => {
-    this.setState({ ...this.state, showModal: !this.state.showModal })
-  }
+    this.setState({ ...this.state, showModal: !this.state.showModal });
+  };
 
   confirmDelete = () => {
     this.setState({ ...this.state, confirm: true });

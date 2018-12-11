@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { StyledH3, ViewContainer, StyledP, StyledLink } from '../../mixins';
-import { colors } from '../../variables'
+import { colors } from '../../variables';
 
 export const NoteView = styled(ViewContainer)`
-padding: 0 38px 64px 30px;
-@media (max-width: 700px) {
+  padding: 0 38px 64px 30px;
+  @media (max-width: 700px) {
     padding-top: 44px;
   }
-  `;
+`;
 
 export const NoteLinkContainer = styled.div`
   position: sticky;

@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { StyledEditView, StyledEditForm, NoteTitleInput, NoteContentInput, SaveEditedButton, EditTitle } from './styles';
+import {
+  StyledEditView,
+  StyledEditForm,
+  NoteTitleInput,
+  NoteContentInput,
+  SaveEditedButton,
+  EditTitle,
+} from './styles';
 
 export default class EditNote extends Component {
   state = {
@@ -26,10 +33,7 @@ export default class EditNote extends Component {
     const editedNote = { title, textBody };
     if (this.state.title.length > 0 && this.state.textBody.length > 0) {
       axios
-        .put(
-          `http://localhost:9000/note/edit/${this.state.id}`,
-          editedNote
-        )
+        .put(`http://localhost:9000/note/edit/${this.state.id}`, editedNote)
         .then(() => {
           this.fetchData(this.state.id);
           this.props.history.push(`/note/${this.state.id}`);

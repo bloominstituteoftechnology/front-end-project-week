@@ -58,7 +58,7 @@ export const ModalDeleteButton = styled(Button)`
     width: 100%;
     margin-bottom: 10px;
   }
-  `;
+`;
 
 export const ModalNoButton = styled(Button)`
   @media (max-width: 940px) {

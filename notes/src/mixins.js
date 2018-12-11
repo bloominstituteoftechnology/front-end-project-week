@@ -23,7 +23,7 @@ export const StyledLink = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   border-radius: 7px;
-  `;
+`;
 
 export const Button = styled.div`
   cursor: pointer;
@@ -55,7 +55,80 @@ export const StyledP = styled(Markdown)`
   font-size: 1.6rem;
   color: ${colors.textColor};
   margin-top: 9px;
-  & p, th, td, div, span, applet, object, iframe, blockquote, a, pre, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
+  & p,
+  th,
+  td,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  blockquote,
+  a,
+  pre,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
     font-size: 1.6rem;
     line-height: 2.2rem;
   }
@@ -83,7 +156,6 @@ export const StyledP = styled(Markdown)`
     font-size: 1.6rem;
     line-height: 1.6rem;
   }
-  
 `;
 
 export const StyledForm = styled.form`
@@ -108,7 +180,7 @@ export const StyledInput = styled.input`
   @media (max-width: 700px) {
     padding: 6px;
   }
-  `;
+`;
 
 export const StyledTextarea = styled.textarea`
   width: 100%;

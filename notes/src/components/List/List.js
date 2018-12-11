@@ -44,29 +44,22 @@ export default class List extends Component {
 
   sortButton = () => {
     if (this.state.sortReverse) {
-      return (
-        'Old → New'
-      );
+      return 'Old → New';
     } else if (!this.state.sortReverse) {
-      return (
-        'New → Old'
-      );
-    }
-  };
-  
-  sortMobileButton = () => {
-    if (this.state.sortReverse) {
-      return (
-        'Oldest'
-      );
-    } else if (!this.state.sortReverse) {
-      return (
-        'Newest'
-      );
+      return 'New → Old';
     }
   };
 
-  handleSortToggle = () => this.setState({ sortReverse: !this.state.sortReverse });
+  sortMobileButton = () => {
+    if (this.state.sortReverse) {
+      return 'Oldest';
+    } else if (!this.state.sortReverse) {
+      return 'Newest';
+    }
+  };
+
+  handleSortToggle = () =>
+    this.setState({ sortReverse: !this.state.sortReverse });
 
   handleOldestFirst = () => this.setState({ sortReverse: false });
 
@@ -91,8 +84,12 @@ export default class List extends Component {
             onChange={this.handleChange}
             value={this.state.search}
           />
-          <NewOldButton onClick={this.handleSortToggle}>{this.sortButton()}</NewOldButton>
-          <NewOldMobileButton onClick={this.handleSortToggle}>{this.sortMobileButton()}</NewOldMobileButton>
+          <NewOldButton onClick={this.handleSortToggle}>
+            {this.sortButton()}
+          </NewOldButton>
+          <NewOldMobileButton onClick={this.handleSortToggle}>
+            {this.sortMobileButton()}
+          </NewOldMobileButton>
         </SearchBar>
         <ListTitle>Your Notes:</ListTitle>
         <StyledListDiv>

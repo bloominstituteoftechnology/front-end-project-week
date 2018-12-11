@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { CreateTitle, StyledCreateView, SaveNewButton, StyledCreateForm, NoteTitleInput, NoteContentInput } from './styles';
+import {
+  CreateTitle,
+  StyledCreateView,
+  SaveNewButton,
+  StyledCreateForm,
+  NoteTitleInput,
+  NoteContentInput,
+} from './styles';
 
 export default class CreateNote extends Component {
   state = {
@@ -30,7 +37,9 @@ export default class CreateNote extends Component {
         })
         .catch((error) => console.error(error));
     } else {
-      window.alert('Please fill in both Title and Content fields to submit a new note');
+      window.alert(
+        'Please fill in both Title and Content fields to submit a new note'
+      );
     }
   };
 
