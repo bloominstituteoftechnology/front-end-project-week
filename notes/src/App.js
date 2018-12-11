@@ -4,6 +4,7 @@ import './App.css';
 
 // Views
 import NotesView from './views/NotesView';
+import NoteView from './views/NoteView';
 
 class App extends Component {
   render() {
@@ -18,6 +19,12 @@ class App extends Component {
               exact
               path='/'
               component={NotesView}
+            />
+
+            <Route 
+              exact
+              path='/notes/:noteId'
+              component={NoteView}
             />
           </Fragment>
       </div>
