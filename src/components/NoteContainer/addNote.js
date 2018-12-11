@@ -3,7 +3,7 @@ import axios from 'axios';
 import './NoteEdit.css';
 
 
-const url = process.env.REACT_APP_DB_URL; 
+const url = process.env.REACT_APP_DB_URL;
 
 
 class AddNote extends Component {
@@ -15,7 +15,6 @@ class AddNote extends Component {
         };
     }
 
-
     handleInput = event => {
         this.setState({ [event.target.name]: event.target.value })
     }
@@ -23,9 +22,16 @@ class AddNote extends Component {
     addNote = event => {
         event.preventDefault();
         const newNote = { title: this.state.title, textBody: this.state.textBody }
+        const token = localStorage.getItem('bit_token');
+        const options = {
+            headers: {
+                authorization: token,
+            },
+        };
         axios
             .post(`${url}/note/create`, newNote)
             .then(response => {
+
                 console.log('ADDING', response);
                 this.props.changeState(response.data)
             })
@@ -41,6 +47,7 @@ class AddNote extends Component {
     }
 
     render() {
+        console.log('user', this.state);
         return (
             <div className='add-note-wrapper'>
                 <form onSubmit={this.addNote} className='edit-note'>
