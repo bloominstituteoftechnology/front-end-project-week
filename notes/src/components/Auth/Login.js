@@ -1,16 +1,55 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { authLogin } from '../../actions'
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
+
+    componentDidUpdate() {
+        if (this.props.authenticated) {
+            this.props.history.push('/');
+        }
+    }
+
+    changeHandler = e => {
+        e.preventDefault();
+        const { name, value } = e.target;
+
+        this.setState({[name]: value})
+    }
+    
     render() {
         return (
-            <Container>
+            <Container 
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    this.props.authLogin({...this.state})
+                }}>
                 <StyledLabel htmlFor="username">Username</StyledLabel>
-                <StyledInput type="text" name="username" id="username"/>
+                <StyledInput 
+                    type="text" 
+                    name="username" 
+                    id="username"
+                    value={this.state.username}
+                    onChange={this.changeHandler}
+                />
 
                 <StyledLabel htmlFor="password">Password</StyledLabel>
-                <StyledInput type="text" name="password" id="password"/>
+                <StyledInput 
+                    type="text" 
+                    name="password" 
+                    id="password"
+                    value={this.state.password}
+                    onChange={this.changeHandler}
+                />
                 
                 <StyledButton type="submit">Login</StyledButton>
                 <Register to="/register">Register</Register>
@@ -19,7 +58,14 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapStateToProps = state => {
+    const { authenticated } = state.auth;
+    return {
+        authenticated
+    }
+}
+
+export default connect(mapStateToProps, { authLogin })(Login);
 
 const Register = styled(NavLink)`
     color: #bababa;

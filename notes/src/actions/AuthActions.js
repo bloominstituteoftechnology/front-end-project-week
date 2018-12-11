@@ -1,5 +1,4 @@
 import axios from 'axios';
-import jwt from 'jsonwebtoken';
 
 const keyName = process.env.REACT_APP_TOKEN_ITEM;
 const url = process.env.REACT_APP_API_URL;
@@ -12,7 +11,11 @@ export const AUTH_REGISTER_SUCCESS = 'auth_register_success';
 export const AUTH_REGISTER_FAILURE = 'auth_register_failure';
 export const AUTH_LOGOUT = 'auth_logout'
 
-
+export const tokenExists = () => {
+    return {
+        type: AUTH_LOGIN_SUCCESS
+    }
+}
 
 export const authLogin = credentials => async dispatch => {
     try {
@@ -20,18 +23,17 @@ export const authLogin = credentials => async dispatch => {
             type: AUTH_LOGIN
         })
         const response = await axios.post(`${url}/auth/login`, credentials);
+
         const token = response.token;
         localStorage.setItem(keyName, token);
-        const userInfo = jwt.decode(token);
 
         dispatch({
-            type: AUTH_LOGIN_SUCCESS,
-            payload: userInfo
+            type: AUTH_LOGIN_SUCCESS
         })
 
     } catch(err) {
         dispatch({
-            type: AUTH_LOGIN_SUCCESS,
+            type: AUTH_LOGIN_FAILURE,
             payload: {error: err}
         })
     }
@@ -45,16 +47,14 @@ export const authRegister = credentials => async dispatch => {
         const response = await axios.post(`${url}/auth/register`, credentials);
         const token = response.token;
         localStorage.setItem(keyName, token);
-        const userInfo = jwt.decode(token);
 
         dispatch({
-            type: AUTH_REGISTER_SUCCESS,
-            payload: userInfo
+            type: AUTH_REGISTER_SUCCESS
         })
 
     } catch(err) {
         dispatch({
-            type: AUTH_REGISTER_SUCCESS,
+            type: AUTH_REGISTER_FAILURE,
             payload: {error: err}
         })
     }

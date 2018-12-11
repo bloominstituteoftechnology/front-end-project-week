@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { tokenExists } from '../actions';
+
+const keyName = process.env.REACT_APP_TOKEN_ITEM;
+
 export default ChildComponent => {
     class ComposedComponent extends Component {
         
@@ -13,7 +17,13 @@ export default ChildComponent => {
         }
 
         checkForAuth() {
-            if (!this.props.authenticated) {
+            const key = localStorage.getItem(keyName);
+
+            if (key) {
+                this.props.tokenExists();
+            } else if (this.props.authenticated) {
+                this.props.history.push('/');
+            } else {
                 this.props.history.push('/login');
             }
         }
@@ -30,5 +40,5 @@ export default ChildComponent => {
         return { authenticated };
     }
 
-    return connect(mapStateToProps, {})(ComposedComponent);
+    return connect(mapStateToProps, { tokenExists })(ComposedComponent);
 };
