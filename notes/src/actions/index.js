@@ -58,7 +58,8 @@ export const fetchUniqueData = id => dispatch => {
         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(resp => {
             return dispatch({
-                type: FETCH_ONE_SUCCESS
+                type: FETCH_ONE_SUCCESS,
+                payload: resp.data
             });
         })
         .catch(err => dispatch({

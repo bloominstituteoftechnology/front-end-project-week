@@ -21,7 +21,13 @@ class NoteView extends Component {
     }
 
     render() {
-        return <Note note={this.props.note}/>
+        if(this.props.note){
+            return <Note note={this.props.note}/>
+        } else if (this.props.error){
+            return <h1>No note found...</h1>
+        } else {
+            return <h1>Loading note...</h1>
+        }
     }
 }
 

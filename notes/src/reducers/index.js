@@ -61,6 +61,7 @@ const reducer = (state = initialState, action) => {
         case FETCH_ONE_SUCCESS:
             return {
                 ...state,
+                fetchingNote: false,
                 note: action.payload
             }
 

@@ -17,9 +17,13 @@ class NotesView extends Component {
     }
 
     render(){
-        return <Notes
-            notes={this.props.notes}
-        />
+        if(this.props.notes){
+            return <Notes notes={this.props.notes} />
+        } else if (this.props.error){
+            return <h1>No note found...</h1>
+        } else {
+            return <h1>Loading note...</h1>
+        }
     }
 }
 
