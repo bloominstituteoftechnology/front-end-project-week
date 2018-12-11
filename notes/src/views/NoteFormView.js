@@ -13,15 +13,12 @@ import {
 } from '../actions';
 
 // Component
+import NoteForm from '../components/NoteForm';
 
 
 class NoteFormView extends Component {
-    componentDidMount = () => {
-        this.props.fetchUniqueData(this.props.match.params.noteId)
-    }
-
     render() {
-        return <h1>Note Form View</h1>
+        return <NoteForm createNote={this.props.createNote} history={this.props.history}/>
     }
 }
 

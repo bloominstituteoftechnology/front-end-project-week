@@ -5,6 +5,7 @@ import './App.css';
 // Views
 import NotesView from './views/NotesView';
 import NoteView from './views/NoteView';
+import NoteFormView from './views/NoteFormView';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <div className="App">
           <nav>
             <Link to='/'>Home</Link>  
+            <Link to='/note/new'>New Note</Link> 
           </nav>
 
           <Fragment>
@@ -22,9 +24,14 @@ class App extends Component {
             />
 
             <Route 
-              exact
               path='/note/:noteId'
               component={NoteView}
+            />
+
+            <Route 
+              exact
+              path='/note/new'
+              component={NoteFormView}
             />
           </Fragment>
       </div>

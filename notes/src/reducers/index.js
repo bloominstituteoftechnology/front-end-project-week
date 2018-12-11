@@ -31,12 +31,12 @@ const reducer = (state = initialState, action) => {
             }
 
         case CREATE_SUCCESS:
-            console.log(action.payload)
             return {
                 ...state,
+                notes: state.notes,
                 creatingNote: false
             }
-            
+
         case FETCH_NOTES:
             return {
                 ...state,

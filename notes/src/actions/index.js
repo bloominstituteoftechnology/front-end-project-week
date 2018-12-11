@@ -16,8 +16,9 @@ export const FETCH_FAIL = 'FETCH_FAIL';
 export const createNote = newNote => dispatch => {
     dispatch({type: CREATE_NOTE});
     axios
-        .get(`https://fe-notes.herokuapp.com/note/create`, newNote)
+        .post(`https://fe-notes.herokuapp.com/note/create`, newNote)
         .then(resp => {
+            console.log(dispatch)
             dispatch({
                 type: CREATE_SUCCESS,
                 payload: resp
@@ -57,8 +58,7 @@ export const fetchUniqueData = id => dispatch => {
         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(resp => {
             return dispatch({
-                type: FETCH_ONE_SUCCESS,
-                payload: resp.data
+                type: FETCH_ONE_SUCCESS
             });
         })
         .catch(err => dispatch({
