@@ -41,6 +41,7 @@ class SingleNoteView extends Component {
 
   EditClickHandler = event => {
     event.preventDefault();
+    console.log('editing a note');
     this.props.editingNote();
     this.props.history.push('/front-end-project-week/edit-note');
   };
