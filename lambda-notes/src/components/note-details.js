@@ -11,19 +11,13 @@ class NoteDetails extends Component {
   }
   componentDidMount() {
     axios
-      .get(
-        `https://fe-notes.herokuapp.com/note/get/${this.props.match.params._id}`
-      )
+      .get(`http://localhost:9000/notes/${this.props.match.params.id}`)
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
   clickHandler = event => {
     event.preventDefault();
-    axios.delete(
-      `https://fe-notes.herokuapp.com/note/delete/${
-        this.props.match.params._id
-      }`
-    );
+    axios.delete(`http://localhost:9000/notes/${this.props.match.params.id}`);
     alert("Note Deleted (Im not lying, it's gone, go check for yourself)");
   };
 
@@ -32,10 +26,10 @@ class NoteDetails extends Component {
       <div>
         <div className="detailedNote">
           <h1>{this.state.notes.title}</h1>
-          <p>{this.state.notes.textBody}</p>
+          <p>{this.state.notes.content}</p>
         </div>
         <div className="buttonBar">
-          <NavLink to={`/edit-form/${this.state.notes._id}`}>Edit</NavLink>
+          <NavLink to={`/edit-form/${this.state.notes.id}`}>Edit</NavLink>
           <button onClick={this.clickHandler}>Delete</button>
         </div>
       </div>

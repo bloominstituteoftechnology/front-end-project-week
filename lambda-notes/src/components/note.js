@@ -4,7 +4,7 @@ const Note = props => {
   return (
     <div className="noteCard">
       <h3>{props.title}</h3>
-      <p>{props.textBody}</p>
+      <p>{props.content}</p>
     </div>
   );
 };
@@ -12,8 +12,8 @@ const Note = props => {
 Note.defaultProps = {
   tags: [],
   title: "",
-  textBody: "",
-  _id: null
+  content: "",
+  id: null
 };
 
 export default Note;

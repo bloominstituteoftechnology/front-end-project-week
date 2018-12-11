@@ -6,7 +6,7 @@ class EditForm extends Component {
     super(props);
     this.state = {
       title: "",
-      textBody: "",
+      content: "",
       confirmDeleteDisplay: null
     };
   }
@@ -21,7 +21,7 @@ class EditForm extends Component {
         }`,
         {
           title: this.state.title,
-          textBody: this.state.textBody
+          content: this.state.content
         }
       )
       .then(response => {
@@ -33,7 +33,7 @@ class EditForm extends Component {
     console.log(this.props.match.params._id);
     this.setState({
       title: "",
-      textBody: ""
+      content: ""
     });
   };
 
@@ -57,8 +57,8 @@ class EditForm extends Component {
           <input
             onChange={this.changeHandler}
             placeholder="Note Content"
-            value={this.state.textBody}
-            name="textBody"
+            value={this.state.content}
+            name="content"
           />
 
           <button type="submit">Save</button>

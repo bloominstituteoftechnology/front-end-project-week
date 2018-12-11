@@ -6,17 +6,17 @@ class NoteForm extends Component {
     super(props);
     this.state = {
       title: "",
-      textBody: ""
+      content: ""
     };
   }
 
   handleSubmitNote = event => {
     event.preventDefault();
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", this.state)
+      .post("http://localhost:9000/notes", this.state)
       .then(response => console.log(response))
       .catch(error => console.log(error));
-    this.setState({ title: "", textBody: "" });
+    this.setState({ title: "", content: "" });
   };
 
   changeHandler = event => {
@@ -37,8 +37,8 @@ class NoteForm extends Component {
           <input
             onChange={this.changeHandler}
             placeholder="Note Content"
-            value={this.state.textBody}
-            name="textBody"
+            value={this.state.content}
+            name="content"
           />
 
           <button type="submit">Save</button>

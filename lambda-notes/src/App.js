@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
-import { Route, NavLink } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 
 import SideBar from "./components/side-bar";
 import NoteList from "./components/note-list";
 import NoteForm from "./components/note-form";
-import Note from "./components/note";
 import NoteDetails from "./components/note-details";
 import EditForm from "./components/edit-form";
 
@@ -28,8 +27,8 @@ class App extends Component {
           path="/note-form"
           render={() => <NoteForm onSubmitHelper={this.onSubmitHelper} />}
         />
-        <Route path="/note-details/:_id" component={NoteDetails} />
-        <Route path="/edit-form/:_id" component={EditForm} />
+        <Route path="/note-details/:id" component={NoteDetails} />
+        <Route path="/edit-form/:id" component={EditForm} />
       </div>
     );
   }

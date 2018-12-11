@@ -12,7 +12,7 @@ class NoteList extends Component {
   }
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:9000/notes")
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
@@ -24,15 +24,15 @@ class NoteList extends Component {
           {this.state.notes.map(note => {
             return (
               <Link
-                key={note._id}
+                key={note.id}
                 className="LinkStyle"
-                to={`/note-details/${note._id}`}
+                to={`/note-details/${note.id}`}
               >
                 <Note
                   title={note.title}
-                  id={note._id}
+                  id={note.id}
                   tags={note.tags}
-                  textBody={note.textBody}
+                  content={note.content}
                 />
               </Link>
             );
