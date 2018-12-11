@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import styleVars from '../helpers/styleVars';
 import NoteForm from '../components/NoteForm';
@@ -13,13 +13,13 @@ const Div = styled.div`
     margin-left: 4px;
 `;
 
-export default class AddNote extends Component {
-    render() {
-        return (
-            <Div>
-                <H1>Create New Note:</H1>
-                <NoteForm />
-            </Div>
-        );
-    }
-}
+const AddNote = props => {
+    return (
+        <Div>
+            <H1>Create New Note:</H1>
+            <NoteForm post={props.post} />
+        </Div>
+    );
+};
+
+export default AddNote;
