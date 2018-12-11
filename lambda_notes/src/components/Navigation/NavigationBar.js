@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Container, Wrapper, Heading, Button } from "./Styles";
 
-const NavigationBar = () => {
+const NavigationBar = props => {
   return (
     <Container>
       <Wrapper>
@@ -13,6 +13,11 @@ const NavigationBar = () => {
         </Link>
         <Link to="/create" style={{ width: "100%" }}>
           <Button type="button">+ Create New Note</Button>
+        </Link>
+        <Link to="/login" style={{ width: "100%" }}>
+          <Button type="button" onClick={props.logOut}>
+            Log Out
+          </Button>
         </Link>
       </Wrapper>
     </Container>
