@@ -7,22 +7,22 @@ const DivNavBar = styled.div`
   background-color: #d7d7d7;
   flex-direction: column;
   text-align: left;
-  max-width: 23%;
+  width: 195px;
   height: 100%;
   display: flex;
   position: fixed;
-  padding: 2rem 1.6%;
+  padding: 2rem 1.8%;
   line-height: 0.9;
 `;
 
 export const Button = styled.button`
   background-color: #2ac0c4;
   color: white;
-  padding: 10px;
+  padding: 1.2rem 1%;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.5rem;
   width: 100%;
-  margin: 10px 0;
+  margin: 0.9rem 0;
 `;
 
 const NavBar = () => {

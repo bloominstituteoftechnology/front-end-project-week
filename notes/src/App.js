@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
   }
       .App {
         max-width: 880px;
-      display: flex;
+      //display: flex;
     }
   }
 `;

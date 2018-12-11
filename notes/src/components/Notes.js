@@ -7,6 +7,18 @@ const NotesWrapper = styled.div`
   text-align: left;
   margin-left: 28%;
   padding-top: 6rem;
+
+  @media (min-width: 1200px) {
+    margin-left: 30%;
+  }
+
+  @media (min-width: 1400px) {
+    margin-left: 33%;
+  }
+
+  form {
+    padding-left: 1.5%;
+  }
 `;
 
 const DivNotes = styled.div`
@@ -37,8 +49,8 @@ const Notes = props => {
 
   return (
     <NotesWrapper>
-      <h2>Your Notes:</h2>
       <form onSubmit={e => props.clearSearchText()}>
+        <h2>Your Notes:</h2>
         <input
           type="text"
           placeholder="search"

@@ -7,26 +7,34 @@ import {Button} from './NavBar';
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  border: 1px dotted blue;
-  background-color: #F2F1F2;
-  margin-left: 23%;
-  padding-top: 32px;
+  background-color: #f2f1f2;
+  margin-left: 28%;
+  padding-top: 5.9rem;
+  padding-left: 0.5rem;
+  width: 96%;
+
+  h2 {
+    font-size: 2.1rem;
+  }
 `;
 
 const StyledInput = styled.input`
-  padding: 10px 5px;
-  width: 40%;
+  border-radius: 5px;
   margin-top: 15px;
   margin-bottom: 10px;
+  padding: 1.4rem 1.7%;
+  width: 55%;
 `;
 
 const StyledTextArea = styled.textarea`
-  height: 30rem;
-  width: 80%;
+  height: 31rem;
+  width: 90%;
+  border-radius: 5px;
+  padding: 1.9rem 3.4%;
 `;
 
 const FormButton = styled(Button)`
-  width: 20%;
+  width: 31.5%;
   //padding: 5px 10px;
 `;
 
@@ -74,13 +82,14 @@ class NoteForm extends React.Component {
     this.props.history.push('/notes');
   };
 
-  makeInput = (name, type) => {
+  makeInput = (name, type, placeholder = '') => {
     return (
       <StyledInput
         type={type}
         name={name}
         value={this.state[name]}
         onChange={this.handleChange}
+        placeholder={placeholder}
       />
     );
   };
@@ -91,12 +100,13 @@ class NoteForm extends React.Component {
     const buttonText = this.props.isEditing ? 'Update' : 'Save';
     return (
       <StyledForm onSubmit={this.handleSubmit}>
-        <h2>Create a Note</h2>
-        {this.makeInput('title', 'text')}
+        <h2>Create New Note</h2>
+        {this.makeInput('title', 'text', 'Note Title')}
         <StyledTextArea
           name="textBody"
           value={this.state.textBody}
           onChange={this.handleChange}
+          placeholder="Note Content"
         />
         <FormButton>{buttonText}</FormButton>
       </StyledForm>

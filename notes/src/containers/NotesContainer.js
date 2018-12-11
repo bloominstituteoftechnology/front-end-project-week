@@ -9,7 +9,7 @@ class NotesContainer extends React.Component {
     filteredNotes: [],
     filterOptions: {
       shouldSort: true,
-      threshold: 0.4,
+      threshold: 0.6,
       includeMatches: true, //don't forget to use this
       minMatchCharLength: 2,
       keys: ['title', 'textBody'],
