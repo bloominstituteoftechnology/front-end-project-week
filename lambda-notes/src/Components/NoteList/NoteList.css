@@ -16,3 +16,7 @@
     grid-gap: 2rem;
 }
 
+.note-list-container .note-list a { 
+    color: var(--black);
+    text-decoration: none;
+}

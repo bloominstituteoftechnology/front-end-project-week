@@ -28,9 +28,10 @@ class App extends Component {
             />
 
             <Route path="/add-note" render={props => <NoteForm {...props} />} />
-            
+
             <Route
-              exact path="/note/:id"
+              exact
+              path="/note/:id"
               render={props => <Note {...props} notes={this.props.notes} />}
             />
           </div>
