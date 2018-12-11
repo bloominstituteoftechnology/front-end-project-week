@@ -243,13 +243,16 @@
   background: grey;
   color: white;
   font-size: 15px;
+  font-weight: bold;
   padding: 10px 2%;
+  border-radius: 10px;
 }
 
 .note-full-view .tag-wrapper .tag .tag-delete-button {
   position: fixed;
   color: red;
   margin: -8px 0 0 -20px;
+  cursor: pointer;
 }
 
 .edit-note-wrapper {

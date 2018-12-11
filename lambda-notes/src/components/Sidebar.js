@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { Route } from "react-router-dom";
+
+import TagList from "./TagList";
+
 class Sidebar extends React.Component {
   //removes username from local storage (required for 'login') and forces a window refresh to kick the user back to the login page
   logout = () => {
@@ -22,17 +26,17 @@ class Sidebar extends React.Component {
         <button className="logout-button" onClick={this.logout}>
           Logout
         </button>
-        <section className="tag-wrapper">
-          {this.props.tags.map(tag => (
-            <div
-              className="tag"
-              key={tag.id}
-              onClick={event => this.props.filterByTag(event, tag.text)}
-            >
-              {tag.text}
-            </div>
-          ))}
-        </section>
+        <Route
+          exact
+          path="/"
+          render={ownProps => (
+            <TagList
+              {...ownProps}
+              tags={this.props.tags}
+              filterByTag={this.props.filterByTag}
+            />
+          )}
+        />
       </div>
     );
   }
