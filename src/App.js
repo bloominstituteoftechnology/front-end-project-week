@@ -13,14 +13,15 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      sorted: false,
+      toSort: false,
       username: '',
     }
   }
 
   // brings in the notes from the server
   componentDidMount() {
-      axios.get('https://vellumnotes.herokuapp.com/note/get/all')
+    const notes = this.state.toSort ? 'https://vellumnotes.herokuapp.com/note/get/all/sort' : 'https://vellumnotes.herokuapp.com/note/get/all';
+      axios.get(notes)
       .then(res => this.setState({
         notes: res.data
        }))
@@ -29,7 +30,8 @@ class App extends Component {
 
   // brings in the notes from the server (mindful of updates)
   componentDidUpdate() {
-      axios.get('https://vellumnotes.herokuapp.com/note/get/all')
+    const notes = this.state.toSort ? 'https://vellumnotes.herokuapp.com/note/get/all/sort' : 'https://vellumnotes.herokuapp.com/note/get/all';
+      axios.get(notes)
         .then(res => this.setState({
           notes: res.data
         }))
@@ -45,13 +47,25 @@ class App extends Component {
     }
   }
 
+  sorter = event => {
+    if (event.target.checked) {
+      this.setState({
+        toSort: true
+      })
+    } else {
+      this.setState({
+        toSort: false
+      })
+    }
+  }
+
   render() {
     // Just some basic routes with render props. The only real prop passed down is notes from state (from the server).
-    if (this.state.username === '') {
-      return(
-        <Login submitHandler={this.submitHandler}/>
-      )
-    }
+    // if (this.state.username === '') {
+    //   return(
+    //     <Login submitHandler={this.submitHandler}/>
+    //   )
+    // }
 
     return (
       <div className="App">
@@ -60,7 +74,7 @@ class App extends Component {
         <Route
           exact path="/"
           render={props => (
-            <Notes {...props} notes={this.state.notes} />
+            <Notes {...props} notes={this.state.notes} sorter={this.sorter}/>
           )} 
         />
 

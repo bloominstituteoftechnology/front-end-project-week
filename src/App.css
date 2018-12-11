@@ -78,6 +78,27 @@ nav {
   transition: all 0.2s;
 }
 
+#sort {
+  position: absolute;
+  padding: 5px 10px;
+  text-align: center;
+  top: 37px;
+  right: 210px;
+}
+
+#sort-label {
+  position: absolute;
+  padding: 5px 10px;
+  text-align: left;
+  top: 30px;
+  right: 205px; 
+  font-size: 14px;
+  border: 1px solid #0d1c49;
+  background: white;
+  border-radius: 3px;
+  width: 110px;
+}
+
 .notes {
   display: flex;
   flex-flow: row wrap;
