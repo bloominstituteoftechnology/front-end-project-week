@@ -5,7 +5,7 @@ const Notes = props => {
         <div className='posts-container'>
             <h1>Notes Component</h1>
 
-            {props.notes.map(n => <p>{n.title}</p>)}
+            {props.notes.map((n, i) => <p key={i}>{n.title}</p>)}
         </div>
     )
 }

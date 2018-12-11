@@ -1,6 +1,7 @@
 // Action Type Imports
 import { 
     FETCH_NOTES,
+    FETCH_NOTE,
     FETCH_ALL_SUCCESS,
     FETCH_ONE_SUCCESS,
     FETCH_FAIL,
@@ -27,12 +28,25 @@ const reducer = (state = initialState, action) => {
                 fetchingNotes: true
             }
 
+        case FETCH_NOTE:
+            return {
+                ...state,
+                fetchingNote: true,
+                note: null
+            }
+
         case FETCH_ALL_SUCCESS:
             return {
                 ...state,
                 fetchingNotes: false,
                 notes: action.payload,
                 error: null
+            }
+
+        case FETCH_ONE_SUCCESS:
+            return {
+                ...state,
+                note: action.payload
             }
 
         case FETCH_FAIL:
