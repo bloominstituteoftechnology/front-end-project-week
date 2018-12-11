@@ -115,7 +115,9 @@ class NoteView extends Component {
               <HeaderNote>
                 <NavNoteLinks>
                   <LinkEdit
-                    to=''
+                    to={`${this.props.urlLinks.home}${
+                      this.props.urlLinks.editNoteClient
+                    }/${this.props.note._id}`}
                     showdeletemodel={this.state.showDeleteModel.toString()}
                   >
                     <ButtonLink

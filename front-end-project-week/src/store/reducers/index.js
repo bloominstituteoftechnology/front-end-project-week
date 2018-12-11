@@ -10,7 +10,10 @@ import {
   ADD_NOTE_FAILURE,
   DELETE_NOTE_LOADING,
   DELETE_NOTE_SUCCESS,
-  DELETE_NOTE_FAILURE
+  DELETE_NOTE_FAILURE,
+  EDIT_NOTE_LOADING,
+  EDIT_NOTE_SUCCESS,
+  EDIT_NOTE_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -26,7 +29,7 @@ const initialState = {
 
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    // List of notes
+    // List of Notes
     case FETCH_NOTES_LOADING:
       return {
         ...state,
@@ -56,7 +59,7 @@ export const rootReducer = (state = initialState, action) => {
         editingNote: false,
         error: action.payload
       };
-    // Single note
+    // Single Note
     case FETCH_NOTE_LOADING:
       return {
         ...state,
@@ -86,7 +89,7 @@ export const rootReducer = (state = initialState, action) => {
         editingNote: false,
         error: action.payload
       };
-    // Create note
+    // Create Note
     case ADD_NOTE_LOADING:
       return {
         ...state,
@@ -116,7 +119,7 @@ export const rootReducer = (state = initialState, action) => {
         editingNote: false,
         error: action.payload
       };
-    // Delete note
+    // Delete Note
     case DELETE_NOTE_LOADING:
       return {
         ...state,
@@ -137,6 +140,36 @@ export const rootReducer = (state = initialState, action) => {
         notes: action.payload
       };
     case DELETE_NOTE_FAILURE:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchingNote: false,
+        addingNote: false,
+        deletingNote: false,
+        editingNote: false,
+        error: action.payload
+      };
+    // Edit Note
+    case EDIT_NOTE_LOADING:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchingNote: false,
+        addingNote: false,
+        deletingNote: false,
+        editingNote: true
+      };
+    case EDIT_NOTE_SUCCESS:
+      return {
+        ...state,
+        fetchingNotes: false,
+        fetchingNote: false,
+        addingNote: false,
+        deletingNote: false,
+        editingNote: false,
+        notes: action.payload
+      };
+    case EDIT_NOTE_FAILURE:
       return {
         ...state,
         fetchingNotes: false,

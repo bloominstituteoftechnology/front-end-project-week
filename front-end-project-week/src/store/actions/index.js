@@ -22,3 +22,10 @@ export {
   DELETE_NOTE_FAILURE,
   deleteNote
 } from './DeleteNote';
+
+export {
+  EDIT_NOTE_LOADING,
+  EDIT_NOTE_SUCCESS,
+  EDIT_NOTE_FAILURE,
+  editNote
+} from './EditNote';

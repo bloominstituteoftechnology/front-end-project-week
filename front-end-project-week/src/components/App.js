@@ -5,6 +5,7 @@ import SideNav from './SideNav';
 import ListNotesView from '../views/ListNotesView';
 import NoteView from '../views/NoteView';
 import CreateNoteView from '../views/CreateNoteView';
+import EditNoteView from '../views/EditNoteView';
 
 /***************************************************************************************************
  ********************************************* Variables *******************************************
@@ -16,13 +17,15 @@ const server = isTestServerOn
 export const urlLinks = {
   server: server,
   home: '/',
-  readNoteServer: `note/get`,
   readNotes: `note/get/all`,
+  readNoteServer: `note/get`,
   readNoteClient: `note/get/single`,
   readNoteId: `note/get/single/:id`,
   createNote: `note/create`,
   deleteNote: 'note/delete',
-  editNote: 'note/edit/id'
+  editNoteServer: 'note/edit',
+  editNoteClient: 'note/get/edit',
+  editNoteId: 'note/get/edit/:id'
 };
 
 /***************************************************************************************************
@@ -58,6 +61,11 @@ class App extends Component {
           exact
           path={`${urlLinks.home}${urlLinks.createNote}`}
           render={props => <CreateNoteView {...props} urlLinks={urlLinks} />}
+        />
+        <Route
+          exact
+          path={`${urlLinks.home}${urlLinks.editNoteId}`}
+          render={props => <EditNoteView {...props} urlLinks={urlLinks} />}
         />
       </DivWrapper>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Redirect } from 'react-router';
 // import PropTypes from 'prop-types';
 
 /***************************************************************************************************
@@ -65,9 +66,10 @@ class NoteForm extends Component {
     super(props);
     this.state = {
       newNote: {
-        title: '',
-        textBody: ''
-      }
+        title: props.edit ? props.note.title : '',
+        textBody: props.edit ? props.note.textBody : ''
+      },
+      redirect: false
     };
   }
   //========================== Methods =========================
@@ -94,11 +96,24 @@ class NoteForm extends Component {
         this.props.addNote(this.state.newNote);
         this.clearNewNoteState();
       }
+    } else if (this.props.edit) {
+      if (this.state.newNote.title && this.state.newNote.textBody) {
+        this.props.editNote(this.props.note._id, this.state.newNote);
+        this.setState({ redirect: true });
+      }
     }
   };
 
   //========================== Render ==========================
   render() {
+    if (this.state.redirect) {
+      return (
+        <Redirect
+          push
+          to={`${this.props.urlLinks.home}${this.props.urlLinks.readNotes}`}
+        />
+      );
+    }
     return (
       <DivNoteFormWrapper>
         <div>
@@ -122,6 +137,7 @@ class NoteForm extends Component {
               />
               <ButtonSubmit type='submit' onClick={e => this.submitHandler(e)}>
                 {this.props.create && 'Save'}
+                {this.props.edit && 'Update'}
               </ButtonSubmit>
             </FormNote>
           )}
