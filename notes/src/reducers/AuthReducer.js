@@ -15,7 +15,7 @@ const defaultState = {
     iat: null,
     roles: [],
     username: '',
-    error: '',
+    error: null,
 }
 
 export default (state = defaultState, action) => {
@@ -33,7 +33,7 @@ export default (state = defaultState, action) => {
                 ...action.payload,
                 authenticated: true,
                 loading: false,
-                error: '',
+                error: null,
             }
 
         case AUTH_LOGIN_FAILURE :
@@ -56,7 +56,7 @@ export default (state = defaultState, action) => {
                 ...action.payload,
                 authenticated: true,
                 loading: false,
-                erro: '',
+                erro: null,
             }
 
         case AUTH_REGISTER_FAILURE :

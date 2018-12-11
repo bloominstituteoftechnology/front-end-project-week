@@ -52,24 +52,34 @@ class Login extends Component {
                 
                 <StyledButton type="submit">Login</StyledButton>
                 <Register to="/register">Register</Register>
+                {
+                    this.props.error !== null
+                    ? <ErrorWrapper>Error Authenticating</ErrorWrapper>
+                    : null
+                }
             </Container>
         );
     }
 }
 
 const mapStateToProps = state => {
-    const { authenticated } = state.auth;
+    const { authenticated, error } = state.auth;
     return {
-        authenticated
+        authenticated,
+        error,
     }
 }
 
 export default connect(mapStateToProps, { authLogin })(Login);
 
 const Register = styled(NavLink)`
-    color: #bababa;
+    color: black;
+    opacity: .54;
     font-size: 14px;
     margin-top: 10px;
+    :hover {
+        opacity: 1;
+    }
 `;
 
 const StyledButton = styled.button`
@@ -100,6 +110,7 @@ const StyledLabel = styled.label`
 
 const Container = styled.form`
     position: absolute;
+    margin-top: 60px;
     left: 50%;
     margin-left: -150px;
     width: 300px;
@@ -112,3 +123,10 @@ const Container = styled.form`
     padding: 30px 25px 40px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 `
+
+const ErrorWrapper = styled.span`
+    color: rgba(255,0,0,0.8);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+`;

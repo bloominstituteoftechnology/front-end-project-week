@@ -1,23 +1,75 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import styled from 'styled-components';
+import { authRegister } from '../../actions'
 
 class Register extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
+
+    componentDidUpdate() {
+        if (this.props.authenticated) {
+            this.props.history.push('/app');
+        }
+    }
+
+    changeHandler = e => {
+        e.preventDefault();
+        const { name, value } = e.target;
+        this.setState({[name]: value})
+    }
+
     render() {
         return (
-            <Container>
+            <Container
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    this.props.authRegister({...this.state})
+                }}>
                 <StyledLabel htmlFor="username">Username</StyledLabel>
-                <StyledInput type="text" name="username" id="username"/>
+                 <StyledInput 
+                    type="text" 
+                    name="username" 
+                    id="username"
+                    value={this.state.username}
+                    onChange={this.changeHandler}
+                />
 
                 <StyledLabel htmlFor="password">Password</StyledLabel>
-                <StyledInput type="text" name="password" id="password"/>
+                <StyledInput 
+                    type="text" 
+                    name="password" 
+                    id="password"
+                    value={this.state.password}
+                    onChange={this.changeHandler}
+                />
                 
                 <StyledButton type="submit">Submit</StyledButton>
+                {
+                    this.props.error !== null
+                    ? <ErrorWrapper>Error Authenticating</ErrorWrapper>
+                    : null
+                }
             </Container>
         );
     }
 }
 
-export default Register;
+const mapStateToProps = state => {
+    const { authenticated, error } = state.auth;
+    return {
+        authenticated,
+        error,
+    }
+}
+
+export default connect(mapStateToProps, { authRegister })(Register);
+
 
 const StyledButton = styled.button`
     margin-top: 20px;
@@ -47,6 +99,7 @@ const StyledLabel = styled.label`
 
 const Container = styled.form`
     position: absolute;
+    margin-top: 60px;
     left: 50%;
     margin-left: -150px;
     width: 300px;
@@ -59,3 +112,10 @@ const Container = styled.form`
     padding: 30px 25px 40px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 `
+
+const ErrorWrapper = styled.span`
+    color: rgba(255,0,0,0.8);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+`;
