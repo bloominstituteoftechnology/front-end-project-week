@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, withRouter, Link } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
 import styled from 'styled-components';
@@ -13,9 +13,10 @@ import { getNotes } from './actions/';
 
 const AppWrapper = styled.div`
   display: flex;
-  position: relative;
+  /* position: relative; */
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
+  margin: auto 0;
 `;
 
 class App extends Component {

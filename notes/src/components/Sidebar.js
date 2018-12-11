@@ -6,7 +6,10 @@ const SidebarWrapper = styled.div`
     background: #D3D2D3;
     padding: 25px 15px;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    min-height: 100%;
+    width: 200px;
 `;
 const NavButton = styled(Link)`
     background: #25B7BD;
@@ -14,9 +17,10 @@ const NavButton = styled(Link)`
     color: white;
     font-weight: bold;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 10px 10px;
     margin-bottom: 15px;
-
+    width: 175px;
+    text-align: center;
 `;
 const StyledHeader = styled.h1`
     font-weight: bold;

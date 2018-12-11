@@ -1,19 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const NoteCard = styled.div`
-    border: 1px solid black;
-    width: 200px;
-    height: 100px;
-    margin: 30px;
-    padding: 20px;
-    background: #FFFFFF;
+const NotesListWrapper = styled.div`
+    margin: 20px 20px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
 `;
-const NotesListHeader = styled.h2`
-    font-weight: bold;
+const NoteCard = styled.div`
+    border: 2px solid lightgrey;
+    width: 175px;
+    height: 175px;
+    margin: 20px;
+    padding: 5px 10px;;
+    background: #FFFFFF;
+    overflow: hidden;
+`;
+const CardHeader = styled.h3`
     font-size: 20px;
-    margin: 40px 0 40px 0;
+    font-weight: bold;
+    border-bottom: 2px solid lightgrey;
+    padding-bottom: 5px;
+`;
+
+const CardBody = styled.p`
+    font-size: 12px;
+    padding: 10px 0;
 `;
 
 class NotesList extends React.Component {
@@ -23,15 +34,14 @@ class NotesList extends React.Component {
             return <div>Loading...</div>
         }
         return (
-            <>
-                <NotesListHeader>Your Notes</NotesListHeader>
+            <NotesListWrapper>
                 {this.props.notes.map(note => (
                     <NoteCard onClick={() => this.props.history.push(`/note/${note._id}`)} key={note._id}>
-                    <h3>{note.title}</h3>
-                    <p>{note.textBody}</p>
+                    <CardHeader>{note.title}</CardHeader>
+                    <CardBody>{note.textBody}</CardBody>
                     </NoteCard>
                 ))}
-            </>
+            </NotesListWrapper>
         );
     }
 }

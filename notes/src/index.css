@@ -57,9 +57,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #F2F1F2;
   height: 100%;
+  /* min-height: 100%; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  box-sizing: border-box;
 }
