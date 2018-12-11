@@ -5,6 +5,9 @@ import styled from 'styled-components';
 // importing component
 import Modal from './Modal';
 
+// importing helper function
+import { textWithNewLine } from '../../helper/helper';
+
 // styled Note
 const Note = styled.div`
   padding: 4rem;
@@ -73,7 +76,9 @@ class NoteDetail extends React.Component {
             <div className="content">
               <h2>{note.title}</h2>
               <div>
-                <p>{note.textBody}</p>
+                {textWithNewLine(note.textBody).map( line => (
+                  <p>{line}</p>
+                ))}
               </div>
             </div>
         }

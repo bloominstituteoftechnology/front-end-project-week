@@ -31,3 +31,10 @@ export const truncate = (text, max=15, ext=' ...') => {
   const newText = text.slice(0, max);
   return newText.slice(0, newText.lastIndexOf(' ')) + ext;
 }
+
+/*
+  Helper function to extract new Lines
+*/
+export const textWithNewLine = (text) => {
+  return text.split(String.fromCharCode(10));
+}
