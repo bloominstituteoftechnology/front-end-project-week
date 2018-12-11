@@ -26,24 +26,15 @@ const NoteListNote = styled.div`
 `;
 
 class ListView extends Component {
-	componentDidMount() {
-		//this.props.getNotes();
-	}
-
-	componentWillMount() {
-		//this.props.getNotes();
-	}
-
 	render() {
 		if (this.props.deletingNote) {
 			return <ActiveTitle> Deleting note... </ActiveTitle>;
 		}
-		if (this.props.savingNote) {
-			return <ActiveTitle> Saving note... </ActiveTitle>;
-		}
+
 		if (!this.props.notes.length || this.props.fetchingNotes) {
 			return <ActiveTitle> Loading Notes... </ActiveTitle>;
 		}
+
 		return (
 			<>
 				<ActiveTitle>Your Notes:</ActiveTitle>
@@ -59,11 +50,10 @@ class ListView extends Component {
 	}
 }
 export default connect(
-	({ notes, deletingNote, fetchingNotes, savingNote }) => ({
+	({ notes, deletingNote, fetchingNotes }) => ({
 		notes,
 		deletingNote,
-		fetchingNotes,
-		savingNote
+		fetchingNotes
 	}),
 	{ getNotes }
 )(ListView);

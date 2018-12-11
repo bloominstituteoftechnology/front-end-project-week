@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getNotes, deleteNote, resetNewNoteId } from "../actions";
+import { deleteNote } from "../actions";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ActiveTitle, NoteBox } from "./ListView";
@@ -74,16 +74,12 @@ class NoteView extends Component {
 		};
 	}
 
-	componentDidMount() {
-		//
-	}
-
-	showDeleteModal(ev) {
+	showModal(ev) {
 		ev.preventDefault();
 		this.setState({ displayDelete: true });
 	}
 
-	hideDeleteModal(ev, loc) {
+	hideModal(ev, loc) {
 		ev.stopPropagation();
 		if (loc === "outside") this.setState({ displayDelete: false });
 	}
@@ -96,80 +92,47 @@ class NoteView extends Component {
 	}
 
 	render() {
-		let note = {};
-
-		if (
-			!this.props.notes.length ||
-			this.props.fetchingNotes ||
-			this.props.editingNote
-		) {
+		if (!this.props.notes.length || this.props.fetchingNotes) {
 			return <ActiveTitle>Loading note... </ActiveTitle>;
 		}
 
-		if (this.props.savingNote) {
-			return <ActiveTitle>DUMB</ActiveTitle>;
-		}
-
-		note = this.props.notes.find(
+		const note = this.props.notes.find(
 			note => this.props.match.params.id === note._id
 		);
 
 		if (note === undefined) {
-			note = this.props.notes.find(
-				note => this.props.newNoteId === note._id
-			);
-		}
-
-		if (note === undefined) {
-			return <ActiveTitle>Note doesn't exists...</ActiveTitle>;
+			return <ActiveTitle>Note doesn't exist...</ActiveTitle>;
 		}
 
 		return (
 			<NoteViewWrapper>
 				<NoteViewHeader>
-					{this.props.newNoteId === "" ? (
-						<NavA as={Link} to={`/edit/${note._id}`}>
-							{console.log(note._id)}
-							edit
-						</NavA>
-					) : (
-						<NavA as={Link} to={`/edit/${this.props.newNoteId}`}>
-							{console.log(this.props.newNoteId)}
-							edit
-						</NavA>
-					)}
-					<NavA href='/' onClick={ev => this.showDeleteModal(ev)}>
+					<NavA as={Link} to={`/edit/${note._id}`}>
+						edit
+					</NavA>
+					<NavA href='/' onClick={ev => this.showModal(ev)}>
 						delete
 					</NavA>
 				</NoteViewHeader>
-				<section>
-					<ActiveTitle2x>{note.title} </ActiveTitle2x>
-					<NoteBox>
-						<p> {note.textBody} </p>
-					</NoteBox>
-				</section>
+				<ActiveTitle2x> {note.title} </ActiveTitle2x>
+				<NoteBox>
+					<p> {note.textBody} </p>
+				</NoteBox>
 				{this.state.displayDelete ? (
-					<Delete onClick={ev => this.hideDeleteModal(ev, "outside")}>
-						<DeleteBox
-							onClick={ev => this.hideDeleteModal(ev, "inside")}>
-							{/* what the EFFFFF i do not know why ^this^ works */}
+					<Delete onClick={ev => this.hideModal(ev, "outside")}>
+						<DeleteBox onClick={ev => this.hideModal(ev, "inside")}>
 							<p>Are you sure you want to delete this?</p>
 							<div>
 								<DeleteButton
 									red
 									onClick={ev =>
-										this.props.newNoteId === ""
-											? this.deleteHandler(ev, note._id)
-											: this.deleteHandler(
-													ev,
-													this.props.newNoteId
-											  )
+										this.deleteHandler(ev, note._id)
 									}>
 									Delete
 								</DeleteButton>
 								<DeleteButton
 									onClick={ev =>
-										this.hideDeleteModal(ev, "outside")
+										this.hideModal(ev, "outside")
 									}>
 									No
 								</DeleteButton>
@@ -177,23 +140,13 @@ class NoteView extends Component {
 						</DeleteBox>
 					</Delete>
 				) : (
-					""
+					<></>
 				)}
 			</NoteViewWrapper>
 		);
 	}
 }
 export default connect(
-	({ notes, newNoteId, fetchingNotes, editingNote, savingNote }) => ({
-		notes,
-		newNoteId,
-		fetchingNotes,
-		editingNote,
-		savingNote
-	}),
-	{
-		getNotes,
-		deleteNote,
-		resetNewNoteId
-	}
+	({ notes, fetchingNotes }) => ({ notes, fetchingNotes }),
+	{ deleteNote }
 )(NoteView);

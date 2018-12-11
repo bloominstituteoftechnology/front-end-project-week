@@ -73,10 +73,12 @@ const notesReducer = (state = initialState, action) => {
 		case RESET_NEWNOTEID:
 			return {
 				...state,
-				notes: [...state.notes.map(note => {
-					if (note._id === "new-note") note._id = state.newNoteId;
-					return note;
-				})],
+				notes: [
+					...state.notes.map(note => {
+						if (note._id === "new-note") note._id = state.newNoteId;
+						return note;
+					})
+				],
 				newNoteId: ""
 			};
 

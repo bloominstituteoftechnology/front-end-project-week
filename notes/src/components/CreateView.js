@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getNotes, addNote } from "../actions";
+import { getNotes, addNote, resetNewNoteId } from "../actions";
 import Form from "./NoteForm";
 import { ActiveTitle } from "./ListView";
 
@@ -9,16 +9,25 @@ class CreateView extends Component {
 		this.props.getNotes();
 	}
 
+	componentDidUpdate(prevProps) {
+		if (this.props.savingNote !== prevProps.savingNote) {
+			if (!this.props.savingNote) {
+				const id = this.props.newNoteId;
+				this.props.resetNewNoteId();
+				this.props.history.push(`/note/${id}`);
+			}
+		}
+	}
+
 	submitHandler = (event, note) => {
 		event.preventDefault();
 		this.props.addNote(note);
-		//this.props.history.push(`/note/${this.props.newNoteId}`); //<--i need to get here from this page after the form is filled out, submitted, and that ID is returned. Calling it here goes to '/note/'
 	};
 
 	render() {
-		if (this.props.savingNote) {
+		if (this.props.savingNote)
 			return <ActiveTitle>Saving note... </ActiveTitle>;
-		}
+
 		return (
 			<>
 				<ActiveTitle>Create new Note</ActiveTitle>
@@ -35,9 +44,6 @@ class CreateView extends Component {
 }
 
 export default connect(
-	({ notes, savingNote, newNoteId }) => ({ notes, savingNote, newNoteId }),
-	{
-		getNotes,
-		addNote
-	}
+	({ savingNote, newNoteId }) => ({ savingNote, newNoteId }),
+	{ getNotes, addNote, resetNewNoteId }
 )(CreateView);

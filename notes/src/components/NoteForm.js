@@ -29,10 +29,10 @@ const Button = styled.button`
 	border: 1px solid darkgrey;
 	font-size: 1.4rem;
 	width: 30%;
-    margin-bottom: 30px;
-    :hover{
-        cursor: pointer;
-    }
+	margin-bottom: 30px;
+	:hover {
+		cursor: pointer;
+	}
 `;
 
 const TextArea = styled.textarea`
@@ -54,10 +54,10 @@ class Form extends Component {
 		super(props);
 		this.state = {
 			title: this.props.title,
-            textBody: this.props.textBody,
-            _id: this.props._id
+			textBody: this.props.textBody,
+			_id: this.props._id
 		};
-    }
+	}
 
 	handleChange = event => {
 		this.setState({
@@ -67,7 +67,8 @@ class Form extends Component {
 
 	render() {
 		return (
-			<FormWrapper onSubmit={(ev)=>this.props.submitHandler(ev, this.state)}>
+			<FormWrapper
+				onSubmit={ev => this.props.submitHandler(ev, this.state)}>
 				<Input
 					type='title'
 					name='title'

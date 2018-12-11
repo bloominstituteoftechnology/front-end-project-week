@@ -46,4 +46,5 @@ const Note = props => {
 		</NoteLink>
 	);
 };
+
 export default Note;

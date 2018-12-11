@@ -9,23 +9,19 @@ export const FETCH_NOTES_FAILURE = "FETCH_NOTES_FAILURE";
 export const ADD_NOTE_START = "ADD_NOTE_START";
 export const ADD_NOTE_SUCCESS = "ADD_NOTE_SUCCESS";
 export const ADD_NOTE_FAILURE = "ADD_NOTE_FAILURE";
-
 export const ADD_STATE_NOTE = "ADD_STATE_NOTE";
-
 export const RESET_NEWNOTEID = "RESET_NEWNOTEID";
 
 //Delete Notes
 export const DELETE_NOTE_START = "DELETE_NOTE_START";
 export const DELETE_NOTE_SUCCESS = "DELETE_NOTE_SUCCESS";
 export const DELETE_NOTE_FAILURE = "DELETE_NOTE_FAILURE";
-
 export const DELETE_STATE_NOTE = "DELETE_STATE_NOTE";
 
 //Edit Notes
 export const EDIT_NOTE_START = "EDIT_NOTE_START";
 export const EDIT_NOTE_SUCCESS = "EDIT_NOTE_SUCCESS";
 export const EDIT_NOTE_FAILURE = "EDIT_NOTE_FAILURE";
-
 export const EDIT_STATE_NOTE = "EDIT_STATE_NOTE";
 
 const URL = "https://fe-notes.herokuapp.com/note";

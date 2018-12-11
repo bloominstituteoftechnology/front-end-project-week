@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getNotes, addNote, deleteNote, editNote } from "../actions";
+import { getNotes, editNote } from "../actions";
 import Form from "./NoteForm";
 import { ActiveTitle, NoteBox } from "./ListView";
 
@@ -19,9 +19,11 @@ class EditView extends Component {
 		const note = this.props.notes.find(
 			note => this.props.match.params.id === note._id
 		);
+
 		if (note === undefined) {
 			return <ActiveTitle>Loading note... </ActiveTitle>;
 		}
+
 		return (
 			<>
 				<ActiveTitle>Edit Note</ActiveTitle>
@@ -39,10 +41,5 @@ class EditView extends Component {
 }
 export default connect(
 	({ notes }) => ({ notes }),
-	{
-		getNotes,
-		addNote,
-		deleteNote,
-		editNote
-	}
+	{ getNotes, editNote }
 )(EditView);

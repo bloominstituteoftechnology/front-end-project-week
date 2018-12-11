@@ -11,7 +11,6 @@ const AppWrapper = styled.div`
 	width: 100vw;
 	height: 100%;
 	min-height: 100vh;
-	/* position: relative; */
 `;
 
 const Sidebar = styled.div`
@@ -21,11 +20,9 @@ const Sidebar = styled.div`
 	display: flex;
 	flex-direction: column;
 	border-right: 1px solid darkgrey;
-	
 	position: fixed;
 	top: 0px;
 	left: 0px;
-	
 `;
 
 const Main = styled.div`
@@ -62,7 +59,11 @@ class App extends Component {
 				<AppWrapper>
 					<Sidebar>
 						<Title>Lambda Notes</Title>
-						<SideBarButton to='/' onClick={()=>this.props.getNotes()}> View Your Notes </SideBarButton>
+						<SideBarButton
+							to='/'
+							onClick={() => this.props.getNotes()}>
+							View Your Notes
+						</SideBarButton>
 						<SideBarButton to='/create'>
 							+ Create New Note
 						</SideBarButton>
@@ -82,8 +83,6 @@ class App extends Component {
 export default withRouter(
 	connect(
 		({ notes }) => ({ notes }),
-		{
-			getNotes
-		}
+		{ getNotes }
 	)(App)
 );
