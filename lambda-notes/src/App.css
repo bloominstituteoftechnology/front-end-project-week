@@ -3,6 +3,11 @@
     display: flex;
 }
 
+.App .home-container .content-container {
+    width: 70%;
+    margin-left: 25%;
+}
+
 .btn {
     padding: 1rem 2rem;
     background: var(--blue);

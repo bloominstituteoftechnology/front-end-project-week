@@ -6,6 +6,7 @@ import { fetchNotes } from "./Actions";
 import Navigation from "./Components/Navigation/Navigation.js";
 import NoteList from "./Components/NoteList/NoteList.js";
 import NoteForm from "./Components/NoteForm/NoteForm.js";
+import Note from "./Components/Note/Note.js";
 
 import "./App.css";
 
@@ -19,17 +20,20 @@ class App extends Component {
       <div className="App">
         <div className="home-container">
           <Navigation />
+          <div className="content-container">
+            <Route
+              exact
+              path="/"
+              render={props => <NoteList {...props} notes={this.props.notes} />}
+            />
 
-          <Route
-            exact
-            path="/"
-            render={props => <NoteList {...props} notes={this.props.notes} />}
-          />
-
-          <Route
-            path="/add-note"
-            render={props => <NoteForm {...props} />}
-          />
+            <Route path="/add-note" render={props => <NoteForm {...props} />} />
+            
+            <Route
+              exact path="/note/:id"
+              render={props => <Note {...props} notes={this.props.notes} />}
+            />
+          </div>
         </div>
       </div>
     );
@@ -37,7 +41,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  notes: state.notes,
+  notes: state.notes
 });
 
 export default withRouter(

@@ -1,7 +1,8 @@
 .note-list-container {
     background: var(--light-gray);
     width: 100%;
-    padding: 4rem 3rem;
+    padding: 2rem 1rem;
+    /* padding: 4rem 3rem; */
 }
 
 .note-list-container h2 {
@@ -9,9 +10,9 @@
     color: var(--dark-gray);
 }
 
-.note-list {
+.note-list-container .note-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 3rem;
+    grid-gap: 2rem;
 }
 

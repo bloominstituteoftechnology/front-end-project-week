@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import NoteBox from "../NoteBox/NoteBox";
 
@@ -15,9 +16,9 @@ const NoteList = props => {
       <div className="note-list">
         {props.notes.map(note => {
           return (
-            <div key={note._id}>
+            <Link exact to={`/note/${note._id}`} key={note._id}>
               <NoteBox title={note.title} textBody={note.textBody} />
-            </div>
+            </Link>
           );
         })}
       </div>
