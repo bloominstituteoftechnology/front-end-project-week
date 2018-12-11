@@ -1,12 +1,30 @@
 import React from 'react';
+import NoteCard from './NoteCard';
+import axios from 'axios';
 
-const Note = props => {
-    return (
+class Note extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         note: null
+    //     }
+    // }
+
+    // componentDidMount() {
+    //     const id = this.state.match.params.id;
+    //     this.fetchNote(id);
+    // }
+
+    render() {
+
+        const { title, textBody } = this.state.note;
+        return(
         <div className="note-card">
-        <h1>{props.title}</h1>
-        <p>{props.textBody}</p>
-        </div>
-    )
+        <NoteCard
+            title={title}
+            textBody={textBody} />
+        </div> )
+    }
 }
 
 export default Note;

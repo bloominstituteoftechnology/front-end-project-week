@@ -6,6 +6,7 @@ import axios from 'axios';
 import ListOfNotes from './components/ListofNotes';
 import Note from './components/Note';
 import AddNote from './components/AddNote';
+import NoteCard from './components/NoteCard';
 
 class App extends Component {
   constructor() {
@@ -41,13 +42,27 @@ class App extends Component {
     .post('https://fe-notes.herokuapp.com/note/create', data)
     .then(response => {
       this.setState({
-        notes: response.data,
         title: '',
         textBody: ''
       })
+      window.location.reload();
     })
     .catch(err => console.log(err));
   }
+
+  fetchNote = id => {
+    axios
+    .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    console.log('success')
+    .then(response => {
+        this.setState({ notes: response.data })
+    })
+    .catch(err => {
+        console.error(err);
+    })
+}
+
+
 
   render() {
     return (
@@ -57,10 +72,10 @@ class App extends Component {
       <NavLink to={'/add-note'}>Add Note</NavLink>
 
       <Route path='/add-note' render={props => (
-        <AddNote {...props} 
+        <AddNote {...props}
+        addNote={this.addNote}
         state={this.state}
-        handleChange={this.handleChange}
-        addNote={this.addNote} />
+        handleChange={this.handleChange} />
       )}
       />
 
@@ -68,11 +83,14 @@ class App extends Component {
       <section className="content-container">
       <Route exact path='/' render={props => (
         <ListOfNotes {...props}
-        state={this.state} />
+        state={this.state}
+        fetchNote={this.fetchNote} />
       )} />
-      <Route path='/notes/:id'
+      <Route path={`/note/:id`}
       render={props => (
-        <Note {...props} />
+        <NoteCard {...props}
+        state={this.state}
+         />
       )} />
       </section>
       </div>
