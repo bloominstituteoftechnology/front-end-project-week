@@ -8,6 +8,8 @@ import Note from "./components/Note";
 import EditNoteForm from "./components/EditNoteForm";
 // import LoginPage from "./components/LoginPage";
 
+const api = "https://gentle-depths-26576.herokuapp.com/api";
+
 class App extends Component {
   constructor() {
     super();
@@ -20,7 +22,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/api/notes/")
+      .get(`${api}/notes`)
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
@@ -28,7 +30,7 @@ class App extends Component {
   addNote = (e, newNote) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/api/notes", newNote)
+      .post(`${api}/notes`, newNote)
       .then(res => {
         newNote.id = res.data.success;
         this.setState({ notes: [newNote, ...this.state.notes] });
@@ -39,7 +41,7 @@ class App extends Component {
   deleteNote = (e, id) => {
     e.preventDefault();
     axios
-      .delete(`http://localhost:4000/api/notes/${id}`)
+      .delete(`${api}/notes/${id}`)
 
       .then(() => {
         const deletedNote = this.state.notes.filter(note => {
@@ -55,7 +57,7 @@ class App extends Component {
   editNote = (e, id, state) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:4000/api/notes/${id}`, state)
+      .put(`${api}/notes/${id}`, state)
       .then(res => {
         const updatedArray = this.state.notes.map(note => {
           if (note.id === res.data.id) {
