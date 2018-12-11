@@ -24,8 +24,8 @@ export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 
 const getUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/all';
 const postUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/create';
-const deleteUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/delete/:noteId';
-const putUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/edit/:noteId';
+const deleteUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/delete/';
+const putUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/edit/';
 
 export const getNotes = () => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
@@ -93,6 +93,7 @@ export const deleteNote = id => dispatch => {
           dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
         })
         .catch(error => {
+          console.log('this is the id kid', id);
           dispatch({ type: FETCHING_NOTES_FAILURE, payload: error });
         });
     })
