@@ -4,7 +4,8 @@ import {
   NavBarHeader,
   NavLinkBtn,
   NavLinkDiv,
-  NavButtonText
+  NavButtonText,
+  LambdaLogo
 } from "../../Styles/NavBarStyles";
 import {
   ModalDiv,
@@ -29,6 +30,7 @@ const NavigationBar = props => {
   return (
     <NavBarDiv>
       <NavBarHeader>Lambda Notes</NavBarHeader>
+      <LambdaLogo></LambdaLogo>
       <NavLinkDiv>
         <SearchBar filterTarget={props.filterTarget} filter={props.filter} />
         <NavLinkBtn>

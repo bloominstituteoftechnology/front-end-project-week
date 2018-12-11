@@ -8,6 +8,8 @@ import { AppDiv } from "./Styles/AppStyles";
 import { Route } from "react-router-dom";
 import axios from "axios";
 
+const URL = 'https://jstodd-projectweek-backend.herokuapp.com/api/notes/'
+
 const existingNote = {
   title: "",
   textBody: "",
@@ -33,7 +35,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .get(`${URL}`)
       .then(response => this.setState({ notes: response.data }))
       .catch(error => alert(error));
   }
@@ -86,9 +88,9 @@ class App extends Component {
       return alert("All fields must have content, please try again.");
     }
     axios
-      .post(`https://fe-notes.herokuapp.com/note/create`, this.state.noteObj)
+      .post(`${URL}`, this.state.noteObj)
       .then(response => {
-        this.state.noteObj._id = response.data.success;
+        this.state.noteObj.id = response.data.id;
         this.setState({
           notes: [this.state.noteObj, ...this.state.notes],
           noteObj: {
@@ -105,9 +107,11 @@ class App extends Component {
   deleteNote = (ev, id) => {
     ev.preventDefault();
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`${URL}/${id}`)
       .then(response => {
-        const deletedNotes = this.state.notes.filter(note => note._id !== id);
+        // console.log(this.state.notes.filter(note => note.id.toString() !== id))
+        // console.log(id)
+        const deletedNotes = this.state.notes.filter(note => note.id.toString() !== id);
         this.setState({ notes: deletedNotes });
       });
   };
@@ -115,12 +119,12 @@ class App extends Component {
   editNote = () => {
     axios
       .put(
-        `https://fe-notes.herokuapp.com/note/edit/${this.state.editingID}`,
+        `${URL}/${this.state.editingID}`,
         this.state.noteObj
       )
       .then(response => {
         const updatedNotes = this.state.notes.map(note => {
-          if (note._id === response.data._id) {
+          if (response.data.id == note.id) {
             return response.data;
           }
           return note;
@@ -139,7 +143,7 @@ class App extends Component {
     this.setState({
       noteObj: note,
       isEditing: true,
-      editingID: note._id
+      editingID: note.id
     });
   };
 

@@ -33,8 +33,10 @@ class IndividualNote extends React.Component {
 
   componentDidMount() {
     const noteId = this.props.match.params.id;
+    // console.log(this.props.notes.find(note => note.id == noteId))
+    // console.log(this.props)
     this.setState({
-      note: this.props.notes.find(note => note._id == noteId)
+      note: this.props.notes.find(note => note.id == noteId)
     });
   }
 

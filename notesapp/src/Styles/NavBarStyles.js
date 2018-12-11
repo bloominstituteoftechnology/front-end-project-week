@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import logo from '../img/Lambda-symbol.png'
 
 export const NavBarDiv = styled.div`
   border-left: 1px solid #b7b7b7;
@@ -17,6 +18,7 @@ export const NavBarHeader = styled.h1`
   padding-top: 10px;
   padding-left: 3%;
   line-height: 30px;
+  width: 40%;
 `;
 
 export const NavLinkDiv = styled.div`
@@ -49,3 +51,16 @@ export const NavLinkBtn = styled.div`
     cursor: pointer;
   }
   `
+
+export const LambdaLogo = styled.div `
+    position: absolute;
+    top: 710px;
+    left: 110px;
+    z-index: 2;
+    background-image: url(${logo});
+    background-size: cover;
+    opacity: 1;
+    background-repeat: no-repeat;
+    height: 109px;
+    width: 31%;
+`
