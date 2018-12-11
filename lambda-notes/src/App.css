@@ -153,3 +153,9 @@
 .note-view p {
   margin-top: 35px;
 }
+
+/*Edit form amendments */
+.sm-padding {
+  padding-left: 0;
+  padding-top: 20px;
+}
