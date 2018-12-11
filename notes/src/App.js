@@ -53,7 +53,7 @@ class App extends Component {
   editNote = (event, id, state) => {
     event.preventDefault();
     axios
-      .put(`http://localhost:8000/api/notes/edit${id}`, state)
+      .put(`http://localhost:8000/api/notes/edit/${id}`, state)
       .then(response => {
         const updateArray = this.state.notes.map(note => {
           if (note.id === response.data.id) {
@@ -80,7 +80,7 @@ class App extends Component {
               <button className='side-button'>View Your Notes</button>
             </NavLink>
             <NavLink to='/create-new-note'>
-              <button className='side-button'>+Create New Note</button>
+              <button className='side-button'>+ Create New Note</button>
             </NavLink>
           </div>
 

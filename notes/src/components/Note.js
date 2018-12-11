@@ -30,7 +30,7 @@ class Note extends React.Component {
   }
 
   deleteNote = (ev) => {
-    const id = this.state.note._id
+    const id = this.state.note.id
     axios
       .delete(`http://localhost:8000/api/notes/delete/${id}`)
       .then(response => {
@@ -49,13 +49,10 @@ class Note extends React.Component {
   };
 
   render() {
-    // const id = this.props.match.params.id.slice(1);
 
-    // const note = this.props.notes[id]
-
-    const { title, textBody, id } = this.state.note
-
-
+    const { title, body, id } = this.state.note
+    
+    
     return (
       <div>
         <div className='edit-delete'>
@@ -92,10 +89,6 @@ class Note extends React.Component {
               No
             </button>
           </div>
-          {/* <div>
-                <h1>{title}</h1>
-                <p>{textBody}</p>
-              </div> */}
         </Modal>
 
 

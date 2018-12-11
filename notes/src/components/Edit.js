@@ -63,7 +63,7 @@ class EditNote extends React.Component {
                     <textarea
                         contentEditable='true'
                         className="edit-content"
-                        name="textBody"
+                        name="body"
                         cols='80'
                         rows='30'
                         value={this.state.body}

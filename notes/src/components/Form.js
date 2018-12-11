@@ -51,7 +51,7 @@ class Form extends React.Component {
                         placeholder='Note Content'
                     />
                         <br/>
-                    <button className="update-button">Save</button>
+                    <button className="update-button">Create</button>
                 </form>
                 </div>
             </div>
