@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { NavLink } from 'react-router-dom';
 import CSVLink from '../components/CSVLink';
 
 export const SideBar = styled.div`
@@ -63,7 +62,7 @@ export const StyledCSV = styled(CSVLink)`
     }
 `;
 
-export const Section = styled(NavLink)`
+export const Section = styled.span`
     font-family: 'Open Sans';
     letter-spacing: .55px;
     width: 100%;

@@ -34,9 +34,9 @@ class NoteModule extends Component {
             <NoteModuleContainer>
                 <NoteModuleForm onSubmit={e => {
                     this.props.updateNote(this.props.activeNote);
-                    this.props.history.push('/');
+                    this.props.history.push('/app');
                 }}>
-                    <CloseIcon onClick={e => {e.preventDefault(); this.props.history.push('/');}}><i className="fas fa-times"></i></CloseIcon>
+                    <CloseIcon onClick={e => {e.preventDefault(); this.props.history.push('/app');}}><i className="fas fa-times"></i></CloseIcon>
                     <NoteModuleInput type="text" name="title" value={this.props.activeNote.title} onChange={this.props.activeNoteHandler}/>
                     <NoteModuleTextArea type="text" name="textBody" value={this.props.activeNote.textBody} onChange={this.props.activeNoteHandler}/>
                     <ButtonsContainer display="true">

@@ -9,25 +9,19 @@ const mapStateToProps = state => {
         notes,
         noteChecked, 
         noteUnChecked,
-        fetchingNote,
-        fetchingNotes,
-        addingNote,
-        updatingNote,
-        deletingNote,
+        loading,
         searchValue,
         sortMode,
+        selectMode
     } = state.notes;
     return {
         notes,
         noteChecked, 
         noteUnChecked, 
-        fetchingNote,
-        fetchingNotes,
-        addingNote,
-        updatingNote,
-        deletingNote,
+        loading,
         searchValue,
-        sortMode
+        sortMode,
+        selectMode
     };
 }
 

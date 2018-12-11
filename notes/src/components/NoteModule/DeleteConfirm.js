@@ -21,7 +21,7 @@ class DeleteConfirm extends Component {
                                 e.preventDefault();
                                 this.props.deleteNote(this.props.id)
                                 this.props.setShowDelete(false);
-                                this.props.history.push('/');
+                                this.props.history.push('/app');
                             }}
                         >DELETE</StyledButton>
                     </ButtonsContainer>

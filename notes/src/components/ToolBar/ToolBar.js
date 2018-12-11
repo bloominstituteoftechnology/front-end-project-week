@@ -11,27 +11,48 @@ import {
 
 
 class ToolBar extends Component {
+
+    onSectionClick = (e) => {
+        e.preventDefault();
+        this.props.menuToggle()
+        const name  = e.target.getAttribute('name');
+        if (name === 'notes'){
+            this.props.selectModeToggle(false)
+        }
+        if (name === 'select'){
+            this.props.selectModeToggle(true)
+        }
+    }
+
     render() {
         return (
             <SideBar showMenu={this.props.showMenu}>
                 <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="logo" />   
-                <Section to='/' exact notes="true" onClick={e => this.props.menuToggle()}>
-                    <SVGIcon notes="true" />
-                    <SectionTitle title="Notes" />
+                <Section 
+                    name="notes" 
+                    onClick={e => this.onSectionClick(e)}
+                    className={this.props.selectMode?'':'active'}
+                >
+                    <SVGIcon notes="true" name="notes"/>
+                    <SectionTitle title="Notes" name="notes" />
                 </Section>
-                <Section to='/select' select="true" onClick={e => this.props.menuToggle()}>
-                    <SVGIcon select="true" />
-                    <SectionTitle title="Multi select" />
+                <Section
+                    name="select" 
+                    onClick={e => this.onSectionClick(e)}
+                    className={!this.props.selectMode?'':'active'}
+                >
+                    <SVGIcon select="true" name="select"/>
+                    <SectionTitle title="Multi select" name="select"/>
                 </Section>
                 <Seperator />
                 <ToolBarLabel export="true" />
-                <StyledCSV data={this.props.notes} onClick={e => this.props.menuToggle()}>
+                <StyledCSV data={this.props.notes} onClick={e => this.onSectionClick(e)}>
                     <SVGIcon csv="true" />
                     <SectionTitle title="CSV"/>
                 </StyledCSV>
                 <Seperator />
                 <ToolBarLabel account="true"/>
-                <Section to='/logout' logout="true" onClick={e => this.props.menuToggle()}>
+                <Section to='/logout' logout="true" onClick={e => this.onSectionClick(e)}>
                     <SVGIcon logout="true" />
                     <SectionTitle title="Logout" />
                 </Section>

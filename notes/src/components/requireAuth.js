@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { tokenExists } from '../actions';
+import { tokenExists, logout } from '../actions';
 
 const keyName = process.env.REACT_APP_TOKEN_ITEM;
 
@@ -17,28 +17,49 @@ export default ChildComponent => {
         }
 
         checkForAuth() {
-            const key = localStorage.getItem(keyName);
+            const token = localStorage.getItem(keyName);
 
-            if (key) {
-                this.props.tokenExists();
-            } else if (this.props.authenticated) {
-                this.props.history.push('/');
-            } else {
+            if (!token && this.props.authenticated){
+                this.props.logout();
                 this.props.history.push('/login');
+                return;
             }
+
+            if (token && !this.props.authenticated) {
+                this.props.tokenExists();
+                return
+            }
+            
+            if (!this.props.authenticated) {
+                this.props.history.push('/login');
+                return;
+            }
+
+            const currentTime = Date.now() / 1000;
+
+            if(this.props.exp !== null && currentTime > this.props.exp) {
+                this.props.logout();
+                this.props.history.push('/login');
+                return;
+            }
+
         }
 
         render() {
             return (
-                <ChildComponent {...this.props}/>
+                <>
+                {
+                    this.props.authenticated ? <ChildComponent {...this.props}/> : null
+                }
+                </>
             )
         }
     }
 
     const mapStateToProps = state => {
-        const { authenticated } = state.auth;
-        return { authenticated };
+        const { authenticated, exp } = state.auth;
+        return { authenticated, exp };
     }
 
-    return connect(mapStateToProps, { tokenExists })(ComposedComponent);
+    return connect(mapStateToProps, { tokenExists, logout })(ComposedComponent);
 };

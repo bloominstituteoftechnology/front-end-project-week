@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <Route path="/" exact render={props => <Home {...props}/>} />
+        <Route path="/app" render={props => <Home {...props}/>} />
         <Route path="/login" render={props => <Login {...props}/>} />
         <Route path="/register" render={props => <Register {...props}/>} />
       </>

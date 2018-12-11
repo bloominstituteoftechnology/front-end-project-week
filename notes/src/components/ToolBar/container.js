@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
 import ToolBar from './ToolBar';
-import { menuToggle } from '../../actions' 
+import { menuToggle, selectModeToggle } from '../../actions' 
 
 const mapStateToProps = state => {
-    const { notes, showMenu } = state.notes;
+    const { notes, showMenu, selectMode } = state.notes;
     return {
         notes,
-        showMenu
+        showMenu,
+        selectMode
     }
 }
 
 const mapDispatchToProps = {
-    menuToggle 
+    menuToggle,
+    selectModeToggle
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToolBar);

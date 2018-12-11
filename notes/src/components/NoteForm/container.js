@@ -6,9 +6,10 @@ import { deleteChecked, addNote } from '../../actions';
 
 
 const mapStateToProps = state => {
-    const { checkedNotes } = state.notes;
+    const { checkedNotes, selectMode } = state.notes;
     return {
-        checkedNotes
+        checkedNotes,
+        selectMode
     };
 }
 

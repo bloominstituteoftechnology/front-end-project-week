@@ -1,4 +1,5 @@
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 const keyName = process.env.REACT_APP_TOKEN_ITEM;
 const url = process.env.REACT_APP_API_URL;
@@ -22,13 +23,17 @@ export const authLogin = credentials => async dispatch => {
         dispatch({
             type: AUTH_LOGIN
         })
+        
         const response = await axios.post(`${url}/auth/login`, credentials);
 
-        const token = response.token;
+        const token = response.data.token;
         localStorage.setItem(keyName, token);
 
+        const decoded = jwt.decode(token);
+
         dispatch({
-            type: AUTH_LOGIN_SUCCESS
+            type: AUTH_LOGIN_SUCCESS,
+            payload: decoded
         })
 
     } catch(err) {
@@ -45,11 +50,13 @@ export const authRegister = credentials => async dispatch => {
             type: AUTH_REGISTER
         })
         const response = await axios.post(`${url}/auth/register`, credentials);
-        const token = response.token;
+        const token = response.data.token;
         localStorage.setItem(keyName, token);
+        const decoded = jwt.decode(token);
 
         dispatch({
-            type: AUTH_REGISTER_SUCCESS
+            type: AUTH_REGISTER_SUCCESS,
+            payload: decoded
         })
 
     } catch(err) {
@@ -60,7 +67,7 @@ export const authRegister = credentials => async dispatch => {
     }
 }
 
-export const logout = async dispatch => {
+export const logout = () => {
     localStorage.removeItem(keyName);
-    dispatch({type: AUTH_LOGOUT})
+    return {type: AUTH_LOGOUT};
 }

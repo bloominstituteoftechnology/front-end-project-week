@@ -21,23 +21,21 @@ import {
     DELETE_NOTE,
     DELETE_NOTE_FAILURE,
     DELETE_NOTE_SUCCESS,
+    SELECT_MODE_TOGGLE
   } from '../actions'
   
   
   const initialState = {
     notes: [],
     activeNote: {},
-    fetchingNote: false,
-    fetchingNotes: false,
-    addingNote: false,
-    updatingNote: false,
-    deletingNote: false,
+    loading: false,
     searchValue: '',
     sortMode: 'default',
     sortModes: ['default', 'alpha', 'reverse-alpha'],
     sortNum: 0,
     showMenu: false,
     checkedNotes: [],
+    selectMode: false,
     error: null,
   }
   
@@ -88,51 +86,53 @@ import {
           }
         }
   
-      case GET_NOTE : return {...state, fetchingNote: true}
-      case GET_NOTE_FAILURE : return {...state, fetchingNote: false, error: action.payload}
+      case GET_NOTE : return {...state, loading: true}
+      case GET_NOTE_FAILURE : return {...state, loading: false, error: action.payload}
       case GET_NOTE_SUCCESS : 
         return {
           ...state, 
-          fetchingNote: false,
+          loading: false,
           activeNote: action.payload
         }
   
-      case GET_NOTES : return {...state, fetchingNotes: true}
-      case GET_NOTES_FAILURE : return {...state, fetchingNotes: false, error: action.payload}
+      case GET_NOTES : return {...state, loading: true}
+      case GET_NOTES_FAILURE : return {...state, loading: false, error: action.payload}
       case GET_NOTES_SUCCESS : 
         return {
           ...state, 
-          fetchingNotes: false,
+          loading: false,
           notes: action.payload.reverse(),
         }
   
-      case ADD_NOTE : return {...state, addingNote: true}
-      case ADD_NOTE_FAILURE : return {...state, addingNote: false, error: action.payload}
+      case ADD_NOTE : return {...state, loading: true}
+      case ADD_NOTE_FAILURE : return {...state, loading: false, error: action.payload}
       case ADD_NOTE_SUCCESS : 
         return {
           ...state, 
-          addingNote: false,
+          loading: false,
           notes: [...state.notes.reverse(), action.payload].reverse(),
         }
   
-      case UPDATE_NOTE : return {...state, updatingNote: true}
-      case UPDATE_NOTE_FAILURE : return {...state, updatingNote: false, error: action.payload}
+      case UPDATE_NOTE : return {...state, loading: true}
+      case UPDATE_NOTE_FAILURE : return {...state, loading: false, error: action.payload}
       case UPDATE_NOTE_SUCCESS : 
         return {
           ...state, 
-          updatingNote: false,
+          loading: false,
           notes: state.notes.map(
             note => note.id === action.payload.id ? action.payload : note)
         }
   
-      case DELETE_NOTE : return {...state, deletingNote: true}
-      case DELETE_NOTE_FAILURE : return {...state, deletingNote: false, error: action.payload}
+      case DELETE_NOTE : return {...state, loading: true}
+      case DELETE_NOTE_FAILURE : return {...state, loading: false, error: action.payload}
       case DELETE_NOTE_SUCCESS : 
         return {
           ...state, 
-          deletingNote: false,
+          loading: false,
           notes: state.notes.filter(note => note.id !== action.payload)
         }
+
+      case SELECT_MODE_TOGGLE : return {...state, selectMode: action.payload}
   
       default: return {...state};
     }

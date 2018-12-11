@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+const keyName = process.env.REACT_APP_TOKEN_ITEM;
+const key = localStorage.getItem(keyName);
+
+axios.defaults.headers.common['authentication'] = key;
+
 export const NOTE_CHECKED = 'note_checked';
 export const NOTE_UNCHECKED = 'note_unchecked';
 export const NOTE_CHECKED_CLEAR = 'note_checked_clear';
@@ -28,6 +33,8 @@ export const UPDATE_NOTE_FAILURE = 'update_note_failure';
 export const DELETE_NOTE = 'delete_note';
 export const DELETE_NOTE_SUCCESS = 'delete_note_success';
 export const DELETE_NOTE_FAILURE = 'delete_note_failure';
+
+export const SELECT_MODE_TOGGLE = 'select_mode_toggle'
 
 // const url = 'http://localhost:3333';
 // const url = 'https://fe-notes.herokuapp.com';
@@ -137,4 +144,8 @@ export const deleteNote = (id) => async dispatch => {
   } catch(err) {
     dispatch({type: DELETE_NOTE_FAILURE, payload: err})
   }
+}
+
+export const selectModeToggle = (value) => {
+  return { type: SELECT_MODE_TOGGLE, payload: value };
 }

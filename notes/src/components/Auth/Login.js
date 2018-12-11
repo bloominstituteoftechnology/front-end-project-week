@@ -15,14 +15,13 @@ class Login extends Component {
 
     componentDidUpdate() {
         if (this.props.authenticated) {
-            this.props.history.push('/');
+            this.props.history.push('/app');
         }
     }
 
     changeHandler = e => {
         e.preventDefault();
         const { name, value } = e.target;
-
         this.setState({[name]: value})
     }
     

@@ -13,7 +13,6 @@ import NoteList from '../NoteList/container';
 import NoteForm from '../NoteForm/container';
 import NoteModule from '../NoteModule/container'
 
-
 class Home extends Component {
 
   componentDidMount() {
@@ -25,13 +24,11 @@ class Home extends Component {
       <div className={'app-container'}>
         <Header />
         <ToolBar />
-
         <NotesContainer showMenu={this.props.showMenu}>
-          <Route path='/' render={props => <NoteForm {...props}/>} />
-          <Route path='/' render={props => <NoteList {...props}/>} />
+          <NoteForm {...this.props}/>
+          <NoteList {...this.props}/>
         </NotesContainer>
-
-        <Route path='/note/:id' render={props => <NoteModule {...props} />} /> 
+        <Route path='/app/note/:id' render={props => <NoteModule {...props} />} /> 
       </div>
     );
   }
@@ -39,7 +36,8 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-    showMenu: state.notes.showMenu
+    showMenu: state.notes.showMenu,
+    authenticated: state.auth
   }
 }
 

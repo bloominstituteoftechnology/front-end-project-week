@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Route } from 'react-router-dom';
 
 import { NoteListContainer, NoteListTitle} from '../../styles';
 
@@ -17,7 +16,7 @@ class NoteList extends Component {
 
     noteClicked = (ev, id) => {
         ev.preventDefault();
-        this.props.history.push(`/note/${id}`)
+        this.props.history.push(`/app/note/${id}`)
     }
 
 
@@ -63,47 +62,22 @@ class NoteList extends Component {
 
     render() {
 
-        const {
-            noteChecked, 
-            noteUnChecked,
-            fetchingNote,
-            fetchingNotes,
-            addingNote,
-            updatingNote,
-            deletingNote,
-        } = this.props;
-
-        if(
-            fetchingNotes
-            || fetchingNote
-            || addingNote
-            || updatingNote
-            || deletingNote
-        ) return <Loading />
+        if(this.props.loading) return <Loading />
         return (
             <NoteListContainer>
                 <NoteListTitle>NOTES</NoteListTitle>
-                <Route
-                    path="/"
-                    exact
-                    render={props => 
-                    this.filterdNotes().map(note => 
-                        <Note note={note} key={note.id} noteClicked={e => this.noteClicked(e, note.id)} />)
-                    }
-                />
-                <Route
-                    path="/select"
-                    exact
-                    render={props => 
-                        this.filterdNotes().map(note => 
-                            <NoteSelect
-                                note={note} 
-                                key={note.id} 
-                                noteChecked={noteChecked}
-                                noteUnChecked={noteUnChecked}
+                {
+                    this.filterdNotes().map(note => {
+                        return this.props.selectMode
+                        ?(<NoteSelect
+                            note={note} 
+                            key={note.id} 
+                            noteChecked={this.props.noteChecked}
+                            noteUnChecked={this.props.noteUnChecked}
                         />)
-                    }
-                />
+                        : (<Note note={note} key={note.id} noteClicked={e => this.noteClicked(e, note.id)} />)
+                    })
+                }
             </NoteListContainer>
     );
     }

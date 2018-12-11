@@ -11,6 +11,10 @@ import {
 const defaultState = {
     authenticated: false,
     loading: false,
+    exp: null,
+    iat: null,
+    roles: [],
+    username: '',
     error: '',
 }
 
@@ -26,6 +30,7 @@ export default (state = defaultState, action) => {
         case AUTH_LOGIN_SUCCESS :
             return {
                 ...state,
+                ...action.payload,
                 authenticated: true,
                 loading: false,
                 error: '',
@@ -33,7 +38,7 @@ export default (state = defaultState, action) => {
 
         case AUTH_LOGIN_FAILURE :
             return {
-                ...state, 
+                ...defaultState, 
                 ...action.payload,
                 authenticated: false,
                 loading: false
@@ -48,6 +53,7 @@ export default (state = defaultState, action) => {
         case AUTH_REGISTER_SUCCESS :
             return {
                 ...state, 
+                ...action.payload,
                 authenticated: true,
                 loading: false,
                 erro: '',
@@ -55,7 +61,7 @@ export default (state = defaultState, action) => {
 
         case AUTH_REGISTER_FAILURE :
             return {
-                ...state, 
+                ...defaultState, 
                 ...action.payload,
                 authenticated: false,
                 loading: false
