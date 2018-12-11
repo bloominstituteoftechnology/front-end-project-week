@@ -1,8 +1,10 @@
 import React from 'react';
-import NotesList from './NotesList';
+// import NotesList from './NotesList';
 import styled from 'styled-components';
 import styleVars from '../helpers/styleVars';
 import { Route } from 'react-router-dom';
+import List from '../views/List';
+import AddNote from '../views/AddNote';
 
 const Div = styled.div`
     width: ${100 - styleVars.sideBarWidth}%;
@@ -10,18 +12,19 @@ const Div = styled.div`
     background: ${styleVars.mainContentBG};
 `;
 
-const H1 = styled.h1`
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: ${styleVars.pageHeaderColor};
-`;
-
 const Content = props => {
     console.log(props);
     return (
         <Div>
-            <H1>Your Notes:</H1>
-            <NotesList notes={props.notes} />
+            <Route
+                exact
+                path="/"
+                render={routeProps => (
+                    <List {...routeProps} notes={props.notes} />
+                )}
+            />
+            <Route exact path="/add" component={AddNote} />
+            {/* <List notes={props.notes} /> */}
         </Div>
     );
 };
