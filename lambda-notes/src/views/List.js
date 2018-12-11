@@ -7,6 +7,8 @@ const H1 = styled.h1`
     font-size: 1.8rem;
     font-weight: bold;
     color: ${styleVars.pageHeaderColor};
+    margin-top: 73px;
+    margin-left: 5px;
 `;
 
 const List = props => {
