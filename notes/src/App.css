@@ -43,7 +43,7 @@
 
 .notes-list-wrapper {
   width: 210rem;
-  padding: 5rem 2.5rem;
+  padding: 2.5rem 2.5rem;
 }
 
 .notes-list-wrapper h2 {
@@ -51,6 +51,15 @@
   font-weight: bold;
   text-align: left;
   margin-bottom: 3rem;
+}
+
+.searchContainer{
+  margin-bottom: 0rem;
+}
+
+.searchContainer input{
+  border-radius: 0.25rem;
+  width: 32%;
 }
 
 .notes-container {
