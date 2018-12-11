@@ -91,8 +91,6 @@ class NotesList extends React.Component {
   };
 
   render() {
-    console.log(this.props.notes);
-    console.log(this.state.notes);
     const notes =
       this.state.filtered.length > 0 ? this.state.filtered : this.state.notes;
 

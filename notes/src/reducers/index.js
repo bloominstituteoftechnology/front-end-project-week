@@ -20,12 +20,6 @@ const rootReducer = (state = initialState, action) => {
     case act.FETCHING:
       return { ...state, fetchingNotes: true };
     case act.FETCHED:
-      // if (local) {
-      //   let server = [...action.payload];
-      //   let sorted = newSort(server, local);
-      //   localStorage.setItem("state", JSON.stringify(sorted));
-      // }
-      console.log("render");
       return {
         ...state,
         fetchingNotes: false,

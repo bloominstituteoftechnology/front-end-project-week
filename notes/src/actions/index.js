@@ -11,8 +11,6 @@ export const UPDATED = "UPDATED";
 export const SINGLE_FETCHING = "SINGLE_FETCHING";
 export const SINGLE_FETCHED = "SINGLE_FETCHED";
 export const FILTER = "FILTER";
-// export const DRAGGING = "DRAGGING";
-// export const DROPPED = "DROPPED";
 export const ERROR = "ERROR";
 const host = "https://fe-notes.herokuapp.com/note";
 export const local = JSON.parse(localStorage.getItem("state"));
@@ -91,7 +89,6 @@ export function newSort(server, local) {
       return obj._id === obj2._id;
     });
   });
-  console.log(uniqueToServer);
 
   let length = server.length > local.length ? local.length : server.length;
   for (let i = 0; i < length; i++) {
