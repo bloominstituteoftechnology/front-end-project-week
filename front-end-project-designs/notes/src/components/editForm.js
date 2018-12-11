@@ -59,6 +59,7 @@ const EditForm = props => {
         <StyledLink to='/'><Button
           onClick={() => {
             props.editNote(props.match.params.id)
+            window.location.reload();
             
           }}
         >

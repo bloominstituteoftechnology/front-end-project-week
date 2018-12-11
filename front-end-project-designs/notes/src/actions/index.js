@@ -11,7 +11,7 @@ export const FETCH_SINGLE="FETCH_SINGLE";
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCHING_NOTES });
   axios
-    .get("https://fe-notes.herokuapp.com/note/get/all")
+    .get("https://quan-back-end.herokuapp.com/api/notes")
     .then(response => {
       console.log(response);
       dispatch({ type: NOTES_FETCHED, payload: response.data });
@@ -22,7 +22,7 @@ export const fetchNotes = () => dispatch => {
 };
 export const addNote=(newNote)=>dispatch =>{
   axios
-    .post("https://fe-notes.herokuapp.com/note/create",newNote)
+    .post("https://quan-back-end.herokuapp.com/api/notes",newNote)
     // .then(response => {
     //   console.log(response);
     //   dispatch({NOTES_FETCHED, payload:response.data})
@@ -30,7 +30,7 @@ export const addNote=(newNote)=>dispatch =>{
 }
 export const deleteNote=(id)=>dispatch=>{
   axios
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .get(`https://quan-back-end.herokuapp.com/api/notes/delete/${id}`)
     .then(response => {
       dispatch({ type: DELETE_NOTE });
       
@@ -45,7 +45,7 @@ export const fetchSingle=(id)=>dispatch=>{
 }
 export const editNote= (id,updatedNote)=>dispatch=>{
   axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`,updatedNote)
+    .put(`https://quan-back-end.herokuapp.com/api/notes/${id}`,updatedNote)
     .then(response=>{
       dispatch({type:EDIT_NOTE, payload: {id, ...response.data}})
     })

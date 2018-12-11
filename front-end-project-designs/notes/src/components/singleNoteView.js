@@ -109,7 +109,7 @@ class SingleView extends React.Component {
   }
   fetchSingle = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`https://quan-back-end.herokuapp.com/api/notes/${id}`)
       .then(response => {
         console.log("Single works", response.data);
         this.setState(() => ({ singleNote: response.data }));
