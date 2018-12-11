@@ -84,3 +84,25 @@ export const NoteWrapper = styled.div`
   padding-left: 15px;
   border: 1px solid red;
 `;
+
+export const FormWrapper = styled.div`
+  border: 1px solid red
+`;
+
+export const FormHeader = styled.h2`
+  border: 1px solid green
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid orange
+`;
+
+export const FormInputTitle = styled.input`
+  border: 1px solid blue
+`;
+
+export const FormInputText = styled.input`
+  border: 1px solid purple
+`;

@@ -26,8 +26,8 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  createNote  = (friend) => {
-    axios.post('https://fe-notes.herokuapp.com/note/create/', friend)
+  createNote  = (data) => {
+    axios.post('https://fe-notes.herokuapp.com/note/create/', data)
       .then(res =>{
         console.log(res)
         this.setState({
@@ -37,7 +37,7 @@ class App extends Component {
       .catch(err=> console.log(err))
   }
 
-  editNote = (data, id) => {
+  editNote = ( data, id) => {
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
     .then(res => {
         this.setState({
@@ -46,6 +46,17 @@ class App extends Component {
     })
     .catch(err => console.log(err))
   }
+
+  deleteNote = id => {
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(res => {
+      this.setState({
+        notes: res.data
+      })
+    })
+    .catch(err => console.log(err))
+  }
+
   render() {
     const { notes } = this.state;
     return (
@@ -67,6 +78,7 @@ class App extends Component {
             <Note
               {...props}
               notes={notes}
+              delete={this.deleteNote}
             />
           }
         />

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FormWrapper, FormHeader, Form, FormInputTitle, FormInputText } from '../style';
+
 
 class CreateNewNote extends Component {
     constructor(props) {
@@ -32,10 +34,11 @@ class CreateNewNote extends Component {
     render () {
         console.log(this.state)
         return (
-            <div>
-                <h2>{this.props.edit ? 'Edit Note': 'Create New Note'}</h2>
-                <form onSubmit={this.submitHandler}>
-                    <input
+            <FormWrapper>
+                <FormHeader>{this.props.edit ? 'Edit Note': 'Create New Note'}</FormHeader>
+                <Form onSubmit={this.submitHandler}>
+                    <FormInputTitle
+                        className='title'
                         type='text'
                         name='title'
                         onChange={this.handleChange}
@@ -43,16 +46,17 @@ class CreateNewNote extends Component {
                         value={this.state.title}
                     />
 
-                    <input
+                    <FormInputText
+                        className='text'
                         type='text'
                         name='textBody'
                         onChange={this.handleChange}
                         placeholder='Enter Text'
                         value={this.state.textBody}
                     />
-                    <button onClick={this.submitHandler}>{this.props.edit ? 'Edit Note': 'Create New Note'}</button>
-                </form>
-            </div>
+                    <button >{this.props.edit ? 'Edit Note': 'Create New Note'}</button>
+                </Form>
+            </FormWrapper>
         );
     }
 }

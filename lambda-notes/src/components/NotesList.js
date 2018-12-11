@@ -1,5 +1,7 @@
 import React from 'react';
 import {NotesHeader, NotesWrapper, NotesContent, Notes } from '../style'
+
+
 const NotesList = (props) => {
     console.log(props)
     return(
@@ -7,8 +9,8 @@ const NotesList = (props) => {
             <NotesHeader>Your Notes:</NotesHeader>
         <NotesWrapper>
             
-            {props.notes.map(note => 
-            
+            {props.notes.map(note => {
+                return (
                 <NotesContent>
                     
                 <Notes key={note._id} onClick={ () => props.history.push(`/note/${note._id}`)}>
@@ -16,7 +18,8 @@ const NotesList = (props) => {
                     <p>{note.textBody}</p>
                 </Notes>
                 </NotesContent>
-                )}
+            );
+            })}
         </NotesWrapper>
         </div>
     );
