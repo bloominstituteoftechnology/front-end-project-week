@@ -62,6 +62,8 @@ class Note extends React.Component {
 			.catch(err => console.log("Note > Server Error: ", err));
 	}
 
+	
+
 	render() {
 		const note = this.state.note;
 		if (!note) return <h2>Loading...</h2>;

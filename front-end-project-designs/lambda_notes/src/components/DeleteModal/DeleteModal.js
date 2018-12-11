@@ -3,10 +3,9 @@ import styled from "styled-components";
 import axios from "axios";
 
 const ModalOverlay = styled.div`
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 	background-color: rgba(221, 221, 221, 0.5);
-	z-index: 1;
 `;
 
 const ModalContainer = styled.div`

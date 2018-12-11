@@ -50,11 +50,22 @@ class EditNoteForm extends React.Component {
 		super(props);
 		this.state = {
 			notes: [],
-			title: this.props.title,
-            // textBody: this.props.note.textBody,
-            // id: this.props.note._id
+			title: '',
+			textBody: '',
+			id: this.props.notes._id,
 		};
 	}
+
+	componentDidMount() {
+        this.props.notes.forEach( note => {
+            if (`${note._id}`  === this.props.match.params.noteId)  {
+                this.setState({
+                    title: note.title,
+                    textBody: note.textBody
+                })
+            }
+        })
+    }
 
 	handleChange = event => {
 		this.setState({
@@ -63,13 +74,19 @@ class EditNoteForm extends React.Component {
 	};
 
 	handleSubmit = event => {
-        event.preventDefault();
-        let editedNote = {
+		event.preventDefault();
+		let editedNote = {
 			title: this.state.title,
 			textBody: this.state.textBody,
 		};
-        this.props.editNote(editedNote, this.props.match.params.noteId);
-        setTimeout( () => this.props.history.push(`/notes/${this.props.match.params.noteId}`), 500);
+		this.props.editNote(editedNote, this.props.match.params.noteId);
+		setTimeout(
+			() =>
+				this.props.history.push(
+					`/notes/${this.props.match.params.noteId}`
+				),
+			500
+		);
 		// event.preventDefault();
 		// let editedNote = {
 		// 	title: this.state.title,
@@ -78,8 +95,8 @@ class EditNoteForm extends React.Component {
 
 		// axios
 		// 	.put(`https://fe-notes.herokuapp.com/note/edit/${
-        //         this.state.id
-        //     }`, editedNote)
+		//         this.state.id
+		//     }`, editedNote)
 		// 	.then(
 		// 		res => (
 		// 			console.log("PUT Server Response: ", res),
@@ -97,17 +114,18 @@ class EditNoteForm extends React.Component {
 
 	render() {
 		console.log("Edit Form Props", this.props);
+		console.log("Edit Form state", this.state);
 		return (
 			<NewNoteForm onSubmit={this.handleSubmit}>
 				<h2>Edit Note:</h2>
 				<NewNoteFormInput
 					type="text"
-					defaultValue={this.props.title}
+					defaultValue={this.state.title}
 					name="title"
 					onChange={this.handleChange}
 				/>
 				<NewNoteFormTextArea
-					// defaultValue={this.props.note.textBody}
+					defaultValue={this.state.title}
 					name="textBody"
 					onChange={this.handleChange}
 				/>

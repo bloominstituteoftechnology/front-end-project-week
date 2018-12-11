@@ -29,11 +29,11 @@ const SidebarButton = styled.div`
 	text-decoration: none;
 `;
 
-const Sidebar = () => {
+const Sidebar = (props) => {
 	return (
 		<SidebarContainer>
 			<MainHeader>Lambda Notes</MainHeader>
-			<Link to="/notes">
+			<Link to="/notes" onClick={props.getNotes}>
 				<SidebarButton>View Your Notes</SidebarButton>
 			</Link>
 			<Link to="/addnewnote"><SidebarButton href="#">+ Create New Note</SidebarButton></Link>

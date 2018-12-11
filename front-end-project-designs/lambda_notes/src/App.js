@@ -11,6 +11,7 @@ import Note from "./components/Note/Note";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
 import EditNoteForm from "./components/EditNoteForm/EditNoteForm";
 
+
 const AppContainer = styled.div`
 	height: 100%;
 	display: flex;
@@ -70,8 +71,6 @@ class App extends Component {
 				)
 			)
 			.catch(err => console.log("PUT Server Error: ", err));
-
-		// this.props.history.push(`/notes/${this.props.note._id}`);
 	};
 
 	render(props) {
@@ -79,7 +78,7 @@ class App extends Component {
 		return (
 			<>
 				<AppContainer>
-					<Sidebar />
+					<Sidebar {...props} getNotes={this.getNotes} />
 					<Route
 						exact
 						path="/notes"
@@ -90,6 +89,7 @@ class App extends Component {
 					/>
 					<Route exact path="/addnewnote" component={AddNewNote} />
 					<Route
+						exact
 						path="/notes/:noteId"
 						render={props => (
 							<Note {...props} notes={this.state.notes} />
@@ -97,16 +97,14 @@ class App extends Component {
 					/>
 					<Route
 						{...props}
-						exact
 						path={`/notes/:noteId/edit`}
 						// component={EditNoteForm}
 						render={props => (
 							<EditNoteForm
 								{...props}
-								note={this.props.note}
-								title={this.state.title}
-								textBody={this.state.textBody}
+								notes={this.state.notes}
 								editNote={this.editNote}
+								getNotes={this.getNotes}
 							/>
 						)}
 					/>
