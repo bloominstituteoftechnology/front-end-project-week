@@ -5,10 +5,11 @@ import styleVars from '../helpers/styleVars';
 import { Route } from 'react-router-dom';
 import List from '../views/List';
 import AddNote from '../views/AddNote';
+import NoteView from '../views/NoteView';
 
 const Div = styled.div`
     width: ${100 - styleVars.sideBarWidth}%;
-    padding: 56px 0 0 32px;
+    padding: 0 0 0 32px;
     background: ${styleVars.mainContentBG};
     height: 100vh;
     overflow-y: auto;
@@ -32,6 +33,10 @@ const Content = props => {
                 render={routeProps => (
                     <AddNote {...routeProps} post={props.post} />
                 )}
+            />
+            <Route
+                path="/notes/:_id"
+                render={props => <NoteView {...props} />}
             />
         </Div>
     );
