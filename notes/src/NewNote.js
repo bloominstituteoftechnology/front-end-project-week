@@ -7,7 +7,7 @@ const NewNote = (props) => {
   const handleClick = event => {
     event.preventDefault();
     if (props.isEditing) {
-      props.editNote();
+      props.editNote(event);
     } else {
       props.addNote();
     }

@@ -14,8 +14,8 @@ class SingleNote extends React.Component {
       deleteModal: false,
       notes: [],
       note: {
-        title: 'Dummy Title',
-        content: 'Dummy Content'
+        title: 'Trouble getting that note',
+        content: 'Please refresh the page'
       }
     }
   }
@@ -35,7 +35,7 @@ class SingleNote extends React.Component {
     const myId = this.props.match.params.id;
     console.log(myId);
     axios
-    .get(`${URL}notes/${this.props.match.params.id}`)
+    .get(`${URL}notes/${myId}`)
     .then(response => {
       console.log(response.data)
       this.setState({ 
@@ -60,9 +60,19 @@ class SingleNote extends React.Component {
     //       })
     //       // const myNote = this.props.notes.find((note) =>)
     //     }
+
+      // deleteNote = (ev, id) => {
+      //   console.log(this.props);
+      //   ev.preventDefault();
+      //   axios
+      //     .delete(`${URL}edit/${id}`)
+      //     .then(response => {
+      //       console.log(response)
+      //     })
+      // }
         
         deleteConfirmed = (event) => {
-          this.props.deleteNote(event, this.state.note.id);
+          this.props.deleteNote(event, Number(this.props.match.params.id))
           this.props.history.push('/notes/')
         }
         
@@ -73,7 +83,7 @@ class SingleNote extends React.Component {
           <div className='editAndDeleteButtons'>
             <h3 
               onClick={event => {
-              this.props.editNote(event, this.state.note);
+              this.props.editNote(event, this.state.note)
               this.props.history.push('/new_note')}}>
               Edit
             </h3>

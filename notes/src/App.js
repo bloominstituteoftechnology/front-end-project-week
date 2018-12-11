@@ -36,6 +36,16 @@ componentDidMount() {
     });
 }
 
+// refresh() {
+//   let newArray = this.state.notes.filter( note => {
+//     return note.id !== this.state.activeNote.id
+//   })
+//   this.setState({
+//     notes: newArray
+//   })
+// }
+
+
 getNoteById = id => {
   axios
     .get(`${URL}notes/${id}`)
@@ -68,8 +78,8 @@ addNote = () => {
 deleteNote = (ev, id) => {
   console.log(ev, id)
   ev.preventDefault();
-  const foundNote = this.state.notes.find(note => note.id === id)
-    console.log(foundNote)
+  // const foundNote = this.state.notes.find(note => note.id === id)
+  //   console.log(foundNote)
   const newNotesArray = this.state.notes.filter(note => note.id !== id)
   axios.delete(`${URL}edit/${id}`)
     .then(response => {
@@ -81,17 +91,19 @@ deleteNote = (ev, id) => {
 }
 
 editNote = () => {
+  console.log(this.state)
+  const myId = this.state.activeNote[0].id;
   axios
     .put(
-      `${URL}edit/${this.state.editingId}`, 
+      `${URL}edit/${myId}`, 
       this.state.note
     )
     .then(response => {
       // const oldNote = this.state.notes.find(note => note._id === this.state.editingId)
       // console.log(oldNote)
-      const newNotesArray = this.state.notes.filter(note => note._id !== this.state.activeNote._id)
+      const newNotesArray = this.state.notes.filter(note => note.id !== myId)
+      newNotesArray.push(this.state.note)
       console.log(newNotesArray)
-      newNotesArray.push(response.data)
       this.setState({
         
         notes: newNotesArray,
@@ -172,11 +184,12 @@ prepareUpdateForm = ( event, note) => {
             render={props => (
               <SingleNote 
                 {...props}
-                activeNote={this.state.activeNote}
                 deleteNote={this.deleteNote}
+                activeNote={this.state.activeNote}
                 editNote={this.prepareUpdateForm}
                 note={this.state.activeNote}
                 notes={this.state.notes}
+                refresh={this.refresh}
               />
             )}
           />
