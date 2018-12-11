@@ -4,8 +4,8 @@ class AddNoteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      textBody: ""
+      noteTitle: "",
+      noteBody: ""
     };
   }
 
@@ -15,7 +15,7 @@ class AddNoteForm extends Component {
 
   helper = e => {
     this.props.addNote(e, this.state);
-    this.setState({ title: "", textBody: "" });
+    this.setState({ noteTitle: "", noteBody: "" });
     this.props.history.push("/");
   };
 
@@ -29,16 +29,16 @@ class AddNoteForm extends Component {
         <form onSubmit={this.helper}>
           <input
             className="form-note-title"
-            name="title"
-            value={this.state.title}
+            name="noteTitle"
+            value={this.state.noteTitle}
             onChange={this.changeHandler}
             type="text"
             placeholder="Note Title"
           />
           <textarea
             className="form-note-content"
-            name="textBody"
-            value={this.state.textBody}
+            name="noteBody"
+            value={this.state.noteBody}
             onChange={this.changeHandler}
             type="text"
             placeholder="Note Content"

@@ -6,7 +6,7 @@ import AddNoteForm from "./components/AddNoteForm";
 import { Route, NavLink, withRouter } from "react-router-dom";
 import Note from "./components/Note";
 import EditNoteForm from "./components/EditNoteForm";
-import LoginPage from "./components/LoginPage";
+// import LoginPage from "./components/LoginPage";
 
 class App extends Component {
   constructor() {
@@ -30,7 +30,7 @@ class App extends Component {
     axios
       .post("http://localhost:4000/api/notes", newNote)
       .then(res => {
-        newNote._id = res.data.success;
+        newNote.id = res.data.success;
         this.setState({ notes: [newNote, ...this.state.notes] });
       })
       .catch(err => console.log(err));
@@ -43,7 +43,7 @@ class App extends Component {
 
       .then(() => {
         const deletedNote = this.state.notes.filter(note => {
-          if (note._id !== id) {
+          if (note.id !== id) {
             return note;
           }
         });
@@ -55,10 +55,10 @@ class App extends Component {
   editNote = (e, id, state) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:4000/api/notes//${id}`, state)
+      .put(`http://localhost:4000/api/notes/${id}`, state)
       .then(res => {
         const updatedArray = this.state.notes.map(note => {
-          if (note._id === res.data._id) {
+          if (note.id === res.data.id) {
             return res.data;
           }
           return note;
@@ -69,7 +69,7 @@ class App extends Component {
   };
 
   searchFilter = search => {
-    const filteredNotes = this.state.notes.filter(note => note.title.includes(search));
+    const filteredNotes = this.state.notes.filter(note => note.noteTitle.includes(search));
     return filteredNotes;
   };
 
@@ -78,7 +78,6 @@ class App extends Component {
   };
 
   loginHandler = (e, username) => {
-    console.log("login fired", username);
     e.preventDefault();
     if (username !== "") {
       this.setState({ username: username });
@@ -93,7 +92,7 @@ class App extends Component {
   };
 
   editingNote = id => {
-    return this.state.notes.find(note => note._id === id);
+    return this.state.notes.find(note => note.id === id);
   };
 
   render() {
@@ -127,7 +126,8 @@ class App extends Component {
             render={props => (
               <NoteList
                 {...props}
-                notes={this.searchFilter(this.state.searchTerm)}
+                // notes={this.searchFilter(this.state.searchTerm)}
+                notes={this.state.notes}
                 deleteNote={this.deleteNote}
                 addNote={this.addNote}
                 editNote={this.editNote}

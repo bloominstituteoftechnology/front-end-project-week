@@ -12,7 +12,7 @@ const NoteList = props => {
         <h3>Your Notes</h3>
       </div>
       {props.notes.map(note => {
-        return <NoteCard key={note._id} deleteNote={props.deleteNote} note={note} editNote={props.editNote} />;
+        return <NoteCard key={note.id} deleteNote={props.deleteNote} note={note} editNote={props.editNote} />;
       })}
     </div>
   );

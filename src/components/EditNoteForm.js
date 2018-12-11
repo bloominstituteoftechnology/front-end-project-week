@@ -5,8 +5,8 @@ class EditNoteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.note.title,
-      textBody: this.props.note.textBody,
+      noteTitle: this.props.note.noteTitle,
+      noteBody: this.props.note.noteBody,
       note: []
     };
   }
@@ -18,7 +18,7 @@ class EditNoteForm extends Component {
 
   fetchNote = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:4000/api/notes/${id}`)
       .then(res => this.setState({ note: res.data }))
       .catch(res => console.log(res));
   };
@@ -28,13 +28,13 @@ class EditNoteForm extends Component {
   };
 
   helper = e => {
-    this.props.editNote(e, this.state.note._id, this.state);
+    this.props.editNote(e, this.state.note.id, this.state);
     this.setState({ title: "", textBody: "" });
     this.props.history.push("/");
   };
 
   render() {
-    console.log(this.state.note);
+    console.log(this.props);
     return (
       <div>
         <div className="notes-header">
@@ -43,16 +43,16 @@ class EditNoteForm extends Component {
         <form onSubmit={this.helper}>
           <input
             className="form-note-title"
-            name="title"
-            value={this.state.title}
+            name="noteTitle"
+            value={this.state.noteTitle}
             onChange={this.changeHandler}
             type="text"
             placeholder="Note Title"
           />
           <textarea
             className="form-note-content"
-            name="textBody"
-            value={this.state.textBody}
+            name="noteBody"
+            value={this.state.noteBody}
             onChange={this.changeHandler}
             type="text"
             placeholder="Note Content"
