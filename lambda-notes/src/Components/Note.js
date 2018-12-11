@@ -14,3 +14,5 @@ const Note = props => (
 );
 
 export default Note;
+
+//{`/note/${props.note._id}`}
