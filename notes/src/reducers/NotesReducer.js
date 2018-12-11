@@ -86,7 +86,7 @@ import {
           }
         }
   
-      case GET_NOTE : return {...state, loading: true}
+      case GET_NOTE : return {...state}
       case GET_NOTE_FAILURE : return {...state, loading: false, error: action.payload}
       case GET_NOTE_SUCCESS : 
         return {

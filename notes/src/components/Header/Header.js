@@ -8,16 +8,25 @@ import {
     HamburgerContainer, 
     SearchInput, 
     Search, 
-    MenuLogoContainer 
+    MenuLogoContainer,
+    Settings,
+    SettingsRow
 } from '../../styles';
-
 
 class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            search: ''
+            search: '',
+            showSettings: false,
         }
+    }
+
+    logout = (e) => {
+        e.preventDefault();
+        this.props.logout();
+        this.setState({showSettings: false});
+        this.props.history.push('/login')
     }
     
     render() {
@@ -55,6 +64,13 @@ class Header extends Component {
                     <Actions>
                         <SVGIcon refresh onClick={e => this.props.getNotes()}/>
                         <SVGIcon sortView={this.props.sortMode} onClick={e => this.props.setSortMode()} />
+                        <SVGIcon settings onClick={() => this.setState({showSettings: !this.state.showSettings})}/>
+                        <Settings showSettings={this.state.showSettings}>
+                            <SettingsRow onClick={(e) => this.logout(e)}>
+                                <SVGIcon logout/>
+                                <span>Logout</span>
+                            </SettingsRow>
+                        </Settings>
                     </Actions>
                 </ActionContainer>
             </StyledHeader>

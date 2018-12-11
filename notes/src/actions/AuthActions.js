@@ -13,9 +13,13 @@ export const AUTH_REGISTER_FAILURE = 'auth_register_failure';
 export const AUTH_LOGOUT = 'auth_logout'
 
 export const tokenExists = () => {
-    return {
-        type: AUTH_LOGIN_SUCCESS
-    }
+        const token = localStorage.getItem(keyName);
+        const decoded = jwt.decode(token);
+
+        return {
+            type: AUTH_LOGIN_SUCCESS,
+            payload: decoded
+        };
 }
 
 export const authLogin = credentials => async dispatch => {

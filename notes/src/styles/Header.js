@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { SVGIcon } from './SVGs';
 
 export const StyledHeader = styled.div`
     width: 100vw;
@@ -12,11 +13,11 @@ export const StyledHeader = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 5;
     background: white;
     background-color: white;
     border: none;
     border-bottom: 1px solid rgb(218, 220, 224);
+    z-index: 5;
 `;
 
 export const HamburgerContainer = styled.div`
@@ -116,5 +117,46 @@ export const MenuLogoContainer = styled.div`
         width: 30px;
         img {display: none};
         .keep-name {display: none};
+    }
+`;
+
+
+
+export const Settings = styled.div`
+    display: ${props => props.showSettings ? 'flex' : 'none'};
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: space-between;
+    /* padding: 10px; */
+    position: absolute;
+    background-color: white;
+    right: 10px;
+    bottom: -40px;
+    /* bottom: -140px; */
+    /* height: 150px; */
+    width: 130px;
+    border-radius: 8px;
+    z-index: 6;
+    border: 1px solid rgb(218, 220, 224);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+`;
+
+export const SettingsRow = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50px;
+    opacity: .54;
+    cursor: pointer;
+    ${SVGIcon} {
+        opacity: 1;
+    }
+    :hover {
+        opacity: 1;
+    }
+    span {
+        line-height: 50px;
+        user-select: none;
     }
 `;

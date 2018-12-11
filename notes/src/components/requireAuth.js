@@ -38,6 +38,7 @@ export default ChildComponent => {
             const currentTime = Date.now() / 1000;
 
             if(this.props.exp !== null && currentTime > this.props.exp) {
+                
                 this.props.logout();
                 this.props.history.push('/login');
                 return;

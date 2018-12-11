@@ -5,7 +5,8 @@ import {
     searchHandler, 
     getNotes, 
     setSortMode, 
-    menuToggle 
+    menuToggle,
+    logout
 } from '../../actions';
 
 
@@ -20,7 +21,8 @@ const mapDispatchToProps = {
     searchHandler, 
     getNotes, 
     setSortMode, 
-    menuToggle 
+    menuToggle,
+    logout
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

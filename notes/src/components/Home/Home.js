@@ -22,7 +22,7 @@ class Home extends Component {
   render() {
     return (
       <div className={'app-container'}>
-        <Header />
+        <Header history={this.props.history}/>
         <ToolBar />
         <NotesContainer showMenu={this.props.showMenu}>
           <NoteForm {...this.props}/>
