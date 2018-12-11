@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+// import marked from 'marked';
 const NotePage = props => {
     if(props.notes.length){
-        let note = props.notes.find(note => `${note._id}` === props.match.params.id);
+        let note = props.notes.find(note => `${note.id}` === props.match.params.id);
 
         const deleteNotes = event => {
             event.preventDefault();
-            props.deleteNote(note._id);
+            props.deleteNote(note.id);
             props.history.push("/");
         };
         return (
@@ -24,7 +24,7 @@ const NotePage = props => {
                 </div>
                 )}
                 <div className="note-page-buttons">
-                    <Link to={`/note/${note._id}/edit`} onClick={() => props.editNoteContent(note.title, note.textBody)}>edit</Link>{" "}
+                    <Link to={`/note/${note.id}/edit`} onClick={() => props.editNoteContent(note.title, note.textBody)}>edit</Link>{" "}
                     <span onClick={props.deleteToggleOn}>delete</span>
                 </div>
                 <h2 className="note-title">{note.title}</h2>

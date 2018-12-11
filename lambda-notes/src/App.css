@@ -105,19 +105,18 @@ form button{
 .note-page{
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   padding:50px 20px;
   width:100vw;
   top:0;
   margin-bottom:0;
 }
 .note-page .note-body{
-  border:1px solid black;
   width:100%;
   margin:0;
   overflow-wrap: break-word;
 }
 .note-page .note-title{
-  border:1px solid black;
   width:100%;
   right:0;
   margin-bottom:20px;
