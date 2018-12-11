@@ -35,11 +35,11 @@ class App extends Component {
         {this.props.mightDelete ? <DeleteModal /> : null}
         <div className="App">
           <AppContainer>
-            <Route path="/" render={props => <SideBarView {...props} />} />
-            <Route exact path="/" render={props => <ListView {...props} />} />
-            <Route exact path="/new-note" render={props => <NewNoteView {...props} />} />
+            <Route path="/front-end-project-week" render={props => <SideBarView {...props} />} />
+            <Route exact path="/front-end-project-week" render={props => <ListView {...props} />} />
+            <Route exact path="/front-end-project-week/new-note" render={props => <NewNoteView {...props} />} />
 
-            <Route exact path="/edit-note" render={props => <EditNoteView {...props} />} />
+            <Route exact path="/front-end-project-week/edit-note" render={props => <EditNoteView {...props} />} />
 
             {this.props.activeNote && !this.props.editingNote ? <SingleNoteView /> : null}
           </AppContainer>

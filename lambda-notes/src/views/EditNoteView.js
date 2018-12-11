@@ -80,7 +80,7 @@ class EditNoteView extends Component {
   clickHandler = event => {
     event.preventDefault();
     this.props.editNote(this.props.activeNote._id, this.state);
-    this.props.history.push('/');
+    this.props.history.push('/front-end-project-week');
   };
 
   render() {

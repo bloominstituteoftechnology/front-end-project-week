@@ -80,7 +80,7 @@ class NewNoteView extends Component {
   clickHandler = event => {
     event.preventDefault();
     this.props.addNote(this.state);
-    this.props.history.push('/');
+    this.props.history.push('/front-end-project-week');
   };
 
   render() {

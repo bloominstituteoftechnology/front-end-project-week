@@ -42,7 +42,7 @@ class SingleNoteView extends Component {
   EditClickHandler = event => {
     event.preventDefault();
     this.props.editingNote();
-    this.props.history.push('/edit-note');
+    this.props.history.push('/front-end-project-week/edit-note');
   };
 
   render() {
@@ -51,10 +51,10 @@ class SingleNoteView extends Component {
       <SingleNoteViewContainer>
         <TitleContainer>
           <LinkContainer>
-            <StyledLink to="/" onClick={this.EditClickHandler}>
+            <StyledLink to="/front-end-project-week" onClick={this.EditClickHandler}>
               Edit
             </StyledLink>
-            <StyledLink to="/" onClick={this.DeleteClickHandler}>
+            <StyledLink to="/front-end-project-week" onClick={this.DeleteClickHandler}>
               Delete
             </StyledLink>
           </LinkContainer>
