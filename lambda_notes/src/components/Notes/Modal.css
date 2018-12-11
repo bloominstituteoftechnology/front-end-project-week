@@ -39,7 +39,7 @@
   color: #fff;
   text-decoration: none;
   cursor: pointer;
-  transition: all linear 0.2s;
+  transition: background-color linear 0.2s;
 }
 
 .modal-main button:hover {
