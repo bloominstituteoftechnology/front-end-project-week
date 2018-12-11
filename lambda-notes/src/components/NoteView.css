@@ -1,0 +1,47 @@
+/* .features {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: flex-end
+} */
+
+.singleNoteWrapper {
+    height: 900px;
+}
+
+.btn-link  {
+    width: 55px;
+    color: #4A4A4A;
+    text-decoration: underline;
+    font-weight:bold;
+}
+
+.btn-link:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+
+
+.modal-content {
+    border-radius: 0px;
+    border: 1px solid #979797;
+}
+
+.modal-body-text {
+    text-align: center;
+}
+
+.modal-footer {
+    border: none;
+}
+
+.save-btn {
+    background-color: #2BC1C4; 
+}
+
+.close-btn {
+    background-color: #D0021B;
+}
+
