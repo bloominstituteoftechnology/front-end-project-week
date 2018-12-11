@@ -15,7 +15,10 @@ class FullNote extends React.Component {
       },
       isEditing: false,
       showDeleteModal: false,
-      tags: []
+      tags: [],
+      newTag: {
+        text: ""
+      }
     };
   }
 
@@ -63,6 +66,26 @@ class FullNote extends React.Component {
       .delete(`${this.tagUrl}/${id}`)
       .then(this.getTags)
       .catch(err => console.log("Error while deleting this tag: ", err));
+  };
+
+  addTagHandler = event => {
+    this.setState({ ...this.state, newTag: { text: event.target.value } });
+  };
+
+  addTag = event => {
+    event.preventDefault();
+    let tag = this.state.newTag;
+
+    tag.notes_id = parseInt(this.props.match.params.id);
+    if (tag.text !== "") {
+      axios
+        .post(this.tagUrl, tag)
+        .then(this.getTags)
+        .catch(err => console.log("Error while adding tag: ", err));
+      this.setState({ newTag: { text: "" } });
+    } else {
+      alert("Empty tags not allowed.");
+    }
   };
 
   //allows single page to render either view state or edit state without being taken to separate page/url
@@ -131,6 +154,16 @@ class FullNote extends React.Component {
           <Markdown className="full-note-text">
             {this.state.activeNote.content}
           </Markdown>
+          <form className="add-tag-form" onSubmit={this.addTag}>
+            <input
+              className="add-tag-text"
+              type="text"
+              placeholder="Add new tag"
+              name="text"
+              value={this.state.newTag.text}
+              onChange={this.addTagHandler}
+            />
+          </form>
           <section className="tag-wrapper">
             {this.state.tags.map(tag => (
               <div className="tag" key={tag.id}>

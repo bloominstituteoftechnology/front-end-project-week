@@ -8,6 +8,12 @@ class NoteList extends React.Component {
     this.props.history.push(`/note/${id}`);
   }
 
+  //initial loading of notes
+  componentDidMount() {
+    this.props.getNoteList();
+    this.props.getTags();
+  }
+
   render() {
     if (!this.props.notes) {
       return <h1>Add some notes to get started!</h1>;

@@ -54,7 +54,21 @@ class App extends Component {
   getTags = () => {
     axios
       .get(this.tagUrl)
-      .then(response => this.setState({ tags: response.data }))
+      .then(response => {
+        // create new array that doesn't contain duplicate tags, only time we need full tag info
+        // for each tag is when we delete one, and that only happens in FullNote
+        let reducedTagList = [];
+        let textList = [];
+        response.data.forEach(tag => {
+          if (!textList.includes(tag.text)) {
+            textList.push(tag.text);
+            reducedTagList.push(tag);
+          }
+        });
+
+        this.setState({ tags: reducedTagList });
+      })
+
       .catch(err => console.log("Error occurred while retrieving tags: ", err));
   };
 
@@ -122,12 +136,6 @@ class App extends Component {
         });
     }
   };
-
-  //initial loading of notes
-  componentDidMount() {
-    this.getNoteList();
-    this.getTags();
-  }
 
   //triggered in every onChange in the searchbar from inside searchHandler function, filters list view by note titles containing the current searchTerm
   searchFilter = () => {
@@ -259,6 +267,8 @@ class App extends Component {
               sortAlphabetically={this.sortAlphabetically}
               searchHandler={this.searchHandler}
               searchTerm={this.state.searchTerm}
+              getNoteList={this.getNoteList}
+              getTags={this.getTags}
             />
           )}
         />
