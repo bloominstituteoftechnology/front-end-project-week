@@ -13,7 +13,7 @@ import {
 } from '../actions';
 
 // Component
-import Note from '../components/Note';
+import Note, { Fragment } from '../components/Note';
 
 class NoteView extends Component {
     componentDidMount = () => {
@@ -22,8 +22,17 @@ class NoteView extends Component {
 
     render() {
         if(this.props.note){
-            return <Note note={this.props.note}/>
-        } else if (this.props.error){
+            if(this.props.note.title){
+                return <Note note={this.props.note}/>
+            } else {
+                return( 
+                    <>
+                        <h1>{this.props.note.errorMessage}</h1>
+                        <p>Oops, you just missed this note. It was deleted</p>
+                    </>
+                )
+            }
+        } else if (this.props.error ){
             return <h1>No note found...</h1>
         } else {
             return <h1>Loading note...</h1>
