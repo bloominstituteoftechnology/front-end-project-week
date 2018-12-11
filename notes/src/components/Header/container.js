@@ -10,7 +10,7 @@ import {
 
 
 const mapStateToProps = state => {
-    const { sortMode } = state;
+    const { sortMode } = state.notes;
     return {
         sortMode
     }

@@ -1,39 +1,21 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Route, withRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-import { NotesContainer }from '../styles';
-import { getNotes } from '../actions';
-
-import Header from './Header/container';
-import ToolBar from './ToolBar/container';
-import NoteList from './NoteList/container';
-import NoteForm from './NoteForm/container';
-import NoteModule from './NoteModule/container'
-
+import Home from './Home/Home';
+import Login from './Auth/Login'
+import Register from './Auth/Register'
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.getNotes();
-  }
-
   render() {
     return (
-      <div className={'app-container'}>
-        <Header />
-        <ToolBar />
-
-        <NotesContainer showMenu={this.props.showMenu}>
-          <Route path='/' render={props => <NoteForm {...props}/> } />
-          <Route path='/' render={props => <NoteList {...props}/>}/>
-        </NotesContainer>
-
-        <Route path='/note/:id' render={props => <NoteModule {...props} /> }
-        />
-      </div>
+      <>
+        <Route path="/" exact render={props => <Home {...props}/>} />
+        <Route path="/login" render={props => <Login {...props}/>} />
+        <Route path="/register" render={props => <Register {...props}/>} />
+      </>
     );
   }
 }
 
-export default withRouter(connect(state => ({showMenu: state.showMenu}), { getNotes })(App));
+export default App;

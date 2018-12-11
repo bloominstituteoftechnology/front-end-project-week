@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "json2csv": "^4.2.1",
+    "jsonwebtoken": "^8.4.0",
     "react": "^16.7.0-alpha.0",
     "react-csv": "^1.0.18",
     "react-dom": "^16.7.0-alpha.0",

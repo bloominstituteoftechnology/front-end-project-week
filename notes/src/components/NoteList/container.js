@@ -16,7 +16,7 @@ const mapStateToProps = state => {
         deletingNote,
         searchValue,
         sortMode,
-    } = state;
+    } = state.notes;
     return {
         notes,
         noteChecked, 

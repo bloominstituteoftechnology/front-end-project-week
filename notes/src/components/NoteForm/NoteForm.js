@@ -44,7 +44,7 @@ class NoteForm extends Component {
             addRef.blur()
         }
         return (
-            <div>
+            <>
                 <Route 
                     path="/"
                     exact
@@ -94,7 +94,7 @@ class NoteForm extends Component {
                             >Delete Selected</MassDeleteButton>
                         </FormContainer>}
                 />
-            </div>
+            </>
         );
     }
 }

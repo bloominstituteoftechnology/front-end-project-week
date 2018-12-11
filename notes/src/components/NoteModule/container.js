@@ -5,7 +5,7 @@ import { getNote, updateNote, activeNoteHandler, deleteNote } from '../../action
 
 
 const mapStateToProps = state => {
-    const { activeNote } = state;
+    const { activeNote } = state.notes;
     return {
         activeNote
     }

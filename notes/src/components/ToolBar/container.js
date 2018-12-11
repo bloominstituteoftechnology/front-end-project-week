@@ -3,7 +3,7 @@ import ToolBar from './ToolBar';
 import { menuToggle } from '../../actions' 
 
 const mapStateToProps = state => {
-    const { notes, showMenu } = state;
+    const { notes, showMenu } = state.notes;
     return {
         notes,
         showMenu
