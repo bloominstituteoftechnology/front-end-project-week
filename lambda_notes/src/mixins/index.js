@@ -11,6 +11,11 @@ export const customButton = () =>
   font-size: 1.8rem;
   font-weight: bold;
   cursor: pointer;
+  transition: all linear 0.2s;
+
+  &:hover {
+    background-color: #0ea5aa;
+  }
 
   a {
     color: #FFF;
