@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { fetch_todos, onHandleSubmit, onUpdateTodos, onDeleteTodos, onFilterTodos, onSortTodos } from '../actions/actions';
+import { fetch_todos, onHandleSubmit, onUpdateTodos, onDeleteTodos, onFilterTodos, onSortTodos, onExportCSV } from '../actions/actions';
 import Todos from './Todos';
 import TodoForm from './TodoForm';
 import TodoSearch from './TodoSearch';
+// import { Route, Link, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  StaticRouter, // for server rendering
+  Route,
+  Link
+  // etc.
+} from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -46,28 +54,28 @@ class App extends Component {
 
   filterTodos = (event) => {
     event.preventDefault();
-    // this.setState({
-    //   title: this.props.todos.filter(
-    //     e => e.title.includes(this.state.filterInput)
-    //   )
-    // })
     this.props.onFilterTodos(this.state.filterInput)
   }
 
   sortTodos = (event) => {
     event.preventDefault();
-    console.log('clicked!!!')
     this.props.onSortTodos();
   }
 
+  exportCSV = (event) => {
+    event.preventDefault();
+    this.props.onExportCSV(this.state)
+  }
+
   render() {
-    console.log('props from render', this.props)
+    // console.log('props from render', this.props)
     return (
       <div>
         <TodoSearch 
           handleChange={this.handleChange}
           filterTodos={this.filterTodos}
           sortTodos={this.sortTodos}
+          exportCSV={this.exportCSV}
         />
         <div>
           {this.props.todos.map((todo, index) => {
@@ -80,12 +88,15 @@ class App extends Component {
           })}
         </div>
         <div>
+        <Route path='/newTodo' render={props => (
+
           <TodoForm 
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             updateTodos={this.updateTodos}
             deleteTodos={this.deleteTodos}
           />
+        )} />
         </div>
       </div>
     );
@@ -112,6 +123,7 @@ export default connect(
     onUpdateTodos,
     onDeleteTodos,
     onFilterTodos,
-    onSortTodos
+    onSortTodos,
+    onExportCSV
   }
 )(App)

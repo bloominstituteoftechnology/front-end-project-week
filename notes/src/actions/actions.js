@@ -8,6 +8,7 @@ export const UPDATE_TODOS = 'UPDATE_TODOS';
 export const DELETE_TODOS = 'DELETE_TODOS';
 export const FILTER_TODOS = 'FILTER_TODOS';
 export const SORT_TODOS = 'SORT_TODOS';
+export const EXPORT_TODOS = 'EXPORT_TODOS';
 
 export const fetch_todos = () => dispatch => {
     dispatch({ type: FETCH_START });
@@ -78,7 +79,7 @@ export const onFilterTodos = (filterInput) => dispatch => {
     axios 
         .get('https://fe-notes.herokuapp.com/note/get/all')
         .then(response => {
-            console.log('response from filter', response)
+            // console.log('response from filter', response)
             dispatch({ type: FETCH_SUCCESS, 
                 payload: response.data.filter(
                     e => e.title.includes(filterInput)
@@ -95,10 +96,34 @@ export const onSortTodos = () => dispatch => {
     axios 
         .get('https://fe-notes.herokuapp.com/note/get/all')
         .then(response => {
-            console.log('response from filter', response)
-            dispatch({ type: FETCH_SUCCESS, 
-                payload: response.data.sort()
+            console.log('response from sort', response.data)
+            dispatch({ type: FETCH_SUCCESS,
+                payload: response.data.sort(function (a, b) {
+                    return a.title - b.title;
+                })
             })
+            // dispatch({ type: FETCH_SUCCESS, 
+            //     payload: response.data.sort(function(a, b) {
+            //         const titleA = a.title.toUpperCase();
+            //         const titleB = a.title.toUpperCase();
+            //         return (titleA < titleB) ? -1 : (titleA > titleB)
+            //             ? 1 : 0;
+            //     })
+            // })
+        })
+        .catch(err => {
+            dispatch({ type: FETCH_FAILURE, payload: err })
+        });
+};
+
+export const onExportCSV = (stateExportData) => dispatch => {
+    dispatch({ type: EXPORT_TODOS });
+    console.log('export todos called', stateExportData)
+    axios 
+        .get('https://fe-notes.herokuapp.com/note/get/all')
+        .then(response => {
+            console.log('from export response =', response)
+            dispatch({ type: FETCH_SUCCESS, payload: response.data })
         })
         .catch(err => {
             dispatch({ type: FETCH_FAILURE, payload: err })

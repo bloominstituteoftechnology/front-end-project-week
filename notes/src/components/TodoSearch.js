@@ -35,6 +35,7 @@ const SearchBar = props => {
     return (
         <div>
             <button onClick={props.sortTodos}>Sort</button>
+            <button onClick={props.exportCSV}>Export to CSV</button>
             <form className="search" onSubmit={props.filterTodos}>
                 <input className="search-input" 
                     type="text" 

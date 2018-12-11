@@ -5,15 +5,12 @@ import {
     ON_HANDLE_SUBMIT,
     UPDATE_TODOS,
     DELETE_TODOS,
-    FILTER_TODOS
+    FILTER_TODOS,
+    SORT_TODOS,
+    EXPORT_TODOS
 } from '../actions/actions';
 
 const initialState = {
-    // todos: [{
-    //     tags: [],
-    //     title: '',
-    //     textBody: ''
-    // }],
     todos: [],
     fetchingTodos: false,
     addingTodos: false,
@@ -75,6 +72,14 @@ export const todosReducer = (state = initialState, action) => {
             return {
                 ...state,
                 filteringTodos: true
+            }
+        case SORT_TODOS: 
+            return {
+                ...state
+            }
+        case EXPORT_TODOS:
+            return {
+                ...state
             }
         default:
             return state;
