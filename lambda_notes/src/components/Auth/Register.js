@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
+import "./form.css";
+
 const initialUser = {
   username: "",
   password: ""
@@ -40,7 +42,7 @@ class Register extends Component {
 
   render() {
     return (
-      <div>
+      <div className="auth-form-group">
         <form onSubmit={this.handleSubmit}>
           <div>
             <input

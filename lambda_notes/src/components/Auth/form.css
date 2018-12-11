@@ -1,0 +1,38 @@
+.auth-form-group {
+  /* border: 1px solid red; */
+}
+
+.auth-form-group form {
+  border-radius: 5px;
+  width: 400px;
+  margin: 0 auto;
+  padding: 30px 0;
+  background-color: #e7e7e7;
+}
+
+.auth-form-group form div {
+  width: 70%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.auth-form-group form input {
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  width: 100%;
+  padding: 10px 10px;
+  font-size: 18px;
+}
+
+.auth-form-group button {
+  width: 100%;
+  margin: 10px 0;
+  border-color: #d6d2d6;
+  padding: 20px;
+  background-color: #23b8bd;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all linear 0.2s;
+}

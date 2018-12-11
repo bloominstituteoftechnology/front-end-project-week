@@ -82,23 +82,33 @@ class App extends Component {
       );
     } else {
       return (
-        <div className="app-container auth-container">
-          <nav>
-            <NavLink
-              to="/register"
-              activeStyle={{ textDecoration: "underline" }}
-            >
-              Register
-            </NavLink>
-            &nbsp;|&nbsp;
-            <NavLink to="/login" activeStyle={{ textDecoration: "underline" }}>
-              Login
-            </NavLink>
-          </nav>
-          <section>
+        <div className="app-container">
+          <div className="auth-wrapper">
+            <div className="nav-wrapper">
+              <h2>Lambda Notes</h2>
+              <nav>
+                <NavLink
+                  to="/register"
+                  activeStyle={{
+                    borderBottom: "2px solid #23b8bd"
+                  }}
+                >
+                  Register
+                </NavLink>
+                &nbsp;<span style={{ color: "#4b4b4a" }}>|</span>&nbsp;
+                <NavLink
+                  to="/login"
+                  activeStyle={{
+                    borderBottom: "2px solid #23b8bd"
+                  }}
+                >
+                  Login
+                </NavLink>
+              </nav>
+            </div>
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
-          </section>
+          </div>
         </div>
       );
     }

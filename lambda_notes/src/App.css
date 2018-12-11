@@ -18,8 +18,33 @@
   max-height: 100%;
 }
 
-.auth-container {
-  background-color: #f2f1f2;
-  max-height: 100%;
-  min-height: 100vh;
+.auth-wrapper {
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  min-width: 400px;
+  margin: 200px auto;
+  background-color: #e7e7e7;
+}
+
+.auth-wrapper .nav-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.auth-wrapper .nav-wrapper h2 {
+  width: 100%;
+  padding-top: 25px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #4b4b4a;
+}
+
+.auth-wrapper .nav-wrapper a {
+  margin: 5px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4b4b4a;
 }
