@@ -90,7 +90,7 @@
 }
 
 
-/* Form styling */
+/* Add Note Form styling */
 .form-container {
   padding-left: 350px;
   padding-top: 80px;
@@ -121,4 +121,35 @@
 
 .form-container textarea {
   width: 100%;
+}
+
+/*Note View page*/
+.note-view {
+  padding-left: 350px;
+  padding-top: 60px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.edit-delete-container {
+  display: flex;
+  position: fixed;
+  right: 64px;
+  width: 150px;
+  justify-content: space-around;
+  color: #4e4d4e;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.edit-delete {
+  color: inherit;
+}
+
+.note-view h2{
+  margin-top: 20px;
+}
+
+.note-view p {
+  margin-top: 35px;
 }
