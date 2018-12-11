@@ -1,9 +1,11 @@
 import React from 'react';
 
 const NoteCard = props => {
+
     return (
         <div>
-            <h2>{props.title}</h2>
+            <h1>{props.singleNote.title}</h1>
+            <p>{props.singleNote.textBody}</p>
         </div>
     )
 }

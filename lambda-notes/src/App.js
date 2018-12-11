@@ -15,6 +15,7 @@ class App extends Component {
       notes: [],
       title: '',
       textBody: '',
+      singleNote: [],
     }
   }
 
@@ -53,9 +54,9 @@ class App extends Component {
   fetchNote = id => {
     axios
     .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    console.log('success')
     .then(response => {
-        this.setState({ notes: response.data })
+      console.log(response)
+        this.setState({ singleNote: response.data })
     })
     .catch(err => {
         console.error(err);
@@ -84,12 +85,13 @@ class App extends Component {
       <Route exact path='/' render={props => (
         <ListOfNotes {...props}
         state={this.state}
-        fetchNote={this.fetchNote} />
-      )} />
-      <Route path={`/note/:id`}
+        fetchNote={this.fetchNote} /> 
+      )}/>
+      <Route exact path={`/note/:id`}
       render={props => (
         <NoteCard {...props}
-        state={this.state}
+        notes={this.state.notes}
+        singleNote={this.state.singleNote}
          />
       )} />
       </section>
