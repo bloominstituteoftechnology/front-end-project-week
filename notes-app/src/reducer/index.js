@@ -3,6 +3,7 @@ import {
     ADD_FETCH, ADD_SUCCESS, ADD_FAILURE,
     DELETE_FETCH, DELETE_SUCCESS, DELETE_FAILURE,
     UPDATE_FETCH, UPDATE_SUCCESS, UPDATE_FAILURE,
+    START_EDIT, RESET_EDIT  
    } from "../actions";
 
 const initialState = 
@@ -35,7 +36,7 @@ const reducer = (state = initialState, action) => {
                 error: action.payload
             }
 
-            //add conditions
+            //add conditions -------------------
         case ADD_FETCH:
             return {
                 ...state,
@@ -56,7 +57,7 @@ const reducer = (state = initialState, action) => {
                 error: action.payload
             }
 
-            //update conditions
+            //update conditions -------------------
         case UPDATE_FETCH:
             return {
                 ...state,
@@ -83,7 +84,7 @@ const reducer = (state = initialState, action) => {
                 error: action.payload
             }
 
-            //delete conditions
+            //delete conditions -------------------
         case DELETE_FETCH:
             return {
                 ...state,
@@ -104,6 +105,22 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 fetchingNotes:false,
                 error: action.payload
+            }
+
+
+            // other functions =============================================================================
+        case START_EDIT:
+        console.log('edit updated')
+        console.log(action.payload)
+            return {
+                ...state,
+                editNote: action.payload
+            }
+        case RESET_EDIT:
+        console.log('edit empty')
+            return {
+                ...state,
+                editNote: {}
             }
         
 

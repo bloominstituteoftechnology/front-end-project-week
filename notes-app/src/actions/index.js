@@ -11,6 +11,8 @@ export const DELETE_FAILURE = 'DELETE_FAILURE';
 export const UPDATE_FETCH = 'UPDATE_FETCH';
 export const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
 export const UPDATE_FAILURE = 'UPDATE_FAILURE';
+export const START_EDIT = 'START_EDIT';
+export const RESET_EDIT = 'RESET_EDIT';
 
 export const getNotes = () => dispatch => {
     dispatch({ type: FETCH});
@@ -62,4 +64,12 @@ export const deleteNote = (id) => dispatch => {
       .catch(err => {
         dispatch({ type: DELETE_FAILURE, payload: err });
       })
+}
+
+export const startUpdate = obj => dispatch => {
+    dispatch({ type: START_EDIT, payload: obj })
+}
+
+export const resetEdit = () => dispatch => {
+    dispatch({ type: RESET_EDIT })
 }
