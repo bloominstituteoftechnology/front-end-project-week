@@ -17,8 +17,8 @@ export default class NoteView extends React.Component {
 
     fetchNote = id => {
         axios
-            // .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-            .get(`http://localhost:9000/api/notes/${id}`)
+            .get(`https://infinite-cliffs-77240.herokuapp.com/api/notes/${id}`)
+            // .get(`http://localhost:9000/api/notes/${id}`)
             .then(response => {
                 this.setState({ note: response.data });
             })
