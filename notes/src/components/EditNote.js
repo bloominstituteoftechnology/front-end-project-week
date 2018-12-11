@@ -16,19 +16,18 @@ class EditNote extends React.Component{
     editNote = e => {
         e.preventDefault();
         const ID = this.props.match.params;
-        axios.put(`https://fe-notes.herokuapp.com/note/edit/${ID.id}`,this.state.note)
+        axios.put(`http://localhost:9000/note/edit/${ID.id}`,this.state.note)
         .then(response => {
             this.setState({note : {title : '',textBody : ''}});
-            this.props.history.push("/");
             this.props.refresh();
-            
+            this.props.history.push("/");
         })
         .catch(error => console.log("EDIT ERROR ::", error))
     }
 
     fetchNoteById = () => {
         const ID = this.props.match.params;
-        axios.get(`https://fe-notes.herokuapp.com/note/get/${ID.id}`)
+        axios.get(`http://localhost:9000/note/get/${ID.id}`)
             .then(response => {
                 this.setState({note : response.data})
             })

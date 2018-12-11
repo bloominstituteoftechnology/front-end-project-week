@@ -54,23 +54,23 @@ class App extends Component {
   }
 
   refreshState(){
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    console.log("REFRESH")
+    axios.get('http://localhost:9000/note/get/all')
     .then(response => this.setState({notes : response.data}))
-    .catch(error => console.log("Refresh State ::: Axios says :", error))
+    .catch(error => console.log("Refresh State:", error))
   }
   //        Functions for other components
   createNewSubmit = e =>{
     e.preventDefault();
-    axios.post('https://fe-notes.herokuapp.com/note/create',this.state.newNote)
+    axios.post('http://localhost:9000/note/create',this.state.newNote)
     .then(response => {
       this.setState({/*notes : {response.data} */newNote : {
         title : '',
         textBody : '',
       }})
       this.refreshState();
-      this.history.push("/");
     })
-    .catch(error => alert("ERROR :::", error));
+    .catch(error => alert(error));
   }
   onChangeHandler = e => {
     this.setState({newNote : {...this.state.newNote,[e.target.name] : e.target.value }})
@@ -78,23 +78,24 @@ class App extends Component {
   }
   //        End Functions
 
-  componentDidMount(){
-    //will fetch data from the api
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => this.setState({notes : response.data}))
-      .catch(error => alert("CDM ::: Axios says :", error))
+  componentDidMount() {
+    this.interval = setInterval(() => this.refreshState(), 500);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
 
   render() {
     return (
       <div className="App">
-        <SideBar refresh={this.refreshState()}/>
+        <SideBar />
         <Route exact path='/' render={() => <NoteList 
         size={this.state.size}
         changeSize={this.changeSize} 
         export={this.exportCsv} 
         notes={this.state.notes} 
+        refresh={this.refreshState}
         /> } />
         {/* Create New Card Route  */}
         <Route path='/create-new' render={() => <CreateNew 
@@ -103,9 +104,9 @@ class App extends Component {
         { ...this.props }
         />} />
         {/* View Card Route */}
-        <Route path='/view/:id' render={(props) => <ViewNote {...props} refresh={this.refreshState()} notes={this.state.notes} /> } />
+        <Route path='/view/:id' render={(props) => <ViewNote {...props} refresh={this.refreshState} notes={this.state.notes} /> } />
         {/* Edit Card Route */}
-        <Route path='/edit/:id' render={(props) => <EditNote {...props} refresh={this.refreshState()} notes={this.state.notes} /> } />
+        <Route path='/edit/:id' render={(props) => <EditNote {...props} refresh={this.refreshState} notes={this.state.notes} /> } />
       </div>
     );
   }

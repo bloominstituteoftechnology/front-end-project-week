@@ -4,7 +4,7 @@ import axios from 'axios';
 class DeleteNoteModul extends React.Component {
 
     deleteNote = () => {
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.ID}`)
+        axios.delete(`http://localhost:9000/note/delete/${this.props.ID}`)
         .then(response => {
             this.props.toggleHidden();
             this.props.history.push("/");

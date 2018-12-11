@@ -14,13 +14,12 @@ class ViewNote extends React.Component{
 
     componentDidMount(){
         const ID = this.props.match.params;
-        // console.log(ID)
+        console.log(ID)
         this.fetchNoteById(ID.id);//why? how lol?
     }
 
     fetchNoteById = id => {
-        console.log(`https://fe-notes.herokuapp.com/note/get/${id}`)
-        axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        axios.get(`http://localhost:9000/note/get/${id}`)
             .then(response => {
                 this.setState({note : response.data})
                 // console.log("NOTE : ", response.data)
