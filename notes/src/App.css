@@ -1,0 +1,156 @@
+.App {
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px solid lightgray;
+  overflow: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0px 5px 5px;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.home-div {
+  height: 100vh;
+}
+
+.form-div {
+  height: 100vh;
+}
+
+.note-div {
+  height: 100vh;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+  margin-left: 11%;
+}
+li:hover {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  background: lightgray;
+  color: white;
+}
+.nav-bar {
+  cursor: pointer;
+  font-size: 24px;
+  margin-top: 80px;
+}
+
+.notes-link {
+  cursor: pointer;
+  font-size: 24px;
+  width: 30%;
+  margin-left: 34%;
+  margin-top: 60px;
+}
+
+.notes-link:hover {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  background: lightgray;
+  color: white;
+}
+
+.title {
+  color: #383838;
+  font-size: 48px;
+  margin-top: 60px;
+}
+
+.notes-list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 80%;
+  margin-left: 11%;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.notecard {
+  border: 1px solid gray;
+  box-shadow: 0px 2px 2px;
+  width: 30%;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.note-wrapper {
+  border: 1px solid gray;
+  box-shadow: 0px 2px 2px;
+  width: 40%;
+  height: 150px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  margin-left: 30.5%;
+}
+
+.button {
+  height: 24px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.buttons-div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin-left: 25.5%;
+}
+
+.message {
+  margin-top: 60px;
+}
+
+.form-title {
+  font-size: 36px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.note-form {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.update-new-input {
+  height: 24px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.body-input {
+  height: 48px;
+}
+
+.submit-button {
+  height: 24px;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 5px;
+  width: 15%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.note-click {
+  cursor: pointer;
+}
