@@ -230,6 +230,25 @@
   margin: 60px 0;
 }
 
+.note-full-view .add-tag-form {
+  margin: 20px 0 0;
+}
+
+.note-full-view .add-tag-form input {
+  padding: 5px 0 5px 1%;
+  border: 2px solid #8a9b9c;
+  border-right: none;
+  width: 10%;
+}
+
+.note-full-view .add-tag-form button {
+  padding: 5px 10px;
+  border: 2px solid #8a9b9c;
+  font-weight: bold;
+  background: #30bec3;
+  color: white;
+}
+
 .note-full-view .tag-wrapper {
   display: flex;
   flex-wrap: wrap;
