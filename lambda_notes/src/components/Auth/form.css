@@ -30,9 +30,4 @@
   font-weight: bold;
   color: #fff;
   cursor: pointer;
-  transition: all linear 0.2s;
-}
-
-.auth-form-group button:hover {
-  background-color: #0ea5aa;
 }
