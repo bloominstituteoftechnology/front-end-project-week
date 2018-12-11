@@ -6,7 +6,7 @@
 
 - A note has this basic format:
 
-```js
+```js 
   {
     "tags": ["tag", "otherTag"],
     "title": "Note Title",
