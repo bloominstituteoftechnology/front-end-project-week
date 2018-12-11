@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, Link } from "react-router-dom";
 import "./App.css";
 import axios from "axios";
 
@@ -82,27 +82,35 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  toggleModal = () => {
+    let modal = document.getElementById("modal");
+    modal.classList.toggle("modal");
+  };
+
+  deleteHandler = event => {
+    event.preventDefault();
+    this.deleteNote(this.state.singleNote._id);
+    this.props.history.push("/");
+  };
+
   render() {
     return (
       <div className="App">
+        <div id="modal" className="hidden">
+          <div className="confirmation-modal">
+            <p>Are you sure you want to delete this?</p>
+            <div className="delete-button" onClick={this.deleteHandler}>
+              Delete
+            </div>
+            <div onClick={this.toggleModal}>No</div>
+          </div>
+        </div>
         <section className="nav-section">
-        <h1>Lambda Notes</h1>
+          <h1>Lambda Notes</h1>
           <NavLink exact to={"/"}>
             View Your Notes
           </NavLink>
           <NavLink to={"/add-note"}>+ Create New Note</NavLink>
-
-          <Route
-            path="/add-note"
-            render={props => (
-              <AddNote
-                {...props}
-                addNote={this.addNote}
-                state={this.state}
-                handleChange={this.handleChange}
-              />
-            )}
-          />
         </section>
         <section className="content-container">
           <Route
@@ -117,6 +125,17 @@ class App extends Component {
             )}
           />
           <Route
+            path="/add-note"
+            render={props => (
+              <AddNote
+                {...props}
+                addNote={this.addNote}
+                state={this.state}
+                handleChange={this.handleChange}
+              />
+            )}
+          />
+          <Route
             exact
             path={`/note/:id`}
             render={props => (
@@ -124,7 +143,7 @@ class App extends Component {
                 {...props}
                 notes={this.state.notes}
                 singleNote={this.state.singleNote}
-                deleteNote={this.deleteNote}
+                toggleModal={this.toggleModal}
               />
             )}
           />

@@ -8,10 +8,10 @@ class EditNote extends React.Component {
   };
 
   render() {
-    const makeInput = (name, type = "text") => (
-      <input
+    const makeInput = (name, type = "text", className = "input-section") => (
+      <textarea
         autoComplete="off"
-        className="input-section"
+        className={className}
         type={type}
         name={name}
         placeholder={this.props.singleNote[name]}
@@ -21,12 +21,16 @@ class EditNote extends React.Component {
     );
     return (
       <>
-        <form onSubmit={this.submitHandler} autoComplete="nope">
-          {makeInput("title")}
-          {makeInput("textBody")}
-          <button>Add Note></button>
+        <h1 className="edit-header">Edit Note:</h1>
+        <form
+          className="form"
+          onSubmit={this.submitHandler}
+          autoComplete="nope"
+        >
+          {makeInput("title", "text", "title")}
+          {makeInput("textBody", "text", "text")}
+          <button>Update</button>
         </form>
-        <p>hello</p>
       </>
     );
   }
