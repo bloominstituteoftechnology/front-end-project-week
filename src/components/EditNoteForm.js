@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const api = "https://gentle-depths-26576.herokuapp.com/api";
+const api = "https://gentle-depths-26576.herokuapp.com/api/notes/";
 
 class EditNoteForm extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class EditNoteForm extends Component {
 
   fetchNote = id => {
     axios
-      .get(`${api}/notes/${id}`)
+      .get(`${api}${id}`)
       .then(res => this.setState({ note: res.data }))
       .catch(res => console.log(res));
   };

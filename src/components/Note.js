@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import Modal from "react-modal";
 import Markdown from "react-markdown";
 
-const api = "https://gentle-depths-26576.herokuapp.com/api";
+const api = "https://gentle-depths-26576.herokuapp.com/api/notes/";
 class Note extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +21,7 @@ class Note extends Component {
 
   fetchNote = id => {
     axios
-      .get(`${api}/notes${id}`)
+      .get(`${api}${id}`)
       .then(res => this.setState({ note: res.data }))
       .catch(res => console.log(res));
   };
