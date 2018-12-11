@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 export const GETTING_NOTES = 'GETTING_NOTES';
 export const NOTE_SUCCESS = 'NOTE_SUCCESS';
 export const SINGLE_NOTE = 'SINGLE_NOTE';
@@ -13,25 +12,25 @@ export const getNotes = () => dispatch => {
     dispatch({ type: GETTING_NOTES})
     return (
         axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
+            .get('http://localhost:4500/api/notes')
+            // .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(({ data }) => {
                 dispatch({ type: NOTE_SUCCESS, payload: data})
             })
             .catch(error => console.log(error))
     )
 }
-
 export const viewNote = (id) => dispatch => {
     return (
         axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-            .then(({ data }) => {
-                dispatch({ type: SINGLE_NOTE, payload: data })
+            .get(`http://localhost:4500/api/notes/${id}`)
+            // .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .then(({data}) => {
+                dispatch({ type: SINGLE_NOTE, payload: data.note })
             })
             .catch(error => console.log(error))
     )
 }
-
 export const createMode = () => dispatch => {
     dispatch({ type: CREATIVE })
 }
@@ -41,8 +40,7 @@ export const create = (note) => dispatch => {
         axios
             .post('https://fe-notes.herokuapp.com/note/create', note)
             .then(({ data }) => {
-                console.log(data)
-                // dispatch({ type: CREATE_NOTE, payload: data })
+                dispatch({ type: CREATE_NOTE, payload: data })
             })
             .catch(error => console.log(error))
     )

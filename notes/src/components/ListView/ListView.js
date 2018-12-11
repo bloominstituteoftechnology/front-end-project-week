@@ -13,7 +13,7 @@ const listView = props => {
             <div className='notesWrapper'>
                 {props.noteList.map(note => {
                     return (
-                        <div key={note._id}>
+                        <div key={note.id}>
                             <Note
                                 note={note}
                                 getNote={props.getNote}

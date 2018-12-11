@@ -14,15 +14,16 @@ import { getNotes, viewNote, create, createMode, editMode, ruSure, deleter } fro
 
 //page styling
 import './App.css';
-
+console.log(process.env.REACT_APP_TESTER);
 class App extends Component {
   componentDidMount() {
     this.props.getNotes()
   }
   
   getNote = (event) => {
-    this.props.viewNote(event.currentTarget.id)
-    this.props.history.push('/note')
+    const id = event.currentTarget.id;
+    this.props.viewNote(id)
+    this.props.history.push(`/api/notes/${id}`)
   }
   
   goHome = (props) => {
@@ -62,7 +63,7 @@ class App extends Component {
               getNote={this.getNote}
             />
           )} />
-          <Route path='/note' render={(props) => (
+          <Route path='/api/notes/:id' render={(props) => (
             <NoteView
               {...props}
               editNote={this.editNote}

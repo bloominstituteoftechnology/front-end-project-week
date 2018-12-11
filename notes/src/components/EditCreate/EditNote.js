@@ -10,7 +10,7 @@ class EditNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            _id: this.props.note._id,
+            id: this.props.note.id,
             title: this.props.note.title,
             textBody: this.props.note.textBody
         }
@@ -24,7 +24,7 @@ class EditNote extends Component {
 
     newNote = (event, props) => {
         event.preventDefault();
-        const noteId = this.state._id
+        const noteId = this.state.id
         const note = {
             title: this.state.title,
             textBody: this.state.textBody
