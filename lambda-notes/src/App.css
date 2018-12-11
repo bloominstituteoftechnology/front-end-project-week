@@ -40,6 +40,7 @@
   font-size: 2rem;
 }
 
+
 /* Notes list main page */
 .notes-container{
   background: #f3f3f3;
@@ -88,3 +89,36 @@
   color: black;
 }
 
+
+/* Form styling */
+.form-container {
+  padding-left: 350px;
+  padding-top: 80px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form-container form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container input, textarea {
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 500px;
+  margin-bottom: 20px;
+  color:  #7575a3;
+  font-family: inherit;
+  font-size: 1.5rem;
+}
+
+.nav-link-sm {
+  width: 250px;
+}
+
+.form-container textarea {
+  width: 100%;
+}

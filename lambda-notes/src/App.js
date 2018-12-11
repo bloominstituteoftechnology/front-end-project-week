@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, NavLink } from 'react-router-dom';
 import Notes from './components/Notes';
+import AddNote from './components/AddNote';
+
 import './App.css';
 
 
@@ -22,6 +24,15 @@ class App extends Component {
       })
       .catch(err => console.log(err));
       
+  }
+
+  addNote = (event, newNote) => {
+    event.preventDefault();
+    console.log(newNote);
+    axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
+    .then(response => {this.setState({notes: [...this.state.notes, newNote]}); console.log(response.data);})
+    .catch(err => console.log(err));
+
   }
 
 
@@ -50,6 +61,10 @@ class App extends Component {
             <Route 
             path="/get/:_id" 
             render={props => <div {...props} notes={this.state.notes} /> } /> }
+
+            <Route 
+            path="/create" 
+            render={props => <AddNote {...props} notes={this.state.notes} addNote={this.addNote}/> } />
           </div>
       </div>
     );
