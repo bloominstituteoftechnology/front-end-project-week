@@ -1,4 +1,5 @@
 import React from "react";
+import { ActionButton } from "./Styles";
 import "./Modal.css";
 
 const DeleteModal = props => {
@@ -10,17 +11,17 @@ const DeleteModal = props => {
     <div className={showHideClassName}>
       <section className="modal-main">
         <p>Are you sure you want to delete this?</p>
-        <button
-          className="delete-btn"
+        <ActionButton
+          style={{ backgroundColor: "#d0011b" }}
           type="button"
           onClick={e => props.deleteNote(e, props.noteID)}
         >
           Delete
-        </button>
+        </ActionButton>
 
-        <button className="close-btn" type="button" onClick={props.hideModal}>
+        <ActionButton type="button" onClick={props.hideModal}>
           No
-        </button>
+        </ActionButton>
       </section>
     </div>
   );
