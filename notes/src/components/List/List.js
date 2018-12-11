@@ -21,9 +21,9 @@ export default class List extends Component {
   };
   componentDidMount() {
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .get('http://localhost:9000/')
       .then((res) => {
-        this.setState(() => ({ notes: res.data }));
+        this.setState(() => ({ notes: res.data.notes }));
       })
       .catch((error) => {
         console.error('Server Error', error);
@@ -98,7 +98,7 @@ export default class List extends Component {
         <StyledListDiv>
           {this.handleSort(
             this.filteredNotes().map((note) => (
-              <StyledNoteLink to={`/note/${note._id}`} key={note._id}>
+              <StyledNoteLink to={`/note/${note.id}`} key={note.id}>
                 <NoteCard note={note} />
               </StyledNoteLink>
             ))

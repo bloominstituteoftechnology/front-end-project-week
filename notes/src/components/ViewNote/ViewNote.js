@@ -18,9 +18,9 @@ export default class ViewNote extends Component {
 
   fetchNote = (id) => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:9000/note/get/${id}`)
       .then((res) => {
-        this.setState(() => ({ note: res.data }));
+        this.setState(() => ({ note: res.data.note }));
       })
       .catch((error) => {
         console.error(error);
@@ -32,7 +32,7 @@ export default class ViewNote extends Component {
     this.displayModal()
       axios
         .delete(
-          `https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`
+          `http://localhost:9000/note/delete/${this.state.note.id}`
         )
         .then(() => this.props.history.push('/'))
         .catch((error) => console.error(error));
@@ -62,7 +62,7 @@ export default class ViewNote extends Component {
         <NoteLinkContainer>
           <NoteLink
             to={{
-              pathname: `/note/${this.state.note._id}/edit`,
+              pathname: `/note/${this.state.note.id}/edit`,
               state: this.state.note,
             }}
           >

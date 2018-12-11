@@ -20,7 +20,7 @@ export default class CreateNote extends Component {
     console.log(this.state.textBody);
     if (this.state.title.length > 0 && this.state.textBody.length > 0) {
       axios
-        .post('https://fe-notes.herokuapp.com/note/create', newNote)
+        .post('http://localhost:9000/note/create', newNote)
         .then(() => {
           this.setState({
             title: '',

@@ -27,7 +27,7 @@ export default class EditNote extends Component {
     if (this.state.title.length > 0 && this.state.textBody.length > 0) {
       axios
         .put(
-          `https://fe-notes.herokuapp.com/note/edit/${this.state.id}`,
+          `http://localhost:9000/note/edit/${this.state.id}`,
           editedNote
         )
         .then(() => {
@@ -40,7 +40,7 @@ export default class EditNote extends Component {
 
   fetchData = (id) => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:9000/note/get/${id}`)
       .then()
       .catch((error) => {
         console.error(error);
