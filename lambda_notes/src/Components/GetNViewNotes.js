@@ -31,6 +31,15 @@ class GetNViewNotes extends Component {
           <NotesListHeader>Your Notes:</NotesListHeader>
 
           <AllNotesBox>
+            {this.state.notes.map (eachNote => {
+              return (
+                <NoteCardLink to={`/note/${eachNote._id}`} key={eachNote._id}>
+                  <EachNoteCard>
+                    <EachNoteTitle>{eachNote.title}</EachNoteTitle>
+                    <EachNoteText>{eachNote.textBody}</EachNoteText>
+    
+              );
+            })}
           </AllNotesBox>
         </ViewNotesBox>
       </ViewListBox>
