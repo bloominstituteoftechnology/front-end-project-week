@@ -6,8 +6,8 @@ const NoteLink = styled.div`
 	display: block;
 	text-decoration: none;
 	color: black;
-	width: 180px;
-	height: 195px;
+	width: 100%;
+	height: 100%;
 	padding: 15px 20px;
 	:hover {
 		cursor: pointer;
