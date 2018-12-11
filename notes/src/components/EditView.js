@@ -5,10 +5,16 @@ import Form from "./NoteForm";
 import { ActiveTitle, NoteBox } from "./ListView";
 
 class EditView extends Component {
-	componentDidMount(){
+	componentDidMount() {
 		this.props.getNotes();
 	}
-	
+
+	submitHandler = (event, note) => {
+		event.preventDefault();
+		this.props.editNote(note._id, note);
+		this.props.history.push(`/note/${note._id}`);
+	};
+
 	render() {
 		const note = this.props.notes.find(
 			note => this.props.match.params.id === note._id
@@ -21,12 +27,11 @@ class EditView extends Component {
 				<ActiveTitle>Edit Note</ActiveTitle>
 				<Form
 					as={NoteBox}
-					{...this.props}
-					editNote={this.props.editNote}
 					buttonText='Update'
-					note={note}
-					getNotes={this.props.getNotes}
-					edit
+					submitHandler={this.submitHandler}
+					title={note.title}
+					textBody={note.textBody}
+					_id={note._id}
 				/>
 			</>
 		);

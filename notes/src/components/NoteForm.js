@@ -53,15 +53,11 @@ class Form extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			title: `${this.props.edit ? this.props.note.title : ""}`,
-            textBody: `${this.props.edit ? this.props.note.textBody : ""}`,
-            _id: this.props.edit ? this.props.note._id : `new-note${Math.random()}`
+			title: this.props.title,
+            textBody: this.props.textBody,
+            _id: this.props._id
 		};
     }
-    
-    componentDidMount(){
-	//	this.props.getNotes();
-	}
 
 	handleChange = event => {
 		this.setState({
@@ -69,24 +65,9 @@ class Form extends Component {
 		});
 	};
 
-	submitHandler = event => {
-		event.preventDefault();
-		if (this.props.edit) {
-			this.props.editNote(this.props.note._id, this.state);
-			this.props.history.push(`/note/${this.props.note._id}`);
-		} else {
-			this.props.addNote(this.state);
-			this.props.history.push(`/note/${this.state._id}`);
-		}
-    };
-    
-    componentWillUnmount(){
-		//this.props.getNotes();
-	}
-
 	render() {
 		return (
-			<FormWrapper onSubmit={this.submitHandler}>
+			<FormWrapper onSubmit={(ev)=>this.props.submitHandler(ev, this.state)}>
 				<Input
 					type='title'
 					name='title'

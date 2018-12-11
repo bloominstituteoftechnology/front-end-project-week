@@ -74,9 +74,9 @@ class NoteView extends Component {
 		};
 	}
 
-    componentDidMount(){
-        // 
-    }
+	componentDidMount() {
+		//
+	}
 
 	showDeleteModal(ev) {
 		ev.preventDefault();
@@ -91,8 +91,8 @@ class NoteView extends Component {
 	deleteHandler(ev, id) {
 		ev.preventDefault();
 		this.props.deleteNote(id);
-        this.setState({ displayDelete: false });
-        this.props.history.push("/");
+		this.setState({ displayDelete: false });
+		this.props.history.push("/");
 	}
 
 	render() {
@@ -107,7 +107,7 @@ class NoteView extends Component {
 		}
 
 		if (this.props.savingNote) {
-			return <ActiveTitle>Saving Note...</ActiveTitle>;
+			return <ActiveTitle>DUMB</ActiveTitle>;
 		}
 
 		note = this.props.notes.find(

@@ -87,5 +87,3 @@ export default withRouter(
 		}
 	)(App)
 );
-
-//EDIT SYNTAX: $r.props.editNote("5c0a1d936215570015af895d", {title: "hello", textBody: "I AM A TRUE MASTER BANANARAMAJAMAMAMA!"})
