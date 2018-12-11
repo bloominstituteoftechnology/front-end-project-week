@@ -6,6 +6,12 @@ import Note from "./components/Note";
 import "./App.css";
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      loggedIn: false
+    };
+  }
   render() {
     return (
       <div className="App">
@@ -20,6 +26,7 @@ class App extends Component {
             </NavLink>
           </div>
         </nav>
+
 
         <Route exact path="/" component={NotesListView} />
 

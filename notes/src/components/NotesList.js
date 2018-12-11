@@ -27,7 +27,7 @@ class NotesList extends Component {
         <div className="searchContainer"> 
             <input
               type="text"
-              placeholder="Search Your Notes:"
+              placeholder="Search For Note"
               onKeyDown={this.searchPostsHandler}
             />
         </div>

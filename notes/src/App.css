@@ -10,7 +10,7 @@
   flex-direction: column;
   border-right: 1px solid grey;
   padding: 1.9rem 1.1rem;
-  width: 65rem;
+  width: 25%;
   background-color: rgb(211, 210, 211);
 }
 
@@ -42,7 +42,7 @@
 }
 
 .notes-list-wrapper {
-  width: 210rem;
+  width: 75%;
   padding: 2.5rem 2.5rem;
   background-color: rgb(242,241,242);
 }
@@ -61,6 +61,7 @@
 .searchContainer input{
   border-radius: 0.25rem;
   width: 32%;
+  text-align: center;
 }
 
 .notes-container {
@@ -91,7 +92,7 @@
 }
 
 .form {
-  width: 210rem;
+  width: 75%;
   padding: 5rem 2.5rem;
   background-color: rgb(242,241,242);;
 }
@@ -199,7 +200,7 @@ textarea {
 }
 
 .note-wrapper {
-  width: 210rem;
+  width: 75%;
   padding: 1rem 2.5rem;
   background-color: rgb(242,241,242);
 }
@@ -252,3 +253,4 @@ textarea {
   font-weight: 600;
   text-align: left;
 }
+
