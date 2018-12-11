@@ -133,12 +133,12 @@ prepareUpdateForm = ( event, note) => {
               Lambda Notes
             </h1>
             <Link 
-              exact to='/notes/'
+              to='/notes/'
               style={{ textDecoration: 'none' }}>
               <h2 className="navLinks view">View Your Notes</h2>
             </Link>
             <Link 
-              exact to='/new_note'
+              to='/new_note'
               style={{ textDecoration: 'none' }}>
               <h2 className="navLinks create">+ Create New Note</h2>
             </Link>

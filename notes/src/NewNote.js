@@ -31,7 +31,7 @@ const NewNote = (props) => {
               <Input 
                 className='textBodyInput'
                 type="textarea" 
-                name="textBody" 
+                name="content" 
                 id="exampleText" 
                 placeholder="Note Content"
                 onChange={props.handleInputChange}
