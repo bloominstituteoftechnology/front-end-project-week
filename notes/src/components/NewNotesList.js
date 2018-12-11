@@ -6,7 +6,6 @@ import SortableList from "./SortableList";
 import { DragDropContext } from "react-beautiful-dnd";
 import Papa from "papaparse";
 import Fuse from "fuse.js";
-// import { newSort} from
 
 class NotesList extends React.Component {
   constructor() {
