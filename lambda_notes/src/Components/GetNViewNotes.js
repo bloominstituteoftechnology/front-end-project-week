@@ -5,6 +5,8 @@ import axios from 'axios';
 
 
 
+
+
 class GetNViewNotes extends Component {
   constructor () {
     super ();
@@ -24,7 +26,14 @@ class GetNViewNotes extends Component {
 
   render () {
     return (
-     
+      <ViewListBox>
+        <ViewNotesBox>
+          <NotesListHeader>Your Notes:</NotesListHeader>
+
+          <AllNotesBox>
+          </AllNotesBox>
+        </ViewNotesBox>
+      </ViewListBox>
     );
   }
 }
