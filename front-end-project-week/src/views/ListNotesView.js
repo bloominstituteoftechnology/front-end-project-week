@@ -31,7 +31,7 @@ class ListNotesView extends Component {
   render() {
     return (
       <DivPageWrapper>
-        {this.props.fetchingNotes || this.props.notes.length === 0 ? (
+        {this.props.fetchingNotes ? (
           <H2LoadingMessage>Loading Notes...</H2LoadingMessage>
         ) : (
           <div>

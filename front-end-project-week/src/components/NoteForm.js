@@ -110,7 +110,9 @@ class NoteForm extends Component {
       return (
         <Redirect
           push
-          to={`${this.props.urlLinks.home}${this.props.urlLinks.readNotes}`}
+          to={`${this.props.urlLinks.home}${
+            this.props.urlLinks.readNoteClient
+          }/${this.props.note._id}`}
         />
       );
     }
