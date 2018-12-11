@@ -5,7 +5,7 @@
 }
 
 html {
-  background: #050505;
+  /* background: #050505; */
 }
 
 button {
@@ -30,6 +30,10 @@ textarea:focus {
 hr {
   margin-bottom: 15px;
   color: rgb(89, 21, 248);
+}
+
+.App {
+  height: 100vh;
 }
 
 /* TOP MENU */
@@ -135,11 +139,10 @@ input[type="search"] {
 }
 
 .display {
-  position: sticky;
-  top: 0;
   margin-left: 300px;
   padding: 90px 30px 30px 30px;
-  /* height: 100vh; */
+  /* min-height: 100vh; */
+  min-height: 100%;
   background: #050505;
 }
 
@@ -147,7 +150,6 @@ input[type="search"] {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  height: 100vh;
 }
 
 .note-card {
