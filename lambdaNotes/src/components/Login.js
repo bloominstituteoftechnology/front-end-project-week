@@ -7,14 +7,15 @@ import {
   LoginButton,
   LoginContainer,
   LambdaH1,
-  LoginBackground
+  LoginBackground,
+  LoginGoogle
 } from "../Styles";
 
 const Login = props => {
   return (
     <LoginBackground>
       <div>
-        <a href="/auth/google">Login With Google</a>
+        <LoginGoogle href="/auth/google">Login With Google</LoginGoogle>
       </div>
       <LambdaH1>Lambda Notes</LambdaH1>
       <LoginContainer>

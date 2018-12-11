@@ -378,3 +378,10 @@ export const SearchInput = styled.input`
     -webkit-box-shadow: 0 0 0 100px white inset;
   }
 `;
+
+export const LoginGoogle = styled.a`
+  padding: 10px;
+  background-color: white;
+  text-decoration-line: none;
+  border: 1px solid red;
+`;
