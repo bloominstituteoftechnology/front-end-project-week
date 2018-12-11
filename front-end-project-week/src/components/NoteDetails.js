@@ -5,14 +5,17 @@ import styled from 'styled-components';
 /***************************************************************************************************
  ********************************************** Styles *********************************************
  **************************************************************************************************/
-const DivWrapper = styled.div``;
+const DivWrapper = styled.div`
+  user-select: ${props => props.showdeletemodel && 'none'};
+  outline: ${props => props.showdeletemodel && 'none'};
+`;
 
 /***************************************************************************************************
  ********************************************* Component *******************************************
  **************************************************************************************************/
 const NoteDetails = props => {
   return (
-    <DivWrapper>
+    <DivWrapper showdeletemodel={props.showDeleteModel}>
       <h2>{props.note.title}</h2>
       <p>{props.note.textBody}</p>
     </DivWrapper>
