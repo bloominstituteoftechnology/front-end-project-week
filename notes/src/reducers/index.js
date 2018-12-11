@@ -1,5 +1,7 @@
 // Action Type Imports
 import { 
+    CREATE_NOTE,
+    CREATE_SUCCESS,
     FETCH_NOTES,
     FETCH_NOTE,
     FETCH_ALL_SUCCESS,
@@ -22,6 +24,19 @@ const initialState = {
 // Reducer
 const reducer = (state = initialState, action) => {
     switch(action.type){
+        case CREATE_NOTE:
+            return {
+                ...state,
+                creatingNote: true
+            }
+
+        case CREATE_SUCCESS:
+            console.log(action.payload)
+            return {
+                ...state,
+                creatingNote: false
+            }
+            
         case FETCH_NOTES:
             return {
                 ...state,
