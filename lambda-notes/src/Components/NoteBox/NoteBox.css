@@ -1,7 +1,8 @@
 .note-box {
     background: var(--white); 
     border: 2px solid var(--border-gray);
-    padding: 1rem;
+    padding: 1.5rem;
+    height: 25rem;
 }
 
 
