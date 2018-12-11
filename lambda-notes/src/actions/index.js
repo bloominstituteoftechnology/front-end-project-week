@@ -19,6 +19,13 @@ export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 export const SORT_A_TO_Z = 'SORT_A_TO_Z';
 export const SORT_Z_TO_A = 'SORT_Z_TO_A';
 
+export const Headers = [
+    { label: 'Title', key:'title' },
+    { label: 'Text Body', key:'textBody' },
+    { label: 'Tags', key:'tags' },
+    { label: 'ID', key:'_id' },
+];
+
 const url = 'https://fe-notes.herokuapp.com/note/';
 
 export const fetchNotes = () => dispatch => {

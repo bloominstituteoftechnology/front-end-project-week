@@ -1,6 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import { CSVLink } from 'react-csv';
+import { connect } from 'react-redux';
+import { Headers } from '../actions';
 
 const NavigationDiv = styled.div`
     width: 22rem;
@@ -26,6 +29,14 @@ const NavigationLink = styled(Link)`
      }
 ` 
 
+const DownloadLink = styled(CSVLink)`
+    text-decoration: none;
+
+     &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+     }
+` 
+
 const NavigationButton = styled.div`
     width: 19rem;
     height: 4.5rem;
@@ -40,13 +51,13 @@ const NavigationButton = styled.div`
     justify-content: center;
     align-items: center;
 
-    .fa-plus {
+    .fa-plus, .fa-download {
         margin-right: 0.5rem;
         font-size: 1rem;
     }
 `
 
-const Navigation = () => {
+const Navigation = props => {
     return(
         <NavigationDiv>
             <h1>Lambda Notes</h1>
@@ -61,8 +72,16 @@ const Navigation = () => {
                     <p>Create New Note</p>
                 </NavigationButton>
             </NavigationLink>
+            <DownloadLink data={props.notes} filename={`lambda-notes.csv`} headers={props.Headers}>
+                <NavigationButton>
+                    <p className="fas fa-download"></p>
+                    <p>Download Notes</p>
+                </NavigationButton>
+            </DownloadLink>
         </NavigationDiv>
     );
 }
 
-export default Navigation;
+export default withRouter(
+    connect(null, { Headers })(Navigation)
+);
