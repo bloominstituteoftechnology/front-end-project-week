@@ -28,7 +28,7 @@ addNote = (event, newNote) => {
   axios
     .post("http://localhost:7000/api/notes", newNote)
     .then(response => {
-      newNote._id = response.data.success;
+      newNote.id = response.data.success;
       this.setState({ notes: [newNote, ...this.state.notes] })
     })
     .catch(error => console.log(error))
@@ -38,7 +38,7 @@ addNote = (event, newNote) => {
 editNote = (event, id, state) => {
   event.preventDefault();
   axios
-  .put(`http://localhost:7000/api/notes/${id}`, state)
+  .put(`http://localhost:7000/api/edit/${id}`, state)
   .then(response => {
     const updateArray = this.state.notes.map(note => {
       if (note._id === response.data._id) {

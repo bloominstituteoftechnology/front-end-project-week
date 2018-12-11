@@ -29,7 +29,7 @@ class Note extends Component {
 
     
     deleteNote = (event) => {
-      const id = this.state.note._id
+      const id = this.state.note.id
       console.log(id)
       axios
         .delete(`http://localhost:7000/api/notes/${id}`)
@@ -57,11 +57,11 @@ class Note extends Component {
         if (!this.state.note) {
           return <div>loading note</div>;
         }
-        const { title, textBody, _id } = this.state.note;
+        const { title, textBody, id } = this.state.note;
         return (
           <div>
             <div className="edit-delete-container">
-              <Link className="note-link" to={`/edit/${_id}`}>
+              <Link className="note-link" to={`/edit/${id}`}>
                 <p className="edit-note-link">edit</p>
               </Link>
               <p className="delete-note-link" onClick={this.openModal}>
@@ -69,8 +69,12 @@ class Note extends Component {
               </p>
             </div>
             <div>
-            <Markdown>{title}</Markdown>
-              <Markdown>{textBody}</Markdown>
+            {this.state.note.map((note) => {
+              return (
+                <h2>{note.title}</h2>
+                // <p>{note.textBody}</p>
+              )
+            })}
             </div>
             <div>
               <Modal
