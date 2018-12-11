@@ -20,7 +20,8 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
 export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 
-const url = 'http://localhost:5000/api/notes';
+// const url = 'http://localhost:5000/api/notes';
+const url = 'https://desolate-crag-67758.herokuapp.com/api/notes';
 
 // GET request
 export const getAllNotes = () => dispatch => {

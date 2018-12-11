@@ -9,16 +9,21 @@ import StyledSpinner from '../styles/StyledSpinner';
 
 class NotesView extends Component {
   componentDidMount() {
-    console.log('get notes.');
-    return !this.props.notes.length
-      ? console.log('got notes') || this.props.getAllNotes()
-      : null;
-
-    // this.props.getAllNotes();
+    // console.log('get notes.');
+    // return !this.props.notes.length
+    //   ? console.log('got notes') || this.props.getAllNotes()
+    //   : null;
+    // if (!this.props.isDeletingNote || !this.props.notes.length) {
+    this.props.getAllNotes();
+    // }
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.notes.length !== this.props.notes.length) {
+    if (
+      this.props.isDeletingNote &&
+      prevProps.notes.length !== this.props.notes.length
+    ) {
+      console.log('CDU get notes.', prevProps.notes, this.props.notes);
       this.props.getAllNotes();
     }
   }
@@ -65,7 +70,8 @@ class NotesView extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes.notes,
-    isFetching: state.notes.isFetching
+    isFetching: state.notes.isFetching,
+    isDeletingNote: state.notes.isDeletingNote
   };
 };
 

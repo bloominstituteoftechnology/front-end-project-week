@@ -16,7 +16,7 @@ class Notes extends Component {
               {filteredItems.map((note, index) => (
                 <NoteCard
                   index={index}
-                  key={note._id}
+                  key={note.id}
                   note={note}
                   handleRedirectToNoteView={this.props.handleRedirectToNoteView}
                 />
