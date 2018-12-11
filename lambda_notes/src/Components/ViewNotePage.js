@@ -21,15 +21,17 @@ class ViewNote extends Component {
     console.log('TESTcomponentDidMount.axios.get');
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
-      .then(res => { console.log('Logged resonse: ', res); })
-       
+      .then(res => { console.log('Logged resonse: ', res);
+        this.setState({ textBody: res.data.textBody, title: res.data.title, id: res.data._id });
+      })
+      .catch(err => console.log(err));
   }
 
 
 
   render() {
     return (
-     
+      
     );
   }
 }
