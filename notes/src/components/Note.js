@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import EditNote from './EditNote';
 import { deleteNote } from '../actions';
 
 const NoteWrapper = styled.div`
@@ -64,7 +64,7 @@ const DeleteButton = styled.button`
 
 class Note extends React.Component {
     state = {
-        visibility: false
+        visibility: false,
     }
 
     displayConfirm = ev => {
@@ -86,7 +86,6 @@ class Note extends React.Component {
                 <NoteWrapper>
                     <ButtonWrapper>
                         <SCButton onClick={() => this.props.history.push(`/note/edit/${selectedNote._id}`)}  >edit</SCButton>
-                        {/* <SCButton onClick={() => {this.props.deleteNote(selectedNote._id); this.props.history.push("/")}}>delete</SCButton> */}
                         <SCButton onClick={this.displayConfirm}>delete</SCButton>
                     </ButtonWrapper>
                     <NotesHeader>{selectedNote.title}</NotesHeader>

@@ -20,6 +20,8 @@ const CardHeader = styled.h3`
     font-weight: bold;
     border-bottom: 2px solid lightgrey;
     padding-bottom: 5px;
+    overflow: hidden;
+    white-space: nowrap;
 `;
 
 const CardBody = styled.p`

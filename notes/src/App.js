@@ -28,12 +28,11 @@ class App extends Component {
   render() {
     return (
       <AppWrapper>
-        {/* <Link to="/createnewnote"><div>+ Create New Note</div></Link> */}
         <Route path="/" component={Sidebar} />
         <Route exact path="/" render={props => <NotesListView {...props} notes={this.props.notes} /> } />
         <Route exact path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
         <Route path="/createnewnote" component={CreateNewNote} />
-        <Route path="/note/edit/:noteId" component={EditNote} />
+        <Route path="/note/edit/:noteId" render={props => <EditNote {...props} notes={this.props.notes} />} />
       </AppWrapper>
     );
   }
