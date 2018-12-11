@@ -5,6 +5,7 @@ const NewNoteForm = props => {
     return (
       <div className="NewForm">
         <form onSubmit={props.addNewNote}>
+        <label htmlFor="title"/>
           <input
             type="text"
             onChange={props.handleInputChange}
@@ -12,6 +13,7 @@ const NewNoteForm = props => {
             value={props.newTitle}
             name="newTitle"
           />
+             <label htmlFor="content"/>
           <input
             type="text"
             onChange={props.handleInputChange}

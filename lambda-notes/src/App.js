@@ -5,6 +5,8 @@ import SidebarContainer from './components/sidebar/SideBarContainer';
 import styled from 'styled-components'
 import './App.css';
 
+
+
 const ContainerWrap = styled.div `
 width: 100%;
 height:auto;
@@ -30,7 +32,7 @@ class App extends Component {
   
   componentDidMount() {
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .get(`http://localhost:5000/api/notes`)
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -43,18 +45,15 @@ class App extends Component {
   addNewNote = event => {
     event.preventDefault();
     axios     
-    .post('https://fe-notes.herokuapp.com/note/create',  
+    .post(`http://localhost:5000/api/create`,  
     {
-      title: this.state.newNote,
-      textBody: this.state.newTitle,
+      content: this.state.newNote,
+      title: this.state.newTitle,
     })
-
     .then(response => {
-      console.log(response);
-      console.log(response.data);
       this.setState((prevState) => ({ 
-        notes:[...prevState.notes, {_id:response.data.success,  title: prevState.newNote,
-          textBody: prevState.newTitle,}],
+        notes:[...prevState.notes, {id:response.data.success,  content: prevState.newNote,
+          title: prevState.newTitle,}],
         newNote:'',
         newTitle:'',
       }));
@@ -71,7 +70,7 @@ class App extends Component {
   //EDIT NOTE---------------------------------------
   fetchNote = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:5000/api/notes/${id}`)
       .then(response => {
         console.log(response.data)
         this.setState(() => ({ note:response.data}));
@@ -85,16 +84,16 @@ class App extends Component {
   editNote = (event,id) => {
     event.preventDefault();
     axios     
-    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`,  
+    .put(`http://localhost:5000/api/notes/${id}`,  
     {
       title: this.state.editedTitle,
-      textBody: this.state.editedNote,
+      content: this.state.editedNote,
     })
 
     .then(response => {
       console.log(response)     
       const updatedArray= this.state.notes.map(note => {
-        if (id === note._id) {
+        if (id === note.id) {
           return response.data
         } else {
           return note;
@@ -115,11 +114,11 @@ class App extends Component {
   deleteNote = (event, id) => {
     //const id = this.state.noteId;
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:5000/api/notes/${id}`)
       .then(response => {
         console.log(response)
         const updatedArray= this.state.notes.filter(note => {
-          if (id === note._id) {
+          if (id === note.id) {
             return false;
           } else {
             return true;
