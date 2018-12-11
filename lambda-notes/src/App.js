@@ -27,12 +27,18 @@ class App extends Component {
               render={props => <NoteList {...props} notes={this.props.notes} />}
             />
 
-            <Route path="/add-note" render={props => <NoteForm {...props} />} />
-
             <Route
               exact
               path="/note/:id"
               render={props => <Note {...props} notes={this.props.notes} />}
+            />
+
+            <Route path="/add-note" render={props => <NoteForm {...props} />} />
+
+            <Route
+              exact
+              path="/edit-note/:id"
+              render={props => <NoteForm {...props} edit />}
             />
           </div>
         </div>

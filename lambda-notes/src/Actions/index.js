@@ -8,6 +8,10 @@ export const ADD_NOTE_START = "ADD_NOTE_START";
 export const ADD_NOTE_SUCCESS = "ADD_NOTE_SUCCESS";
 export const ADD_NOTE_FAILURE = "ADD_NOTE_FAILURE";
 
+export const EDIT_NOTE_START = "EDIT_NOTE_START";
+export const EDIT_NOTE_SUCCESS = "EDIT_NOTE_SUCCESS";
+export const EDIT_NOTE_FAILURE = "EDIT_NOTE_FAILURE";
+
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCHING_NOTES_START });
   axios
@@ -34,5 +38,20 @@ export const addNote = note => dispatch => {
     })
     .catch(error => {
       dispatch({ type: ADD_NOTE_FAILURE, payload: error });
+    });
+};
+
+export const editNote = (note, id) => dispatch => {
+  dispatch({ type: EDIT_NOTE_START });
+  axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    .then(response => {
+      dispatch({
+        type: EDIT_NOTE_SUCCESS,
+        payload: response.data
+      });
+    })
+    .catch(error => {
+      dispatch({ type: EDIT_NOTE_FAILURE, payload: error });
     });
 };

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { addNote } from "../../Actions"
+import { addNote, editNote } from "../../Actions";
 
 import "./NoteForm.css";
 
@@ -22,14 +22,18 @@ class NoteForm extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    this.props.addNote(this.state);
+    if (this.props.edit) {
+      this.props.editNote(this.state, this.props.match.params.id);
+    } else {
+      this.props.addNote(this.state);
+    }
     this.props.history.push("/");
   };
 
   render() {
     return (
       <div className="note-form-container">
-        <h2>Create New Note:</h2>
+        <h2>{this.props.edit ? "Edit Note" : "Create New Note:"}</h2>
         <form onSubmit={this.submitHandler}>
           <input
             type="text"
@@ -47,7 +51,7 @@ class NoteForm extends Component {
             className="content-textarea"
             onChange={this.handleInputChange}
           />
-          <button className="btn">Save</button>
+          <button className="btn">{this.props.edit ? "Update" : "Save"}</button>
         </form>
       </div>
     );
@@ -57,10 +61,12 @@ class NoteForm extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes
-  }
-}
-
+  };
+};
 
 export default withRouter(
-  connect(mapStateToProps, { addNote })(NoteForm)
+  connect(
+    mapStateToProps,
+    { addNote, editNote }
+  )(NoteForm)
 );

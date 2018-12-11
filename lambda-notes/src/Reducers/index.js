@@ -4,13 +4,17 @@ import {
   FETCHING_NOTES_FAILURE,
   ADD_NOTE_START,
   ADD_NOTE_SUCCESS,
-  ADD_NOTE_FAILURE
+  ADD_NOTE_FAILURE,
+  EDIT_NOTE_START,
+  EDIT_NOTE_SUCCESS,
+  EDIT_NOTE_FAILURE
 } from "../Actions";
 
 const initialState = {
   notes: [],
   fetchingNotes: false,
   addingNote: false,
+  editingNote: false,
   error: null
 };
 
@@ -50,6 +54,26 @@ const reducers = (state = initialState, action) => {
       return {
         ...state,
         addingNote: false,
+        error: action.payload
+      };
+    case EDIT_NOTE_START:
+      return {
+        ...state,
+        editingNote: true
+      };
+    case EDIT_NOTE_SUCCESS:
+      return {
+        ...state,
+        editingNote: false,
+        notes: state.notes.map(note =>
+          note._id === action.payload._id ? action.payload : note
+        ),
+        error: null
+      };
+    case EDIT_NOTE_FAILURE:
+      return {
+        ...state,
+        editingNote: false,
         error: action.payload
       };
     default:
