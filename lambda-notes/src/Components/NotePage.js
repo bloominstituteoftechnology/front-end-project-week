@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const NotePage = props => {
   if (props.notes.length) {
     let note = props.notes.find(
-      note => `${note._id}` === props.match.params.id
+      note => `${note.id}` === props.match.params.id
     );
-
+        console.log(note.id);
     const deleteNotes = event => {
       event.preventDefault();
-      props.deleteNote(note._id);
+      props.deleteNote(note.id);
       props.history.push("/");
     };
     return (
@@ -27,7 +27,7 @@ const NotePage = props => {
         )}
         <div className="note-page-buttons">
           <Link
-            to={`/note/${note._id}/edit`}
+            to={`/note/${note.id}/edit`}
             onClick={() => props.editNoteContent(note.title, note.textBody)}
           >
             <span>edit</span>

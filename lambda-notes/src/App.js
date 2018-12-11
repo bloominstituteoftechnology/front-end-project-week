@@ -32,12 +32,12 @@ class App extends Component {
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
-  // componentDidUpdate() {
-  //   axios
-  //     .get("http://localhost:3300/api/notes")
-  //     .then(res => this.setState({ notes: res.data }))
-  //     .catch(err => console.log(err));
-  // }
+  componentWillUpdate() {
+    axios
+      .get("http://localhost:3300/api/notes")
+      .then(res => this.setState({ notes: res.data }))
+      .catch(err => console.log(err));
+  }
 
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -65,6 +65,7 @@ class App extends Component {
       title: this.state.newTitle,
       textBody: this.state.newTextBody
     });
+    //@ts-ignore
     this.setState();
   };
 

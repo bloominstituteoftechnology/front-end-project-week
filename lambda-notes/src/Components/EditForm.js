@@ -2,12 +2,12 @@ import React from "react";
 
 const EditForm = props => {
   const note = props.notes.find(
-    note => props.match.params.id === `${note._id}`
+    note => props.match.params.id === `${note.id}`
   );
   const editNotes = event => {
     event.preventDefault();
-    props.editNote(note._id);
-    props.history.push(`/note/${note._id}`);
+    props.editNote(note.id);
+    props.history.push(`/api/note/${note.id}`);
   };
   return (
     <form className="form">
