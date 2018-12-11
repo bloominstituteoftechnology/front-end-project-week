@@ -353,7 +353,7 @@ export const Credits = styled.div`
   margin-left: 7%;
   color: white;
   text-align: center;
-  background-color: #24b8bd;
+  background-color: blue;
   font-size: 18px;
   font-weight: bold;
   color: white;
