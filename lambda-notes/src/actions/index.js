@@ -13,7 +13,7 @@ export const TOGGLE_DELETED = "TOGGLE_DELETED";
 export const TOGGLE_ADDED = "TOGGLE_ADDED";
 export const SORT_BY_TITLE = "SORT_BY_TITLE";
 
-const URL = "http://localhost:3334/api/notes";
+const URL = "https://backend-project-week-lambda.herokuapp.com/api/notes";
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: GETTING_NOTES });

@@ -89,7 +89,7 @@ class SoloNote extends React.Component {
 
   componentDidMount = () => {
     axios
-      .get(`http://localhost:3334/api/notes/${this.props.id}`)
+      .get(`https://backend-project-week-lambda.herokuapp.com/api/notes/${this.props.id}`)
       .then(({ data }) => this.setState({ ...data }))
       .catch(err => console.log(err));
   };
