@@ -6,13 +6,22 @@ class NoteDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      title: "",
+      content: "",
+      id: null
     };
   }
   componentDidMount() {
     axios
       .get(`http://localhost:9000/notes/${this.props.match.params.id}`)
-      .then(response => this.setState({ notes: response.data }))
+      .then(response => {
+        console.log(response.data[0].title);
+        this.setState({
+          title: response.data[0].title,
+          content: response.data[0].content,
+          id: response.data[0].id
+        });
+      })
       .catch(error => console.log(error));
   }
   clickHandler = event => {
@@ -25,11 +34,11 @@ class NoteDetails extends Component {
     return (
       <div>
         <div className="detailedNote">
-          <h1>{this.state.notes.title}</h1>
-          <p>{this.state.notes.content}</p>
+          <h1>{this.state.title}</h1>
+          <p>{this.state.content}</p>
         </div>
         <div className="buttonBar">
-          <NavLink to={`/edit-form/${this.state.notes.id}`}>Edit</NavLink>
+          <NavLink to={`/edit-form/${this.state.id}`}>Edit</NavLink>
           <button onClick={this.clickHandler}>Delete</button>
         </div>
       </div>

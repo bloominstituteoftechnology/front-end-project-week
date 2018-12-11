@@ -15,22 +15,17 @@ class EditForm extends Component {
     e.preventDefault();
     console.log("click");
     axios
-      .put(
-        `https://fe-notes.herokuapp.com/note/edit/${
-          this.props.match.params._id
-        }`,
-        {
-          title: this.state.title,
-          content: this.state.content
-        }
-      )
+      .put(`http://localhost:9000/notes/${this.props.match.params.id}`, {
+        title: this.state.title,
+        content: this.state.content
+      })
       .then(response => {
-        console.log(response.data);
+        console.log("response", response.data);
       })
       .catch(function(error) {
         console.log(error);
       });
-    console.log(this.props.match.params._id);
+    console.log(this.props.match.params.id);
     this.setState({
       title: "",
       content: ""
