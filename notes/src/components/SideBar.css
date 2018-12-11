@@ -1,0 +1,25 @@
+.nav-bar-container{
+    background-color: grey;
+    width: 30%;
+    height: 100%;
+}
+
+.nav-bar-container h2{
+    margin-left: 5%;
+}
+
+.nav-button-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.nav-bar-container .nav-button{
+background-color: teal;
+color: white;
+border: none;
+text-align: center;
+text-decoration: none;
+}
+
