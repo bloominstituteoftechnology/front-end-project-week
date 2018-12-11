@@ -27,41 +27,41 @@ class YourNotes extends React.Component {
       .catch(error => console.log('It\'s over! Turn back now!'))
 
   }
-  
+
 
   render() {
     return (
-      
-      
-        <div className="App">
 
-          <div className='main-view'>
-            <div className='home-title'>
-              <h2>Your Notes: </h2>
-            </div>
-            <div className="home-body">             
-             {this.state.notes.map((note, i) => {
-                return (
+
+      <div className="App">
+
+        <div className='main-view'>
+          <div className='home-title'>
+            <h2>Your Notes: </h2>
+          </div>
+          <div className="home-body">
+            {this.state.notes.map((note, i) => {
+              return (
                 <div className="note">
 
-                
-                <Link to={`/note/${note.id}`}key={i} >
-                  <div className='note-title'>
-                    <h3 className='background-white'>{note.title}</h3>
-                  </div>
 
-                  <div className="note-body">
-                    <p className='background-white'>{note.body}</p>
-                  </div>
-               </Link>
-                  
+                  <Link to={`/note/${note.id}`} key={i} >
+                    <div className='note-title'>
+                      <h3 className='background-white'>{note.title}</h3>
+                    </div>
+
+                    <div className="note-body">
+                      <p className='background-white'>{note.body}</p>
+                    </div>
+                  </Link>
+
                 </div>
-            )
-              })}
-            </div>
+              )
+            })}
           </div>
         </div>
-      
+      </div>
+
     );
   }
 }

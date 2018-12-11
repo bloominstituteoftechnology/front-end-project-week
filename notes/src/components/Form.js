@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import './Form.css';
 
 class Form extends React.Component {
@@ -30,29 +29,29 @@ class Form extends React.Component {
                     <h3 className='home-title' >Create New Note:</h3>
                 </div>
                 <div className='home-body'>
-                <form onSubmit={this.createNote} >
-                    <textarea
-                        className="edit-title"
-                        name="title"
-                        size='80'
-                        value={this.state.title}
-                        onChange={this.changeHandler}
-                        type="text"
-                        placeholder='Note Title'
-                    />
-                    <textarea
-                        className="edit-content"
-                        name="body"
-                        cols='80'
-                        rows='30'
-                        value={this.state.body}
-                        onChange={this.changeHandler}
-                        type="text"
-                        placeholder='Note Content'
-                    />
-                        <br/>
-                    <button className="update-button">Create</button>
-                </form>
+                    <form onSubmit={this.createNote} >
+                        <textarea
+                            className="edit-title"
+                            name="title"
+                            size='80'
+                            value={this.state.title}
+                            onChange={this.changeHandler}
+                            type="text"
+                            placeholder='Note Title'
+                        />
+                        <textarea
+                            className="edit-content"
+                            name="body"
+                            cols='80'
+                            rows='30'
+                            value={this.state.body}
+                            onChange={this.changeHandler}
+                            type="text"
+                            placeholder='Note Content'
+                        />
+                        <br />
+                        <button className="update-button">Create</button>
+                    </form>
                 </div>
             </div>
         );

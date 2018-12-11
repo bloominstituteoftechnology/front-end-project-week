@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
 import axios from 'axios';
 import React from 'react';
-import Markdown from 'react-markdown';
 import Modal from 'react-modal';
 import './Note.css';
 
@@ -51,9 +50,11 @@ class Note extends React.Component {
   render() {
 
     const { title, body, id } = this.state.note
-    
-    
+
+
+
     return (
+
       <div>
         <div className='edit-delete'>
           <div>
@@ -66,8 +67,14 @@ class Note extends React.Component {
           </div>
         </div>
         <div className='note-full-body'>
-        <h2 className='home-title'>{this.state.note.title}</h2>
-        <p className='note-home-body' >{this.state.note.body}</p>
+          {this.state.note.map((note) => {
+            return (
+              <div>
+                <h2 className='home-title'>{note.title}</h2>
+                <p className='note-home-body'>{note.body}</p>
+              </div>
+            )
+          })}
         </div>
         <Modal
           className='modal'
