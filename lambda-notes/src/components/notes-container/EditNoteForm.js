@@ -17,7 +17,7 @@ class EditNoteForm extends Component {
       return <div>Loading note information...</div>;
     }
     
-    const { title, textBody} = this.props.singleNote;
+    const { title, content} = this.props.singleNote[0];
     return (
       <div className="NewForm">
         <form onSubmit={event => this.props.editNote(event,this.props.match.params.id)}>
@@ -31,7 +31,7 @@ class EditNoteForm extends Component {
           <input
             type="text"
             onChange={this.props.handleInputChange}
-            placeholder={textBody}
+            placeholder={content}
             value={this.props.editedNote}
             name="editedNote"
           />

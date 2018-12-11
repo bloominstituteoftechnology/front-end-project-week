@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NotesContainer from './components/notes-container/NotesContainer';
 import SidebarContainer from './components/sidebar/SideBarContainer';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components'
 import './App.css';
 
@@ -91,6 +92,13 @@ class App extends Component {
     })
 
     .then(response => {
+      this.setState((prevState) => ({ 
+        notes:[...prevState.notes, {content: prevState.editedNote,
+          title: prevState.editedTitle,}],
+      }));
+      })
+/*
+    .then(response => {
       console.log(response)     
       const updatedArray= this.state.notes.map(note => {
         if (id === note.id) {
@@ -99,10 +107,11 @@ class App extends Component {
           return note;
         }
       })
+
       this.setState(() => ({ notes:updatedArray }));
       // 2) make map thing, for updating the local state 
      
-   })
+   })*/
 
     .catch(error => {
       console.error('Server Error', error);
