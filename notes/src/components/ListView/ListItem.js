@@ -7,6 +7,7 @@ const ListItemDiv = styled.div`
     border: 1px solid #C5C5C5;
     margin-bottom: 30px;
     background-color: white;
+    border-radius: 4px;
 `
 const ListItemH1 = styled.h1`
     font-weight: bold;
@@ -17,6 +18,8 @@ const ListItemH1 = styled.h1`
     margin-bottom: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid gray;
+    width: 80%;
+    display: inline-block;
 `
 const ListItemP = styled.p`
     font-weight: regular;
@@ -27,12 +30,18 @@ const ListItemP = styled.p`
 
 
 const ListItem = (props) =>{
-    const maxLength = 144;
+    const textLength = 144;
+    const titleLength = 16;
+    const title = props.item.title;
     const text = props.item.textBody;
     return(
         <ListItemDiv>
-            <ListItemH1>{props.item.title}</ListItemH1>
-            <ListItemP>{text.substring(0,maxLength)}</ListItemP>
+            <ListItemH1>
+            {title.substring(0,titleLength)}
+            </ListItemH1>
+            <ListItemP>
+            {text.substring(0,textLength)} ...
+            </ListItemP>
         </ListItemDiv>
     )
 }

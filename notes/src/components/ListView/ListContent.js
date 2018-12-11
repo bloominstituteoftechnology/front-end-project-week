@@ -11,6 +11,7 @@ const ContentDiv =styled.div`
 `
 const ListContentDiv = styled.div`
     width: 80%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     background-color: #F3F3F3;
@@ -35,7 +36,7 @@ const ListContentH1 = styled.h1`
 const ListContent = (props) =>{
     return (
         <ContentDiv>
-            <SideBar />
+            <SideBar handleClick = {props.handleClick}/>
             <ListContentDiv>
                 <ListContentH1>Your Notes: </ListContentH1>
                 <ListContentList>

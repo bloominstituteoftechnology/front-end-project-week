@@ -1,9 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const SideBarDiv = styled.div`
     width:20%;
+    min-height: 100vh;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -20,22 +21,25 @@ const SideBarHeader = styled.h1`
 `
 const SideBarButton = styled.button`
     background-color:#2bc1c4;
+    width: 100%;
     border: 1px solid #979797;
     height: 50px;
     margin: 10px 0px;
     font-size: 20px;
     color: #FFFFFF;
     font-weight: bold;
+    text-decoration: none;
     :hover{
         cursor: pointer;
     }
 `
-const SideBar = ()=>{
+const SideBar = (props)=>{
+  
     return (
       <SideBarDiv>
         <SideBarHeader>Lambda Notes</SideBarHeader>
-        <SideBarButton>View Your Notes</SideBarButton>
-        <SideBarButton>+ Create New Notes</SideBarButton>
+            <NavLink to='/'><SideBarButton onClick={props.handleClick}>View Your Notes</SideBarButton></NavLink>
+            <NavLink to='/create'><SideBarButton onClick={props.handleClick}>+ Create New Notes</SideBarButton></NavLink>
       </SideBarDiv>  
     )
 }
