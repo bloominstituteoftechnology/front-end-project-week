@@ -5,7 +5,7 @@ import Button from '../components/Button';
 const Form = styled.form`
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 36px;
     justify-content: space-between;
     height: 640px;
 `;
@@ -13,7 +13,7 @@ const Form = styled.form`
 const Input = styled.input`
     box-shadow: inset -1px 1px 10px -4px rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(0, 0, 0, 0.2);
-    padding: 18px;
+    padding: 17px;
     border-radius: 5px;
     font-size: 1.1rem;
     width: 56.2%;
@@ -22,11 +22,11 @@ const Input = styled.input`
 const TextArea = styled.textarea`
     box-shadow: inset -1px 1px 10px -4px rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(0, 0, 0, 0.2);
-    padding: 28px 18px 18px 18px;
+    padding: 28px 18px 18px 17px;
     border-radius: 5px;
     font-size: 1.2rem;
     height: 485px;
-    width: 95.4%;
+    width: 95.2%;
     display: flex;
     resize: none;
     overflow-y: auto;
