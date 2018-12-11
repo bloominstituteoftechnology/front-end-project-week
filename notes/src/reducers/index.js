@@ -29,10 +29,7 @@ const rootReducer = (state = initialState, action) => {
     case act.SAVING:
       return { ...state, savingNote: true };
     case act.SAVED:
-      let saved = [
-        ...JSON.parse(localStorage.getItem("state")),
-        action.payload
-      ];
+      let saved = [...state, action.payload];
       // localStorage.setItem("state", JSON.stringify(saved));
       return {
         ...state,
