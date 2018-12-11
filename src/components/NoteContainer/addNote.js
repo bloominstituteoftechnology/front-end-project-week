@@ -29,7 +29,7 @@ class AddNote extends Component {
             },
         };
         axios
-            .post(`${url}/note/create`, newNote)
+            .post(`${url}/note/create`, options, newNote)
             .then(response => {
 
                 console.log('ADDING', response);
