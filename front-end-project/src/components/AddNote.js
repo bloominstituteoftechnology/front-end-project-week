@@ -11,10 +11,10 @@ const AddNote = (props) => {
 
     return (
         <div className="input-container">
-        <form onSubmit={addtoList}>
+        <form autoComplete="off" onSubmit={addtoList}>
           <div className="new-note-input">
             <h3>Create New Note: </h3>
-            <input className="input-field" type="text" onChange={props.changeHandler} value={props.addTitle} name="title" placeholder="Note Title"></input>
+            <input autoComplete="off" className="input-field" type="text" onChange={props.changeHandler} value={props.addTitle} name="title" placeholder="Note Title"></input>
            </div>
             <div className="text-area">
                 <textarea 
@@ -22,7 +22,7 @@ const AddNote = (props) => {
                     type="text" 
                     onChange={props.changeHandler}
                     value={props.addBody}
-                    name="textBody"
+                    name="content"
                     placeholder="Note Content"
                     cols="45"
                     rows="10" />

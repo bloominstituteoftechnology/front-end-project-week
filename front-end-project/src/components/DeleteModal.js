@@ -48,7 +48,7 @@ class DeleteModal extends React.Component {
           }}
         >
           {this.props.children}
-          <button onClick={()=> {this.props.deleteNote(this.props.note._id)
+          <button onClick={()=> {this.props.deleteNote(this.props.note.id)
           this.props.history.push("/note-list/")
           }} className="deleteModal delete">Delete</button>
           <button onClick={this.props.onClose} className="deleteModal no">No</button>

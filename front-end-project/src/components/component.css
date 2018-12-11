@@ -86,12 +86,15 @@
 .note-title {
     border-bottom: 2px solid #F9EACF;
     padding: 2px;
+    margin: 2px;
+    margin-left: 5px;
     
     
 }
 
 .note-body {
     line-height: 1.8;
+    margin-left: 7px;
 }
 
 /* Single page note view */
@@ -103,11 +106,20 @@
     color: white;
     font-weight: bold;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .single-note {
     flex-basis: 80%;
     margin-left: 50px;
+}
+
+.edit-btn{
+    cursor: pointer;
+}
+
+.delete-btn {
+    cursor: pointer;
 }
 
 .single-title {
@@ -145,11 +157,14 @@
 
 .input-field {
     margin-bottom: 20px;
-    width: 1;
     height: 40px;
     border-radius: 5px;
     font-size: 20px;
     background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
+}
+
+.input-field::placeholder {
+    margin-left: 100px;
 }
 
 .text-field {
@@ -169,6 +184,7 @@
     font-size: 15px;
     color: white;
     background: #24B8BD;
+    cursor: pointer;
 }
 
 .delete-edit {
@@ -192,6 +208,7 @@
     background: red;
     font-size: 16px;
     color: white;
+    cursor: pointer;
 }
 
 .no {
@@ -202,6 +219,7 @@
     background: #198084;
     font-size: 16px;
     color: white;
+    cursor: pointer;
 }
 
 .modal-text {

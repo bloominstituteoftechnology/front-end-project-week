@@ -13,6 +13,7 @@ const update = require('immutability-helper');
 
 
 
+
 class App extends Component {
   constructor(){
     super()
@@ -20,7 +21,7 @@ class App extends Component {
       notes:  [],
       filterNotes:[],
       title: "",
-      textBody: "",
+      content: "",
       searchInput:"",
       activeNote: "",
       editId: null,
@@ -59,8 +60,9 @@ class App extends Component {
   }
 
   getNotes = () => {
-    axios.get("https://fe-notes.herokuapp.com/note/get/all")
+    axios.get("http://localhost:8500/notes/")
     .then(response => {
+      console.log("get",response.data)
       this.setState({ notes: response.data })
     })
     .catch(error => {
@@ -91,15 +93,15 @@ class App extends Component {
   addNewNote = () => {
     const newNotes = {
       title: this.state.title,
-      textBody: this.state.textBody
+      content: this.state.content
     }
 
-    axios.post("https://fe-notes.herokuapp.com/note/create", newNotes )
+    axios.post("http://localhost:8500/notes/add", newNotes )
           .then(response => {
             console.log("response", response.data.success)
-           newNotes._id = response.data.success;
+           newNotes.id = response.data.success;
            console.log("this is a test",newNotes)
-           this.setState({title: "",textBody:"", notes: [...this.state.notes, newNotes]})
+           this.setState({title: "",content:"", notes: [...this.state.notes, newNotes]})
           })
         // this.setState({title: "",textBody:"", notes: [...this.state.notes, newNotes]})
   }
@@ -107,7 +109,7 @@ class App extends Component {
   getNoteId = (item) => {
    console.log(item)
     axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${item._id}`)
+        .get(`http://localhost:8500/notes/${item.id}`)
         .then(res => {
           console.log("res", res.data)
           this.setState({ activeNote: res.data})
@@ -117,7 +119,7 @@ class App extends Component {
   deleteNote = (id) => {
     
     console.log("delete", id)
-     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+     axios.delete(`http://localhost:8500/notes/${id}`)
      .then(res => {
        console.log("delete this",res.data)
       //  this.setState({ notes: [...this.state.notes]})
@@ -162,7 +164,7 @@ class App extends Component {
     console.log("goeditform", notes)
     this.setState({
       title: this.state.title,
-      textBody: this.state.textBody,
+      content: this.state.content,
       editId: notes
     })
   }
@@ -186,7 +188,7 @@ class App extends Component {
         {...props} 
         changeHandler={this.changeHandler} 
         addNewNote={this.addNewNote} 
-        addBody={this.state.textBody}
+        addBody={this.state.content}
         addTitle={this.state.title} />
       )} />
       <Route exact path="/edit-Note/:id" render={props => (

@@ -10,7 +10,7 @@ class EditView extends React.Component {
         super(props)
         this.state = {
             title: "",
-            textBody: "",
+            content: "",
             id: ""
         }
     }
@@ -21,7 +21,7 @@ class EditView extends React.Component {
     }        
 
     componentDidMount() {
-        this.setState({ title: this.props.note.title, textBody: this.props.note.textBody, id: this.props.note._id})
+        this.setState({ title: this.props.note.title, content: this.props.note.content, id: this.props.note.id})
     }
 
     
@@ -29,11 +29,11 @@ class EditView extends React.Component {
       e.preventDefault();
     console.log("this state id editnote", this.state.id)
 
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.state.id}`,
-         {title: this.state.title, textBody: this.state.textBody})
+    axios.put(`http://localhost:8500/notes/${this.state.id}`,
+         {title: this.state.title, content: this.state.content})
           .then(res => {
             console.log("edit", res.data)
-            this.setState({  id: "", title:"", textBody:"" })
+            this.setState({  id: "", title:"", content:"" })
             this.props.getNote();
             this.props.history.push("/note-list/")
             
@@ -50,18 +50,18 @@ class EditView extends React.Component {
         return (
             <div>
             <div className="input-container">
-            <form onSubmit={this.editNote}>
+            <form autoComplete="off" onSubmit={this.editNote}>
               <div className="new-note-input">
                 <h3>Edit Note: </h3>
-                <input className="input-field" type="text" onChange={this.changeHandle} value={this.state.title} name="title" placeholder="Note Title"></input>
+                <input autoComplete="off" className="input-field" type="text" onChange={this.changeHandle} value={this.state.title} name="title" placeholder="Note Title"></input>
                </div>
                 <div className="text-area">
                     <textarea 
                         className="text-field"
                         type="text" 
                         onChange={this.changeHandle}
-                        value={this.state.textBody}
-                        name="textBody"
+                        value={this.state.content}
+                        name="content"
                         placeholder="Note Content"
                         cols="45"
                         rows="10" />

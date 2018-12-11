@@ -77,8 +77,8 @@ class  IndividualNote extends React.Component {
        routeToItem = (ev, note) => {
         ev.preventDefault();
         this.props.getNoteId(note)
-        this.props.history.push(`/note-list/${note._id}`)
-        console.log("noteID",note._id)
+        this.props.history.push(`/note-list/${note.id}`)
+        console.log("noteID",note.id)
     }
     render() {
         const {
@@ -91,7 +91,7 @@ class  IndividualNote extends React.Component {
             connectDragSource(
             connectDropTarget(<div className="indiv-note box"  onClick={ev => this.routeToItem(ev, this.props.note)}>
             <h4 className="note-title">{this.props.note.title}</h4>
-            <p className="note-body">{this.props.note.textBody}</p>
+            <p className="note-body">{this.props.note.content}</p>
         </div>),
         )
         )}
