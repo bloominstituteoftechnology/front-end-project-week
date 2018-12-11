@@ -9,6 +9,7 @@ const NavBarWrapper = styled.div`
   justify-content: flex-end;
 
   .navbar {
+    position: fixed;
     display: flex;
     flex-direction: column;
     min-width: 30rem;

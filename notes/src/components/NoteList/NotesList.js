@@ -9,11 +9,16 @@ import ToolBar from './ToolBar';
 
 // styled Notes List
 const NotesWrapper = styled.div`
-  padding: 4rem 4rem;
-
   h2 {
+    padding: 4rem;
     font-size: 3rem;
-    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .notes-header {
+    position: sticky;
+    top: 0;
+    background-color: #F2F1F2
   }
   
   .notes {
@@ -86,14 +91,16 @@ class NotesList extends React.Component {
 
     return (
       <NotesWrapper>
-        <h2>Notes:</h2>
-        <ToolBar
-          notes = {notes}
-          searchText = {searchText}
-          onInputChange = {this.onInputChange}
-          sort = {sort}
-          onSortChange = {this.onSortChange}
-        />
+        <div className="notes-header">
+          <h2>Notes:</h2>
+          <ToolBar
+            notes = {notes}
+            searchText = {searchText}
+            onInputChange = {this.onInputChange}
+            sort = {sort}
+            onSortChange = {this.onSortChange}
+          />
+        </div>
         <div className="notes">
           {
             fetchingNotes ?
