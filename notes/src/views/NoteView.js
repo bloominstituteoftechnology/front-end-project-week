@@ -13,7 +13,7 @@ import {
 } from '../actions';
 
 // Component
-
+import Note from '../components/Note';
 
 class NoteView extends Component {
     componentDidMount = () => {
@@ -21,7 +21,7 @@ class NoteView extends Component {
     }
 
     render() {
-        return <h1> Note View </h1>
+        return <Note note={this.props.note}/>
     }
 }
 
