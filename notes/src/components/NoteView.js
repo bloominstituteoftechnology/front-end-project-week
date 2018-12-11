@@ -24,12 +24,12 @@ const NavA = styled.a`
 `;
 
 const Delete = styled.div`
-	position: absolute;
+	position: fixed;
 	top: 0%;
 	bottom: 0%;
 	left: 0%;
 	right: 0%;
-	background-color: rgb(100, 100, 100, 0.8);
+	background-color: rgba(100, 100, 100, 0.8);
 `;
 
 const DeleteBox = styled.div`
