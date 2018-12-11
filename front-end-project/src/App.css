@@ -1,0 +1,15 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  width: 100%;
+  background: #F2F1F2;
+  min-height: 100vh;
+}
+
+.nav-width {
+  width: 20%;
+}
