@@ -59,3 +59,19 @@
   border: 1px solid black;
   /* margin: 10px; */
 }
+
+.create-note {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  width: 30%;
+  padding: 10px;
+}
+
+.content {
+  width: 60%;
+  min-height: 500px;
+  padding: 10px;
+}
