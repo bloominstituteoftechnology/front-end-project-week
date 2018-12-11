@@ -91,6 +91,7 @@ export function newSort(server, local) {
       return obj._id === obj2._id;
     });
   });
+  console.log(uniqueToServer);
 
   let length = server.length > local.length ? local.length : server.length;
   for (let i = 0; i < length; i++) {
