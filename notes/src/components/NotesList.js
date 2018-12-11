@@ -8,6 +8,12 @@ const NoteCard = styled.div`
     height: 100px;
     margin: 30px;
     padding: 20px;
+    background: #FFFFFF;
+`;
+const NotesListHeader = styled.h2`
+    font-weight: bold;
+    font-size: 20px;
+    margin: 40px 0 40px 0;
 `;
 
 class NotesList extends React.Component {
@@ -18,12 +24,13 @@ class NotesList extends React.Component {
         }
         return (
             <>
-            {this.props.notes.map(note => (
-                <NoteCard onClick={() => this.props.history.push(`/note/${note._id}`)} key={note._id}>
-                <h3>{note.title}</h3>
-                <p>{note.textBody}</p>
-                </NoteCard>
-            ))}
+                <NotesListHeader>Your Notes</NotesListHeader>
+                {this.props.notes.map(note => (
+                    <NoteCard onClick={() => this.props.history.push(`/note/${note._id}`)} key={note._id}>
+                    <h3>{note.title}</h3>
+                    <p>{note.textBody}</p>
+                    </NoteCard>
+                ))}
             </>
         );
     }

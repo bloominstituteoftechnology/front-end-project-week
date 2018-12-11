@@ -32,6 +32,7 @@ class CreateNewNote extends React.Component {
                 name="title"
             />
             <input
+                type='textarea'
                 onChange={this.handleInputChange}
                 placeholder="Add your note's text..."
                 value={this.state.textBody}

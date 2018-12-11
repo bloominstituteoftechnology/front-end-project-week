@@ -2,12 +2,21 @@ import React, { Component } from 'react';
 import { Route, withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
+import styled from 'styled-components';
 import NotesListView from './views/NotesListView';
 import Note from './components/Note';
 import CreateNewNote from './components/CreateNewNote';
 import EditNote from './components/EditNote';
+import Sidebar from './components/Sidebar';
 
 import { getNotes } from './actions/';
+
+const AppWrapper = styled.div`
+  display: flex;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+`;
 
 class App extends Component {
 
@@ -17,14 +26,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Link to="/createnewnote"><div>+ Create New Note</div></Link>
-
+      <AppWrapper>
+        {/* <Link to="/createnewnote"><div>+ Create New Note</div></Link> */}
+        <Route path="/" component={Sidebar} />
         <Route exact path="/" render={props => <NotesListView {...props} notes={this.props.notes} /> } />
         <Route exact path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
         <Route path="/createnewnote" component={CreateNewNote} />
         <Route path="/note/edit/:noteId" component={EditNote} />
-      </div>
+      </AppWrapper>
     );
   }
 }
