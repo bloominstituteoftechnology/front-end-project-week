@@ -103,7 +103,7 @@ const notesReducer = (state = initialState, action) => {
         ...state,
         fetching: false,
         error: false,
-        notes: action.payload
+        // notes: action.payload
       };
     case DELETE_NOTE_FAILURE:
       return {
