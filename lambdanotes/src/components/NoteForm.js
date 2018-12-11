@@ -5,7 +5,7 @@ import './ComponentStyle.css';
 function NoteForm(props) {
   function handleSubmit(event) {
     event.preventDefault();
-
+    console.log(props.isUpdating, 'noteform');
     if (props.isUpdating) {
       props.handleUpdateNote(props.note.id);
       props.history.push('/');
@@ -39,7 +39,7 @@ function NoteForm(props) {
               className="content-input"
               type="text"
               value={props.note.body}
-              name="textBody"
+              name="body"
               onChange={props.handleChange}
             />
           </div>

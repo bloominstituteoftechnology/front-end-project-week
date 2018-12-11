@@ -10,7 +10,7 @@ import './App.css';
 
 const blankNoteForm = {
   title: '',
-  textBody: ''
+  body: ''
 };
 
 ReactModal.setAppElement('#root');
@@ -23,7 +23,7 @@ class App extends React.Component {
       note: {
         tags: ['tag', 'otherTag'],
         title: '',
-        textBody: ''
+        body: ''
       },
       isUpdating: false,
       showModal: false
@@ -46,8 +46,9 @@ class App extends React.Component {
   }
   fetchNotes = () => {
     axios
-      .get('https://localhost:9000/api/notes')
+      .get('http://localhost:9000/api/notes')
       .then(response => {
+        console.log(response);
         this.setState({ notesData: response.data });
       })
       .catch(err => {
@@ -66,10 +67,10 @@ class App extends React.Component {
 
   handleAddNewNote = () => {
     axios
-      .post('https://localhost:9000/api/notes', this.state.note)
+      .post('http://localhost:9000/api/notes', this.state.note)
       .then(response => {
         let newNote = this.state.note;
-        newNote.id = response.data.success;
+        newNote.id = response.data.id;
         this.setState({
           notesData: [...this.state.notesData, newNote],
           note: blankNoteForm
@@ -79,7 +80,7 @@ class App extends React.Component {
 
   handleDeleteNote = noteId => {
     axios
-      .delete(`https://localhost:9000/api/notes/${noteId}`)
+      .delete(`http://localhost:9000/api/notes/${noteId}`)
       .then(response => {
         const filteredNotes = this.state.notesData.filter(
           note => note.id !== noteId
@@ -92,23 +93,25 @@ class App extends React.Component {
   };
 
   goToUpdateNoteForm = note => {
-    this.setState({
-      note,
-      isUpdating: true
-    });
+    this.setState(
+      {
+        note,
+        isUpdating: true
+      },
+      () => console.log(this.state.isUpdating)
+    );
     this.props.history.push('/note-form');
   };
 
   handleUpdateNote = noteId => {
+    console.log('this has launched');
     axios
-      .put(
-        `https://localhost:9000/api/notes/${noteId}`,
-        this.state.note
-      )
+      .put(`http://localhost:9000/api/notes/${noteId}`, this.state.note)
       .then(response => {
         console.log('response', response);
         const updatedNotes = this.state.notesData.map(note => {
-          if (note.id === response.data.id) {
+          console.log(note.id, response.data.id, note.id == response.data.id);
+          if (note.id == response.data.id) {
             return response.data;
           } else {
             return note;
