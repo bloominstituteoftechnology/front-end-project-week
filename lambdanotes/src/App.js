@@ -21,11 +21,15 @@ class App extends Component {
   };
 
   componentDidMount() {
+    this.getList();
+  }; 
+
+  getList() {
     axios
       .get(`${baseUrl}/notes`)
       .then(response => this.setState({ list: response.data }))
       .catch(error => console.log(error))
-  }; 
+  };
 
   render() {
     return (
@@ -44,7 +48,7 @@ class App extends Component {
         <Route 
           path="/Note/:id" 
           render={props => {
-            return <Note {...props} note={this.state.note} />
+            return <Note {...props} note={this.state.note} getList={this.getList} />
           }}  
         />
 
