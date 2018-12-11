@@ -58,6 +58,7 @@ class NoteForm extends React.Component {
       const note = this.props.notes.find(
         n => n._id === this.props.match.params.id,
       );
+      if (!note) this.props.history.push('/create');
       this.setState({
         title: note.title,
         textBody: note.textBody,

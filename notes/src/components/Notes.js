@@ -25,7 +25,7 @@ const NotesWrapper = styled.div`
 
   form {
     padding-left: 3%;
-    width: 90%;
+    width: 80%;
 
     @media (max-width: 600px) {
       padding-left: 0;
@@ -34,8 +34,9 @@ const NotesWrapper = styled.div`
 `;
 
 const SearchBar = styled(StyledInput)`
-  @media (max-width: 600px) {
-    width: 100%;
+  width: 50%;
+  //@media (max-width: 600px) {
+  width: 100%;
   }
 `;
 
@@ -65,17 +66,17 @@ const StyledNote = styled.div`
   text-align: left;
   white-space: pre-wrap;
 
-  //@media (min-width: 1200px) {
-    //width: 18%;
+  @media (min-width: 1200px) {
+    width: 18%;
   }
-  //@media (max-width: 850px) {
-    //width: 40%;
-  //}
+  @media (max-width: 850px) {
+    width: 40%;
+  }
 
-  //@media (max-width: 750px) {
-    //width: 90%;
+  @media (max-width: 750px) {
+    width: 90%;
     ////margin-left: 220px;
-  //}
+  }
 
   @media (max-width: 600px) {
     //margin-left: 220px;
@@ -93,9 +94,9 @@ const Notes = props => {
 
   return (
     <NotesWrapper>
-      <form onSubmit={e => props.clearSearchText()}>
+      <form onSubmit={e => props.clearSearchText(e)}>
         <h2>Your Notes:</h2>
-        <StyledInput
+        <SearchBar
           type="text"
           placeholder="search"
           value={props.searchText}
