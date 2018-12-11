@@ -25,7 +25,7 @@ class ButtonContainer extends Component {
   ViewNotesClickHandler = event => {
     event.preventDefault();
     this.props.goHome(this.props.activeNote);
-    this.props.history.push('/');
+    this.props.history.push('/front-end-project-week');
   };
 
   AddNoteClickHandler = event => {
@@ -33,7 +33,7 @@ class ButtonContainer extends Component {
     console.log('State before: ', this.state);
     this.setState({ addingNote: true });
     console.log('State after: ', this.state);
-    this.props.history.push('/new-note');
+    this.props.history.push('/front-end-project-week/new-note');
   };
 
   render() {
@@ -43,7 +43,7 @@ class ButtonContainer extends Component {
           {' '}
           <NoteAppButton onClick={this.ViewNotesClickHandler}>View Your Notes</NoteAppButton>
         </Link>
-        <Link onClick={this.AddNoteClickHandler} to="/new-note">
+        <Link onClick={this.AddNoteClickHandler} to="/front-end-project-week/new-note">
           {' '}
           <NoteAppButton onClick={this.AddNoteClickHandler}>+ Create New Note</NoteAppButton>
         </Link>

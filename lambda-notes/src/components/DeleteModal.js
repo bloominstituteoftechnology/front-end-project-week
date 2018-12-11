@@ -75,7 +75,7 @@ class DeleteModal extends Component {
     console.log('ID before you trying to delete: ', this.props.activeNote._id);
     this.props.deleteNote(this.props.activeNote._id);
     console.log('State after you trying to delete: ', this.state);
-    this.props.history.push('/');
+    this.props.history.push('/front-end-project-week');
   };
 
   CancelDeleteNoteClickHandler = event => {

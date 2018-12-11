@@ -46,13 +46,13 @@ class Note extends Component {
   ViewNoteClickHandler = event => {
     event.preventDefault();
     this.props.showNote(this.props.note);
-    this.props.history.push(`/${this.props.note._id}`);
+    this.props.history.push(`/front-end-project-week/${this.props.note._id}`);
   };
 
   render() {
     return (
       <NoteContainer>
-        <StyledLink onClick={this.ViewNoteClickHandler} to={`/${this.props.note._id}`}>
+        <StyledLink onClick={this.ViewNoteClickHandler} to={`/front-end-project-week/${this.props.note._id}`}>
           <NoteTitle>{this.props.note.title}</NoteTitle>
           <NoteContent>{this.props.note.textBody}</NoteContent>
         </StyledLink>
