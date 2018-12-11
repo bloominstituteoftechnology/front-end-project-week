@@ -38,7 +38,7 @@ class AddNote extends React.Component {
             type="text"
             name="title"
             value={this.state.title}
-            placeholder="title"
+            placeholder={this.props.edit ? `${this.props.note.title}` : "title"}
           />
           <div className="baseline" />
           <input
@@ -46,7 +46,7 @@ class AddNote extends React.Component {
             type="text"
             name="textBody"
             value={this.state.textBody}
-            placeholder="text"
+            placeholder={this.props.edit ? `${this.props.note.textBody}` : "text"}
           />
           <div className="baseline" />
           <button className="md-button form-button">

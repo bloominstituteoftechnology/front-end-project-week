@@ -45,9 +45,8 @@ class App extends Component {
         <Route
           path="/edit-note/:noteId"
           render={props => (
-            <AddNoteView {...props} edit/>
-          )}
-          
+            <AddNoteView {...props} note={this.props.note} edit/>
+          )} 
         />
 
       </div>

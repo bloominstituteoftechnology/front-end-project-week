@@ -4,12 +4,6 @@ import { NavLink } from "react-router-dom";
 import { getNotesById } from "../actions";
 
 class Note extends React.Component {
-  //   constructor(props) {
-  //     super(props);
-  //     this.state = {
-  //       note: null
-  //     };
-  //   }
 
   componentDidMount() {
     this.props.getNotesById(this.props.match.params.noteId);
@@ -24,9 +18,9 @@ class Note extends React.Component {
         <nav className="sub-nav">
           <div className="sub-nav-links">
             <NavLink exact to={`/edit-note/${this.props.note._id}`}>
-              <button>Edit</button>
+              <button>Edit Note</button>
             </NavLink>
-            <NavLink to="/create-note">
+            <NavLink to="/delete-note">
               <button>Delete Note</button>
             </NavLink>
           </div>

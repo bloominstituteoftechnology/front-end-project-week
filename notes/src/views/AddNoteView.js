@@ -8,7 +8,11 @@ function AddNoteView(props) {
   return <AddNote {...props} />;
 }
 
+const mapStateToProps = state => ({
+  note: state.note
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { addNote, getNotes, editNote }
 )(AddNoteView);
