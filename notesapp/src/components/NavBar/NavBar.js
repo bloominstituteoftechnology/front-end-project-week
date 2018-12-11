@@ -21,11 +21,6 @@ import { CSVLink } from "react-csv";
 import Modal from "react-modal";
 
 const NavigationBar = props => {
-  const logoutFunction = ev => {
-    ev.preventDefault();
-    localStorage.clear();
-    window.location.reload();
-  };
 
   return (
     <NavBarDiv>
@@ -49,7 +44,7 @@ const NavigationBar = props => {
             </Link>
           </NavButtonText>
         </NavLinkBtn>
-        <NavLinkBtn onClick={ev => logoutFunction(ev)}>
+        <NavLinkBtn onClick={ev => props.logoutFunction(ev)}>
           <NavButtonText>Logout</NavButtonText>
         </NavLinkBtn>
         <NavLinkBtn onClick={() => props.openDLAModal()}>
