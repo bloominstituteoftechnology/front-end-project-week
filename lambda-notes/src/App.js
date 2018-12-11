@@ -4,7 +4,6 @@ import "./App.css";
 import axios from "axios";
 
 import ListOfNotes from "./components/ListofNotes";
-import Note from "./components/Note";
 import AddNote from "./components/AddNote";
 import NoteCard from "./components/NoteCard";
 import EditNote from "./components/EditNote";
@@ -73,6 +72,16 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  deleteNote = id => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        this.setState({ note: response.data });
+        window.location.reload();
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div className="App">
@@ -114,6 +123,7 @@ class App extends Component {
                 {...props}
                 notes={this.state.notes}
                 singleNote={this.state.singleNote}
+                deleteNote={this.deleteNote}
               />
             )}
           />
