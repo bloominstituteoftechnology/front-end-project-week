@@ -3,28 +3,30 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavDiv = styled.div`
+    background-image: url('starry-sky.gif');
     display: flex;
     flex-direction: column;
     min-width: 223px;
-    max-width: 223px;
-    background-color: #D3D2D3;
-    padding: 1.8rem 1.5rem;
+    max-width: 243px;
+    padding: 4.8rem 4rem;
     line-height: .95;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 3.4rem;
-    border-top: 1px solid gray;
-    border-left: 1px solid gray;
-    border-bottom: 1px solid gray;
+    color: #fbbeaf;
+    border-radius: 5px 0 0 5px;
 `
 
 const NavButton = styled.button`
+    align-self: center;
     width: 100%;
-    height: 4.3rem;
-    background-color: #25B7BD;
-    margin-top: 2.5rem;
+    height: 3.9rem;
+    background-color: rgba(98,19,176,0.3);
+    border: 2px solid #6213b0;
+    border-radius: 5px;
+    margin-top: 6.5rem;
     color: #FFF;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 300;
     &:hover {
         cursor: pointer;
     }

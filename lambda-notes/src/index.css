@@ -51,7 +51,16 @@ html {
 }
 
 body {
-    font-size: 1.6rem;
-    font-family: 'Roboto', sans-serif;
+	font-size: 1.6rem;
+	min-height: 100vh;
+	font-family: 'Roboto', sans-serif;
+	background-image: linear-gradient(#020049, #020020);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
+a:hover {
+	color: #787787;
+}

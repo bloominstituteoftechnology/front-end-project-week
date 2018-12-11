@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NoteDiv = styled.div`
-    border: 1px solid gray;
+	border-radius: 0 4px 4px 0;
     padding: .5rem 2.5rem;
-    background-color: #F2F1F2;
-    width: 685px;
+    background-image: linear-gradient(rgba(236,122,117, 0.7),rgba(69,158,161, 0.3));
+    width: 740px;
     height: 100%;
     max-height: 100%;
     display: flex;

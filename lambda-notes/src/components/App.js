@@ -11,10 +11,10 @@ import NoteView from './NoteView';
 import EditNote from './EditNote';
 
 const AppDiv = styled.div`
-  margin: 15px;
   display: flex;
   flex-direction: row;
-  height: 96vh;
+  height: 90vh;
+  margin-top: 5vh;
   overflow-y: scroll;
 `
 
@@ -39,8 +39,6 @@ class App extends Component {
           <NewNote
             {...routerProps}
             addNote={this.props.addNote}
-            history={this.props.history}
-            location={this.props.location}
           />} 
         />
         <Route exact path="/:id" render={routerProps =>
@@ -48,8 +46,6 @@ class App extends Component {
             {...routerProps}
             deleteNote={this.props.deleteNote}
             fetching={this.props.fetching}
-            history={this.props.history}
-            location={this.props.location}
             note={this.props.note}
             viewNote={this.props.viewNote}
           />}
@@ -59,7 +55,7 @@ class App extends Component {
             {...routerProps}
             editNote={this.props.editNote}
             note={this.props.note}
-            deleteNote={this.props.deleteNote}
+            // deleteNote={this.props.deleteNote}
           />}
         />
       </AppDiv>

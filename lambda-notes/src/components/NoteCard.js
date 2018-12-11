@@ -3,64 +3,54 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NoteCardDiv = styled.div`
-	margin: 1.2rem 1rem;
-	width: 194px;
-	height: 198px;
-    border: 1px solid lightgray;
-    border-bottom: 1px solid gray;
-    border-right: 1px solid gray;
+	color: #2f2f2f;
+	margin: 2rem 2.25rem 2.5rem 2.25rem;
+	width: 175px;
+	height: 225px;
+	border: 5px solid rgba(255,255,255,0.4);
+	border-bottom: 22px solid #888888;
+	border-right: 22px solid gray;
 	display: flex;
-    flex-direction: column;
-    background-color: #FFF;
-`;
-
-const NoteCardBorder = styled.div`
-	width: 192px;
-    height: 192px;
-    // overflow-y: scroll;
-    border-right: 1.8rem solid #FFF;
-    border-left: 1.8rem solid #FFF;
-    border-bottom: 1.3rem solid #FFF;
+	flex-direction: column;
+	background-color: rgba(194, 241, 251, 0.5);
+	padding: 0 1.8rem 1.3rem 1.8rem;
 `;
 
 const TitleDiv = styled.div`
-    padding-top: 10px;
-    height: 37px;
-    overflow: hidden;
-    border-bottom: 1px solid gray;
-    white-space: pre-wrap;
-    font-weight: 700;
-    line-height: 1.4;
+	padding-top: 10px;
+	width: 100%;
+	height: 37px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid #676767;
+	font-weight: 500;
+	line-height: 1.4;
     font-size: 1.7rem;
-`
+    color: #000;
+`;
 
 const NoteContent = styled.div`
-    display: -webkit-box;
-    -webkit-line-clamp: 7;
-    -webkit-box-orient: vertical;  
-    height: 82%;
-    white-space: pre-wrap;
-    padding: 1rem 0;
-    font-size: 1.3rem;
-    line-height: 1.6;
-    font-weight: 400;
-    overflow: hidden;
-    text-overflow: ellipsis;
-`
+	display: -webkit-box;
+	-webkit-line-clamp: 7;
+	-webkit-box-orient: vertical;
+	height: 82%;
+	white-space: pre-wrap;
+	padding: 1rem 0;
+	font-size: 1.3rem;
+	line-height: 1.6;
+	font-weight: 300;
+	overflow: hidden;
+	text-overflow: ellipsis;
+`;
 
 export default function NoteCard(props) {
 	return (
-        <Link to={`/${props.note._id}`}>
-            <NoteCardDiv>
-                <NoteCardBorder>
-                    <TitleDiv>
-                        <h3>{props.note.title}</h3>
-                    </TitleDiv>
-                    <NoteContent>
-                        {props.note.textBody}
-                    </NoteContent>
-                </NoteCardBorder>
-            </NoteCardDiv>
-        </Link>
+		<Link to={`/${props.note._id}`}>
+			<NoteCardDiv>
+				<TitleDiv>{props.note.title}</TitleDiv>
+				<NoteContent>{props.note.textBody}</NoteContent>
+			</NoteCardDiv>
+		</Link>
 	);
 }

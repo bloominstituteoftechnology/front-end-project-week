@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 const FormDiv = styled.div`
     border: 1px solid gray;
-    background-color: #F2F1F2;
-    width: 685px;
+    background-image: linear-gradient(rgba(253,161,110, 0.85),rgba(77,161,78, 0.3));
+    width: 740px;
     max-height: 100%;
+    overflow-y: scroll;
 `
 
 const Form = styled.form`
-    background-color: #F2F1F2;
     margin: 5.6rem 2.6rem;
     display: flex;
     flex-direction: column;
@@ -22,10 +22,10 @@ const FormTitle = styled.h1`
 `
 
 const Input = styled.input`
+    background-color: rgba(255,255,255,0.7);
     padding: 1rem;
     width: 35rem;
-    height: 4.2rem;
-    border: 2px solid lightgray;
+    height: 3.6rem;
     border-radius: 4px;
     vertical-align: text-top;
     &:focus {
@@ -36,11 +36,11 @@ const Input = styled.input`
 const InputTwo = styled.textarea`
     margin: 2rem 0;
     padding: 1rem;
+    background-color: rgba(255,255,255,0.7);
     width: 60rem;
-    height: 35rem;
+    height: 32rem;
     text-align: top-left;
     white-space: pre-wrap;
-    border: 2px solid lightgray;
     border-radius: 4px;
     vertical-align: text-top;
     &:focus {
@@ -51,8 +51,8 @@ const InputTwo = styled.textarea`
 const InputThree = styled.input`
     padding: 1rem;
     width: 60rem;
-    height: 4.2rem;
-    border: 2px solid lightgray;
+    height: 3.6rem;
+    background-color: rgba(255,255,255,0.7);
     border-radius: 4px;
     vertical-align: text-top;
     &:focus {
@@ -62,12 +62,14 @@ const InputThree = styled.input`
 
 const Button = styled.button`
     width: 190px;
-    height: 4.3rem;
-    background-color: #25B7BD;
+    height: 3.7rem;
+    background-color: rgba(36,84,37,0.4);
+    border: 2px solid rgb(18,42,18);
+    border-radius: 4px;
     margin-top: 2.5rem;
     color: #FFF;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 300;
     &:hover {
         cursor: pointer;
     }

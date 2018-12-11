@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const FormDiv = styled.div`
-    border: 1px solid gray;
-    background-color: #F2F1F2;
-    width: 685px;
+    border-radius: 0 4px 4px 0;
+    background-image: linear-gradient(rgba(108,234,211, 0.45),rgba(195,46,84, 0.2));
+    width: 740px;
     max-height: 100%;
+    overflow-y: scroll;
 `
 
 const Form = styled.form`
-    background-color: #F2F1F2;
     margin: 5.6rem 2.6rem;
     display: flex;
     flex-direction: column;
@@ -24,8 +24,8 @@ const FormTitle = styled.h1`
 const Input = styled.input`
     padding: 1rem;
     width: 35rem;
-    height: 4.2rem;
-    border: 2px solid lightgray;
+    height: 3.6rem;
+    background-color: rgba(255,255,255,0.7);
     border-radius: 4px;
     vertical-align: text-top;
     &:focus {
@@ -36,11 +36,11 @@ const Input = styled.input`
 const InputTwo = styled.textarea`
     margin: 2rem 0;
     padding: 1rem;
+    background-color: rgba(255,255,255,0.7);
     width: 60rem;
-    height: 35rem;
+    height: 32rem;
     text-align: top-left;
     white-space: pre-wrap;
-    border: 2px solid lightgray;
     border-radius: 4px;
     vertical-align: text-top;
     &:focus {
@@ -50,12 +50,14 @@ const InputTwo = styled.textarea`
 
 const Button = styled.button`
     width: 190px;
-    height: 4.3rem;
-    background-color: #25B7BD;
+    height: 3.5rem;
+    background-color: rgba(98,19,176,0.2);
+    border: 2px solid rgba(198,119,276,0.7);
+    border-radius: 4px;
     margin-top: 2.5rem;
     color: #FFF;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 300;
     &:hover {
         cursor: pointer;
     }

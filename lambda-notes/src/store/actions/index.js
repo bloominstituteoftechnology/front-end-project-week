@@ -33,8 +33,9 @@ export const addNote = note => dispatch => {
     });
     axios
         .post('https://fe-notes.herokuapp.com/note/create', {
+            tags: [...note.tags],
             title: note.title,
-            textBody: note.textBody
+            textBody: note.textBody,
         })
         .then( res => {
             console.log(res);
