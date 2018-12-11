@@ -37,9 +37,9 @@ export default class AllNotes extends Component {
     return (
       <div className="notes-list">
         {this.props.notes.map(note => (
-         <Link to={`/notes/${note._id}`} key={note._id}>
+         <Link to={`/notes/${note.id}`} key={note.id}>
           <SingleNoteDetails
-          key={note._id} 
+          key={note.id} 
           note={note}/>
          </Link>
         ))}
@@ -49,14 +49,14 @@ export default class AllNotes extends Component {
 }
 
 function SingleNoteDetails({ note }) {
-  const { title, textBody } = note;
+  const { title, content } = note;
   return (
     <div className="note-card">
       <div className="note-title">
         <h2>{title}</h2>
         </div>
         <div className="note-body">
-          <p>{textBody}</p>
+          <p>{content}</p>
         </div>
       <div className="save-button">Save</div>
       </div>

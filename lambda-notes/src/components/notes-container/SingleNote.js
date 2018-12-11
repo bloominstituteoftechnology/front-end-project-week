@@ -16,14 +16,15 @@ export default class SingleNote extends Component {
       return <div>Loading note information...</div>;
     }
     
-    const { title, textBody} = this.props.singleNote;
+    const { title, content} = this.props.singleNote[0];
+    console.log(this.props.singleNote[0])
     return (
       <div className="note-card">
         <div className="note-title">
           <h2>{title}</h2>
           </div>
           <div className="note-body">
-            <p>{textBody}</p>
+            <p>{content}</p>
           </div>
          
           <EditBar deleteNote={this.props.deleteNote}  handleInputChange={this.props.handleInputChange} singleNote = {this.props.singleNote} id = {this.props.match.params.id}

@@ -52,7 +52,7 @@ class App extends Component {
     })
     .then(response => {
       this.setState((prevState) => ({ 
-        notes:[...prevState.notes, {id:response.data.success,  content: prevState.newNote,
+        notes:[...prevState.notes, {content: prevState.newNote,
           title: prevState.newTitle,}],
         newNote:'',
         newTitle:'',
