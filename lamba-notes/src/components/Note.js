@@ -22,14 +22,9 @@ class Note extends Component {
         this.setState({
           note: response.data,
           editTitle: response.data[0].title,
-          editBody: response.data[0].content
+          editBody: response.data[0].content,
+          editId: response.data[0].id
         });
-        console.log(
-          'NOTE RESPONSE',
-          response,
-          this.state.note[0].title,
-          this.state.note[0].content
-        );
       })
       .catch(error => console.log(error));
   }
@@ -53,7 +48,7 @@ class Note extends Component {
         <div className='note__options'>
           <Link
             className='singleNote__edit'
-            to={`/note/edit/${this.state.note.id}`}
+            to={`/note/edit/${this.state.editId}`}
           >
             edit
           </Link>
@@ -61,7 +56,7 @@ class Note extends Component {
             className='singleNote__delete'
             onClick={() => {
               this.onOpenModal();
-              this.props.deleteNote(this.state.note.id);
+              this.props.deleteNote(this.state.editId);
             }}
           >
             delete

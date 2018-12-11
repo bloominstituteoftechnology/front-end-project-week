@@ -30,7 +30,7 @@ class App extends Component {
   editNote = id => {
     axios.put(`http://localhost:9000/api/notes/${id}`, {
       title: this.state.updatedTitle,
-      textBody: this.state.updatedTextBody
+      content: this.state.updatedTextBody
     });
     this.setState();
   };
@@ -38,7 +38,7 @@ class App extends Component {
   deleteNote = id => {
     axios.delete(`http://localhost:9000/api/notes/${id}`).then(response => {
       console.log(response);
-      const updatedNotes = this.state.notes.filter(note => note._id !== id);
+      const updatedNotes = this.state.notes.filter(note => note.id !== id);
       this.setState({ notes: updatedNotes });
       console.log(this.state.notes.length);
     });
