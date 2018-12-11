@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import DeleteModalPage from './DeleteModalPage';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 
 class ViewNote extends Component {
@@ -19,13 +21,16 @@ class ViewNote extends Component {
     console.log('TESTcomponentDidMount.axios.get');
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
-      .then()
+      .then(res => { console.log('Logged resonse: ', res); })
+       
   }
 
 
 
   render() {
-    return();
+    return (
+     
+    );
   }
 }
 
