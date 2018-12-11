@@ -5,6 +5,32 @@ import axios from 'axios';
 
 
 
+const EachNoteCard = styled.div`
+  margin: 10px 10px;
+  background: white;
+  width: 192px;
+  height: 200px;
+  padding: 5px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border: 2px solid #c5c5c7;
+  color: black;
+  cursor: pointer;
+  :hover {
+    border: 4px solid darkgray;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.4);
+  }
+`;
+
+const EachNoteText = styled.p`
+  font-size: 12px;
+  font-weight: bold;
+  color: darkgray;
+`;
+
+const EachNoteTitle = styled.h3`
+  color: black;
+`;
 
 
 class GetNViewNotes extends Component {
@@ -37,7 +63,8 @@ class GetNViewNotes extends Component {
                   <EachNoteCard>
                     <EachNoteTitle>{eachNote.title}</EachNoteTitle>
                     <EachNoteText>{eachNote.textBody}</EachNoteText>
-    
+                  </EachNoteCard>
+                </NoteCardLink>
               );
             })}
           </AllNotesBox>
