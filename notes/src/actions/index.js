@@ -10,41 +10,40 @@ export const CREATE = "CREATE";
 export const deleteNote = id => {
   return dispatch => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:9000/api/notes/${id}`)
       .then(res => {
-        console.log(res.data, "DELETE RESPONSE");
         dispatch({ type: DELETE_NOTE, payload: res.data });
       })
       .catch(err => {
-        console.log(err, "ERROR");
         dispatch({ type: ERROR, payload: err });
       });
   };
 };
 
-export const editNote = ({ title, textBody, _id }) => {
+export const editNote = ({ title, content, id }) => {
   return dispatch => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${_id}`, {
+      .put(`http://localhost:9000/api/notes/${id}`, {
         title,
-        textBody
+        content,
+      id
       })
       .then(res => {
-        console.log(res.data, "RESPONSE FROM SERVER");
         dispatch({ type: EDIT_NOTE, payload: res.data });
       })
       .catch(err => {
-        console.log(err, "ERRROR EDITING");
         dispatch({ type: ERROR, payload: err });
       });
   };
 };
+
 export const getNotes = () => {
-  const promise = axios.get("https://fe-notes.herokuapp.com/note/get/all");
+  const promise = axios.get("http://localhost:9000/api/notes/");
   return dispatch => {
     dispatch({ type: GET_NOTES });
     promise
       .then(res => {
+        console.log(res);
         dispatch({ type: NOTES_SUCCESS, payload: res.data });
       })
       .catch(err => {
@@ -56,7 +55,7 @@ export const getNotes = () => {
 export const createNote = note => {
   return dispatch => {
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", note)
+      .post("http://localhost:9000/api/notes/", note)
       .then(res => {
         dispatch({ type: CREATE, payload: res.data });
       })

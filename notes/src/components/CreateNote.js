@@ -8,7 +8,7 @@ class CreateNote extends Component {
         super(props) 
         this.state = {
             title: '',
-            textBody: ''
+            content: ''
         }
     }
     onChange = e => {
@@ -16,7 +16,7 @@ class CreateNote extends Component {
     }
     onSubmit = e => {
         e.preventDefault()
-        this.props.createNote({title: this.state.title, textBody: this.state.textBody, id: '03'})
+        this.props.createNote({title: this.state.title, content: this.state.content})
         this.props.history.push('/')
     }
     render() {
@@ -31,8 +31,8 @@ class CreateNote extends Component {
             className="title-input"
             placeholder="Note Title"
             />
-            <textarea  name="textBody"
-            value={this.state.textBody}
+            <textarea  name="content"
+            value={this.state.content}
             onChange={this.onChange}
             className="content-input"
             placeholder="Note Content"
@@ -40,10 +40,10 @@ class CreateNote extends Component {
             </textarea>
            {/* <input 
             type="text"
-            name="textBody"
-            value={this.state.textBody}
+            name="content"
+            value={this.state.content}
             onChange={this.onChange}
-            className="textBody-input"
+            className="content-input"
             placeholder="Note Content"
             /> */}
             <button type="submit" className="save-button">Save</button>
@@ -60,4 +60,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, { addNote, createNote })(CreateNote)
+export default connect(mapStateToProps, { createNote })(CreateNote)

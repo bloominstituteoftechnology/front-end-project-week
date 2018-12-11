@@ -6,16 +6,16 @@ class NoteForm extends Component {
   constructor(props) {
     super(props);
     console.log(props);
-    const { title, textBody, _id } = props.note;
+    const { title, content, id} = props.note;
     this.state = {
       title,
-      textBody,
-      _id
+      content,
+      id
     };
   }
   componentDidMount() {
-    const { title, textBody, _id } = this.props.note;
-    this.setState({ title, textBody, _id });
+    const { title, content, id} = this.props.note;
+    this.setState({ title, content, id});
   }
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -24,7 +24,7 @@ class NoteForm extends Component {
   onSubmit = e => {
     e.preventDefault();
     this.props.editNote({ ...this.state });
-    this.props.history.push(`/${this.props.note._id}`);
+    this.props.history.push(`/${this.props.note.id}`);
   };
 
   render() {
@@ -40,8 +40,8 @@ class NoteForm extends Component {
               onChange={this.onChange}
             />
             <textarea
-              name="textBody"
-              value={this.state.textBody}
+              name="content"
+              value={this.state.content}
               onChange={this.onChange}
               className="content-input"
             />
@@ -60,7 +60,7 @@ class NoteForm extends Component {
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
   return {
-    note: state.note.find(note => note._id === id)
+    note: state.note.find(note => `${note.id}` === id)
   };
 };
 

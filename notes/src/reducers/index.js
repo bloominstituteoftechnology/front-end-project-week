@@ -31,11 +31,11 @@ import {
           ...state
         };
       case EDIT_NOTE:
-        const { _id, ...res } = action.payload;
+        const { id, ...res } = action.payload;
         return {
           ...state,
           note: state.note.map(note => {
-            return note._id === _id ? { ...note, ...res } : note;
+            return note.id === id ? { ...note, ...res } : note;
           })
         };
       case GET_NOTES:

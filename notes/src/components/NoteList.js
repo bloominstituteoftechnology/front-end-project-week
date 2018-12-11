@@ -21,12 +21,13 @@ class NoteList extends React.Component {
           <div className="the-notes">
             <ul>
               {this.props.notes.map(note => {
+                console.log(note, 'NOTE')
                 return (
                   <div className="note">
                     <div key={note.id} className="title">
-                      <Link to={note._id}>{note.title}</Link>
+                      <Link to={`/${note.id}`}>{note.title}</Link>
                     </div>
-                    <div className="content">{note.textBody}</div>
+                    <div className="content">{note.content}</div>
                   </div>
                 );
               })}
