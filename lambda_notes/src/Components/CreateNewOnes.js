@@ -28,12 +28,21 @@ class CreateNewOnes extends Component {
 
   addNewNote = e => {
     e.preventDefault();
-    
+    axios
+      .post("https://fe-notes.herokuapp.com/note/create", this.state)
+      .then(res => {
+        this.setState({ title: '', textBody: '' });
+        this.props.history.push('/');
+      })
+      .catch(err => console.log(err, "Nothing Made"));
   };
 
   render() {
     return (
-      
+      <CreateViewWrapper>
+        <CreateHeader>Create New Note:</CreateHeader>
+
+      </CreateViewWrapper>
     );
   };
 }
