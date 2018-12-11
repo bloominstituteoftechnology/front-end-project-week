@@ -56,6 +56,11 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 
 ---
 
+## Trello Link
+
+[Steve's Trello Board for the Notes Project](https://trello.com/b/JOxzvSYP/lambda-notes)
+
+
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.
 
 Once your MVP has been approved, you have been given a feature list that the client would love to have completed. Your goal would be to finish MVP as soon as you can and get working the list of features.

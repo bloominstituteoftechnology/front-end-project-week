@@ -1,0 +1,149 @@
+.sidebar {
+  background: #d3d2d3;
+  min-height: 100vh;
+  border-right: 1px solid rgb(187, 187, 187);
+}
+
+.view {
+  background: #f2f1f2;
+}
+
+.button {
+  background: #24b8bd;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f3fafa;
+  border: 2px outset rgb(187, 187, 187);
+  max-width: 80%;
+  margin: 10px auto;
+  padding: 15px 5px;
+}
+
+.button:hover {
+  background: #81bcbe;
+}
+
+.note-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.note-list--note {
+  background: white;
+  text-align: left;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid rgb(187, 187, 187);
+  width: 250px;
+  height: 250px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.note-list--note h4 {
+  border-bottom: 1px solid rgb(187, 187, 187);
+}
+
+.add-edit-note-form {
+  text-align: left;
+  padding: 30px;
+  background: #f2f1f2;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-edit-note-form h1 {
+  font-size: 2rem;
+}
+
+.add-edit-note-form .title {
+  padding: 10px;
+  margin: 10px 0;
+  width: 40%;
+  font-size: 1.3rem;
+}
+
+.add-edit-note-form .textBody {
+  padding: 20px;
+  margin: 10px 0;
+  width: 90%;
+  height: 30rem;
+  font-size: 1.3rem;
+}
+
+.add-edit-note-form .button {
+  width: 200px;
+}
+
+.is-closed {
+  display: none !important;
+}
+
+.is-open {
+  display: flex;
+  background: rgba(180, 180, 180, .8);
+}
+
+.delete-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal-content-container {
+  width: 70%;
+  height: 300px;
+  background: #f2f1f2;
+  border: 2px solid #999;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal-content {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.button-container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.button-container .button {
+  width: 30%;
+}
+.delete {
+  background: red;
+}
+
+.full-page-note {
+  text-align: left;
+}
+
+.note-controls {
+  text-align: right;
+}
+
+.note-control {
+  padding: 10px;
+}
+
+.note-text {
+  font-size: 1.2rem;
+}
+
+.full-page-note {
+  margin-top: 20px;
+  padding: 0 40px;
+}
