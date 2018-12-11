@@ -24,8 +24,8 @@ export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 
 const getUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/all';
 const postUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/create';
-const deleteUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/delete';
-const putUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/edit';
+const deleteUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/delete/:noteId';
+const putUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/edit/:noteId';
 
 export const getNotes = () => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
