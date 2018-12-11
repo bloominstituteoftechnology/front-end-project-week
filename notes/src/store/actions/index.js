@@ -24,6 +24,10 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
 export const DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 
+export const EXPORTING_NOTES = 'EXPORTING_NOTES';
+export const EXPORT_NOTES_SUCCESS = 'EXPORT_NOTES_SUCCESS';
+export const EXPORT_NOTES_FAILURE = 'EXPORT_NOTES_FAILURE';
+
 export const fetchNotes = () => dispatch => {
   dispatch({type: FETCHING_NOTES});
   axios
@@ -97,4 +101,13 @@ export const deleteNote = id => dispatch => {
       console.log('delete catch', err);
       dispatch({type: DELETE_NOTE_FAILURE, payload: err});
     });
+};
+
+export const exportToCsv = notes => dispatch => {
+  dispatch({type: EXPORTING_NOTES});
+  const rows = ['title', 'textBody'];
+  const data = notes.map(n => {
+    return `${n.title},${n.textBody}\n`;
+  });
+  return rows.join(',') + '\n' + data;
 };

@@ -22,7 +22,7 @@ const initialState = {
   selectedNote: null,
   error: null,
   isEditing: false,
-  fetching: false,
+  fetching: false, // WORKING ON CSV EXPORT
   deleting: false,
   adding: false,
   showingModal: false,

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Notes from '../components/Notes';
 import {fetchNotes} from '../store/actions';
 import Fuse from 'fuse.js';
+import Papa from 'papaparse';
 
 class NotesContainer extends React.Component {
   state = {
@@ -21,6 +22,20 @@ class NotesContainer extends React.Component {
   componentDidMount() {
     this.props.fetchNotes();
   }
+
+  exportToCsv = () => {
+    //dispatch({type: EXPORTING_NOTES});
+    const notes = this.props.notes;
+    //const rows = ['title', 'textBody'];
+    //let data = notes.map(n => {
+    //return `${n.title},${n.textBody}`;
+    //});
+    //data = JSON.stringify(rows.join(',') + '\n' + data.join('\n'));
+    //console.log(data);
+    //data = Papa.unparse(data);
+    //console.log(data);
+    console.log(Papa.unparse(notes));
+  };
 
   componentDidUpdate(prevProps) {
     // ensure props are up to date
@@ -63,6 +78,7 @@ class NotesContainer extends React.Component {
           notes={
             this.state.searchText ? this.state.filteredNotes : this.props.notes
           }
+          export={this.exportToCsv}
           searchText={this.state.searchText}
           searchNotes={this.searchNotes}
           clearSearchText={this.clearSearchText}

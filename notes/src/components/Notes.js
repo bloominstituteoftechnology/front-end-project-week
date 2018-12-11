@@ -92,10 +92,12 @@ const StyledNote = styled.div`
 const Notes = props => {
   //console.log('notes', props);
 
+  console.log(props);
   return (
     <NotesWrapper>
       <form onSubmit={e => props.clearSearchText(e)}>
         <h2>Your Notes:</h2>
+        <button onClick={() => props.export()}>export to csv</button>
         <SearchBar
           type="text"
           placeholder="search"
@@ -108,7 +110,9 @@ const Notes = props => {
           <StyledNote
             key={note._id}
             onClick={() => props.history.push(`/note/${note._id}`)}>
-            <h2>{note.title}</h2>
+            <div style={{height: '20px', overflow: 'hidden'}}>
+              <h2>{note.title}</h2>
+            </div>
             <hr />
             <p>{note.textBody}</p>
             {/*</Link>*/}
