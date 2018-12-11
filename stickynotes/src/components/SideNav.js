@@ -1,17 +1,30 @@
 import React from 'react';
 import { Nav, Button, H1 } from '../style';
-import { NavLink } from 'react-router-dom';
 
 const SideNav = (props) => {
 	return (
 		<Nav>
 			<H1>Lambda Notes</H1>
-			<NavLink exact to="/" style={{cursor: 'default'}}>
-				<Button>View All Notes</Button>
-			</NavLink>
-			<NavLink to="/create" style={{cursor: 'default'}}>
-				<Button>+ Create New Note</Button>
-			</NavLink>
+
+			<Button
+				onClick={(event) => {
+					event.preventDefault();
+					props.toggleMode('default');
+					props.history.push('/');
+				}}
+			>
+				View All Notes
+			</Button>
+
+			<Button
+				onClick={(event) => {
+					event.preventDefault();
+					props.toggleMode('create');
+					props.history.push('/');
+				}}
+			>
+				+ Create New Note
+			</Button>
 		</Nav>
 	);
 };

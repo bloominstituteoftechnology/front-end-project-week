@@ -4,28 +4,19 @@ import { Route } from 'react-router-dom';
 import axios from 'axios';
 import SideNav from './components/SideNav';
 import NoteList from './components/NoteList';
-import NoteForm from './components/NoteForm';
-import NoteView from './components/NoteView';
+import NoteSingle from './components/NoteSingle';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			notes: [],
-			newNote: {
-				title: '',
-				textBody: ''
-			},
-			newId: ''
+			newId: '',
+			mode: 'create'
 		};
-
 	}
 
 	componentDidMount() {
-		this.getnotes();
-	}
-
-	getnotes = () => {
 		axios
 			.get('https://fe-notes.herokuapp.com/note/get/all')
 			.then((response) => {
@@ -38,14 +29,20 @@ class App extends Component {
 			});
 	}
 
-	addNote = (event) => {
-		event.preventDefault();
+	addNote = (note) => {
 		axios
-			.post(`https://fe-notes.herokuapp.com/note/create`, this.state.newNote)
+			.post(`https://fe-notes.herokuapp.com/note/create`, note)
 			.then((response) => {
 				this.setState({
 					...this.state,
-						newId: `${response.data.success}`
+					newId: `${response.data.success}`
+				});
+				return axios.get(`https://fe-notes.herokuapp.com/note/get/${response.data.success}`)
+			})
+			.then(response => {
+				this.setState({
+					...this.state,
+					notes: [response.data, ...this.state.notes]
 				});
 			})
 			.catch((err) => {
@@ -53,12 +50,15 @@ class App extends Component {
 			});
 	};
 
-	editNote = (id) => {
-		console.log('editing')
+	editNote = (note) => {
+		console.log(note);
 		axios
-			.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
+			.put(`https://fe-notes.herokuapp.com/note/edit/${note._id}`, note)
 			.then((response) => {
-				this.getnotes();
+				this.setState({
+					...this.state,
+					notes: [response.data, ...this.state.notes]
+				});
 			})
 			.catch((err) => {
 				console.log(err);
@@ -68,23 +68,24 @@ class App extends Component {
 	deleteNote = (id) => {
 		axios
 			.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-			.then(response => {
-				console.log(response)
-				this.getnotes();
+			.then((response) => {
+				console.log(response);
+				return axios.get('https://fe-notes.herokuapp.com/note/get/all')
+			})
+			.then((response) => {
+				this.setState({
+					notes: response.data
+				});
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	};
 
-	handleChange = (event) => {
-		event.preventDefault();
+	toggleMode = (mode) => {
 		this.setState({
 			...this.state,
-			newNote: {
-				...this.state.newNote,
-				[event.target.name]: event.target.value
-			}
+			mode
 		});
 	};
 	render() {
@@ -92,47 +93,39 @@ class App extends Component {
 			<React.Fragment>
 				<GlobalStyle />
 				<AppContainer>
-					<SideNav />
+					<Route
+						path={'/'}
+						render={(props) => (
+							<SideNav {...props} toggleMode={this.toggleMode} />
+						)}
+					/>
 					<Route
 						exact
 						path={'/'}
-						render={(props) => <NoteList {...props} notes={this.state.notes} />}
-					/>
-					<Route
-						exact
-						path={'/create'}
 						render={(props) => (
-							<NoteForm
+							<NoteList
 								{...props}
-								header={'Create New Note'}
-								mode={'create'}
-								handleChange={this.handleChange}
+								notes={this.state.notes}
+								mode={this.state.mode}
+								toggleMode={this.toggleMode}
 								addNote={this.addNote}
-								buttonText="Save"
+								id={this.state.newId}
 							/>
 						)}
 					/>
+
 					<Route
 						path={'/:id'}
 						render={(props) => (
-							<NoteView
+							<NoteSingle
 								{...props}
 								notes={this.state.notes}
+								toggleMode={this.toggleMode}
 								deleteNote={this.deleteNote}
+								editNote={this.editNote}
+								mode={this.state.mode}
 							/>
 						)}
-					/>
-					<Route
-						exact
-						path={'/edit/:id'}
-						render={(props) => 
-						<NoteForm
-						 {...props} 
-						 header={'Update Existing Note'}
-						 mode={'edit'}
-						 buttonText='Update' 
-						 editNote={this.editNote}
-						 />}
 					/>
 				</AppContainer>
 			</React.Fragment>

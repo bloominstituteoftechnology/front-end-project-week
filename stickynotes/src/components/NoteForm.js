@@ -1,35 +1,58 @@
 import React, { Component } from 'react';
 import { Form, H1, Main, Input, Textarea, Button } from '../style';
-import { Link } from 'react-router-dom';
 
 class NoteForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            id: this.props.match.params.id,
+			note: {
+				title: '',
+				textBody: '',
+				_id: ''
+			}
 		};
 	}
 
+	handleChange = (event) => {
+		event.preventDefault();
+		this.setState({
+			note: {
+				...this.state.note,
+				[event.target.name]: event.target.value,
+				_id: this.props.id
+			}
+		});
+	};
+
 	handleMode = () => {
-        console.log(this.state.id)
 		if (this.props.mode === 'create') {
-			return this.props.addNote;
+			this.props.toggleMode('default');
+			return this.props.addNote(this.state.note);
+		} else if (this.props.mode === 'edit') {
+			this.props.toggleMode('default');
+			return this.props.editNote(this.state.note);
 		} else {
-			return this.props.editNote;
+			this.props.toggleMode('default');
+			return null;
 		}
 	};
 
 	render() {
 		return (
 			<Main>
-				<Form onSubmit={this.handleMode()}>
+				<Form
+					onSubmit={(event) => {
+						event.preventDefault();
+						this.handleMode();
+					}}
+				>
 					<H1>{this.props.header}</H1>
 					<Input
 						required
 						type="text"
 						name="title"
 						placeholder="Note Title..."
-						onChange={this.props.handleChange}
+						onChange={this.handleChange}
 					/>
 					<Textarea
 						required
@@ -37,13 +60,11 @@ class NoteForm extends Component {
 						name="textBody"
 						placeholder="Note Content..."
 						rows="20"
-						onChange={this.props.handleChange}
+						onChange={this.handleChange}
 					/>
-					<Link to={`/${this.state.id}`}>
-						<Button component="form" type="submit" onSubmit={this.handleMode()}>
-							{this.props.buttonText}
-						</Button>
-					</Link>
+					<Button type="submit" component="form">
+						{this.props.buttonText}
+					</Button>
 				</Form>
 			</Main>
 		);
