@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   update() {
-    // console.log(this.props.history)
+    
     axios     
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then(response => {
@@ -35,9 +35,7 @@ class App extends Component {
   }
 
   addNote = ( e, data) => {
-    e.preventDefault();
-
-    console.log(data)
+    // e.preventDefault();
 
     axios
       .post('https://fe-notes.herokuapp.com/note/create', data)

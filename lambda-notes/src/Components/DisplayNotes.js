@@ -6,7 +6,10 @@ const DisplayNotes = props => {
     <div className={'display-cards'}>
 
       {props.notes.map( note => {
-        return <NoteCard key={note._id} note={note} />
+        return <NoteCard 
+          history={props.history}
+          key={note._id}
+          note={note} />
       })}
 
     </div>
