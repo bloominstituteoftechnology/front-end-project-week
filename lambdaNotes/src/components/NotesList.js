@@ -12,6 +12,7 @@ import {
 } from "../Styles";
 
 import NoteCard from "./NoteCard";
+import Payments from "./Payments";
 
 class NotesList extends React.Component {
   constructor(props) {
@@ -73,6 +74,7 @@ class NotesList extends React.Component {
           >
             Export
           </ExportBtn>
+          <Payments />
           {/* <SearchInput onChange={this.searchNotesHandler} type="text" placeholder="Search"/> */}
         </LeftBar>
         <CardList>
