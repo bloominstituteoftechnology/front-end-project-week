@@ -184,7 +184,22 @@ nav {
   transition: all 0.2s;
 }
 
-.edit:hover {
+.dupe {
+  position: absolute;
+  font-weight: bold;
+  top: 13px;
+  right: 120px;
+  font-size: 12px;
+  padding: 2.5px 7.5px; 
+  color: #0d1c49;
+  border: 1px solid #0d1c49;
+  background: #fefdfa;
+  border-radius: 3px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.edit:hover, .dupe:hover {
   color: #fefdfa;
   border: 1px solid #0d1c49; 
   background: #0d1c49; 

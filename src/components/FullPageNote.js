@@ -9,6 +9,7 @@ class FullPageNote extends Component {
         this.state = {
             note: null,
             deleted: false,
+            duplicated: false,
         }
     }
     
@@ -34,7 +35,21 @@ class FullPageNote extends Component {
                  deleted: true,
              })})
              .catch(err => console.log(err))
-      }
+    }
+
+    duplicate = () => {
+        const {title, textBody, tags} = this.state.note;
+        const note = {
+            title: title,
+            textBody: textBody,
+            tags: tags,
+        }
+        axios.post('https://vellumnotes.herokuapp.com/note/create', note)
+        .then(res => this.setState({
+            duplicated: true
+        }))
+        .catch(err => {console.log(err)})
+    }
 
     // bring up the modal
     deleteModal = () => {
@@ -43,7 +58,7 @@ class FullPageNote extends Component {
 
     render() {
         // redirect upon delete button press (because that will set deleted to true)
-        if (this.state.deleted === true) {
+        if (this.state.deleted === true || this.state.duplicated === true) {
             return (
                 <Redirect to='/'></Redirect>
             )
@@ -65,10 +80,10 @@ class FullPageNote extends Component {
                 <div className='fullpage'>
                     <h2 className='title'>{this.state.note.title}</h2>
                     <ReactMarkdown className='body' source={this.state.note.textBody} />
-                    {this.state.note.tags ? this.state.note.tags.split(', ' || ',').map(tag => <p className='tag'>{tag}</p>) : null}
-                    {/* <p className='body'>{this.state.note.textBody}</p> */}
+                    {this.state.note.tags ? this.state.note.tags.split(', ' || ',').map((tag, i) => <p key={i} className='tag'>{tag}</p>) : null}
                     <span className='delete' onClick={this.deleteModal}>✖</span>
                     <Link className='edit' to={{ pathname: '/add', state: { note: this.state.note} }}>EDIT</Link>
+                    <span className='dupe' onClick={this.duplicate}>DUPLICATE</span>
                 </div>
                 
                 <div className='modalBG'>

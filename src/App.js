@@ -97,25 +97,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-// SORT FUNCTIONALITY THAT DIDN'T WORK
-  // AZSort = arr => {
-  //   function compare(a, b) {
-  //     const titleA = a.title.toUpperCase();
-  //     const titleB = b.title.toUpperCase();
-    
-  //     let comparison = 0;
-  //     if (titleA > titleB) {
-  //       comparison = 1;
-  //     } else if (titleA < titleB) {
-  //       comparison = -1;
-  //     }
-  //     return comparison;
-  //   }
-  //   this.setState({
-  //     sorted: true, 
-  //     notes: arr.sort(compare)
-  //   })
-  // }
