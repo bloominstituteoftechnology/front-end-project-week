@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const NotesListWrapper = styled.div`
-    margin: 20px 20px 20px 20px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
 `;

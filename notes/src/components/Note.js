@@ -2,13 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import EditNote from './EditNote';
 import { deleteNote } from '../actions';
 
 const NoteWrapper = styled.div`
-    /* border: 1px solid darkgrey; */
-    margin: 0 20px 0 20px;;
-    min-width: 75%;
+    border: 1px solid darkgrey;
+    margin: 20px;;
+    /* width: 75%; */
 `;
 const ButtonWrapper = styled.div`
     display: flex;
@@ -35,7 +34,9 @@ const DeleteConfirmWrapper = styled.div`
     width: 100%;
     height: 100%;
     position: absolute;
-    z-index: 2;
+    top: 0;
+    left: 0;
+    z-index: 100;
     visibility: ${props => (props.visibility === false ? "hidden" : "visible")};
 `;
 const DeleteConfirmBox = styled.div`

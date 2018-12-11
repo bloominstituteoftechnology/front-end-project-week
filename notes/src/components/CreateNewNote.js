@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { addNote } from '../actions';
 
-const NoteWrapper = styled.div`
+const CreateNoteWrapper = styled.div`
     /* border: 1px solid darkgrey; */
     margin: 0 20px 0 20px;;
     min-width: 75%;
@@ -68,7 +68,7 @@ class CreateNewNote extends React.Component {
 
     render() {
         return(
-            <NoteWrapper>
+            <CreateNoteWrapper>
                 <NotesHeader>Create New Note:</NotesHeader>
                 <SCForm onSubmit={this.submitHandler}>
                     <TitleInput
@@ -87,7 +87,7 @@ class CreateNewNote extends React.Component {
                     />
                     <SCButton type="submit">Save</SCButton>
                 </SCForm>
-            </NoteWrapper>
+            </CreateNoteWrapper>
         )
     }
 }

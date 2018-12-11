@@ -14,9 +14,13 @@ import { getNotes } from './actions/';
 const AppWrapper = styled.div`
   display: flex;
   /* position: relative; */
-  height: 100%;
+  /* height: 100%; */
   /* overflow: hidden; */
   margin: auto 0;
+`;
+const MainWrapper = styled.div`
+  margin-left: 200px;
+  width: 80%;
 `;
 
 class App extends Component {
@@ -29,10 +33,12 @@ class App extends Component {
     return (
       <AppWrapper>
         <Route path="/" component={Sidebar} />
-        <Route exact path="/" render={props => <NotesListView {...props} notes={this.props.notes} /> } />
-        <Route exact path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
-        <Route path="/createnewnote" component={CreateNewNote} />
-        <Route path="/note/edit/:noteId" render={props => <EditNote {...props} notes={this.props.notes} />} />
+          <MainWrapper>
+            <Route exact path="/" render={props => <NotesListView {...props} notes={this.props.notes} /> } />
+            <Route exact path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
+            <Route path="/createnewnote" component={CreateNewNote} />
+            <Route path="/note/edit/:noteId" render={props => <EditNote {...props} notes={this.props.notes} />} />
+          </MainWrapper>
       </AppWrapper>
     );
   }

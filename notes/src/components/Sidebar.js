@@ -2,14 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+// const SidebarWrapper = styled.div`
+//     background: #D3D2D3;
+//     padding: 25px 15px;
+//     display: flex;
+//     align-items: center;
+//     flex-direction: column;
+//     min-height: 100%;
+//     width: 200px;
+// `;
+
 const SidebarWrapper = styled.div`
-    background: #D3D2D3;
-    padding: 25px 15px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100%;
+    height: 100%;
     width: 200px;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background: #D3D2D3;
+    overflow-x: hidden;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 const NavButton = styled(Link)`
     background: #25B7BD;
