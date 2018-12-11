@@ -5,6 +5,32 @@ import axios from 'axios';
 
 
 
+const AllNotesBox = styled.div`
+  width: 665px;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const ViewListBox = styled.div`
+  background: #f2f1f2;
+  width: 100%;
+  max-height: 1000px;
+  overflow-y: scroll;
+`;
+const ViewNotesBox = styled.div`
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 50px;
+`;
+
+const NoteCardLink = styled (Link)`
+  color: rgb (41, 43, 43);
+`;
+
+const NotesListHeader = styled.h2`
+  color: #414242;
+`;
+
 const EachNoteCard = styled.div`
   margin: 10px 10px;
   background: white;
