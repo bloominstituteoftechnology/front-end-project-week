@@ -7,10 +7,10 @@ function Notes(props) {
     
     function routeToNote(ev, note) {
         ev.preventDefault();
-        console.log(note._id);
-        props.history.push(`/notes/${note._id}`);
-        props.getNoteById(note._id);
-        console.log(note._id);
+        console.log(note.id);
+        props.history.push(`/notes/${note.id}`);
+        props.getNoteById(note.id);
+        console.log(note.id);
         
     }
     return (
@@ -18,7 +18,7 @@ function Notes(props) {
             <h1>Deez Notes</h1>
                     <div className="notes">
                         {props.notes.map(note => {
-                            console.log(note._id);
+                            console.log(note.id);
                             return (
                                 <div className = "mapped-notes" onClick={ev => routeToNote(ev, note)}>
                                     <h2>{note.tags}</h2>

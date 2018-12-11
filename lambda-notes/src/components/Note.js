@@ -20,7 +20,7 @@ class Note extends React.Component {
   componentDidMount() {
     const id = this.props.match.params._id;
     console.log(id)
-    this.setState({ id: id, notes: this.props.notes });
+    this.setState({ id: Number(id), notes: this.props.notes });
   }
 
   showModal = () => {
@@ -32,7 +32,10 @@ class Note extends React.Component {
   }
 
   filterNotes = note => {
-    if (note._id === this.state.id) {
+    console.log("inside filter notes:", note.id);
+    console.log("inside filter notes::", this.state.id)
+    console.log(note.title);
+    if (note.id === this.state.id) {
       return (
         <div key={note.id}>
           <p className='single-note-title'>{note.title}</p>
