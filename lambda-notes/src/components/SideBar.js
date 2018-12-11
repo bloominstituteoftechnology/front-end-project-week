@@ -8,7 +8,7 @@ const Div = styled.div`
     height: 100vh;
     width: ${styleVars.sideBarWidth}%;
     border-right: 2px solid rgba(0, 0, 0, 0.1);
-    padding: 26px 0 0 17px;
+    padding: 28px 0 0 17px;
     line-height: 2.5rem;
     background: ${styleVars.sideBarBG};
     display: flex;
@@ -16,8 +16,8 @@ const Div = styled.div`
 `;
 
 const H1 = styled.h1`
-    margin: 0 0 13px 0;
-    font-size: 3rem;
+    margin: 0 0 12px 0;
+    font-size: 3.1rem;
     color: ${styleVars.pageHeaderColor};
 `;
 
