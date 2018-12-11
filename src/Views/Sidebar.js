@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Spinner } from '../components'
 import './Sidebar.css';
 
 export const Sidebar = props => (
@@ -14,6 +15,7 @@ export const Sidebar = props => (
     <Link to='/note/create'>
       <button className="sidebar-button">Create Note</button>
     </Link>
+    {props.loading ? (<Spinner/>) : ''}
 
   </div>
 )

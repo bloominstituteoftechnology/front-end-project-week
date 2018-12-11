@@ -20,10 +20,11 @@ class App extends Component {
       draftNote: {
         title: '',
         content: ''
-      }
+      },
+      loadingNotes: false
     }
     console.log(this.state)
-    setInterval(this.getAllNotes, 1000)
+    setInterval(this.getAllNotes, 5000)
   }
 
   componentDidMount() {
@@ -36,17 +37,18 @@ class App extends Component {
     // this.getAllNotes()
   }
 
-  getAllNotes = () => {
-    axios
-      .get(URL + '/notes')
-      .then(data => {
-        this.setState({
-          notes: data.data.reverse()
-        })
+  getAllNotes = async () => {
+    try {
+      await this.setState({loadingNotes: true})
+      const notes = await axios.get(URL + '/notes')
+      await this.setState({
+        loadingNotes: false,
+        notes: notes.data.reverse()
       })
-      .catch(err => {
+    }
+    catch (err) {
         console.log(err)
-      })
+    }
   }
 
   createNote = note => {
@@ -118,7 +120,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar />
+        <Sidebar loading={this.state.loadingNotes}/>
         <div className="page-wrapper">
 
           <Route
