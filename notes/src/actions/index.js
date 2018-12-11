@@ -29,7 +29,7 @@ export const fetchAllData = () => dispatch => {
 }
 
 export const fetchUniqueData = id => dispatch => {
-    dispatch({action: FETCH_NOTE});
+    dispatch({type: FETCH_NOTE});
     axios
         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(resp => {

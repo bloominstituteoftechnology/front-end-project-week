@@ -23,7 +23,7 @@ class App extends Component {
 
             <Route 
               exact
-              path='/notes/:noteId'
+              path='/note/:noteId'
               component={NoteView}
             />
           </Fragment>

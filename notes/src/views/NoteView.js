@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React, {
+    Component
+} from 'react';
 
 // Redux Imports
-import { connect } from 'react-redux';
+import {
+    connect
+} from 'react-redux';
 
 // Actions
 import {
@@ -13,11 +17,11 @@ import {
 
 class NoteView extends Component {
     componentDidMount = () => {
-        
+        this.props.fetchUniqueData(this.props.match.params.noteId)
     }
 
-    render(){
-        return <h1>Note View</h1>
+    render() {
+        return <h1> Note View </h1>
     }
 }
 
