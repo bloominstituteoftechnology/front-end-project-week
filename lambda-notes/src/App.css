@@ -282,3 +282,27 @@
 .dropdown-content p:hover {background-color: #f1f1f1;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #242A30;}
+
+/* csv link */
+.cvslink {
+  padding-left: 350px;
+  width: 90%;
+  margin: 30px auto 30px auto;
+  color: white;
+  text-align: center;
+}
+
+.cvslink-a {
+  display: block;
+  width: 170px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #2E353D;
+  color: white;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.cvslink-a:hover {
+  background-color: #242A30;
+}

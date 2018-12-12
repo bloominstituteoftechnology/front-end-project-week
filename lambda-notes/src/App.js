@@ -141,7 +141,7 @@ class App extends Component {
               return (
               <div>
                 <Notes {...props} notes={this.state.notes} filter={this.state.filter} handleInputChange={this.handleInputChange} noteData={this.getFilteredNotes()} sortedByTitle={this.sortedByTitle} sortedByMostRecent={this.sortedByMostRecent}/>
-                <CSVLink data={this.state.notesCopy}>Download me</CSVLink>
+                <div className="cvslink"><CSVLink className="cvslink-a" data={this.state.notesCopy}>Download Notes</CSVLink></div>
               </div>
               );
             
