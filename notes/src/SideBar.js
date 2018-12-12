@@ -8,7 +8,7 @@ const SideBar = () => {
           <h1>Lambda Notes</h1>
           <Link to="/">View Notes</Link>
 
-          <Link to="/addnote">+ Create New Note</Link>
+          <Link to="/add-note">+ Create New Note</Link>
         </div>
     );
 }

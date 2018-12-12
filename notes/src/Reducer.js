@@ -1,21 +1,27 @@
-export const ADDING = "ADDING";
-export const FETCHING = "FETCHING";
+import {ADDING,FETCHING,UPDATING,DELETING,ERROR,GETTING} from "./Actions";
 
 const initialState = {
-    notes:[{title:"Test Note 1",message:"This is my first note"},
-        {title:"Test Note 2",message:"This is my first note"},
-        {title:"Test Note 3",message:"This is my first note"},
-        {title:"Test Note 4",message:"This is my first note"},
-        {title:"Test Note 5",message:"This is my first note"},
-        {title:"Test Note 6",message:"This is my first note"}]
+    notes:[]
 }
 
 export const reducer = (state = initialState,action) => {
     switch(action.type){
         case FETCHING:
             return {...state}
+        case GETTING:
+            return {notes:action.payload}
         case ADDING:
-            return {notes:[{...action.payload},...state.notes]}
+            return {...state}
+        case UPDATING:
+            return {...state}
+        case DELETING:
+            const newNotes = state.notes.filter(e => {
+                return (e.id !== action.payload )
+        })
+            return {notes:newNotes}
+        case ERROR:
+            alert("The server had an error")
+            return {...state}
         default:
             return {...state}
     }
