@@ -1,0 +1,170 @@
+.notes-display {
+  display: flex;
+}
+
+.note-card {
+  border: 1px solid gray;
+  width: 200px;
+  height: 170px;
+  background-color: #fff;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-wrap: break-word;
+}
+
+.line {
+  height: 1px;
+  width: 90%;
+  background-color: black;
+}
+
+.note-title {
+  font-size: 16px;
+}
+
+.note-container {
+  background-color: #f3f3f3;
+  border: 1px solid gray;
+  padding: 20px 40px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.sidebar {
+  background-color: #d7d7d7;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+.sidebar-title {
+  color: #4a494a;
+  font-size: 48px;
+  flex-wrap: wrap;
+  margin-left: 30px;
+}
+
+.notes-title {
+  color: #4a494a;
+  margin-right: 100%;
+  padding-left: 100px;
+}
+
+.button {
+  text-decoration: none;
+  background-color: #35c0c3;
+  color: #fff;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid gray;
+  margin: 20px 30px;
+}
+
+.delete {
+  text-decoration: none;
+  background-color: #d0011b;
+  color: #fff;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid gray;
+  margin: 20px 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.single-note {
+  background-color: #f3f3f3;
+  width: 100%;
+  border: 1px solid gray;
+  border-left: none;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 25px;
+}
+
+.note-button {
+  width: auto;
+  text-decoration: underline;
+  color: #4a494a;
+  width: 50px;
+  border: 0;
+  background-color: #f3f3f3;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 90%;
+}
+
+.note-name {
+  font-size: 28px;
+  color: #4a494a;
+}
+
+.note-body {
+  font-size: 16px;
+  color: #4a494a;
+  font-weight: normal;
+}
+
+.title-input {
+  width: 400px;
+  height: 40px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.content-input {
+  width: 800px;
+  height: 700px;
+  font-size: 16px;
+  padding-top: 0;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.note-form-view {
+  background-color: #f3f3f3;
+  border: 1px solid gray;
+  width: 100%;
+  padding-left: 30px;
+  padding-top: 50px;
+}
+
+.create {
+  margin-left: 0px;
+}
+
+.modal-style {
+  width: 582px;
+  height: 195px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  background-color: white;
+}
+
+.confirm {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.button-row {
+  padding-left: 30px;
+}
