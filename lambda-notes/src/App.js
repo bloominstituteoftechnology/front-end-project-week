@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   render() {
-    let filteredNotes = this.props.notes;
+    let filteredNotes = this.props.notes.slice();
 
     if (this.state.searchText !== "") {
       filteredNotes = filteredNotes.filter( note => {
