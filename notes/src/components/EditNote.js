@@ -31,8 +31,13 @@ class EditNote extends Component {
         
 
          
+
           submitNote = event => {
-              this.props.editNote(event, this.state.note.id, this.state);
+            const editedNote = {
+             title: this.state.title,
+             textBody: this.state.textBody
+            }
+              this.props.editNote(event, this.props.match.params.id, editedNote);
               this.setState({ title: "", textBody: "" })
               this.props.history.push("/")
               console.log('hello')

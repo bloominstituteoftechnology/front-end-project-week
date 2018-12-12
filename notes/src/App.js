@@ -37,6 +37,7 @@ addNote = (event, newNote) => {
 
 editNote = (event, id, state) => {
   event.preventDefault();
+  console.log(id)
   axios
   .put(`http://localhost:7000/api/notes/${id}`, state)
   .then(response => {
@@ -46,6 +47,7 @@ editNote = (event, id, state) => {
       }
       return note;
     });
+    console.log(updateArray)
     this.setState({ notes: updateArray });
   })
   .catch(error => console.log(error));
