@@ -1,5 +1,8 @@
 # Front End Project Week
 
+My Trelloo Board
+https://trello.com/b/8swvIFfV/front-end-project-week-kevin-brack
+
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
 You are to treat this week as if you are working at a company and the instructor is your client. The project managers will be your main support throughout the week.
@@ -73,3 +76,18 @@ Once your MVP has been approved, you have been given a feature list that the cli
 - [ ] Create a login system around the MVP
 
 You will notice that this repository does not have any starter code. This is on purpose. You are to start from scratch using any files you have built throughout your time here at Lambda School.
+
+## Style Guide:
+```
+Heading font: Roboto Bold
+Everything else font: Raleway Medium
+
+Heading and main font color: #4A4A4A
+Button font color: #FFFFFF
+
+Sidebar background: #D8D8D8
+Main background: #F3F3F3
+Main button background: #2BC1C4
+Delete button background: #D0021B
+Border color used throughout: #979797
+```
