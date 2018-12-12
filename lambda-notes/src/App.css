@@ -1,6 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   display: flex;
   border: 1px solid gray;
+  background-color: #f3f3f3;
 }
 
 .notes-container {
@@ -11,7 +16,6 @@
 }
 
 .note-card {
-  max-width: 28%;
   width: 28%;
   height: 200px;
   border: 1px solid black;
@@ -61,6 +65,10 @@
   color: #4a494a;
 }
 
+.note-text {
+  white-space: pre-wrap;
+}
+
 .one-note {
   color: #4a494a;
 }
@@ -93,6 +101,7 @@
   margin-bottom: 2%;
   padding: 1% 0 0 1%;
   resize: none;
+  white-space: pre-wrap;
 }
 
 .form .text {
@@ -100,6 +109,7 @@
   margin-bottom: 2%;
   padding: 1% 0 0 1%;
   resize: none;
+  white-space: pre-wrap;
 }
 
 .form button {

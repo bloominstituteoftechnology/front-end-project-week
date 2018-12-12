@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink, Link } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 import axios from "axios";
 
@@ -32,6 +32,21 @@ class App extends Component {
       });
   }
 
+  componentDidUpdate(prevState) {
+    if (this.state.notes !== prevState.notes) {
+      axios
+        .get("https://fe-notes.herokuapp.com/note/get/all")
+        .then(response => {
+          this.setState({
+            notes: response.data
+          })
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -46,7 +61,7 @@ class App extends Component {
           title: "",
           textBody: ""
         });
-        window.location.reload();
+        // window.location.reload();
       })
       .catch(err => console.log(err));
   };
@@ -67,7 +82,7 @@ class App extends Component {
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
       .then(response => {
         this.setState({ note: response.data, title: "", textBody: "" });
-        window.location.reload();
+        // window.location.reload();
       })
       .catch(err => console.log(err));
   };
@@ -77,7 +92,7 @@ class App extends Component {
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
         this.setState({ note: response.data });
-        window.location.reload();
+        // window.location.reload();
       })
       .catch(err => console.log(err));
   };
@@ -91,6 +106,7 @@ class App extends Component {
     event.preventDefault();
     this.deleteNote(this.state.singleNote._id);
     this.props.history.push("/");
+    this.toggleModal();
   };
 
   render() {
