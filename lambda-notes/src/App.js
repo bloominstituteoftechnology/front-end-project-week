@@ -109,6 +109,13 @@ class App extends Component {
     console.log(sorted);
   }
 
+  sortedByMostRecent = () => {
+    const sortedByRecent = this.state.notes.reverse();
+    this.setState({
+      notes: sortedByRecent
+    })
+  }
+
 
   render() {
     return (
@@ -125,7 +132,7 @@ class App extends Component {
               render={props => {
               return (
               <div>
-                <Notes {...props} notes={this.state.notes} filter={this.state.filter} handleInputChange={this.handleInputChange} noteData={this.getFilteredNotes()} sortedByTitle={this.sortedByTitle}/>
+                <Notes {...props} notes={this.state.notes} filter={this.state.filter} handleInputChange={this.handleInputChange} noteData={this.getFilteredNotes()} sortedByTitle={this.sortedByTitle} sortedByMostRecent={this.sortedByMostRecent}/>
               </div>
               );
             

@@ -14,7 +14,7 @@ class Notes extends Component {
         <div className="heading-flex-wrapper">
           <h2 className="notes-heading">Your notes:</h2>
           <input className="main-input" type="text" placeholder="Search" value={this.props.filter} onChange={this.props.handleInputChange}/>
-          <DropDown sortedByTitle={this.props.sortedByTitle}/>
+          <DropDown sortedByTitle={this.props.sortedByTitle} sortedByMostRecent={this.props.sortedByMostRecent} />
         </div>
         <div className="note-cards">
           {this.props.noteData.map(note => {

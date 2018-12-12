@@ -8,7 +8,7 @@ const DropDown = props => {
         <button class="dropbtn">Sort By<span>...</span></button>
         <div class="dropdown-content">
             <p onClick={props.sortedByTitle}>Name</p>
-            <p >Most recent</p>
+            <p onClick={props.sortedByMostRecent}>Most recent</p>
             
         </div>
     </div>
