@@ -1,10 +1,30 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { addNote } from '../actions';
 
 class AddNote extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      textBody: '',
+    }
+  }
+
   submitHandler = event => {
     event.preventDefault();
-    this.props.addNote(this.props.state);
+    this.props.addNote(this.state);
+    this.setState({
+      title: '',
+      textBody: ''
+    })
     this.props.history.push("/");
+  };
+  
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   };
 
   render() {
@@ -15,8 +35,8 @@ class AddNote extends React.Component {
         type={type}
         name={name}
         placeholder={name[0].toUpperCase() + name.slice(1)}
-        value={this.props.state[name]}
-        onChange={this.props.handleChange}
+        value={this.state[name]}
+        onChange={this.handleChange}
       />
     );
     return (
@@ -36,4 +56,4 @@ class AddNote extends React.Component {
   }
 }
 
-export default AddNote;
+export default connect(null, { addNote })(AddNote);

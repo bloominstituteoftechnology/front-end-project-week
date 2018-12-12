@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux'
+import { fetchSingleNote } from '../actions';
 
 const Note = props => {
   return (
     <div className="note-card">
       <Link to={`/note/${props.id}`}>
-        <h4 className="note-title" onClick={() => props.fetchNote(props.id)}>
+        <h4 className="note-title" onClick={() => props.fetchSingleNote(props.id)}>
           {props.title}
         </h4>
       </Link>
@@ -15,4 +17,6 @@ const Note = props => {
   );
 };
 
-export default Note;
+export default connect(
+  null,
+  { fetchSingleNote })(Note);

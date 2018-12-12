@@ -7,11 +7,10 @@ export default class ListOfNotes extends React.Component {
       <>
         <h2 className="notes-list-header">Your Notes:</h2>
         <div className="notes-container">
-          {this.props.state.notes.map(note => (
+          {this.props.notes.map(note => (
             <Note
               note={note}
               key={note._id}
-              fetchNote={this.props.fetchNote}
               title={note.title}
               text={note.textBody}
               id={note._id}

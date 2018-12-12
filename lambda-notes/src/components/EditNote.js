@@ -1,10 +1,25 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { editNote } from '../actions';
 
 class EditNote extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      textBody: '',
+    }
+  }
   submitHandler = event => {
     event.preventDefault();
-    this.props.editNote(this.props.singleNote._id, this.props.state);
+    this.props.editNote(this.props.singleNote._id, this.state);
     this.props.history.push("/");
+  };
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   };
 
   render() {
@@ -15,8 +30,8 @@ class EditNote extends React.Component {
         type={type}
         name={name}
         placeholder={this.props.singleNote[name]}
-        value={this.props.state[name]}
-        onChange={this.props.handleChange}
+        value={this.state[name]}
+        onChange={this.handleChange}
       />
     );
     return (
@@ -36,4 +51,4 @@ class EditNote extends React.Component {
   }
 }
 
-export default EditNote;
+export default connect(null, { editNote })(EditNote);
