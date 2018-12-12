@@ -22,6 +22,10 @@ export const SETTING_NOTE = 'SETTING_NOTE';
 export const SETTING_NOTE_SUCCESS = 'SETTING_NOTE_SUCCESS';
 export const SETTING_NOTE_FAILURE = 'SETTING_NOTE_FAILURE';
 
+export const ATTEMPTING_LOGIN = 'ATTEMPTING_LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+
 export const LOGIN_STATUS_TOGGLE = 'LOGIN_STATUS_TOGGLE';
 
 export const fetchNotes = () => dispatch => {
@@ -92,4 +96,17 @@ export const setNote = (id) => dispatch => {
 
 export const loginStatusToggle = () => dispatch => {
     dispatch({type: LOGIN_STATUS_TOGGLE});
+}
+
+export const loginAttempt = (user) => dispatch => {
+    dispatch({type: ATTEMPTING_LOGIN});
+    return axios
+    .post(`https://notes-bryangf.herokuapp.com/api/users/login`, user)
+    .then(response => {
+        dispatch({type: LOGIN_SUCCESS, payload: response.data})
+    }) 
+    .catch(error => {
+        dispatch({type: LOGIN_FAILURE, payload: error})
+        
+    })
 }

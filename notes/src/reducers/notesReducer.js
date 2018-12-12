@@ -4,7 +4,8 @@ import { FETCHING_NOTES, FETCHING_NOTES_SUCCESS, FETCHING_NOTES_FAILURE,
         OVERLAY_TOGGLE,
         DELETING_NOTE, DELETING_NOTE_SUCCESS, DELETING_NOTE_FAILURE,
         SETTING_NOTE, SETTING_NOTE_SUCCESS, SETTING_NOTE_FAILURE,
-        LOGIN_STATUS_TOGGLE
+        LOGIN_STATUS_TOGGLE,
+        ATTEMPTING_LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE
     } from '../actions';
 
 const initialState = {
@@ -17,7 +18,9 @@ const initialState = {
     error: null,
     overlay: false,
     settingNote: false,
-    loginStatus: false
+    loginStatus: false,
+    loggingIn: true,
+    userId: null
 };
 
 export const notesReducer = (state = initialState, action) => {
@@ -68,6 +71,13 @@ export const notesReducer = (state = initialState, action) => {
 
     case LOGIN_STATUS_TOGGLE:
         return{...state, loginStatus: !state.loginStatus}
+
+    case ATTEMPTING_LOGIN:
+        return{...state, loggingIn: true};
+    case LOGIN_SUCCESS:
+        return{...state, userId: action.payload, loggingIn: false }
+    case LOGIN_FAILURE:
+        return{...state, error: action.payload, loggingIn: false }
     
     default:
       return state;

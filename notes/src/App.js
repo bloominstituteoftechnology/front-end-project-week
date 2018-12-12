@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchNotes, postNote, overlayToggle, deleteNote, loginStatusToggle } from './actions';
+import { fetchNotes, postNote, overlayToggle, deleteNote, loginStatusToggle, loginAttempt } from './actions';
 import { connect } from 'react-redux';
 import NoteListView from './components/NoteListView';
 import CreateNote from './components/CreateNote';
@@ -22,10 +22,12 @@ class App extends Component {
       note: {
         Title: '',
         Content: '',
-        user_id: 1,
+        user_id: this.props.userId,
       },
-      username: '',
-      password: ''
+      user: {
+        username: '',
+        password: ''
+      }
     }
   }
 
@@ -54,6 +56,11 @@ class App extends Component {
         [ev.target.name]: ev.target.value
         }
       })
+    } else if (ev.target.name === 'username'|| ev.target.name === 'password') {
+      this.setState({user: {
+        ...this.state.user,
+        [ev.target.name]: ev.target.value
+      }})
     } else {
       this.setState({[ev.target.name]: ev.target.value}); 
     }
@@ -65,7 +72,10 @@ class App extends Component {
   }
 
   loginHandler = (ev) => {
-
+    this.props.loginAttempt(this.state.user)
+    .then(() => 
+    window.location = "/notes",
+    this.props.loginStatusToggle());
   }
 
   
@@ -134,11 +144,12 @@ const mapStateToProps = (state) => {
     error: state.notesReducer.erorr,
     overlay: state.notesReducer.overlay,
     deletingNote: state.notesReducer.deletingNote,
-    loginStatus: state.notesReducer.loginStatus
+    loginStatus: state.notesReducer.loginStatus,
+    userId: state.notesReducer.userId
   };
 };
 
 export default withRouter(connect(
   mapStateToProps,
-  { fetchNotes, postNote, overlayToggle, deleteNote, loginStatusToggle}, 
+  { fetchNotes, postNote, overlayToggle, deleteNote, loginStatusToggle, loginAttempt}, 
 )(App));
