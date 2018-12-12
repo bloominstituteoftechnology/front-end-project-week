@@ -6,7 +6,7 @@ import './Note.css';
 const UpdateNoteForm = props => {
 
 
-
+        console.log(props.note);
         return (
     <div className = "NoteForm">
         <form onSubmit={props.updateNote(props.match.params._id)}>
@@ -28,7 +28,7 @@ const UpdateNoteForm = props => {
             value={props.note.tags}
             name="tags"
           />
-          <Link to = "/"><button type="submit">Submit Change Note</button></Link>
+          <NavLink exact to = "/"><button type="submit">Submit Change Note</button></NavLink>
         </form>
     </div>
         )

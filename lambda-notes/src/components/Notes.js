@@ -10,17 +10,19 @@ function Notes(props) {
         console.log(note.id);
         props.history.push(`/notes/${note.id}`);
         props.getNoteById(note.id);
-        console.log(note.id);
-        
+        console.log(note.id); 
     }
+
     return (
         <div className = "deez-notes">
             <h1>Deez Notes</h1>
                     <div className="notes">
-                        {props.notes.map(note => {
+                        {props.notes.map((note, index) => {
                             console.log(note.id);
                             return (
-                                <div className = "mapped-notes" onClick={ev => routeToNote(ev, note)}>
+                                <div 
+                                key = {index}
+                                className = "mapped-notes" onClick={ev => routeToNote(ev, note)}>
                                     <h2>{note.tags}</h2>
                                     <h3>{note.title}</h3>
                         
@@ -30,7 +32,7 @@ function Notes(props) {
                             )
                         })}
                     </div>
-        </div>
+                </div>
                 )
             }
        

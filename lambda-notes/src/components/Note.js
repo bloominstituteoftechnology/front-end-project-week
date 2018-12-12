@@ -18,9 +18,9 @@ class Note extends React.Component {
 
 
   componentDidMount() {
-    const id = this.props.match.params._id;
+    const id = Number(this.props.match.params._id);
     console.log(id)
-    this.setState({ id: Number(id), notes: this.props.notes });
+    this.setState({ id: id, notes: this.props.notes });
   }
 
   showModal = () => {
@@ -32,9 +32,9 @@ class Note extends React.Component {
   }
 
   filterNotes = note => {
-    console.log("inside filter notes:", note.id);
-    console.log("inside filter notes::", this.state.id)
-    console.log(note.title);
+    // console.log("inside filter notes:", note.id);
+    // console.log("inside filter notes::", this.state.id)
+    // console.log(note.title);
     if (note.id === this.state.id) {
       return (
         <div key={note.id}>
@@ -52,8 +52,12 @@ class Note extends React.Component {
         <div className = "Note">
          <div className="note-div">{this.state.notes.map(this.filterNotes)}</div>
             <button onClick = { this.showModal }>Delete Note</button>
-            <Modal show = {this.state.show} hideModal = { this.hideModal } deleteNote = {this.props.deleteNote}/>
-        <NavLink exact to={`/notes/update/${this.props.match.params._id}`}><button>Update Note</button></NavLink>
+            <Modal show = {this.state.show} 
+            hideModal = { this.hideModal } 
+            deleteNote = {this.props.deleteNote}
+            id = {this.props.match.params._id}
+            />
+        <Link to={`/notes/update/${this.props.match.params._id}`}><button>Update Note</button></Link>
             
         </div>
     )

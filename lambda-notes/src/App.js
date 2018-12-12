@@ -8,11 +8,12 @@ import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import Notes from './components/Notes';
 import UpdateNoteForm from './components/UpdateNoteForm';
+import Modal from './components/Modal';
 
 const blankNote = {
     tags: [],
     title: "",
-    textBody: "",
+    textBody: "Hamburgers",
 };
 
 class App extends Component {
@@ -30,6 +31,11 @@ class App extends Component {
       isEditing: false,
       loading: true,
       show: false,
+      blankNote: {
+        tags: [],
+        title: "",
+        textBody: "Hamburgers",
+    }
     }
   }
 
@@ -74,20 +80,20 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  deleteNote = (_id) => {
+  deleteNote = (id) => {
     // ev.preventDefault();
     axios
-      .delete(`https://vast-retreat-70533.herokuapp.com/api/notes/${_id}`)
+      .delete(`https://vast-retreat-70533.herokuapp.com/api/notes/${id}`)
       .then(response => {
         this.setState({ notes: response.data });
       })
       .catch(error => console.log(error));
   };
 
-  updateNote = (_id) => {
+  updateNote = (id) => {
     axios
       .put(
-        `https://vast-retreat-70533.herokuapp.com/api/notes/${_id}`,
+        `https://vast-retreat-70533.herokuapp.com/api/notes/${id}`,
         this.state.note
       )
       .then(response => {
@@ -95,7 +101,7 @@ class App extends Component {
           notes: response.data,
           editingId: null,
           isEditing: false,
-          note: blankNote
+          // note: blankNote
         });
       })
       .catch(error => console.log(error));
@@ -112,7 +118,7 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.notes);
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -148,7 +154,7 @@ class App extends Component {
         activeNote={this.state.activeNote}
         notes={this.state.notes} />} />
 
-        <Route path='/notes/update/:_id' render={(props) => <UpdateNoteForm {...props}
+        <Route exact path='/notes/update/:_id' render={(props) => <UpdateNoteForm {...props}
                 addNewNote = {this.addNewNote} 
                 changeHandler = {this.changeHandler} 
                 isEditing={this.state.isEditing}
@@ -156,7 +162,11 @@ class App extends Component {
                 note = {this.state.note}
                 notes={this.state.notes}
                 handleInputChange = {this.handleInputChange}
-        />}/>
+        />}
+        
+        />
+
+        <Route path = '/notes/update/:_id' render = {(props) => <Modal {...props}/>}/>
 
       </div>
     );
