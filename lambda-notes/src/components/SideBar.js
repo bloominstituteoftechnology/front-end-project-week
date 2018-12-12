@@ -16,8 +16,9 @@ const Div = styled.div`
 `;
 
 const H1 = styled.h1`
-    margin: 0 0 12px 0;
-    font-size: 3.1rem;
+    margin: 2px 0 12px 0;
+    font-size: 50px;
+    font-weight: 700;
     color: ${styleVars.pageHeaderColor};
 `;
 

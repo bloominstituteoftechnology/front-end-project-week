@@ -32,6 +32,7 @@ class App extends Component {
             })
             .catch(err => {
                 console.log(err);
+                this.get();
             });
     }
 
@@ -44,12 +45,25 @@ class App extends Component {
             });
     };
 
+    update = (data, id) => {
+        axios
+            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
+            .then(this.get())
+            .catch(err => {
+                console.error(err);
+            });
+    };
+
     render() {
         return (
             <Router>
                 <StyledApp className="App">
                     <SideBar />
-                    <Content notes={this.state.notes} post={this.post} />
+                    <Content
+                        notes={this.state.notes}
+                        post={this.post}
+                        update={this.update}
+                    />
                 </StyledApp>
             </Router>
         );

@@ -46,7 +46,12 @@ const StyledLink = styled(Link)`
 
 const Note = props => {
     return (
-        <StyledLink key={props.note._id} to={`/notes/${props.note._id}`}>
+        <StyledLink
+            key={props.note._id}
+            to={{
+                pathname: `/notes/${props.note._id}`,
+                query: { note: props.note }
+            }}>
             <h1>{props.note.title}</h1>
             <span />
             <p>{props.note.textBody}</p>

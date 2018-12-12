@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import styleVars from '../helpers/styleVars';
 import NoteForm from '../components/NoteForm';
+import { prototype } from 'fork-ts-checker-webpack-plugin-alt';
 
 const H1 = styled.h1`
     font-size: 1.81rem;
@@ -15,10 +16,29 @@ const Div = styled.div`
 `;
 
 const AddNote = props => {
+    console.log('add notes props:', props);
     return (
         <Div>
-            <H1>Create New Note:</H1>
-            <NoteForm post={props.post} />
+            {props.match.path === '/add' ? (
+                <>
+                    <H1>Create New Note:</H1>
+                    <NoteForm
+                        submit={props.post}
+                        buttonText="Save"
+                        match={props.match}
+                    />
+                </>
+            ) : (
+                <>
+                    <H1>Edit Note:</H1>
+                    <NoteForm
+                        submit={props.update}
+                        buttonText="Update"
+                        match={props.match}
+                        query={props.location.query}
+                    />
+                </>
+            )}
         </Div>
     );
 };

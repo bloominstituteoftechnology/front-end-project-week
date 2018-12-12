@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import List from '../views/List';
 import AddNote from '../views/AddNote';
 import NoteView from '../views/NoteView';
+import EditNote from '../views/EditNote';
 
 const Div = styled.div`
     width: ${100 - styleVars.sideBarWidth}%;
@@ -16,7 +17,7 @@ const Div = styled.div`
 `;
 
 const Content = props => {
-    console.log(props);
+    console.log('content props:', props);
     //TODO this router is weird is that normal that I would have to use a different variable for routerProps and passed in props?
     return (
         <Div>
@@ -36,7 +37,17 @@ const Content = props => {
             />
             <Route
                 path="/notes/:_id"
-                render={props => <NoteView {...props} />}
+                render={routeProps => <NoteView {...routeProps} />}
+            />
+            <Route
+                path="/edit/:_id"
+                render={routeProps => (
+                    <AddNote
+                        {...routeProps}
+                        update={props.update}
+                        // note={}
+                    />
+                )}
             />
         </Div>
     );

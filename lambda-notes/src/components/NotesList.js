@@ -17,9 +17,14 @@ const NotesList = props => {
     return (
         <Div>
             {props.notes.length === 0 ? (
-                <h1>Be patient the hamsters are getting really tired.</h1>
+                <>
+                    <h1>Be patient the hamsters are getting really tired.</h1>
+                    <img src="./media/loading.gif" />
+                </>
             ) : (
-                props.notes.map(note => <Note note={note} />)
+                props.notes.map(note => (
+                    <Note note={note} history={props.history} />
+                ))
             )}
         </Div>
     );

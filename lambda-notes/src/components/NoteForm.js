@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
+import { Redirect } from 'react-router-dom';
 
 const Form = styled.form`
     display: flex;
@@ -41,10 +42,7 @@ export default class NoteForm extends Component {
         super();
         this.props = props;
         this.state = {
-            title: props.title,
-            textBody: props.textBody,
-            id: props.id,
-            tags: props.tags
+            ...this.props.query
         };
     }
 
@@ -57,18 +55,27 @@ export default class NoteForm extends Component {
 
     submit = e => {
         e.preventDefault();
-        this.props.post({
-            title: this.state.title,
-            textBody: this.state.textBody
-        });
+        console.log(this);
+        this.props.submit(
+            {
+                title: this.state.title,
+                textBody: this.state.textBody
+            },
+            this.state._id
+        );
         this.setState({
             ...this.state,
             title: '',
-            textBody: ''
+            textBody: '',
+            edited: true
         });
     };
 
     render() {
+        console.log('noteform props:', this.props);
+        if (this.props.match.path === '/edit/:_id' && this.state.edited) {
+            return <Redirect to="/" />;
+        }
         return (
             <Form onSubmit={this.submit}>
                 <Input
@@ -84,7 +91,7 @@ export default class NoteForm extends Component {
                     placeholder="Note Content"
                     onChange={this.handleChange}
                 />
-                <StyledButton text="Save" />
+                <StyledButton text={this.props.buttonText} />
             </Form>
         );
     }
