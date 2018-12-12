@@ -7,16 +7,21 @@ const StyledButton = styled.button`
     font-weight: 700;
     font-family: 'Roboto';
     border: none;
-    outline: rgba(0, 0, 0, 0.2) solid 2px;
-    background: ${styleVars.buttonColor};
+    outline: rgba(0, 0, 0, 0.1) solid 2px;
+    background: ${props =>
+        !props.warn ? styleVars.buttonColor : styleVars.buttonColorWarn};
     color: ${styleVars.buttonFontColor};
     padding: 8px;
     letter-spacing: -1px;
+    text-decoration: none;
+    cursor: pointer;
 `;
 
 function Button(props) {
     return (
-        <StyledButton className={props.className}>{props.text}</StyledButton>
+        <StyledButton warn={props.warn} className={props.className}>
+            {props.text}
+        </StyledButton>
     );
 }
 
