@@ -94,6 +94,22 @@ class App extends Component {
   }
 
 
+  sortedByTitle = () => {
+    console.log('sorted function runs');
+    const sorted = this.state.notes.sort(function(a, b){
+      if (a.title.toLowerCase() < b.title.toLowerCase())
+        return -1;
+      if (a.title.toLowerCase() > b.title.toLowerCase())
+        return 1;
+      return 0;
+    });
+    this.setState({
+      notes: sorted
+    })
+    console.log(sorted);
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -109,7 +125,7 @@ class App extends Component {
               render={props => {
               return (
               <div>
-                <Notes {...props} notes={this.state.notes} filter={this.state.filter} handleInputChange={this.handleInputChange} noteData={this.getFilteredNotes()}/>
+                <Notes {...props} notes={this.state.notes} filter={this.state.filter} handleInputChange={this.handleInputChange} noteData={this.getFilteredNotes()} sortedByTitle={this.sortedByTitle}/>
               </div>
               );
             
