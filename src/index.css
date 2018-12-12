@@ -62,3 +62,8 @@ body {
   margin: 0 auto;
   background-color: #F3F3F3;
 }
+
+html, body{
+	width: auto;
+	overflow-x: hidden;
+}
