@@ -22,7 +22,8 @@ class EditNote extends React.Component {
 
 
     submitNote = e => {
-        this.props.editNote(e, this.state.note.id, this.state);
+        const editedNote = {title:this.state.title, body: this.state.body}
+        this.props.editNote(e, this.props.match.params.id, editedNote);
         this.setState({ title: "", body: "" });
         this.props.history.push("/");
     };

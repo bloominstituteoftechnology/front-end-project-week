@@ -57,9 +57,12 @@ class Note extends React.Component {
     return (
 
       <div>
+          {this.state.note.map((note) => {
+            return (
+              <div>
         <div className='edit-delete'>
           <div>
-            <NavLink to={`/edit/${id}`}>
+            <NavLink to={`/edit/${note.id}`}>
               <p className='edit'>edit</p>
             </NavLink>
           </div>
@@ -68,20 +71,16 @@ class Note extends React.Component {
           </div>
         </div>
         <div className='note-full-body'>
-          {this.state.note.map((note) => {
-            return (
               <div>
                 <h2 className='home-title'>{note.title}</h2>
                 <p className='note-home-body'>{note.body}</p>
               </div>
-            )
-          })}
         </div>
         <Modal
-          className='modal'
-          isOpen={this.state.showModal}
-          onRequestClose={this.closeModal}
-          contentLabel='Are you sure you want to DELETE?'>
+        className='modal'
+        isOpen={this.state.showModal}
+        onRequestClose={this.closeModal}
+        contentLabel='Are you sure you want to DELETE?'>
 
           <div>
             <p>Are you sure you want to delete this?</p>
@@ -98,6 +97,9 @@ class Note extends React.Component {
             </button>
           </div>
         </Modal>
+        </div>
+          )
+          })}
 
 
       </div>

@@ -53,14 +53,16 @@ class App extends Component {
   editNote = (event, id, state) => {
     event.preventDefault();
     axios
-      .put(`http://localhost:8000/api/notes/edit/${id}`, state)
-      .then(response => {
-        const updateArray = this.state.notes.map(note => {
-          if (note.id === response.data.id) {
-            return response.data;
-          }
-          return note;
-        });
+    .put(`http://localhost:8000/api/notes/edit/${id}`, state)
+    .then(response => {
+      const updateArray = this.state.notes.map(note => {
+        if (id === response.data.id) {
+          return response.data;
+        }
+        return note;
+      });
+      
+      console.log(updateArray)
         this.setState({ notes: updateArray });
       })
       .catch(error => console.log(error));
