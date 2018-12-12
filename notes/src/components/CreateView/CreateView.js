@@ -57,7 +57,8 @@ class CreateView extends React.Component{
                 submitHandler = {this.submitHandler}
                 title ={this.state.title} 
                 textInput ={this.state.textInput} 
-                addNotes = {this.props.addNotes}/>
+                addNotes = {this.props.addNotes}
+                {...this.props}/>
             </CreateContentDiv>
         </ContentDiv>
     )

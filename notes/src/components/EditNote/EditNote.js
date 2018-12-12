@@ -45,7 +45,9 @@ class EditNote extends React.Component {
             title: '',
             textInput: '',
         })
+        this.props.getNote(this.props.match.params.id)
     }
+
     render() {
         return (
             <ContentDiv>
@@ -57,7 +59,10 @@ class EditNote extends React.Component {
                         submitHandler={this.submitHandler}
                         title={this.state.title}
                         textInput={this.state.textInput}
-                        addNotes={this.props.addNotes} />
+                        addNotes={this.props.addNotes} 
+                        id= {this.props.match.params.id}
+                        {...this.props}
+                        />
                 </CreateContentDiv>
             </ContentDiv>
         )

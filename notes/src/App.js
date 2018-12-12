@@ -65,7 +65,7 @@ class App extends React.Component{
                         <CreateView 
                         addNotes = {this.props.addNotes}
                         handleLogout={this.props.handleLogout}
-                        handleClick={this.handleClick}/>} />
+                        handleClick={this.handleClick}{...this.props}/>} />
                     <Route 
                         path = {`/notes/:id`}
                         render={props => 
@@ -87,7 +87,10 @@ class App extends React.Component{
                     />
                     <Route
                         path={`/edit/:id`}
-                        render={props => <EditNote handleLogout = {this.props.handleLogout}editNote = {this.props.editNote} {...props} />}
+                        render={props => <EditNote 
+                                            getNote = {this.props.getNote}
+                                            handleLogout = {this.props.handleLogout}
+                                            editNote = {this.props.editNote} {...props} />}
                     />
                 </AppDiv>
                 )

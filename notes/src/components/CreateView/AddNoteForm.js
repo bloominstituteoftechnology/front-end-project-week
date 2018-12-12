@@ -47,25 +47,26 @@ const SubmitButton = styled.button `
     font-size: 25px;
     
 `
-const AddNoteForm = (props) => {
+class AddNoteForm extends React.Component {
+    render(){
         return (
-            <NoteForm onSubmit = {props.submitHandler}>
+            <NoteForm onSubmit = {this.props.submitHandler}>
                 <TitleInput 
-                    value = {props.title} 
-                    onChange = {props.inputHandler} 
+                    value = {this.props.title} 
+                    onChange = {this.props.inputHandler} 
                     name = 'title' 
                     placeholder ='note title'
                 />
                 <TextInput 
-                    value = {props.textInput} 
-                    onChange = {props.inputHandler} 
+                    value = {this.props.textInput} 
+                    onChange = {this.props.inputHandler} 
                     name = 'textInput' 
                     placeholder = 'Note Comment' 
                     rows = '20'/>
-                <SubmitButton>Save</SubmitButton>
+                <SubmitButton onClick={this.props.history.goBack}>Save</SubmitButton>
             </NoteForm>
         )
-    
+        }
 }
 
 export default AddNoteForm
