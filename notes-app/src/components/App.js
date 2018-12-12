@@ -78,12 +78,12 @@ class App extends Component {
   }
 }
 
-function mapStateTpProps(state){
+function mapStateTpProps({ axiosReducer, otherReducer }){
   return{
-    notes: state.notes,
-    fetchingNotes: state.fetchingNotes,
-    editNote: state.editNote,
-    filteredNotes: state.filteredNotes
+    notes: axiosReducer.notes,
+    fetchingNotes: axiosReducer.fetchingNotes,
+    editNote: otherReducer.editNote,
+    filteredNotes: axiosReducer.filteredNotes
   }
 }
 

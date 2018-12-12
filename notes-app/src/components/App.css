@@ -54,38 +54,6 @@ body{
   box-shadow: 0 0 10px 5px gray;
 }
 
-nav{
-  position: fixed;
-  width: 224px;
-  height: 100%;
-  background: #D3D2D3;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 18px;
-
-}
-nav h1{
-  font-size: 35px;
-  text-align: left;
-  margin: 15px 0;
-  line-height: 2rem;
-}
-nav a{
-  text-align: center;
-  width: 190px;
-  border: 1px solid gray;
-  background: #24B8BD;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  margin: 10px 10px 10px 0;
-}
-nav a:hover{
-  color: #24B8BD;
-  background: white;
-}
-
 .view{
   box-sizing: border-box;
   width: 75%;
@@ -103,16 +71,7 @@ nav a:hover{
   padding-bottom: 5px;
   border-bottom: 1px solid black;
 }
-.note-list p{
-  margin: 5px 0;
-}
-.note-list{
-  
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  
-}
+
 .note-card{
   cursor: pointer;
   background: white;
@@ -123,23 +82,21 @@ nav a:hover{
   height: 195px;
   overflow: hidden;
 }
-.header{
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
+/*notelist */
+
+.note-list p{
+  margin: 5px 0;
 }
-.header form input{
-   margin-left: 20px;
-   padding: 5px;
-   background: rgb(100, 100, 100);
-   color: white;
+.note-list{
+  
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  
 }
 
 /* form==========================*/
-form{
-  display: flex;
-  flex-direction: column;
-}
+
 .inputs{
   margin-bottom: 20px;
   margin-right: 30px;
@@ -153,74 +110,3 @@ textarea{
   height: 350px;
   overflow: auto;
 }
-button{
-  width: 200px;
-  border: 1px solid gray;
-  background: #24B8BD;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  margin: 10px;
-}
-button:hover{
-  
-  color: #24B8BD;
-  background: white;
-
-}
-
-
-/* note view */
-.note-view{
-  
-  height: 93vh;
-  background: #F2F1F2
-}
-.NoteForm{
-  height: 93vh;
-  background: #F2F1F2
-}
-.links{
-  position: absolute;
-  right:20px;
-  top: 20px;
-}
-.links a{
-  margin-right: 20px;
-}
-
-/* Delete ---------------------*/
-
-.delete-page{
-  position: fixed;
-  top: 0;
-  left:0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(2,2,2,0.3);
-  ;
- 
-}
-.delete-page .delete-block{
-  width: 530px;
-  height: 180px;
-  margin: 290px auto;
-  background: white;
-  border: 1px solid gray;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.delete-block p{
-  text-align: center;
-}
-.delete{
-  background: red;
-}
-.delete:hover{
-  color: red;
-}
-
-
-
