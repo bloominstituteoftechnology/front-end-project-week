@@ -10,7 +10,7 @@ import EditNoteView from '../views/EditNoteView';
 /***************************************************************************************************
  ********************************************* Variables *******************************************
  **************************************************************************************************/
-const isTestServerOn = true;
+const isTestServerOn = false;
 const server = isTestServerOn
   ? 'http://localhost:3333'
   : 'https://fe-notes.herokuapp.com';

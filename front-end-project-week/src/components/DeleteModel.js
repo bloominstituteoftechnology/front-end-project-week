@@ -54,7 +54,6 @@ const DeleteModel = props => {
         <ButtonModel
           delete
           onClick={e => props.deleteNoteAndHideModel(e, props.match.params.id)}
-          type='button'
         >
           Delete
         </ButtonModel>
