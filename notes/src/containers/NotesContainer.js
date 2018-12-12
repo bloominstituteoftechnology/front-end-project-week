@@ -18,7 +18,7 @@ class NotesContainer extends React.Component {
       keys: ['title', 'textBody'],
     },
     searchText: '',
-    sortType: 'alpha',
+    sortType: 'none',
   };
   componentDidMount() {
     this.props.fetchNotes();
@@ -51,7 +51,7 @@ class NotesContainer extends React.Component {
       //console.log('sort', notes.sort((n1, n2) => n1.title < n2.title));
       //return notes.sort((n1, n2) => n1.title < n2.title);
       case 'time':
-        return notes.reverse();
+        return [...notes].reverse();
       default:
         return notes;
     }
