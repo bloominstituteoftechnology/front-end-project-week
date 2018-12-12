@@ -6,6 +6,8 @@ import NoteListView from './components/NoteListView';
 import CreateNote from './components/CreateNote';
 import SideBar from './components/SideBar';
 import HomePage from './components/HomePage';
+import Login from './components/Login';
+import Register from './components/Register';
 import { Route } from 'react-router-dom';
 import {withRouter} from 'react-router';
 import Note from './components/Note';
@@ -21,7 +23,9 @@ class App extends Component {
         Title: '',
         Content: '',
         user_id: 1,
-      }
+      },
+      username: '',
+      password: ''
     }
   }
 
@@ -60,6 +64,10 @@ class App extends Component {
 
   }
 
+  loginHandler = (ev) => {
+
+  }
+
   
   togglingOverlay = (ev) => {
     ev.preventDefault();
@@ -91,6 +99,12 @@ class App extends Component {
       <div className="App">
        {overlay}
         <Route exact path='/' component={HomePage}/>
+        <Route path='/login' render ={(props) => (
+          <Login {...props} changeHandler={this.changeHandler} loginHandler={this.loginHandler}/> 
+        )}/>
+        <Route path='/register' render ={(props) => (
+          <Register {...props} changeHandler={this.changeHandler} registerHandler={this.registerHandler}/> 
+        )}/>
         <Route path='/notes' render ={(props) => (
           <SideBar {...props} update={this.componentDidMount} toggleLogin={this.props.loginStatusToggle} loginStatus={this.props.loginStatus}/> 
         )}/>
