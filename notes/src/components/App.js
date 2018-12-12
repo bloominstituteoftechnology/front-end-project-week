@@ -92,6 +92,7 @@ class App extends Component {
                 deleteTodos={this.deleteTodos}
                 reduxProps={this.props}
                 sortTodos={this.sortTodos}
+                filterTodos={this.filterTodos}
               />
             )}
           />

@@ -1,0 +1,10 @@
+.search-container {
+  background-color: #2168a2;
+  opacity: 0.6;
+  display: flex;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+img {
+  height: 20px;
+}
