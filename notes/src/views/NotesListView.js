@@ -17,6 +17,10 @@ const SortButton = styled.button`
     border: none;
     background: none;
     font-size: 10px;
+    :hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
 `;
 
 class NotesListView extends React.Component {
@@ -32,7 +36,6 @@ class NotesListView extends React.Component {
                 <SortContainer>
                     <p>sort: </p>
                     <SortButton onClick={this.props.sortNotes}>{this.props.sortText}</SortButton>
-                    {/* <SortButton>oldest</SortButton> */}
                 </SortContainer>
                 <NotesList notes={this.props.notes} {...this.props} />
             </div>

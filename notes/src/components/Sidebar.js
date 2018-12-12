@@ -26,6 +26,11 @@ const NavButton = styled(Link)`
     margin-bottom: 15px;
     width: 175px;
     text-align: center;
+    :hover {
+        cursor: pointer;
+        background: white;
+        color: #25B7BD;
+    }
 `;
 const StyledHeader = styled.h1`
     font-weight: bold;

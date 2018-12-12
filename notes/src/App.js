@@ -58,7 +58,6 @@ class App extends Component {
                   {...props}
                   sortNotes={this.sortNotes}
                   sortText ={this.state.sortText}
-                  // notes={this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.props.notes}
                   notes={this.state.filteredNotes.length > 0 && this.state.filteredNotes.length != this.props.notes.length ? this.state.filteredNotes : (this.state.reversedNotes.length ? this.state.reversedNotes : this.props.notes)} 
                 /> 
                 }
@@ -74,7 +73,6 @@ class App extends Component {
 }
 
 const mapStatetoProps = state => {
-  console.log(state);
   return {
       notes: state.notes,
       fetchingNotes: state.fetchingNotes,

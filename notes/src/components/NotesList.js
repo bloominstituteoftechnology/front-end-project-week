@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const NotesListWrapper = styled.div`
-    margin-top: 20px;
+    margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
 `;
@@ -14,6 +14,10 @@ const NoteCard = styled.div`
     padding: 8px 10px;
     background: #FFFFFF;
     overflow: hidden;
+    :hover {
+        cursor: pointer;
+        border: 4px solid lightgrey; 
+    }
 `;
 const CardHeader = styled.h3`
     font-size: 18px;

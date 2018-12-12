@@ -50,8 +50,8 @@ class CreateNewNote extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
-            textBody: ''
+            title: ' ',
+            textBody: ' '
           };
     }
 
@@ -71,6 +71,7 @@ class CreateNewNote extends React.Component {
                 <NotesHeader>Create New Note:</NotesHeader>
                 <SCForm onSubmit={this.submitHandler}>
                     <TitleInput
+                        autoFocus 
                         onChange={this.handleInputChange}
                         placeholder="Note Title"
                         value={this.state.title}
