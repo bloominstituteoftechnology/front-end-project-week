@@ -82,18 +82,18 @@
   height: 65px;
   width: 200px;
   font-family: 'Didact Gothic', sans-serif;
-  margin: 10px 20px;
+  margin: 20px 20px;
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  box-shadow: 2px 4px 1px #666;
 }
 
 .note__list {
   display: flex;
   flex-direction: row;
-  /* padding: 50px 20px; */
   flex-wrap: wrap;
   max-width: 2400px;
 }
@@ -143,4 +143,10 @@
   display: flex;
   flex-direction: column;
   margin-left: 30px;
+}
+
+.readMore {
+  font-weight: bold;
+  color: red;
+  text-transform: uppercase;
 }

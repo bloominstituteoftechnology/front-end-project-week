@@ -21,7 +21,9 @@ class Notes extends React.Component {
               <hr className='card__hr' />
               <br />
               <p className='card__text' key={note.id}>
-                {note.content}
+                {note.content.length > 300
+                  ? note.content.substring(0, 313 - 13) + ' read more'
+                  : note.content}
               </p>
             </div>
           );
