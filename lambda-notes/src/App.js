@@ -4,6 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import Notes from './components/Notes';
 import AddNote from './components/AddNote';
 import NoteView from './components/NoteView';
+import { CSVLink, CSVDownload } from "react-csv";
 
 import './App.css';
 
@@ -140,6 +141,7 @@ class App extends Component {
               return (
               <div>
                 <Notes {...props} notes={this.state.notes} filter={this.state.filter} handleInputChange={this.handleInputChange} noteData={this.getFilteredNotes()} sortedByTitle={this.sortedByTitle} sortedByMostRecent={this.sortedByMostRecent}/>
+                <CSVLink data={this.state.notesCopy}>Download me</CSVLink>
               </div>
               );
             
