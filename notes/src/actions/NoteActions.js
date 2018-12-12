@@ -1,10 +1,5 @@
 import axios from 'axios';
 
-const keyName = process.env.REACT_APP_TOKEN_ITEM;
-const key = localStorage.getItem(keyName);
-
-axios.defaults.headers.common['authentication'] = key;
-
 export const NOTE_CHECKED = 'note_checked';
 export const NOTE_UNCHECKED = 'note_unchecked';
 export const NOTE_CHECKED_CLEAR = 'note_checked_clear';
@@ -40,6 +35,13 @@ export const SELECT_MODE_TOGGLE = 'select_mode_toggle'
 // const url = 'https://fe-notes.herokuapp.com';
 // const url = 'http://localhost:9001';
 const url = process.env.REACT_APP_API_URL;
+
+const getToken = () => {
+  const keyName = process.env.REACT_APP_TOKEN_ITEM;
+  const key = localStorage.getItem(keyName);
+
+  axios.defaults.headers.common['authentication'] = key;
+}
 
 export const deleteChecked = noteIds => async dispatch => {
   await noteIds.forEach(async id => {
@@ -78,26 +80,31 @@ export const menuToggle = () => {
   return {
     type: TOGGLE_MENU,
   }
-}
+};
+
 export const setSortMode = () => {
   return {
     type: SET_SORT_MODE,
   }
-}
+};
+
 export const searchHandler = (value) => {
   return {
     type: SEARCH_NOTE_HANDLER,
     payload: value,
   }
-}
+};
+
 export const activeNoteHandler = (ev) => {
   return {
     type: ACTIVE_NOTE_HANDLER,
     payload: {name: ev.target.name, value: ev.target.value}
   }
-}
+};
+
 export const getNote = (id) => async dispatch => {
   try {
+    getToken();
     dispatch({type: GET_NOTE});
     const res = await axios.get(`${url}/note/get/${id}`)
     console.log(res);
@@ -105,18 +112,22 @@ export const getNote = (id) => async dispatch => {
   } catch(err) {
     dispatch({type: GET_NOTE_FAILURE, payload: err})
   }
-}
+};
+
 export const getNotes = () => async dispatch => {
   try {
+    getToken();
     dispatch({type: GET_NOTES});
     const res = await axios.get(`${url}/note/get/all`)
     dispatch({type: GET_NOTES_SUCCESS, payload: res.data})
   } catch(err) {
     dispatch({type: GET_NOTES_FAILURE, payload: err})
   }
-}
+};
+
 export const addNote = (note) => async dispatch => {
   try {
+    getToken();
     dispatch({type: ADD_NOTE});
     const res = await axios.post(`${url}/note/create`, note)
     // console.log('res', res);
@@ -126,18 +137,22 @@ export const addNote = (note) => async dispatch => {
   } catch(err) {
     dispatch({type: ADD_NOTE_FAILURE, payload: err})
   }
-}
+};
+
 export const updateNote = (note) => async dispatch => {
   try {
+    getToken();
     dispatch({type: UPDATE_NOTE});
     const res = await axios.put(`${url}/note/edit/${note.id}`, note)
     dispatch({type: UPDATE_NOTE_SUCCESS, payload: res.data})
   } catch(err) {
     dispatch({type: UPDATE_NOTE_FAILURE, payload: err})
   }
-}
+};
+
 export const deleteNote = (id) => async dispatch => {
   try {
+    getToken();
     dispatch({type: DELETE_NOTE});
     await axios.delete(`${url}/note/delete/${id}`)
     dispatch({type: DELETE_NOTE_SUCCESS, payload: id})

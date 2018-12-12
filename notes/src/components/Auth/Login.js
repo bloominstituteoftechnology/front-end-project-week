@@ -39,6 +39,7 @@ class Login extends Component {
                     id="username"
                     value={this.state.username}
                     onChange={this.changeHandler}
+                    placeholder="Username"
                 />
 
                 <StyledLabel htmlFor="password">Password</StyledLabel>
@@ -48,6 +49,7 @@ class Login extends Component {
                     id="password"
                     value={this.state.password}
                     onChange={this.changeHandler}
+                    placeholder="Password"
                 />
                 
                 <StyledButton type="submit">Login</StyledButton>

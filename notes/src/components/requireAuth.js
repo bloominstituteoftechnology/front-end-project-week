@@ -1,66 +1,28 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import { tokenExists, logout } from '../actions';
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import jwt from 'jsonwebtoken';
 
 const keyName = process.env.REACT_APP_TOKEN_ITEM;
 
-export default ChildComponent => {
-    class ComposedComponent extends Component {
-        
-        componentDidMount() {
-            this.checkForAuth();
-        }
+export default ComposedComponent => {
+    
+    function requireAuth(props) {
+        const token = localStorage.getItem(keyName);
 
-        componentDidUpdate() {
-            this.checkForAuth();
-        }
-
-        checkForAuth() {
-            const token = localStorage.getItem(keyName);
-
-            if (!token && this.props.authenticated){
-                this.props.logout();
-                this.props.history.push('/login');
-                return;
-            }
-
-            if (token && !this.props.authenticated) {
-                this.props.tokenExists();
-                return
-            }
-            
-            if (!this.props.authenticated) {
-                this.props.history.push('/login');
-                return;
-            }
+        if (token) {
+            const decoded = jwt.decode(token)
 
             const currentTime = Date.now() / 1000;
 
-            if(this.props.exp !== null && currentTime > this.props.exp) {
-                
-                this.props.logout();
-                this.props.history.push('/login');
-                return;
+            if(decoded.exp && currentTime > decoded.exp) {
+                localStorage.removeItem(keyName);
+                return <Redirect to={'/login'}/>
             }
 
+            return <ComposedComponent {...props}/>;
         }
-
-        render() {
-            return (
-                <>
-                {
-                    this.props.authenticated ? <ChildComponent {...this.props}/> : null
-                }
-                </>
-            )
-        }
+        
+        return <Redirect to={'/login'}/>
     }
-
-    const mapStateToProps = state => {
-        const { authenticated, exp } = state.auth;
-        return { authenticated, exp };
-    }
-
-    return connect(mapStateToProps, { tokenExists, logout })(ComposedComponent);
+    return requireAuth;
 };

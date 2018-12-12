@@ -54,6 +54,7 @@ export const authRegister = credentials => async dispatch => {
             type: AUTH_REGISTER
         })
         const response = await axios.post(`${url}/auth/register`, credentials);
+        console.log('response', response);
         const token = response.data.token;
         localStorage.setItem(keyName, token);
         const decoded = jwt.decode(token);

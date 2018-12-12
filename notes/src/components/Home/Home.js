@@ -14,9 +14,14 @@ import NoteForm from '../NoteForm/container';
 import NoteModule from '../NoteModule/container'
 
 class Home extends Component {
-
+  state = {
+    fetchedNotes: false,
+  }
   componentDidMount() {
     this.props.getNotes();
+  }
+
+  componentDidUpdate() {
   }
 
   render() {
@@ -37,7 +42,8 @@ class Home extends Component {
 const mapStateToProps = state => {
   return {
     showMenu: state.notes.showMenu,
-    authenticated: state.auth
+    authenticated: state.auth,
+    error: state.notes.error
   }
 }
 

@@ -38,6 +38,7 @@ class Register extends Component {
                     id="username"
                     value={this.state.username}
                     onChange={this.changeHandler}
+                    placeholder="Username"
                 />
 
                 <StyledLabel htmlFor="password">Password</StyledLabel>
@@ -47,12 +48,13 @@ class Register extends Component {
                     id="password"
                     value={this.state.password}
                     onChange={this.changeHandler}
+                    placeholder="Password"
                 />
                 
                 <StyledButton type="submit">Submit</StyledButton>
                 {
                     this.props.error !== null
-                    ? <ErrorWrapper>Error Authenticating</ErrorWrapper>
+                    ? <ErrorWrapper>Error Registering</ErrorWrapper>
                     : null
                 }
             </Container>
