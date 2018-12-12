@@ -9,17 +9,31 @@ const NoteBox = props => {
     .concat("...");
   let title = props.title
     .split("")
-    .splice(0, 29)
+    .splice(0, 19)
     .join("")
     .concat("...");
-  let word = props.textBody
-  let displayWord = word.split("").splice(0, 19).join("").concat("...");
+
+  let longWord = props.textBody
+    .split(" ")
+    .filter(word => word.length > 20)
+    .join("");
+  let displayWord = longWord
+    .split("")
+    .splice(0, 19)
+    .join("")
+    .concat("...");
 
   return (
     <div className="note-box">
-      <h4>{props.title.length > 30 ? title : props.title}</h4>
+      <h4>{props.title.length > 20 ? title : props.title}</h4>
       <div className="line" />
-      <p>{word.length > 20 ? displayWord : props.textBody.length > 200 ? text : props.textBody}</p>
+      <p>
+        {longWord.length > 20
+          ? displayWord
+          : props.textBody.length > 200
+          ? text
+          : props.textBody}
+      </p>
     </div>
   );
 };
