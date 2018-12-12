@@ -12,6 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+
     axios     
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then(response => {
@@ -20,6 +21,7 @@ class App extends Component {
       .catch(err => {
         console.log(err)
       });
+
   }
 
   update() {
@@ -32,25 +34,35 @@ class App extends Component {
       .catch(err => {
         console.log(err)
       });
+
   }
 
   addNote = ( e, data) => {
-    // e.preventDefault();
 
     axios
       .post('https://fe-notes.herokuapp.com/note/create', data)
       .then( response => this.update())
       .catch(err => console.log(err))
 
-
   }
 
   deleteNote = (id) => {
-    console.log('here testing delete',id)
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then( response => this.update())
       .catch(err => console.log(err))
+  }
+
+  editNote = (id, data) => {
+    console.log('in edit note')
+    axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
+    .then( response => {
+      console.log(response);
+      this.update();
+    })
+    .catch(err => console.log(err))
+
   }
 
   render() {
@@ -63,6 +75,7 @@ class App extends Component {
           content={this.state.notes}
           addNote={this.addNote}
           deleteNote={this.deleteNote}  
+          editNote={this.editNote}
         />
       </div>
     );

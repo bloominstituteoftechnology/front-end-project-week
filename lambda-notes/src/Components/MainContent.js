@@ -1,13 +1,14 @@
 import React from 'react'; 
 import DisplayNotes from './DisplayNotes'
-import CreateNoteForm from './CreateNoteForm.js'
+import NoteForm from './NoteForm.js'
 import DisplayCard from './DisplayCard.js'
 import { Route } from 'react-router-dom';
 
 
 // routing done in this component https://fe-notes.herokuapp.com/note/get/id
 
-const MainContent = ({ addNote, content, deleteNote }) => {
+const MainContent = ({ addNote, content, deleteNote, editNote }) => {
+  
   return (
     <div className='main-content' >
 
@@ -32,7 +33,7 @@ const MainContent = ({ addNote, content, deleteNote }) => {
 
             <h1>Create New Note:</h1>
 
-            <CreateNoteForm 
+            <NoteForm 
               {...props}
               addNote={addNote}
             />
@@ -41,6 +42,20 @@ const MainContent = ({ addNote, content, deleteNote }) => {
         )
       }} />
 
+      <Route path={'/edit/:id'} render={ props => {
+        return (
+          <React.Fragment>
+
+            <h1>Edit Note:</h1>
+
+             <NoteForm 
+              {...props} 
+              content={content} 
+              editNote={editNote} />
+
+          </React.Fragment>
+        )
+      }} />
       
     </div>
   )

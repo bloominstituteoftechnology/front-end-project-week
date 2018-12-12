@@ -79,7 +79,7 @@ class DisplayCard extends React.Component  {
     return (
       <Note>
         <nav>
-          <NavLink className='navlink' to={`/note/${this.props.match.params.id}/edit`}>Edit</NavLink>
+          <NavLink className='navlink' to={`/edit/${this.props.match.params.id}`}>Edit</NavLink>
           <NavLink className='navlink' to={`/note/${this.props.match.params.id}/delete`}>Delete</NavLink>
         </nav>
 
