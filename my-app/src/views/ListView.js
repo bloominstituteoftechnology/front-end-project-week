@@ -10,9 +10,6 @@ class ListView extends React.Component {
     this.props.fetchNotes();
   }
 
-  componentDidUpdate() {
-    this.props.fetchNotes();
-  }
   render() {
     if (this.props.fetchingFriends) {
       return (

@@ -7,7 +7,7 @@ class Form extends React.Component {
       id: null,
       tags: [],
       title: "",
-      textBody: ""
+      content: ""
     };
   }
   componentDidMount() {
@@ -17,7 +17,7 @@ class Form extends React.Component {
         id: this.props.note.id,
         tags: this.props.note.tags,
         title: this.props.note.title,
-        textBody: this.props.note.textBody
+        content: this.props.note.content
       });
     }
   }
@@ -55,8 +55,8 @@ class Form extends React.Component {
         />
         <textarea
           type="text"
-          name="textBody"
-          value={this.state.textBody}
+          name="content"
+          value={this.state.content}
           onChange={this.handleInput}
           placeholder="Note Content"
         />
