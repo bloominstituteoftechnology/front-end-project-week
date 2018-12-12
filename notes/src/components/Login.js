@@ -56,13 +56,11 @@ class Login extends React.Component {
         return (
             <LoginWrapper>
                 <SCHeader>Welcome to Lambda Notes</SCHeader>
-                {/* <LoginBox> */}
                     <SCForm>
                         <SCInput type="text" placeholder="Enter you username" name="username" value={this.state.username} onChange={this.handleInput} />
                         <SCInput type="password" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleInput} />
                         <SCButton onClick={this.handleSubmitLogin}>Log in</SCButton>
                     </SCForm>
-                {/* </LoginBox> */}
             </LoginWrapper>
         )
     }

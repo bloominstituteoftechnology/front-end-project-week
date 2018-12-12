@@ -33,7 +33,10 @@ const StyledHeader = styled.h1`
     padding-bottom: 30px;
 `;
 const SearchInput = styled.input`
-
+    border: 2px solid lightgrey;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 10px;
 `;
 
 const Sidebar = props => {
