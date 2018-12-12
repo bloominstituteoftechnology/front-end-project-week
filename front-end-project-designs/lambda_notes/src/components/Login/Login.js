@@ -11,9 +11,11 @@ const LoginBackground = styled.div`
 
     h1 {
         width: 100%;
+        margin-top: 100px;
         display: inline-block;
         text-align: center;
         font-size: 72px;
+        font-weight: bold;
         color: #fff;
     }
 `
@@ -23,14 +25,14 @@ const LoginFormContainer = styled.div`
 	justify-content: space-around;
 	align-items: center;
 	flex-direction: column;
-    width: 30%;
+    width: 40%;
     min-width: 400px;
     height: 40%;
     min-height: 350px;
 	background-color: rgba(240,240,240,0.6);
 	/* border: 5px solid #24b8bd; */
 	border-radius: 8px;
-	margin: 0 auto;
+	margin: 100px auto;
 	padding: 0 100px 20px;
 
 	

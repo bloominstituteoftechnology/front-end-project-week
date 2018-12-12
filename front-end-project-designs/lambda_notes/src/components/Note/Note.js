@@ -2,24 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import { Modal, ModalBody, ModalFooter } from "reactstrap";
+
+const NoteComponentWrapper = styled.div`
+	width: 100%;
+	padding: 15px;
+`;
 
 const NoteCardContainer = styled.div`
-	background-color: #ffffff;
 	color: #20272d;
-	/* width: 10%; */
-	width: 600px;
-	/* min-width: 150px; */
+	height: 90%;
 	min-height: 150px;
-	margin: 20px;
-	padding: 15px;
+	margin: 20px 20px 20px 260px;
 `;
 
 const NoteCardHeader = styled.div`
 	display: flex;
 	justify-content: flex-end;
+	width: 100%;
+	height: 30px;
 
 	.note-header-link {
-		margin: 0 10px;
+		margin: 0 15px;
 		color: #20272d;
 		text-decoration: underline;
 		font-weight: bold;
@@ -28,8 +32,7 @@ const NoteCardHeader = styled.div`
 
 const NoteCardTitle = styled.h2`
 	color: #20272d;
-	/* border-bottom: 1px solid #20272d; */
-	margin: 0 0 5px;
+	margin: 0 0 25px;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 `;
@@ -38,12 +41,43 @@ const NoteCardContent = styled.div`
 	white-space: pre-wrap;
 `;
 
+const ModalWrapper = styled.div`
+
+	.mod-body {
+		text-align: center;
+	}
+	.modal-footer {
+		justify-content: space-evenly;
+		border: 2px solid red;
+	}
+`;
+
+const ModalButton = styled.button`
+	background-color: #24b8bd;
+	border: 0;
+	color: #f3f9f9;
+	padding: 12px 15px;
+	margin: 15px;
+	width: 180px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+`;
+
+const DeleteButton = styled(ModalButton)`
+	background-color: #d0011b;
+`;
+
 class Note extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			note: null,
+			modal: false,
+			id: this.props.match.params.noteId,
 		};
+		this.toggle = this.toggle.bind(this);
 	}
 
 	componentDidMount() {
@@ -63,36 +97,75 @@ class Note extends React.Component {
 			.catch(err => console.log("Note > Server Error: ", err));
 	}
 
+	toggle() {
+		this.setState({
+			modal: !this.state.modal,
+		});
+	}
+
 	render() {
+		console.log("Note", this.props);
 		const note = this.state.note;
 		if (!note) return <h2>Loading...</h2>;
 		return (
-			<>
+			<NoteComponentWrapper>
+				<ModalWrapper>
+					<Modal
+						isOpen={this.state.modal}
+						toggle={this.toggle}
+						className="delete-modal"
+						centered={true}
+					>
+						<ModalBody className="mod-body">
+							Are you sure you want to delete this?
+						</ModalBody>
+						<ModalFooter className="mod-footer">
+							<DeleteButton
+								color="primary"
+								onClick={() => {
+									this.props.deleteNote(this.state.id);
+									this.toggle();
+									this.props.history.push("/notes");
+								}}
+							>
+								Delete
+							</DeleteButton>
+							<ModalButton
+								color="secondary"
+								onClick={this.toggle}
+							>
+								No
+							</ModalButton>
+						</ModalFooter>
+					</Modal>
+				</ModalWrapper>
+				<NoteCardHeader>
+					<Link
+						to={`/notes/${note._id}/edit`}
+						className="note-header-link"
+					>
+						<i class="fas fa-edit" />
+						edit
+					</Link>
+					{/* <Link
+						to={`/notes/${note._id}/delete`}
+						className="note-header-link"
+					> */}
+					<i class="fas fa-trash-alt" onClick={this.toggle}>
+						delete{" "}
+					</i>
+					{/* </Link> */}
+				</NoteCardHeader>
 				<NoteCardContainer
 					history={this.props.history}
 					notes={this.props.notes}
 				>
-					<NoteCardHeader>
-						<Link
-							to={`/notes/${note._id}/edit`}
-							className="note-header-link"
-						>
-							edit
-						</Link>
-						<Link
-							to={`/notes/${note._id}/delete`}
-							className="note-header-link"
-						>
-							delete
-						</Link>
-					</NoteCardHeader>
-
 					<NoteCardTitle>{this.state.note.title}</NoteCardTitle>
 					<NoteCardContent>
 						{this.state.note.textBody}
 					</NoteCardContent>
 				</NoteCardContainer>
-			</>
+			</NoteComponentWrapper>
 		);
 	}
 }

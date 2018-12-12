@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SearchForm from "../SearchForm/SearchForm";
 
 const SidebarContainer = styled.div`
+	position: fixed;
 	background-color: #d3d2d3;
 	min-height: 100vh;
 	min-width: 250px;
@@ -15,10 +16,15 @@ const SidebarContainer = styled.div`
 	align-items: center;
 	border-left: 2px solid #bebebe;
 	border-right: 5px solid #bebebe;
+	text-decoration: none;
+
+	.sidebar-link {
+		text-decoration: none;
+	}
 `;
 
 const NavBar = styled.div`
-	width: 20%;
+	width: 15%;
 	text-align: right;
 	font-size: 24px;
 	border-top-left-radius: 10px;
@@ -39,6 +45,9 @@ const NavBar = styled.div`
 
 const MainHeader = styled.h1`
 	color: #414141;
+	font-weight: bold;
+	margin-left: 20px;
+
 `;
 
 const SidebarButton = styled.div`
@@ -46,7 +55,7 @@ const SidebarButton = styled.div`
 	background-color: #24b8bd;
 	color: #f3f9f9;
 	padding: 8px 15px;
-	margin: 12px;
+	margin: 12px auto;
 	font-weight: bold;
 	text-align: center;
 	text-decoration: none;
@@ -74,10 +83,10 @@ const Sidebar = props => {
 			</NavBar>
 
 			<MainHeader>Lambda Notes</MainHeader>
-			<Link to="/notes" onClick={props.getNotes}>
+			<Link to="/notes" onClick={props.getNotes} className="sidebar-link">
 				<SidebarButton>View Your Notes</SidebarButton>
 			</Link>
-			<Link to="/addnewnote">
+			<Link to="/addnewnote" className="sidebar-link">
 				<SidebarButton href="#">+ Create New Note</SidebarButton>
 			</Link>
 			{/* <SearchForm /> */}

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const NewNoteForm = styled.form`
+	margin-left: 260px;
 	background: #f2f1f2;
 	width: 100%;
 	padding: 30px;

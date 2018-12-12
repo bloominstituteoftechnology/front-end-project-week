@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { Alert } from 'reactstrap';
 
 const NewNoteForm = styled.form`
 	background: #f2f1f2;
+	margin-left: 260px;
 	width: 100%;
 	padding: 30px;
 	display: flex;
@@ -12,11 +14,19 @@ const NewNoteForm = styled.form`
 `;
 
 const NewNoteFormInput = styled.input`
-	width: 40%;
+	width: 400px;
 	padding: 5px;
 	margin: 15px 0;
 	font-size: 1rem;
-	/* border-radius: 3px; */
+	border-radius: 3px;
+	border: 1px solid #A9A9A9;
+
+	&:focus {
+        outline: 0;
+        -moz-box-shadow: 0px 0px 0px 2px #24b8bd;
+        -webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
+        box-shadow: 0px 0px 0px 2px #24b8bd;
+    }
 `;
 
 const NewNoteFormTextArea = styled.textarea`
@@ -28,6 +38,13 @@ const NewNoteFormTextArea = styled.textarea`
 	resize: none;
 	width: 600px;
 	height: 400px;
+
+	&:focus {
+        outline: 0;
+        -moz-box-shadow: 0px 0px 0px 2px #24b8bd;
+        -webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
+        box-shadow: 0px 0px 0px 2px #24b8bd;
+    }
 `;
 
 const NewNoteFormButton = styled.button`
@@ -69,7 +86,7 @@ class AddNewNote extends React.Component {
 		};
 
 		if (this.state.title === "" || this.state.textBody === "") {
-			alert("You cannot save an empty note"); //Create modal later
+			return <Alert color="warning">No empty notes</Alert>
 		} else {
 			axios
 				.post("https://fe-notes.herokuapp.com/note/create", newNote)

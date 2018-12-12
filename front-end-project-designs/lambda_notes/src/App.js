@@ -99,7 +99,7 @@ class App extends Component {
 						exact
 						path="/notes/:noteId"
 						render={props => (
-							<Note {...props} notes={this.state.notes} />
+							<Note {...props} notes={this.state.notes} deleteNote={this.deleteNote} />
 						)}
 					/>
 					<Route

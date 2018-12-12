@@ -12,7 +12,7 @@ const SearchFormContainer = styled.form`
 `;
 
 const SearchBox = styled.input`
-    margin:  4px 20px 27px;
+    margin:  4px 20px 30px;
     padding: 5px;
     border-radius: 30px;
     width: 200px;
@@ -25,7 +25,7 @@ const SearchBox = styled.input`
         -webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
         box-shadow: 0px 0px 0px 2px #24b8bd;
     }
-`;
+`
 
 // const SearchBoxButton = styled.button`
 //     width: 80%;
