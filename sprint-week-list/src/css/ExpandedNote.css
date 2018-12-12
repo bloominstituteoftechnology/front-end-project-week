@@ -1,0 +1,95 @@
+.expanded-note-container{
+    width:78%;
+    background-color: #F2F1F2;
+    border: 2px solid #B7B7B7;
+    border-left:none;
+    height:1000px;
+    color:#4A4948;
+
+    
+   
+}
+.edit-container{
+    width:20%;
+    display:flex;
+    float: right;
+    justify-content: space-around;
+    margin:20px;
+}
+.expanded-note-body{
+   
+    width:94%;
+    margin: 90px auto;
+    
+}
+.expanded-note-header{
+    color: #4A4948;
+    margin-left:10px;
+    margin-bottom:25px;
+
+}
+.expanded-note-text{
+    line-height:2;
+    margin:15px;
+    font-size:18x;
+}
+.delete-container{
+    width:50%;
+    margin:200px 12%;
+    background-color: #FBFAFB;
+    border:2px solid #828282;
+    height:160px;
+    
+}
+
+.closed-delete{
+    display:none;
+}
+.expanded-delete{
+    position:fixed;
+    width:100%;
+    height:1000px;
+    background-color:rgba(211, 210, 211, 0.493);
+    
+}
+.delete-prompt{
+    cursor:pointer;
+    text-decoration:underline;
+    color:#4A4948;
+}
+.edit-prompt{
+    cursor:pointer;
+    text-decoration:none;
+    color:#4A4948;
+    text-decoration-color:#4A4948;
+}
+.link{
+    color:#4A4948;
+    text-decoration-color:#4A4948;
+}
+.delete-question{
+    text-align:center;
+    margin-top:30px;
+}
+.button-container{
+    display:inline;
+}
+.delete-button{
+    width:40%;
+    margin:10px 28px;
+    height:40px;
+    background-color: #CA1518;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.no-button{
+    width:40%;
+    height:40px;
+    background-color:#24B8BD;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}

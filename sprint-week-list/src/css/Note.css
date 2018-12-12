@@ -1,0 +1,24 @@
+.note-container{
+    border: 2px solid #B7B7B7;
+    margin:8px;
+    margin-bottom:20px;
+    width:26%;
+    height:250px;
+    padding:15px;
+    background-color:#FFFFFF;
+}
+.link{
+    text-decoration:none;  
+}
+.note-header{
+    
+    font-size:20px;
+    color:#1E1D1C;
+    font-weight:bold;
+    border-bottom: 2px solid #B7B7B7;
+    padding-bottom:5px;
+}
+.note-text{
+    line-height:2;
+    color:#4A4948;
+}

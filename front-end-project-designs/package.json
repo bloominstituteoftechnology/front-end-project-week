@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "axios": "^0.18.0",
+    "logger": "^0.0.1",
+    "react-redux": "^5.1.1",
+    "react-router": "^4.3.1",
+    "redux": "^4.0.1",
+    "thunk": "^0.0.1"
+  }
+}

@@ -1,0 +1,24 @@
+.notes-container{
+    width:78%;
+    background-color: #F2F1F2;
+    border: 2px solid #B7B7B7;
+    border-left:none;
+    display:flex;
+    flex-direction:column;
+    
+}
+.notes-sub-container{
+    width:94%;
+    margin: 50px auto;
+    
+  
+}
+.thing{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+.notes-container-header{
+    color: #4A4948;
+    margin-left:10px;
+}
