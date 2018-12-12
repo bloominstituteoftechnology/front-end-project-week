@@ -107,7 +107,7 @@ class App extends Component {
             )}
           />
           <Route
-            path="/toCardOne/:id"
+            path="/:id"
             render={props => (
               <SingleTodoView {...props} reduxProps={this.props} />
             )}
