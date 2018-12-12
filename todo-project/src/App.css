@@ -1,0 +1,30 @@
+.App {
+  display: flex;
+  justify-content: center;
+  width: 98%;
+  margin: 0 auto;
+  position: fixed !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 4%;
+  left: 0;
+}
+.mainContent {
+  width: 85%;
+  margin: 1% 0%;
+  background: #F2F1F2;
+  border: 1px solid grey;
+  height: 100%;
+  word-wrap: break-word;
+}
+/* .headerContainer {
+  border: 1px solid red;
+} */
+.navContainer {
+  border: 1px solid grey;
+  width: 15%;
+  margin: 1% 0%;
+  background: #D3D2D3;
+  height: 100%;
+}

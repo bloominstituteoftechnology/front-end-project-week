@@ -1,0 +1,21 @@
+.login-form {
+    width: 500px;
+    background: #24B9BD;
+    border-radius: 6px;
+    margin: 10px auto;
+    padding: 10px 25px;
+    color: black;
+    font-weight: bold;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .loginContainer {
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  .register {
+    padding-top: 1rem;
+  }
+  

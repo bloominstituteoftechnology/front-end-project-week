@@ -1,0 +1,23 @@
+.noteButtonContainer {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.titleNav {
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+.navDiv {
+  display: flex;
+  flex-direction: column;
+}
+.button {
+    border: 1px solid grey;
+    color: white;
+    background: #24B9BD;
+    width: 90%;
+    text-align: center;
+    padding: 5% 5%;
+    text-decoration: none;
+    margin-bottom: 8%;
+    font-weight: bold;
+}
