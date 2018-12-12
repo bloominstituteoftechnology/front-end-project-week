@@ -8,7 +8,7 @@ const NoteList = props => {
       <h3>Your Notes:</h3>
       {props.notes.map(note => {
         return (
-          <Link to={`/${note._id}`} key={note._id}>
+          <Link to={`/${note.id}`} key={note.id}>
             <NotePreview note={note} />
           </Link>
         );

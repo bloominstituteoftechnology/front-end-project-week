@@ -15,7 +15,7 @@ export const FETCH_NOTE_ID = "FETCH_NOTE_ID";
 export const FETCH_NOTE_ID_SUCCESS = "FETCH_NOTE_ID_SUCCESS";
 export const FETCH_NOTE_ID_FAILURE = "FETCH_NOTE_ID_FAILURE";
 
-const url = `https://fe-notes.herokuapp.com/note`;
+const url = `http://localhost:9000`;
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCH_NOTES });

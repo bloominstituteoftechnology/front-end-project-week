@@ -10,10 +10,10 @@ const Note = props => {
     <div className="note-container">
       <div className="note">
         <div className="note-buttons">
-          <Link to={`${props.note._id}/edit`}>
+          <Link to={`${props.note.id}/edit`}>
             <div className="button2 edit-button">edit</div>
           </Link>
-          <Link to={`${props.note._id}/delete`}>
+          <Link to={`${props.note.id}/delete`}>
             <div className="button2 delete-button">delete</div>
           </Link>
         </div>

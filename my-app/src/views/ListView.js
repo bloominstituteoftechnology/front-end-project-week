@@ -5,12 +5,6 @@ import { fetchNotes, addNote, deleteNote } from "../actions/index";
 import { connect } from "react-redux";
 
 class ListView extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     notes: []
-  //   };
-  // }
 
   componentDidMount() {
     this.props.fetchNotes();
