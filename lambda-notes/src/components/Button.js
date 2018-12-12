@@ -19,7 +19,10 @@ const StyledButton = styled.button`
 
 function Button(props) {
     return (
-        <StyledButton warn={props.warn} className={props.className}>
+        <StyledButton
+            warn={props.warn}
+            className={props.className}
+            onClick={props.onClick}>
             {props.text}
         </StyledButton>
     );
