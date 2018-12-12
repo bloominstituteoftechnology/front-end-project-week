@@ -5,9 +5,7 @@ import styled from 'styled-components';
 import { deleteNote } from '../actions';
 
 const NoteWrapper = styled.div`
-    border: 1px solid darkgrey;
-    margin: 20px;;
-    /* width: 75%; */
+    margin: 20px;
 `;
 const ButtonWrapper = styled.div`
     display: flex;

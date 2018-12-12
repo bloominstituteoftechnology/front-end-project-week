@@ -10,21 +10,7 @@ const NotesHeader = styled.h2`
 `;
 
 class NotesListView extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         filteredNotes: []
-    //     }
-    // }
 
-    // searchNotes = event => {
-    //     const searchNotes = this.props.notes.filter(note => {
-    //         if(note.textBody.inclues(event.target.value)) {
-    //             return note;
-    //         }
-    //     });
-    //     this.setState({ filteredNotes: searchNotes})
-    // }
 
     render() {
         if(this.props.notes === undefined) {
@@ -33,8 +19,7 @@ class NotesListView extends React.Component {
         return (
             <div>
                 <NotesHeader>Your Notes:</NotesHeader>
-                {/* <NotesList {...this.props} /> */}
-                <NotesList notes={this.props.notes} />
+                <NotesList notes={this.props.notes} {...this.props} />
             </div>
         );
     }

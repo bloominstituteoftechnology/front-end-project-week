@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './App.css';
 import styled from 'styled-components';
+
 import NotesListView from './views/NotesListView';
 import Note from './components/Note';
 import CreateNewNote from './components/CreateNewNote';
 import EditNote from './components/EditNote';
 import Sidebar from './components/Sidebar';
+import Authenticate from './components/Authenticate';
 
 import { getNotes } from './actions/';
 
@@ -21,12 +22,9 @@ const MainWrapper = styled.div`
 `;
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
         filteredNotes: []
     }
-  }
 
   componentDidMount() {
     this.props.getNotes();
@@ -44,7 +42,6 @@ class App extends Component {
   render() {
     return (
       <AppWrapper>
-        {/* <Route path="/" component={Sidebar}/> */}
         <Route path="/" render={props => <Sidebar {...props} searchNotes={this.searchNotes} />} />
           <MainWrapper>
             <Route exact path="/" render={props => <NotesListView {...props} notes={this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.props.notes} /> } />
@@ -66,4 +63,4 @@ const mapStatetoProps = state => {
   }
 }
 
-export default withRouter(connect(mapStatetoProps, { getNotes })(App));
+export default Authenticate(withRouter(connect(mapStatetoProps, { getNotes })(App)));

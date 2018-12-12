@@ -18,7 +18,6 @@ export const getNotes = () => dispatch => {
     axios
         .get('https://fe-notes.herokuapp.com/note/get/all')
         .then(response => {
-            // console.log(response);
             dispatch({ type: NOTES_FETCH_SUCCESS, payload: response.data })
         })
         .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }));
@@ -29,12 +28,10 @@ export const deleteNote = id => dispatch => {
     axios
         .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         .then(response => {
-            // console.log(response);
             dispatch({ type: DELETE_NOTE_SUCCESS });
             axios
                 .get('https://fe-notes.herokuapp.com/note/get/all')
                 .then(response => {
-                    // console.log(response);
                     dispatch({ type: NOTES_FETCH_SUCCESS, payload: response.data })
                 })
                 .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }))
@@ -50,12 +47,10 @@ export const addNote = (title, textBody) => dispatch => {
             textBody: `${textBody}`
         })
         .then(response => {
-            // console.log(response);
             dispatch({ type: ADD_NOTE_SUCCESS });
             axios
                 .get('https://fe-notes.herokuapp.com/note/get/all')
                 .then(response => {
-                    // console.log(response);
                     dispatch({ type: NOTES_FETCH_SUCCESS, payload: response.data })
                 })
                 .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }))
@@ -64,9 +59,6 @@ export const addNote = (title, textBody) => dispatch => {
 };
 
 export const editNote = (id, title, textBody) => dispatch => {
-    // console.log(id);
-    // console.log(title);
-    // console.log(textBody);
     dispatch({ type: EDIT_NOTE_START });
     axios
         .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
@@ -79,7 +71,6 @@ export const editNote = (id, title, textBody) => dispatch => {
             axios
             .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(response => {
-                // console.log(response);
                 dispatch({ type: NOTES_FETCH_SUCCESS, payload: response.data })
             })
             .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }))

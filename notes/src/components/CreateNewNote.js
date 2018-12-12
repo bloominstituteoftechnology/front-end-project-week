@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { addNote } from '../actions';
 
 const CreateNoteWrapper = styled.div`
-    /* border: 1px solid darkgrey; */
     margin: 0 20px 0 20px;;
     min-width: 75%;
 `;
