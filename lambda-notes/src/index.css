@@ -577,7 +577,7 @@ textarea,
     position: absolute;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:500|Roboto:500,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500|Roboto:400,500,700');
 
 body {
     width: 100vw;
