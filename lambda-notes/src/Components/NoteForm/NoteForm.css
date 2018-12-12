@@ -23,13 +23,12 @@
 }
 
 .content-textarea {
-    padding: 1rem;
-    border: 1.3px solid var(--border-gray);
-    border-radius: 3px;
-    max-width: 70rem;
-    height: 40rem;
-    margin-bottom: 1rem;
-    outline: none;
-    resize: none;
+  padding: 1rem;
+  border: 1.3px solid var(--border-gray);
+  border-radius: 3px;
+  max-width: 70rem;
+  height: 40rem;
+  margin-bottom: 1rem;
+  outline: none;
+  resize: none;
 }
-

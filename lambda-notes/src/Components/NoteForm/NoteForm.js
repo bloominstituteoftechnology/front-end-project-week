@@ -51,7 +51,7 @@ class NoteForm extends Component {
             className="content-textarea"
             onChange={this.handleInputChange}
           />
-          <button className="btn">{this.props.edit ? "Update" : "Save"}</button>
+          <button className="btn blue">{this.props.edit ? "Update" : "Save"}</button>
         </form>
       </div>
     );

@@ -12,6 +12,11 @@ export const EDIT_NOTE_START = "EDIT_NOTE_START";
 export const EDIT_NOTE_SUCCESS = "EDIT_NOTE_SUCCESS";
 export const EDIT_NOTE_FAILURE = "EDIT_NOTE_FAILURE";
 
+export const DELETE_NOTE_START = "DELETE_NOTE_START";
+export const DELETE_NOTE_SUCCESS = "DELETE_NOTE_SUCCESS";
+export const DELETE_NOTE_FAILURE = "DELETE_NOTE_FAILURE";
+
+
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCHING_NOTES_START });
   axios
@@ -55,3 +60,19 @@ export const editNote = (note, id) => dispatch => {
       dispatch({ type: EDIT_NOTE_FAILURE, payload: error });
     });
 };
+
+export const deleteNote = (id) => dispatch => {
+  dispatch({ type: DELETE_NOTE_START })
+  axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      console.log(response);
+      dispatch({
+        type: DELETE_NOTE_SUCCESS,
+        payload: id
+      })
+    })
+    .catch(error => {
+      dispatch({ type: DELETE_NOTE_FAILURE, payload: error })
+    })
+}

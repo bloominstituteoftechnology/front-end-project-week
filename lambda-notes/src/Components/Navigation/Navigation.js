@@ -13,8 +13,12 @@ const Navigation = () => {
           <br />
           Notes
         </h1>
-        <NavLink exact to="/"><div className="top-btn btn">View Your Notes</div></NavLink>
-        <NavLink to="/add-note"><div className="btn">+ Create New Note</div></NavLink>  
+        <NavLink exact to="/">
+          <div className="top-btn btn blue">View Your Notes</div>
+        </NavLink>
+        <NavLink to="/add-note">
+          <div className="btn blue">+ Create New Note</div>
+        </NavLink>
       </div>
     </nav>
   );

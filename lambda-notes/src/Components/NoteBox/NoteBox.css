@@ -1,14 +1,13 @@
 .note-box {
-    background: var(--white); 
-    border: 2px solid var(--border-gray);
-    padding: 1.5rem;
-    height: 25rem;
+  background: var(--white);
+  border: 2px solid var(--border-gray);
+  padding: 1.5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
 
-
 .note-box .line {
-    background: var(--border-gray);
-    height: 2px;
-    width: 100%;
-    margin: .5rem auto;
+  background: var(--border-gray);
+  height: 2px;
+  width: 100%;
+  margin: 0.5rem auto;
 }
