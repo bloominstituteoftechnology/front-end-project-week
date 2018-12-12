@@ -4,11 +4,17 @@ import './Noteslist.css'
 
 
 const NoteList = props => {
+
+    const id = localStorage.getItem('id')
+
     return (
         <div className='noteCardContainer' key={props.notes.id}>
         {props.notes.map(note => {
-            return <Note  key={note.id} note={note} />
+            if(note.userId === parseInt(id) || note.userId === null) {
+            return <Note  key={note.id} note={note} /> 
+        }
         })}
+        
         </div>
     )
 }

@@ -22,13 +22,15 @@ export default class CreateNote extends Component {
       this.setState({ [e.target.name]: e.target.value })
     }
 
+    id = localStorage.getItem('id')
+
     saveNote = () => {
       if(this.state.title.length >= 60) {
         window.alert('Please keep title under 60 charecters')
       } else if (!this.state.title || !this.state.content) {
         window.alert('Please provide a title and content')
       } else {
-      const myObj = { title: this.state.title, content: this.state.content }
+      const myObj = { title: this.state.title, content: this.state.content, userId: this.id }
       axios
         .post('https://fsw-14-project-notes.herokuapp.com/notes', myObj)
         .then(response => {

@@ -24,7 +24,7 @@ export default class NotesMain extends Component {
         }
     }
 
-    username = localStorage.getItem('user')
+    username = localStorage.getItem('username')
 
     componentDidMount() {
        setInterval(() => {

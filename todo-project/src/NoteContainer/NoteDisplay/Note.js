@@ -14,13 +14,23 @@ const Note = props => {
         }
     }
 
-    return (
-        <div className='noteCard' >
-        <NavLink exact to={`/${props.note.id}`} >
+   const id = localStorage.getItem('id')
+
+    const notes = () => {
+        if(props.note.userId === parseInt(id)  || props.note.userId === null ) {
+            return (
             <div className='innerContent'>
             <h1 className='title' >{props.note.title}</h1>
             <p className='body' >{noteBody()}</p>
             </div>
+            )
+        }
+    }
+
+    return (
+        <div className='noteCard' >
+        <NavLink exact to={`/${props.note.id}`} >
+            {notes()}
         </NavLink>
         </div>
         

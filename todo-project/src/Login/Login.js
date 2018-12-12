@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
 import './Login.css';
 import image from './marble-surface-wall-1323712.jpg'
 
@@ -17,11 +18,21 @@ class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleLoginSubmit = e => {
-    const user = this.state.username;
-    localStorage.setItem('user', user);
-    window.location.reload();
-  };
+  login() {
+    axios
+      .post('https://fsw-14-project-notes.herokuapp.com/login', {username: this.state.username, password: this.state.password})
+      .then(response => {
+        console.log(response)
+        const user = response.data.welcome
+        const id = response.data.id
+        localStorage.setItem('username', user)
+        localStorage.setItem('id', id)
+        window.location.reload()
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
   render() {
     return (
@@ -47,7 +58,7 @@ class Login extends Component {
             onChange={this.handleInputChange}
           />
           <br />
-          <Button color="success" size="large" onClick={this.handleLoginSubmit}>
+          <Button color="success" size="large" onClick={() => this.login()}>
             Log In
           </Button>
         </FormGroup>
