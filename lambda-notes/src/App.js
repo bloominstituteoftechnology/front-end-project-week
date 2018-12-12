@@ -98,7 +98,8 @@ class App extends Component {
 
   sortedByTitle = () => {
     console.log('sorted function runs');
-    const sorted = this.state.notes.sort(function(a, b){
+    let copy = this.state.notes.slice();
+    const sorted = copy.sort(function(a, b){
       if (a.title.toLowerCase() < b.title.toLowerCase())
         return -1;
       if (a.title.toLowerCase() > b.title.toLowerCase())
@@ -106,16 +107,17 @@ class App extends Component {
       return 0;
     });
     this.setState({
+      ...this.state,
       notes: sorted
     })
     console.log(sorted);
   }
 
   sortedByMostRecent = () => {
-    
-    console.log('reseted note list, line 123 app.js', this.state.notesCopy);
-    const sortedByRecent = this.state.notesCopy.reverse();
+    let copy = this.state.notesCopy.slice();
+    const sortedByRecent = copy.reverse();
     this.setState({
+      ...this.state,
       notes: sortedByRecent
     })
   }
