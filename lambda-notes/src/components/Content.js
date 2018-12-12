@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import List from '../views/List';
 import AddNote from '../views/AddNote';
 import NoteView from '../views/NoteView';
+import DeleteModal from '../components/DeleteModal';
 
 const Div = styled.div`
     width: ${100 - styleVars.sideBarWidth}%;
@@ -42,6 +43,10 @@ const Content = props => {
                 render={routeProps => (
                     <AddNote {...routeProps} update={props.update} />
                 )}
+            />
+            <Route
+                path="/notes/:_id/delete"
+                render={routeProps => <DeleteModal {...routeProps} />}
             />
         </Div>
     );
