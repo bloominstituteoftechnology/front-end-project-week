@@ -44,17 +44,13 @@
 
 /* Notes list main page */
 .notes-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   background: #f3f3f3;
   padding-left: 350px;
-  
 }
 
-.notes-heading  {
-  width: 90%;
-  margin: 0 auto 30px auto;
-  padding-top: 20px;
-  font-size: 3.5rem;
-}
 
 .note-cards {
   display: flex;
@@ -208,4 +204,30 @@
 .nav-link-red {
   background: #d0011b;
   cursor: pointer;
+}
+
+/*Search Input */
+.heading-flex-wrapper {
+  display: flex;
+  align-items: baseline;
+  margin: 30px auto 30px auto;
+  width: 90%;
+
+}
+
+.notes-heading  {
+  width: 250px;
+  font-size: 3.5rem;
+}
+
+.main-input {
+  padding: 0 20px;
+  height: 52px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 500px;
+  margin-bottom: 20px;
+  color:  #7575a3;
+  font-family: inherit;
+  font-size: 1.5rem;
 }

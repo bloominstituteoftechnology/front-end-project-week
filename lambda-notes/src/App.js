@@ -13,7 +13,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      filter: '',
+
     };
   }
 
@@ -75,6 +77,22 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  
+  handleInputChange = event => {
+    this.setState({
+      filter: event.target.value,
+    });
+  };
+
+  getFilteredNotes = () => {
+    if (this.state.filter === '') return this.state.notes;
+
+    return this.state.notes.filter(note => {
+      let noteTitle = note.title.toLowerCase().includes(this.state.filter.toLowerCase());
+      return noteTitle;
+    });
+  }
+
 
   render() {
     return (
@@ -91,16 +109,16 @@ class App extends Component {
               render={props => {
               return (
               <div>
-                <Notes {...props} notes={this.state.notes} />
+                <Notes {...props} notes={this.state.notes} filter={this.state.filter} handleInputChange={this.handleInputChange} noteData={this.getFilteredNotes()}/>
               </div>
               );
             
             }} />
 
-            {this.state.notes.length &&
+            
             <Route 
             path="/get/:_id" 
-            render={props => <NoteView {...props} notes={this.state.notes} editNote={this.editNote}  deleteNote={this.deleteNote}/> } /> }
+            render={props => <NoteView {...props} notes={this.state.notes} editNote={this.editNote}  deleteNote={this.deleteNote}/> } /> 
 
             <Route 
             path="/create" 

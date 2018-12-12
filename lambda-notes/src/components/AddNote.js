@@ -36,6 +36,7 @@ class AddNode extends Component {
             placeholder="Note Title"
             value={this.state.title}
             name="title"
+            required
           />
           <textarea 
             rows="20"
@@ -43,6 +44,7 @@ class AddNode extends Component {
             placeholder="Note Content"
             value={this.state.textBody}
             name="textBody"
+            required
           />
           <button className="nav-link nav-link-sm" type="submit">Save</button>
         </form>
