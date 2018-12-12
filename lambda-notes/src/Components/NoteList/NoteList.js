@@ -26,7 +26,7 @@ const NoteList = props => {
       <div className="note-list">
         {props.notes.map(note => {
           return (
-            <Link exact to={`/note/${note._id}`} key={note._id}>
+            <Link to={`/note/${note._id}`} key={note._id}>
               <NoteBox title={note.title} textBody={note.textBody} />
             </Link>
           );
