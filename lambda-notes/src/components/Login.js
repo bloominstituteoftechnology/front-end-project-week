@@ -56,7 +56,7 @@ class Login extends React.Component {
       axios
         .post(`${url}/register`, this.state.user)
         .then(res => {
-          if (res.data) {
+          if (res.data && res.data.length) {
             console.log(res.data);
             localStorage.setItem("note_token", res.data.token);
             window.location.reload();
@@ -100,6 +100,7 @@ class Login extends React.Component {
           >
             <input
               type="text"
+              id="username"
               placeholder="Username"
               name="username"
               value={this.state.user.username}
@@ -107,6 +108,7 @@ class Login extends React.Component {
             />
             <input
               type="password"
+              id="password"
               placeholder="Password"
               name="password"
               value={this.state.user.password}
