@@ -11,11 +11,31 @@ import Note from "./Components/Note/Note.js";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    searchText: ""
+  }
   componentDidMount() {
     this.props.fetchNotes();
   }
 
+  searchNotes = event => {
+    this.setState({
+      searchText: event.target.value
+    })
+  }
+
   render() {
+    let filteredNotes = this.props.notes;
+
+    if (this.state.searchText !== "") {
+      filteredNotes = filteredNotes.filter( note => {
+        let title = note.title.toLowerCase().includes(this.state.searchText.toLowerCase());
+        let content = note.textBody.toLowerCase().includes(this.state.searchText.toLowerCase());
+        return title || content;
+      })
+    }
+
+
     return (
       <div className="App">
         <div className="home-container">
@@ -24,7 +44,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={props => <NoteList {...props} notes={this.props.notes} />}
+              render={props => <NoteList {...props} notes={filteredNotes.length > 0 ? filteredNotes : this.props.notes} searchText={this.state.searchText} searchNotes={this.searchNotes}/>}
             />
 
             <Route

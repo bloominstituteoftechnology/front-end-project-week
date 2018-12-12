@@ -12,6 +12,16 @@ const NoteList = props => {
 
   return (
     <div className="note-list-container">
+      <div className="input-container">
+        <input
+          value={props.searchText}
+          onChange={props.searchNotes}
+          type="text"
+          className="fa fa-input"
+          placeholder=" Search"
+        />
+      </div>
+
       <h2>Your Notes:</h2>
       <div className="note-list">
         {props.notes.map(note => {
