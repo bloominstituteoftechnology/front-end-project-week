@@ -2,6 +2,9 @@ import {
   FETCH_NOTES_START,
   FETCH_NOTES_SUCCESS,
   FETCH_NOTES_FAILURE,
+  FETCH_NOTES_BY_SORT_START,
+  FETCH_NOTES_BY_SORT_SUCCESS,
+  FETCH_NOTES_BY_SORT_FAILURE,
   FETCH_NOTES_BY_ID_START,
   FETCH_NOTES_BY_ID_SUCCESS,
   FETCH_NOTES_BY_ID_FAILURE,
@@ -38,6 +41,24 @@ const notesReducer = (state = initialState, action) => {
         notes: action.payload
       };
     case FETCH_NOTES_FAILURE:
+      return {
+        ...state,
+        fetching: false,
+        error: action.payload
+      };
+    case FETCH_NOTES_BY_SORT_START:
+      return {
+        ...state,
+        fetching: true
+      };
+    case FETCH_NOTES_BY_SORT_SUCCESS:
+      return {
+        ...state,
+        error: null,
+        fetching: false,
+        notes: action.payload
+      };
+    case FETCH_NOTES_BY_SORT_FAILURE:
       return {
         ...state,
         fetching: false,

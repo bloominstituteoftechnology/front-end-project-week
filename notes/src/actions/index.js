@@ -4,6 +4,10 @@ export const FETCH_NOTES_START = "FETCH_NOTES_START";
 export const FETCH_NOTES_SUCCESS = "FETCH_NOTES_SUCCESS";
 export const FETCH_NOTES_FAILURE = "FETCH_NOTES_FAILURE";
 
+export const FETCH_NOTES_BY_SORT_START = "FETCH_NOTES_BY_SORT_START";
+export const FETCH_NOTES_BY_SORT_SUCCESS = "FETCH_NOTES_BY_SORT_SUCCESS";
+export const FETCH_NOTES_BY_SORT_FAILURE = "FETCH_NOTES_BY_SORT_FAILURE";
+
 export const FETCH_NOTES_BY_ID_START = "FETCH_NOTES_BY_ID_START";
 export const FETCH_NOTES_BY_ID_SUCCESS = "FETCH_NOTES_BY_ID_SUCCESS";
 export const FETCH_NOTES_BY_ID_FAILURE = "FETCH_NOTES_BY_ID_FAILURE";
@@ -43,6 +47,24 @@ export const getNotes = () => dispatch => {
       dispatch({ type: FETCH_NOTES_SUCCESS, payload: response.data });
     })
     .catch(err => dispatch({ type: FETCH_NOTES_FAILURE, payload: err }));
+};
+
+export const getNotesBySort = sortType => dispatch => {
+  dispatch({ type: FETCH_NOTES_BY_SORT_START });
+  axios
+    .get("https://fe-notes.herokuapp.com/note/get/all")
+    .then(response => {
+      console.log("fetch finished");
+      let result = response.data.sort(sortType);;
+      console.log(result);
+      dispatch({
+        type: FETCH_NOTES_BY_SORT_SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err =>
+      dispatch({ type: FETCH_NOTES_BY_SORT_FAILURE, payload: err })
+    );
 };
 
 export const getNotesById = id => dispatch => {

@@ -4,7 +4,7 @@ class NotesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filteredNotes: []
+      filteredNotes: [],
     };
   }
 
@@ -14,8 +14,10 @@ class NotesList extends Component {
         return note;
       }
     });
-    this.setState({ filteredNotes: filteredNotes });
+    this.setState({ ...this.state, filteredNotes: filteredNotes });
   };
+
+  
 
   render() {
     console.log("rendering NotesList component");
@@ -24,12 +26,19 @@ class NotesList extends Component {
     }
     return (
       <Fragment>
-        <div className="searchContainer"> 
-            <input
-              type="text"
-              placeholder="Search For Note"
-              onKeyDown={this.searchPostsHandler}
-            />
+        <div className="searchContainer">
+          <input
+            type="text"
+            placeholder="Search For Note"
+            onKeyDown={this.searchPostsHandler}
+          />
+          <div className="sort">
+            <h3>Sort By:</h3>
+            <select onChange={this.props.sortHandler}>
+              <option value="none">None</option>
+              <option value="alphabetically">Alphabetically</option>
+            </select>
+          </div>
         </div>
         <h2>Your Notes:</h2>
         <div className="notes-container">
