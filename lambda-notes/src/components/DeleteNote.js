@@ -37,7 +37,7 @@ const ConfirmLink = styled(Link)`
 
 const ConfirmButton = styled.span`
     display: inline-block;
-    margin: 0 10px
+    margin: 0 10px;
     padding: 15px 0;
     font-size: 1.2rem;
     border: 1px solid #ABB5B5;
