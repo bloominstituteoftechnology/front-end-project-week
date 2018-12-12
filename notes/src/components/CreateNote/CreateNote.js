@@ -8,6 +8,7 @@ import {
   NoteTitleInput,
   NoteContentInput,
 } from './styles';
+import { apiUri } from '../../globalVariables';
 
 export default class CreateNote extends Component {
   state = {
@@ -27,7 +28,7 @@ export default class CreateNote extends Component {
     console.log(this.state.textBody);
     if (this.state.title.length > 0 && this.state.textBody.length > 0) {
       axios
-        .post('http://localhost:9000/note/create', newNote)
+        .post(`${apiUri}/note/create`, newNote)
         .then(() => {
           this.setState({
             title: '',

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 import {
   NoteView,
@@ -11,6 +10,7 @@ import {
   NoteContent,
   NoteLinkText,
 } from './styles';
+import { apiUri } from '../../globalVariables';
 
 export default class ViewNote extends Component {
   state = {
@@ -26,7 +26,7 @@ export default class ViewNote extends Component {
 
   fetchNote = (id) => {
     axios
-      .get(`http://localhost:9000/note/get/${id}`)
+      .get(`${apiUri}/note/get/${id}`)
       .then((res) => {
         this.setState(() => ({ note: res.data.note }));
       })

@@ -9,9 +9,9 @@ import {
   SearchBar,
   SearchInput,
   NewOldButton,
-  OldNewButton,
   NewOldMobileButton,
 } from './styles';
+import { apiUri } from '../../globalVariables';
 
 export default class List extends Component {
   state = {
@@ -21,7 +21,7 @@ export default class List extends Component {
   };
   componentDidMount() {
     axios
-      .get('http://localhost:9000/')
+      .get(apiUri)
       .then((res) => {
         this.setState(() => ({ notes: res.data.notes }));
       })

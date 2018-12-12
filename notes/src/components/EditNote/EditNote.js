@@ -8,6 +8,7 @@ import {
   SaveEditedButton,
   EditTitle,
 } from './styles';
+import { apiUri } from '../../globalVariables';
 
 export default class EditNote extends Component {
   state = {
@@ -33,7 +34,7 @@ export default class EditNote extends Component {
     const editedNote = { title, textBody };
     if (this.state.title.length > 0 && this.state.textBody.length > 0) {
       axios
-        .put(`http://localhost:9000/note/edit/${this.state.id}`, editedNote)
+        .put(`${apiUri}/note/edit/${this.state.id}`, editedNote)
         .then(() => {
           this.fetchData(this.state.id);
           this.props.history.push(`/note/${this.state.id}`);
