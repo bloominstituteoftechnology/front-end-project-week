@@ -84,6 +84,7 @@ class NoteView extends Component {
     super(props);
     this.state = { showDeleteModel: false };
   }
+
   componentDidMount() {
     this.props.getNote(this.props.match.params.id);
   }
@@ -106,6 +107,12 @@ class NoteView extends Component {
     this.setState({ showDeleteModel: false });
   };
 
+  deleteNoteAndHideModel = (e, id) => {
+    e.preventDefault();
+    this.hideDeleteModel(e);
+    this.props.deleteNote(id);
+  };
+
   render() {
     return (
       <DivPageWrapper>
@@ -115,6 +122,7 @@ class NoteView extends Component {
           <div>
             <DeleteModel
               {...this.props}
+              deleteNoteAndHideModel={this.deleteNoteAndHideModel}
               hideDeleteModel={this.hideDeleteModel}
               visible={this.state.showDeleteModel.toString()}
             />

@@ -16,7 +16,6 @@ export const addNote = newNote => dispatch => {
   axios
     .post(`${urlLinks.server}${urlLinks.home}${urlLinks.createNote}`, newNote)
     .then(res => {
-      console.log(res.data);
       dispatch({ type: ADD_NOTE_SUCCESS });
     })
     .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));

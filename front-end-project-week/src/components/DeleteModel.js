@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Redirect } from 'react-router';
 // import PropTypes from 'prop-types';
 
 /***************************************************************************************************
@@ -47,34 +46,25 @@ const ButtonModel = styled.button`
 /***************************************************************************************************
  ********************************************* Component *******************************************
  **************************************************************************************************/
-class DeleteModel extends Component {
-  deleteNote = e => {
-    e.preventDefault();
-    this.props.hideDeleteModel(e);
-    this.props.deleteNote(this.props.match.params.id);
-  };
-
-  cancel = e => {
-    e.preventDefault();
-    this.props.hideDeleteModel(e);
-  };
-
-  render() {
-    return (
-      <DivModel visible={this.props.visible}>
-        <H3Message>Are you sure you want to delete this?</H3Message>
-        <div>
-          <ButtonModel delete onClick={e => this.deleteNote(e)} type='button'>
-            Delete
-          </ButtonModel>
-          <ButtonModel no onClick={e => this.cancel(e)}>
-            No
-          </ButtonModel>
-        </div>
-      </DivModel>
-    );
-  }
-}
+const DeleteModel = props => {
+  return (
+    <DivModel visible={props.visible}>
+      <H3Message>Are you sure you want to delete this?</H3Message>
+      <div>
+        <ButtonModel
+          delete
+          onClick={e => props.deleteNoteAndHideModel(e, props.match.params.id)}
+          type='button'
+        >
+          Delete
+        </ButtonModel>
+        <ButtonModel no onClick={e => props.hideDeleteModel(e)}>
+          No
+        </ButtonModel>
+      </div>
+    </DivModel>
+  );
+};
 // DeleteModel.propTypes = {
 //   propertyName: PropTypes.string
 // }

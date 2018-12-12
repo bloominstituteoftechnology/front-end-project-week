@@ -39,6 +39,7 @@ class EditNoteView extends Component {
       }
     }
   }
+
   render() {
     return (
       <DivPageWrapper>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Redirect } from 'react-router';
 // import PropTypes from 'prop-types';
 
 /***************************************************************************************************
