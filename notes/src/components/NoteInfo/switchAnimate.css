@@ -1,0 +1,48 @@
+@keyframes zoom-in {
+	from { transform: scale(.5); opacity: .5; }
+	to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes zoom-out {
+	from { transform: scale(1); opacity: 1; }
+	to { transform: scale(.5); opacity: .5; }
+}
+
+.deleteDivIn {
+	position: relative;
+	top: 18%;
+	left: 27%;
+	border: solid black 1px;
+	width: 300px;
+	text-align: center;
+	padding: 5%;
+	background-color: white;
+	opacity: 1;
+	z-index: 2;
+	animation: zoom-in 1s;
+}
+
+.deleteDivOut {
+	position: relative;
+	top: 18%;
+	left: 27%;
+	border: solid black 1px;
+	width: 300px;
+	text-align: center;
+	padding: 5%;
+	background-color: white;
+	opacity: 1;
+	z-index: 2;
+	animation: zoom-out 1s;
+}
+
+
+/*@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}*/
