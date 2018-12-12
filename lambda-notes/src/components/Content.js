@@ -1,12 +1,10 @@
 import React from 'react';
-// import NotesList from './NotesList';
 import styled from 'styled-components';
 import styleVars from '../helpers/styleVars';
 import { Route } from 'react-router-dom';
 import List from '../views/List';
 import AddNote from '../views/AddNote';
 import NoteView from '../views/NoteView';
-import EditNote from '../views/EditNote';
 
 const Div = styled.div`
     width: ${100 - styleVars.sideBarWidth}%;
@@ -42,11 +40,7 @@ const Content = props => {
             <Route
                 path="/edit/:_id"
                 render={routeProps => (
-                    <AddNote
-                        {...routeProps}
-                        update={props.update}
-                        // note={}
-                    />
+                    <AddNote {...routeProps} update={props.update} />
                 )}
             />
         </Div>
