@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const api = "https://gentle-depths-26576.herokuapp.com/api/notes/";
+const api = "https://adamsnotes.herokuapp.com/api/notes/";
 
 class EditNoteForm extends Component {
   constructor(props) {

@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import Modal from "react-modal";
 import Markdown from "react-markdown";
 
-const api = "https://gentle-depths-26576.herokuapp.com/api/notes/";
+const api = "https://adamsnotes.herokuapp.com/api/notes/";
 class Note extends Component {
   constructor(props) {
     super(props);

@@ -8,7 +8,7 @@ import Note from "./components/Note";
 import EditNoteForm from "./components/EditNoteForm";
 // import LoginPage from "./components/LoginPage";
 
-const api = "https://gentle-depths-26576.herokuapp.com/api/notes/";
+const api = "https://adamsnotes.herokuapp.com/api/notes/";
 
 class App extends Component {
   constructor() {
