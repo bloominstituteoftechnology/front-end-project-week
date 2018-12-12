@@ -29,10 +29,10 @@ class Note extends Component {
 
     
     deleteNote = (event) => {
-      const id = this.state.note.id
+      const id = this.props.match.params.id
       console.log(id)
       axios
-        .delete(`http://localhost:7000/api/notes/edit/${id}`)
+        .delete(`http://localhost:7000/api/notes/${id}`)
         .then(response => {
           console.log('DELETE RESPONSE: ', response)
           this.setState({ notes: response.data })
@@ -58,10 +58,15 @@ class Note extends Component {
           return <div>loading note</div>;
         }
         const { title, textBody, id } = this.state.note;
+        console.log()
+        console.log(this.state.note)
         return (
           <div>
+            {this.state.note.map((note) => {
+            return (
+              <div>
             <div className="edit-delete-container">
-              <Link className="note-link" to={`/edit/${id}`}>
+              <Link className="note-link" to={`/edit/${note.id}`}>
                 <p className="edit-note-link">edit</p>
               </Link>
               <p className="delete-note-link" onClick={this.openModal}>
@@ -69,21 +74,17 @@ class Note extends Component {
               </p>
             </div>
             <div>
-            {this.state.note.map((note) => {
-              return (
                 <div>
                  <h2>{note.title}</h2>
                  <p>{note.textBody}</p>
                 </div>
-               )
-             })}
             </div>
             <div>
               <Modal
                 isOpen={this.state.showModal}
                 onRequestClose={this.closeModal}
                 contentLabel="Are you sure you want to delete?"
-              >
+                >
                 <div className="modal">
                   <div className="modal-prompt">
                     <p>Are you sure you want to delete this?</p>
@@ -101,6 +102,9 @@ class Note extends Component {
                 </div>
               </Modal>
             </div>
+            </div>
+              )
+              })}
           </div>
         );
       }
