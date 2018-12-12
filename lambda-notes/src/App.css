@@ -45,12 +45,12 @@
 }
 
 .sidebar .tag-wrapper .tag {
-  width: 40%;
+  width: 30%;
   font-size: 15px;
   font-weight: bold;
   background: grey;
   text-align: center;
-  margin: 10px 5%;
+  margin: 10px 1.5%;
   color: white;
   overflow: hidden;
   cursor: pointer;
