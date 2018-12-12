@@ -27,7 +27,6 @@ class NotesContainer extends React.Component {
   exportToCsv = () => {
     const notes = this.props.notes;
     const data = Papa.unparse(notes, {newling: '\n'});
-    console.log('unparsed', data);
     const blob = new Blob([data], {type: 'text/csv'});
     const dl = window.document.createElement('a');
     dl.href = window.URL.createObjectURL(blob, {type: 'text/plain'});
@@ -40,16 +39,12 @@ class NotesContainer extends React.Component {
   sortNotes = notes => {
     switch (this.state.sortType) {
       case 'alpha':
-        console.log('alpha');
         const sortedNotes = notes.sort((n, m) => {
           if (n.title[0].toUpperCase() < m.title[0].toUpperCase()) return -1;
           if (n.title[0].toUpperCase() > m.title[0].toUpperCase()) return 1;
           return 0;
-          //return n.title.toLowerCase() < m.title.toLowerCase();
         });
         return sortedNotes;
-      //console.log('sort', notes.sort((n1, n2) => n1.title < n2.title));
-      //return notes.sort((n1, n2) => n1.title < n2.title);
       case 'time':
         return [...notes].reverse();
       default:
@@ -78,9 +73,7 @@ class NotesContainer extends React.Component {
 
   searchNotes = e => {
     this.setState({searchText: e.target.value});
-    //console.log(this.props.notes);
     const fuse = new Fuse(this.props.notes, this.state.filterOptions);
-    console.log(fuse.search(this.state.searchText));
     const result = fuse.search(this.state.searchText);
     this.setState({filteredNotes: result.map(i => i.item)});
   };

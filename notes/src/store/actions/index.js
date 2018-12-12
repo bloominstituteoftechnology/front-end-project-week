@@ -33,27 +33,22 @@ export const fetchNotes = () => dispatch => {
   axios
     .get(`${url}note/get/all`)
     .then(res => {
-      console.log('notes fetched', res);
       dispatch({type: FETCH_NOTES_SUCCESS, payload: res.data});
     })
     .catch(err => {
       dispatch({type: FETCH_NOTES_FAILURE, payload: err});
-      console.log(err);
     });
 };
 
 export const addNote = note => dispatch => {
   dispatch({type: ADDING_NOTE});
-  console.log('action:', note);
   axios
     .post(`${url}note/create`, note)
     .then(res => {
-      console.log('add note action', res);
       dispatch({type: ADD_NOTE_SUCCESS, payload: note});
     })
     .catch(err => {
       dispatch({type: ADD_NOTE_FAILURE, payload: err});
-      console.log('add note err', err);
     });
 };
 
@@ -70,19 +65,15 @@ export const stopEditMode = () => dispatch => {
 };
 
 export const editNote = note => dispatch => {
-  //console.log('id', note._id, typeof note._id);
   axios
     .put(`${url}note/edit/${note._id}`, {
       title: note.title,
       textBody: note.textBody,
     })
     .then(res => {
-      //console.log('action res:', res);
-      //console.log('typeofdata', typeof res.data._id);
       dispatch({type: EDIT_NOTE_SUCCESS, payload: res.data});
     })
     .catch(err => console.log(err));
-  //dispatch({type: EDIT_NOTE_SUCCESS, payload: note});
 };
 
 export const showModal = () => dispatch => {
@@ -99,10 +90,8 @@ export const deleteNote = id => dispatch => {
     .delete(`${url}note/delete/${id}`)
     .then(res => {
       dispatch({type: DELETE_NOTE_SUCCESS});
-      console.log('then delete:', res);
     })
     .catch(err => {
-      console.log('delete catch', err);
       dispatch({type: DELETE_NOTE_FAILURE, payload: err});
     });
 };

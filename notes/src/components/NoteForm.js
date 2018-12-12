@@ -1,57 +1,7 @@
 import React from 'react';
 import {addNote, editNote, stopEditMode} from '../store/actions';
 import {connect} from 'react-redux';
-//import styled from 'styled-components';
-//import {Button} from './NavBar';
-import {
-  //Button,
-  StyledForm,
-  StyledInput,
-  StyledTextArea,
-  FormButton,
-} from '../styles';
-
-/*
- *const StyledForm = styled.form`
- *  display: flex;
- *  flex-direction: column;
- *  background-color: #f2f1f2;
- *  //margin-left: 28%;
- *  margin-left: 300px;
- *  padding-top: 5.9rem;
- *  padding-left: 0.5rem;
- *  width: 70%;
- *
- *  //@media (min-width: 1200px) {
- *  //margin-left: 31%;
- *  //}
- *
- *  h2 {
- *    font-size: 2.1rem;
- *  }
- *`;
- *
- *export const StyledInput = styled.input`
- *  border-radius: 5px;
- *  margin-top: 15px;
- *  margin-bottom: 10px;
- *  padding: 1.4rem 1.7%;
- *  width: 55%;
- *`;
- *
- *const StyledTextArea = styled.textarea`
- *  height: 31rem;
- *  width: 90%;
- *  border-radius: 5px;
- *  padding: 1.9rem 3.4%;
- *`;
- *
- *const FormButton = styled(Button)`
- *  width: 31.5%;
- *  //padding: 5px 10px;
- *`;
- *
- */
+import {StyledForm, StyledInput, StyledTextArea, FormButton} from '../styles';
 
 class NoteForm extends React.Component {
   constructor() {
@@ -63,12 +13,10 @@ class NoteForm extends React.Component {
   }
 
   componentDidMount() {
-    console.log('cdm', this.props);
     if (this.props.isEditing) {
       const note = this.props.notes.find(
         n => n._id === this.props.match.params.id,
       );
-      console.log('note', note);
       if (!note) {
         this.props.stopEditMode();
         this.props.history.push('/create');
@@ -97,7 +45,6 @@ class NoteForm extends React.Component {
     const args = this.props.isEditing
       ? {...this.state, _id: this.props.match.params.id}
       : this.state;
-    console.log('handle', args);
     func(args);
     this.clearState();
     this.props.history.push('/notes');
@@ -116,8 +63,6 @@ class NoteForm extends React.Component {
   };
 
   render() {
-    //console.log(this.props, 'noteform');
-    //console.log(this.props.match.params.id);
     const buttonText = this.props.isEditing ? 'Update' : 'Save';
     return (
       <StyledForm onSubmit={this.handleSubmit}>

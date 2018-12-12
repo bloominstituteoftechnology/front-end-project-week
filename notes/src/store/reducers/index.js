@@ -42,19 +42,16 @@ export default (state = initialState, action) => {
         notes: action.payload,
       };
     case FETCH_NOTES_FAILURE:
-      console.log('reducer failure', action.payload);
       return {
         ...state,
         fetching: false,
         error: action.payload,
       };
     case ADDING_NOTE:
-      console.log('adding note reducer');
       return {
         ...state,
         isEditing: false,
         adding: true,
-        //notes: state.notes.concat({...action.payload}),
       };
     case ADD_NOTE_SUCCESS:
       return {
@@ -84,19 +81,9 @@ export default (state = initialState, action) => {
         isEditing: false,
       };
     case EDIT_NOTE_SUCCESS:
-      console.log('edit success', action.payload);
       return {
         ...state,
         isEditing: false,
-        //notes: state.notes.map(n => {
-        //if (n._id === action.payload._id) {
-        //return {
-        //...action.payload,
-        //};
-        //} else {
-        //return n;
-        //}
-        //}),
       };
     case SHOW_MODAL:
       return {
@@ -116,7 +103,6 @@ export default (state = initialState, action) => {
     case DELETE_NOTE_SUCCESS:
       return {
         ...state,
-        //notes: state.notes.filter(n => n.id !== action.payload),
         deleting: false,
       };
     case DELETE_NOTE_FAILURE:
