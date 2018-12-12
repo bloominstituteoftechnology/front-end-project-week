@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Noto+Serif+KR:500');
+
+/* font-family: 'Didact Gothic', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
 .App {
   display: flex;
   height: 100vh;
@@ -11,9 +16,11 @@
 .card {
   margin: 20px;
   background-color: #fff;
+  font-family: 'Noto Serif KR', serif;
   padding: 10px;
   width: 20vw;
   overflow: hidden;
+  box-shadow: 2px 4px 1px #666;
 }
 
 .card__hr {
@@ -22,12 +29,15 @@
 }
 
 .sideBar {
-  background: #d3d2d3;
+  background: #b6cac0;
+  /* background: #d3d2d3; */
   color: #000;
 }
 
 .sideBar__headline {
   margin: 20px;
+  font-size: 50px;
+  font-family: 'Didact Gothic', sans-serif;
 }
 
 .content {
@@ -40,6 +50,7 @@
   color: #fff;
   height: 65px;
   width: 200px;
+  font-family: 'Didact Gothic', sans-serif;
   margin: 10px 20px;
   font-size: 18px;
   font-weight: bold;
@@ -66,13 +77,13 @@
 }
 
 .nav__btn {
-  background-color: #24b8bd;
+  background-color: #c02a1b;
   color: #fff;
   height: 65px;
   width: 200px;
+  font-family: 'Didact Gothic', sans-serif;
   margin: 10px 20px;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,6 +112,11 @@
 .card__title {
   text-decoration: none !important;
   color: black;
+}
+
+.wtf {
+  color: red;
+  text-decoration: none;
 }
 
 .note__options {
