@@ -52,14 +52,14 @@ const ListContent =(props) => {
     
     return (
         <ContentDiv>
-            <SideBar handleClick = {props.handleClick}/>
+            <SideBar handleLogout={props.handleLogout} handleClick = {props.handleClick}/>
             <ListContentDiv>
                 <ListContentH1>Your Notes: </ListContentH1>
                 <ListContentList>
                     {props.list.map( (item,index) =>{
                         return(
                             <Note to ={`/notes/${item._id}`} key = {index}>
-                                <ListItem handleClick = {props.handleClick} getNote={props.getNote} key={index} item={item} />
+                                <ListItem  handleClick = {props.handleClick} getNote={props.getNote} key={index} item={item} />
                             </Note>
 
                         )

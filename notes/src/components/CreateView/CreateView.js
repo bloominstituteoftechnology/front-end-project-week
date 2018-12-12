@@ -49,7 +49,7 @@ class CreateView extends React.Component{
     render(){
     return (
         <ContentDiv>
-            <SideBar handleClick = {this.props.handleClick}/>
+            <SideBar handleLogout = {this.props.handleLogout} handleClick = {this.props.handleClick}/>
             <CreateContentDiv> 
                 <CreateViewH1>Create New Note: </CreateViewH1>
                 <AddNoteForm 

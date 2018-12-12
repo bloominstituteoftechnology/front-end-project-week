@@ -11,13 +11,21 @@ const ContentDiv = styled.div`
 `;
 
 
-const DeleteNote = (props) =>{
-    return (
-        <ContentDiv>
-            <DeleteView deleteNote = {props.deleteNote} id = {props.match.params.id}/>
-            <NoteView {...props}/>
-        </ContentDiv>
+class DeleteNote extends React.Component{
+ 
+   delete = ()=>{
+        this.props.deleteNote(this.props.match.params.id)
+        this.props.getNote()
+    }
+    render(){
+        return (
+            <ContentDiv>
+                <DeleteView deleteNote={this.delete} id={this.props.match.params.id}/>
+                <NoteView {...this.props}/>
+            </ContentDiv>
         )
+    }
+ 
 }
 
 export default DeleteNote

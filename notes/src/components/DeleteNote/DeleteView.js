@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
-import { Route } from 'react-router-dom'
 const DeleteViewDiv = styled.div`
     position: absolute;
     z-index: 1;
@@ -45,6 +44,7 @@ const LeftButton = styled.button`
     opacity: 1;
     z-index: 2;
     border: 1px solid gray;
+    cursor: pointer;
 `
 const RightButton = styled.button`
     width: 150px;
@@ -55,6 +55,7 @@ const RightButton = styled.button`
     z-index: 2;
     border: 1px solid gray;
     background-color:#2bc1c4;
+    cursor: pointer;
 `
 
 const DeleteView = (props) =>{
@@ -63,7 +64,7 @@ const DeleteView = (props) =>{
             <PromptDiv>
                 <PromptP>Are you sure you want to delete this?</PromptP>
                 <ButtonDiv>
-                    <Link to = '/'><LeftButton onClick = {props.deleteNote(props.id)}>Delete</LeftButton></Link>
+                    <Link to = '/'><LeftButton onClick = {props.deleteNote}>Delete</LeftButton></Link>
                     <Link to = {`/notes/${props.id}`}><RightButton onClick = {props.handleClick}>No</RightButton></Link>
                 </ButtonDiv>
             </PromptDiv>

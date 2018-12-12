@@ -49,7 +49,7 @@ class EditNote extends React.Component {
     render() {
         return (
             <ContentDiv>
-                <SideBar handleClick={this.props.handleClick} />
+                <SideBar handleLogout={this.props.handleLogout} handleClick={this.props.handleClick} />
                 <CreateContentDiv>
                     <CreateViewH1>Edit Note: </CreateViewH1>
                     <EditNoteForm

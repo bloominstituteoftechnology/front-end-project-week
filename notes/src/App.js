@@ -5,6 +5,7 @@ import './Reset.css'
 import { fetchNotes, addNotes,getNote,editNote,deleteNote } from './actions'
 import { Route } from 'react-router-dom'
 import { withRouter } from 'react-router'
+import Auth from './components/Authentication/Authentication'
 
 import ListContent from './components/ListView/ListContent'
 import CreateView from './components/CreateView/CreateView'
@@ -21,7 +22,8 @@ class App extends React.Component{
         super(props);
         this.state ={
             path : '',
-            location: undefined
+            location: undefined,
+            loginStatus: this.props.loginStatus
         }
         console.log(this.props.location.pathname)
     }
@@ -37,7 +39,7 @@ class App extends React.Component{
         
     }
    
-    
+ 
     
     handleClick = () => {
         this.forceUpdate()
@@ -51,6 +53,7 @@ class App extends React.Component{
                         render={() => 
                         <ListContent 
                         targetNote = {this.props.targetNote}
+                        handleLogout ={this.props.handleLogout}
                         getNote = {this.props.getNote}
                         handleClick = {this.handleClick} 
                         list={this.props.notes} 
@@ -61,6 +64,7 @@ class App extends React.Component{
                         render = {()=>
                         <CreateView 
                         addNotes = {this.props.addNotes}
+                        handleLogout={this.props.handleLogout}
                         handleClick={this.handleClick}/>} />
                     <Route 
                         path = {`/notes/:id`}
@@ -69,6 +73,7 @@ class App extends React.Component{
                         location = {this.state.location}
                         note = {this.props.note}
                         getNote = {this.props.getNote}
+                        handleLogout={this.props.handleLogout}
                          {...props}/>}/>
                     <Route 
                     path ={`/delete/:id`}
@@ -77,11 +82,12 @@ class App extends React.Component{
                             deleteNote = {this.props.deleteNote}
                             getNote={this.props.getNote}
                             handleClick = {this.handleClick}
+                            handleLogout={this.props.handleLogout}
                             {...props} />}
                     />
                     <Route
                         path={`/edit/:id`}
-                        render={props => <EditNote editNote = {this.props.editNote} {...props} />}
+                        render={props => <EditNote handleLogout = {this.props.handleLogout}editNote = {this.props.editNote} {...props} />}
                     />
                 </AppDiv>
                 )

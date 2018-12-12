@@ -27,7 +27,7 @@ componentDidMount(){
     render(){
         return (
             <ContentDiv>
-                <SideBar />
+                <SideBar handleLogout={this.props.handleLogout}/>
                 <NoteDiv>
                     <NoteNav id ={this.props.match.params.id}/>
                     <NoteContent title = {this.props.note.title} text = {this.props.note.textBody}/>

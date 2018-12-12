@@ -40,6 +40,7 @@ const SideBar = (props)=>{
         <SideBarHeader>Lambda Notes</SideBarHeader>
             <NavLink to='/'><SideBarButton onClick={props.handleClick}>View Your Notes</SideBarButton></NavLink>
             <NavLink to='/create'><SideBarButton onClick={props.handleClick}>+ Create New Notes</SideBarButton></NavLink>
+            <NavLink to='/'><SideBarButton onClick={props.handleLogout}>Log Out</SideBarButton></NavLink>
       </SideBarDiv>  
     )
 }
