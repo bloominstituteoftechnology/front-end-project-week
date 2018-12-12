@@ -11,11 +11,12 @@ import AddNewNote from "./components/AddNewNote/AddNewNote";
 import Note from "./components/Note/Note";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
 import EditNoteForm from "./components/EditNoteForm/EditNoteForm";
-
+import Settings from './components/Settings/Settings';
 
 const AppContainer = styled.div`
 	height: 100%;
 	display: flex;
+	background-color: #F2F1F2;
 `;
 
 // ========== END OF STYLES ==================
@@ -123,6 +124,18 @@ class App extends Component {
 								{...props}
 								note={this.props.note}
 								deleteNote={this.deleteNote}
+							/>
+						)}
+					/>
+
+					<Route
+						{...props}
+						exact
+						path={`/settings`}
+						render={props => (
+							<Settings
+								{...props}
+								// themeColor={this.themeColor}
 							/>
 						)}
 					/>

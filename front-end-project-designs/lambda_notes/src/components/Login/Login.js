@@ -5,35 +5,45 @@ import styled from "styled-components";
 const LoginBackground = styled.div`
 	width: 100%;
 	height: 100vh;
-    background: no-repeat center/110% url('https://images.unsplash.com/photo-1544571132-f7e03b89af5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80');
-    /* background-repeat: no-repeat; */
-`;
+    background: url('trianglify.svg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+
+    h1 {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        font-size: 72px;
+        color: #fff;
+    }
+`
 
 const LoginFormContainer = styled.div`
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	flex-direction: column;
-	width: 40%;
-	height: 40%;
-	background-color: rgba(240,240,240,0.8);
-	/* opacity: 0.8; */
-	border: 5px solid #24b8bd;
-	border-radius: 15px;
+    width: 30%;
+    min-width: 400px;
+    height: 40%;
+    min-height: 350px;
+	background-color: rgba(240,240,240,0.6);
+	/* border: 5px solid #24b8bd; */
+	border-radius: 8px;
 	margin: 0 auto;
 	padding: 0 100px 20px;
 
 	
 	.login-form {
 		display: flex;
-		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		width: 60%;
+        width: 80%;
 	}
 
 	h3 {
-		text-align: center;
+        text-align: center;
+        font-size: 24px;
 	}
 
 	a {
@@ -41,7 +51,8 @@ const LoginFormContainer = styled.div`
 		text-align: center;
 		margin-top: 40px;
 		font-family: Helvetica, sans-serif;
-		color: #999999;
+        color: #222222;
+        font-weight: bold;
 
 		.strong {
 			font-weight: bold;
@@ -63,21 +74,29 @@ const LoginInput = styled.input`
 	background-color: #ffffff;
 	color: #20272d;
 	border: 1px solid #efefef;
-	border-radius: 2px;
+	border-radius: 20px;
 	padding: 10px;
 	margin: 10px;
-	font-size: 0.8rem;
+    font-size: 0.8rem;
+    
+    &:focus {
+        outline: 0;
+        -moz-box-shadow: 0px 0px 0px 2px #24b8bd;
+        -webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
+        box-shadow: 0px 0px 0px 2px #24b8bd;
+    }
 `;
 
 const LoginButton = styled.button`
-	width: 30%;
+	width: 200px;
 	min-width: 200px;
-	padding: 10px 40px;
+    padding: 10px 40px;
+    margin-top: 20px;
 	background-color: #24b8bd;
 	color: #f3f9f9;
 	border: 0;
 	border-radius: 5px;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	cursor: pointer;
 	letter-spacing: 0.1rem;
 
@@ -111,7 +130,9 @@ class Login extends React.Component {
 	render() {
 		return (
 			<LoginBackground>
+                <h1>Lambda Notes</h1>
 				<LoginFormContainer>
+                    
 					<h3>Sign in to view notes</h3>
 					<form className="login-form" onSubmit={this.login}>
 						<LoginInput
@@ -136,6 +157,7 @@ class Login extends React.Component {
 							Sign in
 						</LoginButton>
 						<a href="#">Create an account </a>
+                        
 					</form>
 				</LoginFormContainer>
 			</LoginBackground>

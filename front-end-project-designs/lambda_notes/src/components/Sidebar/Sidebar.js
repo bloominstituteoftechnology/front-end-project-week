@@ -5,7 +5,7 @@ import SearchForm from "../SearchForm/SearchForm";
 
 const SidebarContainer = styled.div`
 	background-color: #d3d2d3;
-	min-height: 100%;
+	min-height: 100vh;
 	min-width: 250px;
 	max-width: 250px;
 	padding: 20px;
@@ -13,8 +13,24 @@ const SidebarContainer = styled.div`
 	flex-direction: column;
 	flex-wrap: wrap;
 	align-items: center;
-	border-left: 2px solid #BEBEBE;
-	border-right: 2px solid #BEBEBE;
+	border-left: 2px solid #bebebe;
+	border-right: 2px solid #bebebe;
+`;
+
+const NavBar = styled.div`
+	width: 100%;
+	text-align: right;
+	font-size: 24px;
+
+	i {
+		margin: 5px;
+		color: #545354;
+		cursor: pointer;
+
+		&:hover {
+			color: #24b8bd;
+		}
+	}
 `;
 
 const MainHeader = styled.h1`
@@ -30,9 +46,10 @@ const SidebarButton = styled.div`
 	font-weight: bold;
 	text-align: center;
 	text-decoration: none;
+	cursor: pointer;
 
 	&:hover {
-		background-color: #00858A;
+		background-color: #00858a;
 	}
 `;
 
@@ -42,16 +59,25 @@ const LogOutButton = styled(SidebarButton)`
 
 // ================ END STYLES
 
-const Sidebar = (props) => {
+const Sidebar = props => {
 	return (
 		<SidebarContainer>
+			<NavBar>
+				<i class="fas fa-user-alt" onClick={props.logOut}/>
+				<Link to="/settings">
+					<i class="fas fa-cog" />
+				</Link>
+			</NavBar>
+
 			<MainHeader>Lambda Notes</MainHeader>
 			<Link to="/notes" onClick={props.getNotes}>
 				<SidebarButton>View Your Notes</SidebarButton>
 			</Link>
-			<Link to="/addnewnote"><SidebarButton href="#">+ Create New Note</SidebarButton></Link>
+			<Link to="/addnewnote">
+				<SidebarButton href="#">+ Create New Note</SidebarButton>
+			</Link>
 			<SearchForm />
-			
+
 			<LogOutButton onClick={props.logOut}>Log Out</LogOutButton>
 		</SidebarContainer>
 	);

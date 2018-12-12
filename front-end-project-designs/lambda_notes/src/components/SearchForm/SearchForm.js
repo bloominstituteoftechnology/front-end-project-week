@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const SearchFormContainer = styled.form`
     display: flex;
@@ -9,25 +8,32 @@ const SearchFormContainer = styled.form`
 `;
 
 const SearchBox = styled.input`
-    margin-top: 40px;
+    margin-top: 10px;
     padding: 10px;
-    /* border-radius: 3px; */
-    width: 80%;
+    border-radius: 20px;
+    width: 200px;
     border: 0;
+
+    &:focus {
+        outline: 0;
+        -moz-box-shadow: 0px 0px 0px 2px #24b8bd;
+        -webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
+        box-shadow: 0px 0px 0px 2px #24b8bd;
+    }
 `;
 
-const SearchBoxButton = styled.button`
-    width: 80%;
-	background-color: #24b8bd;
-	color: #f3f9f9;
-	padding: 8px 15px;
-	margin: 12px;
-    font-weight: bold;
-    font-size: 1rem;
-	text-align: center;
-    text-decoration: none;
-    border: 0;
-`;
+// const SearchBoxButton = styled.button`
+//     width: 80%;
+// 	background-color: #24b8bd;
+// 	color: #f3f9f9;
+// 	padding: 8px 15px;
+// 	margin: 12px;
+//     font-weight: bold;
+//     font-size: 1rem;
+// 	text-align: center;
+//     text-decoration: none;
+//     border: 0;
+// `;
 
 class SearchForm extends React.Component {
 	constructor(props) {

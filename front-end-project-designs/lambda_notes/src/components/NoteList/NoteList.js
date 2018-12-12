@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Route } from "react-router-dom";
 
 import Note from "../Note/Note";
-import SearchForm from "../SearchForm/SearchForm";
 
 const NoteListContainer = styled.div`
 	background-color: #f2f1f2;
@@ -12,7 +11,7 @@ const NoteListContainer = styled.div`
 	padding: 40px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: flex-start;
 	align-items: flex-start;
 
 	h2 {
@@ -37,13 +36,14 @@ const NoteCardContainer = styled.div`
 	/* min-width: 150px; */
 	min-height: 150px;
 	margin: 5px;
-	padding: 15px;
+	padding: 10px 15px 15px;
 	border: 1px solid #dbdbdb;
 	/* border: 2px solid red; */
 	cursor: pointer;
 
 	h4 {
 		border-bottom: 1px solid #20272d;
+		margin: 0;
 	}
 `;
 
