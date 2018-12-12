@@ -4,7 +4,6 @@ import "simplemde/dist/simplemde.min.css";
 import styled from 'styled-components';
 
 const FormDiv = styled.div`
-    border: 1px solid gray;
     background-image: linear-gradient(rgba(253,161,110, 0.85),rgba(77,161,78, 0.3));
     width: 740px;
     max-height: 100%;
