@@ -1,5 +1,5 @@
 import React from 'react';
-import { Main, Section, H2, P, H1, Div } from '../style';
+import { Main, Section, H2, H1, Div } from '../style';
 import { Link } from 'react-router-dom';
 import NoteForm from './NoteForm';
 

@@ -23,24 +23,25 @@ body {
 }
 `;
 export const AppContainer = styled.div`
+	z-index: 0;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items:center;
 	position: relative;
+	border: 3px dashed #C3D2D5;
 	background: #37515F;
 	border-radius: 10%;
-	width: 700px;
-	padding-right: 5%;
+	width: 750px;
 	z-index: 10;
 `;
 
 export const Nav = styled.nav`
 	display: flex;
 	flex-flow: row wrap;
-	width: 30%;
+	width: 25%;
 	position: absolute;
-	right: 0;
+	right: 5px;
 	align-items: center;
 	border: 2px solid #C3D2D5;
 	justify-content: center;
@@ -59,6 +60,7 @@ export const Button = styled.button`
 	width: 100px;
 	background: #1F0812;
 	font-weight: bold;
+	text-align: center;
 	:hover {
 		background: white;
 		color: #1F0812 ;
@@ -74,22 +76,33 @@ export const Main = styled.main`
 	background: #E4959E;
 	border: 2px solid #C3D2D5;
 	width: 50%;
-	padding: 2.5% 5% 0;
+	padding: 1% 5% 0;
+	margin: 1% 2%;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-start;
 	align-items: center;
-	border-radius: 10%;
+	border-radius: 150px;
 	height: 95vh;
+	opacity: ${props => props.component === 'delete' ? '.5' : null};
 `;
 export const Div = styled.div`
+	position: ${props => props.component === 'delete' ? 'absolute' : null};
+	z-index: ${props => props.component === 'delete' ? '10' : null};
+	opacity: ${props => props.component === 'delete' ? '1' : null};
+	right: ${props => props.component === 'delete' ? '-9.5%' : null};
+	top: ${props => props.component === 'delete' ? '25%' : null};
+	background: ${props => props.component === 'delete' ? '#1F0812' : null};
+	border-radius: ${props => props.component === 'delete' ? '10px' : null};
+	height: ${props => props.component === 'delete' ? '30vh' : null};
+	width: ${props => props.component === 'delete' ? '270px' : '400px'};
+	border: ${props => props.component === 'delete' ? '2px dashed #FFF' : null};
 	display: flex;
 	margin: 2.5% 10%;
 	padding: 5% 0;
 	justify-content: space-around;
 	align-items: center;
 	flex-flow: row wrap;
-	width: 400px;
 `;
 
 export const Section = styled.section`
@@ -117,17 +130,20 @@ export const Section = styled.section`
 `;
 export const H1 = styled.h1`
 	font-size: 2.6rem;
-	color: #1F0812;
+	color: ${props => props.component === 'delete' ? '#FFFFFF' : '#1F0812'}
 	text-align: center;
 	justify-self: flex-start;
 	font-weight: bold;
 `;
 export const H2 = styled.h2`
-	text-align: justify;
-	font-size: ${props => props.component === 'single' ? '3.2rem' : '1.4rem'};
+	text-align: center;
+	font-size: ${props => props.component === 'single' ? '2.4rem' : '1.4rem'};
 	font-weight: bold;
+	padding: 0 5%;
 	border-bottom: 1px solid #FFF;
-	margin-bottom: 2.5%
+	overflow: hidden;
+	max-width: 300px;
+	margin-bottom: 2.5%;
 `;
 
 export const P = styled.p`

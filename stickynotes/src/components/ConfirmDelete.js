@@ -1,11 +1,10 @@
 import React from 'react';
-import {Div, Button} from '../style';
-import {Link} from 'react-router-dom';
+import {Div, Button, H1} from '../style';
 
 const ConfirmDelete = props => {
-    const id = props.match.params.id;
     return (
         <Div component='delete'>
+        <H1 component='delete'>Confirm Delete Note</H1>
         <Button
         onClick={(event) => {
             event.preventDefault();
@@ -15,13 +14,13 @@ const ConfirmDelete = props => {
         }}>
             Delete
         </Button>
-        <Link to={`/${id}`}><Button
+        <Button
         onClick={(event) => {
             event.preventDefault();
             props.toggleMode('default');
         }}>
             Cancel
-        </Button></Link>
+        </Button>
 
         </Div>
     )

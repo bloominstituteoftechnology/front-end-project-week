@@ -1,8 +1,7 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
 import NoteForm from './NoteForm';
-
-import { Main, H2, P, Div, Button } from '../style';
+import NoteView from './NoteView';
+import ConfirmDelete from './ConfirmDelete';
 
 const NoteSingle = (props) => {
 	const id = props.match.params.id;
@@ -18,38 +17,31 @@ const NoteSingle = (props) => {
 				id={id}
 			/>
 		);
+	} else if (props.mode === 'delete') {
+		return (
+			<React.Fragment>
+				<ConfirmDelete
+					id={id}
+					toggleMode={props.toggleMode}
+					deleteNote={props.deleteNote}
+					history={props.history}
+				/>
+				<NoteView
+					notes={props.notes}
+					toggleMode={props.toggleMode}
+					component="delete"
+					id={id}
+				/>
+			</React.Fragment>
+		);
 	} else {
 		return (
-			<Main>
-				{props.notes.slice(0, 12).map((note) =>
-					note._id === id ? (
-						<React.Fragment>
-						<Div>
-							<Button
-								component='single'
-								onClick={(event) => {
-									event.preventDefault();
-									props.toggleMode('edit');
-								}}
-							>
-								Edit
-							</Button>
-							<Button
-								component='single'
-								onClick={(event) => {
-									event.preventDefault();
-									props.toggleMode('delete');
-								}}
-							>
-								Delete
-							</Button>
-							</Div>
-							<H2 component='single'>{note.title}</H2>
-							<P component='single'>{note.textBody}</P>
-						</React.Fragment>
-					) : null
-				)}
-			</Main>
+			<NoteView
+				notes={props.notes}
+				toggleMode={props.toggleMode}
+				component="single"
+				id={id}
+			/>
 		);
 	}
 };
