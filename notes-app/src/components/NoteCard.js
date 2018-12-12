@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-//import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DeleteModal from './DeleteModal';
-import NoteForm from './NoteForm';
+import EditForm from './EditForm';
 import axios from 'axios';
 
 //EDIT IS HERE!!
@@ -11,17 +11,21 @@ class NoteCard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      note: [],
+      note: {},
       title: '',
       textBody:'',
       isDeleting: false,
       isEditing: false,
     }
   }
+  
+  componentDidMount(){
+    const id = this.props.match.params.id;
+    this.getNote(id);
+  }
 
   //GET NOTE BEGINS
-
-  getNote = id => {
+  getNote = (id) => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
@@ -32,33 +36,13 @@ class NoteCard extends Component {
         console.log(error);
       })
   }
-
-  componentDidMount(){
-    const id = this.props.match.params.id;
-    this.getNote(id);
-  }
   //GET NOTE ENDS
 
-  //EDIT NOTE BEGINS
 
-  editNote = (id) => {
-    axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
-        title: this.state.title,
-        textBody: this.state.textBody,
-      })
-      .then( response => {
-        this.setState(() => ({ note: response.data }))
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
-  //EDIT NOTE ENDS
 
   //DELETE STARTS
   toggleDeleting = () => {
-    this.setState({deleting : !this.state.deleting})
+    this.setState({isDeleting : !this.state.isDeleting})
   }
 
   deleteNote = (event, id) => {
@@ -73,11 +57,13 @@ class NoteCard extends Component {
   }
   //DELETE ENDS
 
+  //what is this for?
   componentWillReceiveProps(newProps){
     if(this.props.match.params.id !== newProps.match.params.id){
       this.fetchNote(newProps.match.params.id);
     }
   }
+
 
   render() {
       if(!this.state.note) {
@@ -92,8 +78,18 @@ class NoteCard extends Component {
         <div className='singleNote'>
           <div>{this.state.note.title}</div>
           <div>{this.state.note.textBody}</div>
-          <button onClick={this.isEditing}>edit</button>
-          <button onClick={this.isDeleting}>delete</button>
+
+          <button><Link to={`/edit/${this.state.note._id}`}>
+            edit
+          </Link></button>
+
+          <button>
+          </button>
+
+          <button onClick={this.deleteNote 
+            //changes deleting to true
+            //once true, render deletemodal
+          }>delete</button>
         </div>
       )
   }

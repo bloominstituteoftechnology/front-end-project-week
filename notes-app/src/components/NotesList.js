@@ -3,7 +3,12 @@ import Note from './Note';
 import Navigation from './Navigation';
 
 class NotesList extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: []
+    }
+  }
   
   render() {
     return (

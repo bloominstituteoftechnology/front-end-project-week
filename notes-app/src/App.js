@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import NotesList from './components/NotesList';
 import NoteForm from './components/NoteForm';
 import NoteCard from './components/NoteCard';
+import EditForm from './components/EditForm';
 import axios from 'axios';
 import './App.css';
 
@@ -101,7 +102,9 @@ class App extends Component {
           render={props => <NoteForm {...props} /> }/>
         
         <Route path="/notecard/:id" 
-          render={props => <NoteCard {...props} deleteNote={this.deleteNote} />} />
+          render={props => <NoteCard {...props}  />} />
+        <Route path="/edit/:id"
+          render={props => <EditForm {...props} /> } />
 
       </div>
     );
