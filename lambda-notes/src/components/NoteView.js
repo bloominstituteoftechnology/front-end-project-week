@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ReactSimpleMDE } from 'react-simplemde';
+import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 
 const NoteDiv = styled.div`
@@ -63,7 +63,7 @@ export default class NoteView extends Component {
 						) : (
 							<div>
 								<Title>{this.props.note.title}</Title>
-								<Paragraph><ReactSimpleMDE initialValue={this.props.note.textBody} /></Paragraph>
+								<Paragraph><ReactMarkdown source={this.props.note.textBody} /></Paragraph>
 							</div>
 						)}
 					</NoteDiv>

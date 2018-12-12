@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Fuse from 'fuse.js';
 
 import NoteCard from './NoteCard';
 
@@ -54,35 +55,59 @@ export default class NotesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchTerm: ''
+            searchTerm: '',
+            displayedNotes: []
         }
     }
-    
+
     changeHandler = e => {
         this.setState ({
+            ...this.state,
             searchTerm: e.target.value
+        }, () => this.search(this.state.searchTerm));
+    }
+    
+    search = searchTerm => {
+        console.log('searching!');
+        const options = {
+          shouldSort: true,
+          threshold: 0.5,
+          location: 0,
+          distance: 100,
+          maxPatternLength: 32,
+          minMatchCharLength: 1,
+          keys: [
+            'title',
+            'textBody'
+          ]
+        };
+        const fuse = new Fuse(this.props.notes, options);
+        const result = fuse.search(searchTerm);
+    
+        this.setState({
+            ...this.state,
+            displayedNotes: (result === '') ? (this.props.notes) : (result)
         });
     }
 
     render() {
         return (
             <NotesListDiv>
-                    <Input 
-                        onChange={this.changeHandler} 
-                        placeholder="Search" 
-                        value={this.state.searchTerm}
-                    />
+                <Input 
+                    onChange={this.changeHandler} 
+                    placeholder="Search" 
+                    value={this.state.searchTerm}
+                />
                 {/* <NotesListTitle>
                     Your Notes:
                 </NotesListTitle> */}
                 <NoteCardDisplay>
                     {(this.props.fetching) ? (<p>Loading...</p>) :
-                        (this.props.notes.filter(note =>
-                            note.title.includes(this.state.searchTerm)
-                        ).map(note => 
-                            { return <NoteCard note={note} /> }
-                        ))
+                        (() => this.search())
                     }
+                    {this.state.displayedNotes.map(note => 
+                        <NoteCard note={note} />
+                    )}
                 </NoteCardDisplay>
             </NotesListDiv>
         ); 
