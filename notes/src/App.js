@@ -18,8 +18,9 @@ class App extends React.Component{
     this.setState({user : {...this.state.user,[e.target.name] : e.target.value }})
   }
 
-  OnSubmitHandler(e){
-    alert('I dont have this set up yet lol')
+  OnSubmitHandler = e => {
+    e.preventDefault();
+    this.setState({loggedIn : true})
   }
 
   render(){
@@ -33,7 +34,7 @@ class App extends React.Component{
       {...this.props}
       loggedIn={this.state.loggedIn}
       ChangeHandler = {this.onChangeHandler}
-      SubmitHandler = {this.SubmitHandler}
+      SubmitHandler = {this.OnSubmitHandler}
       />
       )
     }
