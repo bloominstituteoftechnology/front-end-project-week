@@ -1,0 +1,58 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+	text-decoration: none;
+}
+
+a {
+	color: inherit;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	box-sizing: border-box;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	color: #212121;
+}
+
+input {
+	font-family: inherit;
+}
+
+button {
+	display: inline-block;
+	border: none;
+	padding: 1rem 2rem;
+	margin: 0;
+	text-decoration: none;
+	background: #0069ed;
+	color: #ffffff;
+	font-family: inherit;
+	font-size: 1.4rem;
+	cursor: pointer;
+	text-align: center;
+	transition: background 250ms ease-in-out, transform 150ms ease;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+	background: #0053ba;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table th,
+td {
+	border: 1px solid #212121;
+	padding: 5px;
+}
