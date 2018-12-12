@@ -18,9 +18,11 @@ const NewNoteFormInput = styled.input`
 	/* border-radius: 3px; */
 
 	&:focus {
-		border: 2px solid #24B8BD;
-		outline: 0;
-	}
+        outline: 0;
+        -moz-box-shadow: 0px 0px 0px 2px #24b8bd;
+        -webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
+        box-shadow: 0px 0px 0px 2px #24b8bd;
+    }
 `;
 
 const NewNoteFormTextArea = styled.textarea`
@@ -32,12 +34,14 @@ const NewNoteFormTextArea = styled.textarea`
 	resize: none;
 	width: 600px;
 	height: 400px;
+	white-space: pre-wrap;
 
 	&:focus {
-		border: 2px solid #24B8BD;
-		outline: 0;
-		height: 398px;
-	}
+        outline: 0;
+        -moz-box-shadow: 0px 0px 0px 2px #24b8bd;
+        -webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
+        box-shadow: 0px 0px 0px 2px #24b8bd;
+    }
 `;
 
 const NewNoteFormButton = styled.button`

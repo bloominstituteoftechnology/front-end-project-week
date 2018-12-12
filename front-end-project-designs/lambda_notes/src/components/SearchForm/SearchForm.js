@@ -5,14 +5,19 @@ const SearchFormContainer = styled.form`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    h2 {
+        color: #24b8bd;
+    }
 `;
 
 const SearchBox = styled.input`
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 20px;
+    margin:  4px 20px 27px;
+    padding: 5px;
+    border-radius: 30px;
     width: 200px;
     border: 0;
+}
 
     &:focus {
         outline: 0;
@@ -62,7 +67,7 @@ class SearchForm extends React.Component {
         console.log('search form', this.state)
 		return (
 			<SearchFormContainer onSubmit={this.handleSubmit}>
-				<SearchBox type="text" placeholder="Search your notes" name="searchQuery" onChange={this.handleChange}/>
+				<SearchBox type="text" placeholder='Search your notes' name="searchQuery" onChange={this.handleChange}/>
 				{/* <SearchBoxButton>Search</SearchBoxButton> */}
 			</SearchFormContainer>
 		);

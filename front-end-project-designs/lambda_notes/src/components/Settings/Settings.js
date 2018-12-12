@@ -11,6 +11,10 @@ const SettingsFormContainer = styled.div`
     h2 {
         width: 100%;
     }
+
+    .test {
+        color: red;
+    }
 `
 
 class Settings extends React.Component {
@@ -22,10 +26,13 @@ class Settings extends React.Component {
     }
 
     handleChange = event => {
+        document.querySelector('.test').style.color = this.state.themeColor
 		this.setState({
 			themeColor: event.target.value,
         });
         console.log('themeColor :', this.state.themeColor)
+        
+        
 	};
 
     render() {
@@ -36,6 +43,8 @@ class Settings extends React.Component {
                 <form>
                     <label for="themeColor">Choose your theme color</label>
                     <input type="color" name="themeColor" value={this.state.themeColor} onChange={this.handleChange}/>
+                    
+                <h2 className="test"> Test header </h2>
                 </form>
 
             </SettingsFormContainer>

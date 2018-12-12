@@ -135,7 +135,6 @@ class App extends Component {
 						render={props => (
 							<Settings
 								{...props}
-								// themeColor={this.themeColor}
 							/>
 						)}
 					/>

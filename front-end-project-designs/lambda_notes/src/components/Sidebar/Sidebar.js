@@ -8,19 +8,23 @@ const SidebarContainer = styled.div`
 	min-height: 100vh;
 	min-width: 250px;
 	max-width: 250px;
-	padding: 20px;
+	padding: 20px 0;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	align-items: center;
 	border-left: 2px solid #bebebe;
-	border-right: 2px solid #bebebe;
+	border-right: 5px solid #bebebe;
 `;
 
 const NavBar = styled.div`
-	width: 100%;
+	width: 20%;
 	text-align: right;
 	font-size: 24px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: #bebebe;
+	align-self: flex-end;
 
 	i {
 		margin: 5px;
@@ -53,9 +57,9 @@ const SidebarButton = styled.div`
 	}
 `;
 
-const LogOutButton = styled(SidebarButton)`
-	margin-top: auto;
-`;
+// const LogOutButton = styled(SidebarButton)`
+// 	margin-top: auto;
+// `;
 
 // ================ END STYLES
 
@@ -76,9 +80,9 @@ const Sidebar = props => {
 			<Link to="/addnewnote">
 				<SidebarButton href="#">+ Create New Note</SidebarButton>
 			</Link>
-			<SearchForm />
+			{/* <SearchForm /> */}
 
-			<LogOutButton onClick={props.logOut}>Log Out</LogOutButton>
+			{/* <LogOutButton onClick={props.logOut}>Log Out</LogOutButton> */}
 		</SidebarContainer>
 	);
 };

@@ -3,6 +3,20 @@ import styled from "styled-components";
 import { Route } from "react-router-dom";
 
 import Note from "../Note/Note";
+import SearchForm from "../SearchForm/SearchForm";
+
+const NoteListHeader = styled.div`
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+
+	i {
+		font-size: 24px;
+		color: #414141;
+		margin: 5px 10px;
+		cursor: pointer;
+	}
+`;
 
 const NoteListContainer = styled.div`
 	background-color: #f2f1f2;
@@ -33,6 +47,7 @@ const NoteCardContainer = styled.div`
 	/* min-width: 120px; */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
+	white-space: pre-wrap;
 	/* min-width: 150px; */
 	min-height: 150px;
 	margin: 5px;
@@ -46,8 +61,6 @@ const NoteCardContainer = styled.div`
 		margin: 0;
 	}
 `;
-
-
 
 class NoteList extends React.Component {
 	constructor(props) {
@@ -65,15 +78,48 @@ class NoteList extends React.Component {
 		this.props.getNotes();
 	}
 
-	filterNotes = props => {
-		if ("a") {
-			return this.state.notes;
-		} else {
-			return this.state.notes
-				.filter
-				// note => note.title.includes(searchQuery)
-				();
-		}
+	// filterNotes = props => {
+	// 	if ("a") {
+	// 		return this.state.notes;
+	// 	} else {
+	// 		return this.state.notes
+	// 			.filter
+	// 			// note => note.title.includes(searchQuery)
+	// 			();
+	// 	}
+	// };
+
+	sortNotesByAscendingLength = () => {
+		let sortedNotes = this.props.notes.sort( function (a,b) {
+			if (a.textBody.length < b.textBody.length) {
+				return -1
+			}
+			if (a.textBody.length > b.textBody.length) {
+				return 1
+			}
+			return 0
+		});
+		this.setState({
+			notes: sortedNotes
+		})
+		
+		console.log('sortNotes', this.state.notes)
+	};
+	sortNotesByDescendingLength = () => {
+		let sortedNotes = this.props.notes.sort( function (a,b) {
+			if (a.textBody.length < b.textBody.length) {
+				return 1
+			}
+			if (a.textBody.length > b.textBody.length) {
+				return -1
+			}
+			return 0
+		});
+		this.setState({
+			notes: sortedNotes
+		})
+		
+		console.log('sortNotes', this.state.notes)
 	};
 
 	render(props) {
@@ -83,7 +129,15 @@ class NoteList extends React.Component {
 		}
 		return (
 			<NoteListContainer>
-				<h2 className="lamba-notes-header">Your Notes:</h2>
+				<NoteListHeader>
+					<h2 className="lamba-notes-header">Your Notes:</h2>
+					<SearchForm />
+					<i class="fas fa-sort-alpha-up" onClick={this.sortNotesByLength} />
+					<i class="fas fa-sort-alpha-down" />
+					<i class="fas fa-sort-amount-up" onClick={this.sortNotesByAscendingLength}  />
+					<i class="fas fa-sort-amount-down" onClick={this.sortNotesByDescendingLength}  />
+				</NoteListHeader>
+
 				{this.props.notes.map(note => {
 					return (
 						<>
@@ -97,8 +151,8 @@ class NoteList extends React.Component {
 								className="note-card"
 							>
 								<h4>
-									{note.title.length > 20
-										? note.title.slice(0, 20).concat("...")
+									{note.title.length > 30
+										? note.title.slice(0, 30).concat("...")
 										: note.title}
 								</h4>
 								<p>

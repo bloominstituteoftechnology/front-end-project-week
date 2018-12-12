@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 
-
 const NoteCardContainer = styled.div`
 	background-color: #ffffff;
 	color: #20272d;
@@ -35,7 +34,9 @@ const NoteCardTitle = styled.h2`
 	word-wrap: break-word;
 `;
 
-const NoteCardContent = styled.div``;
+const NoteCardContent = styled.div`
+	white-space: pre-wrap;
+`;
 
 class Note extends React.Component {
 	constructor(props) {
