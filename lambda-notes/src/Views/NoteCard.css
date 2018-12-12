@@ -1,0 +1,24 @@
+.notes a {
+    width: 20%;
+    border: 2px solid #EAEAEA;
+    background-color: #FFFFFF;
+    margin: 1%;
+    margin-left: 5%;
+    text-align: left;
+    font-size: 1.2rem;
+    padding: 0 2.5%;
+    text-decoration: none;
+    color: black;
+    height: auto;
+    overflow: hidden;
+}
+
+.notecard h3 {
+    border-bottom: 2px solid #EAEAEA;
+    padding-bottom: 5px;
+    margin-block-end: .5em;
+}
+
+.notecard p {
+    margin-block-start: .5em;
+}

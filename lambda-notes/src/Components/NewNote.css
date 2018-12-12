@@ -1,0 +1,48 @@
+.new-note {
+    background-color: #F2F1F2;
+    width: 80%;
+    margin-left: 20%;
+    height: 100vh;
+}
+
+.new-note h2 {
+    font-size: 1.6rem;
+    color: #474747;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.new-note input {
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-left: 5%;
+    width: 60%;
+    padding: 1%;
+}
+
+.new-note textarea {
+    margin-left: 5%;
+    width: 75%;
+    height: 500px;
+    padding: 1% 1.5%;
+    border-radius: 5px;
+    resize: none;
+}
+
+.new-note div {
+    text-decoration: none;
+    background-color: #24B8BD;
+    color: #FFFFFF;
+    width: 20%;
+    padding: 1%;
+    margin: 1%;
+    margin-left: 5%;
+    margin-bottom: 10%;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.new-note div:hover {
+    background-color: #14696C;
+}

@@ -1,0 +1,101 @@
+.single-note {
+    margin-left: 20%;
+    background-color: #F2F1F2;
+    width: 80%;
+    height: 100vh;
+    z-index: 0;
+}
+
+.single-note .link-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20%;
+    padding-top: 20px;
+}
+
+.single-note .link-wrapper a {
+    text-decoration: underline;
+    color: black;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.single-note .link-wrapper a:first-of-type {
+    margin-right: 3%;
+}
+
+.single-note h3 {
+    font-size: 1.6rem;
+    color: #474747;
+    margin-top: 1%;
+    margin-left: 5%;
+    overflow: hidden;
+    margin-right: 20%;
+}
+
+.single-note p {
+    font-size: 1.2rem;
+    margin-left: 5%;
+    overflow: hidden;
+    margin-right: 20%;
+}
+
+.single-note .delete-modal {
+    z-index: 2;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 0.75;
+    background-color: #99A4Af;
+    display: flex;
+    justify-content: center;
+}
+
+.single-note .delete-modal .delete-menu {
+    background-color: #FFFFFF;
+    border: 2px solid #EAEAEA;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 150px;
+    margin-top: 10%;
+    z-index: 3;
+    position: absolute;
+}
+
+.single-note .delete-modal .delete-menu p {
+    width: 100%;
+    text-align: center;
+    height: 1.6rem;
+    margin-left: 0;
+    margin-right: 0;
+    margin-block-end: 0;
+}
+
+.single-note .delete-modal .delete-menu a {
+    color: #FFFFFF;
+    background-color: black;
+    border: 1px solid #EAEAEA;
+    width: 10%;
+    height: 15%;
+    padding: 1% 8%;
+    font-size: .8rem;
+    margin-right: 1.5%;
+    margin-left: 1.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.single-note .delete-modal .delete-menu .cancel {
+    background-color: #24B8BD;
+}
+
+.single-note .delete-modal .delete-menu .delete {
+    background-color: #CA001A;
+}

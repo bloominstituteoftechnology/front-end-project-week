@@ -1,0 +1,38 @@
+nav {
+    width: 20%;
+    height: 100vh;
+    background-color: #D3D2D3;
+    border: 1px solid black;
+    position: fixed;
+}
+
+nav h1 {
+    color: #414141;
+    font-size: 2.4rem;
+    margin-left: 8%;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    line-height: 1
+}
+
+nav .btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav .btn-container a {
+    text-decoration: none;
+    background-color: #24B8BD;
+    color: #FFFFFF;
+    width: 75%;
+    padding: 5%;
+    margin: 1%;
+    margin-bottom: 10%;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+nav .btn-container a:hover {
+    background-color: #14696C;
+}
