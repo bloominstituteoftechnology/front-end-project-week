@@ -3,10 +3,12 @@ import styled from "styled-components";
 import { Route } from "react-router-dom";
 
 import Note from "../Note/Note";
+import SearchForm from "../SearchForm/SearchForm";
 
 const NoteListContainer = styled.div`
 	background-color: #f2f1f2;
 	width: 100%;
+	min-height: 100vh;
 	padding: 40px;
 	display: flex;
 	flex-wrap: wrap;
@@ -45,11 +47,13 @@ const NoteCardContainer = styled.div`
 	}
 `;
 
+
+
 class NoteList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// notes: [],
+			notes: [],
 			// id: "",
 			// title: "",
 			// tags: "",
@@ -61,8 +65,19 @@ class NoteList extends React.Component {
 		this.props.getNotes();
 	}
 
-	render() {
-		// console.log("Notelist props", this.props);
+	filterNotes = props => {
+		if ("a") {
+			return this.state.notes;
+		} else {
+			return this.state.notes
+				.filter
+				// note => note.title.includes(searchQuery)
+				();
+		}
+	};
+
+	render(props) {
+		console.log("Notelist props", this.props);
 		if (!this.props.notes) {
 			return <h2>Loading...</h2>;
 		}

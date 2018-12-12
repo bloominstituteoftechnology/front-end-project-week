@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
+import Authenticate from '../src/Authenticate/Authenticate';
 import Sidebar from "./components/Sidebar/Sidebar";
 import NoteList from "./components/NoteList/NoteList";
 import AddNewNote from "./components/AddNewNote/AddNewNote";
@@ -33,6 +34,11 @@ class App extends Component {
 
 	componentDidMount() {
 		this.getNotes();
+	}
+	
+	logOut = () => {
+		window.localStorage.removeItem('username');
+		window.location.reload();
 	}
 
 	getNotes = () => {
@@ -78,7 +84,7 @@ class App extends Component {
 		return (
 			<>
 				<AppContainer>
-					<Sidebar {...props} getNotes={this.getNotes} />
+					<Sidebar {...props} getNotes={this.getNotes} logOut={this.logOut}/>
 					<Route
 						exact
 						path="/notes"
@@ -126,4 +132,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default Authenticate(App);
