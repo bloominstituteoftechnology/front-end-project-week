@@ -1,0 +1,308 @@
+.main-container {
+  display: flex;
+  
+}
+
+.main-nav {
+  background: #d7d7d7;
+  width: 20%;
+  position: fixed;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-header {
+  font-size: 4.5rem;
+  font-weight: bold;
+  line-height: 4rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+.nav-link:nth-of-type(1) {
+  margin-top: 40px;
+}
+
+.nav-link {
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  background: #2ac0c4;
+  border-radius: 2px;
+  border: 1px solid #C0C0C0;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+/* Notes list main page */
+.notes-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #f3f3f3;
+  padding-left: 350px;
+}
+
+
+.note-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 90%;
+  
+}
+
+.note {
+  width: 300px;
+  margin-bottom: 15px;
+  margin-right: 30px;
+  background: #fff;
+  height: 300px;
+  border: 1px solid #A9A9A9;
+  border-radius: 2px;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.note-body {
+  padding: 10px;
+}
+
+.note-body h2 {
+  color: black;
+  border-bottom: 1.3px solid #A9A9A9;
+  padding-bottom: 5px;
+}
+
+.note-body p {
+  color: black;
+}
+
+
+/* Add Note Form styling */
+.form-container {
+  padding-left: 350px;
+  padding-top: 80px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form-container form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container input, textarea {
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 500px;
+  margin-bottom: 20px;
+  color:  #7575a3;
+  font-family: inherit;
+  font-size: 1.5rem;
+}
+
+.nav-link-sm {
+  width: 250px;
+}
+
+.form-container textarea {
+  width: 100%;
+}
+
+/*Note View page*/
+.note-view {
+  padding-left: 350px;
+  padding-top: 60px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.edit-delete-container {
+  display: flex;
+  position: fixed;
+  right: 64px;
+  width: 150px;
+  justify-content: space-around;
+  color: #4e4d4e;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.edit-delete {
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.note-view h2{
+  margin-top: 20px;
+}
+
+.note-view p {
+  margin-top: 35px;
+}
+
+/*Edit form amendments */
+.sm-padding {
+  padding-left: 0;
+  padding-top: 20px;
+}
+
+
+/* Delete View */
+.delete-view {
+  background: rgba(153, 153, 153, .7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-box {
+  width: 700px;
+  height: 300px;
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.delete-box h3 {
+  font-size: 2.2rem;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.btn-container {
+  display: flex;
+  width: 600px;
+  margin: 0 auto;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.nav-link-sm-height {
+  height: 65px;
+  cursor: pointer;
+}
+
+.nav-link-red {
+  background: #d0011b;
+  cursor: pointer;
+}
+
+/*Search Input */
+.heading-flex-wrapper {
+  display: flex;
+  align-items: baseline;
+  margin: 30px auto 30px auto;
+  width: 90%;
+
+}
+
+.notes-heading  {
+  width: 250px;
+  font-size: 3.5rem;
+}
+
+.main-input {
+  padding: 0 20px;
+  height: 52px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 500px;
+  margin-bottom: 20px;
+  color:  #7575a3;
+  font-family: inherit;
+  font-size: 1.5rem;
+}
+
+
+/*DropDown content */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  background-color: #2E353D;
+  color: white;
+  margin-left: 10px;
+  width: 150px;
+  height: 40px;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.dropbtn span {
+  margin-left: 25px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content p {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.dropdown-content p:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #242A30;}
+
+/* csv link */
+.cvslink {
+  padding-left: 350px;
+  width: 90%;
+  margin: 30px auto 30px auto;
+  color: white;
+  text-align: center;
+}
+
+.cvslink-a {
+  display: block;
+  width: 170px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #2E353D;
+  color: white;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.cvslink-a:hover {
+  background-color: #242A30;
+}
