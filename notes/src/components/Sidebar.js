@@ -43,6 +43,24 @@ const SearchInput = styled.input`
     border-radius: 5px;
     padding: 10px;
 `;
+const SCButton = styled.button`
+    font-size: 16px;
+    
+    background: #25B7BD;
+    border: 1px solid #B7B7B7;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 10px;
+    margin-bottom: 15px;
+    width: 175px;
+    text-align: center;
+    :hover {
+        cursor: pointer;
+        background: white;
+        color: #25B7BD;
+    }
+`;
 
 const Sidebar = props => {
     return (
@@ -50,6 +68,7 @@ const Sidebar = props => {
             <StyledHeader>Lambda <br></br> Notes</StyledHeader>
             <NavButton to="/">View Your Notes</NavButton>
             <NavButton to="/createnewnote">+ Create New Note</NavButton>
+            <SCButton onClick={() => {props.downloadCSV({ filename: "stock-data.csv", columnDelimiter: "," })}}>Export Notes</SCButton>
             <SearchInput type="search" placeholder="Search..." onKeyDown={props.searchNotes} />
         </SidebarWrapper>
     )
