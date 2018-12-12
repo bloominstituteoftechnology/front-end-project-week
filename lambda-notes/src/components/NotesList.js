@@ -56,7 +56,7 @@ export default class NotesList extends Component {
         super(props);
         this.state = {
             searchTerm: '',
-            displayedNotes: []
+            displayedNotes: this.props.notes
         }
     }
 
@@ -66,6 +66,14 @@ export default class NotesList extends Component {
             searchTerm: e.target.value
         }, () => this.search(this.state.searchTerm));
     }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.notes !== prevProps.notes) {
+          this.setState({
+              displayedNotes: this.props.notes
+          })
+        }
+      }
     
     search = searchTerm => {
         console.log('searching!');
@@ -86,7 +94,7 @@ export default class NotesList extends Component {
     
         this.setState({
             ...this.state,
-            displayedNotes: (result === '') ? (this.props.notes) : (result)
+            displayedNotes: (searchTerm === '') ? (this.props.notes) : (result)
         });
     }
 
@@ -103,7 +111,7 @@ export default class NotesList extends Component {
                 </NotesListTitle> */}
                 <NoteCardDisplay>
                     {(this.props.fetching) ? (<p>Loading...</p>) :
-                        (() => this.search())
+                        null
                     }
                     {this.state.displayedNotes.map(note => 
                         <NoteCard note={note} />
