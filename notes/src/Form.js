@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import './index.css';
-import {addNote,editNote} from "./Actions"
+import {addNote,editNote,getNotes} from "./Actions"
 import './index.css';
 
 class Form extends Component {
@@ -22,15 +22,22 @@ class Form extends Component {
         event.preventDefault();
         if(this.props.edit){
             const newObj = {...this.state,_id:this.props._id}
+
+            this.props.history.push('/')
             this.props.editNote({...newObj})
-            this.props.history.push('/')
-        } else {
-            this.props.addNote(this.state)
-            this.setState({
-              title:"",
-              textBody:""
+            .then(promise => {
+                if(promise){
+                    this.props.getNotes()
+                }
             })
+        } else {
             this.props.history.push('/')
+            this.props.addNote(this.state)
+            .then(promise => {
+                if(promise){
+                    this.props.getNotes()
+                }
+            })
         }
       }
 
@@ -50,4 +57,4 @@ const mapStateToProps = state => {
     return {notes:state.notes}
   }
   
-export default connect(mapStateToProps,{addNote,editNote})(Form);
+export default connect(mapStateToProps,{addNote,editNote,getNotes})(Form);

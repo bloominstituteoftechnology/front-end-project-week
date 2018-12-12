@@ -15,10 +15,7 @@ export const reducer = (state = initialState,action) => {
         case UPDATING:
             return {...state}
         case DELETING:
-            const newNotes = state.notes.filter(e => {
-                return (e.id !== action.payload )
-        })
-            return {notes:newNotes}
+            return {...state}
         case ERROR:
             alert("The server had an error")
             return {...state}
