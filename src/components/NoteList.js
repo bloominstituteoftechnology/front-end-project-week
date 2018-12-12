@@ -7,7 +7,11 @@ const NoteList = props => {
     <div className="note-card-container">
       <div className="notes-header">
         <div>
-          <SearchBar searchFilterHandler={props.searchFilterHandler} searchTerm={props.searchTerm} />
+          <SearchBar
+            searchFilterHandler={props.searchFilterHandler}
+            searchTerm={props.searchTerm}
+            searchFilter={props.searchFilter}
+          />
         </div>
         <h3>Your Notes</h3>
       </div>

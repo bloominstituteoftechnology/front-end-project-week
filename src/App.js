@@ -16,7 +16,8 @@ class App extends Component {
     this.state = {
       notes: [],
       searchTerm: "",
-      username: ""
+      username: "",
+      searchedNotes: []
     };
   }
 
@@ -44,6 +45,7 @@ class App extends Component {
       .delete(`${api}${id}`)
 
       .then(() => {
+        // eslint-disable-next-line
         const deletedNote = this.state.notes.filter(note => {
           if (note.id !== id) {
             return note;
@@ -59,19 +61,24 @@ class App extends Component {
     axios
       .put(`${api}${id}`, state)
       .then(res => {
+        console.log(res.data);
         const updatedArray = this.state.notes.map(note => {
-          if (note.id === res.data.id) {
+          // console.log(note.id, res.data.id, note.id == res.data.id);
+          if (Number(note.id) === Number(res.data.id)) {
             return res.data;
           }
-          return note;
+          return updatedArray;
         });
         this.setState({ notes: updatedArray });
       })
       .catch(err => console.log(err));
   };
 
-  searchFilter = search => {
-    const filteredNotes = this.state.notes.filter(note => note.noteTitle.includes(search));
+  searchFilter = searchTerm => {
+    // eslint-disable-next-line
+    const filteredNotes = this.state.notes.filter(note =>
+      note.noteTitle.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     return filteredNotes;
   };
 
@@ -94,7 +101,7 @@ class App extends Component {
   };
 
   editingNote = id => {
-    return this.state.notes.find(note => note.id == id);
+    return this.state.notes.find(note => Number(note.id) === Number(id));
   };
 
   render() {
@@ -105,10 +112,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="side-bar">
-          <h1 className="nav-title">
-            Lambda <br />
-            Notes
-          </h1>
+          <h1 className="nav-title">Notes</h1>
           <div className="nav-button-container">
             <NavLink className="nav-buttons" to="/">
               View Your Notes
@@ -129,7 +133,7 @@ class App extends Component {
               <NoteList
                 {...props}
                 // notes={this.searchFilter(this.state.searchTerm)}
-                notes={this.state.notes}
+                notes={this.searchFilter(this.state.searchTerm)}
                 deleteNote={this.deleteNote}
                 addNote={this.addNote}
                 editNote={this.editNote}

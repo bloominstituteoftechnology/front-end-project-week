@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Markdown from "react-markdown";
 
 const NoteCard = props => {
-  console.log(props.note);
   return (
     <div className="note-card card-hover">
       <Link className="rr-link " to={`/note/${props.note.id}`}>
