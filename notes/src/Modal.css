@@ -44,8 +44,9 @@
 
 .modal-main button:hover {
   cursor: pointer;
-  -webkit-box-shadow: 5px 5px 15px 5px #00000096; 
-  box-shadow: 5px 5px 15px 5px #00000096;
+  -webkit-box-shadow: 5px 5px 15px 5px #00000056; 
+  box-shadow: 5px 5px 15px 5px #00000056;
+  transition: box-shadow .5s;
 }
 
 .deleteButton {
