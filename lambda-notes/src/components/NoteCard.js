@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -37,9 +38,9 @@ const NoteContent = styled.div`
 	height: 82%;
 	white-space: pre-wrap;
 	padding: 1rem 0;
-	font-size: 1.3rem;
+	// font-size: 1.3rem;
 	line-height: 1.6;
-	font-weight: 300;
+	// font-weight: 300;
 	overflow: hidden;
 	text-overflow: ellipsis;
 `;
@@ -49,7 +50,9 @@ export default function NoteCard(props) {
 		<Link to={`/${props.note._id}`}>
 			<NoteCardDiv>
 				<TitleDiv>{props.note.title}</TitleDiv>
-				<NoteContent>{props.note.textBody}</NoteContent>
+				<NoteContent>
+					<ReactMarkdown source={props.note.textBody} />
+				</NoteContent>
 			</NoteCardDiv>
 		</Link>
 	);

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SimpleMDE from 'react-simplemde-editor';
+import "simplemde/dist/simplemde.min.css";
 import styled from 'styled-components';
 
 const FormDiv = styled.div`
@@ -26,21 +28,6 @@ const Input = styled.input`
     padding: 1rem;
     width: 35rem;
     height: 3.6rem;
-    border-radius: 4px;
-    vertical-align: text-top;
-    &:focus {
-        outline: none;
-    }
-`
-
-const InputTwo = styled.textarea`
-    margin: 2rem 0;
-    padding: 1rem;
-    background-color: rgba(255,255,255,0.7);
-    width: 60rem;
-    height: 32rem;
-    text-align: top-left;
-    white-space: pre-wrap;
     border-radius: 4px;
     vertical-align: text-top;
     &:focus {
@@ -93,13 +80,20 @@ export default class NewNote extends Component {
     changeHandler = e => {
         this.setState({
             ...this.state,
-            [e.target.name]: e.target.value,
+            [e.target.id]: e.target.value,
         }, () => 
             this.setState({
                 ...this.state,
                 tags: this.state.tagInput.split(' ')
             })
         )
+    }
+
+    mdeHandler = value => {
+        this.setState({
+            ...this.state,
+            textBody: value
+        })
     }
 
     submitHandler = e => {
@@ -122,21 +116,25 @@ export default class NewNote extends Component {
                     <FormTitle>Create New Note:</FormTitle>
                     <Input 
                         type="text"
-                        name="title"
+                        id="title"
                         value={this.state.title}
                         onChange={this.changeHandler}
                         placeholder="Title"
                     />
-                    <InputTwo
+                    <SimpleMDE
                         type="text"
-                        name="textBody"
+                        id="textBody"
                         value={this.state.textBody}
-                        onChange={this.changeHandler}
+                        onChange={this.mdeHandler}
                         placeholder="Note"
+                        options={{
+                            status: false,
+                            toolbar: false
+                        }}
                     />
                     <InputThree
                         type="text"
-                        name="tagInput"
+                        id="tagInput"
                         value={this.state.tagInput}
                         onChange={this.changeHandler}
                         placeholder="Tags"

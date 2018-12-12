@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SimpleMDE from 'react-simplemde-editor';
 import styled from 'styled-components';
 
 const FormDiv = styled.div`
@@ -26,21 +27,6 @@ const Input = styled.input`
     width: 35rem;
     height: 3.6rem;
     background-color: rgba(255,255,255,0.7);
-    border-radius: 4px;
-    vertical-align: text-top;
-    &:focus {
-        outline: none;
-    }
-`
-
-const InputTwo = styled.textarea`
-    margin: 2rem 0;
-    padding: 1rem;
-    background-color: rgba(255,255,255,0.7);
-    width: 60rem;
-    height: 32rem;
-    text-align: top-left;
-    white-space: pre-wrap;
     border-radius: 4px;
     vertical-align: text-top;
     &:focus {
@@ -83,6 +69,13 @@ export default class NewNote extends Component {
         })
     }
 
+    mdeHandler = value => {
+        this.setState({
+            ...this.state,
+            textBody: value
+        })
+    }
+
     submitHandler = e => {
         e.preventDefault();
         this.props.editNote(this.props.match.params.id, this.state);
@@ -103,14 +96,16 @@ export default class NewNote extends Component {
                         name="title"
                         value={this.state.title}
                         onChange={this.changeHandler}
-                        // placeholder={this.props.note.title}
                     /><br/>
-                    <InputTwo
+                    <SimpleMDE
                         type="text"
-                        name="textBody"
+                        id="textBody"
                         value={this.state.textBody}
-                        onChange={this.changeHandler}
-                        // placeholder={this.props.note.textBody}
+                        onChange={this.mdeHandler}
+                        options={{
+                            status: false,
+                            toolbar: false
+                        }}
                     />
                     <Button type="submit">Save</Button>
                 </Form>            

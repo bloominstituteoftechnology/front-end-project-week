@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { ReactSimpleMDE } from 'react-simplemde';
 import styled from 'styled-components';
 
 const NoteDiv = styled.div`
@@ -35,11 +36,12 @@ const Title = styled.h2`
 
 const Paragraph = styled.p`
 	white-space: pre-wrap;
-    font-size: 1.4rem;
+    // font-size: 1.4rem;
     line-height: 2;
 `
 
 export default class NoteView extends Component {
+
 	componentDidMount() {
 		this.props.viewNote(this.props.match.params.id);
 	}
@@ -61,7 +63,7 @@ export default class NoteView extends Component {
 						) : (
 							<div>
 								<Title>{this.props.note.title}</Title>
-								<Paragraph>{this.props.note.textBody}</Paragraph>
+								<Paragraph><ReactSimpleMDE initialValue={this.props.note.textBody} /></Paragraph>
 							</div>
 						)}
 					</NoteDiv>
