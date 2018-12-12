@@ -13,6 +13,14 @@ class EditNoteForm extends React.Component {
         }
     }
 
+    componentDidUpdate(prevState) {
+        if(this.props.updating !== prevState.updating) {
+            if(!this.props.updating) {
+                this.getNote();
+            }
+        }
+    }
+
     componentDidMount() {
         this.getNote();
     }

@@ -14,13 +14,16 @@ class ViewNote extends React.Component {
         }
     }
 
+    componentDidUpdate(prevState) {
+        if(this.props.updating !== prevState.updating) {
+            if(!this.props.updating) {
+                this.getNote();
+            }
+        }
+    }
+
     componentDidMount() {
-        if(this.props.updating){
-            setTimeout(() => this.getNote(), 100);
-        }
-        else {
-            this.getNote();
-        }
+        this.getNote();
     }
 
     getNote() {

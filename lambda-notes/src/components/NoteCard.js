@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/NoteCard.css';
 import { Link } from 'react-router-dom';
 
+
 const noteCard = props => {
     return (
         <div className='noteCard-container'>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchNotes } from '../actions';
 import NoteCard from './NoteCard';
 
+
 class NotesList extends React.Component {
     constructor(props) {
         super(props);
@@ -10,16 +11,18 @@ class NotesList extends React.Component {
         }
     }
 
-    componentDidMount() {
-
-        if(this.props.updating || this.props.adding) {
-            setTimeout(() => this.props.fetchNotes(), 100);
+    componentDidUpdate(prevState) {
+        if(this.props.adding !== prevState.adding || this.props.updating !== prevState.updating || this.props.deleting !== prevState.deleting) {
+            if(!this.props.adding && !this.props.updating && !this.props.deleting) {
+                this.props.fetchNotes();
+            }
         }
-        else {
-            this.props.fetchNotes();
-        }
-        
     }
+
+    componentDidMount() {
+        this.props.fetchNotes();
+    }
+
 
     render() {
         if(this.props.updating) {
@@ -38,13 +41,17 @@ class NotesList extends React.Component {
             }
             return null;
         })
+
+
         return (
             <div>
                 <h3 className='notes-page-title'>Your Notes:</h3>
                 <div className='noteList-card-container'>
                     {filtered.map(note => {
                         return (
-                            <div key={note._id}><NoteCard noteInfo={note} /></div>
+                            <div key={note._id}>
+                                <NoteCard noteInfo={note} />
+                            </div>
                         );
                     })}
                 </div>
@@ -60,6 +67,7 @@ const mapStateToProps = state => {
         fetching: state.fetching,
         adding: state.adding,
         updating: state.updating,
+        deleting: state.deleting,
     };
 }
 
