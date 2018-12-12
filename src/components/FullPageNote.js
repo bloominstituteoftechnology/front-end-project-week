@@ -25,7 +25,7 @@ class FullPageNote extends Component {
              .then(response => {
                 this.setState(() => ({ note: response.data }));
              })
-             .catch(err => {console.log(err)});
+             .catch(err => {console.dir(err)});
     };
 
     // DELETE the note by using the API endpoint and passing in the id
@@ -34,7 +34,7 @@ class FullPageNote extends Component {
              .then(res => {this.setState({
                  deleted: true,
              })})
-             .catch(err => console.log(err))
+             .catch(err => console.dir(err))
     }
 
     duplicate = () => {
@@ -44,7 +44,7 @@ class FullPageNote extends Component {
             textBody: textBody,
             tags: tags,
         }
-        axios.post('https://vellumnotes.herokuapp.com/note/create', note)
+        axios.post('http://vellumnotes.herokuapp.com/note/create', note)
         .then(res => this.setState({
             duplicated: true
         }))
@@ -57,7 +57,7 @@ class FullPageNote extends Component {
     }
 
     render() {
-        // redirect upon delete button press (because that will set deleted to true)
+        // redirect upon delete button press (because that will set deleted to true) // same with duplicate
         if (this.state.deleted === true || this.state.duplicated === true) {
             return (
                 <Redirect to='/'></Redirect>

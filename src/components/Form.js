@@ -47,7 +47,6 @@ class Form extends Component {
             title: this.state.title,
             textBody: this.state.body,
           }
-          console.log(newNote)
           // if there's a note on state to edit, start PUT
           if (this.state.note !== null) {
             axios.put(`https://vellumnotes.herokuapp.com/note/edit/${this.state.note.id}`, newNote)
