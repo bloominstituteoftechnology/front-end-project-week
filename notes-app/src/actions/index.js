@@ -75,6 +75,6 @@ export const resetEdit = () => dispatch => {
     dispatch({ type: RESET_EDIT })
 }
 
-export const searchFilterAction = (notes) => dispatch => {
+export const setFilter = (notes) => dispatch => {
     dispatch({ type: SEARCH, payload: notes})
 }

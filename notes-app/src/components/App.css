@@ -72,29 +72,6 @@ body{
   border-bottom: 1px solid black;
 }
 
-.note-card{
-  cursor: pointer;
-  background: white;
-  width: 195px;
-  border: 2px solid black;
-  padding:  5px 20px;
-  margin:  12px 7px;
-  height: 195px;
-  overflow: hidden;
-}
-/*notelist */
-
-.note-list p{
-  margin: 5px 0;
-}
-.note-list{
-  
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  
-}
-
 /* form==========================*/
 
 .inputs{

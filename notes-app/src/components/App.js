@@ -16,7 +16,7 @@ import {
   deleteNote,
   startUpdate,
   resetEdit,
-  searchFilterAction
+  setFilter
  } from '../actions';
 
 class App extends Component {
@@ -27,11 +27,37 @@ class App extends Component {
 
   searchFilter = ev =>{
     console.log(ev.target.value)
-    let filtered = this.props.notes.filter(note =>{
+    let filtered = this.props.filteredNotes.filter(note =>{
       // if(ev.target.value = undefined) return true;
-        return note.title.includes(ev.target.value);
+        return note.title.toUpperCase().includes(ev.target.value.toUpperCase());
     })
-    this.props.searchFilterAction(filtered);
+    this.props.setFilter(filtered);
+  }
+
+  sortNotes = ev => {
+    console.log(ev.target.value)
+    let sortedArr = [...this.props.notes];
+    let result = [];
+    let sortFunc = () =>{
+      switch(ev.target.value){
+        case 'DEFAULT':
+          return this.props.notes;
+        case 'ALPHABETICAL':
+          return sortedArr.sort((a,b) => {
+            let textA = a.title.toUpperCase();
+            let textB = b.title.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1: 0;
+          })
+        case 'NEWEST':
+          return sortedArr.reverse();
+     }
+    }
+    
+    console.log(this.props.notes)
+    console.log(sortedArr)
+    console.log(result)
+    this.props.setFilter(sortFunc());
+    
   }
 
   render() {
@@ -45,6 +71,7 @@ class App extends Component {
             {...props}
             notes={this.props.filteredNotes}
             searchFilter={this.searchFilter}
+            sortNotes={this.sortNotes}
           />
         )}
           
@@ -96,6 +123,6 @@ export default withRouter(connect(
     deleteNote,
     startUpdate,
     resetEdit,
-    searchFilterAction
+    setFilter
   }
 )(App));
