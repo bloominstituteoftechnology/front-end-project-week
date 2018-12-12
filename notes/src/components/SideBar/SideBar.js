@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 const SideBarDiv = styled.div`
     width:20%;
     min-height: 100vh;
-    height: 100%;
     display: flex;
     flex-direction: column;
     border: 1px solid #b2b2b2;
@@ -18,6 +17,7 @@ const SideBarHeader = styled.h1`
     font-size: 40px;
     color: #4a4a4a;
     margin-bottom: 10px;
+    font-weight: bold;
 `
 const SideBarButton = styled.button`
     background-color:#2bc1c4;

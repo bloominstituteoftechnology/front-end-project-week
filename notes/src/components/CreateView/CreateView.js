@@ -5,8 +5,9 @@ import AddNoteForm from './AddNoteForm';
 
 const ContentDiv = styled.div`
     width: 100%;
+    height: 100%;
     display: flex;
-    
+    background-color: #F3F3F3;
 `
 const CreateContentDiv = styled.div`
     width: 80%;
@@ -23,6 +24,7 @@ const CreateViewH1 = styled.h1`
     position: absolute;
     font-family: 'Open Sans', sans-serif;
     color: #4A4A4A;
+    font-weight: bold;
 `;
 
 class CreateView extends React.Component{
