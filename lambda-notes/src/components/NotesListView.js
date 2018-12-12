@@ -16,7 +16,7 @@ class NotesListView extends React.Component {
           <NotesH2>Your Notes:</NotesH2>
           <ContainCards>
             {this.props.notes.map(note => (
-              <NotePreview key={note._id} note={note} />
+              <NotePreview key={note.id} note={note}  />
             )).reverse()}
           </ContainCards>
         </CardList>

@@ -4,14 +4,14 @@ import { Cards, CardsH2, StyledLinkCard, CardsHr, CardsP } from '../Styles';
 const NotePreview = props => {
     return (
         <Cards>
-            <StyledLinkCard to={`/note/get/${props.note._id}`}>
+            <StyledLinkCard to={`/note/get/${props.note.id}`}>
                 <CardsH2>{props.note.title.length >= 15
                 ? props.note.title.substring(0,15)+'...'
                 : props.note.title}</CardsH2>
                 <CardsHr></CardsHr>
-                <CardsP>{props.note.textBody.length >=50
-                ? props.note.textBody.substring(0,50)+'...' 
-                : props.note.textBody}</CardsP>
+                <CardsP>{props.note.content.length >=50
+                ? props.note.content.substring(0,50)+'...' 
+                : props.note.content}</CardsP>
             </StyledLinkCard>
         </Cards>
     );

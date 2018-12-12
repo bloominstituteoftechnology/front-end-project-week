@@ -22,7 +22,7 @@ class NoteView extends React.Component {
     this.state = {
       editing: false,
       title: this.props.notes.title,
-      textBody: this.props.notes.textBody
+      textBody: this.props.notes.content
     };
   }
 
@@ -33,14 +33,14 @@ class NoteView extends React.Component {
 
   deleteNote = event => {
     event.preventDefault();
-    const url = `https://fe-notes.herokuapp.com/note/delete/${
-      this.state.note._id
+    const url = `http://localhost:3400/note/delete/${
+      this.state.note.id
     }`;
     axios
       .delete(url)
       .then(response => {
         console.log(response);
-        this.props.updateDeleted(this.state.note._id);
+        this.props.updateDeleted(this.state.note.id);
       })
       .catch(error => {
         console.error(error);
@@ -60,9 +60,9 @@ class NoteView extends React.Component {
   fetchNote = id => {
     // console.log(this.state.id);
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:3400/api/notes/${id}`)
       .then(response => {
-        this.setState(() => ({ note: response.data }));
+        this.setState(() => ({ note: response.data[0] }));
       })
       .catch(error => {
         console.error(error);
@@ -101,7 +101,7 @@ class NoteView extends React.Component {
           <DeleteNoteLink onClick={this.deleteModal}>Delete</DeleteNoteLink>
           <div className='noteContent'>
             <NoteTitle>{this.state.note.title}</NoteTitle>
-            <NoteP>{this.state.note.textBody}</NoteP>
+            <NoteP>{this.state.note.content}</NoteP>
           </div>
         </NoteCardContainer>
         <Modal className="modal">

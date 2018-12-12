@@ -9,8 +9,8 @@ class CreateNoteView extends React.Component {
       super(props);
       this.state = {
         title: this.props.notes.title,
-        text: this.props.notes.textBody,
-        _id: this.props.notes._id
+        text: this.props.notes.content,
+        id: this.props.notes.id
       };
     }
   
@@ -22,19 +22,25 @@ class CreateNoteView extends React.Component {
     handleSubmit = event => {
       event.preventDefault();
       const newNote = {
-        tags: [],
+       
         title: this.state.title,
-        textBody: this.state.text,
-        _id: this.state._id
+        content: this.state.text,
+        id: this.state.id
       };
-      axios.post("https://fe-notes.herokuapp.com/note/create", newNote)
+      console.log("this is this.props.notes", this.props.notes)
+      console.log("this is newNote", newNote)
+      axios.post("http://localhost:3400/api/notes", newNote)
         .then(response => {
-          console.log(response.data);
-          newNote._id = response.data.success;
+          console.log("this is my response", response);
+          console.log("this is my response.data", response.data);
+          console.log("this is my response.data.success", response.data.success);
+          newNote.id = response.data.id;
           this.props.addNewNotes(newNote);
         })
         .catch(error => {
           console.error(error);
+          
+          console.log("this is my error",error);
         });
       this.props.history.push("/");
     };
@@ -45,7 +51,7 @@ class CreateNoteView extends React.Component {
               <LeftBar>
           <TitleH1>Lambda Notes</TitleH1>
           <StyledLink to={"/"}>View Your Notes</StyledLink>
-          <StyledLink to={"/note/create"}>+ Create New Note</StyledLink>
+          <StyledLink to={"/api/notes"}>+ Create New Note</StyledLink>
         </LeftBar>
           <div className ='formHolder'>
                 <form className ='form' onSubmit={this.handleSubmit}>
@@ -60,7 +66,7 @@ class CreateNoteView extends React.Component {
                     <BodyInput 
                         type="text"
                         name="text"
-                        placeholder="text body"
+                        placeholder="content"
                         value={this.props.value}
                         onChange={this.handleInputChange}
                     />

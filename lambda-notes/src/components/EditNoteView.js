@@ -17,7 +17,7 @@ class EditNoteView extends React.Component {
     super(props);
     this.state = {
       title: this.props.note.title,
-      text: this.props.note.textBody
+      text: this.props.note.content
     };
   }
 
@@ -29,7 +29,7 @@ class EditNoteView extends React.Component {
   editNote = event => {
     console.log(this.state.editTitle, this.state.editBody);
     event.preventDefault();
-    const url = `https://fe-notes.herokuapp.com/note/edit/${
+    const url = `http://localhost:3400/api/notes/${
       this.props.note._id
     }`;
     axios
@@ -53,7 +53,7 @@ class EditNoteView extends React.Component {
         <LeftBar>
           <TitleH1>Lambda Notes</TitleH1>
           <StyledLink to={"/"}>View Your Notes</StyledLink>
-          <StyledLink to={"/note/create"}>+ Create New Note</StyledLink>
+          <StyledLink to={"/api/notes"}>+ Create New Note</StyledLink>
         </LeftBar>
         <div className ='formHolder'>
         <form className='form' onSubmit={this.editNote}>

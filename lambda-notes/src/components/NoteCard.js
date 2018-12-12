@@ -4,10 +4,10 @@ import { Cards, CardsH2, StyledLinkCard, CardsHr, CardsP } from '../Styles';
 const NoteCard = props => {
     return (
         <Cards>
-            <StyledLinkCard to={`/note/get/${props.note._id}`}>
+            <StyledLinkCard to={`note/get/${props.note.id}`}>
                 <CardsH2>{props.note.title}</CardsH2>
                 <CardsHr></CardsHr>
-                <CardsP>{props.note.textBody}</CardsP>
+                <CardsP>{props.note.content}</CardsP>
             </StyledLinkCard>
         </Cards>
     );
