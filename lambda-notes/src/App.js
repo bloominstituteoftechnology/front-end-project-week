@@ -47,6 +47,7 @@ class App extends Component {
       .post("https://infinite-cliffs-77240.herokuapp.com/api/notes", note)
       // .post("http://localhost:9000/api/notes", note)
       .then(response => {
+        console.log(response.data);
         history.push(`/note/${response.data.success}`);
         this.setState({
           notes: [
