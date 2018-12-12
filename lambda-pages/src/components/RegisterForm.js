@@ -3,10 +3,11 @@ import { StyledLoginForm } from '../styles/StyledLoginForm';
 import Button from '../styles/Button';
 import { Link } from 'react-router-dom';
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
   constructor() {
     super();
     this.state = {
+      email: '',
       username: '',
       password: ''
     };
@@ -18,21 +19,30 @@ class LoginForm extends Component {
 
   onFormSubmit = e => {
     e.preventDefault();
-    this.props.handleLogin({
-      username: this.state.username,
-      password: this.state.password
-    });
-    this.setState({ username: '', password: '' });
+    // console.log('sumbit');
+    this.props.handleLoginRedirect();
   };
 
   render() {
-    const { username, password } = this.state;
+    const { email, username, password } = this.state;
     return (
       <StyledLoginForm>
         <h1>
           Lambda <span>Notes</span>
         </h1>
         <form onSubmit={this.onFormSubmit}>
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="text"
+              placeholder="Enter email"
+              value={email}
+              name="email"
+              onChange={this.handleInputChange}
+              id="email"
+              required
+            />
+          </div>
           <div className="form-group">
             <label htmlFor="username">Username:</label>
             <input
@@ -58,13 +68,13 @@ class LoginForm extends Component {
             />
           </div>
           <div className="redirect-div">
-            Don't Have an account? <Link to="/register"> Register Here.</Link>
+            Already Have an account? <Link to="/login"> Login.</Link>
           </div>
-          <Button>Log in</Button>
+          <Button>Register</Button>
         </form>
       </StyledLoginForm>
     );
   }
 }
 
-export default LoginForm;
+export default RegisterForm;

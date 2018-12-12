@@ -26,12 +26,18 @@ if (process.env.NODE_ENV === 'development') {
 } else if (process.env.NODE_ENV === 'production') {
   url = 'https://desolate-crag-67758.herokuapp.com/api/notes';
 }
+const token = localStorage.getItem('auth_token');
+const options = {
+  headers: {
+    authentication: token
+  }
+};
 
 // GET request
 export const getAllNotes = () => dispatch => {
   dispatch({ type: GET_ALL_NOTES });
   axios
-    .get(url)
+    .get(url, options)
     .then(res => {
       dispatch({ type: GET_ALL_NOTES_SUCCESS, payload: res.data });
     })

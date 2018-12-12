@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoginForm from '../components/LoginForm';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const StyledLoginView = styled.div`
   display: flex;
@@ -11,14 +12,26 @@ const StyledLoginView = styled.div`
 `;
 
 class LoginView extends Component {
-  handleLoginRedirect = () => {
-    this.props.history.push('/');
+  state = {
+    message: ''
+  };
+
+  handleLogin = user => {
+    axios
+      .post('http://localhost:5000/api/auth/login', user)
+      .then(res => {
+        localStorage.setItem('auth_token', res.data.token);
+        this.props.history.push('/');
+      })
+      .catch(err => {
+        this.setState({ message: err.response.data.message });
+      });
   };
 
   render() {
     return (
       <StyledLoginView>
-        <LoginForm handleLoginRedirect={this.handleLoginRedirect} />
+        <LoginForm handleLogin={this.handleLogin} />
       </StyledLoginView>
     );
   }

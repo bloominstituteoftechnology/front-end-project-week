@@ -8,7 +8,14 @@ const Button = styled.button`
   padding: 1rem 2rem;
   border: none;
   border-radius: 5px;
+  transition: all 0.2s;
   cursor: pointer;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    background: #4cc2ff;
+  }
 
   ${props =>
     props.fullWidth &&
@@ -28,6 +35,10 @@ const Button = styled.button`
     props.delete &&
     css`
       background: #c23616;
+      &:focus,
+      &:hover {
+        background: #e33f1a;
+      }
     `};
 `;
 

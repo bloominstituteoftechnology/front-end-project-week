@@ -12,16 +12,6 @@ class NotesView extends Component {
     this.props.getAllNotes();
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (
-  //     this.props.isDeletingNote &&
-  //     prevProps.notes.length !== this.props.notes.length
-  //   ) {
-  //     console.log('CDU get notes.', prevProps.notes, this.props.notes);
-  //     this.props.getAllNotes();
-  //   }
-  // }
-
   handleRedirectToNoteView = id => {
     this.props.history.push(`/note/${id}`);
   };
