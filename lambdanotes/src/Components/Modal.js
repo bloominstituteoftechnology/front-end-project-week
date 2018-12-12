@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 
 import './Modal.css';
 
-const baseUrl = 'http://localhost:9000';
+const baseUrl = 'https://jovial-roentgen-256496.netlify.com';
 
 class Modal extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class Modal extends Component {
     }
 
     deleteNote = () => {  
-        let id = this.props.id
+        let id = this.props.id;
         axios 
             .delete(`${baseUrl}/notes/${id}`)
             .then(response => {
@@ -25,7 +25,7 @@ class Modal extends Component {
                 this.props.history.push(`/`);
             })
             .catch(error => console.log(error));
-        this.props.hideModal()
+        this.props.hideModal();
     }; 
 
     render() {

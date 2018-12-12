@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './NoteForm.css';
-const baseUrl = 'http://localhost:9000';
+const baseUrl = 'https://jovial-roentgen-256496.netlify.com';
 
 class NoteForm extends Component {
     constructor() {

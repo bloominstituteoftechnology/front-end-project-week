@@ -5,7 +5,7 @@ import axios from 'axios';
 import Modal from './Modal';
 import './Note.css';
 
-const baseUrl = 'http://localhost:9000';
+const baseUrl = 'https://jovial-roentgen-256496.netlify.com';
 
 class Note extends Component {
     constructor(props) {

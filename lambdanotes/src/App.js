@@ -9,7 +9,7 @@ import SideBar from './Components/SideBar';
 import Note from './Components/Note';
 import Edit from './Components/Edit';
 
-const baseUrl = 'http://localhost:9000';
+const baseUrl = 'https://jovial-roentgen-256496.netlify.com';
 
 class App extends Component {
   constructor() {
