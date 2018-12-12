@@ -22,11 +22,43 @@ const NoteCardHeader = styled.div`
 	width: 100%;
 	height: 30px;
 
+	a {
+		color: #20272d;
+
+		&:hover {
+			color: #24b8bd;
+		}
+	}
+
 	.note-header-link {
-		margin: 0 15px;
+		margin: 0 25px;
 		color: #20272d;
 		text-decoration: underline;
 		font-weight: bold;
+	}
+
+	.delete-link {
+		cursor: pointer;
+		margin: 0 25px;
+
+		&:hover {
+			text-decoration: underline;
+			color: #24b8bd;
+		}
+	}
+
+	.favorite {
+		cursor: pointer;
+		margin: 0 25px;
+
+		i {
+			color: #b92f27;
+		}
+
+		&:hover {
+			text-decoration: underline;
+			color: #24b8bd;
+		}
 	}
 `;
 
@@ -35,6 +67,11 @@ const NoteCardTitle = styled.h2`
 	margin: 0 0 25px;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
+
+	.favorite-star {
+		margin-right: 20px;
+		color: #b92f27;
+	}
 `;
 
 const NoteCardContent = styled.div`
@@ -42,13 +79,11 @@ const NoteCardContent = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-
 	.mod-body {
 		text-align: center;
 	}
 	.modal-footer {
 		justify-content: space-evenly;
-		border: 2px solid red;
 	}
 `;
 
@@ -69,6 +104,8 @@ const DeleteButton = styled(ModalButton)`
 	background-color: #d0011b;
 `;
 
+// =============== END OF STYLES
+
 class Note extends React.Component {
 	constructor(props) {
 		super(props);
@@ -76,6 +113,7 @@ class Note extends React.Component {
 			note: null,
 			modal: false,
 			id: this.props.match.params.noteId,
+			isStarred: false,
 		};
 		this.toggle = this.toggle.bind(this);
 	}
@@ -102,6 +140,12 @@ class Note extends React.Component {
 			modal: !this.state.modal,
 		});
 	}
+
+	starToggle = () => {
+		this.setState({
+			isStarred: !this.state.isStarred,
+		});
+	};
 
 	render() {
 		console.log("Note", this.props);
@@ -140,6 +184,14 @@ class Note extends React.Component {
 					</Modal>
 				</ModalWrapper>
 				<NoteCardHeader>
+					<div className="favorite" onClick={this.starToggle}>
+						{this.state.isStarred === true ? (
+							<i class="fas fa-star favorite-star" />
+						) : (
+							<i class="far fa-star favorite-star" />
+						)}
+						favorite
+					</div>
 					<Link
 						to={`/notes/${note._id}/edit`}
 						classNameName="note-header-link"
@@ -147,20 +199,30 @@ class Note extends React.Component {
 						<i className="fas fa-edit" />
 						edit
 					</Link>
-					{/* <Link
-						to={`/notes/${note._id}/delete`}
-						classNameName="note-header-link"
-					> */}
-					<i className="fas fa-trash-alt" onClick={this.toggle}>
-						delete{" "}
-					</i>
-					{/* </Link> */}
+					<div className="delete-link" onClick={this.toggle}>
+						<i className="fas fa-trash-alt" />
+						delete
+					</div>
 				</NoteCardHeader>
 				<NoteCardContainer
 					history={this.props.history}
 					notes={this.props.notes}
 				>
-					<NoteCardTitle>{this.state.note.title}</NoteCardTitle>
+					<NoteCardTitle>
+						{this.state.isStarred === true ? (
+							<i
+								class="fas fa-star favorite-star"
+								onClick={this.starToggle}
+							/>
+						) : (
+							<i
+								class="far fa-star favorite-star"
+								onClick={this.starToggle}
+							/>
+						)}
+
+						{this.state.note.title}
+					</NoteCardTitle>
 					<NoteCardContent>
 						{this.state.note.textBody}
 					</NoteCardContent>

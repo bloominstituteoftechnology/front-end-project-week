@@ -30,6 +30,7 @@ class App extends Component {
 			title: "",
 			tags: "",
 			textBody: "",
+			isStarred: false,
 		};
 	}
 
@@ -80,6 +81,10 @@ class App extends Component {
 			.catch(err => console.log("PUT Server Error: ", err));
 	};
 
+	toggleStar = () => {
+		this.setState({isStarred: true})
+	}
+
 	render(props) {
 		console.log("App props", this.props);
 		return (
@@ -90,9 +95,8 @@ class App extends Component {
 						exact
 						path="/notes"
 						render={props => (
-							<NoteList {...props} notes={this.state.notes} getNotes={this.getNotes} />
+							<NoteList {...props} notes={this.state.notes} getNotes={this.getNotes}  />
 						)}
-						// component={NoteList}
 					/>
 					<Route exact path="/addnewnote" component={AddNewNote} />
 					<Route
@@ -105,7 +109,6 @@ class App extends Component {
 					<Route
 						{...props}
 						path={`/notes/:noteId/edit`}
-						// component={EditNoteForm}
 						render={props => (
 							<EditNoteForm
 								{...props}
@@ -115,18 +118,6 @@ class App extends Component {
 							/>
 						)}
 					/>
-					{/* <Route
-						{...props}
-						exact
-						path={`/notes/:noteId/delete`}
-						render={props => (
-							<DeleteModal
-								{...props}
-								note={this.props.note}
-								deleteNote={this.deleteNote}
-							/>
-						)}
-					/> */}
 
 					<Route
 						{...props}

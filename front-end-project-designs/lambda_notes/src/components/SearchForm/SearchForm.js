@@ -13,7 +13,7 @@ const SearchFormContainer = styled.form`
 
 const SearchBox = styled.input`
     margin:  4px 20px 30px;
-    padding: 5px;
+    padding: 5px 20px;
     border-radius: 30px;
     width: 200px;
     border: 0;

@@ -83,6 +83,7 @@ class NoteList extends React.Component {
 		super(props);
 		this.state = {
 			notes: [],
+			isStarred: false,
 			dropdownOpen: false,
 		};
 		this.toggle = this.toggle.bind(this);
@@ -107,6 +108,7 @@ class NoteList extends React.Component {
 	// 			();
 	// 	}
 	// };
+
 
 	sortNotesByAscendingLength = () => {
 		let sortedNotes = this.props.notes.sort(function(a, b) {
@@ -149,6 +151,10 @@ class NoteList extends React.Component {
 		console.log(newestNotes)
 	};
 
+	// sortNotesByStarredFirst = () => {
+	// 	if ()
+	// }
+
 	render(props) {
 		console.log("Notelist props", this.props);
 		if (!this.props.notes) {
@@ -187,6 +193,11 @@ class NoteList extends React.Component {
 								<i className="fas fa-clock" />
 								Oldest First
 							</DropdownItem>
+							<DropdownItem divider />
+							<DropdownItem onClick={this.sortNotesByStarredFirst}>
+							<i class="fas fa-star"></i>
+								Starred First
+							</DropdownItem>
 						</DropdownMenu>
 					</Dropdown>
 				</NoteListHeader>
@@ -207,6 +218,7 @@ class NoteList extends React.Component {
 									{note.title.length > 30
 										? note.title.slice(0, 30).concat("...")
 										: note.title}
+										
 								</h4>
 								<p>
 									{note.textBody.length > 130
@@ -224,6 +236,7 @@ class NoteList extends React.Component {
 										{...props}
 										notes={this.state.notes}
 										deleteNote={this.props.deleteNote}
+										isStarred={props.isStarred}
 									/>
 								)}
 							/>

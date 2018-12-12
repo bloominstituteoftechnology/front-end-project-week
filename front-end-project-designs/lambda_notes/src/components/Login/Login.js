@@ -1,6 +1,18 @@
 import React from "react";
 // import PropTypes from 'prop-types';
 import styled from "styled-components";
+import {
+	Button,
+	Modal,
+	ModalHeader,
+	ModalBody,
+	ModalFooter,
+	Form,
+	FormGroup,
+	Label,
+	Input,
+	FormText,
+} from "reactstrap";
 
 const LoginBackground = styled.div`
 	width: 100%;
@@ -25,7 +37,7 @@ const LoginFormContainer = styled.div`
 	justify-content: space-around;
 	align-items: center;
 	flex-direction: column;
-	width: 35%;
+	width: 45%;
 	min-width: 400px;
 	height: 40%;
 	min-height: 350px;
@@ -33,20 +45,20 @@ const LoginFormContainer = styled.div`
 	/* border: 5px solid #24b8bd; */
 	border-radius: 8px;
 	margin: 100px auto;
-	padding: 0 100px 20px;
+	padding: 0 20px 20px;
 
 	.login-form {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-        width: 90%;
+		width: 90%;
 	}
 
 	h3 {
 		text-align: center;
-        font-size: 24px;
-        margin-top: 20px;
+		font-size: 24px;
+		margin: 30px 0 40px;
 	}
 
 	.create-account-link {
@@ -57,7 +69,8 @@ const LoginFormContainer = styled.div`
 		margin-top: 40px;
 		font-family: Helvetica, sans-serif;
 		color: #222222;
-		font-weight: bold;
+        font-weight: bold;
+        cursor: pointer;
 
 		.strong {
 			font-weight: bold;
@@ -69,12 +82,12 @@ const LoginFormContainer = styled.div`
 		}
 		&:hover {
 			text-decoration: none;
-			color: #B92F27;
+			color: #b92f27;
 		}
 	}
 `;
 const LoginInput = styled.input`
-	width: 100%;
+	width: 80%;
 	min-width: 200px;
 	background-color: #ffffff;
 	color: #20272d;
@@ -96,7 +109,7 @@ const MainLoginButton = styled.button`
 	width: 200px;
 	min-width: 200px;
 	padding: 10px 40px;
-	margin: 40px auto 10px;
+	margin: 20px auto 10px;
 	background-color: #24b8bd;
 	color: #f3f9f9;
 	border: 0;
@@ -118,7 +131,9 @@ class Login extends React.Component {
 		this.state = {
 			username: this.username,
 			password: this.password,
+			modal: false,
 		};
+		this.toggle = this.toggle.bind(this);
 	}
 
 	handleChange = event => {
@@ -131,6 +146,12 @@ class Login extends React.Component {
 		localStorage.setItem("username", this.state.username);
 		localStorage.setItem("password", this.state.password);
 	};
+
+	toggle() {
+		this.setState({
+			modal: !this.state.modal,
+		});
+	}
 
 	render() {
 		return (
@@ -157,13 +178,72 @@ class Login extends React.Component {
 							onChange={this.handleChange}
 							required
 						/>
-					
-					<MainLoginButton type="submit" onSubmit={this.login}>
-						Sign in <i class="fas fa-sign-in-alt"></i>
-					</MainLoginButton></form>
-					<a href="#" className="create-account-link">
-						Create an account <i class="fas fa-user-circle"></i>
-					</a>
+
+						<MainLoginButton type="submit" onSubmit={this.login}>
+							Sign in <i class="fas fa-sign-in-alt" />
+						</MainLoginButton>
+					</form>
+					<div className="create-account-link" onClick={this.toggle}>
+						Create an account <i class="fas fa-user-circle" />
+					</div>
+					<div>
+						<Modal
+							isOpen={this.state.modal}
+							toggle={this.toggle}
+                            className={this.props.className}
+                            centered={true}
+						>
+							<ModalHeader toggle={this.toggle}>
+								Create a Lambda Notes account
+                                
+							</ModalHeader>
+							<ModalBody>
+                                <p>All fields are required</p>
+								<Form>
+									<FormGroup>
+										<Label for="email">Email</Label>
+										<Input
+											type="email"
+											name="email"
+											id="email"
+                                            placeholder="email"
+                                            required
+										/>
+									</FormGroup>
+                                    <FormGroup>
+										<Label for="username">Username</Label>
+										<Input
+											type="text"
+											name="username"
+											id="username"
+                                            placeholder="username"
+                                            required
+										/>
+									</FormGroup>
+									<FormGroup>
+										<Label for="password">
+											Password
+										</Label>
+										<Input
+											type="password"
+											name="password"
+											id="password"
+                                            placeholder="password"
+                                            required
+										/>
+									</FormGroup>
+								</Form>
+							</ModalBody>
+							<ModalFooter>
+								<Button color="primary" onClick={console.log('submit')} disabled>
+									Submit
+								</Button>
+								<Button color="secondary" onClick={this.toggle}>
+									Cancel
+								</Button>
+							</ModalFooter>
+						</Modal>
+					</div>
 				</LoginFormContainer>
 			</LoginBackground>
 		);
