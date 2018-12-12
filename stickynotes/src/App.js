@@ -53,14 +53,16 @@ class App extends Component {
 			});
 	};
 
-	editNote = (note) => {
+	editNote = (note, id) => {
 		console.log(note);
 		axios
-			.put(`https://fe-notes.herokuapp.com/note/edit/${note._id}`, note)
+			.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+			.then((response) => {
+				return axios.get('https://fe-notes.herokuapp.com/note/get/all')
+			})
 			.then((response) => {
 				this.setState({
-					...this.state,
-					notes: [response.data, ...this.state.notes]
+					notes: response.data
 				});
 			})
 			.catch((err) => {
@@ -72,7 +74,6 @@ class App extends Component {
 		axios
 			.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
 			.then((response) => {
-				console.log(response);
 				return axios.get('https://fe-notes.herokuapp.com/note/get/all');
 			})
 			.then((response) => {

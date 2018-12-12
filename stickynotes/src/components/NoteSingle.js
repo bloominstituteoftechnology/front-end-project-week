@@ -15,6 +15,7 @@ const NoteSingle = (props) => {
 				editNote={props.editNote}
 				match={props.match}
 				id={id}
+				history={props.history}
 			/>
 		);
 	} else if (props.mode === 'delete') {

@@ -13,6 +13,7 @@ const NoteList = (props) => {
 				buttonText="Save"
 				addNote={props.addNote}
 				id={props.id}
+				history={props.history}
 			/>
 		);
 	} else {
@@ -20,8 +21,8 @@ const NoteList = (props) => {
 			<Main>
 				<H1>Notes</H1>
 				<Div component='list'>
-					{props.notes.slice(0, 12).map((note) => (
-						<Link to={`/${note._id}`} key={note._id} style={{textDecoration: 'none'}}>
+					{props.notes.slice(0, 12).map((note, index) => (
+						<Link to={`/${note._id}`} key={index} style={{textDecoration: 'none'}}>
 							<Section>
 								<H2 component='list'>{note.title}</H2>
 							</Section>

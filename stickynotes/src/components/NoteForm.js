@@ -8,7 +8,7 @@ class NoteForm extends Component {
 			note: {
 				title: '',
 				textBody: '',
-				_id: ''
+				_id: props.id
 			}
 		};
 	}
@@ -19,7 +19,6 @@ class NoteForm extends Component {
 			note: {
 				...this.state.note,
 				[event.target.name]: event.target.value,
-				_id: this.props.id
 			}
 		});
 	};
@@ -30,7 +29,7 @@ class NoteForm extends Component {
 			return this.props.addNote(this.state.note);
 		} else if (this.props.mode === 'edit') {
 			this.props.toggleMode('default');
-			return this.props.editNote(this.state.note);
+			return this.props.editNote(this.state.note, this.props.id);
 		} else {
 			this.props.toggleMode('default');
 			return null;
@@ -44,6 +43,7 @@ class NoteForm extends Component {
 					onSubmit={(event) => {
 						event.preventDefault();
 						this.handleMode();
+						this.props.history.push('/');
 					}}
 				>
 					<H1>{this.props.header}</H1>

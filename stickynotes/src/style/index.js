@@ -27,10 +27,10 @@ export const AppContainer = styled.div`
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
-	align-items:center;
+	align-items: center;
 	position: relative;
-	border: 3px dashed #C3D2D5;
-	background: #37515F;
+	border: 3px dashed #c3d2d5;
+	background: #37515f;
 	border-radius: 10%;
 	width: 750px;
 	z-index: 10;
@@ -43,28 +43,28 @@ export const Nav = styled.nav`
 	position: absolute;
 	right: 5px;
 	align-items: center;
-	border: 2px solid #C3D2D5;
+	border: 2px solid #c3d2d5;
 	justify-content: center;
 	padding: 5%;
 	border-radius: 50%;
-	background: #E4959E;
+	background: #e4959e;
 `;
 export const Button = styled.button`
 	text-decoration: none;
 	font-size: 1.6rem;
 	color: white;
-	padding: ${props => props.component === 'form' ? '2.5%' : "5%"};
-	margin: ${props => props.component === 'single' ? '2.5%' : "5% 1%"};
-	border: 2px solid #FFFFFF;
+	padding: ${(props) => (props.component === 'form' ? '2.5%' : '5%')};
+	margin: ${(props) => (props.component === 'single' ? '2.5%' : '5% 1%')};
+	border: 2px solid #ffffff;
 	border-radius: 10px;
 	width: 100px;
-	background: #1F0812;
+	background: #1f0812;
 	font-weight: bold;
 	text-align: center;
 	:hover {
 		background: white;
-		color: #1F0812 ;
-		border: 2px dashed #1F0812;
+		color: #1f0812;
+		border: 2px dashed #1f0812;
 		cursor: pointer;
 	}
 	:focus {
@@ -73,8 +73,8 @@ export const Button = styled.button`
 `;
 
 export const Main = styled.main`
-	background: #E4959E;
-	border: 2px solid #C3D2D5;
+	background: #e4959e;
+	border: 2px solid #c3d2d5;
 	width: 50%;
 	padding: 1% 5% 0;
 	margin: 1% 2%;
@@ -84,19 +84,20 @@ export const Main = styled.main`
 	align-items: center;
 	border-radius: 150px;
 	height: 95vh;
-	opacity: ${props => props.component === 'delete' ? '.5' : null};
+	opacity: ${(props) => (props.component === 'delete' ? '.5' : null)};
 `;
 export const Div = styled.div`
-	position: ${props => props.component === 'delete' ? 'absolute' : null};
-	z-index: ${props => props.component === 'delete' ? '10' : null};
-	opacity: ${props => props.component === 'delete' ? '1' : null};
-	right: ${props => props.component === 'delete' ? '-9.5%' : null};
-	top: ${props => props.component === 'delete' ? '25%' : null};
-	background: ${props => props.component === 'delete' ? '#1F0812' : null};
-	border-radius: ${props => props.component === 'delete' ? '10px' : null};
-	height: ${props => props.component === 'delete' ? '30vh' : null};
-	width: ${props => props.component === 'delete' ? '270px' : '400px'};
-	border: ${props => props.component === 'delete' ? '2px dashed #FFF' : null};
+	position: ${(props) => (props.component === 'delete' ? 'absolute' : null)};
+	z-index: ${(props) => (props.component === 'delete' ? '10' : null)};
+	opacity: ${(props) => (props.component === 'delete' ? '1' : null)};
+	right: ${(props) => (props.component === 'delete' ? '-9.5%' : null)};
+	top: ${(props) => (props.component === 'delete' ? '25%' : null)};
+	background: ${(props) => (props.component === 'delete' ? '#1F0812' : null)};
+	border-radius: ${(props) => (props.component === 'delete' ? '10px' : null)};
+	height: ${(props) => (props.component === 'delete' ? '30vh' : null)};
+	width: ${(props) => (props.component === 'delete' ? '270px' : '400px')};
+	border: ${(props) =>
+		props.component === 'delete' ? '2px dashed #FFF' : null};
 	display: flex;
 	margin: 2.5% 10%;
 	padding: 5% 0;
@@ -110,7 +111,7 @@ export const Section = styled.section`
 	height: 125px;
 	overflow: hidden;
 	display: flex;
-	background: #1F0812;
+	background: #1f0812;
 	flex-flow: column nowrap;
 	align-items: center;
 	position: relative;
@@ -118,53 +119,53 @@ export const Section = styled.section`
 	padding: 5%;
 	border-radius: 10%;
 	margin: 2.5% 0;
-	border: 2px dashed #FFF;
-	color: #FFF;
+	border: 2px dashed #fff;
+	color: #fff;
 	:hover {
 		background: white;
-		color: #1F0812 ;
-		border: 2px dashed #1F0812;
+		color: #1f0812;
+		border: 2px dashed #1f0812;
 		border-radius: 10%;
 		cursor: pointer;
 	}
 `;
 export const H1 = styled.h1`
 	font-size: 2.6rem;
-	color: ${props => props.component === 'delete' ? '#FFFFFF' : '#1F0812'}
+	color: ${(props) => (props.component === 'delete' ? '#FFFFFF' : '#1F0812')};
 	text-align: center;
 	justify-self: flex-start;
 	font-weight: bold;
 `;
 export const H2 = styled.h2`
 	text-align: center;
-	font-size: ${props => props.component === 'single' ? '2.4rem' : '1.4rem'};
+	font-size: ${(props) => (props.component === 'single' ? '2.4rem' : '1.4rem')};
 	font-weight: bold;
 	padding: 0 5%;
-	border-bottom: 1px solid #FFF;
+	border-bottom: 1px solid #fff;
 	overflow: hidden;
 	max-width: 300px;
 	margin-bottom: 2.5%;
 `;
 
 export const P = styled.p`
-	font-size: ${props => props.component === 'single' ? '1.2rem' : '1.4rem'};
-	background: ${props => props.component === 'single' ? '#FFFFFF' : null};
-	border: ${props => props.component === 'single' ? '2px dashed #1F0812' : null};
-	padding:${props => props.component === 'single' ? '5%' : null}; 
+	font-size: ${(props) => (props.component === 'single' ? '1.2rem' : '1.4rem')};
+	background: ${(props) => (props.component === 'single' ? '#FFFFFF' : null)};
+	border: ${(props) =>
+		props.component === 'single' ? '2px dashed #1F0812' : null};
+	padding: ${(props) => (props.component === 'single' ? '5%' : null)};
 	width: 300px;
 	height: 50vh;
 	overflow: hidden auto;
 	text-align: justify;
 	::-webkit-scrollbar {
- 	 width: 10px;
-};
-::-webkit-scrollbar-track {
-  background: #C3D2D5; 
-};
-::-webkit-scrollbar-thumb {
-  background: #1F0812; 
-}
-
+		width: 10px;
+	}
+	::-webkit-scrollbar-track {
+		background: #c3d2d5;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #1f0812;
+	}
 `;
 
 export const Form = styled.form`
@@ -174,26 +175,26 @@ export const Form = styled.form`
 	flex-flow: column nowrap;
 	width: 450px;
 	height: 95vh;
-`
+`;
 export const Input = styled.input`
-width: 40%;
-padding: 2.5%;
-border-radius: 10px;
-margin-top: 5%;
-border: 2px dashed #1F0812;
-text-align: center;
-:focus{
-	outline: none;
-}
-`
+	width: 40%;
+	padding: 2.5%;
+	border-radius: 10px;
+	margin-top: 5%;
+	border: 2px dashed #1f0812;
+	text-align: center;
+	:focus {
+		outline: none;
+	}
+`;
 export const Textarea = styled.textarea`
-width:50%;
-padding: 20%;
-border-radius: 50%;
-border: 2px dashed #1F0812;
-text-align: center;
-margin-top: 5%;
-:focus{
-	outline: none;
-}
-`
+	width: 50%;
+	padding: 20%;
+	border-radius: 50%;
+	border: 2px dashed #1f0812;
+	text-align: center;
+	margin-top: 5%;
+	:focus {
+		outline: none;
+	}
+`;
