@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 const Div = styled.div`
@@ -61,39 +61,70 @@ const StyledButton = styled(Button)`
     min-height: 40px;
 `;
 
-class DeleteModal extends Component {
-    constructor() {
-        super();
-        this.state = { home: false };
-    }
+function DeleteModal(props) {
+    const [home, setHome] = useState(false);
+    const [id] = useState(props.match.params._id);
+    console.log('delete', props);
 
-    deleteNote = id => {
+    const deleteNote = () => {
+        // e.preventDefault();
+        console.log('delete:', id);
+        setHome(true);
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-            .then(this.props.get());
+            .then(setHome(true))
+            .catch(err => console.log(err));
     };
-
-    render() {
-        return (
-            <Div>
-                <Modal>
-                    <P>Are you sure you want to delete this?</P>
-                    <ButtonContainer>
-                        <StyledButton
-                            warn={true}
-                            text="Delete"
-                            onClick={props =>
-                                this.deleteNote(this.props.match.params._id)
-                            }
-                        />
-                        <Link to={`/notes/${this.props.match.params._id}`}>
-                            <StyledButton text="No" />
-                        </Link>
-                    </ButtonContainer>
-                </Modal>
-            </Div>
-        );
-    }
+    console.log('home:', home);
+    return home === true ? (
+        <Redirect to="/" />
+    ) : (
+        <Div>
+            <Modal>
+                <P>Are you sure you want to delete this?</P>
+                <ButtonContainer>
+                    <StyledButton
+                        warn={true}
+                        text="Delete"
+                        onClick={() => deleteNote()}
+                    />
+                    <Link to={`/notes/${id}`}>
+                        <StyledButton text="No" />
+                    </Link>
+                </ButtonContainer>
+            </Modal>
+        </Div>
+    );
 }
+
+// class DeleteModal extends Component {
+//     deleteNote = id => {
+//         axios
+//             .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+//             .then(this.props.get());
+//     };
+
+//     render() {
+//         return (
+//             <Div>
+//                 <Modal>
+//                     <P>Are you sure you want to delete this?</P>
+//                     <ButtonContainer>
+//                         <StyledButton
+//                             warn={true}
+//                             text="Delete"
+//                             onClick={props =>
+//                                 this.deleteNote(this.props.match.params._id)
+//                             }
+//                         />
+//                         <Link to={`/notes/${this.props.match.params._id}`}>
+//                             <StyledButton text="No" />
+//                         </Link>
+//                     </ButtonContainer>
+//                 </Modal>
+//             </Div>
+//         );
+//     }
+// }
 
 export default DeleteModal;
