@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import styleVars from '../helpers/styleVars';
 import NoteForm from '../components/NoteForm';
-import { prototype } from 'fork-ts-checker-webpack-plugin-alt';
 
 const H1 = styled.h1`
     font-size: 1.81rem;
