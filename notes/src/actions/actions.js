@@ -10,6 +10,21 @@ export const FILTER_TODOS = 'FILTER_TODOS';
 export const SORT_TODOS = 'SORT_TODOS';
 export const EXPORT_TODOS = 'EXPORT_TODOS';
 
+function dynamicSort(property) {
+    const sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        if(sortOrder == -1){
+            return b[property].localeCompare(a[property]);
+        }else{
+            return a[property].localeCompare(b[property]);
+        }        
+    }
+}
+
 export const fetch_todos = () => dispatch => {
     dispatch({ type: FETCH_START });
     axios 
@@ -98,18 +113,8 @@ export const onSortTodos = () => dispatch => {
         .then(response => {
             console.log('response from sort', response.data)
             dispatch({ type: FETCH_SUCCESS,
-                payload: response.data.sort(function (a, b) {
-                    return a.title - b.title;
-                })
+                payload: response.data.sort(dynamicSort("title"))
             })
-            // dispatch({ type: FETCH_SUCCESS, 
-            //     payload: response.data.sort(function(a, b) {
-            //         const titleA = a.title.toUpperCase();
-            //         const titleB = a.title.toUpperCase();
-            //         return (titleA < titleB) ? -1 : (titleA > titleB)
-            //             ? 1 : 0;
-            //     })
-            // })
         })
         .catch(err => {
             dispatch({ type: FETCH_FAILURE, payload: err })

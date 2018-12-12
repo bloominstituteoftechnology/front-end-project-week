@@ -6,13 +6,10 @@ import Todos from './Todos';
 import TodoForm from './TodoForm';
 import TodoSearch from './TodoSearch';
 // import { Route, Link, Switch } from "react-router-dom";
-import {
-  BrowserRouter as Router,
-  StaticRouter, // for server rendering
-  Route,
-  Link
-  // etc.
-} from "react-router-dom";
+
+import { Route, Link, Switch } from "react-router-dom";
+
+import Testing from './testing'
 
 class App extends Component {
   constructor() {
@@ -59,6 +56,7 @@ class App extends Component {
 
   sortTodos = (event) => {
     event.preventDefault();
+    console.log('Sorting!')
     this.props.onSortTodos();
   }
 
@@ -71,6 +69,7 @@ class App extends Component {
     // console.log('props from render', this.props)
     return (
       <div>
+      <Route path='/testing' component={Testing} />
         <TodoSearch 
           handleChange={this.handleChange}
           filterTodos={this.filterTodos}
@@ -89,8 +88,8 @@ class App extends Component {
         </div>
         <div>
         <Route path='/newTodo' render={props => (
-
           <TodoForm 
+            {...props}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             updateTodos={this.updateTodos}
