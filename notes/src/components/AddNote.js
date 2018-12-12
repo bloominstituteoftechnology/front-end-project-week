@@ -4,8 +4,8 @@ class AddNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      textBody: ""
+      title: ``,
+      textBody: ``
     };
   }
 
@@ -34,7 +34,8 @@ class AddNote extends React.Component {
           <input
             className="input-title"
             onChange={this.changeHandler}
-            type="text"
+            type=""
+            autocomplete="off"
             name="title"
             value={this.state.title}
             placeholder={
@@ -44,7 +45,6 @@ class AddNote extends React.Component {
           <textarea
             className="input-content"
             onChange={this.changeHandler}
-            type="text"
             name="textBody"
             value={this.state.textBody}
             placeholder={

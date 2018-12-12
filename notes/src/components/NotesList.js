@@ -1,10 +1,17 @@
 import React, { Fragment, Component } from "react";
+import '../App.css';
 
+const ReactMarkdown = require("react-markdown/with-html");
+const markdown = `
+This block of Markdown contains <a href="https://en.wikipedia.org/wiki/HTML">HTML</a>, and will require the <code>html-parser</code> AST plugin to be loaded, in addition to setting the <code class="prop">escapeHtml</code> property to false.
+# This is a header\n\nAnd this is a paragraph
+`;
 class NotesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filteredNotes: []
+      filteredNotes: [],
+      markdown: "regular"
     };
   }
 
@@ -15,6 +22,11 @@ class NotesList extends Component {
       }
     });
     this.setState({ ...this.state, filteredNotes: filteredNotes });
+  };
+
+  sortHandlerMarkdown = e => {
+    console.log(e.target.value);
+    this.setState({ ...this.state, markdown: e.target.value });
   };
 
   render() {
@@ -37,6 +49,15 @@ class NotesList extends Component {
               </option>
               <option value="none">None</option>
               <option value="alphabetically">Alphabetically</option>
+            </select>
+          </div>
+          <div className="sort-markdown">
+            <select onChange={this.sortHandlerMarkdown}>
+              <option value="" selected>
+                Mark Down?
+              </option>
+              <option value="regular">Regular</option>
+              <option value="markdown">Markdown</option>
             </select>
           </div>
         </div>
@@ -66,15 +87,41 @@ class NotesList extends Component {
                     }
                     key={note.id}
                   >
-                    <h3>{note.title}</h3>
-                    <p>{note.textBody}</p>
+                    <Fragment>
+                      {this.state.markdown === "markdown" ? (
+                        <ReactMarkdown
+                          className="markdown-title"
+                          source={note.title}
+                          escapeHtml={false}
+                        />
+                      ) : (
+                        <h3>{note.title}</h3>
+                      )}
+                    </Fragment>
+                    <Fragment>
+                      {this.state.markdown === "markdown" ? (
+                        <ReactMarkdown
+                          className="markdown-content"
+                          source={note.textBody}
+                          escapeHtml={false}
+                        />
+                      ) : (
+                        <p>{note.textBody}</p>
+                      )}
+                    </Fragment>
                   </div>
                 );
               })}
         </div>
+        {/* <ReactMarkdown source={markdown} escapeHtml={false} /> */}
       </Fragment>
     );
   }
 }
+
+// ReactDOM.render(
+//   <ReactMarkdown source={input} />,
+//   document.getElementById('test')
+// );
 
 export default NotesList;

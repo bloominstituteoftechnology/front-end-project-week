@@ -80,14 +80,14 @@
   background-color: white;
 }
 
-.note h3 {
+.note h3, .markdown-title {
   font-weight: bold;
   font-size: 2rem;
   border-bottom: 1px solid grey;
   padding-bottom: 0.5rem;
 }
 
-.note p {
+.note p, .markdown-content {
   font-size: 1.2rem;
   padding-top: 0.5rem;
 }
@@ -291,7 +291,7 @@ textarea {
   border-radius: 0.3rem;
 }
 
-.sort {
+.sort, .sort-markdown{
   margin: 1rem 0;
   display: flex;
   /* border: 1px solid red; */
@@ -299,7 +299,7 @@ textarea {
   
 }
 
-.sort select {
+.sort select, .sort-markdown select {
   border-radius: 0.25rem;
   width: 32%;
   background-color: rgb(36, 184, 189);
