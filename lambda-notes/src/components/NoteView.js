@@ -16,10 +16,12 @@ export default class NoteView extends React.Component {
     }
 
     fetchNote = id => {
+        console.log("BEFORE ERROR?");
         axios
             .get(`https://infinite-cliffs-77240.herokuapp.com/api/notes/${id}`)
             // .get(`http://localhost:9000/api/notes/${id}`)
             .then(response => {
+                console.log("AFTER ERROR?");
                 this.setState({ note: response.data });
             })
             .catch(error => {
