@@ -27,20 +27,13 @@ class CreateNoteView extends React.Component {
         content: this.state.text,
         id: this.state.id
       };
-      console.log("this is this.props.notes", this.props.notes)
-      console.log("this is newNote", newNote)
       axios.post("http://localhost:3400/api/notes", newNote)
         .then(response => {
-          console.log("this is my response", response);
-          console.log("this is my response.data", response.data);
-          console.log("this is my response.data.success", response.data.success);
           newNote.id = response.data.id;
           this.props.addNewNotes(newNote);
         })
         .catch(error => {
           console.error(error);
-          
-          console.log("this is my error",error);
         });
       this.props.history.push("/");
     };

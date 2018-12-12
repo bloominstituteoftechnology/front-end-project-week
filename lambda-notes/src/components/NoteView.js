@@ -33,7 +33,7 @@ class NoteView extends React.Component {
 
   deleteNote = event => {
     event.preventDefault();
-    const url = `http://localhost:3400/note/delete/${
+    const url = `http://localhost:3400/api/notes/${
       this.state.note.id
     }`;
     axios
