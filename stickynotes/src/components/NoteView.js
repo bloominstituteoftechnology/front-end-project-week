@@ -4,7 +4,7 @@ import { Main, H2, P, Div, Button } from '../style';
 const NoteView = (props) => {
 	return (
 		<Main component={props.component}>
-			{props.notes.slice(0, 12).map((note, index) =>
+			{props.notes.map((note, index) =>
 				note._id === props.id ? (
 					<React.Fragment key={index}>
 						<Div>

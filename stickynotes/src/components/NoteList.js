@@ -3,6 +3,7 @@ import { Main, Section, H2, H1, Div } from '../style';
 import { Link } from 'react-router-dom';
 import NoteForm from './NoteForm';
 
+
 const NoteList = (props) => {
 	if (props.mode === 'create') {
 		return (
@@ -21,12 +22,13 @@ const NoteList = (props) => {
 			<Main>
 				<H1>Notes</H1>
 				<Div component='list' onDragOver={(e)=> props.onDragOver(e)} onDrop={(e)=> props.onDrop(e)}>
-					{props.notes.slice(0, 12).map((note, index) => (
+					{props.notes.map((note, index) => (
+						index < 12 ? 
 						<Link to={`/${note._id}`} key={index} style={{textDecoration: 'none'}} draggable onDragStart={e => props.onDragStart(e, note._id)}>
 							<Section >
 								<H2 component='list'>{note.title}</H2>
 							</Section>
-						</Link>
+						</Link> : null
 					))}
 				</Div>
 				<H2 onClick={props.sort}>Sort</H2>

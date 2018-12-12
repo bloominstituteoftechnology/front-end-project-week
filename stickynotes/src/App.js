@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { GlobalStyle, AppContainer } from './style';
 import { Route } from 'react-router-dom';
-import axios from 'axios';
+import {connect} from 'react-redux';
+import {
+	requestNotes,
+	addNote,
+	editNote,
+	deleteNote,
+	sorting
+  } from './actions';
 import SideNav from './components/SideNav';
 import NoteList from './components/NoteList';
 import NoteSingle from './components/NoteSingle';
@@ -11,79 +18,24 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			notes: [],
-			newId: '',
 			mode: 'default'
 		};
 	}
 
 	componentDidMount() {
-		axios
-			.get('https://fe-notes.herokuapp.com/note/get/all')
-			.then((response) => {
-				this.setState({
-					notes: response.data
-				});
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		this.props.requestNotes();
 	}
 
 	addNote = (note) => {
-		axios
-			.post(`https://fe-notes.herokuapp.com/note/create`, note)
-			.then((response) => {
-				this.setState({
-					...this.state,
-					newId: `${response.data.success}`
-				});
-				return axios.get(
-					`https://fe-notes.herokuapp.com/note/get/${response.data.success}`
-				);
-			})
-			.then((response) => {
-				this.setState({
-					...this.state,
-					notes: [response.data, ...this.state.notes]
-				});
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		this.props.addNote(note);
 	};
 
 	editNote = (note, id) => {
-		console.log(note);
-		axios
-			.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
-			.then((response) => {
-				return axios.get('https://fe-notes.herokuapp.com/note/get/all');
-			})
-			.then((response) => {
-				this.setState({
-					notes: response.data
-				});
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		this.props.editNote(note, id);
 	};
 
 	deleteNote = (id) => {
-		axios
-			.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-			.then((response) => {
-				return axios.get('https://fe-notes.herokuapp.com/note/get/all');
-			})
-			.then((response) => {
-				this.setState({
-					notes: response.data
-				});
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		this.props.deleteNote(id)
 	};
 
 	toggleMode = (mode) => {
@@ -109,23 +61,10 @@ class App extends Component {
 		event.dataTransfer.setData('id', id);
 	};
 
-	sort = () => {
-		function compare(a, b) {
-			const titleA = a.title.toUpperCase();
-			const titleB = b.title.toUpperCase();
-			let comparison = 0;
-			if (titleA > titleB) {
-				comparison = 1;
-			} else if (titleA < titleB) {
-				comparison = -1;
-			}
-			return comparison;
-		}
-		this.setState({
-			...this.state,
-			notes: this.state.notes.sort(compare)
-		});
-	};
+sort = () => {
+	this.props.sorting()
+	
+};
 	render() {
 		return (
 			<React.Fragment>
@@ -143,11 +82,11 @@ class App extends Component {
 						render={(props) => (
 							<NoteList
 								{...props}
-								notes={this.state.notes}
+								notes={this.props.notes}
 								mode={this.state.mode}
 								toggleMode={this.toggleMode}
 								addNote={this.addNote}
-								id={this.state.newId}
+								id={this.props.newId}
 								onDragOver={this.onDragOver}
 								onDrop={this.onDrop}
 								onDragStart={this.onDragStart}
@@ -162,7 +101,7 @@ class App extends Component {
 							<React.Fragment>
 								<NoteSingle
 									{...props}
-									notes={this.state.notes}
+									notes={this.props.notes}
 									toggleMode={this.toggleMode}
 									deleteNote={this.deleteNote}
 									editNote={this.editNote}
@@ -187,4 +126,18 @@ class App extends Component {
 	}
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+	notes: state.notes,
+	requestingData: state.requestingData,
+	newId: state.newId
+})
+export default connect(
+	mapStateToProps,
+	{
+		requestNotes,
+	addNote,
+	editNote,
+	deleteNote,
+	sorting
+	}
+)(App);
