@@ -9,7 +9,9 @@ import {
 
 // Actions
 import {
-    fetchUniqueData
+    fetchUniqueData,
+    deleteNote,
+    fetchAllData
 } from '../actions';
 
 // Component
@@ -20,10 +22,23 @@ class NoteView extends Component {
         this.props.fetchUniqueData(this.props.match.params.noteId)
     }
 
+    handleClick = (id) => {
+        this.props.deleteNote(id)
+        this.props.history.push('/');
+    }
+
     render() {
         if(this.props.note){
             if(this.props.note.title){
-                return <Note note={this.props.note}/>
+                return (
+                    <Note
+                        note={this.props.note}
+                        match={this.props.match}
+                        history={this.props.history}
+                        deleteNote={this.props.deleteNote}
+                        handleClick={this.handleClick}
+                    />
+                )
             } else {
                 return( 
                     <>
@@ -48,7 +63,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchUniqueData: id => dispatch(fetchUniqueData(id))
+        fetchUniqueData: id => dispatch(fetchUniqueData(id)),
+        deleteNote: id => dispatch(deleteNote(id)),
+        fetchAllData: id => dispatch(fetchAllData())
     }
 }
 

@@ -9,6 +9,8 @@ export const FETCH_NOTE = 'FETCH_NOTE';
 export const FETCH_ALL_SUCCESS = 'FETCH_ALL_SUCCESS';
 export const FETCH_ONE_SUCCESS = 'FETCH_ONE_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const DELETE_SUCCESS = 'DELETE_SUCCESS';
 
 // Action Creators
 
@@ -59,6 +61,25 @@ export const fetchUniqueData = id => dispatch => {
         .then(resp => {
             return dispatch({
                 type: FETCH_ONE_SUCCESS,
+                payload: resp.data
+            });
+        })
+        .catch(err => dispatch({
+            type: FETCH_FAIL,
+            payload: err
+        }));
+}
+
+
+export const deleteNote = id => dispatch => {
+    dispatch({
+        type: DELETE_NOTE
+    });
+    axios
+        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then(resp => {
+            return dispatch({
+                type: DELETE_SUCCESS,
                 payload: resp.data
             });
         })

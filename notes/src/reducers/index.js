@@ -7,6 +7,8 @@ import {
     FETCH_ALL_SUCCESS,
     FETCH_ONE_SUCCESS,
     FETCH_FAIL,
+    DELETE_NOTE,
+    DELETE_SUCCESS
  } from '../actions';
 
 // Initial State 
@@ -71,9 +73,19 @@ const reducer = (state = initialState, action) => {
                 fetchingNotes: false,
                 error: action.payload
             }
+        case DELETE_NOTE:
+            return {
+                ...state,
+                deletingNote: true
+            }
+        case DELETE_SUCCESS:
+            return {
+                ...state,
+                deletingNote: false
+            }
         
         default: 
             return state;
-}
+    }
 }
 export default reducer;
