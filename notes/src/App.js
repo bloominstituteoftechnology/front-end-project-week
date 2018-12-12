@@ -29,7 +29,6 @@ componentDidMount() {
   axios
     .get(`${URL}notes`)
     .then(response => {
-       console.log(response.data)
        this.setState({ notes: response.data })})
     .catch(error => {
       console.error('Error collecting notes!', error)
@@ -50,20 +49,21 @@ getNoteById = id => {
   axios
     .get(`${URL}notes/${id}`)
     .then(res => {
-      console.log(res.data)
       this.setState({ activeNote: res.data })})
-    .catch(err => console.log(err));
+    .catch(err => console.log('Error getting that note!', err));
 };
 
 addNote = () => {
   axios
     .post(`${URL}create`, this.state.note)
     .then(response => {
-      console.log(response)
       this.setState({
        notes: [
          ...this.state.notes,
-         this.state.note
+         {
+           ...this.state.note,
+          id: response.data[0].id
+          }
        ],
        note: {
         title: '',
@@ -76,14 +76,12 @@ addNote = () => {
 }
 
 deleteNote = (ev, id) => {
-  console.log(ev, id)
   ev.preventDefault();
   // const foundNote = this.state.notes.find(note => note.id === id)
   //   console.log(foundNote)
   const newNotesArray = this.state.notes.filter(note => note.id !== id)
   axios.delete(`${URL}edit/${id}`)
     .then(response => {
-      console.log(response)
       this.setState({
         notes: newNotesArray
       })
@@ -91,7 +89,6 @@ deleteNote = (ev, id) => {
 }
 
 editNote = () => {
-  console.log(this.state)
   const myId = this.state.activeNote[0].id;
   axios
     .put(
@@ -102,11 +99,17 @@ editNote = () => {
       // const oldNote = this.state.notes.find(note => note._id === this.state.editingId)
       // console.log(oldNote)
       const newNotesArray = this.state.notes.filter(note => note.id !== myId)
-      newNotesArray.push(this.state.note)
-      console.log(newNotesArray)
+      // newNotesArray.push(this.state.note)
+      // console.log(newNotesArray)
       this.setState({
         
-        notes: newNotesArray,
+        notes: [
+          ...newNotesArray,
+          {
+            ...this.state.note,
+            id: myId
+          }
+        ],
         editingId: null,
         isEditing: false,
         note: {

@@ -18,7 +18,6 @@ const URL = 'http://localhost:5200/api/';
     axios
       .get(`${URL}notes`)
       .then(response => {
-         console.log(response.data)
          this.setState({ notes: response.data })})
       .catch(error => {
         console.error('Error collecting notes!', error)
@@ -26,7 +25,6 @@ const URL = 'http://localhost:5200/api/';
   }
 
   routeToNote(event, note) {
-    console.log(note)
     event.preventDefault();
     this.props.history.push(`/notes/${note.id}`);
     this.props.getNoteById(note.id)

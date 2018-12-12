@@ -15,7 +15,7 @@ class SingleNote extends React.Component {
       notes: [],
       note: {
         title: 'Trouble getting that note',
-        content: 'Please refresh the page'
+        content: 'Please click "View Your Notes" and try again'
       }
     }
   }
@@ -31,13 +31,10 @@ class SingleNote extends React.Component {
   
   
   componentDidMount() {
-    console.log(this.props)
     const myId = this.props.match.params.id;
-    console.log(myId);
     axios
     .get(`${URL}notes/${myId}`)
     .then(response => {
-      console.log(response.data)
       this.setState({ 
         note: {
           title: response.data[0].title,
