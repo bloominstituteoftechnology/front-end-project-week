@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './authenticate.css';
 
 const url = process.env.REACT_APP_DB_URL;
 
@@ -79,11 +80,16 @@ const Authenticate = App =>
             if (this.state.loggedIn) return <App />;
             else {
                 return (
-                    <div>
+                    <div className='auth-wrapper'>
+                        <h1>Notes</h1>
+                        <div className='login-wrapper'>
                         {!this.state.register
                             ? <h2>Login</h2>
                             : <h2>Register</h2>}
-                        <form onSubmit={!this.state.register ? this.submitHandler : this.submitHandlerReg}>
+                        <form onSubmit={!this.state.register
+                            ? this.submitHandler
+                            : this.submitHandlerReg}
+                            className='sign-in-form'>
                             <label htmlFor="username">Username</label>
                             <input
                                 type="text"
@@ -101,13 +107,15 @@ const Authenticate = App =>
                                 onChange={this.inputHandler}
                             />
                             <button type='submit'>{!this.state.register
-                                ? <h2>Sign In</h2>
-                                : <h2>Sign up</h2>}</button>
+                                ? <h3>Sign in</h3>
+                                : <h3>Sign up</h3>}</button>
                         </form>
-                        <h3 onClick={this.toggleHandler}>Sign up</h3>
+                        <h3 onClick={this.toggleHandler} className='signUp-toggle'>
+                            Sign up</h3>
                         {this.state.message
                             ? (<h4>{this.state.message}</h4>)
                             : undefined}
+                            </div>
                     </div>
                 )
             }
