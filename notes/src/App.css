@@ -26,7 +26,8 @@
   margin-left: 10px;
 }
 
-.navigation a {
+.navigation a,
+.navigation button {
   align-self: center;
   text-align: center;
   background: #56B9BD;
@@ -35,6 +36,7 @@
   padding: 10px 20px;
   margin: 10px 0;
   border: 1px solid #ADB9BA;
+  font-size: 1rem;
   text-decoration: none;
 }
 
