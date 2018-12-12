@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
 const NoteViewContainer = styled.div`
     padding: 20px 3% 0 0;
 `
@@ -12,7 +11,7 @@ const EditDeleteContainer = styled.div`
     float: right;
 `
 
-const EditDeleteLinks = styled(Link)`
+const EditDeleteLink = styled(Link)`
     color: #4A494A;
     font-size: 0.9rem;
     font-weight: bold;
@@ -36,13 +35,14 @@ const NoteBody = styled.div`
     line-height: 1.6;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: pre-line;
 `
 
 class NoteView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: 4
+            note: {}
         }
     }
 
@@ -64,16 +64,18 @@ class NoteView extends Component {
 
     render() {
         return (
-            <NoteViewContainer>
-                <EditDeleteContainer>
-                    <EditDeleteLinks to={'/'}>edit</EditDeleteLinks>
-                    <EditDeleteLinks to={'/'}>delete</EditDeleteLinks>
-                </EditDeleteContainer>
-                <NoteContainer>
-                    <NoteTitle>{this.state.note.title}</NoteTitle>
-                    <NoteBody>{this.state.note.textBody}</NoteBody>
-                </NoteContainer>
-            </NoteViewContainer>
+            <div>
+                <NoteViewContainer>
+                    <EditDeleteContainer>
+                        <EditDeleteLink to={`/edit/${this.props.match.params.id}`}>edit</EditDeleteLink>
+                        <EditDeleteLink to={`/notes/delete/${this.props.match.params.id}`}>delete</EditDeleteLink>
+                    </EditDeleteContainer>
+                    <NoteContainer>
+                        <NoteTitle>{this.state.note.title}</NoteTitle>
+                        <NoteBody>{this.state.note.textBody}</NoteBody>
+                    </NoteContainer>
+                </NoteViewContainer>
+            </div>
         )
     };
 }

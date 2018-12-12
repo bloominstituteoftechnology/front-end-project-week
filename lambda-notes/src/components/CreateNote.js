@@ -13,6 +13,53 @@ const CreateHeader = styled.h2`
     font-weight: bold;
 `
 
+const CreateForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    width: 93%;
+`
+
+const TitleInput = styled.input`
+    border: 1px solid #979797;
+    border-radius: 3px;
+    width: 50%;
+    height: 35px;
+    padding: 0 5px 0 5px;
+    font-size: 0.9rem;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+`
+
+const TextBodyInput = styled.textarea`
+    border: 1px solid #979797;
+    border-radius: 3px;
+    width: 100%;
+    height: 600px;
+    padding: 12px 5px 0 5px;
+    font-size: 0.9rem;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+`
+
+const SaveButton = styled.button`
+    display: block;
+    border: 1px solid #959898;
+    outline: none;
+    text-decoration: none;
+    background-color: #5DBEC3;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;    
+    font-weight: bold;
+    padding: 0.8rem 0;
+    width: 35%;
+    margin-bottom: 40px;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+`
+
 class CreateNote extends Component {
     constructor(props) {
         super(props);
@@ -28,7 +75,6 @@ class CreateNote extends Component {
         })
     }
 
-
     addNew = (e) => {
         e.preventDefault();
         axios
@@ -36,7 +82,7 @@ class CreateNote extends Component {
                 title: this.state.title,
                 textBody: this.state.textBody,
             })
-            .then(response => {
+            .then((response) => {
                 this.props.refreshMain();
                 this.props.history.push('/');
             })
@@ -53,23 +99,23 @@ class CreateNote extends Component {
                 <CreateHeader>
                     Create New Note:
                 </CreateHeader>
-                <form onSubmit={this.addNew}>
-                    <input
+                <CreateForm onSubmit={this.addNew}>
+                    <TitleInput
                         type='text'
                         name='title'
                         placeholder='Note Title'
                         onChange={this.inputChangehandler}
                         value={this.state.title}
                     />
-                    <input
+                    <TextBodyInput
                         type='text'
                         name='textBody'
                         placeholder='Note Content'
                         onChange={this.inputChangehandler}
                         value={this.state.textBody}
                     />
-                    <button type='submit'>Save</button>
-                </form>
+                    <SaveButton type='submit'>Save</SaveButton>
+                </CreateForm>
             </CreateNoteContainer>
         )
     }

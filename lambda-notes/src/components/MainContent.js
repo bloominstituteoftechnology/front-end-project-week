@@ -5,6 +5,8 @@ import { Route } from 'react-router-dom';
 import axios from 'axios';
 import NoteView from './NoteView.js'
 import CreateNote from './CreateNote.js'
+import DeleteNote from './DeleteNote';
+import EditNote from './EditNote.js'
 
 const MainContentContainer = styled.div`
     display: table-cell;
@@ -13,58 +15,13 @@ const MainContentContainer = styled.div`
     padding-left: 30px;
 `
 
+
 class MainContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: [
-                //     {   
-                //         "tags": ["tag", "otherTag"],
-                //         "title": "Sample Title 1",
-                //         "textBody": "Sample Body 1",
-                //     },
-                //     {
-                //         "tags": ["tag", "otherTag"],
-                //         "title": "Sample Title 2",
-                //         "textBody": "Sample Body 2",
-                //     },
-                //     {
-                //         "tags": ["tag", "otherTag"],
-                //         "title": "Sample Title 3",
-                //         "textBody": "Sample Body 3",
-                //     },
-                //     {   
-                //         "tags": ["tag", "otherTag"],
-                //         "title": "Sample Title 1",
-                //         "textBody": "Sample Body 1",
-                //     },
-                //     {
-                //         "tags": ["tag", "otherTag"],
-                //         "title": "Sample Title 2",
-                //         "textBody": "Sample Body 2",
-                //     },
-                //     {
-                //         "tags": ["tag", "otherTag"],
-                //         "title": "Sample Title 3",
-                //         "textBody": "Sample Body 3",
-                //     },
-                //     {   
-                //         "tags": ["tag", "otherTag"],
-                //         "title": "Sample Title 1",
-                //         "textBody": "Sample Body 1",
-                //     },
-                //     {
-                //         "tags": ["tag", "otherTag"],
-                //         "title": "Sample Title 2",
-                //         "textBody": "Sample Body 2",
-                //     },
-                //     {
-                //         "tags": ["tag", "otherTag"],
-                //         "title": "Sample Title 3",
-                //         "textBody": "Sample Body 3",
-                //     },
-            ],
-            loading: true
+            notes: [],
+            loading: true,
         }
     }
 
@@ -74,7 +31,7 @@ class MainContent extends Component {
             .then(response => {
                 this.setState({
                     notes: response.data,
-                    loading: false
+                    loading: false,
                 });
             })
             .catch(err => console.log(err));
@@ -97,13 +54,25 @@ class MainContent extends Component {
                 <Route
                     path={`/notes/:id`}
                     render={props =>
-                        <NoteView {...props} />
+                        <NoteView {...props} toggleDeleteScreen={this.toggleDeleteScreen} refreshMain={this.refreshMain} />
                     }
                 />
                 <Route
                     path={`/create`}
                     render={props =>
                         <CreateNote {...props} refreshMain={this.refreshMain} />
+                    }
+                />
+                <Route
+                    path={`/notes/delete/:id`}
+                    render={props =>
+                        <DeleteNote {...props} refreshMain={this.refreshMain} />
+                    }
+                />
+                <Route
+                    path={`/edit/:id`}
+                    render={props =>
+                        <EditNote {...props} refreshMain={this.refreshMain} />
                     }
                 />
             </MainContentContainer>
