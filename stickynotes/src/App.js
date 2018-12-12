@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { GlobalStyle, AppContainer, Input, Form } from './style';
 import { Route } from 'react-router-dom';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { CSVLink } from 'react-csv';
 import {
 	requestNotes,
 	addNote,
@@ -9,7 +10,7 @@ import {
 	deleteNote,
 	sorting,
 	searching
-  } from './actions';
+} from './actions';
 import SideNav from './components/SideNav';
 import NoteList from './components/NoteList';
 import NoteSingle from './components/NoteSingle';
@@ -34,10 +35,10 @@ class App extends Component {
 			...this.state,
 			[event.target.name]: event.target.value
 		});
-		if(event.target.value.length === 0) {
+		if (event.target.value.length === 0) {
 			this.props.requestNotes();
 		}
-	}	
+	};
 	addNote = (note) => {
 		this.props.addNote(note);
 	};
@@ -47,7 +48,7 @@ class App extends Component {
 	};
 
 	deleteNote = (id) => {
-		this.props.deleteNote(id)
+		this.props.deleteNote(id);
 	};
 
 	toggleMode = (mode) => {
@@ -57,48 +58,59 @@ class App extends Component {
 		});
 	};
 	sort = () => {
-		this.props.sorting()
-		
+		this.props.sorting();
 	};
 
 	search = (e) => {
 		e.preventDefault();
-		console.log(this.state.searchTerm)
+		console.log(this.state.searchTerm);
 		this.props.searching(this.state.searchTerm);
-		
-	}
+	};
 
-	// onDragOver = (event) => {
-	// 	event.preventDefault();
-	// };
+	onDragOver = (event) => {
+		event.preventDefault();
+	};
 
-	// onDrop = (event) => {
-	// 	event.preventDefault();
-	// 	event.dataTransfer.getData('id');
-	// 	this.setState({
-	// 		...this.state
-	// 	});
-	// };
+	onDrop = (event) => {
+		event.preventDefault();
+		console.log(event.target);
+		event.dataTransfer.getData('id');
+	};
 
-	// onDragStart = (event, id) => {
-	// 	event.dataTransfer.setData('id', id);
-	// };
-
+	onDragStart = (event, id) => {
+		console.log(event.target);
+		event.dataTransfer.setData('id', id);
+	};
 
 	render() {
 		return (
 			<React.Fragment>
 				<GlobalStyle />
-				
+
 				<AppContainer>
-					<Form component='main' onSubmit={(event) => this.search(event)}>
-					<Input 
-					name='searchTerm'
-					component='main'
-					onChange={(e)=> this.handleChange(e)}
-					placeholder={'search notes...'}
-					type='text'
-					/>
+					<CSVLink
+						data={this.props.notes}
+						filename={'notes.csv'}
+						target="_blank"
+						style={{
+							fontSize: '2rem',
+							color: 'white',
+							position: 'absolute',
+							right: '11%',
+							zIndex: '99',
+							bottom: '5%'
+						}}
+					>
+						Export Notes
+					</CSVLink>
+					<Form component="main" onSubmit={(event) => this.search(event)}>
+						<Input
+							name="searchTerm"
+							component="main"
+							onChange={(e) => this.handleChange(e)}
+							placeholder={'search notes...'}
+							type="text"
+						/>
 					</Form>
 					<Route
 						path={'/'}
@@ -161,15 +173,15 @@ const mapStateToProps = (state) => ({
 	notes: state.notes,
 	requestingData: state.requestingData,
 	newId: state.newId
-})
+});
 export default connect(
 	mapStateToProps,
 	{
 		requestNotes,
-	addNote,
-	editNote,
-	deleteNote,
-	sorting,
-	searching
+		addNote,
+		editNote,
+		deleteNote,
+		sorting,
+		searching
 	}
 )(App);

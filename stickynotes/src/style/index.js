@@ -143,6 +143,10 @@ export const H2 = styled.h2`
 	font-weight: bold;
 	padding: 0 5%;
 	margin-bottom: 2.5%;
+	cursor: ${props => props.sort ? 'pointer' : null};
+	:hover{
+		color: ${props => props.sort ? 'white' : null};
+	}
 `;
 
 export const P = styled.p`

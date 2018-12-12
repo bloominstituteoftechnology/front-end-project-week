@@ -8,6 +8,8 @@ import {
      SORT,
      SEARCH
   } from '../actions'
+ 
+
 
   const initialState = {
     notes: [],
@@ -16,6 +18,7 @@ import {
    newId: '',
    newNote: [],
   }
+
 
   export const reducer = (state = initialState, action) => {
     switch(action.type) {

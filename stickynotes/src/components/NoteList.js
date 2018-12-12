@@ -23,7 +23,7 @@ const NoteList = (props) => {
 				<H1>Notes</H1>
 				<Div component='list' onDragOver={(e)=> props.onDragOver(e)} onDrop={(e)=> props.onDrop(e)}>
 					{props.notes.map((note, index) => (
-						index < 12 ? 
+						index < 9 ? 
 						<Link to={`/${note._id}`} key={index} style={{textDecoration: 'none'}} draggable onDragStart={e => props.onDragStart(e, note._id)}>
 							<Section >
 								<H2 component='list'>{note.title}</H2>
@@ -31,7 +31,7 @@ const NoteList = (props) => {
 						</Link> : null
 					))}
 				</Div>
-				<H2 onClick={props.sort}>Sort</H2>
+				<H2 onClick={props.sort} sort>Sort</H2>
 			</Main>
 		);
 	}
