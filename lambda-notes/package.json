@@ -5,6 +5,7 @@
   "homepage": "https://ielvisd.github.io/front-end-project-week",
   "dependencies": {
     "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
     "gh-pages": "^2.0.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",

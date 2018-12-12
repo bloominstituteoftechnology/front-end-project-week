@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import Register from '../components/Register';
 import SideBarView from './SideBarView';
 import ListView from './ListView';
 import NewNoteView from './NewNoteView';
@@ -7,8 +7,9 @@ import SingleNoteView from './SingleNoteView';
 import EditNoteView from './EditNoteView';
 import DeleteModal from '../components/DeleteModal';
 import styled from 'styled-components';
-import { Route, withRouter } from 'react-router-dom';
+import { withRouter, Switch, Route, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './App.css';
 
 const AppContainer = styled.div`
   background: #d7d7d7;
@@ -35,6 +36,30 @@ class App extends Component {
         {this.props.mightDelete ? <DeleteModal /> : null}
         <div className="App">
           <AppContainer>
+            <div className="Testing Registration & Login">
+              <nav>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/register">Register</NavLink>
+              </nav>
+              <section>
+                <Switch>
+                  <Route path="/register" component={Register} />
+                  {/* <Route path="/login" component={Login} />
+            <Route path="/" render={() => {
+              return (
+                <React.Fragment>
+                <h2>Users</h2>
+                  <ol>
+                    {this.state.users.map(user => <li key={user.id}>{user.username}</li>)}
+                  </ol>
+                </React.Fragment>
+              );
+            }} /> */}
+                </Switch>
+              </section>
+            </div>
+
             <Route path="/front-end-project-week" render={props => <SideBarView {...props} />} />
             <Route exact path="/front-end-project-week" render={props => <ListView {...props} />} />
             <Route exact path="/front-end-project-week/new-note" render={props => <NewNoteView {...props} />} />
