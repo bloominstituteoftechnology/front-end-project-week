@@ -21,15 +21,17 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => this.setState({ notes: response.data.reverse() }))
+      .get('http://localhost:8500/notes')
+      .then(response => {
+        console.log(response);
+        this.setState({ notes: response.data.notes.reverse() });
+      })
       .catch(error => console.log(error));
   }
 
   addNote = note => {
-    console.log('hello');
     axios
-        .post('https://fe-notes.herokuapp.com/note/create', note)
+        .post('http://localhost:8500/create', note)
         .then(() => {
           let newNotes = [...this.state.notes];
           newNotes.unshift(note);
@@ -41,9 +43,9 @@ class App extends Component {
 
   editNote = note => {
     axios 
-        .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.expandedNote.id}`, note)
+        .put(`http://localhost:8500/edit/${this.state.expandedNote.id}`, note)
         .then(() => {
-          const targetIndex = this.state.notes.findIndex(note => note._id === this.state.expandedNote.id);
+          const targetIndex = this.state.notes.findIndex(note => note.id === this.state.expandedNote.id);
           let newNotes = [...this.state.notes];
           newNotes.splice(targetIndex, 1, note);
           this.setState({ notes: newNotes });
@@ -54,9 +56,9 @@ class App extends Component {
 
   deleteNote = () => {
     axios
-        .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.expandedNote.id}`)
+        .delete(`http://localhost:8500/delete/${this.state.expandedNote.id}`)
         .then(() => {
-          const targetIndex = this.state.notes.findIndex(note => note._id === this.state.expandedNote.id);
+          const targetIndex = this.state.notes.findIndex(note => note.id === this.state.expandedNote.id);
           let newNotes = [...this.state.notes];
           newNotes.splice(targetIndex, 1);
           this.setState({ notes: newNotes });

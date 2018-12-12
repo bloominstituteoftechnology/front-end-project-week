@@ -4,14 +4,14 @@
 }
 
 .content {
-  background: rgb(233, 233, 233);
+  background: rgb(154, 223, 158);
   min-height: 100vh;
   padding: 20px;
   width: 100%;
 }
 
 .button {
-  background: teal;
+  background: rgb(181, 98, 219);
   border: 1px solid darkgray;
   color: white;
   font-weight: bold;
