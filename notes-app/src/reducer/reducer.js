@@ -4,13 +4,14 @@ import {
     DELETE_FETCH, DELETE_SUCCESS, DELETE_FAILURE,
     UPDATE_FETCH, UPDATE_SUCCESS, UPDATE_FAILURE,
     START_EDIT, RESET_EDIT,  
-    SEARCH
+    SEARCH, SORT
    } from "../actions";
 
 const initialState = 
 {
     notes: [],
     filteredNotes: [],
+    sortedNotes: [],
     fetchingNotes: false,
     error: null,
     editNote: {}
@@ -30,8 +31,8 @@ export const axiosReducer = (state = initialState, action) => {
                 error: null,
                 fetchingNotes: false,
                 notes: action.payload,
-                filteredNotes: action.payload
-                
+                filteredNotes: action.payload,
+                sortedNotes: action.payload,
             }
         case FAILURE:
             return {
@@ -55,6 +56,7 @@ export const axiosReducer = (state = initialState, action) => {
                 fetchingNotes: false,
                 notes: addPayload,
                 filteredNotes: addPayload,
+                sortedNotes: addPayload,
             }
         case ADD_FAILURE:
             return {
@@ -84,6 +86,7 @@ export const axiosReducer = (state = initialState, action) => {
                 fetchingNotes: false,
                 notes: updatePayload,
                 filteredNotes: updatePayload,
+                sortedNotes: updatePayload,
             }
         case UPDATE_FAILURE:
             return {
@@ -109,6 +112,7 @@ export const axiosReducer = (state = initialState, action) => {
                 fetchingNotes: false,
                 notes: deletePayload,
                 filteredNotes: deletePayload,
+                sortedNotes: deletePayload,
             }
         case DELETE_FAILURE:
             return {
@@ -123,7 +127,12 @@ export const axiosReducer = (state = initialState, action) => {
                 ...state,
                 filteredNotes: action.payload,
             }
-        
+        case SORT:
+            return {
+                ...state,
+                sortedNotes: action.payload,
+                filteredNotes: action.payload,
+            }
 
         default:
             return state;

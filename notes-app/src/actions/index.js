@@ -14,6 +14,7 @@ export const UPDATE_FAILURE = 'UPDATE_FAILURE';
 export const START_EDIT = 'START_EDIT';
 export const RESET_EDIT = 'RESET_EDIT';
 export const SEARCH = 'SEARCH';
+export const SORT = 'SORT';
 
 export const getNotes = () => dispatch => {
     dispatch({ type: FETCH});
@@ -77,4 +78,8 @@ export const resetEdit = () => dispatch => {
 
 export const setFilter = (notes) => dispatch => {
     dispatch({ type: SEARCH, payload: notes})
+}
+
+export const setSorter = (notes) => dispatch => {
+    dispatch({ type: SORT, payload: notes})
 }

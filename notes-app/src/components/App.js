@@ -16,7 +16,8 @@ import {
   deleteNote,
   startUpdate,
   resetEdit,
-  setFilter
+  setFilter,
+  setSorter
  } from '../actions';
 
 class App extends Component {
@@ -26,8 +27,8 @@ class App extends Component {
   }
 
   searchFilter = ev =>{
-    console.log(ev.target.value)
-    let filtered = this.props.filteredNotes.filter(note =>{
+    console.log(ev.target.value)    
+    let filtered = this.props.sortedNotes.filter(note =>{
       // if(ev.target.value = undefined) return true;
         return note.title.toUpperCase().includes(ev.target.value.toUpperCase());
     })
@@ -56,7 +57,7 @@ class App extends Component {
     console.log(this.props.notes)
     console.log(sortedArr)
     console.log(result)
-    this.props.setFilter(sortFunc());
+    this.props.setSorter(sortFunc());
     
   }
 
@@ -110,7 +111,8 @@ function mapStateTpProps({ axiosReducer, otherReducer }){
     notes: axiosReducer.notes,
     fetchingNotes: axiosReducer.fetchingNotes,
     editNote: otherReducer.editNote,
-    filteredNotes: axiosReducer.filteredNotes
+    filteredNotes: axiosReducer.filteredNotes,
+    sortedNotes: axiosReducer.sortedNotes,
   }
 }
 
@@ -123,6 +125,7 @@ export default withRouter(connect(
     deleteNote,
     startUpdate,
     resetEdit,
-    setFilter
+    setFilter,
+    setSorter
   }
 )(App));
