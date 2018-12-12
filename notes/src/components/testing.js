@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
-import './Todos.css';
+import React, { Component } from "react";
 
 const Testing = props => {
-    return (
-        <div>
-            Heyyyyydisaydhkashd
-        </div>
-    )
-}
+  // console.log('props from todos', props)
+  return <div>Heyyyy</div>;
+};
 
 export default Testing;

@@ -1,109 +1,125 @@
-import React, { Component } from 'react';
-import './App.css';
-import { connect } from 'react-redux';
-import { fetch_todos, onHandleSubmit, onUpdateTodos, onDeleteTodos, onFilterTodos, onSortTodos, onExportCSV } from '../actions/actions';
-import Todos from './Todos';
-import TodoForm from './TodoForm';
-import TodoSearch from './TodoSearch';
+import React, { Component } from "react";
+import "./App.css";
+import { connect } from "react-redux";
+import {
+  fetch_todos,
+  onHandleSubmit,
+  onUpdateTodos,
+  onDeleteTodos,
+  onFilterTodos,
+  onSortTodos,
+  onExportCSV
+} from "../actions/actions";
+import Todos from "./Todos";
+import TodoForm from "./TodoForm";
+import TodoSearch from "./TodoSearch";
+import TodosList from "./TodosList";
+import SingleTodoView from "./SingleTodoView";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 // import { Route, Link, Switch } from "react-router-dom";
 
-import { Route, Link, Switch } from "react-router-dom";
-
-import Testing from './testing'
+import Testing from "./Testing";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       tags: [],
-      title: '',
-      textBody: '',
-      id: '',
-      filterInput: ''
-    }
+      title: "",
+      textBody: "",
+      id: "",
+      filterInput: ""
+    };
   }
 
   componentDidMount() {
     this.props.fetch_todos();
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
-  }
+  };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     // console.log('handle submit event ==', event)
     this.props.onHandleSubmit(this.state);
-  }
+  };
 
-  updateTodos = (event) => {
+  updateTodos = event => {
     event.preventDefault();
-    this.props.onUpdateTodos(this.state)
-  }
+    this.props.onUpdateTodos(this.state);
+  };
 
-  deleteTodos = (event) => {
+  deleteTodos = event => {
     event.preventDefault();
-    this.props.onDeleteTodos(this.state)
-  }
+    this.props.onDeleteTodos(this.state);
+  };
 
-  filterTodos = (event) => {
+  filterTodos = event => {
     event.preventDefault();
-    this.props.onFilterTodos(this.state.filterInput)
-  }
+    this.props.onFilterTodos(this.state.filterInput);
+  };
 
-  sortTodos = (event) => {
+  sortTodos = event => {
     event.preventDefault();
-    console.log('Sorting!')
+    console.log("Sorting!");
     this.props.onSortTodos();
-  }
+  };
 
-  exportCSV = (event) => {
+  exportCSV = event => {
     event.preventDefault();
-    this.props.onExportCSV(this.state)
-  }
+    this.props.onExportCSV(this.state);
+  };
 
   render() {
-    // console.log('props from render', this.props)
+    console.log("state from render", this.state);
     return (
-      <div>
-      <Route path='/testing' component={Testing} />
-        <TodoSearch 
-          handleChange={this.handleChange}
-          filterTodos={this.filterTodos}
-          sortTodos={this.sortTodos}
-          exportCSV={this.exportCSV}
-        />
+      <Router>
         <div>
-          {this.props.todos.map((todo, index) => {
-            return <Todos 
-              todo={todo} 
-              key={index} 
-              deleteTodos={this.deleteTodos}
-              handleChange={this.handleChange}
-            />
-          })}
-        </div>
-        <div>
-        <Route path='/newTodo' render={props => (
-          <TodoForm 
-            {...props}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            updateTodos={this.updateTodos}
-            deleteTodos={this.deleteTodos}
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <TodosList
+                {...props}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                updateTodos={this.updateTodos}
+                deleteTodos={this.deleteTodos}
+                reduxProps={this.props}
+              />
+            )}
           />
-        )} />
+          <Route
+            path="/todoForm"
+            render={props => (
+              <TodoForm
+                {...props}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                updateTodos={this.updateTodos}
+                deleteTodos={this.deleteTodos}
+              />
+            )}
+          />
+          <Route
+            path="/toCardOne/:id"
+            render={props => (
+              <SingleTodoView {...props} reduxProps={this.props} />
+            )}
+          />
+          {/* <Route path="toCardOne" render={props => <SingleTodoView />} /> */}
         </div>
-      </div>
+      </Router>
     );
   }
 }
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   // console.log('mapStateToProps state..', state.todosReducer)
   return {
     todos: state.todosReducer.todos,
@@ -111,8 +127,8 @@ const mapStateToProps = (state) => {
     addingTodos: state.todosReducer.addingTodos,
     updatingTodos: state.todosReducer.updatingTodos,
     deletingTodos: state.todosReducer.deletingTodos
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,
@@ -125,4 +141,4 @@ export default connect(
     onSortTodos,
     onExportCSV
   }
-)(App)
+)(App);
