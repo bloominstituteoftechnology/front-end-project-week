@@ -123,8 +123,8 @@ export const NotesWrapper = styled.div`
   //margin-right: calc(var(--marg) / 2);
 
   @media (max-width: 800px) {
-    align-items: center;
-    margin-left: 275px;
+    //align-items: center;
+    //margin-left: 275px;
   }
 
   @media (max-width: 600px) {
@@ -135,9 +135,9 @@ export const NotesWrapper = styled.div`
     padding-left: 3%;
     width: 80%;
 
-    @media (max-width: 600px) {
-      padding-left: 0;
-    }
+    //@media (max-width: 600px) {
+    //padding-left: 0;
+    //}
   }
 `;
 

@@ -13,6 +13,12 @@ const Notes = props => {
           value={props.searchText}
           onChange={e => props.searchNotes(e)}
         />
+        <select onClick={e => props.changeSort(e)}>
+          <option value="none">...</option>
+          <option value="time">Recent</option>
+          <option value="alpha">Alpha</option>
+          <option value="length">Length</option>
+        </select>
       </form>
       <DivNotes>
         {props.notes.map(note => (

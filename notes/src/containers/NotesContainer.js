@@ -24,6 +24,17 @@ class NotesContainer extends React.Component {
     this.props.fetchNotes();
   }
 
+  componentDidUpdate(prevProps) {
+    // ensure props are up to date
+    if (
+      this.props.adding !== prevProps.adding ||
+      this.props.deleting !== prevProps.deleting ||
+      this.props.isEditing !== prevProps.isEditing
+    ) {
+      this.props.fetchNotes();
+    }
+  }
+
   exportToCsv = () => {
     const notes = this.props.notes;
     const data = Papa.unparse(notes, {newling: '\n'});
@@ -39,12 +50,14 @@ class NotesContainer extends React.Component {
   sortNotes = notes => {
     switch (this.state.sortType) {
       case 'alpha':
-        const sortedNotes = notes.sort((n, m) => {
+        const alphaSortedNotes = notes.sort((n, m) => {
           if (n.title[0].toUpperCase() < m.title[0].toUpperCase()) return -1;
           if (n.title[0].toUpperCase() > m.title[0].toUpperCase()) return 1;
           return 0;
         });
-        return sortedNotes;
+        return alphaSortedNotes;
+      case 'length':
+        return notes.sort((n, m) => m.textBody.length - n.textBody.length);
       case 'time':
         return [...notes].reverse();
       default:
@@ -52,19 +65,10 @@ class NotesContainer extends React.Component {
     }
   };
 
-  alphaSort = notes =>
-    notes.sort((a, b) => a.title.toLowerCase() < b.title.toLowerCase());
-
-  componentDidUpdate(prevProps) {
-    // ensure props are up to date
-    if (
-      this.props.adding !== prevProps.adding ||
-      this.props.deleting !== prevProps.deleting ||
-      this.props.isEditing !== prevProps.isEditing
-    ) {
-      this.props.fetchNotes();
-    }
-  }
+  changeSort = e => {
+    console.log(e.target.value);
+    this.setState({sortType: e.target.value});
+  };
 
   filterNotes = () => {
     const result = this.state.fuse.search(this.state.searchText);
@@ -100,6 +104,7 @@ class NotesContainer extends React.Component {
           searchText={this.state.searchText}
           searchNotes={this.searchNotes}
           clearSearchText={this.clearSearchText}
+          changeSort={this.changeSort}
         />
       </div>
     );
