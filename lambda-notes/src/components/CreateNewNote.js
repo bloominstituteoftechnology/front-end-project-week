@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormWrapper, FormHeader, Form, FormInputTitle, FormInputText } from '../style';
+import { FormWrapper, FormHeader, Form, FormInputTitle, FormInputText, FormButton } from '../style';
 
 
 class CreateNewNote extends Component {
@@ -11,7 +11,7 @@ class CreateNewNote extends Component {
         }
     }
 
-  
+    
 
     handleChange = event => {
         event.preventDefault();
@@ -23,16 +23,19 @@ class CreateNewNote extends Component {
     submitHandler = (event) => {
         event.preventDefault();
         if(this.props.edit) {
+            console.log('clicked')
             this.props.editNote(
                 this.state,
-                this.props.match.params._id); 
+                this.props.match.params.id); 
         } else {
             this.props.createNote(this.state);
         }
-        this.props.history.push('/');
+        this.props.history.push('/')
+        
     }
+
     render () {
-        console.log(this.state)
+        console.log(this.props.note)
         return (
             <FormWrapper>
                 <FormHeader>{this.props.edit ? 'Edit Note': 'Create New Note'}</FormHeader>
@@ -40,6 +43,7 @@ class CreateNewNote extends Component {
                     <FormInputTitle
                         className='title'
                         type='text'
+                        maxLength='50'
                         name='title'
                         onChange={this.handleChange}
                         placeholder='Enter Title'
@@ -54,7 +58,7 @@ class CreateNewNote extends Component {
                         placeholder='Enter Text'
                         value={this.state.textBody}
                     />
-                    <button >{this.props.edit ? 'Edit Note': 'Create New Note'}</button>
+                    <FormButton>{this.props.edit ? 'Edit Note': 'Save'}</FormButton>
                 </Form>
             </FormWrapper>
         );

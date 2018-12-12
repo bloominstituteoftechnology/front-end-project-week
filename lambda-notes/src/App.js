@@ -20,41 +20,54 @@ class App extends Component {
 
   componentDidMount () {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(res => this.setState({
+      .then(res => {
+        console.log(res)
+        this.setState({
         notes: res.data
-      }))
+      })})
       .catch(err => console.log(err))
   }
 
   createNote  = (data) => {
     axios.post('https://fe-notes.herokuapp.com/note/create/', data)
-      .then(res =>{
-        console.log(res)
-        this.setState({
+    .then(res => {
+      if(res.data.success) {
+        axios.get('https://fe-notes.herokuapp.com/note/get/all')
+        .then(res => {this.setState({
           notes: res.data
-        })
-      })
+        })})
+      }
+    })
       .catch(err=> console.log(err))
+      
   }
 
   editNote = ( data, id) => {
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
     .then(res => {
-        this.setState({
-            notes: res.data
-        })
+       {
+        axios.get('https://fe-notes.herokuapp.com/note/get/all')
+        .then(res => {this.setState({
+          notes: res.data
+        })})
+      }
     })
     .catch(err => console.log(err))
   }
 
   deleteNote = id => {
     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+
     .then(res => {
-      this.setState({
-        notes: res.data
-      })
+      if(res.data.success) {
+        axios.get('https://fe-notes.herokuapp.com/note/get/all')
+        .then(res => {this.setState({
+          notes: res.data
+        })})
+      }
     })
     .catch(err => console.log(err))
+   
   }
 
   render() {
@@ -73,7 +86,7 @@ class App extends Component {
         />
 
         <Route
-          exact path ='/note/:_id'
+          exact path ='/note/:id'
           render={props =>
             <Note
               {...props}
@@ -94,11 +107,12 @@ class App extends Component {
         />
 
         <Route
-          exact path='/edit-note/:_id'
+          exact path='/edit-note/:id'
           render={props => 
             <CreateNewNote
               {...props}
-              editNote={this.createNote}
+              note={notes.map(note => note)}
+              editNote={this.editNote}
               edit
             />
           }

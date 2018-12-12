@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { NoteWrapper } from '../style';
 
 const Note = props => {
-    const note = props.notes.find( note  => { return props.match.params._id === `${note._id}`})
+    const note = props.notes.find( note  => { return props.match.params.id === `${note._id}`})
         console.log(note)
     return (
         <NoteWrapper>
@@ -11,8 +11,10 @@ const Note = props => {
             
                <NavLink to={`/edit-note/${note._id}`}> <button>Edit</button></NavLink>
                <button onClick={() => { 
-                                props.delete(props.match.params._id)
-                                props.history.push('/')}
+                  
+                                props.delete(props.match.params.id)
+                                props.history.push('/')
+                            }
                                 }>X</button>
                 
             <h2>{note.title}</h2>
