@@ -4,5 +4,6 @@ export default {
     sideBarBG: '#D3D2D3',
     pageHeaderColor: '#414141',
     buttonColor: '#2BC1C4',
+    buttonColorWarn: '#D0021B',
     buttonFontColor: 'white'
 };
