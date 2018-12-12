@@ -81,7 +81,7 @@ class App extends Component {
   }
 
   deleteNote = (id) => {
-    // ev.preventDefault();
+    
     axios
       .delete(`https://vast-retreat-70533.herokuapp.com/api/notes/${id}`)
       .then(response => {
@@ -91,6 +91,7 @@ class App extends Component {
   };
 
   updateNote = (id) => {
+    
     axios
       .put(
         `https://vast-retreat-70533.herokuapp.com/api/notes/${id}`,
@@ -166,7 +167,7 @@ class App extends Component {
         
         />
 
-        <Route path = '/notes/update/:_id' render = {(props) => <Modal {...props}/>}/>
+        {/* <Route path = '/notes/update/:_id' render = {(props) => <Modal {...props}/>}/> */}
 
       </div>
     );
