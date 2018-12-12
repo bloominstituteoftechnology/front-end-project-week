@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { getNotes, updateForm, addNote, deleteNote } from "./Actions";
@@ -49,8 +49,8 @@ class App extends Component {
               exact path="/notes" 
               render={props => <ListView {...props} notes={this.props.notes} />}
             />
-            <Route exact path="/createNote" render={props => <CreateNewView {...props}  notes={this.props.notes} addNote={this.props.addNote} updateForm={this.props.updateForm}/>}/>
-            <Route exact path="/notes/:_id" render={props => <NoteView {...props} notes={this.props.notes} deleteNote={this.props.deleteNote}/>}/>
+            <Route exact path="/createNote" render={props => <CreateNewView {...props}  notes={this.props.notes}  />}/>
+            <Route exact path="/notes/:_id" render={props => <NoteView {...props} notes={this.props.notes} deleteNote={this.props.deleteNote} updateForm={this.props.updateForm}/>}/>
           </header>
         </div>
         
@@ -60,7 +60,8 @@ class App extends Component {
 }
 const mapStateToProps = state => ({
   notes: state.notes,
-  fetchingNotes: state.fetchingNotes
+  fetchingNotes: state.fetchingNotes,
+  pleasePopulate: state.pleasePopulate
 });
 
 // i wonder, if we have to use withRouter. let's try.

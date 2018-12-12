@@ -2,8 +2,7 @@
 
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getNotes, addNote, updateNote } from "../Actions";
-import { withRouter } from "react-router";
+import { getNotes, updateNote, updateForm, addNote, updateFormDone } from "../Actions";
 class CreateNewView extends Component {
   /*
     we need a few things:
@@ -18,17 +17,26 @@ class CreateNewView extends Component {
     this.state = {
       tags: "",
       title: "",
-      textBody: ""
+      textBody: "",
+      
     };
   }
 
-  componentDidUpdate = previousProps => {
-    // if (this.props.currentNote && this.props.currentNote !== previousProps.currentNote)
-    // this.updateNote()
+
+  componentDidMount() {
+    console.log('this will make me laugh one day.');
+      this.updateNote();
+    
+
+
+  
+  };
+  componentDidUpdate(previousProps) {
+ 
     if (this.props.addingNote !== previousProps.addingNote) {
       if (!this.props.addingNote) {
         console.log("fetching data after adding");
-        this.getNotes();
+        this.props.getNotes();
         this.props.history.push("/");
       }
     }
@@ -43,9 +51,9 @@ class CreateNewView extends Component {
   submitHandler = event => {
     console.log("Yo guys!");
     event.preventDefault();
-    // if (this.props.currentNote) this.props.updateNote(this.state);
+     if (this.props.currentNote) this.props.updateNote(this.state);
     
-    // else 
+     else 
     this.props.addNote(this.state);
     this.setState({
       tags: "",
@@ -53,7 +61,6 @@ class CreateNewView extends Component {
       textBody: ""
     });
 
-    //this.props.history.push('/');
     console.log(this.props.notes);
   };
 
@@ -76,7 +83,7 @@ class CreateNewView extends Component {
             value={this.state.title}
             placeholder="Please add title"
           />
-          <input
+          <textarea
             onChange={this.changeHandler}
             type="text"
             name="textBody"
@@ -107,5 +114,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getNotes,  updateNote }
+  { getNotes,  updateNote, updateForm, addNote }
 )(CreateNewView);

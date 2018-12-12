@@ -12,7 +12,8 @@ import {
     DELETE_NOTES_SUCCESS,
     DELETE_NOTES_FAILURE,
     UPDATE_NOTES_REQUEST,
-    UPDATE_FORM
+    UPDATE_FORM,
+    UPDATE_FORM_DONE
   } from "../Actions";
   /*
    Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -26,7 +27,8 @@ import {
     //updatingSmurf: false
     //deletingSmurf: false
     error: null,
-    currentNote: null
+    currentNote: null,
+    pleasePopulate: false
   };
   
   const notesReducer = (state = initialState, action) => {
@@ -52,13 +54,13 @@ import {
         case ADD_NOTES_REQUEST:
         return {
           ...state,
-          adddingNote: true
+          addingNote: true
         };
         case ADD_NOTES_SUCCESS:
         return {
           ...state,
           addingNote: false,
-          newNoteID: action.payload
+          //newNoteID: action.payload
         };
       case ADD_NOTES_FAILURE:
         return {
@@ -86,15 +88,24 @@ import {
       case UPDATE_NOTES_REQUEST:
         return {
           ...state,
-          fetchingNotes: true,
-          currentNote: null
+          fetchingNotes: false,
+          currentNote: null,
+          addingNote: true,
+          pleasePopulate: false
         };
       
       case UPDATE_FORM:
       return {
         ...state,
-        currentNote: action.payload
+        currentNote: action.payload,
+        pleasePopulate: true
       };
+      case UPDATE_FORM_DONE:
+      return {
+        ...state,
+        pleasePopulate: false
+
+      }
       default:
         return state;
     }

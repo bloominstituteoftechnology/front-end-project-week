@@ -1,12 +1,15 @@
 
 .Page-Container {
-  margin: 10px auto;
+  margin: auto;
   display: flex;
   flex-direction: row;
-  max-width: 1300px;
+  width: 100%;
+  justify-content: flex-start;
+}
+.Main-View {
+width: 66%;
 
 }
-
 
 .App-header {
   background-color: #282c34;

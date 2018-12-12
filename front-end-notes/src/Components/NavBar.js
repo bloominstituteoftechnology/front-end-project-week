@@ -4,8 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 const CoolNavBar = styled.div`
   border: 10px solid pink;
-  width: 500px;
-
+  width: 33%;
+  height: 100vh;
+  
+  left: 0;
 `;
 
 const NavBar = props => {
