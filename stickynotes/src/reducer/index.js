@@ -68,7 +68,7 @@ import {
         case SEARCH:
         return {
           ...state,
-          notes: state.notes.slice().filter(note => note.title.includes(action.payload) )
+          notes: state.notes.slice().filter(note => note.title.toLowerCase().includes(action.payload.toLowerCase()) )
         }
     
         default:
