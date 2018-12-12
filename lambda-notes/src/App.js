@@ -5,6 +5,8 @@ import { fetchNotes, sortAToZ, sortZToA } from './actions';
 import { Route, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Authenticate from './components/Authenitcate';
+import LoginPage from './components/LoginPage';
 import Navigation from './components/Navigation';
 import NotesList from './components/NotesList';
 import NoteForm from './components/NoteForm';
@@ -17,7 +19,15 @@ const AppDiv = styled.div`
 class App extends Component {
   componentDidMount() {
     this.props.fetchNotes();
-}
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.updatingNotes !== prevProps.updatingNotes) {
+        if (!this.props.updatingNotes) {
+            this.props.fetchNotes();
+        }
+      }
+  }
 
   render() {
     return (
@@ -35,10 +45,14 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
       notes: state.notes,
+      fetchingNotes: state.fetchingNotes,
+      updatingNotes: state.updatingNotes,
   }
 }
 
-export default withRouter(
-  connect(mapStateToProps, { fetchNotes, sortAToZ, sortZToA })(App)
-);
+export default Authenticate(
+    withRouter(
+      connect(mapStateToProps, { fetchNotes, sortAToZ, sortZToA })(App)
+  )
+)(LoginPage);
 

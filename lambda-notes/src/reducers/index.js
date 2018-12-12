@@ -17,9 +17,7 @@ import { ADD_NOTE_START,
 const initialState = {
     notes: [],
     fetchingNotes: false,
-    addingNotes: false,
-    editingNotes: false,
-    deletingNotes: false,
+    updatingNotes: false,
     error: null,
 }
 
@@ -46,55 +44,52 @@ const notesReducer = (state = initialState, action) => {
         case ADD_NOTE_START:
             return {
                 ...state,
-                addingNotes: true,
+                updatingNotes: true,
             }
         case ADD_NOTE_SUCCESS:
             return {
                 ...state,
-                addingNotes: false,
+                updatingNotes: false,
                 error: null,
-                notes: [...state.notes, action.payload],
             }
         case ADD_NOTE_FAILURE:
             return {
                 ...state,
-                addingNotes: false,
+                updatingNotes: false,
                 error: action.payload,
             }
         case EDIT_NOTE_START:
             return {
                 ...state,
-                editingNotes: true,
+                updatingNotes: true,
             }
         case EDIT_NOTE_SUCCESS:
             return {
                 ...state,
-                editingNotes: false,
+                updatingNotes: false,
                 error: null,
-                notes: state.notes.map(note => note._id === action.payload._id ? action.payload : note),
             }
         case EDIT_NOTE_FAILURE:
             return {
                 ...state,
-                editingNotes: false,
+                updatingNotes: false,
                 error: action.payload,
             }
         case DELETE_NOTE_START:
             return {
                 ...state,
-                deletingNotes: true,
+                updatingNotes: true,
             }
         case DELETE_NOTE_SUCCESS:
             return {
                 ...state,
-                deletingNotes: false,
+                updatingNotes: false,
                 error: null,
-                notes: state.notes.filter(note => note._id !== action.payload),
             }
         case DELETE_NOTE_FAILURE:
             return {
                 ...state,
-                deletingNotes: false,
+                updatingNotes: false,
                 error: action.payload,
             }
         case SORT_A_TO_Z:

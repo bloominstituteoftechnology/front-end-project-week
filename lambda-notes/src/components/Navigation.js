@@ -57,6 +57,10 @@ const NavigationButton = styled.div`
     }
 `
 
+const LogOutButton = styled(NavigationButton)`
+    margin-top: 5rem;
+`
+
 const Navigation = props => {
     return(
         <NavigationDiv>
@@ -78,6 +82,12 @@ const Navigation = props => {
                     <p>Download Notes</p>
                 </NavigationButton>
             </DownloadLink>
+            <LogOutButton onClick={() => {
+                localStorage.removeItem('lambdanotes-username');
+                window.location.reload();
+            }}>
+                    <p>Log Out</p>
+            </LogOutButton>
         </NavigationDiv>
     );
 }

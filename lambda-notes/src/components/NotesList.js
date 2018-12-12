@@ -1,6 +1,6 @@
 import React from 'react';
 import SmallNote from './SmallNote';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -70,6 +70,20 @@ const SortDiv = styled.div`
     }
 `
 
+const LoadingDiv = styled.div`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+`
+
 class NotesList extends React.Component {
     constructor(props){
         super(props);
@@ -83,38 +97,60 @@ class NotesList extends React.Component {
     }
 
     render(){
-        return(
-            <NotesContainer>
-                <TopOfPage>
-                    <h2>Your Notes:</h2>
-                    <form>
-                        <SearchInput 
-                            type='text'
-                            name='searchText'
-                            value={this.state.searchText}
-                            placeholder='&#8981; Search...'
-                            onChange={this.handlesChanges}
-                        />
-                    </form>
-                </TopOfPage>
-                <SortDiv>
-                    <h3>Sort By Title: </h3>
-                    <button onClick={this.props.toggleSearchingAToZ}>A - Z</button>
-                    <button onClick={() => this.props.sortZToA(this.props.notes)}>Z - A</button>
-                </SortDiv>
-                <YourNotes>
-                    {this.props.notes
-                        .filter(note => 
-                            note.title.includes(this.state.searchText) || note.textBody.includes(this.state.searchText)
-                            )
-                        .map(note => (
-                        <NotesLink key={note._id} exact to={`/note/${note._id}`}>
-                            <SmallNote  noteData={note} />
-                        </NotesLink>
-                    ))}
-                </YourNotes>
-            </NotesContainer>
-        );
+        if (this.props.notes.length) {
+            return(
+                <NotesContainer>
+                    <TopOfPage>
+                        <h2>Your Notes:</h2>
+                        <form>
+                            <SearchInput 
+                                type='text'
+                                name='searchText'
+                                value={this.state.searchText}
+                                placeholder='&#8981; Search...'
+                                onChange={this.handlesChanges}
+                            />
+                        </form>
+                    </TopOfPage>
+                    {/* <SortDiv>
+                        <h3>Sort By Title: </h3>
+                        <button onClick={this.setState({ sort: true })}>A - Z</button>
+                        <button onClick={() => this.props.sortZToA(this.props.notes)}>Z - A</button>
+                    </SortDiv> */}
+                    <YourNotes>
+                        {this.props.notes
+                            .filter(note => 
+                                note.title.includes(this.state.searchText) || note.textBody.includes(this.state.searchText)
+                                )
+                            .map(note => (
+                            <NotesLink key={note._id} exact to={`/note/${note._id}`}>
+                                <SmallNote  noteData={note} />
+                            </NotesLink>
+                        ))}
+                    </YourNotes>
+                </NotesContainer>
+            );
+        } else {
+            return (
+                <NotesContainer>
+                    <TopOfPage>
+                        <h2>Your Notes:</h2>
+                        <form>
+                            <SearchInput 
+                                type='text'
+                                name='searchText'
+                                value={this.state.searchText}
+                                placeholder='&#8981; Search...'
+                                onChange={this.handlesChanges}
+                            />
+                        </form>
+                    </TopOfPage>
+                   <LoadingDiv>
+                        <h2>Loading..</h2>
+                   </LoadingDiv>
+                </NotesContainer>
+            );
+        }
     }
 } 
 
