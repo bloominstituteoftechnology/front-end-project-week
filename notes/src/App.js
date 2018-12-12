@@ -7,8 +7,9 @@ import { Route } from 'react-router-dom';
 import SideBar from './components/sidebar/SideBar'
 import NoteList from './components/NoteList';
 import CreateNew from './components/CreateNew';
-import ViewNote from './components/ViewNote'
-import EditNote from './components/EditNote'
+import ViewNote from './components/ViewNote';
+import EditNote from './components/EditNote';
+import {SyncLoader as Loader} from 'react-spinners';
 
 class App extends Component {
 
@@ -21,7 +22,8 @@ class App extends Component {
         title : '',
         textBody : '',
       },
-      size : 'note-card'
+      size : 'note-card',
+      loading : false
     }
   }
 
@@ -55,12 +57,13 @@ class App extends Component {
 
   refreshState(){
     axios.get('http://localhost:9000/note/get/all')
-    .then(response => this.setState({notes : response.data}))
+    .then(response => this.setState({notes : response.data,loading:true}))
     .catch(error => console.log("Refresh State:", error))
   }
   //        Functions for other components
   createNewSubmit = e =>{
     e.preventDefault();
+    this.setState({loading : true})
     axios.post('http://localhost:9000/note/create',this.state.newNote)
     .then(response => {
       this.setState({/*notes : {response.data} */newNote : {
@@ -89,13 +92,27 @@ class App extends Component {
     return (
       <div className="App">
         <SideBar />
+        {!this.state.loading ? 
+        <Loader 
+        className="loading" 
+        color={'#24B8BD'}
+        size={'50'}
+        /> 
+        : 
         <Route exact path='/' render={() => <NoteList 
         size={this.state.size}
         changeSize={this.changeSize} 
         export={this.exportCsv} 
         notes={this.state.notes} 
         refresh={this.refreshState}
-        /> } />
+        /> } />}
+        {/* <Route exact path='/' render={() => <NoteList 
+        size={this.state.size}
+        changeSize={this.changeSize} 
+        export={this.exportCsv} 
+        notes={this.state.notes} 
+        refresh={this.refreshState}
+        /> } /> */}
         {/* Create New Card Route  */}
         <Route path='/create-new' render={() => <CreateNew 
         submit={this.createNewSubmit} 

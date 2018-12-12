@@ -7,7 +7,7 @@ background-color : #24B8BD;
 border : 2px solid #88A6A7;
 height:50px;
 width: 150px;
-margin-bottom: 20px;
+margin-bottom: 10px;
 :hover{
     cursor:pointer;
     background-color:lightblue;
