@@ -141,9 +141,6 @@ export const H2 = styled.h2`
 	font-size: ${(props) => (props.component === 'single' ? '2.4rem' : '1.4rem')};
 	font-weight: bold;
 	padding: 0 5%;
-	border-bottom: 1px solid #fff;
-	overflow: hidden;
-	max-width: 300px;
 	margin-bottom: 2.5%;
 `;
 
