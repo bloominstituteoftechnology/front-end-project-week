@@ -25,7 +25,7 @@ export const SETTING_NOTE_FAILURE = 'SETTING_NOTE_FAILURE';
 export const fetchNotes = () => dispatch => {
     dispatch({type: FETCHING_NOTES});
     return axios
-    .get('http://localhost:6300/api/notes')
+    .get('https://notes-bryangf.herokuapp.com/api/notes')
     .then(response => {
         dispatch({type: FETCHING_NOTES_SUCCESS, payload: response.data})
     }) 
@@ -37,7 +37,7 @@ export const fetchNotes = () => dispatch => {
 export const postNote = (note) => dispatch => {
     dispatch({type: POSTING_NOTE});
     return axios
-    .post('http://localhost:6300/api/notes', note)
+    .post('https://notes-bryangf.herokuapp.com/api/notes', note)
     .then(response => {
         dispatch({type: POSTING_NOTE_SUCCESS})
     }) 
@@ -50,7 +50,7 @@ export const postNote = (note) => dispatch => {
 export const editNote = (id, note) => dispatch => {
     dispatch({type: EDITING_NOTE});
     return axios
-    .put(`http://localhost:6300/api/notes/${id}`, note)
+    .put(`https://notes-bryangf.herokuapp.com/api/notes/${id}`, note)
     .then(response => {
         dispatch({type: EDITING_NOTE_SUCCESS, payload: response.data})
     })
@@ -67,7 +67,7 @@ export const overlayToggle = () => dispatch => {
 export const deleteNote = (id) => dispatch => {
     dispatch({type: DELETING_NOTE});
     return axios
-    .delete(`http://localhost:6300/api/notes/${id}`)
+    .delete(`https://notes-bryangf.herokuapp.com/api/notes/${id}`)
     .then(response => {
         dispatch({type: DELETING_NOTE_SUCCESS, payload: response.data})
     })
@@ -80,7 +80,7 @@ export const deleteNote = (id) => dispatch => {
 export const setNote = (id) => dispatch => {
     dispatch({type: SETTING_NOTE});
     axios
-    .get(`http://localhost:6300/api/notes/${id}`)
+    .get(`https://notes-bryangf.herokuapp.com/api/notes/${id}`)
     .then(response => {
         dispatch({type: SETTING_NOTE_SUCCESS, payload: response.data})
     }) 

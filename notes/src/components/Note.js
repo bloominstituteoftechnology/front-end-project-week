@@ -22,7 +22,7 @@ class Note extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         axios
-        .get(`http://localhost:6300/api/notes/${id}`)
+        .get(`https://notes-bryangf.herokuapp.com/api/notes/${id}`)
         .then(response => 
             this.setState({note: response.data[0]}))
         .catch(error => console.log(error));
