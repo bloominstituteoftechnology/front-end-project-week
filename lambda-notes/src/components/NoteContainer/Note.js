@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 
 
-// const NoteStyling = styled.div ` 
-// `
-
 const NoteTitle = styled.div `
  font-size: 1rem ;
  font-family: 'Archivo Black';
@@ -16,7 +13,7 @@ const NoteTitle = styled.div `
  max-width: 100px ;
  width: 100%
 `
-const NoteBody = styled.article ` 
+const NoteBody = styled.span ` 
  width: 110px ;
  height: 90px ;
  overflow: hidden;

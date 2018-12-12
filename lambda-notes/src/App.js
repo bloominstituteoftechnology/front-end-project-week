@@ -15,7 +15,7 @@ class App extends Component {
       <Switch>
        <Route exact path="/" component={NoteContainer}/>
        <Route exact path='/note/:id' component={SingleNote}/>
-       <Route exact path="/edit/:id" render={(props) => <EditView {...props} />}/>
+       <Route exact path="/edit/:id" component={EditView}/>
        <Route exact path="/create/" component={CreateView} />
       </Switch>
      </div>

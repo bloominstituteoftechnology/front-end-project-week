@@ -53,19 +53,19 @@ class SingleNote extends React.Component {
        </ModalFooter>
       </ModalHeader>
      </Modal>
-     {this.props.deleting ? this.props.history.push('/') : null }
+     {this.props.deleted ? this.props.history.push('/') : null }
     </div>
   )}
 }
 
 const mapStateToProps = state => {
- const { note, deleting } = state 
+ const { note, deleted } = state 
  console.log(note)
  return {
   title: note.title,
   textBody: note.textBody,
   _id: note._id, 
-  deleting: deleting
+  deleted: deleted
  }
 }
 export default withRouter(connect(mapStateToProps, { fetchNote, deleteNote })(SingleNote))

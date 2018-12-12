@@ -31,11 +31,11 @@ const initState =  {
 export const reducer = (state = initState, action) => {
 switch(action.type){
  case FETCHING_NOTES: 
-  return Object.assign({}, state, {fetchingNotes: true, added: false})
+  return Object.assign({}, state, {fetchingNotes: true, added: false, deleted: false,})
  case NOTES_FETCHED:
   return Object.assign({}, state, {fetchingNotes: false, notesFetched: true, notes: action.payload})
  case FETCHING_NOTE: 
- return Object.assign({}, state, {fetchingNote: true})
+ return Object.assign({}, state, {fetchingNote: true, edited: false})
  case NOTE_FETCHED:
   return Object.assign({}, state, {fetchingNote: false, noteFetched: true, note: action.payload}) 
  case ADDING:
@@ -45,11 +45,11 @@ switch(action.type){
  case EDITING:
   return Object.assign({}, state, {editing: true})
  case EDITED:
-  return Object.assign({}, state, {editing: false, edited: false, note: action.payload})  
+  return Object.assign({}, state, {editing: false, edited: true, note: action.payload})  
  case DELETING:
   return Object.assign({}, state, {deleting: true })
  case DELETED: 
-  return Object.assign({}, state, {deleting: false})
+  return Object.assign({}, state, {deleting: false, deleted: true})
  case ERROR:
   return Object.assign({}, state, {error: true, errorString: action.payload})
  default:

@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { Button, Input} from 'reactstrap'
 import styled from 'styled-components'
-import { fetchNote, editNote } from '../../actions/index'
+import { fetchNote, editNote } from '../../actions/'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 
 const EditViewStyle = styled.div `
  display: flex;
@@ -19,18 +18,22 @@ const InputStyles = styled.div `
  height: 200px ;
  align-items: flex-start ;
 `
-export default class EditView extends Component {
+class EditView extends Component {
  constructor(props){
   super(props)
   this.state = {
     title: '',
     body: '',
+    id: ''
   }
  }
 
  componentDidMount = () => {
-  console.log(this.props.match.params.id)
-  return () => this.props.fetchNote(this.props.match.params.id)
+  console.log("EditView Props:", this.props)
+  this.setState({
+   id: this.props.match.params.id
+  })
+  this.props.fetchNote(this.props.match.params.id)
  }
 
 
@@ -39,11 +42,10 @@ export default class EditView extends Component {
    [event.target.name]: event.target.value
   })
  }
- 
- submitEdit = (id, event) => {
+
+ submitEdit = (event) => {
   event.preventDefault()
-  console.log(id)
-  this.props.editNote(this.props.match.params.id, 
+  this.props.editNote(this.state.id, 
    {title: this.state.title, textBody: this.state.body})
   this.setState({
    title: '',
@@ -52,9 +54,8 @@ export default class EditView extends Component {
  }
 
   render() {
-   console.log()
     return (
-     <form>
+     <form onSubmit={this.submitEdit}>
      <InputStyles>
       <Input
        name="title"
@@ -70,17 +71,21 @@ export default class EditView extends Component {
       >
       </textarea>
       </EditViewStyle>
-      <Button onSubmit={this.submitEdit} color="info">Save Changes</Button>
+      <Button color="info">Save Changes</Button>
      </InputStyles>
+      {this.props.edited ? this.props.history.push(`/note/${this.state.id}`) : null}
      </form>
     )
   }
 }
 
 const mapStateToProps = state => {
- const { notes } = state
+ console.log('I am mapping state to props.')
+ const { notes, edited } = state
  return {
   notes: notes,
+  edited: edited
  }
 }
- withRouter(connect(mapStateToProps, { fetchNote, editNote })(EditView))
+ 
+export default connect(mapStateToProps, { fetchNote, editNote })(EditView)
