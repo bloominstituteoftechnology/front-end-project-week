@@ -67,15 +67,13 @@ function DeleteModal(props) {
     console.log('delete', props);
 
     const deleteNote = () => {
-        // e.preventDefault();
-        console.log('delete:', id);
         setHome(true);
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
             .then(setHome(true))
             .catch(err => console.log(err));
     };
-    console.log('home:', home);
+
     return home === true ? (
         <Redirect to="/" />
     ) : (
