@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { showDeleteModal, editingNote } from '../actions';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 
 const SingleNoteViewContainer = styled.div`
   text-align: left;
@@ -61,7 +62,10 @@ class SingleNoteView extends Component {
           </LinkContainer>
           <h2>{this.props.activeNote.title}</h2>
           <SingleNoteContainer>
-            <p>{this.props.activeNote.textBody}</p>
+            <p>
+              {' '}
+              <ReactMarkdown source={this.props.activeNote.textBody} />
+            </p>
           </SingleNoteContainer>
         </TitleContainer>
       </SingleNoteViewContainer>

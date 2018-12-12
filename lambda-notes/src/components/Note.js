@@ -1,7 +1,9 @@
+import Markdown from 'markdown-to-jsx';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 import { showNote } from '../actions';
 
@@ -55,7 +57,10 @@ class Note extends Component {
       <NoteContainer>
         <StyledLink onClick={this.ViewNoteClickHandler} to={`/front-end-project-week/${this.props.note.id}`}>
           <NoteTitle>{this.props.note.title}</NoteTitle>
-          <NoteContent>{this.props.note.textBody}</NoteContent>
+          <NoteContent>
+            {' '}
+            <ReactMarkdown source={this.props.note.textBody} />
+          </NoteContent>
         </StyledLink>
       </NoteContainer>
     );
