@@ -32,7 +32,7 @@ class Note extends Component {
       const id = this.state.note.id
       console.log(id)
       axios
-        .delete(`http://localhost:7000/api/notes/${id}`)
+        .delete(`http://localhost:7000/api/notes/edit/${id}`)
         .then(response => {
           console.log('DELETE RESPONSE: ', response)
           this.setState({ notes: response.data })
@@ -71,10 +71,12 @@ class Note extends Component {
             <div>
             {this.state.note.map((note) => {
               return (
-                <h2>{note.title}</h2>
-                // <p>{note.textBody}</p>
-              )
-            })}
+                <div>
+                 <h2>{note.title}</h2>
+                 <p>{note.textBody}</p>
+                </div>
+               )
+             })}
             </div>
             <div>
               <Modal

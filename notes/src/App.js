@@ -38,10 +38,10 @@ addNote = (event, newNote) => {
 editNote = (event, id, state) => {
   event.preventDefault();
   axios
-  .put(`http://localhost:7000/api/edit/${id}`, state)
+  .put(`http://localhost:7000/api/notes/${id}`, state)
   .then(response => {
     const updateArray = this.state.notes.map(note => {
-      if (note._id === response.data._id) {
+      if (note.id === response.data.id) {
         return response.data;
       }
       return note;

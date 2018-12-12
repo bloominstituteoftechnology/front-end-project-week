@@ -32,7 +32,7 @@ class EditNote extends Component {
 
          
           submitNote = event => {
-              this.props.editNote(event, this.state.note._id, this.state);
+              this.props.editNote(event, this.state.note.id, this.state);
               this.setState({ title: "", textBody: "" })
               this.props.history.push("/")
               }
