@@ -80,17 +80,40 @@
   background-color: white;
 }
 
-.note h3, .markdown-title {
+.markdown-title {
   font-weight: bold;
   font-size: 2rem;
   border-bottom: 1px solid grey;
   padding-bottom: 0.5rem;
 }
 
-.note p, .markdown-content {
+.note .markdown-title p{
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.note h3 {
+  font-weight: bold;
+  font-size: 2rem;
+  border-bottom: 1px solid grey;
+  padding-bottom: 0.5rem;
+}
+
+.markdown-content {
   font-size: 1.2rem;
   padding-top: 0.5rem;
 }
+
+.note .markdown-content p {
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+}
+
+.note p {
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+}
+
 
 .form {
   width: 75%;

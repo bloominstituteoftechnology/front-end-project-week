@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from "react";
-import '../App.css';
+import "../App.css";
 
 const ReactMarkdown = require("react-markdown/with-html");
 const markdown = `
@@ -73,8 +73,28 @@ class NotesList extends Component {
                     }
                     key={note.id}
                   >
-                    <h3>{note.title}</h3>
-                    <p>{note.textBody}</p>
+                    <Fragment>
+                      {this.state.markdown === "markdown" ? (
+                        <ReactMarkdown
+                          className="markdown-title"
+                          source={note.title}
+                          escapeHtml={false}
+                        />
+                      ) : (
+                        <h3>{note.title}</h3>
+                      )}
+                    </Fragment>
+                    <Fragment>
+                      {this.state.markdown === "markdown" ? (
+                        <ReactMarkdown
+                          className="markdown-content"
+                          source={note.textBody}
+                          escapeHtml={false}
+                        />
+                      ) : (
+                        <p>{note.textBody}</p>
+                      )}
+                    </Fragment>
                   </div>
                 );
               })
