@@ -23,7 +23,7 @@ class NoteView extends React.Component {
     }
     componentDidMount() {
         const id = this.props.match.params.id;
-        let focusNote = this.props.notes.find(note => note._id === id);
+        let focusNote = this.props.notes.find(note => note.id === id);
         if(!focusNote){
             this.props.history.push('/');
             return;
@@ -36,11 +36,11 @@ class NoteView extends React.Component {
     //-- Rendering -----------------------------------
     render() {
         const id = this.props.match.params.id;
-        let focusNote = this.props.notes.find(note => note._id === id);
+        let focusNote = this.props.notes.find(note => note.id === id);
         if(!focusNote){
             return null;
         }
-        let editUrl = `/edit/${focusNote._id}`;
+        let editUrl = `/edit/${focusNote.id}`;
         // TO DO: what happens if the note no longer exists? (currently: crash)
         let deleteModal;
         if(this.state.confirmDelete){
@@ -54,7 +54,7 @@ class NoteView extends React.Component {
                 {deleteModal}
                 <ActionBar edit={editUrl} delete={this.handleDelete} />
                 <h2 className="view-title">{focusNote.title}</h2>
-                <p>{focusNote.textBody}</p>
+                <p>{focusNote.body}</p>
             </React.Fragment>
         );
     }

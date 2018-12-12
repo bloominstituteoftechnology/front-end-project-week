@@ -6,7 +6,7 @@
 import axios from 'axios';
 
 //-- Configuration -------------------------------
-const REMOTE_SERVER = 'https://fe-notes.herokuapp.com';
+const REMOTE_SERVER = 'http://localhost:5000';
 
 //-- Action Types --------------------------------
 let actionIndex = 0;
@@ -32,9 +32,10 @@ export function notesResponse(notesData) {
 export function getNotes() {
     return function (dispatch) {
         dispatch({type: FETCHING});
-        axios.get(server.formatUrl('note/get/all'))
+        axios.get(REMOTE_SERVER)
         .then(response => {
-            dispatch(notesResponse(response.data));
+            const serverResponse = response.data;
+            dispatch(notesResponse(serverResponse.data));
         })
         .catch(error => {
             let errorMessage = `Error ${error.response.status}: ${error.response.data.Error}`;
@@ -63,10 +64,11 @@ export function notReady(error) {
 export function addNote(noteData, callback) {
     return function (dispatch) {
         dispatch({type: FETCHING});
-        axios.post(server.formatUrl('note/create'), noteData)
+        axios.post(REMOTE_SERVER, noteData)
         .then(response => {
             dispatch(getNotes());
-            let newNoteId = response.data.success;
+            const serverResponse = response.data;
+            let newNoteId = serverResponse.id;
             callback(newNoteId);
         })
         .catch(error => {
@@ -82,8 +84,8 @@ export function addNote(noteData, callback) {
 export function updateNote(noteData) {
     return function (dispatch) {
         dispatch({type: FETCHING});
-        let noteUrl = `note/edit/${noteData.id}`;
-        axios.put(server.formatUrl(noteUrl), noteData)
+        let noteUrl = `${REMOTE_SERVER}/${noteData.id}`;
+        axios.put(noteUrl, noteData)
         .then(response => {
             console.log(response)
             dispatch(getNotes());
@@ -98,8 +100,8 @@ export function updateNote(noteData) {
 export function deleteNote(noteId) {
     return function (dispatch) {
         dispatch({type: FETCHING});
-        let noteUrl = `note/delete/${noteId}`;
-        axios.delete(server.formatUrl(noteUrl))
+        let noteUrl = `${REMOTE_SERVER}/${noteId}`;
+        axios.delete(noteUrl)
         .then(response => {
             console.log(response);
             dispatch(getNotes());
@@ -107,18 +109,5 @@ export function deleteNote(noteId) {
         .catch(error => {
             console.log(error);
         })
-    }
-}
-
-//== Utilities =================================================================
-
-//-- Server (should probably be middleware) ------
-
-const server = {
-    // Configuration
-    address: REMOTE_SERVER,
-    // Utilities
-    formatUrl(path) {
-        return `${this.address}/${path}`;
     }
 }

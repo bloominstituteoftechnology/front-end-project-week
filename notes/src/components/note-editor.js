@@ -19,22 +19,23 @@ class NoteEditor extends React.Component {
         super(...arguments);
         this.state = {
             title: '',
-            textBody: '',
+            body: '',
             id: '',
         }    
     }
     componentDidMount() {
-        let focusId = this.props.match.params.id;
-        let focusNote = this.props.notes.find(note => note._id === focusId);
+        let focusId = Number(this.props.match.params.id);
+        let focusNote = this.props.notes.find(note => note.id === focusId);
+        console.log(focusId, focusNote, this.props.notes);
         if(!focusNote){
             this.props.history.push('/');
             return;
         }
         let focusTitle = focusNote? focusNote.title    : '';
-        let focusBody  = focusNote? focusNote.textBody : '';
+        let focusBody  = focusNote? focusNote.body : '';
         this.setState({
             title: focusTitle,
-            textBody: focusBody,
+            body: focusBody,
             id: focusId,
         });
     }
@@ -56,8 +57,8 @@ class NoteEditor extends React.Component {
                     <textarea
                         onChange={this.handleInputChange}
                         placeholder="Note Content"
-                        value={this.state.textBody}
-                        name="textBody"
+                        value={this.state.body}
+                        name="body"
                     />
                     <button className="button">Update</button>
                 </form>
@@ -95,7 +96,7 @@ class NoteEditor extends React.Component {
     clearState() {
         this.setState({
             title: '',
-            textBody: '',
+            body: '',
             id: '',
         });
     }

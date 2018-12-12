@@ -35,7 +35,7 @@ class NoteList extends React.Component {
                 <div className={classText}>
                     {loadNotifier || this.props.notes.map(note => (
                         <Note
-                            key={note._id}
+                            key={note.id}
                             note={note}
                         />
                     ))}

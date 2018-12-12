@@ -5,7 +5,6 @@
 //-- Dependencies --------------------------------
 import React from 'react';
 import {Link} from 'react-router-dom';
-//import * as actions from '../actions';
 
 //-- Component -----------------------------------
 export default function ActionBar(props) {
@@ -18,7 +17,6 @@ export default function ActionBar(props) {
 
 function createLink(text, action) {
     if(typeof action === 'function'){
-        console.log('asdf');
         return <span key={text} onClick={action} children={text} />;
     }
     return <Link key={text} to={action} children={text} />;

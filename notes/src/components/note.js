@@ -8,13 +8,13 @@ import {Link} from 'react-router-dom';
 
 //-- Component & Export --------------------------
 export default function Note(props) {
-    let viewUrl = `/note/${props.note._id}`;
+    let viewUrl = `/edit/${props.note.id}`;
     return (
         <Link to={viewUrl}>
-            <div className='note' onClick={props.onClick} data-id={props.note._id}>
+            <div className='note' data-id={props.note.id}>
                 <h3>{props.note.title}</h3>
                 <hr />
-                <p>{props.note.textBody}</p>
+                <p>{props.note.body}</p>
             </div>
         </Link>
     );

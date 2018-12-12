@@ -7,7 +7,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 import ActionBar from './action-bar.js';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
 
 
 //== Component =================================================================
@@ -19,20 +19,10 @@ class NoteCreator extends React.Component {
         super(...arguments);
         this.state = {
             title: '',
-            textBody: '',
+            body : '',
 
         }    
     }
-    /*componentDidMount() {
-        let focusId = this.props.match.params.id;
-        let focusNote = this.props.notes.find(note => note._id === focusId);
-        // TO DO: Handle bad note ids (note not found)
-        this.setState({
-            title: focusNote.title,
-            textBody: focusNote.textBody,
-            id: focusNote._id,
-        });
-    }*/
 
     //-- Rendering -----------------------------------
     render() {
@@ -51,8 +41,8 @@ class NoteCreator extends React.Component {
                     <textarea
                         onChange={this.handleInputChange}
                         placeholder="Note Content"
-                        value={this.state.textBody}
-                        name="textBody"
+                        value={this.state.body}
+                        name="body"
                     />
                     <button className="button">Save</button>
                 </form>
@@ -75,7 +65,10 @@ class NoteCreator extends React.Component {
           return;
         }
         // Generate note data and clear state
-        let noteData = Object.assign({}, this.state);
+        let noteData = {
+            title: this.state.title   ,
+            body : this.state.body,
+        };
         this.clearState();
         // Prep redirect
         let callback = (noteId) => {
@@ -93,7 +86,7 @@ class NoteCreator extends React.Component {
     clearState() {
         this.setState({
             title: '',
-            textBody: '',
+            body: '',
 
         });
     }
