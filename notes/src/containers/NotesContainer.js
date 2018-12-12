@@ -24,21 +24,12 @@ class NotesContainer extends React.Component {
   }
 
   exportToCsv = () => {
-    //dispatch({type: EXPORTING_NOTES});
     const notes = this.props.notes;
-    //const rows = ['title', 'textBody'];
-    //let data = notes.map(n => {
-    //return `${n.title},${n.textBody}`;
-    //});
-    //data = JSON.stringify(rows.join(',') + '\n' + data.join('\n'));
-    //console.log(data);
-    //data = Papa.unparse(data);
-    //console.log(data);
-    const data = Papa.unparse(notes);
-    console.log(data);
-    const blob = new Blob(data);
+    const data = Papa.unparse(notes, {newling: '\n'});
+    console.log('unparsed', data);
+    const blob = new Blob([data], {type: 'text/csv'});
     const dl = window.document.createElement('a');
-    dl.href = window.URL.createObjectUrl(blob, {type: 'text/plain'});
+    dl.href = window.URL.createObjectURL(blob, {type: 'text/plain'});
     dl.download = 'notes.csv';
     document.body.appendChild(dl);
     dl.click();
