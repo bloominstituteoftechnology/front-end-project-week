@@ -171,11 +171,14 @@ export const Form = styled.form`
 	align-items: center;
 	display: flex;
 	flex-flow: column nowrap;
-	width: 450px;
+	position: ${props => props.component === 'main' ? 'absolute' : null};
+	top: ${props => props.component === 'main' ? '5%' : null};
+	right: ${props => props.component === 'main' ? '5%' : null};
+	width: ${props => props.component === 'main' ? '25%' : '450px'};
 	height: 95vh;
 `;
 export const Input = styled.input`
-	width: 40%;
+	width: ${props => props.component === 'main' ? '100%' : '40%'};
 	padding: 2.5%;
 	border-radius: 10px;
 	margin-top: 5%;

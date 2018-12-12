@@ -6,6 +6,7 @@ export const ADD = 'ADD';
 export const UPDATE = 'UPDATE';
 export const DELETE = 'DELETE';
 export const SORT = 'SORT';
+export const SEARCH = 'SEARCH';
 
 export const requestNotes = () => (dispatch) => {
 	dispatch({ type: REQUEST_SENT });
@@ -79,4 +80,13 @@ export const sorting = () => dispatch => {
 		return comparison;
 	}
 	dispatch({type: SORT, payload: compare})
+};
+
+export const searching = (searchTerm) => dispatch => {
+	if(searchTerm === '') {
+		requestNotes();
+	} else {
+		dispatch({type: SEARCH, payload: searchTerm})
+	}
+	
 }

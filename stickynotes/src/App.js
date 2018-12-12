@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { GlobalStyle, AppContainer } from './style';
+import { GlobalStyle, AppContainer, Input, Form } from './style';
 import { Route } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {
@@ -7,7 +7,8 @@ import {
 	addNote,
 	editNote,
 	deleteNote,
-	sorting
+	sorting,
+	searching
   } from './actions';
 import SideNav from './components/SideNav';
 import NoteList from './components/NoteList';
@@ -18,7 +19,8 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			mode: 'default'
+			mode: 'default',
+			searchTerm: ''
 		};
 	}
 
@@ -26,6 +28,16 @@ class App extends Component {
 		this.props.requestNotes();
 	}
 
+	handleChange = (event) => {
+		event.preventDefault();
+		this.setState({
+			...this.state,
+			[event.target.name]: event.target.value
+		});
+		if(event.target.value.length === 0) {
+			this.props.requestNotes();
+		}
+	}	
 	addNote = (note) => {
 		this.props.addNote(note);
 	};
@@ -44,32 +56,50 @@ class App extends Component {
 			mode
 		});
 	};
-
-	onDragOver = (event) => {
-		event.preventDefault();
+	sort = () => {
+		this.props.sorting()
+		
 	};
 
-	onDrop = (event) => {
-		event.preventDefault();
-		event.dataTransfer.getData('id');
-		this.setState({
-			...this.state
-		});
-	};
+	search = (e) => {
+		e.preventDefault();
+		console.log(this.state.searchTerm)
+		this.props.searching(this.state.searchTerm);
+		
+	}
 
-	onDragStart = (event, id) => {
-		event.dataTransfer.setData('id', id);
-	};
+	// onDragOver = (event) => {
+	// 	event.preventDefault();
+	// };
 
-sort = () => {
-	this.props.sorting()
-	
-};
+	// onDrop = (event) => {
+	// 	event.preventDefault();
+	// 	event.dataTransfer.getData('id');
+	// 	this.setState({
+	// 		...this.state
+	// 	});
+	// };
+
+	// onDragStart = (event, id) => {
+	// 	event.dataTransfer.setData('id', id);
+	// };
+
+
 	render() {
 		return (
 			<React.Fragment>
 				<GlobalStyle />
+				
 				<AppContainer>
+					<Form component='main' onSubmit={(event) => this.search(event)}>
+					<Input 
+					name='searchTerm'
+					component='main'
+					onChange={(e)=> this.handleChange(e)}
+					placeholder={'search notes...'}
+					type='text'
+					/>
+					</Form>
 					<Route
 						path={'/'}
 						render={(props) => (
@@ -91,6 +121,7 @@ sort = () => {
 								onDrop={this.onDrop}
 								onDragStart={this.onDragStart}
 								sort={this.sort}
+								search={this.search}
 							/>
 						)}
 					/>
@@ -138,6 +169,7 @@ export default connect(
 	addNote,
 	editNote,
 	deleteNote,
-	sorting
+	sorting,
+	searching
 	}
 )(App);

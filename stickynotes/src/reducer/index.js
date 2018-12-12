@@ -5,7 +5,8 @@ import {
     ADD,
     UPDATE,
     DELETE,
-     SORT
+     SORT,
+     SEARCH
   } from '../actions'
 
   const initialState = {
@@ -63,6 +64,11 @@ import {
         return {
           ...state,
           notes: state.notes.slice().sort(action.payload),
+        };
+        case SEARCH:
+        return {
+          ...state,
+          notes: state.notes.slice().filter(note => note.title.includes(action.payload) )
         }
     
         default:
