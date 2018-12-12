@@ -13,6 +13,9 @@ class App extends Component {
       notes: [],
       title: '',
       textBody: '',
+      edittitle: '',
+      edittextBody:'',
+      isDeleting: false,
     }
   }
 
