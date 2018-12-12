@@ -53,7 +53,7 @@ class SingleNote extends React.Component {
        </ModalFooter>
       </ModalHeader>
      </Modal>
-     {/* {!this.props.deleted ? null : this.props.history.push('/') } */}
+     {this.props.deleting ? this.props.history.push('/') : null }
     </div>
   )}
 }
