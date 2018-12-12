@@ -14,19 +14,22 @@ class Note extends Component {
     }
 
     componentDidMount() {
-        const {id} = this.props.match.params
-        fetch = id => {
-            axios
-                .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-                .then(response => this.setState({ note: response.data }))
-                .catch(error => console.log(error))
-        }
-        fetch(id)
+        let id = this.props.match.params.id
+        console.log('before fetch', id)
+        // id = id.toString()
+        // id = toString(id)
+        // id = parseFloat(id)
+        axios
+            .get(`http://localhost:3000/api/notes/${id}`)
+            .then(response => this.setState({ note: response.data }))
+            .catch(error => console.log(error))
+        // console.log('this is the id (this.props.match.params)', this.props.match.params)
+        // console.log('id:', id)
     }
 
     handleDelete = id => {
         axios
-            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+            .delete(`http://localhost:3000/api/notes/delete/${id}`)
             .then(response => {this.setState({ delete: true })})
             .catch(error => console.log(error))
     }
@@ -41,7 +44,7 @@ class Note extends Component {
                 <div className="edit-delete-note">
                     <Link
                         className="edit"
-                        to={{ pathname: '/edit', state: { note: this.state.note} }}
+                        to={{ pathname: `/edit/${this.props.match.params.id}`, note: { note: this.state.note} }}
                     >
                         edit
                     </Link>
@@ -62,7 +65,7 @@ class Note extends Component {
                         <div className="modal-buttons">
                             <Link 
                                 className="delete-button"
-                                onClick={() => this.handleDelete(this.state.note._id)}
+                                onClick={() => this.handleDelete(this.state.note.id)}
                                 to="/"
                             >
                                 Delete
@@ -77,7 +80,7 @@ class Note extends Component {
                     </div>
                 </div>   
                 <h2 className="note-title">{this.state.note.title}</h2>
-                <p className="note-body">{this.state.note.textBody}</p>
+                <p className="note-body">{this.state.note.body}</p>
             </div>
         )
     }

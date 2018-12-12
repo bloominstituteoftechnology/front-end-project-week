@@ -9,7 +9,7 @@ const List = props => {
             <div className="outer-note-container">
                 {props.notes.map(note => (
                     <Note 
-                        key={note._id} 
+                        key={note.id} 
                         note={note}
                         className="note-card"
                     />

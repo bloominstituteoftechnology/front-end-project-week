@@ -7,7 +7,7 @@ class CreateNew extends Component {
         super(props);
         this.state = {
             title: '',
-            content: '',
+            body: '',
             newNote: false,
             note: null
         }
@@ -18,7 +18,7 @@ class CreateNew extends Component {
             this.setState({
                 note: this.props.location.state.note,
                 title: this.props.location.state.note.title,
-                content: this.props.location.state.note.textBody,
+                body: this.props.location.state.note.body,
             })
         }
         this.setState({ newNote: false })
@@ -32,14 +32,13 @@ class CreateNew extends Component {
     handleSubmit = event => {
         event.preventDefault();
           const newNote = {
-            tags: [],
             title: this.state.title,
-            textBody: this.state.content,
+            body: this.state.body,
           }
 
           if (this.state.note === null) {
             axios
-                .post('https://fe-notes.herokuapp.com/note/create', newNote)
+                .post('http://localhost:3000/api/notes/create', newNote)
                 .then(res => {console.log(res)})
                 .catch(err => console.log(err))
           }
@@ -47,7 +46,7 @@ class CreateNew extends Component {
           this.setState({
               newNote: true,
               title: '',
-              content: '',
+              body: '',
               note: null,
           })
     }
@@ -75,7 +74,7 @@ class CreateNew extends Component {
                         className="content-input"
                         placeholder="Note Content"
                         type="text"
-                        name="content"
+                        name="body"
                     />
                     <input 
                         className="submit-button"

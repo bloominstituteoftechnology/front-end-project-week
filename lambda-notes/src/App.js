@@ -20,7 +20,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .get('http://localhost:3000/api/notes/all')
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error))
   }
@@ -62,7 +62,7 @@ class App extends Component {
         />
 
         <Route
-          path='/edit'
+          path='/edit/:id'
           render={props => (
             <Edit 
               {...props}

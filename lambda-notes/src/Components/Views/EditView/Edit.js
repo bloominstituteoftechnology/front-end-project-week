@@ -7,47 +7,54 @@ class Edit extends Component {
         super(props);
         this.state = {
             title: '',
-            content: '',
+            body: '',
             newNote: false,
-            note: null
+            note: null,
         }
     }
 
     componentDidMount() {
-        if (this.props.location.state !== undefined) {
-            this.setState({
-                note: this.props.location.state.note,
-                title: this.props.location.state.note.title,
-                content: this.props.location.state.note.textBody,
-            })
-        }
-        this.setState({ newNote: false })
+        let id = this.props.match.params.id
+        axios
+            .get(`http://localhost:3000/api/notes/${id}`)
+            .then(response => this.setState({ note: response.data, title: response.data.title, body: response.data.body }))
+            .catch(error => console.log(error))
     }
 
+    // componentDidMount() {
+    //     if (this.props.note !== undefined) {
+    //         this.setState({
+    //             note: this.props.note,
+    //             title: this.props.note.title,
+    //             body: this.props.note.body,
+    //         })
+    //     }
+    //     this.setState({ newNote: false })
+    // }
+
     handleInputChange = event => {
-        event.preventDefault() 
-        this.setState({ [event.target.name]: event.target.value })
+        event.preventDefault()
+        this.setState ({ [event.target.name]: event.target.value })
     }
 
     handleSubmit = event => {
         event.preventDefault();
           const newNote = {
-            tags: [],
             title: this.state.title,
-            textBody: this.state.content,
+            body: this.state.body
           }
 
           if (this.state.note !== null) {
             axios
-                .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.note._id}`, newNote)
-                 .then(res => {console.log(res)})
-                 .catch(err => {console.log(err)})
+                .put(`http://localhost:3000/api/notes/edit/${this.state.note.id}`, newNote)
+                .then(res => {console.log(res)})
+                .catch(err => {console.log(err)})
           }
           
           this.setState({
               newNote: true,
               title: '',
-              content: '',
+              body: '',
               note: null,
           })
     }
@@ -58,11 +65,7 @@ class Edit extends Component {
                 <h2 className="edit-note">Edit Note:</h2>
                 <form className="edit-form-container" onSubmit={this.handleSubmit}>
                     <input 
-                        defaultValue={
-                            this.state.note !== null
-                                ? this.state.note.title
-                                : this.props.value
-                        }
+                        value={this.state.title}
                         onChange={this.handleInputChange}
                         className="edit-title"
                         placeholder="Note Title"
@@ -70,16 +73,12 @@ class Edit extends Component {
                         name="title"
                     />
                     <textarea 
-                        value={
-                            this.state.note !== null
-                                ? this.state.note.textBody
-                                : this.props.value
-                        }
+                        value={this.state.body}
                         onChange={this.handleInputChange}
                         className="edit-content"
                         placeholder="Note Content"
                         type="text"
-                        name="content"
+                        name="body"
                     />
                     <input 
                         className="update-button"
