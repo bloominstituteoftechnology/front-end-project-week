@@ -6,44 +6,47 @@ import {
   showModal,
   deleteNote,
 } from '../store/actions';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import Modal from './Modal';
+import {DivButtons, SingleNote} from '../styles';
 
-const DivButtons = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 5%;
-  padding-top: 2rem;
-  width: 100%;
-
-  p {
-    padding: 0 10px;
-    text-decoration: underline;
-  }
-`;
-
-const SingleNote = styled.div`
-  //margin-left: 28%;
-  margin-left: 300px;
-  text-align: left;
-  width: 65%;
-  padding: 2rem 1rem;
-
-  //@media (min-width: 1200px) {
-  //margin-left: 31%;
-  //}
-
-  p {
-    white-space: pre-wrap;
-    line-height: 1.5;
-  }
-  h2 {
-    margin-top: 0.3rem;
-    margin-bottom: 3rem;
-    font-size: 2.2rem;
-  }
-`;
-
+/*
+ *const DivButtons = styled.div`
+ *  display: flex;
+ *  justify-content: flex-end;
+ *  padding-right: 5%;
+ *  padding-top: 2rem;
+ *  width: 100%;
+ *
+ *  p {
+ *    padding: 0 10px;
+ *    text-decoration: underline;
+ *  }
+ *`;
+ *
+ *const SingleNote = styled.div`
+ *  //margin-left: 28%;
+ *  margin-left: 300px;
+ *  text-align: left;
+ *  width: 65%;
+ *  padding: 2rem 1rem;
+ *
+ *  //@media (min-width: 1200px) {
+ *  //margin-left: 31%;
+ *  //}
+ *
+ *  p {
+ *    white-space: pre-wrap;
+ *    line-height: 1.5;
+ *  }
+ *  h2 {
+ *    margin-top: 0.3rem;
+ *    margin-bottom: 3rem;
+ *    font-size: 2.2rem;
+ *  }
+ *`;
+ *
+ */
 // is there a better way to do this? should this be a class component?
 const Note = props => {
   // if no notes in state, push back to /notes
