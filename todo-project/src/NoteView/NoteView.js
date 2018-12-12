@@ -24,7 +24,11 @@ export default class ViewNote extends Component {
             })
     }
 
-    deleteNote = (id) => {
+    id = localStorage.getItem('id')
+
+    deleteNote = (id, userId) => {
+        console.log(userId)
+        if(userId === parseInt(this.id)) {
         axios
             .delete(`https://fsw-14-project-notes.herokuapp.com/notes/${id}`)
             .then(response => {
@@ -33,6 +37,9 @@ export default class ViewNote extends Component {
             .catch(err => {
                 console.log(err)
             })
+        } else {
+            window.alert('Please do not delete sample notes')
+        }
     }
  
   render() {

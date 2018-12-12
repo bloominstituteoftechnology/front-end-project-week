@@ -29,7 +29,7 @@ class View extends React.Component {
             <section className='modal-main'>
               {children}
               <div className='buttonDiv'>
-              <NavLink exact to='/' ><p  onClick={() => this.props.deleteNote(this.props.note.id)} className='modalButton1'>Delete</p></NavLink>
+              <NavLink exact to='/' ><p  onClick={() => this.props.deleteNote(this.props.note.id, this.props.note.userId)} className='modalButton1'>Delete</p></NavLink>
               <p onClick={handleClose} className='modalButton2'>No</p>
               </div>
             </section>
