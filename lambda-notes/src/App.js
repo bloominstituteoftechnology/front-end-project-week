@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { withRouter, Route } from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
@@ -8,6 +8,10 @@ import NotesList from "./components/NotesList";
 import NotesForm from "./components/NotesForm";
 import NotePage from "./components/NotePage";
 import EditForm from "./components/EditForm";
+import Login from './components/Login';
+import Register from './components/Register';
+
+const url = process.env.REACT_APP_API_URL;
 
 class App extends Component {
   constructor() {
@@ -18,20 +22,56 @@ class App extends Component {
       textBody: "",
       newTitle: "",
       newTextBody: "",
-      delete: false
+      delete: false,
+      loggedIn: false
     };
   }
+
   componentDidMount() {
+    // axios
+    //   .get("https://fsw14-lambda-notes-api.herokuapp.com/api/notes")
+    //   .then(res => this.setState({ notes: res.data }))
+    //   .catch(err => console.log(err));
+    this.authenticate();
+  }
+  componentDidUpdate(prevProps) {
+    const { pathname } = this.props.location;
+    console.log(this.props);
+    console.log(prevProps);
+    if (pathname === '/' && pathname !== prevProps.location.pathname) {
+      this.authenticate();
+    }
     axios
       .get("https://fsw14-lambda-notes-api.herokuapp.com/api/notes")
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
-  componentDidUpdate() {
-    axios
-      .get("https://fsw14-lambda-notes-api.herokuapp.com/api/notes")
-      .then(res => this.setState({ notes: res.data }))
-      .catch(err => console.log(err));
+
+  authenticate = () => {
+    const token = localStorage.getItem('secret_token');
+    const options = {
+      headers: {
+        authorization: token
+      }
+    };
+
+    if (token) {
+      axios.get(`${url}/api/notes`, options)
+        .then((res) => {
+          if (res.status === 200 && res.data) {
+            this.setState({ loggedIn: true, notes: res.data });
+          }
+          else {
+            throw new Error();
+          }
+        })
+        .catch((err) => {
+          this.props.history.push('/login');
+
+        });
+    } else {
+      this.props.history.push('/login');
+    }
   }
 
   changeHandler = event => {
@@ -79,6 +119,8 @@ class App extends Component {
     return (
       <div className="app">
         <SideBar />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
         <Route
           exact
           path="/"
@@ -137,4 +179,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
