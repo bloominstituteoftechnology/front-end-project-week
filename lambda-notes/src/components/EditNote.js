@@ -1,14 +1,14 @@
 import React from "react";
-import { connect } from 'react-redux';
-import { editNote } from '../actions';
+import { connect } from "react-redux";
+import { editNote } from "../actions";
 
 class EditNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      textBody: '',
-    }
+      title: "",
+      textBody: ""
+    };
   }
   submitHandler = event => {
     event.preventDefault();
@@ -51,4 +51,7 @@ class EditNote extends React.Component {
   }
 }
 
-export default connect(null, { editNote })(EditNote);
+export default connect(
+  null,
+  { editNote }
+)(EditNote);

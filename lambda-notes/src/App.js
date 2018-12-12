@@ -8,15 +8,24 @@ import NoteCard from "./components/NoteCard";
 import EditNote from "./components/EditNote";
 import { getNotes, deleteNote } from "./actions";
 import { connect } from "react-redux";
+import Searchbar from "./components/Searchbar";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: ""
+    };
+  }
   componentDidMount() {
     this.props.getNotes();
   }
 
   componentDidUpdate(prevProps) {
     if (
-      this.props.serverConfirmation.count !== prevProps.serverConfirmation.count || this.props.singleNote._id !== prevProps.singleNote._id
+      this.props.serverConfirmation.count !==
+        prevProps.serverConfirmation.count ||
+      this.props.singleNote._id !== prevProps.singleNote._id
     ) {
       this.props.getNotes();
     }
@@ -34,11 +43,20 @@ class App extends Component {
     this.toggleModal();
   };
 
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
   render() {
     if (this.props.isFetching || !this.props.notes) {
       return (
-        <div className="loading-image" >
-          <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+        <div className="loading-image">
+          <img
+            src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"
+            alt="loading-gif"
+          />
         </div>
       );
     }
@@ -64,10 +82,21 @@ class App extends Component {
         </section>
 
         <section className="content-container">
+          <Searchbar
+            handleChange={this.handleChange}
+            {...this.props}
+            searchText={this.state.searchText}
+          />
           <Route
             exact
             path="/"
-            render={props => <ListOfNotes {...props} {...this.props} />}
+            render={props => (
+              <ListOfNotes
+                {...props}
+                {...this.props}
+                searchText={this.state.searchText}
+              />
+            )}
           />
           <Route
             path="/add-note"
