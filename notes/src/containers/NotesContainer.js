@@ -18,6 +18,7 @@ class NotesContainer extends React.Component {
       keys: ['title', 'textBody'],
     },
     searchText: '',
+    sortType: 'alpha',
   };
   componentDidMount() {
     this.props.fetchNotes();
@@ -35,6 +36,29 @@ class NotesContainer extends React.Component {
     dl.click();
     document.body.removeChild(dl);
   };
+
+  sortNotes = notes => {
+    switch (this.state.sortType) {
+      case 'alpha':
+        console.log('alpha');
+        const sortedNotes = notes.sort((n, m) => {
+          if (n.title[0].toUpperCase() < m.title[0].toUpperCase()) return -1;
+          if (n.title[0].toUpperCase() > m.title[0].toUpperCase()) return 1;
+          return 0;
+          //return n.title.toLowerCase() < m.title.toLowerCase();
+        });
+        return sortedNotes;
+      //console.log('sort', notes.sort((n1, n2) => n1.title < n2.title));
+      //return notes.sort((n1, n2) => n1.title < n2.title);
+      case 'time':
+        return notes.reverse();
+      default:
+        return notes;
+    }
+  };
+
+  alphaSort = notes =>
+    notes.sort((a, b) => a.title.toLowerCase() < b.title.toLowerCase());
 
   componentDidUpdate(prevProps) {
     // ensure props are up to date
@@ -75,7 +99,9 @@ class NotesContainer extends React.Component {
         <Notes
           {...this.props}
           notes={
-            this.state.searchText ? this.state.filteredNotes : this.props.notes
+            this.state.searchText
+              ? this.sortNotes(this.state.filteredNotes)
+              : this.sortNotes(this.props.notes)
           }
           export={this.exportToCsv}
           searchText={this.state.searchText}

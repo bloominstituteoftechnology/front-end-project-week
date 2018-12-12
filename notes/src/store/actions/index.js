@@ -15,7 +15,7 @@ export const SELECT_NOTE_FAILURE = 'SELECT_NOTE_FAILURE';
 
 export const EDITING_NOTE = 'EDITING_NOTE';
 export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
-export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
+export const STOP_EDITING = 'STOP_EDITING';
 
 export const SHOW_MODAL = 'SHOW_MODAL';
 export const HIDE_MODAL = 'HIDE_MODAL';
@@ -65,16 +65,20 @@ export const startEditMode = () => dispatch => {
   dispatch({type: EDITING_NOTE});
 };
 
+export const stopEditMode = () => dispatch => {
+  dispatch({type: STOP_EDITING});
+};
+
 export const editNote = note => dispatch => {
-  console.log('id', note._id, typeof note._id);
+  //console.log('id', note._id, typeof note._id);
   axios
     .put(`${url}note/edit/${note._id}`, {
       title: note.title,
       textBody: note.textBody,
     })
     .then(res => {
-      console.log('action res:', res);
-      console.log('typeofdata', typeof res.data._id);
+      //console.log('action res:', res);
+      //console.log('typeofdata', typeof res.data._id);
       dispatch({type: EDIT_NOTE_SUCCESS, payload: res.data});
     })
     .catch(err => console.log(err));

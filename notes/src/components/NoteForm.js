@@ -1,5 +1,5 @@
 import React from 'react';
-import {addNote, editNote} from '../store/actions';
+import {addNote, editNote, stopEditMode} from '../store/actions';
 import {connect} from 'react-redux';
 //import styled from 'styled-components';
 //import {Button} from './NavBar';
@@ -68,7 +68,12 @@ class NoteForm extends React.Component {
       const note = this.props.notes.find(
         n => n._id === this.props.match.params.id,
       );
-      if (!note) this.props.history.push('/create');
+      console.log('note', note);
+      if (!note) {
+        this.props.stopEditMode();
+        this.props.history.push('/create');
+        return null;
+      }
       this.setState({
         title: note.title,
         textBody: note.textBody,
@@ -140,5 +145,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {addNote, editNote},
+  {addNote, editNote, stopEditMode},
 )(NoteForm);

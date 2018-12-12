@@ -10,7 +10,7 @@ import {
   //SELECT_NOTE_FAILURE,
   EDITING_NOTE,
   EDIT_NOTE_SUCCESS,
-  //EDIT_NOTE_FAILURE,
+  STOP_EDITING,
   SHOW_MODAL,
   HIDE_MODAL,
   DELETING_NOTE,
@@ -77,6 +77,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isEditing: true,
+      };
+    case STOP_EDITING:
+      return {
+        ...state,
+        isEditing: false,
       };
     case EDIT_NOTE_SUCCESS:
       console.log('edit success', action.payload);
