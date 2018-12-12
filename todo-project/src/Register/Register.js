@@ -56,6 +56,7 @@ class Login extends Component {
           <NavLink to='/'><Button color="success" size="large" onClick={() => this.registerUser()}>
             Register
           </Button></NavLink>
+          <div className='register'>Already registered? <NavLink to='/'>Click here to log in </NavLink></div>
         </FormGroup>
         </div>
       </Form>

@@ -62,7 +62,7 @@ class Login extends Component {
             Log In
           </Button>
         </FormGroup>
-        <div className='register'>Need to register? Click <NavLink to='/register'>here</NavLink></div>
+        <div className='register'>Need to register? <NavLink to='/register'>Click here</NavLink></div>
         </div>
       </Form>
     );

@@ -31,7 +31,6 @@ export default class NotesMain extends Component {
         axios
         .get('https://fsw-14-project-notes.herokuapp.com/notes')
         .then(response => {
-            console.log(response)
             this.setState({ notes: response.data })
         })
         .catch(error => {
