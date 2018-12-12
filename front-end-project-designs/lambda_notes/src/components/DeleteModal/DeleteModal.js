@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import axios from "axios";
 
 const ModalOverlay = styled.div`
 	height: 100%;
@@ -49,22 +48,7 @@ class DeleteModal extends React.Component {
 		};
 	}
 
-	// deleteNote = () => {
-	// 	axios
-	// 		.delete(
-	// 			`https://fe-notes.herokuapp.com/note/delete/${
-	// 				this.props.note._id
-	// 			}`
-	// 		)
-	// 		.then(res => {
-	// 			console.log("Delete Note ", res);
-	// 			this.props.history.push(`/`);
-	// 		})
-	// 		.catch(err => console.log("Delete Server Error", err));
-	// };
-
 	render() {
-		// console.log(this.props.note._id)
 		return (
 			<ModalOverlay>
 				<ModalContainer>

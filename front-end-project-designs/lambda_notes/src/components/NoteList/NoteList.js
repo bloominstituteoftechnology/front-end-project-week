@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import axios from "axios";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Note from "../Note/Note";
 
@@ -10,12 +9,14 @@ const NoteListContainer = styled.div`
 	width: 100%;
 	padding: 40px;
 	display: flex;
-	flex-wrap: wrap-reverse;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: flex-start;
 
 	h2 {
 		width: 100%;
 		color: #414242;
-		order: 1;
+		/* order: 1; */
 	}
 
 	.note-link {
@@ -27,13 +28,13 @@ const NoteCardContainer = styled.div`
 	background-color: #ffffff;
 	color: #20272d;
 	/* width: 10%; */
-	max-width: 180px;
-	min-width: 120px;
+	width: 180px;
+	/* min-width: 120px; */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 	/* min-width: 150px; */
 	min-height: 150px;
-	margin: 20px;
+	margin: 5px;
 	padding: 15px;
 	border: 1px solid #dbdbdb;
 	/* border: 2px solid red; */
@@ -61,7 +62,7 @@ class NoteList extends React.Component {
 	}
 
 	render() {
-		console.log("Notelist props", this.props);
+		// console.log("Notelist props", this.props);
 		if (!this.props.notes) {
 			return <h2>Loading...</h2>;
 		}
@@ -80,9 +81,12 @@ class NoteList extends React.Component {
 								key={note._id}
 								className="note-card"
 							>
-								<h4>{note.title}</h4>
+								<h4>
+									{note.title.length > 20
+										? note.title.slice(0, 20).concat("...")
+										: note.title}
+								</h4>
 								<p>
-									{" "}
 									{note.textBody.length > 180
 										? note.textBody
 												.slice(0, 180)

@@ -1,10 +1,8 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 
-import EditNoteForm from "../EditNoteForm/EditNoteForm";
-import DeleteModal from "../DeleteModal/DeleteModal";
 
 const NoteCardContainer = styled.div`
 	background-color: #ffffff;
@@ -33,6 +31,8 @@ const NoteCardTitle = styled.h2`
 	color: #20272d;
 	/* border-bottom: 1px solid #20272d; */
 	margin: 0 0 5px;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
 `;
 
 const NoteCardContent = styled.div``;
@@ -61,8 +61,6 @@ class Note extends React.Component {
 			})
 			.catch(err => console.log("Note > Server Error: ", err));
 	}
-
-	
 
 	render() {
 		const note = this.state.note;
@@ -93,16 +91,6 @@ class Note extends React.Component {
 						{this.state.note.textBody}
 					</NoteCardContent>
 				</NoteCardContainer>
-				{/* <Route
-					exact
-					path={`/notes/${note._id}/edit`}
-					render={props => <EditNoteForm {...props} note={note} />}
-				/> */}
-				{/* <Route
-					exact
-					path={`/notes/${note._id}/delete`}
-					render={props => <DeleteModal {...props} note={note} />}
-				/> */}
 			</>
 		);
 	}

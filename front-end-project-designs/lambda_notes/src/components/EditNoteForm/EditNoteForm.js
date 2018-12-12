@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import axios from "axios";
 
 const NewNoteForm = styled.form`
 	background: #f2f1f2;
@@ -17,6 +16,11 @@ const NewNoteFormInput = styled.input`
 	margin: 15px 0;
 	font-size: 1rem;
 	/* border-radius: 3px; */
+
+	&:focus {
+		border: 2px solid #24B8BD;
+		outline: 0;
+	}
 `;
 
 const NewNoteFormTextArea = styled.textarea`
@@ -24,10 +28,16 @@ const NewNoteFormTextArea = styled.textarea`
 	font-family: inherit;
 	letter-spacing: inherit;
 	font-size: 1rem;
-	border-radius: 3px;
+	/* border-radius: 3px; */
 	resize: none;
 	width: 600px;
 	height: 400px;
+
+	&:focus {
+		border: 2px solid #24B8BD;
+		outline: 0;
+		height: 398px;
+	}
 `;
 
 const NewNoteFormButton = styled.button`
@@ -52,7 +62,7 @@ class EditNoteForm extends React.Component {
 			notes: [],
 			title: '',
 			textBody: '',
-			id: this.props.notes._id,
+			id: '',
 		};
 	}
 
@@ -87,45 +97,22 @@ class EditNoteForm extends React.Component {
 				),
 			500
 		);
-		// event.preventDefault();
-		// let editedNote = {
-		// 	title: this.state.title,
-		// 	textBody: this.state.textBody,
-		// };
-
-		// axios
-		// 	.put(`https://fe-notes.herokuapp.com/note/edit/${
-		//         this.state.id
-		//     }`, editedNote)
-		// 	.then(
-		// 		res => (
-		// 			console.log("PUT Server Response: ", res),
-		// 			this.setState({
-		// 				title: res.data.title,
-		// 				textBody: res.data.textBody,
-		// 				id: res,
-		// 			})
-		// 		)
-		// 	)
-		// 	.catch(err => console.log("PUT Server Error: ", err));
-
-		// this.props.history.push(`/notes/${this.props.note._id}`)
 	};
 
 	render() {
-		console.log("Edit Form Props", this.props);
-		console.log("Edit Form state", this.state);
+		// console.log("Edit Form Props", this.props);
+		// console.log("Edit Form state", this.state);
 		return (
 			<NewNoteForm onSubmit={this.handleSubmit}>
 				<h2>Edit Note:</h2>
 				<NewNoteFormInput
 					type="text"
-					defaultValue={this.state.title}
+					value={this.state.title}
 					name="title"
 					onChange={this.handleChange}
 				/>
 				<NewNoteFormTextArea
-					defaultValue={this.state.title}
+					value={this.state.textBody}
 					name="textBody"
 					onChange={this.handleChange}
 				/>
