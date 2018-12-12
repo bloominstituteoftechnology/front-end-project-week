@@ -45,7 +45,7 @@
 .notes-list-wrapper {
   width: 75%;
   padding: 2.5rem 2.5rem;
-  background-color: rgb(242,241,242);
+  background-color: rgb(242, 241, 242);
 }
 
 .notes-list-wrapper h2 {
@@ -55,11 +55,11 @@
   margin-bottom: 3rem;
 }
 
-.searchContainer{
+.searchContainer {
   margin-bottom: 0rem;
 }
 
-.searchContainer input{
+.searchContainer input {
   border-radius: 0.25rem;
   width: 32%;
   text-align: center;
@@ -95,7 +95,7 @@
 .form {
   width: 75%;
   padding: 5rem 2.5rem;
-  background-color: rgb(242,241,242);;
+  background-color: rgb(242, 241, 242);
 }
 
 .form h2 {
@@ -157,12 +157,12 @@ textarea {
   position: fixed;
   top: 0px;
   left: 0px;
-  background-color:rgba(216, 216, 216, 0.8);
+  background-color: rgba(216, 216, 216, 0.8);
   width: 100vw;
   height: 100vh;
 }
 
-.delete-container{
+.delete-container {
   margin: 0 auto;
   margin-top: 10rem;
   background-color: white;
@@ -174,11 +174,11 @@ textarea {
   justify-content: space-evenly;
 }
 
-.delete-container h3{
+.delete-container h3 {
   font-weight: bold;
 }
 
-.delete-btn-yes{
+.delete-btn-yes {
   width: 15rem;
   height: 5rem;
   cursor: pointer;
@@ -191,13 +191,13 @@ textarea {
   margin-right: 2rem;
 }
 
-.delete-btn-no{
+.delete-btn-no {
   width: 15rem;
   height: 5rem;
   cursor: pointer;
   margin-bottom: 1.25rem;
-  background-color: rgb(202,0,26);
-  border: 1px solid rgb(202,0,26);
+  background-color: rgb(202, 0, 26);
+  border: 1px solid rgb(202, 0, 26);
   color: white;
   font-size: 1.6rem;
   border-radius: 0.3rem;
@@ -206,23 +206,23 @@ textarea {
 .note-wrapper {
   width: 75%;
   padding: 1rem 2.5rem;
-  background-color: rgb(242,241,242);
+  background-color: rgb(242, 241, 242);
 }
 
-.sub-nav{
+.sub-nav {
   /* border: 1px solid red; */
   display: flex;
   justify-content: flex-end;
 }
 
-.sub-nav-links{
+.sub-nav-links {
   width: 10rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.sub-nav-btn{
+.sub-nav-btn {
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -230,16 +230,16 @@ textarea {
   height: 100%;
 }
 
-.sub-nav-links-fix{
+.sub-nav-links-fix {
   height: 100%;
   padding-bottom: 0.5rem;
 }
 
-.sub-nav-btn:hover{
+.sub-nav-btn:hover {
   color: rgb(36, 184, 189);
 }
 
-.note-body{
+.note-body {
   /* border:1px solid red; */
   margin-top: 1.8rem;
 }
@@ -258,21 +258,21 @@ textarea {
   text-align: left;
 }
 
-.login-form{
+.login-form {
   margin: 0 auto;
   width: 35%;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(211, 210, 211);
 }
 
-.login-form h3{
+.login-form h3 {
   font-weight: bold;
   margin: 1rem 0;
 }
 
-.login-form input{
+.login-form input {
   width: 90%;
   margin-bottom: 1rem;
   height: 5rem;
@@ -290,3 +290,22 @@ textarea {
   font-size: 1.6rem;
   border-radius: 0.3rem;
 }
+
+.sort {
+  margin: 1rem 0;
+  display: flex;
+  /* border: 1px solid red; */
+  justify-content: center;
+  
+}
+
+.sort select {
+  border-radius: 0.25rem;
+  width: 32%;
+  background-color: rgb(36, 184, 189);
+  color: white;
+}
+
+
+
+

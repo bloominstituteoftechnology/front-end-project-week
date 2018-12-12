@@ -4,7 +4,7 @@ class NotesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filteredNotes: [],
+      filteredNotes: []
     };
   }
 
@@ -16,8 +16,6 @@ class NotesList extends Component {
     });
     this.setState({ ...this.state, filteredNotes: filteredNotes });
   };
-
-  
 
   render() {
     console.log("rendering NotesList component");
@@ -33,8 +31,10 @@ class NotesList extends Component {
             onKeyDown={this.searchPostsHandler}
           />
           <div className="sort">
-            <h3>Sort By:</h3>
             <select onChange={this.props.sortHandler}>
+              <option value="" selected>
+                SORT ME!
+              </option>
               <option value="none">None</option>
               <option value="alphabetically">Alphabetically</option>
             </select>
