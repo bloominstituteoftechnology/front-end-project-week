@@ -19,7 +19,7 @@ export const editNote = (id, newNote) => dispatch => {
       newNote
     )
     .then(res => {
-      dispatch({ type: EDIT_NOTE_SUCCESS, payload: res.data });
+      dispatch({ type: EDIT_NOTE_SUCCESS });
     })
     .catch(err => dispatch({ type: EDIT_NOTE_FAILURE, payload: err }));
 };

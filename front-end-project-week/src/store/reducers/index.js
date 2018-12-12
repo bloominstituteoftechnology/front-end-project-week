@@ -106,8 +106,7 @@ export const rootReducer = (state = initialState, action) => {
         fetchingNote: false,
         addingNote: false,
         deletingNote: false,
-        editingNote: false,
-        notes: action.payload
+        editingNote: false
       };
     case ADD_NOTE_FAILURE:
       return {
@@ -136,8 +135,7 @@ export const rootReducer = (state = initialState, action) => {
         fetchingNote: false,
         addingNote: false,
         deletingNote: false,
-        editingNote: false,
-        notes: action.payload
+        editingNote: false
       };
     case DELETE_NOTE_FAILURE:
       return {
@@ -166,8 +164,7 @@ export const rootReducer = (state = initialState, action) => {
         fetchingNote: false,
         addingNote: false,
         deletingNote: false,
-        editingNote: false,
-        notes: action.payload
+        editingNote: false
       };
     case EDIT_NOTE_FAILURE:
       return {

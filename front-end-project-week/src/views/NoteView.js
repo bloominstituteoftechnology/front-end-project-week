@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { getNote, deleteNote } from '../store/actions';
 import NoteDetails from '../components/NoteDetails';
 import DeleteModel from '../components/DeleteModel';
+import { urlLinks } from '../components/App';
 
 const NoteNavItems = {
   edit: 'edit',
@@ -87,6 +88,14 @@ class NoteView extends Component {
     this.props.getNote(this.props.match.params.id);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.deletingNote !== this.props.deletingNote) {
+      if (!this.props.deletingNote) {
+        this.props.history.push(`${urlLinks.home}${urlLinks.readNotes}`);
+      }
+    }
+  }
+
   showDeleteModel = e => {
     e.preventDefault();
     this.setState({ showDeleteModel: true });
@@ -152,6 +161,7 @@ const mapStateToProps = state => {
   return {
     note: state.note,
     fetchingNote: state.fetchingNote,
+    deletingNote: state.deletingNote,
     error: state.error
   };
 };

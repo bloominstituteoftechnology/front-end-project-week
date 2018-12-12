@@ -48,16 +48,10 @@ const ButtonModel = styled.button`
  ********************************************* Component *******************************************
  **************************************************************************************************/
 class DeleteModel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { redirect: false };
-  }
-
   deleteNote = e => {
     e.preventDefault();
     this.props.hideDeleteModel(e);
     this.props.deleteNote(this.props.match.params.id);
-    this.setState({ redirect: true });
   };
 
   cancel = e => {
@@ -66,15 +60,6 @@ class DeleteModel extends Component {
   };
 
   render() {
-    if (this.state.redirect) {
-      return (
-        <Redirect
-          push
-          to={`${this.props.urlLinks.home}${this.props.urlLinks.readNotes}`}
-        />
-      );
-    }
-
     return (
       <DivModel visible={this.props.visible}>
         <H3Message>Are you sure you want to delete this?</H3Message>

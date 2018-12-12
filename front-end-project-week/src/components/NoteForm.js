@@ -99,23 +99,12 @@ class NoteForm extends Component {
     } else if (this.props.edit) {
       if (this.state.newNote.title && this.state.newNote.textBody) {
         this.props.editNote(this.props.note._id, this.state.newNote);
-        this.setState({ redirect: true });
       }
     }
   };
 
   //========================== Render ==========================
   render() {
-    if (this.state.redirect) {
-      return (
-        <Redirect
-          push
-          to={`${this.props.urlLinks.home}${
-            this.props.urlLinks.readNoteClient
-          }/${this.props.note._id}`}
-        />
-      );
-    }
     return (
       <DivNoteFormWrapper>
         <div>

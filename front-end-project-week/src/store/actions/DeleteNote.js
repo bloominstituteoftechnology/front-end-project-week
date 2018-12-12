@@ -16,7 +16,8 @@ export const deleteNote = id => dispatch => {
   axios
     .delete(`${urlLinks.server}${urlLinks.home}${urlLinks.deleteNote}/${id}`)
     .then(res => {
-      dispatch({ type: DELETE_NOTE_SUCCESS, payload: res.data });
+      console.log(`delete function`, res);
+      dispatch({ type: DELETE_NOTE_SUCCESS });
     })
     .catch(err => dispatch({ type: DELETE_NOTE_FAILURE, payload: err }));
 };

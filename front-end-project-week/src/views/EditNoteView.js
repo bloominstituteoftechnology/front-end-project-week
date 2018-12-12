@@ -28,6 +28,17 @@ class EditNoteView extends Component {
     this.props.getNote(this.props.match.params.id);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.editingNote !== this.props.editingNote) {
+      if (!this.props.editingNote) {
+        this.props.history.push(
+          `${this.props.urlLinks.home}${this.props.urlLinks.readNoteClient}/${
+            this.props.match.params.id
+          }`
+        );
+      }
+    }
+  }
   render() {
     return (
       <DivPageWrapper>
