@@ -1,8 +1,6 @@
 import React from 'react';
 import Note from './Note';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import NoteView from '../views/NoteView';
 
 const Div = styled.div`
     width: 96.6%;
@@ -19,7 +17,10 @@ const NotesList = props => {
             {props.notes.length === 0 ? (
                 <>
                     <h1>Be patient the hamsters are getting really tired.</h1>
-                    <img src="./media/loading.gif" />
+                    <img
+                        src="./media/loading.gif"
+                        alt="hamster running on wheel"
+                    />
                 </>
             ) : (
                 props.notes.map(note => (
