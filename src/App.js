@@ -8,6 +8,8 @@ import './components/ComponentStyle.css';
 
 import './App.css';
 
+const serverURL = 'https://heronotesmwright.herokuapp.com';
+
 const blankNoteForm = {
   title: '',
   body: ''
@@ -46,7 +48,7 @@ class App extends React.Component {
   }
   fetchNotes = () => {
     axios
-      .get('http://localhost:9000/api/notes')
+      .get(`${serverURL}/api/notes`)
       .then(response => {
         console.log(response);
         this.setState({ notesData: response.data });
@@ -66,21 +68,19 @@ class App extends React.Component {
   };
 
   handleAddNewNote = () => {
-    axios
-      .post('http://localhost:9000/api/notes', this.state.note)
-      .then(response => {
-        let newNote = this.state.note;
-        newNote.id = response.data.id;
-        this.setState({
-          notesData: [...this.state.notesData, newNote],
-          note: blankNoteForm
-        });
+    axios.post(`${serverURL}/api/notes`, this.state.note).then(response => {
+      let newNote = this.state.note;
+      newNote.id = response.data.id;
+      this.setState({
+        notesData: [...this.state.notesData, newNote],
+        note: blankNoteForm
       });
+    });
   };
 
   handleDeleteNote = noteId => {
     axios
-      .delete(`http://localhost:9000/api/notes/${noteId}`)
+      .delete(`${serverURL}/api/notes/${noteId}`)
       .then(response => {
         const filteredNotes = this.state.notesData.filter(
           note => note.id !== noteId
@@ -106,7 +106,7 @@ class App extends React.Component {
   handleUpdateNote = noteId => {
     console.log('this has launched');
     axios
-      .put(`http://localhost:9000/api/notes/${noteId}`, this.state.note)
+      .put(`${serverURL}/api/notes/${noteId}`, this.state.note)
       .then(response => {
         console.log('response', response);
         const updatedNotes = this.state.notesData.map(note => {
