@@ -14,6 +14,7 @@ class App extends Component {
     super(props);
     this.state = {
       notes: [],
+      notesCopy: [],
       filter: '',
 
     };
@@ -23,11 +24,12 @@ class App extends Component {
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         console.log(response); 
-        this.setState({notes: response.data}) 
+        this.setState({notes: response.data, notesCopy: response.data}) 
       })
       .catch(err => console.log(err));
       
   }
+
 
   addNote = (event, newNote) => {
     event.preventDefault();
@@ -110,7 +112,9 @@ class App extends Component {
   }
 
   sortedByMostRecent = () => {
-    const sortedByRecent = this.state.notes.reverse();
+    
+    console.log('reseted note list, line 123 app.js', this.state.notesCopy);
+    const sortedByRecent = this.state.notesCopy.reverse();
     this.setState({
       notes: sortedByRecent
     })
@@ -118,6 +122,7 @@ class App extends Component {
 
 
   render() {
+    console.log('notesCopy', this.state.notesCopy);
     return (
       <div className="App">
         <div className="main-container">
