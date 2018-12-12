@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 import { NavLink } from 'react-router-dom'
-import './Login.css';
-import image from './marble-surface-wall-1323712.jpg'
+import './Register.css';
+
 
 class Login extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Login extends Component {
       <Form className="login-form">
       <div className='loginContainer'>
         <h3>Lambda Notes</h3>
-        <div>Please Login</div>
+        <div>Register</div>
         <FormGroup>
           <Input
             type="text"
@@ -47,17 +47,16 @@ class Login extends Component {
             onChange={this.handleInputChange}
           />
           <br />
-          <Button color="success" size="large" onClick={this.handleLoginSubmit}>
-            Log In
-          </Button>
+          <NavLink to='/'><Button color="success" size="large" onClick={this.handleLoginSubmit}>
+            Register
+          </Button></NavLink>
         </FormGroup>
-        <div className='register'>Need to register? Click <NavLink to='/register'>here</NavLink></div>
         </div>
       </Form>
     );
   }
 }
 
-document.body.style.backgroundImage = `url(${image})`;
+
 
 export default Login;
