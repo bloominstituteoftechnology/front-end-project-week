@@ -24,6 +24,41 @@ const H2PageTitle = styled.h2`
  ********************************************* Component *******************************************
  **************************************************************************************************/
 class CreateNoteView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      newNote: {
+        title: props.edit ? props.note.title : '',
+        textBody: props.edit ? props.note.textBody : ''
+      },
+      submitButtonText: 'Save'
+    };
+  }
+  //========================== Methods =========================
+  clearNewNoteState = () => {
+    this.setState({
+      newNote: {
+        title: '',
+        textBody: ''
+      }
+    });
+  };
+
+  //---------------- Form Methods --------------
+  handleInputChange = e => {
+    this.setState({
+      newNote: { ...this.state.newNote, [e.target.name]: e.target.value }
+    });
+  };
+
+  submitHandler = e => {
+    e.preventDefault();
+    if (this.state.newNote.title && this.state.newNote.textBody) {
+      this.props.addNote(this.state.newNote);
+      this.clearNewNoteState();
+    }
+  };
+
   render() {
     return (
       <DivPageWrapper>
@@ -32,7 +67,13 @@ class CreateNoteView extends Component {
         ) : (
           <div>
             <H2PageTitle>Create New Note:</H2PageTitle>
-            <NoteForm {...this.props} create />
+            <NoteForm
+              {...this.props}
+              submitButtonText={this.state.submitButtonText}
+              note={this.state.newNote}
+              handleInputChange={this.handleInputChange}
+              submitHandler={this.submitHandler}
+            />
           </div>
         )}
       </DivPageWrapper>

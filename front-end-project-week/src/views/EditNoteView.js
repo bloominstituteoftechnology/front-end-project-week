@@ -24,6 +24,17 @@ const H2PageTitle = styled.h2`
  ********************************************* Component *******************************************
  **************************************************************************************************/
 class EditNoteView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editNote: {
+        title: props.note.title,
+        textBody: props.note.textBody
+      },
+      submitButtonText: 'Update'
+    };
+  }
+  //========================== Methods =========================
   componentDidMount() {
     this.props.getNote(this.props.match.params.id);
   }
@@ -40,6 +51,21 @@ class EditNoteView extends Component {
     }
   }
 
+  //---------------- Form Methods --------------
+  handleInputChange = e => {
+    this.setState({
+      editNote: { ...this.state.editNote, [e.target.name]: e.target.value }
+    });
+  };
+
+  submitHandler = e => {
+    e.preventDefault();
+    if (this.state.editNote.title && this.state.editNote.textBody) {
+      this.props.editNote(this.props.note._id, this.state.editNote);
+    }
+  };
+
+  //========================== Render ==========================
   render() {
     return (
       <DivPageWrapper>
@@ -48,7 +74,13 @@ class EditNoteView extends Component {
         ) : (
           <div>
             <H2PageTitle>Edit Note:</H2PageTitle>
-            <NoteForm {...this.props} edit />
+            <NoteForm
+              {...this.props}
+              submitButtonText={this.state.submitButtonText}
+              note={this.state.editNote}
+              handleInputChange={this.handleInputChange}
+              submitHandler={this.submitHandler}
+            />
           </div>
         )}
       </DivPageWrapper>

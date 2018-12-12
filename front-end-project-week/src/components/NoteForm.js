@@ -60,82 +60,37 @@ const ButtonSubmit = styled.button`
 /***************************************************************************************************
  ********************************************* Component *******************************************
  **************************************************************************************************/
-class NoteForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      newNote: {
-        title: props.edit ? props.note.title : '',
-        textBody: props.edit ? props.note.textBody : ''
-      },
-      redirect: false
-    };
-  }
-  //========================== Methods =========================
-  clearNewNoteState = () => {
-    this.setState({
-      newNote: {
-        title: '',
-        textBody: ''
-      }
-    });
-  };
-
-  //---------------- Form Methods --------------
-  handleInputChange = e => {
-    this.setState({
-      newNote: { ...this.state.newNote, [e.target.name]: e.target.value }
-    });
-  };
-
-  submitHandler = e => {
-    e.preventDefault();
-    if (this.props.create) {
-      if (this.state.newNote.title && this.state.newNote.textBody) {
-        this.props.addNote(this.state.newNote);
-        this.clearNewNoteState();
-      }
-    } else if (this.props.edit) {
-      if (this.state.newNote.title && this.state.newNote.textBody) {
-        this.props.editNote(this.props.note._id, this.state.newNote);
-      }
-    }
-  };
-
-  //========================== Render ==========================
-  render() {
-    return (
-      <DivNoteFormWrapper>
-        <div>
-          {this.props.addingNote ? (
-            <H2LoadingMessage>Loading Notes...</H2LoadingMessage>
-          ) : (
-            <FormNote>
-              <InputTitle
-                onChange={this.handleInputChange}
-                placeholder='Note Title'
-                value={this.state.newNote.title}
-                name='title'
-                autoComplete='off'
-              />
-              <TextareaContent
-                onChange={this.handleInputChange}
-                placeholder='Note Content'
-                value={this.state.newNote.textBody}
-                name='textBody'
-                autoComplete='off'
-              />
-              <ButtonSubmit type='submit' onClick={e => this.submitHandler(e)}>
-                {this.props.create && 'Save'}
-                {this.props.edit && 'Update'}
-              </ButtonSubmit>
-            </FormNote>
-          )}
-        </div>
-      </DivNoteFormWrapper>
-    );
-  }
-}
+const NoteForm = props => {
+  return (
+    <DivNoteFormWrapper>
+      <div>
+        {props.addingNote ? (
+          <H2LoadingMessage>Loading Notes...</H2LoadingMessage>
+        ) : (
+          <FormNote>
+            <InputTitle
+              onChange={props.handleInputChange}
+              placeholder='Note Title'
+              value={props.note.title}
+              name='title'
+              autoComplete='off'
+            />
+            <TextareaContent
+              onChange={props.handleInputChange}
+              placeholder='Note Content'
+              value={props.note.textBody}
+              name='textBody'
+              autoComplete='off'
+            />
+            <ButtonSubmit type='submit' onClick={e => props.submitHandler(e)}>
+              {props.submitButtonText}
+            </ButtonSubmit>
+          </FormNote>
+        )}
+      </div>
+    </DivNoteFormWrapper>
+  );
+};
 
 // NoteForm.propTypes = {
 //   propertyName: PropTypes.string
