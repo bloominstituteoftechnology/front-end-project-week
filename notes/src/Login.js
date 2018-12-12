@@ -2,16 +2,13 @@ import React from 'react';
 import './login.css'
 
 class Login extends React.Component{
-    constructor(){
-        super();
-    }
     render(){
         return(
             <div className="wrapper">
                 <div className="container">
                     <h1>Welcome To Lambda Notes</h1>
                     <p>Please Login to Continue</p>
-                    <form class="form">
+                    <form className="form">
 
                         <input 
                         name="username"
@@ -23,14 +20,22 @@ class Login extends React.Component{
                         <input 
                         name="password" 
                         type="password"
-                        placeholder="Password" 
+                        placeholder="Password"
+                        onChange = {this.props.ChangeHandler}
                         />
-                        <button type="submit" id="login-button">Login</button>
+
+                        <button 
+                        onClick={this.props.SubmitHandler}
+                        type="submit" 
+                        id="login-button">
+                        Login
+                        </button>
+
                     </form>
                     <p>Don't Have an account? Register here</p>
                 </div>
                 
-                <ul class="bg-bubbles">
+                <ul className="bg-bubbles">
                     <li>To-Do</li>
                     <li>Remember this note</li>
                     <li>Learn React</li>

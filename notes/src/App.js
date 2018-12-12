@@ -1,22 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AppView from './AppView';
 import Login from './Login'
-// import axios from 'axios';
-// import './App.css';
-// import { Route } from 'react-router-dom';
 
-// // Component Imports
-// import SideBar from './components/sidebar/SideBar'
-// import NoteList from './components/NoteList';
-// import CreateNew from './components/CreateNew';
-// import ViewNote from './components/ViewNote';
-// import EditNote from './components/EditNote';
-// import {SyncLoader as Loader} from 'react-spinners';
 class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      loggedIn : 0,
+      loggedIn : false,
       user : {
         username : '',
         password : ''
@@ -24,7 +14,7 @@ class App extends React.Component{
     }
   }
 
-  onChangeHandler(e){
+  onChangeHandler = e =>{
     this.setState({user : {...this.state.user,[e.target.name] : e.target.value }})
   }
 
