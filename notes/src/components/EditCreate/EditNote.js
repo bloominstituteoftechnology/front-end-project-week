@@ -32,8 +32,10 @@ class EditNote extends Component {
         // console.log(noteId)
         if (this.props.editNote) {
             this.props.edit(note, noteId)
+            props.goHome(props);
         } else {
             this.props.create(note)
+            props.goHome(props);
         }
     }
 
@@ -58,7 +60,7 @@ class EditNote extends Component {
                     >
     
                     </textarea>
-                    <button onClick={this.newNote} className='noteSave'>
+                    <button onClick={(event) => this.newNote(event, this.props)} className='noteSave'>
                         {this.props.editNote ? 'Update' : 'Save'}
                     </button>
                 </form>

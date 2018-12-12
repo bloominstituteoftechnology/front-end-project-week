@@ -11,10 +11,6 @@ import App from './App';
 import rootReducer from './components/reducers';
 import './index.css';
 
-require('dotenv').config();
-// import dotenv from 'dotenv';
-// dotenv.config();
-
 const store = createStore(
     rootReducer,
     applyMiddleware(thunk) // could include logger

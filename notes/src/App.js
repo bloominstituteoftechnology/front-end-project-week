@@ -14,9 +14,9 @@ import { getNotes, viewNote, create, createMode, editMode, ruSure, deleter } fro
 
 //page styling
 import './App.css';
-console.log(process.env.REACT_APP_TESTER);
 class App extends Component {
   componentDidMount() {
+    console.log('mount');
     this.props.getNotes()
   }
   
@@ -27,7 +27,10 @@ class App extends Component {
   }
   
   goHome = (props) => {
+    console.log('go home 1')
     props.history.push('/')
+    console.log('go home 2')
+    this.props.getNotes()
   }
   
   editNote = (props) => {
@@ -44,6 +47,10 @@ class App extends Component {
     event.preventDefault()
     this.props.ruSure()
   }
+
+  // componentWillUpdate() {
+  //   this.props.getNotes()
+  // }
 
   render() {
     return (
@@ -74,7 +81,10 @@ class App extends Component {
             />
           )} />
           <Route exact path='/edit' render={(props) => (
-            <EditNote />
+            <EditNote 
+              {...props}
+              goHome={this.goHome}
+            />
             )} />
         </div>
 

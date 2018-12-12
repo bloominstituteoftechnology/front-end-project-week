@@ -38,7 +38,8 @@ export const createMode = () => dispatch => {
 export const create = (note) => dispatch => {
     return (
         axios
-            .post('https://fe-notes.herokuapp.com/note/create', note)
+            .post('http://localhost:4500/api/notes/new', note)
+            // .post('https://fe-notes.herokuapp.com/note/create', note)
             .then(({ data }) => {
                 dispatch({ type: CREATE_NOTE, payload: data })
             })
@@ -53,7 +54,7 @@ export const editMode = () => dispatch => {
 export const edit = (note, noteId) => dispatch => {
     return (
         axios
-            .put(`https://fe-notes.herokuapp.com/note/edit/${noteId}`, note)
+            .put(`http://localhost:4500/api/notes/edit/${noteId}`, note)
             .then(({ data }) => {
                 console.log(data)
             })
