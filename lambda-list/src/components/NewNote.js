@@ -35,7 +35,8 @@ class NewNote extends React.Component {
             title:'',
             textBody: ''
         })
-        this.props.history.push('/')
+        this.props.history.push('/');
+        window.location.reload();
     }
  
 
@@ -48,7 +49,7 @@ class NewNote extends React.Component {
                 <div className="page-header">
                 {/* This should also change when the page changes */}
                     <h3>Create New Note:</h3>
-                    <NewNoteForm title={this.state.title} textBody={this.state.textBody} submitHandler={this.submitHandler} handleChange={this.handleChange}/>
+                    <NewNoteForm title={this.props.title} textBody={this.props.textBody} submitHandler={this.submitHandler} handleChange={this.handleChange}/>
                 </div>
             </Page>
             

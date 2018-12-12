@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import Note from './Note'
 import styled from 'styled-components'
-
+import shortid from 'shortid'
 const Page = styled.div`
   margin: 6% 3%;
 
@@ -12,20 +12,22 @@ const Page = styled.div`
 
 
 const NoteList = props => {
+   
     return (
         <Page>
             <div className="page-header">
                 <h3>Your Notes:</h3>
             </div>
-            
             <div className="note-list">
-                {props.notes.map(notes => {
+                {props.notes.map(note=> {
                     return(
                         <Note 
-                        key={notes.id}
-                        tags={notes.tags}
-                        title={notes.title}
-                        textBody={notes.textBody}
+                        id={note._id}
+                        key={note._id}
+                        tags={note.tags}
+                        title={note.title}
+                        textBody={note.textBody}
+                        
                         />
                     )
                 

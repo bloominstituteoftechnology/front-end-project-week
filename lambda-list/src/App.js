@@ -5,6 +5,7 @@ import NoteList from './components/NoteList';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 import NewNote from './components/NewNote'
+import SingleNote from './components/SingleNote'
 
 import './App.css';
 
@@ -17,17 +18,18 @@ class App extends Component {
   }
 
   componentDidMount() {
+    let index = -1;
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         this.setState({
-          note: response.data
+          note: response.data, index: index++
         })
       })
 
   }
 
   addNote = data => {
-    console.log('addnote')
+  
     axios.post('https://fe-notes.herokuapp.com/note/create', data)
   .then(response => {
     this.setState({
@@ -38,8 +40,11 @@ class App extends Component {
   })
 }
 
+ 
+
 
   render() {
+    
     return (
       <div className="App">
         <Header />
@@ -49,6 +54,7 @@ class App extends Component {
                <Menu />
                <Route exact path="/" render={props => <NoteList {...props} notes={this.state.note} />} />
                <Route path="/new-note" render={props => <NewNote {...props} notes={this.state.note} addNote={this.addNote}/>} />
+               <Route path="/note/:noteID" render={props => <SingleNote {...props} notes={this.state.note}/>} />
         </div> 
         
       </div>//app
