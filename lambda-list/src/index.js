@@ -5,10 +5,18 @@ import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 
+import ReactDom from 'react-dom';
+import Popup from 'react-popup';
+
+
 ReactDOM.render(
-<Router>
-  <App />
-</Router>
+  <div>
+    <Popup />
+    <Router>
+      <App />
+    </Router>
+  </div>
+ 
 , document.getElementById('root'));
 
 

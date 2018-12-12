@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import Note from './Note'
 import styled from 'styled-components'
-import shortid from 'shortid'
+
 const Page = styled.div`
   margin: 6% 3%;
 

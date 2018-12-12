@@ -5,7 +5,9 @@ import NoteList from './components/NoteList';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 import NewNote from './components/NewNote'
-import SingleNote from './components/SingleNote'
+import {SingleNote } from './components/SingleNote'
+import DeleteNote from './components/DeleteNote'
+
 
 import './App.css';
 
@@ -32,6 +34,7 @@ class App extends Component {
   
     axios.post('https://fe-notes.herokuapp.com/note/create', data)
   .then(response => {
+    data["_id"] = response.data.success;
     this.setState({
         title: response.title,
         textBody: response.textBody
@@ -40,6 +43,17 @@ class App extends Component {
   })
 }
 
+  deleteNote = (id) => {
+    
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+  .then(response => {
+    this.setState({
+        title: response.title,
+        textBody: response.textBody
+    })
+  //   .catch(err => console.log(err)) 
+  })
+  }
  
 
 
@@ -54,7 +68,9 @@ class App extends Component {
                <Menu />
                <Route exact path="/" render={props => <NoteList {...props} notes={this.state.note} />} />
                <Route path="/new-note" render={props => <NewNote {...props} notes={this.state.note} addNote={this.addNote}/>} />
-               <Route path="/note/:noteID" render={props => <SingleNote {...props} notes={this.state.note}/>} />
+               <Route path="/note/:noteID" render={props => <SingleNote {...props} notes={this.state.note} deleteNote={this.deleteNote}/>}/>
+               <Route path="/delete-note" render={props => <DeleteNote {...props} notes={this.state.note} />}/>
+               
         </div> 
         
       </div>//app

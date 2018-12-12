@@ -36,7 +36,7 @@ class NewNote extends React.Component {
             textBody: ''
         })
         this.props.history.push('/');
-        window.location.reload();
+       
     }
  
 

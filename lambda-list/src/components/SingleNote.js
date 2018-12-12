@@ -1,6 +1,8 @@
 import React from 'react';
 import '../App.css';
 import styled from 'styled-components'
+import NoteMenu from './NoteMenu'
+
 
 
 
@@ -14,7 +16,7 @@ const Page = styled.div`
 
 
 
-const SingleNote = props => {
+export const SingleNote = props => {
     console.log(props.notes)
     const note = props.notes.find(note => `${note._id}` === props.match.params.noteID);
     console.log('Note: ', note)
@@ -22,14 +24,17 @@ const SingleNote = props => {
         return <h1>Loading...</h1>
     } else {
         return  (
+            
             <Page className='single-note'>
-            <div className='note-title-single'>
-                <h3>{note.title}</h3>
-            </div>
+                <NoteMenu deleteNote={props.deleteNote} noteID={props.match.params.noteID} props={props}/>
+                
+                <div className='note-title-single'>
+                    <h3>{note.title}</h3>
+                </div>
 
-            <div>
-                <p>{note.textBody}</p>
-            </div>
+                <div>
+                    <p>{note.textBody}</p>
+                </div>
             </Page>
             
         )  
@@ -39,6 +44,6 @@ const SingleNote = props => {
 
 
 
-export default SingleNote;
+
 
 

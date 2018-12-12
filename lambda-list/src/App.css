@@ -137,4 +137,15 @@ h1 {
   padding-bottom: 2%;
 }
 
+.note-menu {
+  
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-item {
+  margin-left: 20px;
+  font-size: 12px
+}
+
 
