@@ -1,6 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const LoginWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`;
+const SCHeader = styled.h1`
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 100px;
+`;
+const SCForm = styled.form`
+    display: flex;
+    align-items: center;
+    margin: 30px;
+`;
+const SCInput = styled.input`
+    border: 2px solid lightgrey;
+    margin: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 10px;
+`;
+const SCButton = styled.button`
+    background: #25B7BD;
+    border: 1px solid #B7B7B7;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 10px;
+    margin: 10px;
+    width: 100px;
+    text-align: center;
+`;
+
 class Login extends React.Component {
     state = {
         username: '',
@@ -19,13 +54,16 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
-                <form>
-                    <input type="text" placeholder="Enter you username" name="username" value={this.state.username} onChange={this.handleInput} />
-                    <input type="password" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleInput} />
-                    <button onClick={this.handleSubmitLogin}>Log in</button>
-                </form>
-            </div>
+            <LoginWrapper>
+                <SCHeader>Welcome to Lambda Notes</SCHeader>
+                {/* <LoginBox> */}
+                    <SCForm>
+                        <SCInput type="text" placeholder="Enter you username" name="username" value={this.state.username} onChange={this.handleInput} />
+                        <SCInput type="password" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleInput} />
+                        <SCButton onClick={this.handleSubmitLogin}>Log in</SCButton>
+                    </SCForm>
+                {/* </LoginBox> */}
+            </LoginWrapper>
         )
     }
 
