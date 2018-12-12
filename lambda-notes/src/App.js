@@ -97,21 +97,7 @@ class App extends Component {
           title: prevState.editedTitle,}],
       }));
       })
-/*
-    .then(response => {
-      console.log(response)     
-      const updatedArray= this.state.notes.map(note => {
-        if (id === note.id) {
-          return response.data
-        } else {
-          return note;
-        }
-      })
 
-      this.setState(() => ({ notes:updatedArray }));
-      // 2) make map thing, for updating the local state 
-     
-   })*/
 
     .catch(error => {
       console.error('Server Error', error);
@@ -121,7 +107,6 @@ class App extends Component {
   //DELETE NOTE-------------------------------------
   
   deleteNote = (event, id) => {
-    //const id = this.state.noteId;
     axios
       .delete(`http://localhost:5000/api/notes/${id}`)
       .then(response => {

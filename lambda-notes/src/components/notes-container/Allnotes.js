@@ -1,6 +1,8 @@
+//created in NotesContainer
+// Renders a single note for each note in 'notes' array
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import styled from 'styled-components'
 
 const NoteWrap = styled.div `
@@ -16,31 +18,17 @@ padding: 0px;
 export default class AllNotes extends Component {
   constructor(props) {
     super(props);
-   // this.state = {
-     // notes: []
-    //};
   }
   
 
- /*componentDidMount() {
-    axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
-      })
-      .catch(error => {
-        console.error('Server Error', error);
-      });
- */
+ 
 
   render() {
     return (
       <div className="notes-list">
         {this.props.notes.map(note => (
          <Link to={`/notes/${note.id}`} key={note.id}>
-          <SingleNoteDetails
-          key={note.id} 
-          note={note}/>
+          <SingleNoteDetails key={note.id} note={note}/>
          </Link>
         ))}
       </div>
@@ -49,6 +37,7 @@ export default class AllNotes extends Component {
 }
 
 function SingleNoteDetails({ note }) {
+  //function styles a single note from rendering above
   const { title, content } = note;
   return (
     <div className="note-card">

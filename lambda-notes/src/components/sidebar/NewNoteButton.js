@@ -1,3 +1,4 @@
+//rendered in SideBar component
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
@@ -23,7 +24,7 @@ const NewNoteButton= props => {
 
     return (
     <Button>
-    <Link to='/NewNote'>
+        <Link to='/NewNote'>
           New Note
          </Link>
     </Button>

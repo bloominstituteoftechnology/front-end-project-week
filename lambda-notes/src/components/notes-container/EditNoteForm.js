@@ -1,3 +1,5 @@
+//rendered by EditBar component
+
 import React, { Component } from 'react';
 
 class EditNoteForm extends Component {
@@ -6,11 +8,10 @@ class EditNoteForm extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     const id = this.props.match.params.id;
     this.props.fetchNote(id);
   }
-
+//fetchNote lives in app.js
   
   render() {
     if (!this.props.singleNote) {
@@ -44,40 +45,3 @@ class EditNoteForm extends Component {
 
 export default EditNoteForm;
 
-
-/*import axios from 'axios';
-fetchNote = id => {
-    axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-      .then(response => {
-        console.log(response.data)
-        this.setState(() => ({ note: response.data }));
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-  
-  editNote = event => {
-    event.preventDefault();
-    const id = this.props.match.params.id;
-    axios     
-    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`,  
-    {
-      title: this.state.editedNote,
-      textBody: this.state.editedTitle,
-    })
-
-    .then(response => {
-      this.setState(() => ({ notes: response.data }));
-      })
-
-    .catch(error => {
-      console.error('Server Error', error);
-    });
-    }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-*/

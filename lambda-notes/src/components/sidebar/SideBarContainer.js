@@ -1,3 +1,4 @@
+//rendered in App component
 import React from 'react';
 import NewNoteButton from './NewNoteButton'
 import AllNotesButton from './AllNotesButton'
@@ -23,13 +24,15 @@ margin-left:12px;
 padding: 0px;
 `;
 const SidebarContainer= props => {
-    console.log(props)
     return (
     <SidebarWrap>
+
         <HeadlineWrap>Lambda</HeadlineWrap>
         <HeadlineWrap>Notes</HeadlineWrap>
-    <AllNotesButton/>
-     <NewNoteButton/>
+
+        <AllNotesButton/>
+        <NewNoteButton/>
+
      </SidebarWrap>
   
     )

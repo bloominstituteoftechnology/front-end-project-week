@@ -1,3 +1,4 @@
+//rendered in SideBar component
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
@@ -21,8 +22,8 @@ margin-left: 12px;
 const AllNotesButton= props => {
 
     return (
-   <Button>
-    <Link to='/'>
+    <Button>
+        <Link to='/'>
          View Your Notes
          </Link>
     </Button>

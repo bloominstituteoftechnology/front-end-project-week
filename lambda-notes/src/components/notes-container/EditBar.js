@@ -1,3 +1,5 @@
+//rendered by SingleNote component
+//a component that links to options for editing or deleting a note
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,24 +11,8 @@ const EditBar = props => {
     <Link to={`/EditNoteForm/${props.id}`}>edit</Link>
     <Link to='/' onClick={event => props.deleteNote(event,props.id)}>delete</Link>
     </div>
+    //'deleteNote' function lives in app.js
     );
 }
 export default EditBar
 
-/*<Link to={this.deleteNote(this.props.id)}>delete</Link>
-import axios from 'axios';
-constructor(props) {
-  super(props);
-
-}
-onChange={props.handleInputChange} name="noteId" value={props.id}
-deleteNote = event => {
-  axios
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.id}`)
-    .then(response => {
-      window.location.reload()
-    })
-    .catch(error => {
-      console.error(error);
-    });
-};*/
