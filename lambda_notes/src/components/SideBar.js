@@ -4,8 +4,7 @@ import './Components.css';
 
 const SideBar = () => {
     const handleLogoutSubmit = props => {
-        const user = props.username;
-        localStorage.removeItem('user', user);
+        window.localStorage.removeItem('secret_token');
         window.location.reload();
       };
 

@@ -10,6 +10,7 @@ const EditNote = props => {
           event.preventDefault();
           props.editedNote(note.id);
           props.history.push(`/note/${note.id}`);
+          window.location.reload();
         };
         return (
           <form className="form" onSubmit={editTheNote}>

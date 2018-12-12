@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import './login.css';
+import '../login/login.css';
 
 
 const initialUser = {
@@ -9,7 +8,7 @@ const initialUser = {
   password: '',
 };
 
-export default class Login extends Component {
+export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,18 +24,23 @@ export default class Login extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
-    axios.post(`http://localhost:9000/api/login`, this.state.user)
+    axios.post(`http://localhost:9000/api/register`, this.state.user)
       .then((res) => {
-        if (res.status === 200 && res.data) {
-          localStorage.setItem('secret_token', res.data);
-          this.props.history.push('/');
+        if (res.status === 201) {
+          this.setState({
+            message: 'Registration successful',
+            user: { ...initialUser },
+          });
+          setTimeout(() => {
+            this.props.history.push(`/login`);
+          }, 800)
         } else {
           throw new Error();
         }
       })
       .catch((err) => {
         this.setState({
-          message: 'Authentication failed.',
+          message: 'Registration failed.',
           user: { ...initialUser },
         });
       });
@@ -62,15 +66,7 @@ export default class Login extends Component {
             value={this.state.user.password}
             onChange={this.inputHandler}
           />
-          <button type="submit" className="login-button">Login</button>
-          <h4 className="button-sep">or</h4>
-          <Link to="/register" >
-            <button 
-            className="login-button"
-            >
-            Register
-            </button>
-          </Link>
+          <button type="submit" className="login-button">Register</button>
         </form>
         { this.state.message
           ? (<h4>{this.state.message}</h4>)

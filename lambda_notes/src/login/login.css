@@ -1,6 +1,6 @@
 .login-form {
     width: 500px;
-    height: 280px;
+    min-height: 280px;
     padding: 15px;
     border-radius: 5px;
     margin: 200px auto;

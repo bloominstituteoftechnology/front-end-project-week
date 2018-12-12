@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, withRouter, Switch } from 'react-router-dom';
 import NotesList from './components/ListNotes';
 import SingleNote from './components/DisplayedNote';
 import SideBar from './components/SideBar';
 import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
-import Authenticate from './authentication/Authentication';
+//import Authenticate from './authentication/Authentication';
+import Login from './login/Login.js';
+import Register from './register/register.js'
 
 class App extends Component {
   constructor() {
@@ -20,34 +22,60 @@ class App extends Component {
       updatedText: '',
       deleting: false,
       filteredNotes: [],
-      searchTerm: ''
+      searchTerm: '',
+      loggedIn: false,
     }
   }
 
-  componentDidMount() {
-    const endpoint = 'http://localhost:9000/api/notes';
+  authenticate = () => {
+    const token = localStorage.getItem('secret_token');
+    const options = {
+      headers: {
+        authorization: token,
+      },
+    };
 
-    axios
-      .get(endpoint)
-      .then(response => {
-        this.setState({notes: response.data });
-      })
-      .catch(error => {
-        console.log('Error: ', error);
-      })
+    if (token) {
+      axios.get(`http://localhost:9000/api/notes`, options)
+        .then((res) => {
+          if (res.status === 200 && res.data) {
+            this.setState({ loggedIn: true, notes: res.data });
+          }
+          else {
+            throw new Error();
+          }
+        })
+        .catch((err) => {
+          this.props.history.push('/login');
+          
+        });
+    } else {
+      this.props.history.push('/login');
+    }
   }
 
-  componentDidUpdate() {
-    const endpoint = 'http://localhost:9000/api/notes';
+  // https://back-end-project-week-api.herokuapp.com/api/notes
+  componentDidMount() {
+    this.authenticate();
+  }
 
-    axios
-      .get(endpoint)
-      .then(response => {
-        this.setState({notes: response.data });
-      })
-      .catch(error => {
-        console.log('Error: ', error);
-      })
+  componentDidUpdate(prevProps) {
+    //const endpoint = 'http://localhost:9000/api/notes';
+    
+    // axios
+    //   .get(endpoint)
+    //   .then(response => {
+    //     this.setState({notes: response.data });
+    //   })
+    //   .catch(error => {
+    //     console.log('Error: ', error);
+    //   })
+    
+    const { pathname } = this.props.location;
+    
+    if (pathname === '/' && pathname !== prevProps.location.pathname) {
+      this.authenticate();
+    }
   }
 
   handleInput = e => {
@@ -113,11 +141,15 @@ class App extends Component {
     })
     this.setState({filteredNotes: notes});
   }
-
+  
   render() {
     return (
       <div className="App">
+      <Switch>
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
         <SideBar />
+      </Switch>
         <Route exact path='/' render={props => <NotesList 
         {...props}
         notes={this.state.filteredNotes.length > 0 
@@ -156,4 +188,4 @@ class App extends Component {
   }
 }
 
-export default Authenticate(App);
+export default withRouter(App);
