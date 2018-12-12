@@ -8,7 +8,7 @@ const SideBar = props => {
     return (
         <div className='sidebar-wrapper'>
             <Link to='/'>
-                <h1 className='lambda-notes'>Lambda</h1>
+                <h1 className='lambda-notes'>Brian's</h1>
                 <h1 className='lambda-notes'>Notes</h1>
             </Link>
             <Link to='/'>
