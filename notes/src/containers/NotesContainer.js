@@ -34,7 +34,15 @@ class NotesContainer extends React.Component {
     //console.log(data);
     //data = Papa.unparse(data);
     //console.log(data);
-    console.log(Papa.unparse(notes));
+    const data = Papa.unparse(notes);
+    console.log(data);
+    const blob = new Blob(data);
+    const dl = window.document.createElement('a');
+    dl.href = window.URL.createObjectUrl(blob, {type: 'text/plain'});
+    dl.download = 'notes.csv';
+    document.body.appendChild(dl);
+    dl.click();
+    document.body.removeChild(dl);
   };
 
   componentDidUpdate(prevProps) {
