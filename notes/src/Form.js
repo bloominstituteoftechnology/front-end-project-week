@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import './index.css';
 import {addNote,editNote,getNotes} from "./Actions"
 import './index.css';
+import UserForm from "./UserForm"
 
 class Form extends Component {
     constructor(props){
@@ -18,38 +19,53 @@ class Form extends Component {
         })
       }
     
-      submitHandler = event => {
+      editSubmitHandler = event => {
         event.preventDefault();
-        if(this.props.edit){
             const newObj = {...this.state,_id:this.props._id}
 
-            this.props.history.push('/')
+            this.props.history.push('/note-list')
             this.props.editNote({...newObj})
-            .then(promise => {
-                if(promise){
-                    this.props.getNotes()
-                }
-            })
-        } else {
-            this.props.history.push('/')
+            this.props.getNotes()
+            // .then(promise => {
+            //     if(promise){
+            //         this.props.getNotes()
+            //     }
+            // })
+      }
+
+      addSubmitHandler = event => {
+            event.preventDefault();
+            this.props.history.push('/note-list')
             this.props.addNote(this.state)
-            .then(promise => {
-                if(promise){
-                    this.props.getNotes()
-                }
-            })
-        }
+            this.props.getNotes()
+            // .then(promise => {
+            //     if(promise){
+            //         this.props.getNotes()
+            //     }
+            // })
       }
 
     
     render(){
-        return(
-            <form className="form" action="#" onSubmit={this.submitHandler}>
-                Title: <input className="title-input" name="title" onChange={this.changeHandler} value={this.state.title} required/>
-                Message: <textarea className="message-input" rows={30} name="textBody" onChange={this.changeHandler} value={this.state.textBody} required/>
-                <button className="submit-button" type="submit">{this.props.edit ? "Edit Note" : "Add Note"}</button>
-            </form>
-        );
+        if(!this.props.edit){
+            return (
+                <UserForm 
+                    change={this.changeHandler} 
+                    submit={this.addSubmitHandler} 
+                    title={this.state.title}
+                    textBody={this.state.textBody}
+                />
+                )
+        } else {
+            return(
+                <UserForm 
+                change={this.changeHandler} 
+                submit={this.editSubmitHandler} 
+                title={this.state.title}
+                textBody={this.state.textBody}
+            />
+            );
+        }
     }
 }
 
