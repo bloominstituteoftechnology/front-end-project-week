@@ -13,9 +13,6 @@ class App extends Component {
       notes: [],
       title: '',
       textBody: '',
-      edittitle: '',
-      edittextBody:'',
-      isDeleting: false,
     }
   }
 
@@ -41,7 +38,7 @@ class App extends Component {
       })
   }
 
-  inputHandler = event => {
+/*   inputHandler = event => {
     this.setState({ [event.target.name]: event.target.value })
   }
 
@@ -56,9 +53,9 @@ class App extends Component {
         this.setState({ notes: response.data })
       })
       .catch( error => console.log(error))
-  }
+  } */
 
-  editHandler = (title, textBody) => {
+/*   editHandler = (title, textBody) => {
     this.setState({ edittitle: title, edittextBody: textBody })
   }
 
@@ -72,9 +69,9 @@ class App extends Component {
       .then(response => console.log(response.data))
       .catch(error => console.log(error))
     this.setState();
-  }
+  } */
     
-  toggleDeleteOn = () => {
+/*   toggleDeleteOn = () => {
     this.setState({ isDeleting: true})
   }
 
@@ -92,7 +89,7 @@ class App extends Component {
         this.setState({ note: response.data })
       })
       .catch( error => { console.log(error) })
-  }
+  } */
 
   render() {
     return (

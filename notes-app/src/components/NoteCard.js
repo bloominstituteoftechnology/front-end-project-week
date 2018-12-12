@@ -4,6 +4,9 @@ import DeleteModal from './DeleteModal';
 import NoteForm from './NoteForm';
 import axios from 'axios';
 
+//EDIT IS HERE!!
+//DELETE IS HERE!!
+
 class NoteCard extends Component {
   constructor(props){
     super(props);
@@ -11,10 +14,12 @@ class NoteCard extends Component {
       note: [],
       title: '',
       textBody:'',
-      deleting: false,
+      isDeleting: false,
       isEditing: false,
     }
   }
+
+  //GET NOTE BEGINS
 
   getNote = id => {
     axios
@@ -32,10 +37,16 @@ class NoteCard extends Component {
     const id = this.props.match.params.id;
     this.getNote(id);
   }
+  //GET NOTE ENDS
 
-  editNote = id => {
+  //EDIT NOTE BEGINS
+
+  editNote = (id) => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`)
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+        title: this.state.title,
+        textBody: this.state.textBody,
+      })
       .then( response => {
         this.setState(() => ({ note: response.data }))
       })
@@ -43,21 +54,30 @@ class NoteCard extends Component {
         console.log(error)
       })
   }
+  //EDIT NOTE ENDS
 
+  //DELETE STARTS
   toggleDeleting = () => {
     this.setState({deleting : !this.state.deleting})
   }
 
-/*   deleteNote = (e, id) => {
-    e.preventDefault();
-    this.props.deleteNote(this.state.note); //_id
-  } */
+  deleteNote = (event, id) => {
+    event.preventDefault();
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .then(response => {
+        console.log('DELETE', response)
+        this.setState({ note: response.data })
+      })
+      .catch( error => { console.log(error) })
+  }
+  //DELETE ENDS
 
-/*   componentWillReceiveProps(newProps){
+  componentWillReceiveProps(newProps){
     if(this.props.match.params.id !== newProps.match.params.id){
       this.fetchNote(newProps.match.params.id);
     }
-  } */
+  }
 
   render() {
       if(!this.state.note) {
@@ -73,7 +93,7 @@ class NoteCard extends Component {
           <div>{this.state.note.title}</div>
           <div>{this.state.note.textBody}</div>
           <button onClick={this.isEditing}>edit</button>
-          <button onClick={this.deleting}>delete</button>
+          <button onClick={this.isDeleting}>delete</button>
         </div>
       )
   }
