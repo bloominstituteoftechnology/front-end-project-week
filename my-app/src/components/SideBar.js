@@ -5,7 +5,7 @@ const SideBar = props => {
   return (
     <div className="sidebar">
       <h1>Lambda Notes</h1>
-      <Link to="/get/all">
+      <Link to="/">
         <div className="button view-button">View Your Notes</div>
       </Link>
       <Link to="/add">
