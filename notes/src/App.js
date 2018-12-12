@@ -52,6 +52,7 @@ editNote = (event, id, state) => {
 }
 
 
+
   render() {
     return (
       <div className='container'>
