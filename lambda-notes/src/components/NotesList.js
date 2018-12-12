@@ -24,7 +24,7 @@ const NotesList = props => {
                 </>
             ) : (
                 props.notes.map(note => (
-                    <Note note={note} history={props.history} />
+                    <Note key={note._id} note={note} history={props.history} />
                 ))
             )}
         </Div>
