@@ -32,9 +32,9 @@ class App extends Component {
     console.log(newNote);
     axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
     .then(response => {
-      newNote._id = response.data.success; //respone.data is an obj
+      newNote._id = response.data.success; 
       this.setState({notes: [...this.state.notes, newNote]}); 
-      console.log('response data app.js', response.data.success);})
+      console.log('response data app.js', response.data.success, newNote);})
     .catch(err => console.log(err));
 
   }
@@ -59,6 +59,20 @@ class App extends Component {
       })
       .catch(err => console.log(err));
 
+  };
+
+  deleteNote = (event, _id) => {
+    event.preventDefault();
+    const filteredNotes = this.state.notes.filter(note => note._id !== _id);
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${_id}`)
+      .then(response => {
+        console.log('response in delete in App.js', response);
+        this.setState({
+          notes: filteredNotes
+        });
+      })
+      .catch(err => console.log(err));
   };
 
 
@@ -86,7 +100,7 @@ class App extends Component {
             {this.state.notes.length &&
             <Route 
             path="/get/:_id" 
-            render={props => <NoteView {...props} notes={this.state.notes} editNote={this.editNote}  /> } /> }
+            render={props => <NoteView {...props} notes={this.state.notes} editNote={this.editNote}  deleteNote={this.deleteNote}/> } /> }
 
             <Route 
             path="/create" 

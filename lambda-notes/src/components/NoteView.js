@@ -16,13 +16,15 @@ class NoteView extends Component {
     }
 
     componentDidMount() {
-        console.log('noteView - note', this.props.notes);
-        const noteVar = this.props.notes.find(note => note._id == this.props.match.params._id);
-        this.setState({
-            title: noteVar.title,
-            textBody: noteVar.textBody,
-            _id: noteVar._id
-        })
+        if(this.props.notes.length){
+            console.log('noteView - note', this.props.notes);
+            const noteVar = this.props.notes.find(note => note._id == this.props.match.params._id);
+            this.setState({
+                title: noteVar.title,
+                textBody: noteVar.textBody,
+                _id: noteVar._id
+            })
+        }
     }
 
     toggleDeleteView = () => {
@@ -39,6 +41,9 @@ class NoteView extends Component {
 
 
     render(){
+        if(!this.props.notes.length) {
+            return <h1>Loading...</h1>
+        }
         console.log('test 2', this.props.notes);
         return (
             <div className="note-view">
@@ -62,7 +67,7 @@ class NoteView extends Component {
                 path="/get/:_id/edit" 
                 render={props =>  <EditNote {...props} title={this.state.title} textBody={this.state.textBody} _id={this.state._id} editNote={this.props.editNote} /> } />
 
-                {this.state.deleteView && <DeleteView toggleDeleteView={this.toggleDeleteView}/>}
+                {this.state.deleteView && <DeleteView toggleDeleteView={this.toggleDeleteView} deleteNote={this.props.deleteNote} _id={this.state._id} history={this.props.history}/>}
 
             </div>
         );
