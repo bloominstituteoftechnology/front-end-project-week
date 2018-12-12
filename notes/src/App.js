@@ -85,7 +85,7 @@ class App extends Component {
           </div>
 
           <Route
-            path exact='/'
+            exact path='/'
             render={props =>
               <YourNotes {...props} />
             } />

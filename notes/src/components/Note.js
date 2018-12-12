@@ -29,7 +29,8 @@ class Note extends React.Component {
   }
 
   deleteNote = (ev) => {
-    const id = this.state.note.id
+    const id = this.props.match.params.id
+    console.log(id)
     axios
       .delete(`http://localhost:8000/api/notes/delete/${id}`)
       .then(response => {
