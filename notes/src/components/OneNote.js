@@ -15,7 +15,7 @@ class OneNote extends Component {
   componentDidMount = () => {
     this.fetchNote(this.props.match.params.id);
     console.log(this.props.match.params.id);
-    console.log(this.state.notes);
+    console.log(this.props.notes);
   };
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.id !== newProps.match.params.id) {
@@ -23,36 +23,32 @@ class OneNote extends Component {
     }
   }
   fetchNote = id => {
-    let oneNote = {
-      tags: this.state.tags,
-      title: this.state.title,
-      textBody: this.state.textBody
-    };
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`, oneNote)
+      .get(`https://fast-brushlands-0000.herokuapp.com/api/notes/${id}`)
       .then(response => {
-        this.setState({ notes: response.data });
+        this.setState({ notes: response.data[0] });
         console.log(response.data);
       });
-  };
+    };
   deleteSingleNote = event => {
-    this.props.deleteNote(this.state.notes._id);
+    this.props.deleteNote(this.state.notes.id);
     event.preventDefault();
     this.props.deleteToggle();
   };
 
   render() {
+    console.log(this.props.notes)
     return (
       <div className="activeNote">
         <div className="buttons">
-        <NavLink to={`/notes/${this.state.notes._id}/edit`}>
+        <NavLink to={`/notes/${this.state.notes.id}/edit`}>
           <button>edit</button>
         </NavLink>
         <button onClick={this.props.deleteToggle}>delete</button>
         </div>
         <div className="noteContent">
           <h3>{this.state.notes.title}</h3>
-          <p>{this.state.notes.textBody}</p>
+          <p>{this.state.notes.content}</p>
         </div>
         {this.props.deleted && (
           <div className="deleteModal">

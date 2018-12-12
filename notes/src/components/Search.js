@@ -13,8 +13,8 @@ const Search = props => {
             onChange={props.changeHandler}
             className="searchBar"
             />
-            {props.notes.map(note => (
-                <div className="searchedNote">
+            {props.notes.map((note, index) => (
+                <div className="searchedNote" key={index}>
                     <NavLink to={`/notes/${note._id}`}>
                         {note.title}
                     </NavLink>

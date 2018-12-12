@@ -1,12 +1,15 @@
 import React from "react";
 
 const EditNote = props => {
+  console.log(props.notes)
+
   const note = props.notes.find(
-    note => props.match.params.id === `${note._id}`
-  );
+    note => props.match.params.id === `${note.id}`
+    );
+  console.log(note)
   const editNotes = () => {
-    props.editNote(note._id);
-    props.history.push(`/notes/${note._id}`);
+    props.editNote(note.id);
+    props.history.push(`/notes/${note.id}`);
   };
   return (
     <div className="createNote">
@@ -14,7 +17,7 @@ const EditNote = props => {
       <form className="createNoteForm">
         <input
           type="text"
-          placeholder="Note Title"
+          placeholder={props.notes.title}
           value={props.editTitle}
           name="editTitle"
           onChange={props.changeHandler}

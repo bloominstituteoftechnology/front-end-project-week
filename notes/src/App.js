@@ -23,29 +23,29 @@ class App extends Component {
     };
   }
   componentDidMount = () => {
-    axios.get(`https://fe-notes.herokuapp.com/note/get/all`).then(response => {
+    axios.get(`https://fast-brushlands-0000.herokuapp.com/api/notes`).then(response => {
       this.setState({ notes: response.data });
     });
   };
   deleteNote = id => {
     console.log("trying to delete...");
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`https://fast-brushlands-0000.herokuapp.com/api/notes/${id}`)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
   };
   addNote = () => {
-    axios.post("https://fe-notes.herokuapp.com/note/create", {
+    axios.post("https://fast-brushlands-0000.herokuapp.com/api/notes", {
       title: this.state.title,
-      textBody: this.state.textBody
+      content: this.state.textBody
     });
     this.setState({ title: "", textBody: "" });
   };
 
   editNote = id => {
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+    axios.put(`https://fast-brushlands-0000.herokuapp.com/api/notes/${id}`, {
       title: this.state.editTitle,
-      textBody: this.state.editTextBody
+      content: this.state.editTextBody
     });
     this.setState({ title: "", textBody: "" });
   };
@@ -62,7 +62,7 @@ class App extends Component {
   
   render() {
     let searchedNotes = this.state.notes.filter(note => 
-      note.title.toLowerCase().includes(this.state.search) || note.textBody.toLowerCase().includes(this.state.search));
+      note.title.toLowerCase().includes(this.state.search) || note.content.toLowerCase().includes(this.state.search));
     return (
       <div className="App">
         <Route path="/" component={HomePage} />
