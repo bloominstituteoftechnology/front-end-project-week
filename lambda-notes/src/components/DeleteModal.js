@@ -95,34 +95,4 @@ function DeleteModal(props) {
     );
 }
 
-// class DeleteModal extends Component {
-//     deleteNote = id => {
-//         axios
-//             .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-//             .then(this.props.get());
-//     };
-
-//     render() {
-//         return (
-//             <Div>
-//                 <Modal>
-//                     <P>Are you sure you want to delete this?</P>
-//                     <ButtonContainer>
-//                         <StyledButton
-//                             warn={true}
-//                             text="Delete"
-//                             onClick={props =>
-//                                 this.deleteNote(this.props.match.params._id)
-//                             }
-//                         />
-//                         <Link to={`/notes/${this.props.match.params._id}`}>
-//                             <StyledButton text="No" />
-//                         </Link>
-//                     </ButtonContainer>
-//                 </Modal>
-//             </Div>
-//         );
-//     }
-// }
-
 export default DeleteModal;
