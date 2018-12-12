@@ -17,11 +17,12 @@ class App extends Component {
 
   delete = (event,props) => {
     event.preventDefault();
-    this.props.history.push('/')
+    
     this.props.deleteNote(props)
     .then(promise => {
       if(promise){
         this.props.getNotes()
+        this.props.history.push('/')
       }
     })
   }
