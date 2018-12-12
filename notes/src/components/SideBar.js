@@ -12,7 +12,7 @@ const NavContainer = styled.nav`
   padding: 0 1.5% 0 1.5%;
   background-color: #d8d8d8;
   border-right: 1px solid #a0a0a0;
-  border-bottom: 1px solid #a0a0a0;
+  /* border-bottom: 1px solid #a0a0a0; */
   text-align: left;
   font-weight: bold;
 `;
