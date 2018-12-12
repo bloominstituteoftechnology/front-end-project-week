@@ -5,7 +5,8 @@ export const SINGLE_NOTE = 'SINGLE_NOTE';
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const CREATIVE = 'CREATIVE';
 export const EDIT = 'EDIT';
-export const DELETE_CONFIRM = 'DELETE_CONFIRM'
+export const DELETE_CONFIRM = 'DELETE_CONFIRM';
+export const DELETE_OFF = 'DELETE_OFF';
 
 
 export const getNotes = () => dispatch => {
@@ -56,7 +57,7 @@ export const edit = (note, noteId) => dispatch => {
         axios
             .put(`http://localhost:4500/api/notes/edit/${noteId}`, note)
             .then(({ data }) => {
-                console.log(data)
+                // console.log(data)
             })
             .catch(error => console.log(error))
     )
@@ -66,12 +67,14 @@ export const ruSure = () => dispatch => {
     dispatch({ type: DELETE_CONFIRM })
 }
 
-export const deleter = (noteId) => dispatch => {
+export const deleter = (noteId, props) => dispatch => {
+    console.log(props)
     return (
         axios
-            .delete(`https://fe-notes.herokuapp.com/note/delete/${noteId}`)
+            .delete(`http://localhost:4500/api/notes/delete/${noteId}`)
             .then(({ data }) => {
-                console.log(data)
+                dispatch({ type: DELETE_OFF });
+                this.props.history.push('/');
             })
             .catch(error => console.log(error))
     )

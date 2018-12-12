@@ -16,7 +16,6 @@ import { getNotes, viewNote, create, createMode, editMode, ruSure, deleter } fro
 import './App.css';
 class App extends Component {
   componentDidMount() {
-    console.log('mount');
     this.props.getNotes()
   }
   
@@ -27,9 +26,7 @@ class App extends Component {
   }
   
   goHome = (props) => {
-    console.log('go home 1')
     props.history.push('/')
-    console.log('go home 2')
     this.props.getNotes()
   }
   
@@ -73,6 +70,7 @@ class App extends Component {
           <Route path='/api/notes/:id' render={(props) => (
             <NoteView
               {...props}
+              goHome={this.goHome}
               editNote={this.editNote}
               note={this.props.note}
               deleteNote={this.deleteNote}

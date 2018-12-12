@@ -1,5 +1,5 @@
 //import actions
-import { GETTING_NOTES, NOTE_SUCCESS, SINGLE_NOTE, CREATE_NOTE, CREATIVE, EDIT, DELETE_CONFIRM } from '../actions';
+import { GETTING_NOTES, NOTE_SUCCESS, SINGLE_NOTE, CREATE_NOTE, CREATIVE, EDIT, DELETE_CONFIRM, DELETE_OFF } from '../actions';
 
 const initialState = {
     noteList: [],
@@ -61,6 +61,11 @@ const noteReducer = (state = initialState, action) => {
             return {
                 ...state,
                 deleteModal: true
+            }
+        case DELETE_OFF:
+            return {
+                ...state,
+                deleteModal: false
             }
         default:
             return state
