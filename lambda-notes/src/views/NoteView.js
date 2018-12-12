@@ -72,16 +72,6 @@ export default class NoteView extends Component {
             });
     };
 
-    deleteNote = id => {
-        axios
-            .delete(
-                `https://fe-notes.herokuapp.com/note/delete/${
-                    this.state.match.params._id
-                }`
-            )
-            .then();
-    };
-
     render() {
         if (!this.state.note === {}) {
             return <div>Loding Note</div>;
@@ -99,9 +89,7 @@ export default class NoteView extends Component {
                         }}>
                         edit
                     </Link>
-                    <Link
-                        to={`/`}
-                        onClick={() => this.deleteNote(this.state.note._id)}>
+                    <Link to={`/notes/${this.state.note._id}/delete`}>
                         delete
                     </Link>
                 </EditLinks>
