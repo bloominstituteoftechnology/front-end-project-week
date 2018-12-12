@@ -6,6 +6,7 @@ import {
   showModal,
   deleteNote,
 } from '../store/actions';
+import ReactMarkdown from 'react-markdown';
 //import styled from 'styled-components';
 import Modal from './Modal';
 import {DivButtons, SingleNote} from '../styles';
@@ -70,7 +71,10 @@ const Note = props => {
       </DivButtons>
       {props.showingModal && <Modal {...props} id={note._id} />}
       <SingleNote>
-        <h2>{note.title}</h2> <p>{note.textBody}</p>
+        <h2>{note.title}</h2>
+        <div className="md">
+          <ReactMarkdown source={note.textBody} />
+        </div>
       </SingleNote>
     </>
   );

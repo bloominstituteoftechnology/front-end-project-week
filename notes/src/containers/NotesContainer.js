@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Notes from '../components/Notes';
-import {fetchNotes} from '../store/actions';
 import Fuse from 'fuse.js';
 import Papa from 'papaparse';
+import {fetchNotes} from '../store/actions';
 
 class NotesContainer extends React.Component {
   state = {

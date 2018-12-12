@@ -119,7 +119,7 @@ export const NotesWrapper = styled.div`
   padding-top: 6rem;
   //--marg: calc(100% - 195px);
   //margin-left: calc(var(--marg) / 2);
-  margin-left: 300px;
+  margin-left: 250px;
   //margin-right: calc(var(--marg) / 2);
 
   @media (max-width: 800px) {
@@ -132,8 +132,8 @@ export const NotesWrapper = styled.div`
   }
 
   form {
-    padding-left: 3%;
-    width: 80%;
+    //padding-left: 3%;
+    //width: 80%;
 
     //@media (max-width: 600px) {
     //padding-left: 0;
@@ -141,10 +141,15 @@ export const NotesWrapper = styled.div`
   }
 `;
 
+export const SearchBarWrapper = styled.div`
+  padding-left: 3%;
+  width: 80%;
+`;
+
 export const SearchBar = styled(StyledInput)`
-  width: 50%;
-  //@media (max-width: 600px) {
-  width: 100%;
+  //width: 50%;
+  ////@media (max-width: 600px) {
+  //width: 100%;
   }
 `;
 
@@ -175,7 +180,7 @@ export const StyledNote = styled.div`
   white-space: pre-wrap;
 
   @media (min-width: 1200px) {
-    width: 18%;
+    width: 19%;
   }
   @media (max-width: 850px) {
     width: 40%;

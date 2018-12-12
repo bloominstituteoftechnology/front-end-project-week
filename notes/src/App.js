@@ -7,9 +7,10 @@ import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import {createGlobalStyle} from 'styled-components';
 import reset from 'styled-reset';
+import {Normalize} from 'styled-normalize';
 
 const GlobalStyle = createGlobalStyle`
-  ${reset}
+ ${reset}
   html {
     font-size: 62.5%;
   }
@@ -21,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
     h1, h2, h3, h4, h5, h6 {
       font-weight: bold;
       margin-bottom: 12px;
@@ -30,6 +32,15 @@ const GlobalStyle = createGlobalStyle`
     h1 {
       font-size: 3.7rem;
   }
+
+    em {
+      font-style: italic;
+  }
+
+    ul {
+      list-style-type: disc;
+      list-style-position: inside;
+    }
       .App {
         //max-width: 880px;
     background-color: #f3f3f3;

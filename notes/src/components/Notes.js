@@ -1,25 +1,34 @@
 import React from 'react';
-import {NotesWrapper, SearchBar, DivNotes, StyledNote} from '../styles';
+import ReactMarkdown from 'react-markdown';
+import {
+  NotesWrapper,
+  SearchBar,
+  SearchBarWrapper,
+  DivNotes,
+  StyledNote,
+} from '../styles';
 
 const Notes = props => {
   return (
     <NotesWrapper>
-      <form onSubmit={e => props.clearSearchText(e)}>
+      <SearchBarWrapper>
         <h2>Your Notes:</h2>
         <button onClick={() => props.export()}>export to csv</button>
-        <SearchBar
-          type="text"
-          placeholder="search"
-          value={props.searchText}
-          onChange={e => props.searchNotes(e)}
-        />
+        <form onSubmit={e => props.clearSearchText(e)}>
+          <SearchBar
+            type="text"
+            placeholder="search"
+            value={props.searchText}
+            onChange={e => props.searchNotes(e)}
+          />
+        </form>
         <select onClick={e => props.changeSort(e)}>
-          <option value="none">...</option>
+          <option value="none">None</option>
           <option value="time">Recent</option>
           <option value="alpha">Alpha</option>
           <option value="length">Length</option>
         </select>
-      </form>
+      </SearchBarWrapper>
       <DivNotes>
         {props.notes.map(note => (
           <StyledNote
@@ -29,7 +38,7 @@ const Notes = props => {
               <h2>{note.title}</h2>
             </div>
             <hr />
-            <p>{note.textBody}</p>
+            <ReactMarkdown source={note.textBody} />
           </StyledNote>
         ))}
       </DivNotes>
