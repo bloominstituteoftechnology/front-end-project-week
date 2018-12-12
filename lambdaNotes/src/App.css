@@ -1,0 +1,53 @@
+body {
+  background-color: #f2f1f2;
+}
+
+.modal {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(216, 216, 216, 0.377);
+  z-index: 1000;
+  justify-content: center;
+  align-self: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.innerModal {
+  background: #fbfafb;
+  padding: 20px;
+  color: black;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 208px;
+  margin-left: 29%;
+  margin-top: 15%;
+  margin-bottom: 35px;
+}
+
+.show {
+  display: block;
+}
+
+.btnRed {
+  background-color: #ca001a;
+  color: white;
+  width: 202px;
+  height: 42px;
+  margin-right: 22px;
+  font-weight: bold;
+}
+
+.btnAqua {
+  background-color: #24b8bd;
+  color: white;
+  width: 202px;
+  height: 42px;
+  font-weight: bold;
+}
