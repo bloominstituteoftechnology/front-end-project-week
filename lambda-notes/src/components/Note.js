@@ -24,7 +24,7 @@ const StyledLink = styled(Link)`
   &:visited,
   &:link,
   &:active {
-    text-decoration: none;
+    ytext-decoration: none;
   }
   color: black;
 `;
