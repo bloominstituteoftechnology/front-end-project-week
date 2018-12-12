@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  width: 930px;
+  align-content: center;
+  margin: 0 auto;
+  background: #F2F1F2
+}
+
+/* global, will see if reset is needed too */
+
+.blueButton {
+  list-style: none;
+  border: 1px solid #C8C8C8;
+  text-align: center;
+  background-color: #24B8BD;
+  margin-bottom: 20px;
+  width: 180px;
+  padding: 11px;
+  color: white;
+}
+
+
+.blueButton a {
+  text-decoration: none;
+  color: white;
+}
+
+.blueButton:hover {
+  background: #000000;
+}
+
+.inactive {
+  background-color: #C8C8C8;
+  margin-bottom: 5px;
+}
+
+.inactive a {
+  color: #414141;
+}
+
+.redButton {
+  list-style: none;
+  border: 1px solid #C8C8C8;
+  text-align: center;
+  background-color: #CA001A;
+  margin-bottom: 20px;
+  width: 180px;
+  padding: 11px;
+  color: white;
+}
+
+ul {
+  padding: 0px;
+  list-style: none;
+}
+
+/* nav */
+
+.header {
+  margin: 5px 0 0 15px;
+  color: #414141;
+}
+
+.navbar {
+  justify-content: flex-start;
+  background: #D3D2D3;
+  border-right: 1px #C8C8C8;
+  padding: 10px;
+  width: 25%;
+  height: 100vh;
+}
+
+.navlinks {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* general page styling */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F2F1F2;
+  width: 75%;
+
+}
+
+.home .header {
+  margin: 50px 0 0 0;
+}
+
+.home p {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 0;
+}
+
+
+/* notes overall */
+
+.notes-list-wrapper {
+  width: 75%;
+  background: #F2F1F2;
+
+}
+
+.notes-list-wrapper h3 {
+  margin: 55px 0 20px 25px;
+}
+
+.all-notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 25px;
+}
+
+.note-card {
+  width: 190px;
+  height: 200px;
+  border: 1px solid #C8C8C8;
+  margin-bottom: 25px;
+  padding-top: 5px;
+  background: white;
+}
+
+.note-card:hover {
+  cursor: pointer;
+  background: #24B8BA;
+}
+
+.note-card h4 {
+  padding: 0 5px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.note-card p {
+  font-size: 14px;
+  padding: 5px;
+}
+
+/* individual notes */
+
+.single-note {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-delete {
+  align-self: flex-end;
+  margin: 10px 65px 0 0;
+}
+
+.plain-button {
+  display: inline-block;
+  padding: 5px 5px 0 5px;
+  text-decoration: underline;
+}
+
+.plain-button:hover {
+  cursor: pointer;
+}
+
+.note-info-wrapper {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 25px;
+}
+
+.note-info-wrapper h1 {
+  font-size: 24px;
+}
+
+.note-info-wrapper p {
+  margin-top: 0;
+  line-height: 25px;
+}
+
+/* note form */
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.note-form h3 {
+  margin: 50px 0 20px 25px;
+}
+
+.note-form form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+}
+
+.note-form .title {
+  width: 55%;
+  height: 40px;
+  margin: 10px 0 20px 0;
+}
+
+.note-form .content {
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.delete-modal {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal .modal-content {
+  background: #F1F2F1;
+  border: 2px solid #C8C8C8;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  position: absolute;
+}
+
+.modal-button {
+  list-style: none;
+  border: 1px solid #C8C8C8;
+  text-align: center;
+  background-color: #CA001A;
+  margin-bottom: 20px;
+  width: 180px;
+  padding: 11px;
+  color: white;
+}
