@@ -1,3 +1,3 @@
 module.exports = {
-  apiUri: process.env.API_URI || 'http://localhost:9000',
+  apiUri: process.env.REACT_APP_API_URI || 'http://localhost:9000',
 };
