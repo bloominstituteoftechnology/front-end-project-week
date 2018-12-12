@@ -68,8 +68,8 @@ class Note extends Component {
           </Modal>
         </div>
 
-        <h1>{this.state.editTitle}</h1>
-        <p>{this.state.editBody}</p>
+        <h1 className='singleNote__headline'>{this.state.editTitle}</h1>
+        <p className='singleNote__content'>{this.state.editBody}</p>
       </div>
     );
   }

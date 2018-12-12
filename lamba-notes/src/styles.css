@@ -23,6 +23,10 @@
   box-shadow: 2px 4px 1px #666;
 }
 
+.card__title {
+  text-decoration: none;
+  color: black;
+}
 .card__hr {
   width: 250px;
   float: left;
@@ -30,7 +34,6 @@
 
 .sideBar {
   background: #b6cac0;
-  /* background: #d3d2d3; */
   color: #000;
 }
 
@@ -61,7 +64,15 @@
 
 .singleNote {
   margin: 50px;
-  width: 75vw;
+  width: 65vw;
+  font-family: 'Noto Serif KR', serif;
+}
+
+.singleNote__headline {
+}
+
+.singleNote__content {
+  padding-right: 300px;
 }
 
 .singleNote__edit {
@@ -107,16 +118,6 @@
   overflow: hidden;
   margin-bottom: 30px;
   background: white;
-}
-
-.card__title {
-  text-decoration: none !important;
-  color: black;
-}
-
-.wtf {
-  color: red;
-  text-decoration: none;
 }
 
 .note__options {
