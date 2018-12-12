@@ -3,6 +3,7 @@
   border: 2px solid var(--border-gray);
   padding: 1.5rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  min-height: 31rem;
 }
 
 .note-box .line {
