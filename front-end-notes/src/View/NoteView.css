@@ -1,0 +1,15 @@
+.Modal-Hidden {
+
+    display:none;
+
+}
+
+.Modal-Container {
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    background-color: pink;
+    z-index: 5;
+    top: 300px;
+
+}

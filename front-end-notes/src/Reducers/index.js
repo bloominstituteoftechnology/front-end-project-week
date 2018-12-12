@@ -20,9 +20,9 @@ import {
   */
   const initialState = {
     notes: [],
-
+    newNoteID: null,
     fetchingNotes: false,
-    //addingSmurf: false    -> I don't use the use of any of these. I mean, they only confuse the logic until we get to updating.
+    addingNote: false,    
     //updatingSmurf: false
     //deletingSmurf: false
     error: null,
@@ -45,25 +45,25 @@ import {
       case FETCH_NOTES_FAILURE:
         return {
           ...state,
-          fetchingSmurfs: false,
+          fetchingNotes: false,
           error: action.payload
         };
         // without this default state, the app crashes! that's a little dumb!
         case ADD_NOTES_REQUEST:
         return {
           ...state,
-          fetchingNotes: true
+          adddingNote: true
         };
         case ADD_NOTES_SUCCESS:
         return {
           ...state,
-          fetchingNotes: false,
-          notes: action.payload
+          addingNote: false,
+          newNoteID: action.payload
         };
       case ADD_NOTES_FAILURE:
         return {
           ...state,
-          fetchingNotes: false,
+          addingNote: false,
           error: action.payload
         };
         case DELETE_NOTES_REQUEST:
@@ -75,7 +75,7 @@ import {
         return {
           ...state,
           fetchingNotes: false,
-          notes: action.payload
+          //notes: action.payload
         };
       case DELETE_NOTES_FAILURE:
         return {

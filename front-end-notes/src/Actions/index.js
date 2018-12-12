@@ -23,7 +23,8 @@ export const getNotes = () => dispatch => {
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
-        console.log('smurf fetch finished');
+        console.log('fetch finished');
+        console.log(response.data);
         dispatch({ type: FETCH_NOTES_SUCCESS, payload: response.data });
       })
       .catch(err => dispatch({ type: FETCH_NOTES_FAILURE, payload: err }));
@@ -33,10 +34,13 @@ export const getNotes = () => dispatch => {
     dispatch({ type: ADD_NOTES_REQUEST });
     axios
       .post('https://fe-notes.herokuapp.com/note/create', note)
+
       .then(response => {
-        console.log('fetch finished');
+        console.log('add finished');
+
         dispatch({ type: ADD_NOTES_SUCCESS, payload: response.data });
       })
+      
       .catch(err => dispatch({ type: ADD_NOTES_FAILURE, payload: err }));
   };
 
@@ -45,7 +49,7 @@ export const getNotes = () => dispatch => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
-        console.log('smurf fetch finished');
+        console.log('delete finished');
         dispatch({ type: DELETE_NOTES_SUCCESS, payload: response.data });
       })
       .catch(err => dispatch({ type: DELETE_NOTES_FAILURE, payload: err }));
@@ -57,7 +61,7 @@ export const getNotes = () => dispatch => {
       .put(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, note)
       //LOL THIS WORKS CUZ YOU HAVE THE WHOLE OBJECT! YOU ARE UNSTOPABLE!
       .then(response => {
-        console.log('smurf fetch finished');
+        console.log('update finished');
         dispatch({ type: ADD_NOTES_SUCCESS, payload: response.data });
       })
       .catch(err => dispatch({ type: ADD_NOTES_FAILURE, payload: err }));

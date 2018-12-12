@@ -1,0 +1,111 @@
+// Is this presentational or is this a functional kind of component? think about this later.
+
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getNotes, addNote, updateNote } from "../Actions";
+import { withRouter } from "react-router";
+class CreateNewView extends Component {
+  /*
+    we need a few things:
+    name
+    age
+    height
+    and some sort of button!
+  */
+
+  constructor() {
+    super();
+    this.state = {
+      tags: "",
+      title: "",
+      textBody: ""
+    };
+  }
+
+  componentDidUpdate = previousProps => {
+    // if (this.props.currentNote && this.props.currentNote !== previousProps.currentNote)
+    // this.updateNote()
+    if (this.props.addingNote !== previousProps.addingNote) {
+      if (!this.props.addingNote) {
+        console.log("fetching data after adding");
+        this.getNotes();
+        this.props.history.push("/");
+      }
+    }
+  };
+
+  changeHandler = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  submitHandler = event => {
+    console.log("Yo guys!");
+    event.preventDefault();
+    // if (this.props.currentNote) this.props.updateNote(this.state);
+    
+    // else 
+    this.props.addNote(this.state);
+    this.setState({
+      tags: "",
+      title: "",
+      textBody: ""
+    });
+
+    //this.props.history.push('/');
+    console.log(this.props.notes);
+  };
+
+  updateNote = () => {
+    this.setState(this.props.currentNote);
+  };
+
+  render() {
+    if (this.props.addingNote) {
+      console.log("jalfdkjadlkfjalf");
+      return <div>addding div, oaky?</div>;
+    }
+    return (
+      <div>
+        <form onSubmit={this.submitHandler}>
+          <input
+            onChange={this.changeHandler}
+            type="text"
+            name="title"
+            value={this.state.title}
+            placeholder="Please add title"
+          />
+          <input
+            onChange={this.changeHandler}
+            type="text"
+            name="textBody"
+            value={this.state.textBody}
+            placeholder="Please add textBody"
+          />
+          <input
+            onChange={this.changeHandler}
+            type="text"
+            name="tags"
+            value={this.state.tags}
+            placeholder="Please add tags"
+          />
+          <button>
+            {this.props.currentNote ? `Update Note!` : `Save Your Note!`}
+          </button>
+        </form>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  currentNote: state.currentNote,
+  newNoteID: state.newNoteID,
+  addingNote: state.addingNote
+});
+
+export default connect(
+  mapStateToProps,
+  { getNotes,  updateNote }
+)(CreateNewView);
