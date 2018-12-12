@@ -26,7 +26,12 @@ const SCButton = styled.button`
     padding: 10px 20px;
     margin-top: 10px;
     border: 1px solid lightgrey;
-    background: ${props => (props.color === "red" ? "#CA001A" : "#25B7BD")};
+    background: #25B7BD;
+    :hover {
+        background: white;
+        color: #25B7BD;
+        cursor: pointer;
+    }
 `;
 const TitleInput = styled.input`
     border: 2px solid lightgrey;
@@ -50,8 +55,8 @@ class CreateNewNote extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: ' ',
-            textBody: ' '
+            title: '',
+            textBody: ''
           };
     }
 
@@ -61,7 +66,7 @@ class CreateNewNote extends React.Component {
     
       submitHandler = event => {
         event.preventDefault();
-        this.props.addNote(this.state.title, this.state.textBody);
+        this.props.addNote((this.state.title === '' ? ' ' : this.state.title), (this.state.textBody === '' ? ' ' : this.state.textBody));
         this.props.history.push("/");
       }
 

@@ -20,6 +20,7 @@ const SortButton = styled.button`
     :hover {
         cursor: pointer;
         text-decoration: underline;
+        color: #25B7BD;
     }
 `;
 

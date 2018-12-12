@@ -16,7 +16,7 @@ const NoteCard = styled.div`
     overflow: hidden;
     :hover {
         cursor: pointer;
-        border: 4px solid lightgrey; 
+        background: #25B7BD;
     }
 `;
 const CardHeader = styled.h3`

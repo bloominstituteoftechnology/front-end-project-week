@@ -81,6 +81,7 @@ class EditNote extends React.Component {
                 <NotesHeader>Edit Note:</NotesHeader>
                 <SCForm onSubmit={this.submitHandler}>
                     <TitleInput
+                        autoFocus
                         onChange={this.handleInputChange}
                         placeholder="Note Title"
                         value={this.state.title}

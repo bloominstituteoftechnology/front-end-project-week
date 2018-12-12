@@ -16,8 +16,12 @@ const SCButton = styled.button`
     background: none;
     border: none;
     font-weight: bold;
-    text-decoration: underline;
     font-size: 14px;
+    :hover {
+        cursor: pointer;
+        color: #25B7BD;
+        text-decoration: underline;
+    }
 `;
 const NotesHeader = styled.h2`
     font-weight: bold;
@@ -59,6 +63,11 @@ const DeleteButton = styled.button`
     margin: 30px 15px;
     border: 1px solid lightgrey;
     background: ${props => (props.color === "red" ? "#CA001A" : "#25B7BD")};
+    :hover {
+        cursor: pointer;
+        background: white;
+        color: #CA001A;
+    }
 `;
 
 class Note extends React.Component {
