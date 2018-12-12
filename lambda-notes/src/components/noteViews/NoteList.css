@@ -1,0 +1,47 @@
+.nav-main-container {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 15vw;
+}
+
+.list-main-container{
+  border: 1px solid black;
+  height: 100vh;
+  width: 85vw;
+}
+
+.list-body-container{
+  height: 87.5%;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.list-header-container{
+  border-bottom: 1px solid black;
+  background-color: white;
+}
+
+.search-container input{
+ width: 80%; 
+}
+
+.card-main-container{
+  border: 1px solid black;
+  width: 30%;
+  height: 150px;
+  margin: 5px 0;
+}
+
+.card-header-container h3{
+  margin-top: 0;
+  height: 22px;;
+}
+
+.card-body-container{
+  overflow-y: scroll;
+  height: 71%;
+}
