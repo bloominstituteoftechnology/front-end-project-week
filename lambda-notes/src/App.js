@@ -48,13 +48,13 @@ class App extends Component {
       // .post("http://localhost:9000/api/notes", note)
       .then(response => {
         console.log("OBJECT:", response.data);
-        history.push(`/note/${response.data.success}`);
+        history.push(`/note/${response.data}`);
         this.setState({
           notes: [
             ...this.state.notes,
             {
               ...note,
-              id: response.data.success
+              id: response.data
             }
           ]
         });
