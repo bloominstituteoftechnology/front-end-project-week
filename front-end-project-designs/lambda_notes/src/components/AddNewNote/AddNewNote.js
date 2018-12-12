@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { Alert } from 'reactstrap';
+import { Alert } from "reactstrap";
 
 const NewNoteForm = styled.form`
 	background: #f2f1f2;
@@ -11,6 +11,11 @@ const NewNoteForm = styled.form`
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
+
+	.empty-form-alert {
+		display: inline-block;
+		width: 40%;
+	}
 `;
 
 const NewNoteFormInput = styled.input`
@@ -19,14 +24,14 @@ const NewNoteFormInput = styled.input`
 	margin: 15px 0;
 	font-size: 1rem;
 	border-radius: 3px;
-	border: 1px solid #A9A9A9;
+	border: 1px solid #a9a9a9;
 
 	&:focus {
-        outline: 0;
-        -moz-box-shadow: 0px 0px 0px 2px #24b8bd;
-        -webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
-        box-shadow: 0px 0px 0px 2px #24b8bd;
-    }
+		outline: 0;
+		-moz-box-shadow: 0px 0px 0px 2px #24b8bd;
+		-webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
+		box-shadow: 0px 0px 0px 2px #24b8bd;
+	}
 `;
 
 const NewNoteFormTextArea = styled.textarea`
@@ -40,14 +45,15 @@ const NewNoteFormTextArea = styled.textarea`
 	height: 400px;
 
 	&:focus {
-        outline: 0;
-        -moz-box-shadow: 0px 0px 0px 2px #24b8bd;
-        -webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
-        box-shadow: 0px 0px 0px 2px #24b8bd;
-    }
+		outline: 0;
+		-moz-box-shadow: 0px 0px 0px 2px #24b8bd;
+		-webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
+		box-shadow: 0px 0px 0px 2px #24b8bd;
+	}
 `;
 
 const NewNoteFormButton = styled.button`
+	display: inline-block;
 	/* width: 80%; */
 	background-color: #24b8bd;
 	border: 0;
@@ -69,7 +75,13 @@ class AddNewNote extends React.Component {
 			notes: [],
 			title: "",
 			textBody: "",
+			visible: false,
 		};
+		this.onDismiss = this.onDismiss.bind(this);
+	}
+
+	onDismiss() {
+		this.setState({ visible: false });
 	}
 
 	handleChange = event => {
@@ -86,24 +98,22 @@ class AddNewNote extends React.Component {
 		};
 
 		if (this.state.title === "" || this.state.textBody === "") {
-			return <Alert color="warning">No empty notes</Alert>
+			this.setState({ visible: true });
 		} else {
 			axios
 				.post("https://fe-notes.herokuapp.com/note/create", newNote)
-				.then(
-					res => (
-						console.log("POST Server Response: ", res),
-						this.setState({
-							title: res.data.title,
-							textBody: res.data.textBody,
-							id: res,
-						})
-					)
-				)
+				.then(res => () => {
+					console.log("POST Server Response: ", res);
+					this.setState({
+						title: res.data.title,
+						textBody: res.data.textBody,
+						id: res,
+					});
+					
+				})
 				.catch(err => console.log("POST Server Error: ", err));
-            
-        }
-        setTimeout( () => this.props.history.push(`/notes`), 250);
+			setTimeout(() => this.props.history.push(`/notes`), 250);
+		}
 	};
 
 	render() {
@@ -121,7 +131,16 @@ class AddNewNote extends React.Component {
 					name="textBody"
 					onChange={this.handleChange}
 				/>
+				
 				<NewNoteFormButton type="submit">Save</NewNoteFormButton>
+				<Alert
+					color="danger"
+					isOpen={this.state.visible}
+					toggle={this.onDismiss}
+					className="empty-form-alert"
+				>
+					Sorry, can't save an empty note!
+				</Alert>
 			</NewNoteForm>
 		);
 	}

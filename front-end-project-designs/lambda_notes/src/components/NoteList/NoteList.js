@@ -157,34 +157,34 @@ class NoteList extends React.Component {
 		return (
 			<NoteListContainer>
 				<NoteListHeader>
-					<h2 className="lamba-notes-header">Your Notes:</h2>
+					<h2 classNameName="lamba-notes-header">Your Notes:</h2>
 					<SearchForm />
 					<Dropdown
 						isOpen={this.state.dropdownOpen}
 						toggle={this.toggle}
 					>
-						<DropdownToggle caret>Sort by:</DropdownToggle>
+						<DropdownToggle color='red' caret>Sort by:</DropdownToggle>
 						<DropdownMenu right>
 							<DropdownItem
 								onClick={this.sortNotesByDescendingLength}
 							>
-								<i class="fas fa-sort-amount-down" />
+								<i className="fas fa-sort-amount-down" />
 								Longest First
 							</DropdownItem>
 							<DropdownItem
 								onClick={this.sortNotesByAscendingLength}
 							>
-								<i class="fas fa-sort-amount-up" />
+								<i className="fas fa-sort-amount-up" />
 								Shortest First
 							</DropdownItem>
 
 							<DropdownItem divider />
 							<DropdownItem onClick={this.sortNotesByNewestFirst}>
-								<i class="far fa-clock" />
+								<i className="far fa-clock" />
 								Newest First
 							</DropdownItem>
 							<DropdownItem onClick={this.sortNotesByOldestFirst}>
-								<i class="fas fa-clock" />
+								<i className="fas fa-clock" />
 								Oldest First
 							</DropdownItem>
 						</DropdownMenu>
@@ -201,7 +201,7 @@ class NoteList extends React.Component {
 									);
 								}}
 								key={note._id}
-								className="note-card"
+								classNameName="note-card"
 							>
 								<h4>
 									{note.title.length > 30

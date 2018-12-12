@@ -255,9 +255,9 @@
     "@babel/helper-remap-async-to-generator" "^7.1.0"
     "@babel/plugin-syntax-async-generators" "^7.0.0"
 
-"@babel/plugin-proposal-class-properties@7.1.0":
+"@babel/plugin-proposal-className-properties@7.1.0":
   version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.1.0.tgz#9af01856b1241db60ec8838d84691aa0bd1e8df4"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-className-properties/-/plugin-proposal-className-properties-7.1.0.tgz#9af01856b1241db60ec8838d84691aa0bd1e8df4"
   integrity sha512-/PCJWN+CKt5v1xcGn4vnuu13QDoV+P7NcICP44BoonAJoPSGwVkgrXihFIQGiEjjPlUDBIw1cM7wYFLARS2/hw==
   dependencies:
     "@babel/helper-function-name" "^7.1.0"
@@ -265,7 +265,7 @@
     "@babel/helper-optimise-call-expression" "^7.0.0"
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-replace-supers" "^7.1.0"
-    "@babel/plugin-syntax-class-properties" "^7.0.0"
+    "@babel/plugin-syntax-className-properties" "^7.0.0"
 
 "@babel/plugin-proposal-decorators@7.1.2":
   version "7.1.2"
@@ -317,9 +317,9 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-syntax-class-properties@^7.0.0":
+"@babel/plugin-syntax-className-properties@^7.0.0":
   version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-class-properties/-/plugin-syntax-class-properties-7.0.0.tgz#e051af5d300cbfbcec4a7476e37a803489881634"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-className-properties/-/plugin-syntax-className-properties-7.0.0.tgz#e051af5d300cbfbcec4a7476e37a803489881634"
   integrity sha512-cR12g0Qzn4sgkjrbrzWy2GE7m9vMl/sFkqZ3gIpAQdrvPDnLM8180i+ANDFIXfjHo9aqp0ccJlQ0QNZcFUbf9w==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -411,9 +411,9 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     lodash "^4.17.10"
 
-"@babel/plugin-transform-classes@7.1.0", "@babel/plugin-transform-classes@^7.1.0":
+"@babel/plugin-transform-classNamees@7.1.0", "@babel/plugin-transform-classNamees@^7.1.0":
   version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-classes/-/plugin-transform-classes-7.1.0.tgz#ab3f8a564361800cbc8ab1ca6f21108038432249"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-classNamees/-/plugin-transform-classNamees-7.1.0.tgz#ab3f8a564361800cbc8ab1ca6f21108038432249"
   integrity sha512-rNaqoD+4OCBZjM7VaskladgqnZ1LO6o2UxuWSDzljzW21pN1KXkB7BstAVweZdxQkHAujps5QMNOTWesBciKFg==
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.0.0"
@@ -687,7 +687,7 @@
     "@babel/plugin-transform-async-to-generator" "^7.1.0"
     "@babel/plugin-transform-block-scoped-functions" "^7.0.0"
     "@babel/plugin-transform-block-scoping" "^7.0.0"
-    "@babel/plugin-transform-classes" "^7.1.0"
+    "@babel/plugin-transform-classNamees" "^7.1.0"
     "@babel/plugin-transform-computed-properties" "^7.0.0"
     "@babel/plugin-transform-destructuring" "^7.0.0"
     "@babel/plugin-transform-dotall-regex" "^7.0.0"
@@ -1566,11 +1566,11 @@ babel-preset-react-app@^6.1.0:
   integrity sha512-8PJ4N+acfYsjhDK4gMWkqJMVRMjDKb93D+nz7lWlNe73Jcv38FNu37i5K/dVQnFDdRYHbe1SjII+Y0mCgink9A==
   dependencies:
     "@babel/core" "7.1.0"
-    "@babel/plugin-proposal-class-properties" "7.1.0"
+    "@babel/plugin-proposal-className-properties" "7.1.0"
     "@babel/plugin-proposal-decorators" "7.1.2"
     "@babel/plugin-proposal-object-rest-spread" "7.0.0"
     "@babel/plugin-syntax-dynamic-import" "7.0.0"
-    "@babel/plugin-transform-classes" "7.1.0"
+    "@babel/plugin-transform-classNamees" "7.1.0"
     "@babel/plugin-transform-destructuring" "7.0.0"
     "@babel/plugin-transform-flow-strip-types" "7.0.0"
     "@babel/plugin-transform-react-constant-elements" "7.0.0"
@@ -1663,7 +1663,7 @@ base@^0.11.1:
   integrity sha512-5T6P4xPgpp0YDFvSWwEZ4NoE3aM4QBQXDzmVbraCkFj8zHM+mba8SyqB5DbZWyR7mYHo6Y7BdQo3MoA4m0TeQg==
   dependencies:
     cache-base "^1.0.1"
-    class-utils "^0.3.5"
+    className-utils "^0.3.5"
     component-emitter "^1.2.1"
     define-property "^1.0.0"
     isobject "^3.0.1"
@@ -2137,9 +2137,9 @@ circular-json@^0.3.1:
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
   integrity sha512-UZK3NBx2Mca+b5LsG7bY183pHWt5Y1xts4P3Pz7ENTwGVnJOUWbRb3ocjvX7hx9tq/yTAdclXm9sZ38gNuem4A==
 
-class-utils@^0.3.5:
+className-utils@^0.3.5:
   version "0.3.6"
-  resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
+  resolved "https://registry.yarnpkg.com/className-utils/-/className-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
   integrity sha512-qOhPa/Fj7s6TY8H8esGu5QNpMMQxz79h+urzrNYN6mn+9BnxlDGf5QZ+XeCDsxSjPqsSR56XOZOJmpeurnLMeg==
   dependencies:
     arr-union "^3.1.0"
@@ -2147,9 +2147,9 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.3:
+classNamenames@^2.2.3:
   version "2.2.6"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  resolved "https://registry.yarnpkg.com/classNamenames/-/classNamenames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
 clean-css@4.2.x:
@@ -3513,7 +3513,7 @@ expand-brackets@^2.1.4:
     debug "^2.3.3"
     define-property "^0.2.5"
     extend-shallow "^2.0.1"
-    posix-character-classes "^0.1.0"
+    posix-character-classNamees "^0.1.0"
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
@@ -6999,9 +6999,9 @@ portfinder@^1.0.9:
     debug "^2.2.0"
     mkdirp "0.5.x"
 
-posix-character-classes@^0.1.0:
+posix-character-classNamees@^0.1.0:
   version "0.1.1"
-  resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
+  resolved "https://registry.yarnpkg.com/posix-character-classNamees/-/posix-character-classNamees-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
 postcss-attribute-case-insensitive@^4.0.0:
@@ -7097,9 +7097,9 @@ postcss-custom-selectors@^5.1.2:
     postcss "^7.0.2"
     postcss-selector-parser "^5.0.0-rc.3"
 
-postcss-dir-pseudo-class@^5.0.0:
+postcss-dir-pseudo-className@^5.0.0:
   version "5.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-dir-pseudo-class/-/postcss-dir-pseudo-class-5.0.0.tgz#6e3a4177d0edb3abcc85fdb6fbb1c26dabaeaba2"
+  resolved "https://registry.yarnpkg.com/postcss-dir-pseudo-className/-/postcss-dir-pseudo-className-5.0.0.tgz#6e3a4177d0edb3abcc85fdb6fbb1c26dabaeaba2"
   integrity sha512-3pm4oq8HYWMZePJY+5ANriPs3P07q+LW6FAdTlkFH2XqDdP4HeeJYMOzn0HYLhRSjBO3fhiqSwwU9xEULSrPgw==
   dependencies:
     postcss "^7.0.2"
@@ -7463,7 +7463,7 @@ postcss-preset-env@6.0.6:
     postcss-custom-media "^7.0.4"
     postcss-custom-properties "^8.0.5"
     postcss-custom-selectors "^5.1.2"
-    postcss-dir-pseudo-class "^5.0.0"
+    postcss-dir-pseudo-className "^5.0.0"
     postcss-env-function "^2.0.2"
     postcss-focus-visible "^4.0.0"
     postcss-focus-within "^3.0.0"
@@ -7478,14 +7478,14 @@ postcss-preset-env@6.0.6:
     postcss-overflow-shorthand "^2.0.0"
     postcss-page-break "^2.0.0"
     postcss-place "^4.0.1"
-    postcss-pseudo-class-any-link "^6.0.0"
+    postcss-pseudo-className-any-link "^6.0.0"
     postcss-replace-overflow-wrap "^3.0.0"
     postcss-selector-matches "^4.0.0"
     postcss-selector-not "^4.0.0"
 
-postcss-pseudo-class-any-link@^6.0.0:
+postcss-pseudo-className-any-link@^6.0.0:
   version "6.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-pseudo-class-any-link/-/postcss-pseudo-class-any-link-6.0.0.tgz#2ed3eed393b3702879dec4a87032b210daeb04d1"
+  resolved "https://registry.yarnpkg.com/postcss-pseudo-className-any-link/-/postcss-pseudo-className-any-link-6.0.0.tgz#2ed3eed393b3702879dec4a87032b210daeb04d1"
   integrity sha512-lgXW9sYJdLqtmw23otOzrtbDXofUdfYzNm4PIpNE322/swES3VU9XlXHeJS46zT2onFO7V1QFdD4Q9LiZj8mew==
   dependencies:
     postcss "^7.0.2"
@@ -8051,7 +8051,7 @@ reactstrap@^6.5.0:
   resolved "https://registry.yarnpkg.com/reactstrap/-/reactstrap-6.5.0.tgz#ba655e32646e2621829f61faa033e607ec6624e5"
   integrity sha512-dWb3fB/wBAiQloteKlf+j9Nl2VLe6BMZgTEt6hpeTt0t9TwtkeU+2v2NBYONZaF4FZATfMiIKozhWpc2HmLW1g==
   dependencies:
-    classnames "^2.2.3"
+    classNamenames "^2.2.3"
     lodash.isfunction "^3.0.9"
     lodash.isobject "^3.0.2"
     lodash.tonumber "^4.0.3"

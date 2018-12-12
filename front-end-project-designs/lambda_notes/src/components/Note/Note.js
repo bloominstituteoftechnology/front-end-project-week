@@ -113,13 +113,13 @@ class Note extends React.Component {
 					<Modal
 						isOpen={this.state.modal}
 						toggle={this.toggle}
-						className="delete-modal"
+						classNameName="delete-modal"
 						centered={true}
 					>
-						<ModalBody className="mod-body">
+						<ModalBody classNameName="mod-body">
 							Are you sure you want to delete this?
 						</ModalBody>
-						<ModalFooter className="mod-footer">
+						<ModalFooter classNameName="mod-footer">
 							<DeleteButton
 								color="primary"
 								onClick={() => {
@@ -142,16 +142,16 @@ class Note extends React.Component {
 				<NoteCardHeader>
 					<Link
 						to={`/notes/${note._id}/edit`}
-						className="note-header-link"
+						classNameName="note-header-link"
 					>
-						<i class="fas fa-edit" />
+						<i className="fas fa-edit" />
 						edit
 					</Link>
 					{/* <Link
 						to={`/notes/${note._id}/delete`}
-						className="note-header-link"
+						classNameName="note-header-link"
 					> */}
-					<i class="fas fa-trash-alt" onClick={this.toggle}>
+					<i className="fas fa-trash-alt" onClick={this.toggle}>
 						delete{" "}
 					</i>
 					{/* </Link> */}

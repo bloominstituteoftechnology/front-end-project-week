@@ -9,7 +9,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import NoteList from "./components/NoteList/NoteList";
 import AddNewNote from "./components/AddNewNote/AddNewNote";
 import Note from "./components/Note/Note";
-import DeleteModal from "./components/DeleteModal/DeleteModal";
+// import DeleteModal from "./components/DeleteModal/DeleteModal";
 import EditNoteForm from "./components/EditNoteForm/EditNoteForm";
 import Settings from './components/Settings/Settings';
 
@@ -115,7 +115,7 @@ class App extends Component {
 							/>
 						)}
 					/>
-					<Route
+					{/* <Route
 						{...props}
 						exact
 						path={`/notes/:noteId/delete`}
@@ -126,7 +126,7 @@ class App extends Component {
 								deleteNote={this.deleteNote}
 							/>
 						)}
-					/>
+					/> */}
 
 					<Route
 						{...props}

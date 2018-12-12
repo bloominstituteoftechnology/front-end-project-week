@@ -44,7 +44,7 @@ class Settings extends React.Component {
                     <label for="themeColor">Choose your theme color</label>
                     <input type="color" name="themeColor" value={this.state.themeColor} onChange={this.handleChange}/>
                     
-                <h2 className="test"> Test header </h2>
+                <h2 classNameName="test"> Test header </h2>
                 </form>
 
             </SettingsFormContainer>
