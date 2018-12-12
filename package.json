@@ -25,5 +25,19 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "Trello board link - https://trello.com/b/QGhMWZKS",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattwright42/front-end-project-week.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattwright42/front-end-project-week/issues"
+  },
+  "homepage": "https://github.com/mattwright42/front-end-project-week#readme"
 }
