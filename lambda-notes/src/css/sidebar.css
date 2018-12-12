@@ -1,0 +1,38 @@
+.sidebarDiv {
+  text-align: start;
+  padding: 1rem;
+  background: #d7d7d7;
+  color: #4a494a;
+  position: fixed;
+  font-size: 2rem;
+  font-weight: bold;
+  height: 100%;
+  width: 260px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  border-right: 1px solid #8b9c9d;
+}
+
+.sidebarDiv h1 {
+  font-size: 2rem;
+  /* font-family: "Oswald", sans-serif; */
+  font-family: sans-serif;
+  letter-spacing: 3px;
+  line-height: 34px;
+}
+.mainNavButtonsDiv button {
+  margin: 1rem 0;
+  padding: 1rem;
+  width: 250px;
+  background: #2ac0c4;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 1px solid #8b9c9d;
+  cursor: pointer;
+}
+
+.mainNavButtonsDiv button:hover {
+  background: #50cbce;
+}
