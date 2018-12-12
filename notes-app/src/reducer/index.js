@@ -3,12 +3,14 @@ import {
     ADD_FETCH, ADD_SUCCESS, ADD_FAILURE,
     DELETE_FETCH, DELETE_SUCCESS, DELETE_FAILURE,
     UPDATE_FETCH, UPDATE_SUCCESS, UPDATE_FAILURE,
-    START_EDIT, RESET_EDIT  
+    START_EDIT, RESET_EDIT,  
+    SEARCH
    } from "../actions";
 
 const initialState = 
 {
     notes: [],
+    filteredNotes: [],
     fetchingNotes: false,
     error: null,
     editNote: {}
@@ -27,7 +29,9 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: null,
                 fetchingNotes: false,
-                notes: action.payload
+                notes: action.payload,
+                filteredNotes: action.payload
+                
             }
         case FAILURE:
             return {
@@ -121,6 +125,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 editNote: {}
+            }
+        case SEARCH:
+            return {
+                ...state,
+                filteredNotes: action.payload,
             }
         
 

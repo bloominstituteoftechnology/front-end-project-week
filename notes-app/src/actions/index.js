@@ -13,6 +13,7 @@ export const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
 export const UPDATE_FAILURE = 'UPDATE_FAILURE';
 export const START_EDIT = 'START_EDIT';
 export const RESET_EDIT = 'RESET_EDIT';
+export const SEARCH = 'SEARCH';
 
 export const getNotes = () => dispatch => {
     dispatch({ type: FETCH});
@@ -72,4 +73,8 @@ export const startUpdate = obj => dispatch => {
 
 export const resetEdit = () => dispatch => {
     dispatch({ type: RESET_EDIT })
+}
+
+export const searchFilterAction = (notes) => dispatch => {
+    dispatch({ type: SEARCH, payload: notes})
 }

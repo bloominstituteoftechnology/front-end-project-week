@@ -4,11 +4,18 @@ import NoteCard from './NoteCard';
 
 class NoteList extends Component {
 
+    componentDidMount(){
+        this.props.searchFilter({ target: { value: ''}})
+        console.log(document.querySelector('.searchbar').target)
+    }
 
     render() {
         return (
             <div className = 'note-list-view'> 
-                <h2>Your Notes:</h2>
+                <div className='header'>
+                    <h2>Your Notes:</h2>
+                    <form><input className='searchbar' onChange={this.props.searchFilter} placeholder="Search" /></form>
+                </div>
                 <div className='note-list'>
                
                     {

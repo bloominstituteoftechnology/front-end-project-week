@@ -123,6 +123,18 @@ nav a:hover{
   height: 195px;
   overflow: hidden;
 }
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.header form input{
+   margin-left: 20px;
+   padding: 5px;
+   background: rgb(100, 100, 100);
+   color: white;
+}
+
 /* form==========================*/
 form{
   display: flex;

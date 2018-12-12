@@ -15,13 +15,23 @@ import {
   updateToList, 
   deleteNote,
   startUpdate,
-  resetEdit
+  resetEdit,
+  searchFilterAction
  } from '../actions';
 
 class App extends Component {
 
   componentDidMount(){
     this.props.getNotes();
+  }
+
+  searchFilter = ev =>{
+    console.log(ev.target.value)
+    let filtered = this.props.notes.filter(note =>{
+      // if(ev.target.value = undefined) return true;
+        return note.title.includes(ev.target.value);
+    })
+    this.props.searchFilterAction(filtered);
   }
 
   render() {
@@ -33,7 +43,8 @@ class App extends Component {
         <Route exact path='/' render={props => (
           <NoteList 
             {...props}
-            notes={this.props.notes}
+            notes={this.props.filteredNotes}
+            searchFilter={this.searchFilter}
           />
         )}
           
@@ -71,7 +82,8 @@ function mapStateTpProps(state){
   return{
     notes: state.notes,
     fetchingNotes: state.fetchingNotes,
-    editNote: state.editNote
+    editNote: state.editNote,
+    filteredNotes: state.filteredNotes
   }
 }
 
@@ -83,6 +95,7 @@ export default withRouter(connect(
     updateToList, 
     deleteNote,
     startUpdate,
-    resetEdit
+    resetEdit,
+    searchFilterAction
   }
 )(App));
