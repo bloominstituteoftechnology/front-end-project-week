@@ -24,7 +24,7 @@ class App extends Component {
       loadingNotes: false
     }
     console.log(this.state)
-    setInterval(this.getAllNotes, 5000)
+    setInterval(this.getAllNotes, 30000)
   }
 
   componentDidMount() {
