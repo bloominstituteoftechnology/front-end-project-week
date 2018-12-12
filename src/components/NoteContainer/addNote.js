@@ -28,22 +28,23 @@ class AddNote extends Component {
                 authorization: token,
             },
         };
-        axios
-            .post(`${url}/note/create`, options, newNote)
-            .then(response => {
-
-                console.log('ADDING', response);
-                this.props.changeState(response.data)
-            })
-            .catch(err =>
-                console.log(err));
-
-        this.setState({
-            title: '',
-            textBody: '',
-        });
-
-        this.props.history.push('/');
+        if (token) {
+            axios
+                .post(`${url}/note/create`, newNote, options)
+                .then(response => {
+                    console.log('ADDING', response);
+                    this.props.changeState(response.data)
+                })
+                .catch(err =>
+                    console.log(err));
+            this.setState({
+                title: '',
+                textBody: '',
+            });
+            this.props.history.push('/');
+        } else {
+            this.props.history.push('/')
+        }
     }
 
     render() {

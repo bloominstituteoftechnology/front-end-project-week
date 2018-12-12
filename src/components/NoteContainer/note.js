@@ -63,7 +63,10 @@ class Note extends Component {
                 .catch(err => {
                     console.log(err)
                 });
-        } else { this.props.history.push('/') }
+            this.props.history.push('/')
+        } else {
+            this.props.history.push('/')
+        }
     };
 
     openEditForm = () => {
@@ -124,16 +127,14 @@ class Note extends Component {
                     <DeleteModal deleteNote={this.deleteNote} />
                 </div>
                 <div className='note-title-body'>
-                    {this.state.noteEditor ? (
-                        <EditNote notes={this.state.note}
+                    {this.state.noteEditor
+                        ? (<EditNote notes={this.state.note}
                             saveEdits={this.saveEdits}
                             editHandler={this.editHandler}
                             editTextBody={this.state.editTextBody}
-                            editTitle={this.state.editTitle}
-                        />
-                    ) : (<h1>{this.state.note.title}
-                    </h1>)}
-
+                            editTitle={this.state.editTitle} />)
+                        : (<h1>{this.state.note.title}
+                        </h1>)}
                     {this.state.noteEditor ? null :
                         <p> {this.state.note.textBody}</p>}
                 </div>

@@ -44,22 +44,18 @@ class NotesContainer extends Component {
             throw new Error();
         }
     }
-    
+
 
     componentDidMount() {
-       this.authenticate();
+        this.authenticate();
     };
 
     changeState = () => {
-        axios.get(`${url}/note/get/all`).then(res =>
-            this.setState({
-                notes: res.data
-            })
-        );
+        this.authenticate();
     }
 
     editNoteMaybe = data => {
-        this.setState({ notes: data })
+        this.authenticate();
     }
 
 
@@ -81,7 +77,6 @@ class NotesContainer extends Component {
         return (
             <div className='all-notes'>
                 <div>
-
                     <Route exact path='/' render={(Ownprops) => {
                         return (<NotesList {...Ownprops} stateSearch={this.state.searchResult}
                             searchResults={this.searchResults}
@@ -89,9 +84,8 @@ class NotesContainer extends Component {
                                 this.state.searchedPost
                                 : this.state.notes} />)
                     }} />
-
                     <Route path='/add-note' render={(Ownprops) => {
-                        return (<AddNote {...Ownprops} changeState={this.changeState} />)
+                        return (<AddNote {...Ownprops} changeState={this.changeState} username={this.props.username} />)
                     }} />
                     <Route exact path='/notes/:id' render={(props) => {
                         console.log('OWNPROPs', props);
