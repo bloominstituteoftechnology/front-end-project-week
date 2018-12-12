@@ -9,7 +9,7 @@ const NoteListView = (props) => {
         <div className='notesContainer'>
             {props.noteContent.map(note => {
                 return (
-                    <NavLink style= {{textDecoration: 'none', color: 'black'}}to={`/note/${note.id}`} activeClassName="selected">
+                    <NavLink style= {{textDecoration: 'none', color: 'black'}}to={`/notes/${note.id}`} activeClassName="selected">
                         <div className='singleNote'>
                             <h3>{note.Title}</h3>
                             <p>{note.Content}</p>

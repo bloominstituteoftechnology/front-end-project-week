@@ -22,6 +22,8 @@ export const SETTING_NOTE = 'SETTING_NOTE';
 export const SETTING_NOTE_SUCCESS = 'SETTING_NOTE_SUCCESS';
 export const SETTING_NOTE_FAILURE = 'SETTING_NOTE_FAILURE';
 
+export const LOGIN_STATUS_TOGGLE = 'LOGIN_STATUS_TOGGLE';
+
 export const fetchNotes = () => dispatch => {
     dispatch({type: FETCHING_NOTES});
     return axios
@@ -43,7 +45,6 @@ export const postNote = (note) => dispatch => {
     }) 
     .catch(error => {
         dispatch({type: POSTING_NOTE_FAILURE, payload: error})
-        this.setState({});
     })
 }
 
@@ -56,7 +57,6 @@ export const editNote = (id, note) => dispatch => {
     })
     .catch(error => {
         dispatch({type: EDITING_NOTE_FAILURE, payload: error})
-        this.setState({})
     })
 }
 
@@ -73,7 +73,7 @@ export const deleteNote = (id) => dispatch => {
     })
     .catch(error => {
         dispatch({type: DELETING_NOTE_FAILURE, payload: error})
-        this.setState({})
+    
     })
 }
 
@@ -86,6 +86,10 @@ export const setNote = (id) => dispatch => {
     }) 
     .catch(error => {
         dispatch({type: SETTING_NOTE_FAILURE, payload: error})
-        this.setState({})
+        
     })
+}
+
+export const loginStatusToggle = () => dispatch => {
+    dispatch({type: LOGIN_STATUS_TOGGLE});
 }

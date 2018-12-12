@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchNotes, postNote, overlayToggle, deleteNote } from './actions';
+import { fetchNotes, postNote, overlayToggle, deleteNote, loginStatusToggle } from './actions';
 import { connect } from 'react-redux';
 import NoteListView from './components/NoteListView';
 import CreateNote from './components/CreateNote';
 import SideBar from './components/SideBar';
+import HomePage from './components/HomePage';
 import { Route } from 'react-router-dom';
 import {withRouter} from 'react-router';
 import Note from './components/Note';
@@ -28,6 +29,17 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchNotes();
+    if(this.props.loginStatus) {
+      this.setState({note: {
+        ...this.state.note,
+        user_id: 1
+      }})
+    } else {
+      this.setState({note: {
+        ...this.state.note,
+        user_id: null
+      }})
+    }
      
   };
 
@@ -67,27 +79,29 @@ class App extends Component {
             <div className='overlay-box'>
               <p>Are you sure you want to delete this?</p>
               <div className='overlay-buttons'>
-                <NavLink onClick={this.forceUpdateHandler} to='/'>
+                <NavLink onClick={this.forceUpdateHandler} to='/notes'>
                   <button className='deletebutton' onClick={this.deletingNote}>Delete</button>
                 </NavLink>
                   <button onClick ={this.togglingOverlay}>Cancel</button>
               </div>
             </div>
         </div>
-
     }
     return (
       <div className="App">
        {overlay}
-        <SideBar className='sidebar-content' update={this.componentDidMount}></SideBar>
+        <Route exact path='/' component={HomePage}/>
+        <Route path='/notes' render ={(props) => (
+          <SideBar {...props} update={this.componentDidMount} toggleLogin={this.props.loginStatusToggle} loginStatus={this.props.loginStatus}/> 
+        )}/>
         <div className='content'>
-        <Route exact path='/' render ={(props) => (
+        <Route exact path='/notes' render ={(props) => (
           <NoteListView {...props} noteContent={this.props.notes}/> 
         )}/>
-        <Route exact path='/new-note' render ={(props) => (
+        <Route exact path='/notes/new-note' render ={(props) => (
           <CreateNote {...props} changeHandler={this.changeHandler} postHandler={this.postHandler}/> 
         )}/>
-        <Route path={`/note/:id`} render ={(props) => (
+        <Route path={`/notes/:id`} render ={(props) => (
           <Note {...props} Notes={this.props.notes}/>
         )}/>
         </div>
@@ -105,11 +119,12 @@ const mapStateToProps = (state) => {
     note: state.notesReducer.note,
     error: state.notesReducer.erorr,
     overlay: state.notesReducer.overlay,
-    deletingNote: state.notesReducer.deletingNote
+    deletingNote: state.notesReducer.deletingNote,
+    loginStatus: state.notesReducer.loginStatus
   };
 };
 
 export default withRouter(connect(
   mapStateToProps,
-  { fetchNotes, postNote, overlayToggle, deleteNote}, 
+  { fetchNotes, postNote, overlayToggle, deleteNote, loginStatusToggle}, 
 )(App));

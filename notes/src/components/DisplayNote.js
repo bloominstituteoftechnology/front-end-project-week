@@ -5,7 +5,7 @@ const DisplayNote = (props) => {
     return (
         <div className ='displayNoteContainer'>
             <div className='content-manipulation'>
-                <NavLink style= {{textDecoration: 'none', color: 'black'}} to={`/note/edit/${props.note.id}`} activeClassName="selected">
+                <NavLink style= {{textDecoration: 'none', color: 'black'}} to={`/notes/edit/${props.note.id}`} activeClassName="selected">
                     <span>edit</span>
                 </NavLink>
             <span onClick={props.overlayToggle}>delete</span>
