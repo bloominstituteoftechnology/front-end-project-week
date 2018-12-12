@@ -49,12 +49,12 @@
 }
 
 .btn {
-  background-color: #24b8bd;
+  background-color: #c02a1b;
+  font-family: 'Didact Gothic', sans-serif;
   color: #fff;
   height: 65px;
   width: 200px;
-  font-family: 'Didact Gothic', sans-serif;
-  margin: 10px 20px;
+  margin: 10px 0;
   font-size: 18px;
   font-weight: bold;
   display: flex;
@@ -66,9 +66,6 @@
   margin: 50px;
   width: 65vw;
   font-family: 'Noto Serif KR', serif;
-}
-
-.singleNote__headline {
 }
 
 .singleNote__content {
@@ -89,10 +86,10 @@
 
 .nav__btn {
   background-color: #c02a1b;
+  font-family: 'Didact Gothic', sans-serif;
   color: #fff;
   height: 65px;
   width: 200px;
-  font-family: 'Didact Gothic', sans-serif;
   margin: 20px 20px;
   font-size: 20px;
   display: flex;
@@ -128,7 +125,27 @@
   margin: 50px;
 }
 
-.noteForm__input {
+.noteEdit__header {
+  font-family: 'Noto Serif KR', serif;
+}
+
+.noteEdit__btn {
+  background-color: #c02a1b;
+  font-family: 'Didact Gothic', sans-serif;
+  color: #fff;
+}
+
+.noteEdit__input--title {
+  height: 40px;
+  width: 450px;
+  margin-bottom: 50px;
+}
+
+.noteEdit__input--content {
+  height: 100px;
+  width: 450px;
+}
+/* .noteForm__input {
   height: 40px;
   width: 450px;
 }
@@ -137,7 +154,7 @@
   height: 300px;
   width: 450px;
   text-align: start;
-}
+} */
 
 .form {
   width: 75vw;

@@ -84,6 +84,7 @@ class App extends Component {
                 {...props}
                 notes={this.state.notes}
                 editNote={this.editNote}
+                id={this.id}
                 updatedTitle={this.state.updatedTitle}
                 updatedTextBody={this.state.updatedTextBody}
                 handleInputChange={this.handleInputChange}

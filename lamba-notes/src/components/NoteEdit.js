@@ -9,17 +9,19 @@ const NoteEdit = props => {
     props.history.push(`/note/get/${note.id}`);
   };
 
+  console.log(props.notes[1]);
+
   return (
     <div className='edit'>
       <form className='form'>
-        <h2>Edit Note:</h2>
+        <h2 className='noteEdit__header'>Edit Note:</h2>
         <input
           type='text'
           name='updatedTitle'
-          placeholder={props.updatedTitle}
+          placeholder='Title'
           onChange={props.handleInputChange}
           value={props.updatedTitle}
-          className='noteForm__input'
+          className='noteEdit__input--title'
         />
         <input
           name='updatedTextBody'
@@ -29,7 +31,7 @@ const NoteEdit = props => {
           placeholder='Note Content'
           onChange={props.handleInputChange}
           value={props.updatedTextBody}
-          className='noteForm__input--big'
+          className='noteEdit__input--content'
         />
         <button className='btn' onClick={editNotes}>
           Update
