@@ -13,5 +13,5 @@ export const customButton = () =>
   cursor: pointer;
 
   a {
-    color: #FFF;
+    color: #fff;
   }`;
