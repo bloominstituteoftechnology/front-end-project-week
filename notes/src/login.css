@@ -28,7 +28,7 @@
     position: relative;
     z-index: 2;
   }
-  form input {
+  .wrapper form input {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
@@ -46,15 +46,15 @@
     transition-duration: 0.25s;
     font-weight: 300;
   }
-  form input:hover {
+  .wrapper form input:hover {
     background-color: rgba(255, 255, 255, 0.4);
   }
-  form input:focus {
+  .wrapper form input:focus {
     background-color: white;
     width: 300px;
     color: #53e3a6;
   }
-  form button {
+  .wrapper form button {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;

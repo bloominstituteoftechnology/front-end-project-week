@@ -20,7 +20,11 @@ class App extends React.Component{
 
   OnSubmitHandler = e => {
     e.preventDefault();
-    this.setState({loggedIn : true})
+    if(!this.state.user.username || !this.state.user.password){
+      alert('Please input both username and password')
+    }else{
+      this.setState({loggedIn : true})
+    }
   }
 
   render(){
