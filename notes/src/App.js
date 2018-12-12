@@ -8,6 +8,8 @@ import NotesList from "./components/NotesList";
 import AddNoteForm from "./components/AddNoteForm";
 import SingleNote from "./components/SingleNote";
 import EditNoteForm from "./components/EditNoteForm";
+import Login from "./components/Login";
+import Authenticate from "./components/Authenticate";
 
 const url = "https://notes-api-backend.herokuapp.com/note";
 
@@ -25,14 +27,26 @@ class App extends Component {
     };
   }
   componentDidMount() {
+    const token = localStorage.getItem("jwt");
+    const reqOptions = {
+      headers: {
+        authorization: token
+      }
+    };
     axios
-      .get(`${url}/get/all`)
+      .get(`${url}/get/all`, reqOptions)
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
   componentDidUpdate() {
+    const token = localStorage.getItem("jwt");
+    const reqOptions = {
+      headers: {
+        authorization: token
+      }
+    };
     axios
-      .get(`${url}/get/all`)
+      .get(`${url}/get/all`, reqOptions)
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
@@ -41,11 +55,21 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   addNote = () => {
+    const token = localStorage.getItem("jwt");
+    const reqOptions = {
+      headers: {
+        authorization: token
+      }
+    };
     axios
-      .post(`${url}/create`, {
-        title: this.state.title,
-        textBody: this.state.textBody
-      })
+      .post(
+        `${url}/create`,
+        {
+          title: this.state.title,
+          textBody: this.state.textBody
+        },
+        reqOptions
+      )
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
     this.setState({ title: "", textBody: "" });
@@ -54,11 +78,21 @@ class App extends Component {
     this.setState({ utitle: title, utextBody: textBody });
   };
   editNote = id => {
+    const token = localStorage.getItem("jwt");
+    const reqOptions = {
+      headers: {
+        authorization: token
+      }
+    };
     axios
-      .put(`${url}/edit/${id}`, {
-        title: this.state.utitle,
-        textBody: this.state.utextBody
-      })
+      .put(
+        `${url}/edit/${id}`,
+        {
+          title: this.state.utitle,
+          textBody: this.state.utextBody
+        },
+        reqOptions
+      )
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
     this.setState();
@@ -71,8 +105,14 @@ class App extends Component {
     this.setState({ isDeleting: false });
   };
   deleteNote = id => {
+    const token = localStorage.getItem("jwt");
+    const reqOptions = {
+      headers: {
+        authorization: token
+      }
+    };
     axios
-      .delete(`${url}/delete/${id}`)
+      .delete(`${url}/delete/${id}`, reqOptions)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
     this.setState();
@@ -98,6 +138,7 @@ class App extends Component {
             />
           )}
         />
+        <Route path="/login" component={Login} />
         <Route
           exact
           path="/addnote"
@@ -145,4 +186,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Authenticate(App);
