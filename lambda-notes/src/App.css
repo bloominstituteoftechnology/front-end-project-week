@@ -13,7 +13,21 @@
    border: 1px solid #B1B7B8;
 }
 
-.notes-view {
-  width: 80%;
-  border: 1px solid pink;
+.note-button {
+  color: black;
+  margin-top: 15px;
+  margin-right: 10px;
+  border: none;
+  background: #F2F1F2;
+  text-decoration: underline;
+  font-size: 15px;
+}
+
+
+.ReactModal {
+  width: 35%;
+  height: 200px;
+  margin: 150px auto 0 auto;
+  background: white;
+  border: 2px solid black;
 }

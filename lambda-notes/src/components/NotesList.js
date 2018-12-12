@@ -1,5 +1,5 @@
 import React from 'react';
-import {NotesHeader, NotesWrapper, NotesContent, Notes, NotesTitle, NotesBody } from '../style'
+import { NotesView, NotesHeader, NotesWrapper, NotesContent, Notes, NotesTitle, NotesBody } from '../style'
 
 
 class NotesList extends React.Component  {
@@ -21,13 +21,13 @@ class NotesList extends React.Component  {
 
     
     return(
-        <div className='notes-view'>
+        <NotesView>
             <NotesHeader>Your Notes:</NotesHeader>
         <NotesWrapper>
             
-            {Array.from(this.props.notes).map(note => {
+            {this.props.notes.map(note => {
                 return (
-                <NotesContent>
+                <NotesContent key={note._id}>
                     
                 <Notes key={note._id} onClick={ () => 
                     
@@ -41,7 +41,7 @@ class NotesList extends React.Component  {
             );
             })}
         </NotesWrapper>
-        </div>
+        </NotesView>
     );
         }
     }
