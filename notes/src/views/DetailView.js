@@ -32,7 +32,7 @@ export default connect(
   state => ({
     note: state.note,
     loggedIn: state.loggedIn,
-    fetchingNote: state.fetchingNotes,
+    fetchingNote: state.fetchingNote,
     error: state.error,
   }),
   {

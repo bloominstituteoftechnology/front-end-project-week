@@ -15,6 +15,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.84.0",
     "styled-components": "^4.1.2"
   },
   "scripts": {

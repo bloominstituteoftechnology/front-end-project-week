@@ -1,6 +1,7 @@
 // importing libraries
 import React from 'react';
 import styled from 'styled-components';
+import { Loader } from 'semantic-ui-react';
 
 import { truncate } from '../../helper/helper';
 
@@ -104,7 +105,7 @@ class NotesList extends React.Component {
         <div className="notes">
           {
             fetchingNotes ?
-            <div>Loading ... </div> :
+            <Loader style={{margin: '2rem auto'}} active inline size='massive' /> :
             !notes[0] ?
                 <div>Something has gone teribbly wrong.</div> :
                 computedNotes

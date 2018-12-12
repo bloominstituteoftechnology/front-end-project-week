@@ -1,6 +1,7 @@
 // importing libraries
 import React from 'react';
 import styled from 'styled-components';
+import { Loader } from 'semantic-ui-react';
 
 // importing component
 import Modal from './Modal';
@@ -70,7 +71,7 @@ class NoteDetail extends React.Component {
         </div>
         {
           fetchingNote ?
-          <div>Fetching Friend ...</div> :
+          <Loader style={{margin: '2rem auto'}} active inline size='massive' /> :
           !note || !note._id ?
             <div>Something has gone teribbly wrong</div> :
             <div className="content">
