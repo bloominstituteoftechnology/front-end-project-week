@@ -23,7 +23,7 @@ class Form extends React.Component {
         name='content'
         value={this.props.content}
         />
-        <button onClick={() => this.props.updateNote(this.props.note.id)} className='formButton' >Update</button>
+        <button onClick={() => this.props.updateNote(this.props.note.id, this.props.note.userId)} className='formButton' >Update</button>
     </div>
     );
 }

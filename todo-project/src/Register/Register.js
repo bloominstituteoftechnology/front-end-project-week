@@ -23,9 +23,11 @@ class Login extends Component {
       .post('https://fsw-14-project-notes.herokuapp.com/register', {username: this.state.username, password: this.state.password})
       .then(response => {
         console.log(response)
+        window.location.replace('/')
       })
       .catch(error => {
         console.log(error)
+        window.alert('Username already taken')
       })
   }
 
@@ -53,9 +55,9 @@ class Login extends Component {
             onChange={this.handleInputChange}
           />
           <br />
-          <NavLink to='/'><Button color="success" size="large" onClick={() => this.registerUser()}>
+          <Button color="success" size="large" onClick={() => this.registerUser()}>
             Register
-          </Button></NavLink>
+          </Button>
           <div className='register'>Already registered? <NavLink to='/'>Click here to log in </NavLink></div>
         </FormGroup>
         </div>
