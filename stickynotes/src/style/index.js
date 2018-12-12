@@ -107,6 +107,7 @@ export const Div = styled.div`
 `;
 
 export const Section = styled.section`
+	position: absolute;	
 	width: 100px;
 	height: 125px;
 	overflow: hidden;

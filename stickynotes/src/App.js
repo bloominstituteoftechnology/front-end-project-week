@@ -58,7 +58,7 @@ class App extends Component {
 		axios
 			.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
 			.then((response) => {
-				return axios.get('https://fe-notes.herokuapp.com/note/get/all')
+				return axios.get('https://fe-notes.herokuapp.com/note/get/all');
 			})
 			.then((response) => {
 				this.setState({
@@ -92,6 +92,40 @@ class App extends Component {
 			mode
 		});
 	};
+
+	onDragOver = (event) => {
+		event.preventDefault();
+	};
+
+	onDrop = (event) => {
+		event.preventDefault();
+		event.dataTransfer.getData('id');
+		this.setState({
+			...this.state
+		});
+	};
+
+	onDragStart = (event, id) => {
+		event.dataTransfer.setData('id', id);
+	};
+
+	sort = () => {
+		function compare(a, b) {
+			const titleA = a.title.toUpperCase();
+			const titleB = b.title.toUpperCase();
+			let comparison = 0;
+			if (titleA > titleB) {
+				comparison = 1;
+			} else if (titleA < titleB) {
+				comparison = -1;
+			}
+			return comparison;
+		}
+		this.setState({
+			...this.state,
+			notes: this.state.notes.sort(compare)
+		});
+	};
 	render() {
 		return (
 			<React.Fragment>
@@ -114,6 +148,10 @@ class App extends Component {
 								toggleMode={this.toggleMode}
 								addNote={this.addNote}
 								id={this.state.newId}
+								onDragOver={this.onDragOver}
+								onDrop={this.onDrop}
+								onDragStart={this.onDragStart}
+								sort={this.sort}
 							/>
 						)}
 					/>

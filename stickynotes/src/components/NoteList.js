@@ -20,15 +20,16 @@ const NoteList = (props) => {
 		return (
 			<Main>
 				<H1>Notes</H1>
-				<Div component='list'>
+				<Div component='list' onDragOver={(e)=> props.onDragOver(e)} onDrop={(e)=> props.onDrop(e)}>
 					{props.notes.slice(0, 12).map((note, index) => (
-						<Link to={`/${note._id}`} key={index} style={{textDecoration: 'none'}}>
-							<Section>
+						<Link to={`/${note._id}`} key={index} style={{textDecoration: 'none'}} draggable onDragStart={e => props.onDragStart(e, note._id)}>
+							<Section >
 								<H2 component='list'>{note.title}</H2>
 							</Section>
 						</Link>
 					))}
 				</Div>
+				<H2 onClick={props.sort}>Sort</H2>
 			</Main>
 		);
 	}
