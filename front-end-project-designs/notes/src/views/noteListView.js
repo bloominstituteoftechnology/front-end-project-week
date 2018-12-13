@@ -14,7 +14,7 @@ class NoteListView extends React.Component {
       newNote: {
         tag: [],
         title: "",
-        textBody: ""
+        note: ""
       },
       title:"",
       textBody:"",
