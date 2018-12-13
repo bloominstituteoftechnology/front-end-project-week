@@ -40,33 +40,6 @@ const Header = styled.header`
   }
 `;
 
-// const Div = styled.div`
-//   padding: 15px;
-//   background: white;
-//   border: 1px solid #999999;
-//   width: 200px;
-//   height: 220px;
-//   margin: 10px;
-//   overflow: hidden;
-//   cursor: pointer;
-//   box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.15);
-
-//   @media (max-width: 650px) {
-//     width: 90%;
-//     height: 120px;
-//   }
-// `;
-
-// const H2 = styled.h2`
-//   font-size: 16px;
-//   padding-bottom: 10px;
-//   border-bottom: 1px solid #4a494a;
-// `;
-
-// const P = styled.p`
-//   font-size: 12px;
-// `;
-
 const StyledCSVLink = styled(CSVLink)`
   text-decoration: none;
   color: #00c6d1;
@@ -79,19 +52,7 @@ const StyledCSVLink = styled(CSVLink)`
   }
 `;
 
-const AZSpan = styled.span`
-  color: #00c6d1;
-  border-bottom: 2px solid #00c6d1;
-  margin-left: 15px;
-  cursor: pointer;
-  font-weight: bold;
-
-  &:hover {
-    opacity: 0.5;
-  }
-`;
-
-const ZASpan = styled.span`
+const SortSpan = styled.span`
   color: #00c6d1;
   border-bottom: 2px solid #00c6d1;
   margin-left: 15px;
@@ -124,8 +85,6 @@ const IconFooter = styled.div`
     padding: 20px 0 0 30px;
   }
 `;
-
-// const Tags = styled.p``;
 
 // ==============================
 // ======    COMPONENTS    ======
@@ -179,80 +138,12 @@ class NotesList extends Component {
     if (!this.props.notes || this.props.fetchingNotes) {
       return <h3>Retrieving Notes, One Moment...</h3>;
     }
-    if (!this.props.filteredNotes.length) {
-      return (
-        <List>
-          <Header>
-            <p>
-              Your Notes:&nbsp;
-              <StyledCSVLink data={this.props.notes} headers={headers}>
-                <img
-                  src={download}
-                  style={{ width: 20, marginRight: 10 }}
-                  alt="a sgv download icon"
-                />
-                CSV
-              </StyledCSVLink>
-              <AZSpan
-                onClick={() => {
-                  this.props.sortNotes("ascending");
-                  this.props.history.push(`/notes`);
-                }}
-              >
-                Sort A-Z
-              </AZSpan>
-              <ZASpan
-                onClick={() => {
-                  this.props.sortNotes("descending");
-                  this.props.history.push(`/notes`);
-                }}
-              >
-                Sort Z-A
-              </ZASpan>
-            </p>
-          </Header>
-          {this.props.notes.map((note, i) => (
-            // <Div
-            //   onClick={() => {
-            //     this.props.history.push(`/note/${note._id}`);
-            //   }}
-            //   key={note._id}
-            // >
-            //   <H2>{this.getNoteString(note.title, 10)}</H2>
-            //   <P>{this.getNoteString(note.textBody, 25)}</P>
-            // </Div>
-            <SingleNoteListView
-              key={note._id}
-              props={this.props}
-              note={note}
-              getNoteString={this.getNoteString}
-              index={i}
-              id={note._id}
-              moveNote={this.moveNote}
-            />
-          ))}
-          <IconFooter>
-            <PAnchor>
-              icon from{" "}
-              <a
-                href="https://fontawesome.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                fontawesome.com
-              </a>
-            </PAnchor>
-          </IconFooter>
-        </List>
-      );
-    }
-
     return (
       <List>
         <Header>
           <p>
             Your Notes:&nbsp;
-            <StyledCSVLink data={this.props.filteredNotes} headers={headers}>
+            <StyledCSVLink data={this.props.notes} headers={headers}>
               <img
                 src={download}
                 style={{ width: 20, marginRight: 10 }}
@@ -260,35 +151,49 @@ class NotesList extends Component {
               />
               CSV
             </StyledCSVLink>
-            <AZSpan onClick={() => this.props.filteredNotes("ascending")}>
+            <SortSpan
+              onClick={() => {
+                this.props.sortNotes("ascending");
+                this.props.history.push(`/notes`);
+              }}
+            >
               Sort A-Z
-            </AZSpan>
-            <ZASpan onClick={() => this.props.filteredNotes("descending")}>
+            </SortSpan>
+            <SortSpan
+              onClick={() => {
+                this.props.sortNotes("descending");
+                this.props.history.push(`/notes`);
+              }}
+            >
               Sort Z-A
-            </ZASpan>
+            </SortSpan>
           </p>
         </Header>
-        {this.props.filteredNotes.map((note, i) => (
-          // <Div
-          //   onClick={() => {
-          //     this.props.history.push(`/note/${note._id}`);
-          //   }}
-          //   key={note._id}
-          // >
-          //   <H2>{this.getNoteString(note.title, 10)}</H2>
-          //   <P>{this.getNoteString(note.textBody, 25)}</P>
-          //   <Tags>{note.tags[0]}</Tags>
-          // </Div>
-          <SingleNoteListView
-            key={note._id}
-            props={this.props}
-            note={note}
-            getNoteString={this.getNoteString}
-            index={i}
-            id={note._id}
-            moveNote={this.moveNote}
-          />
-        ))}
+        {!this.props.filteredNotes.length
+          ? this.props.notes.map((note, i) => (
+              <SingleNoteListView
+                key={note._id}
+                props={this.props}
+                note={note}
+                getNoteString={this.getNoteString}
+                index={i}
+                id={note._id}
+                moveNote={this.moveNote}
+                notes={this.state.notes}
+              />
+            ))
+          : this.props.filteredNotes.map((note, i) => (
+              <SingleNoteListView
+                key={note._id}
+                props={this.props}
+                note={note}
+                getNoteString={this.getNoteString}
+                index={i}
+                id={note._id}
+                moveNote={this.moveNote}
+                notes={this.state.notes}
+              />
+            ))}
         <IconFooter>
           <PAnchor>
             icon from{" "}

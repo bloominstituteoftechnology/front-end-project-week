@@ -104,10 +104,8 @@ const SearchBar = styled.input`
 // ==============================
 
 class NavSideBar extends Component {
-  handleInputChange = e => {
-    e.target.value === ""
-      ? this.props.getNotes()
-      : this.props.filterNotes(e.target.value);
+  handleInputChange = ({ target: { value } }) => {
+    value === "" ? this.props.getNotes() : this.props.filterNotes(value);
   };
 
   render() {

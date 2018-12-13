@@ -90,9 +90,9 @@ class EditNoteForm extends Component {
     }
   };
 
-  handleInputChange = e => {
+  handleInputChange = ({ target: { value, name } }) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [name]: value
     });
   };
 

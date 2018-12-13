@@ -112,6 +112,8 @@ class SingleNoteListView extends Component {
       props,
       getNoteString,
       connectDragSource,
+      index,
+      id,
       connectDropTarget
     } = this.props;
     const opacity = isDragging ? 0 : 1;
@@ -120,10 +122,10 @@ class SingleNoteListView extends Component {
       connectDropTarget &&
       connectDragSource(
         connectDropTarget(
-          <div className="dnd-div" style={{ opacity }}>
+          <div id={id} index={index} className="dnd-div" style={{ opacity }}>
             <Div
               onClick={() => {
-                props.history.push(`/note/${note._id}`);
+                props.history.push(`/note/${id}`);
               }}
             >
               <H2>{getNoteString(note.title, 10)}</H2>
@@ -135,9 +137,6 @@ class SingleNoteListView extends Component {
     );
   }
 }
-
-// export default SingleNoteListView;
-// export default DragSource("note", noteSource, collect)(SingleNoteListView);
 
 export default flow(
   DragSource("note", noteSource, (connect, monitor) => ({

@@ -77,9 +77,9 @@ class AddNoteForm extends Component {
     tags: []
   };
 
-  handleInputChange = e => {
+  handleInputChange = ({ target: { name, value } }) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [name]: value
     });
   };
 
