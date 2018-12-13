@@ -98,7 +98,9 @@ class App extends Component {
 							position: 'absolute',
 							right: '11%',
 							zIndex: '99',
-							bottom: '5%'
+							bottom: '5%',
+							textDecoration: 'none',
+							fontFamily: 'cursive',
 						}}
 					>
 						Export Notes

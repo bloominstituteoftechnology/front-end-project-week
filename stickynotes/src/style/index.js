@@ -18,8 +18,8 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: #1F0812;
-	@import url('https://fonts.googleapis.com/css?family=Oswald:200,400|Pacifico');
+	background: #4C132C;
+	@import url('https://fonts.googleapis.com/css?family=Charm|Dancing+Script:400');
 }
 `;
 export const AppContainer = styled.div`
@@ -50,6 +50,7 @@ export const Nav = styled.nav`
 	background: #e4959e;
 `;
 export const Button = styled.button`
+font-family: 'Charm', cursive;
 	text-decoration: none;
 	font-size: 1.6rem;
 	color: white;
@@ -57,14 +58,14 @@ export const Button = styled.button`
 	margin: ${(props) => (props.component === 'single' ? '2.5%' : '5% 1%')};
 	border: 2px solid #ffffff;
 	border-radius: 10px;
-	width: 100px;
-	background: #1f0812;
+	width: 150px;
+	background: #4C132C;
 	font-weight: bold;
 	text-align: center;
 	:hover {
 		background: white;
-		color: #1f0812;
-		border: 2px dashed #1f0812;
+		color: #4C132C;
+		border: 2px dashed #4C132C;
 		cursor: pointer;
 	}
 	:focus {
@@ -92,7 +93,7 @@ export const Div = styled.div`
 	opacity: ${(props) => (props.component === 'delete' ? '1' : null)};
 	right: ${(props) => (props.component === 'delete' ? '-9.5%' : null)};
 	top: ${(props) => (props.component === 'delete' ? '25%' : null)};
-	background: ${(props) => (props.component === 'delete' ? '#1F0812' : null)};
+	background: ${(props) => (props.component === 'delete' ? '#4C132C' : null)};
 	border-radius: ${(props) => (props.component === 'delete' ? '10px' : null)};
 	height: ${(props) => (props.component === 'delete' ? '30vh' : null)};
 	width: ${(props) => (props.component === 'delete' ? '270px' : '400px')};
@@ -107,12 +108,11 @@ export const Div = styled.div`
 `;
 
 export const Section = styled.section`
-	position: absolute;	
 	width: 100px;
 	height: 125px;
 	overflow: hidden;
 	display: flex;
-	background: #1f0812;
+	background: #4C132C;
 	flex-flow: column nowrap;
 	align-items: center;
 	position: relative;
@@ -120,40 +120,44 @@ export const Section = styled.section`
 	padding: 5%;
 	border-radius: 10%;
 	margin: 2.5% 0;
+	text-align: center;
 	border: 2px dashed #fff;
 	color: #fff;
 	:hover {
 		background: white;
-		color: #1f0812;
-		border: 2px dashed #1f0812;
+		color: #4C132C;
+		border: 2px dashed #4C132C;
 		border-radius: 10%;
 		cursor: pointer;
 	}
 `;
 export const H1 = styled.h1`
-	font-size: 2.6rem;
-	color: ${(props) => (props.component === 'delete' ? '#FFFFFF' : '#1F0812')};
+font-family: 'Dancing Script', cursive;
+	font-size: 3rem;
+	color: ${(props) => (props.component === 'delete' ? '#FFFFFF' : '#4C132C')};
 	text-align: center;
 	justify-self: flex-start;
 	font-weight: bold;
 `;
 export const H2 = styled.h2`
+	font-family: 'Charm', cursive;
 	text-align: center;
 	font-size: ${(props) => (props.component === 'single' ? '2.4rem' : '1.4rem')};
-	font-weight: bold;
 	padding: 0 5%;
+	color: ${props => props.sort ? '#FFFFFF' : null};
 	margin-bottom: 2.5%;
 	cursor: ${props => props.sort ? 'pointer' : null};
 	:hover{
-		color: ${props => props.sort ? 'white' : null};
+		color: ${props => props.sort ? '#4C132C' : null};
 	}
 `;
 
 export const P = styled.p`
+	font-family: 'Charm', cursive;
 	font-size: ${(props) => (props.component === 'single' ? '1.2rem' : '1.4rem')};
 	background: ${(props) => (props.component === 'single' ? '#FFFFFF' : null)};
 	border: ${(props) =>
-		props.component === 'single' ? '2px dashed #1F0812' : null};
+		props.component === 'single' ? '2px dashed #4C132C' : null};
 	padding: ${(props) => (props.component === 'single' ? '5%' : null)};
 	width: 300px;
 	height: 50vh;
@@ -166,7 +170,7 @@ export const P = styled.p`
 		background: #c3d2d5;
 	}
 	::-webkit-scrollbar-thumb {
-		background: #1f0812;
+		background: #4C132C;
 	}
 `;
 
@@ -184,9 +188,10 @@ export const Form = styled.form`
 export const Input = styled.input`
 	width: ${props => props.component === 'main' ? '100%' : '40%'};
 	padding: 2.5%;
+	font-family: 'Charm', cursive;
 	border-radius: 10px;
 	margin-top: 5%;
-	border: 2px dashed #1f0812;
+	border: 2px dashed #4C132C;
 	text-align: center;
 	:focus {
 		outline: none;
@@ -195,8 +200,9 @@ export const Input = styled.input`
 export const Textarea = styled.textarea`
 	width: 50%;
 	padding: 20%;
+	font-family: 'Charm', cursive;
 	border-radius: 50%;
-	border: 2px dashed #1f0812;
+	border: 2px dashed #4C132C;
 	text-align: center;
 	margin-top: 5%;
 	:focus {
