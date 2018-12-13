@@ -9,7 +9,7 @@ import SideBar from './Components/SideBar';
 import Note from './Components/Note';
 import Edit from './Components/Edit';
 
-const baseUrl = 'https://jovial-roentgen-256496.netlify.com';
+const baseUrl = 'https://heroku-backend-notes.herokuapp.com';
 
 class App extends Component {
   constructor() {

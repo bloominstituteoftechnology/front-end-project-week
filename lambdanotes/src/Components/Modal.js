@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 
 import './Modal.css';
 
-const baseUrl = 'https://jovial-roentgen-256496.netlify.com';
+const baseUrl = 'https://heroku-backend-notes.herokuapp.com';
 
 class Modal extends Component {
     constructor(props) {

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Modal from './Modal';
 import './Note.css';
 
-const baseUrl = 'https://jovial-roentgen-256496.netlify.com';
+const baseUrl = 'https://heroku-backend-notes.herokuapp.com';
 
 class Note extends Component {
     constructor(props) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const baseUrl = 'https://jovial-roentgen-256496.netlify.com';
+const baseUrl = 'https://heroku-backend-notes.herokuapp.com';
 
 class Edit extends Component {
     constructor() {
