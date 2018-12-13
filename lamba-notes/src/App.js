@@ -7,6 +7,8 @@ import Notes from './components/Notes';
 import NoteForm from './components/NoteForm';
 import NoteEdit from './components/NoteEdit';
 import Nav from './components/Nav';
+import SignUp from './auth/SignUp';
+import SignIn from './auth/SignIn';
 import './styles.css';
 
 let APIUrl = 'https://bummingsnotes.herokuapp.com';
@@ -67,11 +69,17 @@ class App extends Component {
       <div className='App'>
         <Nav />
         <div className='content'>
+          {/* s i g n   u p */}
+          <Route path='/signup' component={SignUp} />
+
+          {/* s i g n   i n */}
+          <Route path='/signin' component={SignIn} />
+
           {/* d i s p l a y   n o t e s */}
           <Route
             exact
             path='/'
-            render={() => <Notes notes={this.state.notes} />}
+            render={() => <Notes notes={this.state.notes.reverse()} />}
           />
 
           {/* d i s p l a y  s i n g l e  n o t e  */}

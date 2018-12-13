@@ -31,6 +31,13 @@ class Note extends Component {
       .catch(error => console.log(error));
   }
 
+  componentDidUpdate() {
+    axios
+      .get(`${APIUrl}/api/notes`)
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+  }
+
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };

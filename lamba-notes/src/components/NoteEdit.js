@@ -22,7 +22,7 @@ const NoteEdit = props => {
           value={props.updatedTitle}
           className='noteEdit__input--title'
         />
-        <input
+        <textarea
           name='updatedTextBody'
           cols='30'
           rows='10'
