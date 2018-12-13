@@ -42,6 +42,9 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  float: left;
+  overflow-y: auto;
+  max-height: 400px;
 }
 
 .sidebar .tag-wrapper .tag {
