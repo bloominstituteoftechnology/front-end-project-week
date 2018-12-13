@@ -68,14 +68,18 @@ class Note extends Component {
             <div className="edit-delete-container">
               <Link className="note-link" to={`/edit/${note.id}`}>
                 <p className="edit-note-link">edit</p>
+                
               </Link>
               <p className="delete-note-link" onClick={this.openModal}>
-                delete
+              &nbsp;  
+              &nbsp;
+              &nbsp;
+              delete
               </p>
             </div>
             <div>
                 <div>
-                 <h2>{note.title}</h2>
+                 <h1>{note.title}</h1>
                  <p>{note.textBody}</p>
                 </div>
             </div>

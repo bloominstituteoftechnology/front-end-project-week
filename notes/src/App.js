@@ -5,13 +5,15 @@ import NoteForm from "./components/NoteForm"
 import EditNote from "./components/EditNote"
 import Note from "./components/Note"
 import NoteList from "./components/NoteList"
+import SearchBar from './components/SearchBar';
 import { Route, NavLink, withRouter } from "react-router-dom";
 
 class App extends Component {
 constructor() {
   super();
   this.state = {
-    notes: []
+    notes: [],
+    filterednotes: []
 
   }
 }
@@ -53,6 +55,15 @@ editNote = (event, id, state) => {
   .catch(error => console.log(error));
 }
 
+searchNotes = event => {
+  const narrowedNotes = this.state.notes.filter(note => {
+    if (note.title.textbody.includes(event.target.value)) {
+      return note
+    }
+  })
+  this.setState({ filteredNotes: narrowedNotes })
+}
+
 
 
   render() {
@@ -70,6 +81,7 @@ editNote = (event, id, state) => {
           <NavLink to='/add-note'>
           <button className='side-button'>+Create New Note</button>
           </NavLink>
+          <SearchBar search={this.Search} />
         </div>
             <Route
             exact
