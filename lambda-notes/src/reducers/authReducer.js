@@ -1,4 +1,3 @@
-import axios from 'axios';
 
 import {
   REGISTER,
@@ -11,7 +10,6 @@ import {
 
 const initialAuthState = {
   user: null,
-  token: null,
   loggedIn: false,
   authorizing: false,
   error: null,
@@ -31,7 +29,6 @@ export const authReducer = (state = initialAuthState, action) => {
       return {
         ...state,
         user: action.payload.user,
-        token: action.payload.token,
         authorizing: false,
       };
 
@@ -52,7 +49,6 @@ export const authReducer = (state = initialAuthState, action) => {
       return {
         ...state,
         user: action.payload.user,
-        token: action.payload.token,
         authorizing: false,
       }
 
@@ -60,7 +56,7 @@ export const authReducer = (state = initialAuthState, action) => {
       return {
         ...state,
         authorizing: false,
-        error: action.payload, 
+        error: action.payload,
       }
 
     default:

@@ -167,6 +167,10 @@ strong {
   border: 1px solid #524E4D;
 }
 
+.sidebar h4 {
+	margin: 25px 0 15px 10px;
+}
+
 .button {
   background: #24B8BD;
   color: white;

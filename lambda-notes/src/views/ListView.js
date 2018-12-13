@@ -11,10 +11,6 @@ class ListView extends React.Component {
   }
 
   render() {
-      if(this.props.notesSaved) {
-        this.props.fetchNotes();
-      }
-
     return(
       <div className='container'>
       <Sidebar notes={this.props.notes}/>

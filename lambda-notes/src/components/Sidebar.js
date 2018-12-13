@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import CSVButton from './CSVButton';
 
@@ -15,7 +16,7 @@ const SideBar = props => {
   return (
     <div className='sidebar'>
       <h1>Lambda Notes</h1>
-
+      <h4>Welcome, {props.user}</h4>
       <Link to='/notes'>
         <div className='button view-button'>
         View Your Notes
@@ -31,4 +32,10 @@ const SideBar = props => {
   )
 }
 
-export default SideBar;
+const mapStateToProps = state => {
+  return {
+    user: state.authReducer.user
+  }
+}
+
+export default connect(mapStateToProps, null)(SideBar);

@@ -108,7 +108,7 @@ export const registerUser = (user) => dispatch => {
     .then(response => {
       console.log('register', response);
       dispatch({ type: REGISTER_SUCCESS, payload: {
-         user: response.data.username,
+         user: response.data.user,
       }});
       localStorage.setItem('jwt', response.data.token);
     })
@@ -124,7 +124,7 @@ export const loginUser = user => dispatch => {
       .then(response => {
         console.log('login', response);
         dispatch({ type: LOGIN_SUCCESS, payload: {
-         user: response.data.username,
+         user: response.data.user,
        }});
        localStorage.setItem('jwt', response.data.token);
       })
