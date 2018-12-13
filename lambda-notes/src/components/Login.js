@@ -57,9 +57,14 @@ class Login extends React.Component {
         .post(`${url}/register`, this.state.user)
         .then(res => {
           if (res.data && res.data.length) {
-            console.log(res.data);
-            localStorage.setItem("note_token", res.data.token);
-            window.location.reload();
+            axios.post(`${url}/login`, this.state.user).then(res => {
+              if (res.data) {
+                localStorage.setItem("note_token", res.data.token);
+                window.location.reload();
+              } else {
+                throw new Error();
+              }
+            });
           } else {
             console.log(res);
             throw new Error();

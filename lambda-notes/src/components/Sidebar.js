@@ -8,7 +8,7 @@ import TagList from "./TagList";
 class Sidebar extends React.Component {
   //removes username from local storage (required for 'login') and forces a window refresh to kick the user back to the login page
   logout = () => {
-    localStorage.removeItem("username");
+    localStorage.removeItem("note_token");
     window.location.reload();
   };
 

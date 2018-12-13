@@ -11,7 +11,7 @@ const Authenticate = (App, Login) =>
     }
 
     componentDidMount = () => {
-      let name = localStorage.getItem("username");
+      let name = localStorage.getItem("note_token");
       if (name) {
         this.setState({ loggedIn: true });
       } else {
@@ -23,7 +23,7 @@ const Authenticate = (App, Login) =>
       if (this.state.loggedIn) {
         return <App />;
       } else {
-        return <App />;
+        return <Login />;
       }
     }
   };

@@ -85,7 +85,7 @@ class FullNote extends React.Component {
       if (tag.text !== "") {
         axios
           .post(this.tagUrl, tag)
-          .then(this.getTags())
+          .then(this.getTags)
           .catch(err => console.log("Error while adding tag: ", err));
         this.setState({ newTag: { text: "" } });
       } else {
