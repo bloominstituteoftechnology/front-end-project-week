@@ -37,7 +37,7 @@ class App extends Component {
         {this.props.mightDelete ? <DeleteModal /> : null}
         <div className="App">
           <AppContainer>
-            <Route
+            {/* <Route
               path="/front-end-project-week"
               render={props => (
                 <div className="Testing Registration & Login" {...props}>
@@ -49,8 +49,8 @@ class App extends Component {
                   <section>
                     <Switch>
                       <Route exact path="/front-end-project-week/register" component={Register} />
-                      <Route path="/front-end-project-week/login" component={Login} />
-                      {/* <Route
+                      <Route path="/front-end-project-week/login" component={Login} /> */}
+            {/* <Route
                     path="/loggedin"
                     render={() => {
                       return (
@@ -65,11 +65,11 @@ class App extends Component {
                       );
                     }}
                   /> */}
-                    </Switch>
+            {/* </Switch>
                   </section>
                 </div>
               )}
-            />
+            /> */}
 
             <Route path="/front-end-project-week" render={props => <SideBarView {...props} />} />
             <Route exact path="/front-end-project-week" render={props => <ListView {...props} />} />
