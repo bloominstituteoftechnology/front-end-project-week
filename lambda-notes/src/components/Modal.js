@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Modal = (props, {handleClose, show, children}) => {
     const showHideClassName = props.show ? 'modal display-flex' : 'modal display-none';
+    // eslint-disable-next-line
             { if (props.show === true) {
   return (
     <div className = "alert-cont">
