@@ -11,6 +11,7 @@ import {
   SortSelect,
   ClearFilter,
   SearchButton,
+  DisplayingDiv,
 } from '../styles';
 
 const Notes = props => {
@@ -30,7 +31,7 @@ const Notes = props => {
           <SearchButton type="submit">Search</SearchButton>
         </form>
         {props.notes.length < props.totalNotes && (
-          <div>
+          <DisplayingDiv>
             Displaying{' '}
             <strong>
               {props.notes.length} of {props.totalNotes}{' '}
@@ -39,7 +40,7 @@ const Notes = props => {
             <ClearFilter onClick={e => props.clearFilter(e)}>
               Show All
             </ClearFilter>
-          </div>
+          </DisplayingDiv>
         )}
         <form>
           <label htmlFor="sort">Sort:</label>

@@ -87,7 +87,7 @@ export const ExportButton = styled.button`
 `;
 
 export const SearchButton = styled.button`
-  padding: 0.5rem;
+  padding: 1.2rem;
   margin-left: 0.2rem;
   background-color: black;
   color: white;
@@ -109,6 +109,11 @@ export const ClearFilter = styled.button`
 export const FormButton = styled(Button)`
   width: 31.5%;
   //padding: 5px 10px;
+`;
+
+export const DisplayingDiv = styled.div`
+  background: pink;
+  width: 60%;
 `;
 
 /****NOTE COMPONENT****/
@@ -220,7 +225,7 @@ export const StyledNote = styled.div`
   min-width: 100px;
   //margin: 1.2rem 1.5%;
   margin: 1.2rem 0;
-  height: 17.5rem;
+  height: 16.8rem;
   overflow: hidden;
   text-align: left;
   white-space: pre-wrap;
@@ -245,6 +250,13 @@ export const StyledNote = styled.div`
 
   h2 {
     font-weight: bold;
+  }
+
+  p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
   }
 `;
 
