@@ -180,15 +180,24 @@ class App extends Component {
     });
   };
 
-  deleteNote = (event, id) => {
+  deleteNote = (event, id, tags) => {
     event.preventDefault();
+    let hasTags = tags.find(tag => tag.notes_id === id);
+    if (hasTags !== undefined) {
+      axios
+        .delete(`${this.tagUrl}/notes/${id}`)
+        .then(this.getTags)
+        .catch(err =>
+          console.log("Error while deleting that note's tags: ", err)
+        );
+    }
     axios
-      .delete(`${this.noteUrl}/${parseInt(id)}`)
-      .then(this.getNoteList())
+      .delete(`${this.noteUrl}/${id}`)
+      .then(this.getNoteList)
       .catch(error => {
         console.log("We were unable to delete this note: ", error);
       });
-    // written in the endpoint, but deleting a note now also deletes all of its tags
+    //this block is very finicky but this configuration finally works. batch deletes tags if it finds any, if not just deletes note
   };
 
   createNote = event => {

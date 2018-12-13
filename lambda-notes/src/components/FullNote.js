@@ -51,7 +51,7 @@ class FullNote extends React.Component {
     // parseInt necessary because anything coming off the params will be a string and 2 !== "2"
 
     const id = parseInt(this.props.match.params.id);
-    console.log(id);
+
     axios
       .get(this.tagUrl)
       .then(response => {
@@ -65,8 +65,8 @@ class FullNote extends React.Component {
   deleteTag = (event, id) => {
     event.preventDefault();
     axios
-      .delete(`${this.tagUrl}/${id}`)
-      .then(this.getTags())
+      .delete(`${this.tagUrl}/${parseInt(id)}`)
+      .then(this.getTags)
       .catch(err => console.log("Error while deleting this tag: ", err));
   };
 
@@ -193,6 +193,7 @@ class FullNote extends React.Component {
                 show={this.state.showDeleteModal}
                 toggleModal={this.toggleModal}
                 deleteNote={this.props.deleteNote}
+                tags={this.state.tags}
               />
             )}
           />

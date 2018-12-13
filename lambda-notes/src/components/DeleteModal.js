@@ -8,7 +8,11 @@ class DeleteModal extends React.Component {
   //makes sure user is taken back to full list view when the note they're viewing is deleted
   deleteAndGoBack = event => {
     event.preventDefault();
-    this.props.deleteNote(event, parseInt(this.props.match.params.id));
+    this.props.deleteNote(
+      event,
+      parseInt(this.props.match.params.id),
+      this.props.tags
+    );
     this.backToList();
   };
 
