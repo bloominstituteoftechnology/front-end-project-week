@@ -31,26 +31,20 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 let url;
+let authUrl;
 if (process.env.NODE_ENV === 'development') {
   url = 'http://localhost:5000/api/notes';
+  authUrl = 'http://localhost:5000/api/auth/';
 } else if (process.env.NODE_ENV === 'production') {
   url = 'https://desolate-crag-67758.herokuapp.com/api/notes';
+  authUrl = 'https://desolate-crag-67758.herokuapp.com/api/notes';
 }
-
-// function authenticate() {
-// const token = localStorage.getItem('auth_token');
-// const options = {
-//   headers: {
-//     authentication: token
-//   }
-// };
-// }
 
 // Register POST request
 export const registerUser = (user, cb) => dispatch => {
   dispatch({ type: REGISTER_USER });
   axios
-    .post('http://localhost:5000/api/auth/register', user)
+    .post(`${authUrl}/register`, user)
     .then(res => {
       dispatch({
         type: REGISTER_USER_SUCCESS,
@@ -72,7 +66,7 @@ export const registerUser = (user, cb) => dispatch => {
 export const loginUser = (user, cb) => dispatch => {
   dispatch({ type: LOGIN });
   axios
-    .post('http://localhost:5000/api/auth/login', user)
+    .post(`${authUrl}/register`, user)
     .then(res => {
       localStorage.setItem('auth_token', res.data.token);
       dispatch({ type: LOGIN_SUCCESS, payload: 'Login successful' });
