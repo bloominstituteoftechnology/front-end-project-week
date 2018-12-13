@@ -1,0 +1,109 @@
+.full-note-container {
+    display: flex;
+    flex-direction: column;
+    width: 970px;
+    margin: 0 50px;
+    width: 90vw;
+    height: 100vh;
+}
+
+.note-title {
+    text-align: left;
+    margin: 46.4px 0 20px;
+    font-size: 35px;
+}
+
+.note-body {
+    font-size: 18px;
+    text-align: left;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.edit-delete-note {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit {
+    color: black;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.empty-space {
+    text-decoration: none;
+    cursor: default;
+}
+
+.delete {
+    color: black;
+    font-size: 25px;
+    text-decoration: underline;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* =================== DELETE MODAL =================== */
+
+/* .full-note-container {
+    width: 100%;
+    height: 100vh;
+    background-color: green;
+} */
+
+.delete-modal {
+    display: none;
+    width: 73.3vw;
+    height: 100vh;
+    position: fixed;
+    background: rgba(153, 164, 175, 0.8);
+    left: 273px;
+}
+
+.show-modal {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-box {
+    background: #fefdfa;
+    border-radius: 3px;
+    padding: 100px 200px;
+    margin: 100px auto;
+    border: 1px solid black;
+    position: fixed;
+}
+
+.confirmation {
+    font-size: 30px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px;
+}
+
+.delete-button {
+    color: white;
+    background: #CA001A;
+    border: 1px solid crimson;
+    cursor: pointer;
+    padding: 20px 80px;
+    margin-right: 20px;
+    border-radius: 3px;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.no-button {
+    border: 1px solid #979797;
+    background: #2BC1C4;
+    color: white;
+    color: #fefdfa;
+    padding: 20px 100px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 30px;
+}

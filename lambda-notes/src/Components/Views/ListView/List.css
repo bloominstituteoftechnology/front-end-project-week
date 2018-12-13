@@ -1,0 +1,41 @@
+.list-container {
+    width: 90vw;
+    }
+
+.your-notes {
+    text-align: left;
+    margin: 100px 50px 20px;
+    font-size: 35px;
+}
+
+.outer-note-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 50px;
+}
+
+.note-links {
+    text-decoration: none;
+    border: 1px solid black;
+    background: #FFFFFF;
+    color: black;
+    margin-bottom: 60px;
+    width: 28%;
+}
+
+.note-links .note-container {
+    padding: 20px;
+}
+
+.note-links .note-container .note-title {
+    font-size: 35px;
+    text-align: left;
+    margin: 0;
+}
+
+.note-links .note-container .note-body {
+    font-size: 18px;
+    text-align: left;
+    line-height: 1.5;
+}

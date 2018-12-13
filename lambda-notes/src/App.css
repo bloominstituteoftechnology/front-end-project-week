@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+  display: flex;
+  max-width: 1500px;
+  margin: 0 auto;
+  background: #F2F1F2;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+}
