@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Register from '../components/Register';
+import Login from '../components/Login';
 import SideBarView from './SideBarView';
 import ListView from './ListView';
 import NewNoteView from './NewNoteView';
@@ -44,18 +45,23 @@ class App extends Component {
               </nav>
               <section>
                 <Switch>
-                  <Route path="/register" component={Register} />
-                  {/* <Route path="/login" component={Login} />
-            <Route path="/" render={() => {
-              return (
-                <React.Fragment>
-                <h2>Users</h2>
-                  <ol>
-                    {this.state.users.map(user => <li key={user.id}>{user.username}</li>)}
-                  </ol>
-                </React.Fragment>
-              );
-            }} /> */}
+                  <Route exact path="/register" component={Register} />
+                  <Route path="/login" component={Login} />
+                  {/* <Route
+                    path="/loggedin"
+                    render={() => {
+                      return (
+                        <React.Fragment>
+                          <h2>Users</h2>
+                          <ol>
+                            {this.state.users.map(user => (
+                              <li key={user.id}>{user.username}</li>
+                            ))}
+                          </ol>
+                        </React.Fragment>
+                      );
+                    }}
+                  /> */}
                 </Switch>
               </section>
             </div>
