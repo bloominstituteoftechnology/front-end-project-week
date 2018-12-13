@@ -16,7 +16,7 @@ export const getNotes = () => {
   return (
     dispatch => {
       dispatch({ type: GETTING });
-      axios.get(`https://swon-notes.herokuapp.com/notes`)
+      axios.get(`https://swon-notes.herokuapp.com/notes/get/all`)
         .then(response => {
           dispatch({ type: GET, payload: response.data });
         })
