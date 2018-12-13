@@ -46,12 +46,11 @@ class Register extends Component {
 
     render() {
         return (
-            <div className="register-logi][''[
-                n-div">
+            <div className="register-login-div">
                 <div className="register-login-form">
                     <h2>Register</h2>
                     <form onSubmit={this.submitHandler}>
-                \'""""'        <label htmlFor="username">Username</label>
+                        <label htmlFor="username">Username</label>
                         <input
                             type="text"
                             id="username"
