@@ -14,14 +14,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      tags: []
     };
   }
 
   componentDidMount = () => {
     axios
-      // .get("https://fe-notes.herokuapp.com/note/get/all")
-      .get("http://localhost:3600/notes")
+      .get("https://heronotes-gabe.herokuapp.com/notes")
       .then(response => {
         console.log(response.data);
         this.setState({notes: response.data});
@@ -34,14 +34,11 @@ class App extends Component {
 
     axios
       // .post("https://fe-notes.herokuapp.com/note/create", newNote)
-      .post("http://localhost:3600/notes", newNote)
+      .post("https://heronotes-gabe.herokuapp.com/notes", newNote)
       .then(res => {
         console.log("newNote:", res.data);
 
         const newN = {
-          // tags: newNote.tags,
-          // _id: res.data.success,
-          // id: res.data.success,
           title: newNote.title,
           textBody: newNote.textBody
         };
@@ -53,16 +50,13 @@ class App extends Component {
 
   deleteNote = id => {
     axios
-      // .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      .delete(`http://localhost:3600/notes/${id}`)
+      .delete(`https://heronotes-gabe.herokuapp.com/notes/${id}`)
       .then(response => {
-        // const filteredNotes = this.state.notes.filter(note => note._id !== id);
         const filteredNotes = this.state.notes.filter(note => note.id !== id);
         this.setState({notes: filteredNotes});
       })
       .then(res => {
-        // axios.get("https://fe-notes.herokuapp.com/note/get/all");
-        axios.get("http://localhost:3600/notes");
+        axios.get("https://heronotes-gabe.herokuapp.com/notes");
       })
       .catch(err => console.log(err));
   };
@@ -72,8 +66,7 @@ class App extends Component {
     console.log("updated:", updated);
 
     axios
-      // .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updated)
-      .put(`http://localhost:3600/notes/${id}`, updated)
+      .put(`https://heronotes-gabe.herokuapp.com/notes/${id}`, updated)
       .then(res => {
         const updatedNotes = this.state.notes.map(note => {
           console.log("note.id:", note.id);

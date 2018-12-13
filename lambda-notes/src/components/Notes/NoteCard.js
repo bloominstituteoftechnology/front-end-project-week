@@ -6,8 +6,9 @@ const NoteCard = props => {
   const titleLimit = 22;
   const bodyLimit = 175;
   const dots = "...";
-  let title = props.note.title;
-  let textBody = props.note.textBody;
+  // let title = props.note.title;
+  // let textBody = props.note.textBody;
+  let {title, textBody} = props.note;
 
   if (props.note.title.length > titleLimit) {
     title = title.substring(0, titleLimit) + dots;
@@ -23,6 +24,14 @@ const NoteCard = props => {
       <div>
         <h2>{title}</h2> <hr />
         <p>{textBody}</p>
+      </div>
+      <div>
+        <p>
+          Tags:{" "}
+          {props.tags.map(tag => (
+            <span>{tag.tag}</span>
+          ))}
+        </p>
       </div>
     </Link>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import {CSVLink} from "react-csv";
+import axios from "axios";
 import "../App.css";
 
 import NoteCard from "./Notes/NoteCard";
@@ -8,9 +9,20 @@ class ListView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: ""
+      search: "",
+      tags: []
     };
   }
+
+  componentDidMount = () => {
+    axios
+      .get("https://heronotes-gabe.herokuapp.com/tags")
+      .then(res => {
+        console.log(res.data);
+        this.setState({tags: res.data});
+      })
+      .catch(err => console.log(err));
+  };
 
   updateSearch = e => {
     this.setState({search: e.target.value});
@@ -51,7 +63,7 @@ class ListView extends React.Component {
         <h1>Your Notes:</h1>
         <div className="note-card-container">
           {filteredNotes.map((note, index) => {
-            return <NoteCard note={note} key={index} />;
+            return <NoteCard note={note} key={index} tags={this.state.tags} />;
           })}
         </div>
       </div>
