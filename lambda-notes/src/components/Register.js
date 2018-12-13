@@ -61,6 +61,7 @@ export default class Register extends React.Component {
                         value={this.state.user.password}
                         onChange={this.inputHandler}
                     />
+                    <button type="submit">Submit</button>
                     {this.state.message ?
                         (<p>{this.state.message}</p>) :
                         undefined }
