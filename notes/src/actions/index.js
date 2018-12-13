@@ -14,7 +14,7 @@ export const getNotes = () => {
   return (
     dispatch => {
       dispatch({ type: GETTING });
-      axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+      axios.get(`https://swon-notes.herokuapp.com/notes/get/all`)
         .then(response => {
           dispatch({ type: GET, payload: response.data });
         })
@@ -29,7 +29,7 @@ export const addNote = note => {
   return (
     dispatch => {
       dispatch({ type: ADDING });
-      axios.post(`https://fe-notes.herokuapp.com/note/create`, note)
+      axios.post(`https://swon-notes.herokuapp.com/notes/create`, note)
         .then(response => {
           dispatch({ type: ADDED, payload: response.data });
         })
@@ -44,7 +44,7 @@ export const editNote = (id, note) => {
   return (
     dispatch => {
       dispatch({ type: EDITING });
-      axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+      axios.put(`https://swon-notes.herokuapp.com/notes/edit/${id}`, note)
         .then(response => {
           dispatch({ type: EDITED, payload: { id, ...response.data } });
         })
@@ -59,7 +59,7 @@ export const deleteNote = id => {
   return (
     dispatch => {
       dispatch({ type: DELETING });
-      axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      axios.delete(`https://swon-notes.herokuapp.com/notes/delete/${id}}`)
         .then(response => {
           dispatch({ type: DELETED, payload: response.data });
         })
