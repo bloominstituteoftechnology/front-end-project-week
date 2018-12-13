@@ -12,13 +12,15 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 ## Trello Set Up:
 
-- [ ] Create a Trello account
-- [ ] Create a new board called "Lambda Notes - {Your Name}"
-- [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-- [ ] Fill in the `To Do` list with the MVP features listed below
-- [ ] Fill in the `backlog` list with all the extra features listed below
-- [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
-- [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+- [X] Create a Trello account
+- [X] Create a new board called "Lambda Notes - {Your Name}"
+- [X] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
+- [X] Fill in the `To Do` list with the MVP features listed below
+- [X] Fill in the `backlog` list with all the extra features listed below
+- [X] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
+- [X] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+
+https://trello.com/b/rTkrEtc6/lambda-notes-ryan-matthews
 
 ## MVP Features:
 
@@ -62,10 +64,10 @@ Once your MVP has been approved, you have been given a feature list that the cli
 
 ## Extra Features:
 
-- [ ] Re-factor your code to include redux for your state-management
-- [ ] Search functionality
-- [ ] Markdown support in notes
-- [ ] Sorting options in the list view
+- [X] Re-factor your code to include redux for your state-management
+- [X] Search functionality
+- [X] Markdown support in notes
+- [X] Sorting options in the list view
 - [ ] Create and display tags that can be added to notes
 - [ ] Drag sorting in the list view
 - [ ] Add the ability to have checklists within the note view
