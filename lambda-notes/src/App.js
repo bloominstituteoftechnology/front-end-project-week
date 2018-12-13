@@ -8,13 +8,13 @@ import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import Notes from './components/Notes';
 import UpdateNoteForm from './components/UpdateNoteForm';
-import Modal from './components/Modal';
+// import Modal from './components/Modal';
 
-const blankNote = {
-    tags: [],
-    title: "",
-    textBody: "Hamburgers",
-};
+// const blankNote = {
+//     tags: [],
+//     title: "",
+//     textBody: "Hamburgers",
+// };
 
 class App extends Component {
   constructor(props) {

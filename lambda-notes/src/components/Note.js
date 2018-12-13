@@ -1,6 +1,6 @@
 import React from 'react';
 import './Note.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Modal from './Modal';
 // import UpdateNoteForm from './UpdateNoteForm';
 

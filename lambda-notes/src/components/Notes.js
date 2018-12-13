@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Note.css';
-import Note from './Note';
+// import Note from './Note';
 
 function Notes(props) {
     console.log(props.notes)
