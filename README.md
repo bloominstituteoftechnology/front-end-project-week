@@ -2,6 +2,10 @@
 
 ### Trello link [here](https://trello.com/invite/b/Ls23y03R/77438f38eef69592534ddf6671d50681/lambda-notes-jasmine-galang).
 
+### API [here](https://api-lambda-notes.herokuapp.com/)
+
+### API source [here](https://github.com/jsmnglng/back-end-project-week)
+
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
 You are to treat this week as if you are working at a company and the instructor is your client. The project managers will be your main support throughout the week.
