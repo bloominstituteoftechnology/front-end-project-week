@@ -103,19 +103,19 @@ export const StyledNoteLink = styled(StyledLink)`
   :hover {
     animation-name: in;
     animation-duration: 370ms;
-    box-shadow: 0 7px 30px -5px rgb(0, 0, 0);
+    box-shadow: 0 15px 50px -20px rgb(0, 0, 0);
   }
   @keyframes in {
     from {
       box-shadow: 0px 3px 10px -3px rgb(0, 0, 0);
     }
     to {
-      box-shadow: 0 7px 30px -5px rgb(0, 0, 0);
+      box-shadow: 0 15px 50px -20px rgb(0, 0, 0);
     }
   }
   @keyframes out {
     from {
-      box-shadow: 0 7px 30px -5px rgb(0, 0, 0);
+      box-shadow: 0 15px 50px -20px rgb(0, 0, 0);
     }
     to {
       box-shadow: 0px 3px 10px -3px rgb(0, 0, 0);
