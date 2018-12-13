@@ -186,16 +186,17 @@ class App extends Component {
     if (hasTags !== undefined) {
       axios
         .delete(`${this.tagUrl}/notes/${id}`)
-        .then(this.getTags)
+        .then(
+          axios
+            .delete(`${this.noteUrl}/${id}`)
+            .then(this.getNoteList)
+            .catch(error => {
+              console.log("We were unable to delete this note: ", error);
+            })
+        )
         .catch(err =>
           console.log("Error while deleting that note's tags: ", err)
         );
-      axios
-        .delete(`${this.noteUrl}/${id}`)
-        .then(this.getNoteList)
-        .catch(error => {
-          console.log("We were unable to delete this note: ", error);
-        });
     } else {
       axios
         .delete(`${this.noteUrl}/${id}`)
@@ -204,6 +205,7 @@ class App extends Component {
           console.log("We were unable to delete this note: ", error);
         });
     }
+    this.getTags();
     //this block is very finicky but this configuration finally works. batch deletes tags if it finds any before deleting note, if not just deletes note
   };
 
