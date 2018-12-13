@@ -4,13 +4,15 @@ import '../css/createNote.css';
 const CreateNote = props => {
   const createNewNote = () => {
     props.addNote();
-    props.history.push("/");
+    props.history.push("/notes");
   };
   return (
     <div className="createNote">
         <h4 className="createNoteHeader">Create New Note:</h4>
       <form className="createNoteForm">
         <input
+          cols="30"
+          rows="10"
           type="text"
           placeholder="Note Title"
           name="title"

@@ -66,7 +66,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route path="/" component={HomePage} />
-        <Route path="/notes"
+        <Route exact path="/notes"
           render={props => (
             <Note
               {...props}

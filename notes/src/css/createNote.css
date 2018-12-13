@@ -1,5 +1,5 @@
 .createNote {
-    width: 100%;
+    width: 80%;
     padding: 50px;
     background-color: #F2F0F1;
 }
@@ -19,6 +19,10 @@
     width: 100%;
     padding: 10px 0 400px 10px;
     margin-bottom: 20px;
+}
+.createNote .newTextBody input.break {
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .createNote button {
     width: 200px;
