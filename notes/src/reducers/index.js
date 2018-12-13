@@ -1,9 +1,18 @@
+import { GET_NOTES } from "../actions";
 const initialState = {
   notes: []
 };
 
 const notesReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case GET_NOTES:
+      return {
+        ...state,
+        notes: action.payload
+      };
+    default:
+      return { state };
+  }
 };
 
 export default notesReducer;

@@ -1,9 +1,9 @@
 import React from "react";
 
-function Fourm(props) {
+function EditFourm(props) {
   const clickHandle = e => {
     e.preventDefault();
-    props.addNewNote();
+    props.updateNote();
     props.history.push("/");
   };
 
@@ -13,23 +13,22 @@ function Fourm(props) {
         <input
           type="text"
           name="title"
-          placeholder="Title"
+          placeholder="title"
           value={props.note.title}
           onChange={props.changeHandler}
         />
         <input
           type="text"
           name="textBody"
-          placeholder="note content"
+          placeholder="content"
           value={props.note.textBody}
           onChange={props.changeHandler}
         />
         <button type="submit" onClick={clickHandle}>
-          Save
+          Update
         </button>
       </form>
     </>
   );
 }
-
-export default Fourm;
+export default EditFourm;
