@@ -34,10 +34,10 @@ let url;
 let authUrl;
 if (process.env.NODE_ENV === 'development') {
   url = 'http://localhost:5000/api/notes';
-  authUrl = 'http://localhost:5000/api/auth/';
+  authUrl = 'http://localhost:5000/api/auth';
 } else if (process.env.NODE_ENV === 'production') {
   url = 'https://desolate-crag-67758.herokuapp.com/api/notes';
-  authUrl = 'https://desolate-crag-67758.herokuapp.com/api/notes';
+  authUrl = 'https://desolate-crag-67758.herokuapp.com/api/auth';
 }
 
 // Register POST request
