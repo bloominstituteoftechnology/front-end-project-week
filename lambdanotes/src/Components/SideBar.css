@@ -1,0 +1,33 @@
+.sidebar-container {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #D3D2D3;
+    padding-top: 30px;
+}
+
+.sidebar-buttons {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.view-your-notes {
+    background-color: #24B7BD;
+    color: white;
+    width: 90%;
+    margin: 5% 10%;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.create-new-note-button {
+    background-color: #24B7BD;
+    color: white;
+    width: 90%;
+    margin: 5% 10%;
+    text-decoration: none;
+    padding: 10px;
+}

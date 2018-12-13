@@ -1,0 +1,23 @@
+.modal {
+    position: fixed; 
+    left: 0;
+    top: 0;
+    width: 100vh; 
+    height: 100vh; 
+    padding: 25% 0 0 10%;
+    opacity: .97;
+    z-index: 1;
+    background: #524e4d;
+}
+
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; 
+    height: 50%;
+}  
+
+/* .delete {
+    color: red;
+} */
