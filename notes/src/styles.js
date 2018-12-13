@@ -77,6 +77,13 @@ export const ExportButton = styled.button`
   border-radius: 5px;
   background-color: #636378;
   color: white;
+
+  @media (max-width: 600px) {
+    position: relative;
+    left: 11%;
+    bottom: 5rem;
+    width: 15%;
+  }
 `;
 
 export const FormButton = styled(Button)`

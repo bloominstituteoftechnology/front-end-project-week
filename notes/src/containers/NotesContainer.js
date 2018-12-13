@@ -51,8 +51,8 @@ class NotesContainer extends React.Component {
     switch (this.state.sortType) {
       case 'alpha':
         const alphaSortedNotes = notes.sort((n, m) => {
-          if (n.title[0].toUpperCase() < m.title[0].toUpperCase()) return -1;
-          if (n.title[0].toUpperCase() > m.title[0].toUpperCase()) return 1;
+          if (n.title.toUpperCase() < m.title.toUpperCase()) return -1;
+          if (n.title.toUpperCase() > m.title.toUpperCase()) return 1;
           return 0;
         });
         return alphaSortedNotes;
