@@ -7,53 +7,58 @@ import { withRouter } from "react-router";
 import { Route } from "react-router-dom";
 // import CreateNewNote from './View/CreateNewNote';
 // import EditView from './View/EditView';
- import NoteView from './View/NoteView';
+import NoteView from "./View/NoteView";
 import ListView from "./View/ListView";
 import NavBar from "./Components/NavBar";
-import CreateNewView from './View/CreateNewView';
+import CreateNewView from "./View/CreateNewView";
 
 class App extends Component {
-
-
   componentDidMount() {
-
     this.props.getNotes();
   }
-
-  // componentDidUpdate(previousProps) {
-  //   if (this.props.notes.length !== previousProps.notes.length)
-
-  //   this.props.getNotes();
-  // }
-   
- 
-
 
   render() {
     // Jonathan's tip: might want to put all styled comps inside a file and import from there
 
-    
     if (this.props.fetchingNotes) {
       return <h2>Hold your horses, we are loading.</h2>;
     }
     if (this.props.error) {
       return <h1>WHOA BIG EXPLOSION THINGY THERE BE A ERROR MATEY!</h1>;
     }
-
+    // need to figure out exact pathing for routers
     return (
       <div className="Page-Container">
         <NavBar />
         <div className="Main-View">
           <div className="Note-Container">
             <Route
-              exact path="/notes" 
+              exact
+              path="/notes"
               render={props => <ListView {...props} notes={this.props.notes} />}
             />
-            <Route exact path="/createNote" render={props => <CreateNewView {...props}  notes={this.props.notes}  />}/>
-            <Route exact path="/notes/:_id" render={props => <NoteView {...props} notes={this.props.notes} deleteNote={this.props.deleteNote} updateForm={this.props.updateForm}/>}/>
+            <Route
+              
+              path="/createNote"
+              render={props => (
+                <CreateNewView {...props} notes={this.props.notes} />
+              )}
+            />
+            <Route
+              
+              path="/notes/:_id"
+              render={props => (
+                <NoteView
+                  {...props}
+                  notes={this.props.notes}
+                  deleteNote={this.props.deleteNote}
+                  updateForm={this.props.updateForm}
+                  getNotes={this.props.getNotes}
+                />
+              )}
+            />
           </div>
         </div>
-        
       </div>
     );
   }

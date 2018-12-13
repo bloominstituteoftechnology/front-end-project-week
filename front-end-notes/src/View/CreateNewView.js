@@ -48,7 +48,7 @@ class CreateNewView extends Component {
       if (!this.props.addingNote) {
         console.log("fetching data after adding");
         this.props.getNotes();
-        this.props.history.push("/");
+        this.props.history.push("/notes");
       }
     }
   }

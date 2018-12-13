@@ -5,6 +5,8 @@ import { Fragment } from 'react';
 
 const ListView = props => {
 
+    // 
+
     const SmallNoteContainer = styled.div`
     display: flex;
     flex-direction: row;

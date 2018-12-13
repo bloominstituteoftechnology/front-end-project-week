@@ -8,14 +8,34 @@ class NoteView extends Component {
       toggleModal: false
     };
   }
-  // console.log(props.match.params);
-  // console.log(props.notes);
+
+
 
   toggle = () => {
     this.setState({
       toggleModal: !this.state.toggleModal
     });
   };
+
+
+  // WHAT IS THIS WIZARDRYYYYYYYYYYY
+  //Daniel's hax
+  delete = (id) => {
+    console.log(id);
+
+    this.props.deleteNote(id)
+    .then(promise => {
+        console.log(promise);
+        if (promise){
+            this.props.history.push('/notes')
+            // THAT IS AMAZING, BUT WHYYYYYY WHYYYYY DO WE NEED TO DO IT THIS WAY?
+            this.props.getNotes()
+        }
+    })}
+
+
+
+
 
   render() {
     let note = this.props.notes.find(
@@ -40,8 +60,10 @@ class NoteView extends Component {
               <button
                 className="Modal-Button-Delete"
                 onClick={() => {
-                  this.props.deleteNote(note._id);
-                  this.props.history.push("/notes");
+                //   this.props.history.push("/notes");
+                //   this.props.deleteNote(note._id);
+                // Daniel's hax
+                this.delete(note._id);
                 }}
               >
                 {"Delete this filth."}
@@ -66,7 +88,6 @@ class NoteView extends Component {
               edit
             </div>
             <div onClick={() => this.toggle()}>delete</div>
-
           </div>
           <h2>{note.title}</h2>
           <p>{note.textBody}</p>
