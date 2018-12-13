@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getNotes } from './actions';
 import './App.css';
 
 import NavigationBar from './components/Views/NavigationBar';
@@ -9,8 +11,10 @@ import CreateNoteView from './components/Views/CreateNoteView';
 import EditNoteView from './components/Views/EditNoteView';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getNotes();
+  }
   render() {
-
     return (
       <div className="container">
         <NavigationBar />
@@ -27,4 +31,9 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(
+  connect(
+    null,
+    { getNotes }
+  )(App)
+);

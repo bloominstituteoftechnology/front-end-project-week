@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getNotes, deleteNote } from '../../actions';
+import { withRouter } from 'react-router-dom';
+import { getNotes, getNote, deleteNote } from '../../actions';
 
 import Note from '../Note';
 
@@ -8,7 +9,7 @@ class NoteView extends Component {
   state = { show: false };
 
   componentDidMount() {
-    this.props.getNotes();
+    this.props.getNote(this.props.match.params.id);
   }
 
   deleteNote = (e, id) => {
@@ -27,10 +28,9 @@ class NoteView extends Component {
   }
 
   render() {
-    const noteId = this.props.match.params.id;
-    const note = this.props.notes.find(note => note._id === noteId);
+    const note = this.props.note;
 
-    if (this.props.gettingNotes) {
+    if (this.props.gettingNote) {
       return <h2>Loading note...</h2>
     }
 
@@ -44,9 +44,14 @@ class NoteView extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
-    gettingNotes: state.gettingNotes
+    note: state.note,
+    gettingNote: state.gettingNote
   }
 };
 
-export default connect(mapStateToProps, { getNotes, deleteNote })(NoteView);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getNotes, getNote, deleteNote }
+  )(NoteView)
+);
