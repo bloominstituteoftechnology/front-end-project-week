@@ -8,6 +8,7 @@ import Nav from './nav';
 import CreateNoteForm from './CreateNote/CreateNoteForm';
 import Note from './NoteList/Note';
 
+
 import { connect } from "react-redux";
 import { 
   getNotes, 
@@ -19,6 +20,8 @@ import {
   setFilter,
   setSorter
  } from '../actions';
+
+ import Authenticate from './authentication/Authenticate';
 
 class App extends Component {
 
@@ -117,7 +120,7 @@ function mapStateTpProps({ axiosReducer, otherReducer }){
   }
 }
 
-export default withRouter(connect(
+export default Authenticate(withRouter(connect(
   mapStateTpProps,
   {
     getNotes, 
@@ -129,4 +132,4 @@ export default withRouter(connect(
     setFilter,
     setSorter
   }
-)(App));
+)(App)));

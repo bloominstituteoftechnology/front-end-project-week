@@ -93,3 +93,48 @@ select{
   padding: 4px;
   border-radius: 10px;
 }
+
+/* login-----------------*/
+
+.Login-field{
+  background: lightblue;
+  width: 880px;
+  margin: 0 auto;
+  padding: 100px;
+}
+.Login-field form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-inputs{
+  display:flex;
+  flex-direction: column;
+}
+.login-inputs input{
+  margin: 20px 0;
+}
+.Login-field button{
+  width: 200px;
+  height: 50px;
+}
+
+/* dropdown---------------------------------------------------------*/ 
+.dropdown-content {
+  display: none;
+  left: 15px;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
