@@ -242,7 +242,9 @@ class App extends Component {
     axios
       .get(this.tagUrl)
       .then(response => {
-        let tagArr = response.data.filter(tag => tag.text === tagText);
+        let tagArr = response.data.filter(
+          tag => tag.text.toLowerCase() === tagText.toLowerCase()
+        );
         let tagIds = [];
         tagArr.forEach(tag =>
           !tagIds.includes(tag.notes_id) ? tagIds.push(tag.notes_id) : null
