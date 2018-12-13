@@ -14,7 +14,7 @@ export const DivNavBar = styled.div`
   padding: 2rem 1.8%;
   line-height: 0.9;
 
-  @media (max-width: 600px) {
+  @media (max-width: 650px) {
     position: static;
     width: 90%;
     margin: 0 auto;
@@ -140,7 +140,7 @@ export const SingleNote = styled.div`
   padding: 2rem 1rem;
   height: 100vh;
 
-  @media (max-width: 600px) {
+  @media (max-width: 650px) {
     margin: 0 auto;
   }
 
@@ -160,30 +160,16 @@ export const NotesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  //margin-left: 28%;
-  //margin-left: 300px;
   padding-top: 6rem;
-  //--marg: calc(100% - 195px);
-  //margin-left: calc(var(--marg) / 2);
   margin-left: 250px;
-  //margin-right: calc(var(--marg) / 2);
 
   @media (max-width: 800px) {
     //align-items: center;
     //margin-left: 275px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 650px) {
     margin: 0 auto;
-  }
-
-  form {
-    //padding-left: 3%;
-    //width: 80%;
-
-    //@media (max-width: 600px) {
-    //padding-left: 0;
-    //}
   }
 `;
 
@@ -225,7 +211,7 @@ export const StyledNote = styled.div`
   min-width: 100px;
   //margin: 1.2rem 1.5%;
   margin: 1.2rem 0;
-  height: 16.8rem;
+  height: 17.8rem;
   overflow: hidden;
   text-align: left;
   white-space: pre-wrap;
@@ -255,8 +241,9 @@ export const StyledNote = styled.div`
   p {
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 9;
+    -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
+    line-height: 1.2;
   }
 `;
 

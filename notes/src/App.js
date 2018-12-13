@@ -32,6 +32,11 @@ const GlobalStyle = createGlobalStyle`
       font-size: 3.7rem;
   }
 
+    p {
+      margin-top:5px;
+      margin-bottom: 5px;
+  }
+
     em {
       font-style: italic;
   }
