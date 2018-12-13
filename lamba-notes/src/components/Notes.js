@@ -6,7 +6,7 @@ class Notes extends React.Component {
     super();
     this.state = {
       currentPage: 1,
-      notesPerPage: 2
+      notesPerPage: 6
     };
   }
 

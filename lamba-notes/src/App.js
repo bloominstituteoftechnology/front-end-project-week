@@ -30,6 +30,13 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  componentDidUpdate() {
+    axios
+      .get(`${APIUrl}/api/notes`)
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+  }
+
   editNote = id => {
     axios.put(`${APIUrl}/api/notes/${id}`, {
       title: this.state.updatedTitle,
