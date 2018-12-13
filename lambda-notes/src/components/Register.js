@@ -39,8 +39,7 @@ export default class Register extends Component {
       .catch(error => {
         console.log('the error is.... is...', error);
         this.setState({
-          message: 'Registration failed. The error is.. ',
-          error,
+          message: 'Registration failed',
           user: { ...initialUser }
         });
       });
