@@ -1,4 +1,5 @@
 body {
+  background: gray;
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -11,4 +12,62 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Sidebar.js */
+.lambda{
+  color: darkturquoise;
+  display: flex;
+  justify-content: center;
+  border-bottom: 3px dotted gold
+}
+.nav{
+  display: flex;
+  justify-content: center;
+
+}
+.create{
+  text-decoration: none;
+  color:black;
+  border: 1px solid lightgrey;
+  padding: 5px;
+  margin:5px;
+  background: gold;
+}
+.view{
+  text-decoration: none;
+  color:black;
+  border: 1px solid lightgrey;
+  padding: 5px;
+  margin: 5px;
+  background-color: gold;
+}
+
+/* Notes.js */
+.notes{
+  display: flex;
+  justify-content: center;
+  border: 2px solid gold;
+  background: darkturquoise;
+}
+
+/* Note.js */
+.info{
+  display : block;
+  border: 2px solid gold;
+  background: gray;
+  margin: 25px;
+  height: auto;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  color: black; 
+}
+.bod{
+  display: flex;
+  justify-content: center;
+  color: antiquewhite;
+  padding: 0 10px;
 }

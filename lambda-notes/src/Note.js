@@ -5,8 +5,10 @@ const Note = props => {
   const { id, title, textBody } = props;
   return (
     <Link to={`/notes/${id}`}>
-      <h3>{title}</h3>
-      <p>{textBody}</p>
+      <table class="info">
+      <h1 class="title">{title}</h1>
+      <p class="bod">{textBody}</p>
+      </table>
     </Link>
   );
 };

@@ -4,7 +4,7 @@ import Note from './Note';
 const Notes = props => {
   return (
     <div>
-      <h1>Notes:</h1>
+      <h1 class="notes">Notes:</h1>
       <div>
         {props.notes.map(note => {
           return (
