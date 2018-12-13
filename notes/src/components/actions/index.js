@@ -67,14 +67,12 @@ export const ruSure = () => dispatch => {
     dispatch({ type: DELETE_CONFIRM })
 }
 
-export const deleter = (noteId, props) => dispatch => {
-    console.log(props)
+export const deleter = (noteId) => dispatch => {
     return (
         axios
             .delete(`http://localhost:4500/api/notes/delete/${noteId}`)
             .then(({ data }) => {
                 dispatch({ type: DELETE_OFF });
-                this.props.history.push('/');
             })
             .catch(error => console.log(error))
     )

@@ -11,7 +11,7 @@ const Delete = props => {
             <div className='deleteBox'>
                 <p>Are you sure you want to delete this?</p>
                 <div className='deleteConfirm'>
-                    <button onClick={() => props.deleter(props.note.id, props)}className='deleteButton'>Delete</button>
+                    <button onClick={() => props.deleter(props.note.id)}className='deleteButton'>Delete</button>
                     <button className='noDelete'>No</button>
                 </div>
             </div>

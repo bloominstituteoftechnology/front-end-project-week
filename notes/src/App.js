@@ -7,7 +7,7 @@ import HeadNav from './components/HeadNav/HeadNav';
 import ListView from './components/ListView/ListView';
 import NoteView from './components/NoteView/NoteView';
 import EditNote from './components/EditCreate/EditNote';
-import Delete from './components/Delete/Delete';
+// import Delete from './components/Delete/Delete';
 
 //actions
 import { getNotes, viewNote, create, createMode, editMode, ruSure, deleter } from './components/actions';
@@ -44,10 +44,6 @@ class App extends Component {
     event.preventDefault()
     this.props.ruSure()
   }
-
-  // componentWillUpdate() {
-  //   this.props.getNotes()
-  // }
 
   render() {
     return (
