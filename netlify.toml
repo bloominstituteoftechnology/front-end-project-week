@@ -9,7 +9,4 @@
   base    = "./lambda-notes"
   publish = "./lambda-notes/build"
   
-  [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  command = "npm run build"
