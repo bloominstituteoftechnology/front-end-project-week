@@ -35,8 +35,6 @@ class App extends Component {
         .then(response => {
           console.log(response);
           const notes = response.data;
-          // let newNotes = [...this.state.notes];
-          // newNotes.unshift(note);
           this.setState({ notes: notes });
         })
         .catch(error => console.log(error));
