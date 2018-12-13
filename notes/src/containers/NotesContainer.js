@@ -66,14 +66,20 @@ class NotesContainer extends React.Component {
   };
 
   changeSort = e => {
-    console.log(e.target.value);
     this.setState({sortType: e.target.value});
   };
 
-  filterNotes = e => {
+  //filterNotes = e => {
+  //e.preventDefault();
+  //const result = this.state.fuse.search(this.state.searchText);
+  //this.setState({filteredNotes: result});
+  //};
+  //
+  searchEnter = (e, text) => {
     e.preventDefault();
-    const result = this.state.fuse.search(this.state.searchText);
-    this.setState({filteredNotes: result});
+    console.log(text);
+    console.log(e.target);
+    //this.clearSearchText();
   };
 
   searchNotes = e => {
@@ -107,6 +113,8 @@ class NotesContainer extends React.Component {
           searchNotes={this.searchNotes}
           clearSearchText={this.clearSearchText}
           changeSort={this.changeSort}
+          searchEnter={this.searchEnter}
+          totalNotes={this.props.notes.length}
         />
       </div>
     );

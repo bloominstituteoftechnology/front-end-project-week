@@ -18,23 +18,30 @@ const Notes = props => {
       <ExportButton onClick={() => props.export()}>Export to CSV</ExportButton>
       <SearchBarWrapper>
         <h2>Your Notes:</h2>
-        <form onSubmit={e => props.clearSearchText(e)}>
+        <form onSubmit={e => props.searchEnter(e, props.searchText)}>
           <SearchBar
+            name="search"
             type="text"
             placeholder="search"
             value={props.searchText}
             onChange={e => props.searchNotes(e)}
           />
+          <button type="submit">Search</button>
         </form>
-        <div>
-          Displaying <strong>0 of 10 </strong>
-          notes.
-          <ClearFilter onClick={e => props.clearSearchText(e)}>
-            Show All
-          </ClearFilter>
-        </div>
+        {props.notes.length < props.totalNotes && (
+          <div>
+            Displaying{' '}
+            <strong>
+              {props.notes.length} of {props.totalNotes}{' '}
+            </strong>
+            notes.
+            <ClearFilter onClick={e => props.clearSearchText(e)}>
+              Show All
+            </ClearFilter>
+          </div>
+        )}
         <form>
-          <label for="sort">Sort:</label>
+          <label htmlFor="sort">Sort:</label>
           <SortSelect id="sort" onClick={e => props.changeSort(e)}>
             <option value="none">None</option>
             <option value="time">Recent</option>
