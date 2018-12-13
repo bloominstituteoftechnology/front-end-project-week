@@ -10,7 +10,9 @@ import Form from './components/Form';
 import YourNotes from './components/Notes';
 import Note from './components/Note';
 import Edit from './components/Edit';
-import SearchBar from './components/SearchBar'
+import SearchBar from './components/SearchBar';
+import Login from './components/Login';
+import Register from './components/Register';
 
 
 
@@ -20,6 +22,8 @@ class App extends Component {
     super(props);
     this.state = {
       notes: [],
+      filteredNotes: [],
+      searchInput: "",
       newNote: {
         tag: '',
         title: '',
@@ -38,7 +42,14 @@ class App extends Component {
 
   }
 
-
+  search = event => {
+    const notes = this.state.notes.filter(note => {
+      if (note.includes(event.target.value)) {
+        return note
+      }
+    })
+    this.setState({ filteredNotes: notes })
+  }
 
   addNote = (event, newNote) => {
     event.preventDefault();
@@ -69,13 +80,22 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+
+
   render() {
     return (
       <div className='container'>
         <div className="App">
           <div className="side-bar">
             <div className='lambda-notes'>
-          <SearchBar/>
+            <NavLink to='/register'>
+              <button className='regLog'>Register</button>
+            </NavLink>
+            <NavLink to='/login'>
+              <button className='regLog'>Login</button>
+            </NavLink>
+            <SearchBar search={this.search} />
+        
               <h1>Lambda</h1>
               <h1> Notes</h1>
             </div>
@@ -90,7 +110,11 @@ class App extends Component {
           <Route
             exact path='/'
             render={props =>
-              <YourNotes {...props} />
+              <YourNotes {...props} 
+              notes={
+                this.state.filteredNotes.length > 0
+                  ? this.state.filteredNotes
+                  : this.state.notes} />
             } />
 
           <Route
@@ -114,6 +138,22 @@ class App extends Component {
                 editNote={this.editNote}
               />
             } />
+
+          <Route
+            path='/login/'
+            render={props =>
+              <Login {...props}
+              />
+            }
+            />
+
+          <Route
+            path='/register/'
+            render={props =>
+              <Register {...props}
+              />
+            }
+            />      
 
         </div>
       </div>

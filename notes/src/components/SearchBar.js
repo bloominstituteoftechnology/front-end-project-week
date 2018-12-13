@@ -6,11 +6,20 @@ class SearchBar extends React.Component {
     constructor(props){
     super(props)
     this.state = {
-        notes: props.notes, 
-        placeholder: 'Search',
+        filteredNotes: [],
+        searchInput: '',
         
     }}
 
+    Search = event => {
+        const notes = this.state.notes.filter(post => {
+          if (post.username.includes(event.target.value)) {
+            return post
+          }
+        })
+        this.setState({ filteredNotes: notes })
+      }
+    
     
 
     
