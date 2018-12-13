@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 const SideBar = (props) => {
     let loginButton;
-    if(!props.loginStatus) {
-        loginButton=<button>Login</button>
+    if(props.loginStatus) {
+        loginButton=<button onClick={props.logout}>Logout</button>
     }
     return (
         <div className='sideBarContainer'>

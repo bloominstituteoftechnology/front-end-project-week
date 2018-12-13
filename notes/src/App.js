@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchNotes, postNote, overlayToggle, deleteNote, loginStatusToggle, loginAttempt } from './actions';
+import { fetchNotes, postNote, overlayToggle, deleteNote, loginStatusToggle} from './actions';
 import { connect } from 'react-redux';
 import NoteListView from './components/NoteListView';
 import CreateNote from './components/CreateNote';
@@ -12,6 +12,7 @@ import { Route } from 'react-router-dom';
 import {withRouter} from 'react-router';
 import Note from './components/Note';
 import { NavLink} from 'react-router-dom';
+import axios from 'axios';
 
 
 class App extends Component {
@@ -21,8 +22,7 @@ class App extends Component {
       notes: this.props.notes,
       note: {
         Title: '',
-        Content: '',
-        user_id: this.props.userId,
+        Content: ''
       },
       user: {
         username: '',
@@ -55,26 +55,47 @@ class App extends Component {
   }
 
   postHandler = (ev) => {
+    console.log(this.state.note)
     this.props.postNote(this.state.note).then(() => this.props.fetchNotes())
 
   }
 
   loginHandler = (ev) => {
     ev.preventDefault();
-    this.props.loginAttempt(this.state.user)
-    .then(() => {
-      window.location = "/notes"
-      this.props.loginStatusToggle()
-    });
+    return axios
+        .post('https://notes-bryangf.herokuapp.com/api/users/login', this.state.user)
+        .then((res) => {
+            if(res.status === 200 && res.data) {
+                localStorage.setItem('user-token', res.data);
+                this.props.loginStatusToggle();
+                this.props.fetchNotes(); 
+                this.props.history.push('/notes')
+                
+            }
+        })
+        .catch(err => console.log(err))
   }
 
   registerHandler = (ev) => {
     ev.preventDefault();
-    this.props.registerAttempt(this.state.user)
-    .then(() => {
-      window.location = "/notes"
-      this.props.loginStatusToggle()
-    })
+    return axios
+        .post('https://notes-bryangf.herokuapp.com/api/users/register', this.state.user)
+        .then((res) => {
+            if(res.status === 201 && res.data) {
+                localStorage.setItem('user-token', res.data);
+                this.props.loginStatusToggle();
+                this.props.fetchNotes(); 
+                this.props.history.push('/notes')
+            }
+        })
+        .catch(err => console.log(err))
+    
+  }
+
+  logout = (ev) => {
+    this.props.loginStatusToggle();
+    localStorage.removeItem('user-token')
+    this.props.history.push('/')
   }
 
   
@@ -84,7 +105,6 @@ class App extends Component {
   }
 
   deletingNote = (ev) => {
-    console.log(this.props.note[0])
     this.props.overlayToggle();
     this.props.deleteNote(this.props.note[0].id).then(() => this.props.fetchNotes());
   }
@@ -96,7 +116,7 @@ class App extends Component {
             <div className='overlay-box'>
               <p>Are you sure you want to delete this?</p>
               <div className='overlay-buttons'>
-                <NavLink onClick={this.forceUpdateHandler} to='/notes'>
+                <NavLink to='/notes'>
                   <button className='deletebutton' onClick={this.deletingNote}>Delete</button>
                 </NavLink>
                   <button onClick ={this.togglingOverlay}>Cancel</button>
@@ -115,7 +135,7 @@ class App extends Component {
           <Register {...props} changeHandler={this.changeHandler} registerHandler={this.registerHandler}/> 
         )}/>
         <Route path='/notes' render ={(props) => (
-          <SideBar {...props} update={this.componentDidMount} toggleLogin={this.props.loginStatusToggle} loginStatus={this.props.loginStatus}/> 
+          <SideBar {...props} update={this.componentDidMount} loginStatus={this.props.loginStatus} logout={this.logout}/> 
         )}/>
         <div className='content'>
         <Route exact path='/notes' render ={(props) => (
@@ -150,5 +170,5 @@ const mapStateToProps = (state) => {
 
 export default withRouter(connect(
   mapStateToProps,
-  { fetchNotes, postNote, overlayToggle, deleteNote, loginStatusToggle, loginAttempt}, 
+  { fetchNotes, postNote, overlayToggle, deleteNote, loginStatusToggle}, 
 )(App));
