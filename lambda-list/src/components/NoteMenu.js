@@ -8,11 +8,11 @@ import axios from 'axios';
 
 
 const NoteMenu = props => {
- 
+ console.log("Props", props)
     return (
         <div className='note-menu'>
                 <div className='menu-item'>
-            <Link to='update-note'>Edit</Link>
+            <Link to={`/edit-note/${props.props.match.params.noteID}`}>Edit</Link>
         </div>
         <div className='menu-item' onClick={() => {
             Popup.create({

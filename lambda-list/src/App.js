@@ -6,7 +6,8 @@ import { Route } from 'react-router-dom';
 import axios from 'axios';
 import NewNote from './components/NewNote'
 import {SingleNote } from './components/SingleNote'
-import DeleteNote from './components/DeleteNote'
+
+import EditNote from './components/EditNote'
 
 
 import './App.css';
@@ -31,29 +32,36 @@ class App extends Component {
   }
 
   addNote = data => {
-  
     axios.post('https://fe-notes.herokuapp.com/note/create', data)
   .then(response => {
     data["_id"] = response.data.success;
-    this.setState({
-        title: response.title,
-        textBody: response.textBody
-    })
-//   .catch(err => console.log(err)) 
+    this.setState({ note: [...this.state.note, data] })
+          // .catch(err => console.log(err)) 
   })
 }
 
-  deleteNote = (id) => {
-    
-    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+
+
+  editNote = (id, data) => {
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
   .then(response => {
-    this.setState({
-        title: response.title,
-        textBody: response.textBody
-    })
-  //   .catch(err => console.log(err)) 
+    // data["_id"] = response.data.success;
+    console.log("FUNCTON Response", response)
+    this.setState({ note: [...this.state.note, response.data] })
+    // .catch(err => console.log(err)) 
   })
   }
+
+  deleteNote = (id) => {
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+  .then(response => {
+    this.setState({ note: [...this.state.note, response]
+    })
+    // .catch(err => console.log(err)) 
+  })
+  }
+
+  
  
 
 
@@ -68,8 +76,9 @@ class App extends Component {
                <Menu />
                <Route exact path="/" render={props => <NoteList {...props} notes={this.state.note} />} />
                <Route path="/new-note" render={props => <NewNote {...props} notes={this.state.note} addNote={this.addNote}/>} />
-               <Route path="/note/:noteID" render={props => <SingleNote {...props} notes={this.state.note} deleteNote={this.deleteNote}/>}/>
-               <Route path="/delete-note" render={props => <DeleteNote {...props} notes={this.state.note} />}/>
+               <Route exact path="/edit-note/:_id" render={props => <EditNote {...props} notes={this.state.note} editNote={this.editNote}/>} />
+               <Route path="/note/:noteID" render={props => <SingleNote {...props} notes={this.state.note} deleteNote={this.deleteNote} editNote={this.editNote}/>}/>
+               
                
         </div> 
         

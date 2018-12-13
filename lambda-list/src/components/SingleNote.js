@@ -9,7 +9,7 @@ import NoteMenu from './NoteMenu'
 const Page = styled.div`
   
   width: 100%;
-  margin: 6% 3%;
+  margin: 2% 3%;
   
 
 `
@@ -17,7 +17,7 @@ const Page = styled.div`
 
 
 export const SingleNote = props => {
-    console.log(props.notes)
+    console.log("Single Note", props.notes)
     const note = props.notes.find(note => `${note._id}` === props.match.params.noteID);
     console.log('Note: ', note)
     if (note === undefined) {
@@ -26,7 +26,7 @@ export const SingleNote = props => {
         return  (
             
             <Page className='single-note'>
-                <NoteMenu deleteNote={props.deleteNote} noteID={props.match.params.noteID} props={props}/>
+                <NoteMenu deleteNote={props.deleteNote} editNote={props.editNote} noteID={props.match.params.noteID} props={props}/>
                 
                 <div className='note-title-single'>
                     <h3>{note.title}</h3>
