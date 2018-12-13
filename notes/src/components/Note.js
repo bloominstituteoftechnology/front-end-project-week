@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./note.css";
 const Note = props => {
   return (
     <div className="note-container">

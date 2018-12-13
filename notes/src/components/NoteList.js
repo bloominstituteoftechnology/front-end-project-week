@@ -1,6 +1,6 @@
 import React from "react";
 import Note from "./Note";
-
+import "./notelist.css";
 const Notelist = props => {
   function routeToNote(ev, note) {
     ev.preventDefault();
