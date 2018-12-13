@@ -10,7 +10,7 @@ export const StyledCard = styled.div`
   height: 222px;
   background: #ffffff;
   padding: 13px 20px;
-  /* border: 1px solid rgb(152, 152, 152); */
+  /* border: 1px solid ${colors.buttonNegColor}; */
   border-radius: 7px;
 `;
 
