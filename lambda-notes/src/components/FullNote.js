@@ -64,7 +64,7 @@ class FullNote extends React.Component {
     event.preventDefault();
     axios
       .delete(`${this.tagUrl}/${id}`)
-      .then(this.getTags)
+      .then(this.getTags())
       .catch(err => console.log("Error while deleting this tag: ", err));
   };
 
