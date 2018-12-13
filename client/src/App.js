@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Route, Switch } from "react-router-dom";
+import { Route, withRouter, Switch, Redirect } from "react-router-dom";
 
 import "./App.css";
 import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
 import Sidebar from "./components/Sidebar";
 import NoteView from "./components/NoteView";
+import Login from "./components/Login";
+import Register from "./components/Register";
+
+let API = "https://lambda-notes-sgear.herokuapp.com";
+// let API = "http://localhost:9000";
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +19,8 @@ class App extends Component {
 
     this.state = {
       notes: [],
-      fnotes: []
+      fnotes: [],
+      isLoggedIn: false
     };
   }
 
@@ -24,26 +30,43 @@ class App extends Component {
 
   //Gets all notes from database
   fetchNotes = () => {
-    axios
-      .get("https://lambda-notes-sgear.herokuapp.com/notes")
-      .then(res => this.setState({ notes: res.data }))
-      .catch(err => console.log(err.message));
+    const token = localStorage.getItem("jwt");
+
+    const options = {
+      headers: {
+        Authorization: token
+      }
+    };
+    if (token) {
+      axios
+        .get(`${API}/notes`, options)
+        .then(res => {
+          if (res.status === 200 && res.data) {
+            this.setState({ isLoggedIn: true, notes: res.data });
+          } else {
+            throw new Error();
+          }
+        })
+        .catch(err => {
+          this.props.history.push("/");
+        });
+    }
   };
 
   //Adds new note to API
   addNote = obj => {
     axios
-      .post("https://lambda-notes-sgear.herokuapp.com/notes", obj)
+      .post(`${API}/notes`, obj)
       .then(res => {
         this.setState({ notes: res.data.notes });
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error.message));
   };
 
   //Edits notes, takes an object as a parameter
   editNote = obj => {
     axios
-      .put(`https://lambda-notes-sgear.herokuapp.com/notes/${obj.id}`, obj)
+      .put(`${API}/notes`, obj)
       .then(res => {
         this.setState({ notes: res.data.notes });
         console.log("edited", res);
@@ -54,7 +77,7 @@ class App extends Component {
   //Deletes note by id
   deleteNote = id => {
     axios
-      .delete(`https://lambda-notes-sgear.herokuapp.com/notes/${id}`)
+      .delete(`${API}/notes/${id}`)
       .then(res => {
         this.setState({ notes: res.data.notes });
         console.log("deleted", res);
@@ -62,22 +85,38 @@ class App extends Component {
       .catch(err => console.dir(err));
   };
 
+  logout = () => {
+    localStorage.removeItem("jwt");
+    this.props.history.push("/");
+    window.location.reload();
+  };
+
   render() {
+    const loggedIn = this.state.isLoggedIn;
+    if (!loggedIn) {
+      return <Route exact path="/" render={props => <Login {...props} />} />;
+    }
     return (
       <div className="App">
         <div className="home-view">
           <div>
-            <Sidebar notes={this.state.notes} addNote={this.addNote} />
+            <Sidebar
+              notes={this.state.notes}
+              addNote={this.addNote}
+              logout={this.logout}
+            />
           </div>
 
           <Switch>
+            <Route exact path="/" render={props => <Login {...props} />} />
             <Route
               exact
-              path="/"
+              path="/home"
               render={props => (
                 <NotesList
                   {...props}
                   notes={this.state.notes}
+                  isLoggedIn={this.state.isLoggedIn}
                   editNote={this.editNote}
                   deleteNote={this.deleteNote}
                 />
@@ -94,6 +133,11 @@ class App extends Component {
                   addNote={this.addNote}
                 />
               )}
+            />
+            <Route
+              exact
+              path="/register"
+              render={props => <Register {...props} notes={this.state.notes} />}
             />
 
             <Route
@@ -116,4 +160,22 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default withRouter(App);
+
+// const PrivateRoute = ({ component: Component, ...rest }) => (
+//   <Route
+//     {...rest}
+//     render={props =>
+//       LoggedIn ? (
+//         <Component {...props} />
+//       ) : (
+//         <Redirect
+//           to={{
+//             pathname: "/",
+//             state: { from: props.location }
+//           }}
+//         />
+//       )
+//     }
+//   />
+// );

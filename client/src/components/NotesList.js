@@ -11,6 +11,12 @@ const NotesList = props => {
         <h1>Loading Notes...</h1>
       </div>
     );
+  } else if (!props.isLoggedIn) {
+    return (
+      <div>
+        Please <Link to="/">Log In</Link>
+      </div>
+    );
   } else {
     return (
       <div className="NotesList">

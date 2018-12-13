@@ -25,6 +25,8 @@ const Sidebar = props => {
             onKeyDown={props.search}
           />
         </form>
+
+        <button onClick={props.logout}>Log Out</button>
       </div>
     </section>
   );
