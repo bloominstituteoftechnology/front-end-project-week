@@ -1,14 +1,19 @@
 import React from "react";
+import axios from 'axios';
 
 const EditForm = props => {
   const note = props.notes.find(
     note => props.match.params.id === `${note.id}`
   );
+
   const editNotes = event => {
-    event.preventDefault();
+    //event.preventDefault();
     props.editNote(note.id);
     props.history.push(`/api/note/${note.id}`);
+    window.location.reload();
   };
+
+  
   return (
     <form className="form">
       <h2>Edit Note:</h2>
@@ -34,3 +39,5 @@ const EditForm = props => {
 };
 
 export default EditForm;
+
+//`/api/note/${note.id}`
