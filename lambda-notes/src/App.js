@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import axios from 'axios'
 
 import NavBar from './components/NavBar';
+import SearchBar from './components/SearchBar';
 import NotesList from './components/NotesList';
 import Note from './components/Note';
 import CreateNewNote from './components/CreateNewNote';
@@ -14,7 +15,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      notes: []
+      notes: [],
+      filteredSearch: []
     }
   }
 
@@ -70,17 +72,40 @@ class App extends Component {
    
   }
 
+  handleSearchInput = (event) => {
+    
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  getFilteredSearch = () => {
+    const searchFiltered =  this.state.notes.filter(note => {
+      if(note.title.includes(this.state.filteredSearch.toUpperCase())) {
+          return true
+        }
+        return false
+    }) 
+   return searchFiltered
+}
+
   render() {
     const { notes } = this.state;
     return (
       <AppWrapper>
         <NavBar />
+        <SearchBar
+          filteredSearch={this.state.filteredSearch}
+          handleSearchInput={this.handleSearchInput}
+        />
         <Route 
           exact path ='/'
           render={props =>
             <NotesList
               {...props}
-              notes={notes}
+              notes={this.state.filteredSearch.length > 0 ?
+                this.getFilteredSearch() :
+                notes}
             />
           }
         />
