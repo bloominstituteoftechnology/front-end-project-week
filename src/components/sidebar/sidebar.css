@@ -23,13 +23,15 @@
 }
 
 .button-view-notes{
-    padding: 10px 13%;
+    padding: 10px;
+    width: 90%;
     margin: 25px 0 10px 0;
 }
 
 .button-create{
-    padding: 11px 9.5%;
-    margin: 10px 0 10px 0
+    padding: 11px;
+    margin: 10px 0 10px 0;
+    width: 90%;
 }
 
 .sidebar-wrapper a{
