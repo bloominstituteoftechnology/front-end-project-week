@@ -7,7 +7,7 @@ class CreateNoteForm extends React.Component {
   }
 
   componentDidMount() {
-    console.log('checking for cdm',this.props)
+
     if(this.props.match.path === '/edit/:id' && this.props.content.length > 0){
       let note = this.props.content.find( note => note._id == this.props.match.params.id)
       
@@ -27,7 +27,7 @@ class CreateNoteForm extends React.Component {
 
 
   componentDidUpdate() {
-    console.log('from cdu',this.state.title,this.props.content)
+
     if(this.props.match.path === '/edit/:id' && this.state.title === '' && this.props.content.length > 0) {
       let note = this.props.content.find( note => note._id == this.props.match.params.id)
       if(note.title === undefined) return;
@@ -41,7 +41,7 @@ class CreateNoteForm extends React.Component {
   render() {
 
     if(this.props.match.path === '/edit/:id') {
-      console.log('here in mathc')
+
       return (
         <div className={'create-note'}>
   
@@ -65,14 +65,14 @@ class CreateNoteForm extends React.Component {
               value={this.state.title}
             />
     
-            <input
+            <textarea
               onChange={this.handleOnChange} 
               className='content'
               placeholder='Note Content' 
               name={'textBody'}
               value={this.state.textBody}
             />
-            <button type='submit'>Save</button>
+            <button className={'save'} type='submit'>Save</button>
   
           </form>
         </div>
@@ -103,14 +103,14 @@ class CreateNoteForm extends React.Component {
             value={this.state.title}
           />
   
-          <input
+          <textarea
             onChange={this.handleOnChange} 
             className='content'
             placeholder='Note Content' 
             name={'textBody'}
             value={this.state.textBody}
           />
-          <button type='submit'>Save</button>
+          <button className={'save'} type='submit'>Save</button>
 
         </form>
       </div>

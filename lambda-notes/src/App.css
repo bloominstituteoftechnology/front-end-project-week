@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+body { 
+  background: #F2F1F2;
+}
+
 .App {
   /* text-align: center; */
   display: flex;
@@ -34,30 +42,52 @@
 
 .side-bar {
   position: fixed;
-  background: gray;
+  background: #D3D2D3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
   height: 100vh;
   width: 20%;
 }
 
+.side-bar button {
+  font-size: 20px;
+  width: 80%;
+  padding: 20px;
+  margin: 20px;
+  background: #24B8BD;
+}
+
+.side-bar .search {
+  font-size: 18px;
+  width: 80%;
+  padding: 10px;
+}
+
 .main-content {
   position: relative;
-  width: 70%;
-  padding-left: 80px;
+  background: #F2F1F2;
+  width: 80%;
+  padding: 0 240px 0 90px;
   left: 20%;
 }
 
 .display-cards {
   display: flex;
+  /* justify-content: space-around; */
   flex-flow: row;
   flex-wrap: wrap;
 }
 
 .note-card {
-  width: 300px;
-  height: 300px;
+  width: 260px;
+  height: 280px;
   padding: 10px;
   border: 1px solid black;
-  /* margin: 10px; */
+  overflow: hidden;
+  background: white;
+  margin: 0 20px 15px 20px;
 }
 
 .create-note {
@@ -67,11 +97,23 @@
 
 .title {
   width: 30%;
+  font-size: 20px;
   padding: 10px;
+  margin-bottom: 20px;
 }
 
 .content {
   width: 60%;
+  font-size: 18px;
   min-height: 500px;
+  resize: none;
   padding: 10px;
+  margin-bottom: 20px;
+}
+
+.save {
+  width: 23%;
+  padding: 20px;
+  font-size: 20px;
+  background: #24B8BD;
 }

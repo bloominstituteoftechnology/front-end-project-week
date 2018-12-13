@@ -14,6 +14,8 @@ class SearchForm extends React.Component {
   render() {
     return (
       <input 
+        className={'search'}
+        placeholder={'Search Notes'}
         onChange={this.handleOnchange}
         value={this.state.search}
       />

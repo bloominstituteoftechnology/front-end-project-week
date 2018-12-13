@@ -10,7 +10,7 @@ const Note = styled.div`
   nav {
     align-self: flex-end;
     padding: 10px;
-    width: 6%;
+    min-width: 120px;
     display: flex;
     justify-content: space-between;
   }
@@ -30,6 +30,7 @@ const Note = styled.div`
   .delete .prompt {
     display flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
     width: 500px;
     height: 200px;
@@ -41,7 +42,17 @@ const Note = styled.div`
   .delete .prompt button{
     width: 40%;
     padding: 20px;
-    background: light-grey;
+    
+    color: white;
+    font-size: 18px;
+  }
+
+  .cancel {
+    background: #24B8BD;
+  }
+
+  .delete-button {
+    background: #CA001A;
   }
 `
 
@@ -87,12 +98,13 @@ class DisplayCard extends React.Component  {
           return (
             <div className={'delete'}>
               <div className={'prompt'}>
-                <button onClick={() => {
+                <h3>Are you sure you want to delete this?</h3>
+                <button className='delete-button' onClick={() => {
                   this.props.deleteNote(this.props.match.params.id);
                   this.props.history.push('/');
                 }
               }>Delete</button>
-                <button onClick={() => props.history.push(`/note/${props.match.params.id}`)}>No</button>
+                <button className='cancel' onClick={() => props.history.push(`/note/${props.match.params.id}`)}>No</button>
               </div>
             </div>
           )

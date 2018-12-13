@@ -10,8 +10,10 @@ const SideBar = ({ content, search }) => {
       <Route path={'/'} render={props => {
         return (
           <React.Fragment>
-            <NavLink to={'/'}>View your Notes</NavLink>
-            <NavLink to={'/create'}>+ Create New Note</NavLink>
+            <button onClick={() => props.history.push('/')}>View your Notes</button>
+            <button onClick={() => props.history.push('/create')}>+ Create New Note</button>
+            {/* <NavLink to={'/'}>View your Notes</NavLink>
+            <NavLink to={'/create'}>+ Create New Note</NavLink> */}
 
           </React.Fragment>
         )
@@ -20,7 +22,7 @@ const SideBar = ({ content, search }) => {
       <Route exact path={'/'} render={props => {
         return (
           <React.Fragment>
-
+            <h3>Search:</h3>
             <SearchFrom content={content} search={search}/>
           </React.Fragment>
         )
