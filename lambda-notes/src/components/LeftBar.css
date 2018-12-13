@@ -1,0 +1,13 @@
+.leftBar {
+    background: rgb(119, 160, 235);
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.leftBar h1 {
+    margin: 0;
+}
+
+/* .button code lives in App.css */

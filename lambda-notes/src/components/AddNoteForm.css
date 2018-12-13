@@ -1,0 +1,18 @@
+.addNoteForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.titleInput {
+    border: 1px solid darkgray;
+    padding: 10px;
+    width: 40%;
+}
+
+.contentInput {
+    border: 1px solid darkgray;
+    height: 300px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 90%;
+}

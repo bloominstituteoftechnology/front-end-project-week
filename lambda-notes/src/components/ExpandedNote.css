@@ -1,0 +1,46 @@
+.modal {
+    background: rgba(0, 0, 0, 0.5);
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.modalMenu {
+    align-items: center;
+    background: white;
+    border: 1px solid darkgray;
+    display: flex;
+    flex-direction: column;
+    margin: 100px auto;
+    padding: 30px 0;
+    width: 300px;
+}
+
+.deleteButton {
+    background: rgb(204, 18, 18);
+    margin-right: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.noteOptionsContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.noteOptions {
+    color: black;
+    font-weight: 600;
+    margin-right: 20px;
+    text-decoration: underline;
+}
+
+.noteOptions:hover {
+    color: blue;
+}

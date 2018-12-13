@@ -1,0 +1,28 @@
+.App {
+  text-align: left;
+  display: flex;
+}
+
+.content {
+  background: rgb(154, 223, 158);
+  min-height: 100vh;
+  padding: 20px;
+  width: 100%;
+}
+
+.button {
+  background: rgb(181, 98, 219);
+  border: 1px solid darkgray;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  width: 100px;
+}
+
+.button:hover {
+  background: rgb(109, 190, 109);
+}
+

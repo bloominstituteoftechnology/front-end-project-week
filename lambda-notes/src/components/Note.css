@@ -1,0 +1,16 @@
+.note {
+    background: white;
+    color: black;
+    border: 1px solid darkgray;
+    font-size: 0.7rem;
+    height: 200px;
+    margin: 10px;
+    padding: 5px;
+    text-decoration: none;
+    width: 25%;
+}
+
+.note h2 {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 5px;
+}

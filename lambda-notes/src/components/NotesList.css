@@ -1,0 +1,9 @@
+.yourNotes {
+    margin-left: 10px;
+}
+
+.notesDisplay {
+    display: flex;
+    flex-wrap: wrap;
+}
+
