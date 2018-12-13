@@ -57,6 +57,7 @@ const reqOptions = {
                 key={i}>                
                 <CardBody className='cardBody'>
                   <CardTitle className='title'>{note.title}</CardTitle>
+                  <div className='fade'/>
                   <CardText className='note'>{note.content}</CardText>
                 </CardBody>
               </Card>

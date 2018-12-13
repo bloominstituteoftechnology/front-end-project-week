@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 html {
@@ -46,12 +47,12 @@ img {
   text-align: left;
   display: flex;
   background-color: rgb(242, 241, 242);
-  height: 100vh;
+  height: cover;
 }
 .routesContainer {
   background-color: rgb(242, 241, 242);
   width: 75%;
-  height: 100%;
+  height: 100vh;
 }
 
 .navbar {
@@ -85,7 +86,22 @@ img {
   box-shadow: 5px 5px 15px 5px #00000056;
   transition: box-shadow .5s;
 }
+.logout{
+  margin-left: 30%;
+  background-color: rgb(104, 182, 187);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 14px;
+  border-radius: 8px;
+}
 
+.logout:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 15px 5px #00000056; 
+  box-shadow: 5px 5px 15px 5px #00000056;
+  transition: box-shadow .5s;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

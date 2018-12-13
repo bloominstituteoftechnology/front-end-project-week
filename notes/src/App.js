@@ -178,7 +178,7 @@ prepareUpdateForm = ( event, note) => {
               style={{ textDecoration: 'none' }}>
               <h2 className="navLinks create">Register</h2>
             </Link>
-            <button onClick={this.logout}>Logout</button>
+            <button className='logout'onClick={this.logout}>Logout</button>
 
           </div>
         </div>
