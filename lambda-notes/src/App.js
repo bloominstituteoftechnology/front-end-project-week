@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import { CreateView, NoteView, ListView } from './views';
 import './App.css';
-import { Authentication } from './components';
+import { Login, Welcome } from './components';
 // import { DeleteModal } from './components';
 // import { connect } from 'react-redux';
 // import { deleteNote } from './actions';
@@ -56,7 +56,10 @@ class App extends Component {
     return (
       <div className="App">
       <Switch>
-        <Route exact path='/' render={(props) => (<ListView {...props} sortHelper={this.sortHelper} titleAsc={this.state.sortedByTitleAsc} titleDes={this.state.sortedByTitleDes} lengthAsc={this.state.sortedByLengthAsc} lengthDes={this.state.sortedByLengthDes}/>)} />
+        <Route exact path='/' component={Welcome} />
+        <Route path='/signin' render={(props) => (<Login {...props} login/>)} />
+        <Route path='/signup' render={(props) => (<Login {...props} register/>)} />
+        <Route path='/notes' render={(props) => (<ListView {...props} sortHelper={this.sortHelper} titleAsc={this.state.sortedByTitleAsc} titleDes={this.state.sortedByTitleDes} lengthAsc={this.state.sortedByLengthAsc} lengthDes={this.state.sortedByLengthDes}/>)} />
         <Route path='/add' render={(props) => (<CreateView {...props} />)} />
         <Route path='/:id' render={(props) => (<NoteView {...props} />)} />
       </Switch>
@@ -65,4 +68,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(Authentication(App));
+export default withRouter(App);

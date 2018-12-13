@@ -32,7 +32,7 @@ class Form extends React.Component {
       this.props.history.push(`/${this.props.match.params.id}`);
     } else {
       this.props.submit(note);
-      this.props.history.push('/');
+      this.props.history.push('/notes');
     }
   }
 

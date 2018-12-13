@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { registerUser, loginUser } from '../actions';
+import { connect } from 'react-redux';
 
 
  class Login extends Component {
@@ -25,7 +27,14 @@ import React, { Component } from 'react';
         return;
       }
     }
-    this.props.login(this.state.username, this.state.password);
+    const user = { username: this.state.username, password: this.state.password };
+    if (this.props.register) {
+      this.props.registerUser(user);
+      this.props.history.push('/notes');
+    } else if (this.props.login) {
+      this.props.loginUser(user);
+      this.props.history.push('/notes');
+    }
     this.setState({
       username: '',
       password: '',
@@ -55,4 +64,19 @@ import React, { Component } from 'react';
     )
   }
 }
- export default Login;
+const mapStateToProps = state => {
+  return {
+    user: state.authReducer.user,
+    authorizing: state.authReducer.authorizing,
+    token: state.authReducer.token,
+    error: state.authReducer.error,
+    loggedIn: state.authReducer.loggedIn,
+  }
+}
+   export default connect(
+     mapStateToProps,
+     {
+       registerUser,
+       loginUser,
+     }
+   )(Login);

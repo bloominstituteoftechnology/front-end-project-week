@@ -7,4 +7,6 @@ export { default as Sidebar } from './Sidebar';
 export { default as SearchBar } from './SearchBar';
 export { default as TopBar } from './TopBar';
 export { default as SortBar } from './SortBar';
-export { default as Authentication } from './Authentication'; 
+export { default as Login } from './Login';
+
+export { default as Welcome } from './Welcome'; 
