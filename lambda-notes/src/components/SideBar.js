@@ -4,7 +4,9 @@ import {withRouter, NavLink } from "react-router-dom";
 class SideBar extends React.Component {
     logOut = () => {
         localStorage.removeItem('secret_token');
+        window.location.reload();
     }
+   
     render() {
         if(this.props.isLoggedIn === true){
             return (
