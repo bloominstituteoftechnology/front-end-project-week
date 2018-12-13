@@ -2,7 +2,9 @@ import * as actionTypes from '../actions';
 
 const initialState = {
   notes: [],
+  note: {},
   getting: false,
+  gettingNote: false,
   adding: false,
   deleting: false,
   editing: false,
@@ -15,6 +17,12 @@ export default (state = initialState, action) => {
     return { ...state, getting: true };
     case actionTypes.GET:
     return { ...state, notes: [...action.payload], getting: false };
+
+    case actionTypes.GETTING_NOTE:
+    return { ...state, gettingNote: true };
+    case actionTypes.GET_NOTE:
+    return { ...state, note: action.payload, gettingNote: false };
+
     case actionTypes.ADDING:
     return { ...state, adding: true };
     case actionTypes.ADDED:

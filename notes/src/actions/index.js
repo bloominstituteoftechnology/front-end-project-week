@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export const GETTING = 'GETTING';
 export const GET = 'GET';
+export const GETTING_NOTE = 'GETTING';
+export const GET_NOTE = 'GET';
 export const ADDING = 'ADDING';
 export const ADDED = 'ADDED';
 export const EDITING = 'EDITING';
@@ -23,6 +25,21 @@ export const getNotes = () => {
         })
     }
   );
+};
+
+export const getNote = id => {
+  return (
+    dispatch => {
+      dispatch({ type: GETTING_NOTE });
+      axios.get(`https://swon-notes.herokuapp.com/notes/get/${id}`)
+        .then(response => {
+          dispatch({ type: GET_NOTE, payload: response.data });
+        })
+        .catch(err => {
+          dispatch({ type: ERROR, payload: err });
+        });
+    }
+  )
 };
 
 export const addNote = note => {
