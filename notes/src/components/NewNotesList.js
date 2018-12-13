@@ -18,16 +18,23 @@ class NotesList extends React.Component {
   }
   componentWillMount() {
     this.setState({ notes: JSON.parse(localStorage.getItem("state")) });
-  }
-  componentDidMount() {
-    window.addEventListener("beforeunload", this.saveNotes);
     this.props.fetchNotes();
     if (!isEqual([...this.props.notes], [...this.state.notes])) {
-      const notes = [...this.state.notes];
+      const notes = JSON.parse(localStorage.getItem("state"));
       const newNotes = this.props.notes;
       const sorted = newSort(newNotes, notes);
       this.setState({ notes: sorted });
     }
+  }
+  componentDidMount() {
+    window.addEventListener("beforeunload", this.saveNotes);
+    this.props.fetchNotes();
+    // if (!isEqual([...this.props.notes], [...this.state.notes])) {
+    //   const notes = [...this.state.notes];
+    //   const newNotes = this.props.notes;
+    //   const sorted = newSort(newNotes, notes);
+    //   this.setState({ notes: sorted });
+    // }
     window.scrollTo(0, 0);
   }
 
