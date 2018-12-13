@@ -8,6 +8,8 @@ import CreateNew from './Components/Views/CreateNewView/CreateNew'
 import Note from './Components/Views/NoteView/Note'
 import Edit from './Components/Views/EditView/Edit'
 
+const baseURL = `https://lambda-notes-yusuf-nafey.herokuapp.com`
+
 class App extends Component {
   constructor() {
     super()
@@ -20,7 +22,8 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:3000/api/notes/all')
+      .get('http://localhost:9000/api/notes/all')
+      // .get(`${baseURL}/api/notes/all`)      
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error))
   }

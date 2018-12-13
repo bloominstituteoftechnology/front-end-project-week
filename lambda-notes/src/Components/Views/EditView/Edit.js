@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import './Edit.css'
 
+const baseURL = `https://lambda-notes-yusuf-nafey.herokuapp.com`
+
 class Edit extends Component {
     constructor(props) {
         super(props);
@@ -16,21 +18,11 @@ class Edit extends Component {
     componentDidMount() {
         let id = this.props.match.params.id
         axios
-            .get(`http://localhost:3000/api/notes/${id}`)
+            .get(`http://localhost:9000/api/notes/${id}`)
+            // .get(`${baseURL}/api/notes/${id}`)
             .then(response => this.setState({ note: response.data, title: response.data.title, body: response.data.body }))
             .catch(error => console.log(error))
     }
-
-    // componentDidMount() {
-    //     if (this.props.note !== undefined) {
-    //         this.setState({
-    //             note: this.props.note,
-    //             title: this.props.note.title,
-    //             body: this.props.note.body,
-    //         })
-    //     }
-    //     this.setState({ newNote: false })
-    // }
 
     handleInputChange = event => {
         event.preventDefault()
@@ -46,7 +38,8 @@ class Edit extends Component {
 
           if (this.state.note !== null) {
             axios
-                .put(`http://localhost:3000/api/notes/edit/${this.state.note.id}`, newNote)
+                .put(`http://localhost:9000/api/notes/edit/${this.state.note.id}`, newNote)
+                // .put(`${baseURL}/api/notes/edit/${this.state.note.id}`, newNote)
                 .then(res => {console.log(res)})
                 .catch(err => {console.log(err)})
           }

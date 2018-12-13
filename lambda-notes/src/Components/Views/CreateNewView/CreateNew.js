@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import './CreateNew.css'
 
+const baseURL = `https://lambda-notes-yusuf-nafey.herokuapp.com`
+
 class CreateNew extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +40,8 @@ class CreateNew extends Component {
 
           if (this.state.note === null) {
             axios
-                .post('http://localhost:3000/api/notes/create', newNote)
+                .post('http://localhost:9000/api/notes/create', newNote)
+                // .post(`${baseURL}/api/notes/create`, newNote)
                 .then(res => {console.log(res)})
                 .catch(err => console.log(err))
           }

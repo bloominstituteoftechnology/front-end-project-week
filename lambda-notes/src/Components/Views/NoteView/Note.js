@@ -3,6 +3,8 @@ import axios from 'axios'
 import './Note.css'
 import { Link } from 'react-router-dom'
 
+const baseURL = `https://lambda-notes-yusuf-nafey.herokuapp.com`
+
 class Note extends Component {
     constructor(props) {
         super(props)
@@ -16,20 +18,17 @@ class Note extends Component {
     componentDidMount() {
         let id = this.props.match.params.id
         console.log('before fetch', id)
-        // id = id.toString()
-        // id = toString(id)
-        // id = parseFloat(id)
         axios
-            .get(`http://localhost:3000/api/notes/${id}`)
+            .get(`http://localhost:9000/api/notes/${id}`)
+            // .get(`${baseURL}/api/notes/${id}`)
             .then(response => this.setState({ note: response.data }))
             .catch(error => console.log(error))
-        // console.log('this is the id (this.props.match.params)', this.props.match.params)
-        // console.log('id:', id)
     }
 
     handleDelete = id => {
         axios
-            .delete(`http://localhost:3000/api/notes/delete/${id}`)
+            .delete(`http://localhost:9000/api/notes/delete/${id}`)
+            // .delete(`${baseURL}/api/notes/delete/${id}`)
             .then(response => {this.setState({ delete: true })})
             .catch(error => console.log(error))
     }
