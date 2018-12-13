@@ -1,0 +1,175 @@
+.App {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.6rem;
+}
+
+.App > header {
+  width: 100%;
+  padding: 5px;
+  background: #444444;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.App > header a {
+  padding-right: 20px;
+  color: #bbbbbb;
+}
+
+.signIn {
+  position: relative;
+  right: 25px;
+  top: 50px;
+  width: 400px;
+  height: 400px;
+  padding: 50px;
+  background: white;
+  border: 5px solid #2BC1C4;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.signIn form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.signIn form h2 {
+  text-align: center;
+}
+
+.signIn form input {
+  margin: 20px;
+}
+
+.signIn footer {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar {
+  width: 30%;
+  min-height: 100vh;
+  padding: 20px;
+  border-right: 2px solid #444444;
+  background: #cccccc;
+}
+
+.sidebar h1 {
+  color: #444444;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.sidebar .button {
+  display: block;
+  background: #2BC1C4;
+  margin: 20px 0;
+  border: 2px solid #444444;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.main-content {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px;
+  background: #eeeeee;
+}
+
+.main-content h2 {
+  color: #444444;
+  width: 100%;
+}
+
+.main-content .thumbnail {
+  width: 31%;
+  height: 250px;
+  margin: 15px 0;
+  border: 1px solid #444444;
+  background: white;
+  padding: 0 20px 10px;
+  overflow: hidden;
+}
+
+.main-content .thumbnail h3 {
+  height: 50px;
+  margin: 10px 0 5px;
+  border-bottom: 2px solid #cccccc;
+  font-size: 3rem;
+  overflow: hidden;
+}
+
+.main-content .thumbnail p {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  overflow: hidden;
+}
+
+.main-content .edit-delete-links {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.main-content .edit-delete-links a, .main-content .edit-delete-links span {
+  margin-left: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.edit-form, .add-form {
+  width: 70%;
+  padding: 40px;
+  background: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.edit-form input, .add-form input {
+  width: 300px;
+  margin: 0 0 20px;
+  padding: 10px;
+}
+
+.edit-form textarea, .add-form textarea {
+  width: 100%;
+  height: 300px;
+  margin: 0 0 20px;
+  padding: 15px;
+  border-radius: 2px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.edit-form button, .add-form button {
+  display: block;
+  width: 150px;
+  background: #2BC1C4;
+  border: 2px solid #444444;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
