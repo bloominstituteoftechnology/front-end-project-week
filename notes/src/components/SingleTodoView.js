@@ -3,6 +3,12 @@ import "./SingleTodoView.css";
 import { Route, Link } from "react-router-dom";
 import CheckboxContainer from "./Checkbox/CheckboxContainer";
 
+const ReactMarkdown = require("react-markdown/with-html");
+
+const markdown = `
+This is my markdown text. Here's a <a href="https://en.wikipedia.org/wiki/HTML">URL</a>, and some markdown code: <code>markdown code</code>.
+`;
+
 const SingleTodoView = props => {
   return (
     <div className="view-container">
@@ -26,6 +32,7 @@ const SingleTodoView = props => {
             <button className="label-color" />
             <button className="button-plus">+</button>
           </div>
+          <ReactMarkdown source={markdown} escapeHtml={false} />
         </div>
         <div className="body">
           <b>Description</b>
