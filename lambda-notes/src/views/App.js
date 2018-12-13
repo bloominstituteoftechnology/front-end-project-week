@@ -37,17 +37,20 @@ class App extends Component {
         {this.props.mightDelete ? <DeleteModal /> : null}
         <div className="App">
           <AppContainer>
-            <div className="Testing Registration & Login">
-              <nav>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/login">Login</NavLink>
-                <NavLink to="/register">Register</NavLink>
-              </nav>
-              <section>
-                <Switch>
-                  <Route exact path="/register" component={Register} />
-                  <Route path="/login" component={Login} />
-                  {/* <Route
+            <Route
+              path="/front-end-project-week"
+              render={props => (
+                <div className="Testing Registration & Login" {...props}>
+                  <nav>
+                    <NavLink to="/front-end-project-week">Home</NavLink>
+                    <NavLink to="/front-end-project-week/login">Login</NavLink>
+                    <NavLink to="/front-end-project-week/register">Register</NavLink>
+                  </nav>
+                  <section>
+                    <Switch>
+                      <Route exact path="/front-end-project-week/register" component={Register} />
+                      <Route path="/front-end-project-week/login" component={Login} />
+                      {/* <Route
                     path="/loggedin"
                     render={() => {
                       return (
@@ -62,9 +65,11 @@ class App extends Component {
                       );
                     }}
                   /> */}
-                </Switch>
-              </section>
-            </div>
+                    </Switch>
+                  </section>
+                </div>
+              )}
+            />
 
             <Route path="/front-end-project-week" render={props => <SideBarView {...props} />} />
             <Route exact path="/front-end-project-week" render={props => <ListView {...props} />} />

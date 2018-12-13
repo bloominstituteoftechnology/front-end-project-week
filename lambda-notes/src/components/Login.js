@@ -25,7 +25,7 @@ export default class Login extends Component {
   submitHandler = event => {
     event.preventDefault();
     axios
-      .post(`${url}/api/login`, this.state.user)
+      .post(`${url}/login`, this.state.user)
       .then(res => {
         if (res.status === 200 && res.data) {
           localStorage.setItem('secret_notes_token', res.data);
