@@ -45,7 +45,6 @@ class NotesContainer extends Component {
         }
     }
 
-
     componentDidMount() {
         this.authenticate();
     };
@@ -58,10 +57,16 @@ class NotesContainer extends Component {
         this.authenticate();
     }
 
-
     handleInput = event => {
         this.setState({ searchResult: event.target.value });
     }
+
+    signOutHandler = event=>{
+        event.preventDefault();
+        localStorage.removeItem('bit_token');
+        window.location.reload();
+    };
+
     searchResults = event => {
         this.handleInput(event);
         this.setState(preState => {
@@ -80,6 +85,7 @@ class NotesContainer extends Component {
                     <Route exact path='/' render={(Ownprops) => {
                         return (<NotesList {...Ownprops} stateSearch={this.state.searchResult}
                             searchResults={this.searchResults}
+                            signOutHandler = {this.signOutHandler}
                             notes={this.state.searchedPost.length > 0 ?
                                 this.state.searchedPost
                                 : this.state.notes} />)

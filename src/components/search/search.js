@@ -5,9 +5,9 @@ import '../NoteContainer/Notes.css';
 
 const SearchBar = props => {
 
-
     return (
-
+        <div className= 'search-wrapper'>
+        <p className='sign-out' onClick={props.signOutHandler}>sign out</p>
         <form className='search-form'>
             <input
                 placeholder='search notes'
@@ -18,6 +18,7 @@ const SearchBar = props => {
                 value={props.stateSearch}
             />
         </form>
+        </div>
     )
 }
 

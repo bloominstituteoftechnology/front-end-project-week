@@ -65,7 +65,6 @@ const Authenticate = App =>
                         user: { ...initialUser },
                     });
                 });
-
         };
 
         toggleHandler = (event) => {
@@ -77,7 +76,7 @@ const Authenticate = App =>
 
         render() {
             console.log(this.state);
-            if (this.state.loggedIn) return <App />;
+            if (this.state.loggedIn) return <App rerender={this.rerender}/>;
             else {
                 return (
                     <div className='auth-wrapper'>
