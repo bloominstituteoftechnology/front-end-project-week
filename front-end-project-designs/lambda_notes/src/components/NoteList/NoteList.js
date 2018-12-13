@@ -78,6 +78,11 @@ const NoteCardContainer = styled.div`
 	}
 `;
 
+
+// ============== END STYLES 
+
+
+
 class NoteList extends React.Component {
 	constructor(props) {
 		super(props);
