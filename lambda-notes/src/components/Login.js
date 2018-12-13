@@ -121,7 +121,7 @@ class Login extends React.Component {
             />
             <button>{this.state.isRegistering ? "Register" : "Log In"}</button>
           </form>
-          <button onClick={this.toggleRegister}>
+          <button className="register-toggle" onClick={this.toggleRegister}>
             {this.state.isRegistering
               ? "Already registered? Click here to login!"
               : "Not registered yet? Click here to sign up!"}
