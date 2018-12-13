@@ -23,7 +23,7 @@ const Authenticate = (App, Login) =>
       if (this.state.loggedIn) {
         return <App />;
       } else {
-        return <Login />;
+        return <App />;
       }
     }
   };
