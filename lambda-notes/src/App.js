@@ -21,19 +21,20 @@ class App extends Component {
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
-  componentDidUpdate() {
-    axios
-      .get("http://localhost:3400/api/notes")
-      .then(response => this.setState({ notes: response.data }))
-      .catch(error => console.log(error));
-  }
+  // componentDidUpdate() {
+  //   axios
+  //     .get("http://localhost:3400/api/notes")
+  //     .then(response => this.setState({ notes: response.data }))
+  //     .catch(error => console.log(error));
+  // }
 
   updateNotes = updatedNote => {
     const updatedNotes = this.state.notes.map(note => {
-      if (note.id === updatedNote.id) {
-       
+      console.log("this is updateNoted before if",updatedNote);
+      if (note.id === updatedNote.data.id) {
+        console.log("this is updateNoted",updatedNote);
       
-        return updatedNote;
+        return updatedNote.data;
       }
       return note;
     });

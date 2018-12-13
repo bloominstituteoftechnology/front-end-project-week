@@ -28,17 +28,19 @@ class EditNoteView extends React.Component {
 
   editNote = event => {
     event.preventDefault();
+    
     const url = `http://localhost:3400/api/notes/${
       this.props.note.id
     }`;
     axios
       .put(url, {
         title: this.state.title,
-        content: this.state.text
+        content: this.state.text,
+        id: this.props.note.id
       })
       .then(response => {
         
-
+       
         this.props.updateNotes(response);
       })
       .catch(error => {
