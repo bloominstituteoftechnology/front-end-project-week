@@ -5,6 +5,12 @@ import axios from 'axios';
 
 const URL = 'http://localhost:5200/api/';
 
+const token = localStorage.getItem('jwt');
+const reqOptions = {
+      headers: {
+        Authorization: token,
+      },
+    };
 
  class Notes extends React.Component {
   constructor(props) {
@@ -15,9 +21,17 @@ const URL = 'http://localhost:5200/api/';
   }
 
   componentDidMount() {
+    // const token = localStorage.getItem('jwt');
+    // const reqOptions = {
+    //   headers: {
+    //     Authorization: token,
+    //   },
+    // };
+    console.log(reqOptions);
     axios
-      .get(`${URL}notes`)
+      .get(`${URL}notes`, reqOptions)
       .then(response => {
+        console.log(response.data)
          this.setState({ notes: response.data })})
       .catch(error => {
         console.error('Error collecting notes!', error)
@@ -34,7 +48,7 @@ const URL = 'http://localhost:5200/api/';
     <div className='notesPage'>
       <h2>Your Notes:</h2>
       <div className="notesContainer">
-        {this.props.notes.map((note, i)=> {
+        {this.state.notes.map((note, i)=> {
           return (
               <Card
                 note={note}

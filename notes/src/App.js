@@ -1,12 +1,20 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, withRouter } from 'react-router-dom';
 import Notes from './Notes';
 import NewNote from './NewNote';
 import SingleNote from './SingleNote';
+import Login from './Auth/Login';
+import Register from './Auth/Register';
 
 const URL = 'http://localhost:5200/api/';
+const token = localStorage.getItem('jwt');
+const reqOptions = {
+  headers: {
+    Authorization: token,
+  },
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +35,7 @@ class App extends React.Component {
 
 componentDidMount() {
   axios
-    .get(`${URL}notes`)
+    .get(`${URL}notes`, reqOptions)
     .then(response => {
        this.setState({ notes: response.data })})
     .catch(error => {
@@ -47,7 +55,7 @@ componentDidMount() {
 
 getNoteById = id => {
   axios
-    .get(`${URL}notes/${id}`)
+    .get(`${URL}notes/${id}`, reqOptions)
     .then(res => {
       this.setState({ activeNote: res.data })})
     .catch(err => console.log('Error getting that note!', err));
@@ -55,7 +63,7 @@ getNoteById = id => {
 
 addNote = () => {
   axios
-    .post(`${URL}create`, this.state.note)
+    .post(`${URL}create`, this.state.note, reqOptions)
     .then(response => {
       this.setState({
        notes: [
@@ -79,28 +87,31 @@ deleteNote = (ev, id) => {
   ev.preventDefault();
   // const foundNote = this.state.notes.find(note => note.id === id)
   //   console.log(foundNote)
-  const newNotesArray = this.state.notes.filter(note => note.id !== id)
-  axios.delete(`${URL}edit/${id}`)
+  const newNotesArray = this.state.notes.filter(note => note.id !== id);
+  axios
+    .delete(`${URL}edit/${id}`, reqOptions)
     .then(response => {
       this.setState({
         notes: newNotesArray
       })
     })
+    .catch(error =>{
+      console.error('Deleting error', error)
+    })
 }
 
 editNote = () => {
   const myId = this.state.activeNote[0].id;
+  console.log(myId, this.state.note, reqOptions)
   axios
-    .put(
-      `${URL}edit/${myId}`, 
-      this.state.note
-    )
+    .put(`${URL}edit/${myId}`, this.state.note, reqOptions)
     .then(response => {
       // const oldNote = this.state.notes.find(note => note._id === this.state.editingId)
       // console.log(oldNote)
       const newNotesArray = this.state.notes.filter(note => note.id !== myId)
       // newNotesArray.push(this.state.note)
       // console.log(newNotesArray)
+      console.log(newNotesArray)
       this.setState({
         
         notes: [
@@ -157,6 +168,18 @@ prepareUpdateForm = ( event, note) => {
               style={{ textDecoration: 'none' }}>
               <h2 className="navLinks create">+ Create New Note</h2>
             </Link>
+            <Link 
+              to='/login'
+              style={{ textDecoration: 'none' }}>
+              <h2 className="navLinks view">Login</h2>
+            </Link>
+            <Link 
+              to='/register'
+              style={{ textDecoration: 'none' }}>
+              <h2 className="navLinks create">Register</h2>
+            </Link>
+            <button onClick={this.logout}>Logout</button>
+
           </div>
         </div>
         <div className='routesContainer'>
@@ -196,10 +219,30 @@ prepareUpdateForm = ( event, note) => {
               />
             )}
           />
+          <Route 
+            exact path='/login'
+            render = {props => (
+              <Login 
+              {...props}
+              />
+            )}  
+          />
+          <Route 
+            exact path='/register'
+            render = {props => (
+              <Register 
+              {...props}
+              />
+            )}  
+          />
         </div>
       </div>
     );
   }
+  logout = event => {
+    localStorage.removeItem('jwt');
+    this.props.history.push('/login')
+ }
 }
 
-export default App;
+export default withRouter(App);

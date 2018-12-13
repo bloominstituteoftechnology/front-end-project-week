@@ -4,7 +4,12 @@ import axios from 'axios';
 import './SingleNote.css';
 
 const URL = 'http://localhost:5200/api/';
-
+const token = localStorage.getItem('jwt');
+const reqOptions = {
+  headers: {
+    Authorization: token,
+  },
+};
 
 
 class SingleNote extends React.Component {
@@ -14,8 +19,8 @@ class SingleNote extends React.Component {
       deleteModal: false,
       notes: [],
       note: {
-        title: 'Trouble getting that note',
-        content: 'Please click "View Your Notes" and try again'
+        title: '...',
+        content: '...'
       }
     }
   }
@@ -32,9 +37,11 @@ class SingleNote extends React.Component {
   
   componentDidMount() {
     const myId = this.props.match.params.id;
+    console.log(myId)
     axios
-    .get(`${URL}notes/${myId}`)
+    .get(`${URL}notes/${myId}`, reqOptions)
     .then(response => {
+      console.log(reqOptions)
       this.setState({ 
         note: {
           title: response.data[0].title,

@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+  margin-top: 90px;
+  justify-content: baseline;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+input {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.submit {
+  background-color: rgb(104, 182, 187);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 14px;
+  margin-top: 10px;
+}
+
+.submit:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 15px 5px #00000056; 
+  box-shadow: 5px 5px 15px 5px #00000056;
+  transition: box-shadow .5s;
+}

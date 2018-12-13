@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Input } from 'reactstrap';
 import './NewNote.css'
 
 
+
 const NewNote = (props) => {
   const handleClick = event => {
     event.preventDefault();
