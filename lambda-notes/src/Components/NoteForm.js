@@ -8,7 +8,7 @@ class CreateNoteForm extends React.Component {
 
   componentDidMount() {
     console.log('checking for cdm',this.props)
-    if(this.props.match.path === '/note/:id/edit' && this.props.content.length > 0){
+    if(this.props.match.path === '/edit/:id' && this.props.content.length > 0){
       let note = this.props.content.find( note => note._id == this.props.match.params.id)
       
       this.setState({
@@ -28,7 +28,7 @@ class CreateNoteForm extends React.Component {
 
   componentDidUpdate() {
     console.log('from cdu',this.state.title,this.props.content)
-    if(this.props.match.path === '/note/:id/edit' && this.state.title === '' && this.props.content.length > 0) {
+    if(this.props.match.path === '/edit/:id' && this.state.title === '' && this.props.content.length > 0) {
       let note = this.props.content.find( note => note._id == this.props.match.params.id)
       if(note.title === undefined) return;
       this.setState({
@@ -40,7 +40,7 @@ class CreateNoteForm extends React.Component {
 
   render() {
 
-    if(this.props.match.path === '/note/:id/edit') {
+    if(this.props.match.path === '/edit/:id') {
       console.log('here in mathc')
       return (
         <div className={'create-note'}>
