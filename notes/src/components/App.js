@@ -18,6 +18,8 @@ import SingleTodoView from "./SingleTodoView";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Authenticate from "./Authentication";
 
+import AppDragDropDemo from "./AppDragDropDemo";
+
 class App extends Component {
   constructor() {
     super();
@@ -63,7 +65,6 @@ class App extends Component {
 
   sortTodos = event => {
     event.preventDefault();
-    // console.log("Sorting!");
     this.props.onSortTodos();
   };
 
@@ -89,6 +90,12 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Route
+            path="/drag"
+            render={props => (
+              <AppDragDropDemo {...props} reduxProps={this.props} />
+            )}
+          />
           <Route
             exact
             path="/"
