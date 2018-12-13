@@ -80,11 +80,10 @@ class MainContent extends React.Component {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
-        const newNotes = this.state.notes.map(note => {
-          if (note._id !== this.state.note._id) return note;
+        const newNotes = this.state.notes.filter(note => {
+          return note._id !== this.state.activeNote._id;
         });
-        console.log(newNotes);
-        this.setState({ notes: response.data });
+        this.setState({ notes: newNotes });
       })
       .catch(error => console.log(error));
   };
