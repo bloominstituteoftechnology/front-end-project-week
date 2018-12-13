@@ -1,0 +1,334 @@
+.App {
+  text-align: center;
+  border: 1px solid grey;
+  display: flex;
+  min-height: 99.8vh;
+}
+
+.nav-main {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid grey;
+  padding: 1.9rem 1.1rem;
+  width: 25%;
+  background-color: rgb(211, 210, 211);
+}
+
+.nav-header {
+  font-size: 3.5rem;
+  letter-spacing: 0.025rem;
+  line-height: 2.8rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.nav-links-container {
+  margin-top: 2.7rem;
+}
+
+.nav-main-btn {
+  width: 100%;
+  height: 5rem;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  background-color: rgb(36, 184, 189);
+  border: 1px solid rgb(36, 184, 189);
+  color: white;
+  font-size: 1.6rem;
+  border-radius: 0.3rem;
+}
+
+.nav-links {
+  cursor: pointer;
+}
+
+.notes-list-wrapper {
+  width: 75%;
+  padding: 2.5rem 2.5rem;
+  background-color: rgb(242, 241, 242);
+}
+
+.notes-list-wrapper h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.searchContainer {
+  margin-bottom: 0rem;
+}
+
+.searchContainer input {
+  border-radius: 0.25rem;
+  width: 32%;
+  text-align: center;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.note {
+  border: 1px solid grey;
+  width: 32%;
+  margin-bottom: 3rem;
+  padding: 1rem 2rem;
+  text-align: left;
+  background-color: white;
+}
+
+.markdown-title {
+  font-weight: bold;
+  font-size: 2rem;
+  border-bottom: 1px solid grey;
+  padding-bottom: 0.5rem;
+}
+
+.note .markdown-title p{
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.note h3 {
+  font-weight: bold;
+  font-size: 2rem;
+  border-bottom: 1px solid grey;
+  padding-bottom: 0.5rem;
+}
+
+.markdown-content {
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+}
+
+.note .markdown-content p {
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+}
+
+.note p {
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+}
+
+
+.form {
+  width: 75%;
+  padding: 5rem 2.5rem;
+  background-color: rgb(242, 241, 242);
+}
+
+.form h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.input-title {
+  width: 65%;
+  height: 5rem;
+  border-radius: 0.3rem;
+  margin-bottom: 1.6rem;
+  padding-left: 1.5rem;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+.input-content {
+  width: 100%;
+  height: 25rem;
+  border-radius: 0.3rem;
+  margin-bottom: 1.6rem;
+  resize: none;
+  padding: 1.5rem;
+}
+
+textarea {
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.form-button {
+  width: 25rem;
+  height: 5rem;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  background-color: rgb(36, 184, 189);
+  border: 1px solid rgb(36, 184, 189);
+  color: white;
+  font-size: 1.6rem;
+  border-radius: 0.3rem;
+}
+
+.delete-false {
+  display: none;
+}
+
+.delete-true {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(216, 216, 216, 0.8);
+  width: 100vw;
+  height: 100vh;
+}
+
+.delete-container {
+  margin: 0 auto;
+  margin-top: 10rem;
+  background-color: white;
+  border: 1px solid grey;
+  width: 50rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.delete-container h3 {
+  font-weight: bold;
+}
+
+.delete-btn-yes {
+  width: 15rem;
+  height: 5rem;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  background-color: rgb(36, 184, 189);
+  border: 1px solid rgb(36, 184, 189);
+  color: white;
+  font-size: 1.6rem;
+  border-radius: 0.3rem;
+  margin-right: 2rem;
+}
+
+.delete-btn-no {
+  width: 15rem;
+  height: 5rem;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  background-color: rgb(202, 0, 26);
+  border: 1px solid rgb(202, 0, 26);
+  color: white;
+  font-size: 1.6rem;
+  border-radius: 0.3rem;
+}
+
+.note-wrapper {
+  width: 75%;
+  padding: 1rem 2.5rem;
+  background-color: rgb(242, 241, 242);
+}
+
+.sub-nav {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sub-nav-links {
+  width: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-nav-btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  height: 100%;
+}
+
+.sub-nav-links-fix {
+  height: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.sub-nav-btn:hover {
+  color: rgb(36, 184, 189);
+}
+
+.note-body {
+  /* border:1px solid red; */
+  margin-top: 1.8rem;
+}
+
+.note-body h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.note-body p {
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.login-form {
+  margin: 0 auto;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(211, 210, 211);
+}
+
+.login-form h3 {
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.login-form input {
+  width: 90%;
+  margin-bottom: 1rem;
+  height: 5rem;
+  padding-left: 1.5rem;
+}
+
+.login-btn {
+  width: 90%;
+  height: 5rem;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  background-color: rgb(36, 184, 189);
+  border: 1px solid rgb(36, 184, 189);
+  color: white;
+  font-size: 1.6rem;
+  border-radius: 0.3rem;
+}
+
+.sort, .sort-markdown{
+  margin: 1rem 0;
+  display: flex;
+  /* border: 1px solid red; */
+  justify-content: center;
+  
+}
+
+.sort select, .sort-markdown select {
+  border-radius: 0.25rem;
+  width: 32%;
+  background-color: rgb(36, 184, 189);
+  color: white;
+}
+
+
+
+
