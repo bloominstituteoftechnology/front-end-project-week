@@ -1,24 +1,29 @@
 import {ADDING,FETCHING,UPDATING,DELETING,ERROR,GETTING} from "./Actions";
+const TESTING = "TESTING"
 
 const initialState = {
-    notes:[]
+    notes:[],
+    waiting:false
 }
 
 export const reducer = (state = initialState,action) => {
     switch(action.type){
+        case TESTING:
+            return {...state,waiting:!state.waiting}
         case FETCHING:
-            return {...state}
+            return {...state,waiting:true}
         case GETTING:
-            return {notes:action.payload}
+            return {...state,notes:action.payload,waiting:false}
         case ADDING:
-            return {...state}
+            console.log("adding,state change")
+            return {...state,waiting:false}
         case UPDATING:
-            return {...state}
+            return {...state,waiting:false}
         case DELETING:
-            return {...state}
+            return {...state,waiting:false}
         case ERROR:
             alert("The server had an error")
-            return {...state}
+            return {...state,waiting:false}
         default:
             return {...state}
     }

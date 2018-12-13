@@ -93,16 +93,45 @@ a {
   cursor: pointer;
 }
 
+h1 {
+  font-size:30px;
+  text-align: center;
+  margin-top:10%;
+  font-weight: bold;
+}
+
 .sidebar {
   width:25%;
-  background: grey;
+  background: rgb(210,210,210);
   display: flex;
   flex-direction: column;
   /* height: 100%; */
 }
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button,.nav-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(107,182,187);
+  color:white;
+  width: 90%;
+  text-align: center;
+  border-radius:5px;
+  font-size:18px;
+  height:30px;
+  margin:15px 0;
+}
+
+
 .main {
   width:75%;
-  background: lightcoral;
+  background: rgb(241,241,241);
   /* display: flex;
   flex-direction: column; */
   /* height:100%; */
@@ -112,6 +141,10 @@ a {
   height: 5%;
   display: flex;
   align-items: flex-end;
+  font-size:22px;
+  padding-left:2%;
+  padding-bottom:2%;
+  font-weight: bold;
 }
 
 .notes-list {
@@ -119,7 +152,6 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border: 1px solid red; 
   flex-wrap: wrap;
   overflow: scroll;
   height: 95%;

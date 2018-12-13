@@ -12,7 +12,7 @@ export const getNotes = () => dispatch => {
     return(axios
     .get("https://fe-notes.herokuapp.com/note/get/all")
     .then(response => {
-        console.log(response)
+        console.log("GETTING",response)
         dispatch({type:GETTING,payload:response.data})
         return true
     })
@@ -28,7 +28,7 @@ export const addNote = input => dispatch => {
     return (axios
     .post("https://fe-notes.herokuapp.com/note/create",input)
     .then(response => {
-        console.log(response)
+        console.log("ADDING",response)
         dispatch({type:ADDING})
         return true
     })

@@ -23,26 +23,26 @@ class Form extends Component {
         event.preventDefault();
             const newObj = {...this.state,_id:this.props._id}
 
-            this.props.history.push('/note-list')
+            this.props.history.push('/')
             this.props.editNote({...newObj})
-            this.props.getNotes()
-            // .then(promise => {
-            //     if(promise){
-            //         this.props.getNotes()
-            //     }
-            // })
+            .then(promise => {
+                if(promise){
+                    this.props.getNotes()
+                }
+            })
+            // this.props.getNotes()
       }
 
       addSubmitHandler = event => {
             event.preventDefault();
-            this.props.history.push('/note-list')
+            this.props.history.push('/')
             this.props.addNote(this.state)
-            this.props.getNotes()
-            // .then(promise => {
-            //     if(promise){
-            //         this.props.getNotes()
-            //     }
-            // })
+            .then(promise => {
+                if(promise){
+                    this.props.getNotes()
+                }
+            })
+            // this.props.getNotes()
       }
 
     
@@ -54,6 +54,7 @@ class Form extends Component {
                     submit={this.addSubmitHandler} 
                     title={this.state.title}
                     textBody={this.state.textBody}
+                    buttonText="Save"
                 />
                 )
         } else {
@@ -63,14 +64,15 @@ class Form extends Component {
                 submit={this.editSubmitHandler} 
                 title={this.state.title}
                 textBody={this.state.textBody}
+                buttonText="UPDATE"
             />
             );
         }
     }
 }
 
-const mapStateToProps = state => {
-    return {notes:state.notes}
+const mapStateToProps = () => {
+    return {}
   }
   
 export default connect(mapStateToProps,{addNote,editNote,getNotes})(Form);

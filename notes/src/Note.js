@@ -1,6 +1,5 @@
 import React from "react";
 import './index.css';
-import {Link} from "react-router-dom";
 
 
 
@@ -8,6 +7,9 @@ const Note = (props) => {
         return(
             <div name={props.id} className="note">
                 <p>{props.title}</p>
+                <br/>
+                <hr />
+                <br/>
                 <p>{props.textBody}</p>
             </div>
             );

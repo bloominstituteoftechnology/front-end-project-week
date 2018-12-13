@@ -12,23 +12,24 @@ class AppTest extends Component {
     return (
         <div className="App">
             <SideBar />
-       
 
-            <Route path="/note-list" render={ props => (
-                <NoteListTest {...props} />
-            )}/>
+            <div className="main">
+                <Route exact path="/" render={ props => (
+                    <NoteListTest {...props} />
+                )}/>
 
-            <Route path="/add-note" render={ props => (
-                <Form {...props}/>
-            )}/>
+                <Route path="/add-note" render={ props => (
+                    <Form {...props}/>
+                )}/>
 
-            <Route exact path="/note/:id" render={ props => {
-                return <View {...props} />
-            }}/>
+                <Route exact path="/note/:id" render={ props => {
+                    return <View {...props} />
+                }}/>
 
-            <Route path="/note/:id/edit" render={ props => {
-                return <View {...props}  edit={true} />
-            }}/>
+                <Route path="/note/:id/edit" render={ props => {
+                    return <View {...props}  edit={true} />
+                }}/>
+            </div>
         </div>
     );
   }
@@ -36,3 +37,8 @@ class AppTest extends Component {
 
 
 export default AppTest;
+
+
+// $r.props.store.getState()
+
+// $r.state.store.dispatch({type:"TESTING"})

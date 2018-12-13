@@ -8,31 +8,43 @@ import {getNotes} from "./Actions";
 class NoteListTest extends Component{
 
     componentDidMount(){
-        this.props.getNotes();
+        console.log("NoteList","ComponentDidMount")
+        if(this.props.waiting===false){
+            this.props.getNotes();
+        }
+        
     }
 
     render() {
-        return(
-            <>
-                <header className="header">Your Notes:</header>
-                <div className="notes-list">
-                {
-                this.props.notes.map( note => (
-                        <Link to={`/note/${note._id}`}key={note._id}>
-                            <Note  name={note._id} title={note.title} textBody={note.textBody} _id={note._id}/> 
-                        </Link>
+        console.log("NoteList","rendered")
+        if(this.props.notes.length===0){
+            return(
+                <p>Loading...</p>
+            )
+        } else{
+            return(
+                <>
+                    <header className="header">Your Notes:</header>
+                    <div className="notes-list">
+                    {
+                    this.props.notes.map( note => (
+                            <Link to={`/note/${note._id}`}key={note._id}>
+                                <Note  name={note._id} title={note.title} textBody={note.textBody} _id={note._id}/> 
+                            </Link>
+                        )
                     )
-                )
-                }
-            </div>
-          </>
-        );
+                    }
+                </div>
+              </>
+            );
+        }
     }
 }
 
 const mapStateToProps = state => {
     return({
-        notes:state.notes
+        notes:state.notes,
+        waiting:state.waiting
     })
 }
 
