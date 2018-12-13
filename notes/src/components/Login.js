@@ -94,7 +94,6 @@ class Login extends React.Component {
             />
           </form>
         </div>
-        <p>(login sessions last an hour)</p>
       </div>
     );
   }
