@@ -73,7 +73,7 @@ export const ExportButton = styled.button`
   //width: 10%;
   position: fixed;
   top: 95%;
-  left: 1%;
+  left: 1.3%;
   border-radius: 5px;
   background-color: #636378;
   color: white;

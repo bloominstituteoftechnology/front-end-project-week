@@ -35,7 +35,7 @@ const Notes = props => {
               {props.notes.length} of {props.totalNotes}{' '}
             </strong>
             notes.
-            <ClearFilter onClick={e => props.clearSearchText(e)}>
+            <ClearFilter onClick={e => props.clearFilter(e)}>
               Show All
             </ClearFilter>
           </div>

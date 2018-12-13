@@ -19,6 +19,7 @@ class NotesContainer extends React.Component {
     },
     searchText: '',
     sortType: 'none',
+    submittedSearch: '',
   };
   componentDidMount() {
     this.props.fetchNotes();
@@ -80,19 +81,34 @@ class NotesContainer extends React.Component {
     console.log(text);
     console.log(e.target);
     //this.clearSearchText();
+    //debugger;
+    let result;
+    const fuse = new Fuse(this.props.notes, this.state.filterOptions);
+    this.setState({searchText: ''}, () => {
+      console.log('setstate dnoec');
+      /*const*/ result = fuse.search(text);
+      console.log('searhing for', text);
+      this.setState({filteredNotes: result.map(i => i.item)});
+      console.log('done');
+    });
   };
 
   searchNotes = e => {
+    console.log('searc');
     e.preventDefault();
     this.setState({searchText: e.target.value});
-    const fuse = new Fuse(this.props.notes, this.state.filterOptions);
-    const result = fuse.search(this.state.searchText);
-    this.setState({filteredNotes: result.map(i => i.item)});
+    if (this.state.searchText) {
+      console.log('log');
+
+      const fuse = new Fuse(this.props.notes, this.state.filterOptions);
+      const result = fuse.search(this.state.searchText);
+      this.setState({filteredNotes: result.map(i => i.item)});
+    }
   };
 
-  clearSearchText = e => {
+  clearFilter = e => {
     e.preventDefault();
-    this.setState({searchText: ''});
+    this.setState({filteredNotes: []});
   };
 
   render() {
@@ -104,14 +120,14 @@ class NotesContainer extends React.Component {
         <Notes
           {...this.props}
           notes={
-            this.state.searchText
+            this.state.filteredNotes.length
               ? this.sortNotes(this.state.filteredNotes)
               : this.sortNotes(this.props.notes)
           }
           export={this.exportToCsv}
           searchText={this.state.searchText}
           searchNotes={this.searchNotes}
-          clearSearchText={this.clearSearchText}
+          clearFilter={this.clearFilter}
           changeSort={this.changeSort}
           searchEnter={this.searchEnter}
           totalNotes={this.props.notes.length}
