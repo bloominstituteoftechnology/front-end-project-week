@@ -19,5 +19,6 @@ const Delete = props => {
         </div>
     );
 }
+// clean up test
  
 export default connect()(Delete);
