@@ -18,11 +18,11 @@ class Form extends React.Component {
         this.props.addNote(event, this.state);
         this.setState({ title: "", body: "" })
         this.props.history.push("/")
-    }
-
-
+    };
+   
+    
     render() {
-
+        
         return (
             <div className="container-form">
                 <div className="notes-header">

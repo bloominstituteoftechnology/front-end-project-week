@@ -10,6 +10,7 @@ import Form from './components/Form';
 import YourNotes from './components/Notes';
 import Note from './components/Note';
 import Edit from './components/Edit';
+import SearchBar from './components/SearchBar'
 
 
 
@@ -70,11 +71,11 @@ class App extends Component {
 
   render() {
     return (
-
       <div className='container'>
         <div className="App">
           <div className="side-bar">
             <div className='lambda-notes'>
+          <SearchBar/>
               <h1>Lambda</h1>
               <h1> Notes</h1>
             </div>
@@ -101,7 +102,7 @@ class App extends Component {
             path='/note/:id'
             render={props =>
               <Note
-                {...props}
+              {...props}
               />
             }
           />
