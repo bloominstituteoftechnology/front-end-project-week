@@ -1,11 +1,6 @@
 {
   "dependencies": {
     "browser-router": "^0.2.0",
-    "editor.md": "^1.5.0",
-    "immutable": "^4.0.0-rc.12",
-    "react-dnd": "^7.0.2",
-    "react-dnd-html5-backend": "^7.0.2",
-    "react-dom": "^16.6.3",
-    "react-modal": "^3.7.1"
+    "react-dom": "^16.6.3"
   }
 }
