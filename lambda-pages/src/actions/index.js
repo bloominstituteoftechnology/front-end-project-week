@@ -66,7 +66,7 @@ export const registerUser = (user, cb) => dispatch => {
 export const loginUser = (user, cb) => dispatch => {
   dispatch({ type: LOGIN });
   axios
-    .post(`${authUrl}/register`, user)
+    .post(`${authUrl}/login`, user)
     .then(res => {
       localStorage.setItem('auth_token', res.data.token);
       dispatch({ type: LOGIN_SUCCESS, payload: 'Login successful' });
