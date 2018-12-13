@@ -163,7 +163,7 @@ class NoteList extends React.Component {
 		return (
 			<NoteListContainer>
 				<NoteListHeader>
-					<h2 classNameName="lamba-notes-header">Your Notes:</h2>
+					<h2 className="lamba-notes-header">Your Notes:</h2>
 					<SearchForm />
 					<Dropdown
 						isOpen={this.state.dropdownOpen}
@@ -212,7 +212,7 @@ class NoteList extends React.Component {
 									);
 								}}
 								key={note._id}
-								classNameName="note-card"
+								className="note-card"
 							>
 								<h4>
 									{note.title.length > 30

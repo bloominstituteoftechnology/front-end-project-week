@@ -29,31 +29,20 @@ const NoteCardHeader = styled.div`
 			color: #24b8bd;
 		}
 	}
+	.favorite i {
+		color: #b92f27;
+
+		/* &:hover {
+			text-decoration: underline;
+			color: #24b8bd;
+		} */
+	}
 
 	.note-header-link {
 		margin: 0 25px;
 		color: #20272d;
-		text-decoration: underline;
 		font-weight: bold;
-	}
-
-	.delete-link {
 		cursor: pointer;
-		margin: 0 25px;
-
-		&:hover {
-			text-decoration: underline;
-			color: #24b8bd;
-		}
-	}
-
-	.favorite {
-		cursor: pointer;
-		margin: 0 25px;
-
-		i {
-			color: #b92f27;
-		}
 
 		&:hover {
 			text-decoration: underline;
@@ -79,11 +68,17 @@ const NoteCardContent = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-	.mod-body {
-		text-align: center;
-	}
-	.modal-footer {
-		justify-content: space-evenly;
+	text-align: center;
+	.delete-modal {
+
+		.mod-body {
+			text-align: center;
+			background-color: red;
+			border: 2px solid red;
+		}
+		.modal-footer {
+			justify-content: center;
+		}
 	}
 `;
 
@@ -92,19 +87,33 @@ const ModalButton = styled.button`
 	border: 0;
 	color: #f3f9f9;
 	padding: 12px 15px;
-	margin: 15px;
+	margin: 15px 50px;
 	width: 180px;
 	font-weight: bold;
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
+
+	&:hover {
+		background-color: #0B9FA4;
+	}
 `;
 
 const DeleteButton = styled(ModalButton)`
 	background-color: #d0011b;
+
+	&:hover {
+		background-color: #B70002;
+	}
 `;
 
+
+
 // =============== END OF STYLES
+
+
+
+
 
 class Note extends React.Component {
 	constructor(props) {
@@ -119,7 +128,6 @@ class Note extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log("Note params", this.props);
 		axios
 			.get(
 				`https://fe-notes.herokuapp.com/note/get/${
@@ -157,15 +165,14 @@ class Note extends React.Component {
 					<Modal
 						isOpen={this.state.modal}
 						toggle={this.toggle}
-						classNameName="delete-modal"
+						className="delete-modal"
 						centered={true}
 					>
-						<ModalBody classNameName="mod-body">
+						<ModalBody className="mod-body">
 							Are you sure you want to delete this?
 						</ModalBody>
-						<ModalFooter classNameName="mod-footer">
+						<ModalFooter className="mod-footer">
 							<DeleteButton
-								color="primary"
 								onClick={() => {
 									this.props.deleteNote(this.state.id);
 									this.toggle();
@@ -174,17 +181,15 @@ class Note extends React.Component {
 							>
 								Delete
 							</DeleteButton>
-							<ModalButton
-								color="secondary"
-								onClick={this.toggle}
-							>
-								No
-							</ModalButton>
+							<ModalButton onClick={this.toggle}>No</ModalButton>
 						</ModalFooter>
 					</Modal>
 				</ModalWrapper>
 				<NoteCardHeader>
-					<div className="favorite" onClick={this.starToggle}>
+					<div
+						className="favorite note-header-link"
+						onClick={this.starToggle}
+					>
 						{this.state.isStarred === true ? (
 							<i class="fas fa-star favorite-star" />
 						) : (
@@ -194,12 +199,12 @@ class Note extends React.Component {
 					</div>
 					<Link
 						to={`/notes/${note._id}/edit`}
-						classNameName="note-header-link"
+						className="note-header-link"
 					>
 						<i className="fas fa-edit" />
 						edit
 					</Link>
-					<div className="delete-link" onClick={this.toggle}>
+					<div className="note-header-link" onClick={this.toggle}>
 						<i className="fas fa-trash-alt" />
 						delete
 					</div>

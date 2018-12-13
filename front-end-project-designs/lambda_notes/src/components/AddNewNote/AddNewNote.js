@@ -109,7 +109,6 @@ class AddNewNote extends React.Component {
 						textBody: res.data.textBody,
 						id: res,
 					});
-					
 				})
 				.catch(err => console.log("POST Server Error: ", err));
 			setTimeout(() => this.props.history.push(`/notes`), 250);
@@ -131,7 +130,6 @@ class AddNewNote extends React.Component {
 					name="textBody"
 					onChange={this.handleChange}
 				/>
-				
 				<NewNoteFormButton type="submit">Save</NewNoteFormButton>
 				<Alert
 					color="danger"

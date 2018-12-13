@@ -9,7 +9,6 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import NoteList from "./components/NoteList/NoteList";
 import AddNewNote from "./components/AddNewNote/AddNewNote";
 import Note from "./components/Note/Note";
-// import DeleteModal from "./components/DeleteModal/DeleteModal";
 import EditNoteForm from "./components/EditNoteForm/EditNoteForm";
 import Settings from './components/Settings/Settings';
 
@@ -69,13 +68,14 @@ class App extends Component {
 		axios
 			.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
 			.then(
-				res => (
-					console.log("PUT Server Response: ", res),
+				res => ( () => {
+					console.log("PUT Server Response: ", res);
 					this.setState({
 						title: res.data.title,
 						textBody: res.data.textBody,
 						id: res,
 					})
+				}
 				)
 			)
 			.catch(err => console.log("PUT Server Error: ", err));
