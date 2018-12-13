@@ -63,7 +63,7 @@ class App extends Component {
 
   sortTodos = event => {
     event.preventDefault();
-    console.log("Sorting!");
+    // console.log("Sorting!");
     this.props.onSortTodos();
   };
 
@@ -73,7 +73,7 @@ class App extends Component {
   };
 
   render() {
-    console.log("state from render", this.state);
+    // console.log("state from render", this.state);
     return (
       <Router>
         <div>
@@ -94,6 +94,7 @@ class App extends Component {
             )}
           />
           <Route
+            exact
             path="/todoForm"
             render={props => (
               <TodoForm
@@ -106,6 +107,7 @@ class App extends Component {
             )}
           />
           <Route
+            exact
             path="/:id"
             render={props => (
               <SingleTodoView {...props} reduxProps={this.props} />
