@@ -68,6 +68,8 @@
 .Note-View{
     display: flex;
     flex-direction: column;
+    /* border: 1px solid red; */
+    margin: 10px 30px 0px 0px;
     
 }
 
@@ -75,10 +77,10 @@
     align-self: flex-end;
     top: 0px;
     right: 0px;
-    border: 1px solid red;
-    width: 200px;
+    /* border: 1px solid red; */
+    width: 120px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     font-size: 3rem;
     text-decoration: underline;
     height: 30px;

@@ -9,6 +9,9 @@ height: 300px;
 margin: 10px 10px 10px 10px;
 font-size: 4rem;
 padding: 0 20px;
+overflow:hidden;
+text-overflow: ellipsis;
+
 
 h2 {
     font-weight: bold;

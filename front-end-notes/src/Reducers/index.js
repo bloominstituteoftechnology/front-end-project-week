@@ -24,8 +24,8 @@ import {
     newNoteID: null,
     fetchingNotes: false,
     addingNote: false,    
-    //updatingSmurf: false
-    //deletingSmurf: false
+    updatingNote: false,
+    deletingNote: false,
     error: null,
     currentNote: null,
     pleasePopulate: false
@@ -71,18 +71,24 @@ import {
         case DELETE_NOTES_REQUEST:
         return {
           ...state,
-          fetchingNotes: true
+          fetchingNotes: true,
+          deletingNote: true,
+
         };
         case DELETE_NOTES_SUCCESS:
         return {
           ...state,
           fetchingNotes: false,
+          deletingNote: false,
+
           //notes: action.payload
         };
       case DELETE_NOTES_FAILURE:
         return {
           ...state,
           fetchingNotes: false,
+          deletingNote: false,
+
           error: action.payload
         };
       case UPDATE_NOTES_REQUEST:
