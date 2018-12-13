@@ -19,9 +19,7 @@ const H2LoadingMessage = styled.h2`
   margin: 85px 0 0 0;
 `;
 
-const DivNotePageDisplay = styled.div`
-  opacity: ${props => (props.showdeletemodel === 'true' ? 0.2 : 1)};
-`;
+const DivNotePageDisplay = styled.div``;
 
 const HeaderNote = styled.header`
   display: flex;

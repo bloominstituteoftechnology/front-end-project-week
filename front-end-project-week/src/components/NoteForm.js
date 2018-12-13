@@ -61,7 +61,6 @@ const ButtonSubmit = styled.button`
  ********************************************* Component *******************************************
  **************************************************************************************************/
 const NoteForm = props => {
-  console.log(props);
   return (
     <DivNoteFormWrapper>
       <div>
