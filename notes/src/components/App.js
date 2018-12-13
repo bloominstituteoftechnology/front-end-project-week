@@ -108,7 +108,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/:id"
+            path="/todo/:id"
             render={props => (
               <SingleTodoView {...props} reduxProps={this.props} />
             )}
