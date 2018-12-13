@@ -24,6 +24,7 @@ class Login extends React.Component {
       .then(res => {
         localStorage.setItem("jwt", res.data.token);
         this.setState({ email: "", password: "" });
+        this.props.logInToggle();
       })
       .catch(err => console.log(err));
   };
@@ -93,7 +94,7 @@ class Login extends React.Component {
             />
           </form>
         </div>
-        <p>(reload page after login to view your notes)</p>
+        <p>(login sessions last an hour)</p>
       </div>
     );
   }

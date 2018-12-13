@@ -16,8 +16,15 @@ const Authenticate = App =>
         this.setState({ loggedIn: true });
       }
     }
+    logInToggle = () => {
+      this.setState({ loggedIn: true });
+    };
     render() {
-      return this.state.loggedIn ? <App /> : <Login />;
+      return this.state.loggedIn ? (
+        <App />
+      ) : (
+        <Login logInToggle={this.logInToggle} />
+      );
     }
   };
 
