@@ -21,16 +21,24 @@ class App extends Component {
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
+  componentDidUpdate() {
+    axios
+      .get("http://localhost:3400/api/notes")
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.log(error));
+  }
 
   updateNotes = updatedNote => {
-    console.log(updatedNote)
     const updatedNotes = this.state.notes.map(note => {
       if (note.id === updatedNote.id) {
+       
+      
         return updatedNote;
       }
       return note;
     });
     this.setState({ notes: updatedNotes });
+    
   };
 
   updateDeleted = targetID => {
