@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+  width: 880px;
+  max-width: 100%;
+}
+
+.container { 
+  display: flex;
+}
+
+.notes-div {
+  border: 1px solid black;
+  background-color: lightgrey;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.notes { 
+  background-color: rgb(242, 241, 242);
+}
+
+.button { 
+  background-color: rgb(87, 181, 187);
+  border-radius: 5px;
+  width: 100px;
+  margin: 10px;
+}
+
+.sidebar { 
+  height: 398vh;
+  width: 40vw;
+  background-color: rgb(210, 211, 210);
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-title { 
+  border-bottom: 2px solid black;
+}
+
+.notes-div {
+  background-color: white;
+}
+
+.notes-div a {
+  text-decoration: none; 
+  color: black;
+  cursor: pointer;
+}
