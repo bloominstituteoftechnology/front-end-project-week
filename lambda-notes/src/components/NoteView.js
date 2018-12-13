@@ -39,7 +39,7 @@ class NoteView extends React.Component {
     axios
       .delete(url)
       .then(response => {
-        console.log(response);
+
         this.props.updateDeleted(this.state.note.id);
       })
       .catch(error => {

@@ -42,7 +42,7 @@ class App extends Component {
   };
 
   updateDeleted = targetID => {
-    console.log(targetID)
+    
     const updatedLists = this.state.notes.filter(note => {
       if (note.id === targetID) {
         return false;
@@ -53,7 +53,7 @@ class App extends Component {
   };
 
   addNewNotes = addedNote => {
-    console.log(addedNote)
+    
     let newNotesList = [...this.state.notes, addedNote]
     this.setState({ notes: newNotesList });
   };

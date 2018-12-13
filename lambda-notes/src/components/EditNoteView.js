@@ -37,7 +37,7 @@ class EditNoteView extends React.Component {
         content: this.state.text
       })
       .then(response => {
-        console.log("this is my reasponse from the server",response);
+        
 
         this.props.updateNotes(response);
       })
