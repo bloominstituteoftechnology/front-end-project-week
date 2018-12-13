@@ -5,7 +5,8 @@ class LoginPage extends Component {
   constructor(){
     super();
     this.state=({
-      inputText: ''
+      usernameText: '',
+      passwordText: ''
     })
   }
 
@@ -16,15 +17,21 @@ class LoginPage extends Component {
   }
 
   login = ev => {
-      console.log(this.state.inputText);
-     localStorage.setItem('username', this.state.inputText); 
+      console.log(this.state.usernameText);
+    if(this.state.usernameText && this.state.passwordText){
+        localStorage.setItem('username', this.state.usernameText);
+     localStorage.setItem('password', this.state.passwordText) 
+    }else{
+        alert('You must have a \nUSERNAME \nand \nPASSWORD!')
+    }
+     
     
   }
   
 
   render() {
     return (
-      <Login login={this.login} handleChange={this.handleChange} inputTex={this.state.inputText} />
+      <Login login={this.login} handleChange={this.handleChange} usernameText={this.state.usernameText} passwordText={this.state.passwordText} />
     
     );
   }

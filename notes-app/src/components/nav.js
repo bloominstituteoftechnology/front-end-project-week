@@ -67,7 +67,7 @@ const Nav = props => {
             <NavDropdown >
                 <NavDropdownBtn className="dropbtn">{localStorage.getItem('username')} &ensp;&ensp;|&ensp;  v</NavDropdownBtn>
                 <div class="dropdown-content">
-                    <NavLink to="/" onClick={()=> console.log(localStorage.getItem('username'))}>Profile</NavLink>
+                    <NavLink to="/profile" onClick={()=> console.log(localStorage.getItem('username'))}>Profile</NavLink>
                     <NavLink to="/" onClick={()=> {localStorage.clear();document.location.reload();}}>Log Out</NavLink>
                     
                 </div>

@@ -7,6 +7,7 @@ import NoteList from './NoteList/NoteList';
 import Nav from './nav';
 import CreateNoteForm from './CreateNote/CreateNoteForm';
 import Note from './NoteList/Note';
+import Profile from './Profile';
 
 
 import { connect } from "react-redux";
@@ -99,6 +100,15 @@ class App extends Component {
           {...props}
           startUpdate={this.props.startUpdate}
           deleteNote={this.props.deleteNote}
+          />
+        )}
+          
+        />
+
+        <Route path='/profile' render={props => ( 
+          <Profile
+          {...props}
+          notes={this.props.filteredNotes}
           />
         )}
           
