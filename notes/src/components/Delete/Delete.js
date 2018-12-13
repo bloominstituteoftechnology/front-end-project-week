@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 //styling
 import './Delete.css';
@@ -19,4 +20,4 @@ const Delete = props => {
     );
 }
  
-export default Delete;
+export default connect()(Delete);

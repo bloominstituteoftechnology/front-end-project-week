@@ -1,5 +1,14 @@
 //import actions
-import { GETTING_NOTES, NOTE_SUCCESS, SINGLE_NOTE, CREATE_NOTE, CREATIVE, EDIT, DELETE_CONFIRM, DELETE_OFF } from '../actions';
+import {
+    GETTING_NOTES,
+    NOTE_SUCCESS,
+    SINGLE_NOTE,
+    CREATE_NOTE,
+    CREATIVE,
+    EDIT,
+    DELETE_CONFIRM,
+    DELETE_OFF
+} from '../actions';
 
 const initialState = {
     noteList: [],

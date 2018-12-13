@@ -32,10 +32,10 @@ class EditNote extends Component {
         // console.log(noteId)
         if (this.props.editNote) {
             this.props.edit(note, noteId)
-            props.goHome(props);
+            props.history.push('/');
         } else {
             this.props.create(note)
-            props.goHome(props);
+            props.history.push('/');
         }
     }
 

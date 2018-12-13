@@ -35,7 +35,6 @@ export const viewNote = (id) => dispatch => {
 export const createMode = () => dispatch => {
     dispatch({ type: CREATIVE })
 }
-
 export const create = (note) => dispatch => {
     return (
         axios
@@ -47,11 +46,9 @@ export const create = (note) => dispatch => {
             .catch(error => console.log(error))
     )
 }
-
 export const editMode = () => dispatch => {
     dispatch({ type: EDIT })
 }
-
 export const edit = (note, noteId) => dispatch => {
     return (
         axios
