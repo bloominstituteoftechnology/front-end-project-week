@@ -1,0 +1,26 @@
+.login-form {
+    width: 500px;
+    min-height: 280px;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 200px auto;
+    background: #D3D2D3;
+    border: 0.5px solid darkgray;
+    box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
+}
+
+.login-button {
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    font-size: 20px;
+    background: #56b9bd;
+    color: white;
+    margin-top: 15px;
+}
+
+.login-form input {
+    width: 100%;
+    height: 30px;
+    margin-top: 15px;
+}

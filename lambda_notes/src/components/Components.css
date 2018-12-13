@@ -1,0 +1,218 @@
+.sidebar-container {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 100vh;
+    background: #d3d2d3;
+    border-right: 2px solid #b6b6b6;
+}
+
+.sidebar-container h1 {
+    font-size: 2.5rem;
+    color: #414141;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.sidebar-container a {
+    align-self: center;
+    text-align: center;
+    background: #56b9bd;
+    color: white;
+    width: 80%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: 1px solid #adb9ba;
+    text-decoration: none;
+}
+
+.sidebar-container button {
+    align-self: center;
+    text-align: center;
+    background: #56b9bd;
+    color: white;
+    width: 80%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: 1px solid #adb9ba;
+    text-decoration: none;
+}
+
+.noteslist {
+    width: 85%;
+  }
+
+.list-heading {
+    color: #414141;
+    margin: 70px 0 40px 85px;
+}
+
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .note {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 200px;
+    background: white;
+    border: 2px solid #d9d9d9;
+    padding: 15px;
+    margin: 15px 2%;
+    overflow: hidden;
+  }
+
+  .note h2 {
+    margin: 0;
+  }
+  
+  .note h2 a {
+    text-decoration: none;
+    color: black;
+    margin: 0;
+  }
+  
+  .note hr {
+    background: #d9d9d9;
+    color: #d9d9d9;
+    width: 100%;
+    height: 3px;
+    margin: 5px 0;
+  }
+  
+  .note p {
+    margin: 0;
+  }
+
+  .singleNote {
+    width: 80%;
+  }
+  
+  .editDelete {
+    text-align: right;
+    color: #414141;
+    text-decoration: underline;
+  }
+  
+  .editDelete a {
+    color: #414141;
+    margin-right: 1%;
+  }
+  
+  .editDelete span {
+    cursor: pointer;
+    margin-right: 3%;
+  }
+  
+  .singleNote h2 {
+    color: #414141;
+    margin: 40px 0 20px 3%;
+  }
+  
+  .singleNote p {
+    margin: 0 3%;
+  }
+  
+  .deleteModal {
+    position: fixed;
+    top: 20%;
+    left: 38%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    padding: 30px 50px;
+    border: 1px solid black;
+    z-index: 1;
+  }
+
+  .deleteModal p {
+    margin-bottom: 15px;
+  }
+  
+  .delete-button {
+    text-align: center;
+    background: #cb352b;
+    color: white;
+    font-size: 1rem;
+    width: 200px;
+    padding: 10px 20px;
+    margin-right: 15px;
+  }
+  
+  .no-button {
+    text-align: center;
+    background: #56b9bd;
+    color: white;
+    font-size: 1rem;
+    width: 200px;
+    padding: 10px 20px;
+  }
+  
+  .deleteModal::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #d9d9d9;
+    opacity: 0.6;
+    z-index: -1;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .form-heading {
+    color: #414141;
+    margin-top: 70px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+  }
+  
+  .form input {
+    width: 400px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+  }
+  
+  .form textarea {
+    width: 600px;;
+    height: 300px;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+  }
+  
+  .form button {
+    text-align: center;
+    background: #56b9bd;
+    color: white;
+    font-size: 1.1rem;
+    width: 200px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+  }
+
+  .searchbar {
+    margin-left: 10px;
+    height: 30px;
+    width: 260px;
+    border-radius: 5px;
+  }
+  
