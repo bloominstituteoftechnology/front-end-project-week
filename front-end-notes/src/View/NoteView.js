@@ -31,28 +31,46 @@ class NoteView extends Component {
             this.state.toggleModal ? "Modal-Container" : "Modal-Hidden"
           }
         >
-          <h1>Hey Nedim! You are cool!</h1>
-          <button
-            onClick={() => {
-              this.props.deleteNote(note._id);
-              this.props.history.push("/notes");
-            }}
-          >
-            {" "}
-            let's delete this sucker{" "}
-          </button>
+          <div className="Confirmation-Box">
+            <h2>
+              Hey! Are you sure you want to proceed down this path? Only pain
+              and ruin await those that carelessly toss away the past.
+            </h2>
+            <div className="Button-Box">
+              <button
+                className="Modal-Button-Delete"
+                onClick={() => {
+                  this.props.deleteNote(note._id);
+                  this.props.history.push("/notes");
+                }}
+              >
+                {"Delete this filth."}
+              </button>
+              <button
+                className="Modal-Button-Cancel"
+                onClick={() => this.toggle()}
+              >
+                {"Cancel that, Rogue Leader."}
+              </button>
+            </div>
+          </div>
         </div>
-        <h2>{note.title}</h2>
-        <p>{note.textBody}</p>
-        <button onClick={() => this.toggle()}>delete</button>
-        <button
-          onClick={() => {
-            this.props.updateForm(note);
-            this.props.history.push("/createNote");
-          }}
-        >
-          edit
-        </button>
+        <div className="Note-View">
+          <div className="Edit-Delete-Box">
+            <div
+              onClick={() => {
+                this.props.updateForm(note);
+                this.props.history.push("/createNote");
+              }}
+            >
+              edit
+            </div>
+            <div onClick={() => this.toggle()}>delete</div>
+
+          </div>
+          <h2>{note.title}</h2>
+          <p>{note.textBody}</p>
+        </div>
       </div>
     );
   }
