@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
+import { fetchNotes, addNote, deleteNote, sortNote } from './actions';
 import Navigation from './components/navigation';
 import NotesList from './components/notesList';
-import { Route } from'react-router-dom';
+import { connect } from 'react-redux';
+import { Route, withRouter } from'react-router-dom';
 import AddNoteForm from './components/addNoteForm';
 import EditForm from './components/editForm';
 import SingleNote from './components/singleNote';
-import Axios from 'axios';
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes:[]
+      title: '',
+      textBody: ''
     }
   };
   componentWillMount() {
-    Axios.get('http://localhost:6969/api/notes')
-      .then(response => this.setState({ notes: response.data }))
-      .catch(err => console.log(err, 'Request Failed'))
+    this.props.fetchNotes();
+  };
+  componentWillUnmount() {
+    this.props.fetchNotes();
   };
   handleInputChange = event => this.setState({ 
     [event.target.name]: event.target.value 
@@ -44,8 +47,8 @@ class App extends Component {
       <div className="App">
         <Navigation className='nav-bar'/>
         <Route exact path='/notes' render={()=>
-          <NotesList sortNotesAZ={this.sortNotesAZ} delete={this.handleDelete} notes={this.state.notes} />
-        }/>        
+          <NotesList {...this.props} sortNotesAZ={this.sortNotesAZ} delete={this.handleDelete} notes={this.props.notes} />
+        } />        
         <Route path='/new-note' render={()=>
           <AddNoteForm 
             {...this.props}
@@ -55,11 +58,19 @@ class App extends Component {
         } />
         <Route path='/edit-form/:id' component={EditForm} /> 
         <Route path="/notes/:id" render={props => (
-          <SingleNote {...props} handleDelete={this.handleDelete}/>
-        )}/>
+            <SingleNote {...props} handleDelete={this.handleDelete}/>
+          )}
+        />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    fetching: state.fetching,
+  };
+};
+
+export default withRouter(connect(mapStateToProps,{ fetchNotes, addNote, deleteNote, sortNote })(App));

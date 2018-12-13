@@ -48,19 +48,19 @@ const notesReducer = (state = initialState, action) => {
           ...state,
           editing: false,
           notes: state.notes.map(
-            note => (note._id === action.payload._id ? action.payload : note)
+            note => (note.id === action.payload.id ? action.payload : note)
           )
         };
-    case EDIT_NOTE_FAILURE:
-      return { 
-        ...state, 
-        editing: false, 
-        error: action.payload 
-      } 
-    case SORTING_A_Z:
-      return {...state, notes: state.notes.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))}          
-    default:
-      return state; 
+      case EDIT_NOTE_FAILURE:
+        return { 
+          ...state, 
+          editing: false, 
+          error: action.payload 
+        } 
+      case SORTING_A_Z:
+        return {...state, notes: state.notes.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))}          
+      default:
+        return state; 
   }
 };
 

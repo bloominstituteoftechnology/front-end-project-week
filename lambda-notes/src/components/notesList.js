@@ -7,9 +7,9 @@ const NotesList = props => {
       <h2 className='your-notes'>Your Notes:</h2>
       <button onClick={props.sortNotesAZ} className='sort-button'>Sort A-Z</button>
       {props.notes.map(note => {
-        const id = note._id
+        const id = note.id
         return (
-          <Note draggable key={id} id ={id} note={props.note} delete={props.delete}  />
+          <Note key={id} id ={id} note={note} delete={props.delete}  />
         );
       })}
     </div>

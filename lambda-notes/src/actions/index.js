@@ -14,12 +14,12 @@ export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 export const SORTING_A_Z = 'SORTING_A_Z'
 
-
+const heroku = 'https://lambda-notes-build.herokuapp.com/api/notes/'
 
 export const fetchNotes = () => dispatch => {
-  dispatch({ type: FETCHING_NOTES  });
+  dispatch({ type: FETCHING_NOTES });
   axios
-    .get(`http://localhost:6969/api/notes`)
+    .get(heroku)
     .then(response => {
       dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data 
       });
@@ -33,7 +33,7 @@ export const fetchNotes = () => dispatch => {
 export const addNote = note => dispatch => {
   dispatch({ type: ADDING_NOTE });
   axios
-    .post(`http://localhost:6969/api/notes`, note)
+    .post(heroku, note)
     .then(response =>{
       dispatch({ type: ADD_NOTE_SUCCESS, payload: response.data });      
     })
@@ -45,7 +45,7 @@ export const addNote = note => dispatch => {
 export const editNote = note => dispatch => {
   dispatch({ type: EDITING_NOTE})
   axios
-    .put(`http://localhost:6969/api/notes/${note._id}`, note)
+    .put(`${heroku}${note.id}`, note)
     .then(response => {
       dispatch({ type: EDIT_NOTE_SUCCESS, payload: response.data });   
     })
@@ -61,7 +61,7 @@ export const sortNote = () => dispatch => {
 export const deleteNote = id => dispatch => {
   dispatch({ type: DELETING_NOTE });
   axios
-    .delete(`http://localhost:6969/api/notes/${id}`)
+    .delete(`${heroku}${id}`)
     .then(response =>{ fetchNotes()
       dispatch({ type: DELETE_NOTE_SUCCESS, payload: response.data }) 
     })

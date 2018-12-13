@@ -18,11 +18,12 @@ class SingleNote extends Component {
     this.singleNote(id);
     this.setState({ currentId: id });
   };
-  singleNote(id) {
+  singleNote = (id) => {
     Axios
-      .get(`http://localhost:6969/api/notes/${id}`)
+      .get(`https://lambda-notes-build.herokuapp.com/api/notes/${id}`)
       .then(response => {
-        this.setState(() => ({ note: response.data }));
+        this.setState(() => (response.data));
+        console.log(this.state.note)
       })
       .catch(err => {console.log(err)});
   };
@@ -56,6 +57,7 @@ class SingleNote extends Component {
       );
     }
     return (
+      
       <Fragment>
         <div className='single-container'>
           <div className='button-container'> 

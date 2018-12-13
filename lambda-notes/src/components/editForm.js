@@ -13,21 +13,19 @@ class EditForm extends Component {
   };
   componentDidMount() {
     const noteId = this.props.match.params.id;
-    const note = this.props.notes.find(note => note._id === noteId);
+    const note = this.props.notes.find(note => note.id === noteId);
     
     this.setState({ ...note });
   };
   handleInputChange = event => this.setState({ 
     [event.target.name]: event.target.value 
   });
-
   editNote = (event) => {
     event.preventDefault();
     this.props.editNote(this.state );
     this.setState({ title: '', textBody: '' });
     this.props.history.push('/notes');
   }
-
   render() {
     return (
       <form onSubmit={(event) => this.editNote(event)} className='form'>
