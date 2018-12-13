@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Loader } from 'semantic-ui-react';
 
-import { truncate } from '../../helper/helper';
+import { truncate, sortNotes } from '../../helper/helper';
 
 // importing component
 import ToolBar from './ToolBar';
@@ -49,28 +49,22 @@ const NotesWrapper = styled.div`
   }
 `;
 
-
 class NotesList extends React.Component { 
   state = {
     searchText: '',
     sort: null,
+    sortValue: 'oldest',
   }
 
   onInputChange = (e) => {
     this.setState({
-      searchText: e.target.value,
+      [e.target.name]: e.target.value,
     })
   }
 
-  onSortChange = () => {
-    this.setState(state => ({
-      sort: !state.sort ? 'asc' : state.sort === 'asc' ? 'desc' : null,
-    }))
-  }
-
   render () {
-    const { notes, history, fetchingNotes } = this.props;
-    const { searchText, sort } = this.state;
+    const { notes, dragDrop, history, fetchingNotes } = this.props;
+    const { searchText, sort, sortValue } = this.state;
 
     let computedNotes;
 
@@ -78,17 +72,11 @@ class NotesList extends React.Component {
       computedNotes = notes.filter (
         note => note.title.toLowerCase().includes(searchText.toLowerCase())
       )
-      if (sort) {
-        computedNotes.sort(
-          (note1, note2) => {
-            if (sort === 'asc') {
-              return note1.title.toLowerCase() < note2.title.toLowerCase() ? -1 : 0;
-            }
-            return note1.title.toLowerCase() > note2.title.toLowerCase() ? -1 : 0;
-          }
-        )
-      }
+      computedNotes = sortNotes(computedNotes, sortValue);
+
     }
+
+    var dragging = null;
 
     return (
       <NotesWrapper>
@@ -97,12 +85,48 @@ class NotesList extends React.Component {
           <ToolBar
             notes = {notes}
             searchText = {searchText}
+            sortValue = {sortValue}
             onInputChange = {this.onInputChange}
             sort = {sort}
             onSortChange = {this.onSortChange}
           />
         </div>
-        <div className="notes">
+        <div
+          onDragOver={event => {
+            event.preventDefault();
+            var bounding = event.target.getBoundingClientRect();
+            var offsetX = bounding.x + bounding.width / 2;
+            if (event.clientX - offsetX > 0) {
+              event.target.style["border-right"] = "solid 4px red";
+              event.target.style["border-left"] = "";
+            } else {
+              event.target.style["border-left"] = "solid 4px red";
+              event.target.style["border-right"] = "";
+            }
+          }}
+          onDragLeave={event => {
+            event.target.style["border-right"] = "";
+            event.target.style["border-left"] = "";
+          }}
+          onDragStart={event => {
+            dragging = event.target;
+            console.log(event.target);
+            event.dataTransfer.setData("text/html", dragging);
+          }}
+          onDrop={event => {
+            event.preventDefault();
+            console.log(event);
+
+            if (event.target.style["border-right"] !== "") {
+              event.target.style["border-right"] = "";
+              dragDrop(event.target.id, dragging.id, true);
+            } else {
+              event.target.style["border-left"] = "";
+              dragDrop(event.target.id, dragging.id, false);
+            }
+          }}
+          className="notes"
+        >
           {
             fetchingNotes ?
             <Loader style={{margin: '2rem auto'}} active inline size='massive' /> :
@@ -111,8 +135,10 @@ class NotesList extends React.Component {
                 computedNotes
                   .map(note => (
                   <div
+                    draggable
                     className="note-item"
                     key={note._id}
+                    id={note._id}
                     onClick = { () => {
                       history.push(`/notes/${note._id}`)
                     }}

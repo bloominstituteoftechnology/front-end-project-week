@@ -26,6 +26,8 @@ export const LOGOUT = 'LOGOUT';
 export const LOGGEDIN = 'LOGGEDIN';
 export const LOGGEDOUT = 'LOGGEDOUT';
 
+export const DRAG_DROP = 'DRAG_DROP';
+
 const BASE_URL = 'https://fe-notes.herokuapp.com/note';
 
 // actions creators
@@ -149,3 +151,12 @@ export const checkLogin = () => {
   }
   return {type: LOGGEDOUT}
 }
+
+export const dragDrop = (id, insertId, after) => ({
+  type: DRAG_DROP,
+  payload: {
+    id,
+    insertId,
+    after,
+  }
+})

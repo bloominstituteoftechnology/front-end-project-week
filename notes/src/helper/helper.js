@@ -38,3 +38,27 @@ export const truncate = (text, max=15, ext=' ...') => {
 export const textWithNewLine = (text) => {
   return text.split(String.fromCharCode(10));
 }
+
+/*
+  Helper function to sort notes
+*/
+export const sortNotes = (notes, sortTerm) => {
+  switch(sortTerm) {
+    case 'newest':
+      return [...notes].reverse();
+    case 'az':
+      return [...notes].sort( 
+        (note1, note2) => (
+          note1.title.toLowerCase() < note2.title.toLowerCase() ?
+          -1 : 0
+        ));
+    case 'za':
+      return [...notes].sort( 
+        (note1, note2) => (
+          note1.title.toLowerCase() > note2.title.toLowerCase() ?
+          -1: 0
+        ));
+    default:
+      return [...notes];
+  }
+}

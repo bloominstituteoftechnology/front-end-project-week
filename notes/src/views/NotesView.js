@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 // import actions creators
 import {
-  getNotes
+  getNotes,
+  dragDrop,
 } from '../store/actions';
 
 // import components
@@ -35,6 +36,7 @@ export default connect(
     error: state.error,
   }),
   {
-    getNotes
+    getNotes,
+    dragDrop,
   }
 )(NotesView)

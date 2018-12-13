@@ -39,3 +39,10 @@ export const Input = styled.input`
     background-color: lightyellow;
   }
 `;
+
+export const Select = styled.select`
+  border: 1px solid #424142;
+  padding: .5rem;
+  font-size: 1.6rem;
+  border-radius: .3rem;
+`;

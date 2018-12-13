@@ -114,6 +114,36 @@ export default (state = initialState, action ) => {
         loggedIn: true,
         username: action.payload.username,
       }
+    case actions.DRAG_DROP:
+      let removed = null;
+      let removedId = null;
+
+      let newArr = state.notes.reduce((arr, i) => {
+        if (i._id === action.payload.insertId) {
+          removed = i;
+          return arr;
+        }
+        if (i._id === action.payload.id) {
+          if (action.payload.after) {
+            arr.push(i);
+            arr.push(null);
+            removedId = arr.length - 1;
+          } else {
+            arr.push(null);
+            removedId = arr.length - 1;
+            arr.push(i);
+          }
+        } else {
+          arr.push(i);
+        }
+        return arr;
+      }, []);
+
+      newArr[removedId] = removed;
+      return {
+        ...state,
+        notes: newArr,
+      }
     case actions.LOGOUT:
     case actions.LOGGEDOUT:
       return initialState;
