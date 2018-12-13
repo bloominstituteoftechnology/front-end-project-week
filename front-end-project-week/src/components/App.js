@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import SideNav from './SideNav';
 import ListNotesView from '../views/ListNotesView';
 import NoteView from '../views/NoteView';
@@ -27,6 +27,20 @@ export const urlLinks = {
   editNoteClient: 'note/get/edit',
   editNoteId: 'note/get/edit/:id'
 };
+let isModelRaised = false;
+
+/***************************************************************************************************
+ ********************************************** Methods ********************************************
+ **************************************************************************************************/
+const setModelIsRaised = () => {
+  isModelRaised = true;
+  console.log(isModelRaised);
+};
+
+const setModelNotRaised = () => {
+  isModelRaised = false;
+  console.log(isModelRaised);
+};
 
 /***************************************************************************************************
  ********************************************** Styles *********************************************
@@ -35,12 +49,29 @@ const DivWrapper = styled.div`
   display: flex;
 `;
 
+const GlobalStyle = createGlobalStyle`
+  html,
+  body,
+  #root {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    background-color: ${props =>
+      props.isModelRaised === 'true'
+        ? `rgba(0, 0, 0, 0.8)`
+        : `rgb(243, 243, 243)`};
+  }
+`;
+
 /***************************************************************************************************
  ********************************************* Component *******************************************
  **************************************************************************************************/
-const App = props => {
+const App = () => {
   return (
     <DivWrapper>
+      <GlobalStyle isModelRaised={isModelRaised.toString()} />
       <SideNav
         viewNotesLink={`${urlLinks.home}${urlLinks.readNotes}`}
         createNoteLink={`${urlLinks.home}${urlLinks.createNote}`}
@@ -63,6 +94,8 @@ const App = props => {
             match={props.match}
             editNoteLink={`${urlLinks.home}${urlLinks.editNoteClient}`}
             viewNotesLink={`${urlLinks.home}${urlLinks.readNotes}`}
+            setModelIsRaised={() => setModelIsRaised()}
+            setModelNotRaised={() => setModelNotRaised()}
           />
         )}
       />

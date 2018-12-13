@@ -7,7 +7,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducers';
-import './BodyStyle.css';
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 

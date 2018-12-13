@@ -39,13 +39,6 @@ const SpanEllipsis = styled.span`
 `;
 
 /***************************************************************************************************
- ********************************************* Variables *******************************************
- **************************************************************************************************/
-const maxTitleLimit = 20;
-const maxTextBodyLimit = 180;
-const ellipsis = '. . .';
-
-/***************************************************************************************************
  ********************************************** Methods ********************************************
  **************************************************************************************************/
 const shortenText = (text, limitCharsDisplayed) => {
@@ -68,15 +61,15 @@ const NoteSticky = props => {
     <LinkNoteSticky to={props.noteDetailsIdLink}>
       <DivNoteSticky>
         <H3NoteTitle>
-          {shortenText(props.title, maxTitleLimit)}{' '}
-          {props.title.length > maxTitleLimit && (
-            <SpanEllipsis>{ellipsis}</SpanEllipsis>
+          {shortenText(props.title, props.maxTitleLimit)}{' '}
+          {props.title.length > props.maxTitleLimit && (
+            <SpanEllipsis>{props.ellipsis}</SpanEllipsis>
           )}
         </H3NoteTitle>
         <NoteText>
-          {shortenText(props.textBody, maxTextBodyLimit)}{' '}
-          {props.textBody.length > maxTextBodyLimit && (
-            <SpanEllipsis>{ellipsis}</SpanEllipsis>
+          {shortenText(props.textBody, props.maxTextBodyLimit)}{' '}
+          {props.textBody.length > props.maxTextBodyLimit && (
+            <SpanEllipsis>{props.ellipsis}</SpanEllipsis>
           )}
         </NoteText>
       </DivNoteSticky>
@@ -87,7 +80,10 @@ const NoteSticky = props => {
 NoteSticky.defaultProps = {
   noteDetailsLink: PropTypes.string,
   title: PropTypes.string,
-  textBody: PropTypes.string
+  textBody: PropTypes.string,
+  ellipsis: PropTypes.string,
+  maxTitleLimit: PropTypes.number,
+  maxTextBodyLimit: PropTypes.number
 };
 
 export default NoteSticky;

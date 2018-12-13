@@ -20,7 +20,7 @@ const H2LoadingMessage = styled.h2`
 `;
 
 const DivNotePageDisplay = styled.div`
-  opacity: ${props => (props.showdeletemodel === 'true' ? 0.4 : 1)};
+  opacity: ${props => (props.showdeletemodel === 'true' ? 0.2 : 1)};
 `;
 
 const HeaderNote = styled.header`
@@ -97,11 +97,13 @@ class NoteView extends Component {
   showDeleteModel = e => {
     e.preventDefault();
     this.setState({ showDeleteModel: true });
+    this.props.setModelIsRaised();
   };
 
   hideDeleteModel = e => {
     e.preventDefault();
     this.setState({ showDeleteModel: false });
+    this.props.setModelNotRaised();
   };
 
   deleteNoteAndHideModel = (e, noteId) => {
@@ -111,7 +113,6 @@ class NoteView extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <DivPageWrapper>
         {this.props.fetchingNote ? (

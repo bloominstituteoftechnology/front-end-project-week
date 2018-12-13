@@ -26,6 +26,9 @@ const ListNotes = props => {
               title={note.title}
               textBody={note.textBody}
               noteDetailsIdLink={`${props.noteDetailsLink}/${note._id}`}
+              ellipsis={'. . .'}
+              maxTitleLimit={20}
+              maxTextBodyLimit={180}
             />
           );
         })}
