@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./SingleTodoView.css";
 import { Route, Link } from "react-router-dom";
+import CheckboxContainer from "./Checkbox/CheckboxContainer";
 
 const SingleTodoView = props => {
   return (
@@ -38,6 +39,7 @@ const SingleTodoView = props => {
           <b>Add comment</b>
         </div>
         <textarea placeholder="Write a comment..." />
+        <CheckboxContainer />
       </div>
     </div>
   );

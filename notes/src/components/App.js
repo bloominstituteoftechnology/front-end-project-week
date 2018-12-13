@@ -74,6 +74,17 @@ class App extends Component {
 
   render() {
     // console.log("state from render", this.state);
+
+    // var csv = Papa.unparse([
+    //   {
+    //     "Column 1": "foo",
+    //     "Column 2": "bar"
+    //   },
+    //   {
+    //     "Column 1": "abc",
+    //     "Column 2": "def"
+    //   }
+    // ]);
     return (
       <Router>
         <div>

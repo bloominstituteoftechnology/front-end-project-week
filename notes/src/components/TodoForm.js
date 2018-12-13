@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import "./TodoForm.css";
+import { Link } from "react-router-dom";
 
 const TodoForm = props => {
   return (
     <div className="todo-form-container">
       <div className="form-card">
-        <h2>Add todo</h2>
+        <Link to={"/"}>
+          <h2>Add todo</h2>
+        </Link>
         <form>
           <input
             type="text"
