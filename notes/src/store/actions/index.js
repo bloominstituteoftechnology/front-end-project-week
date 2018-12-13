@@ -95,12 +95,3 @@ export const deleteNote = id => dispatch => {
       dispatch({type: DELETE_NOTE_FAILURE, payload: err});
     });
 };
-
-export const exportToCsv = notes => dispatch => {
-  dispatch({type: EXPORTING_NOTES});
-  const rows = ['title', 'textBody'];
-  const data = notes.map(n => {
-    return `${n.title},${n.textBody}\n`;
-  });
-  return rows.join(',') + '\n' + data;
-};

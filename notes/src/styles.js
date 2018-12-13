@@ -69,8 +69,11 @@ export const Button = styled.button`
 `;
 
 export const ExportButton = styled.button`
-  margin: -4rem 0 4rem 3%;
-  width: 10%;
+  //margin: -4rem 0 4rem 3%;
+  //width: 10%;
+  position: fixed;
+  top: 95%;
+  left: 1%;
   border-radius: 5px;
   background-color: #636378;
   color: white;
@@ -89,23 +92,25 @@ export const DivButtons = styled.div`
   padding-right: 5%;
   padding-top: 2rem;
   width: 100%;
+  font-weight: bold;
 
   p {
-    padding: 0 10px;
+    //padding: 0 10px;
     text-decoration: underline;
+    padding-right: 3%;
   }
 `;
 
 export const SingleNote = styled.div`
-  //margin-left: 28%;
   margin-left: 300px;
   text-align: left;
   width: 65%;
   padding: 2rem 1rem;
+  height: 100vh;
 
-  //@media (min-width: 1200px) {
-  //margin-left: 31%;
-  //}
+  @media (max-width: 600px) {
+    margin: 0 auto;
+  }
 
   p {
     white-space: pre-wrap;
@@ -213,6 +218,14 @@ export const StyledNote = styled.div`
   h2 {
     font-weight: bold;
   }
+`;
+
+export const HeaderDiv = styled.div`
+  height: 1.6rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 
 /***Modal Component***/

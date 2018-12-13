@@ -6,13 +6,14 @@ import {
   SearchBarWrapper,
   DivNotes,
   StyledNote,
+  HeaderDiv,
   ExportButton,
 } from '../styles';
 
 const Notes = props => {
   return (
     <NotesWrapper>
-      <ExportButton onClick={() => props.export()}>export to csv</ExportButton>
+      <ExportButton onClick={() => props.export()}>Export to CSV</ExportButton>
       <SearchBarWrapper>
         <h2>Your Notes:</h2>
         <form onSubmit={e => props.clearSearchText(e)}>
@@ -35,9 +36,9 @@ const Notes = props => {
           <StyledNote
             key={note._id}
             onClick={() => props.history.push(`/note/${note._id}`)}>
-            <div style={{maxHeight: '30px', overflow: 'hidden'}}>
+            <HeaderDiv>
               <h2>{note.title}</h2>
-            </div>
+            </HeaderDiv>
             <hr />
             <ReactMarkdown source={note.textBody} />
           </StyledNote>
