@@ -51,6 +51,7 @@ const ButtonSubmit = styled.button`
   user-select: none;
 
   &:hover {
+    transition: all 0.2s ease-in;
     background-color: white;
     color: rgb(43, 193, 196);
     cursor: pointer;

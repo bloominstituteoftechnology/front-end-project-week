@@ -21,6 +21,7 @@ const DivNoteSticky = styled.div`
   text-shadow: none;
 
   &:hover {
+    transition: all 0.2s ease-in;
     background-color: rgb(43, 193, 196);
     text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
     color: white;

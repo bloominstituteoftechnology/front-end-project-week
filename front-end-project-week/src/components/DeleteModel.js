@@ -41,6 +41,12 @@ const ButtonModel = styled.button`
   &:not(:last-child) {
     margin-right: 25px;
   }
+
+  &:hover {
+    transition: all 0.2s ease-in;
+    background-color: ${props => props.delete && `rgb(180, 2, 26)`};
+    background-color: ${props => props.no && `rgb(103, 219, 222)`};
+  }
 `;
 
 /***************************************************************************************************
