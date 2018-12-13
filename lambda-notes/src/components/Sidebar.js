@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
-import CSVButton from './CSVButton'; 
+import CSVButton from './CSVButton';
 
 
 const SideBar = props => {
@@ -16,7 +16,7 @@ const SideBar = props => {
     <div className='sidebar'>
       <h1>Lambda Notes</h1>
 
-      <Link to='/'>
+      <Link to='/notes'>
         <div className='button view-button'>
         View Your Notes
         </div>
