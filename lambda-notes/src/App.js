@@ -28,10 +28,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // axios
-    //   .get("https://fsw14-lambda-notes-api.herokuapp.com/api/notes")
-    //   .then(res => this.setState({ notes: res.data }))
-    //   .catch(err => console.log(err));
     this.authenticate();
   }
   componentDidUpdate(prevProps) {
