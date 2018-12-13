@@ -5,7 +5,7 @@ const DeleteModal = props => {
   const id = props.match.params.id;
     const deleteIt = () => {
       props.deleteNote(id);
-      props.history.push('/');
+      props.history.push('/notes');
     };
 
   const cancelDelete = () => {
