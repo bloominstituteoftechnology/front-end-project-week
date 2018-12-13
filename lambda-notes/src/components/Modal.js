@@ -10,7 +10,7 @@ const Modal = (props, {handleClose, show, children}) => {
         <section className = {showHideClassName}>
             <h3>Are you sure you want to delete this?</h3>
 
-            <button onClick = { props.deleteNote(props.id) }>Delete</button>
+            <Link to = "/notes"><button onClick = { props.deleteNote(props.id) }>Delete</button></Link>
             <button onClick = { props.hideModal }>No</button>
         </section>
 
