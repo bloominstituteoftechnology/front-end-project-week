@@ -13,7 +13,11 @@ class NoteDetails extends Component {
   }
   componentDidMount() {
     axios
-      .get(`http://localhost:9000/notes/${this.props.match.params.id}`)
+      .get(
+        `https://lambdanotesserver.herokuapp.com/notes/${
+          this.props.match.params.id
+        }`
+      )
       .then(response => {
         console.log(response.data[0].title);
         this.setState({

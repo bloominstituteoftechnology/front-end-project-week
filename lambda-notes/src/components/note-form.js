@@ -13,7 +13,7 @@ class NoteForm extends Component {
   handleSubmitNote = event => {
     event.preventDefault();
     axios
-      .post("http://localhost:9000/notes", this.state)
+      .post("https://lambdanotesserver.herokuapp.com/notes", this.state)
       .then(response => console.log(response))
       .catch(error => console.log(error));
     this.setState({ title: "", content: "" });

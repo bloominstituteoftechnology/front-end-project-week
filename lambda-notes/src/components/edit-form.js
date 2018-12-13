@@ -15,10 +15,15 @@ class EditForm extends Component {
     e.preventDefault();
     console.log("click");
     axios
-      .put(`http://localhost:9000/notes/${this.props.match.params.id}`, {
-        title: this.state.title,
-        content: this.state.content
-      })
+      .put(
+        `https://lambdanotesserver.herokuapp.com/notes/${
+          this.props.match.params.id
+        }`,
+        {
+          title: this.state.title,
+          content: this.state.content
+        }
+      )
       .then(response => {
         console.log("response", response.data);
       })

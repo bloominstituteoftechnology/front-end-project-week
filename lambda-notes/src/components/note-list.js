@@ -12,7 +12,7 @@ class NoteList extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:9000/notes")
+      .get("https://lambdanotesserver.herokuapp.com/notes")
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
   }
