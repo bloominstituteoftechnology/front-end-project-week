@@ -1,0 +1,28 @@
+.side-bar {
+    position: fixed;
+    background-color: @darkbackground;
+    border-right: 1px solid @borders;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: @text;
+}
+
+.button {
+    box-sizing: border-box;
+    width: 250px;
+    height: 60px;
+    border: 1px solid @borders;
+    color: white;
+    background-color: @button-bgd;
+    margin: 10px 0px;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    .button:hover {
+        text-decoration: none;
+        color: white;
+    }
+}
