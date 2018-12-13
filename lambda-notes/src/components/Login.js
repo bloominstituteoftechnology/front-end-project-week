@@ -46,30 +46,31 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-            <h2>Login</h2>
-                <form onSubmit={this.submitHandler}>
-                    <label htmlFor="username">Username</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={this.state.user.username}
-                        onChange={this.inputHandler}
-                    />
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={this.state.user.password}
-                        onChange={this.inputHandler}
-                    />
-                    <button type="submit">Submit</button>
-                </form>
-                <Link to='/register'>Or register</Link>
+            <div className="register-login-div">
+                <div className="register-login-form">
+                <h2>Login</h2>
+                    <form onSubmit={this.submitHandler}>
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={this.state.user.username}
+                            onChange={this.inputHandler}
+                        />
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={this.state.user.password}
+                            onChange={this.inputHandler}
+                        />
+                        <button type="submit">Submit</button>
+                    </form>
+                    <Link to='/register'>Or register</Link>
+                </div>
             </div>
-
         );
     }
 }

@@ -197,3 +197,25 @@ form button{
   margin:10px;
   border:1px solid black;
 }
+.register-login-div{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.register-login-form{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  width:500px;
+}
+.register-login-form button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.logout-btn{
+  background:red;
+}
