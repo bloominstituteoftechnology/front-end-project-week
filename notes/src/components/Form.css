@@ -1,0 +1,26 @@
+
+.edit-title{
+    width: 400px;
+    color: #414141;
+}
+
+.edit-content{
+    /* height: 400px; */
+    margin-top: 10px;
+    
+}
+
+.update-button{
+    height: 35px;
+    width: 160px;
+    text-align: center;
+    color: white;
+    background: #23B8BD;
+    margin: 5px 0;
+    cursor: pointer;
+    border: 1px solid #AFAEAF;
+    font-size: 12px;
+}
+.container-form{
+    margin-left: 15px;
+}

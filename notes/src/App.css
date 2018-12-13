@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 0 auto;
+  
+}
+body{
+  background-color: rgb(107, 103, 105);
+}
+.container{
+  height: 100%;
+  background-color: #F2F1F2;
+  border: 1px solid #AFAEAF;
+  
+  
+}
+.App{
+  display: flex;
+  height: 1200px;
+}
+
+.side-bar{
+  /* border: 1px solid red; */
+  max-width: 165px;
+  text-align: center;
+  background: #D3D2D3;
+  margin-left: 0;
+  border-right: 1px solid #AFAEAF;
+  margin-right: 10px;
+}
+
+.side-button{
+  height: 35px;
+  width: 140px;
+  text-align: center;
+  color: white;
+  background: #23B8BD;
+  margin: 5px 0;
+  font-weight: bold;
+  border: 1px solid #AFAEAF;
+  font-size: 12px;
+  /* border: 1px solid red; */
+}
+
+.home-title{
+  margin:25px;
+  margin-top: 50px;
+}
+.home-body{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px;
+  
+}
+ 
+.lambda-notes{
+  text-align: left;
+  margin: 15px;
+  color: #414141;
+}
+
+.regLog{
+  align-items: center;
+  border: 1px solid #AFAEAF;
+  background-color: rgb(107, 103, 105); 
+  color: white;
+  font-weight: bold;
+  width: 65px;
+}
+
+h2{
+  color: #414141;
+}
