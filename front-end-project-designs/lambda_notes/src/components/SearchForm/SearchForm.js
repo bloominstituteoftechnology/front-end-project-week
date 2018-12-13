@@ -61,8 +61,8 @@ class SearchForm extends React.Component {
 		this.setState({
 			searchQuery: this.state.searchQuery,
         });
-        setTimeout( ()=>{ this.props.searchNotes(this.state.searchQuery);}, 100)
-       
+        // setTimeout( ()=>{ this.props.searchNotes(this.state.searchQuery);}, 100)
+        this.props.searchNotes(this.state.searchQuery)
         // console.log(this.state.searchQuery)
 	};
 

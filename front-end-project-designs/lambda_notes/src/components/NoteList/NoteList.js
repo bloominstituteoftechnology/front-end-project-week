@@ -54,7 +54,7 @@ const NoteListContainer = styled.div`
 `;
 
 const NoteCardContainer = styled.div`
-	display: ${props => props.matchesSearch ?  'inline-block': 'none'};
+	display: ${props => (props.hidden ? "none" : "inline-block")};
 	background-color: #ffffff;
 	color: #20272d;
 	/* width: 10%; */
@@ -88,14 +88,15 @@ class NoteList extends React.Component {
 			notes: [],
 			isStarred: false,
 			dropdownOpen: false,
-			searchQuery: '',
-			hidden: false,
+			searchQuery: this.props.searchQuery,
+			themeColor: this.props.themeColor,
 		};
 		this.toggle = this.toggle.bind(this);
 	}
 
 	componentDidMount() {
-		this.props.getNotes();
+			this.props.getNotes();
+		// console.log("Notelist searchQ", this.state.searchQuery);
 	}
 
 	toggle() {
@@ -104,11 +105,8 @@ class NoteList extends React.Component {
 		}));
 	}
 
-	searchNotes = (data) => {
-		this.setState({searchQuery: data})
-		console.log(this.state.searchQuery)
-		
-		
+	searchNotes = data => {
+		this.props.searchNotes(data);
 	};
 
 	sortNotesByAscendingLength = () => {
@@ -125,7 +123,7 @@ class NoteList extends React.Component {
 			notes: sortedNotes,
 		});
 
-		// console.log("sortNotes", this.state.notes);
+	
 	};
 	sortNotesByDescendingLength = () => {
 		let sortedNotes = this.props.notes.sort(function(a, b) {
@@ -141,7 +139,6 @@ class NoteList extends React.Component {
 			notes: sortedNotes,
 		});
 
-		// console.log("sortNotes", this.state.notes);
 	};
 	sortNotesByOldestFirst = () => {
 		this.props.getNotes();
@@ -149,28 +146,26 @@ class NoteList extends React.Component {
 	sortNotesByNewestFirst = () => {
 		let newestNotes = this.props.notes.reverse();
 		this.setState({ notes: newestNotes });
-		console.log(newestNotes);
 	};
+
 
 	// sortNotesByStarredFirst = () => {
 	// 	if ()
 	// }
 
 	render() {
-		// console.log("Notelist props", this.props);
+		console.log("Notelist props", this.props);
 		if (!this.props.notes) {
 			return <h2>Loading...</h2>;
 		}
 		return (
-			
 			<NoteListContainer>
-				
 				<NoteListHeader>
+
 					<h2 className="lamba-notes-header">Your Notes:</h2>
 					<SearchForm
 						{...this.props}
 						searchNotes={this.searchNotes}
-						// searchQuery={props.searchQuery}
 					/>
 					<Dropdown
 						isOpen={this.state.dropdownOpen}
@@ -212,50 +207,49 @@ class NoteList extends React.Component {
 						</DropdownMenu>
 					</Dropdown>
 				</NoteListHeader>
-
 				{this.props.notes.map(note => {
 					return (
-						<>
-							<NoteCardContainer
-								matchesSearch={
-									note.title.toLowerCase().indexOf(this.state.searchQuery) > -1 || note.textBody.toLowerCase().indexOf(this.state.searchQuery) > -1 ? true : false}
-								
-								onClick={() => {
-									this.props.history.push(
-										`/notes/${note._id}`
-									);
-								}}
-								key={note._id}
-								className="note-card"
-							>
-								<h4>
-									{note.title.length > 30
-										? note.title.slice(0, 30).concat("...")
-										: note.title}
-								</h4>
-								<p>
-									{note.textBody.length > 130
-										? note.textBody
-												.slice(0, 130)
-												.concat("...")
-										: note.textBody}
-								</p>
-							</NoteCardContainer>
+							<>
+								<NoteCardContainer
 
-							<Route
-								path="/notes/:noteId"
-								render={props => (
-									<Note
-										{...props}
-										notes={this.state.notes}
-										deleteNote={this.props.deleteNote}
-										isStarred={props.isStarred}
-									/>
-								)}
-							/>
-						</>
-					);
-				})}
+									onClick={() => {
+										this.props.history.push(
+											`/notes/${note._id}`
+										);
+									}}
+									key={note._id}
+									className="note-card"
+								>
+									<h4>
+										{note.title.length > 30
+											? note.title
+													.slice(0, 30)
+													.concat("...")
+											: note.title}
+									</h4>
+									<p>
+										{note.textBody.length > 130
+											? note.textBody
+													.slice(0, 130)
+													.concat("...")
+											: note.textBody}
+									</p>
+								</NoteCardContainer>
+
+								<Route
+									path="/notes/:noteId"
+									render={props => (
+										<Note
+											{...props}
+											notes={this.state.notes}
+											deleteNote={this.props.deleteNote}
+											isStarred={props.isStarred}
+										/>
+									)}
+								/>
+							</>
+						);
+									})}
 			</NoteListContainer>
 		);
 	}

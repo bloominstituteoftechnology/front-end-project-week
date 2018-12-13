@@ -11,7 +11,6 @@ import {
 	FormGroup,
 	Label,
 	Input,
-	FormText,
 } from "reactstrap";
 
 const LoginBackground = styled.div`

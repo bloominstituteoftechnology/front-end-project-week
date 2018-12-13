@@ -4,18 +4,18 @@ import { Route } from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
-import Authenticate from '../src/Authenticate/Authenticate';
+import Authenticate from "../src/Authenticate/Authenticate";
 import Sidebar from "./components/Sidebar/Sidebar";
 import NoteList from "./components/NoteList/NoteList";
 import AddNewNote from "./components/AddNewNote/AddNewNote";
 import Note from "./components/Note/Note";
 import EditNoteForm from "./components/EditNoteForm/EditNoteForm";
-import Settings from './components/Settings/Settings';
+import Settings from "./components/Settings/Settings";
 
 const AppContainer = styled.div`
 	height: 100%;
 	display: flex;
-	background-color: #F2F1F2;
+	background-color: #f2f1f2;
 `;
 
 // ========== END OF STYLES ==================
@@ -30,17 +30,24 @@ class App extends Component {
 			tags: "",
 			textBody: "",
 			isStarred: false,
+			searchQuery: null,
+			themeColor: "",
 		};
 	}
 
 	componentDidMount() {
 		this.getNotes();
 	}
-	
+
 	logOut = () => {
-		window.localStorage.removeItem('username');
+		window.localStorage.removeItem("username");
 		window.location.reload();
-	}
+	};
+
+	searchNotes = data => {
+		this.setState({ searchQuery: data });
+		console.log("app searchQ", this.state.searchQuery);
+	};
 
 	getNotes = () => {
 		axios
@@ -67,35 +74,49 @@ class App extends Component {
 	editNote = (data, id) => {
 		axios
 			.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
-			.then(
-				res => ( () => {
-					console.log("PUT Server Response: ", res);
-					this.setState({
-						title: res.data.title,
-						textBody: res.data.textBody,
-						id: res,
-					})
-				}
-				)
-			)
+			.then(res => () => {
+				console.log("PUT Server Response: ", res);
+				this.setState({
+					title: res.data.title,
+					textBody: res.data.textBody,
+					id: res,
+				});
+			})
 			.catch(err => console.log("PUT Server Error: ", err));
 	};
 
 	toggleStar = () => {
-		this.setState({isStarred: true})
-	}
+		this.setState({ isStarred: true });
+	};
+
+	changeColor = data => {
+		this.setState({ themeColor: data });
+		console.log('App color', this.state.themeColor)
+	};
 
 	render(props) {
 		console.log("App props", this.props);
 		return (
 			<>
 				<AppContainer>
-					<Sidebar {...props} getNotes={this.getNotes} logOut={this.logOut}/>
+					<Sidebar
+						{...props}
+						getNotes={this.getNotes}
+						logOut={this.logOut}
+					/>
 					<Route
 						exact
 						path="/notes"
 						render={props => (
-							<NoteList {...props} notes={this.state.notes} getNotes={this.getNotes}  />
+							<NoteList
+								{...props}
+								notes={this.state.notes}
+								getNotes={this.getNotes}
+								searchNotes={this.searchNotes}
+								searchQuery={this.state.searchQuery}
+								themeColor={this.state.themeColor}
+								changeColor={this.changeColor}
+							/>
 						)}
 					/>
 					<Route exact path="/addnewnote" component={AddNewNote} />
@@ -103,7 +124,11 @@ class App extends Component {
 						exact
 						path="/notes/:noteId"
 						render={props => (
-							<Note {...props} notes={this.state.notes} deleteNote={this.deleteNote} />
+							<Note
+								{...props}
+								notes={this.state.notes}
+								deleteNote={this.deleteNote}
+							/>
 						)}
 					/>
 					<Route
@@ -126,6 +151,8 @@ class App extends Component {
 						render={props => (
 							<Settings
 								{...props}
+								themeColor={this.state.themeColor}
+								changeColor={this.changeColor}
 							/>
 						)}
 					/>

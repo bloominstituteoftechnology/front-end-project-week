@@ -24,14 +24,19 @@ class Settings extends React.Component {
 		this.state = {
 			themeColor: "#24b8bd",
 		};
-	}
+    }
+    
+    changeColor = (event) => {
+        this.setState({themeColor: event.target.value})
+        setTimeout( () => {this.props.changeColor(this.state.themeColor)}, 200)
+        console.log("themeColor :", this.state.themeColor);
+    }
 
 	handleChange = event => {
-		document.querySelector(".test").style.color = this.state.themeColor;
 		this.setState({
 			themeColor: event.target.value,
 		});
-		console.log("themeColor :", this.state.themeColor);
+		
 	};
 
 	render() {
@@ -47,8 +52,6 @@ class Settings extends React.Component {
 						value={this.state.themeColor}
 						onChange={this.handleChange}
 					/>
-
-					<h2 className="test"> Test header </h2>
 				</form>
 			</SettingsFormContainer>
 		);
