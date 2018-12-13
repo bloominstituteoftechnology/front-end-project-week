@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import NoteText from './NoteText';
+
 import { deleteNote } from '../actions';
 
 const NoteWrapper = styled.div`
@@ -97,7 +99,10 @@ class Note extends React.Component {
                         <SCButton onClick={this.displayConfirm}>delete</SCButton>
                     </ButtonWrapper>
                     <NotesHeader>{selectedNote.title}</NotesHeader>
-                    <p>{selectedNote.textBody}</p>
+
+                    {/* <p>{selectedNote.textBody}</p> */}
+                    <NoteText textBody={selectedNote.textBody}/>
+
                 </NoteWrapper>
                 <DeleteConfirmWrapper visibility={this.state.visibility}>
                 <DeleteConfirmBox>

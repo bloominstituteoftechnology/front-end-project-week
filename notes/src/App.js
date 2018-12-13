@@ -46,31 +46,6 @@ class App extends Component {
     this.setState(prevState => ({ reversedNotes: reversedArray, sortText: (prevState.sortText === 'newest' ? 'oldest' : 'newest') }));
   }
 
-  exportCSV = () => {
-    // let csvRow = [];
-    // let A = [['_id','title','textBody']];
-    // let re = this.props.notes;
-
-    // for (let item = 0; item < re.length ; item++) {
-    //   A.push([item,re[item]._id,re[item].title,re[item].textBody]);
-    // }
-    // console.log(A);
-    // for(let i = 0; i < A.length; ++i) {
-    //   csvRow.push(A[i].join(","))
-    // }
-    // console.log(csvRow);
-
-    // let csvString = csvRow.join("%OA");
-    // console.log(csvString);
-
-    // let a = document.createElement("a");
-    // a.href='data:attachment/csv,' + csvString;
-    // a.target="_Blank";
-    // a.download="testfile.csv";
-    // document.body.appendChild(a);
-    // a.click();
-  }
-
   convertArrayOfObjectsToCSV = (args) => {
     var result, ctr, keys, columnDelimiter, lineDelimiter, data;
 
@@ -139,8 +114,7 @@ class App extends Component {
                 /> 
                 }
               />
-            
-            <Route exact path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
+              <Route exact path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
             <Route path="/createnewnote" component={CreateNewNote} />
             <Route path="/note/edit/:noteId" render={props => <EditNote {...props} notes={this.props.notes} />} />
           </MainWrapper>
