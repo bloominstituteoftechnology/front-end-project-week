@@ -77,8 +77,8 @@ class NoteDetail extends React.Component {
             <div className="content">
               <h2>{note.title}</h2>
               <div>
-                {textWithNewLine(note.textBody).map( line => (
-                  <p>{line}</p>
+                {textWithNewLine(note.textBody).map( (line, i) => (
+                  <p key={i}>{line}</p>
                 ))}
               </div>
             </div>
