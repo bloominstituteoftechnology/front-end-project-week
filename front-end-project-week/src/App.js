@@ -78,6 +78,7 @@ class App extends Component {
         <SideNav
           viewNotesLink={`${urlLinks.home}${urlLinks.readNotes}`}
           createNoteLink={`${urlLinks.home}${urlLinks.createNote}`}
+          setModelNotRaised={this.setModelNotRaised}
         />
         <Route
           exact

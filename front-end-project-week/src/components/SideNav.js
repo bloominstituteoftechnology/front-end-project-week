@@ -58,8 +58,16 @@ const SideNav = props => {
     <DivWrapper>
       <H1Title>Lambda Notes</H1Title>
       <DivLinkButtons>
-        <LinkNavButton to={props.viewNotesLink}>View Your Notes</LinkNavButton>
-        <LinkNavButton to={props.createNoteLink}>
+        <LinkNavButton
+          to={props.viewNotesLink}
+          onClick={props => props.setModelNotRaised()}
+        >
+          View Your Notes
+        </LinkNavButton>
+        <LinkNavButton
+          to={props.createNoteLink}
+          onClick={props => props.setModelNotRaised()}
+        >
           + Create New Note
         </LinkNavButton>
       </DivLinkButtons>
