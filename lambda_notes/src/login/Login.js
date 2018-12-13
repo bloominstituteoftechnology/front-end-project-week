@@ -25,7 +25,7 @@ export default class Login extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
-    axios.post(`http://localhost:9000/api/login`, this.state.user)
+    axios.post(`https://back-end-project-week-api.herokuapp.com/api/login`, this.state.user)
       .then((res) => {
         if (res.status === 200 && res.data) {
           localStorage.setItem('secret_token', res.data);

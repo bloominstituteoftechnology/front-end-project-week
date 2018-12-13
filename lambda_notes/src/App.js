@@ -36,7 +36,7 @@ class App extends Component {
     };
 
     if (token) {
-      axios.get(`http://localhost:9000/api/notes`, options)
+      axios.get(`https://back-end-project-week-api.herokuapp.com/api/notes`, options)
         .then((res) => {
           if (res.status === 200 && res.data) {
             this.setState({ loggedIn: true, notes: res.data });
@@ -60,23 +60,25 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    //const endpoint = 'http://localhost:9000/api/notes';
-    
-    // axios
-    //   .get(endpoint)
-    //   .then(response => {
-    //     this.setState({notes: response.data });
-    //   })
-    //   .catch(error => {
-    //     console.log('Error: ', error);
-    //   })
-    
+    const endpoint = 'https://back-end-project-week-api.herokuapp.com/api/notes';
+    axios
+      .get(endpoint)
+      .then(response => {
+        this.setState({notes: response.data });
+      })
+      .catch(error => {
+        console.log('Error: ', error);
+      });
+
     const { pathname } = this.props.location;
     
     if (pathname === '/' && pathname !== prevProps.location.pathname) {
       this.authenticate();
     }
+    
+    
   }
+  
 
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -84,7 +86,7 @@ class App extends Component {
 
   handleSubmit = () => {
     axios
-      .post('http://localhost:9000/api/notes', {
+      .post('https://back-end-project-week-api.herokuapp.com/api/notes', {
         title: this.state.title,
         content: this.state.content
       })
@@ -109,7 +111,7 @@ class App extends Component {
 
   deleteItem = id => {
     axios
-      .delete(`http://localhost:9000/api/notes/${id}`)
+      .delete(`https://back-end-project-week-api.herokuapp.com/api/notes/${id}`)
       .then(response => {
         console.log(response)
       })
@@ -124,7 +126,7 @@ class App extends Component {
 
   editedNote = id => {
     axios
-      .put(`http://localhost:9000/api/notes/${id}`, {
+      .put(`https://back-end-project-week-api.herokuapp.com/api/notes/${id}`, {
         title: this.state.updatedTitle,
         content: this.state.updatedText
       })

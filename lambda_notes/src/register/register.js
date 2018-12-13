@@ -24,7 +24,7 @@ export default class Register extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
-    axios.post(`http://localhost:9000/api/register`, this.state.user)
+    axios.post(`https://back-end-project-week-api.herokuapp.com/api/register`, this.state.user)
       .then((res) => {
         if (res.status === 201) {
           this.setState({

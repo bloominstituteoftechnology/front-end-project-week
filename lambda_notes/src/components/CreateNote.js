@@ -6,6 +6,7 @@ const CreateNote = props => {
         event.preventDefault();
         props.submit();
         props.history.push("/");
+        //window.location.reload();
     }
     return (
         <div>
