@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+const url = require("../api-url.js");
+
 const initialUser = {
     username: "",
     password: ""
@@ -23,7 +25,9 @@ export default class Register extends React.Component {
 
     submitHandler = ev => {
         ev.preventDefault();
-        axios.post(`https://infinite-cliffs-77240.herokuapp.com/api/register`, this.state.user)
+        axios
+            // .post(`https://infinite-cliffs-77240.herokuapp.com/api/register`, this.state.user)
+            .post(`${url}/api/register`, this.state.user)
             .then(res => {
                 this.setState({
                     message: "Registration successful",

@@ -2,6 +2,8 @@ import React from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
+const url = require("../api-url.js");
+
 export default class NoteView extends React.Component {
     constructor(props) {
         super(props);
@@ -18,8 +20,9 @@ export default class NoteView extends React.Component {
     fetchNote = id => {
         console.log("BEFORE ERROR?");
         axios
-            .get(`https://infinite-cliffs-77240.herokuapp.com/api/notes/${id}`)
+            // .get(`https://infinite-cliffs-77240.herokuapp.com/api/notes/${id}`)
             // .get(`http://localhost:9000/api/notes/${id}`)
+            .get(`${url}/api/notes/${id}`)
             .then(response => {
                 console.log("AFTER ERROR?");
                 this.setState({ note: response.data });

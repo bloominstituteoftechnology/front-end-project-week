@@ -1,6 +1,8 @@
 import React from "react";
 import axios from 'axios';
 
+const url = require("../api-url.js");
+
 export default class EditForm extends React.Component {
     constructor(props) {
         super(props);
@@ -18,8 +20,9 @@ export default class EditForm extends React.Component {
 
     fetchNote = id => {
         axios
-            .get(`https://infinite-cliffs-77240.herokuapp.com/api/notes/${id}`)
+            // .get(`https://infinite-cliffs-77240.herokuapp.com/api/notes/${id}`)
             // .get(`http://localhost:9000/api/notes/${id}`)
+            .get(`${url}/api/notes/${id}`)
             .then(response => {
                 this.setState({
                     note: response.data,
