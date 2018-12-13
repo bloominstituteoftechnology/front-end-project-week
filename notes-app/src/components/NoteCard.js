@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import DeleteModal from './DeleteModal';
-import EditForm from './EditForm';
+//import DeleteModal from './DeleteModal';
+//import EditForm from './EditForm';
 import axios from 'axios';
 
 //EDIT IS HERE!!

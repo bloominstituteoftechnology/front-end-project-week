@@ -1,36 +1,52 @@
 import React, { Component } from 'react';
-import Navigation from './Navigation';
+//import Navigation from './Navigation';
 import axios from 'axios';
+import NoteCard from './NoteCard';
 
 export default class EditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: {},
+      note: [],
       title: '',
       textBody: ''
     }
   }
 
-/*   componentDidMount(){
+  componentDidMount(){
     const id = this.props.match.params.id;
-    this.editNote(id);
-  } */
+    //this.editNote(id);
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        console.log('response data', response.data)
+        const note = this.state.note.filter(note => `${note._id}` === id)
+        console.log('note', note)
+        const thenote = note
+        this.setState({ id: id, note: thenote})
+        
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
 
-  inputHandler = event => {
+  inputChangeHandler = event => {
     this.setState({ [event.target.name]: event.target.value })
   }
 
   //EDIT NOTE BEGINS
   editNote = (id) => {
-    axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
-        title: this.state.title,
-        textBody: this.state.textBody,
-      })
+    const { title, textBody} = this.state;
+    const updatedNote = {title, textBody};
+    console.log("updatednote", updatedNote)
+    console.log('edit note')
+    //this.note.history.push(`/notecard/${id}`);
+     axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
       .then( response => {
         console.log('EDIT', response)
-        this.setState(() => ({ note: response.data }))
+        //this.setState(() => ({ note: response.data }))
       })
       .catch(error => {
         console.log(error)
@@ -42,21 +58,21 @@ export default class EditForm extends Component {
     return (
       <div>
         <form onSubmit={this.editNote}>
-          <label for='name'>Title: </label>
+          <label>Title: </label>
           <input 
-            onChange={this.inputHandler}
+            onChange={this.inputChangeHandler}
             type='text' 
             name='title' 
-            placeholder='title'
+            placeholder='note title'
             value={this.state.title} 
           />
           <br></br>
-          <label for='textBody'>Text: </label>
+          <label>Text: </label>
           <textarea 
-            onChange={this.inputHandler}
+            onChange={this.inputChangeHandler}
             type='text'
             name='textBody'
-            placeholder='text'
+            placeholder='note text'
             value={this.state.textBody}
           />
           <br></br>

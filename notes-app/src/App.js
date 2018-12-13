@@ -103,6 +103,7 @@ class App extends Component {
         
         <Route path="/notecard/:id" 
           render={props => <NoteCard {...props}  />} />
+          
         <Route path="/edit/:id"
           render={props => <EditForm {...props} /> } />
 
