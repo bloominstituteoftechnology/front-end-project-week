@@ -31,7 +31,6 @@ const NoteCard = ({note, history}) => {
     <Card
       draggable
       className="note-item"
-      key={note._id}
       id={note._id}
       onClick = { () => {
         history.push(`/notes/${note._id}`)

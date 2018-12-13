@@ -117,7 +117,7 @@ class NotesList extends React.Component {
             !notes[0] ?
                 <div>Something has gone teribbly wrong.</div> :
                 computedNotes
-                  .map(note => <NoteCard note={note} history={history} />)
+                  .map(note => <NoteCard key={note._id} note={note} history={history} />)
           }
         </div>
       </NotesWrapper>
