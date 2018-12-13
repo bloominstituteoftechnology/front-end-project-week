@@ -4,6 +4,11 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authLogin } from '../../actions'
 
+import Background from '../Background';
+import Navigation from '../Home/Navigation';
+
+import requireNotAuth from './requireNotAuth';
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -32,6 +37,8 @@ class Login extends Component {
                     e.preventDefault();
                     this.props.authLogin({...this.state})
                 }}>
+                <Background/>
+                <Navigation {...this.props}/>
                 <StyledLabel htmlFor="username">Username</StyledLabel>
                 <StyledInput 
                     type="text" 
@@ -72,7 +79,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { authLogin })(Login);
+export default connect(mapStateToProps, { authLogin })(requireNotAuth(Login));
 
 const Register = styled(NavLink)`
     color: black;
@@ -112,11 +119,10 @@ const StyledLabel = styled.label`
 
 const Container = styled.form`
     position: absolute;
-    margin-top: 60px;
     left: 50%;
     margin-left: -150px;
+    margin-top: 150px;
     width: 300px;
-    height: 350px;
     background-color: white;
     border-radius: 8px;
     display: flex;

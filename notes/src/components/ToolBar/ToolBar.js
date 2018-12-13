@@ -22,6 +22,9 @@ class ToolBar extends Component {
         if (name === 'select'){
             this.props.selectModeToggle(true)
         }
+        if (name === 'logout'){
+            this.props.logout();
+        }
     }
 
     render() {
@@ -52,9 +55,9 @@ class ToolBar extends Component {
                 </StyledCSV>
                 <Seperator />
                 <ToolBarLabel account="true"/>
-                <Section to='/logout' logout="true" onClick={e => this.onSectionClick(e)}>
-                    <SVGIcon logout="true" />
-                    <SectionTitle title="Logout" />
+                <Section to='/logout' logout="true" name="logout" onClick={e => this.onSectionClick(e)}>
+                    <SVGIcon logout="true" name="logout" />
+                    <SectionTitle title="Logout" name="logout" />
                 </Section>
             </SideBar>
         );

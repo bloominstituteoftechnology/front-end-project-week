@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import jwt from 'jsonwebtoken';
 
 import { 
     SVGIcon, 
@@ -13,13 +14,32 @@ import {
     SettingsRow
 } from '../../styles';
 
+const keyName = process.env.REACT_APP_TOKEN_ITEM;
+
 class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
             search: '',
             showSettings: false,
+            username: ''
         }
+    }
+
+    componentDidMount() {
+        const token = localStorage.getItem(keyName);
+
+        const decoded = jwt.decode(token)
+
+        const username = this.firstCapital(decoded.username)
+
+        this.setState({username})
+    }
+
+    firstCapital = (str) => {
+        return str.split('')
+            .map((l, i) => i === 0 ? l.toUpperCase() : l.toLowerCase())
+            .join('');
     }
 
     logout = (e) => {
@@ -36,8 +56,18 @@ class Header extends Component {
                     <HamburgerContainer onClick={e => this.props.menuToggle()}>
                         <SVGIcon hamburger="true" />
                     </HamburgerContainer>
-                    <img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png" alt="logo" />
-                    <span className="keep-name">Keep</span>
+                    <div
+                        style={{
+                            'display': 'flex',
+                            'alignItems': 'center',
+                            'cursor': 'pointer',
+                            'userSelect': 'none'
+                        }}
+                        onClick={() => this.props.history.push('/')}
+                    >
+                        <img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png" alt="logo" />
+                        <span className="keep-name">Keep</span>
+                    </div>
                 </MenuLogoContainer>
                 <ActionContainer>
                     <Search>
@@ -66,6 +96,10 @@ class Header extends Component {
                         <SVGIcon sortView={this.props.sortMode} onClick={e => this.props.setSortMode()} />
                         <SVGIcon settings onClick={() => this.setState({showSettings: !this.state.showSettings})}/>
                         <Settings showSettings={this.state.showSettings}>
+                            <SettingsRow user>
+                                <SVGIcon user/>
+                                <span>{this.state.username}</span>
+                            </SettingsRow>
                             <SettingsRow onClick={(e) => this.logout(e)}>
                                 <SVGIcon logout/>
                                 <span>Logout</span>

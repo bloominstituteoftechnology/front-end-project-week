@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-import Home from './Home/Home';
+import Dashboard from './Dashboard/container';
 import Login from './Auth/Login'
 import Register from './Auth/Register'
+import Home from './Home/Home';
 
 class App extends Component {
 
   render() {
     return (
       <>
-        <Redirect to="/app" exact from="/"/>
-        <Route path="/app" render={props => <Home {...props}/>} />
+        <Route path="/" exact render={props => <Home {...props}/>} />
+        <Route path="/app" render={props => <Dashboard {...props}/>} />
         <Route path="/login" render={props => <Login {...props}/>} />
         <Route path="/register" render={props => <Register {...props}/>} />
       </>

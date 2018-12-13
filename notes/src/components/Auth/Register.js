@@ -3,6 +3,11 @@ import { connect } from 'react-redux'
 import styled from 'styled-components';
 import { authRegister } from '../../actions'
 
+import Background from '../Background';
+import Navigation from '../Home/Navigation';
+
+import requireNotAuth from './requireNotAuth';
+
 class Register extends Component {
     constructor(props) {
         super(props);
@@ -31,6 +36,8 @@ class Register extends Component {
                     e.preventDefault();
                     this.props.authRegister({...this.state})
                 }}>
+                <Background/>
+                <Navigation {...this.props} />
                 <StyledLabel htmlFor="username">Username</StyledLabel>
                  <StyledInput 
                     type="text" 
@@ -70,7 +77,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { authRegister })(Register);
+export default connect(mapStateToProps, { authRegister })(requireNotAuth(Register));
 
 
 const StyledButton = styled.button`
@@ -104,6 +111,7 @@ const Container = styled.form`
     margin-top: 60px;
     left: 50%;
     margin-left: -150px;
+    margin-top: 150px;
     width: 300px;
     height: 350px;
     background-color: white;

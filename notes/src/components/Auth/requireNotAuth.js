@@ -16,13 +16,13 @@ export default ComposedComponent => {
 
             if(decoded && currentTime > decoded.exp) {
                 localStorage.removeItem(keyName);
-                return <Redirect to={'/login'}/>
+                return <ComposedComponent {...props}/>;
             }
-
-            return <ComposedComponent {...props}/>;
+            
+            return <Redirect to={'/app'}/>
         }
         
-        return <Redirect to={'/login'}/>
+        return <ComposedComponent {...props}/>;
     }
     return requireAuth;
 };

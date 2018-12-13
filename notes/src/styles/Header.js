@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import { SVGIcon } from './SVGs';
 
 export const StyledHeader = styled.div`
@@ -127,13 +127,10 @@ export const Settings = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: space-between;
-    /* padding: 10px; */
     position: absolute;
     background-color: white;
     right: 10px;
-    bottom: -40px;
-    /* bottom: -140px; */
-    /* height: 150px; */
+    bottom: -90px;
     width: 130px;
     border-radius: 8px;
     z-index: 6;
@@ -159,4 +156,12 @@ export const SettingsRow = styled.div`
         line-height: 50px;
         user-select: none;
     }
+    ${props => props.user && css`
+        cursor: default
+        opacity: 1;
+        ${SVGIcon} {
+            opacity: 1;
+            cursor: default;
+        }
+    `}
 `;
