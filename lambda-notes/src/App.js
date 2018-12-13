@@ -190,14 +190,21 @@ class App extends Component {
         .catch(err =>
           console.log("Error while deleting that note's tags: ", err)
         );
+      axios
+        .delete(`${this.noteUrl}/${id}`)
+        .then(this.getNoteList)
+        .catch(error => {
+          console.log("We were unable to delete this note: ", error);
+        });
+    } else {
+      axios
+        .delete(`${this.noteUrl}/${id}`)
+        .then(this.getNoteList)
+        .catch(error => {
+          console.log("We were unable to delete this note: ", error);
+        });
     }
-    axios
-      .delete(`${this.noteUrl}/${id}`)
-      .then(this.getNoteList)
-      .catch(error => {
-        console.log("We were unable to delete this note: ", error);
-      });
-    //this block is very finicky but this configuration finally works. batch deletes tags if it finds any, if not just deletes note
+    //this block is very finicky but this configuration finally works. batch deletes tags if it finds any before deleting note, if not just deletes note
   };
 
   createNote = event => {
