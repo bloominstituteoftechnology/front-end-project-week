@@ -49,7 +49,9 @@ class FullNote extends React.Component {
 
   getTags = () => {
     // parseInt necessary because anything coming off the params will be a string and 2 !== "2"
+
     const id = parseInt(this.props.match.params.id);
+    console.log(id);
     axios
       .get(this.tagUrl)
       .then(response => {

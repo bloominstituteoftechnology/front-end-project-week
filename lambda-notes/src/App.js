@@ -60,8 +60,8 @@ class App extends Component {
         let reducedTagList = [];
         let textList = [];
         response.data.forEach(tag => {
-          if (!textList.includes(tag.text)) {
-            textList.push(tag.text);
+          if (!textList.includes(tag.text.toLowerCase())) {
+            textList.push(tag.text.toLowerCase());
             reducedTagList.push(tag);
           }
         });
@@ -183,8 +183,8 @@ class App extends Component {
   deleteNote = (event, id) => {
     event.preventDefault();
     axios
-      .delete(`${this.noteUrl}/${id}`)
-      .then(this.getNoteList)
+      .delete(`${this.noteUrl}/${parseInt(id)}`)
+      .then(this.getNoteList())
       .catch(error => {
         console.log("We were unable to delete this note: ", error);
       });
@@ -199,7 +199,7 @@ class App extends Component {
         .post(this.noteUrl, note)
         .then(response => {
           this.setState({
-            notes: [...this.state.notes, { ...note, _id: response.data }]
+            notes: [...this.state.notes, { ...note, id: response.data }]
           });
         })
         .catch(error => {
