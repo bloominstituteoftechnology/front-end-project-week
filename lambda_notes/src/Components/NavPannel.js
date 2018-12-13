@@ -49,9 +49,14 @@ class NavPannel extends Component {
             <Buttons> View Your Notes </Buttons>
           </NavLink>
 
-          <NavLink exact to="/note-form">
+          <NavLink exact to="/noteForm">
             <Buttons> + Create New Note </Buttons>
           </NavLink>
+
+          <NavLink exact to='/filterNotes'>
+            <Buttons> Search For Note </Buttons>
+          </NavLink>
+
         </NavPannelLinksWpr>
       </NavPannelWpr>
     );

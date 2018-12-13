@@ -1,13 +1,16 @@
 
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import ViewNotePage from './Components/ViewNotePage';
 import ViewGetNEdit from './Components/ViewGetNEdit';
 import DeleteModalPage from './Components/DeleteModalPage';
 import CreateNewOnes from './Components/CreateNewOnes';
 import GetNViewNotes from './Components/GetNViewNotes';
+// import GetNFilterNotes from './Components/GetNFilterNotes';
 import NavPannel from './Components/NavPannel';
+import ReactDOM from 'react-dom';
+
 
 
 const EverythingBox = styled.div`
@@ -23,25 +26,37 @@ const EverythingBox = styled.div`
 
 class App extends Component {
   render () {
-    return (
-      <EverythingBox>
 
+    // if() {
+    //   return (<UserForm />);
+    // } else {
 
-        <NavPannel />
+      return (
+        <Router>
+          
+          <EverythingBox>
+          
+          
+          <NavPannel />
+          
+          <Route exact path="/" component={GetNViewNotes} />
+          
+          <Route exact path="/note/:id" component={ViewNotePage} />
+          
+          <Route exact path="/noteForm" component={CreateNewOnes} />
+          
+          <Route exact path="/note/edit/:id" component={ViewGetNEdit} />
+          
+          <Route exact path="/note/delete/:id" component={DeleteModalPage} />
 
-        <Route exact path="/" component={GetNViewNotes} />
+          {/*<Route exact path="/filterNotes" component={GetNFilterNotes} />*/}
+          
+          </EverythingBox>
+        
+        </Router>
+      );
 
-        <Route exact path="/note/:id" component={ViewNotePage} />
-
-        <Route exact path="/note-form" component={CreateNewOnes} />
-
-        <Route exact path="/note/edit/:id" component={ViewGetNEdit} />
-
-        <Route exact path="/note/delete/:id" component={DeleteModalPage} />
-
-      </EverythingBox>
-      
-    );
+    // }
   }
 }
 

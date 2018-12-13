@@ -4,6 +4,48 @@ import DeleteModalPage from './DeleteModalPage';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+const ViewNotesBox = styled.div`
+  width: 100%;
+  max-width: 665px;
+  background: #f2f1f1;
+  heght:;
+`;
+const NoteWrapper = styled.div`
+  margin: 3.5%;
+`;
+const ModifyNoteWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const LinkToEdit = styled(Link)`
+  color: #414242;
+  cursor: pointer;
+  margin: 5px;
+  text-decoration: underline;
+  font-weight: bold;
+  :hover {
+    color: #57b5bb;
+  }
+`;
+
+const Delete = styled.div`
+text-decoration: underline;
+cursor: pointer;
+font-weight: bold;
+color: #414242;
+margin-top: 5px;
+:hover {
+  color: #57b5bb;
+}
+`;
+
+const NoteBodySection = styled.p`
+  text-decoration: none;
+  overflow-wrap: break-word;
+  overflow
+`;
+
 
 class ViewNote extends Component {
   constructor() {
@@ -14,6 +56,7 @@ class ViewNote extends Component {
       id: '',
       modal: false,
     }
+    this.toggle = this.toggle.bind(this)
   }
 
 
@@ -27,6 +70,13 @@ class ViewNote extends Component {
       .catch(err => console.log(err));
   }
 
+  toggle() {
+    this.setState({ modal: !this.state.modal });
+    console.log('Test If I can toggle.this.setState');
+  }
+
+
+
 
 
   render() {
@@ -36,15 +86,19 @@ class ViewNote extends Component {
 
           <ModifyNoteWrapper>
 
-            
+            <LinkToEdit to={`/note/edit/${this.state.id}`}> EDIT </LinkToEdit>
 
-            
+            <Delete onClick={this.toggle}>DELETE</Delete>
 
           </ModifyNoteWrapper>
 
+          <h3>{this.state.title}</h3>
+
+          <NoteBodySection>{this.state.textBody}</NoteBodySection>
 
         </NoteWrapper>
 
+        <DeleteModalPage modal={this.state.modal} toggle={this.toggle} id={this.state.id} />
 
       </ViewNotesBox>
 
