@@ -9,6 +9,21 @@ import axios from 'axios';
 class App extends Component {
   state = {
     notes: [],
+    search: '',
+  }
+
+  search = (input) => {
+    this.setState({search: input})
+  }
+
+  filterNotes = () => {
+    if(this.state.search) {
+      console.log( 'is searching' )
+      return this.state.notes.filter( note => note.title.includes(this.state.search))
+    } else {
+      console.log('not searching')
+      return this.state.notes
+    }
   }
 
   componentDidMount() {
@@ -66,13 +81,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     if(this.state.notes === 0) return <h1>loading...</h1>
     return (
       <div className="App">
-        <SideBar />
+        <SideBar content={this.state.notes} search={this.search}/>
         <MainContent 
-          content={this.state.notes}
+          content={this.filterNotes()}
           addNote={this.addNote}
           deleteNote={this.deleteNote}  
           editNote={this.editNote}
