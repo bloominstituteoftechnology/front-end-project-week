@@ -32,10 +32,12 @@ class App extends Component {
   addNote = note => {
     axios
         .post('http://localhost:8500/create', note)
-        .then(() => {
-          let newNotes = [...this.state.notes];
-          newNotes.unshift(note);
-          this.setState({ notes: newNotes });
+        .then(response => {
+          console.log(response);
+          const notes = response.data;
+          // let newNotes = [...this.state.notes];
+          // newNotes.unshift(note);
+          this.setState({ notes: notes });
         })
         .catch(error => console.log(error));
     this.props.history.push('/');
