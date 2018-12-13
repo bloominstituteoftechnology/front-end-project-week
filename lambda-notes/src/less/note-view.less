@@ -1,0 +1,55 @@
+.note-view {
+	margin: 20px;
+	margin-bottom: 200px;
+	width: 47vw;
+	
+	.edit-delete-wrapper {
+		text-align: right;
+		font-size: 0.9rem;
+		font-weight: bold;
+		color: #4D4B4D;
+
+		span {
+			margin-right: 14px;
+
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+
+			&:hover {
+				text-decoration: underline;
+				color: black;
+				cursor: pointer;
+			}
+		}
+
+		@media @tablet {
+			padding-top: 40px;
+		}
+	}
+
+	h2, p {
+		word-wrap: break-word;
+	}
+
+	h2 {
+		margin-top: 24px;
+
+		@media @phone {
+			margin-top: 0;
+			padding-top: 0;
+		}
+	}
+
+	p {
+		text-align: left;
+		letter-spacing: 1px;
+		line-height: 26px;
+		padding-top: 0;
+	}
+
+	@media @tablet {
+		width: 80vw;
+	}
+}

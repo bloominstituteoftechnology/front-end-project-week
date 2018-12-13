@@ -1,0 +1,57 @@
+.create-new, .edit {
+	margin: 60px 22px 120px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+
+	h2 {
+		letter-spacing: -0.3px;
+	}
+
+	.form {
+		.tags {
+			font-size: 30px;
+			width: 43vw;
+			display: flex;
+			justify-content: space-evenly;
+			padding: 0 0 20px;
+
+			* {
+				padding: 0;
+			}
+
+			input[type=checkbox] {
+				display: inline-block;
+				margin: auto 10px auto 20px;
+				transform:scale(2, 2);
+			}
+
+			.far {
+				display: inline-block;
+				width: fit-content;
+				text-align: center;
+			}
+
+			@media @tablet {
+				width: 80vw;
+			}
+		}
+	}
+
+	@media @tablet {
+		margin: 0;
+
+		h2 {
+			margin: 0;
+			padding-top: 40px;
+			padding-bottom: 10px;
+		}
+	}
+
+	@media @phone {
+		h2 {
+			padding-top: 0;
+		}
+	}
+} // .create-new, .edit

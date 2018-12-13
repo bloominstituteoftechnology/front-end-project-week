@@ -1,0 +1,25 @@
+.main-content {
+	display: inline-block;
+	background: #F3F3F3;
+	width: 75vw;
+	min-height: 100vh;
+	animation-name: fade-in-anim;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	display:flex;
+	justify-content: center;
+
+	@media @tablet {
+		width: 100%;
+
+		* {
+			padding-top: 20px;
+		}
+	}
+
+	@media @phone {
+		* {
+			padding-top: 40px;
+		}
+	}
+} // .main-content

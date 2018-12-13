@@ -1,0 +1,100 @@
+.login-view {
+	display: flex;
+	justify-content: center;
+
+	.login {
+		margin: 25px;
+
+		header {
+			.lambda-notes {
+				font-weight: bold;
+				font-size: 2.6vw;
+				text-align: center;
+				letter-spacing: 0.04vw;
+				line-height: 5vh;
+
+				@media @tablet {
+					font-size: 2rem;
+					margin: 0;
+				}
+			}
+
+			.logo {
+				max-width: 100px;
+			}
+
+			@media @tablet {
+				padding: 0;
+			}
+
+			@media @phone {
+				* {
+					padding: 10px;
+				}
+			}
+		}
+
+		.form {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			flex-direction: column;
+			margin-top: 20px;
+
+			p {
+				text-align: left;
+				padding-top: 20px;
+			}
+
+			h2 {
+				width: fit-content;
+				margin: 0;
+
+				@media @phone {
+					padding: 0px;
+				}
+			}
+
+			p, input {
+				width: 300px;
+
+				@media @tablet {
+					width: 80vw;
+				}
+			}
+
+			.error-msg {
+				text-align: center;
+				margin: 0;
+			}
+
+			input {
+				height: 50px;
+				padding: 5px;
+			}
+
+			.btn {
+				margin-top: 20px;
+
+				@media @tablet {
+					width: 80vw;
+				}
+			}
+
+			@media @tablet {
+				margin: 10px 0 0 0;
+				padding: 0;
+			}
+
+			@media @phone {
+				padding: 0px;
+			}
+		}
+
+		@media @tablet {
+			margin: 0 20px;
+			padding: 0;
+		}
+	} // .login-view .login
+} // .login-view

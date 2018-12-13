@@ -1,0 +1,120 @@
+// Imports
+@import './variables.less';
+@import './app.less';
+@import './nav.less';
+@import './main-content.less';
+@import './list-view.less';
+@import './create-new-and-edit-views.less';
+@import './note-view.less';
+@import './home.less';
+@import './login.less';
+
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	display: flex;
+	justify-content: center;
+
+	p, h2 {
+		overflow: hidden;
+	}
+
+	.btn {
+		background-color: #2AC1C5;
+		padding: 2.05vh 0.9vw;
+		font-size: 94%;
+		border: 1px solid #6BA8A9;
+		color: white;
+		font-weight: bold;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+			border: 1px solid black;
+		}
+	}
+
+	.save-btn {
+		width: 13vw;
+		
+		&:hover {
+			cursor: pointer;
+		}
+
+		@media @tablet {
+			width: calc(-9 / 242 * 100vw + 45506 / 121 * 1px);
+		}
+
+		@media @phone {
+			width: calc(89 / 135 * 100vw);
+		}
+	}
+
+	.modal-body {
+		text-align: center;
+		border: 1px solid black;
+		padding: 40px 0;
+
+		* {
+			margin: 0 20px;
+		}
+
+		p {
+			margin-bottom: 10px;
+		}
+
+		.modal-btns {
+			.delete-btn {
+				background-color: #D1001A;
+			}
+		}
+	}
+
+	#root {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	} // body #root
+} // body
+
+
+// Animations
+@keyframes grow-anim {
+	0% {font-size: 0;}
+	33% {font-size: 2.4rem;}
+	66% {font-size: 1.6rem;}
+	100% {font-size: 2rem;}
+}
+
+@keyframes grow-anim1 {
+	0% {font-size: 0;}
+	33% {font-size: 2.4rem;}
+	66% {font-size: 1.6rem;}
+	100% {font-size: 2rem;}
+}
+
+@keyframes grow-anim-btn {
+	0% {font-size: 0;}
+	33% {font-size: 120%;}
+	66% {font-size: 80%;}
+	100% {font-size: 94%;}
+}
+
+@keyframes fade-in-anim {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@keyframes lengthen-anim {
+	0% {max-width: 1%; min-width: 1%;}
+	100% {max-width: 100%;}
+}
+
+@keyframes grow-anim-sort {
+	0% {transform: scale(0);}
+	33% {transform: scale(1);}
+	66% {transform: scale(0.6);}
+	100% {transform: scale(1);}
+}
