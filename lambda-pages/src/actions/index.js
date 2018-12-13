@@ -38,16 +38,16 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // function authenticate() {
-const token = localStorage.getItem('auth_token');
-const options = {
-  headers: {
-    authentication: token
-  }
-};
+// const token = localStorage.getItem('auth_token');
+// const options = {
+//   headers: {
+//     authentication: token
+//   }
+// };
 // }
 
 // Register POST request
-export const registerUser = user => dispatch => {
+export const registerUser = (user, cb) => dispatch => {
   dispatch({ type: REGISTER_USER });
   axios
     .post('http://localhost:5000/api/auth/register', user)
@@ -57,8 +57,14 @@ export const registerUser = user => dispatch => {
         payload: 'Registered! Please login.'
       });
     })
+    .then(() => {
+      if (cb) cb();
+    })
     .catch(err => {
-      dispatch({ type: GET_ALL_NOTES_FAILURE, payload: err });
+      dispatch({
+        type: GET_ALL_NOTES_FAILURE,
+        payload: err.response.data.message
+      });
     });
 };
 
@@ -80,7 +86,7 @@ export const loginUser = (user, cb) => dispatch => {
 };
 
 // GET request
-export const getAllNotes = () => dispatch => {
+export const getAllNotes = options => dispatch => {
   dispatch({ type: GET_ALL_NOTES });
   axios
     .get(url, options)
@@ -88,12 +94,15 @@ export const getAllNotes = () => dispatch => {
       dispatch({ type: GET_ALL_NOTES_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: GET_ALL_NOTES_FAILURE, payload: err });
+      dispatch({
+        type: GET_ALL_NOTES_FAILURE,
+        payload: err
+      });
     });
 };
 
 // GET request for single note
-export const getNote = id => dispatch => {
+export const getNote = (id, options) => dispatch => {
   dispatch({ type: GET_NOTE });
   axios
     .get(`${url}/${id}`, options)

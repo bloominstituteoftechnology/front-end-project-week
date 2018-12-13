@@ -31,7 +31,8 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         isRegistering: false,
-        error: action.payload
+        error: action.payload,
+        message: action.payload
       };
     case LOGIN:
       return {

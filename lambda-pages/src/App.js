@@ -17,25 +17,12 @@ import './styles/App.css';
 const { InputFilter, FilterResults } = fuzzyFilterFactory();
 
 class App extends Component {
-  // authenticate = () => {
-  //   const token = localStorage.getItem('auth_token');
-  //   const options = {
-  //     headers: {
-  //       authentication: token
-  //     }
-  //   };
-  //   if (token) {
-  //     axios.get('http://localhost:5000/api/notes', options).then(res => {
-  //       this.props.history.push('/');
-  //     });
-  //   } else {
-  //     this.props.history.push('/login');
-  //   }
-  // };
-
-  // componentDidMount() {
-  //   this.authenticate();
-  // }
+  componentDidMount() {
+    const token = localStorage.getItem('auth_token');
+    if (!token && this.props.location.pathname !== '/register') {
+      this.props.history.push('/login');
+    }
+  }
 
   render() {
     return (

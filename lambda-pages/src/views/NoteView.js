@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { authenticate } from '../helpers/authenticate';
 import { connect } from 'react-redux';
 import { getNote, deleteNote } from '../actions';
 import styled from 'styled-components';
@@ -32,7 +33,7 @@ class NoteView extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    this.props.getNote(id);
+    authenticate(this.props.getNote, id);
   }
 
   toggleModal = () => {

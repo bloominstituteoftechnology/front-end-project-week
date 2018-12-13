@@ -25,7 +25,14 @@ const Sidebar = props => {
       <Button fullWidth onClick={() => props.history.push('/create-note')}>
         <FontAwesomeIcon icon={faPlus} /> Add Note
       </Button>
-      <Button fullWidth delete onClick={() => props.history.push('/login')}>
+      <Button
+        fullWidth
+        delete
+        onClick={() => {
+          localStorage.removeItem('auth_token');
+          props.history.push('/login');
+        }}
+      >
         Log out
       </Button>
     </StyledSidebar>

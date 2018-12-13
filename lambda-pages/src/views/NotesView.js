@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { authenticate } from '../helpers/authenticate';
 import { connect } from 'react-redux';
 import { getAllNotes } from '../actions';
 import { CSVLink } from 'react-csv';
@@ -9,7 +10,7 @@ import StyledSpinner from '../styles/StyledSpinner';
 
 class NotesView extends Component {
   componentDidMount() {
-    this.props.getAllNotes();
+    authenticate(this.props.getAllNotes);
   }
 
   handleRedirectToNoteView = id => {

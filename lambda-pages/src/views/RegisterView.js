@@ -14,14 +14,22 @@ const StyledLoginView = styled.div`
 
 class RegisterView extends Component {
   handleRegisterNewUser = user => {
-    this.props.registerUser(user);
-    this.props.history.push('/login');
+    const redirect = () => {
+      if (!this.props.error) {
+        this.props.history.push('/login');
+      }
+    };
+
+    this.props.registerUser(user, redirect);
   };
 
   render() {
     return (
       <StyledLoginView>
-        <RegisterForm handleRegisterNewUser={this.handleRegisterNewUser} />
+        <RegisterForm
+          message={this.props.message}
+          handleRegisterNewUser={this.handleRegisterNewUser}
+        />
       </StyledLoginView>
     );
   }
@@ -29,7 +37,8 @@ class RegisterView extends Component {
 
 const mapStateToProps = state => {
   return {
-    error: state.auth.error
+    error: state.auth.error,
+    message: state.auth.message
   };
 };
 
