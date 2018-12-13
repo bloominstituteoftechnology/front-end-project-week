@@ -1,0 +1,28 @@
+// wrapper for each view, accounts for fixed side nav
+.view-wrapper {
+    background: @viewContentBg;
+    margin-left: 270px;
+    padding: 100px 30px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+
+    .view-header {
+        font-size: 2rem;
+        font-weight: 900;
+        width: 100%;
+        position: relative;
+    }
+
+    .view-paragraph {
+        margin: 20px 0;
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+    }
+}
+
+// currently unusued, was for attempted csv export
+.hidden {
+    display: hidden;
+}

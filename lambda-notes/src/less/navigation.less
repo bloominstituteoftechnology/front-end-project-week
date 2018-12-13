@@ -1,0 +1,28 @@
+// side navigation bar
+.navigation-wrapper {
+    height: 100%;
+    width: 270px;
+    background: @navBgColor;
+    padding: 0 15px;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border-right: 1px solid @viewContentBorder;
+    
+    h1.navigation-header {
+        width: 100%;
+        color: @navHeaderColor;
+        font-size: 4.4rem;
+        font-weight: 900;
+        margin: 20px 0;
+        line-height: 4rem;
+    }
+
+    button.navigation-button {
+        .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 100%, @buttonBorderColor, 15px, 10px, 1.8rem);
+    }
+}

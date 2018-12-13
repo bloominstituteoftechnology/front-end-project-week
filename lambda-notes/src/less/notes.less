@@ -1,0 +1,157 @@
+//styles for view of all note cards
+.your-notes {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.8rem;
+
+    .your-notes-header {
+        width: 100%;
+        font-size: 2rem;
+        font-weight: 900;
+    }
+
+    // remove default a tag styling from <Link>
+    .note-card-link {
+        text-decoration: none;
+
+        // each individual card in all card view
+        .note-card {
+            height: 300px;
+            width: 300px;
+            border: 1px solid @viewContentBorder;
+            margin: 12px 24px 12px 0;
+            padding: 20px 30px;
+            background: @white;
+            color: @viewContentFontColor;
+            overflow: hidden;
+
+            hr {
+                border: 0;
+                height: 1px;
+                background: @viewContentBorder;
+            }
+
+            h3.note-card-title {
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            p {
+                width: 100%;
+                height: 217px;
+                overflow: hidden;
+                position: relative;
+
+                // attempt to add ... after long paragraph
+
+                // &::before {
+                //     content: "...";
+                //     position: absolute;
+                //     right: 0;
+                //     bottom: 0;
+                // }
+
+                // &::after {
+                //     content: "";
+                //     position: absolute;
+                //     right: 0;
+                //     width: 10px;
+                //     background: @white;
+                // }
+            }
+        }
+    }
+}
+
+// styles for individual note pages
+.action-wrapper {
+    margin-top: 30px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    button.delete-button {
+        .custom-button(@buttonBgRed, @buttonHoverBgRed, @buttonFontColor, 75px, @buttonBorderColor, 5px, 0px, 1.2rem);
+    }
+
+    button.edit-cancel-button {
+        .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 75px, @buttonBorderColor, 5px, 0px, 1.2rem);
+        margin-right: 10px;
+    }
+}
+
+// styles for form adding new notes
+.note-form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .note-title {
+        width: 200px;
+        margin-top: 30px;
+        padding: 12px;
+        border-radius: 5px;
+        resize: none;
+        border: 1px solid @formBorderColor;
+        outline-color: @buttonOutlineColor;
+    }
+
+    .note-content {
+        max-width: 600px;
+        height: 345px;
+        margin: 15px 0;
+        padding: 20px;
+        border-radius: 5px;
+        vertical-align: text-top;
+        border: 1px solid @formBorderColor;
+        resize: none;
+        outline-color: @buttonOutlineColor;
+    }
+
+    // add new note button
+    button.note-button {
+        .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 187px, @buttonBorderColor, 15px, 10px, 1.8rem);
+    }
+}
+
+// modal to confirmation delete
+.delete-modal {
+    height: 100vh;
+    width: 100vw;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(185, 185, 185, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .delete-modal-content{
+        height: 150px;
+        width: 450px;
+        padding: 20px;
+        margin-bottom: 200px;
+        background: @white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .delete-modal-header {
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        button.delete-button {
+            .custom-button(@buttonBgRed, @buttonHoverBgRed, @buttonFontColor, 187px, @buttonBorderColor, 15px, 0px, 1.8rem);
+            margin-right: 20px;
+        }
+    
+        button.no-button {
+            .custom-button(@buttonBg, @buttonHoverBg, @buttonFontColor, 187px, @buttonBorderColor, 15px, 0px, 1.8rem);
+        }
+    }
+}

@@ -1,0 +1,18 @@
+//button mixin
+.custom-button(@bg, @bgHover, @color, @width, @border, @padding, @margin, @font-size){
+    background: @bg;
+    color: @color;
+    width: @width;
+    border: 1px solid @border;
+    padding: @padding 0;
+    margin: @margin 0;
+    font-size: @font-size;
+    font-weight: 600;
+    outline-width: thin;
+    outline-color: @buttonOutlineColor;
+
+    &:hover {
+        background: @bgHover;
+        cursor: pointer;
+    }
+}

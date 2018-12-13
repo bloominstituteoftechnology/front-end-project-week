@@ -1,0 +1,394 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+#root {
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+}
+.view-wrapper {
+  background: #f2f1f2;
+  margin-left: 270px;
+  padding: 100px 30px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+.view-wrapper .view-header {
+  font-size: 2rem;
+  font-weight: 900;
+  width: 100%;
+  position: relative;
+}
+.view-wrapper .view-paragraph {
+  margin: 20px 0;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+}
+.hidden {
+  display: hidden;
+}
+.App {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.navigation-wrapper {
+  height: 100%;
+  width: 270px;
+  background: #c5c5c5;
+  padding: 0 15px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border-right: 1px solid #979797;
+}
+.navigation-wrapper h1.navigation-header {
+  width: 100%;
+  color: #414141;
+  font-size: 4.4rem;
+  font-weight: 900;
+  margin: 20px 0;
+  line-height: 4rem;
+}
+.navigation-wrapper button.navigation-button {
+  background: #24b8bd;
+  color: #ffffff;
+  width: 100%;
+  border: 1px solid #afafaf;
+  padding: 15px 0;
+  margin: 10px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  outline-width: thin;
+  outline-color: #202529;
+}
+.navigation-wrapper button.navigation-button:hover {
+  background: #187e82;
+  cursor: pointer;
+}
+.your-notes {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.8rem;
+}
+.your-notes .your-notes-header {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 900;
+}
+.your-notes .note-card-link {
+  text-decoration: none;
+}
+.your-notes .note-card-link .note-card {
+  height: 300px;
+  width: 300px;
+  border: 1px solid #979797;
+  margin: 12px 24px 12px 0;
+  padding: 20px 30px;
+  background: #ffffff;
+  color: #202529;
+  overflow: hidden;
+}
+.your-notes .note-card-link .note-card hr {
+  border: 0;
+  height: 1px;
+  background: #979797;
+}
+.your-notes .note-card-link .note-card h3.note-card-title {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.your-notes .note-card-link .note-card p {
+  width: 100%;
+  height: 217px;
+  overflow: hidden;
+  position: relative;
+}
+.action-wrapper {
+  margin-top: 30px;
+  position: absolute;
+  top: 0;
+  right: 30px;
+}
+.action-wrapper button.delete-button {
+  background: #ca001a;
+  color: #ffffff;
+  width: 75px;
+  border: 1px solid #afafaf;
+  padding: 5px 0;
+  margin: 0px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  outline-width: thin;
+  outline-color: #202529;
+}
+.action-wrapper button.delete-button:hover {
+  background: #800011;
+  cursor: pointer;
+}
+.action-wrapper button.edit-cancel-button {
+  background: #24b8bd;
+  color: #ffffff;
+  width: 75px;
+  border: 1px solid #afafaf;
+  padding: 5px 0;
+  margin: 0px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  outline-width: thin;
+  outline-color: #202529;
+  margin-right: 10px;
+}
+.action-wrapper button.edit-cancel-button:hover {
+  background: #187e82;
+  cursor: pointer;
+}
+.note-form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.note-form .note-title {
+  width: 200px;
+  margin-top: 30px;
+  padding: 12px;
+  border-radius: 5px;
+  resize: none;
+  border: 1px solid #202529;
+  outline-color: #202529;
+}
+.note-form .note-content {
+  max-width: 600px;
+  height: 345px;
+  margin: 15px 0;
+  padding: 20px;
+  border-radius: 5px;
+  vertical-align: text-top;
+  border: 1px solid #202529;
+  resize: none;
+  outline-color: #202529;
+}
+.note-form button.note-button {
+  background: #24b8bd;
+  color: #ffffff;
+  width: 187px;
+  border: 1px solid #afafaf;
+  padding: 15px 0;
+  margin: 10px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  outline-width: thin;
+  outline-color: #202529;
+}
+.note-form button.note-button:hover {
+  background: #187e82;
+  cursor: pointer;
+}
+.delete-modal {
+  height: 100vh;
+  width: 100vw;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(185, 185, 185, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delete-modal .delete-modal-content {
+  height: 150px;
+  width: 450px;
+  padding: 20px;
+  margin-bottom: 200px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.delete-modal .delete-modal-content .delete-modal-header {
+  font-size: 1.8rem;
+  text-align: center;
+}
+.delete-modal .delete-modal-content button.delete-button {
+  background: #ca001a;
+  color: #ffffff;
+  width: 187px;
+  border: 1px solid #afafaf;
+  padding: 15px 0;
+  margin: 0px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  outline-width: thin;
+  outline-color: #202529;
+  margin-right: 20px;
+}
+.delete-modal .delete-modal-content button.delete-button:hover {
+  background: #800011;
+  cursor: pointer;
+}
+.delete-modal .delete-modal-content button.no-button {
+  background: #24b8bd;
+  color: #ffffff;
+  width: 187px;
+  border: 1px solid #afafaf;
+  padding: 15px 0;
+  margin: 0px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  outline-width: thin;
+  outline-color: #202529;
+}
+.delete-modal .delete-modal-content button.no-button:hover {
+  background: #187e82;
+  cursor: pointer;
+}
