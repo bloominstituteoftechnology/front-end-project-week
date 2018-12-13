@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const SearchFormContainer = styled.form`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 
-    h2 {
-        color: #24b8bd;
-    }
+	h2 {
+		color: #24b8bd;
+	}
 `;
 
 const SearchBox = styled.input`
@@ -25,7 +25,7 @@ const SearchBox = styled.input`
         -webkit-box-shadow: 0px 0px 0px 2px #24b8bd;
         box-shadow: 0px 0px 0px 2px #24b8bd;
     }
-`
+`;
 
 // const SearchBoxButton = styled.button`
 //     width: 80%;
@@ -40,34 +40,42 @@ const SearchBox = styled.input`
 //     border: 0;
 // `;
 
+// ================ END OF STYLES
+
 class SearchForm extends React.Component {
 	constructor(props) {
 		super(props);
-        this.state = {
-            searchQuery: '',
-        };
-        
-    }
+		this.state = {
+			searchQuery: "",
+		};
+	}
 
-    handleChange = event => {
+	handleChange = event => {
 		this.setState({
 			searchQuery: event.target.value,
-        });
+		});
 	};
-    
-    handleSubmit = event => {
+
+	handleSubmit = (event) => {
 		event.preventDefault();
 		this.setState({
-            searchQuery: this.state.searchQuery,
-        })
-
+			searchQuery: this.state.searchQuery,
+        });
+        setTimeout( ()=>{ this.props.searchNotes(this.state.searchQuery);}, 100)
+       
+        // console.log(this.state.searchQuery)
 	};
 
 	render() {
-        console.log('search form', this.state)
+		console.log("search form", this.props);
 		return (
 			<SearchFormContainer onSubmit={this.handleSubmit}>
-				<SearchBox type="text" placeholder='Search your notes' name="searchQuery" onChange={this.handleChange}/>
+				<SearchBox
+					type="text"
+					placeholder="Search your notes"
+					name="searchQuery"
+					onChange={this.handleChange}
+				/>
 				{/* <SearchBoxButton>Search</SearchBoxButton> */}
 			</SearchFormContainer>
 		);

@@ -78,10 +78,7 @@ const NoteCardContainer = styled.div`
 	}
 `;
 
-
-// ============== END STYLES 
-
-
+// ============== END STYLES
 
 class NoteList extends React.Component {
 	constructor(props) {
@@ -90,6 +87,7 @@ class NoteList extends React.Component {
 			notes: [],
 			isStarred: false,
 			dropdownOpen: false,
+			searchQuery: '',
 		};
 		this.toggle = this.toggle.bind(this);
 	}
@@ -113,7 +111,22 @@ class NoteList extends React.Component {
 	// 			();
 	// 	}
 	// };
-
+	searchNotes = (data) => {
+		this.setState({searchQuery: data})
+		console.log(this.state.searchQuery)
+		let noteText = "";
+		let notesToSearch = this.props.notes
+		for (let i = 0; i < this.props.notes.length; i++) {
+			noteText =
+				notesToSearch[i].title || notesToSearch[i].textBody;
+			if (noteText.toLowerCase().indexOf(this.state.searchQuery) > -1) {
+				console.log(notesToSearch[i].title)
+			} else {
+				// console.log('these should not show up')
+			}
+			// console.log(noteText);
+		}
+	};
 
 	sortNotesByAscendingLength = () => {
 		let sortedNotes = this.props.notes.sort(function(a, b) {
@@ -129,7 +142,7 @@ class NoteList extends React.Component {
 			notes: sortedNotes,
 		});
 
-		console.log("sortNotes", this.state.notes);
+		// console.log("sortNotes", this.state.notes);
 	};
 	sortNotesByDescendingLength = () => {
 		let sortedNotes = this.props.notes.sort(function(a, b) {
@@ -153,28 +166,36 @@ class NoteList extends React.Component {
 	sortNotesByNewestFirst = () => {
 		let newestNotes = this.props.notes.reverse();
 		this.setState({ notes: newestNotes });
-		console.log(newestNotes)
+		console.log(newestNotes);
 	};
 
 	// sortNotesByStarredFirst = () => {
 	// 	if ()
 	// }
 
-	render(props) {
+	render() {
 		console.log("Notelist props", this.props);
 		if (!this.props.notes) {
 			return <h2>Loading...</h2>;
 		}
 		return (
+			
 			<NoteListContainer>
+				
 				<NoteListHeader>
 					<h2 className="lamba-notes-header">Your Notes:</h2>
-					<SearchForm />
+					<SearchForm
+						{...this.props}
+						searchNotes={this.searchNotes}
+						// searchQuery={props.searchQuery}
+					/>
 					<Dropdown
 						isOpen={this.state.dropdownOpen}
 						toggle={this.toggle}
 					>
-						<DropdownToggle color='red' caret>Sort by:</DropdownToggle>
+						<DropdownToggle color="red" caret>
+							Sort by:
+						</DropdownToggle>
 						<DropdownMenu right>
 							<DropdownItem
 								onClick={this.sortNotesByDescendingLength}
@@ -199,8 +220,10 @@ class NoteList extends React.Component {
 								Oldest First
 							</DropdownItem>
 							<DropdownItem divider />
-							<DropdownItem onClick={this.sortNotesByStarredFirst}>
-							<i class="fas fa-star"></i>
+							<DropdownItem
+								onClick={this.sortNotesByStarredFirst}
+							>
+								<i class="fas fa-star" />
 								Starred First
 							</DropdownItem>
 						</DropdownMenu>
@@ -223,7 +246,6 @@ class NoteList extends React.Component {
 									{note.title.length > 30
 										? note.title.slice(0, 30).concat("...")
 										: note.title}
-										
 								</h4>
 								<p>
 									{note.textBody.length > 130
