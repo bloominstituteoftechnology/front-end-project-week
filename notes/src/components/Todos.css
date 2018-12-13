@@ -1,0 +1,53 @@
+.todos-wrapper {
+  width: 50%;
+  display: inline-block;
+  margin: 1%;
+  vertical-align: top;
+}
+
+.todos-card {
+  background: #dfe3e6;
+  border-radius: 3px;
+  width: 100%;
+  min-height: 300px;
+  margin: auto;
+  padding: 3.5%;
+  border-radius: 5px;
+}
+
+.todos-title {
+  width: 100%;
+  padding: 3%;
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: 2%;
+}
+
+.todos-textbody {
+  width: 100%;
+  background-color: #ffffff;
+  min-height: 250px;
+  border-radius: 7px;
+  padding: 3%;
+}
+
+.card-buttons {
+  position: relative;
+  bottom: 15%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+.delete-button {
+  width: 100px;
+  cursor: pointer;
+  padding: 1%;
+}
+
+.id-input {
+  padding: 2%;
+  margin: 2%;
+  border-radius: 5px;
+}

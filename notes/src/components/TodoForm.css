@@ -1,0 +1,33 @@
+.todo-form-container {
+  max-width: 800px;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-self: center;
+  justify-content: center;
+  margin-left: 10%;
+}
+
+.form-card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-self: center;
+}
+
+form {
+  width: 100%;
+}
+
+input {
+  border-radius: 5px;
+  padding: 1%;
+}
+
+textarea {
+  border-radius: 5px;
+}
+
+input {
+  margin: 0.5% 0%;
+}
