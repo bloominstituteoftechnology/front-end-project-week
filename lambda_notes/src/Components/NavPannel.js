@@ -5,9 +5,9 @@ import styled from 'styled-components';
 
 const Buttons = styled.button`
   width: 100%;
-  max-width: 165px;
+  max-width: 175px;
   height: 44px;
-  border: 5px solid #afb4b5;
+  border: 2px solid #afb4b5;
   background: #57b5bb;
   color: white;
   font-weight: bold;
@@ -36,6 +36,22 @@ const NavPannelWpr = styled.div`
   background: #d3d2d5;
   border-right: 1px solid #afafaf;
 `;
+const Buttonsb = styled.button`
+  width: 100%;
+  max-width: 175px;
+  height: 44px;
+  border: 2px solid #afb4b5;
+  background: #57b5bb;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  :hover {
+    background-color: white;
+    color: gray;
+  }
+`;
+
 
 
 
@@ -50,7 +66,7 @@ class NavPannel extends Component {
           </NavLink>
 
           <NavLink exact to="/noteForm">
-            <Buttons> + Create New Note </Buttons>
+            <Buttonsb>+ Create New Note</Buttonsb>
           </NavLink>
 
           <NavLink exact to='/filterNotes'>

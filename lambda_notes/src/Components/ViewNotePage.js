@@ -46,6 +46,13 @@ const NoteBodySection = styled.p`
   overflow
 `;
 
+const NoteTitleLine = styled.h5`
+  font-size: 18px;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  overflow
+`;
+
 
 class ViewNote extends Component {
   constructor() {
@@ -73,6 +80,9 @@ class ViewNote extends Component {
   toggle() {
     this.setState({ modal: !this.state.modal });
     console.log('Test If I can toggle.this.setState');
+    if (this.state.Modal === true) {
+      return (this.props.history.push('/'));
+    }
   }
 
 
@@ -92,7 +102,7 @@ class ViewNote extends Component {
 
           </ModifyNoteWrapper>
 
-          <h3>{this.state.title}</h3>
+          <NoteTitleLine>{this.state.title}</NoteTitleLine>
 
           <NoteBodySection>{this.state.textBody}</NoteBodySection>
 

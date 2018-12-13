@@ -5,6 +5,22 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {List, ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 // import { RaisedButton } from 'material-ui';
+import styled from 'styled-components';
+
+const FormWrapper = styled.div`
+padding: 5px;
+margin: 20px;
+width: 75%
+max-width: 600px;
+background: #F2F1F2;
+margin-top: 50px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border-radius: 8px;
+`;
+
 
 export class Comfirm extends Component {
 
@@ -23,7 +39,8 @@ export class Comfirm extends Component {
       //destructuring
       const { values: {firstName, lastName, email, occupation, city, bio} } = this.props;
     return (
-
+        <FormWrapper>
+        
       <MuiThemeProvider>
           <>
            <h1 title="Confirm User Data">Confirm User Data</h1>
@@ -71,6 +88,8 @@ export class Comfirm extends Component {
           </>
         <h1>Hello from User Details</h1>
       </MuiThemeProvider>
+
+      </FormWrapper>
     )
   }
 }

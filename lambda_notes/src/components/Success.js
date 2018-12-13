@@ -5,6 +5,22 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { BrowserRouter as Router, Route, Switch, NavLink} from 'react-router-dom';
 import App from '../App';
 import AppBar from 'material-ui/AppBar';
+import styled from 'styled-components';
+
+const FormWrapper = styled.div`
+padding: 5px;
+margin: 20px;
+width: 75%
+max-width: 600px;
+background: #F2F1F2;
+margin-top: 50px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border-radius: 8px;
+`;
+
 
 
 class Success extends Component {
@@ -23,7 +39,7 @@ class Success extends Component {
   render() {
       
     return (
-
+        <FormWrapper>
       <MuiThemeProvider>
           <>
             <h4>Success</h4>
@@ -45,6 +61,8 @@ class Success extends Component {
           </>
        
       </MuiThemeProvider>
+
+      </FormWrapper >
         
     );
   }
@@ -59,11 +77,4 @@ const styles = {
 export default Success;
 
 
-{/*   <RaisedButton 
-                label="Lambda Notes"
-                primary={true}
-                style={styles.button}
-                // onClick={this.continue}
-                />
-        <br/>*/}
 
