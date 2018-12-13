@@ -67,6 +67,7 @@ class NotesContainer extends React.Component {
   };
 
   changeSort = e => {
+    e.preventDefault();
     this.setState({sortType: e.target.value});
   };
 
@@ -86,6 +87,7 @@ class NotesContainer extends React.Component {
       if (this.state.searchText !== '') {
         const fuse = new Fuse(this.props.notes, this.state.filterOptions);
         const result = fuse.search(this.state.searchText);
+        console.log(result);
         this.setState({filteredNotes: result.map(i => i.item)});
       } else {
         this.setState({filteredNotes: []});

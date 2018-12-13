@@ -115,14 +115,18 @@ export const SortSelect = styled.select`
 
 export const ClearFilter = styled.button`
   margin-left: 1%;
+  color: #2ac0c4;
+  border-radius: 2px;
+  background-color: #000000;
 `;
+
 export const FormButton = styled(Button)`
   width: 31.5%;
   //padding: 5px 10px;
 `;
 
 export const DisplayingDiv = styled.div`
-  background: pink;
+  background: #b9b2b3;
   width: 60%;
 `;
 
