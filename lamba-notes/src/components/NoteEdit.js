@@ -9,10 +9,9 @@ const NoteEdit = props => {
     props.history.push(`/note/get/${note.id}`);
   };
 
-  console.log(props.notes[1]);
-
+  console.log(props);
   return (
-    <div className='edit'>
+    <div className='noteSubmit'>
       <form className='form'>
         <h2 className='noteEdit__header'>Edit Note:</h2>
         <input
@@ -25,7 +24,6 @@ const NoteEdit = props => {
         />
         <input
           name='updatedTextBody'
-          id=''
           cols='30'
           rows='10'
           placeholder='Note Content'

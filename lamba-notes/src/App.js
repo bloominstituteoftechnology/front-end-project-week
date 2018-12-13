@@ -10,6 +10,7 @@ import Nav from './components/Nav';
 import './styles.css';
 
 let APIUrl = 'https://bummingsnotes.herokuapp.com';
+// let APIUrl = 'http://localhost:9000';
 
 class App extends Component {
   constructor(props) {
@@ -63,7 +64,7 @@ class App extends Component {
           <Route
             exact
             path='/'
-            render={() => <Notes notes={this.state.notes.reverse()} />}
+            render={() => <Notes notes={this.state.notes} />}
           />
 
           {/* d i s p l a y  s i n g l e  n o t e  */}

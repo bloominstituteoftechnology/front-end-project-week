@@ -122,7 +122,7 @@
 }
 .noteSubmit {
   width: 75vw;
-  margin: 50px;
+  margin: 0 30px;
 }
 
 .noteEdit__header {
@@ -139,22 +139,14 @@
   height: 40px;
   width: 450px;
   margin-bottom: 50px;
+  padding: 5px;
 }
 
 .noteEdit__input--content {
   height: 100px;
   width: 450px;
+  padding: 5px;
 }
-/* .noteForm__input {
-  height: 40px;
-  width: 450px;
-}
-
-.noteForm__input--big {
-  height: 300px;
-  width: 450px;
-  text-align: start;
-} */
 
 .form {
   width: 75vw;
@@ -167,4 +159,15 @@
   font-weight: bold;
   color: red;
   text-transform: uppercase;
+}
+
+.pageNumbers {
+  list-style: none;
+  display: flex;
+  font-size: 30px;
+  margin-top: 100px;
+}
+
+.pageNumbers__number {
+  margin: 0 20px;
 }
