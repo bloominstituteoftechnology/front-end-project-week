@@ -53,13 +53,14 @@ class App extends Component {
           return sortedArr.reverse();
      }
     }
-    
-    console.log(this.props.notes)
-    console.log(sortedArr)
-    console.log(result)
     this.props.setSorter(sortFunc());
-    
+     this.resetSearch();
   }
+  resetSearch = () => {
+      let search = document.querySelector('.searchbar');
+      search.value = '';
+
+    }
 
   render() {
     return (

@@ -38,7 +38,7 @@ class NoteList extends Component {
                 <Header>
                     <h2>Your Notes:</h2>
                     <form>
-                        <HeaderSearch onChange={this.props.searchFilter} placeholder="Search" />
+                        <HeaderSearch className='searchbar' onChange={this.props.searchFilter} placeholder="Search" />
                         <select name='sort' onChange={this.props.sortNotes}>
                             <option value="DEFAULT">Default</option>
                             <option value="ALPHABETICAL">Alphabetical</option>
