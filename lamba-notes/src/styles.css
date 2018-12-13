@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Noto+Serif+KR:500');
+
+/* font-family: 'Didact Gothic', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+.App {
+  display: flex;
+  height: 100vh;
+  width: 2000px;
+}
+
+.home {
+  display: flex;
+}
+
+.card {
+  margin: 20px;
+  background-color: #fff;
+  font-family: 'Noto Serif KR', serif;
+  padding: 10px;
+  width: 20vw;
+  overflow: hidden;
+  box-shadow: 2px 4px 1px #666;
+}
+
+.card__title {
+  text-decoration: none;
+  color: black;
+}
+.card__hr {
+  width: 250px;
+  float: left;
+}
+
+.sideBar {
+  background: #b6cac0;
+  color: #000;
+}
+
+.sideBar__headline {
+  margin: 20px;
+  font-size: 50px;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+.content {
+  background-color: #f2f1f2;
+  width: 90vw;
+}
+
+.btn {
+  background-color: #c02a1b;
+  font-family: 'Didact Gothic', sans-serif;
+  color: #fff;
+  height: 65px;
+  width: 200px;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.singleNote {
+  margin: 50px;
+  width: 65vw;
+  font-family: 'Noto Serif KR', serif;
+}
+
+.singleNote__content {
+  padding-right: 300px;
+}
+
+.singleNote__edit {
+  font-size: 16px;
+  text-decoration: none;
+  margin-right: 20px;
+  color: black;
+}
+
+.singleNote__delete {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav__btn {
+  background-color: #c02a1b;
+  font-family: 'Didact Gothic', sans-serif;
+  color: #fff;
+  height: 65px;
+  width: 200px;
+  margin: 20px 20px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 2px 4px 1px #666;
+}
+
+.note__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 2400px;
+}
+
+.note {
+  border: 1px solid rgb(167, 167, 167);
+  padding: 10px;
+  width: 150px;
+  height: 200px;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  margin-bottom: 30px;
+  background: white;
+}
+
+.note__options {
+  float: right;
+}
+.noteSubmit {
+  width: 75vw;
+  margin: 0 30px;
+}
+
+.noteEdit__header {
+  font-family: 'Noto Serif KR', serif;
+}
+
+.noteEdit__btn {
+  background-color: #c02a1b;
+  font-family: 'Didact Gothic', sans-serif;
+  color: #fff;
+}
+
+.noteEdit__input--title {
+  height: 40px;
+  width: 450px;
+  margin-bottom: 50px;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.noteEdit__input--content {
+  height: 100px;
+  width: 450px;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.form {
+  width: 75vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.readMore {
+  font-weight: bold;
+  color: red;
+  text-transform: uppercase;
+}
+
+.pageNumbers {
+  list-style: none;
+  display: flex;
+  font-size: 30px;
+  margin-top: 40px;
+}
+
+.pageNumbers__number {
+  margin: 0 20px;
+}
