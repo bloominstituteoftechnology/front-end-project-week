@@ -1,6 +1,5 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-//import './App.css';
 import NavBar from './components/NavBar';
 import NotesContainer from './containers/NotesContainer';
 import Note from './components/Note';
@@ -36,6 +35,10 @@ const GlobalStyle = createGlobalStyle`
       margin-top:5px;
       margin-bottom: 5px;
   }
+
+    button {
+      cursor: pointer;
+    }
 
     em {
       font-style: italic;

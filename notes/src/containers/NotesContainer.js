@@ -88,7 +88,7 @@ class NotesContainer extends React.Component {
         const result = fuse.search(this.state.searchText);
         this.setState({filteredNotes: result.map(i => i.item)});
       } else {
-        this.setState({filteredNotes: []}, console.log('set filtered empy'));
+        this.setState({filteredNotes: []});
       }
     });
   };

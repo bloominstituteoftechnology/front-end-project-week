@@ -27,18 +27,24 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #f2f1f2;
-  //margin-left: 28%;
   margin-left: 300px;
   padding-top: 5.9rem;
   padding-left: 0.5rem;
   width: 70%;
 
-  //@media (min-width: 1200px) {
-  //margin-left: 31%;
-  //}
-
   h2 {
     font-size: 2.1rem;
+  }
+
+  @media (max-width: 725px) {
+    margin-left: 230px;
+    width: 82%;
+  }
+
+  @media (max-width: 650px) {
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
   }
 `;
 
@@ -52,9 +58,13 @@ export const StyledInput = styled.input`
 
 export const StyledTextArea = styled.textarea`
   height: 31rem;
-  width: 90%;
+  width: 55%;
   border-radius: 5px;
-  padding: 1.9rem 3.4%;
+  padding: 1.9rem 1.8%;
+
+  @media (max-width: 1150px) {
+    max-width: 75%;
+  }
 `;
 
 export const Button = styled.button`
@@ -69,8 +79,6 @@ export const Button = styled.button`
 `;
 
 export const ExportButton = styled.button`
-  //margin: -4rem 0 4rem 3%;
-  //width: 10%;
   position: fixed;
   top: 95%;
   left: 1.3%;
@@ -89,17 +97,19 @@ export const ExportButton = styled.button`
 export const SearchButton = styled.button`
   padding: 1.2rem;
   margin-left: 0.2rem;
-  background-color: black;
-  color: white;
+  background-color: #000000;
+  font-size: 1.8rem;
+  color: #2ac0c4;
   border-radius: 5px;
-  height: 4rem;
+  height: 4reddm;
 `;
 
 export const SortSelect = styled.select`
   margin-top: 1rem;
-  background-color: black;
-  color: white;
+  background-color: #000000;
+  color: #2ac0c4;
   padding: 0.5rem;
+  font-size: 1.5rem;
   border-radius: 3px;
 `;
 
@@ -164,8 +174,6 @@ export const NotesWrapper = styled.div`
   margin-left: 250px;
 
   @media (max-width: 800px) {
-    //align-items: center;
-    //margin-left: 275px;
   }
 
   @media (max-width: 650px) {
@@ -183,9 +191,6 @@ export const SearchBarWrapper = styled.div`
 `;
 
 export const SearchBar = styled(StyledInput)`
-  //width: 50%;
-  ////@media (max-width: 600px) {
-  //width: 100%;
   margin-bottom: 1rem;
   }
 `;
@@ -225,13 +230,10 @@ export const StyledNote = styled.div`
 
   @media (max-width: 750px) {
     width: 90%;
-    ////margin-left: 220px;
   }
 
   @media (max-width: 600px) {
-    //margin-left: 220px;
     width: 80%;
-    //margin: 0;
   }
 
   h2 {
@@ -269,12 +271,13 @@ export const ModalWrapper = styled.div`
 
 export const StyledModal = styled.div`
   width: 46%;
+  min-width: 260px;
+  max-width: 480px;
   height: 13rem;
   position: fixed;
-  top: 16%;
+  top: 25%;
   text-align: center;
-  left: 19%;
-  //transform: translate(-50, -50%);
+  left: calc((100% - 46%) / 2);
   border: 1px solid red;
   background-color: #ffffff;
   z-index: 2;
@@ -283,6 +286,17 @@ export const StyledModal = styled.div`
   p {
     font-size: 1.7rem;
     margin-bottom: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    left: 20%;
+  }
+
+  @media (max-width: 430px) {
+    left: 10%;
+  }
+  @media (max-width: 400px) {
+    left: 0;
   }
 `;
 

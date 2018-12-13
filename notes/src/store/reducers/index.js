@@ -6,8 +6,6 @@ import {
   ADD_NOTE_SUCCESS,
   ADD_NOTE_FAILURE,
   SELECTING_NOTE,
-  //SELECT_NOTE_SUCCESS,
-  //SELECT_NOTE_FAILURE,
   EDITING_NOTE,
   EDIT_NOTE_SUCCESS,
   STOP_EDITING,
@@ -22,7 +20,7 @@ const initialState = {
   selectedNote: null,
   error: null,
   isEditing: false,
-  fetching: false, // WORKING ON CSV EXPORT
+  fetching: false,
   deleting: false,
   adding: false,
   showingModal: false,
