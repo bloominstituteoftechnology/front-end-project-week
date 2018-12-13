@@ -33,6 +33,18 @@
   cursor: pointer;
 }
 
+.link-section button.logout-btn{
+  background:rgb(152, 0, 0);
+  border:1px solid rgb(167, 167, 167);
+  padding:15px;
+  margin:10px;
+  width:210px;
+  font-size:20px;
+  font-weight: bold;
+  color:white;
+  outline: none;
+  cursor: pointer;
+}
 /*notes*/
 .notes-list{
   width:100%;
@@ -215,7 +227,4 @@ form button{
   justify-content: center;
   align-items: center;
   align-self: center;
-}
-.logout-btn{
-  background:red;
 }

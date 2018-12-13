@@ -24,7 +24,6 @@ class App extends Component {
       newTextBody: "",
       delete: false,
       loggedIn: false,
-      message:''
     };
   }
 
