@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import axios from "axios";
 
 import './App.css';
@@ -9,6 +9,8 @@ import NoteList from "./components/NoteList";
 import NoteView from "./components/NoteView";
 import EditForm from "./components/EditForm";
 import NewNoteForm from "./components/NewNoteForm";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 class App extends Component {
   constructor() {
@@ -80,11 +82,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <header>
+          <NavLink to="/register">Register</NavLink>
+          <NavLink to="/login">Login</NavLink>
+        </header>
         <Sidebar />
         <Route exact path="/" render={props => <NoteList {...props} noteList={this.state.notes} />} />
         <Route path="/note/:id" render={props => <NoteView {...props} delNote={this.deleteNote} />} />
         <Route path="/edit/:id" render={props => <EditForm {...props} finishEdit={this.finishEdit} />} />
         <Route path="/add" render={props => <NewNoteForm {...props} finishAdd={this.finishAdd} />} />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
       </div>
     );
   }

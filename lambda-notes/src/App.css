@@ -3,7 +3,56 @@
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   font-size: 1.6rem;
+}
+
+.App > header {
+  width: 100%;
+  padding: 5px;
+  background: #444444;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.App > header a {
+  padding-right: 20px;
+  color: #bbbbbb;
+}
+
+.signIn {
+  position: relative;
+  right: 25px;
+  top: 50px;
+  width: 400px;
+  height: 400px;
+  padding: 50px;
+  background: white;
+  border: 5px solid #2BC1C4;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.signIn form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.signIn form h2 {
+  text-align: center;
+}
+
+.signIn form input {
+  margin: 20px;
+}
+
+.signIn footer {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .sidebar {
