@@ -21,7 +21,7 @@ body{
 
 .side-bar{
   /* border: 1px solid red; */
-  width: 200px;
+  max-width: 165px;
   text-align: center;
   background: #D3D2D3;
   margin-left: 0;
@@ -39,7 +39,7 @@ body{
   font-weight: bold;
   border: 1px solid #AFAEAF;
   font-size: 12px;
-  border: 1px sodid red;
+  /* border: 1px solid red; */
 }
 
 .home-title{
@@ -60,5 +60,14 @@ body{
 }
 
 .regLog{
-  align-items: center
+  align-items: center;
+  border: 1px solid #AFAEAF;
+  background-color: rgb(107, 103, 105); 
+  color: white;
+  font-weight: bold;
+  width: 65px;
+}
+
+h2{
+  color: #414141;
 }

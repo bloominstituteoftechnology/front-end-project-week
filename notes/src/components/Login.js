@@ -46,8 +46,9 @@ export default class Login extends Component {
         
       <div className = 'logForm'>
       <br/><br/>
+      <h2>Login</h2><br/>
         <form onSubmit={this.submitHandler}>
-          <label htmlFor="username">Username: </label>
+          <label htmlFor="username">Username: </label> <br/>
           <input
             type="text"
             id="username"
@@ -56,16 +57,16 @@ export default class Login extends Component {
             onChange={this.inputHandler}
           />
           <br/><br/>
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="password">Password: </label> <br/>
           <input
-            type="text"
+            type="password"
             id="password"
             name="password"
             value={this.state.user.password}
             onChange={this.inputHandler}
           />
           <br/><br/>
-          <button type="submit">Submit</button>
+          <button type="submit" className = 'regButton'>>Submit</button>
         </form>
         { this.state.message
           ? (<h4>{this.state.message}</h4>)

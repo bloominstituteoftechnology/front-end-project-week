@@ -1,7 +1,7 @@
 .searchBarSection{
     text-align: center;
     /* border: 1px solid red; */
-    /* width: 150px; */
+    width: 130px;
     height: 20px;
     display: flex;
     padding-bottom: 25px;
@@ -9,5 +9,5 @@
 
 .searchBar{
     width: 130px;
-    height: 25px;
+    height: 20px;
 }

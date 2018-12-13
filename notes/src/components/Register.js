@@ -47,8 +47,9 @@ export default class Register extends Component {
             return(
                 <div className = 'regForm'>
                 <br/><br/>
+                <h2>Register</h2><br/>
                 <form onSubmit={this.submitHandler}>
-                <label htmlFor="username">Username: </label>
+                <label htmlFor="username">Username: </label><br/>
                         <input
                         type="text"
                         id='username'
@@ -57,9 +58,9 @@ export default class Register extends Component {
                         onChange={this.inputHandler}
                         />
                         <br/><br/>
-                      <label htmlFor="password"> Password: </label>
+                      <label htmlFor="password"> Password: </label><br/>
                         <input
-                        type="text"
+                        type="password"
                         id='password'
                         name='password'
                         value={this.state.user.password}
