@@ -14,27 +14,28 @@ class MainBox extends React.Component {
     this.state = {
       notes: [],
       title: "",
-      content: ""
+      message: ""
     };
   }
 
-  componentDidMount() {
+  getNotes = e => {
     axios
-      .get(`http://localhost:9000/note/get/all`)
+      .get(`https://davids-notes.herokuapp.com/notes/get/all`)
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error));
-  }
+  };
 
   componentDidUpdate() {
-    axios
-      .get(`http://localhost:9000/note/get/all`)
-      .then(response => this.setState({ notes: response.data }))
-      .catch(error => console.log(error));
+    this.getNotes();
+  }
+
+  componentDidMount() {
+    this.getNotes();
   }
 
   addNote = newNote => {
     axios
-      .post(`http://localhost:9000/notes`, newNote)
+      .post(`https://davids-notes.herokuapp.com/notes`, newNote)
       .then(response => this.setState({ note: response.data }))
       .catch(error => console.log(error));
   };
@@ -53,7 +54,10 @@ class MainBox extends React.Component {
           render={props => <ListView {...props} notes={this.state.notes} />}
         />
         <Route path="/notes/:id" render={props => <FullNote {...props} />} />
-        <Route path="/edit/:id" component={EditNote} />
+        <Route
+          path="/edit/:id"
+          render={props => <EditNote {...props} notes={this.state.notes} />}
+        />
       </div>
     );
   }

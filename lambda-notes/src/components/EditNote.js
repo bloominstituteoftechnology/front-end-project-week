@@ -1,58 +1,59 @@
 import React from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 class EditNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      note: [],
       title: "",
       message: "",
-      _id: "",
-      updatedNote: false
+      _id: ""
     };
   }
 
-  componentDidMount() {
-    const id = this.props.match.params.id;
-    this.getNoteID(id);
-  }
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  editNote = e => {
-    e.preventDefault();
+  getNote = id => {
     axios
-      .put(`http://localhost:9000/note/edit/${this.state._id}`, this.state)
-      .then(response => this.props.history.push(`/note/${response.data._id}`))
-      .catch(err => console.log(err));
-  };
-
-  getNoteID = id => {
-    axios
-      .get(`http://localhost:9000/note/get/${id}`)
-      .then(response =>
-        this.setState({
-          title: response.data.title,
-          message: response.data.message,
-          _id: response.data._id
-        })
-      )
+      .get(`https://davids-notes.herokuapp.com/notes/get/${id}`)
+      .then(res => {
+        this.setState(() => ({
+          _id: res.data._id,
+          title: res.data.title,
+          message: res.data.message
+        }));
+      })
       .catch(err => {
         console.log(err);
       });
   };
 
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  submitHandler = event => {
+    event.preventDefault();
+    axios
+      .put(
+        `https://davids-notes.herokuapp.com/note/edit/${
+          this.props.match.params.id
+        }`,
+        {
+          title: this.state.title,
+          message: this.state.message
+        }
+      )
+      .then(res => {
+        this.props.history.push(`/notes/${this.props.match.params.id}`);
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
-    if (this.state.updatedNote === true) {
-      return <Redirect to="/" />;
-    }
     return (
       <div className="editNote">
         <h2 className="header">Edit Note:</h2>
-        <form className="form" onSubmit={this.editNote}>
+        <form className="form" onSubmit={this.submitHandler}>
           <input
             className="input1"
             onChange={this.handleInputChange}
