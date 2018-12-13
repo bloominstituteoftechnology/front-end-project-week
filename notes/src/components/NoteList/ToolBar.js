@@ -11,9 +11,13 @@ const ToolBarWrapper = styled.div`
   margin: 0 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
   border: 1px solid #424142;
   padding: 2rem;
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 
   .sort {
     border: 1px solid #424142;
@@ -27,13 +31,13 @@ const ToolBar = ({notes, searchText, sort, sortValue, onInputChange, onSortChang
     <ToolBarWrapper>
       <Input
         name='searchText'
-        style={{margin: '0 1rem', width:'30rem'}}
+        style={{margin: '.5rem 1rem', width:'30rem', flexGrow: '1'}}
         value={searchText}
         onChange={onInputChange}
         type="text"
         placeholder="Search"
       />
-      <div className='sort'>
+      <div className='sort' style={{margin:'.5rem 1rem'}} >
         Sort By: 
         <Select style={{
             border: 'none',
@@ -48,7 +52,7 @@ const ToolBar = ({notes, searchText, sort, sortValue, onInputChange, onSortChang
         </Select>
       </div>
       <Button
-        style={{margin: '0 1rem'}}
+        style={{margin: '.5rem 1rem'}}
         onClick={() => downloadCSV(notes)} >
           download
       </Button>

@@ -27,6 +27,17 @@ const AppWrapper = styled.div`
     width: 75%;
     min-height: 100vh;
   }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    .navbar-container {
+      min-width: 100%;
+      min-height: 20rem;
+    }
+    .content-container {
+      width: 100%;
+    }
+  }
 `;
 
 class App extends React.Component {

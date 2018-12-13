@@ -22,12 +22,16 @@ const NavBarWrapper = styled.div`
       line-height: 3.4rem;
     }
 
+    .links{
+      display: flex;
+      flex-direction: column;
+    }
+
     a, .menu {
       width: 20rem;
       text-decoration: none;
       background-color: #24B8BD;
       color: white;
-      border: 1px solid #414141;
       margin: 1rem auto;
       padding: 1rem;
       text-align: center;
@@ -44,6 +48,20 @@ const NavBarWrapper = styled.div`
     .active {
       background-color: darkslategray;
     }
+
+    @media (max-width: 700px) {
+      position: relative;
+      width: 100%;
+      flex-direction: column;
+
+      .links {
+        flex-direction: row;
+        a, div {
+          border: 2px solid #424142;
+        }
+      }
+
+    }
   }
 `;
 
@@ -52,24 +70,26 @@ const NavBar = (props) => {
     <NavBarWrapper>
       <div className="navbar">
         <h1>Lambda <br /> Notes</h1>
-        <NavLink
-          exact to='/'
-        >
-          View Your Notes
-        </NavLink>
-        <NavLink
-          to='/add'
-        >
-          + Create New Note
-        </NavLink>
-        <div
-          className="menu"
-          onClick={() => {
-            props.logout();
-            props.history.push('/login');
-          }}
-        >
-          Sign Out
+        <div className="links">
+          <NavLink
+            exact to='/'
+          >
+            View Your Notes
+          </NavLink>
+          <NavLink
+            to='/add'
+          >
+            + Create New Note
+          </NavLink>
+          <div
+            className="menu"
+            onClick={() => {
+              props.logout();
+              props.history.push('/login');
+            }}
+          >
+            Sign Out
+          </div>
         </div>
       </div>
     </NavBarWrapper>
