@@ -20,5 +20,6 @@ const Delete = props => {
     );
 }
 // clean up test
+// second quick test
  
 export default connect()(Delete);
