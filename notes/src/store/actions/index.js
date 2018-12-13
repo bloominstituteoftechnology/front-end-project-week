@@ -134,7 +134,6 @@ export const logout = () => {
 }
 
 export const checkLogin = () => {
-  console.log('CHECK LOGIN');
   let cred = JSON.parse(localStorage.getItem('notes-login'));
 
   if (!cred) {
