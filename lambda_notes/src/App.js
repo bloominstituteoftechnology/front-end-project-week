@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, withRouter } from "react-router-dom";
 import NavSideBar from "./containers/NavSideBar";
 import NotesList from "./containers/NotesList";
-import { getNotes } from "./store/actions";
+import { getNotes, filterNotes, sortNotes } from "./store/actions";
 import { connect } from "react-redux";
 import AddNoteForm from "./components/AddNoteForm";
 import EditNoteForm from "./components/EditNoteForm";
@@ -65,6 +65,6 @@ const mapStateToProps = ({ notes, fetchingNotes, error }) => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    { getNotes }
+    { getNotes, filterNotes, sortNotes }
   )(App)
 );

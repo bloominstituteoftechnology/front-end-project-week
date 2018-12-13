@@ -4,6 +4,10 @@ import { getNotes, filterNotes, sortNotes } from "../store/actions";
 import { connect } from "react-redux";
 import { CSVLink } from "react-csv";
 import download from "../img/download.svg";
+import HTML5Backend from "react-dnd-html5-backend";
+import { DragDropContext } from "react-dnd";
+import SingleNoteListView from "../components/SingleNoteListView";
+const update = require("immutability-helper");
 
 // ==============================
 // ======   STYLED COMPS   ======
@@ -36,32 +40,32 @@ const Header = styled.header`
   }
 `;
 
-const Div = styled.div`
-  padding: 15px;
-  background: white;
-  border: 1px solid #999999;
-  width: 200px;
-  height: 220px;
-  margin: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.15);
+// const Div = styled.div`
+//   padding: 15px;
+//   background: white;
+//   border: 1px solid #999999;
+//   width: 200px;
+//   height: 220px;
+//   margin: 10px;
+//   overflow: hidden;
+//   cursor: pointer;
+//   box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.15);
 
-  @media (max-width: 650px) {
-    width: 90%;
-    height: 120px;
-  }
-`;
+//   @media (max-width: 650px) {
+//     width: 90%;
+//     height: 120px;
+//   }
+// `;
 
-const H2 = styled.h2`
-  font-size: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #4a494a;
-`;
+// const H2 = styled.h2`
+//   font-size: 16px;
+//   padding-bottom: 10px;
+//   border-bottom: 1px solid #4a494a;
+// `;
 
-const P = styled.p`
-  font-size: 12px;
-`;
+// const P = styled.p`
+//   font-size: 12px;
+// `;
 
 const StyledCSVLink = styled(CSVLink)`
   text-decoration: none;
@@ -121,7 +125,7 @@ const IconFooter = styled.div`
   }
 `;
 
-const Tags = styled.p``;
+// const Tags = styled.p``;
 
 // ==============================
 // ======    COMPONENTS    ======
@@ -150,6 +154,19 @@ class NotesList extends Component {
         return `${finalStr}...`;
       } else return text;
     } else return null;
+  };
+
+  moveNote = (dragIndex, hoverIndex) => {
+    const { notes } = this.props.notes;
+    const dragCard = notes[dragIndex];
+
+    this.setState(
+      update(this.state, {
+        notes: {
+          $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]]
+        }
+      })
+    );
   };
 
   render() {
@@ -194,16 +211,25 @@ class NotesList extends Component {
               </ZASpan>
             </p>
           </Header>
-          {this.props.notes.map(note => (
-            <Div
-              onClick={() => {
-                this.props.history.push(`/note/${note._id}`);
-              }}
+          {this.props.notes.map((note, i) => (
+            // <Div
+            //   onClick={() => {
+            //     this.props.history.push(`/note/${note._id}`);
+            //   }}
+            //   key={note._id}
+            // >
+            //   <H2>{this.getNoteString(note.title, 10)}</H2>
+            //   <P>{this.getNoteString(note.textBody, 25)}</P>
+            // </Div>
+            <SingleNoteListView
               key={note._id}
-            >
-              <H2>{this.getNoteString(note.title, 10)}</H2>
-              <P>{this.getNoteString(note.textBody, 25)}</P>
-            </Div>
+              props={this.props}
+              note={note}
+              getNoteString={this.getNoteString}
+              index={i}
+              id={note._id}
+              moveNote={this.moveNote}
+            />
           ))}
           <IconFooter>
             <PAnchor>
@@ -242,17 +268,26 @@ class NotesList extends Component {
             </ZASpan>
           </p>
         </Header>
-        {this.props.filteredNotes.map(note => (
-          <Div
-            onClick={() => {
-              this.props.history.push(`/note/${note._id}`);
-            }}
+        {this.props.filteredNotes.map((note, i) => (
+          // <Div
+          //   onClick={() => {
+          //     this.props.history.push(`/note/${note._id}`);
+          //   }}
+          //   key={note._id}
+          // >
+          //   <H2>{this.getNoteString(note.title, 10)}</H2>
+          //   <P>{this.getNoteString(note.textBody, 25)}</P>
+          //   <Tags>{note.tags[0]}</Tags>
+          // </Div>
+          <SingleNoteListView
             key={note._id}
-          >
-            <H2>{this.getNoteString(note.title, 10)}</H2>
-            <P>{this.getNoteString(note.textBody, 25)}</P>
-            <Tags>{note.tags[0]}</Tags>
-          </Div>
+            props={this.props}
+            note={note}
+            getNoteString={this.getNoteString}
+            index={i}
+            id={note._id}
+            moveNote={this.moveNote}
+          />
         ))}
         <IconFooter>
           <PAnchor>
@@ -271,11 +306,14 @@ class NotesList extends Component {
   }
 }
 
-const mapStateToProps = ({ filteredNotes }) => ({
-  filteredNotes
+const mapStateToProps = ({ filteredNotes, notes }) => ({
+  filteredNotes,
+  notes
 });
+
+const draggable = DragDropContext(HTML5Backend)(NotesList);
 
 export default connect(
   mapStateToProps,
   { getNotes, filterNotes, sortNotes }
-)(NotesList);
+)(draggable);
