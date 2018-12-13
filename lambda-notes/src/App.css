@@ -49,6 +49,7 @@
 
 .sidebar .tag-wrapper .tag {
   width: 30%;
+  max-height: 65px;
   font-size: 15px;
   font-weight: bold;
   background: grey;
@@ -56,6 +57,8 @@
   margin: 10px 1.5%;
   color: white;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   cursor: pointer;
   border-radius: 10px;
   border: 2px solid #30bec3;
