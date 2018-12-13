@@ -1,22 +1,21 @@
 
 .Page-Container {
-  margin: auto;
+  
   display: flex;
   flex-direction: row;
-  width: 100%;
-  justify-content: flex-start;
+  max-width: 100%;
+  
 }
+
 .Main-View {
 width: 66%;
-
+height: 100%;
+background-color: #282c34;
+color: white;
+padding: 10px 0px 20px 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+
 
 .App-link {
   color: #61dafb;

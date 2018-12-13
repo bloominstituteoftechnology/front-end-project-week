@@ -25,7 +25,7 @@ class NoteView extends Component {
     console.log("yo we are inside noteview!");
     if (note === undefined) return <h1>Getting some note...</h1>;
     return (
-      <div>
+      <div className="NoteViewContainer">
         <div
           className={
             this.state.toggleModal ? "Modal-Container" : "Modal-Hidden"
@@ -45,7 +45,14 @@ class NoteView extends Component {
         <h2>{note.title}</h2>
         <p>{note.textBody}</p>
         <button onClick={() => this.toggle()}>delete</button>
-        <button onClick={() => {this.props.updateForm(note); this.props.history.push('/createNote')}}>edit</button>
+        <button
+          onClick={() => {
+            this.props.updateForm(note);
+            this.props.history.push("/createNote");
+          }}
+        >
+          edit
+        </button>
       </div>
     );
   }

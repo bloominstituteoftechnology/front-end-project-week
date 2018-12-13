@@ -44,14 +44,14 @@ class App extends Component {
       <div className="Page-Container">
         <NavBar />
         <div className="Main-View">
-          <header className="App-header">
+          <div className="Note-Container">
             <Route
               exact path="/notes" 
               render={props => <ListView {...props} notes={this.props.notes} />}
             />
             <Route exact path="/createNote" render={props => <CreateNewView {...props}  notes={this.props.notes}  />}/>
             <Route exact path="/notes/:_id" render={props => <NoteView {...props} notes={this.props.notes} deleteNote={this.props.deleteNote} updateForm={this.props.updateForm}/>}/>
-          </header>
+          </div>
         </div>
         
       </div>

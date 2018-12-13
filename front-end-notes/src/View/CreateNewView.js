@@ -3,6 +3,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getNotes, updateNote, updateForm, addNote, updateFormDone } from "../Actions";
+import styled from "styled-components";
+import './CreateNewView.css';
+
+const HeaderMessage = styled.div`
+    height: 100px;
+    // border: 1px solid red;
+    margin: 0px 10px;
+    padding: 40px 0;
+    font-size: 4rem;
+    font-weight: bold;
+    `;
+
 class CreateNewView extends Component {
   /*
     we need a few things:
@@ -67,13 +79,15 @@ class CreateNewView extends Component {
   updateNote = () => {
     this.setState(this.props.currentNote);
   };
-
+  
   render() {
     if (this.props.addingNote) {
       console.log("jalfdkjadlkfjalf");
       return <div>addding div, oaky?</div>;
     }
     return (
+      <>
+      <HeaderMessage>Create a New Note:</HeaderMessage>
       <div>
         <form onSubmit={this.submitHandler}>
           <input
@@ -102,6 +116,7 @@ class CreateNewView extends Component {
           </button>
         </form>
       </div>
+      </>
     );
   }
 }
