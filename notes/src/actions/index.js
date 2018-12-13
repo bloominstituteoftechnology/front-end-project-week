@@ -26,6 +26,10 @@ export const ATTEMPTING_LOGIN = 'ATTEMPTING_LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
+export const ATTEMPTING_REGISTER = 'ATTEMPTING_REGISTER';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAILURE = 'REGISTER_FAILURE';
+
 export const LOGIN_STATUS_TOGGLE = 'LOGIN_STATUS_TOGGLE';
 
 export const fetchNotes = () => dispatch => {
@@ -107,6 +111,19 @@ export const loginAttempt = (user) => dispatch => {
     }) 
     .catch(error => {
         dispatch({type: LOGIN_FAILURE, payload: error})
+        
+    })
+}
+
+export const registerAttempt = (user) => dispatch => {
+    dispatch({type: ATTEMPTING_REGISTER});
+    return axios
+    .post(`https://notes-bryangf.herokuapp.com/api/users/register`, user)
+    .then(response => {
+        dispatch({type: REGISTER_SUCCESS, payload: response.data})
+    }) 
+    .catch(error => {
+        dispatch({type: REGISTER_FAILURE, payload: error})
         
     })
 }

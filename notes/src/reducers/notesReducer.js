@@ -20,7 +20,8 @@ const initialState = {
     settingNote: false,
     loginStatus: false,
     loggingIn: true,
-    userId: null
+    userId: null,
+    registering: false
 };
 
 export const notesReducer = (state = initialState, action) => {
@@ -78,6 +79,13 @@ export const notesReducer = (state = initialState, action) => {
         return{...state, userId: action.payload, loggingIn: false }
     case LOGIN_FAILURE:
         return{...state, error: action.payload, loggingIn: false }
+
+    case ATTEMPTING_REGISTER:
+        return{...state, registering: true};
+    case REGISTER_SUCCESS:
+        return{...state, userId: action.payload, registering: false }
+    case REGISTER_FAILURE:
+        return{...state, error: action.payload, registering: false }
     
     default:
       return state;

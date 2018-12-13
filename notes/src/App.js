@@ -34,19 +34,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    this.props.fetchNotes();
-    if(this.props.loginStatus) {
-      this.setState({note: {
-        ...this.state.note,
-        user_id: 1
-      }})
-    } else {
-      this.setState({note: {
-        ...this.state.note,
-        user_id: null
-      }})
-    }
-     
+    this.props.fetchNotes(); 
   };
 
   changeHandler = (ev) => {
@@ -72,10 +60,21 @@ class App extends Component {
   }
 
   loginHandler = (ev) => {
+    ev.preventDefault();
     this.props.loginAttempt(this.state.user)
-    .then(() => 
-    window.location = "/notes",
-    this.props.loginStatusToggle());
+    .then(() => {
+      window.location = "/notes"
+      this.props.loginStatusToggle()
+    });
+  }
+
+  registerHandler = (ev) => {
+    ev.preventDefault();
+    this.props.registerAttempt(this.state.user)
+    .then(() => {
+      window.location = "/notes"
+      this.props.loginStatusToggle()
+    })
   }
 
   
