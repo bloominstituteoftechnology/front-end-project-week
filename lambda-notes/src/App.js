@@ -22,8 +22,8 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:9000/api/notes/all')
-      // .get(`${baseURL}/api/notes/all`)      
+      // .get('http://localhost:9000/api/notes/all')
+      .get(`${baseURL}/api/notes/all`)      
       .then(response => this.setState({ notes: response.data }))
       .catch(error => console.log(error))
   }

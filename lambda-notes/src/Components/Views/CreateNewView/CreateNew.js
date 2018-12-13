@@ -40,8 +40,8 @@ class CreateNew extends Component {
 
           if (this.state.note === null) {
             axios
-                .post('http://localhost:9000/api/notes/create', newNote)
-                // .post(`${baseURL}/api/notes/create`, newNote)
+                // .post('http://localhost:9000/api/notes/create', newNote)
+                .post(`${baseURL}/api/notes/create`, newNote)
                 .then(res => {console.log(res)})
                 .catch(err => console.log(err))
           }

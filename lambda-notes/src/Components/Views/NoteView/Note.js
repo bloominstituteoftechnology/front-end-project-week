@@ -19,16 +19,16 @@ class Note extends Component {
         let id = this.props.match.params.id
         console.log('before fetch', id)
         axios
-            .get(`http://localhost:9000/api/notes/${id}`)
-            // .get(`${baseURL}/api/notes/${id}`)
+            // .get(`http://localhost:9000/api/notes/${id}`)
+            .get(`${baseURL}/api/notes/${id}`)
             .then(response => this.setState({ note: response.data }))
             .catch(error => console.log(error))
     }
 
     handleDelete = id => {
         axios
-            .delete(`http://localhost:9000/api/notes/delete/${id}`)
-            // .delete(`${baseURL}/api/notes/delete/${id}`)
+            // .delete(`http://localhost:9000/api/notes/delete/${id}`)
+            .delete(`${baseURL}/api/notes/delete/${id}`)
             .then(response => {this.setState({ delete: true })})
             .catch(error => console.log(error))
     }
