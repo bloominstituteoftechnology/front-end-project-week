@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+
 // import SearchForm from "../SearchForm/SearchForm";
 
 const SidebarContainer = styled.div`
@@ -47,7 +49,6 @@ const MainHeader = styled.h1`
 	color: #414141;
 	font-weight: bold;
 	margin-left: 20px;
-
 `;
 
 const SidebarButton = styled.div`
@@ -66,34 +67,97 @@ const SidebarButton = styled.div`
 	}
 `;
 
-// const LogOutButton = styled(SidebarButton)`
-// 	margin-top: auto;
-// `;
+const LogOutButton = styled.button`
+	margin-top: auto;
+`;
+
+const ModalButton = styled.button`
+	background-color: #24b8bd;
+	border: 0;
+	color: #f3f9f9;
+	padding: 12px 15px;
+	margin: 15px 50px;
+	width: 180px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #0B9FA4;
+	}
+`;
+
 
 // ================ END STYLES
+class Sidebar extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			modal: false,
+		};
+		this.toggle = this.toggle.bind(this);
+	}
 
-const Sidebar = props => {
-	return (
-		<SidebarContainer>
-			<NavBar>
-				<i class="fas fa-user-alt" onClick={props.logOut}/>
-				<Link to="/settings">
-					<i class="fas fa-cog" />
-				</Link>
-			</NavBar>
+	toggle() {
+		this.setState({
+			modal: !this.state.modal,
+		});
+	}
 
-			<MainHeader>Lambda Notes</MainHeader>
-			<Link to="/notes" onClick={props.getNotes} className="sidebar-link">
-				<SidebarButton>View Your Notes</SidebarButton>
-			</Link>
-			<Link to="/addnewnote" className="sidebar-link">
-				<SidebarButton href="#">+ Create New Note</SidebarButton>
-			</Link>
-			{/* <SearchForm /> */}
+	render() {
+		return (
+			<>
+				<Modal
+					isOpen={this.state.modal}
+					toggle={this.toggle}
+					className="logOut-modal"
+					centered={true}
+				>
+					<ModalBody className="mod-body">
+						Are you sure you want to sign out?
+					</ModalBody>
+					<ModalFooter className="mod-footer">
+						<LogOutButton
+							onClick={() => {
+								this.props.logOut();
+								this.toggle();
+							}}
+						>
+							Delete
+						</LogOutButton>
+						<ModalButton onClick={this.toggle}>No</ModalButton>
+					</ModalFooter>
+				</Modal>
+				<SidebarContainer>
+					<NavBar>
+						<i class="fas fa-user-alt" />
+						<Link to="/settings">
+							<i class="fas fa-cog" />
+						</Link>
+						<i class="fas fa-sign-out-alt" onClick={this.toggle} />
+					</NavBar>
 
-			{/* <LogOutButton onClick={props.logOut}>Log Out</LogOutButton> */}
-		</SidebarContainer>
-	);
-};
+					<MainHeader>Lambda Notes</MainHeader>
+					<Link
+						to="/notes"
+						onClick={this.props.getNotes}
+						className="sidebar-link"
+					>
+						<SidebarButton>View Your Notes</SidebarButton>
+					</Link>
+					<Link to="/addnewnote" className="sidebar-link">
+						<SidebarButton href="#">
+							+ Create New Note
+						</SidebarButton>
+					</Link>
+					{/* <SearchForm /> */}
+
+					{/* <LogOutButton onClick={props.logOut}>Log Out</LogOutButton> */}
+				</SidebarContainer>
+			</>
+		);
+	}
+}
 
 export default Sidebar;

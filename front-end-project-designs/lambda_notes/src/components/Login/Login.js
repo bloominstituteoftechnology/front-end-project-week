@@ -8,9 +8,12 @@ import {
 	ModalBody,
 	ModalFooter,
 	Form,
-	FormGroup,
-	Label,
+	// FormGroup,
+	// Label,
 	Input,
+	InputGroup,
+	InputGroupText,
+	InputGroupAddon,
 } from "reactstrap";
 
 const LoginBackground = styled.div`
@@ -68,8 +71,8 @@ const LoginFormContainer = styled.div`
 		margin-top: 40px;
 		font-family: Helvetica, sans-serif;
 		color: #222222;
-        font-weight: bold;
-        cursor: pointer;
+		font-weight: bold;
+		cursor: pointer;
 
 		.strong {
 			font-weight: bold;
@@ -108,7 +111,7 @@ const MainLoginButton = styled.button`
 	width: 200px;
 	min-width: 200px;
 	padding: 10px 40px;
-	margin: 20px auto 10px;
+	margin: 20px auto 0;
 	background-color: #24b8bd;
 	color: #f3f9f9;
 	border: 0;
@@ -119,6 +122,19 @@ const MainLoginButton = styled.button`
 
 	&:hover {
 		background-color: #00858a;
+	}
+`;
+
+const CreateAccountModal = styled.div``;
+
+const CreateAccountModalFooter = styled.div`
+	.create-account-button {
+		width: 150px;
+	}
+
+	.submit-button {
+		background-color: #24b8bd;
+		margin: 0 25px;
 	}
 `;
 
@@ -185,64 +201,68 @@ class Login extends React.Component {
 					<div className="create-account-link" onClick={this.toggle}>
 						Create an account <i class="fas fa-user-circle" />
 					</div>
-					<div>
+					<CreateAccountModal>
 						<Modal
 							isOpen={this.state.modal}
 							toggle={this.toggle}
-                            className={this.props.className}
-                            centered={true}
+							className={this.props.className}
+							centered={true}
 						>
 							<ModalHeader toggle={this.toggle}>
 								Create a Lambda Notes account
-                                
 							</ModalHeader>
 							<ModalBody>
-                                <p>All fields are required</p>
+								<p>All fields are required</p>
 								<Form>
-									<FormGroup>
-										<Label for="email">Email</Label>
-										<Input
-											type="email"
-											name="email"
-											id="email"
-                                            placeholder="email"
-                                            required
-										/>
-									</FormGroup>
-                                    <FormGroup>
-										<Label for="username">Username</Label>
-										<Input
-											type="text"
-											name="username"
-											id="username"
-                                            placeholder="username"
-                                            required
-										/>
-									</FormGroup>
-									<FormGroup>
-										<Label for="password">
-											Password
-										</Label>
-										<Input
-											type="password"
-											name="password"
-											id="password"
-                                            placeholder="password"
-                                            required
-										/>
-									</FormGroup>
+									<InputGroup size="sm">
+										<InputGroupAddon addonType="prepend">
+											<InputGroupText>
+												email
+											</InputGroupText>
+										</InputGroupAddon>
+										<Input />
+									</InputGroup>
+									<br />
+									<InputGroup size="sm">
+										<InputGroupAddon addonType="prepend">
+											<InputGroupText>
+												username
+											</InputGroupText>
+										</InputGroupAddon>
+										<Input />
+									</InputGroup>
+									<br />
+									<InputGroup size="sm">
+										<InputGroupAddon addonType="prepend">
+											<InputGroupText>
+												password
+											</InputGroupText>
+										</InputGroupAddon>
+										<Input />
+									</InputGroup>
+									<br />
 								</Form>
 							</ModalBody>
 							<ModalFooter>
-								<Button color="primary" onClick={console.log('submit')} disabled>
-									Submit
-								</Button>
-								<Button color="secondary" onClick={this.toggle}>
-									Cancel
-								</Button>
+								<CreateAccountModalFooter>
+									<Button
+										type="submit"
+										className="create-account-button submit-button"
+										onClick={console.log("submit")}
+										// disabled
+									>
+										Submit
+									</Button>
+									<Button
+										className="create-account-button cancel-button"
+										onClick={this.toggle}
+									>
+										Cancel
+									</Button>
+								</CreateAccountModalFooter>
 							</ModalFooter>
 						</Modal>
-					</div>
+					</CreateAccountModal>
 				</LoginFormContainer>
 			</LoginBackground>
 		);

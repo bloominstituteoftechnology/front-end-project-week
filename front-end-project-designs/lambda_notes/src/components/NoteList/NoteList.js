@@ -8,6 +8,8 @@ import {
 	DropdownItem,
 } from "reactstrap";
 
+
+
 import Note from "../Note/Note";
 import SearchForm from "../SearchForm/SearchForm";
 
@@ -16,6 +18,7 @@ const NoteListHeader = styled.div`
 	flex-wrap: wrap;
 	width: 100%;
 	justify-content: space-between;
+	padding-right: 120px;
 
 	h2 {
 		width: 60%;
@@ -63,8 +66,9 @@ const NoteCardContainer = styled.div`
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 	white-space: pre-wrap;
+	overflow: hidden;
 	/* min-width: 150px; */
-	min-height: 200px;
+	height: 220px;
 	margin: 5px;
 	padding: 10px 15px 15px;
 	border: 1px solid #dbdbdb;
@@ -95,7 +99,7 @@ class NoteList extends React.Component {
 	}
 
 	componentDidMount() {
-			this.props.getNotes();
+		this.props.getNotes();
 		// console.log("Notelist searchQ", this.state.searchQuery);
 	}
 
@@ -122,8 +126,6 @@ class NoteList extends React.Component {
 		this.setState({
 			notes: sortedNotes,
 		});
-
-	
 	};
 	sortNotesByDescendingLength = () => {
 		let sortedNotes = this.props.notes.sort(function(a, b) {
@@ -138,7 +140,6 @@ class NoteList extends React.Component {
 		this.setState({
 			notes: sortedNotes,
 		});
-
 	};
 	sortNotesByOldestFirst = () => {
 		this.props.getNotes();
@@ -149,6 +150,7 @@ class NoteList extends React.Component {
 	};
 
 
+
 	// sortNotesByStarredFirst = () => {
 	// 	if ()
 	// }
@@ -156,12 +158,14 @@ class NoteList extends React.Component {
 	render() {
 		console.log("Notelist props", this.props);
 		if (!this.props.notes) {
-			return <h2>Loading...</h2>;
+			setTimeout( () => {
+				return <h2>Loading...</h2>;
+			}, 1000)
+			
 		}
 		return (
 			<NoteListContainer>
 				<NoteListHeader>
-
 					<h2 className="lamba-notes-header">Your Notes:</h2>
 					<SearchForm
 						{...this.props}
@@ -209,47 +213,44 @@ class NoteList extends React.Component {
 				</NoteListHeader>
 				{this.props.notes.map(note => {
 					return (
-							<>
-								<NoteCardContainer
+						<>
+							<NoteCardContainer
+								onClick={() => {
+									this.props.history.push(
+										`/notes/${note._id}`
+									);
+								}}
+								key={note._id}
+								className="note-card"
+							>
+								<h4>
+									{note.title.length > 30
+										? note.title.slice(0, 30).concat("...")
+										: note.title}
+								</h4>
+								<p>
+									{note.textBody.length > 140
+										? note.textBody
+												.slice(0, 140)
+												.concat("...")
+										: note.textBody}
+								</p>
+							</NoteCardContainer>
 
-									onClick={() => {
-										this.props.history.push(
-											`/notes/${note._id}`
-										);
-									}}
-									key={note._id}
-									className="note-card"
-								>
-									<h4>
-										{note.title.length > 30
-											? note.title
-													.slice(0, 30)
-													.concat("...")
-											: note.title}
-									</h4>
-									<p>
-										{note.textBody.length > 130
-											? note.textBody
-													.slice(0, 130)
-													.concat("...")
-											: note.textBody}
-									</p>
-								</NoteCardContainer>
-
-								<Route
-									path="/notes/:noteId"
-									render={props => (
-										<Note
-											{...props}
-											notes={this.state.notes}
-											deleteNote={this.props.deleteNote}
-											isStarred={props.isStarred}
-										/>
-									)}
-								/>
-							</>
-						);
-									})}
+							<Route
+								path="/notes/:noteId"
+								render={props => (
+									<Note
+										{...props}
+										notes={this.state.notes}
+										deleteNote={this.props.deleteNote}
+										isStarred={props.isStarred}
+									/>
+								)}
+							/>
+						</>
+					);
+				})}
 			</NoteListContainer>
 		);
 	}
