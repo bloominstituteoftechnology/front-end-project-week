@@ -20,6 +20,8 @@ The main objective of this week is to develop the MVP feature set listed below u
 - [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
 - [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
 
+https://trello.com/invite/b/RuuMxv0o/fc8f454640bdc37214817add129721bc/lambda-notes-hunter-smith
+
 ## MVP Features:
 
 - [ ] Display a list of notes
