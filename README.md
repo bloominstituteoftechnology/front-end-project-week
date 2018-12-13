@@ -10,6 +10,9 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 - You are required to showcase progress with at least 1 commit a day. This will let your project manager know where you are and if you need help. This also allows the client to get progress reports from the company in a real world setting.
 
+# Trello Link:
+* https://trello.com/b/I8gRO4Wz/lambda-notes
+
 ## Trello Set Up:
 
 - [ ] Create a Trello account
@@ -73,3 +76,5 @@ Once your MVP has been approved, you have been given a feature list that the cli
 - [ ] Create a login system around the MVP
 
 You will notice that this repository does not have any starter code. This is on purpose. You are to start from scratch using any files you have built throughout your time here at Lambda School.
+
+Trello Link: https://trello.com/invite/b/I8gRO4Wz/7cccf6b5f5bc8f1a84d926490d5a926e/lambda-notes
