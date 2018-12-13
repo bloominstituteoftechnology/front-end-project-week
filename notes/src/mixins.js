@@ -36,9 +36,9 @@ export const Button = styled.div`
   padding: 15px 0;
   /* border: 1px solid gray; */
   border-radius: 7px;
-  box-shadow: 0px 3px 5px -3px rgb(0, 0, 0);
+  box-shadow: 0px 3px 10px -3px rgb(0, 0, 0);
   :active {
-    box-shadow: inset 0px 2px 5px -1px rgb(0, 0, 0);
+    box-shadow: inset 0px 2px 10px -1px rgb(0, 0, 0);
   }
   @media (max-width: 700px) {
     padding: 6.5px 0;

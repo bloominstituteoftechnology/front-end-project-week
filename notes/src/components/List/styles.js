@@ -90,7 +90,7 @@ export const StyledNoteLink = styled(StyledLink)`
   margin-bottom: 27px;
   animation-name: out;
   animation-duration: 150ms;
-  box-shadow: 0px 3px 5px -3px rgb(0, 0, 0);
+  box-shadow: 0px 3px 10px -3px rgb(0, 0, 0);
   @media (max-width: 940px) {
     width: 28vw;
   }
@@ -102,23 +102,23 @@ export const StyledNoteLink = styled(StyledLink)`
   }
   :hover {
     animation-name: in;
-    animation-duration: 300ms;
-    box-shadow: 0 5px 20px -5px rgb(0, 0, 0);
+    animation-duration: 370ms;
+    box-shadow: 0 7px 30px -5px rgb(0, 0, 0);
   }
   @keyframes in {
     from {
-      box-shadow: 0px 3px 5px -3px rgb(0, 0, 0);
+      box-shadow: 0px 3px 10px -3px rgb(0, 0, 0);
     }
     to {
-      box-shadow: 0 5px 20px -5px rgb(0, 0, 0);
+      box-shadow: 0 7px 30px -5px rgb(0, 0, 0);
     }
   }
   @keyframes out {
     from {
-      box-shadow: 0 5px 20px -5px rgb(0, 0, 0);
+      box-shadow: 0 7px 30px -5px rgb(0, 0, 0);
     }
     to {
-      box-shadow: 0px 3px 5px -3px rgb(0, 0, 0);
+      box-shadow: 0px 3px 10px -3px rgb(0, 0, 0);
     }
   }
 `;
