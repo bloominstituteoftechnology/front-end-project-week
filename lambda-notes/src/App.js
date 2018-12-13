@@ -23,13 +23,15 @@ class App extends Component {
       newTitle: "",
       newTextBody: "",
       delete: false,
-      loggedIn: false
+      loggedIn: false,
+      message:''
     };
   }
 
   componentDidMount() {
     this.authenticate();
   }
+  
   componentDidUpdate(prevProps) {
     const { pathname } = this.props.location;
     console.log(this.props);
@@ -38,7 +40,7 @@ class App extends Component {
       this.authenticate();
     }
     axios
-      .get("https://fsw14-lambda-notes-api.herokuapp.com/api/notes")
+      .get(`${url}/api/notes`)
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
@@ -63,10 +65,7 @@ class App extends Component {
         })
         .catch((err) => {
           this.props.history.push('/login');
-
         });
-    } else {
-      this.props.history.push('/login');
     }
   }
 
@@ -76,7 +75,7 @@ class App extends Component {
 
   addNote = () => {
     axios
-      .post("https://fsw14-lambda-notes-api.herokuapp.com/api/notes", {
+      .post(`${url}/api/notes`, {
         title: this.state.title,
         textBody: this.state.textBody
       })
@@ -85,7 +84,7 @@ class App extends Component {
 
   editNote = id => {
     axios
-      .put(`https://fsw14-lambda-notes-api.herokuapp.com/api/notes/${id}`, {
+      .put(`${url}/api/notes/${id}`, {
         title: this.state.newTitle,
         textBody: this.state.newTextBody
       })
@@ -106,7 +105,7 @@ class App extends Component {
   
   deleteNote = id => {
     axios
-      .delete(`https://fsw14-lambda-notes-api.herokuapp.com/api/notes/${id}`)
+      .delete(`${url}/api/notes/${id}`)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
     this.setState();
@@ -114,7 +113,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <SideBar />
+        <SideBar isLoggedIn={this.state.loggedIn}/> 
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route
@@ -125,6 +124,8 @@ class App extends Component {
               {...props}
               notes={this.state.notes}
               changeHandler={this.changeHandler}
+              message={this.state.message}
+              isLoggedIn={this.state.loggedIn}
             />
           )}
         />

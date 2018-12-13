@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { Link } from 'react-router-dom';
 const url = process.env.REACT_APP_API_URL;
 
 const initialUser = {
@@ -22,10 +23,9 @@ class Register extends Component {
         this.setState({ user: { ...this.state.user, [name]: value } });
     }
 
-
     submitHandler = (event) => {
         event.preventDefault();
-        axios.post(`${url}/api/register`, this.state.user)
+        axios.post(`${url}/api/register`,this.state.user)
             .then((res) => {
                 if (res.status === 201) {
                     this.setState({
@@ -47,6 +47,7 @@ class Register extends Component {
     render() {
         return (
             <div>
+                <h2>Register</h2>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor="username">Username</label>
                     <input
@@ -59,7 +60,7 @@ class Register extends Component {
 
                     <label htmlFor="password">Password</label>
                     <input
-                        type="text"
+                        type="password"
                         id="password"
                         name="password"
                         value={this.state.user.password}
@@ -68,7 +69,8 @@ class Register extends Component {
 
                     <button type="submit">Submit</button>
                 </form>
-                {this.state.message ? (<h4>{this.state.message}</h4>) : undefined}
+                <Link to='/login'>Or login</Link>
+                
             </div>
 
         );

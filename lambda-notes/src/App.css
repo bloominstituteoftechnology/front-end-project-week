@@ -3,6 +3,9 @@
   background-color: #F2F1F2;
 }
 
+.disabledSideBar{
+  opacity: 0;
+}
 .side-bar{
   background:rgb(227, 227, 227);
   height:100vh;
@@ -175,4 +178,22 @@ form button{
 }
 .delete-modal .note-modal-buttons .no-btn{
   background:#00cec9;
+}
+
+.login-register-page{
+  display: flex;
+  justify-content: center;
+  width:100vw;
+  height: 100vh;
+  border:3px solid black;
+}
+
+.login-register-page a{
+  text-decoration: none;
+  text-transform: uppercase;
+  color:white;
+  padding:10px;
+  background: black;
+  margin:10px;
+  border:1px solid black;
 }

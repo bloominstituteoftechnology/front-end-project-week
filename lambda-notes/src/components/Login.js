@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { Link } from 'react-router-dom';
+
 const url = process.env.REACT_APP_API_URL;
 
 const initialUser = {
@@ -45,6 +47,7 @@ class Login extends Component {
     render() {
         return (
             <div>
+            <h2>Login</h2>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor="username">Username</label>
                     <input
@@ -64,7 +67,7 @@ class Login extends Component {
                     />
                     <button type="submit">Submit</button>
                 </form>
-                {this.state.message ? (<h4>{this.state.message}</h4>) : undefined}
+                <Link to='/register'>Or register</Link>
             </div>
 
         );
