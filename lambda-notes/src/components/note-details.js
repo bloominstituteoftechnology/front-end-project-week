@@ -30,7 +30,11 @@ class NoteDetails extends Component {
   }
   clickHandler = event => {
     event.preventDefault();
-    axios.delete(`http://localhost:9000/notes/${this.props.match.params.id}`);
+    axios.delete(
+      `https://lambdanotesserver.herokuapp.com/notes/${
+        this.props.match.params.id
+      }`
+    );
     alert("Note Deleted (Im not lying, it's gone, go check for yourself)");
   };
 
