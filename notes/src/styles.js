@@ -86,6 +86,13 @@ export const ExportButton = styled.button`
   }
 `;
 
+export const SortSelect = styled.select`
+  margin-top: 1rem;
+`;
+
+export const ClearFilter = styled.button`
+  margin-left: 1%;
+`;
 export const FormButton = styled(Button)`
   width: 31.5%;
   //padding: 5px 10px;
@@ -175,6 +182,7 @@ export const SearchBar = styled(StyledInput)`
   //width: 50%;
   ////@media (max-width: 600px) {
   //width: 100%;
+  margin-bottom: 1rem;
   }
 `;
 

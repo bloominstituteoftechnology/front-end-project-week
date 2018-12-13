@@ -8,6 +8,8 @@ import {
   StyledNote,
   HeaderDiv,
   ExportButton,
+  SortSelect,
+  ClearFilter,
 } from '../styles';
 
 const Notes = props => {
@@ -24,12 +26,22 @@ const Notes = props => {
             onChange={e => props.searchNotes(e)}
           />
         </form>
-        <select onClick={e => props.changeSort(e)}>
-          <option value="none">None</option>
-          <option value="time">Recent</option>
-          <option value="alpha">Alpha</option>
-          <option value="length">Length</option>
-        </select>
+        <div>
+          Displaying <strong>0 of 10 </strong>
+          notes.
+          <ClearFilter onClick={e => props.clearSearchText(e)}>
+            Show All
+          </ClearFilter>
+        </div>
+        <form>
+          <label for="sort">Sort:</label>
+          <SortSelect id="sort" onClick={e => props.changeSort(e)}>
+            <option value="none">None</option>
+            <option value="time">Recent</option>
+            <option value="alpha">Alpha</option>
+            <option value="length">Length</option>
+          </SortSelect>
+        </form>
       </SearchBarWrapper>
       <DivNotes>
         {props.notes.map(note => (

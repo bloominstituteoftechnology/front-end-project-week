@@ -70,12 +70,14 @@ class NotesContainer extends React.Component {
     this.setState({sortType: e.target.value});
   };
 
-  filterNotes = () => {
+  filterNotes = e => {
+    e.preventDefault();
     const result = this.state.fuse.search(this.state.searchText);
     this.setState({filteredNotes: result});
   };
 
   searchNotes = e => {
+    e.preventDefault();
     this.setState({searchText: e.target.value});
     const fuse = new Fuse(this.props.notes, this.state.filterOptions);
     const result = fuse.search(this.state.searchText);

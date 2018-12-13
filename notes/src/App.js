@@ -49,6 +49,10 @@ const GlobalStyle = createGlobalStyle`
     strong {
       font-weight: bold;
   }
+    label {
+      font-weight: bold;
+      margin-right: 6px;
+  }
       .App {
         //max-width: 880px;
     background-color: #f3f3f3;
