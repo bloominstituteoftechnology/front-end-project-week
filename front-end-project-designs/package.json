@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "browser-router": "^0.2.0",
+    "react-dom": "^16.6.3"
+  }
+}
