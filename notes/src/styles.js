@@ -65,6 +65,15 @@ export const Button = styled.button`
   font-size: 1.5rem;
   width: 100%;
   margin: 0.9rem 0;
+  border-radius: 3px;
+`;
+
+export const ExportButton = styled.button`
+  margin: -4rem 0 4rem 3%;
+  width: 10%;
+  border-radius: 5px;
+  background-color: #636378;
+  color: white;
 `;
 
 export const FormButton = styled(Button)`
@@ -144,6 +153,10 @@ export const NotesWrapper = styled.div`
 export const SearchBarWrapper = styled.div`
   padding-left: 3%;
   width: 80%;
+
+  @media (max-width: 600px) {
+    margin: 0 auto;
+  }
 `;
 
 export const SearchBar = styled(StyledInput)`

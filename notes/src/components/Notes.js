@@ -6,14 +6,15 @@ import {
   SearchBarWrapper,
   DivNotes,
   StyledNote,
+  ExportButton,
 } from '../styles';
 
 const Notes = props => {
   return (
     <NotesWrapper>
+      <ExportButton onClick={() => props.export()}>export to csv</ExportButton>
       <SearchBarWrapper>
         <h2>Your Notes:</h2>
-        <button onClick={() => props.export()}>export to csv</button>
         <form onSubmit={e => props.clearSearchText(e)}>
           <SearchBar
             type="text"

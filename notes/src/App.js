@@ -7,7 +7,6 @@ import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import {createGlobalStyle} from 'styled-components';
 import reset from 'styled-reset';
-import {Normalize} from 'styled-normalize';
 
 const GlobalStyle = createGlobalStyle`
  ${reset}
@@ -41,6 +40,15 @@ const GlobalStyle = createGlobalStyle`
       list-style-type: disc;
       list-style-position: inside;
     }
+
+    ol {
+      list-style-type: decimal;
+      list-style-position: inside;
+  }
+
+    strong {
+      font-weight: bold;
+  }
       .App {
         //max-width: 880px;
     background-color: #f3f3f3;
