@@ -27,11 +27,13 @@ class LoginForm extends Component {
 
   render() {
     const { username, password } = this.state;
+    const { message } = this.props;
     return (
       <StyledLoginForm>
         <h1>
           Lambda <span>Notes</span>
         </h1>
+        {message ? <div>{message}</div> : null}
         <form onSubmit={this.onFormSubmit}>
           <div className="form-group">
             <label htmlFor="username">Username:</label>

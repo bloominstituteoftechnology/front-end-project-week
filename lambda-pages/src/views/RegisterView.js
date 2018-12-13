@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { registerUser } from '../actions';
 import styled from 'styled-components';
 import RegisterForm from '../components/RegisterForm';
 
@@ -11,17 +13,27 @@ const StyledLoginView = styled.div`
 `;
 
 class RegisterView extends Component {
-  handleLoginRedirect = () => {
-    this.props.history.push('/');
+  handleRegisterNewUser = user => {
+    this.props.registerUser(user);
+    this.props.history.push('/login');
   };
 
   render() {
     return (
       <StyledLoginView>
-        <RegisterForm handleLoginRedirect={this.handleLoginRedirect} />
+        <RegisterForm handleRegisterNewUser={this.handleRegisterNewUser} />
       </StyledLoginView>
     );
   }
 }
 
-export default RegisterView;
+const mapStateToProps = state => {
+  return {
+    error: state.auth.error
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(RegisterView);

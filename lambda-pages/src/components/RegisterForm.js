@@ -19,8 +19,8 @@ class RegisterForm extends Component {
 
   onFormSubmit = e => {
     e.preventDefault();
-    // console.log('sumbit');
-    this.props.handleLoginRedirect();
+    const { email, username, password } = this.state;
+    this.props.handleRegisterNewUser({ email, username, password });
   };
 
   render() {

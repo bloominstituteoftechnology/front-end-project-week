@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import LoginForm from '../components/LoginForm';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions';
 import styled from 'styled-components';
-import axios from 'axios';
+import LoginForm from '../components/LoginForm';
 
 const StyledLoginView = styled.div`
   display: flex;
@@ -17,24 +18,30 @@ class LoginView extends Component {
   };
 
   handleLogin = user => {
-    axios
-      .post('http://localhost:5000/api/auth/login', user)
-      .then(res => {
-        localStorage.setItem('auth_token', res.data.token);
-        this.props.history.push('/');
-      })
-      .catch(err => {
-        this.setState({ message: err.response.data.message });
-      });
+    const redirectHome = () => this.props.history.push('/');
+    this.props.loginUser(user, redirectHome);
   };
 
   render() {
     return (
       <StyledLoginView>
-        <LoginForm handleLogin={this.handleLogin} />
+        <LoginForm
+          message={this.props.message}
+          handleLogin={this.handleLogin}
+        />
       </StyledLoginView>
     );
   }
 }
 
-export default LoginView;
+const mapStateToProps = state => {
+  return {
+    message: state.auth.message,
+    error: state.auth.error
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(LoginView);
