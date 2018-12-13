@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { getNotes } from '../store/actions';
 import ListNotes from '../components/ListNotes';
 
@@ -36,7 +37,10 @@ class ListNotesView extends Component {
         ) : (
           <div>
             <H2PageTitle>Your Notes:</H2PageTitle>
-            <ListNotes {...this.props} />
+            <ListNotes
+              notes={this.props.notes}
+              noteDetailsLink={this.props.noteDetailsLink}
+            />
           </div>
         )}
       </DivPageWrapper>
@@ -44,11 +48,25 @@ class ListNotesView extends Component {
   }
 }
 
+ListNotesView.propTypes = {
+  getNotes: PropTypes.func,
+  noteDetailsLink: PropTypes.string,
+  fetchingNotes: PropTypes.bool,
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      tags: PropTypes.array,
+      _id: PropTypes.string,
+      title: PropTypes.string,
+      textBody: PropTypes.string,
+      __v: PropTypes.number
+    })
+  )
+};
+
 const mapStateToProps = state => {
   return {
     notes: state.notes,
     fetchingNotes: state.fetchingNotes,
-    fetchingNote: state.fetchingNote,
     error: state.error
   };
 };

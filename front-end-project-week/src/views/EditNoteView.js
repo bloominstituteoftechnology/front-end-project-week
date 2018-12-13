@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { getNote, editNote } from '../store/actions';
 import NoteForm from '../components/NoteForm';
 
@@ -43,9 +44,7 @@ class EditNoteView extends Component {
     if (prevProps.editingNote !== this.props.editingNote) {
       if (!this.props.editingNote) {
         this.props.history.push(
-          `${this.props.urlLinks.home}${this.props.urlLinks.readNoteClient}/${
-            this.props.match.params.id
-          }`
+          `${this.props.noteDetailsLink}/${this.props.match.params.id}`
         );
       }
     }
@@ -69,17 +68,16 @@ class EditNoteView extends Component {
   render() {
     return (
       <DivPageWrapper>
-        {this.props.fetchingNotes ? (
+        {this.props.fetchingNote ? (
           <H2LoadingMessage>Getting Note...</H2LoadingMessage>
         ) : (
           <div>
             <H2PageTitle>Edit Note:</H2PageTitle>
             <NoteForm
-              {...this.props}
-              submitButtonText={this.state.submitButtonText}
-              note={this.state.editNote}
               handleInputChange={this.handleInputChange}
               submitHandler={this.submitHandler}
+              submitButtonText={this.state.submitButtonText}
+              note={this.state.editNote}
             />
           </div>
         )}
@@ -87,6 +85,22 @@ class EditNoteView extends Component {
     );
   }
 }
+
+EditNoteView.propTypes = {
+  history: PropTypes.object,
+  match: PropTypes.object,
+  getNote: PropTypes.func,
+  editNote: PropTypes.func,
+  fetchingNote: PropTypes.bool,
+  editingNote: PropTypes.bool,
+  note: PropTypes.shape({
+    tags: PropTypes.array,
+    _id: PropTypes.string,
+    title: PropTypes.string,
+    textBody: PropTypes.string,
+    __v: PropTypes.number
+  })
+};
 
 const mapStateToProps = state => {
   return {

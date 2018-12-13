@@ -1,27 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
-/***************************************************************************************************
- ********************************************* Variables *******************************************
- **************************************************************************************************/
-const maxTitleLimit = 20;
-const maxTextBodyLimit = 180;
-
-/***************************************************************************************************
- ********************************************** Methods ********************************************
- **************************************************************************************************/
-const shortenText = (text, limitCharsDisplayed) => {
-  let modifiedText = text;
-  if (modifiedText.length > limitCharsDisplayed) {
-    modifiedText = modifiedText.slice(0, limitCharsDisplayed);
-    if (modifiedText.indexOf(' ') >= 0) {
-      modifiedText = modifiedText.slice(0, modifiedText.lastIndexOf(' '));
-      modifiedText = modifiedText.trim() + ' ';
-    }
-  }
-  return modifiedText;
-};
+import PropTypes from 'prop-types';
 
 /***************************************************************************************************
  ********************************************** Styles *********************************************
@@ -59,22 +39,44 @@ const SpanEllipsis = styled.span`
 `;
 
 /***************************************************************************************************
+ ********************************************* Variables *******************************************
+ **************************************************************************************************/
+const maxTitleLimit = 20;
+const maxTextBodyLimit = 180;
+const ellipsis = '. . .';
+
+/***************************************************************************************************
+ ********************************************** Methods ********************************************
+ **************************************************************************************************/
+const shortenText = (text, limitCharsDisplayed) => {
+  let modifiedText = text;
+  if (modifiedText.length > limitCharsDisplayed) {
+    modifiedText = modifiedText.slice(0, limitCharsDisplayed);
+    if (modifiedText.indexOf(' ') >= 0) {
+      modifiedText = modifiedText.slice(0, modifiedText.lastIndexOf(' '));
+      modifiedText = modifiedText.trim() + ' ';
+    }
+  }
+  return modifiedText;
+};
+
+/***************************************************************************************************
  ********************************************* Component *******************************************
  **************************************************************************************************/
 const NoteSticky = props => {
   return (
-    <LinkNoteSticky to={props.noteDetailsLink}>
+    <LinkNoteSticky to={props.noteDetailsIdLink}>
       <DivNoteSticky>
         <H3NoteTitle>
           {shortenText(props.title, maxTitleLimit)}{' '}
           {props.title.length > maxTitleLimit && (
-            <SpanEllipsis>. . .</SpanEllipsis>
+            <SpanEllipsis>{ellipsis}</SpanEllipsis>
           )}
         </H3NoteTitle>
         <NoteText>
           {shortenText(props.textBody, maxTextBodyLimit)}{' '}
           {props.textBody.length > maxTextBodyLimit && (
-            <SpanEllipsis>. . .</SpanEllipsis>
+            <SpanEllipsis>{ellipsis}</SpanEllipsis>
           )}
         </NoteText>
       </DivNoteSticky>
@@ -82,8 +84,10 @@ const NoteSticky = props => {
   );
 };
 
-// NoteSticky.defaultProps = {
-//   name: '',
-// };
+NoteSticky.defaultProps = {
+  noteDetailsLink: PropTypes.string,
+  title: PropTypes.string,
+  textBody: PropTypes.string
+};
 
 export default NoteSticky;

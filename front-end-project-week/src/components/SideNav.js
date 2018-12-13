@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 /***************************************************************************************************
  ********************************************** Styles *********************************************
@@ -66,8 +66,9 @@ const SideNav = props => {
   );
 };
 
-// SideNav.propTypes = {
-//   propertyName: PropTypes.string
-// }
+SideNav.propTypes = {
+  viewNotesLink: PropTypes.string,
+  createNoteLink: PropTypes.string
+};
 
 export default SideNav;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 /***************************************************************************************************
  ********************************************** Styles *********************************************
@@ -16,14 +16,16 @@ const DivWrapper = styled.div`
 const NoteDetails = props => {
   return (
     <DivWrapper showdeletemodel={props.showDeleteModel}>
-      <h2>{props.note.title}</h2>
-      <p>{props.note.textBody}</p>
+      <h2>{props.title}</h2>
+      <p>{props.textBody}</p>
     </DivWrapper>
   );
 };
 
-// NoteDetails.propTypes = {
-//   propertyName: PropTypes.string
-// }
+NoteDetails.propTypes = {
+  showDeleteModel: PropTypes.string,
+  title: PropTypes.string,
+  textBody: PropTypes.string
+};
 
 export default NoteDetails;

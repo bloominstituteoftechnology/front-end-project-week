@@ -10,7 +10,7 @@ import EditNoteView from '../views/EditNoteView';
 /***************************************************************************************************
  ********************************************* Variables *******************************************
  **************************************************************************************************/
-const isTestServerOn = true;
+const isTestServerOn = false;
 const server = isTestServerOn
   ? 'http://localhost:3333'
   : 'https://fe-notes.herokuapp.com';
@@ -42,29 +42,45 @@ const App = props => {
   return (
     <DivWrapper>
       <SideNav
-        {...props}
         viewNotesLink={`${urlLinks.home}${urlLinks.readNotes}`}
         createNoteLink={`${urlLinks.home}${urlLinks.createNote}`}
       />
       <Route
         exact
         path={`${urlLinks.home}${urlLinks.readNotes}`}
-        render={props => <ListNotesView {...props} urlLinks={urlLinks} />}
+        render={() => (
+          <ListNotesView
+            noteDetailsLink={`${urlLinks.home}${urlLinks.readNoteClient}`}
+          />
+        )}
       />
       <Route
         exact
         path={`${urlLinks.home}${urlLinks.readNoteId}`}
-        render={props => <NoteView {...props} urlLinks={urlLinks} />}
+        render={props => (
+          <NoteView
+            history={props.history}
+            match={props.match}
+            editNoteLink={`${urlLinks.home}${urlLinks.editNoteClient}`}
+            viewNotesLink={`${urlLinks.home}${urlLinks.readNotes}`}
+          />
+        )}
       />
       <Route
         exact
         path={`${urlLinks.home}${urlLinks.createNote}`}
-        render={props => <CreateNoteView {...props} urlLinks={urlLinks} />}
+        render={() => <CreateNoteView />}
       />
       <Route
         exact
         path={`${urlLinks.home}${urlLinks.editNoteId}`}
-        render={props => <EditNoteView {...props} urlLinks={urlLinks} />}
+        render={props => (
+          <EditNoteView
+            history={props.history}
+            match={props.match}
+            noteDetailsLink={`${urlLinks.home}${urlLinks.readNoteClient}`}
+          />
+        )}
       />
     </DivWrapper>
   );

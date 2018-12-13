@@ -2,15 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { getNote, deleteNote } from '../store/actions';
 import NoteDetails from '../components/NoteDetails';
 import DeleteModel from '../components/DeleteModel';
-import { urlLinks } from '../components/App';
-
-const NoteNavItems = {
-  edit: 'edit',
-  delete: 'remove'
-};
 
 /***************************************************************************************************
  ********************************************** Styles *********************************************
@@ -64,15 +59,11 @@ const ButtonLink = styled.button`
 
     /* Edit Note Button */
     color: ${props =>
-      props.notenavitem === NoteNavItems.edit &&
-      props.showdeletemodel === 'false' &&
-      'rgb(43, 193, 196)'};
+      props.edit && props.showdeletemodel === 'false' && 'rgb(43, 193, 196)'};
 
     /* Delete Note Button */
     color: ${props =>
-      props.notenavitem === NoteNavItems.delete &&
-      props.showdeletemodel === 'false' &&
-      'red'};
+      props.remove && props.showdeletemodel === 'false' && 'red'};
   }
 `;
 
@@ -82,7 +73,13 @@ const ButtonLink = styled.button`
 class NoteView extends Component {
   constructor(props) {
     super(props);
-    this.state = { showDeleteModel: false };
+    this.state = {
+      showDeleteModel: false,
+      NoteNavItems: {
+        edit: 'edit',
+        delete: 'remove'
+      }
+    };
   }
 
   componentDidMount() {
@@ -92,7 +89,7 @@ class NoteView extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.deletingNote !== this.props.deletingNote) {
       if (!this.props.deletingNote) {
-        this.props.history.push(`${urlLinks.home}${urlLinks.readNotes}`);
+        this.props.history.push(this.props.viewNotesLink);
       }
     }
   }
@@ -107,13 +104,14 @@ class NoteView extends Component {
     this.setState({ showDeleteModel: false });
   };
 
-  deleteNoteAndHideModel = (e, id) => {
+  deleteNoteAndHideModel = (e, noteId) => {
     e.preventDefault();
     this.hideDeleteModel(e);
-    this.props.deleteNote(id);
+    this.props.deleteNote(noteId);
   };
 
   render() {
+    console.log(this.props);
     return (
       <DivPageWrapper>
         {this.props.fetchingNote ? (
@@ -121,7 +119,7 @@ class NoteView extends Component {
         ) : (
           <div>
             <DeleteModel
-              {...this.props}
+              noteId={this.props.match.params.id}
               deleteNoteAndHideModel={this.deleteNoteAndHideModel}
               hideDeleteModel={this.hideDeleteModel}
               visible={this.state.showDeleteModel.toString()}
@@ -132,29 +130,28 @@ class NoteView extends Component {
               <HeaderNote>
                 <NavNoteLinks>
                   <LinkEdit
-                    to={`${this.props.urlLinks.home}${
-                      this.props.urlLinks.editNoteClient
-                    }/${this.props.note._id}`}
+                    to={`${this.props.editNoteLink}/${this.props.note._id}`}
                     showdeletemodel={this.state.showDeleteModel.toString()}
                   >
                     <ButtonLink
-                      notenavitem={NoteNavItems.edit}
+                      edit={this.state.NoteNavItems.edit}
                       showdeletemodel={this.state.showDeleteModel.toString()}
                     >
-                      {NoteNavItems.edit}
+                      {this.state.NoteNavItems.edit}
                     </ButtonLink>
                   </LinkEdit>
                   <ButtonLink
-                    notenavitem={NoteNavItems.delete}
+                    remove={this.state.NoteNavItems.delete}
                     showdeletemodel={this.state.showDeleteModel.toString()}
                     onClick={e => this.showDeleteModel(e)}
                   >
-                    {NoteNavItems.delete}
+                    {this.state.NoteNavItems.delete}
                   </ButtonLink>
                 </NavNoteLinks>
               </HeaderNote>
               <NoteDetails
-                {...this.props}
+                title={this.props.note.title}
+                textBody={this.props.note.textBody}
                 showDeleteModel={this.state.showDeleteModel.toString()}
               />
             </DivNotePageDisplay>
@@ -164,6 +161,23 @@ class NoteView extends Component {
     );
   }
 }
+
+NoteView.propTypes = {
+  history: PropTypes.object,
+  match: PropTypes.object,
+  fetchingNote: PropTypes.bool,
+  deletingNote: PropTypes.bool,
+  getNote: PropTypes.func,
+  deleteNote: PropTypes.func,
+  viewNotesLink: PropTypes.string,
+  note: PropTypes.shape({
+    tags: PropTypes.array,
+    _id: PropTypes.string,
+    title: PropTypes.string,
+    textBody: PropTypes.string,
+    __v: PropTypes.number
+  })
+};
 
 const mapStateToProps = state => {
   return {

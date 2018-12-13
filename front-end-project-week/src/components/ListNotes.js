@@ -1,6 +1,7 @@
 import React from 'react';
-import NoteSticky from './NoteSticky';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import NoteSticky from './NoteSticky';
 
 /***************************************************************************************************
  ********************************************** Styles *********************************************
@@ -22,18 +23,27 @@ const ListNotes = props => {
           return (
             <NoteSticky
               key={note._id}
-              id={note._id}
               title={note.title}
               textBody={note.textBody}
-              noteDetailsLink={`${props.urlLinks.home}${
-                props.urlLinks.readNoteClient
-              }/${note._id}`}
+              noteDetailsIdLink={`${props.noteDetailsLink}/${note._id}`}
             />
           );
         })}
       </DivListNotesBoard>
     </DivListNotesPage>
   );
+};
+
+ListNotes.propTypes = {
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      tags: PropTypes.array,
+      _id: PropTypes.string,
+      title: PropTypes.string,
+      textBody: PropTypes.string,
+      __v: PropTypes.number
+    })
+  )
 };
 
 export default ListNotes;

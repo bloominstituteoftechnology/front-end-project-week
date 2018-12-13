@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { addNote } from '../store/actions';
 import NoteForm from '../components/NoteForm';
 
@@ -28,8 +29,8 @@ class CreateNoteView extends Component {
     super(props);
     this.state = {
       newNote: {
-        title: props.edit ? props.note.title : '',
-        textBody: props.edit ? props.note.textBody : ''
+        title: '',
+        textBody: ''
       },
       submitButtonText: 'Save'
     };
@@ -62,17 +63,17 @@ class CreateNoteView extends Component {
   render() {
     return (
       <DivPageWrapper>
-        {this.props.fetchingNotes ? (
+        {this.props.addingNote ? (
           <H2LoadingMessage>Loading Notes...</H2LoadingMessage>
         ) : (
           <div>
             <H2PageTitle>Create New Note:</H2PageTitle>
             <NoteForm
-              {...this.props}
-              submitButtonText={this.state.submitButtonText}
-              note={this.state.newNote}
+              addingNote={this.props.addingNote}
               handleInputChange={this.handleInputChange}
               submitHandler={this.submitHandler}
+              submitButtonText={this.state.submitButtonText}
+              note={this.state.newNote}
             />
           </div>
         )}
@@ -80,6 +81,11 @@ class CreateNoteView extends Component {
     );
   }
 }
+
+CreateNoteView.propTypes = {
+  addNote: PropTypes.func,
+  addingNote: PropTypes.bool
+};
 
 const mapStateToProps = state => {
   return {

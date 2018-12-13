@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 /***************************************************************************************************
  ********************************************** Styles *********************************************
@@ -53,7 +53,7 @@ const DeleteModel = props => {
       <div>
         <ButtonModel
           delete
-          onClick={e => props.deleteNoteAndHideModel(e, props.match.params.id)}
+          onClick={e => props.deleteNoteAndHideModel(e, props.noteId)}
         >
           Delete
         </ButtonModel>
@@ -64,8 +64,12 @@ const DeleteModel = props => {
     </DivModel>
   );
 };
-// DeleteModel.propTypes = {
-//   propertyName: PropTypes.string
-// }
+
+DeleteModel.propTypes = {
+  noteId: PropTypes.string,
+  visible: PropTypes.string,
+  deleteNoteAndHideModel: PropTypes.func,
+  hideDeleteModel: PropTypes.func
+};
 
 export default DeleteModel;

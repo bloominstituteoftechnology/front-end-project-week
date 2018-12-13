@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 /***************************************************************************************************
  ********************************************** Styles *********************************************
@@ -61,6 +61,7 @@ const ButtonSubmit = styled.button`
  ********************************************* Component *******************************************
  **************************************************************************************************/
 const NoteForm = props => {
+  console.log(props);
   return (
     <DivNoteFormWrapper>
       <div>
@@ -92,8 +93,11 @@ const NoteForm = props => {
   );
 };
 
-// NoteForm.propTypes = {
-//   propertyName: PropTypes.string
-// }
+NoteForm.propTypes = {
+  handleInputChange: PropTypes.func,
+  submitHandler: PropTypes.func,
+  submitButtonText: PropTypes.string,
+  note: PropTypes.object
+};
 
 export default NoteForm;
