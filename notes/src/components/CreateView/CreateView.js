@@ -45,7 +45,9 @@ class CreateView extends React.Component{
             title: '',
             textInput: '',
         })
+        this.props.fetchNotes()
     }
+
     render(){
     return (
         <ContentDiv>

@@ -54,7 +54,7 @@ class App extends React.Component{
                         <ListContent 
                         targetNote = {this.props.targetNote}
                         handleLogout ={this.props.handleLogout}
-                        getNote = {this.props.getNote}
+                        fetchNotes = {this.props.fetchNotes}
                         handleClick = {this.handleClick} 
                         list={this.props.notes} 
                         error={this.props.error} />} 
@@ -65,6 +65,7 @@ class App extends React.Component{
                         <CreateView 
                         addNotes = {this.props.addNotes}
                         handleLogout={this.props.handleLogout}
+                        getNote={this.props.getNote}
                         handleClick={this.handleClick}{...this.props}/>} />
                     <Route 
                         path = {`/notes/:id`}

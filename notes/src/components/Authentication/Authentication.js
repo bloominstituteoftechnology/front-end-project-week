@@ -12,7 +12,7 @@ const WrapperDiv = styled.div`
 ` 
 const ErrorDiv = styled.div`
     position: absolute;
-    top:68%;
+    top:66%;
     left:50%;
     color: red;
     transform: translate(-50%);
