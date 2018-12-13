@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import axios from "axios";
+import Login from "./components/Login";
 import SideBar from "./components/SideBar";
 import ViewNotes from "./components/ViewNotes";
 import ExpandedNote from "./components/ExpandedNote";
@@ -15,20 +16,31 @@ class App extends Component {
       title: "",
       content: "",
       searchText: "",
-      notes: [],
-      selected: 0
+      notes: [
+        {
+          title: "hello",
+          description: "weird test"
+        }
+      ],
+      selected: 0,
+      loggedIn: false
     };
   }
 
   componentDidMount() {
     this.updateNotes();
+    this.renderScreen(); 
   }
 
-  //axios get request, 1 second delay 
+  renderScreen = () => {
+    this.state.loggedIn ? this.history.push("/notes") : this.updateNotes();
+  }
+
+  //axios get request, 1 second delay
   updateNotes = () => {
     setTimeout(() => {
       axios
-        .get("https://fe-notes.herokuapp.com/note/get/all")
+        .get("http://localhost:9000/api/notes")
         .then(res => {
           this.setState({
             notes: res.data
@@ -46,7 +58,7 @@ class App extends Component {
     console.log(this.state.selected);
   };
 
-  //handles all input forms 
+  //handles all input forms
   changeHandler = ev => {
     this.setState({
       [ev.target.name]: ev.target.value
@@ -60,10 +72,9 @@ class App extends Component {
       alert("Please fill in all of the required fields");
     } else {
       axios
-        .post("https://fe-notes.herokuapp.com/note/create", {
-          tags: [],
+        .post("http://localhost:9000/api/notes", {
           title: this.state.title,
-          textBody: this.state.content
+          description: this.state.content
         })
         .then(this.updateNotes());
     }
@@ -81,10 +92,9 @@ class App extends Component {
         content: ""
       });
       axios
-        .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
-          tags: [],
+        .put(`http://localhost:9000/api/notes/${id}`, {
           title: this.state.title,
-          textBody: this.state.content
+          description: this.state.content
         })
         .then(res => console.log(res))
         .then(this.updateNotes());
@@ -97,10 +107,9 @@ class App extends Component {
     ev.preventDefault();
     console.log(id);
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:9000/api/notes/${id}`)
       .then(this.updateNotes());
   };
-
 
   //checks if title or textBody contain the text in state.searchText
   search = ev => {
@@ -115,12 +124,19 @@ class App extends Component {
     });
   };
 
-
   //reverses order of notes
   sort = () => {
     this.setState({
       notes: this.state.notes.reverse()
     });
+  };
+
+  login = ev => {
+    ev.preventDefault();
+    this.setState({
+      loggedIn: true
+    });
+    this.renderScreen();
   };
 
   render() {
@@ -133,9 +149,11 @@ class App extends Component {
             updateNotes={this.updateNotes}
           />
 
+          {/* home page is a login screen */}
+
           <Route
             exact
-            path="/"
+            path="/notes"
             render={props => (
               <ViewNotes
                 {...props}
@@ -145,6 +163,25 @@ class App extends Component {
               />
             )}
           />
+
+          <Route
+            exact
+            path="/"
+            render={props => <Login {...props} login={this.login} />}
+          />
+          {/* <Route
+            exact
+            path="/"
+            render= {props => (
+              <ViewNotes
+                {...props}
+                notes={this.state.notes}
+                selectNote={this.selectNote}
+                sort={this.sort}
+              />
+            )}
+          /> */}
+
           <Route
             exact
             path="/:id(\d+)"
@@ -190,4 +227,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

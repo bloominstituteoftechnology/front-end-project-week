@@ -45,7 +45,7 @@ class ExpandedNote extends React.Component {
               </div>
             </div>
             <h2>{this.props.note.title}</h2>
-            <p>{this.props.note.textBody}</p>
+            <p>{this.props.note.description}</p>
           </div>
           <div className="deleteContainer">
             <div className={this.state.deleteClass}>

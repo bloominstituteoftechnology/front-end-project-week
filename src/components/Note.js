@@ -21,7 +21,7 @@ class Note extends React.Component {
           </div>
           
           <hr />
-          <p>{this.props.textBody}</p>
+          <p>{this.props.description}</p>
         </div>
       </div>
     );

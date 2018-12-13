@@ -23,7 +23,7 @@ class ViewNotes extends React.Component {
               <div className="notesMap">
                 <Note
                   title={note.title}
-                  textBody={note.textBody}
+                  description={note.description}
                   index={index}
                 />
                 <Link
