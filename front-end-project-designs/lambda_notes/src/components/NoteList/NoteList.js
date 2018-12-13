@@ -54,6 +54,7 @@ const NoteListContainer = styled.div`
 `;
 
 const NoteCardContainer = styled.div`
+	display: ${props => props.matchesSearch ?  'inline-block': 'none'};
 	background-color: #ffffff;
 	color: #20272d;
 	/* width: 10%; */
@@ -88,6 +89,7 @@ class NoteList extends React.Component {
 			isStarred: false,
 			dropdownOpen: false,
 			searchQuery: '',
+			hidden: false,
 		};
 		this.toggle = this.toggle.bind(this);
 	}
@@ -101,31 +103,12 @@ class NoteList extends React.Component {
 			dropdownOpen: !prevState.dropdownOpen,
 		}));
 	}
-	// filterNotes = props => {
-	// 	if ("a") {
-	// 		return this.state.notes;
-	// 	} else {
-	// 		return this.state.notes
-	// 			.filter
-	// 			// note => note.title.includes(searchQuery)
-	// 			();
-	// 	}
-	// };
+
 	searchNotes = (data) => {
 		this.setState({searchQuery: data})
 		console.log(this.state.searchQuery)
-		let noteText = "";
-		let notesToSearch = this.props.notes
-		for (let i = 0; i < this.props.notes.length; i++) {
-			noteText =
-				notesToSearch[i].title || notesToSearch[i].textBody;
-			if (noteText.toLowerCase().indexOf(this.state.searchQuery) > -1) {
-				console.log(notesToSearch[i].title)
-			} else {
-				// console.log('these should not show up')
-			}
-			// console.log(noteText);
-		}
+		
+		
 	};
 
 	sortNotesByAscendingLength = () => {
@@ -158,7 +141,7 @@ class NoteList extends React.Component {
 			notes: sortedNotes,
 		});
 
-		console.log("sortNotes", this.state.notes);
+		// console.log("sortNotes", this.state.notes);
 	};
 	sortNotesByOldestFirst = () => {
 		this.props.getNotes();
@@ -174,7 +157,7 @@ class NoteList extends React.Component {
 	// }
 
 	render() {
-		console.log("Notelist props", this.props);
+		// console.log("Notelist props", this.props);
 		if (!this.props.notes) {
 			return <h2>Loading...</h2>;
 		}
@@ -234,6 +217,9 @@ class NoteList extends React.Component {
 					return (
 						<>
 							<NoteCardContainer
+								matchesSearch={
+									note.title.toLowerCase().indexOf(this.state.searchQuery) > -1 || note.textBody.toLowerCase().indexOf(this.state.searchQuery) > -1 ? true : false}
+								
 								onClick={() => {
 									this.props.history.push(
 										`/notes/${note._id}`

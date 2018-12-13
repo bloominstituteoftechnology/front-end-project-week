@@ -67,7 +67,7 @@ class SearchForm extends React.Component {
 	};
 
 	render() {
-		console.log("search form", this.props);
+		// console.log("search form", this.props);
 		return (
 			<SearchFormContainer onSubmit={this.handleSubmit}>
 				<SearchBox
