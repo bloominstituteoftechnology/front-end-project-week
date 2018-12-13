@@ -99,13 +99,31 @@ strong {
 		min-height: 100vh;
 }
 
-.checkbox {
+.welcome {
+	width: 40%;
+	margin: 70px auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: white;
+	padding: 40px 20px 20px;
+	border-radius: 3px;
+	border: 1px solid #524E4D;
+}
 
+.welcome h4 {
+		margin-top: 20px;
+}
+
+.welcome-links {
+	display: flex;
 }
 
 .note-container p {
 	display: inline;
 }
+
 .container {
 	display: flex;
 	align-items: flex-start;
