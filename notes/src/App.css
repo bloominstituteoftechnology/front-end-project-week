@@ -1,0 +1,10 @@
+.AppContainer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 25px auto 0 auto;
+  border: 1px solid black;
+  display: flex;
+  /* align-content: center; */
+}
+ 
+ 

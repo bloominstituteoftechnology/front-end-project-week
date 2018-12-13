@@ -1,0 +1,36 @@
+
+.listView{
+    background-color: rgba(182, 182, 182, 0.178);
+}
+.note-grid {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.note {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.7);
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 1rem;
+    min-width: 15rem;
+}
+
+.note-box{
+    width: 300px;
+    height: 300px;
+}
+.note-title {
+    color: rgba(228, 29, 29, 0.7);
+    text-align: center;
+    padding: 1rem;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+.note-content {
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
