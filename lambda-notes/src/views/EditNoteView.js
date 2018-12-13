@@ -58,7 +58,7 @@ const NoteInputContent = styled.textarea`
 `;
 
 const NoteAppButton = styled.button`
-  background-color: #2ac0c4;
+  background-color: teal;
   color: white;
   width: 30%;
   font-size: 2rem;
