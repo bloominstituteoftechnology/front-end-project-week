@@ -70,45 +70,32 @@ class NotesContainer extends React.Component {
     this.setState({sortType: e.target.value});
   };
 
-  //filterNotes = e => {
-  //e.preventDefault();
-  //const result = this.state.fuse.search(this.state.searchText);
-  //this.setState({filteredNotes: result});
-  //};
-  //
   searchEnter = (e, text) => {
     e.preventDefault();
-    console.log(text);
-    console.log(e.target);
-    //this.clearSearchText();
-    //debugger;
     let result;
     const fuse = new Fuse(this.props.notes, this.state.filterOptions);
     this.setState({searchText: ''}, () => {
-      console.log('setstate dnoec');
-      /*const*/ result = fuse.search(text);
-      console.log('searhing for', text);
+      result = fuse.search(text);
       this.setState({filteredNotes: result.map(i => i.item)});
-      console.log('done');
     });
   };
 
   searchNotes = e => {
-    console.log('searc');
     e.preventDefault();
-    this.setState({searchText: e.target.value});
-    if (this.state.searchText) {
-      console.log('log');
-
-      const fuse = new Fuse(this.props.notes, this.state.filterOptions);
-      const result = fuse.search(this.state.searchText);
-      this.setState({filteredNotes: result.map(i => i.item)});
-    }
+    this.setState({searchText: e.target.value}, () => {
+      if (this.state.searchText !== '') {
+        const fuse = new Fuse(this.props.notes, this.state.filterOptions);
+        const result = fuse.search(this.state.searchText);
+        this.setState({filteredNotes: result.map(i => i.item)});
+      } else {
+        this.setState({filteredNotes: []}, console.log('set filtered empy'));
+      }
+    });
   };
 
   clearFilter = e => {
     e.preventDefault();
-    this.setState({filteredNotes: []});
+    this.setState({filteredNotes: [], searchText: ''});
   };
 
   render() {

@@ -86,8 +86,21 @@ export const ExportButton = styled.button`
   }
 `;
 
+export const SearchButton = styled.button`
+  padding: 0.5rem;
+  margin-left: 0.2rem;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  height: 4rem;
+`;
+
 export const SortSelect = styled.select`
   margin-top: 1rem;
+  background-color: black;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 3px;
 `;
 
 export const ClearFilter = styled.button`

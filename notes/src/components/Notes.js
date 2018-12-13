@@ -10,6 +10,7 @@ import {
   ExportButton,
   SortSelect,
   ClearFilter,
+  SearchButton,
 } from '../styles';
 
 const Notes = props => {
@@ -26,7 +27,7 @@ const Notes = props => {
             value={props.searchText}
             onChange={e => props.searchNotes(e)}
           />
-          <button type="submit">Search</button>
+          <SearchButton type="submit">Search</SearchButton>
         </form>
         {props.notes.length < props.totalNotes && (
           <div>
