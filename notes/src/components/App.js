@@ -16,10 +16,7 @@ import TodoSearch from "./TodoSearch";
 import TodosList from "./TodosList";
 import SingleTodoView from "./SingleTodoView";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
-// import { Route, Link, Switch } from "react-router-dom";
-
-import Testing from "./Testing";
+import Authenticate from "./Authentication";
 
 class App extends Component {
   constructor() {
@@ -114,7 +111,6 @@ class App extends Component {
               <SingleTodoView {...props} reduxProps={this.props} />
             )}
           />
-          {/* <Route path="toCardOne" render={props => <SingleTodoView />} /> */}
         </div>
       </Router>
     );
@@ -122,7 +118,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('mapStateToProps state..', state.todosReducer)
   return {
     todos: state.todosReducer.todos,
     fetchingTodos: state.todosReducer.fetchingTodos,
@@ -132,15 +127,17 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {
-    fetch_todos,
-    onHandleSubmit,
-    onUpdateTodos,
-    onDeleteTodos,
-    onFilterTodos,
-    onSortTodos,
-    onExportCSV
-  }
-)(App);
+export default Authenticate(
+  connect(
+    mapStateToProps,
+    {
+      fetch_todos,
+      onHandleSubmit,
+      onUpdateTodos,
+      onDeleteTodos,
+      onFilterTodos,
+      onSortTodos,
+      onExportCSV
+    }
+  )(App)
+);

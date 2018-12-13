@@ -3,11 +3,10 @@ import "./Todos.css";
 import { Route, Link } from "react-router-dom";
 
 const Todos = props => {
-  console.log("from todos", props.todo._id);
+  // console.log("from todos", props.todo._id);
   return (
     <div className="todos-wrapper">
       <Link to={`/${props.todo._id}`}>
-        {/* <Link to="/toCardOne/id"> */}
         <div className="todos-card">
           <div className="todos-title">{props.todo.title}</div>
           <div className="todos-textbody">{props.todo.textBody}</div>
