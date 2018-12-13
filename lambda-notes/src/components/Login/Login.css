@@ -1,0 +1,112 @@
+html {
+  background: rgb(5, 5, 10);
+}
+
+.login-form {
+  width: 350px;
+  background: rgb(15, 15, 20);
+  padding: 70px 50px;
+  height: 500px;
+}
+
+form img {
+  width: 60%;
+  margin: 35px 50px;
+}
+
+input {
+  width: 100%;
+  border: none;
+  background: inherit;
+  border-bottom: 1px solid rgb(89, 21, 248);
+  /* color: rgb(177, 188, 218); */
+  color: #ddd;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.login-form button {
+  background: rgb(89, 21, 248);
+  width: 130px;
+  border: 1px solid rgb(89, 21, 248);
+  border-radius: 25px;
+  padding: 13px 15px;
+  margin: 25px 55px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: rgb(102, 37, 255);
+}
+
+.login-page {
+  display: flex;
+  justify-content: space-between;
+  width: 880px;
+  align-items: center;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.login-box {
+  width: 450px;
+  height: 500px;
+  /* border: 2px solid rgb(42, 9, 160); */
+  /* background: rgb(10, 10, 10); */
+  background: rgb(1, 1, 4);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-box h1 {
+  font-size: 80px;
+  line-height: 0.9;
+  background: -webkit-linear-gradient(rgb(56, 10, 221), rgb(150, 37, 255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-box p {
+  color: rgb(177, 188, 218);
+  font-size: 18px;
+}
+
+.fab {
+  color: rgb(99, 34, 252);
+  font-size: 28px;
+  margin-top: 20px;
+  margin-right: 17px;
+}
+
+.fab:hover {
+  color: rgb(111, 49, 255);
+}
+
+.login-sub {
+  border-top: 1px solid #222;
+  margin: 20px 15px 40px;
+  padding-top: 30px;
+}
+
+/* Register */
+.register-cta {
+  text-align: center;
+  color: rgb(177, 188, 218);
+}
+
+.register-cta a {
+  color: rgb(124, 67, 255);
+  font-weight: bold;
+}
+
+.register-cta a:hover {
+  color: rgb(145, 98, 255);
+  text-decoration: underline;
+}

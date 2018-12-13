@@ -1,0 +1,147 @@
+.new-note {
+   padding: 20px;
+}
+
+.new-note input,
+.new-note textarea {
+  font-size: 20px;
+  padding: 15px 25px;
+  font-family: inherit;
+  margin-bottom: 30px;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+.new-note input {
+  width: 50%;
+  max-width: 500px;
+  border: 1px solid rgb(89, 21, 248);
+  font-weight: bold;
+}
+
+.new-note textarea {
+  width: 90%;
+  max-width: 900px;
+  background: inherit;
+  border: 1px solid rgb(89, 21, 248);
+  color: #ddd;
+}
+
+.new-note button {
+  width: 150px;
+  margin-right: 30px;
+  background: rgb(89, 21, 248);
+  border: 1px solid rgb(102, 37, 255);
+  text-transform: uppercase;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 25px;
+}
+
+.new-note button:hover {
+  background: rgb(79, 17, 221);
+  transition: 0.3s;
+}
+
+/* NOTE VIEW */
+.note-view {
+  max-width: 700px;
+  color: #4b4a4b;
+  background: rgb(1, 1, 4);
+  padding: 20px 20px 40px;
+}
+
+.note-view h3 {
+  color: rgb(89, 21, 248);
+  margin-top: 30px;
+}
+
+.single-note-content {
+  max-width: 550px;
+  margin: 0 auto;
+  color: #bbb;
+}
+
+.single-note-content h2 {
+  color: #ddd;
+}
+
+.single-note-content p {
+  margin-bottom: 50px;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+/* CHECKLIST */
+.checklist {
+  margin-bottom: 40px;
+}
+
+.checklist li {
+  color: rgb(89, 21, 248);
+  list-style: none;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.checklist input {
+  width: 70%;
+}
+
+.checklist button {
+  width: 19%;
+  padding: 10px;
+  background: inherit;
+  border: 1px solid rgb(89, 21, 248);
+  margin: 0 15px;
+}
+
+/* EDIT NOTE */
+
+.edit-delete {
+  text-align: right;
+  margin-bottom: 45px;
+  color: rgb(99, 34, 252);
+}
+
+.edit-delete span {
+  margin-left: 15px;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.ReactModal__Content {
+  width: 60%;
+  max-width: 600px;
+  margin: 100px auto;
+  top: 50%;
+  height: 250px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ReactModal__Content button {
+  max-width: 200px;
+  min-width: 100px;
+  margin: 30px 15px 10px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  background: rgb(89, 21, 248);
+  width: 120px;
+  border: 1px solid rgb(89, 21, 248);
+  text-transform: uppercase;
+}
+
+.ReactModal__Content .cancel {
+  background: rgb(247, 33, 33);
+  border: 1px solid rgb(221, 9, 9);
+}
+
+.cancel:hover {
+  background: rgb(221, 9, 9);
+}
