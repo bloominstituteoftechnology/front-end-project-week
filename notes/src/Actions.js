@@ -9,68 +9,79 @@ export const ERROR = "ERROR";
 
 export const getNotes = () => dispatch => {
     dispatch({type:FETCHING})
-    return(axios
+    axios
     .get("https://fe-notes.herokuapp.com/note/get/all")
     .then(response => {
         console.log("GETTING",response)
         dispatch({type:GETTING,payload:response.data})
-        return true
     })
     .catch(error => {
         console.log(error)
         dispatch({type:ERROR,payload:error})
-        return false
-    }))
-    
+    })
 }
+
+const followUpRes = comb =>  {
+    const dispatch = comb.dispatch
+    const response = comb.res
+    console.log("Follow-up GET request to retreive data after POST/PUT/DELETE request",`Status: ${response.status}`)
+        dispatch({type:FETCHING})
+        axios
+        .get("https://fe-notes.herokuapp.com/note/get/all")
+        .then(response => {
+            console.log("GETTING",response)
+            dispatch({type:GETTING,payload:response.data})
+        })
+        .catch(error => {
+            console.log(error)
+            dispatch({type:ERROR,payload:error})
+        })
+}
+
 export const addNote = input => dispatch => {
     dispatch({type:FETCHING})
-    return (axios
+    axios
     .post("https://fe-notes.herokuapp.com/note/create",input)
     .then(response => {
-        console.log("ADDING",response)
+        console.log(response)
         dispatch({type:ADDING})
-        return true
+        return {dispatch:dispatch,res:response}
     })
-    .then()
+    .then(val => followUpRes(val))
     .catch(error => {
         console.log(error)
         dispatch({type:ERROR,payload:error})
-        return false
-    }))
+    })
 }
 
 export const editNote = input => dispatch => {
     dispatch({type:FETCHING})
-    return (axios
+    axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${input._id}`,input)
     .then(response => {
         console.log(response)
         dispatch({type:UPDATING})
-        return true
+        return {dispatch:dispatch,res:response}
     })
+    .then(val => followUpRes(val))
     .catch(error => {
         console.log(error)
         dispatch({type:ERROR,payload:error})
-        return false
     })
-    )
 }
 
 export const deleteNote = input => dispatch => {
     dispatch({type:FETCHING})
-    console.log(`https://fe-notes.herokuapp.com/note/delete/${input}`)
-    return (axios
+    axios
     .delete(`https://fe-notes.herokuapp.com/note/delete/${input}`)
     .then(response => {
         console.log(response)
         dispatch({type:DELETING,payload:response.data})
-        return true
+        return {dispatch:dispatch,res:response}
     })
+    .then(val => followUpRes(val))
     .catch(error => {
         console.log(error)
         dispatch({type:ERROR,payload:error})
-        return false
-    }))
+    })
 }
-

@@ -5,59 +5,23 @@ import Form from "./Form";
 import {connect} from "react-redux";
 import {getNotes,deleteNote} from "./Actions";
 import {Link} from "react-router-dom";
-
-
-const customStylesHidden =  {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)',
-      color                 : "lightgray",
-      display               :  "none"
-  };
-
-  const customStyles = {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)',
-      color                 : "lightgray",
-      display               :  "block"
-  };
-  
   
 
 class View extends Component{
-    constructor(){
-        super();
-        this.state = {
-            display : customStylesHidden
-        }
-    }
 
     componentDidMount(){
-        console.log("View","componentDidMount")
         this.props.getNotes();
     }
 
     deleteHandler = (event,input) => {
-        // this.setState({
-        //     display:customStyles
-        // })
         event.preventDefault();
         this.props.history.push('/')
         this.props.deleteNote(input)
-        this.props.getNotes()
     }
 
 
 
     render() {
-        console.log("View","Render")
         if(this.props.notes.length===0){
             return(
                 <p>Loading...</p>
@@ -70,9 +34,10 @@ class View extends Component{
                     return(
     
                         <>       
-                            <Link to={`/note/${note._id}/edit`}>Edit</Link>
-                            <br />
-                            <Link to="#" onClick={(event,id = note._id) => this.deleteHandler(event,id)}>Delete</Link>
+                            <div className="update-wrapper" >
+                                <Link className="update-button"to={`/note/${note._id}/edit`}>Edit</Link>
+                                <Link className="update-button"to="#" onClick={(event,id = note._id) => this.deleteHandler(event,id)}>Delete</Link>
+                            </div>
                             <Note id={note._id} title={note.title} textBody={note.textBody}/>
                             <button style={this.state.display}>HELLO</button>
                         </>

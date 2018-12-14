@@ -175,6 +175,18 @@ button,.nav-button {
 
 }
 
+.update-wrapper {
+  width:25%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.update-button {
+  font-weight:bold;
+}
+.update-button:hover {
+  text-decoration: underline;
+}
+
 .title-input {
   width: 50%;
   border-radius:5px;

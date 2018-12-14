@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import './index.css';
-import {addNote,editNote,getNotes} from "./Actions"
+import {addNote,editNote} from "./Actions"
 import './index.css';
 import UserForm from "./UserForm"
 
@@ -25,30 +25,18 @@ class Form extends Component {
 
             this.props.history.push('/')
             this.props.editNote({...newObj})
-            .then(promise => {
-                if(promise){
-                    this.props.getNotes()
-                }
-            })
-            // this.props.getNotes()
       }
 
       addSubmitHandler = event => {
             event.preventDefault();
             this.props.history.push('/')
             this.props.addNote(this.state)
-            .then(promise => {
-                if(promise){
-                    this.props.getNotes()
-                }
-            })
-            // this.props.getNotes()
       }
 
     
     render(){
         if(!this.props.edit){
-            return (
+            return(
                 <UserForm 
                     change={this.changeHandler} 
                     submit={this.addSubmitHandler} 
@@ -60,12 +48,12 @@ class Form extends Component {
         } else {
             return(
                 <UserForm 
-                change={this.changeHandler} 
-                submit={this.editSubmitHandler} 
-                title={this.state.title}
-                textBody={this.state.textBody}
-                buttonText="UPDATE"
-            />
+                    change={this.changeHandler} 
+                    submit={this.editSubmitHandler} 
+                    title={this.state.title}
+                    textBody={this.state.textBody}
+                    buttonText="UPDATE"
+                />
             );
         }
     }
@@ -75,4 +63,4 @@ const mapStateToProps = () => {
     return {}
   }
   
-export default connect(mapStateToProps,{addNote,editNote,getNotes})(Form);
+export default connect(mapStateToProps,{addNote,editNote})(Form);
