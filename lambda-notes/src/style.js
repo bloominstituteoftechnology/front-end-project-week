@@ -86,7 +86,8 @@ export const NotesContent = styled.div`
   height: 270px;
   margin: 10px;
   background-color: #ffff;
-  // overflow: hidden;
+  overflow: hidden;
+  // text-overflow: ellipsis;
   border: 2px solid #D3D2D3;
 `;
 
@@ -100,7 +101,17 @@ export const NotesTitle = styled.h3`
 `;
 
 export const NotesBody = styled.p`
+// width: 100%;
+// height: 150px;
+// white-space: nowrap;
+// overflow: hidden;
+// text-overflow: ellipsis;
 
+// padding: 20px;
+// font-size: 1.3rem;
+// margin: 0;
+// background: white;
+// border: 1px solid orange;
 `;
 
 export const NoteWrapper = styled.div`
@@ -116,6 +127,16 @@ export const NoteNav = styled.div`
   margin-right: 10px
   text-decoration: none;
   // border: 1px solid black;
+`;
+
+export const NoteButton = styled.button`
+  color: black;
+  margin-top: 15px;
+  margin-right: 10px;
+  border: none;
+  background: #F2F1F2;
+  text-decoration: underline;
+  font-size: 15px;
 `;
 
 export const ModalWrapper = styled.div`

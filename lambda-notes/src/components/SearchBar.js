@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { SearchWrapper, SearchInput } from '../style'
 
 const SearchBar = props => {

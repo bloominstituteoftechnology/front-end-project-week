@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+
 import SearchBar from './SearchBar';
 
 export default class TopNav extends React.Component {
@@ -24,13 +25,13 @@ export default class TopNav extends React.Component {
           handleSearchInput={this.props.handleSearchInput}
         />
         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret color='info'>
-          Sort By <span>...</span>
-        </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem onClick={this.props.sortTitle}>Sort By Title</DropdownItem>
-          <DropdownItem onClick={this.props.sortRecent}>Sort By Most Recent</DropdownItem>
-        </DropdownMenu>
+          <DropdownToggle caret color='info'>
+            Sort By <span>...</span>
+          </DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem onClick={this.props.sortTitle}>Sort By Title</DropdownItem>
+              <DropdownItem onClick={this.props.sortRecent}>Sort By Most Recent</DropdownItem>
+            </DropdownMenu>
       </Dropdown>
       </div>
     );
