@@ -1,10 +1,5 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-
-import { fetchNotes } from '../actions/';
-import { addNote } from '../actions/';
 
 const MenuContainerDiv = styled.div`
 	display: flex;

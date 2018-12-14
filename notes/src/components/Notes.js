@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styled from 'styled-components';
 
 const NotesContainer = styled.div`
@@ -30,6 +29,7 @@ const NoteCard = styled.div`
 	&:hover {
 		cursor:pointer;
 	}
+	overflow: hidden;
 `;
 
 const NoteCardHeader = styled.div`
@@ -66,10 +66,10 @@ class Notes extends React.Component {
 	    };
 	  }
 
-	changeHandler = event => {
+	handleClick = (event, id) => {
 	    this.props.changeView(
 	    	{
-	    		id: event.target.key,
+	    		id: id,
 	    		currentView: "note"
 	    	}
 	    );
@@ -77,16 +77,12 @@ class Notes extends React.Component {
 
 	render() {
 
-		if(this.state.fetchingNotes){
-	      return <h4>Loading notes...</h4>
-	    }
-
 		return(
 			<NotesContainer>
 				<HeaderTwo>Your Notes:</HeaderTwo>
 				<NoteCardsContainer>
 					{this.state.notes.map(note => (
-						<NoteCard key={note.id} onClick={this.changeHandler} >
+						<NoteCard key={note._id} value={note._id} onClick={event => this.handleClick(event,note._id)} >
 							<NoteCardHeader>{note.title}</NoteCardHeader>
 							<p>{note.textBody}</p>
 						</NoteCard>

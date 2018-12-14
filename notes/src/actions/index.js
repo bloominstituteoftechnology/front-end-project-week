@@ -9,6 +9,7 @@ export const ADD_NOTE_SUCCESS = 'ADD_NOTE_SUCCESS';
 export const ADD_NOTE_FAILURE = 'ADD_NOTE_FAILURE';
 
 export const CHANGE_CURRENT_VIEW = 'CHANGE_CURRENT_VIEW';
+export const START_CHANGE_VIEW = 'START_CHANGE_VIEW';
 
 export const FETCH_NOTE_START = 'FETCH_NOTE_START';
 export const FETCH_NOTE_SUCCESS = 'FETCH_NOTE_SUCCESS';
@@ -108,13 +109,18 @@ export const changeView = data => dispatch => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
       .then(response => {
+        console.log("fetch note success, response.data below:");
+        console.log(response.data);
         dispatch({ type: FETCH_NOTE_SUCCESS, payload: response.data });
       })
       .catch(err => {
         dispatch({ type: FETCH_NOTE_FAILURE, payload: err });
       });
+  }else{ //add, edit
+    dispatch({ type: START_CHANGE_VIEW, payload: currentView});
+    dispatch({ type: CHANGE_CURRENT_VIEW, payload: currentView});
   }
-  dispatch({ type: CHANGE_CURRENT_VIEW, payload: currentView});
+  
 }
 
 export const addNote = note => dispatch => {
@@ -153,6 +159,7 @@ export const fetchNotes = () => dispatch => {
     .then(response => {
       console.log("fetch NOTES: success");
       console.log(response.data);
+      console.log(response.data[0]._id);
       dispatch({ type: FETCH_NOTES_SUCCESS, payload: response.data });
     })
     .catch(err => {
