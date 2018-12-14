@@ -22,7 +22,7 @@ const fetchNotes = (dispatch) => {
           type: GOT_NOTES,
           payload: data
         });
-      }, 2000);
+      }, 500);
     })
     .catch((error) => {
       dispatch({
