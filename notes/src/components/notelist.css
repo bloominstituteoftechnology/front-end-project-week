@@ -1,0 +1,9 @@
+.note-list-container{
+    margin: 30px 5% 0 5%;
+   
+}
+.notes-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

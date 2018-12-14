@@ -1,0 +1,39 @@
+.nav-bar-container{
+    background-color: lightgrey;
+    width: 30%;
+    border-right: 1px solid grey ;
+}
+
+.nav-bar-container h2{
+    font-size: 4em;
+    margin-left: 5%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+.nav-bar-title :last-child{
+    margin-top: -20px;
+}
+.nav-bar-title{
+    margin-bottom: 15px;
+}
+
+.nav-button-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.nav-bar-container .nav-button{
+background-color: turquoise;
+color: white;
+border: none;
+text-align: center;
+text-decoration: none;
+font-size: 1.6em;
+border: 1px solid grey;
+margin: 10px 0 ;
+padding: 10px 0;
+}
+

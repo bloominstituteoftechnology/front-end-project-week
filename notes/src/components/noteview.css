@@ -1,0 +1,11 @@
+.noteview-container{
+    margin: 30px 5% 0 5%;
+}
+.note-edit-bar{
+    display: flex;
+    justify-content: flex-end;
+}
+.note-edit-bar .nav-link{
+    font-size: 1.6em;
+    margin-left: 10px;
+}
