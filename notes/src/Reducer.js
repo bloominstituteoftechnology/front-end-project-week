@@ -15,7 +15,6 @@ export const reducer = (state = initialState,action) => {
         case GETTING:
             return {...state,notes:action.payload,waiting:false}
         case ADDING:
-            console.log("adding,state change")
             return {...state,waiting:false}
         case UPDATING:
             return {...state,waiting:false}

@@ -39,7 +39,6 @@ class View extends Component{
                                 <Link className="update-button"to="#" onClick={(event,id = note._id) => this.deleteHandler(event,id)}>Delete</Link>
                             </div>
                             <Note id={note._id} title={note.title} textBody={note.textBody}/>
-                            <button style={this.state.display}>HELLO</button>
                         </>
                         );
                 } else {
