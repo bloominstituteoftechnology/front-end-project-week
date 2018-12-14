@@ -1,0 +1,35 @@
+.fourm-container{
+    margin: 30px 5% 0 5%;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container .title-input{
+    width: 60%;
+    margin-bottom: 15px;
+    padding: 10px 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.input-container .textbody-input{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 20px 10px;
+    min-height: 400px;
+}
+.fourm-button{
+    background-color: turquoise;
+color: white;
+border: none;
+text-align: center;
+text-decoration: none;
+font-size: 1.6em;
+border: 1px solid grey;
+border-radius: 3px;
+margin: 10px 0 ;
+padding: 10px 0;
+width: 200px;
+}

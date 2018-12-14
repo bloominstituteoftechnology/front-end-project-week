@@ -1,5 +1,5 @@
 .page-container{
   display: flex;
-
+  min-height: 850px;
 }
 

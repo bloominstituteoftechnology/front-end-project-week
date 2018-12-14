@@ -24,7 +24,8 @@ class MainContent extends React.Component {
         title: "test note",
         textBody: "testing",
         _id: "3333"
-      }
+      },
+      isDeleting: false
     };
   }
 
@@ -69,7 +70,14 @@ class MainContent extends React.Component {
           _id: response.data.success
         });
         this.setState({
-          notes: this.state.notes
+          notes: this.state.notes,
+          editingId: null,
+          item: {
+            tags: [],
+            title: "",
+            textBody: "",
+            _id: ""
+          }
         });
       })
       .catch(error => console.log(error));
@@ -121,7 +129,18 @@ class MainContent extends React.Component {
       editingId: note._id
     });
   };
-
+  deletingToggle = ev => {
+    ev.preventDefault();
+    if (!this.state.isDeleting) {
+      this.setState({
+        isDeleting: true
+      });
+    } else {
+      this.setState({
+        isDeleting: false
+      });
+    }
+  };
   render() {
     return (
       <>
@@ -150,6 +169,8 @@ class MainContent extends React.Component {
                 deleteNote={this.deleteNote}
                 note={this.state.activeNote}
                 updateNote={this.setUpUpdateForm}
+                isDeleting={this.state.isDeleting}
+                deletingToggle={this.deletingToggle}
               />
             )}
           />
