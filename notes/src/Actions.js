@@ -21,9 +21,9 @@ export const getNotes = () => dispatch => {
     })
 }
 
-const followUpRes = comb =>  {
-    const dispatch = comb.dispatch
-    const response = comb.res
+const followUpRes = ({dispatch,response}) =>  {
+    // const dispatch = comb.dispatch
+    // const response = comb.res
     console.log("Follow-up GET request to retreive data after POST/PUT/DELETE request",`Status: ${response.status}`)
         dispatch({type:FETCHING})
         axios
@@ -45,7 +45,7 @@ export const addNote = input => dispatch => {
     .then(response => {
         console.log(response)
         dispatch({type:ADDING})
-        return {dispatch:dispatch,res:response}
+        return {dispatch:dispatch,response:response}
     })
     .then(val => followUpRes(val))
     .catch(error => {
@@ -61,7 +61,7 @@ export const editNote = input => dispatch => {
     .then(response => {
         console.log(response)
         dispatch({type:UPDATING})
-        return {dispatch:dispatch,res:response}
+        return {dispatch:dispatch,response:response}
     })
     .then(val => followUpRes(val))
     .catch(error => {
@@ -77,7 +77,7 @@ export const deleteNote = input => dispatch => {
     .then(response => {
         console.log(response)
         dispatch({type:DELETING,payload:response.data})
-        return {dispatch:dispatch,res:response}
+        return {dispatch:dispatch,response:response}
     })
     .then(val => followUpRes(val))
     .catch(error => {
