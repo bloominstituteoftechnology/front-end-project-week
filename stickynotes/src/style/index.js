@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import reset from 'styled-reset';
 
 export const GlobalStyle = createGlobalStyle`
@@ -35,6 +35,15 @@ export const AppContainer = styled.div`
 	width: 750px;
 	z-index: 10;
 `;
+export const pulse = keyframes`
+0% { transform: scale(1)
+}
+
+50% { transform: scale(1.05)}
+
+100% { transform: scale(1)}
+`;
+
 
 export const Nav = styled.nav`
 	display: flex;
@@ -63,6 +72,7 @@ font-family: 'Charm', cursive;
 	font-weight: bold;
 	text-align: center;
 	:hover {
+		animation: ${pulse} 1s infinite;
 		background: white;
 		color: #4C132C;
 		border: 2px dashed #4C132C;
@@ -81,7 +91,7 @@ export const Main = styled.main`
 	margin: 1% 2%;
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	border-radius: 150px;
 	height: 95vh;
@@ -107,6 +117,7 @@ export const Div = styled.div`
 	flex-flow: row wrap;
 `;
 
+
 export const Section = styled.section`
 	width: 100px;
 	height: 125px;
@@ -124,6 +135,7 @@ export const Section = styled.section`
 	border: 2px dashed #fff;
 	color: #fff;
 	:hover {
+		animation: ${pulse} 1s infinite;
 		background: white;
 		color: #4C132C;
 		border: 2px dashed #4C132C;

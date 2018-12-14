@@ -21,10 +21,10 @@ const NoteList = (props) => {
 		return (
 			<Main>
 				<H1>Notes</H1>
-				<Div component='list' onDragOver={(e)=> props.onDragOver(e)} onDrop={(e)=> props.onDrop(e)}>
+				<Div component='list' >
 					{props.notes.map((note, index) => (
 						index < 9 ? 
-						<Link to={`/${note._id}`} key={index} style={{textDecoration: 'none'}} draggable onDragStart={e => props.onDragStart(e, note._id)}>
+						<Link to={`/${note._id}`} key={index} style={{textDecoration: 'none'}} >
 							<Section >
 								<H2 component='list'>{note.title}</H2>
 							</Section>

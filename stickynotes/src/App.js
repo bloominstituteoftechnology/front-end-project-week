@@ -67,21 +67,7 @@ class App extends Component {
 		this.props.searching(this.state.searchTerm);
 	};
 
-	onDragOver = (event) => {
-		event.preventDefault();
-	};
-
-	onDrop = (event) => {
-		event.preventDefault();
-		console.log(event.target);
-		event.dataTransfer.getData('id');
-	};
-
-	onDragStart = (event, id) => {
-		console.log(event.target);
-		event.dataTransfer.setData('id', id);
-	};
-
+	
 	render() {
 		return (
 			<React.Fragment>
