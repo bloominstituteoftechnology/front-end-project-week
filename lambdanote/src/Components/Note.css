@@ -1,0 +1,45 @@
+.App {
+  display: flex;
+  flex-flow: row-reverse wrap;
+  max-height: 800px;
+  font-family: Gothic;
+}
+
+.card {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.card-header-title {
+  display: flex;
+  justify-content: center;
+}
+
+.Navbar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background: 1px solid black;
+  height: 800px;
+  width: 315px;
+  background-color: lightgrey;
+}
+
+.NoteForm {
+  width: 640px;
+  height: auto;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.notes-container {
+  display:flex;
+  width: 1268px;
+  flex-direction: row wrap;
+  justify-content: space-evenly;
+  font-size: 1.2rem;
+  border: 1px solid black;
+}
