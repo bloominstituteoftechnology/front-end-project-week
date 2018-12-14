@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import ReactModal from 'react-modal';
-
+import Markdown from 'react-markdown';
 import { NoteWrapper, NoteNav, ModalWrapper, ModalContent, ModalButtons, Buttons } from '../style';
+import CheckList from './CheckList';
 
 
 
@@ -31,7 +32,9 @@ class Note extends Component {
                     <button  onClick={() => {this.toggleModal()}}  className='note-button'>Delete</button> 
                  </NoteNav>
                 <h2>{note.title}</h2>
-                <p>{note.textBody}</p>
+                <Markdown source={note.textBody}/>
+
+                {/* <CheckList/> */}
                 <div className='modal-wrapper'>
                 <ReactModal className='ReactModal' isOpen={this.state.showModal} contentLabel="Minimal Modal Example">
                     <ModalWrapper onClick={this.handleCloseModal}>

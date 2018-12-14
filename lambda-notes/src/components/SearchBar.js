@@ -1,16 +1,18 @@
 import React from 'react';
+import { SearchWrapper, SearchInput } from '../style'
 
 const SearchBar = props => {
+    console.log(props)
     return (
-        <div>
-            <input
+        <SearchWrapper>
+            <SearchInput
                 name='filteredSearch'
                 type='text'
                 onChange={props.handleSearchInput}
                 placeholder='Search'
                 value={props.filteredSearch}
             />
-        </div>
+        </SearchWrapper>
     )
 };
 

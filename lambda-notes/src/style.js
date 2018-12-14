@@ -7,6 +7,19 @@ export const AppWrapper = styled.div`
   // border: 3px solid red;
 `;
 
+export const SearchWrapper = styled.div`
+  width: 90%;
+`;
+
+export const SearchInput = styled.input`
+  width: 85%;
+  height: 40px;
+  margin-left: 10px;
+  padding-left 10px;
+  border-radius: 3px;
+  border: 1.4px solid #C3C2C3;
+`;
+
 export const NavWrapper = styled.div` 
   display: flex;
   justify-content: center;
@@ -73,7 +86,7 @@ export const NotesContent = styled.div`
   height: 270px;
   margin: 10px;
   background-color: #ffff;
-  overflow: hidden;
+  // overflow: hidden;
   border: 2px solid #D3D2D3;
 `;
 

@@ -31,3 +31,17 @@
   background: white;
   border: 2px solid black;
 }
+
+.topnav-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  width: 50%;
+  /* border: 1px solid red; */
+}
+
+/* .dropdown {
+  border: none;
+  background-color: #26B7BD;
+} */
