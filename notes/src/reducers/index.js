@@ -29,7 +29,8 @@ const initState = {
   deletingNote: false,
   error: null,
   currentView: "notes",
-  changingView: false
+  confirmingDelete: false,
+  note: null
 }
 
 const reducer = (state = initState, action) => {
@@ -38,7 +39,8 @@ const reducer = (state = initState, action) => {
     case CHANGE_CURRENT_VIEW:
       return {
         ...state,
-        currentView: action.payload,
+        currentView: action.payload.currentView,
+        note: action.payload.note,
         changingView: false,
         error: null
       };

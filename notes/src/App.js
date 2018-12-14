@@ -29,6 +29,10 @@ class App extends Component {
     this.props.fetchNotes();
   }
 
+  componentDidUpdate(prevProps, prevState){
+
+  }
+
   render() {
     if(this.props.fetchingNotes || this.props.fetchingNote || this.props.updatingNote || this.props.addingNote || this.props.deletingNote || this.props.changingView){
       console.log('-------------- LOADING --------------');
@@ -77,8 +81,7 @@ const mapStateToProps = state => ({
   deletingNote: state.deletingNote,
   error: state.error,
   currentView: state.currentView,
-  note: state.note,
-  changingView: state.changingView
+  note: state.note
 });
 
 export default connect(

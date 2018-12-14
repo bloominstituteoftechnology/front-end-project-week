@@ -43,12 +43,13 @@ a DELETE request to this route will delete the note with the specified ID.
 export const deleteNote = note => dispatch => {
   dispatch({ type: DELETE_NOTE_START });
   axios
-    .post(`https://fe-notes.herokuapp.com/note/delete/${note.id}`, note)
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${note.id}`)
     .then(response => {
       console.log('post success payload below:');
       console.log(response.data);
       dispatch({ type: DELETE_NOTE_SUCCESS, payload: response.data });
       //refetch all notes from server
+      dispatch({ type: FETCH_NOTES_START, payload: null });
       axios
         .get('https://fe-notes.herokuapp.com/note/get/all')
         .then(response => {
@@ -69,12 +70,11 @@ export const deleteNote = note => dispatch => {
 export const editNote = note => dispatch => {
   dispatch({ type: UPDATE_NOTE_START });
   axios
-    .post(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, note)
+    .put(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, note)
     .then(response => {
-      console.log('post success payload below:');
-      console.log(response.data);
       dispatch({ type: UPDATE_NOTE_SUCCESS, payload: response.data });
       //refetch all notes from server
+      dispatch({ type: FETCH_NOTES_START, payload: null });
       axios
         .get('https://fe-notes.herokuapp.com/note/get/all')
         .then(response => {
@@ -111,14 +111,25 @@ export const changeView = data => dispatch => {
       .then(response => {
         console.log("fetch note success, response.data below:");
         console.log(response.data);
+        dispatch({ type: FETCH_NOTE_START, payload: null });
         dispatch({ type: FETCH_NOTE_SUCCESS, payload: response.data });
       })
       .catch(err => {
         dispatch({ type: FETCH_NOTE_FAILURE, payload: err });
       });
   }else{ //add, edit
-    dispatch({ type: START_CHANGE_VIEW, payload: currentView});
-    dispatch({ type: CHANGE_CURRENT_VIEW, payload: currentView});
+    //dispatch({ type: START_CHANGE_VIEW, payload: currentView});
+    //dispatch({ type: CHANGE_CURRENT_VIEW, payload: currentView});
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        console.log("fetch note success, response.data below:");
+        console.log(response.data);
+        dispatch({ type: CHANGE_CURRENT_VIEW, payload: {note: response.data, currentView:  currentView}});
+      })
+      .catch(err => {
+        dispatch({ type: CHANGE_CURRENT_VIEW, payload: err });
+      });
   }
   
 }
@@ -139,6 +150,7 @@ export const addNote = note => dispatch => {
       axios
         .get('https://fe-notes.herokuapp.com/note/get/all')
         .then(response => {
+          dispatch({ type: FETCH_NOTES_START, payload: null });
           dispatch({ type: FETCH_NOTES_SUCCESS, payload: response.data });
         })
         .catch(err => {

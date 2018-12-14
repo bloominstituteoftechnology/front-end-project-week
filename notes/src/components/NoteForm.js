@@ -55,6 +55,11 @@ const NoteContainer = styled.div`
   padding: 2%;
   background-color: rgb(230,230,230);
   width: 100%;
+
+  border: 1px solid red;
+  ${({active}) => active && `
+    background-color: blue; 
+  `}
 `;
 
 const HyperLinkContainer = styled.p`
@@ -135,29 +140,55 @@ class NoteForm extends React.Component {
 
   submitHandler = event => {
     event.preventDefault();
-    this.props.addNote({
-      tags: this.state.tags,
-      title: this.state.title,
-      textBody: this.state.textBody,
-    });
+
+    if(this.props.currentView === "add"){
+      this.props.addNote({
+        tags: this.state.tags,
+        title: this.state.title,
+        textBody: this.state.textBody,
+      });
+    }else{
+      this.props.editNote({
+        tags: this.state.tags,
+        title: this.state.title,
+        textBody: this.state.textBody,
+        id: this.state._id
+      });
+    }
   };
 
   handleClick = (event, id, type) => {
-      console.log("hyperlink clicked; type: " +  type);
+    if(type === "edit"){
       this.props.changeView(
         {
           id: id,
           currentView: type
         }
       );
+    }else if(type === "confirmDelete"){
+      this.setState({
+        confirmDelete: true
+      });
+    }else if(type === "delete"){
+      /*
+      this.props.deleteNote(
+        {
+          id: id
+        }
+      );
+      */
+     
+     this.setState({
+        confirmDelete: false
+      });
+    }else if (type === "deleteCancel")
+      this.setState({
+        confirmDelete: false
+    });
   };
 
   render() {
-    console.log('** this.state.currentView = ' + this.state.currentView);
-    if(this.state.changingView){
-      return(<div>Loading...</div>);
-    }
-    if(this.state.currentView === "add" || this.state.currentView === "edit"){
+    if(this.props.currentView === "add" || this.props.currentView === "edit"){
       return (
         <AddNoteFormContainer>
           <HeaderTwo>{assignHeaderText(this.state.currentView)}</HeaderTwo>
@@ -168,7 +199,7 @@ class NoteForm extends React.Component {
               name="title"
               value={this.state.title}
               placeholder="title.."
-            />
+            />=
             <InputBodyText
               onChange={this.changeHandler}
               type="text"
@@ -177,27 +208,22 @@ class NoteForm extends React.Component {
               placeholder="note text.."
             />
             <Button>
-              {assignButtonText(this.state.currentView)}
+              {assignButtonText(this.props.currentView)}
             </Button>
           </form>
         </AddNoteFormContainer>
       );
-    }else if(this.state.currentView === "note"){ //is "note"
+    }else if(this.props.currentView === "note"){ //is "note"
       //add JSX for note display including edit + delete buttons
       return(
-        <NoteContainer>
+        <NoteContainer active={this.state.confirmDelete} >
           <HyperLinkContainer>
             <HyperLink onClick={event => this.handleClick(event,this.state._id,"edit")} >edit</HyperLink>
-            <HyperLink onClick={event => this.handleClick(event,this.state._id,"delete")} >delete</HyperLink>
+            <HyperLink onClick={event => this.handleClick(event,this.state._id,"confirmDelete")} >delete</HyperLink>
           </HyperLinkContainer>
           <HeaderTwo>{this.state.title}</HeaderTwo>
           <NoteBody>{this.state.textBody}</NoteBody>
         </NoteContainer>
-      );
-    }else{
-      //display note with delete overlaid
-      return (
-        <div>test</div>
       );
     }
   }
