@@ -102,7 +102,6 @@ deleteNote = (ev, id) => {
 
 editNote = () => {
   const myId = this.state.activeNote[0].id;
-  console.log(myId, this.state.note, reqOptions)
   axios
     .put(`${URL}edit/${myId}`, this.state.note, reqOptions)
     .then(response => {
@@ -111,7 +110,6 @@ editNote = () => {
       const newNotesArray = this.state.notes.filter(note => note.id !== myId)
       // newNotesArray.push(this.state.note)
       // console.log(newNotesArray)
-      console.log(newNotesArray)
       this.setState({
         
         notes: [

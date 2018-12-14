@@ -47,12 +47,14 @@ img {
   text-align: left;
   display: flex;
   background-color: rgb(242, 241, 242);
-  height: cover;
+  background-size: cover;
+  background-attachment: scroll;
 }
 .routesContainer {
   background-color: rgb(242, 241, 242);
   width: 75%;
   height: 100vh;
+  background-attachment: scroll;
 }
 
 .navbar {

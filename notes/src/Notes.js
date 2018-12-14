@@ -5,12 +5,12 @@ import axios from 'axios';
 
 const URL = 'http://localhost:5200/api/';
 
-const token = localStorage.getItem('jwt');
-const reqOptions = {
-      headers: {
-        Authorization: token,
-      },
-    };
+// const token = localStorage.getItem('jwt');
+// const reqOptions = {
+//       headers: {
+//         Authorization: token,
+//       },
+//     };
 
  class Notes extends React.Component {
   constructor(props) {
@@ -21,21 +21,20 @@ const reqOptions = {
   }
 
   componentDidMount() {
-    // const token = localStorage.getItem('jwt');
-    // const reqOptions = {
-    //   headers: {
-    //     Authorization: token,
-    //   },
-    // };
-    console.log(reqOptions);
-    axios
-      .get(`${URL}notes`, reqOptions)
-      .then(response => {
-        console.log(response.data)
-         this.setState({ notes: response.data })})
-      .catch(error => {
-        console.error('Error collecting notes!', error)
-      });
+    const token = localStorage.getItem('jwt');
+    const reqOptions = {
+      headers: {
+        Authorization: token,
+      },
+    };
+      axios
+        .get(`${URL}notes`, reqOptions)
+        .then(response => {
+           this.setState({ notes: response.data })})
+        .catch(error => {
+          console.error('Error collecting notes!', error)
+          this.props.history.push(`/login`);
+        });
   }
 
   routeToNote(event, note) {

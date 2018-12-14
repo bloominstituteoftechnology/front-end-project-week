@@ -37,11 +37,9 @@ class SingleNote extends React.Component {
   
   componentDidMount() {
     const myId = this.props.match.params.id;
-    console.log(myId)
     axios
     .get(`${URL}notes/${myId}`, reqOptions)
     .then(response => {
-      console.log(reqOptions)
       this.setState({ 
         note: {
           title: response.data[0].title,

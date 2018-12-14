@@ -40,7 +40,6 @@ class Register extends React.Component {
     axios
       .post('http://localhost:5200/api/register', this.state)
       .then(res => {
-      console.log(res.data);
       localStorage.setItem("jwt", res.data.token);
       this.props.history.push('/notes');
     })
