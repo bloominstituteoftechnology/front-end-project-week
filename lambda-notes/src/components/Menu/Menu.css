@@ -1,0 +1,31 @@
+.menu-container {
+  width: 33%;
+  min-height: 600px;
+  background-color: lightgray;
+  color: black;
+  border: 1px solid black;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 20px;
+}
+
+@media (max-width: 550px) {
+  .menu-container {
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-container h1 {
+    margin: 10px;
+  }
+}

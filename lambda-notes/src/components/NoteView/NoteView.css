@@ -1,0 +1,63 @@
+.note-heading {
+  font-size: 24px;
+  margin: 20px 30px;
+}
+
+.note-paragraph {
+  margin: 20px 25px;
+}
+
+.note-links {
+  color: black;
+  text-decoration: underline;
+  text-align: right;
+  margin: 20px 10px;
+  font-weight: bold;
+}
+
+/* The delete popup (appears on top) */
+.popuptext {
+  width: 550px;
+  height: 150px;
+  visibility: hidden;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  left: 28%;
+  bottom: 35%;
+
+  border: 1px solid black;
+}
+
+.delete-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10 40px;
+}
+.delete {
+  background-color: red;
+}
+
+.show {
+  visibility: visible;
+  /* -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s; */
+}
+
+@media (max-width: 550px) {
+  .popuptext {
+    width: 90%;
+    left: 5%;
+    bottom: 5%;
+  }
+  .delete-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 40px;
+  }
+}

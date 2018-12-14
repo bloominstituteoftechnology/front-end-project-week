@@ -1,0 +1,68 @@
+.form {
+  width: 450px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+
+  border: 5px dashed darkcyan;
+}
+
+.login-form input {
+  width: 250px;
+  height: 25px;
+  font-size: 16pt;
+  margin: 20px;
+  margin-left: 100px;
+}
+.login-form h1 {
+  margin: 20px;
+}
+
+.login-form button {
+  width: 250px;
+  height: 50px;
+  font-size: 24px;
+  margin: 20px;
+  margin-left: 100px;
+  color: white;
+  background-color: darkcyan;
+}
+
+.login-form a {
+  text-decoration: none;
+  color: black;
+}
+
+.login-tabs {
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+}
+
+.tab {
+  width: 50%;
+  background-color: whitesmoke;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 15px;
+  margin: 0 5px;
+  border-radius: 3px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.tab a {
+  color: black;
+}
+
+.tab:hover {
+  background-color: lightgray;
+}
+
+.selected {
+  background-color: lightgray;
+}

@@ -1,0 +1,35 @@
+.search-container {
+  width: 100%;
+  height: 70px;
+  display: flex;
+}
+
+.input-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.search {
+  position: absolute;
+
+  width: 50%;
+  height: 40px;
+  background-color: white;
+  margin: 10px auto;
+  font-size: 18px;
+
+  background: 0 0;
+
+  color: black;
+}
+.display-text {
+  position: absolute;
+
+  width: 50%;
+  height: 40px;
+  margin: 10px auto;
+  padding-top: 10px;
+
+  font-size: 18px;
+  color: black;
+}

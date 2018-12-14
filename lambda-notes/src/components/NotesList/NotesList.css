@@ -1,0 +1,36 @@
+.notes-blocks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.note {
+  width: 190px;
+  height: 200px;
+  margin: 20px 10px;
+  margin-left: 25px;
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+
+  border: 1px solid black;
+}
+
+.note h2 {
+  font-size: 22px;
+  font-family: Helvetica, sans-serif;
+  margin: 5px 10px;
+}
+.note p {
+  margin: 10px;
+  line-height: 25px;
+}
+
+.note .note-divider {
+  border: 1px solid lightgray;
+  width: 90%;
+  text-align: center;
+}
+.note:hover {
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+}
