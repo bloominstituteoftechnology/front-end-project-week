@@ -1,31 +1,46 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import Modal from './Modal';
 
 class ViewNote extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             note : [],
-            hidden : 'hidden',
+            hidden : 'hidden'
         }
     }
 
     componentDidMount(){
-        const ID = this.props.match.params;
-        this.fetchNoteById(ID.id);
-        console.log( this.fetchNoteById(ID.id));
+        const { id }= this.props.match.params;
+        this.fetchNoteById(id);
     }
 
+    // componentDidMount(){
+    //     const {ID} = this.props.match.params;
+    //     this.fetchNoteById(ID);
+    //     console.log(ID);
+    // }
+
     fetchNoteById = id => {
-        console.log(`http://localhost:9000/api/notes/${id}`)
+        console.log('fetch note', id)
         axios.get(`http://localhost:9000/api/notes/${id}`)
             .then(response => {
-                this.setState({note : response.data})
+                this.setState({note : response.data});
+                console.log(response.status, response.data);
             })
             .catch(error => alert(error))
     }
+
+    // fetchNoteById = id => {
+    //     console.log(`http://localhost:9000/api/notes/${id}`)
+    //     axios.get(`http://localhost:9000/api/notes/${id}`)
+    //         .then(response => {
+    //             this.setState({note : response.data})
+    //         })
+    //         .catch(error => alert(error))
+    // }
 
     toggleHidden=()=>{
         if(this.state.hidden === ''){
@@ -46,10 +61,11 @@ class ViewNote extends React.Component{
                 />
 
                 <Link to={`/edit/${ this.props.match.params.id}`} >Edit</Link>
-                <a href='/' onClick={() => this.toggleHidden()}>Delete</a>
+                <a href='#' onClick={() => this.toggleHidden()}>Delete</a>
                 <div className="note-section">
                     <h2>{this.state.note.title}</h2>
                     <p>{this.state.note.textBody}</p>
+                    <p>This render is functional</p>
                 </div>
             </div>
         );

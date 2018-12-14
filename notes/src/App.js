@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { Route } from 'react-router-dom';
-import SideBar from './Components/Sidebar'
+import SideBar from './Components/Sidebar';
 import ListNotes from './Components/ListNotes';
 import NoteForm from './Components/NoteForm';
-import ViewNote from './Components/ViewNote'
-import NoteEdit from './Components/NoteEdit'
+import ViewNote from './Components/ViewNote';
+import NoteEdit from './Components/NoteEdit';
 class App extends Component {
 
   constructor(){
@@ -17,7 +17,7 @@ class App extends Component {
       newNote : {
         title : '',
         textBody : '',
-        searchText: "",
+        id: "",
       }
     }
   }
@@ -31,7 +31,10 @@ class App extends Component {
   componentDidMount(){
     
     axios.get('http://localhost:9000/api/notes')
-      .then(response => this.setState({notes : response.data}))
+      .then(response => this.setState({
+        ...this.state,
+        notes: [...this.state.notes, ...response.data],
+      }))
       .catch(error => alert("CDM ::: Axios says :", error))
   }
 

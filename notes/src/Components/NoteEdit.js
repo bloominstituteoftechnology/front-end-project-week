@@ -17,16 +17,16 @@ class EditNote extends React.Component{
 
     editNote = e => {
         e.preventDefault();
-        const ID = this.props.match.params;
-        axios.put(`http://localhost:9000/api/notes/${ID.id}`,this.state.note)
+        const {id} = this.props.match.params;
+        axios.put(`http://localhost:9000/api/notes/${id}`,this.state.note)
         .then(response => console.log(response))
         .catch(error => console.log("ERROR", error))
 
     }
 
     fetchNoteById = () => {
-        const ID = this.props.match.params;
-        axios.get(`http://localhost:9000/api/notes/${ID.id}`)
+        const {id} = this.props.match.params;
+        axios.get(`http://localhost:9000/api/notes/${id}`)
             .then(response => {
                 this.setState({note : response.data})
             })

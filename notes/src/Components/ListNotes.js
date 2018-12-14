@@ -5,7 +5,7 @@ import Note from './Note'
         <div className="note-list">
         <h2>Your Notes:</h2>
             {props.notes.map(note => {
-                return (<Note id={note._id} key={note._id} title={note.title} textBody={note.textBody} />)
+                return (<Note id={note.id} key={note.id} title={note.title} textBody={note.textBody} />)
             })}
         </div>
     );
