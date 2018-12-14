@@ -45,7 +45,7 @@ export default class EditNote extends Component {
 
   fetchData = (id) => {
     axios
-      .get(`http://localhost:9000/note/get/${id}`)
+      .get(`${apiUri}/note/get/${id}`)
       .then()
       .catch((error) => {
         console.error(error);
@@ -66,6 +66,7 @@ export default class EditNote extends Component {
             value={this.state.title}
           />
           <NoteContentInput
+            source={this.state.textBody}
             name="textBody"
             onChange={this.handleChange}
             value={this.state.textBody}

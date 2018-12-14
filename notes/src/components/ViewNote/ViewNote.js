@@ -39,7 +39,7 @@ export default class ViewNote extends Component {
     // const result = window.confirm('Are you sure you want to delete this note?');
     this.displayModal();
     axios
-      .delete(`http://localhost:9000/note/delete/${this.state.note.id}`)
+      .delete(`${apiUri}/note/delete/${this.state.note.id}`)
       .then(() => this.props.history.push('/'))
       .catch((error) => console.error(error));
   };
