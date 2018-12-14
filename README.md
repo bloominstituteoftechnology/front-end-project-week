@@ -1,3 +1,5 @@
+# Trello project board: https://trello.com/invite/b/64gNTLKh/b51ad6d326d706124fbdd7c2782e341e/lambda-notes-gina-christians
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
