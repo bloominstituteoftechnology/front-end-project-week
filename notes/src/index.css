@@ -1,0 +1,203 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* ///////////////////////////////// */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* height:100vh; */
+  /* height: 100vmax; */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  /* display: flex; */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#root {
+  /* height:100%; */
+  /* display: flex; */
+}
+
+.App {
+  margin:0 auto;
+  display: flex;
+  background: lightgrey;
+  max-width:1000px;
+  /* height: 100%; */
+}
+
+a {
+  text-decoration: none;
+  color:inherit;
+  cursor: pointer;
+}
+
+h1 {
+  font-size:30px;
+  text-align: center;
+  margin-top:10%;
+  font-weight: bold;
+}
+
+.sidebar {
+  width:25%;
+  background: rgb(210,210,210);
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button,.nav-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(107,182,187);
+  color:white;
+  width: 90%;
+  text-align: center;
+  border-radius:5px;
+  font-size:18px;
+  height:30px;
+  margin:15px 0;
+}
+
+
+.main {
+  width:75%;
+  background: rgb(241,241,241);
+  /* display: flex;
+  flex-direction: column; */
+  /* height:100%; */
+}
+
+.header {
+  height: 5%;
+  display: flex;
+  align-items: flex-end;
+  font-size:22px;
+  padding-left:2%;
+  padding-bottom:2%;
+  font-weight: bold;
+}
+
+.notes-list {
+  /* width:90%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow: scroll;
+  height: 95%;
+  padding-bottom:10%;
+
+}
+
+.note {
+  width: 200px;
+  height: 200px;
+  background: white;
+  border: 1px solid lightgray;
+  margin-top:3%;
+  overflow: hidden;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+}
+
+.update-wrapper {
+  width:25%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.update-button {
+  font-weight:bold;
+}
+.update-button:hover {
+  text-decoration: underline;
+}
+
+.title-input {
+  width: 50%;
+  border-radius:5px;
+}
+
+.message-input {
+  resize: none;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.submit-button {
+  width: 25%;
+}
