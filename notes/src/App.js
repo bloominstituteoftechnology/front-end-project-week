@@ -23,14 +23,14 @@ class App extends Component {
   }
 
   refreshState(){
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:9000/api/notes')
     .then(response => this.setState({notes : response.data}))
     .catch(error => console.log("Refresh State ::: Axios says :", error))
   }
 
   componentDidMount(){
     
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:9000/api/notes')
       .then(response => this.setState({notes : response.data}))
       .catch(error => alert("CDM ::: Axios says :", error))
   }
@@ -38,16 +38,17 @@ class App extends Component {
   
   createNewSubmit = e =>{
     e.preventDefault();
-    axios.post('https://fe-notes.herokuapp.com/note/create',this.state.newNote)
+    axios.post('http://localhost:9000/api/notes',
+    this.state.newNote)
     .then(response => {
       this.setState({newNote : {
         title : '',
-        textBody : '',
+        textBody : ''
       }})
       console.log("New Note has been added", response)
       this.forceUpdate();
     })
-    .catch(error => alert("ERROR :::", error));
+    .catch(error => alert("Something happened! Uh Oh! Try again!", error));
   }
   onChangeHandler = e => {
     this.setState({newNote : {...this.state.newNote,[e.target.name] : e.target.value }})

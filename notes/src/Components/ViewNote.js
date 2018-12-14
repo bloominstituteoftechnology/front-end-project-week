@@ -7,7 +7,7 @@ class ViewNote extends React.Component{
     constructor(){
         super();
         this.state = {
-            note : {},
+            note : [],
             hidden : 'hidden',
         }
     }
@@ -15,11 +15,12 @@ class ViewNote extends React.Component{
     componentDidMount(){
         const ID = this.props.match.params;
         this.fetchNoteById(ID.id);
+        console.log( this.fetchNoteById(ID.id));
     }
 
     fetchNoteById = id => {
-        console.log(`https://fe-notes.herokuapp.com/note/get/${id}`)
-        axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        console.log(`http://localhost:9000/api/notes/${id}`)
+        axios.get(`http://localhost:9000/api/notes/${id}`)
             .then(response => {
                 this.setState({note : response.data})
             })
@@ -45,7 +46,7 @@ class ViewNote extends React.Component{
                 />
 
                 <Link to={`/edit/${ this.props.match.params.id}`} >Edit</Link>
-                <a href='#' onClick={() => this.toggleHidden()}>Delete</a>
+                <a href='/' onClick={() => this.toggleHidden()}>Delete</a>
                 <div className="note-section">
                     <h2>{this.state.note.title}</h2>
                     <p>{this.state.note.textBody}</p>

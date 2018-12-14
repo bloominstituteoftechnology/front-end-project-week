@@ -3,7 +3,7 @@ import axios from 'axios';
  class Modal extends React.Component {
     
     deleteNote = () => {
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.ID}`)
+        axios.delete(`http://localhost:9000/api/notes/${this.props.ID}`)
         .then(response => alert("Note has been deleted",response))
         .catch(error => console.log(error))
     }

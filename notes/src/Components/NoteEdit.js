@@ -10,6 +10,7 @@ class EditNote extends React.Component{
             note : {
                 title : '',
                 textBody : '',
+                id: ''
             }
         }
     }
@@ -17,15 +18,15 @@ class EditNote extends React.Component{
     editNote = e => {
         e.preventDefault();
         const ID = this.props.match.params;
-        axios.put(`https://fe-notes.herokuapp.com/note/edit/${ID.id}`,this.state.note)
+        axios.put(`http://localhost:9000/api/notes/${ID.id}`,this.state.note)
         .then(response => console.log(response))
-        .catch(error => console.log("EDIT ERROR ::", error))
+        .catch(error => console.log("ERROR", error))
 
     }
 
     fetchNoteById = () => {
         const ID = this.props.match.params;
-        axios.get(`https://fe-notes.herokuapp.com/note/get/${ID.id}`)
+        axios.get(`http://localhost:9000/api/notes/${ID.id}`)
             .then(response => {
                 this.setState({note : response.data})
             })
@@ -62,7 +63,6 @@ class EditNote extends React.Component{
 
                     <input className="form-save"
                         onClick={this.editNote}
-                        className="form-save"
                         type="submit" 
                         value="Save" 
                     />
