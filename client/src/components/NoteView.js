@@ -3,6 +3,9 @@ import axios from "axios";
 import Modal from "react-responsive-modal";
 import PropTypes from "prop-types";
 
+//let API = "https://lambda-notes-sgear.herokuapp.com";
+let API = "http://localhost:9000";
+
 //NoteView is the class that displays a single note. This class deploys the editNote() and deleteNote() functions, which live in the App.js file
 
 class NoteView extends Component {
@@ -25,13 +28,13 @@ class NoteView extends Component {
   //Fetches an individual note by id and sets its values to state of this component.
   fetch = id => {
     axios
-      .get(`https://lambda-notes-sgear.herokuapp.com/notes/${id}`)
+      .get(`${API}/notes/${id}`)
       .then(res => {
         console.log("noteview", res);
         this.setState(() => ({
-          id: res.data[0].id,
-          title: res.data[0].title,
-          textBody: res.data[0].textBody
+          id: res.data.id,
+          title: res.data.title,
+          textBody: res.data.textBody
         }));
       })
       .catch(err => {
