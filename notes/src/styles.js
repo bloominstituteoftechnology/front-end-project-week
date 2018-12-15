@@ -5,8 +5,10 @@ export const StyledContainer = styled.div`
   flex-direction: row;
   text-align: center;
   //max-width: 1000px;
+  padding-left: 1vw;
   margin: 0 auto;
   @media (max-width: 940px) {
     flex-direction: column;
+    padding: 0;
   }
 `;
