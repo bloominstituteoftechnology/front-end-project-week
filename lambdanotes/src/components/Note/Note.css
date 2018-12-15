@@ -1,0 +1,35 @@
+
+.note-container{
+    display: flex;
+    flex-wrap: wrap;
+    height:100vh;
+    text-decoration: none;
+}
+
+.note-box{
+    border:1px solid black;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width:235px;
+    height:300px;
+    padding-left:20px;
+    padding-top: 0px;
+    margin-right: 20px;
+    margin-bottom: 25px;
+    text-align: start;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+h3{
+    text-decoration: underline #4A4A4A;
+    margin-bottom: 5px;
+    font-size:24px;
+}
+
+/* .link-box{
+    border:0px;
+    width:20px;
+    height: 20px;
+} */

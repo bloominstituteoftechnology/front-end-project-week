@@ -1,0 +1,45 @@
+.edit-container{
+    
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    height:100vw;
+    align-items: flex-start;
+    margin-left: 40px;
+}
+
+form{
+    flex-direction: column;
+    display: flex;
+    
+}
+
+h2{
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.edit-title-input{
+    width:400px;
+    height:50px;
+    margin-bottom: 25px;
+    border:1px solid gray;
+    border-radius: 5px;
+}
+
+.edit-content-input{
+    width:670px;
+    height:300px;
+    margin-bottom: 25px;
+    border:1px solid gray;
+    border-radius: 5px;
+    
+}
+
+.save-button{
+    width: 220px;
+    height: 60px;
+    margin-top: 20px;
+    color: #FFFFFF;
+    background-color: #2BC1C4;
+}
