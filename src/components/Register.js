@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Input, Button } from "reactstrap";
-import "./EditNote/notecard.css";
-import axios from "axios";
 
 
 
@@ -22,26 +20,34 @@ class Register extends Component {
 
   handleFormSubmit = e => {
     e.preventDefault();
-    const { username, password } = this.state;
-    console.log(username, password);
-    axios
-      .post(`https://csilla-notes.herokuapp.com/api/user`, {
-        username,
-        password
-      })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    const username= this.state.username;
+    const password=this.state.password;
+    // console.log(username, password);
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+    window.location.reload();
   };
+    
+  
+  //   axios
+  //     .post(`https://csilla-notes.herokuapp.com/api/user`, {
+  //       username,
+  //       password
+  //     })
+  //     .then(res => {
+  //       console.log(res);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
+
 
   render() {
     return (
       <div className="register" style={{align: "center"}}>
             <h2 style={{ 
-                marginLeft: "5rem"
+                marginLeft: "5rem", fontSize:"25px bold"
             }}>Register</h2>
         <form onSubmit={this.handleFormSubmit}>
           <Input

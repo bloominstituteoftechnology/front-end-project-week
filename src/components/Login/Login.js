@@ -2,9 +2,48 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import "./Login.css";
-import { NavItem, NavLink } from "reactstrap";
 import { Link } from "react-router-dom";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import ReactCSSTG from "react-addons-css-transition-group";
+//const ReactCSSTG = React.addons.CSSTransitionGroup;
+
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       isVisible: true
+//     }
+//     // Bindings
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//     this.handleRemount = this.handleRemount.bind(this);
+//   }
+
+//   handleSubmit(e) {
+//     e.preventDefault();
+//     this.setState({
+//       isVisible: false
+//     }, function () {
+//       console.log(this.state.isVisible)
+//     });
+//     return false;
+//   }
+//   handleRemount(e) {
+//     this.setState({
+//       isVisible: true
+//     }, function () {
+//       console.log(this.state.isVisible)
+//     });
+//     e.preventDefault();
+//   }
+//   render() {
+
+//     // const for React CSS transition declaration
+//     let component = this.state.isVisible ? <Modal onSubmit={this.handleSubmit} key='modal' /> : <ModalBack onClick={this.handleRemount} key='bringitback' />;
+
+//     return <ReactCSSTG transitionName="animation" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+//       {component}
+//     </ReactCSSTG>
+//   }
+// }
 
 class Modal extends React.Component {
   render() {
@@ -26,27 +65,23 @@ class Modal extends React.Component {
           />
         </form>
         <div className="social-signin">
-          <button className="signIn" onClick={this.props.onSubmit}>
+          <Button className="signIn" onClick={this.props.onSubmit}>
             {" "}
             Sign In
-          </button>
-        </div>
-        <div>
-        <button className="register-btn">
+          </Button>
+        
+          <Button className="register-btn" onClick={this.props.onSubmit}>
+            {" "}
 
           <Link to="/register">
             Register
             </Link>
 
-        </button>
-        </div>
-
-
-        <div className="social-signin">
-          <Button className="fb" onClick={this.props.onSubmit}>
+        </Button>
+          <Button className= "face" onClick={this.props.onSubmit}>
             <i className="fab fa-facebook" aria-hidden="true" />
           </Button>
-          <Button className="tw" onClick={this.props.onSubmit}>
+          <Button className="tweet" onClick={this.props.onSubmit}>
             <i className="fab fa-twitter" aria-hidden="true" />
           </Button>
         </div>
@@ -128,7 +163,7 @@ class Login extends Component {
 
   render() {
     // const for React CSS transition declaration
-    let component = this.state.isVisible ? (
+     let component = this.state.isVisible ? (
       <Modal
         onSubmit={this.handleLoginSubmit}
         handleInputChange={this.handleInputChange}
@@ -139,7 +174,7 @@ class Login extends Component {
       );
 
     return (
-      <ReactCSSTransitionGroup
+      <ReactCSSTG
         transitionName="animation"
         transitionAppear={true}
         transitionAppearTimeout={500}
@@ -147,7 +182,7 @@ class Login extends Component {
         transitionLeaveTimeout={300}
       >
         {component}
-      </ReactCSSTransitionGroup>
+      </ReactCSSTG>
     );
   }
 }

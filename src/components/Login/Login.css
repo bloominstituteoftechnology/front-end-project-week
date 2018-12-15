@@ -26,9 +26,9 @@
 .Modal a {
     display: block;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
     text-align: center;
     text-decoration: none;
+    font-size: 14px;
     margin: 4px 0 10px 0;
     margin: 10px;
 }
@@ -51,6 +51,7 @@
 
 .Modal:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    text-decoration: underline;
 }
 
 form {
@@ -59,6 +60,7 @@ form {
 }
 
 .Modal {
+    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -84,26 +86,28 @@ form {
     color: white;
     width: 85%;
     font-family: "Noto Sans", sans-serif;
-    font-size: 14px;
+    font: 14px;
     cursor: pointer;
     text-align: center;
 }
 
-.social-signin {
+.social-signin button {
+    background: #58a4b0;
     position: relative;
-    width: 85%;
-    border: none;
+    width: 80%;
+    height: 35px;
+    border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
     padding: 5px;
-    font-size: 30px white;
+    font: 14px white;
     margin: 5px 0 5px 0;
     transform: translateX(-50%);
     left: 50%;
 }
 
 .i {
-    font-size: 20px;
+    font-size: 14px;
     color: white;
 }
 
@@ -190,11 +194,11 @@ div {
 }
 
 a {
-    font-size: 12px;
+    font: 14px white;
     text-align: center;
-    text-decoration: none;
     margin: 4px 0 10px 0;
-    margin: 10px
+    margin: 10px;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -204,10 +208,6 @@ a:hover {
 label::before {
     padding: 5px 5px 0 0;
     opacity: 0.5;
-}
-
-label {
-    cursor: default;
 }
 
 label {

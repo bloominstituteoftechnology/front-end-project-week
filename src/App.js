@@ -17,7 +17,7 @@ class App extends Component {
         <Route path="/create" component={NewNoteForm} />
         <Route path="/note/:id" component={NoteCard} />
         <Route path="/edit/:id" component={EditNoteForm} />
-        <Route path="/register" component={Register} />>
+        <Route path="/register" component={Register} />
       </div>
     );
   }
