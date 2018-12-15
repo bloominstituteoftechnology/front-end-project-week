@@ -1,3 +1,6 @@
+# Trello 
+https://trello.com/invite/b/6ZR8CoVS/8f12af75860c410661d30c7681210d53/lambda-notes-joseph-eastman
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
