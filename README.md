@@ -88,7 +88,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [Firebase](#firebase)
   - [GitHub Pages](#github-pages)
   - [Heroku](#heroku)
-  - [Netlify](#netlify)
+  - [Netlify](#)
   - [Now](#now)
   - [S3 and CloudFront](#s3-and-cloudfront)
   - [Surge](#surge)

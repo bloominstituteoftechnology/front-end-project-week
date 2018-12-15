@@ -6,6 +6,7 @@ import NewNoteForm from "./components/NewNote/newnoteform";
 import NoteCard from "./components/EditNote/notecard";
 import EditNoteForm from "./components/EditNote/editnoteform";
 import Authenticate from "./components/Authentication/Authenticate";
+import Register from "./components/Register";
 
 class App extends Component {
   componentDidMount() {}
@@ -16,6 +17,7 @@ class App extends Component {
         <Route path="/create" component={NewNoteForm} />
         <Route path="/note/:id" component={NoteCard} />
         <Route path="/edit/:id" component={EditNoteForm} />
+        <Route path="/register" component={Register} />>
       </div>
     );
   }

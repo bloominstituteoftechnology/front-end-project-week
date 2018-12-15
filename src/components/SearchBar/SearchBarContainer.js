@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import styled from "styled-components";
-import {connect} from "react-redux";
+import {Connect} from "react-redux";
 
 
 const InputWrapper = styled.div`

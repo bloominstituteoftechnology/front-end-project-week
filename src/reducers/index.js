@@ -10,13 +10,17 @@ import {
   SINGLE_FETCHED,
   FETCHING_SINGLE,
   ERROR,
-  SEARCH
+  SEARCH,
+  REGISTERING_USER,
+  REGISTERED_USER
+
   //  SORT_CHARACTERS,
   // SORT_CONTENT
 } from "../actions";
 
 const initialState = {
   notes: [],
+  registeringUser: false,
   fetchingNotes: false,
   fethingNote: false,
   addingNote: false,
@@ -87,7 +91,16 @@ const rootReducer = (state = initialState, action) => {
           searchList: notes.filter(note => note.title.includes(searchString))
         };
       }
-
+    case REGISTERING_USER:
+      return {
+        ...state,
+        registeringUser: true
+      };
+    case REGISTERED_USER:
+      return {
+        ...state,
+        registeringUser: false
+      }; 
     case ERROR:
       return { ...state, error: action.payload, fetchingNotes: false };
 
