@@ -19,6 +19,9 @@ export const SORT_CHARACTERS = "SORT_CHARACTERS";
 export const SORT_CONTENT = "SORT_CONTENT";
 export const NO_SORT = "NO_SORT";
 
+const url = `https://csilla-notes.herokuapp.com/api/notes`;
+const baseUrl = `https://csilla-notes.herokuapp.com`;
+
 //const url = `http://localhost:5500/api/notes/`;
 //const baseUrl = `http://localhost:5500`;
 export const fetchNotes = () => {
