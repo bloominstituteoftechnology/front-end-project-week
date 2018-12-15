@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import { getNotes, updateForm, addNote, deleteNote } from "./Actions";
-import { withRouter } from "react-router";
+import NavBar from "./components/navBar";
 import { Route } from "react-router-dom";
-import ViewNotes from "./View/viewNotes";
-import NewList from "./View/newList";
+import ViewNotes from "./containers/viewNotes";
+import NewList from "./containers/newList";
 
 
 class App extends Component {
@@ -56,10 +55,6 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  notes: state.notes,
-  gettingNotes: state.gettingNotes,
-  populate: state.populate
-});
+
 
 export default App;

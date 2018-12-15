@@ -1,5 +1,5 @@
 import React from "react";
-import Note from '../Components/Note';
+import Notes from '../components/notes';
 import styled from "styled-components";
 
 const NewList = props => {
@@ -23,7 +23,7 @@ const NewList = props => {
         
 
         {props.notes.map((note) => 
-        <Note  {...props} key={note._id} note={note}  /> )}
+        <Notes  {...props} key={note._id} notes={note}  /> )}
         </ShortNotes>
         </>
     )
