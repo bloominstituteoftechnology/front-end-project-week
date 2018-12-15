@@ -5,13 +5,13 @@ import styled from 'styled-components';
 
 import NotesListView from './views/NotesListView';
 import Note from './components/Note';
-import CreateNewNote from './components/CreateNewNote';
-import EditNote from './components/EditNote';
+import NoteForm from './components/NoteForm';
 import Sidebar from './components/Sidebar';
 import Authenticate from './components/Authenticate';
 
 import { getNotes } from './actions/';
 
+// #region Styled Components
 const AppWrapper = styled.div`
   display: flex;
   margin: auto 0;
@@ -20,9 +20,12 @@ const MainWrapper = styled.div`
   margin-left: 200px;
   width: 80%;
 `;
+// #endregion Styled Components
 
 class App extends Component {
     state = {
+        notes: [],
+        noteIds: [],
         filteredNotes: [],
         reversedNotes: [],
         sortText: 'newest',
@@ -30,6 +33,12 @@ class App extends Component {
 
   componentDidMount() {
     this.props.getNotes();
+  }
+
+  componentDidUpdate() {
+    if(this.props.addingNote || this.props.editingNote || this.props.deletingNote) {
+      this.props.getNotes();
+    }
   }
 
   searchNotes = event => {
@@ -103,20 +112,20 @@ class App extends Component {
       <AppWrapper>
         <Route path="/" render={props => <Sidebar {...props} searchNotes={this.searchNotes} exportCSV={this.exportCSV} downloadCSV={this.downloadCSV} />} />
           <MainWrapper>
-            <Route 
-              exact path="/" 
-              render={props => 
-                <NotesListView 
-                  {...props}
-                  sortNotes={this.sortNotes}
-                  sortText ={this.state.sortText}
-                  notes={this.state.filteredNotes.length > 0 && this.state.filteredNotes.length !== this.props.notes.length ? this.state.filteredNotes : (this.state.reversedNotes.length ? this.state.reversedNotes : this.props.notes)} 
-                /> 
-                }
-              />
+              <Route 
+                exact path="/" 
+                render={props => 
+                  <NotesListView 
+                    {...props}
+                    sortNotes={this.sortNotes}
+                    sortText ={this.state.sortText}
+                    notes={this.state.filteredNotes.length > 0 && this.state.filteredNotes.length !== this.props.notes.length ? this.state.filteredNotes : (this.state.reversedNotes.length > 0 ? this.state.reversedNotes : this.props.notes)} 
+                  /> 
+                  }
+                />
               <Route exact path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
-            <Route path="/createnewnote" component={CreateNewNote} />
-            <Route path="/note/edit/:noteId" render={props => <EditNote {...props} notes={this.props.notes} />} />
+            <Route path="/createnewnote" component={NoteForm} />
+            <Route path="/note/edit/:noteId" render={props => <NoteForm {...props} notes={this.props.notes} />} />
           </MainWrapper>
       </AppWrapper>
     );
@@ -127,7 +136,10 @@ const mapStatetoProps = state => {
   return {
       notes: state.notes,
       fetchingNotes: state.fetchingNotes,
-      error: state.error
+      error: state.error,
+      addingNote: state.addingNote,
+      deletingNote: state.deletingNote,
+      editingNote: state.editingNote
   }
 }
 

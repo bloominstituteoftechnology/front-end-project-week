@@ -6,6 +6,7 @@ import NoteText from './NoteText';
 
 import { deleteNote } from '../actions';
 
+// #region Styled Components
 const NoteWrapper = styled.div`
     margin: 20px;
 `;
@@ -71,6 +72,7 @@ const DeleteButton = styled.button`
         color: #CA001A;
     }
 `;
+// #endregion Styled Components
 
 class Note extends React.Component {
     state = {

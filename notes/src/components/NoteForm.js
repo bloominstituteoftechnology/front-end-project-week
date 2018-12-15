@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { editNote } from '../actions';
+import { editNote, addNote } from '../actions';
 
+// #region Styled Components
 const NoteWrapper = styled.div`
     margin: 0 20px 0 20px;;
     min-width: 75%;
@@ -27,6 +28,11 @@ const SCButton = styled.button`
     margin-top: 10px;
     border: 1px solid lightgrey;
     background: ${props => (props.color === "red" ? "#CA001A" : "#25B7BD")};
+    :hover {
+        background: white;
+        color: #25B7BD;
+        cursor: pointer;
+    }
 `;
 const TitleInput = styled.input`
     border: 2px solid lightgrey;
@@ -45,13 +51,15 @@ const ContentInput = styled.textarea`
     padding: 10px;
     line-height: 2;
 `;
+// #endregion Styled Components
 
-class EditNote extends React.Component {
+class NoteForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             title: '',
             textBody: '',
+            editingNote: false,
         };
     };
 
@@ -62,23 +70,35 @@ class EditNote extends React.Component {
       submitHandler = event => {
         event.preventDefault();
         const id = this.props.match.params.noteId;
-        this.props.editNote(id, this.state.title, this.state.textBody);
+
+        if(this.state.editingNote === true) {
+            this.props.editNote(id, this.state.title, this.state.textBody);
+        } else {
+            this.props.addNote((this.state.title === '' ? ' ' : this.state.title), (this.state.textBody === '' ? ' ' : this.state.textBody));
+        }
+
+
         this.props.history.push("/");
       }
 
       componentDidMount() {
-        const selectedNote = this.props.notes.find(note => `${note._id}` === this.props.match.params.noteId)
-        if(selectedNote === undefined) {
-            return <div>Loading...</div>
-        } else {
-            return this.setState({title: selectedNote.title, textBody: selectedNote.textBody})
+        this.props.match.url === "/createnewnote" ? this.setState({editingNote: false }) : this.setState({editingNote: true })
+
+        if(this.props.match.url !== "/createnewnote") {
+            const selectedNote = this.props.notes.find(note => `${note._id}` === this.props.match.params.noteId)
+
+            if(selectedNote === undefined) {
+                return <div>Loading...</div>
+            } else {
+                return this.setState({title: selectedNote.title, textBody: selectedNote.textBody})
+            }
         }
       }
 
     render() {
         return(
             <NoteWrapper>
-                <NotesHeader>Edit Note:</NotesHeader>
+                <NotesHeader>{this.state.editingNote ? 'Edit Note:' : 'Create New Note:'}</NotesHeader>
                 <SCForm onSubmit={this.submitHandler}>
                     <TitleInput
                         autoFocus
@@ -102,4 +122,4 @@ class EditNote extends React.Component {
     }
 }
 
-export default connect(null, { editNote })(EditNote);
+export default connect(null, { editNote, addNote })(NoteForm);

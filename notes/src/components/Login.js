@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// #region Styled Components
 const LoginWrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -35,6 +36,7 @@ const SCButton = styled.button`
     width: 100px;
     text-align: center;
 `;
+// #endregion Styled Components
 
 class Login extends React.Component {
     state = {

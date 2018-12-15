@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// #region Styled Components
 const NotesListWrapper = styled.div`
     margin-top: 0px;
     display: flex;
@@ -31,6 +32,7 @@ const CardBody = styled.p`
     font-size: 12px;
     padding: 10px 0;
 `;
+// #endregion Styled Components
 
 class NotesList extends React.Component {
 
@@ -39,14 +41,17 @@ class NotesList extends React.Component {
             return <div>Loading...</div>
         }
         return (
+            
+                
             <NotesListWrapper>
-                {this.props.notes.map(note => (
+                {this.props.notes.map(note => (     
                     <NoteCard onClick={() => this.props.history.push(`/note/${note._id}`)} key={note._id}>
-                    <CardHeader>{note.title}</CardHeader>
-                    <CardBody>{note.textBody}</CardBody>
+                        <CardHeader>{note.title}</CardHeader>
+                        <CardBody>{note.textBody}</CardBody>
                     </NoteCard>
                 ))}
             </NotesListWrapper>
+                
         );
     }
 }

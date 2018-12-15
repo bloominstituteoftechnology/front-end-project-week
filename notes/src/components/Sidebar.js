@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+// #region Styled Components
 const SidebarWrapper = styled.div`
     height: 100%;
     width: 200px;
@@ -61,6 +62,7 @@ const SCButton = styled.button`
         color: #25B7BD;
     }
 `;
+// #endregion Styled Components
 
 const Sidebar = props => {
     return (

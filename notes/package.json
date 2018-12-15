@@ -7,6 +7,7 @@
     "markdown-to-jsx": "^6.9.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
+    "react-beautiful-dnd": "^10.0.3",
     "react-csv": "^1.0.19",
     "react-dom": "^16.6.3",
     "react-markdown": "^4.0.4",

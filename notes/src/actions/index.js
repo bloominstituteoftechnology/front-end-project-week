@@ -29,12 +29,6 @@ export const deleteNote = id => dispatch => {
         .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
         .then(response => {
             dispatch({ type: DELETE_NOTE_SUCCESS });
-            axios
-                .get('https://fe-notes.herokuapp.com/note/get/all')
-                .then(response => {
-                    dispatch({ type: NOTES_FETCH_SUCCESS, payload: response.data })
-                })
-                .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }))
         })
         .catch(err => dispatch({ type: DELETE_NOTE_FAILURE, payload: err }));
 };
@@ -48,12 +42,6 @@ export const addNote = (title, textBody) => dispatch => {
         })
         .then(response => {
             dispatch({ type: ADD_NOTE_SUCCESS });
-            axios
-                .get('https://fe-notes.herokuapp.com/note/get/all')
-                .then(response => {
-                    dispatch({ type: NOTES_FETCH_SUCCESS, payload: response.data })
-                })
-                .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }))
         })
         .catch(err => dispatch({ type: ADD_NOTE_FAILURE, payload: err }));
 };
@@ -68,12 +56,6 @@ export const editNote = (id, title, textBody) => dispatch => {
         .then(response => {
             console.log(response);
             dispatch({ type: EDIT_NOTE_SUCCESS })
-            axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
-            .then(response => {
-                dispatch({ type: NOTES_FETCH_SUCCESS, payload: response.data })
-            })
-            .catch(err => dispatch({ type: NOTES_FETCH_FAILURE, payload: err }))
         })
         .catch(err => dispatch({ type: EDIT_NOTE_FAILURE, payload: err }));
 }
