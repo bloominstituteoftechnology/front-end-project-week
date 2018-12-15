@@ -34,10 +34,10 @@ export const CardP = styled(StyledP)`
   ::before {
     content: '';
     width: 100%;
-    height: 100%;
+    height: 30%;
     position: absolute;
     left: 0;
-    top: 0;
-    background: linear-gradient(transparent 100px, #ffffff);
+    bottom: 0;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
   }
 `;

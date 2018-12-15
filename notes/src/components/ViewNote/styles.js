@@ -56,5 +56,6 @@ export const NoteTitle = styled(StyledH3)``;
 
 export const NoteContent = styled(StyledP)`
   line-height: 2.8rem;
+  white-space: pre-wrap;
   margin-top: 30px;
 `;

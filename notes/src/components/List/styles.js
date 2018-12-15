@@ -68,7 +68,7 @@ export const NewOldMobileButton = styled(Button)`
 
 export const ListTitle = styled(StyledH3)`
   margin-left: 30px;
-  @media (max-width: 940) {
+  @media (max-width: 940px) {
     margin-left: 5vw;
   }
 `;
