@@ -3,6 +3,7 @@ import axios from 'axios';
 
 //import Note from './Note';
 import NoteCard from './NoteCard';
+import Menu from './Menu';
 
 
 class NoteList extends Component {
@@ -42,7 +43,7 @@ constructor(props) {
 
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:3333/api/notes/")
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -55,8 +56,9 @@ constructor(props) {
     return (
       <div>
         {this.state.notes.map(note => (
-            <NoteCard key={note._id} note={note} />
+            <NoteCard key={note.id} note={note} />
         ))}
+        <Menu/>
       </div>
     );
   }

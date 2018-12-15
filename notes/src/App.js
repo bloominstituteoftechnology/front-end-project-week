@@ -5,7 +5,6 @@ import { Route } from 'react-router-dom';
 
 import Note from './Components/Note';
 import NoteList from './Components/NoteList';
-import Menu from './Components/Menu';
 
 class App extends Component {
   constructor(props) {
@@ -14,14 +13,14 @@ class App extends Component {
       notes: [],
       note: {
         title: '',
-        textBody: '',
+        contents: '',
       },
     };
   }
 
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("http://localhost:3333/api/notes/")
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -30,7 +29,7 @@ class App extends Component {
       });
   }
   
-  deleteNote = (e, id) => {
+/*  deleteNote = (e, id) => {
     e.preventDefault();
   
     axios
@@ -42,8 +41,8 @@ class App extends Component {
       .catch(error => {
         console.error("Failed to delete note.", error);
       })
-  }
-
+  } */
+ 
   render() {
     return (
       <div className="App">
@@ -52,10 +51,9 @@ class App extends Component {
           render={props => <NoteList {...props} notes={this.state.notes} />}
         />
         <Route
-          path="/note/:_id"
+          path="/note/:id"
           render={props => <Note {...props} notes={this.state.notes} />}
         />
-        <Menu />
       </div>
     );
   }

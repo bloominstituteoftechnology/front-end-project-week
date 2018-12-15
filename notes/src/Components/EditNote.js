@@ -1,4 +1,4 @@
-/* import React, { Component } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 class EditNote extends Component {
@@ -6,35 +6,42 @@ class EditNote extends Component {
         super(props);
         this.state = {
             title: '',
-            textBody: ''
+            contents: '',
+            id: null
         };
     }
 
-addNote = e => {
-    e.preventDefault();
-
-    const newNote = {
-        title: this.state.title,
-        textBody: this.state.textBody
-    }
+/* componentDidMount() {
+    const id = this.props.match.params.id;
+    this.setState({ id, notes: this.props.notes });
 
     axios
-    .put('https://fe-notes.herokuapp.com/note/edit/id', newNote)
+    .put(`http://localhost:3333/api/notes/${id}`)
     .then(response => {
-        this.setState({notes: response.data})
+        this.setState({note: response.data})
         //this.props.history.push('/');
     })
-}
+
+  }
+ */
 
 handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value});
 };
 
+editNote = (e, id) => {
+    e.preventDefault();
+
+    axios
+    .put(`http://localhost:3333/api/notes/${id}`)
+
+}
+
 render() {
     return (
         <div>
             <form>
-                <h1>Edit New Note:</h1>
+                <h1>Edit Note:</h1>
                 <input 
                     onChange={this.handleInputChange}
                     placeholder='title'
@@ -43,15 +50,15 @@ render() {
                 />
                 <input 
                     onChange={this.handleInputChange}
-                    placeholder='textBody'
-                    value={this.state.textBody}
-                    name='textBody'
+                    placeholder='contents'
+                    value={this.state.contents}
+                    name='contents'
                 />
-                <button onClick={this.addNote}>Save</button>
+                <button onClick={this.editNote}>Save</button>
             </form>
         </div>
         );
     }
 }
 
-export default EditNote; */
+export default EditNote;

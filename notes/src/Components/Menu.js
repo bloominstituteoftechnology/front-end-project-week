@@ -7,7 +7,7 @@ class Menu extends Component {
     render() {
         return ( 
             <div>
-                <CreateNote />
+                <CreateNote/>
             </div>
         );
     }
