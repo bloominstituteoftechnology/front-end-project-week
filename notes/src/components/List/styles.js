@@ -16,11 +16,11 @@ export const SearchBar = styled.div`
   z-index: 2;
   flex-shrink: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   background: ${colors.backgroundColor};
-  padding: 8px 0px;
+  padding: 8px 5% 8px 33px;
   @media (max-width: 940px) {
     align-self: flex-end;
     justify-content: space-around;
@@ -90,7 +90,7 @@ export const StyledNoteLink = styled(StyledLink)`
   margin-bottom: 27px;
   animation-name: out;
   animation-duration: 150ms;
-  box-shadow: 0px 3px 10px -3px rgb(0, 0, 0);
+  box-shadow: 0 3px 10px -3px rgb(0, 0, 0);
   @media (max-width: 940px) {
     width: 28vw;
   }
@@ -107,7 +107,7 @@ export const StyledNoteLink = styled(StyledLink)`
   }
   @keyframes in {
     from {
-      box-shadow: 0px 3px 10px -3px rgb(0, 0, 0);
+      box-shadow: 0 3px 10px -3px rgb(0, 0, 0);
     }
     to {
       box-shadow: 0 15px 50px -20px rgb(0, 0, 0);
@@ -118,7 +118,7 @@ export const StyledNoteLink = styled(StyledLink)`
       box-shadow: 0 15px 50px -20px rgb(0, 0, 0);
     }
     to {
-      box-shadow: 0px 3px 10px -3px rgb(0, 0, 0);
+      box-shadow: 0 3px 10px -3px rgb(0, 0, 0);
     }
   }
 `;

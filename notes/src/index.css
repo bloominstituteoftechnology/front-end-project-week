@@ -36,7 +36,6 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
-  background: #EFF1ED;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
