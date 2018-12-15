@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "gsap": "^2.0.2",
     "markdown-to-jsx": "^6.9.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",

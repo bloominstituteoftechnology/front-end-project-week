@@ -38,12 +38,6 @@ const StyledHeader = styled.h1`
     font-size: 30px;
     padding-bottom: 30px;
 `;
-const SearchInput = styled.input`
-    border: 2px solid lightgrey;
-    font-size: 14px;
-    border-radius: 5px;
-    padding: 10px;
-`;
 const SCButton = styled.button`
     font-size: 16px;
     
@@ -71,7 +65,6 @@ const Sidebar = props => {
             <NavButton to="/">View Your Notes</NavButton>
             <NavButton to="/createnewnote">+ Create New Note</NavButton>
             <SCButton onClick={() => {props.downloadCSV({ filename: "stock-data.csv", columnDelimiter: "," })}}>Export Notes</SCButton>
-            <SearchInput type="search" placeholder="Search..." onKeyDown={props.searchNotes} />
         </SidebarWrapper>
     )
 }

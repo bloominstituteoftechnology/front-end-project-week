@@ -1,59 +1,21 @@
-import React, { Component } from 'react';
-import { Route, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from 'react';
+import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import NotesListView from './views/NotesListView';
-import Note from './components/Note';
-import NoteForm from './components/NoteForm';
+import NoteView from './views/NoteView';
 import Sidebar from './components/Sidebar';
 import Authenticate from './components/Authenticate';
-
-import { getNotes } from './actions/';
 
 // #region Styled Components
 const AppWrapper = styled.div`
   display: flex;
   margin: auto 0;
 `;
-const MainWrapper = styled.div`
-  margin-left: 200px;
-  width: 80%;
-`;
 // #endregion Styled Components
 
-class App extends Component {
-    state = {
-        notes: [],
-        noteIds: [],
-        filteredNotes: [],
-        reversedNotes: [],
-        sortText: 'newest',
-    }
-
-  componentDidMount() {
-    this.props.getNotes();
-  }
-
-  componentDidUpdate() {
-    if(this.props.addingNote || this.props.editingNote || this.props.deletingNote) {
-      this.props.getNotes();
-    }
-  }
-
-  searchNotes = event => {
-    const searchNotes = this.props.notes.filter(note => {
-      if (note.textBody.includes(event.target.value) || note.title.includes(event.target.value)) {
-        return note;
-      }
-    });
-    this.setState({ filteredNotes: searchNotes })
-  }
-
-  sortNotes = event => {
-    let reversedArray = this.props.notes.reverse();
-    this.setState(prevState => ({ reversedNotes: reversedArray, sortText: (prevState.sortText === 'newest' ? 'oldest' : 'newest') }));
-  }
+class App extends React.Component {
+  
+  // #region Methods
 
   convertArrayOfObjectsToCSV = (args) => {
     var result, ctr, keys, columnDelimiter, lineDelimiter, data;
@@ -106,41 +68,16 @@ class App extends Component {
     link.setAttribute('download', filename);
     link.click();
   }
+  // #endregion Methods
 
   render() {
     return (
       <AppWrapper>
-        <Route path="/" render={props => <Sidebar {...props} searchNotes={this.searchNotes} exportCSV={this.exportCSV} downloadCSV={this.downloadCSV} />} />
-          <MainWrapper>
-              <Route 
-                exact path="/" 
-                render={props => 
-                  <NotesListView 
-                    {...props}
-                    sortNotes={this.sortNotes}
-                    sortText ={this.state.sortText}
-                    notes={this.state.filteredNotes.length > 0 && this.state.filteredNotes.length !== this.props.notes.length ? this.state.filteredNotes : (this.state.reversedNotes.length > 0 ? this.state.reversedNotes : this.props.notes)} 
-                  /> 
-                  }
-                />
-              <Route exact path="/note/:noteId" render={props => <Note {...props} notes={this.props.notes} />} />
-            <Route path="/createnewnote" component={NoteForm} />
-            <Route path="/note/edit/:noteId" render={props => <NoteForm {...props} notes={this.props.notes} />} />
-          </MainWrapper>
+        <Route path="/" render={props => <Sidebar {...props} downloadCSV={this.downloadCSV} />} />
+        <Route path="/" render={props => <NoteView {...props} /> } />
       </AppWrapper>
     );
   }
 }
 
-const mapStatetoProps = state => {
-  return {
-      notes: state.notes,
-      fetchingNotes: state.fetchingNotes,
-      error: state.error,
-      addingNote: state.addingNote,
-      deletingNote: state.deletingNote,
-      editingNote: state.editingNote
-  }
-}
-
-export default Authenticate(withRouter(connect(mapStatetoProps, { getNotes })(App)));
+export default Authenticate(App);
