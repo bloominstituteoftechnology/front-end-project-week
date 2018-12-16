@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const AppWrapper = styled.div` 
   display: flex;
   background-color: #F2F1F2;
-  height: 100vh;
+  height: 100%;
   // border: 3px solid red;
 `;
 
@@ -59,6 +59,51 @@ export const NavContent = styled.div `
   // border: 1px solid orange;
 `;
 
+export const TopNavWrapper = styled.div `
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  width: 50%;
+`;
+export const DropdownWrapper = styled.div`
+  width: 25%;
+  height: auto;
+  cursor: default;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  background: #26B7BD;
+  border: 1.2px solid #BABABA;
+`;
+
+export const Dropdown = styled.div`
+  width: 100%;
+  margin-top: 5px;
+`;
+
+export const DropdownItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5px;
+  border-top: 1.2px solid white;
+`;
+
+export const DropdownItem = styled.button`
+  text-align: left;
+  padding-left: 1rem;
+  color: white;
+  font-weight: bold;
+  border: none;
+  background: #26B7BD;
+  // border: 1px solid salmon;
+
+  :hover {
+    text-decoration: underline;
+  }
+`;
+
 export const NotesView = styled.div`
   width: 80%;
 `;
@@ -86,10 +131,11 @@ export const NotesContent = styled.div`
   height: 270px;
   margin: 10px;
   background-color: #ffff;
-  overflow: hidden;
+  cursor: default;
+  // overflow: hidden;
   // text-overflow: ellipsis;
-  border: 2px solid #D3D2D3;
-
+  // border: 2px solid #D3D2D3;
+  
   :hover {
     transform: scale(1.1);
   }
@@ -101,20 +147,12 @@ export const Notes =  styled.div`
 
 export const NotesTitle = styled.h3`
   padding-bottom: .5rem;
-  border-bottom: 1px solid black
+  border-bottom: 1px solid black;
 `;
 
 export const NotesBody = styled.p`
-// width: 100%;
-// height: 150px;
-// white-space: nowrap;
-// overflow: hidden;
-// text-overflow: ellipsis;
+  word-wrap: break-word;
 
-// padding: 20px;
-// font-size: 1.3rem;
-// margin: 0;
-// background: white;
 // border: 1px solid orange;
 `;
 

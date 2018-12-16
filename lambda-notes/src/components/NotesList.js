@@ -13,7 +13,7 @@ class NotesList extends React.Component  {
 
     truncate = (string) => {
         if (string.length > 140)
-           return string.substring(0, 145)+'...';
+           return string.substring(0, 140)+'...';
         else
            return string;
      };

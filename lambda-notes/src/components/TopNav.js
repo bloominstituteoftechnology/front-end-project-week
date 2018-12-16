@@ -1,7 +1,8 @@
 import React from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 import SearchBar from './SearchBar';
+
+import { TopNavWrapper, DropdownWrapper, Dropdown, DropdownItemWrapper, DropdownItem } from '../style';
 
 export default class TopNav extends React.Component {
   constructor(props) {
@@ -19,21 +20,22 @@ export default class TopNav extends React.Component {
 
   render() {
     return (
-      <div className='topnav-wrapper'>
+      <TopNavWrapper>
         <SearchBar 
           filteredSearch={this.props.filteredSearch}
           handleSearchInput={this.props.handleSearchInput}
         />
-        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret color='info'>
-            Sort By <span>...</span>
-          </DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem onClick={this.props.sortTitle}>Sort By Title</DropdownItem>
-              <DropdownItem onClick={this.props.sortRecent}>Sort By Most Recent</DropdownItem>
-            </DropdownMenu>
-      </Dropdown>
-      </div>
+       <DropdownWrapper>
+         <Dropdown onClick={this.toggle}>Sort By <span>...</span></Dropdown>
+         {this.state.dropdownOpen ? (
+           <DropdownItemWrapper>
+             <DropdownItem onClick={this.props.sortTitle}>Title</DropdownItem>
+             <DropdownItem onClick={this.props.sortRecent}>Recent</DropdownItem>
+           </DropdownItemWrapper>
+          ) : ( null )
+         }
+       </DropdownWrapper>
+      </TopNavWrapper>
     );
   }
 }

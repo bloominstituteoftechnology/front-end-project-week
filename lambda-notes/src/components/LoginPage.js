@@ -36,13 +36,13 @@ class LoginPage extends Component {
 
                     <input
                         type='password'
-                        name='passwoed'
+                        name='password'
                         value={this.state.password}
                         placeholder='Enter Password'
                         onChange= {this.handleChange}
                     /> 
 
-                    <button onSubmit={this.addLogin}>Login In</button>
+                    <button onClick={this.addLogin}>Login In</button>
                 </form> 
             </div>
         );
