@@ -36,7 +36,7 @@ class Note extends Component {
                  </NoteNav>
                 <h2>{note.title}</h2>
                 <Markdown source={note.textBody}/>
-             <CheckList/>
+             {/* <CheckList/> */}
                     <ReactModal className='ReactModal' isOpen={this.state.showModal} contentLabel="Minimal Modal Example">
                         <ModalWrapper onClick={this.handleCloseModal}>
                             <ModalContent>

@@ -55,7 +55,7 @@ class CreateNewNote extends Component {
                         type='text'
                         name='textBody'
                         onChange={this.handleChange}
-                        placeholder='Enter Text'
+                        placeholder={this.props.edit ? `${this.state.textBody}`: 'Create New Note'}
                         value={this.state.textBody}
                     />
                     <FormButton>{this.props.edit ? 'Edit Note': 'Save'}</FormButton>

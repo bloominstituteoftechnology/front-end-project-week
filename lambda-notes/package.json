@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.6.3",
+    "react-checkbox-group": "^4.0.1",
     "react-dom": "^16.6.3",
     "react-modal": "^3.7.1",
     "react-router-dom": "^4.3.1",

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const AppWrapper = styled.div` 
   display: flex;
   background-color: #F2F1F2;
-  height: 100%;
+  height: 100vh;
   // border: 3px solid red;
 `;
 
@@ -89,6 +89,10 @@ export const NotesContent = styled.div`
   overflow: hidden;
   // text-overflow: ellipsis;
   border: 2px solid #D3D2D3;
+
+  :hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const Notes =  styled.div`
