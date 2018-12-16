@@ -12,7 +12,7 @@ import {
 
 const initialState = {
     noteList: [],
-    listLoading: false,
+    loading: false,
     note: {
         tags: [],
         title: '',
@@ -29,13 +29,13 @@ const noteReducer = (state = initialState, action) => {
         case GETTING_NOTES:
             return {
                 ...state,
-                listLoading: true
+                loading: true
             }
         case NOTE_SUCCESS:
             return {
                 ...state,
                 noteList: action.payload,
-                listLoading: false
+                loading: false
             }
         case SINGLE_NOTE:
             return {
@@ -50,6 +50,11 @@ const noteReducer = (state = initialState, action) => {
         case CREATIVE:
             return {
                 ...state,
+                note: {
+                    tags: [],
+                    title: '',
+                    textBody: ''
+                },
                 editNote: false
             }
         case CREATE_NOTE:

@@ -7,6 +7,7 @@ import HeadNav from './components/HeadNav/HeadNav';
 import ListView from './components/ListView/ListView';
 import NoteView from './components/NoteView/NoteView';
 import EditNote from './components/EditCreate/EditNote';
+import CreateNote from './components/EditCreate/CreateNote';
 // import Delete from './components/Delete/Delete';
 
 //actions
@@ -15,29 +16,29 @@ import { getNotes, viewNote, create, createMode, editMode, ruSure, deleter } fro
 //page styling
 import './App.css';
 class App extends Component {
-  componentDidMount() {
-    this.props.getNotes()
-  }
-  
+  // componentDidMount() {
+  //   this.props.getNotes()
+  // }
+
   getNote = (event) => {
     const id = event.currentTarget.id;
     this.props.viewNote(id)
-    this.props.history.push(`/api/notes/${id}`)
+    this.props.history.push(`/notes/${id}`)
   }
   
-  goHome = (props) => {
-    props.history.push('/')
-    this.props.getNotes()
+  goHome = async (props) => {
+    await this.props.getNotes()
+    props.history.push('/notes')
   }
   
   editNote = (props) => {
     this.props.editMode()
-    props.history.push('/edit')
+    props.history.push(`/edit/${props.note.id}`)
   }
   
   createNote = (props) => {
     this.props.createMode()
-    props.history.push('/edit')
+    props.history.push('/create')
   }
 
   deleteNote = (event) => {
@@ -56,14 +57,14 @@ class App extends Component {
           />
         )} />
         <div className='mainView'>
-          <Route exact path='/' render={(props) => (
+          <Route exact path='/notes' render={(props) => (
             <ListView
               {...props}
               noteList={this.props.noteList}
               getNote={this.getNote}
             />
           )} />
-          <Route path='/api/notes/:id' render={(props) => (
+          <Route path='/notes/:id' render={(props) => (
             <NoteView
               {...props}
               goHome={this.goHome}
@@ -74,12 +75,18 @@ class App extends Component {
               deleter={this.props.deleter}
             />
           )} />
-          <Route exact path='/edit' render={(props) => (
+          <Route exact path='/edit/:id' render={(props) => (
             <EditNote 
               {...props}
               goHome={this.goHome}
             />
             )} />
+          <Route exact path='/create' render={(props) => (
+            <CreateNote
+              {...props}
+              goHome={this.goHome}
+            />
+          )} />
         </div>
 
       </div>
@@ -90,7 +97,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     noteList: state.noteList,
-    listLoading: state.listLoading,
+    loading: state.loading,
     note: state.note,
     editNote: state.editNote,
     deleteModal: state.deleteModal

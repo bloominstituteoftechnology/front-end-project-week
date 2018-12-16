@@ -9,17 +9,16 @@ export const DELETE_CONFIRM = 'DELETE_CONFIRM';
 export const DELETE_OFF = 'DELETE_OFF';
 
 
-export const getNotes = () => dispatch => {
+export const getNotes = () => async dispatch => {
     dispatch({ type: GETTING_NOTES})
-    return (
-        axios
-            .get('http://localhost:4500/api/notes')
-            // .get('https://fe-notes.herokuapp.com/note/get/all')
-            .then(({ data }) => {
-                dispatch({ type: NOTE_SUCCESS, payload: data})
-            })
-            .catch(error => console.log(error))
-    )
+    try {
+        const notes = await axios.get('http://localhost:4500/api/notes');
+        return (
+            dispatch({ type: NOTE_SUCCESS, payload: notes.data.notes })
+        )
+    } catch (error) {
+        console.log(error);
+    }
 }
 export const viewNote = (id) => dispatch => {
     return (

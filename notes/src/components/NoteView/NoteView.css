@@ -4,11 +4,19 @@
 }
 
 .note {
-    padding-top: 2.25rem;
+    margin-top: 3rem;
+    padding: 2.25rem 1.75rem 5rem;
+    background-color: #D3D3D3;
+    border-radius: 1rem;
+}
+
+.note h3 {
+    border-bottom: 1px black solid;
+    padding-bottom: 1.5rem;
 }
 
 .noteText {
-    padding-top: 2.75rem;
+    padding-top: 2rem;
     padding-right: 2rem;
     font-size: 1.4rem;
     line-height: 2.5rem;
@@ -17,6 +25,7 @@
 
 .noteControl {
     text-align: right;
+    cursor: pointer;
 }
 
 .editButton, .delete {

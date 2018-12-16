@@ -11,6 +11,7 @@
 }
 
 .notesBox {
+    cursor: pointer;
     width: 19.25rem;
     height: 19.75rem;
     background-color: #FFFFFF;

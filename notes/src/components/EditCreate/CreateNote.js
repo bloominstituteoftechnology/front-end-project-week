@@ -6,30 +6,29 @@ import { create, edit, getNotes } from '../actions';
 //styling
 import './EditCreate.css';
 
-class EditNote extends Component {
+class CreateNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: this.props.note.id,
-            title: this.props.note.title,
-            textBody: this.props.note.textBody
+            id: '',
+            title: '',
+            textBody: ''
         }
     }
-    
+
     changeHandler = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    editNote = (event, props) => {
+    createNote = (event, props) => {
         event.preventDefault();
-        const noteId = this.state.id
         const note = {
             title: this.state.title,
             textBody: this.state.textBody
         }
-        this.props.edit(note, noteId)
+        this.props.create(note)
         this.props.getNotes()
         props.history.push('/notes');
     }
@@ -37,7 +36,7 @@ class EditNote extends Component {
     render() {
         return (
             <div className='notePage'>
-                <h3>Edit Note</h3>
+                <h3>Create New Note</h3>
                 <form className='noteEntry'>
                     <input
                         type='text'
@@ -53,10 +52,10 @@ class EditNote extends Component {
                         onChange={this.changeHandler}
                         value={this.state.textBody}
                     >
-    
+
                     </textarea>
-                    <button onClick={(event) => this.editNote(event, this.props)} className='noteSave'>
-                        Update
+                    <button onClick={(event) => this.createNote(event, this.props)} className='noteSave'>
+                        Save
                     </button>
                 </form>
             </div>
@@ -67,8 +66,7 @@ class EditNote extends Component {
 const mapStateToProps = state => {
     return {
         note: state.note,
-        editNote: state.editNote
     }
 }
- 
-export default connect(mapStateToProps, { create, edit, getNotes })(EditNote);
+
+export default connect(mapStateToProps, { create, edit, getNotes })(CreateNote);
