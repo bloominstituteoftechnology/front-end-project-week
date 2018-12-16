@@ -1,0 +1,34 @@
+.headNav {
+    background-color: #D3D2D3;
+    width: 26.5rem;
+    min-height: 100vh;
+    text-align: left;
+}
+
+.headNav h1 {
+    font-size: 3.6rem;
+    font-weight: bold;
+    line-height: 3rem;
+    padding-top: 1.8rem;
+    padding-left: 1.2rem;
+}
+
+.navSection {
+    margin: 3rem 1.5rem 0 1.5rem;
+}
+
+.navButton {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: white;
+    background-color: #24B8BD;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 19.15rem;
+    height: 4.25rem;
+    line-height: 4.25rem;
+    margin-top: 1.8rem;
+}
+

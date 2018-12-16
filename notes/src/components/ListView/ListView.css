@@ -1,0 +1,41 @@
+.listView {
+    width: 100%;
+    padding: 5.5rem 2.75rem 0 2.75rem;
+}
+
+.notesWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 3rem;
+}
+
+.notesBox {
+    cursor: pointer;
+    width: 19.25rem;
+    height: 19.75rem;
+    background-color: #FFFFFF;
+    border: 1px solid #C5C5C5;
+    padding: 1rem 1.5rem 2rem 1.5rem;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+    box-shadow: 0.5rem 0.5rem 0.25rem grey;
+}
+
+.notesBox:active {
+  box-shadow: 0 0.1rem #666;
+  transform: translateY(4px);
+}
+
+.prevTitle {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid grey;
+}
+
+.prevContent {
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+    padding-top: 0.75rem;
+}
