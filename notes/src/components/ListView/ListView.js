@@ -11,6 +11,15 @@ class ListView extends React.Component {
         this.props.getNotes()
     }
 
+    prevTrimmer(content) {
+        if (content.length <= 125) {
+            return content;
+        } else {
+            const trim = content.slice(0,125) + '...';
+            return trim;
+        }
+    }
+
     render() {
         return (
             <div className='listView'>
@@ -20,7 +29,7 @@ class ListView extends React.Component {
                         return (
                             <div id={note.id} key={note.id} className='notesBox' onClick={(event) => this.props.getNote(event)}>
                                 <p className='prevTitle'>{note.title}</p>
-                                <p className='prevContent'>{note.textBody}</p>
+                                <p className='prevContent'>{this.prevTrimmer(note.textBody)}</p>
                             </div>
                         )
                     })}
