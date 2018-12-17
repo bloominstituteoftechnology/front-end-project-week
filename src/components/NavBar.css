@@ -1,0 +1,29 @@
+.title {
+        font-family: 'Roboto Bold', sans-serif;
+        color: #4A4A4A;
+        text-align: start;
+        margin: 20px 0 20px 15px;
+        font-size: 36px;
+        line-height: 30px;
+    }
+    
+.link {
+        margin: 10px 20px 0 15px;
+        width: 87%;
+        min-height: 40px;
+        height: 100%;
+    }
+    
+.buttons {
+        background-color: #2BC1C4;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        margin-top: 8px;
+        min-height: 42px;
+        height: 100%;
+        width: 100%;
+        border: none;
+        border: 1px solid #979797;
+        color: #FFFFFF;
+        cursor: pointer;
+    } 
