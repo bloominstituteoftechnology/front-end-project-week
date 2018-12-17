@@ -1,0 +1,37 @@
+.headerNewNote {
+    display: flex; 
+    justify-content: flex-start; 
+    margin-top: 70px;     
+    margin-left: 270px;  
+    font: Roboto Bold;              
+}
+
+.form {
+    margin-left: 270px;
+    margin-top: 15px;
+    padding: 2px;    
+}
+
+.title {
+    margin-left: 220px;  
+    padding: 2px 200px 2px 0; 
+    margin-bottom: 20px;  
+}
+
+.body {
+    margin-left: 220px;
+    padding: 0 500px 300px 0; 
+    margin-bottom: 30px;  
+}
+
+.button3 {
+    padding: 6px 35px 6px 35px;
+    text-decoration: none;
+    font-size: 16px;
+    font: Raleway Medium;
+    background-color: #2BC1C4; 
+    color: #FFFFFF;
+    display: block;
+    margin-left: 270px;    
+    margin-bottom: 50px; 
+} 

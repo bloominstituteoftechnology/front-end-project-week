@@ -1,0 +1,6 @@
+.route-container {
+    min-height: 100%;
+    max-width: 100%;
+    background-color: #F3F3F3;
+    border: 1px solid red;
+}

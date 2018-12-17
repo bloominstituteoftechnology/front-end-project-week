@@ -1,0 +1,69 @@
+.header-notes {
+    display: flex; 
+    justify-content: flex-start; 
+    margin-top: 25px;     
+    margin-left: 270px;  
+    font: Roboto Bold;              
+}
+
+.content {
+    margin-left: 270px;
+    margin-right: 50px;
+    margin-top: 20px;   
+    margin-bottom: 50px; 
+    text-align: left; 
+    font: Raleway Medium; 
+}
+
+.links {
+    display: flex; 
+    justify-content: flex-end;    
+    margin-right: 60px; 
+    margin-top: 20px;     
+}
+
+.edit {
+    margin-right: 30px; 
+}
+
+.delete-button {
+    padding: 6px 45px 6px 45px;
+    text-decoration: none;
+    text-decoration-line: none; 
+    font-size: 16px;
+    font: Raleway Medium;
+    background-color: #D0021B; 
+    color: #FFFFFF;
+    display: block;
+    margin-left: 20px; 
+}
+
+.cancel-button {
+    padding: 6px 45px 6px 45px;
+    text-decoration: none;
+    text-decoration-line: none; 
+    font-size: 16px;
+    font: Raleway Medium;
+    background-color: #2BC1C4; 
+    color: #FFFFFF;
+    display: block;
+    margin-left: 20px; 
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #4A4A4A;
+    text-decoration-line: underline;
+}
+
+.delete {
+    color: #4A4A4A;
+    text-decoration-line: underline;
+}
