@@ -29,6 +29,7 @@ class App extends Component {
       <div className="App">
         I am the App
         <NoteList />
+        
       </div>
     );
   }
