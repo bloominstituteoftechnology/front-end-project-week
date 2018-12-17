@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {
-  Route,
-  NavLink
+  Route
 } from "react-router-dom";
 import axios from 'axios'
 import Notes from './components/Notes'
@@ -37,12 +36,8 @@ class App extends Component {
     axios
     .post(`${url}create`, data)
     .then(res => {
-      console.log(res);
-      this.setState({
-        notes: res.data
-      })
+      console.log(res)
     })
-    .catch(err => console.log(err))
   }
 
   deleteNote = id => {
@@ -75,10 +70,10 @@ class App extends Component {
       <NavBar />
         <Route 
         exact path='/'
-        render={props => <Notes notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote} {...props} />}
+        render={props => <Notes notes={this.state.notes} {...props} />}
         />
         <Route path='/note/:noteid'
-        render={props => <NoteView notes={this.state.notes} {...props} />}
+        render={props => <NoteView notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote} {...props} />}
         />
         <Route path='/create' 
         render={props => <NoteForm addNote={this.addNote} {...props} />}
