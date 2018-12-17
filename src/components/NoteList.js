@@ -1,25 +1,33 @@
-import React from "react";
+import React, { Component } from "react";
 import NoteCard from "./NoteCard";
 import SearchBar from "./SearchBar";
 
-const NoteList = props => {
-  return (
-    <div className="note-card-container">
-      <div className="notes-header">
-        <div>
-          <SearchBar
-            searchFilterHandler={props.searchFilterHandler}
-            searchTerm={props.searchTerm}
-            searchFilter={props.searchFilter}
-          />
+class NoteList extends Component {
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
+
+  render() {
+    return (
+      <div className="note-card-container">
+        <div className="notes-header">
+          <div>
+            <SearchBar
+              searchFilterHandler={this.props.searchFilterHandler}
+              searchTerm={this.props.searchTerm}
+              searchFilter={this.props.searchFilter}
+            />
+          </div>
+          <h3>Your Notes</h3>
         </div>
-        <h3>Your Notes</h3>
+        {this.props.notes.map(note => {
+          return (
+            <NoteCard key={note.id} deleteNote={this.props.deleteNote} note={note} editNote={this.props.editNote} />
+          );
+        })}
       </div>
-      {props.notes.map(note => {
-        return <NoteCard key={note.id} deleteNote={props.deleteNote} note={note} editNote={props.editNote} />;
-      })}
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default NoteList;

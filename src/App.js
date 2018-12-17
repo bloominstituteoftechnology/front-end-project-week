@@ -6,7 +6,8 @@ import AddNoteForm from "./components/AddNoteForm";
 import { Route, NavLink, withRouter } from "react-router-dom";
 import Note from "./components/Note";
 import EditNoteForm from "./components/EditNoteForm";
-// import LoginPage from "./components/LoginPage";
+import LoginPage from "./components/LoginPage";
+import Register from "./components/Register";
 
 const api = "https://adamsnotes.herokuapp.com/api/notes/";
 
@@ -16,22 +17,46 @@ class App extends Component {
     this.state = {
       notes: [],
       searchTerm: "",
-      username: "",
-      searchedNotes: []
+      username: ""
     };
   }
 
   componentDidMount() {
+    const token = localStorage.getItem("jwt");
+    const options = {
+      headers: {
+        Authorization: token
+      }
+    };
     axios
-      .get(`${api}`)
+      .get(`${api}`, options)
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   }
 
+  fetchNotes = () => {
+    const token = localStorage.getItem("jwt");
+    const options = {
+      headers: {
+        Authorization: token
+      }
+    };
+    axios
+      .get(`${api}`, options)
+      .then(res => this.setState({ notes: res.data }))
+      .catch(err => console.log(err));
+  };
+
   addNote = (e, newNote) => {
     e.preventDefault();
+    const token = localStorage.getItem("jwt");
+    const options = {
+      headers: {
+        Authorization: token
+      }
+    };
     axios
-      .post(`${api}`, newNote)
+      .post(`${api}`, newNote, options)
       .then(res => {
         newNote.id = res.data.success;
         this.setState({ notes: [newNote, ...this.state.notes] });
@@ -58,6 +83,7 @@ class App extends Component {
 
   editNote = (e, id, state) => {
     e.preventDefault();
+
     axios
       .put(`${api}${id}`, state)
       .then(res => {
@@ -67,7 +93,7 @@ class App extends Component {
           if (Number(note.id) === Number(res.data.id)) {
             return res.data;
           }
-          return updatedArray;
+          return note;
         });
         this.setState({ notes: updatedArray });
       })
@@ -75,7 +101,7 @@ class App extends Component {
   };
 
   searchFilter = searchTerm => {
-    // eslint-disable-next-line
+    console.log("test", this.state.notes);
     const filteredNotes = this.state.notes.filter(note =>
       note.noteTitle.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -96,20 +122,12 @@ class App extends Component {
   };
 
   logout = e => {
-    e.preventDefault();
-    this.setState({ username: "" });
-  };
-
-  editingNote = id => {
-    return this.state.notes.find(note => Number(note.id) === Number(id));
+    localStorage.removeItem("jwt");
+    this.props.history.push("/");
   };
 
   render() {
-    // if (this.state.username === "") {
-    //   return <LoginPage loginHandler={this.loginHandler} />;
-    // }
-
-    return (
+    return localStorage.getItem("jwt") ? (
       <div className="App">
         <div className="side-bar">
           <h1 className="nav-title">Notes</h1>
@@ -125,6 +143,7 @@ class App extends Component {
             </div>
           </div>
         </div>
+
         <div className="body">
           <Route
             exact
@@ -132,7 +151,7 @@ class App extends Component {
             render={props => (
               <NoteList
                 {...props}
-                // notes={this.searchFilter(this.state.searchTerm)}
+                fetchNotes={this.fetchNotes}
                 notes={this.searchFilter(this.state.searchTerm)}
                 deleteNote={this.deleteNote}
                 addNote={this.addNote}
@@ -144,14 +163,12 @@ class App extends Component {
           />
           <Route path="/add-note" render={props => <AddNoteForm {...props} addNote={this.addNote} />} />
           <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
-          <Route
-            path="/edit/:id"
-            render={props => (
-              <EditNoteForm note={this.editingNote(props.match.params.id)} {...props} editNote={this.editNote} />
-            )}
-          />
+          <Route path="/edit/:id" render={props => <EditNoteForm {...props} editNote={this.editNote} />} />
+          <Route path="/register" render={props => <Register {...props} />} />
         </div>
       </div>
+    ) : (
+      <LoginPage />
     );
   }
 }

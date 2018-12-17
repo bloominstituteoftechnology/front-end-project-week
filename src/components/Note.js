@@ -9,20 +9,29 @@ class Note extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: [],
+      note: null,
       showModal: false
     };
   }
 
   componentDidMount() {
+    console.log("CDM", this.props.match.params.id);
     const id = this.props.match.params.id;
     this.fetchNote(id);
   }
 
   fetchNote = id => {
+    const token = localStorage.getItem("jwt");
+    const options = {
+      headers: {
+        Authorization: token
+      }
+    };
     axios
-      .get(`${api}${id}`)
-      .then(res => this.setState({ note: res.data }))
+      .get(`${api}${id}`, options)
+      .then(res => {
+        this.setState({ note: res.data[0] });
+      })
       .catch(res => console.log(res));
   };
 
@@ -88,11 +97,3 @@ class Note extends Component {
 }
 
 export default withRouter(Note);
-
-/* <div
-  onClick={e => {
-    this.props.deleteNote(e, _id);
-  }}
->
-  delete
-</div>; */

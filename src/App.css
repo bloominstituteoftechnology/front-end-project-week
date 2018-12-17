@@ -43,6 +43,7 @@
   font-weight: bold;
   border: 1px solid #94a3a4;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .nav-buttons:hover {

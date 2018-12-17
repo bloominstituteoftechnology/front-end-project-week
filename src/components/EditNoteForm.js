@@ -4,12 +4,13 @@ import axios from "axios";
 const api = "https://adamsnotes.herokuapp.com/api/notes/";
 
 class EditNoteForm extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      noteTitle: this.props.note.noteTitle,
-      noteBody: this.props.note.noteBody,
-      note: null
+      noteTitle: "",
+      noteBody: "",
+      noteId: ""
+      // note: null
     };
   }
 
@@ -19,9 +20,21 @@ class EditNoteForm extends Component {
   }
 
   fetchNote = id => {
+    const token = localStorage.getItem("jwt");
+    const options = {
+      headers: {
+        Authorization: token
+      }
+    };
     axios
-      .get(`${api}${id}`)
-      .then(res => this.setState({ note: res.data }))
+      .get(`${api}${id}`, options)
+      .then(res =>
+        this.setState({
+          noteTitle: res.data[0].noteTitle,
+          noteBody: res.data[0].noteBody,
+          noteId: res.data[0].id
+        })
+      )
       .catch(res => console.log(res));
   };
 
@@ -30,12 +43,16 @@ class EditNoteForm extends Component {
   };
 
   helper = e => {
-    this.props.editNote(e, this.state.note.id, this.state);
+    const { noteTitle, noteBody } = this.state;
+    this.props.editNote(e, this.state.noteId, { noteTitle, noteBody });
     this.setState({ noteTitle: "", noteBody: "" });
     this.props.history.push("/");
   };
 
   render() {
+    if (!this.state.noteTitle) {
+      return <p>loading</p>;
+    }
     console.log(this.props);
     return (
       <div>
