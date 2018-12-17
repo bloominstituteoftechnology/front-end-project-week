@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import NoteList from "./components/NoteList";
 import AddNoteForm from "./components/AddNoteForm";
-import { Route, NavLink, withRouter } from "react-router-dom";
+import { Route, NavLink, withRouter, Switch } from "react-router-dom";
 import Note from "./components/Note";
 import EditNoteForm from "./components/EditNoteForm";
 import LoginPage from "./components/LoginPage";
@@ -17,7 +17,7 @@ class App extends Component {
     this.state = {
       notes: [],
       searchTerm: "",
-      username: ""
+      loggedIn: false
     };
   }
 
@@ -89,7 +89,6 @@ class App extends Component {
       .then(res => {
         console.log(res.data);
         const updatedArray = this.state.notes.map(note => {
-          // console.log(note.id, res.data.id, note.id == res.data.id);
           if (Number(note.id) === Number(res.data.id)) {
             return res.data;
           }
@@ -112,10 +111,11 @@ class App extends Component {
     this.setState({ searchTerm: e.target.value });
   };
 
-  loginHandler = (e, username) => {
+  loginHandler = e => {
     e.preventDefault();
-    if (username !== "") {
-      this.setState({ username: username });
+    console.log("login hander fired");
+    if (localStorage.getItem("jwt")) {
+      this.setState({ loggedIn: true });
     } else {
       alert("You need to login");
     }
@@ -123,11 +123,19 @@ class App extends Component {
 
   logout = e => {
     localStorage.removeItem("jwt");
+    this.setState({ loggedIn: false });
     this.props.history.push("/");
   };
 
   render() {
-    return localStorage.getItem("jwt") ? (
+    console.log("logged in?", this.state.loggedIn);
+    //ternary operator
+    return !this.state.loggedIn ? (
+      <Switch>
+        <Route path="/register" render={props => <Register {...props} />} />
+        <Route exact path="/" render={props => <LoginPage loginHandler={this.loginHandler} />} />
+      </Switch>
+    ) : (
       <div className="App">
         <div className="side-bar">
           <h1 className="nav-title">Notes</h1>
@@ -145,30 +153,29 @@ class App extends Component {
         </div>
 
         <div className="body">
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <NoteList
-                {...props}
-                fetchNotes={this.fetchNotes}
-                notes={this.searchFilter(this.state.searchTerm)}
-                deleteNote={this.deleteNote}
-                addNote={this.addNote}
-                editNote={this.editNote}
-                searchFilterHandler={this.searchFilterHandler}
-                searchTerm={this.state.searchTerm}
-              />
-            )}
-          />
-          <Route path="/add-note" render={props => <AddNoteForm {...props} addNote={this.addNote} />} />
-          <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
-          <Route path="/edit/:id" render={props => <EditNoteForm {...props} editNote={this.editNote} />} />
-          <Route path="/register" render={props => <Register {...props} />} />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <NoteList
+                  {...props}
+                  fetchNotes={this.fetchNotes}
+                  notes={this.searchFilter(this.state.searchTerm)}
+                  deleteNote={this.deleteNote}
+                  addNote={this.addNote}
+                  editNote={this.editNote}
+                  searchFilterHandler={this.searchFilterHandler}
+                  searchTerm={this.state.searchTerm}
+                />
+              )}
+            />
+            <Route path="/add-note" render={props => <AddNoteForm {...props} addNote={this.addNote} />} />
+            <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
+            <Route path="/edit/:id" render={props => <EditNoteForm {...props} editNote={this.editNote} />} />
+          </Switch>
         </div>
       </div>
-    ) : (
-      <LoginPage />
     );
   }
 }

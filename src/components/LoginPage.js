@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Register from "../components/Register";
 import { Link, withRouter } from "react-router-dom";
 
 class LoginPage extends Component {
@@ -20,6 +21,7 @@ class LoginPage extends Component {
         localStorage.setItem("jwt", res.data.token);
         this.setState({ message: "Login successful" }, () => this.props.history.push("/"));
       })
+      .then(this.props.loginHandler(e))
       .catch(err => {
         console.log("login error", err);
         this.setState({ message: "Login failed" });
