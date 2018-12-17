@@ -9,7 +9,7 @@ export const EditNoteView = props => (
       console.log('submit wrapper', note)
       props.onSubmit(note)
     }} 
-    action={"Update"} 
-    formTitle={"Create new note:"}
+    action={"Submit"} 
+    formTitle={"Edit note:"}
   />
 );

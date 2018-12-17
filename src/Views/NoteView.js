@@ -42,9 +42,11 @@ export const NoteView = props => {
         <Link to={`/note/edit/${id}`}>
           <span className="edit">edit</span>
         </Link>
-        <span className="delete" onClick={(e)=>{
-          displayModal.toggle()
-        }}>delete</span>
+        <span 
+          className="delete" 
+          onClick={(e)=>{
+            displayModal.toggle()
+          }}>delete</span>
       </div>
       <h2>
         {note.title}

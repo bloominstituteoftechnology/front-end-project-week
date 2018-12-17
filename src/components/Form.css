@@ -11,7 +11,7 @@
 
 .note-form form > * {
   margin: 5px 0 5px 0;
-  padding: .5rem 0 .5rem 0;
+  padding: .1rem 0 .1rem 0;
 }
 
 .note-form form h2 {
@@ -31,7 +31,7 @@
 }
 
 .note-form form .content {
-  height: 345px;
+  height: 100px;
 }
 
 .note-form form button {
