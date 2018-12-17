@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'tags': [],      
+      notes: [],      
     };
   }
 
@@ -18,17 +18,18 @@ class App extends Component {
       .then(response => {
         console.log(response.data);
         this.setState({
-          tags: response.data
+          notes: response.data
         });
       })
       .catch(err => console.log(err));
   }
 
   render() {
+    const { notes } = this.state;
     return (
       <div className="App">
         I am the App
-        <NoteList />
+        <NoteList notes={notes} />
         
       </div>
     );
