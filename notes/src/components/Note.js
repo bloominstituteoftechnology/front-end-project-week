@@ -2,7 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const NoteContainer = styled.div`
-color: red;
+color: black;
+text-decoration: none;
+text-align: left;
+padding-left: 10px;
+
+h3 {
+    border-bottom: 2px solid #D5D5D5;
+    width: 200px;
+    padding-bottom: 5px;
+}
 `
 
 const Note = props => {

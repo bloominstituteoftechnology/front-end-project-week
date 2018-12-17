@@ -5,16 +5,26 @@ import styled from 'styled-components';
 
 const StyledNotesContainer = styled.div`
 display: flex;
-// flex-direction: row;
+flex-wrap: wrap;
 justify-content: center;
-margin-left: 241px;
+margin-left: 240px;
 background-color: #F2F1F2;
 
 h2 {
-    width: 200px;
+    text-align: left;
+    // width: 200px;
+    width: 1500px;
     padding-left: 15px;
     color: #4E5053;
 }
+`
+
+const StyledNote = styled.div`
+border: 2px solid #D9D9D9;
+width: 250px;
+height: 260px;
+background-color: #FFFFFF;
+margin: 10px;
 `
 
 
@@ -23,18 +33,20 @@ class Notes extends Component {
     return (
       <StyledNotesContainer>
         <h2>Your Notes:</h2>
-        <ul>
+
           {this.props.notes.map(note => {
             return (
               <NavLink to={`/note/${note._id}`} key={note._id}>
-                <Note
-                  title={note.title}
-                  textBody={note.textBody}
-                />
+                <StyledNote>
+                    <Note
+                    key={note._id}
+                      title={note.title}
+                      textBody={note.textBody}
+                    />
+                </StyledNote>
               </NavLink>
             );
           })}
-        </ul>
       </StyledNotesContainer>
     );
         }
