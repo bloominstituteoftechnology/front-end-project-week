@@ -1,12 +1,17 @@
+
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   getNotes,
   updateNote,
   updateForm,
   addNote,
+  updateFormComplete
 } from "../actions";
+import styled from "styled-components";
+import "./CreateNew.css";
 
-const HeaderWrapper = styled.div`
+const Banner = styled.div`
   height: 100px;
   margin: 0px 10px;
   padding: 40px 0;
@@ -14,7 +19,7 @@ const HeaderWrapper = styled.div`
   font-weight: bold;
 `;
 
-class createNewNotes extends Component {
+class CreateNew extends Component {
 
   constructor() {
     super();
@@ -26,13 +31,11 @@ class createNewNotes extends Component {
   }
 
   componentDidMount() {
-    console.log("testing testing testing - what?.");
     this.updateNote();
   }
   componentDidUpdate(previousProps) {
     if (this.props.addingNote !== previousProps.addingNote) {
       if (!this.props.addingNote) {
-        console.log("we be fetchng");
         this.props.getNotes();
         this.props.history.push("/notes");
       }
@@ -46,7 +49,6 @@ class createNewNotes extends Component {
   };
 
   submitHandler = event => {
-    console.log("1 if by land, 2 if by sea!");
     event.preventDefault();
     if (this.props.currentNote) this.props.updateNote(this.state);
     else this.props.addNote(this.state);
@@ -65,38 +67,38 @@ class createNewNotes extends Component {
 
   render() {
     if (this.props.addingNote) {
-      console.log("stuff and things");
-      return <h1>something goes here</h1>;
+      console.log("something goes here");
+      return <h1>"The rotation of the Earth really makes my day."</h1>;
     }
     return (
       <>
-        <div className="Form-Container">
-          <HeaderWrapper>Create a Note:</HeaderWrapper>
+        <div className="Notes-Container">
+          <Banner>Create a New Note:</Banner>
 
           <form onSubmit={this.submitHandler}>
-            <input className="enter-title"
+            <input className="add-title"
               onChange={this.changeHandler}
               type="text"
               name="title"
               value={this.state.title}
-              placeholder="Add a Title"
+              placeholder="Add title"
             />
-            <textarea className="enter-text"
+            <textarea className="add-text"
               onChange={this.changeHandler}
               type="text"
               name="textBody"
               value={this.state.textBody}
-              placeholder="Add Text"
+              placeholder="Add text"
             />
-            <input className="input-tags"
+            <input className="search-tags"
               onChange={this.changeHandler}
               type="text"
               name="tags"
               value={this.state.tags}
-              placeholder="Add a Tag"
+              placeholder="Add tags"
             />
             <button>
-              {this.props.currentNote ? `Update Note!` : `Save Note!`}
+              {this.props.currentNote ? `Update` : `Save`}
             </button>
           </form>
         </div>
@@ -113,5 +115,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getNotes, updateNote, updateForm, addNote }
-)(createNewNotes);
+  { getNotes, updateNote, updateForm, updateFormComplete, addNote }
+)(CreateNew);

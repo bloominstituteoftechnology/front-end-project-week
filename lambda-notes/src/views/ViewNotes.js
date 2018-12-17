@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./ViewNotes.css";
 
 class ViewNotes extends Component {
   constructor(props) {
@@ -8,14 +9,12 @@ class ViewNotes extends Component {
     };
   }
 
-
-
   toggle = () => {
     this.setState({
       toggleModal: !this.state.toggleModal
     });
   };
-  
+
   delete = (id) => {
     console.log(id);
 
@@ -29,51 +28,46 @@ class ViewNotes extends Component {
     })}
 
 
-
-
-
   render() {
     let note = this.props.notes.find(
       note => note._id === this.props.match.params._id
     );
-
-    console.log("Here we are - getting notified!");
-    if (note === undefined) return <h1>Getting Notes</h1>;
+    if (note === undefined) return <h1>Gettin' Notified!</h1>;
     return (
-      <div className="ViewNotesContainer">
+      <div className="NotesViewContainer">
         <div
           className={
-            this.state.toggleModal ? "Modal-Container" : "Modal-Hidden"
+            this.state.toggleModal ? "Modal-Box" : "Modal-Hidden"
           }
         >
-          <div className="Delete-Confirm">
+          <div className="Confirmation-Box">
             <h2>
-              Hi there! Just a friendly confirmation - are you sure you want to delete this?
+              Are you sure you want to delete this?
             </h2>
-            <div className="Delete-Btn">
+            <div className="Button-Box">
               <button
-                className="Delete-Modal"
+                className="Delete-Button"
                 onClick={() => {
                 this.delete(note._id);
                 }}
               >
-                {"It is done."}
+                {"Delete"}
               </button>
               <button
-                className="Modal-Cancel-Delete"
+                className="Cancel-Button"
                 onClick={() => this.toggle()}
               >
-                {"I changed my mind! Don't do it!"}
+                {"No"}
               </button>
             </div>
           </div>
         </div>
-        <div className="Note-View">
-          <div className="Edit-Deletes">
+        <div className="Notes">
+          <div className="Edit-Box">
             <div
               onClick={() => {
                 this.props.updateForm(note);
-                this.props.history.push("/createNewNote");
+                this.props.history.push("/createNote");
               }}
             >
               Edit

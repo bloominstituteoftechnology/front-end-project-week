@@ -1,15 +1,16 @@
 import React from "react";
-import Notes from '../components/notes';
+import Note from '../components/Note';
 import styled from "styled-components";
 
-const NewList = props => {
 
-    const ShortNotes = styled.div`
+const List = props => {
+
+    const AltNotes = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     `;
-    const HeadMessaging = styled.div`
+    const Banner = styled.div`
     height: 100px;
     margin: 0px 10px;
     padding: 40px 0;
@@ -18,13 +19,13 @@ const NewList = props => {
     `;
     return (
         <>
-        <HeadMessaging>Behold, Your List!:</HeadMessaging>
-        <ShortNotes >
+        <Banner>Your Notes:</Banner>
+        <AltNotes >
         
 
         {props.notes.map((note) => 
-        <Notes  {...props} key={note._id} notes={note}  /> )}
-        </ShortNotes>
+        <Note  {...props} key={note._id} note={note}  /> )}
+        </AltNotes>
         </>
     )
 
@@ -33,4 +34,4 @@ const NewList = props => {
 
 
 
-export default NewList;
+export default List;

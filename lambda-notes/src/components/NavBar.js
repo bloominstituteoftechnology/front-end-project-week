@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
+import './NavBar.css';
 
-const Navigator = styled.div`
-  border: 1px solid black;
+
+const NaviBar = styled.div`
+  border: 1px #AAAAAA;
   padding: 10px;
   width: 25%;
   font-size: 2rem;
@@ -24,12 +26,12 @@ line-height: 50px;
 
 const NavBar = props => {
   return (
-    <Navigator>
+    <NaviBar>
       <Header>Lambda Notes</Header>
-      <NavLink className="NavLink" to="/notes">View Notes List</NavLink>
+      <NavLink className="NavLink" to="/notes">View Your Notes</NavLink>
       <br></br>
-      <NavLink className="NavLink" to='/createNote'> + Create a New Note! </NavLink>
-    </Navigator>
+      <NavLink className="NavLink" to='/createNote'> + Create New Note</NavLink>
+    </NaviBar>
   );
 };
 

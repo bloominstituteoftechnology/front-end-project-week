@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
-import NavBar from "./components/navBar";
+import { connect } from "react-redux";
+import { getNotes, updateForm, addNote, deleteNote } from "./actions";
+import { withRouter } from "react-router";
 import { Route } from "react-router-dom";
-import ViewNotes from "./containers/viewNotes";
-import NewList from "./containers/newList";
-
+import ViewNotes from "./views/ViewNotes";
+import List from "./views/List";
+import NavBar from "./components/NavBar";
+import CreateNew from "./views/CreateNew";
 
 class App extends Component {
   componentDidMount() {
@@ -12,28 +15,27 @@ class App extends Component {
   }
 
   render() {
-   
-    if (this.props.gettingNotes) {
-      return <h2>Loading: Hang Tight.</h2>;
+    if (this.props.fetchingNotes) {
+      return <h2>Hang Tight: LOADING.</h2>;
     }
     if (this.props.error) {
-      return <h1>Houston, we have a problem!</h1>;
+      return <h1>Houston, we have a problem.</h1>;
     }
     return (
-      <div className="Page-Container">
+      <div className="App-Container">
         <NavBar />
-        <div className="Main-View">
+        <div className="Primary-View">
           <div className="Note-Container">
             <Route
               exact
               path="/notes"
-              render={props => <NewList {...props} notes={this.props.notes} />}
+              render={props => <List {...props} notes={this.props.notes} />}
             />
             <Route
               
               path="/createNote"
               render={props => (
-                <createNewNote {...props} notes={this.props.notes} />
+                <CreateNew {...props} notes={this.props.notes} />
               )}
             />
             <Route
@@ -55,6 +57,15 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  notes: state.notes,
+  fetchingNotes: state.fetchingNotes,
+  populate: state.populate
+});
 
-
-export default App;
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getNotes, updateForm, addNote, deleteNote }
+  )(App)
+);
