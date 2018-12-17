@@ -1,3 +1,5 @@
+Marco Guzman trello: https://trello.com/b/7kBJnp5n/lambda-notes-marco-guzman
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
@@ -54,6 +56,7 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
   - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
 ```
 
+
 ---
 
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.
@@ -73,3 +76,16 @@ Once your MVP has been approved, you have been given a feature list that the cli
 - [ ] Create a login system around the MVP
 
 You will notice that this repository does not have any starter code. This is on purpose. You are to start from scratch using any files you have built throughout your time here at Lambda School.
+
+DESIGN CSS USED:
+Heading font: Roboto Bold
+Everything else font: Raleway Medium
+
+Heading and main font color: #4A4A4A
+Button font color: #FFFFFF
+
+Sidebar background: #D8D8D8
+Main background: #F3F3F3
+Main button background: #2BC1C4
+Delete button background: #D0021B
+Border color used throughout: #979797
