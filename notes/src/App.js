@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-
+import axios from "axios";
+import NoteList from "./components/NoteList";
 import './App.css';
-import NoteList from './NoteList';
+
 
 class App extends Component {
   render() {

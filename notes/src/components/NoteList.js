@@ -1,6 +1,6 @@
 import React from "react";
 
-function NoteList (props) {
+const NoteList = props => {
     return (
         <div className='note-list'>
             I am the note list
