@@ -1,28 +1,42 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+
+import Note from './components/Note'
+import NoteList from './components/NoteList'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+  constructor() {
+    super();
+      this.state = {
+        note: null
+      }
+    }
+    componentDidMount() {
+      const id = this.props.match.params.id;
+      this.fetchNotes(id);
+    }
+    fetchNotes = id => {
+      axios
+      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .then(response => {
+        this.setState(() => ({ note: response.data }));
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    }
+    addTodo() {
+
+    }
+    render() {
+      return (
+        <div>
+          <NoteList />
+        </div>
+      )
+    }
   }
-}
 
 export default App;
