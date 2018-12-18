@@ -131,7 +131,7 @@ export const addNote = (note) => async dispatch => {
     dispatch({type: ADD_NOTE});
     const res = await axios.post(`${url}/note/create`, note)
     // console.log('res', res);
-    const newNoteRes = await axios.get(`${url}/note/get/${res.data.success}`)
+    const newNoteRes = await axios.get(`${url}/note/get/${res.data.noteId}`)
     // console.log('newNoteRes', newNoteRes);
     dispatch({type: ADD_NOTE_SUCCESS, payload: newNoteRes.data})
   } catch(err) {

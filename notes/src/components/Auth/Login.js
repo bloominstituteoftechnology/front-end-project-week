@@ -6,6 +6,7 @@ import { authLogin } from '../../actions'
 
 import Background from '../Background';
 import Navigation from '../Home/Navigation';
+import Loading from '../Loading';
 
 import requireNotAuth from './requireNotAuth';
 
@@ -39,6 +40,11 @@ class Login extends Component {
                 }}>
                 <Background/>
                 <Navigation {...this.props}/>
+                
+                {
+                    this.props.loading ? <Loading/> : null
+                }
+
                 <StyledLabel htmlFor="username">Username</StyledLabel>
                 <StyledInput 
                     type="text" 
@@ -72,10 +78,11 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => {
-    const { authenticated, error } = state.auth;
+    const { authenticated, error, loading } = state.auth;
     return {
         authenticated,
         error,
+        loading,
     }
 }
 
