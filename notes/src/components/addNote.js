@@ -10,21 +10,12 @@ class AddNote extends React.Component {
         };
     }
 
-    createNote = event => {
-        event.preventDefault();
-        const newNote = {
-            title: this.state.title,
-            textBody: this.state.textBody
-        }
-        axios
-        .post('https://fe-notes.herokuapp.com/note/create', newNote)
-        .then(response => {
-            console.log(response.data);
-            this.props.updateNote(response.data);
-            this.props.history.push('/')
-        })
-        .catch(err => console.log(err));
-    }
+    handleCreateNote = event => {
+       event.preventDefault();
+       this.props.onSubmit(this.state);
+       this.setState({ title: '', textBody: '' });
+       this.props.history.push('/');
+    };
 
     handleInputChange = event => {
         this.setState({ [event.target.name]: event.target.value });
@@ -33,7 +24,7 @@ class AddNote extends React.Component {
     render() {
         return (
             <div className='add-note'>
-                <form onSubmit={this.createNote}>
+                <form onSubmit={this.handleCreateNote}>
                 <h2>Create New Note:</h2>
                 <input 
                     type='text'

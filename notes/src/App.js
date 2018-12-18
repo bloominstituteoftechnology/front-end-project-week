@@ -27,9 +27,19 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  updateNotes = notes => {
-    this.setState({ notes })
-  }  
+  updateNotes = () => {
+  axios
+    .get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(response => this.setState({ notes: response.data }))
+    .catch(err => console.log(err));
+};
+
+handleSubmit = note => {
+  axios
+    .post('https://fe-notes.herokuapp.com/note/create', note)
+    .then(() => this.updateNotes())
+    .catch(err => console.log(err));
+}
   
 
   render() {
@@ -42,7 +52,7 @@ class App extends Component {
         <Route
           path='/create'
           render={(props) => (
-              <AddNote {...props} notes={notes} updateNotes={this.updateNotes}/>  
+              <AddNote {...props} onSubmit={this.handleSubmit} />  
           )}
           />   
         </div>        
@@ -53,16 +63,4 @@ class App extends Component {
 
 export default App;
 
-// updateNotes = () => {
-//   axios
-//     .get('https://fe-notes.herokuapp.com/note/get/all')
-//     .then(response => this.setState({ notes: response.data }))
-//     .catch(err => console.log(err));
-// };
 
-// handleSubmit = note => {
-//   axios
-//     .post('https://fe-notes.herokuapp.com/note/create', note)
-//     .then(() => this.updateNotes())
-//     .catch(err => console.log(err));
-// }
