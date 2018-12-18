@@ -55,8 +55,6 @@ const NoteContainer = styled.div`
   padding: 2%;
   background-color: rgb(230,230,230);
   width: 100%;
-
-  border: 1px solid red;
   ${({active}) => active && `
     background-color: blue; 
   `}
@@ -83,6 +81,29 @@ const NoteBody = styled.p`
   font-size: 1.6rem;
   color: black;
 `;
+
+const Popup = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+`;
+
+const Popup_Inner = styled.div`
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  background: white;
+`;
+
 
 function assignButtonText(currentView){
   if(currentView === "add"){
@@ -120,6 +141,7 @@ function assignStateValues(props) {
   state["tags"] = [];
   state["currentView"] = props.currentView;
   state["changingView"] = props.changingView;
+  state["showDeletePopup"] = false;
 
   return state;
 }
@@ -167,16 +189,18 @@ class NoteForm extends React.Component {
       );
     }else if(type === "confirmDelete"){
       this.setState({
-        confirmDelete: true
+        showDeletePopup: true
+      });
+    }else if(type === "cancelDelete"){
+      this.setState({
+        showDeletePopup: false
       });
     }else if(type === "delete"){
-      /*
       this.props.deleteNote(
         {
-          id: id
+          id: this.state._id
         }
       );
-      */
      
      this.setState({
         confirmDelete: false
@@ -223,6 +247,15 @@ class NoteForm extends React.Component {
           </HyperLinkContainer>
           <HeaderTwo>{this.state.title}</HeaderTwo>
           <NoteBody>{this.state.textBody}</NoteBody>
+          {this.state.showDeletePopup ? 
+            <Popup>
+              <Popup_Inner>
+                <Button onClick={event => this.handleClick(event,this.state._id,"delete")} >Ok</Button> 
+                <Button onClick={event => this.handleClick(event,this.state._id,"cancelDelete")} >Cancel</Button>
+              </Popup_Inner>
+            </Popup>
+          : null
+          }
         </NoteContainer>
       );
     }
