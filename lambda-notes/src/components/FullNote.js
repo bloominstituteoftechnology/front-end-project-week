@@ -85,6 +85,7 @@ class FullNote extends React.Component {
     } else {
       tag.notes_id = parseInt(this.props.match.params.id);
       if (tag.text !== "") {
+        
         axios
           .post(this.tagUrl, tag)
           .then(this.getTags)

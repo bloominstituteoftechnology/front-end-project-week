@@ -140,18 +140,19 @@ class App extends Component {
   //triggered in every onChange in the searchbar from inside searchHandler function, filters list view by note titles containing the current searchTerm
   searchFilter = () => {
     if (this.state.searchTerm !== "") {
+      console.log(this.state.searchTerm);
       axios
-        .get(this.noteUurl)
+        .get(this.noteUrl)
         //added toLowerCase for both the titles coming from server and the searchTerm to make sure cases won't block a search
-        .then(response =>
+        .then(response => {
           this.setState({
             notes: response.data.filter(note =>
               note.title
                 .toLowerCase()
                 .includes(this.state.searchTerm.toLowerCase())
             )
-          })
-        )
+          });
+        })
         .catch(err => {
           console.log(
             "Something went wrong and we couldn't process this search: ",
@@ -164,8 +165,8 @@ class App extends Component {
   };
 
   //controls searchBar input in NoteList
-  searchHandler = value => {
-    this.setState({ ...this.state, searchTerm: value });
+  searchHandler = async value => {
+    await this.setState({ ...this.state, searchTerm: value });
     this.searchFilter();
   };
 
