@@ -17,8 +17,9 @@ class NoteList extends React.Component{
             />
             <button
                 onClick={() => {
+                  console.log(note._id);
                   this.props.deleteNote(
-                    note.id
+                    note._id
                   )
                 }}>Delete</button>
             </div>
