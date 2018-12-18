@@ -4,12 +4,12 @@ import Note from './Note';
 class NoteList extends React.Component{
   render(){
     return(
-      <div>
-        <h1>Your Notes:{' '}</h1>
-        <div>
+      <div className='main-page'>
+        <h3>Your Notes:{' '}</h3>
+        <ul>
         {this.props.notes.map(note => {
           return(
-            <div>
+            <div className='notes'>
             <Note
               key={note.id}
               title={note.title}
@@ -24,7 +24,7 @@ class NoteList extends React.Component{
             </div>
           )
         })}
-        </div>
+        </ul>
       </div>
     )}
 }
