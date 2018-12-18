@@ -62,15 +62,18 @@ class EditNote extends Component {
   }
 
   componentDidMount() {
-      this.props.notes.map(note => {
+      this.props.notes.filter( note => {
           if (this.props.match.params.id === note._id) {
-              this.setState({
+             return this.setState({
                   title: note.title,
                   textBody: note.textBody
               })
+          } else {
+              return 'error'
           }
       })
   }
+
 
   submitChange = e => {
     e.preventDefault();
