@@ -5,8 +5,7 @@ const Note = props => {
     const title = note.title;
     const text = note.textBody;
     return (
-        <div className='note'>        
-            I am the note
+        <div className='note'>             
             <h3>{title}</h3>
             <p>{text}</p>
         </div>

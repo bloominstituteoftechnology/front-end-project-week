@@ -76,3 +76,26 @@ html {
   font-weight: bold;
 }
 
+.btn {
+  background-color: #3eb0b5;
+  color: white;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.note-list {
+  width: 90%;
+  background-color: bisque;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.note {
+  border: 1px solid red;
+  font-size: 1.5rem;
+  display: flex;
+  flex-flow: column wrap;
+  width: 26%;
+  padding: 1rem;
+  margin: 1rem;
+}
+
