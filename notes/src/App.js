@@ -46,6 +46,7 @@ class App extends Component {
         })
       })
     })
+    .catch(err => console.log(err))
   }
 
   deleteNote = id => {
@@ -53,11 +54,15 @@ class App extends Component {
     .delete(`${url}delete/${id}`)
     .then(res => {
       console.log(res);
+      return axios
+      .get(`${url}get/all`)
+      .then(res => {
       this.setState({
         notes: res.data
       })
     })
     .catch(err => console.log(err))
+  })
   }
 
   render() {
