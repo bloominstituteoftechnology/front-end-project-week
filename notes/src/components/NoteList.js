@@ -9,7 +9,7 @@ class NoteList extends React.Component{
         <ul>
         {this.props.notes.map(note => {
           return(
-            <div className='notes'>
+            <div className='each-note'>
             <Note
               key={note.id}
               title={note.title}

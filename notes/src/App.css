@@ -31,7 +31,7 @@
   width: 100%;
 }
 
-.notes{
+.each-note{
   display: flex;
   flex-flow: column wrap;
   border: 1px solid black;
