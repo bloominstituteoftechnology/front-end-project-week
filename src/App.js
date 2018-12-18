@@ -100,7 +100,6 @@ class App extends Component {
   };
 
   searchFilter = searchTerm => {
-    console.log("test", this.state.notes);
     const filteredNotes = this.state.notes.filter(note =>
       note.noteTitle.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -114,11 +113,8 @@ class App extends Component {
   loginHandler = e => {
     e.preventDefault();
     console.log("login hander fired");
-    if (localStorage.getItem("jwt")) {
-      this.setState({ loggedIn: true });
-    } else {
-      alert("You need to login");
-    }
+    localStorage.getItem("jwt") ? this.setState({ loggedIn: true }) : alert("you need to login");
+    this.props.history.push("/");
   };
 
   logout = e => {

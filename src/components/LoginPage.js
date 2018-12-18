@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Register from "../components/Register";
 import { Link, withRouter } from "react-router-dom";
 
 class LoginPage extends Component {
@@ -8,20 +7,22 @@ class LoginPage extends Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
-      // message: ""
+      password: "",
+      message: ""
     };
   }
 
   handleSubmit = e => {
+    const { username, password } = this.state;
     e.preventDefault();
     axios
-      .post("https://adamsnotes.herokuapp.com/api/login", this.state)
+      .post("https://adamsnotes.herokuapp.com/api/login", { username, password })
       .then(res => {
         localStorage.setItem("jwt", res.data.token);
-        this.setState({ message: "Login successful" }, () => this.props.history.push("/"));
+        this.setState({ message: "Login successful" });
       })
       .then(this.props.loginHandler(e))
+      .then(() => this.props.history.push("/"))
       .catch(err => {
         console.log("login error", err);
         this.setState({ message: "Login failed" });
