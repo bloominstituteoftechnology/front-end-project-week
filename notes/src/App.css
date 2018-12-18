@@ -50,6 +50,9 @@ table {
 html {
   font-size: 62.5%;
 }
+* {
+  box-sizing: border-box;
+}
 .App {
   max-width: 800px;
   width: 100%;
@@ -82,8 +85,13 @@ html {
   cursor: pointer;
   font-size: 2rem;
 }
+.app-content {
+  width: 100%;
+  background-color: aquamarine;
+}
 .note-list {
   width: 90%;
+  font-size: 1.5rem;
   background-color: bisque;
   display: flex;
   flex-wrap: wrap;
@@ -97,5 +105,12 @@ html {
   width: 26%;
   padding: 1rem;
   margin: 1rem;
+}
+.note h3 {
+  font-size: 2rem;
+}
+.note-view {
+  background-color: cornflowerblue;
+  font-size: 1.5rem;
 }
 

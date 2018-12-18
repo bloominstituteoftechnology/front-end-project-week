@@ -63,9 +63,9 @@ deleteNote = id => {
           )}
           />
           <Route 
-            path='view/:id'
-            render={props => (
-              <NoteView {...props} notes={notes}  />
+            path='/view/:id'
+            render={(props) => (
+              <NoteView {...props} notes={notes} />
             )}
             />   
         </div>        

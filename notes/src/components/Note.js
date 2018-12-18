@@ -13,7 +13,7 @@ const Note = props => {
             <p>{text}</p>
         </div>
     );
-}
+};
 
 
 

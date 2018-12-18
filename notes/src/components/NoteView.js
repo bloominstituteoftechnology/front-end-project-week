@@ -19,10 +19,10 @@ class NoteView extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.title === '' ||this.props.params.id !== prevProps.match.params.id)
+        if (prevState.title === '' || this.props.match.params.id !== prevProps.match.params.id)
         {
             const note = this.props.notes.find(
-                note => `{note._id}` === this.props.match.params.id
+                note => `${note._id}` === this.props.match.params.id
             );
             this.setState(note);
         }
@@ -37,7 +37,7 @@ class NoteView extends React.Component {
         return(
             <div className='note-view'>
                 <div>
-                    <Link>edit</Link>
+                    <div>edit</div>
                     <h4>delete</h4>
                 </div>
                 <h2>{this.state.title}</h2>
