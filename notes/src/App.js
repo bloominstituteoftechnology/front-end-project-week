@@ -27,6 +27,11 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  updateNotes = notes => {
+    this.setState({ notes })
+  }  
+  
+
   render() {
     const { notes } = this.state;
     return (
@@ -34,7 +39,12 @@ class App extends Component {
         <LeftSideBarNav />
         <div className='app-content'>
         <Route exact path='/' render={() => <NoteList notes={notes} /> } />
-        <Route path='/create' render={() => <AddNote  notes={notes} />} />
+        <Route
+          path='/create'
+          render={(props) => (
+              <AddNote {...props} notes={notes} updateNotes={this.updateNotes}/>  
+          )}
+          />   
         </div>        
       </div>
     );
@@ -42,3 +52,17 @@ class App extends Component {
 }
 
 export default App;
+
+// updateNotes = () => {
+//   axios
+//     .get('https://fe-notes.herokuapp.com/note/get/all')
+//     .then(response => this.setState({ notes: response.data }))
+//     .catch(err => console.log(err));
+// };
+
+// handleSubmit = note => {
+//   axios
+//     .post('https://fe-notes.herokuapp.com/note/create', note)
+//     .then(() => this.updateNotes())
+//     .catch(err => console.log(err));
+// }
