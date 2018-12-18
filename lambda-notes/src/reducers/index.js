@@ -18,7 +18,8 @@ import {
   DELETING_NOTE_FAILURE,
   EDIT_NOTE,
   EDIT_NOTE_SUCCESS,
-  EDIT_NOTE_FAILURE
+  EDIT_NOTE_FAILURE,
+  LOGIN
 } from '../actions/index';
 
 const initialState = {
@@ -30,7 +31,8 @@ const initialState = {
   mightDelete: false,
   deletingNote: false,
   editingNote: false,
-  error: null
+  error: null,
+  username: ''
 };
 
 /*
@@ -54,6 +56,13 @@ export default (state = initialState, action) => {
         ...state,
         fetchingNotes: false,
         notes: action.payload,
+        error: null
+      };
+
+    case LOGIN:
+      return {
+        ...state,
+        username: action.payload,
         error: null
       };
 

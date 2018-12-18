@@ -21,11 +21,14 @@ export const DELETING_NOTE_FAILURE = 'DELETING_NOTE_FAILURE';
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
+export const LOGIN = 'LOGIN';
 
 const getUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/all';
 const postUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/create';
 const deleteUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/delete';
 const putUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/edit';
+
+const loginUrl = 'https://gimme-the-notes-server.herokuapp.com/login';
 
 export const getNotes = () => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
@@ -100,6 +103,25 @@ export const deleteNote = id => dispatch => {
 
 export const editingNote = () => dispatch => {
   dispatch({ type: EDIT_NOTE });
+};
+
+export const Login = (id, note) => dispatch => {
+  axios
+    .post(`${loginUrl}`, this.state.user)
+    .then(res => {
+      if (res.status === 200 && res.data) {
+        localStorage.setItem('secret_notes_token', res.data);
+        this.props.history.push('/front-end-project-week');
+      } else {
+        throw new Error();
+      }
+    })
+    .catch(err => {
+      this.setState({
+        message: 'Authentication failed.',
+        user: { ...initialUser }
+      });
+    });
 };
 
 export const editNote = (id, note) => dispatch => {

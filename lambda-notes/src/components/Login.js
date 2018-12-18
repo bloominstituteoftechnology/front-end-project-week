@@ -24,22 +24,7 @@ export default class Login extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    axios
-      .post(`${url}/login`, this.state.user)
-      .then(res => {
-        if (res.status === 200 && res.data) {
-          localStorage.setItem('secret_notes_token', res.data);
-          this.props.history.push('/front-end-project-week');
-        } else {
-          throw new Error();
-        }
-      })
-      .catch(err => {
-        this.setState({
-          message: 'Authentication failed.',
-          user: { ...initialUser }
-        });
-      });
+    this.props.Login(this.state.user);
   };
  
   render() {
@@ -69,3 +54,19 @@ export default class Login extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    error: state.error
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      Login
+    }
+  )(Login)
+);
