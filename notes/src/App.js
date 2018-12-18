@@ -5,6 +5,7 @@ import LeftSideBarNav from "./components/LeftSideBarNav";
 import NoteList from "./components/NoteList";
 import AddNote from "./components/AddNote";
 import './App.css';
+import NoteView from './components/NoteView';
 
 
 class App extends Component {
@@ -40,7 +41,13 @@ handleSubmit = note => {
     .then(() => this.updateNotes())
     .catch(err => console.log(err));
 }
-  
+
+deleteNote = id => {
+  axios
+    .delete('https://fe-notes.herokuapp.com/note/delete/id')
+    .then(() => this.updateNotes())
+    .catch(err => console.log(err));
+}
 
   render() {
     const { notes } = this.state;
@@ -54,7 +61,13 @@ handleSubmit = note => {
           render={(props) => (
               <AddNote {...props} onSubmit={this.handleSubmit} />  
           )}
-          />   
+          />
+          <Route 
+            path='view/:id'
+            render={props => (
+              <NoteView {...props} notes={notes}  />
+            )}
+            />   
         </div>        
       </div>
     );
