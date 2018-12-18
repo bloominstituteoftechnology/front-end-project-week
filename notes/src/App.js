@@ -37,6 +37,13 @@ class App extends Component {
     .post(`${url}create`, data)
     .then(res => {
       console.log(res)
+      return axios
+      .get(`${url}get/all`)
+      .then(res => {
+        this.setState({
+          notes:res.data
+        })
+      })
     })
   }
 

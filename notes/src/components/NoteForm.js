@@ -64,7 +64,7 @@ class NoteForm extends Component {
     e.preventDefault();
     this.props.addNote(this.state);
     this.props.history.push("/");
-    window.location.reload();
+    // window.location.reload();
   }
 
   handleInputChange = e => {
