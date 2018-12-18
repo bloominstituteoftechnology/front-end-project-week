@@ -8,6 +8,7 @@ import Notes from './components/Notes'
 import NoteForm from './components/NoteForm'
 import NavBar from './components/NavBar'
 import NoteView from './components/NoteView'
+import EditNote from './components/EditNote'
 
 const url = new URL('https://fe-notes.herokuapp.com/note/')
 
@@ -59,18 +60,6 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
-  editNote = (id, data) => {
-    axios
-    .put(`${url}${id}`, data)
-    .then(res => {
-      console.log(res)
-      this.setState({
-        notes: res.data
-      })
-    })
-    .catch(err => console.log(err))
-  }
-
   render() {
     return (
       <div className="App">
@@ -80,10 +69,13 @@ class App extends Component {
         render={props => <Notes notes={this.state.notes} {...props} />}
         />
         <Route path='/note/:id'
-        render={props => <NoteView notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote} {...props} />}
+        render={props => <NoteView notes={this.state.notes} deleteNote={this.deleteNote} {...props} />}
         />
         <Route path='/create' 
         render={props => <NoteForm addNote={this.addNote} {...props} />}
+        />
+        <Route path='/edit/:id'
+        render={props => <EditNote notes={this.state.notes} {...props} />}
         />
       </div>
     );

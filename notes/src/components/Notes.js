@@ -39,7 +39,6 @@ class Notes extends Component {
               <NavLink to={`/note/${note._id}`} key={note._id}>
                 <StyledNote>
                     <Note
-                    key={note._id}
                       title={note.title}
                       textBody={note.textBody}
                     />

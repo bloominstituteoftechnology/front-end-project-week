@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const NoteViewContainer = styled.div`
 `
@@ -41,7 +42,9 @@ class NoteView extends React.Component {
                         return (
                             <NoteViewContainer key={note._id}>
                             <NoteViewButtons>
+                                <Link to={`/edit/${note._id}`}>
                                 <p>edit</p>
+                                </Link>
                                 <p>delete</p>
                             </NoteViewButtons>
                             <NoteViewContent>
