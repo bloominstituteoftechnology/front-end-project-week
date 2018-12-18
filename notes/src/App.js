@@ -79,7 +79,7 @@ class App extends Component {
         exact path='/'
         render={props => <Notes notes={this.state.notes} {...props} />}
         />
-        <Route path='/note/:noteid'
+        <Route path='/note/:id'
         render={props => <NoteView notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote} {...props} />}
         />
         <Route path='/create' 

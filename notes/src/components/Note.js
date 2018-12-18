@@ -12,6 +12,11 @@ h3 {
     width: 200px;
     padding-bottom: 5px;
 }
+
+p {
+    height: 170px;
+    overflow: hidden;
+}
 `
 
 const Note = props => {

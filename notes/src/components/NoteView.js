@@ -28,20 +28,33 @@ p {
 }
 `
 
-const NoteView = props => {
+class NoteView extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-  return (
-    <NoteViewContainer>
-      <NoteViewButtons>
-        <p>edit</p>
-        <p>delete</p>
-      </NoteViewButtons>
-      <NoteViewContent>
-        <h3>title</h3>
-        <p>textBody</p>
-      </NoteViewContent>
-    </NoteViewContainer>
-  );
-};
+    render() {
+        return (
+            <div>
+                {this.props.notes.map(note => {
+                    if (this.props.match.params.id === note._id) {
+                        return (
+                            <NoteViewContainer key={note._id}>
+                            <NoteViewButtons>
+                                <p>edit</p>
+                                <p>delete</p>
+                            </NoteViewButtons>
+                            <NoteViewContent>
+                                <h2>{note.title}</h2>
+                                <p>{note.textBody}</p>
+                            </NoteViewContent>
+                            </NoteViewContainer>
+                        )
+                    }
+                })}
+            </div>
+        )
+    }
+}
 
 export default NoteView;
