@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Route } from "react-router-dom";
+import LeftSideBarNav from "./components/LeftSideBarNav";
 import NoteList from "./components/NoteList";
+import AddNote from "./components/AddNote";
 import './App.css';
 
 
@@ -28,9 +31,11 @@ class App extends Component {
     const { notes } = this.state;
     return (
       <div className="App">
-        I am the App
-        <NoteList notes={notes} />
-        
+        <LeftSideBarNav />
+        <div className='app-content'>
+        <Route exact path='/' render={() => <NoteList notes={notes} /> } />
+        <Route path='/create' render={() => <AddNote  notes={notes} />} />
+        </div>        
       </div>
     );
   }
