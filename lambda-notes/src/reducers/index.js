@@ -32,7 +32,7 @@ const initialState = {
   deletingNote: false,
   editingNote: false,
   error: null,
-  id: ''
+  id: null
 };
 
 /*

@@ -32,7 +32,7 @@ class Login extends Component {
       .then(res => {
         if (res.status === 200 && res.data) {
           localStorage.setItem('secret_notes_token', res.data);
-          this.props.LoginCheck(res.data.username);
+          this.props.LoginCheck(res.data.id);
           this.props.history.push('/front-end-project-week');
         } else {
           throw new Error();

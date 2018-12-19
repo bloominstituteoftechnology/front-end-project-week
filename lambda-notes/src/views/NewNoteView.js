@@ -82,8 +82,8 @@ class NewNoteView extends Component {
   clickHandler = event => {
     event.preventDefault();
 
-    const id = localStorage.getItem('secret_notes_token'.id);
-    console.log(id);
+    const id = localStorage.getItem('secret_notes_token');
+    console.log('The user ID is...', id);
     this.setState({ id: id });
     this.props.addNote(this.state);
     this.props.history.push('/front-end-project-week');
@@ -91,6 +91,8 @@ class NewNoteView extends Component {
 
   render() {
     const { title, textBody } = this.state;
+    const id = localStorage.getItem('secret_notes_token');
+    console.log('FROM RENDER... The user ID is...', id);
 
     return (
       <NewNoteViewContainer>
