@@ -59,6 +59,7 @@ export const addNote = note => dispatch => {
         });
     })
     .catch(error => {
+      console.log(note);
       dispatch({ type: ADDING_NOTE_FAILURE, payload: error });
     });
 };

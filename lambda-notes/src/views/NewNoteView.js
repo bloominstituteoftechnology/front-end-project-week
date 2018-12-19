@@ -71,7 +71,7 @@ class NewNoteView extends Component {
   state = {
     title: '',
     textBody: '',
-    user_id: ''
+    id: ''
   };
 
   handleInput = event => {
@@ -81,13 +81,16 @@ class NewNoteView extends Component {
 
   clickHandler = event => {
     event.preventDefault();
+
+    const id = localStorage.getItem('secret_notes_token'.id);
+    console.log(id);
+    this.setState({ id: id });
     this.props.addNote(this.state);
     this.props.history.push('/front-end-project-week');
   };
 
   render() {
     const { title, textBody } = this.state;
-    const user = localStorage.getItem('secret_notes_token');
 
     return (
       <NewNoteViewContainer>

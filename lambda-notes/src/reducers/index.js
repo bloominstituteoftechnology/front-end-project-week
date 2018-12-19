@@ -32,7 +32,7 @@ const initialState = {
   deletingNote: false,
   editingNote: false,
   error: null,
-  username: ''
+  id: ''
 };
 
 /*
@@ -62,7 +62,7 @@ export default (state = initialState, action) => {
     case LOGIN:
       return {
         ...state,
-        username: action.payload,
+        id: action.payload,
         error: null
       };
 
