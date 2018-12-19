@@ -1,0 +1,185 @@
+
+
+/*== Application Wide Styles =================================================*/
+
+/*-- Global Styles -----------------------------*/
+body {
+  font-size: 2rem;
+}
+.button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 29rem;
+  height: 6.4rem;
+  background:#24b8bd;
+  color: white;
+  border: 1px solid #979797;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.button-danger {
+  background: #d0021b;
+}
+h1, h2 {
+  color: #4a4a4a;
+}
+
+/*----------------------------------------------*/
+.app {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 0 auto;
+  background: #f2f2f2;
+  min-height: 100vh;
+}
+.app > * {
+  border: 1px solid #afafaf;
+}
+
+/*-- Header (sidebar with links) ---------------*/
+.app header {
+  background: #d3d3d3;
+  padding: 0 2rem;
+}
+.app header h1 {
+  font-size: 5rem;
+  margin: 3rem 0;
+  font-weight: bold;
+  min-height: 10rem;
+  max-width: 29rem;
+}
+.app header nav {
+  display: flex;
+  flex-direction: column;
+}
+.app header nav a {
+  margin-bottom: 1.8rem;
+}
+
+/*-- Main Content Area (all views) -------------*/
+.app .view {
+  padding: 0 4rem;
+  flex-grow: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app .view h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 3rem 0 3rem 0;
+}
+.action-bar {
+  height: 7rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+.action-bar > * {
+  cursor: pointer;
+  margin: 0 1rem;
+  text-decoration: underline;
+}
+.action-bar > a:any-link {
+  text-decoration: underline;
+}
+
+
+/*== Individual Views ========================================================*/
+
+/*-- NoteList view -----------------------------*/
+.note-list {
+  display: flex;
+  flex-flow: row wrap;
+  flex-grow: 1;
+}
+.note {
+  background: white;
+  border: 1px solid #afafaf;
+  height: 30rem;
+  width: 29.5rem;
+  overflow-y: hidden;
+  padding: 0.5rem 2.5rem;
+  margin-right: 2.4rem;
+  margin-bottom: 3.6rem;
+}
+.note h3 {
+  font-size: 2.6rem;
+  font-weight: bold;
+  margin: 1.2rem 0 0.8rem 0;
+}
+.note hr {
+  border: none;
+  border-bottom: 1px solid #afafaf;
+}
+
+/*-- Note Editor & Creator Views ---------------*/
+.note-editor {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.note-editor input {
+  height: 6.4rem;
+  min-width: 29rem;
+  width: 60%;
+  border: 2px solid #afafaf;
+  border-radius: 4px;
+  padding-left: 2rem;
+  font-size: 2rem;
+}
+.note-editor textarea {
+  width: 100%;
+  font-size: 2rem;
+  padding: 2rem;
+  border: 2px solid #afafaf;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+.note-editor > * {
+  margin-bottom: 2rem;
+}
+
+/*-- Individual Note View ----------------------*/
+.note-view {
+  flex-grow: 1;
+}
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #cccccc88;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  height: 25rem;
+  background: white;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 2.6rem;
+  color: #4a4a4a;
+}
+.modal .modal-buttons {
+  display: flex;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+.modal .modal-buttons > * {
+  margin: 0 2rem;
+}
