@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { LoginCheck } from '../actions';
 
 const url = process.env.REACT_APP_API_URL;
 
@@ -31,7 +32,7 @@ class Login extends Component {
       .then(res => {
         if (res.status === 200 && res.data) {
           localStorage.setItem('secret_notes_token', res.data);
-          this.props.Login(res.data);
+          this.props.LoginCheck(res.data.username);
           this.props.history.push('/front-end-project-week');
         } else {
           throw new Error();
@@ -85,7 +86,7 @@ export default withRouter(
   connect(
     mapStateToProps,
     {
-      Login
+      LoginCheck
     }
   )(Login)
 );

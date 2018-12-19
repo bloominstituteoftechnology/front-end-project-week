@@ -38,40 +38,6 @@ class App extends Component {
         {this.props.mightDelete ? <DeleteModal /> : null}
         <div className="App">
           <AppContainer>
-            <Route
-              path="/front-end-project-week"
-              render={props => (
-                <div className="Testing Registration & Login" {...props}>
-                  <nav>
-                    <NavLink to="/front-end-project-week">Home</NavLink>
-                    <NavLink to="/front-end-project-week/login">Login</NavLink>
-                    <NavLink to="/front-end-project-week/register">Register</NavLink>
-                  </nav>
-                  <section>
-                    <Switch>
-                      <Route exact path="/front-end-project-week/register" component={Register} />
-                      <Route path="/front-end-project-week/login" component={Login} />
-                      {/* <Route
-                        path="/loggedin"
-                        render={() => {
-                          return (
-                            <React.Fragment>
-                              <h2>Users</h2>
-                              <ol>
-                                {this.state.users.map(user => (
-                                  <li key={user.id}>{user.username}</li>
-                                ))}
-                              </ol>
-                            </React.Fragment>
-                          );
-                        }}
-                      /> */}
-                    </Switch>
-                  </section>
-                </div>
-              )}
-            />
-
             <Route path="/front-end-project-week" render={props => <SideBarView {...props} />} />
             <Route exact path="/front-end-project-week" render={props => <ListView {...props} />} />
             <Route exact path="/front-end-project-week/new-note" render={props => <NewNoteView {...props} />} />

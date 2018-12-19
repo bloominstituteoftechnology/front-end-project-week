@@ -105,9 +105,9 @@ export const editingNote = () => dispatch => {
   dispatch({ type: EDIT_NOTE });
 };
 
-export const Login = token => dispatch => {
+export const LoginCheck = token => dispatch => {
   console.log("Hey I'm the token...", token);
-  dispatch({ type: LOGIN, payload: token.username });
+  dispatch({ type: LOGIN, payload: token });
 };
 
 export const editNote = (id, note) => dispatch => {
