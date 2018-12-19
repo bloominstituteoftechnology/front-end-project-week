@@ -1,6 +1,7 @@
 import React from 'react';
 import AppView from './AppView';
-import Login from './Login'
+import Login from './Login';
+import axios from 'axios';
 
 class App extends React.Component{
   constructor(){
@@ -10,7 +11,8 @@ class App extends React.Component{
       user : {
         username : '',
         password : ''
-      }
+      },
+      message : ""
     }
   }
 
@@ -21,7 +23,8 @@ class App extends React.Component{
   OnSubmitHandler = e => {
     e.preventDefault();
     if(!this.state.user.username || !this.state.user.password){
-      alert('Please input both username and password')
+      this.setState({message:"Please Enter Username and Password"})
+      setTimeout(()=>{this.setState({message:""});},2000)
     }else{
       this.setState({loggedIn : true})
     }
@@ -39,6 +42,7 @@ class App extends React.Component{
       loggedIn={this.state.loggedIn}
       ChangeHandler = {this.onChangeHandler}
       SubmitHandler = {this.OnSubmitHandler}
+      message = {this.state.message}
       />
       )
     }

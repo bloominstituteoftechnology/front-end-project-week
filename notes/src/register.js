@@ -1,25 +1,13 @@
 import React from 'react';
 import {CircleLoader} from 'react-spinners'
-import './login.css'
-import Register from './register'
 
-class Login extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            name:"r-hidden"
-        }
-    }
-    toggle = e => {
-        this.setState({name:""})
-    }
+class Register extends React.Component{
     render(){
         return(
+            <div className={this.props.name}>
             <div className="wrapper">
                 <div className="container">
-                    <h1>Welcome To Lambda Notes</h1>
-                    <p>Please Login to Continue</p>
-                    <h3>{this.props.message}</h3>
+                    <h1>Register To Lambda Notes</h1>
                     <form className="form">
 
                         <input 
@@ -39,12 +27,13 @@ class Login extends React.Component{
                         <button 
                         onClick={this.props.SubmitHandler}
                         type="submit" 
-                        id="login-button">
+                        >
                         Login
                         </button>
-                        <p>Don't Have an account? Register <span className="register-span" onClick={this.toggle}>here</span></p>
+
                     </form>
                 </div>
+                
                 <ul className="bg-bubbles">
                     <li>To-Do</li>
                     <li>Remember this note</li>
@@ -57,10 +46,10 @@ class Login extends React.Component{
                     <li>Please Login to Lambda Notes</li>
                     <li>Lambda Rules!<br />CS14 no wait FSW14 wait maybe Web14 is the best cohort ever!<br/><br />Cs11 is okay too, Kam came from there I think</li>
                 </ul>
-                <Register name={this.state.name}/>
+            </div>
             </div>
         )
     }
 }
 
-export default Login
+export default Register
