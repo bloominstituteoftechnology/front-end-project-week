@@ -53,7 +53,6 @@ class EditNoteForm extends Component {
     if (!this.state.noteTitle) {
       return <p>loading</p>;
     }
-    console.log(this.props);
     return (
       <div>
         <div className="notes-header">

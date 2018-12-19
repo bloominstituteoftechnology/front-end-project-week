@@ -1,5 +1,5 @@
 .App {
-  max-width: 685px;
+  max-width: 900px;
   margin: 0 auto;
   box-sizing: border-box;
   display: flex;
@@ -7,6 +7,11 @@
   background-color: #f2f1f2;
   border: 1px solid #94a3a4;
   height: 100vh;
+  font-size: 16px;
+}
+
+p {
+  font-size: 16px;
 }
 
 .side-bar {
@@ -22,7 +27,8 @@
 }
 
 .nav-title {
-  margin-left: 27px;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-button-container {
@@ -33,10 +39,10 @@
 
 .nav-buttons {
   text-decoration: none;
-  font-size: 10px;
+  font-size: 16px;
   background-color: #35c0c3;
   height: 32px;
-  width: 143px;
+  width: 190px;
   color: white;
   display: flex;
   justify-content: center;
@@ -54,10 +60,10 @@
 
 .form-button {
   text-decoration: none;
-  font-size: 10px;
+  font-size: 16px;
   background-color: #35c0c3;
   height: 32px;
-  width: 143px;
+  width: 190px;
   color: white;
   display: flex;
   justify-content: center;
@@ -115,8 +121,8 @@ form {
 }
 
 .note-card {
-  width: 135px;
-  height: 145px;
+  width: 185px;
+  height: 185px;
   margin: 10px;
   display: flex;
   align-items: center;
@@ -125,6 +131,7 @@ form {
   border: 0.5px solid #94a3a4;
   overflow: hidden;
   border-radius: 2px;
+  font-size: 16px;
 }
 
 .card-line {
@@ -136,7 +143,7 @@ form {
 }
 
 .note-card h4 {
-  font-size: 10px;
+  font-size: 16px;
   text-decoration: none;
   padding: 0 5px;
   text-align: left;
@@ -144,7 +151,13 @@ form {
 }
 
 .note-card p {
-  font-size: 10px;
+  font-size: 16px;
+}
+
+.search-input {
+  height: 25px;
+  width: 180px;
+  font-size: 16px;
 }
 
 .rr-link {
@@ -245,8 +258,8 @@ form {
 }
 
 .login {
-  height: 325px;
-  width: 300px;
+  height: 400px;
+  width: 500px;
   border: 1px solid #94a3a4;
   border-radius: 4px;
   justify-content: center;
@@ -257,4 +270,6 @@ form {
 .login-input {
   width: 80%;
   margin-top: 20px;
+  font-size: 16px;
+  height: 25px;
 }

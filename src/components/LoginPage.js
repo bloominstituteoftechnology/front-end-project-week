@@ -35,10 +35,10 @@ class LoginPage extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="login-container">
         <form className="login" onSubmit={this.handleSubmit}>
+          <h1>Adam's Notes</h1>
           <h1>Login</h1>
           <input
             type="text"

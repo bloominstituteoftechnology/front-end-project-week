@@ -23,7 +23,6 @@ class Register extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    console.log(this.state.user);
     axios
       .post("https://adamsnotes.herokuapp.com/api/register", this.state.user)
       .then(res => {
@@ -49,6 +48,7 @@ class Register extends Component {
     return (
       <div className="login-container">
         <form onSubmit={this.submitHandler} className="login">
+          <h1>Adam's Notes</h1>
           <h1>Register</h1>
           <input
             type="text"
@@ -71,7 +71,7 @@ class Register extends Component {
           <button className="form-button">Register</button>
           <p>{this.state.message}</p>
           <Link className="rr-link " to="/">
-            <p>login</p>
+            <p>back to login page</p>
           </Link>
         </form>
       </div>

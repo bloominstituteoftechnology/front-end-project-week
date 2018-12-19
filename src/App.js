@@ -112,25 +112,8 @@ class App extends Component {
 
   loginHandler = async e => {
     e.preventDefault();
-    console.log("login hander fired");
     localStorage.getItem("jwt") ? await this.setState({ loggedIn: true }) : alert("you need to login");
   };
-
-  // loginHandler = async e => {
-  //   e.preventDefault();
-
-  //   const checkJWT = () => {
-  //     localStorage.getItem("jwt");
-  //   };
-  //   const toggleLogin = () => {
-  //     this.setState({ loggedIn: true });
-  //   };
-  //   const message = () => {
-  //     alert("please login");
-  //   };
-  //   const login = checkJWT() ? await toggleLogin() : message();
-  //   return login;
-  // };
 
   logout = e => {
     localStorage.removeItem("jwt");
@@ -139,8 +122,7 @@ class App extends Component {
   };
 
   render() {
-    console.log("logged in?", this.state.loggedIn);
-    //ternary operator
+    //**************** */ternary operator*******************
     return !this.state.loggedIn ? (
       <Switch>
         <Route path="/register" render={props => <Register {...props} />} />

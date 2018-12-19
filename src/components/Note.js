@@ -15,7 +15,6 @@ class Note extends Component {
   }
 
   componentDidMount() {
-    console.log("CDM", this.props.match.params.id);
     const id = this.props.match.params.id;
     this.fetchNote(id);
   }
