@@ -6,6 +6,7 @@ import NoteList from "./components/NoteList";
 import AddNote from "./components/AddNote";
 import './App.css';
 import NoteView from './components/NoteView';
+import EditView from "./components/EditView";
 
 
 class App extends Component {
@@ -44,7 +45,14 @@ handleSubmit = note => {
 
 deleteNote = id => {
   axios
-    .delete('https://fe-notes.herokuapp.com/note/delete/id')
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(() => this.updateNotes())
+    .catch(err => console.log(err));
+}
+
+editNote = (note, id) => {
+  axios
+    .post(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
     .then(() => this.updateNotes())
     .catch(err => console.log(err));
 }
@@ -65,9 +73,15 @@ deleteNote = id => {
           <Route 
             path='/view/:id'
             render={(props) => (
-              <NoteView {...props} notes={notes} />
+              <NoteView {...props} notes={notes} deleteNote={this.deleteNote} />
             )}
-            />   
+            />
+            <Route  
+              path='/edit/:id'
+              render={(props) => (
+              <EditView {...props} notes={notes} onSubmit={this.editNote} />  
+              )}
+            />               
         </div>        
       </div>
     );

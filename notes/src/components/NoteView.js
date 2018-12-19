@@ -37,8 +37,8 @@ class NoteView extends React.Component {
         return(
             <div className='note-view'>
                 <div>
-                    <div>edit</div>
-                    <h4>delete</h4>
+                    <Link to={`/edit/${this.state._id}`}>edit</Link>
+                    <h4 className='delete' onClick={this.deleteNote}>Delete</h4>
                 </div>
                 <h2>{this.state.title}</h2>
                 <p>{this.state.textBody}</p>
