@@ -105,23 +105,9 @@ export const editingNote = () => dispatch => {
   dispatch({ type: EDIT_NOTE });
 };
 
-export const Login = (id, note) => dispatch => {
-  axios
-    .post(`${loginUrl}`, this.state.user)
-    .then(res => {
-      if (res.status === 200 && res.data) {
-        localStorage.setItem('secret_notes_token', res.data);
-        this.props.history.push('/front-end-project-week');
-      } else {
-        throw new Error();
-      }
-    })
-    .catch(err => {
-      this.setState({
-        message: 'Authentication failed.',
-        user: { ...initialUser }
-      });
-    });
+export const Login = token => dispatch => {
+  console.log("Hey I'm the token...", token);
+  dispatch({ type: LOGIN, payload: token.username });
 };
 
 export const editNote = (id, note) => dispatch => {

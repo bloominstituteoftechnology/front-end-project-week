@@ -70,10 +70,12 @@ const NoteAppButton = styled.button`
 class NewNoteView extends Component {
   state = {
     title: '',
-    textBody: ''
+    textBody: '',
+    user_id: ''
   };
 
   handleInput = event => {
+    // console.log(this.user);
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -85,6 +87,7 @@ class NewNoteView extends Component {
 
   render() {
     const { title, textBody } = this.state;
+    const user = localStorage.getItem('secret_notes_token');
 
     return (
       <NewNoteViewContainer>

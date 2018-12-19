@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 const url = process.env.REACT_APP_API_URL;
 
@@ -8,7 +10,7 @@ const initialUser = {
   password: ''
 };
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,9 +26,26 @@ export default class Login extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    this.props.Login(this.state.user);
+    axios
+      .post(`${url}/login`, this.state.user)
+      .then(res => {
+        if (res.status === 200 && res.data) {
+          localStorage.setItem('secret_notes_token', res.data);
+          this.props.Login(res.data);
+          this.props.history.push('/front-end-project-week');
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(err => {
+        console.log('the error was...', err);
+        this.setState({
+          message: 'Authentication failed.',
+          user: { ...initialUser }
+        });
+      });
   };
- 
+
   render() {
     return (
       <div>
