@@ -52,7 +52,7 @@ deleteNote = id => {
 
 editNote = (note, id) => {
   axios
-    .post(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
     .then(() => this.updateNotes())
     .catch(err => console.log(err));
 }

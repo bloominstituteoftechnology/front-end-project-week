@@ -54,24 +54,24 @@ html {
   box-sizing: border-box;
 }
 .App {
-  max-width: 800px;
-  width: 100%;
-  text-align: center;
+  max-width: 900px;
+  width: 100%;  
   display: flex;
   margin: 0 auto;
+  border: 2px solid grey;
 }
 
 
 
 .left-nav {
   background-color: #d3d2d3;
-  width: 30rem;
+  width: 100%;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;  
+  max-width: 23rem; 
   color: black;
+  border-right: 1px solid grey;
 }
 
 .left-nav h1 {
@@ -79,11 +79,19 @@ html {
   font-weight: bold;
 }
 
+.left-nav a {
+  margin: 1rem 0;
+}
+
 .btn {
   background-color: #3eb0b5;
   color: white;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 1rem 0 1rem 0;
+  font-weight: bold;
+  border: 1px solid grey;
 }
 .app-content {
   width: 100%;
