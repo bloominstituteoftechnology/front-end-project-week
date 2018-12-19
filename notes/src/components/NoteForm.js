@@ -18,7 +18,6 @@ form {
     margin-left: 50px;
     display: flex;
     flex-direction: column;
-    // width: 500px;
 }
 
 input {
@@ -36,7 +35,6 @@ input {
         height: 500px;
         width: 1000px;
         text-align: top;
-        // text-indent: 50px;
         padding-bottom: 440px;
         padding-left: 10px;
     }

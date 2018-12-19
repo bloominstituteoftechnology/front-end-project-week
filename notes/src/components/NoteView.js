@@ -19,14 +19,12 @@ p {
 
 p:first-child {
     padding-right: 20px;
-    // margin-left: 1800px;
     margin-left: 1500px;
 }
 `
 
 const NoteViewContent = styled.div`
 text-align: left;
-// margin-left: 300px;
 margin-right: 500px;
 
 p {
@@ -58,7 +56,6 @@ p {
     
 button:nth-child(2) {
     background-color: #CA001A;
-    border: 1px solid #C9C9C9;
     margin-right: 20px;
 }
 

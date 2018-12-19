@@ -12,7 +12,6 @@ background-color: #F2F1F2;
 
 h2 {
     text-align: left;
-    // width: 200px;
     width: 1500px;
     padding-left: 15px;
     color: #4E5053;
