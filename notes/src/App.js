@@ -23,7 +23,6 @@ class App extends Component {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/all`)
       .then(res => {
-        console.log(res.data)
         this.setState({
           notes: res.data
         });
@@ -53,6 +52,17 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  editNote = (id) => {
+    axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/` + id)
+    .then(res =>{
+      console.log(id);
+      axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+        .then(res => this.setState({ notes: res.data }))
+    })
+    .catch(err => console.log(err))
+}
+
   render() {
     return (
       <div className="App">
@@ -77,7 +87,8 @@ class App extends Component {
               <NoteList
                 {...props}
                 deleteNote = {this.deleteNote}
-                notes = {this.state.notes} />
+                notes = {this.state.notes}
+                editNote={this.editNote}/>
             )}
           />
 

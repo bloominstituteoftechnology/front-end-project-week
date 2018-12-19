@@ -42,6 +42,7 @@ class CreateNoteForm extends React.Component {
               value={this.state.textBody}
             />
           <button type='submit'>Save</button>
+          
       </form>
     )
   }

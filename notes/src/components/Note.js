@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const Note = props => {
   return (
     <div className="single-note">
-      <Link to={`/notes/${props.id}`}>
+      <Link to={`/notes/${props._id}`}>
         <h4>{props.title}</h4>
         <p>{props.textBody}</p>
       </Link>

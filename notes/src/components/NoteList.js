@@ -15,13 +15,21 @@ class NoteList extends React.Component{
               title={note.title}
               textBody={note.textBody}
             />
+            <div className='buttons'>
             <button
                 onClick={() => {
-                  console.log(note._id);
                   this.props.deleteNote(
                     note._id
                   )
                 }}>Delete</button>
+                <button
+                    onClick={() => {
+                      console.log(note._id);
+                      this.props.editNote(
+                        note._id
+                      )
+                    }}>Edit</button>
+            </div>
             </div>
           )
         })}
