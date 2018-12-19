@@ -1,0 +1,35 @@
+.newnote-container {
+  padding-left: 39px;
+}
+.title-input {
+  height: 55px;
+  width: 510px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-left: 25px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.body-input {
+  width: 870px;
+  height: 500px;
+  margin-bottom: 20px;
+  vertical-align: top;
+  padding-top: 10px;
+  padding-left: 25px;
+  font-size: 18px;
+  border-radius: 5px;
+  resize: none;
+}
+.save-button {
+  width: 278px;
+  height:65px;
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

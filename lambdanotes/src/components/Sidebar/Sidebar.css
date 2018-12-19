@@ -1,0 +1,26 @@
+.Sidebar {
+  height: 100%;
+  min-width: 325px;
+  background-color: #D8D8D8;
+  border-right: solid 1px black;
+  display: inline-block;
+}
+.header {
+  font-family: 'Roboto', sans-serif;
+  font-size: 3.125em;
+  margin-top: 0;
+  padding-left: 25px;
+  padding-top: 25px;
+  line-height: 1em;
+  color: #4A484A;
+}
+.side-button {
+  width: 278px;
+  height:65px;
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+}

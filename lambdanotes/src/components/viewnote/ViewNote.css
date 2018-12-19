@@ -1,0 +1,13 @@
+.single-note {
+  padding-left: 39px;
+}
+.view-edit {
+  position: absolute;
+  right: 200px;
+  top: 15px;
+}
+.view-delete {
+  position: absolute;
+  right: 150px;
+  top: 15px;
+}

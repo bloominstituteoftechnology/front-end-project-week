@@ -1,0 +1,17 @@
+.note-box {
+  height: 280px;
+  background-color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 18px;
+  color: black;
+
+}
+.note-title {
+  font-size: 24px;
+  border-bottom: 1px solid black;
+}
+.note-body {
+  padding-top: 12px;
+  line-height: 28px;
+}
