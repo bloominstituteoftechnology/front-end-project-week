@@ -72,6 +72,7 @@ class Note extends Component {
             isOpen={this.state.showModal}
             onRequestClose={this.closeModal}
             contentLabel="Are you sure you want to delete?"
+            className="modal"
           >
             <div className="modal">
               <div className="modal-prompt">

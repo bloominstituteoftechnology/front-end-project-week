@@ -28,9 +28,17 @@ class App extends Component {
         Authorization: token
       }
     };
+    const login = () => {
+      if (token) {
+        this.setState({ loggedIn: true });
+      }
+    };
     axios
       .get(`${api}`, options)
-      .then(res => this.setState({ notes: res.data }))
+      .then(res => {
+        login();
+        this.setState({ notes: res.data });
+      })
       .catch(err => console.log(err));
   }
 
@@ -122,7 +130,7 @@ class App extends Component {
   };
 
   render() {
-    //**************** */ternary operator*******************
+    //******************/ternary operator*******************
     return !this.state.loggedIn ? (
       <Switch>
         <Route path="/register" render={props => <Register {...props} />} />
