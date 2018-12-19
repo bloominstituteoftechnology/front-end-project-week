@@ -181,6 +181,7 @@ class App extends Component {
     });
   };
 
+  //todo: something is still wrong with this delete function. about half the time a note with tags will successfully delete both its tags and itself, otherwise will just delete the tags and throw an error
   deleteNote = (event, id, tags) => {
     event.preventDefault();
     let hasTags = tags.find(tag => tag.notes_id === id);
