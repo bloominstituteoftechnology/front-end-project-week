@@ -19,9 +19,9 @@ class LoginPage extends Component {
       .post("https://adamsnotes.herokuapp.com/api/login", { username, password })
       .then(res => {
         localStorage.setItem("jwt", res.data.token);
+        this.props.loginHandler(e);
         this.setState({ message: "Login successful" });
       })
-      .then(this.props.loginHandler(e))
       .then(() => this.props.history.push("/"))
       .catch(err => {
         console.log("login error", err);

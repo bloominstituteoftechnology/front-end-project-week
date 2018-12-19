@@ -110,12 +110,27 @@ class App extends Component {
     this.setState({ searchTerm: e.target.value });
   };
 
-  loginHandler = e => {
+  loginHandler = async e => {
     e.preventDefault();
     console.log("login hander fired");
-    localStorage.getItem("jwt") ? this.setState({ loggedIn: true }) : alert("you need to login");
-    this.props.history.push("/");
+    localStorage.getItem("jwt") ? await this.setState({ loggedIn: true }) : alert("you need to login");
   };
+
+  // loginHandler = async e => {
+  //   e.preventDefault();
+
+  //   const checkJWT = () => {
+  //     localStorage.getItem("jwt");
+  //   };
+  //   const toggleLogin = () => {
+  //     this.setState({ loggedIn: true });
+  //   };
+  //   const message = () => {
+  //     alert("please login");
+  //   };
+  //   const login = checkJWT() ? await toggleLogin() : message();
+  //   return login;
+  // };
 
   logout = e => {
     localStorage.removeItem("jwt");
