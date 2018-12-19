@@ -62,7 +62,7 @@ editNote = (note, id) => {
     return (
       <div className="App">
         <LeftSideBarNav />
-        <div className='app-content'>
+        <div className='app-content'>        
         <Route exact path='/' render={() => <NoteList notes={notes} /> } />
         <Route
           path='/create'

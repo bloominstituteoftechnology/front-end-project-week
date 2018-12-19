@@ -46,7 +46,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+a {
+  text-decoration: none;
+}
 html {
   font-size: 62.5%;
 }
@@ -95,30 +97,108 @@ html {
 }
 .app-content {
   width: 100%;
-  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  background-color: #ede9e6;
 }
 .note-list {
   width: 90%;
   font-size: 1.5rem;
-  background-color: bisque;
+  background-color:#ede9e6;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 .note {
-  border: 1px solid red;
+  border: 1px solid grey;
+  background-color: white;
   font-size: 1.5rem;
   display: flex;
   flex-flow: column wrap;
-  width: 26%;
-  padding: 1rem;
+  width: 29%;
+  padding: 1.5rem;
   margin: 1rem;
+  height: 25rem;  
 }
 .note h3 {
   font-size: 2rem;
+  font-weight: bold;
+  border-bottom: 2px solid grey;
+  padding-bottom: .5rem;
+  margin-bottom: .5rem;
+  color: black;  
 }
 .note-view {
-  background-color: cornflowerblue;
+  background-color: #ede9e6;
   font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  
+  width: 90%;
 }
-
+.note-view-edits {
+  text-decoration: underline;
+  color: darkslategrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-weight: bold;  
+}
+.note-view h4 {
+  cursor: pointer;
+  margin-left: 2rem;
+}
+.edit-link {
+  color: darkslategrey;
+}
+.note-view-title {
+  font-weight: bold;
+  font-size: 2.1rem;
+  margin: 1rem 0 1rem 0;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+form h2 {
+  font-weight: bold;
+  color: black;
+  font-size: 2rem;
+  margin: 1rem 0 2rem 0;
+}
+form input {
+  margin: 1rem 0 2rem 0;
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 55%;  
+}
+form textarea {
+  font-size: 1.5rem;
+  margin: 0 0 2rem 0;
+  width: 100%;
+  height: 30rem;
+}
+form button {
+  margin: 0 0 5rem 0;
+}
+.edit-view {
+  background-color: #ede9e6;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;  
+  width: 90%
+}
+.edit-view .btn {
+  width: 20%;
+}
+.add-note {
+  background-color: #ede9e6;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;  
+  width: 90%
+}
+.add-note .btn {
+  width: 20%;
+}

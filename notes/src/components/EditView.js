@@ -61,7 +61,7 @@ class EditView extends React.Component {
                         value={this.state.textBody}
                         onChange={this.handleInputChange}
                     />
-                    <button type='submit'>Update</button>
+                    <button className='btn' type='submit'>Update</button>
                 </form>
             </div>
         );

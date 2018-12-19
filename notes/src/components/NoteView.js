@@ -36,11 +36,11 @@ class NoteView extends React.Component {
     render() {
         return(
             <div className='note-view'>
-                <div>
-                    <Link to={`/edit/${this.state._id}`}>edit</Link>
-                    <h4 className='delete' onClick={this.deleteNote}>Delete</h4>
+                <div className='note-view-edits'>
+                    <Link className='edit-link' to={`/edit/${this.state._id}`}>edit</Link>
+                    <h4 className='delete' onClick={this.deleteNote}>delete</h4>
                 </div>
-                <h2>{this.state.title}</h2>
+                <h2 className='note-view-title' >{this.state.title}</h2>
                 <p>{this.state.textBody}</p>
             </div>
         );
