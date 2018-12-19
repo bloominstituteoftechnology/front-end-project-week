@@ -9,6 +9,7 @@ import NoteForm from './components/NoteForm'
 import NavBar from './components/NavBar'
 import NoteView from './components/NoteView'
 import EditNote from './components/EditNote'
+import SearchBarContainer from './components/SearchBarContainer';
 
 const url = new URL('https://fe-notes.herokuapp.com/note/')
 
@@ -17,11 +18,19 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      filteredNotes: []
     }
   }
 
   componentDidMount() {
+
+    const filteredNotes = JSON.parse(localStorage.getItem('filteredNotes')) || []
+    this.setState({
+      notes: filteredNotes,
+      filteredNotes: filteredNotes
+    })
+
     axios
     .get(`${url}get/all`)
     .then(res => {
@@ -65,10 +74,26 @@ class App extends Component {
   })
   }
 
+  searchNotes(query){
+    let filteredNotes = this.state.notes.filter((note) => {
+      return note.title.includes(query) || note.textBody.includes(query)
+    });
+    this.setState({
+      filteredNotes: filteredNotes
+    })
+    console.log(query)
+  }
+
+
   render() {
+
     return (
       <div className="App">
       <NavBar />
+        <Route
+        exact path='/'
+        render={props => <SearchBarContainer searchNotes={this.searchNotes.bind(this)} />}
+        />
         <Route 
         exact path='/'
         render={props => <Notes notes={this.state.notes} {...props} />}
