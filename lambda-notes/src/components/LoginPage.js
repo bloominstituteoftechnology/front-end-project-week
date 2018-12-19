@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { LoginWrapper, LoginFormWrapper } from '../style';
+
 class LoginPage extends Component {
     constructor () {
         super();
@@ -24,8 +26,11 @@ class LoginPage extends Component {
 
     render () {
         return (
-            <div>
+            <LoginWrapper>
+                <LoginFormWrapper>
+                    <h2>Log in to Lambda Notes</h2>
                 <form>
+                    <p>Email <span>(or username</span></p>
                     <input
                         type='text'
                         name='username'
@@ -33,7 +38,7 @@ class LoginPage extends Component {
                         placeholder='Enter Username'
                         onChange= {this.handleChange}
                     />
-
+                    <h3>Password</h3>
                     <input
                         type='password'
                         name='password'
@@ -44,7 +49,8 @@ class LoginPage extends Component {
 
                     <button onClick={this.addLogin}>Login In</button>
                 </form> 
-            </div>
+                </LoginFormWrapper>
+            </LoginWrapper>
         );
     }
 }

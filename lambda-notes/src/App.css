@@ -41,7 +41,8 @@
   /* border: 1px solid red; */
 }
 
-/* .dropdown {
-  border: none;
-  background-color: #26B7BD;
-} */
+
+.note-page {
+  border: 1px solid red;
+  height: 100vh;
+}

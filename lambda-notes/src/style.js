@@ -3,8 +3,25 @@ import styled from 'styled-components'
 export const AppWrapper = styled.div` 
   display: flex;
   background-color: #F2F1F2;
-  height: 100%;
+  height: 100vh;
   // border: 3px solid red;
+`;
+
+export const LoginWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  margin: 0 auto;
+  border: 1px solid red;
+`;
+
+export const LoginFormWrapper = styled.div`
+  margin: 0 auto;
+  display: flex:
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border: 1px solid green;
 `;
 
 export const SearchWrapper = styled.div`
@@ -24,7 +41,7 @@ export const NavWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 25%;
-  // height: 100vh;
+  height: 100vh;
   posotion: fixed;
   top: 0;
   left: 0;
@@ -79,7 +96,11 @@ export const DropdownWrapper = styled.div`
 
 export const Dropdown = styled.div`
   width: 100%;
-  margin-top: 5px;
+`;
+
+export const Ellipsis = styled.span`
+  margin-left: 5px;
+  font-size: 25px;
 `;
 
 export const DropdownItemWrapper = styled.div`
@@ -106,6 +127,8 @@ export const DropdownItem = styled.button`
 
 export const NotesView = styled.div`
   width: 80%;
+  height: 100vh;
+  border: 1px solid red;
 `;
 export const NotesHeader = styled.h2 `
   font-size: 35px;
@@ -120,6 +143,7 @@ export const NotesWrapper = styled.div`
   flex-wrap: wrap;
   margin: 0 auto;
   height: auto;
+  height: 100vh;
   // border: 1px solid green;
 `;
 

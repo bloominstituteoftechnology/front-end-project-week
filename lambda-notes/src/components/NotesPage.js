@@ -85,7 +85,7 @@ class NotesPage extends Component {
     const searchFiltered =  this.state.notes.filter(note => {
       if(note.title.toLowerCase().includes(this.state.filteredSearch.toLowerCase())) {
           return true
-        }
+        } 
         return false
     }) 
    return searchFiltered
@@ -162,6 +162,7 @@ class NotesPage extends Component {
             <CreateNewNote
               {...props}
               note={notes.map(note => note)}
+              text={notes.map(note => note.textBody)}
               editNote={this.editNote}
               edit
             />

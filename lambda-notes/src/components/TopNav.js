@@ -2,7 +2,7 @@ import React from 'react';
 
 import SearchBar from './SearchBar';
 
-import { TopNavWrapper, DropdownWrapper, Dropdown, DropdownItemWrapper, DropdownItem } from '../style';
+import { TopNavWrapper, DropdownWrapper, Dropdown, DropdownItemWrapper, DropdownItem, Ellipsis } from '../style';
 
 export default class TopNav extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class TopNav extends React.Component {
           handleSearchInput={this.props.handleSearchInput}
         />
        <DropdownWrapper>
-         <Dropdown onClick={this.toggle}>Sort By <span>...</span></Dropdown>
+         <Dropdown onClick={this.toggle}>Sort By <Ellipsis>...</Ellipsis></Dropdown>
          {this.state.dropdownOpen ? (
            <DropdownItemWrapper>
              <DropdownItem onClick={this.props.sortTitle}>Title</DropdownItem>

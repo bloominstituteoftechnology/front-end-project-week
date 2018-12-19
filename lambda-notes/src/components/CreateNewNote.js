@@ -7,7 +7,8 @@ class CreateNewNote extends Component {
         super(props);
         this.state = {
             title: '',
-            textBody: ''
+            textBody: '',
+            text: props.text
         }
     }
 
@@ -19,6 +20,30 @@ class CreateNewNote extends Component {
             [event.target.name]: event.target.value
         })
     }
+
+    changeText = (event) => {
+        const { textBody } = this.state.textBody;
+        const newText = {
+          ...textBody,
+          text: event.target.value
+        };
+        this.setState({ textBody: newText });
+      }
+
+    // handleEditChange =  (propertyName, event) => {
+    //     const textContent = this.state.text;
+    //     textContent[propertyName] = event.target.value;
+    //     this.setState({ textContent: textContent });
+    //   }
+
+    //   handleChangeFor = (propertyName) => (event) => {
+    //     const { text } = this.state.text;
+    //     const newText = {
+    //       ...text,
+    //       [propertyName]: event.target.value
+    //     };
+    //     this.setState({ text: newText });
+    //   }
 
     submitHandler = (event) => {
         event.preventDefault();
@@ -35,7 +60,7 @@ class CreateNewNote extends Component {
     }
 
     render () {
-        console.log(this.props.note)
+        console.log(this.state)
         return (
             <FormWrapper>
                 <FormHeader>{this.props.edit ? 'Edit Note': 'Create New Note'}</FormHeader>
@@ -54,8 +79,9 @@ class CreateNewNote extends Component {
                         className='text'
                         type='text'
                         name='textBody'
+                        required={!this.props.edit}
                         onChange={this.handleChange}
-                        placeholder={this.props.edit ? `${this.state.textBody}`: 'Create New Note'}
+                        placeholder='Edit Text'
                         value={this.state.textBody}
                     />
                     <FormButton>{this.props.edit ? 'Edit Note': 'Save'}</FormButton>
