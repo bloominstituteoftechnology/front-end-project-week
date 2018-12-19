@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DeleteModal from "./DeleteModal";
 
 class NoteView extends React.Component {
     constructor(props) {
@@ -8,6 +9,7 @@ class NoteView extends React.Component {
             _id: null,
             title: '',
             textBody: '',
+            show: false
         };
     }
 
@@ -33,15 +35,26 @@ class NoteView extends React.Component {
         this.props.history.push('/');
     };
 
+    showModal = () => {
+        this.setState({ show: true });
+    };
+
+    hideModal = () => {
+        this.setState({ show: false });
+    };
+
     render() {
         return(
             <div className='note-view'>
                 <div className='note-view-edits'>
                     <Link className='edit-link' to={`/edit/${this.state._id}`}>edit</Link>
-                    <h4 className='delete' onClick={this.deleteNote}>delete</h4>
+                    <h4 className='delete' onClick={this.showModal}>delete</h4>
                 </div>
                 <h2 className='note-view-title' >{this.state.title}</h2>
                 <p>{this.state.textBody}</p>
+                {this.state.show ? (
+                    <DeleteModal deleteNote={this.deleteNote} hideModal={this.hideModal} />                    
+                ) : null }
             </div>
         );
     }

@@ -61,6 +61,7 @@ html {
   display: flex;
   margin: 0 auto;
   border: 2px solid grey;
+  height: 85rem;
 }
 
 
@@ -133,7 +134,7 @@ html {
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
-  
+  position: relative;
   width: 90%;
 }
 .note-view-edits {
@@ -201,4 +202,36 @@ form button {
 }
 .add-note .btn {
   width: 20%;
+}
+.delete-modal {
+  border: 2px solid grey;
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 5rem;
+  opacity: 0.9;
+  width: 50%;  
+}
+.delete-modal h2 {
+  padding: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.modal-buttons {
+  display: flex;
+  
+  justify-content: space-evenly;
+}
+.btn-delete {
+  background-color: red;
+  width: 30%;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border: 1px solid grey;
+  padding: 1rem 0 1rem 0;
+}
+.modal-buttons .btn {
+  width: 30%;
 }
