@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 import Note from './note.js';
 import ActionBar from './action-bar.js';
-import Loading from './loading.js';
+import Loading from '../utilities/loading.js';
 
 
 //== Component =================================================================

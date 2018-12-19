@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 
 //-- Component & Export --------------------------
 export default function Note(props) {
-    let viewUrl = `/edit/${props.note.id}`;
+    let viewUrl = `/note/${props.note.id}`;
     return (
         <Link to={viewUrl}>
             <div className='note' data-id={props.note.id}>

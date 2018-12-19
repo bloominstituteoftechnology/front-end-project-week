@@ -4,6 +4,7 @@
 
 //-- Dependencies --------------------------------
 import React from 'react';
+import './loading.css';
 
 //-- Component & Export --------------------------
 export default function Loading(props) {

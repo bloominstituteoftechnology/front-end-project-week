@@ -6,7 +6,8 @@
 import axios from 'axios';
 
 //-- Configuration -------------------------------
-const REMOTE_SERVER = 'http://localhost:5000';
+const REMOTE_SERVER = 'https://jbnotes.herokuapp.com/';
+//const REMOTE_SERVER = 'http://localhost:5000';
 
 //-- Action Types --------------------------------
 let actionIndex = 0;
@@ -84,10 +85,9 @@ export function addNote(noteData, callback) {
 export function updateNote(noteData) {
     return function (dispatch) {
         dispatch({type: FETCHING});
-        let noteUrl = `${REMOTE_SERVER}/${noteData.id}`;
+        let noteUrl = `${REMOTE_SERVER}${noteData.id}`;
         axios.put(noteUrl, noteData)
         .then(response => {
-            console.log(response)
             dispatch(getNotes());
         })
         .catch(error => {
@@ -100,7 +100,7 @@ export function updateNote(noteData) {
 export function deleteNote(noteId) {
     return function (dispatch) {
         dispatch({type: FETCHING});
-        let noteUrl = `${REMOTE_SERVER}/${noteId}`;
+        let noteUrl = `${REMOTE_SERVER}${noteId}`;
         axios.delete(noteUrl)
         .then(response => {
             console.log(response);

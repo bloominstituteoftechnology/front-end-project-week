@@ -3,8 +3,8 @@
 //== Application ===============================================================
 
 //-- Dependencies --------------------------------
+import './client.css';
 import React from 'react';
-import './App.css';
 import {Route, Link} from 'react-router-dom';
 import * as actions from './actions';
 import NoteList from './components/note-list.js';
@@ -16,7 +16,7 @@ import NoteView from './components/note-view.js';
 //== Components ================================================================
 
 //-- Main Application Component ------------------
-export default class App extends React.Component {
+export default class Client extends React.Component {
     render() {
         return (
             <div className="app">

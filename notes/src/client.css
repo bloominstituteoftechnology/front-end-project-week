@@ -25,45 +25,6 @@ body {
 h1, h2 {
   color: #4a4a4a;
 }
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  flex-grow: 1;
-}
-.loading-spinner {
-  color: white;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-  animation-name: spin;
-  animation-duration: 5000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  border: 5rem dotted white;
-  background-color: black;
-}
-@keyframes spin {
-  from {
-    transform:rotate(0deg);
-    background: #f00;
-  }
-  16% { background: #ff0;}
-  33% { background: #0f0;}
-  50% { background: #0ff;}
-  66% { background: #00f;}
-  83% { background: #f0f;}
-  to  {
-    background: #f00;
-    transform:rotate(360deg);
-  }
-}
 
 /*----------------------------------------------*/
 .app {

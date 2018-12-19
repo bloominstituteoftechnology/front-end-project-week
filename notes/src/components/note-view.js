@@ -22,9 +22,10 @@ class NoteView extends React.Component {
         };
     }
     componentDidMount() {
-        const id = this.props.match.params.id;
+        const id = Number(this.props.match.params.id);
         let focusNote = this.props.notes.find(note => note.id === id);
         if(!focusNote){
+            console.log('no note', id, this.props.notes)
             this.props.history.push('/');
             return;
         }
@@ -35,7 +36,7 @@ class NoteView extends React.Component {
 
     //-- Rendering -----------------------------------
     render() {
-        const id = this.props.match.params.id;
+        const id = Number(this.props.match.params.id);
         let focusNote = this.props.notes.find(note => note.id === id);
         if(!focusNote){
             return null;
