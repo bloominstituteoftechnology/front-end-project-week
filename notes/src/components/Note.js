@@ -14,7 +14,7 @@ h3 {
 }
 
 p {
-    height: 170px;
+    height: 131px;
     overflow: hidden;
 }
 `

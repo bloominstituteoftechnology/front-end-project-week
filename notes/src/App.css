@@ -30,3 +30,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+.backdrop {
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background: #D8D8D8;
+  opacity: .8;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
