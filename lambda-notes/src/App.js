@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
+import SideBar from './components/Sidebar/SideBarContainer'
 import NoteList from './components/Notes/NoteList';
-
-import './App.css'
 
 export default class App extends Component {
   constructor() {
@@ -16,6 +15,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <SideBar />
         <Route exact path="/" component={NoteList} />
       </div>
     );
