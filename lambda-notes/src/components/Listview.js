@@ -32,6 +32,9 @@ const Title = styled.h3`
 const Body = styled.p`
     font-size: 0.8rem;
     line-height: 1.2;
+    display: block;
+    overflow: hidden;
+    white-space: pre-line;
 `
 
 const Note = styled(Link)`
@@ -44,19 +47,15 @@ const Note = styled(Link)`
     display: flex;
     flex-direction: column;
     width: 20%;
-    height: 300px;
+    height: 250px;
 `
 
 class ListView extends Component {
-    constructor(props){
-        super(props);
-
-    }
 
     render() {
         return (
             <ListContainer>
-                <Header>Your Notes:</Header>
+               {this.props.loading ? <Header>Loading...</Header> : <Header>Your Notes:</Header>}
                 <PreviewContainer>
                     {this.props.notes.map(note => 
                         <Note to={`/notes/${note._id}`}>

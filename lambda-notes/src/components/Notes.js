@@ -6,21 +6,24 @@ import axios from 'axios';
 import ViewNote from './Viewnote.js'
 import ListView from './Listview.js';
 
+import CreateNote from './CreateNote.js'
+import DeleteNote from './DeleteNote.js'
+import EditNote from './EditNote.js'
+
 
 const ContentContainer = styled.div`
     display: table-cell;
-    width: 85%;
+    max-width: 450px;
     vertical-align: top;
-    padding-left: 3%;
-    padding-top: 4%;
+    padding-left: 30px;
 `
 
 class Notes extends Component {
     constructor(props){
         super(props);
         this.state = {
-            notes: [
-            ]
+            notes: [],
+            loading: true,
         }
     }
 
@@ -29,10 +32,15 @@ class Notes extends Component {
             .get(`https://fe-notes.herokuapp.com/note/get/all`)
             .then(response => {
                 this.setState({
-                    notes: response.data
+                    notes: response.data,
+                    loading: false,
                 });
             })
             .catch(err => console.log(err));
+    }
+
+    refresh = response => {
+        window.location.reload();
     }
 
     render() {
@@ -42,13 +50,35 @@ class Notes extends Component {
                     path='/' 
                     exact
                     render={props => 
-                        <ListView {...props} notes={this.state.notes}/>
+                        <ListView {...props} notes={this.state.notes} loading={this.state.loading}/>
                     } 
                 />
+
                 <Route
                     path={`/notes/:id`}
                     render={props =>
-                        <ViewNote {...props}/>
+                        <ViewNote {...props} toggleDeleteScreen={this.toggleDeleteScreen} refresh={this.refresh}/>
+                    }
+                />
+
+                <Route
+                    path={`/create`}
+                    render={props =>
+                        <CreateNote {...props} refresh={this.refresh}/>
+                    }
+                />
+
+                <Route 
+                    path={`/edit/:id`}   
+                    render={props =>
+                        <EditNote {...props} refresh={this.refresh}/>
+                    }
+                />
+
+                <Route
+                    path={`/notes/delete/:id`}
+                    render={props =>
+                        <DeleteNote {...props} refresh={this.refresh}/>
                     }
                 />
             </ContentContainer>

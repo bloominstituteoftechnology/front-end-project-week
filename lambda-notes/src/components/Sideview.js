@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom';
 
 const Nav = styled.nav`
     display: table-cell;
-    min-width: 200px;
+    width: 20%;
+    min-width: 250px;
     height: 100%;
     padding: 0 1.5% 0 1.5%;
     background-color: #D8D8D8;
@@ -23,7 +24,7 @@ const NavHeader = styled.h1`
 
 const NavButton = styled(NavLink)`
     display: block;
-    margin-bottom: 10px;
+    outline: none;
     border: 1px solid #959898;
     text-decoration: none;
     background-color: #5DBEC3;
@@ -35,6 +36,7 @@ const NavButton = styled(NavLink)`
     font-weight: bold;
     padding: 0.8rem 0;
     width: 100%;
+    margin-bottom: 10px;
     -webkit-appearance: none;
     -moz-appearance: none; 
 `
@@ -44,7 +46,7 @@ const Sideview = props => {
             <Nav>
                 <NavHeader>Lambda<br/>Notes</NavHeader>
                 <NavButton to='/'>View Your Notes</NavButton>
-                <NavButton to='/'>+ Create New Note</NavButton>
+                <NavButton to='/create'>+ Create New Note</NavButton>
 
             </Nav>
     )
