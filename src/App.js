@@ -95,7 +95,6 @@ class App extends Component {
     axios
       .put(`${api}${id}`, state)
       .then(res => {
-        console.log(res.data);
         const updatedArray = this.state.notes.map(note => {
           if (Number(note.id) === Number(res.data.id)) {
             return res.data;

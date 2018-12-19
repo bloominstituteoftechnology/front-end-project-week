@@ -104,6 +104,7 @@ form {
   border-radius: 2px;
   border: 1px solid #94a3a4;
   height: 20px;
+  font-size: 16px;
 }
 
 .form-note-content {
@@ -112,6 +113,7 @@ form {
   height: 200px;
   border-radius: 2px;
   border: 1px solid #94a3a4;
+  font-size: 16px;
 }
 
 .note-card-container {
