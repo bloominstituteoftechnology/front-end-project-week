@@ -235,3 +235,8 @@ form button {
 .modal-buttons .btn {
   width: 30%;
 }
+.notes-header {
+  font-weight: bold;
+  font-size: 2rem;
+ 
+}

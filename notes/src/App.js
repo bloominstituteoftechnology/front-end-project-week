@@ -7,6 +7,7 @@ import AddNote from "./components/AddNote";
 import './App.css';
 import NoteView from './components/NoteView';
 import EditView from "./components/EditView";
+import NotesHeader from "./components/NotesHeader";
 
 
 class App extends Component {
@@ -62,7 +63,11 @@ editNote = (note, id) => {
     return (
       <div className="App">
         <LeftSideBarNav />
-        <div className='app-content'>        
+        
+        <div className='app-content'>
+          
+          <NotesHeader />
+             
         <Route exact path='/' render={() => <NoteList notes={notes} /> } />
         <Route
           path='/create'
