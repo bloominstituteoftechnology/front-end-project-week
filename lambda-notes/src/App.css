@@ -1,0 +1,48 @@
+.App-Container {
+  padding-left: 25px;
+  padding-bottom: 10px;
+  margin: 30px 50px 30px 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 100%;
+  
+  
+}
+
+.Primary-View {
+width: 600%;
+height: 100%;
+padding-left: 50px;
+background-color: #E8E8E8;
+color: #000;
+}
+
+
+
+.App-link {
+  color: #61dafb;
+  padding: 10px 10px;
+  margin: 10px 10px;
+}
+
+
+h1 {
+  font-size: 2rem;
+
+
+}
+h2 {
+  font-size: 2rem;
+  
+
+}
+
+p {
+
+font-size: 1.6rem;
+}
+
+button {
+  font-size: 1.6rem;
+}

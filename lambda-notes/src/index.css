@@ -1,0 +1,20 @@
+body {
+  background: #FFFF;
+  margin: 10px;
+  padding: 10px;
+  font-family:'Sarabun', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+* {
+  box-sizing: border-box;
+    font-size: 62.5%;
+
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Sarabun', sans-serif;
+}
