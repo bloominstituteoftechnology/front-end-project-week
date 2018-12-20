@@ -91,7 +91,7 @@ class NewNoteView extends Component {
 
   render() {
     const { title, textBody } = this.state;
-    const id = localStorage.getItem('secret_notes_token');
+    const id = localStorage.getItem('user_id');
     console.log('FROM RENDER... The user ID is...', id);
 
     return (
