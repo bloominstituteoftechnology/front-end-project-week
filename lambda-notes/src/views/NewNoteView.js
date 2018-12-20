@@ -82,7 +82,7 @@ class NewNoteView extends Component {
   clickHandler = event => {
     event.preventDefault();
 
-    const id = localStorage.getItem('secret_notes_token');
+    const id = localStorage.getItem('user_id');
     console.log('The user ID is...', id);
     this.setState({ id: id });
     this.props.addNote(this.state);
