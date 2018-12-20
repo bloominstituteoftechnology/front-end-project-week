@@ -15,6 +15,7 @@ display: flex;
 
 p {
     cursor: pointer;
+    color: black;
 }
 
 p:first-child {
