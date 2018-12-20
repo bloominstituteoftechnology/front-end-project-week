@@ -25,7 +25,7 @@ class App extends Component {
       <div className="App-Container">
         <NavBar />
         <div className="Primary-View">
-          <div className="Note-Container">
+          <div className="Notes-Container">
             <Route
               exact
               path="/notes"

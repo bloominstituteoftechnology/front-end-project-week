@@ -5,21 +5,20 @@ import './NavBar.css';
 
 
 const NaviBar = styled.div`
-  border: 1px #AAAAAA;
-  padding: 10px;
-  width: 25%;
-  font-size: 2rem;
-  
+  background: #D3D2D3;
+  padding: 10px 10px;
+  width: 85%;
+  font-size: 2.75rem;
   display: flex;
   flex-direction: column;
-  color: dark grey;
-  background: #D3D2D3;
+  
 `;
 
 const Header = styled.div`
-font-size: 6rem;
+font-size: 3.5rem;
 font-weight: bold;
-line-height: 50px;
+line-height: 30px;
+padding: 30px 30px;
 `;
 
 

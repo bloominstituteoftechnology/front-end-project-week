@@ -1,42 +1,48 @@
 .App-Container {
-  
+  padding-left: 25px;
+  padding-bottom: 10px;
+  margin: 30px 50px 30px 50px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   max-width: 100%;
+  
   
 }
 
-.Primary-View{
-width: 66%;
+.Primary-View {
+width: 600%;
 height: 100%;
-background-color: #EBEEF0;
-color: #3B3C3D;
-padding: 10px 0px 20px 30px;
+padding-left: 50px;
+background-color: #E8E8E8;
+color: #000;
 }
 
 
 
 .App-link {
   color: #61dafb;
+  padding: 10px 10px;
+  margin: 10px 10px;
 }
 
 
 h1 {
-  font-size: 4rem;
+  font-size: 2rem;
 
 
 }
 h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   
 
 }
 
 p {
 
-font-size: 2.5rem;
+font-size: 1.6rem;
 }
 
 button {
-  font-size: 2.5rem;
+  font-size: 1.6rem;
 }

@@ -1,7 +1,8 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto Condensed', sans-serif;
+  background: #FFFF;
+  margin: 10px;
+  padding: 10px;
+  font-family:'Sarabun', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
@@ -15,5 +16,5 @@ body {
 
 
 code {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Sarabun', sans-serif;
 }

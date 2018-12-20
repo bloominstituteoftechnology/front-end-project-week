@@ -15,7 +15,7 @@ const Banner = styled.div`
   height: 100px;
   margin: 0px 10px;
   padding: 40px 0;
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: bold;
 `;
 
@@ -73,7 +73,7 @@ class CreateNew extends Component {
     return (
       <>
         <div className="Notes-Container">
-          <Banner>Create a New Note:</Banner>
+          <Banner>Create New Note:</Banner>
 
           <form onSubmit={this.submitHandler}>
             <input className="add-title"

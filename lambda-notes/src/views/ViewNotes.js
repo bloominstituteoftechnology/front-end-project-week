@@ -14,10 +14,8 @@ class ViewNotes extends Component {
       toggleModal: !this.state.toggleModal
     });
   };
-
   delete = (id) => {
     console.log(id);
-
     this.props.deleteNote(id)
     .then(promise => {
         console.log(promise);
@@ -27,24 +25,23 @@ class ViewNotes extends Component {
         }
     })}
 
-
   render() {
     let note = this.props.notes.find(
       note => note._id === this.props.match.params._id
     );
-    if (note === undefined) return <h1>Gettin' Notified!</h1>;
+    if (note === undefined) return <h1>Lost Notes? We'll find it. Hang tight.</h1>;
     return (
-      <div className="NotesViewContainer">
+      <div className="Views-Container">
         <div
           className={
-            this.state.toggleModal ? "Modal-Box" : "Modal-Hidden"
+            this.state.toggleModal ? "Modal-Box" : "Hide-Modal"
           }
         >
-          <div className="Confirmation-Box">
+          <div className="Confirm-Popup">
             <h2>
-              Are you sure you want to delete this?
+               Are you sure you want to delete this?
             </h2>
-            <div className="Button-Box">
+            <div className="Confirm-field">
               <button
                 className="Delete-Button"
                 onClick={() => {
@@ -62,17 +59,17 @@ class ViewNotes extends Component {
             </div>
           </div>
         </div>
-        <div className="Notes">
-          <div className="Edit-Box">
+        <div className="Spy-Notes">
+          <div className="Edit">
             <div
               onClick={() => {
                 this.props.updateForm(note);
                 this.props.history.push("/createNote");
               }}
             >
-              Edit
+              edit
             </div>
-            <div onClick={() => this.toggle()}>Delete</div>
+            <div onClick={() => this.toggle()}>delete</div>
           </div>
           <h2>{note.title}</h2>
           <p>{note.textBody}</p>
