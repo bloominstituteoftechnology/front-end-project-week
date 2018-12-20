@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './CreatorForm.css';
 
 export default class CreatorForm extends Component {
     constructor(props) {
@@ -29,33 +30,36 @@ export default class CreatorForm extends Component {
             })
             .catch(error => console.error('Server Error', error));
         
-        this.setState({
-            title: '',
-            content: ''
-        });
+        // this.setState({
+        //     title: '',
+        //     content: ''
+        // });
     }
 
     handleInputChange = e => {
-        this.setState({ [e.target.content]: e.target.vaule })
+        this.setState({ [e.target.content]: e.target.value })
     }
 
     render() {
         return(
             <div className="content-form">
+                <h2>Create New Note:</h2>
                 <form onSubmit={this.addContent}>
                     <input
-                        onChange={this.handleInputChange}
-                        placeholder="Note Title"
+                        type="text"
                         value={this.state.title}
-                        name="title"
+                        placeholder="Note Title"
+                        onChange={this.handleInputChange}
+                        className="input-title"
                     />
                     <input
-                        onChange={this.handleInputChange}
-                        placeholder="Note Content"
+                        type="text"
                         value={this.state.content}
-                        name="content"
+                        placeholder="Note Content"
+                        onChange={this.handleInputChange}
+                        className="input-content"
                     />
-                    <button type="submit">Save</button>
+                    <button type="submit" className="creator-button">Save</button>
                 </form>
             </div>
         );

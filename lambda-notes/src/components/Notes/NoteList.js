@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const H2 = styled.h2`
-    width: 75%;
-    height: 10%;
-    margin: 51px 10px 20px;
-    padding-bottom: 2px;
-    align-items: flex-end;
-    font-size: 28px;
-    color: #4b4b4b;
-`;
+import './Notes.css';
 
 export default class NoteList extends Component {
     constructor(props){
@@ -35,7 +25,7 @@ export default class NoteList extends Component {
     render() {
         return(
             <div className="note-board">
-                <H2>Your Notes:</H2>
+                <h2>Your Notes:</h2>
                 {this.state.notes.map(note => (
                     <NoteContents key={note.id} note={note} />
                 ))}

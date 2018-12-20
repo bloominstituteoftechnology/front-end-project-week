@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route, Link } from 'react-router-dom';
-
-import CreatorForm from '../Creator/CreatorForm'
+import { Link } from 'react-router-dom';
+import './Sidebar.css';
 
 const H1 = styled.h1`
     width: 100%;
@@ -15,10 +14,8 @@ const SideBarContainer = () => {
         <div className="bar-body"> 
             <H1>Lambda<br/>Notes</H1>
             <div className="button-box">
-                <Link to='/' className='link-button'>View Your Notes</Link>
-                <Route exact path='/' />
-                <Link to='/creator-form' className='link-button'>+ Create New Note</Link>
-                <Route path='/creator-form' component={CreatorForm} />
+                <Link to='/' className='styled-button'>View Your Notes</Link>
+                <Link to='/creator-form' className='styled-button'>+ Create New Note</Link>
             </div>
         </div>
     );
