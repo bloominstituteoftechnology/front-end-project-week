@@ -11,11 +11,11 @@ export default class CreatorForm extends Component {
         }
     }
 
-    addContent = event => {
+    addNote = event => {
         event.preventDefault();
         
         const content = {
-            content: this.state.content,
+            textBody: this.state.content,
             title: this.state.title
         };
 
@@ -27,30 +27,27 @@ export default class CreatorForm extends Component {
             .then(response => {
                 console.log(response)
                 console.log(response.data)
+                this.props.history.push("/")
             })
             .catch(error => console.error('Server Error', error));
-        
-        // this.setState({
-        //     title: '',
-        //     content: ''
-        // });
     }
 
     handleInputChange = e => {
-        this.setState({ [e.target.content]: e.target.value })
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     render() {
         return(
             <div className="content-form">
                 <h2>Create New Note:</h2>
-                <form onSubmit={this.addContent}>
+                <form onSubmit={this.addNote}>
                     <input
                         type="text"
                         value={this.state.title}
                         placeholder="Note Title"
                         onChange={this.handleInputChange}
                         className="input-title"
+                        name="title"
                     />
                     <input
                         type="text"
@@ -58,9 +55,15 @@ export default class CreatorForm extends Component {
                         placeholder="Note Content"
                         onChange={this.handleInputChange}
                         className="input-content"
+                        name="content"
                     />
-                    <button type="submit" className="creator-button">Save</button>
                 </form>
+
+                <button
+                    type="submit"
+                    className="creator-button"
+                    onClick={this.addNote}
+                >Save</button>
             </div>
         );
     }

@@ -27,7 +27,7 @@ export default class NoteList extends Component {
             <div className="note-board">
                 <h2>Your Notes:</h2>
                 {this.state.notes.map(note => (
-                    <NoteContents key={note.id} note={note} />
+                    <NoteContents key={note._id} note={note} />
                 ))}
             </div>
         )
@@ -37,7 +37,7 @@ export default class NoteList extends Component {
 function NoteContents({ note }) {
     const { tags, title, textBody } = note;
     return(
-        <Link to={`/notes/${note.id}`} className="note-link">
+        <Link to={`/notes/${note._id}`} className="note-link">
             <div className="note-card">
                 <h3>{title}</h3>
                 <div className="note-content">

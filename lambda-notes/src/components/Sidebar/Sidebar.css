@@ -1,8 +1,8 @@
 .bar-body {
   width: 16.8%;
-  height: 100%;
+  min-height: 100%;
   padding: 20px;
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   color: #4b4b4b;
