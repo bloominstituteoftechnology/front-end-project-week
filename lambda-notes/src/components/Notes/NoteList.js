@@ -11,7 +11,6 @@ const H2 = styled.h2`
     align-items: flex-end;
     font-size: 28px;
     color: #4b4b4b;
-    // border: 1px solid green;
 `;
 
 export default class NoteList extends Component {
