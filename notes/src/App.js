@@ -75,7 +75,7 @@ class App extends Component {
 
   searchNotes(query){
     let notes = this.state.notes.filter((note) => {
-      return note.title.includes(query) || note.textBody.includes(query)
+      return note.title.toLowerCase().includes(query) || note.textBody.toLowerCase().includes(query)
     });
     this.setState({
       notes: notes
@@ -90,7 +90,7 @@ class App extends Component {
       <NavBar />
         <Route
         exact path='/'
-        render={props => <SearchBarContainer searchNotes={this.searchNotes.bind(this)} />}
+        render={props => <SearchBarContainer searchNotes={this.searchNotes.bind(this)} {...props} />}
         />
         <Route 
         exact path='/'
