@@ -61,7 +61,7 @@ html {
   display: flex;
   margin: 0 auto;
   border: 2px solid grey;
-  height: 85rem;
+  min-height: 100vh;
 }
 
 
@@ -119,6 +119,7 @@ html {
   width: 29%;
   padding: 1.5rem;
   margin: 1rem;
+  
   height: 25rem;  
 }
 .note h3 {
@@ -238,5 +239,6 @@ form button {
 .notes-header {
   font-weight: bold;
   font-size: 2rem;
+  padding: 2rem;
  
 }

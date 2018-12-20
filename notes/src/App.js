@@ -7,7 +7,7 @@ import AddNote from "./components/AddNote";
 import './App.css';
 import NoteView from './components/NoteView';
 import EditView from "./components/EditView";
-import NotesHeader from "./components/NotesHeader";
+
 
 
 class App extends Component {
@@ -64,17 +64,14 @@ editNote = (note, id) => {
       <div className="App">
         <LeftSideBarNav />
         
-        <div className='app-content'>
-          
-          <NotesHeader />
-             
-        <Route exact path='/' render={() => <NoteList notes={notes} /> } />
-        <Route
-          path='/create'
-          render={(props) => (
-              <AddNote {...props} onSubmit={this.handleSubmit} />  
-          )}
-          />
+        <div className='app-content'>             
+          <Route exact path='/' render={() => <NoteList notes={notes} /> } />
+          <Route
+            path='/create'
+            render={(props) => (
+                <AddNote {...props} onSubmit={this.handleSubmit} />  
+            )}
+            />
           <Route 
             path='/view/:id'
             render={(props) => (
