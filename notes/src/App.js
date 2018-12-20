@@ -9,34 +9,30 @@ import NoteList from './components/NoteList'
 class App extends Component {
   constructor() {
     super();
-      this.state = {
-        note: null
+    this.state = {
+      notes: []
       }
     }
-    componentDidMount() {
-      const id = this.props.match.params.id;
-      this.fetchNotes(id);
-    }
-    fetchNotes = id => {
-      axios
-      .get(`https://fe-notes.herokuapp.com/note/get/all`)
-      .then(response => {
-        this.setState(() => ({ note: response.data }));
+  componentDidMount() {
+    axios
+    .get(`https://fe-notes.herokuapp.com/note/get/all`)
+    .then(response => {
+      this.setState({
+        notes: response.data
       })
-      .catch(error => {
-        console.error(error);
-      });
-    }
-    addTodo() {
-
-    }
-    render() {
-      return (
-        <div>
-          <NoteList />
-        </div>
-      )
-    }
+    })
+    .catch(error => console.log(error));
   }
+  addTodo() {
+
+  }
+  render() {
+    return (
+      <div>
+        <NoteList />
+      </div>
+    )
+  }
+}
 
 export default App;
