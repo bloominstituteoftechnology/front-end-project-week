@@ -10,6 +10,7 @@ import NavBar from './components/NavBar'
 import NoteView from './components/NoteView'
 import EditNote from './components/EditNote'
 import SearchBarContainer from './components/SearchBarContainer';
+import Authenticate from './components/Authenticate/Authenticate';
 
 const url = new URL('https://fe-notes.herokuapp.com/note/')
 
@@ -111,4 +112,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default Authenticate(App);
