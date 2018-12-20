@@ -18,17 +18,16 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      notes: [],
-      filteredNotes: []
+      notes: []
     }
   }
 
   componentDidMount() {
 
-    const filteredNotes = JSON.parse(localStorage.getItem('filteredNotes')) || []
+    const notes = JSON.parse(localStorage.getItem('notes')) || []
     this.setState({
-      notes: filteredNotes,
-      filteredNotes: filteredNotes
+      notes: notes,
+      filteredNotes: notes
     })
 
     axios
@@ -75,13 +74,12 @@ class App extends Component {
   }
 
   searchNotes(query){
-    let filteredNotes = this.state.notes.filter((note) => {
+    let notes = this.state.notes.filter((note) => {
       return note.title.includes(query) || note.textBody.includes(query)
     });
     this.setState({
-      filteredNotes: filteredNotes
+      notes: notes
     })
-    console.log(query)
   }
 
 
