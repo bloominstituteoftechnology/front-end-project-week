@@ -71,20 +71,21 @@ class NewNoteView extends Component {
   state = {
     title: '',
     textBody: '',
-    id: ''
+    id: null
   };
 
   handleInput = event => {
     // console.log(this.user);
     this.setState({ [event.target.name]: event.target.value });
+
+    const id = localStorage.getItem('user_id');
+    console.log('FROM handleInput The user ID is...', id);
+    this.setState({ id: id });
   };
 
   clickHandler = event => {
     event.preventDefault();
 
-    const id = localStorage.getItem('user_id');
-    console.log('The user ID is...', id);
-    this.setState({ id: id });
     this.props.addNote(this.state);
     this.props.history.push('/front-end-project-week');
   };
