@@ -22,10 +22,8 @@ export default class Note extends React.Component {
     // }
 
     componentDidMount() {
-        const note = this.state.note;
-        
         axios
-            .get(`/note/${note._id}`)
+            .get(`/note/${this.props.match.params.id}`)
             .then(response => {
                 this.setState(() => ({ notes: response.data }))
             })
