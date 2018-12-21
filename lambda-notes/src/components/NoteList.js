@@ -19,6 +19,10 @@ class NoteList extends Component {
     this.props.getNotes();
   }
 
+  // componentDidUpdate() {
+  //   this.props.getNotes();
+  // }
+
   render() {
     return (
       <NotesContainer>

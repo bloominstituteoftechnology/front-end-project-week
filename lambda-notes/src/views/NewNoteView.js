@@ -71,7 +71,7 @@ class NewNoteView extends Component {
   state = {
     title: '',
     textBody: '',
-    id: null
+    user_id: null
   };
 
   handleInput = event => {
@@ -80,7 +80,7 @@ class NewNoteView extends Component {
 
     const id = localStorage.getItem('user_id');
     console.log('FROM handleInput The user ID is...', id);
-    this.setState({ id: id });
+    this.setState({ user_id: id });
   };
 
   clickHandler = event => {
