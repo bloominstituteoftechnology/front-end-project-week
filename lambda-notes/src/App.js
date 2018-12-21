@@ -20,7 +20,7 @@ export default class App extends Component {
         <SideBar />
         <Route exact path="/" component={NoteList} />
         <Route path='/creator-form' component={CreatorForm} />
-        <Route path='/view/:id' component={Note} />
+        <Route path='/notes/:id' component={Note} />
       </div>
     );
   }
