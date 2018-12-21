@@ -49,8 +49,7 @@ export default class CreatorForm extends Component {
                         className="input-title"
                         name="title"
                     />
-                    <input
-                        type="text"
+                    <textarea
                         value={this.state.content}
                         placeholder="Note Content"
                         onChange={this.handleInputChange}

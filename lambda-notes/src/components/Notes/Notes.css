@@ -8,6 +8,12 @@ h2 {
   color: #4b4b4b;
 }
 
+p {
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+}
+
 .note-board {
   width: 78%;
   height: 100%;
@@ -42,4 +48,12 @@ h2 {
 
 .note-link {
   text-decoration: none;
+}
+
+.note-viewer{
+  width: 78%;
+  height: 100%;
+  margin-left: 20%;
+  padding: 13px;
+  display: flex;
 }
