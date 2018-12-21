@@ -16,7 +16,8 @@ const NotesContainer = styled.div`
 
 class NoteList extends Component {
   componentDidMount() {
-    this.props.getNotes();
+    const id = localStorage.getItem('user_id');
+    this.props.getNotes(id);
   }
 
   // componentDidUpdate() {
@@ -27,6 +28,7 @@ class NoteList extends Component {
     return (
       <NotesContainer>
         {this.props.fetchingNotes ? <h1>Loading the notes...</h1> : null}
+
         {this.props.notes.map(note => {
           return <Note key={note.id} note={note} />;
         })}
