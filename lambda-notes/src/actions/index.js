@@ -35,7 +35,7 @@ export const getNotes = id => dispatch => {
   dispatch({ type: FETCHING_NOTES });
   axios
 
-    .get(`${getUrl}:${id}`)
+    .get(`${getUrl}${id}`)
     .then(response => {
       dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
     })
@@ -51,7 +51,7 @@ export const addNote = note => dispatch => {
     .then(response => {
       dispatch({ type: ADDING_NOTE_SUCCESS });
       return axios
-        .get(`${getUrl}:${note.user_id}`)
+        .get(`${getUrl}${note.user_id}`)
         .then(response => {
           dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
         })
@@ -89,7 +89,7 @@ export const deleteNote = id => dispatch => {
       dispatch({ type: DELETING_NOTE_SUCCESS, payload: id });
 
       return axios
-        .get(`${getUrl}:${id}`)
+        .get(`${getUrl}${id}`)
         .then(response => {
           dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
         })
@@ -119,7 +119,7 @@ export const editNote = (id, note) => dispatch => {
       dispatch({ type: EDIT_NOTE_SUCCESS, payload: response });
 
       return axios
-        .get(`${getUrl}:${id}`)
+        .get(`${getUrl}${id}`)
         .then(response => {
           dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
         })
