@@ -51,7 +51,6 @@ export const addNote = note => dispatch => {
     .then(response => {
       dispatch({ type: ADDING_NOTE_SUCCESS });
       return axios
-        .get(`${getUrl}${note.user_id}`)
         .then(response => {
           dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
         })

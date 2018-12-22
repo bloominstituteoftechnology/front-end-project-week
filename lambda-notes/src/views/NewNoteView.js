@@ -71,7 +71,8 @@ class NewNoteView extends Component {
   state = {
     title: '',
     textBody: '',
-    user_id: null
+    user_id: null,
+    id: null
   };
 
   handleInput = event => {

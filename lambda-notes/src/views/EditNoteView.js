@@ -71,7 +71,8 @@ class EditNoteView extends Component {
   state = {
     title: this.props.activeNote.title,
     textBody: this.props.activeNote.textBody,
-    id: this.props.activeNote.id
+    id: this.props.activeNote.id,
+    user_id: this.props.activeNote.user_id
   };
 
   handleInput = event => {
@@ -86,7 +87,7 @@ class EditNoteView extends Component {
   };
 
   render() {
-    const { title, textBody, id } = this.state;
+    const { title, textBody, id, user_id } = this.state;
 
     console.log('fronm edit note render, this.props is... ', this.props);
     return (
