@@ -1,0 +1,251 @@
+.App {
+  text-align: left;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1028px;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.links {
+  text-decoration: none;
+}
+
+.side-bar {
+  padding: 10px;
+  width: 25%;
+  background: #d3d2d3;
+  height: 100vh;
+}
+
+.view-notes {
+  background: #24b8bd;
+  color: white;
+  margin: 0 0 10px 0;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-note {
+  background: #24b8bd;
+  color: white;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notes-container {
+  width: 75%;
+  background: #f2f1f2;
+  padding: 0 0 0 10px;
+}
+
+.note-container-title {
+  margin: 30px 0 0 10px;
+}
+
+.note-cards {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+  margin: 10px;
+}
+
+.note-link {
+  text-decoration: none;
+  color: #4a494a;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  width: 250px;
+  margin: 5px;
+  background: white;
+  text-decoration: none;
+  padding: 0 30px;
+  border-radius: 10px;
+}
+
+.note-header {
+  display: flex;
+  align-items: flex-start;
+  font-weight: bold;
+  border-bottom: 1px solid lightgray;
+  padding: 20px;
+}
+
+.note-content {
+  padding: 10px;
+  display: flex;
+  /* align-items:  */
+  padding: 20px;
+}
+
+.notecard-title {
+  font-weight: bold;
+}
+
+/* .notecard-content {
+  font-weight: bold;
+} */
+
+.note-content {
+  display: flex;
+  align-items: flex-end;
+}
+
+.e_d-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+
+.edit-button {
+  margin: 0 10px 0 0;
+}
+
+.edit-link {
+  color: #4a494a;
+  font-weight: bold;
+}
+
+.delete-link {
+  color: #4a494a;
+  font-weight: bold;
+}
+
+.editNote-container {
+  margin: 0 0 0 10px;
+}
+
+.note-title-input {
+  display: block;
+  width: 400px;
+  height: 40px;
+  margin: 0 0 10px;
+}
+
+.note-content-input {
+  width: 700px;
+  height: 500px;
+}
+.save-button {
+  background: #24b8bd;
+  color: white;
+  height: 40px;
+  text-align: center;
+  width: 200px;
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(29, 29, 29, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal {
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  height: 200px;
+  width: 500px;
+  border: 1px solid black;
+}
+
+.delete-modal h4 {
+  display: flex;
+  justify-content: center;
+}
+
+.d-link {
+  text-decoration: none;
+  color: white;
+}
+
+.d-modal-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-button {
+  background-color: #d0011b;
+  width: 200px;
+  height: 45px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.no-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #24b8bd;
+  color: white;
+  height: 45px;
+  width: 200px;
+  margin: 0 0 0 10px;
+  font-weight: bold;
+}
+
+.newNote-Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-title {
+  display: block;
+  width: 400px;
+  height: 40px;
+  margin: 0 0 10px;
+}
+
+.new-content {
+  width: 700px;
+  height: 500px;
+}
