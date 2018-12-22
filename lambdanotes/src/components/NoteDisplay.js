@@ -24,6 +24,7 @@ class NoteDisplay extends Component {
               <Note
                 title={note.title}
                 textBody={note.textBody}
+                id={note._id}
               />
             );
           })}

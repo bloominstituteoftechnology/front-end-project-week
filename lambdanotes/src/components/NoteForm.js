@@ -24,7 +24,6 @@ class NoteForm extends Component {
             title: "",
             textBody: ""
         });
-        this.props.getNotes();
     }
 
     handleInputChange = e => {
