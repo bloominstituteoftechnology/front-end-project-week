@@ -7,6 +7,7 @@ import Home from './Home.js'
 class App extends Component {
   render() {
     return (
+
       <div className="App">
         <Switch>
           <Route exact path='/' render={props => <Home {...props} />} />

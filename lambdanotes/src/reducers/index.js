@@ -1,4 +1,4 @@
-import { GET_NOTES } from '../actions';
+import { GET_NOTES, CREATE_NOTE } from '../actions';
 
 const initialState = {
     notes: [],
@@ -19,6 +19,12 @@ export default (state = initialState, action) => {
                 notes: action.payload
             };
             
+        case CREATE_NOTE:
+            return {
+                ...state,
+                notes: [...action.payload]
+            }
+
         default: return state;
     }
 }
