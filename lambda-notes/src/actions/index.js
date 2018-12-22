@@ -23,7 +23,7 @@ export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 export const LOGIN = 'LOGIN';
 
-const getUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/allTest';
+const getUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/allTest/';
 const postUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/create';
 const deleteUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/delete';
 const putUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/edit';
@@ -35,7 +35,7 @@ export const getNotes = id => dispatch => {
   dispatch({ type: FETCHING_NOTES });
   axios
 
-    .get(`${getUrl}/${id}`)
+    .get(`${getUrl}:${id}`)
     .then(response => {
       dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
     })
