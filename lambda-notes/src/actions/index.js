@@ -84,7 +84,7 @@ export const hideDeleteModal = () => dispatch => {
 export const deleteNote = id => dispatch => {
   dispatch({ type: DELETE_NOTE });
   axios
-    .delete(`${deleteUrl}/${id}`)
+    .delete(`${deleteUrl}${id}`)
     .then(response => {
       dispatch({ type: DELETING_NOTE_SUCCESS, payload: id });
 
@@ -114,7 +114,7 @@ export const LoginCheck = token => dispatch => {
 
 export const editNote = (id, note) => dispatch => {
   axios
-    .put(`${putUrl}/${id}`, note)
+    .put(`${putUrl}${id}`, note)
     .then(response => {
       dispatch({ type: EDIT_NOTE_SUCCESS, payload: response });
 
