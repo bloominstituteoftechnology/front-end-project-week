@@ -10,16 +10,9 @@ class CreateNoteForm extends React.Component {
     };
   }
 
-  handleChange = event => {
-    this.setState({
-      ...this.state,
-      [event.target.name]: event.target.value
-    });
-  }
-
   submitHandler = ev => {
       ev.preventDefault();
-      this.props.addNote(this.state);
+      this.props.addNote(this.props.note);
       this.props.history.push('/')
     }
 
@@ -30,19 +23,18 @@ class CreateNoteForm extends React.Component {
               type='text'
               name='title'
               placeholder='Note Title'
-              onChange={this.handleChange}
-              value={this.state.title}
+              onChange={this.props.handleChange}
+              value={this.props.note.title}
             />
 
             <input
               type='text'
               name='textBody'
               placeholder='Note Content'
-              onChange={this.handleChange}
-              value={this.state.textBody}
+              onChange={this.props.handleChange}
+              value={this.props.note.textBody}
             />
           <button type='submit'>Save</button>
-          
       </form>
     )
   }

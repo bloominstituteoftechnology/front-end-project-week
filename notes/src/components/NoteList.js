@@ -1,5 +1,6 @@
 import React from 'react';
 import Note from './Note';
+import { Route, Link, NavLink } from 'react-router-dom';
 
 class NoteList extends React.Component{
   render(){
@@ -22,13 +23,17 @@ class NoteList extends React.Component{
                     note._id
                   )
                 }}>Delete</button>
+                <Link to='/edit-form'>
                 <button
-                    onClick={() => {
+                    onClick={(ev) => {
+                      this.props.history.push('/edit-form');
                       console.log(note._id);
+                      console.log(ev);
+                      console.log(note);
                       this.props.editNote(
-                        note._id
+                        ev, note
                       )
-                    }}>Edit</button>
+                    }}>Edit</button></Link>
             </div>
             </div>
           )

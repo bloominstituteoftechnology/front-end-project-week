@@ -5,15 +5,26 @@ import { Route, Link, NavLink } from 'react-router-dom';
 import './App.css';
 
 import CreateNoteForm from './components/CreateNoteForm';
+import EditNoteForm from './components/EditNoteForm'
 import NoteList from './components/NoteList';
 import Note from './components/Note';
+
+const blankNote= {
+  title: '',
+  textBody:''
+}
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      note: {
+        title: '',
+        textBody: ''
+      },
+      editingId: null
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -28,6 +39,15 @@ class App extends Component {
         });
       })
       .catch(err => console.log(err));
+  }
+
+  handleChange = event => {
+    console.log(event.target.value);
+    this.setState({
+      note: {
+        ...this.state.note,
+      [event.target.name]: event.target.value}
+    });
   }
 
   addNote = data => {
@@ -52,15 +72,24 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  editNote = (id) => {
+  editNote = () => {
     axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/` + id)
+    .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.editingId}`, this.state.note)
     .then(res =>{
-      console.log(id);
       axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then(res => this.setState({ notes: res.data }))
-    })
+      })
     .catch(err => console.log(err))
+}
+
+editForm = (ev, note) => {
+  ev.preventDefault();
+  console.log(ev);
+  console.log(note);
+  this.setState({
+    note: note,
+    editingId: note._id
+  })
 }
 
   render() {
@@ -77,7 +106,9 @@ class App extends Component {
             render={props => (
               <CreateNoteForm
                 {...props}
-                addNote={this.addNote}/>
+                addNote={this.addNote}
+                handleChange={this.handleChange}
+                note={this.state.note}/>
             )}
           />
           <div className='notes-container'>
@@ -88,10 +119,21 @@ class App extends Component {
                 {...props}
                 deleteNote = {this.deleteNote}
                 notes = {this.state.notes}
-                editNote={this.editNote}/>
+                editNote={this.editForm}
+                />
             )}
           />
-
+        <Route
+          path='/edit-form'
+          render= {props => (
+            <EditNoteForm
+              {...props}
+              editNote={this.editNote}
+              handleChange={this.handleChange}
+              notes={this.state.notes}
+              note={this.state.note}/>
+            )}
+          />
           <Route path='/notes/:id' component={Note} />
         </div>
         </div>
@@ -99,5 +141,7 @@ class App extends Component {
     );
   }
 }
+
+
 
 export default App;
