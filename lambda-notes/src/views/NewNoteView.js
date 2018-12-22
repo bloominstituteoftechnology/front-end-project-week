@@ -91,9 +91,9 @@ class NewNoteView extends Component {
   };
 
   render() {
-    const { title, textBody } = this.state;
-    const id = localStorage.getItem('user_id');
-    console.log('FROM RENDER... The user ID is...', id);
+    const { title, textBody, id } = this.state;
+    const user_id = localStorage.getItem('user_id');
+    // console.log('FROM RENDER... The user ID is...', user_id);
 
     return (
       <NewNoteViewContainer>

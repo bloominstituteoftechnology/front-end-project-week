@@ -53,7 +53,7 @@ class SingleNoteView extends Component {
       <SingleNoteViewContainer>
         <TitleContainer>
           <LinkContainer>
-            <StyledLink to="/front-end-project-week/edit-note" onClick={this.EditClickHandler}>
+            <StyledLink to="/front-end-project-week/edit" onClick={this.EditClickHandler}>
               Edit
             </StyledLink>
             <StyledLink to="/front-end-project-week" onClick={this.DeleteClickHandler}>

@@ -70,7 +70,8 @@ const NoteAppButton = styled.button`
 class EditNoteView extends Component {
   state = {
     title: this.props.activeNote.title,
-    textBody: this.props.activeNote.textBody
+    textBody: this.props.activeNote.textBody,
+    id: this.props.activeNote.id
   };
 
   handleInput = event => {
@@ -79,13 +80,15 @@ class EditNoteView extends Component {
 
   clickHandler = event => {
     event.preventDefault();
+    console.log(this.props.activeNote);
     this.props.editNote(this.props.activeNote.id, this.state);
     this.props.history.push('/front-end-project-week');
   };
 
   render() {
-    const { title, textBody } = this.state;
+    const { title, textBody, id } = this.state;
 
+    console.log('fronm edit note render, this.props is... ', this.props);
     return (
       <EditNoteViewContainer>
         <EditNoteTitleContainer>

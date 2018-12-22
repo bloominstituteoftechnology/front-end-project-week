@@ -114,7 +114,7 @@ export const LoginCheck = token => dispatch => {
 
 export const editNote = (id, note) => dispatch => {
   axios
-    .put(`${putUrl}${id}`, note)
+    .put(`${putUrl}/${id}`, note)
     .then(response => {
       dispatch({ type: EDIT_NOTE_SUCCESS, payload: response });
 
