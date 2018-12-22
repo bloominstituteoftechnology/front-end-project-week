@@ -30,11 +30,12 @@ const putUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/edit';
 
 const loginUrl = 'https://gimme-the-notes-server.herokuapp.com/login';
 
-export const getNotes = () => dispatch => {
+export const getNotes = id => dispatch => {
   // let's do some async stuff! Thanks react-thunk :)
   dispatch({ type: FETCHING_NOTES });
   axios
-    .get(getUrl)
+
+    .get(`${getUrl}/${id}`)
     .then(response => {
       dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
     })
