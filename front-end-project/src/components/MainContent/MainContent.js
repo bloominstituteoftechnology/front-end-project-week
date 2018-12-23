@@ -48,40 +48,17 @@ class MainContent extends Component {
           this.setState({displayDelete: !this.state.displayDelete})
         };
 
-     editNote = () => {
-            console.log('hi');
-          
-          axios
-            .put('http://localhost:8000/notes/:id')
-            .then(response => this.setState({notes: response.data}))
-            .catch(error => console.log(error));
-          }
           
         //   componentDidUpdate(){
         //     this.editNote();
         //   }
 
-    createNote = () => {
-            console.log('hi');
-          
-          axios
-            .post('http://localhost:8000/notes')
-            .then(response => this.setState({notes: response.data}))
-            .catch(error => console.log(error));
-          }
           
         //   componentDidMount(){
         //     this.createNote();
         //   }
 
-    deleteNote = () => {
-            console.log('hi');
-          
-          axios
-            .delete('http://localhost:8000/notes/:id')
-            .then(response => this.setState({notes: response.data}))
-            .catch(error => console.log(error));
-          }
+
           
         //   componentWillUnmount(){
         //     this.deleteNote();
