@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { LoginCheck, logOut } from '../actions';
+import { LoginCheck, logOut, goHome } from '../actions';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import { Switch, Route, NavLink } from 'react-router-dom';
@@ -49,12 +49,20 @@ class RegisterAndLoginView extends Component {
     this.props.history.push('/fronte-end-project-week/loggedOut');
   };
 
+  homeClickHandler = event => {
+    event.preventDefault();
+    this.props.goHome();
+    this.props.history.push('/fronte-end-project-week/');
+  };
+
   render() {
     return (
       <div>
         <RegisterAndLoginContainer>
           <NavContainer>
-            <NavLink to="/front-end-project-week">Home</NavLink>
+            <NavLink>
+              <div onClick={this.homeclickHandler}>Home</div>
+            </NavLink>
             <NavLink to="/front-end-project-week/login">Login</NavLink>
             <NavLink to="/front-end-project-week/register">Register</NavLink>
 
@@ -73,7 +81,8 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     error: state.error,
-    notes: state.notes
+    notes: state.notes,
+    isActive: state.isActive
   };
 };
 
@@ -82,7 +91,8 @@ export default withRouter(
     mapStateToProps,
     {
       LoginCheck,
-      logOut
+      logOut,
+      goHome
     }
   )(RegisterAndLoginView)
 );

@@ -4,6 +4,8 @@ import ButtonContainer from '../components/ButtonContainer';
 import Register from '../components/Register';
 import Login from '../components/Login';
 import RegisterAndLoginView from '../views/RegisterAndLoginView';
+
+import { goHome } from '../actions';
 import { withRouter, Switch, Route, NavLink } from 'react-router-dom';
 
 const SideBarContainer = styled.div`
