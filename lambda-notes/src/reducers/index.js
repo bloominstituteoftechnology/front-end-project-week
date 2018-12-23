@@ -106,6 +106,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         activeNote: null,
+        isActive: false,
         editingNote: false
       };
 
