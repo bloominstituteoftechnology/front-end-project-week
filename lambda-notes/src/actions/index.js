@@ -80,7 +80,7 @@ export const hideDeleteModal = () => dispatch => {
   dispatch({ type: CANCEL_DELETE_NOTE, payload: false });
 };
 
-export const deleteNote = id => dispatch => {
+export const deleteNote = (id, note) => dispatch => {
   dispatch({ type: DELETE_NOTE });
   axios
     .delete(`${deleteUrl}/${id}`)
@@ -88,7 +88,7 @@ export const deleteNote = id => dispatch => {
       dispatch({ type: DELETING_NOTE_SUCCESS, payload: id });
 
       return axios
-        .get(`${getUrl}${id}`)
+        .get(`${getUrl}${note.user_id}`)
         .then(response => {
           dispatch({ type: FETCHING_NOTES_SUCCESS, payload: response.data });
         })

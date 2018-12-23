@@ -69,11 +69,18 @@ const ButtonContainer = styled.div`
 `;
 
 class DeleteModal extends Component {
+  state = {
+    title: this.props.activeNote.title,
+    textBody: this.props.activeNote.textBody,
+    id: this.props.activeNote.id,
+    user_id: this.props.activeNote.user_id
+  };
+
   DeleteNoteClickHandler = event => {
     event.preventDefault();
     console.log('State before you trying to delete: ', this.state);
     console.log('ID before you trying to delete: ', this.props.activeNote.id);
-    this.props.deleteNote(this.props.activeNote.id);
+    this.props.deleteNote(this.props.activeNote.id, this.state);
     console.log('State after you trying to delete: ', this.state);
     this.props.history.push('/front-end-project-week');
   };
