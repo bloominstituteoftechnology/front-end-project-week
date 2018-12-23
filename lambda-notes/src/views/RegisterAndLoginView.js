@@ -51,6 +51,7 @@ class RegisterAndLoginView extends Component {
 
   homeClickHandler = event => {
     event.preventDefault();
+    console.log('is this working? the home');
     this.props.goHome();
     this.props.history.push('/front-end-project-week');
   };
@@ -61,7 +62,7 @@ class RegisterAndLoginView extends Component {
         <RegisterAndLoginContainer>
           <NavContainer>
             <NavLink to="/front-end-project-week/">
-              <div onClick={this.homeclickHandler}>Home</div>
+              <div onClick={this.homeClickHandler}>Home</div>
             </NavLink>
             <NavLink to="/front-end-project-week/login">Login</NavLink>
             <NavLink to="/front-end-project-week/register">Register</NavLink>
