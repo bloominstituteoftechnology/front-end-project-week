@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 
 const NewNoteViewContainer = styled.div`
   text-align: left;

@@ -15,10 +15,10 @@ const NoteAppButton = styled.button`
   background-color: teal;
   color: white;
   width: 90%;
-  font-size: 2rem;
+  font-size: 1.2rem;
   padding: 30px 5%;
   margin: 0 5%;
-  margin-bottom: 30px;
+  margin-top: 20px;
 `;
 
 class ButtonContainer extends Component {

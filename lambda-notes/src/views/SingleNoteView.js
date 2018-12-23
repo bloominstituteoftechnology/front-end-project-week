@@ -11,7 +11,6 @@ const SingleNoteViewContainer = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  height: 150px;
   padding-top: 85px;
   font-size: 2rem;
   padding-left: 4%;

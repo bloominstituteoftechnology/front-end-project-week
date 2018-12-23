@@ -22,6 +22,7 @@ export const EDIT_NOTE = 'EDIT_NOTE';
 export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const EDIT_NOTE_FAILURE = 'EDIT_NOTE_FAILURE';
 export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
 
 const getUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/allTest/';
 const postUrl = 'https://gimme-the-notes-server.herokuapp.com/notes/create';
@@ -105,6 +106,10 @@ export const deleteNote = (id, note) => dispatch => {
 
 export const editingNote = () => dispatch => {
   dispatch({ type: EDIT_NOTE });
+};
+
+export const logOut = () => dispatch => {
+  dispatch({ type: LOGOUT });
 };
 
 export const LoginCheck = token => dispatch => {

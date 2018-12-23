@@ -19,7 +19,8 @@ import {
   EDIT_NOTE,
   EDIT_NOTE_SUCCESS,
   EDIT_NOTE_FAILURE,
-  LOGIN
+  LOGIN,
+  LOGOUT
 } from '../actions/index';
 
 const initialState = {
@@ -159,6 +160,14 @@ export default (state = initialState, action) => {
         ...state,
         editingNote: false,
         activeNote: null
+      };
+
+    case LOGOUT:
+      return {
+        ...state,
+        editingNote: false,
+        activeNote: null,
+        notes: []
       };
 
     default:

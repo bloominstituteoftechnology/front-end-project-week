@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import NoteList from '../components/NoteList';
+import RegisterAndLoginView from './RegisterAndLoginView';
 
 const ListViewContainer = styled.div`
   text-align: left;
@@ -9,9 +10,8 @@ const ListViewContainer = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  height: 150px;
   padding-top: 85px;
-  font-size: 2rem;
+  font-size: 1.4rem;
   padding-left: 4%;
 `;
 

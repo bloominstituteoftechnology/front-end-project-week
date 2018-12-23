@@ -9162,6 +9162,11 @@ styled-components@^4.0.2:
     stylis "^3.5.0"
     stylis-rule-sheet "^0.0.10"
 
+styled-reset@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/styled-reset/-/styled-reset-1.6.4.tgz#3692f0b56ef0fb1691f401d04a1ed6bc0ce00e9f"
+  integrity sha512-YRUgPxh1M6nrUE8cNPxh1F3bPRGah9hiqu093nFDjo6Ofzxe+K+nBCDXSznDO83VIrAPAeOzyXT+OYyR1F/HYA==
+
 stylehacks@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/stylehacks/-/stylehacks-4.0.1.tgz#3186595d047ab0df813d213e51c8b94e0b9010f2"

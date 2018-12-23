@@ -10,7 +10,7 @@ const NoteContainer = styled.div`
   border: 1px solid gray;
   background: white;
   width: 31%;
-  height: 400px;
+  height: auto;
   margin-top: 20px;
   margin-bottom: 40px;
   overflow: hidden;
@@ -30,7 +30,7 @@ const StyledLink = styled(Link)`
 `;
 
 const NoteTitle = styled.header`
-  font-size: 2.25rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin: 20px 10%;
   border-bottom: 1px solid #aaa;
@@ -38,9 +38,10 @@ const NoteTitle = styled.header`
 `;
 
 const NoteContent = styled.p`
-  font-size: 1.75rem;
+  font-size: 1.2rem;
   padding: 0 10%;
   margin-top: -10px;
+  margin-bottom: 20px;
 `;
 
 class Note extends Component {
