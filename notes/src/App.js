@@ -9,12 +9,6 @@ import EditNoteForm from './components/EditNoteForm'
 import NoteList from './components/NoteList';
 import Note from './components/Note';
 
-const blankNote= {
-  title: '',
-  textBody:''
-}
-
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +18,8 @@ class App extends Component {
         title: '',
         textBody: ''
       },
-      editingId: null
+      editingId: null,
+      activeItem: []
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -40,6 +35,20 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   }
+
+  getNoteById = id => {
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(res => {
+        console.log(id);
+        console.log(res.data);
+        this.setState({
+          activeItem: res.data
+        })
+      })
+      .catch(err => console.log(err));
+  };
+
 
   handleChange = event => {
     console.log(event.target.value);
@@ -97,7 +106,7 @@ editForm = (ev, note) => {
       <div className="App">
         <div className='side-nav'>
           <h1>Lambda Notes</h1>
-          <button><NavLink exact to='/'>View Your Notes </NavLink></button>{' '}
+          <button><NavLink to='/'>View Your Notes </NavLink></button>{' '}
           <button><NavLink to='/note-form'> + Create New Note </NavLink></button>
         </div>
         <div>
@@ -117,12 +126,22 @@ editForm = (ev, note) => {
             render={props => (
               <NoteList
                 {...props}
+                key={this.state.notes._id}
                 deleteNote = {this.deleteNote}
                 notes = {this.state.notes}
                 editNote={this.editForm}
+                getNoteById={this.getNoteById}
                 />
-            )}
+              )}
           />
+          <Route
+            path ='/note/:id'
+            render={props =>(
+              <Note
+                {...props}
+                note={this.state.activeItem}/>
+            )}
+            />
         <Route
           path='/edit-form'
           render= {props => (
@@ -134,7 +153,7 @@ editForm = (ev, note) => {
               note={this.state.note}/>
             )}
           />
-          <Route path='/notes/:id' component={Note} />
+
         </div>
         </div>
       </div>
