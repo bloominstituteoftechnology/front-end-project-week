@@ -219,9 +219,23 @@
 
 .loginPage {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://images.unsplash.com/photo-1510070112810-d4e9a46d9e91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
+  background-size: cover;
+  height: 100vh;
+}
+
+.loginDiv {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 600px;
+  background: #EF9394;
+  box-shadow: 1px 1px 1px black;
+  border-radius: 15px;
+  padding: 30px;
 }
 
 .forms {
@@ -234,5 +248,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: #698590;
+  border-radius: 10px;
   margin: 0 25px;
+  padding: 10px;
 }

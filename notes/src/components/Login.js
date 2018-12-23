@@ -43,56 +43,58 @@ class Login extends React.Component {
   render() {
     return (
       <div className="loginPage">
-        <h1>Welcome to Lambda Notes!</h1>
-        <div className="forms">
-          <form className="loginForm">
-            <p>Login to see your notes!</p>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              onChange={this.handleInputChange}
-              value={this.state.email}
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={this.handleInputChange}
-              value={this.state.password}
-              required
-            />
-            <input
-              type="submit"
-              value="Login"
-              onClick={this.handleLoginSubmit}
-            />
-          </form>
-          <form className="registerForm">
-            <p>Create an account!</p>
-            <input
-              type="email"
-              name="remail"
-              placeholder="Email"
-              onChange={this.handleInputChange}
-              value={this.state.remail}
-              required
-            />
-            <input
-              type="password"
-              name="rpassword"
-              placeholder="Password"
-              onChange={this.handleInputChange}
-              value={this.state.rpassword}
-              required
-            />
-            <input
-              type="submit"
-              value="Register"
-              onClick={this.handleRegisterSubmit}
-            />
-          </form>
+        <div className="loginDiv">
+          <h1>Welcome to Lambda Notes!</h1>
+          <div className="forms">
+            <form className="loginForm">
+              <p>Login to see your notes!</p>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={this.handleInputChange}
+                value={this.state.email}
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={this.handleInputChange}
+                value={this.state.password}
+                required
+              />
+              <input
+                type="submit"
+                value="Login"
+                onClick={this.handleLoginSubmit}
+              />
+            </form>
+            <form className="registerForm">
+              <p>Create an account!</p>
+              <input
+                type="email"
+                name="remail"
+                placeholder="Email"
+                onChange={this.handleInputChange}
+                value={this.state.remail}
+                required
+              />
+              <input
+                type="password"
+                name="rpassword"
+                placeholder="Password"
+                onChange={this.handleInputChange}
+                value={this.state.rpassword}
+                required
+              />
+              <input
+                type="submit"
+                value="Register"
+                onClick={this.handleRegisterSubmit}
+              />
+            </form>
+          </div>
         </div>
       </div>
     );
