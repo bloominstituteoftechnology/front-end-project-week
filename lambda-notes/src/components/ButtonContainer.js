@@ -12,7 +12,7 @@ const SideBar = styled.div`
 `;
 
 const NoteAppButton = styled.button`
-  background-color: teal;
+  background-color: #ef62a4;
   color: white;
   width: 90%;
   font-size: 1.2rem;

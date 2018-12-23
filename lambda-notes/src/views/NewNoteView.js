@@ -13,7 +13,7 @@ const NewNoteViewContainer = styled.div`
 const NewNoteTitleContainer = styled.div`
   height: 150px;
   padding-top: 85px;
-  font-size: 2rem;
+  font-size: 1.4rem;
   padding-left: 4%;
 `;
 
@@ -32,7 +32,7 @@ const NoteForm = styled.form`
     margin-bottom: 20px;
     border: 1px solid black;
     border-radius: 3px;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     padding: 15px 10px;
   }
 
@@ -58,10 +58,10 @@ const NoteInputContent = styled.textarea`
 `;
 
 const NoteAppButton = styled.button`
-  background-color: #2ac0c4;
+  background-color: #ef62a4;
   color: white;
   width: 30%;
-  font-size: 2rem;
+  font-size: 1.4rem;
   padding: 30px 2.5%;
   margin: 0 2.5%;
   margin-bottom: 30px;

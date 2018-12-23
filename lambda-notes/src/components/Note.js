@@ -14,6 +14,7 @@ const NoteContainer = styled.div`
   margin-top: 20px;
   margin-bottom: 40px;
   overflow: hidden;
+  border: solid #ef62a4;
 `;
 
 const StyledLink = styled(Link)`

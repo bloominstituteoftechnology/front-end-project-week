@@ -15,7 +15,7 @@ const RegisterAndLoginContainer = styled.div`
 const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: #ef62a4;
   width: 95%;
   font-size: 1.2rem;
   margin-bottom: 10px;
