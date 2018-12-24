@@ -24,14 +24,14 @@ const submitHandler = ev => {
             />
         </div>
         <div>
-            <input
-              className='textBody-field'
-              type='text'
-              name='textBody'
-              placeholder='      Note Content'
-              onChange={props.handleChange}
-              value={props.note.textBody}
-            />
+          <textarea
+            className='textBody-field'
+            rows = '10'
+            cols = '60'
+            name = 'textBody'
+            placeholder='   Note Content'
+            value = {props.note.textBody}
+            onChange={props.handleChange}>Note Content</textarea>
         </div>
         <div>
           <button className='edit-form-button' type='submit'>Update</button>

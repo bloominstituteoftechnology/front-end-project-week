@@ -33,14 +33,14 @@ class CreateNoteForm extends React.Component {
             />
         </div>
         <div>
-            <input
-              className='textBody-field'
-              type='text'
-              name='textBody'
-              placeholder='Note Content'
-              onChange={this.props.handleChange}
-              value={this.props.note.textBody}
-            />
+        <textarea
+          className='textBody-field'
+          rows = '10'
+          cols = '60'
+          name = 'textBody'
+          placeholder='Note Content'
+          value = {this.props.note.textBody}
+          onChange={this.props.handleChange}>Note Content</textarea>
         </div>
         <div>
           <button className='create-form-button' type='submit'>Save</button>

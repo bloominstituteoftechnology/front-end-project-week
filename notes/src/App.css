@@ -17,7 +17,7 @@ p{
   flex-flow: column nowrap;
   width: 250px;
   padding-left: 1rem;
-  background-color: #d4ccc4;
+  background-color: #bfbfbf;
   border: 1px solid red;
 }
 
@@ -50,17 +50,39 @@ p{
   flex-flow: column wrap;
   border: 1px solid black;
   width: 30%;
+
+  margin-right: 0.9rem;
+  margin-bottom: 1.2rem;
+  background-color: white;
+  height: 200px;
+}
+
+.each-note h4 {
+  margin-top: 0.5rem;
+  margin-left: 0.7rem;
+  margin-bottom: 0;
+}
+
+.each-note p{
+  margin-left: 0.7rem;
+  margin-top: 0.001rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .main-page ul{
   padding-left: 0;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .main-page{
   width: 650px;
   border: 1px solid purple;
-  background-color:#f4f4f0;
+  background-color:#e6e6e6;
   padding-left: 2rem;
+  height: 790px;
 }
 
 
@@ -72,8 +94,8 @@ p{
   border: 1px solid purple;
   width: 650px;
   padding-left: 2rem;
-  height: 700px;
-  background-color:#f4f4f0
+  height: 790px;
+  background-color:#e6e6e6
 }
 
 .create-note-container h3{
@@ -84,11 +106,19 @@ p{
   width: 400px;
   margin-bottom: 1rem;
   height: 30px;
+  padding-left: 0.7rem;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  border-radius: 4%;
 }
 
 .create-note-container .textBody-field{
   width: 95%;
   margin-bottom: 1rem;
+  height: 300px;
+  padding-left: 1.4rem;
+  padding-top: 1.2rem;
+  border-radius: 1%;
 }
 
 .create-note-container .create-form-button{
@@ -108,7 +138,7 @@ p{
   width: 650px;
   padding-left: 2rem;
   height: 790px;
-  background-color:#f4f4f0
+  background-color:#e6e6e6
 }
 
 .edit-note-container h3{
@@ -119,12 +149,19 @@ p{
   width: 400px;
   margin-bottom: 1rem;
   height: 30px;
+  padding-left: 0.7rem;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  border-radius: 4%;
 }
 
 .edit-note-container .textBody-field{
   width: 95%;
   margin-bottom: 1rem;
   height: 300px;
+  padding-left: 1.4rem;
+  padding-top: 1.2rem;
+  border-radius: 1%;
 }
 
 .edit-note-container .edit-form-button{
@@ -141,10 +178,15 @@ p{
 
 .single-note-container {
   width: 650px;
-  background-color:#f4f4f0;
+  background-color:#e6e6e6;
   height: 700px;
   padding-left: 2rem;
   padding-top: 0.9rem;
+}
+
+.single-note-container p {
+  display: flex;
+  width: 100%;
 }
 
 .single-note-container .buttons {
