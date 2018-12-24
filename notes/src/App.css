@@ -8,7 +8,7 @@ p{
   width: 880px;
   height: 100%;
   margin: 0 auto;
-  border: 1px solid blue;
+
   font-family: 'Lato', sans-serif;
 }
 
@@ -18,7 +18,7 @@ p{
   width: 250px;
   padding-left: 1rem;
   background-color: #bfbfbf;
-  border: 1px solid red;
+
 }
 
 .App .side-nav .nav-btn {
@@ -41,7 +41,7 @@ p{
 .notes-container{
   display: flex;
   flex-flow: row wrap;
-  border: 1px solid purple;
+
   width: 100%;
 }
 
@@ -79,7 +79,7 @@ p{
 
 .main-page{
   width: 650px;
-  border: 1px solid purple;
+  border: 1px solid black;
   background-color:#e6e6e6;
   padding-left: 2rem;
   height: 790px;
@@ -91,7 +91,7 @@ p{
 }
 
 .create-note-container {
-  border: 1px solid purple;
+  border: 1px solid black;
   width: 650px;
   padding-left: 2rem;
   height: 790px;
@@ -134,7 +134,7 @@ p{
 }
 
 .edit-note-container {
-  border: 1px solid purple;
+  border: 1px solid black;
   width: 650px;
   padding-left: 2rem;
   height: 790px;
@@ -179,7 +179,7 @@ p{
 .single-note-container {
   width: 650px;
   background-color:#e6e6e6;
-  height: 700px;
+  height: 850px;
   padding-left: 2rem;
   padding-top: 0.9rem;
 }
@@ -190,7 +190,7 @@ p{
 }
 
 .single-note-container .buttons {
-  border: 1px solid red;
+
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
