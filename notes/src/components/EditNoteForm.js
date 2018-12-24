@@ -10,24 +10,34 @@ const submitHandler = ev => {
     }
 
     return(
+      <div className='edit-note-container'>
+      <h3>Edit Note: </h3>
       <form onSubmit={submitHandler}>
+        <div>
           <input
+              className='title-field'
               type='text'
               name='title'
-              placeholder='Note Title'
+              placeholder='  Note Title'
               onChange={props.handleChange}
               value={props.note.title}
             />
-
+        </div>
+        <div>
             <input
+              className='textBody-field'
               type='text'
               name='textBody'
-              placeholder='Note Content'
+              placeholder='      Note Content'
               onChange={props.handleChange}
               value={props.note.textBody}
             />
-          <button type='submit'>Update</button>
+        </div>
+        <div>
+          <button className='edit-form-button' type='submit'>Update</button>
+        </div>
       </form>
+      </div>
     )
 }
 

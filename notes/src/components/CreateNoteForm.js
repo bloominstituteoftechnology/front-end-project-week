@@ -18,24 +18,35 @@ class CreateNoteForm extends React.Component {
 
   render(){
     return(
+      <div className='create-note-container'>
+      <h3>Create New Note: </h3>
       <form onSubmit={this.submitHandler}>
+        <div>
           <input
+              className='title-field'
               type='text'
               name='title'
               placeholder='Note Title'
+              autofocus
               onChange={this.props.handleChange}
               value={this.props.note.title}
             />
-
+        </div>
+        <div>
             <input
+              className='textBody-field'
               type='text'
               name='textBody'
               placeholder='Note Content'
               onChange={this.props.handleChange}
               value={this.props.note.textBody}
             />
-          <button type='submit'>Save</button>
+        </div>
+        <div>
+          <button className='create-form-button' type='submit'>Save</button>
+        </div>
       </form>
+      </div>
     )
   }
 };

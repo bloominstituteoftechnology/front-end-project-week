@@ -105,11 +105,11 @@ editForm = (ev, note) => {
     return (
       <div className="App">
         <div className='side-nav'>
-          <h1>Lambda Notes</h1>
-          <button><NavLink to='/'>View Your Notes </NavLink></button>{' '}
-          <button><NavLink to='/note-form'> + Create New Note </NavLink></button>
+          <h1>Lambda  Notes</h1>
+          <NavLink to='/'><button className='nav-btn'>View Your Notes </button></NavLink>{' '}
+          <NavLink to='/note-form'><button className='nav-btn'> + Create New Note </button></NavLink>
         </div>
-        <div>
+          <div className='create-notes-form'>
           <Route
             path='/note-form'
             render={props => (
@@ -120,40 +120,45 @@ editForm = (ev, note) => {
                 note={this.state.note}/>
             )}
           />
-          <div className='notes-container'>
+          <div className='note-list'>
           <Route
             exact path='/'
             render={props => (
               <NoteList
                 {...props}
                 key={this.state.notes._id}
-                deleteNote = {this.deleteNote}
+
                 notes = {this.state.notes}
-                editNote={this.editForm}
+
                 getNoteById={this.getNoteById}
                 />
               )}
           />
+          <div className='note'>
           <Route
             path ='/note/:id'
             render={props =>(
               <Note
                 {...props}
-                note={this.state.activeItem}/>
-            )}
-            />
-        <Route
-          path='/edit-form'
-          render= {props => (
-            <EditNoteForm
-              {...props}
-              editNote={this.editNote}
-              handleChange={this.handleChange}
-              notes={this.state.notes}
-              note={this.state.note}/>
+                note={this.state.activeItem}
+                deleteNote = {this.deleteNote}
+                editNote={this.editForm}/>
             )}
           />
-
+          </div>
+          <div className='edit-note-form'>
+          <Route
+            path='/edit-form'
+            render= {props => (
+              <EditNoteForm
+                {...props}
+                editNote={this.editNote}
+                handleChange={this.handleChange}
+                notes={this.state.notes}
+                note={this.state.note}/>
+              )}
+            />
+          </div>
         </div>
         </div>
       </div>

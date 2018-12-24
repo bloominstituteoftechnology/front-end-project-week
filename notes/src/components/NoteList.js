@@ -29,25 +29,7 @@ function NoteList(props){
     )
 }
 
-// <div className='buttons'>
-// <button
-//     onClick={() => {
-//       this.props.deleteNote(
-//         note._id
-//       )
-//     }}>Delete</button>
-//     <Link to='/edit-form'>
-//     <button
-//         onClick={(ev) => {
-//           this.props.history.push('/edit-form');
-//           console.log(note._id);
-//           console.log(ev);
-//           console.log(note);
-//           this.props.editNote(
-//             ev, note
-//           )
-//         }}>Edit</button></Link>
-// </div>
+
 
 // <Note
 //   key={note.id}
