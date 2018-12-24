@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f2f1f2;
+}
+
+.App {
+  display: flex;
+}
+
+.side-bar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background: #d3d2d3;
+}
+
+.side-bar div {
+  background: #24b8bd;
+  margin: 10px 20px;
+  padding: 10px 1px;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+.side-bar i {
+  margin: 0px 10px;
+}
+.side-bar h1 {
+  margin: 15px;
+}
+
+.side-bar .create-note {
+  margin-top: 20px;
+}
+.side-bar a {
+  text-decoration: none;
+}
+nav.nav-bar {
+  display: none;
+}
+
+.nav-bar {
+  background: #222;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.nav-bar h5 {
+  padding: 10px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.nav-bar a {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 960px) {
+  .side-bar {
+    display: none;
+  }
+  nav.nav-bar {
+    display: flex;
+  }
+}

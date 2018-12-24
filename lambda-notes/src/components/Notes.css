@@ -1,0 +1,186 @@
+.note {
+  padding: 20px;
+  background: #fff;
+  /* margin: 20px; */
+  width: 45%;
+  border: 1px solid lightgrey;
+  max-height: 300px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+.note a {
+  text-decoration: none;
+  color: #333;
+}
+.note h1 {
+  border-bottom: 1px solid lightgray;
+  font-size: 1.7rem;
+}
+.note p {
+  margin-top: 15px;
+}
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-left: 250px;
+  background: #f2f1f2;
+  padding-top: 60px;
+  max-width: 1200px;
+}
+
+.your-notes {
+  width: 100%;
+  margin-left: 30px;
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+.note-form {
+  width: 80%;
+  margin-left: 250px;
+  padding-top: 50px;
+}
+
+.note-form form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 80%;
+  margin: auto;
+}
+.note-form input,
+#create-submit,
+#create-note-body {
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+#create-submit {
+  width: 160px;
+  background: #24b8bd;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.note-form h1 {
+  font-size: 1.7rem;
+  opacity: 0.8;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.single-note {
+  width: 80%;
+  margin-left: 250px;
+  padding: 30px;
+}
+.single-note h1 {
+  font-size: 1.7rem;
+  margin-top: 20px;
+}
+.single-note p {
+  margin-top: 20px;
+}
+
+.edit-and-delete {
+  position: absolute;
+  right: 100px;
+  top: 20px;
+}
+.edit-and-delete span {
+  margin: 10px;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.edit-and-delete i {
+  margin: 0 5px;
+}
+
+.delete-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  animation: fadeIn 500ms;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.delete-modal-wrapper {
+  background: #fff;
+  width: 50%;
+  padding: 40px 20px;
+  margin: auto;
+  margin-top: 100px;
+}
+.delete-modal-wrapper button {
+  color: white;
+  border: none;
+
+  margin: 20px 10px;
+  text-align: center;
+  width: 45%;
+  padding: 10px;
+  cursor: pointer;
+}
+.delete-modal-wrapper button:nth-last-of-type(2) {
+  background: red;
+}
+.delete-modal-wrapper button:nth-last-of-type(1) {
+  background: #24b8bd;
+}
+.delete-modal-wrapper h5 {
+  text-align: center;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 960px) {
+  .notes-container {
+    margin: auto;
+    width: 100%;
+  }
+  .single-note {
+    margin: auto;
+    margin-top: 30px;
+  }
+  .edit-and-delete {
+    position: absolute;
+    right: 100px;
+    top: 50px;
+  }
+  .note-form {
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 650px) {
+  .note {
+    width: 90%;
+  }
+  .note-form {
+    width: 100%;
+  }
+  .note-form form {
+    width: 90%;
+  }
+}
