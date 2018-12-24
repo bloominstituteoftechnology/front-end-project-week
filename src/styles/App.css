@@ -81,11 +81,6 @@
   color: #212529;
 }
 
-a {
-  text-decoration: none;
-  color: #080706;
-}
-
 .side-bar {
   display: flex;
   flex-direction: column;

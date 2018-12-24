@@ -46,7 +46,7 @@ export const notesReducer = (state = initialState, action) => {
       return { ...state, viewingNote: true }
 
     case VIEWED_NOTE:
-      return { ...state, viewingNote: true, note: action.payload }
+      return { ...state, viewingNote: false, note: action.payload }
 
     case UPDATING_NOTES:
       return { ...state, updatingNote: true }
