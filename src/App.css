@@ -69,12 +69,12 @@
 
 .heart:before {
   transform: translateX(-50%);
-  animation: animX 3s infinite 0.75s;
+  animation: animX 1s infinite 0.75s;
 }
 
 .heart:after {
   transform: translateY(-50%);
-  animation: animY 3s infinite;
+  animation: animY 1s infinite;
 }
 
 @keyframes animX {
