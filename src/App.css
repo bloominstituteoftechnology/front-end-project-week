@@ -69,7 +69,7 @@
 
 .heart:before {
   transform: translateX(-50%);
-  animation: animX 1s infinite 0.75s;
+  animation: animX 1s infinite 0.25s;
 }
 
 .heart:after {
