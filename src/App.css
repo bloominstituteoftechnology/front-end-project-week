@@ -54,8 +54,8 @@
 .heart:before,
 .heart:after {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background-color: #dea6af;
   transform: rotateZ(45deg);
 }
