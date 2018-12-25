@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import "./note.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import './note.css';
 
 class Note extends Component {
   constructor(props) {
@@ -15,18 +15,19 @@ class Note extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:8000/api/notes/${this.props.id}`)
+      .get(`https://lambda-notes-jp.herokuapp.com/api/notes/${this.props.id}`)
       .then(response => {
-        let tags = response.data[0].tags.split(",");
+        let tags = response.data[0].tags.split(',');
         this.setState({
           note: response.data[0],
           tags: tags
         });
       })
       .catch(err => {
-        console.log("Error retrieving notes");
+        console.log('Error retrieving notes');
       });
   }
+
   render() {
     return (
       <div className="note">
@@ -42,7 +43,7 @@ class Note extends Component {
         <h2>{this.state.note.title}</h2>
         <p>{this.state.note.content}</p>
         <div className="tags">
-          Tags:{" "}
+          Tags:{' '}
           {this.state.tags.map((tag, index) => (
             <span key={index}>{tag}</span>
           ))}
