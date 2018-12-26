@@ -35,8 +35,8 @@ class NoteForm extends Component {
   render() {
     return (
       <div className="note-form-div">
-        <h2 className="note-form-title">Create New Note:</h2>
         <form>
+          <h2 className="note-form-title">New Note</h2>
           <input
             name="title"
             placeholder="      Note Title"
@@ -58,15 +58,29 @@ class NoteForm extends Component {
             onChange={this.handleInputChange}
             value={this.state.content}
           />
+            <br />
+            <br />
+            <div className="save-cancel-div">
           <a href="/">
-          <button
-            type="button"
-            onClick={this.handleAddNote}
-            className="save-button"
-          >
-            Save
-          </button>
+            <button
+              type="button"
+              onClick={this.handleAddNote}
+              className="save-button"
+              >
+              Save
+            </button>
           </a>
+          
+          <a href="/">
+            <button
+              type="button"
+              className="save-button"
+              >
+              Cancel
+            </button>
+          </a>
+        </div>
+
         </form>
       </div>
     );

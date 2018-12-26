@@ -39,7 +39,10 @@
 /* Note Form Styles */
 .note-form-div {
   background-color: #f3f3f3;
-  padding-left: 20px;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .note-form-title {
@@ -63,13 +66,17 @@
   resize: none;
   border: 1px solid #979797;
 }
-
+.save-cancel-div {
+  display: flex;
+  justify-content: space-between;
+}
 .save-button {
   background-color: rgb(7, 46, 219);
   color: #ffffff;
   border: 1px solid #979797;
   min-width: 200px;
-  min-height: 25px;
+  min-height: 35px;
+  border-radius: 10px;
   padding: 2%;
   font-size: 1rem;
   font-weight: bold;
@@ -92,6 +99,7 @@
 
 .notes-list-sort {
   border: 1px solid #979797;
+  border-radius: 10px;
   width: 150px;
   display: flex;
   justify-content: center;
@@ -125,6 +133,7 @@
   color: #4a4a4a;
   background: #ffffff;
   box-shadow: 1px 5px 15px #979797;
+  border-radius: 10px;
 }
 
 .note-link {
@@ -184,13 +193,30 @@
   font-weight: bold;
   font-size: 0.8rem;
 }
-.note-box-delete {
+.note-box-delete-div {
+  display:flex;
+  justify-content: flex-end;
   text-decoration: none;
+}
+
+.note-box-delete-link {
+  text-decoration: none;
+  width:10%;
+}
+.note-box-delete-link:hover {
+  cursor: pointer;
+}
+
+.note-box-delete {
+  margin-block-end: 0em;
+  color:red;
+
 }
 
 .note-div {
   background: #f3f3f3;
   width: 100%;
+  min-height:800px;
 }
 .single-note-title {
   font-size: 1.2rem;
@@ -210,9 +236,9 @@
 /* Edit Note Styles */
 
 .edit-note-div {
-  padding-left: 15px;
   background: #f3f3f3;
-  width: 80%;
+  width: 100%;
+  min-height: 800px;
 }
 .edit-note-title {
   font-family: "Roboto";
