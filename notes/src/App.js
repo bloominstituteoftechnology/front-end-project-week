@@ -22,16 +22,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     axios
       .get(`https://lambda-notes-jp.herokuapp.com/api/notes`)
       .then(response => {
-        console.log(response.data);
         let tags = '';
         let filteredTags = '';
 
         response.data.forEach(note => {
-          tags += note.tags + ',';
+          if (note.tags !== '' && note.tags !== null) {
+            tags += note.tags + ',';
+          }
         });
 
         tags = tags.slice(0, tags.length - 1);
@@ -58,7 +58,7 @@ class App extends Component {
       sortedNotes = sortedNotes.filter(note =>
         note.tags.includes(event.target.dataset.tag)
       );
-      console.log(sortedNotes);
+
       this.setState({
         activeTag: event.target.dataset.tag,
         sortedNotes: sortedNotes
@@ -75,7 +75,6 @@ class App extends Component {
     axios
       .post(`https://lambda-notes-jp.herokuapp.com/api/notes`, newNote)
       .then(response => {
-        console.log(response);
         let tags = '';
         let filteredTags = '';
         let notes = [];
@@ -86,9 +85,10 @@ class App extends Component {
 
         notes.push({ id: response.data.id, ...newNote });
 
-        console.log(notes);
         notes.forEach(note => {
-          tags += note.tags + ',';
+          if (note.tags !== '' && note.tags !== null) {
+            tags += note.tags + ',';
+          }
         });
 
         tags = tags.slice(0, tags.length - 1);
@@ -110,10 +110,21 @@ class App extends Component {
   };
 
   updateNote = note => {
+    let id = parseInt(note.id, 10);
+
     axios
       .put(`https://lambda-notes-jp.herokuapp.com/api/notes/${note.id}`, note)
       .then(response => {
-        console.log(response);
+        let notes = [];
+        this.state.notes.forEach(stateNote => {
+          if (stateNote.id === id) {
+            notes.push({ ...note, id: id });
+          } else {
+            notes.push({ ...stateNote });
+          }
+        });
+
+        this.setState({ notes: notes, sortedNotes: notes });
       })
       .catch(err => {});
   };
@@ -125,7 +136,8 @@ class App extends Component {
     });
   };
 
-  deleteNote = id => {
+  deleteNote = () => {
+    console.log(this.state.selectedNoteID);
     axios
       .delete(
         `https://lambda-notes-jp.herokuapp.com/api/notes/${
@@ -133,9 +145,36 @@ class App extends Component {
         }`
       )
       .then(response => {
-        console.log(response + ' deleted successfully');
-        this.setState({ deleteModalToggle: false });
-        window.location.reload();
+        let notes = [];
+        let tags = '';
+        let filteredTags = '';
+
+        this.state.notes.forEach(stateNote => {
+          if (stateNote.id !== this.state.selectedNoteID) {
+            notes.push({ ...stateNote });
+          }
+        });
+
+        notes.forEach(note => {
+          if (note.tags !== '' && note.tags !== null) {
+            tags += note.tags + ',';
+          }
+        });
+
+        tags = tags.slice(0, tags.length - 1);
+        tags = tags.split(',');
+
+        filteredTags = tags.filter((tag, index) => {
+          return tags.indexOf(tag) === index;
+        });
+
+        this.setState({
+          deleteModalToggle: false,
+          notes: notes,
+          sortedNotes: notes,
+          tags: ['all', ...filteredTags],
+          activeTag: 'all'
+        });
       })
       .catch(err => {
         console.log('Error deleting note');
