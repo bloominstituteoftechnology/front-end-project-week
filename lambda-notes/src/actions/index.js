@@ -11,13 +11,20 @@ export const EDIT_NOTE = 'EDIT_NOTE';
 export const EDIT_NOTE_SUCCESS = 'EDIT_NOTE_SUCCESS';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const NOTE_DELETED = 'NOTE_DELETED';
+// export const SIGN_UP = 'SIGN_UP';
+// export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
 
-const URL = 'https://laurens-lambda-notes-api.herokuapp.com/api/notes';
+// const URL = 'https://laurens-lambda-notes-api.herokuapp.com/api/';
+
+// export const signUp = user => dispatch => {
+//   dispatch({ type: SIGN_UP });
+//   axios.post(`${}`);
+// };
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: FETCHING_DATA });
   axios
-    .get(URL)
+    .get(`${URL}/notes`)
     .then(response => {
       console.log(response);
       dispatch({ type: DATA_SUCCESS, results: response.data });
@@ -31,7 +38,7 @@ export const fetchNotes = () => dispatch => {
 export const addNote = note => dispatch => {
   dispatch({ type: ADD_NOTE });
   axios
-    .post(URL, note)
+    .post(`${URL}/notes`, note)
     .then(response => {
       dispatch({ type: ADDED_SUCCESS });
     })
@@ -42,7 +49,7 @@ export const addNote = note => dispatch => {
 
 export const getNote = id => dispatch => {
   dispatch({ type: GET_NOTE });
-  axios.get(`${URL}/${id}`).then(response => {
+  axios.get(`${URL}/notes/${id}`).then(response => {
     console.log(response);
     dispatch({ type: GET_NOTE_SUCCESS, result: response.data });
   });
@@ -50,14 +57,14 @@ export const getNote = id => dispatch => {
 
 export const editNote = (id, note) => dispatch => {
   dispatch({ type: EDIT_NOTE });
-  axios.put(`${URL}/${id}`, note).then(response => {
+  axios.put(`${URL}/notes/${id}`, note).then(response => {
     dispatch({ type: EDIT_NOTE_SUCCESS, result: response.data });
   });
 };
 
 export const deleteNote = id => dispatch => {
   dispatch({ type: DELETE_NOTE });
-  axios.delete(`${URL}/${id}`).then(response => {
+  axios.delete(`${URL}/notes/${id}`).then(response => {
     dispatch({ type: NOTE_DELETED });
   });
 };
