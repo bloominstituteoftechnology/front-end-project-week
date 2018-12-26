@@ -71,12 +71,38 @@ class App extends Component {
     }
   };
 
-  addNote = note => {
+  addNote = newNote => {
     axios
-      .post(`https://lambda-notes-jp.herokuapp.com/api/notes`, note)
+      .post(`https://lambda-notes-jp.herokuapp.com/api/notes`, newNote)
       .then(response => {
         console.log(response);
-        window.location.reload();
+        let tags = '';
+        let filteredTags = '';
+        let notes = [];
+
+        this.state.notes.forEach(note => {
+          notes.push({ ...note });
+        });
+
+        notes.push({ id: response.data.id, ...newNote });
+
+        console.log(notes);
+        notes.forEach(note => {
+          tags += note.tags + ',';
+        });
+
+        tags = tags.slice(0, tags.length - 1);
+        tags = tags.split(',');
+
+        filteredTags = tags.filter((tag, index) => {
+          return tags.indexOf(tag) === index;
+        });
+
+        this.setState({
+          notes: notes,
+          sortedNotes: notes,
+          tags: ['all', ...filteredTags]
+        });
       })
       .catch(err => {
         console.log('Error adding new note');
@@ -87,7 +113,7 @@ class App extends Component {
     axios
       .put(`https://lambda-notes-jp.herokuapp.com/api/notes/${note.id}`, note)
       .then(response => {
-        window.location.reload();
+        console.log(response);
       })
       .catch(err => {});
   };
