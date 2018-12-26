@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import SideBar from './SideBar'
 import NoteForm from './NoteForm'
 import NoteView from './NoteView'
+import NoteDisplay from './NoteDisplay'
+import NoteEdit from './NoteEdit'
 import './App.css';
-import Home from './Home.js'
 
 class App extends Component {
   render() {
     return (
 
       <div className="App">
-        <Switch>
-          <Route exact path='/' render={props => <Home {...props} />} />
-          <Route path='/createnote' render={props => <NoteForm {...props} />} />
-          <Route path='/notes/:id' render={props => <NoteView {...props}/>} />
-        </Switch>
+        <SideBar />
+        <div className="App-view">
+          <Switch>
+            <Route exact path='/' render={props => <NoteDisplay {...props} />} />
+            <Route path='/notes/create' render={props => <NoteForm {...props} />} />
+            <Route path='/notes/:id' render={props => <NoteView {...props}/>} />
+            <Route path='/notes/edit/:id' render={props => <NoteEdit {...props}/>} />
+          </Switch>
+        </div>
       </div>
     );
   }

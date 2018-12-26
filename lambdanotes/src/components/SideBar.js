@@ -5,9 +5,10 @@ import './Home.css'
 const SideBar = () => {
     return (
         <div className="sidebar">
-            <h1>Lambda Notes</h1>
-            <Link to='/'>View Your Notes</Link>
-            <Link to='/createnote'>+ Create New Notes</Link>
+            <h1>Lambda</h1>
+            <h1>Notes</h1>
+            <Link to='/' className="sidebar_button">View Your Notes</Link>
+            <Link to='/notes/create' className="sidebar_button">+ Create New Note</Link>
         </div>
     )
 };

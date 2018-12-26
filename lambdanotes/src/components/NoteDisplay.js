@@ -18,7 +18,7 @@ class NoteDisplay extends Component {
     return (
       <div className="note-display">
         <h2> Your Notes: </h2>
-        <div className="display-grid">
+        <div className="note-display-grid">
           {this.props.notes.map(note => {
             return (
               <Note

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { editNote, deleteNote } from '../actions'
@@ -19,19 +18,20 @@ class NoteView extends Component {
         }
     }
 
-    deleteHandler = event => {
+    submitHandler = event => {
         event.preventDefault();
-        const killNote = { id: this.props.match.params.id }
-        this.props.deleteNote(killNote)
+        const newNote = {
+            title: this.state.title,
+            textBody: this.state.textBody,
+            id: this.props.match.params.id
+        }
+        
+        this.props.editNote(newNote);
     }
 
     handleInputChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
-
-    routerLink = () => {
-        return `/notes/edit/${this.props.match.params.id}`
-    }
 
     componentDidMount() {
         axios
@@ -45,16 +45,13 @@ class NoteView extends Component {
 
     render() {
         return (
-            <div className="viewnote">
-                <div className="button-box">
-                    <Link className="edit-link" to={this.routerLink}><button id="edit">edit</button></Link>
-                    <button onClick={this.deleteHandler} id="delete">delete</button>
-                </div>
-
-                <div className="viewnote-content">
-                    <h2>{this.state.currentNote.title}</h2>
-                    <p>{this.state.currentNote.textBody}</p>
-                </div>
+            <div className="note-edit">
+                <form className="editview" onSubmit={this.submitHandler}>
+                    <input onChange={this.handleInputChange} defaultValue={this.state.currentNote.title} name="title" placeholder="Title" type="text" />
+                    <textarea onChange={this.handleInputChange} defaultValue={this.state.currentNote.textBody} name="textBody" placeholder="Text" type="text"></textarea>
+                    <button type="submit">Edit Note</button>
+                    <button onClick={this.deleteHandler}>Delete Note</button>
+                </form>
             </div>
         )
     }

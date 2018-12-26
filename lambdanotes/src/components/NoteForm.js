@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createNote } from '../actions'
-import SideBar from './SideBar'
 
 //Component composed of a 2-part form in order to create new notes.
 //This component shall be displayed upon the user clicking "create note", which will trigger createNote()
@@ -32,12 +31,12 @@ class NoteForm extends Component {
 
     render() {
         return (
-            <div>
-                <SideBar />
-                <form onSubmit={this.submitHandler}>
-                    <input onChange={this.handleInputChange} value={this.state.title} name="title" placeholder="Title" type="text" />
-                    <input onChange={this.handleInputChange} value={this.state.textBody} name="textBody" placeholder="Text" type="text" />
-                    <button type="submit">Submit</button>
+            <div className="note-create">
+                <form className="note-form" onSubmit={this.submitHandler}>
+                    <h2>Create New Note:</h2>
+                    <input id="title" onChange={this.handleInputChange} value={this.state.title} name="title" placeholder="Note Title" type="text" />
+                    <textarea id="textBody" onChange={this.handleInputChange} value={this.state.textBody} name="textBody" placeholder="Note Content" type="text"></textarea>
+                    <button type="submit">Save</button>
                 </form>
             </div>
         );

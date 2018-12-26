@@ -47,3 +47,15 @@ table {
 html {
 	font-size: 62.5%;
 }
+
+/*App layout*/
+	.App {
+		display: flex;
+		width: 100%;
+		height: 1000px;
+		background: whitesmoke;
+	}
+
+	.App-view {
+		width: 85%;
+	}

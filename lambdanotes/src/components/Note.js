@@ -5,9 +5,12 @@ import './Home.css'
 const Note = props => {
     return (
         <div className="notecard">
-            <strong>{props.title}</strong>
-            <p>{props.textBody}</p>
-            <Link to={`/notes/${props.id}`}>View Note</Link>
+            <div className="notecard-content">
+                <strong>{props.title}</strong>
+                <hr></hr>
+                <Link to={`/notes/${props.id}`} className="notecard-link">View note</Link>
+                <p>{props.textBody}</p>
+            </div>
         </div>
     );
 };
