@@ -1,0 +1,44 @@
+
+.new-note-view h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #454646;
+    margin-bottom: 25px;
+}
+
+.new-note-view form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.new-note-view input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.new-note-view textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 3.5% 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.new-note-view .btn {
+    width: 30%;
+    border: 1px solid #ADAEAE;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #3AB7BB;
+    color: white;
+    margin: 10px 0 5px 10%;
+    padding: 10px 0;
+}
