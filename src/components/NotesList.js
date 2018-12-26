@@ -8,12 +8,16 @@ const NotesList = props => {
     <div className="notes-list-div">
       <p className="notes-list-title">Your Notes: </p>
       <div className="notes-list-sort-div">
+      {props.sorted ? 
+        <div className="notes-list-sort" onClick={props.handleSortZA}>
+          Sort Z-A
+          </div>
+          :
         <div className="notes-list-sort" onClick={props.handleSortAZ}>
           Sort A-Z
         </div>
-        <div className="notes-list-sort" onClick={props.handleSortZA}>
-          Sort Z-A
-        </div>
+      }
+       
       </div>
       <ul className="notes-list">
         {props.notes.map(note => {

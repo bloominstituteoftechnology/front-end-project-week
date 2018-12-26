@@ -18,7 +18,8 @@ class App extends Component {
       title: "",
       content: "",
       deleting: false,
-      currentNote: {}
+      currentNote: {},
+      sorted: false
     };
   }
 
@@ -61,13 +62,13 @@ handleSetData = (data) => {
   handleSortAZ = () => {
     let notes = this.state.notes.slice();
     notes.sort(this.compareTitles);
-    this.setState({ notes });
+    this.setState({ notes, sorted:true });
   };
 
   handleSortZA = () => {
     let notes = this.state.notes.slice();
     notes.sort(this.compareTitles).reverse();
-    this.setState({ notes });
+    this.setState({ notes, sorted:false });
   }
 
   compareTitles = (a, b) => {
@@ -94,6 +95,7 @@ handleSetData = (data) => {
               handleSortAZ={this.handleSortAZ}
               handleSortZA={this.handleSortZA}
               toggleDeleting={this.toggleDeleting}
+              sorted={this.state.sorted}
             />
           )}
         />
