@@ -1,0 +1,48 @@
+p{
+    font-family: 'Roboto', sans-serif;
+}
+
+.title-expand{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.expand-note{
+    padding: 5px;
+    margin: 15px;
+    font-size: 10px;
+    color: rgb(77, 75, 75);
+    border-radius: 6px;
+}
+
+a{
+    display: inline;
+    text-decoration: none;
+    
+}
+
+.note-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.note{
+overflow-y: scroll;
+  border: 2px solid #D7D7D7;
+  border-radius: 12px;
+  width: 300px;
+  height: 200px;
+  margin: 0 10px 30px 70px;
+  padding: 20px;
+  background-color: rgb(244, 248, 242);
+}
+
+.note-title{
+  padding: 5px;
+  border-bottom: 2px solid black;
+}

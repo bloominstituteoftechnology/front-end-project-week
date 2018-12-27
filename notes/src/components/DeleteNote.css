@@ -1,0 +1,11 @@
+.delete-note{
+    display: flex;
+    background-color: #F4F8F2;
+    border: 2px solid #D7D7D7;
+    border-radius: 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+    margin: 100px 140px;
+}
