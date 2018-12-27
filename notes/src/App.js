@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
+
 import NavBar from './components/NavBar';
-import WelcomePage from './components/WelcomePage';
 import NewNoteForm from './components/NewNoteForm';
 import NotesList from './components/NotesList';
 import NoteView from './components/NoteView';
@@ -163,9 +163,6 @@ toggleDeleteNote = () => {
           (<UpdateNote {...props}  
             selected = {this.state.selected}
             getNotes = {this.getNotes}
-            // handleTitleUpdate = {this.handleTitleUpdate}
-            // handleBodyUpdate = {this.handleBodyUpdate}
-            // handleUpdateNote = {this.handleUpdateNote} 
             handleRefresh = {this.handleRefresh}
             handleSubmit = {this.handleSubmit} 
             notes = {this.state.notes}

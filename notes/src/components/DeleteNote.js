@@ -20,7 +20,10 @@ class DeleteNote extends Component {
             this.setState({id: null });
             this.props.toggleDeleteNote();
             this.props.history.push('/notes');
-        })
+        })        
+            .then(response => {
+            this.props.history.push('/notes')
+    })
         .catch(err => console.log(err))
       }
 

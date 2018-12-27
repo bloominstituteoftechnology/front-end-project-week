@@ -26,7 +26,7 @@ handleTitleUpdate = event => {
     })
   }
   
-  handleBodyUpdate = event => {
+handleBodyUpdate = event => {
     this.setState({
         content: event.target.value
     })
