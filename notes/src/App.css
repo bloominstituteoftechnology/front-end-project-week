@@ -1,0 +1,258 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+  text-decoration: none;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+.App {
+  max-width: 900px;
+  width: 100%;  
+  display: flex;
+  margin: 0 auto;
+  border: 2px solid grey;
+  border-bottom: 5px solid grey;
+  min-height: 100vh;
+}
+
+
+
+.left-nav {
+  background-color: #d3d2d3;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 23rem; 
+  color: black;
+  border-right: 1px solid grey;
+}
+
+.left-nav h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.left-nav a {
+  margin: 1rem 0;
+}
+
+.btn {
+  background-color: #3eb0b5;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 1rem 0 1rem 0;
+  font-weight: bold;
+  border: 1px solid grey;
+}
+.app-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #ede9e6;
+}
+.note-list {
+  width: 99.5%;
+  font-size: 1.5rem;
+  background-color:#ede9e6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.note {
+  border: 1px solid grey;
+  background-color: white;
+  font-size: 1.5rem;
+  display: flex;
+  flex-flow: column wrap;
+  width: 29%;
+  padding: 1.5rem;
+  margin: 1rem;  
+  height: 23rem;
+  box-shadow:
+    /* The top layer shadow */
+        0 1px 1px rgba(0,0,0,0.15),
+            /* The second layer */
+        0 10px 0 -5px #eee,
+            /* The second layer shadow */
+        0 10px 1px -4px rgba(0,0,0,0.15),
+            /* The third layer */
+        0 20px 0 -10px #eee,
+            /* The third layer shadow */
+        0 20px 1px -9px rgba(0,0,0,0.15);  
+}
+.note h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: 2px solid grey;
+  padding-bottom: .5rem;
+  margin-bottom: .5rem;
+  color: black;  
+}
+.note-view {
+  background-color: #ede9e6;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 90%;
+}
+.note-view-edits {
+  text-decoration: underline;
+  color: darkslategrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-weight: bold;  
+}
+.note-view h4 {
+  cursor: pointer;
+  margin-left: 2rem;
+}
+.edit-link {
+  color: darkslategrey;
+}
+.note-view-title {
+  font-weight: bold;
+  font-size: 2.1rem;
+  margin: 1rem 0 1rem 0;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+form h2 {
+  font-weight: bold;
+  color: black;
+  font-size: 2rem;
+  margin: 1rem 0 2rem 0;
+}
+form input {
+  margin: 1rem 0 2rem 0;
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 55%;
+  border-radius: 3%;  
+}
+form textarea {
+  font-size: 1.5rem;
+  margin: 0 0 2rem 0;
+  width: 100%;
+  height: 30rem;
+  border-radius: 1%;
+}
+form button {
+  margin: 0 0 5rem 0;
+}
+.edit-view {
+  background-color: #ede9e6;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;  
+  width: 90%
+}
+.edit-view .btn {
+  width: 20%;
+}
+.add-note {
+  background-color: #ede9e6;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;  
+  width: 90%
+}
+.add-note .btn {
+  width: 20%;
+}
+.delete-modal {
+  border: 2px solid grey;
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 5rem;
+  opacity: 0.9;
+  width: 50%;  
+}
+.delete-modal h2 {
+  padding: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.modal-buttons {
+  display: flex;
+  
+  justify-content: space-evenly;
+}
+.btn-delete {
+  background-color: red;
+  width: 30%;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border: 1px solid grey;
+  padding: 1rem 0 1rem 0;
+}
+.modal-buttons .btn {
+  width: 30%;
+}
+.notes-header {
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 2rem;
+  margin-top: 3.7rem;
+}
