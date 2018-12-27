@@ -119,6 +119,7 @@ handleSetData = (data) => {
               title={this.state.title}
               content={this.state.content}
               handleSetData={this.handleSetData}
+              notes={this.state.notes}
             />
           )}
         />

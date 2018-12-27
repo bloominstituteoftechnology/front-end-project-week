@@ -12,6 +12,7 @@
 /* Nav styles */
 .nav {
   display:flex;
+  justify-content: space-evenly;
   font-family: "Roboto";
   font-weight: bold;
   background-color: #d8d8d8;

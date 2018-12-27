@@ -6,7 +6,8 @@ class NoteForm extends Component {
     super(props);
     this.state = {
       title: "",
-      content: ""
+      content: "",
+      notes: props.notes
     };
   }
 
@@ -20,14 +21,23 @@ class NoteForm extends Component {
       title: this.state.title,
       content: this.state.content
     };
+    console.log(note)
     axios
       .post(`${process.env.REACT_APP_API}/api/notes`, note)
       .then(response => {
         this.setState({
           title: "",
-          content: ""
+          content: "",
         });
-        this.props.handleSetData(response.data);
+
+        //this is where its going wrong. When I click save, 
+        // the notes array is turning into a sungular note object, 
+        //instead of pushing the note into the array.
+        const newData = this.props.notes
+        newData.push(response.data)
+
+        this.props.handleSetData(newData);
+        this.props.history.push('/');
       })
       .catch(error => console.log(error));
   };
@@ -58,19 +68,8 @@ class NoteForm extends Component {
             onChange={this.handleInputChange}
             value={this.state.content}
           />
-            <br />
-            <br />
+{/*           
             <div className="save-cancel-div">
-          <a href="/">
-            <button
-              type="button"
-              onClick={this.handleAddNote}
-              className="save-button"
-              >
-              Save
-            </button>
-          </a>
-          
           <a href="/">
             <button
               type="button"
@@ -79,8 +78,17 @@ class NoteForm extends Component {
               Cancel
             </button>
           </a>
-        </div>
+        </div> */}
 
+            <br />
+            <br />
+            <button
+              type="button"
+              onClick={this.handleAddNote}
+              className="save-button"
+              >
+              Save
+            </button>
         </form>
       </div>
     );
