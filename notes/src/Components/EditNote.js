@@ -30,10 +30,21 @@ handleInputChange = e => {
 };
 
 editNote = (e, id) => {
-    e.preventDefault();
+/*     e.preventDefault();
 
     axios
-    .put(`http://localhost:3333/api/notes/${id}`)
+    .put(`http://localhost:3333/api/notes/${id}`) */
+
+    const updatedNote = {
+        title: this.state.title,
+        contents: this.state.contents
+    }
+
+    axios
+    .put(`http://localhost:3333/api/notes/${id}`, updatedNote)
+    .then(response => {
+        return this.setState({note: updatedNote})
+    })
 
 }
 

@@ -52,12 +52,16 @@ class Note extends Component {
   };
 
   editNote = (e, id) => {
-    axios
-    .put(`http://localhost:3333/api/notes/${id}`)
-    .then(response => {
-        this.setState({notes: response.data})
-        this.props.history.push('/');
-    })
+    const updatedNote = {
+      title: this.state.title,
+      contents: this.state.contents
+    }
+
+  axios
+  .put(`http://localhost:3333/api/notes/${id}`, updatedNote)
+  .then(response => {
+      return this.setState({note: updatedNote})
+  })
 };
 
   deleteNote = (e, id) => {
