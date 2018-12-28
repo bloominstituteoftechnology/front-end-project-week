@@ -1,19 +1,4 @@
-h2 {
-  width: 75%;
-  height: 10%;
-  margin: 51px 10px 20px;
-  padding-bottom: 2px;
-  align-items: flex-end;
-  font-size: 28px;
-  color: #4b4b4b;
-}
-
-p {
-  font-size: 14px;
-  font-weight: 400;
-  color: black;
-}
-
+/* CSS for NoteList.js */
 .note-board {
   width: 78%;
   height: 100%;
@@ -50,10 +35,22 @@ p {
   text-decoration: none;
 }
 
+/* CSS for Note.js */
 .note-viewer{
   width: 78%;
   height: 100%;
   margin-left: 20%;
   padding: 13px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid salmon;
+}
+
+.note-textBody {
+  width: 94%;
+  height: 425px;
+  margin: 8px;
+  padding: 0 20px 20px;
+  border: 1px solid teal;
 }
