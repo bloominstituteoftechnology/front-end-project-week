@@ -11,7 +11,7 @@ import rootReducer from './redux/reducers';
 
 // const reduxDevToolsHook = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const store = createStore(rootReducer, compose(applyMiddleware(thunk, logger), reduxDevToolsHook));
+const store = createStore(rootReducer, compose(applyMiddleware(thunk, logger)));
 
 
 ReactDOM.render((
