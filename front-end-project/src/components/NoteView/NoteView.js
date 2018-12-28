@@ -7,14 +7,21 @@ class NoteView extends Component {
 state={
   content:'',
   title:'',
-  id:null
+  id:null,
+  displayDelete: false
 }
 
 componentDidMount(){
 const id = this.props.match.params.id;
+console.log(this.props.notes);
 let note = this.props.notes.filter(note => note.id===Number(id));
 note= note[0];
 this.setState({content:note.content, title:note.title, id:note.id});
+}
+
+showModal = () => {
+  this.setState({displayDelete: true})
+  return this.state.displayDelete;
 }
 render() {
     return (
@@ -33,7 +40,7 @@ render() {
         <div className="notesList">
         <p className="">{this.state.content}</p>
         </div>
-        <DeleteNote toggle={this.state.displayDelete} showModal={this.showModal}/>
+        <DeleteNote toggle={this.state.displayDelete} id={this.state.id} showModal={this.showModal}/>
       </div>
     );
   }

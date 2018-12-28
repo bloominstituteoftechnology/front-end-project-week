@@ -5,7 +5,7 @@ import NotesList from '../NotesList/NotesList';
 import NoteView from '../NoteView/NoteView';
 import CreateNote from '../CreateNote/CreateNote';
 import EditNote from '../EditNote/EditNote';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class MainContent extends Component {
