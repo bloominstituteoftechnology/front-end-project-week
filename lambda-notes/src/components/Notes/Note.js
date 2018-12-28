@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './Notes.css';
 
 export default class Note extends React.Component {
@@ -24,7 +25,10 @@ export default class Note extends React.Component {
     render() {
         return(
             <div className="note-viewer">
-                <h2>{this.state.note.title}</h2>
+                <div className="note-viewer-editing">
+                    <Link to={`/edit/${this.state.note._id}`} className="edit-link">edit</Link>
+                </div>
+                <h2 className="viewer-h2">{this.state.note.title}</h2>
                 <div className="note-textBody">
                     <p>{this.state.note.textBody}</p>
                 </div>

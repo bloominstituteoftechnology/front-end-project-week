@@ -44,13 +44,33 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid salmon;
+}
+
+.viewer-h2 {
+  width: 75%;
+  height: 10%;
+  margin: 30px 10px 2px;
+  padding-bottom: 2px;
+  align-items: flex-end;
+  font-size: 28px;
+  color: #4b4b4b;
 }
 
 .note-textBody {
   width: 94%;
   height: 425px;
   margin: 8px;
-  padding: 0 20px 20px;
-  border: 1px solid teal;
+  padding: 0;
+}
+
+.note-viewer-editing {
+  width: 20%;
+  height: auto;
+  margin-left: 80%;
+}
+
+.edit-link {
+  color: black;
+  font-size: 12px;
+  font-weight: 400;
 }
