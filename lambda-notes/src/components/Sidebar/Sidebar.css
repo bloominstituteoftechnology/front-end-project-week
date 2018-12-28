@@ -1,0 +1,34 @@
+.bar-body {
+  width: 16.8%;
+  min-height: 100%;
+  padding: 20px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  color: #4b4b4b;
+  background: #d3d3d3;
+}
+
+.button-box {
+  width: 100%;
+  height: auto;
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.styled-button {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #00b8b8;
+  border: 1px solid #a3a3a3;
+}
