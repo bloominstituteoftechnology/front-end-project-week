@@ -1,0 +1,29 @@
+.delete-container {
+  position: absolute;
+  left: calc(62.5% - 60rem/2); 
+  top: calc(50% - 15rem/2); 
+}
+
+.delete-modal {
+  background: var(--white);
+  border: 2px solid var(--border-gray);
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 60rem;
+}
+
+.delete-modal .delete-message {
+  margin-bottom: 2rem;
+}
+
+.delete-modal .button-row {
+  display: flex;
+}
+
+.delete-modal .button-row .delete {
+  background: var(--red);
+  margin-right: 2rem;
+}

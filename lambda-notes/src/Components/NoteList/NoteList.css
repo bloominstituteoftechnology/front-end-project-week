@@ -1,0 +1,38 @@
+.note-list-container {
+  background: var(--light-gray);
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+.note-list-container .input-container {
+  display: flex;
+  justify-content: center;
+}
+
+.note-list-container input {
+  text-align: center;
+  width: 40rem;
+  padding: 1rem;
+  outline: none;
+  border: 1.3px solid var(--border-gray);
+  border-radius: 3px;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+
+.note-list-container h2 {
+  margin-bottom: 2rem;
+  color: var(--dark-gray);
+}
+
+.note-list-container .note-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+
+.note-list-container .note-list a {
+  color: var(--black);
+  text-decoration: none;
+}
+

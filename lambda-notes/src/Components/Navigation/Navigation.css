@@ -1,0 +1,33 @@
+.nav-bar {
+  background-color: var(--medium-gray);
+  width: 25%;
+  max-width: 25rem;
+  padding: 1rem 1rem;
+  height: 100vh;
+  border: 1px solid var(--border-gray);
+  position: fixed;
+}
+
+.nav-bar .nav-container {
+  display: flex;
+  flex-direction: column;
+}
+.nav-bar .nav-container a {
+  text-decoration: none;
+}
+
+.nav-bar .nav-container h1 {
+  color: var(--dark-gray);
+  line-height: 1;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+.nav-bar .nav-container .btn {
+  margin: 0 auto;
+  width: 95%;
+  max-width: 22rem;
+}
+
+.nav-bar .nav-container .top-btn {
+  margin-bottom: 2rem;
+}

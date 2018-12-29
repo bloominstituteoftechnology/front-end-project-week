@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  background: var(--light-gray);
+}
+
+:root {
+  --white: #ffffff;
+  --border-gray: #a9a9a9;
+  --dark-gray: #414142;
+  --medium-gray: #d3d2d3;
+  --light-gray: #f2f1f2;
+  --blue: #24b8bd;
+  --black: #2a2f34;
+  --red: #ca001a;
+}

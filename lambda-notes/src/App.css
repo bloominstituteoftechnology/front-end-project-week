@@ -1,0 +1,27 @@
+.App .home-container {
+  display: flex;
+}
+
+.App .home-container .content-container {
+  width: 70%;
+  margin-left: 25%;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  background: var(--blue);
+  color: var(--white);
+  border: 1px solid var(--border-gray);
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+  cursor: pointer;
+  width: 20rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.blue:hover {
+  box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.1);
+  color: var(--blue);
+  background: var(--white);
+}

@@ -1,0 +1,28 @@
+.note-container {
+  padding: 2rem 1rem;
+}
+
+.note-container .button-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.note-container .button-menu i {
+  font-size: 3rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.note-container .title {
+  margin-bottom: 2rem;
+}
+
+.fa-edit {
+  margin-left: 2.5rem;
+}
+
+.error-message {
+  margin-top: 3rem;
+}

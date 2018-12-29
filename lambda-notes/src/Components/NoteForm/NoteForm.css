@@ -1,0 +1,34 @@
+.note-form-container {
+  background: var(--light-gray);
+  width: 100%;
+  padding: 4rem 3rem;
+}
+
+.note-form-container h2 {
+  margin-bottom: 2rem;
+}
+
+.note-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-input {
+  padding: 1rem;
+  border: 1.3px solid var(--border-gray);
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  width: 35rem;
+  outline: none;
+}
+
+.content-textarea {
+  padding: 1rem;
+  border: 1.3px solid var(--border-gray);
+  border-radius: 3px;
+  max-width: 70rem;
+  height: 40rem;
+  margin-bottom: 1rem;
+  outline: none;
+  resize: none;
+}
