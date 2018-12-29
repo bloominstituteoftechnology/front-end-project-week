@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import "./NoteBox.css";
 
 const NoteBox = props => {
@@ -39,3 +41,9 @@ const NoteBox = props => {
 };
 
 export default NoteBox;
+
+
+NoteBox.propTypes = {
+  title: PropTypes.string,
+  textBody: PropTypes.string
+}

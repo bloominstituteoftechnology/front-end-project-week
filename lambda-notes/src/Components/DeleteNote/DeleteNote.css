@@ -1,3 +1,9 @@
+.delete-container {
+  position: absolute;
+  left: calc(62.5% - 60rem/2); 
+  top: calc(50% - 15rem/2); 
+}
+
 .delete-modal {
   background: var(--white);
   border: 2px solid var(--border-gray);

@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import { connect } from "react-redux";
 import { deleteNote } from "../../Actions";
 
@@ -7,6 +7,7 @@ import "./DeleteNote.css";
 const DeleteNote = props => {
   if (props.isVisible) {
     return (
+      <div className="delete-container">
       <div className="delete-modal">
         <p className="delete-message">Are you sure you want to delete this?</p>
         <div className="button-row">
@@ -23,6 +24,7 @@ const DeleteNote = props => {
             No
           </div>
         </div>
+      </div>
       </div>
     );
   } else {

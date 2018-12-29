@@ -14,6 +14,7 @@ class App extends Component {
   state = {
     searchText: ""
   }
+  
   componentDidMount() {
     this.props.fetchNotes();
   }

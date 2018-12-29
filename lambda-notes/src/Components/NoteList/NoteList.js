@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import NoteBox from "../NoteBox/NoteBox";
 
@@ -37,3 +38,13 @@ const NoteList = props => {
 };
 
 export default NoteList;
+
+
+NoteList.propTypes = {
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      textBody: PropTypes.string
+    })
+  )
+}

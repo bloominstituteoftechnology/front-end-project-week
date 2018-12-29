@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import DeleteNote from "../DeleteNote/DeleteNote";
 
@@ -64,3 +65,13 @@ export default connect(
   mapStateToProps,
   null
 )(Note);
+
+
+Note.propTypes = {
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      textBody: PropTypes.string
+    })
+  )
+}

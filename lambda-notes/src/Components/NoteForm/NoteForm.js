@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import { addNote, editNote } from "../../Actions";
 
 import "./NoteForm.css";
@@ -33,7 +35,7 @@ class NoteForm extends Component {
   render() {
     return (
       <div className="note-form-container">
-        <h2>{this.props.edit ? "Edit Note" : "Create New Note:"}</h2>
+        <h2>{this.props.edit ? "Edit Note:" : "Create New Note:"}</h2>
         <form onSubmit={this.submitHandler}>
           <input
             type="text"
@@ -70,3 +72,13 @@ export default withRouter(
     { addNote, editNote }
   )(NoteForm)
 );
+
+
+NoteForm.propTypes = {
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      textBody: PropTypes.string
+    })
+  ),
+}
