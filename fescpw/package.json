@@ -1,0 +1,41 @@
+{
+  "name": "fescpw",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.3.2",
+    "auth0-js": "^9.8.1",
+    "auth0-lock": "^11.11.0",
+    "axios": "^0.18.0",
+    "connected-react-router": "^4.5.0",
+    "dotenv": "^6.1.0",
+    "prop-types": "^15.6.2",
+    "rc-drawer": "^1.7.6",
+    "react": "^16.5.2",
+    "react-awesome-modal": "^2.0.5",
+    "react-dom": "^16.5.2",
+    "react-mdl": "^1.11.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom --verbose",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "jest-styled-components": "^6.2.2",
+    "react-test-renderer": "^16.6.0",
+    "sinon": "^7.1.1"
+  }
+}
