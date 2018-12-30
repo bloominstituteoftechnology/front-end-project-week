@@ -16,9 +16,9 @@ class App extends Component {
         <div className="App-view">
           <Switch>
             <Route exact path='/' render={props => <NoteDisplay {...props} />} />
-            <Route path='/notes/create' render={props => <NoteForm {...props} />} />
-            <Route path='/notes/:id' render={props => <NoteView {...props}/>} />
-            <Route path='/notes/edit/:id' render={props => <NoteEdit {...props}/>} />
+            <Route exact path='/note/:id' render={props => <NoteView {...props}/>} />
+            <Route path='/create' render={props => <NoteForm {...props} />} />
+            <Route path='/note/:id/edit' render={props => <NoteEdit {...props}/>} />
           </Switch>
         </div>
       </div>

@@ -8,7 +8,7 @@ const Note = props => {
             <div className="notecard-content">
                 <strong>{props.title}</strong>
                 <hr></hr>
-                <Link to={`/notes/${props.id}`} className="notecard-link">View note</Link>
+                <Link to={`/note/${props.id}`} className="notecard-link">View note</Link>
                 <p>{props.textBody}</p>
             </div>
         </div>

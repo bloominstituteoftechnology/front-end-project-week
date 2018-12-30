@@ -72,7 +72,7 @@ class NoteView extends Component {
 
                 <div className="viewnote">
                     <div className="button-box">
-                        <Link className="edit-link" to='/'><button id="edit">edit</button></Link>
+                        <Link id="edit" className="edit-link" to={`/note/${this.props.match.params.id}/edit`}>edit</Link>
                         <button onClick={this.toggleModal} id="delete">delete</button>
                     </div>
 
