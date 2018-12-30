@@ -15,14 +15,27 @@ class NoteView extends Component {
         this.state = {
             currentNote: [],
             title: '',
-            textBody: ''
+            textBody: '',
         }
+    }
+
+    toggleModal = () => {
+        const modal = document.querySelector('.deleteModal');
+        switch (modal.style.display) {
+            case "": modal.style.display = "flex";
+                break;
+            case "flex": modal.style.display = "";
+                break;
+            default: console.log("ERROR");
+        }
+
     }
 
     deleteHandler = event => {
         event.preventDefault();
         const killNote = { id: this.props.match.params.id }
-        this.props.deleteNote(killNote)
+        this.props.deleteNote(killNote);
+        window.history.back();     
     }
 
     handleInputChange = event => {
@@ -45,15 +58,28 @@ class NoteView extends Component {
 
     render() {
         return (
-            <div className="viewnote">
-                <div className="button-box">
-                    <Link className="edit-link" to={this.routerLink}><button id="edit">edit</button></Link>
-                    <button onClick={this.deleteHandler} id="delete">delete</button>
+            <div>
+
+                <div className="deleteModal">
+                    <div className="modal-content">
+                        <p>Are you sure you want to delete this?</p>
+                        <div className="modal-buttons">
+                            <button onClick={this.deleteHandler} id="modal-delete">Delete</button>
+                            <button onClick={this.toggleModal} id="modal-cancel">Cancel</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="viewnote-content">
-                    <h2>{this.state.currentNote.title}</h2>
-                    <p>{this.state.currentNote.textBody}</p>
+                <div className="viewnote">
+                    <div className="button-box">
+                        <Link className="edit-link" to='/'><button id="edit">edit</button></Link>
+                        <button onClick={this.toggleModal} id="delete">delete</button>
+                    </div>
+
+                    <div className="viewnote-content">
+                        <h2>{this.state.currentNote.title}</h2>
+                        <p>{this.state.currentNote.textBody}</p>
+                    </div>
                 </div>
             </div>
         )

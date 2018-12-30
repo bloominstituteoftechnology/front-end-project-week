@@ -14,6 +14,10 @@ class NoteDisplay extends Component {
     this.props.getNotes();
   }
 
+  componentDidUpdate() {
+    this.props.getNotes();
+  }
+
   render() {
     return (
       <div className="note-display">
