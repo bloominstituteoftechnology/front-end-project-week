@@ -6,12 +6,12 @@ import {
 
 const Notes = props => {
     return (
-        <div className='notes-container' >
-            <h1> Notes </h1>
+        <div className='notes-container'>
+            <h1>Notes</h1>
 
             {props.notes.map((n, i) => {
                 return (
-                    <div key = {i}>
+                    <div key={i}>
                         <Link to={`/note/${n._id}`} >
                             {n.title} 
                         </Link> 

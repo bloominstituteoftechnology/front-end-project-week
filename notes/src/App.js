@@ -7,6 +7,7 @@ import {
 
 // Views
 import NotesView from './views/NotesView';
+import NoteView from './views/NoteView';
 
 
 import './App.css';
@@ -24,6 +25,14 @@ class App extends Component {
             exact
             path='/'
             component={NotesView}
+          />
+
+          < Route
+          exact
+          path = '/note/:noteId'
+          component = {
+            NoteView
+          }
           />
         </div>
       </>
