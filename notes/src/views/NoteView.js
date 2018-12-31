@@ -9,13 +9,17 @@ import {
 
 // Action Creators
 import {
-    
+    fetchNote
 } from '../actions';
 
 // Component
 import Note from '../components/Note';
 
 class NoteView extends Component {
+    componentDidMount() {
+        // this.props.fetchNote(this.props.match.params.noteId)
+        this.props.fetchNote(this.props.match.params.noteId)
+    }
     render() {
         return (
             <Note/>
@@ -31,7 +35,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        
+        fetchNote: id => dispatch(fetchNote(id))
     }
 }
 
