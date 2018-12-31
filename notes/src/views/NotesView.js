@@ -21,11 +21,19 @@ class NotesView extends Component {
     }
 
     render() {
-        return (
-            <Notes
-                notes={this.props.notes}
-            />
-        )
+        if (this.props.notes.length === 0) {
+            return setTimeout(() => {
+                return <h1 > Loading Notes < /h1>
+            }, 1000)
+        } else if (this.props.error) {
+            return (<h1>There was an error loading the notes</h1>)
+        } else {
+            return (
+                <Notes
+                    notes={this.props.notes}
+                />
+            ) 
+        }
     }
 }
 
