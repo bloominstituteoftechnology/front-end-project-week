@@ -21,9 +21,19 @@ class NoteView extends Component {
         this.props.fetchNote(this.props.match.params.noteId)
     }
     render() {
-        return (
-            <Note note={this.props.note}/>
-        )
+        if (!this.props.note.title) {
+            return setTimeout(() => {
+                return ( <h1> Loading Notes </h1>);
+                }, 1000)
+            }
+        else if (this.props.error) {
+            return (<h1> There was an error loading this note </h1>)
+        } else {
+            return (
+                <Note note={this.props.note}/>
+            )
+
+        }
     }
 }
 
