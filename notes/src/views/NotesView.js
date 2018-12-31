@@ -19,10 +19,12 @@ class NotesView extends Component {
     componentDidMount() {
         this.props.fetchNotes()
     }
-    
+
     render() {
         return (
-            <Notes/>
+            <Notes
+                notes={this.props.notes}
+            />
         )
     }
 }
