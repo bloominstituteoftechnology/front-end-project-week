@@ -5,8 +5,10 @@ import {
   Route
 } from 'react-router-dom';
 
-// Components
+// Views
 import NotesView from './views/NotesView';
+
+
 import './App.css';
 
 class App extends Component {

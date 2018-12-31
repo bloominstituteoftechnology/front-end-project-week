@@ -2,10 +2,13 @@ import React, {
     Component
 } from 'react';
 
+// Component
+import Notes from '../components/Notes';
+
 class NotesView extends Component {
     render() {
         return (
-            <h1>Notes View</h1>
+            <Notes/>
         )
     }
 }
