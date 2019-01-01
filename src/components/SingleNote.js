@@ -13,7 +13,6 @@ class SingleNote extends Component {
 
   render() {
     const { id } = this.props.location.state;
-    console.log(id)
     return (
       <Container>
         <NoteWrapper>
