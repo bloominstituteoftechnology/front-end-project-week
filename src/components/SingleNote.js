@@ -8,6 +8,7 @@ class SingleNote extends Component {
   handleDeleteNote = () => {
     const { id } = this.props.location.state;
     this.props.deleteNote(id);
+    this.props.history.push('/')
   };
 
   render() {
