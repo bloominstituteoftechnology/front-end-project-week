@@ -8,7 +8,6 @@ class SingleNote extends Component {
   handleDeleteNote = () => {
     const { id } = this.props.location.state;
     this.props.deleteNote(id);
-    window.location.reload()
   };
 
   render() {
