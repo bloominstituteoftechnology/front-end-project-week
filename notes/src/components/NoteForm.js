@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class NoteForm extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class NoteForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(this.props, this.state);
+        this.props.handleCreate(this.state)
     }
 
     render() {
@@ -36,6 +37,7 @@ class NoteForm extends Component {
                         this.handleChange
                     }
                 />
+
                 <input
                     type='text'
                     name='textBody'
@@ -47,6 +49,7 @@ class NoteForm extends Component {
                         this.handleChange
                     }
                 />
+
                 <input
                     type='submit'
                     value='Add Note'

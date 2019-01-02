@@ -36,26 +36,13 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 creatingNote: true
             }
-
-        case NEW_NOTE_SUCCESS:
-            return {
-                ...state,
-                creatingNote: false,
-                noteId: action.payload
-            }
-        
-        case NEW_NOTE_FAIL:
-            return {
-                ...state,
-                creatingNote: false,
-                error: action.payload
-            }
         
         // R - Read All
         case FETCHING_NOTES:
             return {
                 ...state,
-                fetchingNotes: true
+                fetchingNotes: true,
+                creatingNote: false
             }
         
         case NOTES_FETCH_SUCCESS:
@@ -63,12 +50,14 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 fetchingNotes: false,
                 notes: action.payload,
+                creatingNote: false,
                 error: null
             }
         
         case NOTES_FETCH_FAIL:
             return {
                 ...state,
+                creatingNote: false,
                 error: action.payload
             }
         
@@ -76,6 +65,7 @@ const reducer = (state = initialState, action) => {
         case FETCHING_NOTE:
             return {
                 ...state,
+                creatingNote: false,
                 fetchingNote: true
             }
         
@@ -83,6 +73,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 fetchingNote: false,
+                creatingNote: false,
                 note: action.payload,
                 error: null
             }
@@ -90,6 +81,7 @@ const reducer = (state = initialState, action) => {
         case NOTE_FETCH_FAIL:
             return {
                 ...state,
+                creatingNote: false,
                 error: action.payload
             }
         

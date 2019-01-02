@@ -20,25 +20,10 @@ export const NOTE_FETCH_FAIL = 'NOTE_FETCH_FAIL';
 
 // C - Create
 
-export const createNote = newNote => dispatch => {
+export const createNote = () => dispatch => {
     dispatch({
         type: CREATING_NOTE
     });
-
-    axios
-        .post('https://fe-notes.herokuapp.com/note/create', newNote)
-        .then(data => {
-            return dispatch({
-                type: NEW_NOTE_SUCCESS,
-                payload: data.data
-            });
-        })
-        .catch(err => {
-            return dispatch({
-                type: NEW_NOTE_FAIL,
-                payload: err
-            })
-        });
 }
 
 // R - Read All
