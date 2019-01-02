@@ -10,20 +10,42 @@ class NoteForm extends Component {
         }
     }
 
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        console.log(this.props, this.state);
+    }
+
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input
                     type='text'
                     name='title'
                     placeholder='Type Title Here'
-                    value={this.state.title}
+                    value={
+                        this.state.title
+                    }
+                    onChange={
+                        this.handleChange
+                    }
                 />
                 <input
                     type='text'
                     name='textBody'
                     placeholder='Type Text Here'
-                    value={this.state.textBody}
+                    value={
+                        this.state.textBody
+                    }
+                    onChange = {
+                        this.handleChange
+                    }
                 />
                 <input
                     type='submit'
