@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 // Views
-import NoteFormView from './views/NoteViewForm';
+import NoteFormView from './views/NoteFormView';
 import NotesView from './views/NotesView';
 import NoteView from './views/NoteView';
 
@@ -30,7 +30,7 @@ class App extends Component {
               NoteFormView
             }
           />
-          
+
           <Route
             exact
             path='/'
