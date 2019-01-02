@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 // Views
+import NoteFormView from './views/NoteViewForm';
 import NotesView from './views/NotesView';
 import NoteView from './views/NoteView';
 
@@ -18,21 +19,32 @@ class App extends Component {
       <>
         <nav>
           <NavLink to='/'>Home</NavLink>
+          <NavLink to='/note/new'>Add Note</NavLink>
         </nav>
 
         <div className='app-container'>
+          
+          <Route
+            path='/note/new'
+            component={
+              NoteFormView
+            }
+          />
+          
           <Route
             exact
             path='/'
-            component={NotesView}
+            component={
+              NotesView
+            }
           />
 
-          < Route
-          exact
-          path = '/note/:noteId'
-          component = {
-            NoteView
-          }
+          <Route
+            exact
+            path = '/note/:noteId'
+            component = {
+              NoteView
+            }
           />
         </div>
       </>
