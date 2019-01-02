@@ -2,6 +2,10 @@
 
 // Action Type Imports
 import {
+    // Create Note
+    CREATING_NOTE,
+    NEW_NOTE_SUCCESS,
+    NEW_NOTE_FAIL,
     // Read All
     FETCHING_NOTES,
     NOTES_FETCH_SUCCESS,
@@ -15,6 +19,8 @@ import {
 // Initial State
 const initialState = {
     error: null,
+    creatingNote: false,
+    noteId: null,
     fetchingNotes: false,
     notes: [],
     fetchingNote: false,
@@ -24,6 +30,27 @@ const initialState = {
 // Reducer
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        // C - Create
+        case CREATING_NOTE:
+            return {
+                ...state,
+                creatingNote: true
+            }
+
+        case NEW_NOTE_SUCCESS:
+            return {
+                ...state,
+                creatingNote: false,
+                noteId: action.payload
+            }
+        
+        case NEW_NOTE_FAIL:
+            return {
+                ...state,
+                creatingNote: false,
+                error: action.payload
+            }
+        
         // R - Read All
         case FETCHING_NOTES:
             return {
