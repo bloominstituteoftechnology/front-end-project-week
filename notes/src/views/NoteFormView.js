@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
+// Component
+import NoteForm from '../components/NoteForm';
+
 class NoteFormView extends Component {
     render() {
-        return <h1>Note Form View</h1>;
+        return <NoteForm/>;
     }
 }
 
