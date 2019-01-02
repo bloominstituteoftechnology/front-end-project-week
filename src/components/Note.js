@@ -1,13 +1,18 @@
-import React from 'react';
- const Note = (props) => {
-    console.log('Note()');
-    console.log(props);
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './Home.css'
+
+const Note = props => {
     return (
-        <div className="note">
-            <h2>{props.note.title}</h2>
-            <hr></hr>
-            <p>{props.note.textBody}</p>
+        <div className="notecard">
+            <div className="notecard-content">
+                <strong>{props.title}</strong>
+                <hr></hr>
+                <Link to={`/note/${props.id}`} className="notecard-link">View note</Link>
+                <p>{props.textBody}</p>
+            </div>
         </div>
-    )
-}
- export default Note; 
+    );
+};
+
+export default Note;
