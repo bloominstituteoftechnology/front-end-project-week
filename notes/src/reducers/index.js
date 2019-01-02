@@ -4,8 +4,6 @@
 import {
     // Create Note
     CREATING_NOTE,
-    NEW_NOTE_SUCCESS,
-    NEW_NOTE_FAIL,
     // Read All
     FETCHING_NOTES,
     NOTES_FETCH_SUCCESS,
@@ -13,7 +11,9 @@ import {
     // Read One
     FETCHING_NOTE,
     NOTE_FETCH_SUCCESS,
-    NOTE_FETCH_FAIL
+    NOTE_FETCH_FAIL,
+    // Update 
+    UPDATING_NOTE
 } from '../actions'
 
 // Initial State
@@ -66,6 +66,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 creatingNote: false,
+                updatingNote: false,
                 fetchingNote: true
             }
         
@@ -74,6 +75,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 fetchingNote: false,
                 creatingNote: false,
+                updatingNote: false,
                 note: action.payload,
                 error: null
             }
@@ -83,6 +85,13 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 creatingNote: false,
                 error: action.payload
+            }
+        
+        case UPDATING_NOTE:
+            return {
+                ...state,
+                updatingNote: true,
+                error: null
             }
         
         default:

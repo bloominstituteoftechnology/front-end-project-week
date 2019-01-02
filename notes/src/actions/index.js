@@ -4,8 +4,7 @@ import axios from 'axios';
 // Action Type Exports
 // C - Create Note
 export const CREATING_NOTE = 'CREATING_NOTE';
-export const NEW_NOTE_SUCCESS = 'NEW_NOTE_SUCCESS'
-export const NEW_NOTE_FAIL = 'NEW_NOTE_FAIL';
+
 // R - Read All
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const NOTES_FETCH_SUCCESS = 'NOTES_FETCH_SUCCESS';
@@ -15,6 +14,9 @@ export const NOTES_FETCH_FAIL = 'NOTES_FETCH_FAIL';
 export const FETCHING_NOTE = 'FETCHING_NOTE';
 export const NOTE_FETCH_SUCCESS = 'NOTE_FETCH_SUCCESS';
 export const NOTE_FETCH_FAIL = 'NOTE_FETCH_FAIL';
+
+// U - Update Note
+export const UPDATING_NOTE = 'UPDATING_NOTE';
 
 // Action Creators
 
@@ -68,3 +70,9 @@ export const fetchNote = id => dispatch => {
         });
 }
 
+// U - Update
+export const updatingNote = () => dispatch => {
+    dispatch({
+        type: UPDATING_NOTE
+    })
+}

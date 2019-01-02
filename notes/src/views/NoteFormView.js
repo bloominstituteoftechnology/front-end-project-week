@@ -11,8 +11,7 @@ import axios from 'axios';
 
 // Action Creators
 import {
-    createNote,
-    fetchNote
+    createNote
 } from '../actions';
 
 // Component
@@ -25,7 +24,20 @@ class NoteFormView extends Component {
         axios
             .post('https://fe-notes.herokuapp.com/note/create', newNote)
             .then(data => {
-                this.props.history.push('/note/' + data.data.success)
+                this.props.history.push(`/note/${data.data.success}`)
+            })
+            .catch(err => {
+                console.log(err)
+            });
+    }
+
+    handleUpdate = note => {
+        // this.props.updateNote();
+        console.log(this.props.match.params.noteId)
+        axios
+            .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.noteId}`, note)
+            .then(data => {
+                this.props.history.push(`/note/${data.data._id}`)
             })
             .catch(err => {
                 console.log(err)
@@ -39,6 +51,9 @@ class NoteFormView extends Component {
                 handleCreate={this.handleCreate}
                 noteId={this.props.noteId}
                 history={this.props.history}
+                update={this.props.update}
+                handleUpdate={this.handleUpdate}
+                note={this.props.note}
             />
         )
     }
