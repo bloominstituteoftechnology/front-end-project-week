@@ -9,6 +9,7 @@ const Note = props => {
             <Link to={`/note/${props.note._id}/update`}>
                 <button>Edit Note</button>
             </Link>
+            <button onClick={props.handleDelete}>Delete Note</button>
         </div>
     )
 }
