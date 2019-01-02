@@ -19,11 +19,10 @@ import Note from '../components/Note';
 
 class NoteView extends Component {
     componentDidMount() {
-        // this.props.fetchNote(this.props.match.params.noteId)
         this.props.fetchNote(this.props.match.params.noteId)
     }
 
-    handleDelete = e => {
+    handleDelete = () => {
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.noteId}`)
             .then(() => {
