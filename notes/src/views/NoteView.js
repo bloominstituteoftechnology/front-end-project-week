@@ -11,7 +11,8 @@ import axios from 'axios';
 
 // Action Creators
 import {
-    fetchNote
+    fetchNote,
+    deletingNote
 } from '../actions';
 
 // Component
@@ -23,6 +24,8 @@ class NoteView extends Component {
     }
 
     handleDelete = () => {
+        this.props.deletingNote();
+        
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.noteId}`)
             .then(() => {
@@ -58,7 +61,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchNote: id => dispatch(fetchNote(id))
+        fetchNote: id => dispatch(fetchNote(id)),
+        deletingNote: () => dispatch(deletingNote())
     }
 }
 

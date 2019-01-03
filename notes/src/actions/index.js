@@ -18,6 +18,9 @@ export const NOTE_FETCH_FAIL = 'NOTE_FETCH_FAIL';
 // U - Update Note
 export const UPDATING_NOTE = 'UPDATING_NOTE';
 
+// D - Delete Note
+export const DELETING_NOTE = 'DELETING_NOTE';
+
 // Action Creators
 
 // C - Create
@@ -74,5 +77,13 @@ export const fetchNote = id => dispatch => {
 export const updatingNote = () => dispatch => {
     dispatch({
         type: UPDATING_NOTE
+    })
+}
+
+
+// D - Delete
+export const deletingNote = () => dispatch => {
+    dispatch({
+        type: DELETING_NOTE
     })
 }

@@ -13,7 +13,8 @@ import {
     NOTE_FETCH_SUCCESS,
     NOTE_FETCH_FAIL,
     // Update 
-    UPDATING_NOTE
+    UPDATING_NOTE,
+    DELETING_NOTE
 } from '../actions'
 
 // Initial State
@@ -24,7 +25,8 @@ const initialState = {
     fetchingNotes: false,
     notes: [],
     fetchingNote: false,
-    note: {}
+    note: {},
+    deletingNote: false
 }
 
 // Reducer
@@ -51,6 +53,7 @@ const reducer = (state = initialState, action) => {
                 fetchingNotes: false,
                 notes: action.payload,
                 creatingNote: false,
+                deletingNote: false,
                 error: null
             }
         
@@ -58,6 +61,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 creatingNote: false,
+                deletingNote: false,
                 error: action.payload
             }
         
@@ -92,6 +96,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 updatingNote: true,
                 error: null
+            }
+        
+        case DELETING_NOTE:
+            return {
+                ...state,
+                deletingNote: true
             }
         
         default:
