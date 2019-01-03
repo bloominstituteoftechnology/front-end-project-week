@@ -77,7 +77,7 @@ export const fetchNote = id => dispatch => {
 };
 
 // U - Update
-export const updatingNote = () => dispatch => {
+export const updateNote = () => dispatch => {
     dispatch({
         type: UPDATING_NOTE
     });
@@ -85,7 +85,7 @@ export const updatingNote = () => dispatch => {
 
 
 // D - Delete
-export const deletingNote = () => dispatch => {
+export const deleteNote = () => dispatch => {
     dispatch({
         type: DELETING_NOTE
     });
