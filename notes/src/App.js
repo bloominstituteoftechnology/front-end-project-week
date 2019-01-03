@@ -1,5 +1,11 @@
-import React, { Component, Fragment } from 'react';
+// *** === Imports === *** //
+// React
+import React, {
+  Component,
+  Fragment
+} from 'react';
 
+// React Router
 import {
   NavLink,
   Route
@@ -10,10 +16,14 @@ import NoteFormView from './views/NoteFormView';
 import NotesView from './views/NotesView';
 import NoteView from './views/NoteView';
 
-
+// Styles
 import './App.css';
 
+
+// *** === Class Component === *** //
 class App extends Component {
+
+  // ** == Render to DOM
   render() {
     return (
       <>
@@ -23,14 +33,16 @@ class App extends Component {
         </nav>
 
         <div className='app-container'>
-          
+          {/* C - Create */}
           <Route
+            exact
             path='/create-note'
             component={
               NoteFormView
             }
           />
 
+          {/* Ra - Read All */}
           <Route
             exact
             path='/'
@@ -39,6 +51,7 @@ class App extends Component {
             }
           />
 
+          {/* R1 - Read One  */}
           <Route
             exact
             path = '/note/:noteId'
@@ -47,6 +60,7 @@ class App extends Component {
             }
           />
 
+          {/* U - Update */}
           <Route
             update
             path='/note/:noteId/update'

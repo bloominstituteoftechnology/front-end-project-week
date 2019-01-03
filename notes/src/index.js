@@ -1,10 +1,9 @@
+// *** === Imports === *** //
+// React
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-// Redux Imports
+// Redux 
 import {
     applyMiddleware,
     createStore
@@ -16,7 +15,7 @@ import {
 
 import rootReducer from './reducers';
 
-// Router Imports
+// Router 
 import {
     BrowserRouter as Router
 } from 'react-router-dom';
@@ -25,7 +24,16 @@ import {
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-// Store Creation
+// StyleMediales
+import './index.css';
+
+// Component
+import App from './App';
+
+// Service Worker
+import * as serviceWorker from './serviceWorker';
+
+// *** === Store Creation === *** //
 const store = createStore(
     rootReducer,
     applyMiddleware(
@@ -34,6 +42,8 @@ const store = createStore(
     )
 );
 
+
+// *** ==== Render to DOM ==== *** //
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
