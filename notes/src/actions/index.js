@@ -1,8 +1,8 @@
-// Imports
+// ***=== Imports ===***  //
 import axios from 'axios';
 
-// Action Type Exports
-// C - Create Note
+// ***=== Action Type Exports  ===***  //
+// C - Create Note  
 export const CREATING_NOTE = 'CREATING_NOTE';
 
 // R - Read All
@@ -21,28 +21,29 @@ export const UPDATING_NOTE = 'UPDATING_NOTE';
 // D - Delete Note
 export const DELETING_NOTE = 'DELETING_NOTE';
 
-// Action Creators
 
+
+// ***=== Action Creators  ===***  //
 // C - Create
 
 export const createNote = () => dispatch => {
     dispatch({
         type: CREATING_NOTE
     });
-}
+};
 
 // R - Read All
 export const fetchNotes = () => dispatch => {
     dispatch({
         type: FETCHING_NOTES
-    })
+    });
 
     axios
         .get('https://fe-notes.herokuapp.com/note/get/all')
-        .then(data => {
+        .then(resp => {
             return dispatch({
                 type: NOTES_FETCH_SUCCESS,
-                payload: data.data
+                payload: resp.data
             });
         })
         .catch(err => {
@@ -55,14 +56,16 @@ export const fetchNotes = () => dispatch => {
 
 // R - Read One
 export const fetchNote = id => dispatch => {
-    dispatch({ type: FETCHING_NOTE });
+    dispatch({
+        type: FETCHING_NOTE
+    });
 
     axios
         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-        .then(data => {
+        .then(resp => {
             return dispatch({
                 type: NOTE_FETCH_SUCCESS,
-                payload: data.data
+                payload: resp.data
             });
         })
         .catch(err => {
@@ -71,19 +74,19 @@ export const fetchNote = id => dispatch => {
                 payload: err
             });
         });
-}
+};
 
 // U - Update
 export const updatingNote = () => dispatch => {
     dispatch({
         type: UPDATING_NOTE
-    })
-}
+    });
+};
 
 
 // D - Delete
 export const deletingNote = () => dispatch => {
     dispatch({
         type: DELETING_NOTE
-    })
-}
+    });
+};
