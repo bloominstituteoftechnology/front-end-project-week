@@ -7,7 +7,7 @@ import React, {
 
 // React Router
 import {
-  NavLink,
+  Link,
   Route
 } from 'react-router-dom';
 
@@ -18,7 +18,14 @@ import NoteView from './views/NoteView';
 
 // Styles
 import './App.css';
-
+import {
+  AppContainer,
+  Header,
+  NavBar,
+  Logo,
+  NavText,
+  ViewContainer
+} from './styles'
 
 // *** === Class Component === *** //
 class App extends Component {
@@ -27,12 +34,30 @@ class App extends Component {
   render() {
     return (
       <>
-        <nav>
-          <NavLink to='/'>Home</NavLink>
-          <NavLink to='/create-note'>Add Note</NavLink>
-        </nav>
+        <Header>
+          <NavBar>
+            <Logo>Notes</Logo>
 
-        <div className='app-container'>
+              <Link to='/'>
+                <NavText>
+                  <i class="far fa-eye"></i>
+                  View Notes
+                </NavText>
+              </Link>
+
+              <Link to='/create-note'>
+                <NavText>
+                  <i class="fas fa-pencil-alt"></i>
+                  Add Note
+                </NavText>
+              </Link>
+          </NavBar>
+        </Header>
+
+
+        <AppContainer>
+          <ViewContainer>
+
           {/* C - Create */}
           <Route
             exact
@@ -66,7 +91,8 @@ class App extends Component {
             path='/note/:noteId/update'
             render={props => <NoteFormView {...props} update/>}
           />
-        </div>
+          </ViewContainer>
+        </AppContainer>
       </>
     );
   }
