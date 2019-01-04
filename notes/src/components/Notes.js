@@ -7,22 +7,33 @@ import {
     Link
 } from 'react-router-dom';
 
+// Styles
+import {
+    Logo,
+    NotesContainer,
+    NoteTab,
+    NoteTabTitle
+} from '../styles';
 
 // *** === Functional Component === ***
 const Notes = props => {
     return (
         <div className='notes-container'>
-            <h1>Notes</h1>
+            <Logo>All Notes</Logo>
 
-            {props.notes.map((n, i) => {
-                return (
-                    <div key={i}>
-                        <Link to={`/note/${n._id}`} >
-                            {n.title} 
-                        </Link> 
-                    </div>
-                )
-            })} 
+            <NotesContainer>
+                {props.notes.map((n, i) => {
+                    return (
+                        <NoteTab key={i} onClick={() => props.history.push(`/note/${n._id}`)}>
+                            <NoteTabTitle>
+                                {n.title}
+                            </NoteTabTitle> 
+                            {n.textBody}
+                        </NoteTab>
+                    )
+                })} 
+            </NotesContainer>
+
             
         </div>
     )

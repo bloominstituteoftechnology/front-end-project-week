@@ -38,7 +38,7 @@ class NotesView extends Component {
             );
         } else {
             return (
-                <Notes notes={this.props.notes} />
+                <Notes notes={this.props.notes} history={this.props.history}/>
             );
         }
     }
