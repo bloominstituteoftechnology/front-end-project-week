@@ -56,10 +56,17 @@ export const NoteTab = styled.div`
     flexwrap: wrap;
     overflow: hidden;
     padding: 1%;
-    margin-top: 2%;;
-`
+    margin-top: 2%;
+`;
 
 export const NoteTabTitle = styled.h3`
     color: #98A7B7;
     margin: 0;
+`
+
+export const Button = styled.button`
+    background-color: #98A7B7;
+    display: block;
+    font-size: 1rem;
+    color: white;
 `

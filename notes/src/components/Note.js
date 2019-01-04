@@ -7,19 +7,25 @@ import {
     Link
 } from 'react-router-dom';
 
+// Styles
+import {
+    Logo,
+    Button
+} from '../styles';
+
 
 // *** === Functional Component === *** //
 const Note = props => {
     return (
         <div className='notes-container'>
-            <h1>{props.note.title}</h1>
+            <Logo>{props.note.title}</Logo>
 
             <p>{props.note.textBody}</p>
 
             <Link to={`/note/${props.note._id}/update`}>
-                <button>Edit Note</button>
+                <Button>Edit Note</Button>
             </Link>
-            <button onClick={props.handleDelete}>Delete Note</button>
+            <Button onClick={props.handleDelete}>Delete Note</Button>
         </div>
     );
 };
