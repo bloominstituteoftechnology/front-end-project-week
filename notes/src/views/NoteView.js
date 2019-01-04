@@ -31,7 +31,7 @@ class NoteView extends Component {
 
     // ** == Action Handler == **
     handleDelete = () => {
-        this.props.deletingNote();
+        this.props.deleteNote();
         
         axios
             .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.noteId}`)

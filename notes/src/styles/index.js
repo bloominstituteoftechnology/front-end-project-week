@@ -18,6 +18,8 @@ export const NavBar = styled.nav`
 export const Logo = styled.h1`
     color: #807B8E;
     font-size: 2rem;
+    margin: 0 auto;
+    text-align: center;
 `;
 
 export const NavText = styled.p`
@@ -32,6 +34,7 @@ export const AppContainer = styled.div`
     margin-left: 25%;
     height: 100vh;
     position: fixed;
+    overflow: scroll;
 `;
 
 export const ViewContainer = styled.div`
@@ -69,4 +72,37 @@ export const Button = styled.button`
     display: block;
     font-size: 1rem;
     color: white;
+`
+
+export const Form = styled.form`
+    background-color: #322841;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex: direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 70vh;
+    align-content: space-around;
+`;
+
+export const TitleInput = styled.input`
+    width: 90%;
+    height: 50px;
+    border: 4px solid #DC9B40;
+    border-radius: 4px;
+`
+
+export const TextBodyInput = styled.textarea`
+    width: 90%;
+    height: 150px;
+    border: 4px solid #DC9B40;
+    border-radius: 4px;
+    overflow: auto;
+`
+
+export const FormButton = styled.input`
+    width: 80%;
+    height: 50px;
+    background-color: #DC9B40;
 `

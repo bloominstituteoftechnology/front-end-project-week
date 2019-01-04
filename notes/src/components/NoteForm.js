@@ -5,6 +5,15 @@ import React, {
     Fragment
 } from 'react';
 
+// Styles
+import {
+    Logo,
+    Form,
+    TitleInput,
+    TextBodyInput,
+    FormButton
+} from '../styles'
+
 
 // *** === Class Component === *** //
 class NoteForm extends Component {
@@ -47,12 +56,12 @@ class NoteForm extends Component {
             <>
                 {
                     this.props.update ?
-                    <h1>Edit Note</h1> :
-                    <h1>Add Note</h1>
+                    <Logo>Edit Note</Logo> :
+                    <Logo>Add Note</Logo>
                 }
 
-                <form onSubmit={this.handleSubmit}>
-                    <input
+                <Form onSubmit={this.handleSubmit}>
+                    <TitleInput
                         type='text'
                         name='title'
                         placeholder='Type Title Here'
@@ -64,7 +73,7 @@ class NoteForm extends Component {
                         }
                     />
 
-                    <input
+                    <TextBodyInput
                         type='text'
                         name='textBody'
                         placeholder='Type Text Here'
@@ -78,17 +87,17 @@ class NoteForm extends Component {
 
                     {
                         this.props.update ?
-                            <input
+                            <FormButton
                                 type='submit'
                                 value='Update Note'
                             />
                         :
-                            <input
+                            <FormButton
                                 type='submit'
                                 value='Create Note'
                             />
                     }
-                </form>
+                </Form>
             </>
         )
     };
