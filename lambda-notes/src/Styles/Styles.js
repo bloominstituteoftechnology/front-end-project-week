@@ -48,6 +48,8 @@ export const NoteListContainer = styled.div`
    width: 665px;
    display: flex;
    flex-wrap: wrap;
+   text-decoration: none;
+   color: black;
 `;
 
 export const LinkContainer = styled.span`
@@ -57,7 +59,7 @@ export const LinkContainer = styled.span`
       margin-right: 10px;
       font-size: 1.6rem;
       font-weight: bold;
-      text-decoration-line: underline;
+      text-decoration: none;
    }
    p {
       margin-left: 2%
@@ -65,16 +67,8 @@ export const LinkContainer = styled.span`
 `;
 
 export const Content =styled.div`
-   cursor: pointer;
-   h2 {
-      overflow-wrap: break-word;
-      margin-top: 0px;
-      margin-bottom: 0px;
-   }
-   p {
-      overflow-wrap: break-word;
-      white-space: pre-line;
-   }
+   word-break: keep-all;
+   text-decoration: none;
 `;
 
 export const InputHeader = styled.input `
@@ -99,29 +93,4 @@ export const InputBody = styled.textarea `
    border-radius: 5px;
    height: 300px;
    resize: none;
-`;
-
-export const DeleteContainer = styled.div`
-   position: absolute;
-   text-align: center;
-   background: rgb(211, 211, 211, 0.9);
-   height: 100%;
-   width: 100%;
-   min-height: 800px;
-`;
-
-export const DeleteBox = styled.div`
-   position: fixed;
-   left: 168px;
-   top: 112px;
-   background-color: white;
-   width: 50%;
-   margin: 50px auto;
-   border: 1px solid black;
-   padding: 40px;
-   z-index: 6;
-   p {
-      margin-bottom: 20px;
-      margin-left: 0;
-   }
 `;

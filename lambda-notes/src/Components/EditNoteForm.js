@@ -6,7 +6,7 @@ import React from "react";
 import axios from "axios"
 import {InputHeader, InputBody, Buttons} from "../Styles/Styles"
 
-class EditNote extends React.Component {
+class EditNoteForm extends React.Component {
   constructor(props){
       super(props)
       this.state = {
@@ -53,4 +53,4 @@ class EditNote extends React.Component {
   }
 }
 
-export default EditNote
+export default EditNoteForm;

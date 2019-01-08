@@ -4,7 +4,7 @@ import {InputHeader, InputBody, Buttons} from "../Styles/Styles"
 
 
 
-class CreateNote extends React.Component {
+class CreateNoteForm extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -46,4 +46,4 @@ class CreateNote extends React.Component {
     }
 }
 
-export default CreateNote;
+export default CreateNoteForm;
