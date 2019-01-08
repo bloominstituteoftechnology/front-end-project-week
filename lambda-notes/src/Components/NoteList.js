@@ -23,7 +23,7 @@ class NoteList extends React.Component {
  
     render() {
        return(
-          <>
+          <div>
              <h2>Your Notes:</h2>
              <NoteListContainer>
                 {this.state.notes.length < 1 ? <h3>There are no notes to load...</h3> : this.state.notes.map(note => 
@@ -33,7 +33,7 @@ class NoteList extends React.Component {
                    />)
                 }
              </NoteListContainer>
-          </>
+          </div>
        )
     }
  }

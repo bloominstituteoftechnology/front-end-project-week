@@ -14,21 +14,23 @@ class DeleteModal extends React.Component {
 
   render() {
     return (
+      <div className="DeleteModal">
       <Modal
         isOpen={this.props.isModalOpen}
         toggle={this.props.toggle}
-        style={{ top: '70%'}}
+        className="DeleteModal"
       >
         <ModalBody>Are you sure you want to delete this?</ModalBody>
         <ModalFooter>
-          <Button color="danger" onClick={this.deleteNote}>
+          <Button color="danger" onClick={this.deleteNote} className="ModalButton" size="xl">
             Delete
           </Button>
-          <Button color="#f3f7f6" onClick={this.props.toggle}>
+          <Button color="#f3f7f6" onClick={this.props.toggle} className="ModalButton" size="xl">
             No
           </Button>
         </ModalFooter>
       </Modal>
+      </div>
     );
   }
 }

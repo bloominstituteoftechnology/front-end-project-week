@@ -31,6 +31,7 @@ h1 {
   max-width: 150px;
   line-height: 30px;
   font-size: 3.2rem;
+  margin-top: 20px;
 }
 
 h2 {
@@ -41,6 +42,7 @@ h2 {
 h3 {
   color: black;
   font-size: 1.9rem;
+  text-decoration: none;
 }
 
 p {
@@ -80,4 +82,16 @@ span {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   text-decoration: none;
+}
+
+.DeleteModal {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 2rem;
+  width: 100%;
+}
+.ModalButtons {
+  width: 100%;
+  font-size: 1.2rem;
 }

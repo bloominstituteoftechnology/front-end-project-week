@@ -31,7 +31,7 @@ class EditNoteForm extends React.Component {
   render(){
      console.log(this.props)
     return (
-        <>
+        <div>
           <h2>Edit Note:</h2>
           <form onSubmit={this.submitHandler}>
               <InputHeader 
@@ -48,7 +48,7 @@ class EditNoteForm extends React.Component {
               />
               <Buttons type="submit">Update</Buttons>
           </form>
-        </>
+        </div>
     )
   }
 }
