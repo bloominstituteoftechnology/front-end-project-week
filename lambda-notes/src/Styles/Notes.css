@@ -1,0 +1,16 @@
+.Note:hover{
+    border:inset tan;
+}
+.Note{
+    display:flex;
+}
+.Text{
+    font-size:120%;
+}
+.Tags{
+    font-size:150%;
+    text-emphasis: bold;
+    justify-content: flex-end;
+    padding-top:25px;
+    word-wrap: break-word;
+}
