@@ -28,10 +28,10 @@ class DeleteModal extends Component {
             Are you sure you want to delete this?
           </ModalBody>
           <ModalFooter>
-            <Button color="danger" onClick={this.deleteNote}>
+            <Button color="danger" onClick={this.deleteNote} size="lg">
               Delete
             </Button>
-            <Button color="secondary" onClick={this.props.toggle}>
+            <Button color="secondary" onClick={this.props.toggle} size="lg">
               No
             </Button>
           </ModalFooter>
