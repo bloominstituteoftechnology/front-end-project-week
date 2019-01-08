@@ -1,4 +1,17 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
+
+
+const Form = styled.form`
+    display:flex;
+    flex-direction: column;
+    width: 80%;
+`;
+
+const Input = styled.input`
+    width:40%;
+    height:40px;
+`;
 
 class CreateNote extends Component {
     constructor(props){
@@ -26,13 +39,13 @@ class CreateNote extends Component {
     
     render(){
         return(
-            <div>
-                <h2>Create New Note</h2>
-                <form onSubmit={this.submitHandler}>
-                    <input type='text' name='title' value={this.state.title} placeholder='Note Title' onChange={this.inputHandler}/>
+            <div className='createNote'>
+                <h2>Create New Note:</h2>
+                <Form onSubmit={this.submitHandler}>
+                    <Input type='text' name='title' value={this.state.title} placeholder='Note Title' onChange={this.inputHandler}/>
                     <input type='text' name='text' value={this.state.text} placeholder='Text' onChange={this.inputHandler}/>
                     <button type='submit'> Save</button>
-                </form>
+                </Form>
             </div>
         )
     }
