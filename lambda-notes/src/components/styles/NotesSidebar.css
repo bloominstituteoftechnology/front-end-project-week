@@ -7,3 +7,27 @@
     width: 212px;
     border-right: 1px solid#afafaf;
 }
+
+.NotesSidebarTitle {
+    text-align: left;
+    margin-left: 13px;
+    margin-top: 20px;
+    font-size: 34px;
+    line-height: 0.85;
+    color: #4a4a4a;
+}
+
+.NotesSidebarButton {
+    width: 183px;
+    height: 40px;
+    background: #27b8bd;
+    border: 1px solid #a3aaab;
+    margin-bottom: 14px;
+    margin-top: 4px;
+    margin-left: 1px;
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+    padding-top: 2px;
+    padding-right: 8px;
+}
