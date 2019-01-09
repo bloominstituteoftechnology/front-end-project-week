@@ -69,6 +69,7 @@ export const LinkContainer = styled.span`
 export const Content =styled.div`
    word-break: keep-all;
    text-decoration: none;
+   white-space: pre-line;
 `;
 
 export const InputHeader = styled.input `

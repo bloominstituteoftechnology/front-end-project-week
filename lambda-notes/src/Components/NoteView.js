@@ -54,6 +54,7 @@ class NoteView extends React.Component {
             </LinkContainer>
             <Content>
                <h2>{this.state.title}</h2>
+               <hr/>
                <p>{this.state.textBody}</p>
             </Content>
             <DeleteModal isModalOpen = {this.state.isModalOpen} toggle = {this.toggle} id = {this.state.id} history = {this.props.history}/>
