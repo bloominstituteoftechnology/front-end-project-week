@@ -23,10 +23,10 @@ class DeleteModal extends React.Component {
       >
         <ModalBody>Are you sure you want to delete this?</ModalBody>
         <ModalFooter>
-          <Button color="danger" onClick={this.deleteNote} className="ModalButton" size="lg">
+          <Button color="danger" onClick={this.deleteNote} className="ModalButton" size="lg" block>
             Delete
           </Button>
-          <Button color="info" onClick={this.props.toggle} className="ModalButtonNo" size="lg">
+          <Button color="info" onClick={this.props.toggle} className="ModalButtonNo" size="lg" block>
             No
           </Button>
         </ModalFooter>

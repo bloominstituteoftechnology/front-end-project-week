@@ -30,8 +30,8 @@ export const Buttons = styled.button `
    margin-top: 20px;
    cursor: pointer;
    white-space: nowrap;
-   width: ${props => props.width || "95%"};
-   max-width: ${props => props.maxWidth || "200px"};
+   width: 100%;
+   max-width: 200px;
 `;
 
 export const DisplayContainer = styled.div`
