@@ -32,11 +32,7 @@
 .notecard p {
     margin: 5%;
     font-size: 2rem;
-    color: #79827f;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow: ellipsis;    
-    resize: 
+    color: #79827f;   
 }
 
 .notecard-stopper {
