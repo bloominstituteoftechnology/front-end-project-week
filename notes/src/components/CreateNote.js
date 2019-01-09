@@ -24,6 +24,9 @@ const Button = styled.button`
     width:15%;
     background-color:aqua;
     margin-left:10px
+    padding:10px;
+    color: white;
+    font-size:15px;
     `
 
 class CreateNote extends Component {

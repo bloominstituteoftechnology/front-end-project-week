@@ -1,5 +1,31 @@
 import React, { Component } from 'react';
 
+import styled from 'styled-components'
+
+const Form = styled.form`
+    display:flex;
+    flex-direction: column;
+
+
+    `;
+
+const Input = styled.input`
+    width:30%;
+    padding: 15px;
+    margin: 10px 0;
+`
+
+const Textarea = styled.textarea`
+    height:200px;
+    width:50%;
+`;
+
+const Button = styled.button`
+    width:20%;
+    background-color:aqua;
+    padding:10px;
+    color:white;
+`;
 
 class EditNote extends Component {
     constructor(props){
@@ -36,15 +62,15 @@ class EditNote extends Component {
 }
         return(
         <div className='textarea'>
-            <form onSubmit={this.handleSubmit}>
-                <input name='title' type='text' value={this.state.title} onChange={this.handleInput}>
-                </input>
-                <textarea name='textBody' type='text' value={this.state.textBody} onChange={this.handleInput}>
+            <Form onSubmit={this.handleSubmit}>
+                <Input name='title' type='text' value={this.state.title} onChange={this.handleInput}/>
+               
+                <Textarea name='textBody' type='text' value={this.state.textBody} onChange={this.handleInput}/>
 
-                </textarea>
-                <button type='submit'>Save</button>
+                
+                <Button type='submit'>Save</Button>
 
-            </form>
+            </Form>
             
         </div>
         )
