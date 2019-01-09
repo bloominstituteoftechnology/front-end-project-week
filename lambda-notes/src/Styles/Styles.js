@@ -7,7 +7,7 @@ export const AppContainer = styled.div`
    max-width: 885px;
    display: flex;
    border: 1px solid #afafaf;
-   height: 100vh;
+   height: 100%;
 `;
 
 export const HeaderContainer = styled.div`
@@ -21,12 +21,13 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Buttons = styled.button `
-   background-color: ${props => props.bgColor || "lightseagreen"};
+   background-color: #24B8BD;
    color: white;
    font-weight: bold;
    font-size: 1.3rem;
    padding: 10px 25px;
    margin-bottom: 14px;
+   margin-top: 20px;
    cursor: pointer;
    white-space: nowrap;
    width: ${props => props.width || "95%"};
@@ -38,14 +39,17 @@ export const DisplayContainer = styled.div`
    flex-direction: column;
    background-color: whitesmoke;
    width: 100%;
-   max-width: 665px;
+   max-width: 700px;
    padding: 0px 30px;
    padding-top: 30px;
    padding-bottom: 20px;
+   text-decoration: none;
+   color: black;
 `;
 
 export const NoteListContainer = styled.div`
-   width: 665px;
+   width: 100%;
+   height: 100%;
    display: flex;
    flex-wrap: wrap;
    text-decoration: none;
@@ -55,6 +59,7 @@ export const NoteListContainer = styled.div`
 export const LinkContainer = styled.span`
    display: flex;
    justify-content: flex-end;
+   color: black;
    a {
       margin-right: 10px;
       font-size: 1.6rem;

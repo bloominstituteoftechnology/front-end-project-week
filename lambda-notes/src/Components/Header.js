@@ -5,7 +5,7 @@ import {Buttons, HeaderContainer} from "../Styles/Styles";
 const Header = () => {
     return(
         <HeaderContainer>
-            <h1>Lambda Notes</h1>
+            <h1 className="Lambda">Lambda Notes</h1>
         <Link to="/">
             <Buttons>View Your Notes</Buttons>
         </Link>

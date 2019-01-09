@@ -6,10 +6,10 @@ class DeleteModal extends React.Component {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.id}`)
       .then(res => {
-        console.log("note was successfully deleted");
+        console.log("Note was successfully deleted");
         this.props.history.push("/");
       })
-      .catch(err => console.log(err, "note could not be deleted"));
+      .catch(err => console.log(err, "Could not delete note"));
   };
 
   render() {
@@ -23,10 +23,10 @@ class DeleteModal extends React.Component {
       >
         <ModalBody>Are you sure you want to delete this?</ModalBody>
         <ModalFooter>
-          <Button color="danger" onClick={this.deleteNote} className="ModalButton" size="xl">
+          <Button color="danger" onClick={this.deleteNote} className="ModalButton" size="lg">
             Delete
           </Button>
-          <Button color="#f3f7f6" onClick={this.props.toggle} className="ModalButton" size="xl">
+          <Button color="info" onClick={this.props.toggle} className="ModalButtonNo" size="lg">
             No
           </Button>
         </ModalFooter>
