@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import './Home.css'
+import './styles/SideBar.css'
 
 const SideBar = () => {
     return (
@@ -9,6 +9,7 @@ const SideBar = () => {
             <h1>Notes</h1>
             <Link to='/' className="sidebar_button">View Your Notes</Link>
             <Link to='/create' className="sidebar_button">+ Create New Note</Link>
+            <div className ="sidebar_spacer"></div>
         </div>
     )
 };

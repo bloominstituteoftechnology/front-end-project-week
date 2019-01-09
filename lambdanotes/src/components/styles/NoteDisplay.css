@@ -1,0 +1,55 @@
+/*#region note-display & note-view*/
+@media (max-width: 768px) {
+    .note-display {
+        display: flex;
+        flex-direction: column;
+        width: 99%;
+        height: 100%;
+        margin-top: 10px;
+        background: whitesmoke;
+    }
+    
+    .note-display h2 {
+        margin: 2.5% 0 2.5% 5%;
+        font-size: 2.5rem;
+        font-weight: 700;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #414141;
+    }
+    
+    .note-display-grid {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin-left: 5%;
+        overflow-y: auto;
+    }
+}
+
+@media (min-width: 769px) {
+    .note-display {
+        display: flex;
+        flex-direction: column;
+        width: 99%;
+        height: 100%;
+        border: 1px solid #414141;
+        background: whitesmoke;
+    }
+    
+    .note-display h2 {
+        margin: 2.5% 0 2.5% 5%;
+        font-size: 2.5rem;
+        font-weight: 700;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #414141;
+    }
+    
+    .note-display-grid {
+        display: grid;
+        grid-template-columns: 22.5% 22.5% 22.5%;
+        width: 95%;
+        margin-left: 5%;
+        overflow-y: auto;
+    }
+}
+/*#endregion*/

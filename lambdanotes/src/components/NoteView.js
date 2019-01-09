@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { editNote, deleteNote } from '../actions'
-
+import './styles/NoteView.css'
 
 
 //This component shall display a note from the database.

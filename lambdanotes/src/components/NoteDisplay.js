@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { getNotes } from '../actions'
 import Note from './Note'
-import './Home.css'
+import './styles/NoteDisplay.css'
 
 class NoteDisplay extends Component {
   constructor(props) {
@@ -25,11 +26,13 @@ class NoteDisplay extends Component {
         <div className="note-display-grid">
           {this.props.notes.map(note => {
             return (
+              <Link to={`/note/${note._id}`} className="notecard-link">
               <Note
                 title={note.title}
                 textBody={note.textBody}
                 id={note._id}
               />
+              </Link>
             );
           })}
         </div>

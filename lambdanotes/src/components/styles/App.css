@@ -49,6 +49,12 @@ html {
 }
 
 /*App layout*/
+@media (max-width: 768px) {
+	diplay: flex;
+	flex-direction: column;
+}
+
+@media (min-width: 769px) {
 	.App {
 		display: flex;
 		width: 100%;
@@ -59,3 +65,4 @@ html {
 	.App-view {
 		width: 85%;
 	}
+}
