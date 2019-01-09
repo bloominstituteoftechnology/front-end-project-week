@@ -1,0 +1,105 @@
+/*#region individual note*/
+.viewnote {
+    display: flex;
+    flex-direction: column;
+    margin: 2.5% 0 0 1%;
+}
+
+.viewnote .button-box {
+    display: flex;
+    justify-content: flex-end;
+    width: 97.5%;
+}
+
+.button-box .edit-link {
+    all: unset;
+    margin-right: 1%;
+}
+
+.button-box #edit {
+    all: unset;
+    margin-right: 1%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #414141;
+    text-decoration: underline;
+}
+
+.button-box #delete {
+    all: unset;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #414141;
+    text-decoration: underline;
+}
+
+.viewnote-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #414141;
+}
+
+.viewnote-content p {
+    margin-top: 2%;
+    font-size: 2rem;
+}
+
+/*#endregion*/
+
+/*#region Modal*/
+.deleteModal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 30%;
+    justify-content: space-around;
+    background: white;
+}
+
+.modal-content p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modal-content button {
+    width: 40%;
+    height: 45px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    border: none;
+}
+
+#modal-delete {
+    background: red;
+}
+
+#modal-cancel {
+    background: #24b8bd
+}
+
+/*#endregion*/

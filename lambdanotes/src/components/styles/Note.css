@@ -1,0 +1,50 @@
+/*#region note cards*/
+.notecard {
+    width: 90%;
+    height: 200px;
+    margin: 5%;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid grey;
+}
+
+.notecard-content {
+    width: 90%;
+    margin: 5% auto 0 auto;
+}
+
+.notecard strong {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5%;
+    color: #030404;
+}
+
+.notecard hr {
+    width: 90%;
+    height: 1px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+    margin: 5% auto;
+}
+
+.notecard p {
+    margin: 5%;
+    font-size: 2rem;
+    color: #79827f;   
+}
+
+.notecard-stopper {
+    margin: 5%;
+    font-size: 2rem;
+    overflow: auto;
+    color: #79827f;
+}
+
+.notecard-link {
+    all: unset;
+    width: 100%;
+    height: 100%;
+}
+/*#endregion*/
