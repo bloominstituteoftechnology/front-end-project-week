@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
-
+import styled from 'styled-components';
 
 const Form = styled.form`
     display:flex;
     flex-direction: column;
-    width: 80%;
+    width:80%;
 `;
 
 const Input = styled.input`
-    width:40%;
-    height:40px;
+    width:30%;
+    padding:10px;
+    font-size: 15px;
+    margin:10px;
 `;
+
+const BodyInput = styled(Input)`
+    width:60%;
+    height:200px;
+    
+`;
+
+const Button = styled.button`
+    width:15%;
+    background-color:aqua;
+    margin-left:10px
+    `
 
 class CreateNote extends Component {
     constructor(props){
@@ -22,7 +35,7 @@ class CreateNote extends Component {
     }    
     }
     inputHandler = e => {
-        this.setState({[e.target.title]: e.target.value});
+        this.setState({[e.target.name]: e.target.value});
     }
 
 
@@ -43,8 +56,8 @@ class CreateNote extends Component {
                 <h2>Create New Note:</h2>
                 <Form onSubmit={this.submitHandler}>
                     <Input type='text' name='title' value={this.state.title} placeholder='Note Title' onChange={this.inputHandler}/>
-                    <input type='text' name='text' value={this.state.text} placeholder='Text' onChange={this.inputHandler}/>
-                    <button type='submit'> Save</button>
+                    <BodyInput type='text' name='text' value={this.state.text} placeholder='Text' onChange={this.inputHandler}/>
+                    <Button type='submit'> Save</Button>
                 </Form>
             </div>
         )
