@@ -87,6 +87,8 @@ span {
 .DeleteModal {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   margin: 0 auto;
   font-size: 2rem;
   width: 100%;

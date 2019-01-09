@@ -19,6 +19,7 @@ class DeleteModal extends React.Component {
         isOpen={this.props.isModalOpen}
         toggle={this.props.toggle}
         className="DeleteModal"
+        centered="true"
       >
         <ModalBody>Are you sure you want to delete this?</ModalBody>
         <ModalFooter>
@@ -30,7 +31,7 @@ class DeleteModal extends React.Component {
           </Button>
         </ModalFooter>
       </Modal>
-      </div>
+      </div> // Delete Modal ending div
     );
   }
 }
