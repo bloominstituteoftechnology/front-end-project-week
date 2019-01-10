@@ -21,7 +21,6 @@ export default class Note extends Component {
                     <strong>{this.props.title}</strong>
                     <hr></hr>
                     <p>{this.handleTruncation(this.props.textBody)}</p>
-                    <p>{}</p>
                 </div>
             </div>
         )

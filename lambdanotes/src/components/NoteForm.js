@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createNote } from '../actions'
+import './styles/NoteForm.css'
 
 //Component composed of a 2-part form in order to create new notes.
 //This component shall be displayed upon the user clicking "create note", which will trigger createNote()

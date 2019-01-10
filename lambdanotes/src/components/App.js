@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Switch, Route } from 'react-router-dom'
 import SideBar from './SideBar'
 import NoteForm from './NoteForm'
 import NoteView from './NoteView'
 import NoteDisplay from './NoteDisplay'
 import NoteEdit from './NoteEdit'
-import './styles/App.css';
+import './styles/App.css'
 
 class App extends Component {
   render() {
