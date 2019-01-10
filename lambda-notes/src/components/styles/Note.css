@@ -1,0 +1,28 @@
+.NoteMain {
+    margin-top: 20px;
+    width: 182px;
+    height: 187px;
+    margin-bottom: 4px;
+    border: 1px solid #afafaf;
+    margin-right: 16px;
+}
+
+.NoteTitle {
+    font-size: 18px;
+    margin-top: 8px;
+    text-align: left;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #afafaf;
+    margin-right: 19px;
+    padding-bottom: 4px;
+}
+
+.NoteText {
+    font-size: 13px;
+    margin-top: 0px;
+    margin-left: 15px;
+    text-align: left;
+    line-height: 1.6;
+    margin-right: 22px;
+}
