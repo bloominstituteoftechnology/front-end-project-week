@@ -60,9 +60,10 @@ hr {
   width: 85%;
 }
 span {
-  text-decoration: none;
+  text-decoration: underline;
   cursor: pointer;
   font-size: 1.8rem;
+  color: black;
 }
 .Notes {
   margin-right: 7.5px;

@@ -1,6 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {Buttons, HeaderContainer} from "../Styles/Styles";
+import CreateNoteForm from "./CreateNoteForm";
+
+
 
 const Header = () => {
     return(
@@ -9,7 +12,7 @@ const Header = () => {
         <Link to="/">
             <Buttons>View Your Notes</Buttons>
         </Link>
-        <Link to="/create">
+        <Link to="/create" component={CreateNoteForm}>
             <Buttons>+Create New Note</Buttons>
         </Link>
         </HeaderContainer>
