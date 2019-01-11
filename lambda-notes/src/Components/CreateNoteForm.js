@@ -17,9 +17,9 @@ class CreateNoteForm extends React.Component {
         this.setState({[e.target.name] : e.target.value})
     }
     submitHandler = (e) => {
-        e.preventDefault();
+      e.preventDefault()
         axios.post("https://fe-notes.herokuapp.com/note/create", this.state)
-         .then(response => {this.setState({title: "", textBody: ""})})
+         .then( () => {this.setState({title: "", textBody: ""})}) 
          .catch(err => {console.log(err)})
     }
     render(){

@@ -6,7 +6,7 @@ import NoteList from "./Components/NoteList"
 import CreateNoteForm from "./Components/CreateNoteForm"
 import NoteView from "./Components/NoteView"
 import EditNoteForm from "./Components/EditNoteForm"
-import DeleteModal from './Components/DeleteModal';
+import DeleteModal from './Components/DeleteModal'
 import {AppContainer, DisplayContainer} from "./Styles/Styles"
 
 
@@ -15,13 +15,19 @@ class App extends Component {
     return (
       <AppContainer>
         <Header />
-        <DisplayContainer>
-        <Route exact path="/create" component={CreateNoteForm} />
-        <Route exact path="/note/:id" component={NoteView} />
-        <Route exact path="/" component={NoteList} />
-        <Route exact path="/note/edit/:id" component={EditNoteForm} />
-        <Route exact path="/note/delete/:id" component={DeleteModal} />
+         <DisplayContainer>
+          <Route exact path="/" component={NoteList}/>
+          <Route path="/create" component={CreateNoteForm}/>
+          <Route path="/note/:id" render={(props) => {
+              return(<NoteView {...props}/>)}}
+          />
+          <Route path="/edit/:id" render={(props) => {
+              return(<EditNoteForm {...props}/>)}}
+          />
         </DisplayContainer>
+        <Route path="/note/:id/delete" render={(props) => {
+            return(<NoteView {...props}/>, <DeleteModal {...props}/>)}}
+        />
       </AppContainer>
     )
   }
