@@ -9,8 +9,8 @@ import EditNoteForm from "./Components/EditNoteForm"
 import DeleteModal from './Components/DeleteModal'
 import {AppContainer, DisplayContainer} from "./Styles/Styles"
 
-
 class App extends Component {
+
   render() {
     return (
       <AppContainer>

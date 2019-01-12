@@ -20,6 +20,7 @@ class CreateNoteForm extends React.Component {
       e.preventDefault()
         axios.post("https://fe-notes.herokuapp.com/note/create", this.state)
          .then( () => {this.setState({title: "", textBody: ""})}) 
+         .then ( () => this.props.history.push("/"))
          .catch(err => {console.log(err)})
     }
     render(){
