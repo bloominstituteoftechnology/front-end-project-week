@@ -1,13 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Buttons, HeaderContainer} from "../Styles/Styles";
+import {Buttons, SideBarContainer} from "../Styles/Styles";
 import NoteList from "./CreateNoteForm";
 
 
 
-const Header = () => {
+const SideBar = () => {
     return(
-        <HeaderContainer>
+        <SideBarContainer>
             <h1 className="Lambda">Lambda Notes</h1>
         <Link to="/">
             <Buttons>View Your Notes</Buttons>
@@ -15,8 +15,8 @@ const Header = () => {
         <Link to="/create" component={NoteList}>
             <Buttons>+Create New Note</Buttons>
         </Link>
-        </HeaderContainer>
+        </SideBarContainer>
     );
 }
 
-export default Header;
+export default SideBar;

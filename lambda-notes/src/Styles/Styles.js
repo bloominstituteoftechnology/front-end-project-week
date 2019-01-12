@@ -10,7 +10,7 @@ export const AppContainer = styled.div`
    height: 100%;
 `;
 
-export const HeaderContainer = styled.div`
+export const SideBarContainer = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;

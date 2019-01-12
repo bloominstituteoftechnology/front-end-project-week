@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Route} from "react-router-dom";
 
-import Header from "./Components/Header"
+import SideBar from "./Components/SideBar"
 import NoteList from "./Components/NoteList"
 import CreateNoteForm from "./Components/CreateNoteForm"
 import NoteView from "./Components/NoteView"
@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <AppContainer>
-        <Header />
+        <SideBar />
          <DisplayContainer>
           <Route exact path="/" component={NoteList}/>
           <Route path="/create" component={CreateNoteForm}/>
