@@ -1,0 +1,29 @@
+{
+  "notes": [
+    {
+      "id": 0,
+      "title": "Internal Memo",
+      "textBody": "This is an internal memo that will be used to write to you something random noises"
+    },
+    {
+      "id": 1,
+      "title": "External Letter",
+      "textBody": "remember to pick up the groceries"
+    },
+    {
+      "id": 2,
+      "title": "Shopping List",
+      "textBody": "* Bakery Truck\n* Baseball Bat\n* Sticky Blue Tack\n* Duct Tape"
+    },
+    {
+      "id": 3,
+      "title": "Selling List",
+      "textBody": "* The Moon\n* Can of Pepsi\n* Old Stick\n* Fishing Rod"
+    },
+    {
+      "id": 4,
+      "title": "Memo",
+      "textBody": "this is an alarm. I am alarmed"
+    }
+  ]
+}
