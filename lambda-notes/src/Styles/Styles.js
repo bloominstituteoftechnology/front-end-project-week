@@ -4,7 +4,7 @@ export const AppContainer = styled.div`
    box-sizing: border-box;
    width: 100%;
    margin: 0 auto;
-   max-width: 885px;
+   max-width: 880px;
    display: flex;
    border: 1px solid #afafaf;
    height: 100%;
@@ -68,10 +68,11 @@ export const Notes = styled.a`
    width: 100%;
    margin-top: 20px;
    margin-bottom: 30px;
+   margin-left: 20px;
    text-decoration: none;
 
    :nth-child(3n-1){
-      margin-left: 1%;
+      margin-left: 20px;
       margin-right: 1%;
    }
    h3 {
