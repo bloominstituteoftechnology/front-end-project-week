@@ -1,18 +1,42 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Nav.css";
-
+import styled from 'styled-components'
+const SideNav = styled.div`
+  width: 240px; 
+  height: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  position: fixed; 
+  background: #F0F0F0
+`;
+const NavBtn = styled(NavLink)`
+  text-decoration: none; 
+  width: auto;  
+  height: auto;
+  padding: 10px; 
+  margin:10px; 
+  background: #00C5C7; 
+  display: flex; 
+  justify-content: center; 
+  align-content: center; 
+  color: white; 
+  border: none; 
+`
+const Text = styled.h1`
+  color: #545454;
+  margin: 15px; 
+`;
 const Nav = props => {
   return (
-    <div className="Side-Nav">
-      <h1>Lambda Notes</h1>
-      <NavLink className="nav-btn" to="/">
+    <SideNav>
+      <Text>QuicNotes</Text>
+      <NavBtn to="/">
         View Your Notes
-      </NavLink>
-      <NavLink className="nav-btn" to="/create-new">
+      </NavBtn>
+      <NavBtn to="/create-new">
         Create New Note
-      </NavLink>
-    </div>
+      </NavBtn>
+    </SideNav>
   );
 };
 

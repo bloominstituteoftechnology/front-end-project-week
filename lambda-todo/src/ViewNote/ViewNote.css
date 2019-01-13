@@ -1,4 +1,4 @@
-.view-page{
+/* .view-page{
     width: 640px; 
     height: 100%; 
     position: fixed; 
@@ -74,3 +74,13 @@
     text-decoration: none; 
     background: #00C5C7
 }
+.single-note{
+    border: 2px solid #b1afaf; 
+    background: white; 
+    border-radius: 10px; 
+    margin: 25px 5px; 
+}
+.line-long{
+    width: 200px; 
+    border: 1px solid #b1afaf; 
+} */
