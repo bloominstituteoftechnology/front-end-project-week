@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3.2rem;
+  padding-bottom: 10px;
+}
+
+h4 {
+  font-size: 2.5rem;
+  padding-bottom: 10px;
+}
+
+p {
+  line-height: 1.5;
+  font-size: 1.6rem;
+  padding-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  /* max-width: 800px; */
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.App {
+  text-align: left;
+  display: flex;
+  height: 100%;
+  background-color: rgb(242, 241, 242);
+  /* background-attachment: scroll; */
+}
+.routesContainer {
+  background-color: rgb(242, 241, 242);
+  width: 75%;
+  min-height: 100vh;
+  background-attachment: scroll;
+}
+
+.navbar {
+  background-color: rgb(211, 210, 211);
+  width: 25%;
+}
+
+.navbarText {
+  /* display: flex; */
+  flex-direction: column;
+  margin-left: 12px;
+  margin-top: 17px;
+  margin-right: 15px;
+}
+
+.navbarText h1 {
+  font-size: 35px;
+  margin-top: 0px;
+  /* margin-bottom: 0px; */
+  line-height: 33px;
+}
+
+.navLinks {
+  background-color: rgb(104, 182, 187);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 14px;
+}
+
+.navLinks:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 15px 5px #00000056; 
+  box-shadow: 5px 5px 15px 5px #00000056;
+  transition: box-shadow .5s;
+}
+.logout{
+
+  background-color: rgb(28, 97, 102);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 14px;
+  border-radius: 8px;
+}
+
+.logout:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 15px 5px #00000056; 
+  box-shadow: 5px 5px 15px 5px #00000056;
+  transition: box-shadow .5s;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

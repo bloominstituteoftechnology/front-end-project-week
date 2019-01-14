@@ -1,0 +1,58 @@
+.modal {
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 60%;
+  height: 180px;
+  top: 27%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.confirmationQuestion {
+  border-bottom: none;
+  margin: 10px;
+  font-size: 26px;
+  padding: 25px 30px;
+}
+
+.modal-main button {
+  padding: 15px;
+  margin: 5px;
+  color: white;
+  width: 200px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.modal-main button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 15px 5px #00000056; 
+  box-shadow: 5px 5px 15px 5px #00000056;
+  transition: box-shadow .5s;
+}
+
+.deleteButton {
+  background-color: rgb(177 37 42)
+}
+
+.noButton {
+  background-color: rgb(104 182 187)
+}

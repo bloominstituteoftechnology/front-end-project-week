@@ -1,0 +1,89 @@
+.notesPage {
+  height: 100%;
+  margin: 0 5%;
+}
+
+.notesPage h2 {
+  font-size: 22px;
+  text-align: left;
+  margin-top: 55px;
+  margin-left: 42px;
+}
+
+.notesContainer {
+  margin-left: px;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.miniNote {
+  position: relative;
+  width: 190px;
+  height: 195px;
+  margin-bottom: 24px;
+  border: 1px solid #ddd;
+  display: -webkit-box;
+  /* word-break: break-all; */
+  /* word-wrap: break-word; */
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow-y: hidden;
+  /* word-wrap: wrap;
+  overflow-wrap: break-word;
+  overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+  background-color: white;
+}
+
+.miniNote:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 15px 5px #00000056; 
+  box-shadow: 5px 5px 15px 5px #00000056;
+  transition: box-shadow .5s;
+}
+
+
+.cardBody {
+  position: relative;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.miniNote .title {
+  width: 150px;
+  margin-top: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid black;
+  font-size: 1.4rem;
+  /* white-space: nowrap;  */
+  /* overflow: hidden; */
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.miniNote .note {
+  position: absolute;
+  width: 100%;
+  font-size: 1.1rem;
+  margin-top: 4px;
+}
+
+.miniNote .fade {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+  background: 
+    linear-gradient(
+      to bottom, 
+      rgba(255,255,255,0) 0%, 
+      rgba(255,255,255,.95) 100%);
+}
