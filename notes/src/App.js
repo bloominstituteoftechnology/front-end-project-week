@@ -4,7 +4,7 @@ import axios from 'axios';
 import NavBar from './components/NavBar';
 import NoteList from './components/NoteList';
 import CreateNote from './components/CreateNote';
-import DisplayNote from './components/DisplayNote'
+import DisplayNote from './components/DIsplayNote'
 import { Route } from 'react-router-dom';
 
 class App extends Component {
