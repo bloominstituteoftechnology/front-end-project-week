@@ -38,22 +38,24 @@ img {
 }
 
 .container {
-  max-width: 800px;
+  /* max-width: 800px; */
   width: 100%;
   margin: 0 auto;
+  min-height: 100vh;
+  height: 100%;
 }
 
 .App {
   text-align: left;
   display: flex;
+  height: 100%;
   background-color: rgb(242, 241, 242);
-  background-size: cover;
-  background-attachment: scroll;
+  /* background-attachment: scroll; */
 }
 .routesContainer {
   background-color: rgb(242, 241, 242);
   width: 75%;
-  height: 100vh;
+  min-height: 100vh;
   background-attachment: scroll;
 }
 

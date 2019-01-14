@@ -150,7 +150,7 @@ prepareUpdateForm = ( event, note) => {
 
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <div className="navbar">
           <div className='navbarText'>
             <h1>

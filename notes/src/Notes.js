@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 import './Notes.css';
 import axios from 'axios';
+import { Tween, Timeline } from 'react-gsap';
 
 const URL = 'http://localhost:5200/api/';
 
@@ -49,6 +50,9 @@ const URL = 'http://localhost:5200/api/';
       <div className="notesContainer">
         {this.state.notes.map((note, i)=> {
           return (
+            <Tween 
+              from={ { x: '1000px', rotation: -360 }}
+              duration={0.5}>
               <Card
                 note={note}
                 className="miniNote"
@@ -60,6 +64,7 @@ const URL = 'http://localhost:5200/api/';
                   <CardText className='note'>{note.content}</CardText>
                 </CardBody>
               </Card>
+            </Tween>
             )
         })}
       </div>
