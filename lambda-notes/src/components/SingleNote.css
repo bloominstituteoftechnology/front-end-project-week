@@ -1,0 +1,87 @@
+.singleNote h3 {
+  padding: 65px 0 35px 30px;
+  font-weight: bold;
+  font-size: 3rem;
+  color: #4b4a4b;
+}
+
+.singleNote p {
+  color: #4b4a4b;
+  padding: 0 30px;
+  font-size: 1.6rem;
+}
+
+.singleNote .modify {
+  position: relative;
+  left: 610px;
+  top: 20px;
+  margin-right: 18px;
+  text-decoration: underline;
+  color: #4b4a4b;
+  font-weight: 600;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.Modal {
+  position: fixed;
+  z-index: 2000000;
+  width: 582px;
+  background: #fff;
+  border: 1px solid #000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Modal:focus {
+  outline: none;
+}
+
+.Modal p {
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-top: 50px;
+}
+
+.Modal button {
+  border: 1px solid #4b4a4b;
+  max-width: 207px;
+  width: 100%;
+  margin-bottom: 47px;
+  padding: 15px;
+  margin-right: 22px;
+  margin-top: 37px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.Modal .delete {
+  background: #d40f25;
+}
+
+.Modal .no {
+  background: #00bec2;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(116, 116, 116, 0.5);
+  z-index: 2000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 940px) {
+  .singleNote .modify {
+    left: 80%;
+  }
+}

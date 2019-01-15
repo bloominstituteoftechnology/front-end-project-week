@@ -1,0 +1,13 @@
+.notesList h2 {
+  padding: 65px 0 35px 30px;
+  font-weight: bold;
+  font-size: 3rem;
+  color: #4b4a4b;
+}
+
+.notesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+  width: 100%;
+}
