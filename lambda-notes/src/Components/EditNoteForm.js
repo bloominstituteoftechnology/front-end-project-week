@@ -2,6 +2,10 @@
 /*Edit Note Form
   Takes in user input and edits the note they previously clicked on
 */
+
+
+// Finish making it so the note keeps the original title and content when a user clicks on edit
+
 import React from "react";
 import axios from "axios"
 import {InputHeader, InputBody, Buttons} from "../Styles/Styles"
@@ -15,6 +19,13 @@ class EditNoteForm extends React.Component {
          textBody: "",
       }
   }
+
+  componentDidMount(){
+    this.setState({
+        title: this.props.currentNote.title,
+        textBody: this.props.currentNote.textBody,
+    })
+}
 
   inputHandler = (e) => {
     this.setState({[e.target.name] : e.target.value})
@@ -37,13 +48,13 @@ class EditNoteForm extends React.Component {
               <InputHeader 
                 name="title"
                 placeholder="Note Title"
-                value={this.props.title}
+                value={this.state.title}
                 onChange= {this.inputHandler}
               />
               <InputBody
                 name="textBody"
                 placeholder="Note Content"
-                value={this.props.textBody}
+                value={this.state.textBody}
                 onChange= {this.inputHandler}
               />
               <Buttons type="submit">Update</Buttons>
