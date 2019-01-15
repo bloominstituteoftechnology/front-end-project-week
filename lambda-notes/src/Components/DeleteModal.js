@@ -19,7 +19,7 @@ class DeleteModal extends React.Component {
         isOpen={this.props.isModalOpen}
         toggle={this.props.toggle}
         className="DeleteModal"
-        centered="true"
+        centered={true}
       >
         <ModalBody>Are you sure you want to delete this?</ModalBody>
         <ModalFooter>

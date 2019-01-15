@@ -65,24 +65,19 @@ span {
   font-size: 1.8rem;
   color: black;
 }
+
 .Notes {
-  margin-right: 7.5px;
-  margin-left: 7.5px;
-  margin-top: 12.5px;
-  margin-bottom: 12.5px;
-  background: white;
-  width: 192px;
-  height: 200px;
-  padding: 5px;
-  overflow-y: scroll;
-  overflow-wrap: break-word;
-  border: 2px solid #c5c5c5;
-  color: black;
-  cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  text-decoration: none;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: auto;
+  white-space: pre-line;
+  background-color: white;
+  border: 1px solid grey;
+  height: 285px;
+  max-width: 260px;
+  width: 50%;
+  margin-bottom: 30px;
 }
 
 .DeleteModal {
