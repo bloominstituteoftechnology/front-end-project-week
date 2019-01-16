@@ -54,10 +54,8 @@ export const NoteListContainer = styled.div`
 `
 
 export const Notes = styled.div`
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 6;
-   overflow: auto;
+   overflow-x: auto;
+   overflow-y: auto;
    white-space: pre-line;
    background-color: white;
    border: 1px solid grey;
@@ -77,8 +75,6 @@ export const Notes = styled.div`
    p {
       margin-left: 7%;
       width: 67%;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 `
 export const LinkContainer = styled.span`
