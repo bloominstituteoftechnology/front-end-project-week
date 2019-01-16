@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 export const AppContainer = styled.div`
    display: flex;
@@ -54,7 +53,7 @@ export const NoteListContainer = styled.div`
    justify-content: space-evenly;
 `
 
-export const Notes = styled(Link)`
+export const Notes = styled.div`
    display: -webkit-box;
    -webkit-box-orient: vertical;
    -webkit-line-clamp: 6;
