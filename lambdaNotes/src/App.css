@@ -1,0 +1,303 @@
+* {
+  box-sizing: border-box;
+ }
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, embed,
+ figure, figcaption, footer, header, hgroup,
+ menu, nav, output, ruby, section, summary,
+ time, mark, audio, video {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font: inherit;
+     vertical-align: baseline;
+ }
+ /* HTML5 display-role reset for older browsers */
+ article, aside, details, figcaption, figure,
+ footer, header, hgroup, menu, nav, section {
+     display: block;
+ }
+ body {
+     line-height: 1;
+ }
+ ol, ul {
+     list-style: none;
+ }
+ blockquote, q {
+     quotes: none;
+ }
+ blockquote:before, blockquote:after,
+ q:before, q:after {
+     content: '';
+     content: none;
+ }
+ table {
+     border-collapse: collapse;
+     border-spacing: 0;
+ }
+ 
+ * {
+    box-sizing: border-box;
+ }
+ 
+ html, body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+ }
+ 
+ h1, h2, h3, h4, h5 {
+    margin-bottom: 15px;
+    font-family: 'Rubik', sans-serif;
+ }
+ 
+ p {
+    line-height: 1.4;
+ }
+ 
+ html {
+  font-size: 62.5%;
+ }
+ 
+ html, body {
+  font-family: 'Ubuntu', sans-serif;
+ // color: @main-font-color;
+ }
+ 
+ h1, h2, h3, h4, h5 {
+  font-family: 'Russo One', sans-serif;
+ // color: @header-font-color;
+ }
+ 
+ h1{
+  font-size : 4rem;
+ }
+ h2 {
+  font-size: 3.2rem;
+ }
+ 
+ h3 {
+  font-size: 2.4rem;
+ }
+ 
+ p {
+  font-size: 1.6rem;
+  line-height: 1.4;
+ }
+ 
+
+ 
+ nav a{
+  text-decoration: none;
+  font-size: 1.6rem;
+ // color : @nav-font;
+ }
+ 
+ 
+ 
+ 
+ 
+ body {
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  margin: 0 auto; 
+ 
+ }
+ 
+
+
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App {
+  text-align: center;
+  display : flex;
+
+height: 90vh;
+
+width: 100vw;
+
+
+}
+
+.sideMenu{
+  width : 20%;
+  background :  #D3D2D3;
+  text-align : left;
+  padding : 30px 10px
+}
+.displayNotesView{
+  margin : 30px 20px;
+  text-align: left;
+  width :80%;
+}
+/* .NoteListContainer{ */
+
+.noteList{
+
+  background :  #F2F1F2;
+  display : flex;
+  flex-wrap : wrap;
+  justify-content: flex-start;
+}
+
+
+.displayNoteCard{
+  width : 30%;
+  height : 250px;
+  border : 1px solid black;
+  overflow: hidden;
+  background : white;
+  padding : 10px;
+  margin : 10px;
+}
+
+.displayNoteCard *{
+  color : black;
+}
+.displayNoteCard h3{
+  border-bottom : 1px solid black;
+}
+
+.displayNoteCard @hover{
+  cursor : pointer;
+}
+
+ button {
+   width : 90%;
+   background :  #24B8BD;
+   margin : 10px; 
+   padding : 10px 0;
+  color : white;
+}
+
+.displayNote{
+  width : 75%;
+  margin : 0 auto;
+  padding : 20px 20px;
+  margin : 0 10px;
+}
+
+.displayNote *{
+text-align: left;
+margin-bottom : 20px;
+}
+
+
+.displayNoteNav{
+  text-align : right;
+}
+
+.displayNoteNav *{
+  padding-right : 20px;
+}
+
+.editNote{
+  width : 75%;
+  margin : 0 auto;
+  padding : 20px 20px;
+  margin : 0 10px;
+  text-align: left;
+}
+.editNote input{
+width : 100%;
+height : auto;
+padding : 12px;
+margin : 20px 0 10px 0;
+}
+
+
+.editNote textarea {
+  width: 100%;
+  height : 50vw;
+  padding: 12px 20px;
+  box-sizing: border-box;
+   border-radius: 4px;
+   resize: none;
+   margin-bottom : 20px;
+}
+
+.editNote button {
+  width : 200px;
+}
+
+.deleteNote{
+  height: 100vh;
+  width: 100vw;
+  z-index : 5;
+  background : #D8D8D8;
+  position : fixed;
+  top : 0;
+  left: 0;
+  opacity : 0.9;
+}
+
+.deleteNote .deleteNoteWindow{
+  position : absolute;
+  top : 150px;
+ left : 500px;
+  background : white;
+  z-index : 10;
+  width : 400px;
+  height : 120px;
+  display : flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding : 10px 0;
+  opacity : 1;
+  border : 1px solid black;
+}
+
+.deleteNote .deleteNoteWindow .deleteButton{
+display : flex;
+align-items: center;
+justify-content : space-around;
+}
+
+
+ .deleteButton button{
+  width : 150px;
+  height : 40px;
+}
+
+ .deleteButton .delete{
+  background : red;
+}
+
+.searchNote{
+  margin : 0 20px ;
+  display : flex;
+  justify-content: flex-end;
+}
+
+.searchNote input{
+padding : 10px;
+}

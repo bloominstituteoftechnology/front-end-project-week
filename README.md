@@ -1,3 +1,16 @@
+This is a project for FSW program at Lambda School.
+This project tests the front-end skills that includes react and redux.
+Design files were given and I created the app from scratch.
+
+I started the app using local data.  Once the app is working, I applied API calls and then redux.
+
+After building basic functionalities (MVP), I added search and download CSV functionalities.
+
+Trello URL for this project is https://trello.com/b/TvHEjkdC/lambda-notes-edward-jeong
+
+
+
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
