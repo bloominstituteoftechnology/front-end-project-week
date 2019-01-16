@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {Buttons, SideBarContainer} from "../Styles/Styles";
-import NoteList from "./CreateNoteForm";
 
 
 
@@ -12,7 +11,7 @@ const SideBar = () => {
         <Link to="/">
             <Buttons>View Your Notes</Buttons>
         </Link>
-        <Link to="/create" component={NoteList}>
+        <Link to="/create">
             <Buttons>+Create New Note</Buttons>
         </Link>
         </SideBarContainer>
