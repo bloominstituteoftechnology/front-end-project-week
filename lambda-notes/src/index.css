@@ -67,9 +67,6 @@ span {
 }
 
 .Notes {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
   overflow: auto;
   white-space: pre-line;
   background-color: white;
