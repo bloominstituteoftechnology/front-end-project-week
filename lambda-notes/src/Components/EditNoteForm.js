@@ -43,12 +43,14 @@ class EditNoteForm extends React.Component {
         <h2>Edit Note:</h2>
         <form onSubmit={this.submitHandler}>
           <InputHeader
+            type="text"
             name="title"
             placeholder="Note Title"
             value={this.state.title}
             onChange={this.inputHandler}
           />
           <InputBody
+            type="text"
             name="textBody"
             placeholder="Note Content"
             value={this.state.textBody}

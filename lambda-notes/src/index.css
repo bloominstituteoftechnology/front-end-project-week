@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 html {
   font-size: 62.5%;
 }
@@ -8,13 +10,13 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family:  "Segoe UI", "Roboto", "Oxygen",
+  font-family: 'Playfair Display', 'sarif', 'Josefin Sans', "cursive", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: "source-code-pro", "Menlo", "Monaco", "Consolas", "Courier New",
     monospace;
 }
 
@@ -35,11 +37,14 @@ h1 {
 h2 {
   color: black;
   font-size: 2.4rem;
+  text-decoration: none;
+  font-family: 'Playfair Display';
 }
 
 h3 {
   color: black;
   font-size: 1.9rem;
+  font-family: 'Playfair Display';
   text-decoration: none;
 }
 
@@ -47,6 +52,7 @@ p {
   color: black;
   text-decoration: none;
   font-size: 1.6rem;
+  font-family: 'Josefin Sans', "cursive";
 }
 
 a {
