@@ -1,0 +1,346 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/************************************************************************************/
+/* BEGIN CSS RESET */
+/************************************************************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/************************************************************************************/
+/* END CSS RESET */
+/************************************************************************************/
+
+/************************************************************************************/
+/* BODY AND CONTAINER */
+/************************************************************************************/
+html, body {
+  background: white;
+  height: 100%;
+}
+
+.App {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  min-height: 100vh;
+}
+
+
+/************************************************************************************/
+/* NAVIGATION */
+/************************************************************************************/
+
+.navigation {
+  width: 20%;
+  background: #d3d2d3;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 20px;
+}
+
+.navigation h1 {
+  font-size: 2rem;
+}
+
+.nav-link {
+  background: #24b8bd;
+  margin: 10px 0px;
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+
+/************************************************************************************/
+/* APPLICATION */
+/************************************************************************************/
+.application {
+  width: 80%;
+  background: #f2f1f2;
+  padding: 20px;
+  position: relative;
+}
+
+/************************************************************************************/
+/* NOTE LIST VIEW */
+/************************************************************************************/
+.note-list-container {
+  background: #f2f1f2;
+  width: 100%;
+}
+
+.note-list-container h1 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.note-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: baseline;
+  width: 100%;
+}
+
+.note-list a {
+  text-decoration: none;
+  color: black;
+}
+
+.note-list a:hover{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.note-divider {
+  width: 100%;
+  border-bottom: 2px solid lightgray;
+  margin: 5px 0px;
+}
+
+.note-container {
+  width: 30%;
+  background: white;
+  border: 2px solid #d7d7d7;
+  height: 250px;
+  padding: 10px;
+  margin: 10px 0px;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.note-content {
+  position: relative;
+  min-height: 170px;
+  max-height: 170px;
+  overflow: hidden;
+}
+
+.note-tags {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: baseline;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.8rem;
+  background: white;
+}
+
+.tag-span {
+  background: #24b8bd;
+  border-radius: 0px;
+  padding: 2px 5px;
+  color: white;
+  
+}
+
+.tag-span:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.note-tags a {
+  margin: 2px 2px 2px 0px;
+  width: fit-content;
+  
+}
+
+/************************************************************************************/
+/* NOTE DETAILS VIEW */
+/************************************************************************************/
+
+.edit-delete {
+  text-align: right;
+  font-weight: bold;
+}
+
+.note-title {
+  font-weight: bold;
+  font-size: 1rem;
+  
+}
+
+.note-details-title{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+.edit-delete span {
+  margin: 10px;
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
+
+.note-details-tags {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: baseline;
+  position: relative;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.note-details-tags a {
+  margin-right: 5px;
+}
+
+/************************************************************************************/
+/* DELETE MODAL STYLES */
+/************************************************************************************/
+
+
+.modal-content {
+  border-radius: 0px !important;
+  padding: 20px;
+}
+
+.modal-body {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal-buttons button {
+  margin: 20px 10px;
+  padding: 5px 0px;
+  width: 150px;
+  border-radius: 0px;
+}
+
+
+/************************************************************************************/
+/* ADD NOTE FORM */
+/************************************************************************************/
+
+.note-form-container h1 {
+  font-size: 1rem;
+}
+
+.note-form-container form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.note-form-container form input {
+  max-width: 50%;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.note-form-container form textarea {
+  height: 50vh;
+  margin: 10px 0px;
+  padding: 20px;
+}
+
+.note-form-container form button {
+  margin: 10px 0px;
+  max-width: 25%;
+  background: #24b8bd;
+  color: white;
+  padding: 10px;
+}
+
+.marked-area {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.marked-area-text-container {
+  min-width: 50%;
+  margin: 0px;
+  padding: 10px;
+}
+
+.marked-area-text-container textarea {
+  width: 100%;
+  min-height: 100%;
+}
+
+/************************************************************************************/
+/* EDIT NOTE FORM */
+/************************************************************************************/
+.note-edit-container h1 {
+  font-size: 1rem;
+}
+
+.note-edit-container form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.note-edit-container form input {
+  max-width: 50%;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.note-edit-container form textarea {
+  height: 50vh;
+  margin: 10px 0px;
+  padding: 20px;
+}
+
+.note-edit-container form button {
+  margin: 10px 0px;
+  max-width: 25%;
+  background: #24b8bd;
+  color: white;
+  padding: 10px;
+}
