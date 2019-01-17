@@ -1,0 +1,202 @@
+/* container */
+.notes-container {
+  display: flex;
+}
+.main-content {
+  background-color: #F2F1F2;
+  width: 75%;
+  padding: 50px 30px;
+}
+
+/* sidebar */
+.sidebar {
+  width: 25%;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-right: 1px solid gray;
+}
+.sidebar h1 {
+  font-weight: bold;
+  color: #484A4E
+}
+.sidebar a {
+  border: 1px solid gray;
+  height: 50px;
+  background-color: #32B7BD;
+  margin: 10px 0;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+}
+
+/* list view */
+.notes-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.notes-list h2 {
+  display: block;
+  width: 100%;
+  color: #484A4E;
+}
+.notes-list a:hover {
+  text-decoration: none;
+}
+.note-card {
+  height: 250px;
+  width: 250px;
+  border: 1px solid gray;
+  background: white;
+  overflow: hidden;
+  margin: 15px 10px;
+  padding: 20px;
+  line-height: 1.5;
+  color: black;
+}
+.note-card h4 {
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+.note-card p {
+  line-height: 1.65
+}
+
+/* page view */
+.note-page {
+  height: 100vh;
+}
+
+/* inputs */
+.input-page {
+  height: 100vh;
+}
+.input-page h3 {
+  color: #484A4E;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  width: 60%;
+  line-height: 2;
+}
+.content{
+  width: 100%;
+  height: 450px;
+  margin: 20px 0;
+  padding-top: 0;
+}
+.save-button{
+  width: 30%;
+  height: 50px;
+  border: 1px solid gray;
+  background-color: #32B7BD;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+}
+.save-button:hover {
+  color: white;
+  cursor: pointer;
+}
+
+/* page view options */
+.note-options{
+  display: flex;
+  justify-content: flex-end;
+}
+.note-options a{
+  text-decoration: underline;
+  color: gray;
+}
+.delete-option {
+  padding: 0 10px;
+  color: gray;
+  text-decoration: underline;
+}
+.delete-option:hover {
+  cursor: pointer;
+}
+
+/* Modal */
+.delete-modal{
+  border: 1px solid gray;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.delete-modal h3{
+  font-size: 20px;
+  color: gray;
+}
+.delete-modal button {
+  height: 40px;
+  width: 200px;
+  margin: 0 10px;
+}
+.delete-modal .delete{
+  background-color: red;
+  color: white;
+}
+.delete-modal .cancel {
+  color: white;
+  background-color: #32B7BD;
+}
+
+/* Login-Registration */
+.login-page {
+  height: 100vh;
+  background-color: #F2F1F2;
+  padding-top: 70px;
+}
+.outer-div {
+  border: 1px solid gray;
+  height: 325px;
+  width: 500px;
+  margin: auto;
+}
+.link-buttons {
+  background-color: #32B7BD;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 35px;
+  margin-bottom: 60px;
+}
+.link-buttons a {
+  border: 1px solid gray;
+  border-bottom: 2px solid gray;
+  width: 100%;
+  height: 100%;
+  line-height: 200%;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+.inner-div {
+  width: 350px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.form-div {
+  display: flex;
+  flex-direction: column;
+}
+.form-div input {
+  margin-bottom: 30px;
+  line-height: 25px;
+  font-size: 12px;
+  padding-left: 10px;
+}
+.form-div button {
+  height: 25px;
+}
