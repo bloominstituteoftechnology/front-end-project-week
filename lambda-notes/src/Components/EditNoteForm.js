@@ -17,13 +17,6 @@ class EditNoteForm extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      title: this.props.currentNote.title,
-      textBody: this.props.currentNote.textBody
-    });
-  }
-
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
