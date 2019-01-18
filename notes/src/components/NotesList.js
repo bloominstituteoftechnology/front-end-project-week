@@ -2,40 +2,52 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardSection = styled.div`
-	width: 80%;
-	background-color: #e6eef0;
+	width: 70%;
+	background-color: rgb(252, 252, 252);
 	display: flex;
-	height: 800vh;
+	min-height: 100vh;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	padding-left: 10%;
-	padding-right: 10%;
+	justify-content: space-around;
 	padding-bottom: 100%;
+	padding-left: 5%;
+	padding-right: 5%;
+`;
+
+const SubCard = styled.div`
+	width: 100%;
 `;
 
 const StyledCard = styled.div`
 	width: 25%;
 	background-color: white;
-	height: 15rem;
+	height: 25vh;
 	border: grey;
 	padding: 1rem;
 	font-size: 1.6rem;
-	margin-bottom: 2rem;
+	margin-bottom: 3vh;
 	text-decoration: none;
 	color: black;
+	display: flex;
+	text-wrap: wrap;
+	-ms-word-break: break-all;
+	word-break: break-all;
+	word-break: break-word;
 `;
 const Heading = styled.h1`
 	font-size: 2rem;
+	display: flex;
+	text-wrap: wrap;
+	-ms-word-break: break-all;
+	word-break: break-all;
+	word-break: break-word;
 `;
 const ViewHeader = styled.h1`
 	font-size: 2.5rem;
 	margin-top: 1.6rem;
 	width: 100%;
-	background-color: #e6eef0;
 	padding-top: 2rem;
-	width: 80%;
-	padding-left: 10%;
-	padding-right: 10%;
+	width: 93%;
+	color: rgb(43, 44, 45);
 `;
 
 const HeaderBar = styled.div`
@@ -45,28 +57,32 @@ const LinkWrapper = styled.a`
 	text-decoration: none;
 	color: black;
 `;
+const TextWrapper = styled.div`
+	border-top: groove lightgray;
+	width: 14vw;
+	padding-top: 4px;
+`;
 
 const NotesList = props => {
 	console.log(props.notes);
 	return (
-		<HeaderBar>
+		<CardSection>
 			<ViewHeader>Your Notes:</ViewHeader>
-			<CardSection>
-				{props.notes.map(note => {
-					return (
-						<StyledCard>
-							<LinkWrapper href={`/${note._id}`}>
-								<Heading>{note.title}</Heading>
 
-								<hr />
+			{props.notes.map(note => {
+				return (
+					<StyledCard key={note._id}>
+						<LinkWrapper href={`/${note._id}`}>
+							<Heading>{note.title}</Heading>
+							<TextWrapper>
 								{note.textBody.slice(0, 80)}
 								{note.textBody.length > 100 ? '-' : null}
-							</LinkWrapper>
-						</StyledCard>
-					);
-				})}
-			</CardSection>
-		</HeaderBar>
+							</TextWrapper>
+						</LinkWrapper>
+					</StyledCard>
+				);
+			})}
+		</CardSection>
 	);
 };
 export default NotesList;

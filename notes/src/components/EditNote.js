@@ -7,7 +7,7 @@ const FormWrapper = styled.div`
 	width: 690%;
 	background-color: #e6eef0;
 	display: flex;
-	height: 500vh;
+	min-height: 100vh;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding-left: 10%;

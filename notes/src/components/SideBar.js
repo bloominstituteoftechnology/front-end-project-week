@@ -5,21 +5,27 @@ import { connect } from 'react-redux';
 const SideBarStyled = styled.div`
 	background-color: #c8cbcc;
 	padding-bottom: 100%;
-	width: 190%;
+	width: 30%;
+	min-height: 100vh;
 	${props => (props.type === 'true' ? `opacity:.2;` : null)}
 `;
 
 const SideBarContent = styled.div`
 	display: flex;
+	flex-direction: column;
 	flex-wrap: wrap;
 	padding-bottom: 100%;
+	width:90%
+	margin:auto;
 `;
 
 const SideBarHeader = styled.h1`
-	font-size: 1.8rem;
-	margin: auto;
-	display: flex;
 	flex-wrap: wrap;
+	text-align: left;
+	margin-left: 9%;
+	font-size: 3rem;
+	line-height: 3rem;
+	color: rgb(43, 44, 45);
 `;
 
 const SideBarButton = styled.button`
@@ -43,10 +49,8 @@ const SideBar = props => {
 		<SideBarStyled type={props.deleting}>
 			<SideBarContent>
 				<SideBarHeader>
-					<h1>
-						Lambda
-						<br /> Notes
-					</h1>
+					Lambda
+					<br /> Notes
 				</SideBarHeader>
 				<SideBarButton>
 					<Linky href="http://localhost:3000/">View Your Notes</Linky>
