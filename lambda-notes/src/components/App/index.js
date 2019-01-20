@@ -1,87 +1,50 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
-import Sidebar from "../Sidebar";
+import { connect } from "react-redux";
+import { fetchingNotes, getNote, addNote, deleteNote } from "../../store/actions";
+
+import "./style.css";
 import NoteList from "../NoteList";
-import Form from "../Form";
-import Note from "../Note";
-import axios from "axios";
-import "./index.css";
 
 
 class App extends Component {
-    state = {
-        notes: [],
+  constructor(props) {
+    super(props);
+      this.state = {
+        tags: [],
         title: "",
-        textBody: ""
-    };
+        textBody: "",
+      }
+    }
 
-    componentDidMount() {
-        this.refetchNotes();
-    };
-
-    handleInputChange = event => {
-        this.setState(
-            { [event.target.name]: event.target.value }
-            );
-    };
-
-    handleFormSubmit = event => {
-        event.preventDefault();
-
-    const newNote = {
-        title: this.state.title,
-        textBody: this.state.textBody
-    };
-
-    axios
-        .post(`https://fe-notes.herokuapp.com/note/create`, newNote)
-        .then(response => {
-            this.refetchNotes();
-            this.setState({
-                title: "",
-                textBody: ""
-            });
-        })
-        .catch(error => console.log(error));
-    
-    this.props.history.push("/");
-    };
-
-    refetchNotes() {
-        axios
-            .get(`https://fe-notes.herokuapp.com/note/get/all`)
-            .then(response => {
-                this.setState(
-                    {notes: response.data}
-                )
-            })
-            .catch(error => console.log(error));
-    };
+  componentDidMount() {
+    this.props.fetchingNotes();
+  }
 
     render() {
-        return (
-            <div className="App">
-                <Sidebar />
-                <Switch>
-                <Route exact path="/" render={ props => 
-                    <NoteList notes={this.state.notes} />
-                }
-                />
-                <Route exact path="/notes/add" render={ props =>
-                    <Form
-                        title={this.state.title}
-                        textBody={this.state.textBody}
-                        handleFormSubmit={this.handleFormSubmit}
-                        handleInputChange={this.handleInputChange}
-                    />}
-                />
-                <Route exact path="/notes/:id" render={props =>
-                    <Note {...props} refetchNotes={this.refetchNotes} />}
-                />
-                </Switch>
-            </div>
-        )
-    }
+      return (
+        <div className="App">
+        {this.props.loading ? (
+          <h3>Loading notes...</h3>
+        ) : (
+          <div className="App-intro">
+            <h1>Here's the notes, ya'll</h1>
+            {/* <NoteList /> */}
+          </div>
+        )}
+        {this.props.error !== "" ? <h4>{this.props.error}</h4> : null}
+        </div>
+    );
+  }
 }
 
-export default App;
+  const mapStateToProps = state => {
+    return {
+      notes: state.notes,
+      title: state.title,
+      textBody: state.textBody,
+      error: state.error,
+      loading: state.loading,
+    }
+  };
+  
+  export default connect(mapStateToProps, { fetchingNotes, getNote, addNote, deleteNote } )(App);

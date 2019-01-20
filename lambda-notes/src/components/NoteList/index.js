@@ -1,33 +1,55 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./index.css";
+import { connect } from "react-redux";
+import { fetchingNotes, getNote, addNote, deleteNote } from "../../store/actions";
+import "./style.css";
 
-const NoteList = props => {
-    if (!props.notes) {
-    return (
-        <div>Loading notes...</div>
-        )
+class NoteList extends React.Component {
+        constructor(props) {
+        super(props);
+        this.state = {
+            tags: [],
+            title: "",
+            textBody: "",
+        }
+    }   
+
+    inputHandler = (event) => {
+        this.setState({
+        [event.target.name]: event.target.value
+        })
     }
 
-    const notes = props.notes.slice().reverse();
+    submitHandler = (e) => {
+    e.preventDefault();
+    this.props.fetchingNotes(this.state);
+    this.setState({
+        notes: [],
+        loading: false,
+        error: false 
+        })
+    }
 
-    return (
-        <div className="your-notes-container">
-            <h2>Your Notes:</h2>
-            <div className="notes-previews-container">
-                {notes.map(note => {
-                    return(
-                        <Link to={`/notes/${note._id}`} key={ note._id }>
-                            <div className="note-preview-container">
-                                <h3>{note.title}</h3>
-                                <p>{note.textBody}</p>
-                            </div>
-                        </Link>
-                    );
-                })}
+    componentDidMount() {
+        this.props.fetchingNotes();
+    }
+
+    render(){
+        return(
+            <div>
+                <h2>NoteList</h2>
             </div>
-        </div>
-    );
+        );
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        notes: state.notes,
+        title: state.title,
+        textBody: state.textBody,
+        error: state.error,
+        loading: state.loading,
+    }
 };
 
-export default NoteList;
+export default connect(mapStateToProps, { fetchingNotes, addNote } )(NoteList);
