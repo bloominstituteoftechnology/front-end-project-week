@@ -1,11 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchingNotes, getNote, addNote, deleteNote } from "../../store/actions";
+import { 
+    fetchingNotes, 
+    // getNote, 
+    addNote, 
+    // deleteNote 
+} from "../../store/actions";
 import "./style.css";
 
 class NoteList extends React.Component {
-        constructor(props) {
-        super(props);
+    constructor(props) {
+    super(props);
         this.state = {
             tags: [],
             title: "",
@@ -22,6 +27,7 @@ class NoteList extends React.Component {
     submitHandler = (e) => {
     e.preventDefault();
     this.props.fetchingNotes(this.state);
+    console.log("inside of this.submitHandler")
     this.setState({
         notes: [],
         loading: false,

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+// import { Link } from "react";
 import { connect } from "react-redux";
-import { fetchingNotes, getNote, addNote, deleteNote } from "../../store/actions";
+import { getNotes, getNote, addNote, deleteNote } from "../../store/actions";
 
 import "./style.css";
-import NoteList from "../NoteList";
+// import NoteList from "../NoteList";
 
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
     }
 
   componentDidMount() {
-    this.props.fetchingNotes();
+    this.props.getNotes();
   }
 
     render() {
@@ -28,7 +29,14 @@ class App extends Component {
         ) : (
           <div className="App-intro">
             <h1>Here's the notes, ya'll</h1>
-            {/* <NoteList /> */}
+            <h2>Your Notes:</h2>
+            <ul>
+              {this.props.notes.map( (note, index) => {
+                return<li key={index}>
+                    Title: {note.title} <br />
+                    Text: {note.textBody} <br />
+                  </li>})}
+            </ul>
           </div>
         )}
         {this.props.error !== "" ? <h4>{this.props.error}</h4> : null}
@@ -40,11 +48,9 @@ class App extends Component {
   const mapStateToProps = state => {
     return {
       notes: state.notes,
-      title: state.title,
-      textBody: state.textBody,
       error: state.error,
       loading: state.loading,
     }
   };
   
-  export default connect(mapStateToProps, { fetchingNotes, getNote, addNote, deleteNote } )(App);
+  export default connect(mapStateToProps, { getNotes, getNote, addNote, deleteNote } )(App);
