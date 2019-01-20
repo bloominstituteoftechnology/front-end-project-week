@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 const FormWrapper = styled.div`
-	width: 690%;
+	width: 70%;
 	background-color: #e6eef0;
 	display: flex;
 	min-height: 100vh;
@@ -66,7 +66,7 @@ class AddForm extends React.Component {
 
 	submitHandler = e => {
 		e.preventDefault();
-		this.props.editNote(this.state);
+		this.props.saveNote(this.state);
 		this.props.history.push('/');
 	};
 

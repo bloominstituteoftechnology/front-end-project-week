@@ -9,14 +9,17 @@ import {
 	UPDATING,
 	UPDATED,
 	DELETING,
-	DELETED
+	DELETED,
+	DIDNTDELETE
 } from '../actions';
 const initialState = {
 	updating: false,
+	updated: false,
 	error: null,
 	savingNote: false,
 	notes: [],
 	fetchingNote: false,
+	fetchingNotes: false,
 	deleting: false,
 	currentIndividual: {
 		_id: '',
@@ -63,6 +66,7 @@ const NotesReducer = (state = initialState, action) => {
 			return {
 				...state,
 				updating: false,
+				updated: true,
 				currentIndividual: {
 					_id: '',
 					title: '',
@@ -79,6 +83,9 @@ const NotesReducer = (state = initialState, action) => {
 				.slice()
 				.filter(note => note._id !== action.payload);
 			return { ...state, deleting: false, notes: afterDeleted };
+		case DIDNTDELETE:
+			console.log('didntdeletefiredatleast');
+			return { ...state, deleting: false };
 		default:
 			return state;
 	}

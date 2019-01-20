@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const SideBarStyled = styled.div`
 	background-color: #c8cbcc;
@@ -39,7 +40,7 @@ const SideBarButton = styled.button`
 	width: 85%;
 	border-color: grey;
 `;
-const Linky = styled.a`
+const Linky = styled.div`
 	text-decoration: none;
 	color: white;
 `;
@@ -52,13 +53,16 @@ const SideBar = props => {
 					Lambda
 					<br /> Notes
 				</SideBarHeader>
-				<SideBarButton>
-					<Linky href="http://localhost:3000/">View Your Notes</Linky>
-				</SideBarButton>
-
-				<SideBarButton>
-					<Linky href="http://localhost:3000/add"> &#43; Create New Note</Linky>
-				</SideBarButton>
+				<Link style={{ display: 'flex', textDecoration: 'none' }} to="/">
+					<SideBarButton>
+						<Linky>View Your Notes</Linky>
+					</SideBarButton>
+				</Link>
+				<Link style={{ display: 'flex', textDecoration: 'none' }} to="/add">
+					<SideBarButton>
+						<Linky> &#43; Create New Note</Linky>
+					</SideBarButton>
+				</Link>
 			</SideBarContent>
 		</SideBarStyled>
 	);

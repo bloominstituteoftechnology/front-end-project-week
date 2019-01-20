@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getIndividual, editNote } from '../actions/index.js';
 
 const FormWrapper = styled.div`
-	width: 690%;
+	width: 70%;
 	background-color: #e6eef0;
 	display: flex;
 	min-height: 100vh;
@@ -64,14 +64,7 @@ class EditNote extends React.Component {
 
 		console.log('title=' + this.state.title);
 	}
-	componentDidUpdate(prevProps) {
-		if (this.props.title !== prevProps.title) {
-			this.setState({
-				title: this.props.title,
-				textBody: this.props.textBody
-			});
-		}
-	}
+	componentDidUpdate(prevProps) {}
 	changeHandlerTitle = e => {
 		this.setState({ title: e.target.value });
 	};
@@ -83,7 +76,7 @@ class EditNote extends React.Component {
 	submitHandler = e => {
 		e.preventDefault();
 		this.props.editNote(this.state);
-		this.props.history.push(`/${this.props.match.params.id}`);
+		this.props.history.push(`/`);
 	};
 	render() {
 		const id = this.props.match.params.id;

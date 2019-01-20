@@ -5,14 +5,12 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const IndividualNoteWrapper = styled.div`
-	width: 690%;
+	width: 70vw;
 	background-color: #e6eef0;
 	display: flex;
 	min-height: 100vh;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding-left: 10%;
-	padding-right: 10%;
 	padding-bottom: 100%;
 	align-content: start;
 `;
@@ -20,9 +18,9 @@ const IndividualNoteWrapper = styled.div`
 const Title = styled.h1`
 	height: 2.6rem;
 	font-size: 2rem;
-	padding-top: 1rem;
+	padding-top: 5rem;
 	padding-bottom: 1rem;
-	padding-left: 1rem;
+	padding-left: 5rem;
 	padding-right: 10rem;
 	margin-bottom: 1rem;
 `;
@@ -31,13 +29,14 @@ const Text = styled.p`
 	width: 100%;
 	height: 35rem;
 	padding: 12px;
+	padding-left: 5rem;
 	resize: vertical;
 	margin-bottom: 1rem;
 	font-family: arial;
 	font-size: 1.6rem;
 `;
 
-const Linky = styled.a`
+const Linky = styled.div`
 	color: black;
 	font-size: 1.5rem;
 `;
@@ -72,8 +71,16 @@ class IndividualNote extends Component {
 			<IndividualNoteWrapper>
 				<Title>{this.props.state.title}</Title>
 				<LinkWrapper>
-					<Linky href={`/${this.props.state._id}/edit`}>EDIT</Linky>
-					<Linky href={`/${this.props.state._id}/delete`}>DELETE</Linky>
+					<Linky>
+						{' '}
+						<Link to={`/individual/${this.props.state._id}/edit`}>EDIT</Link>
+					</Linky>
+					<Linky>
+						{' '}
+						<Link to={`/individual/${this.props.state._id}/delete`}>
+							DELETE
+						</Link>
+					</Linky>
 				</LinkWrapper>
 				<Text>{this.props.state.textBody}</Text>
 			</IndividualNoteWrapper>

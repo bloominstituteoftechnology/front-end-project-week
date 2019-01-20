@@ -1,17 +1,12 @@
 import React from 'react';
 import IndividualNote from './IndividualNote.js';
-import { deleting, deleted } from '../actions/index.js';
+import { deleting, deleted, didntDelete } from '../actions/index.js';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const DeleteWrapper = styled.div`
 	opacity: 0.2;
-`;
-
-const NoteWrapper = styled.div`
-	width: 18rem;
-	padding-right: 135rem;
-	left: -81px;
 `;
 
 const DeleteWindow = styled.div`
@@ -27,6 +22,9 @@ const DeleteWindow = styled.div`
 	flex-wrap: wrap;
 	font-size: 2rem;
 `;
+const Buttons = styled.div`
+	display: flex;
+`;
 
 const YesButton = styled.button`
 	background-color: red;
@@ -36,24 +34,26 @@ const YesButton = styled.button`
 	padding-bottom: 1rem;
 	padding-left: 4rem;
 	padding-right: 4rem;
-	margin-right: 2rem;
+	margin-right: 1rem;
 	margin-top: 2rem;
 	font-family: arial;
 	font-size: 2rem;
 `;
 
-const NoButton = styled.a`
+const NoButton = styled.button`
 	background-color: aqua;
 	color: white;
 	border: 1px solid gray;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	padding-left: 4.5rem;
-	padding-right: 4.5rem;
+	padding-left: 5.75rem;
+	padding-right: 5.75rem;
 	margin-right: 2rem;
 	margin-top: 2rem;
 	text-decoration: none;
 	font-family: arial;
+	text-decoration: none;
+	font-size: 2rem;
 `;
 class DeleteNote extends React.Component {
 	constructor(props) {
@@ -68,23 +68,28 @@ class DeleteNote extends React.Component {
 		this.props.deleted(this.props.match.params.id);
 		this.props.history.push(`/`);
 	};
+	noHandler = e => {
+		this.props.didntDelete();
+	};
 
 	render() {
 		return (
 			<div>
 				<DeleteWindow>
 					Are You Sure You Want To Delete?
-					<YesButton onClick={this.deleteHandler}>Delete</YesButton>
-					<NoButton
-						href={`http://localhost:3000/${this.props.match.params.id}`}
-					>
-						No
-					</NoButton>
+					<Buttons>
+						<YesButton onClick={this.deleteHandler}>Delete</YesButton>
+
+						<Link
+							onClick={this.noHandler}
+							to={`/individual/${this.props.match.params.id}`}
+						>
+							<NoButton>No</NoButton>
+						</Link>
+					</Buttons>
 				</DeleteWindow>
 				<DeleteWrapper>
-					<NoteWrapper>
-						<IndividualNote passedId={this.props.match.params.id} />
-					</NoteWrapper>
+					<IndividualNote passedId={this.props.match.params.id} />
 				</DeleteWrapper>
 			</div>
 		);
@@ -101,5 +106,5 @@ const mapStateToProps = state => {
 
 export default connect(
 	mapStateToProps,
-	{ deleting, deleted }
+	{ deleting, deleted, didntDelete }
 )(DeleteNote);

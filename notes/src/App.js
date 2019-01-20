@@ -12,6 +12,7 @@ import AddForm from './components/AddForm';
 import IndividualNote from './components/IndividualNote.js';
 import DeleteNote from './components/DeleteNote';
 import EditNote from './components/EditNote';
+import AfterEdit from './components/AfterEdit';
 
 const PageWrapper = styled.div`
 	height: 100vh;
@@ -24,9 +25,6 @@ class App extends Component {
 	constructor() {
 		super();
 	}
-	componentDidMount() {
-		this.props.getNotes();
-	}
 
 	render() {
 		return (
@@ -35,26 +33,28 @@ class App extends Component {
 				<PageWrapper>
 					<SideBar />
 
+					<Route exact path="/" render={props => <NotesList {...props} />} />
+					<Route exact path="/add" render={props => <AddForm {...props} />} />
+
 					<Route
-						exact
-						path="/"
-						render={props => <NotesList {...props} notes={this.props.notes} />}
+						path="/individual/:id/delete"
+						render={props => <DeleteNote {...props} />}
 					/>
 
-					<Route exact path="/add" render={props => <AddForm {...props} />} />
 					<Route
 						exact
-						path="/:id"
+						path="/individual/:id"
 						render={props => <IndividualNote {...props} />}
 					/>
 					<Route
 						exact
-						path="/:id/edit"
+						path="/individual/:id/edit"
 						render={props => <EditNote {...props} />}
 					/>
 					<Route
-						path="/:id/delete"
-						render={props => <DeleteNote {...props} />}
+						exact
+						path="/afteredit"
+						render={props => <AfterEdit {...props} />}
 					/>
 				</PageWrapper>
 			</div>
@@ -62,15 +62,4 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		notes: state.notes,
-		savingNote: state.savingNote,
-		deleting: state.deleting
-	};
-};
-
-export default connect(
-	mapStateToProps,
-	{ saveNote, getNotes }
-)(App);
+export default App;

@@ -69,7 +69,7 @@ const TextWrapper = styled.div`
 	padding-top: 4px;
 `;
 
-class NotesList extends Component {
+class AfterEdit extends Component {
 	constructor() {
 		super();
 		this.state = {};
@@ -83,9 +83,6 @@ class NotesList extends Component {
 	render() {
 		if (this.props.fetchingNotes === true) {
 			return <h1>Fetching Your Notes</h1>;
-		} else if (this.props.updating === true) {
-			console.log('hit the reeeedireeeect');
-			return <Redirect to="/AfterEdit" />;
 		} else {
 			return (
 				<CardSection>
@@ -128,4 +125,4 @@ const mapStateToProps = state => {
 export default connect(
 	mapStateToProps,
 	{ getNotes }
-)(NotesList);
+)(AfterEdit);

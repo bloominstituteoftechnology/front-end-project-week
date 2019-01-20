@@ -11,6 +11,7 @@ export const UPDATING = 'UPDATING';
 export const UPDATED = 'UPDATED';
 export const DELETING = 'DELETING';
 export const DELETED = 'DELETED';
+export const DIDNTDELETE = 'DIDNTDELETE';
 
 export const getNotes = () => dispatch => {
 	dispatch({ type: FETCHING });
@@ -89,4 +90,9 @@ https://fe-notes.herokuapp.com/note/delete/${data}`
 		.catch(err => {
 			dispatch({ type: ERROR, message: 'delete got an error' });
 		});
+};
+
+export const didntDelete = data => dispatch => {
+	console.log('DIDNT DELETE ACTION FIRED');
+	dispatch({ type: DIDNTDELETE });
 };
