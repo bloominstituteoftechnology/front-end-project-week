@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import NoteList from './components/NoteList';
 import CreateNote from './components/CreateNote';
 import DisplayNote from './components/DIsplayNote'
+import EditNote from './components/EditNote';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
         this.setState({ notes: response.data});
       })
       .catch(err => {
-        console.log('Error')
+        
       })
   }
 
@@ -74,7 +75,8 @@ class App extends Component {
         <NavBar />
         <Route exact path='/' render={props=> <NoteList notes={this.state.notes}/>}/>
         <Route path='/create-note' render={props=><CreateNote {...props} addNote={this.addNote}/>}/>
-        <Route path='/view-note/:id'  render={props=><DisplayNote {...props} notes={this.state.notes} delete={this.deleteNote} edit={this.editNote}/>}/>
+        <Route exact path='/edit/:id' render={props=><EditNote {...props} edit={this.editNote}/>}/>
+        <Route path='/view-note/:id'  render={props=><DisplayNote {...props} notes={this.state.notes} delete={this.deleteNote}/>}/>
       </div>
     );
   }

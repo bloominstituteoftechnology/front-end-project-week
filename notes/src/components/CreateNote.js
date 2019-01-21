@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+
 const Form = styled.form`
     display:flex;
     flex-direction: column;
     width:80%;
+`;
+const Textarea = styled.textarea`
+    height:200px;
+    width:50%;
+    margin-bottom:10px;
 `;
 
 const Input = styled.input`
@@ -14,11 +20,7 @@ const Input = styled.input`
     margin:10px;
 `;
 
-const BodyInput = styled(Input)`
-    width:60%;
-    height:200px;
-    
-`;
+
 
 const Button = styled.button`
     width:15%;
@@ -59,7 +61,7 @@ class CreateNote extends Component {
                 <h2>Create New Note:</h2>
                 <Form onSubmit={this.submitHandler}>
                     <Input type='text' name='title' value={this.state.title} placeholder='Note Title' onChange={this.inputHandler}/>
-                    <BodyInput type='text' name='text' value={this.state.text} placeholder='Text' onChange={this.inputHandler}/>
+                    <Textarea type='text' name='text' value={this.state.text} placeholder='Text' onChange={this.inputHandler}/>
                     <Button type='submit'> Save</Button>
                 </Form>
             </div>

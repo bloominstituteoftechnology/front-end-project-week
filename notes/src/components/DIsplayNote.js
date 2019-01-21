@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Route } from 'react-router-dom';
-import  EditNote  from './EditNote'
+import DeleteModal from './DeleteModal';
 
 
 
@@ -9,7 +8,8 @@ class DisplayNote extends Component{
     constructor(props){
         super(props);
         this.state = {
-            note: props.notes.find(note=>props.match.params.id === note._id)
+            note: props.notes.find(note=>props.match.params.id === note._id),
+            show:false
         }
         
         window.onbeforeunload = this.saveNote;
@@ -27,16 +27,25 @@ class DisplayNote extends Component{
 
     editNote = e => {
         console.log(this.props.match.params.id)
-        this.props.history.push(`/view-note/${this.props.match.params.id}/edit`);
+        this.props.history.push(`/edit/${this.props.match.params.id}`);
         
       };
 
     deleteNote = () => {
         console.log(this.props.match.params.id);
+        
+        
         this.props.delete(this.props.match.params.id);
         this.props.history.push("/");
     };
 
+    showModal = () => {
+        this.setState({ show: true });
+    };
+
+    hideModal = () => {
+        this.setState({ show: false });
+};
 
     render(){
         if(!this.state.note){
@@ -48,15 +57,16 @@ class DisplayNote extends Component{
             <div className='inNote'> 
                 <div className='topBar'>   
                     <button onClick={this.editNote}>edit</button>
-                    <button onClick={this.deleteNote}>delete</button>
+                    <button onClick={this.showModal}>delete</button>
                 </div>
                 <div>
                     <h3>{this.state.note.title}</h3>
                     <p>{this.state.note.textBody}</p>
                 </div>
+                {this.state.show ? (
+                    <DeleteModal deleteNote={this.deleteNote} hideModal={this.hideModal} />                    
+                ) : null }
                 
-                <Route path='/view-note/:id/edit'
-                    render={props => <EditNote {...props} note={this.state.note}  updateNote={this.props.edit}/>} />
             </div>
         )
     }

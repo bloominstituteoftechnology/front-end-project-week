@@ -60,6 +60,8 @@
 .textarea{
     display:flex;
     flex-direction: column;
+    width:80%;
+    margin:15px;
 }
 
 /*maybe*/

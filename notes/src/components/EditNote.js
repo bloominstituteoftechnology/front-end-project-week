@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 
-import styled from 'styled-components'
+import axios from 'axios';
+import styled from 'styled-components';
+
+import './layout.css';
+
 
 const Form = styled.form`
     display:flex;
     flex-direction: column;
+    
 
 
     `;
@@ -18,6 +23,7 @@ const Input = styled.input`
 const Textarea = styled.textarea`
     height:200px;
     width:50%;
+    margin-bottom:10px;
 `;
 
 const Button = styled.button`
@@ -31,11 +37,29 @@ class EditNote extends Component {
     constructor(props){
         super(props);
         this.state= {
-            id: props.note._id,
-            title: props.note.title,
-            textBody: props.note.textBody
+            title: '',
+            textBody: ''
         }
     }
+
+    componentDidMount(){
+        this.SingleNote();
+      }
+    
+      SingleNote = () => {
+            
+            console.log('id',this.props)
+            axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+          .then(response => {
+              this.setState({ title: response.data.title, textBody: response.data.textBody})
+          })
+          .catch(err => {
+            console.log('Error')
+          })
+          
+        
+      }
+    
 
     handleInput  = e => {
         this.setState({[e.target.name]: e.target.value});
@@ -44,8 +68,7 @@ class EditNote extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let id = this.props.match.params.id
-        console.log(this.props)
-        this.props.updateNote(id, {
+        this.props.edit(id, {
             title:this.state.title,
             textBody: this.state.textBody
             })
@@ -57,11 +80,10 @@ class EditNote extends Component {
     
 
     render(){
-        if(!this.props.note){
-            return <div>Loading data...</div>
-}
+     
         return(
         <div className='textarea'>
+            <h1>Edit Note</h1>
             <Form onSubmit={this.handleSubmit}>
                 <Input name='title' type='text' value={this.state.title} onChange={this.handleInput}/>
                
