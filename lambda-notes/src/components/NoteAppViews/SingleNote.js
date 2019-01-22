@@ -48,7 +48,7 @@ class SingleNote extends React.Component {
        <ModalBody>
        </ModalBody>
        <ModalFooter>
-         <Button onClick={this.deleteHandler}>Delete Note</Button>
+         <Button onClick={this.deleteHandler}>Delete</Button>
          <Button>Cancel</Button>
        </ModalFooter>
       </ModalHeader>

@@ -17,9 +17,14 @@ const NoteContainer = styled.div`
  flex-wrap: wrap ;
  margin: 5% 5% 5% 5%;
  justify-content: space-between ;
+ justify-content: space-between ;
  backgroundColor: #f9fbff; 
  borderColor: #333
+ borderColor: #333
 `
+
+
+
 
 export const App = styled.div `
 
@@ -34,4 +39,7 @@ export const App = styled.div `
  background: rgb(241, 240, 240) ;
 `
 /* ^ Note Container*/
+
+
+
 

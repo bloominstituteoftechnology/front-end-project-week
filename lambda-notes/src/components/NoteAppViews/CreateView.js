@@ -4,18 +4,21 @@ import { addNote } from '../../actions'
 import { Button, Input } from 'reactstrap'
 import styled from 'styled-components'
 
-/* const CreateViewContainer = styled.div `
+const CreateViewContainer = styled.div `
 display: flex ;
 flex-direction: column ;
-justify-content: center ;
-` */
+${'' /* justify-content: center ; */}
+margin: 0 auto ;
+`
+
 const CreateViewStyle = styled.div `
  display: flex;
  flex-direction: column;
- justify-content: center ;
 `
 const CreateText = styled.span `
-font - family: 'Archivo Black'
+font-family: 'Archivo Black';
+font-size: 2rem ;
+margin-bottom: 15% ;
 `
 class CreateNote extends Component {
  constructor(){
@@ -46,7 +49,7 @@ class CreateNote extends Component {
  }
   render() {
     return (
-      <div>
+      <CreateViewContainer>
       <CreateText>Create new note:</CreateText>
       <form onSubmit={this.submitNote} >
        <CreateViewStyle>
@@ -71,8 +74,7 @@ class CreateNote extends Component {
        </CreateViewStyle>
       </form>
       {this.props.added ? this.props.history.push('/') : null}
-
-      </div>
+</CreateViewContainer>
     )
   }
 }
