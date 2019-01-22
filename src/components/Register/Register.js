@@ -17,7 +17,7 @@ class Register extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('https://lamb-danotes.herokuapp.com/user/register', this.state)
+        axios.post(`${process.env.REACT_APP_API_URL}/user/register`, this.state)
             .then(response => {
                 // localStorage.setItem('jwt', response.data.token);
 

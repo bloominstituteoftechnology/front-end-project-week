@@ -12,6 +12,9 @@ import EditNote from './components/EditNote/EditNote.js';
 import Register from './components/Register/Register.js';
 import Login from './components/Login/Login.js';
 
+// const deployedURL = 'https://lamb-danotes.herokuapp.com';
+// const localURL = 'http://localhost:3000';
+
 class App extends Component {
   constructor() {
     super();
@@ -24,8 +27,9 @@ class App extends Component {
   }
 
   componentDidMount () {
+    console.log("process.env.REACT_APP_API_URL: ", process.env.REACT_APP_API_URL);
     axios
-      .get(`https://lamb-danotes.herokuapp.com/note/get/all`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
+      .get(`${process.env.REACT_APP_API_URL}/note/get/all`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
         .then(res => {this.setState({notesList: res.data})})
         .catch(err => {console.log(err)})
 
@@ -34,7 +38,7 @@ class App extends Component {
 
   updateState = () => {
     axios
-      .get(`https://lamb-danotes.herokuapp.com/note/get/all`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
+      .get(`${process.env.REACT_APP_API_URL}/note/get/all`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
         .then(res => {this.setState({notesList: res.data})})
         .catch(err => {console.log(err)})
 
@@ -48,7 +52,7 @@ class App extends Component {
 
   setCurrentNote = (noteID) => {
     axios
-      .get(`https://lamb-danotes.herokuapp.com/note/get/${noteID}`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
+      .get(`${process.env.REACT_APP_API_URL}/note/get/${noteID}`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
         .then(res => {this.setState({currentNote: res.data})})
         .catch(err => {console.log(err)})
   }
