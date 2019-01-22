@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+  max-width: 1200px;
+  border: 1px solid gray;
+  background-color: whitesmoke;
+  height: auto;
+  margin: 1rem auto;
+  min-height: 800px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  margin-top: 0;
+  position: fixed;
+  background-color: lightgray;
+  border: 1px solid gray;
+}
+
+.sidebar > h1 {
+  margin: 1rem;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.note-card {
+  background-color: white;
+  display: flex;
+  text-align: left;
+  width: 250px;
+  height: 200px;
+  margin: 20px;
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid black;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  color: #474B4C;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.note-card > h2 {
+  width: 100%;
+  height: auto;
+  min-height: 2rem;
+  overflow: hidden;
+  display: flex;
+  color: black;
+  margin: 0;
+
+}
+
+.note-card > p {
+  padding: .5rem;
+  display: flex;
+}
+
+.notes-container {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 250px;
+  justify-content: space-between;
+}
+
+.note-view {
+  background-color: whitesmoke;
+  margin-left: 250px;
+  text-align: left;
+  padding: 1rem;
+}
+
+.note-options {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.notes-list {
+  background-color: whitesmoke;
+}
+
+.notes-list-header {
+  text-align: left;
+  margin-left: 275px;
+  color: #474B4C;
+}
+
+.notes-form-header {
+  color: #474B4C;
+  text-align: left;
+  margin-left: 275px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 275px;
+}
