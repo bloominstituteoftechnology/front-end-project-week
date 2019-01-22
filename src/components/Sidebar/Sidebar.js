@@ -15,7 +15,7 @@ const Sidebar = (props) => {
 
     return (
         <div>
-            <h1 className='sidebarTitle'>Lambda Notes</h1>
+            <h1 className='sidebarTitle'>Note Taker</h1>
             <div onClick={() => props.updateState()} className='sbEntireLink'>
                 <Link to='/' className='buttonLink'>
                     <button block='true' className='sidebarButton'>View Your Notes</button>
