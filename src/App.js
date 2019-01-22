@@ -29,8 +29,12 @@ class App extends Component {
   componentDidMount () {
     console.log("process.env.REACT_APP_API_URL: ", process.env.REACT_APP_API_URL);
     axios
-      .get(`${process.env.REACT_APP_API_URL}/note/get/all`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
-        .then(res => {this.setState({notesList: res.data})})
+      .get(`${process.env.REACT_APP_API_URL}/note/get/all`, 
+      { 
+        params: { _id: this.state.currentUser._id },
+        headers: { Authorization: (localStorage.getItem('jwt')) }
+      })
+        .then(res => {this.setState({ notesList: res.data })})
         .catch(err => {console.log(err)})
 
     this.setCurrentNote(this.state.currentNote._id);
@@ -38,7 +42,11 @@ class App extends Component {
 
   updateState = () => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/note/get/all`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
+      .get(`${process.env.REACT_APP_API_URL}/note/get/all`, 
+      { 
+        headers: { Authorization: (localStorage.getItem('jwt')) },
+        params: { _id: this.state.currentUser._id }
+      })
         .then(res => {this.setState({notesList: res.data})})
         .catch(err => {console.log(err)})
 
