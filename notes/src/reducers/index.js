@@ -30,30 +30,36 @@ const initialState = {
 const NotesReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FETCHING:
-			return { ...state, fetchingNote: true };
+			return Object.assign({}, state, { fetchingNotes: false });
 		case FETCHED:
-			return { ...state, fetchingNote: false, notes: action.payload };
-		case SAVING:
-			return { ...state, savingNote: true };
-		case SAVED:
-			action.payload.forEach(item => {
-				console.log('payload thingy:' + item);
-				return { ...state, notes: action.payload.data, savingNote: false };
+			const newState = Object.assign({}, state, {
+				fetchingNotes: false,
+				notes: action.payload
 			});
+
+			return newState;
+		case SAVING:
+			return Object.assign({}, state, { savingNote: true });
+		case SAVED:
+			console.log('payload' + JSON.stringify(action.payload));
+			let addedNotes = state.notes.slice();
+			newNotes.push(action.payload);
+			return Object.assign({}, state, { notes: addedNotes });
+
 		case FETCHINGNOTE:
-			return { ...state, fetchingNote: true };
+			return Object.assign({}, state, { fetchingNote: true });
 		case FETCHEDNOTE:
-			return {
-				...state,
+			return Object.assign({}, state, {
 				fetchingNote: false,
 				currentIndividual: {
 					_id: action.payload._id,
 					title: action.payload.title,
 					textBody: action.payload.textBody
 				}
-			};
+			});
+
 		case UPDATING:
-			return { ...state, updating: true };
+			return Object.assign({}, state, { updating: true });
 		case UPDATED:
 			let newNotes = state.notes.slice();
 			console.log('newNotes=' + newNotes);
@@ -63,8 +69,7 @@ const NotesReducer = (state = initialState, action) => {
 				}
 				return note;
 			});
-			return {
-				...state,
+			return Object.assign({}, state, {
 				updating: false,
 				updated: true,
 				currentIndividual: {
@@ -73,21 +78,22 @@ const NotesReducer = (state = initialState, action) => {
 					textBody: ''
 				},
 				notes: newNotes
-			};
+			});
+
 		case DELETING:
-			return { ...state, deleting: true };
+			return Object.assign({}, state, { deleting: true });
 		case ERROR:
-			return { ...state, error: action.message };
+			return Object.assign({}, state, { error: action.message });
 		case DELETED:
 			let afterDeleted = state.notes
 				.slice()
 				.filter(note => note._id !== action.payload);
-			return { ...state, deleting: false, notes: afterDeleted };
+			return Object.assign({}, state, { deleting: false, notes: afterDeleted });
 		case DIDNTDELETE:
 			console.log('didntdeletefiredatleast');
-			return { ...state, deleting: false };
+			return Object.assign({}, state, { deleting: false });
 		default:
-			return state;
+			return Object.assign({}, state);
 	}
 };
 export default NotesReducer;

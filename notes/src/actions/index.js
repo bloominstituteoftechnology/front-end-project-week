@@ -36,7 +36,14 @@ export const saveNote = data => dispatch => {
 		})
 		.then(response => {
 			console.log('server response' + response.data);
-			dispatch({ type: SAVED, payload: response.data });
+			dispatch({
+				type: SAVED,
+				payload: {
+					_id: response.data.success,
+					title: data.title,
+					textBody: data.textBody
+				}
+			});
 		})
 		.catch(err => {
 			dispatch({ type: ERROR, message: 'saveNote got an error' });

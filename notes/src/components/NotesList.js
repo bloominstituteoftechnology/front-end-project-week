@@ -81,11 +81,12 @@ class NotesList extends Component {
 	}
 
 	render() {
+		while (this.props.updating === true) {
+			return <h1>Updating the List</h1>;
+		}
+
 		if (this.props.fetchingNotes === true) {
 			return <h1>Fetching Your Notes</h1>;
-		} else if (this.props.updating === true) {
-			console.log('hit the reeeedireeeect');
-			return <Redirect to="/AfterEdit" />;
 		} else {
 			return (
 				<CardSection>
