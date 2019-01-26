@@ -11,7 +11,7 @@ import {
   Button,
 } from 'reactstrap';
 
-class SignUp extends React.Component {
+class LogIn extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -28,45 +28,30 @@ class SignUp extends React.Component {
   };
   onSubmitHandler = (e) => {
     e.preventDefault();
-    const newUser = {
+    const user = {
       username: this.state.username,
       password: this.state.password,
     };
     axios
-      .post('https://notes-lambda.herokuapp.com/api/register', newUser)
+      .post('https://notes-lambda.herokuapp.com/api/login', user)
       .then((res) => {
         localStorage.setItem('id', res.data.user_id);
         localStorage.setItem('jwt', res.data.token);
         localStorage.setItem('location', '/notes');
         this.props.history.push('/notes');
       })
-      .catch((err) => {
-        if (err.message === 'Request failed with status code 400') {
-          this.setState({ state: 1, username: '', password: '' });
-        } else if (err.message === 'Request failed with status code 500') {
-          this.setState({ state: 2, username: '', password: '' });
-        }
-      });
+      .catch((err) => this.setState({ state: 1, username: '', password: '' }));
   };
   render() {
     return (
-      <Container className="signUp">
-        <h2>Sign Up</h2>
+      <Container className="logIn">
+        <h2>Log In</h2>
         {this.state.state === 1 ? (
           <UncontrolledAlert
-            onClick={() => this.setState({ state: 0 })}
             color="primary"
-          >
-            Invalid field(s). Username and password must be at least 3
-            characters long.
-          </UncontrolledAlert>
-        ) : null}
-        {this.state.state === 2 ? (
-          <UncontrolledAlert
             onClick={() => this.setState({ state: 0 })}
-            color="primary"
           >
-            That username is already in use.
+            Those credentials are invalid.
           </UncontrolledAlert>
         ) : null}
         <Form>
@@ -82,7 +67,6 @@ class SignUp extends React.Component {
               />
             </FormGroup>
           </Col>
-
           <Col>
             <FormGroup>
               <Input
@@ -103,4 +87,4 @@ class SignUp extends React.Component {
     );
   }
 }
-export default withRouter(SignUp);
+export default withRouter(LogIn);

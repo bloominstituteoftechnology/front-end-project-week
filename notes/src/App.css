@@ -1,57 +1,58 @@
 .App {
   text-align: center;
-  min-height: 100vh;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+*{
+  list-style-type: none;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.red{
-  background-color:#800000;
-}
-.green{
-  background-color:#0db5ba;
-}
-.modal{
-  overflow-y: auto;
-  }
-.modal-open{
-  overflow:auto;
-  overflow-x:auto;
-  position:fixed;
+.navigation {
+  max-width:900px;
+  margin:0 auto;
   width:100%;
+  display: flex!important;
+  justify-content: space-between!important;
 }
-input,textarea,button{
-  font-size:16px;
+.link {
+  cursor:pointer;
 }
-input,textarea{
-  padding-left:2%;
-  box-sizing:border-box;
+.navigation div {
+  display:flex;
 }
-input[type='radio']{
-  margin-left:1%;
+.signUp, .logIn,.createNoteForm, .editNoteForm{
+  margin-top:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  text-align:center;
 }
-label{
-  margin-left:0.3%;
+.alert,.signUp form, .logIn form,.createNoteForm form, .editNoteForm form,.notesPage .content,.singleNotePage .content{
+    max-width:600px;
+    width:100%;
+    margin: 0 auto;
+}
+.btn-container {
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+}
+.btn-container button:first-child {
+    margin-right:3%;
+}
+.btn-container button:nth-child(2) {
+  margin-left:3%;
+}
+#content {
+  height:250px;
+}
+.card{
+  background-color:#f8f9fa!important;
+  text-align:left;
+}
+.card * {
+  color:#343a40!important;
+}
+.card *:hover {
+  text-decoration:none;
+}
+.alert-dismissible {
+  text-align:left;
 }

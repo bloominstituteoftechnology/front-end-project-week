@@ -1,103 +1,55 @@
-import {Modal} from 'reactstrap';
+import { Modal, ModalHeader, ModalFooter, Button } from 'reactstrap';
 import React from 'react';
-import styled from 'styled-components'
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {deleteNote} from '../../actions';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteNote } from '../../actions';
 
-const Span=styled.span`
-    text-decoration: underline;
-    font-weight: bold;
-
-    :first-child{
-        margin-right: 2%;
-    }
-`
-const NoButton=styled.div`
-    width: 40%;
-    height: 40px;
-    background-color: #0db5ba;
-    color:#FFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 2%;
-`
-const DeleteButton=styled.div`
-    width: 40%;
-    height: 40px;
-    background-color: #C40000;
-    color:#FFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 2%;
-`
-const ModalContent=styled.div`
-    position:fixed;
-    padding-top: 174px; 
-    left: 0;
-    right:0;
-    top: 0;
-    bottom: 0; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-    z-index: 9999;
-`
-const ModalInfo=styled.div`
-    max-width: 620px;
-    width: 100%;
-    height: 190px;
-    margin-left: 28.2%;
-    background-color: #FFF;
-    border: 1px solid #424242;
-`
-const ModalHeader=styled.p`
-    text-align: center;
-    margin-top: 40px;
-`
-const ButtonContainer=styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 8%;
-    padding-right: 8%;
-    margin-top: 40px;
-`
-class DeleteModal extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            modal:false
-        }
-        this.toggle = this.toggle.bind(this);
-    }
-    toggle(){
-        this.setState({
-          modal: !this.state.modal
-        });
-      }
-      render() {
-          return(
-            <div>
-            <Span onClick={this.toggle}>{'delete'}</Span>
-            <Modal isOpen={this.state.modal}>
-            <ModalContent>
-            <ModalInfo>
-                <ModalHeader>Are you sure you want to delete this?</ModalHeader>
-                <ButtonContainer>
-                <DeleteButton onClick={()=>this.props.deleteNote(this.props.match.params.noteId,this.props.history)}>Delete</DeleteButton>
-                <NoButton onClick={this.toggle}>No</NoButton>
-            </ButtonContainer>
-            </ModalInfo>
-            </ModalContent>
-            </Modal>
-          </div>
-          )
-      }
+class DeleteModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+    };
+    this.toggle = this.toggle.bind(this);
+  }
+  toggle() {
+    this.setState({
+      modal: !this.state.modal,
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Button color="danger" onClick={this.toggle}>
+          {'Delete'}
+        </Button>
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>
+            Are you sure you want to delete this note?
+          </ModalHeader>
+          <ModalFooter>
+            <Button
+              color="danger"
+              onClick={() =>
+                this.props.deleteNote(
+                  this.props.match.params.noteId,
+                  this.props.history
+                )}
+            >
+              Delete
+            </Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
+      </div>
+    );
+  }
 }
-const mapStateToProps=state=>{
-    return state;
-}
-export default connect (mapStateToProps,{deleteNote})(withRouter(DeleteModal));
+const mapStateToProps = (state) => {
+  return state;
+};
+export default connect(mapStateToProps, { deleteNote })(
+  withRouter(DeleteModal)
+);
