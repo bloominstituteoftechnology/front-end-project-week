@@ -1,0 +1,667 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h1, h2, h3 {
+  color: #4A4A4A;
+}
+
+ul, li, a, button {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #4A4A4A;
+  font-size: 1.6rem;
+}
+
+label {
+  font-size: 1.4rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus, a:focus {
+  outline: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+p {
+  font-size: 1.4rem;
+  color: #4A4A4A;
+  line-height: 2.4rem;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
+  text-rendering: geometricPrecision;
+  background: #4A4A4A;
+}
+
+.app-main {
+  display: flex;
+  flex-flow: column wrap;
+  flex: 1 1;
+  min-height: 100vh;
+}
+
+.no-match, .account-deleted {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 115px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.no-match a, .account-deleted a {
+  text-decoration: underline;
+}
+
+.no-match h3, .no-match p, .no-match a {
+  color: white;
+  width: 100%;
+}
+
+.account-deleted h3, .account-deleted p, .account-deleted a {
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .App {
+    flex-flow: column wrap;
+    align-content: center;
+  }
+}
+
+.button {
+  padding: 12px 12px 11px;
+  background: #2BC1C4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  text-rendering: geometricPrecision;
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+
+.button:hover {
+  background: #10d3d6;
+}
+
+@media (max-width: 767px) {
+  .button {
+    width: 160px;
+  }
+}
+
+.delete {
+  background: #D0021B;
+}
+
+.delete:hover {
+  background: rgb(255, 0, 30);
+}
+
+.secondary {
+  background: none;
+  padding: 5px;
+  color: #979797;
+}
+
+.secondary:hover {
+  background: none;
+  color: #3cc5c8;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+.message {
+  position: absolute;
+}
+
+.tooltip {
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #2BC1C4;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  top: -6px;
+  left: 23px;
+  background: #FFF;
+  border-top: 1px solid #2BC1C4;
+  border-left: 1px solid #2BC1C4;
+  transform: rotate(45deg);
+}
+
+
+/* Landing Page */
+
+.landing-page {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.landing-page h2 {
+  margin: 15vh 0 0 20vh;
+  font-size: 3.2rem;
+  color: white;
+}
+
+.landing-page > div {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  margin-top: 22vh;
+  min-height: 100vh;
+}
+
+@media (max-width: 767px) {
+  .landing-page > div {
+    width: 100%;
+    min-height: 50vh;
+    margin-top: 0;
+  }
+  .landing-page h2 {
+    font-size: 2.2rem;
+  }
+}
+
+.login-form, .register-form {
+  text-align: center;
+  margin: 0 10vh 0 0;
+}
+
+.login-form .message, .register-form .message {    
+  left: 10%;
+  width: 80%;
+  text-align: center;
+}
+
+.register-form .tooltip {
+  left: 28px;
+  margin: 40px 0 0 0;
+}
+
+.register-form .tooltip > p {
+  text-align: center;
+}
+
+.login-form .error, .register-form .error {
+  background: white;
+}
+
+.login-form form, .register-form form {
+  display: flex;
+  position: relative;
+  flex-flow: column wrap;
+  width: 280px;
+  background: white;
+  padding: 10px 18px 22px;
+  border-radius: 4px;
+  box-shadow: 10px 10px #2BC1C4;
+}
+
+.login-form h3, .register-form h3 {
+  font-weight: 400;
+}
+
+.login-form input, .register-form input {
+  margin: 0 0 14px;
+  width: 100%;
+  background: #eee;
+  border-radius: 2px;
+  border: none;
+  border-left: 2px solid #eee;
+  padding: 12px 7px;
+  font-size: 1.4rem;
+}
+
+.login-form input:focus, .register-form input:focus {
+  outline: none;
+  border-left: 2px solid #2BC1C4;
+  background: white;
+  transition: all .07s ease-out;
+}
+
+.login-form button, .register-form button {
+  width: 50%;
+  padding: 10px 5px;
+  align-self: flex-end;
+  color: #383838;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  background: radial-gradient(circle at -60% -120%, #ffffff4f, #3cc5c8);
+  border: none;
+}
+
+.login-form button:hover, .register-form button:hover {
+  color: white;
+  background: radial-gradient(circle at 10% 400%, #ffffff4f, #3cc5c8);
+}
+
+.login-form a, .register-form a {
+  color: white;
+  text-decoration: underline;
+  font-size: 1.4rem;
+  margin-top: 18px;
+  display: inline-block;
+}
+
+
+/* Navigation */
+
+.nav-sidebar {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 1.709%;
+  background: #D8D8D8;
+  min-height: 100vh;
+  flex: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.nav-sidebar h1 {
+  margin: 5px 0 30px;
+  line-height: 2.8rem;
+  color: #4A4A4A;
+}
+
+.nav-sidebar a {
+  width: 160px;
+}
+
+.nav-sidebar .button {
+  margin-bottom: 18px;
+}
+
+@media (max-width: 767px) {
+  .nav-sidebar {
+    min-height: auto;
+    min-width: 100%;
+    flex-flow: row wrap;
+    justify-content: center;
+    text-align: center;
+  }
+  .nav-sidebar h1 {
+    width: 100%;
+    margin: 14px 0 8px;
+    font-size: 2.8rem;
+  }
+  .nav-sidebar a {
+    margin: 10px;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  align-self: flex-end;
+  position: absolute;
+  right: 30px;
+}
+
+.nav-menu ul {
+  position: absolute;
+  width: 180px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  top: 45px;
+  right: 0;
+  background: white;
+  box-shadow: 2px 2px 4px #e0e0e0;
+  border-radius: 4px;
+  padding: 15px 0;
+}
+
+.nav-menu li:last-child {
+  width: 88%;
+  padding: 10px 5px 0 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: flex-end;
+  align-content: right;
+  border-top: 1px solid #e0e0e0;
+}
+
+.gear {
+  opacity: 0.6;
+  margin: 0 0 0 100px;
+}
+
+.gear:hover {
+  opacity: 1;
+}
+
+
+/* Notes List */
+
+.notes-list {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  padding: 0 3.417% 3.417%;
+  flex: 1;
+  background: #F3F3F3;
+}
+
+.notes-list h2 {
+  font-size: 1.8rem;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  margin: 65px 0 30px;
+  color: #4A4A4A;
+}
+
+.notes-list > div {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.note-card {
+  width: 189px;
+  height: 189px;
+  overflow: hidden;
+  padding: 10px 15px;
+  margin: 0 15px 15px 0;
+  background: white;
+  border-radius: 1px;
+}
+
+.note-card:hover {
+  transition: all 0.1s ease;
+  box-shadow: 4px 4px #e0e0e0;
+}
+
+@media (max-width: 767px) {
+  .notes-list > div {
+    justify-content: center;
+  }
+
+  .notes-list h2 {
+    margin: 18px 0 30px;
+  }
+  
+  .note-card {
+    width: 280px;
+    height: 100px;
+    margin: 10px;
+  }
+}
+
+.note-card h3 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #979797;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+}
+
+.note-card-text {
+  margin: 10px 0 0;
+  height: 119px;
+  overflow: hidden;
+}
+
+
+/* Note View */
+
+.note-flex-props {
+  flex: 1;
+}
+
+.note-view {
+  padding: 20px 30px;
+  background: #F3F3F3;
+  min-height: 100vh;
+}
+
+.note-view .display {
+  max-width: 600px;
+  margin: 10px 0 0;
+}
+
+.note-view-actions {
+  margin: 0 0 25px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-view-actions a {
+  margin-left: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.note-view h3 {
+  margin: 0 0 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* Note Edit */
+
+.note-form {
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 600px;
+  margin: 10px 0 0;
+}
+
+.note-form h3 {
+  margin: 35px 0 30px;
+}
+
+.note-form form {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.note-form form input, textarea {
+  padding: 13.5px 10px;
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: #4A4A4A;
+  border: none;
+  border-radius: 2px;
+}
+
+.note-form form input:focus, textarea:focus {
+  outline: none;
+}
+
+.note-form form input:first-child {
+  width: 53.939%;
+  min-width: 190px;
+}
+
+.note-form form textarea {
+  height: 346px;
+  resize: none;
+}
+
+.note-form button {
+  width: 160px;
+}
+
+@media (max-width: 767px) {
+  .note-form form input:first-child {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Account Page */
+
+.account-page {
+  display: flex;
+  justify-content: center;
+  flex: 1 1;
+  background: #F3F3F3;
+}
+
+.account-page .message {
+  top: 40px;
+}
+
+.account-page .tooltip {
+  top: unset;
+  margin: 44px 0px 0;
+  width: 196px;
+  text-align: center;
+}
+
+.account-form {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  max-width: 380px;
+  margin: 87px 0 0;
+  padding: 10px 18px 22px;
+  border-radius: 4px;
+}
+
+.account-form h3 {
+  font-weight: 500;
+  padding: 0 0 0 10px;
+}
+
+.account-form input {
+  margin: 0 0 14px;
+  width: 100%;
+  background: #e0e0e0;
+  border-radius: 2px;
+  border: none;
+  border-left: 2px solid #e0e0e0;
+  padding: 12px 7px;
+  font-size: 1.4rem;
+}
+
+.account-form input:focus {
+  outline: none;
+  border-left: 2px solid #2BC1C4;
+  background: white;
+  transition: all .07s ease-out;
+}
+
+.account-form label {
+  display: flex;
+  padding: 0 0 5px 10px;
+}
+
+.account-form .button {
+  width: 28%;
+  color: white;
+  font-size: 1.4rem;
+  display: inline-block;
+  float: right;
+}
+
+.account-form .delete {
+  width: 36%;
+}
+
+.account-form > div:last-child {
+  display: flex;
+  margin: 40px 0 0;
+  width: 100%;
+}
+
+
+/* Delete Modal */
+
+.modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #979797;
+  mix-blend-mode: multiply;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.modal {
+  background: white;
+  margin-top: 170px;
+  width: 100%;
+  padding: 0 20px;
+  max-width: 530px;
+  height: 175px;
+  text-align: center;
+}
+
+.modal p {
+  margin: 40px 0 30px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-divider {
+  width: 20px;
+}
