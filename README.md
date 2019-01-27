@@ -1,4 +1,4 @@
-### [Live Site URL](https://boring-ramanujan-8a12b2.netlify.com/)
+### [Live Site URL](https://notesbylambda.netlify.com/)
 
 # Front End Project Week
 

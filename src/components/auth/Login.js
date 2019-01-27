@@ -19,7 +19,7 @@ class Login extends React.Component {
         e.preventDefault();
         axios.post(`${process.env.REACT_APP_API_AUTH}/login`, this.state)
             .then(response => {
-                this.setState({ error: null })
+                this.setState({ error: null });
                 localStorage.setItem('jwt', response.data.token);
                 this.props.logIn();
                 this.props.history.push('/notes');
