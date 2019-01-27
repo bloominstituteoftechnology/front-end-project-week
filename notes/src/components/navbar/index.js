@@ -28,40 +28,31 @@ class NavBar extends React.Component {
     }
   };
   render () {
-    if (
-      localStorage.getItem ('location') === '/signup' ||
-      localStorage.getItem ('location') === '/login'
-    ) {
-      return (
-        <Navbar className="navigation" color="light" light expand="md">
-          <NavbarBrand className="ml-3">Notes</NavbarBrand>
-          <div>
-            <NavItem className="link mr-5" onClick={this.redirectToLogIn}>
-              Log In
-            </NavItem>
-            <NavItem className="link mr-3" onClick={this.redirectToSignUp}>
-              Sign Up
-            </NavItem>
-          </div>
-        </Navbar>
-      );
-    } else {
-      return (
-        <Navbar className="navigation" color="light" light expand="md">
-          <NavbarBrand className="link ml-3" onClick={this.viewNotes}>
-            Notes
-          </NavbarBrand>
-          <div>
-            <NavItem className="link mr-5" onClick={this.createNewNote}>
-              New Note
-            </NavItem>
-            <NavItem className="link mr-3" onClick={this.logout}>
-              Log Out
-            </NavItem>
-          </div>
-        </Navbar>
-      );
-    }
+    return (
+      <Navbar className="navigation" color="light" light expand="md">
+        <NavbarBrand className="link ml-3" onClick={this.viewNotes}>
+          Notes
+        </NavbarBrand>
+        {localStorage.getItem ('location') === '/signup' ||
+          localStorage.getItem ('location') === '/login'
+          ? <div>
+              <NavItem className="link mr-5" onClick={this.redirectToLogIn}>
+                Log In
+              </NavItem>
+              <NavItem className="link mr-3" onClick={this.redirectToSignUp}>
+                Sign Up
+              </NavItem>
+            </div>
+          : <div>
+              <NavItem className="link mr-5" onClick={this.createNewNote}>
+                New Note
+              </NavItem>
+              <NavItem className="link mr-3" onClick={this.logout}>
+                Log Out
+              </NavItem>
+            </div>}
+      </Navbar>
+    );
   }
 }
 export default withRouter (NavBar);
