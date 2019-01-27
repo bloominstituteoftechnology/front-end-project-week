@@ -1,23 +1,23 @@
-import { Modal, ModalHeader, ModalFooter, Button } from 'reactstrap';
+import {Modal, ModalHeader, ModalFooter, Button} from 'reactstrap';
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { deleteNote } from '../../actions';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {deleteNote} from '../../actions';
 
 class DeleteModal extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props);
     this.state = {
       modal: false,
     };
-    this.toggle = this.toggle.bind(this);
+    this.toggle = this.toggle.bind (this);
   }
-  toggle() {
-    this.setState({
+  toggle () {
+    this.setState ({
       modal: !this.state.modal,
     });
   }
-  render() {
+  render () {
     return (
       <div>
         <Button color="danger" onClick={this.toggle}>
@@ -31,7 +31,7 @@ class DeleteModal extends React.Component {
             <Button
               color="danger"
               onClick={() =>
-                this.props.deleteNote(
+                this.props.deleteNote (
                   this.props.match.params.noteId,
                   this.props.history
                 )}
@@ -47,9 +47,9 @@ class DeleteModal extends React.Component {
     );
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return state;
 };
-export default connect(mapStateToProps, { deleteNote })(
-  withRouter(DeleteModal)
+export default connect (mapStateToProps, {deleteNote}) (
+  withRouter (DeleteModal)
 );

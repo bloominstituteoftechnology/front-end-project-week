@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import NavBar from './components/navbar/';
 import Notes from './components/notes/notesPage.js';
 import NewNote from './components/notes/newNote.js';
 import SingleNotePage from './components/notes/singleNotePage.js';
 import LogIn from './components/authenticate/logIn.js';
 import SignUp from './components/authenticate/signUp.js';
-import { Route } from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import EditNoteForm from './components/notes/editNoteForm.js';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
-  componentDidMount() {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt === null && localStorage.getItem('location') !== '/signup') {
-      this.props.history.push('/login');
+  componentDidMount () {
+    const jwt = localStorage.getItem ('jwt');
+    if (jwt === null && localStorage.getItem ('location') !== '/signup') {
+      this.props.history.push ('/login');
     } else {
-      this.props.history.push(localStorage.getItem('location'));
+      this.props.history.push (localStorage.getItem ('location'));
     }
   }
 
-  render() {
-    if (localStorage.getItem('jwt') !== null) {
+  render () {
+    if (localStorage.getItem ('jwt') !== null) {
       return (
         <div className="App">
           <NavBar />
@@ -43,4 +43,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default withRouter (App);

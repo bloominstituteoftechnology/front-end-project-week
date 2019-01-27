@@ -32,7 +32,6 @@
 .btn-container {
     display:flex;
     justify-content:center;
-    margin-top:20px;
 }
 .btn-container button:first-child {
     margin-right:3%;

@@ -1,36 +1,36 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { Navbar, NavItem, NavbarBrand } from 'reactstrap';
+import {withRouter} from 'react-router-dom';
+import {Navbar, NavItem, NavbarBrand} from 'reactstrap';
 
 class NavBar extends React.Component {
   viewNotes = () => {
-    this.props.history.push('/notes');
+    this.props.history.push ('/notes');
   };
   createNewNote = () => {
-    this.props.history.push('/create');
+    this.props.history.push ('/create');
   };
   logout = () => {
-    localStorage.removeItem('jwt');
-    localStorage.removeItem('id');
-    this.props.history.push('/login');
-    localStorage.setItem('location', '/login');
+    localStorage.removeItem ('jwt');
+    localStorage.removeItem ('id');
+    this.props.history.push ('/login');
+    localStorage.setItem ('location', '/login');
   };
   redirectToLogIn = () => {
-    if (localStorage.getItem('location') === '/signup') {
-      this.props.history.push('/login');
-      localStorage.setItem('location', '/login');
+    if (localStorage.getItem ('location') === '/signup') {
+      this.props.history.push ('/login');
+      localStorage.setItem ('location', '/login');
     }
   };
   redirectToSignUp = () => {
-    if (localStorage.getItem('location') === '/login') {
-      this.props.history.push('/signup');
-      localStorage.setItem('location', '/signup');
+    if (localStorage.getItem ('location') === '/login') {
+      this.props.history.push ('/signup');
+      localStorage.setItem ('location', '/signup');
     }
   };
-  render() {
+  render () {
     if (
-      localStorage.getItem('location') === '/signup' ||
-      localStorage.getItem('location') === '/login'
+      localStorage.getItem ('location') === '/signup' ||
+      localStorage.getItem ('location') === '/login'
     ) {
       return (
         <Navbar className="navigation" color="light" light expand="md">
@@ -64,4 +64,4 @@ class NavBar extends React.Component {
     }
   }
 }
-export default withRouter(NavBar);
+export default withRouter (NavBar);

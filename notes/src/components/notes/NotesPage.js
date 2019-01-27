@@ -40,6 +40,7 @@ class Notes extends React.Component {
     );
     return this.setState({ filteredNotes: filteredNotes });
   };
+
   render() {
     if (!this.props.fetchingNotes) {
       return (

@@ -82,7 +82,6 @@ class SignUp extends React.Component {
               />
             </FormGroup>
           </Col>
-
           <Col>
             <FormGroup>
               <Input

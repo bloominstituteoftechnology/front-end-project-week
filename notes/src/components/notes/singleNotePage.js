@@ -35,7 +35,7 @@ class SingleNotePage extends React.Component {
                 ) : null}
               </CardBody>
             </Card>
-            <div className="btn-container mb-5">
+            <div className="btn-container mt-4 mb-5">
               <Button
                 color="primary"
                 onClick={() =>

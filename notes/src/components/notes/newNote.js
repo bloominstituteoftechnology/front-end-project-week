@@ -1,7 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { addNote } from '../../actions';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {addNote} from '../../actions';
 import {
   UncontrolledAlert,
   Label,
@@ -14,8 +14,8 @@ import {
 } from 'reactstrap';
 
 class NewNote extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props);
     this.state = {
       title: '',
       content: '',
@@ -23,47 +23,47 @@ class NewNote extends React.Component {
       state: 0,
     };
   }
-  onChangeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  onChangeHandler = e => {
+    this.setState ({[e.target.name]: e.target.value});
   };
-  componentDidMount() {
-    localStorage.setItem('location', this.props.location.pathname);
+  componentDidMount () {
+    localStorage.setItem ('location', this.props.location.pathname);
   }
-  onSubmitHandler = (e) => {
-    e.preventDefault();
+  onSubmitHandler = e => {
+    e.preventDefault ();
     if (this.state.title.length === 0 || this.state.content.length === 0) {
-      this.setState({ state: 1 });
+      this.setState ({state: 1});
     } else {
       let tags;
       if (this.state.tags.length > 0) {
         tags = this.state.tags
-          .replace(/,/g, '')
-          .replace(/\s+/g, ' ')
-          .replace(/\s/g, ', ');
+          .replace (/,/g, '')
+          .replace (/\s+/g, ' ')
+          .replace (/\s/g, ', ');
         if (tags[tags.length - 2] === ',') {
-          tags = tags.substring(0, tags.length - 2);
+          tags = tags.substring (0, tags.length - 2);
         }
       }
       const newNote = {
         title: this.state.title,
         textBody: this.state.content,
         tags: tags !== undefined ? tags : null,
-        user_id: localStorage.getItem('id'),
+        user_id: localStorage.getItem ('id'),
       };
-      this.props.addNote(newNote, this.props.history);
+      this.props.addNote (newNote, this.props.history);
     }
   };
-  render() {
+  render () {
     return (
       <Container className="createNoteForm">
-        {this.state.state === 1 ? (
-          <UncontrolledAlert
-            onClick={() => this.setState({ state: 0 })}
-            color="primary"
-          >
-            A note must have both a title and content.
-          </UncontrolledAlert>
-        ) : null}
+        {this.state.state === 1
+          ? <UncontrolledAlert
+              onClick={() => this.setState ({state: 0})}
+              color="primary"
+            >
+              A note must have both a title and content.
+            </UncontrolledAlert>
+          : null}
         <Form>
           <Col>
             <FormGroup>
@@ -112,9 +112,9 @@ class NewNote extends React.Component {
     );
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     state,
   };
 };
-export default connect(mapStateToProps, { addNote })(withRouter(NewNote));
+export default connect (mapStateToProps, {addNote}) (withRouter (NewNote));

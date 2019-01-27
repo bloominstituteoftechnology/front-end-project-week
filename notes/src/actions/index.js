@@ -77,7 +77,7 @@ export const updateNote = (id, editedNote, history) => {
     request
       .then((data) => {
         dispatch({ type: 'UPDATEDNOTE' });
-        history.push('/notes');
+        history.push(`/notes/${id}`);
       })
       .catch((err) => dispatch({ type: 'ERROR', payload: err }));
   };
