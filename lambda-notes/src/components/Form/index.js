@@ -1,70 +1,44 @@
-import React from 'react';
-import { connect } from "react-redux";
-import { getNotes, getNote, addNote, deleteNote } from "../../store/actions";
-// import "styles.css";
+import React from "react";
+import "./styles.css";
 
-class Form extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            tags: [],
-            title: "",
-            textBody: "",
-        }
-    }
 
-    inputHandler = (event) => {
-        this.setState({
-        [event.target.name]: event.target.value
-        })
-    }
+const Form = (props) => {
+    // LOGIC TO ALLOW 'DISPLAY' AND 'BUTTON' TEXT TO BE DYNAMIC
+    const heading = props.type === "new" ? "Create New Note" : "Edit Note"
+    const buttonName = props.type === "new" ? "Save" : "Update";
 
-    submitHandler = (event) => {
-        event.preventDefault();
-        this.props.addNote(this.state);
-        this.setState = {
-            tags: [],
-            title: "",
-            textBody: "",
-        }
-        // this.props.history.push("/");
-    }
-
-    componentDidMount() {
-        this.props.getNotes();
-    }
-
-    render() {
-        return (
-        <div className="note-box">
-            <form onSubmit={this.submitHandler}>
-                <input 
+    return (
+        <div className="form-container">
+            <h2 className="form-header">
+                {heading}
+            </h2>
+            <form className="newNote-container">
+                <input
+                    className="note-title"
                     type="text"
                     name="title"
-                    placeholder="Title"
-                    value={this.state.title}
-                    onChange={this.inputHandler}
+                    maxLength="35"
+                    placeholder="Note Title"
+                    value={props.title}
+                    onChange={props.recognizeInputChange}
                 />
-                <input
+                <textarea
+                    className="note-content"
                     type="text"
                     name="textBody"
-                    placeholder="Note Text"
-                    value={this.state.textBody}
-                    onChange={this.inputHandler}
+                    placeholder="Your Note Here"
+                    value={props.textBody}
+                    onChange={props.recognizeInputChange}
                 />
-                <button onClick={this.props.submitHandler}>Submit</button>
+                <button 
+                    className="button"
+                    onClick={props.recognizeFormSubmit}>
+                    {buttonName}
+                </button>
             </form>
         </div>
-        );
-    }
-}
-
-const mapStateToProps = state => {
-    return {
-        notes: state.notes,
-        error: state.error,
-        loading: state.loading,
-    }
+    );
 };
 
-export default connect(mapStateToProps, { getNotes, getNote, addNote, deleteNote } )(Form);
+
+export default Form;
