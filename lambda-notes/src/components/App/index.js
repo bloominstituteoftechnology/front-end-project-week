@@ -38,5 +38,7 @@ class App extends Component {
       loading: state.loading,
     }
   };
+
+  // TEST
   
   export default connect(mapStateToProps, { getNotes, getNote, addNote, deleteNote } )(App);
