@@ -1,68 +1,72 @@
-import React, { Component } from 'react';
+import React from "react";
 
-import styled from 'styled-components';
+import { Form, Button } from "react-bootstrap";
+
+import styled from "styled-components";
 
 const Container = styled.div`
-    padding: 65px 20px 500px 20px;
-    background: #f2f0f2;
-    overflow-wrap: break-word;
-    min-width: 100%;
-    padding-bottom: 150%;
-    overflow: hidden;
-`;
-
-const InputTitle = styled.input`
-  font-size: 14px;
-  padding-left: 10px;
-  height: 40px;
-  width: 60%;
-  margin-bottom: 15px;
-  border-radius: 3px;
-  outline: none;
-`
-
-const InputBody = styled.textarea`
-  font-size: 14px;
-  padding-top: 10px;
-  padding-left: 10px;
-  width: 100%;
-  height: 300px;
-  margin-bottom: 15px;
-  border-radius: 3px;
-  outline: none;
-  resize: none;
-  overflow: auto;
-`
-const Button = styled.button`
-    font-size: 14px;
-    font-weight: bold;
-    width: 250px;
-    text-align: center;
-    border: 1px solid rgb(150, 162, 162);
-    color: white;
-    background-color: rgb(54, 192, 195);
-    border-radius: 3px;
-    padding: 15px 25px;
-    cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  min-width: 100vw;
+  overflow: hidden;
 `;
 
 const NewForm = props => {
-    const createNote = event => {
-        event.preventDefault();
-        props.addNote();
-        props.history.push('/');
-    }
+  const createNote = event => {
+    event.preventDefault();
+    props.addNote();
+    props.history.push("/");
+  };
 
-    return (
-        <Container>
-            <h2>Create New Note:</h2>
-            <form>
-                <InputTitle onChange={props.inputHandler} placeholder='Note Title' value={props.title} name='title' />
-                <InputBody onChange={props.inputHandler} placeholder='Note Content' value={props.textBody} name='textBody' />
-                <Button onClick={createNote}>Save</Button>
-            </form>
-        </Container>
-    )
-}
+  return (
+    <Container>
+      <Form>
+        <Form.Group controlId="formTitle">
+          <Form.Label>Note Title</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Title..."
+            onChange={props.inputHandler}
+            value={props.title}
+            name="title"
+          />
+          <Form.Text className="text-muted">
+            You're the next Paul Graham.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="formBody">
+          <Form.Label>Body</Form.Label>
+          <Form.Control
+            as="textarea"
+            aria-label="With textarea"
+            placeholder="✍️"
+            style={{ height: "50vh", resize: "none", overflow: "auto" }}
+            onChange={props.inputHandler}
+            value={props.textBody}
+            name="textBody"
+          />
+        </Form.Group>
+        <Button variant="outline-primary" type="submit" onClick={createNote}>
+          Save Note
+        </Button>
+      </Form>
+    </Container>
+  );
+};
 
 export default NewForm;
+
+// font-size: 14px;
+// padding-top: 10px;
+// padding-left: 10px;
+// width: 100%;
+// height: 300px;
+// margin-bottom: 15px;
+// border-radius: 3px;
+// outline: none;
+// resize: none;
+// overflow: auto;

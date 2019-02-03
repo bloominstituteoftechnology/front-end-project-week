@@ -1,19 +1,14 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-import NoteCard from './NoteCard';
+import NoteCard from "./NoteCard";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Container = styled.div`
-  background-color: rgb(241, 242, 242);
+  background-color: rgb(248, 249, 250);
   overflow-wrap: break-word;
   width: 100%;
-`;
-
-const NotesHeader = styled.h2`
-  padding-top: 65px;
-  padding-left: 25px;
 `;
 
 const NotesContainer = styled.div`
@@ -32,38 +27,41 @@ const NoteContainer = styled.div`
   border-radius: 3px;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
-  margin: 15px 15px 15px 15px;
+  margin: 20px 25px 20px 0px;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-class Notes extends Component {
-  render() {
-    return (
-      <Container>
-        <NotesHeader>Your Notes:</NotesHeader>
-          <NotesContainer>
-              {this.props.notes.map(note => {
-                return (
-                  <NoteContainer key={note._id}>
-                    <Link to={`/notes/${note._id}`} style={{ textDecoration: 'none', color: 'black' }} >
-                      <NoteCard
-                        key={note._id}
-                        title={note.title}
-                        text={note.textBody}
-                      />
-                    </Link>
-                  </NoteContainer>
-                );
-              })}
-          </NotesContainer>
-      </Container>
-    );
-  }
-}
+const Notes = props => {
+  return (
+    <Container>
+      {/* <NotesHeader>Your Notes:</NotesHeader> */}
+      <NotesContainer>
+        {props.notes.map(note => {
+          return (
+            <NoteContainer key={note._id}>
+              <Link
+                to={`/notes/${note._id}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <NoteCard
+                  key={note._id}
+                  id={note._id}
+                  title={note.title}
+                  text={note.textBody}
+                  {...props}
+                />
+              </Link>
+            </NoteContainer>
+          );
+        })}
+      </NotesContainer>
+    </Container>
+  );
+};
 
 Notes.defaultProps = {
- notes: [],
+  notes: []
 };
 
 export default Notes;

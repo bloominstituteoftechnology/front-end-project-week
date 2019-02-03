@@ -9,8 +9,8 @@ const NavBar = styled.div`
     align-content: flex-start;
     max-width: 300px;
     min-width: 300px;
-    background-color: rgb(216, 216, 216);
-    border-right: 1px solid rgb(175, 175, 175);
+    background-color: rgb(251, 251, 253);
+    border-right: 1px solid rgb(234, 237, 232);
     color: rgb(74, 74, 74);
     /* margin-bottom: -101%; */
     padding-bottom: 150%;
