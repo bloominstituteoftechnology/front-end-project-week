@@ -1,0 +1,10 @@
+const FETCHED_NOTES = 'FETCHED_NOTES';
+const FETCHING_NOTES = 'FETCHING_NOTES';
+const ERROR = 'ERROR';
+
+
+export default {
+    FETCHED_NOTES,
+    FETCHING_NOTES,
+    ERROR
+}
