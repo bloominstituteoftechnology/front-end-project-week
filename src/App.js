@@ -109,7 +109,7 @@ class App extends Component {
   
           const notes = this.state.notes.slice();
           for (let i = 0; i < notes.length; i++) {
-            if (notes[i].id == noteID) {
+            if (notes[i].id === noteID) {
               notes[i] = editedNote;
             }
           }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -30,7 +31,9 @@ class Login extends Component {
           </div>
           <div>
             <button type = "submit">Login</button>
+            <NavLink exact to="/signup" className="nav-text" activeClassName="active-component"><p>Don't have an account? Sign up</p> </NavLink>
           </div>
+
       </form>
     );
   }
@@ -49,7 +52,7 @@ class Login extends Component {
         this.props.history.push('/notes');
       })
       .catch(err => {
-          console.err(err);
+          console.error(err);
       })
     
   };
