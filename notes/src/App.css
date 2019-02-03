@@ -1,0 +1,119 @@
+.App {
+  text-align: center;
+  font-family: 'Roboto';
+  margin: 0 auto;
+  /* background-color: #F1F1F2;
+  height: 600px;
+  width: 1800px!important; */
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+{
+    font-family: "Roboto", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    background-color: #D2D1D2;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.li {
+    padding: 6px 8px 6px 16px;
+    margin: 15px 5px 10px 5px;
+    text-decoration: none;
+    font-size: 1.2rem!important;
+    color: white;
+    display: block;
+    background-color: #23B8BE;
+    border: 1px solid #A0B2B2;
+    border-radius: 2px!important;
+    width: 127px;
+}
+
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+.nav {
+  text-decoration: underline;
+  justify-content: flex-end;
+  padding: 0 0 0 0;
+  color:#5E6368!important;
+}
+
+.note{
+  display: flex;
+  margin: 10px 10px 10px 10px;
+  color:#5E6368!important;;
+  padding: 10px 10px 10px 10px;
+}
+
+
+.titlular{
+  border-bottom: 1px solid;
+}
+
+.home{
+  color:#434343
+}
+
+#no{
+  background-color: #23B8BE;
+  width: 125px;
+}
+
+#yes{
+  background-color: #C20028;
+  width: 125px;
+}
+
+.back{
+  text-align: left;
+  font-weight: 600;
+}
+
+.title{
+  font-weight: 600;
+}
+
+.modal-content{
+margin: 300px 0 0 0;
+}
+
+.modal{
+  background-color: rgba(220,220,220,0.6);
+}
