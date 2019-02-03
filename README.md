@@ -1,5 +1,7 @@
 # Front End Project Week
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/773ad9f7-c5d1-4ac5-8c28-01e19711fa12/deploy-status)](https://app.netlify.com/sites/lambdanotesdev/deploys)
+
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
 You are to treat this week as if you are working at a company and the instructor is your client. The project managers will be your main support throughout the week.
