@@ -1,0 +1,237 @@
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: georgia;
+}
+
+h1, h2, h3 {
+    color: #414141;
+    font-family: 'Pacifico', cursive;
+}
+
+
+.page {
+    display: flex;
+    min-height: 100vh;
+    box-shadow: 0px 0px 10px rgb(99, 98, 98);  
+    background: rgba(255, 255, 255, 0.801);
+}
+
+.menubar {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #D3D2D3;
+    border-right: solid rgb(196, 196, 196) 1px;
+}
+
+
+.menubar > h1 {
+    margin: 10% 10% 8%;
+    font-size: 210%;
+}
+
+
+
+.menubtn {
+    background: darkturquoise;
+    border: solid rgb(172, 172, 172) 1px;
+    font-size: 90%;
+    color: white;
+    width: 80%;
+    height: 40px;
+    margin-bottom: 5%;
+    border-radius: 2px;
+    text-decoration: none;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* themes */
+
+.theme {
+    width: 80%;
+}
+
+.themebtn{
+    background: darkturquoise;
+    border: solid rgb(172, 172, 172) 1px;
+    font-size: 75%;
+    color: white;
+    width: 35%;
+    height: 20px;
+    margin-bottom: 5%;
+    text-decoration: none;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.themebtnpink{
+    background: rgb(233, 146, 175);
+    border: solid rgb(206, 97, 133) 1px;
+}
+.themebtnblue{
+    background: skyblue;
+    border: solid rgb(90, 153, 205) 1px;
+}
+.menubtnpink{
+    background: rgb(233, 146, 175);
+    border: solid rgb(206, 97, 133) 1px;
+}
+
+.menubtnblue{
+    background: skyblue;
+    border: solid rgb(90, 153, 205) 1px;
+}
+.menubarpink {
+    background-image: linear-gradient(to right, palevioletred,rgb(228, 150, 176));
+    border-right: dotted 1px gray;
+    /* background: rgba(216, 112, 147, 0.897); */
+}
+.menubarblue {
+    background: rgba(72, 167, 231, 0.5);
+    border-right: solid 1px gray;
+}
+.pagepink {
+    background-image: linear-gradient(to right, palevioletred, pink, rgba(255, 255, 0, 0.575));
+}
+
+.pageblue {
+    background-image: linear-gradient(to right, white, rgba(72, 167, 231, 0.5));
+}
+
+.notes-container {
+    box-sizing: border-box;
+    padding: 2.5%;
+    width: 80%;
+    height: 100%;
+}
+
+
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.note-title {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding-bottom: 5%;
+    border-bottom: solid lightgray 2px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+.note-text {
+    height: 99px;
+    overflow-y: scroll;
+}
+
+
+.note {
+    width: 200px;
+    height: 200px;
+    background: white;
+    color: rgba(0, 0, 0, 0.801);
+    box-sizing: border-box;
+    padding: 0 2.5% 10%;
+    margin: 2%;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+
+}
+
+.notelink {
+    text-decoration: none;
+    color: black;
+}
+
+.note-contents {
+    line-height: 150%;
+    white-space: pre-wrap;
+}
+
+.tags {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 8px;
+}
+
+.tagx {
+    box-sizing: border-box;
+  
+    font-size: 70%;
+    /* margin-top: ;
+    margin-right: 3%; */
+    background: rgb(192, 255, 245);
+    border-radius: 3px;
+    border: 1px solid rgba(128, 128, 128, 0.479);
+}
+
+.tagx {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.tagx > i {
+    padding-top: 2.5px;
+    /* padding-left: 5px; */
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 2px;
+    color: rgba(73, 73, 73, 0.418);
+}
+
+.tagx > p {
+    margin: 0;
+    padding-left: 2px;
+}
+
+.fa-plus-circle {
+    margin-left: auto;
+    font-size: 70%;
+    cursor: pointer;
+}
+
+.tagModal {
+    height: 200px;
+    width: 200px;
+    border-radius: 5px;
+    position: absolute;
+    left:0;
+    background: rgba(255, 192, 203, 0.863);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tagModal > button {
+    border-radius: 5px;
+    margin-top: 5%;
+}
+
+.tagModal > input {
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: 20px;
+    margin-top: 3%;
+}
+
+.hide{
+    display: none;
+}
+

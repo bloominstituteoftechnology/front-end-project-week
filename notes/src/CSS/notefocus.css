@@ -1,0 +1,122 @@
+.focus {
+    box-sizing: border-box;
+    background: white;
+    padding: 5% 7% 2.5% 7%;
+    width: 80%;
+    height: 100vh;
+    position: relative;
+    color: #414141;
+}
+.focustitle {
+    margin-top: 5%;
+}
+
+.notetxt {
+    line-height: 200%;
+    white-space: pre-wrap;
+}
+
+.edit-del {
+    position: absolute;
+    right: 3%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    text-decoration: underline;
+    color: black;
+}
+
+.edit-del > p{
+    cursor: pointer;
+}
+
+.linkedit {
+    color: black;
+}
+
+.delete {
+    background: rgba(226, 226, 226, 0.699);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+}
+.delete-menu {
+   
+    background: rgba(226, 226, 226, 0.699);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+}
+
+.hide-delete {
+    display: none;
+}
+
+.modal {
+    margin-top: 20%;
+    margin-left: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 175px;
+    width: 500px;
+    background: white;
+    border: solid 1px gray;
+    color: gray;
+}
+
+.modal > p {
+    margin: 8% 0 7%;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    width: 420px;
+}
+
+.deletebtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    background: rgb(230, 11, 77);
+    color: white;
+    border: solid 1px gray;
+    border-radius: 5px;
+    text-decoration: none;
+    
+}
+.linkdel {
+    text-decoration: none;
+}
+
+.nobtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    background: darkturquoise;
+    color: white;
+    border: solid 1px gray;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.focuspink {
+    background: rgba(255, 255, 255, 0.616);
+}
+
+.focusblue {
+    background: rgba(255, 255, 255, 0.616);
+}
+
+

@@ -1,0 +1,66 @@
+.input {
+    display: flex;
+    flex-direction: column;
+}
+.notes-container > h1 {
+    font-family: 'Pacifico', cursive;
+}
+.input-title {
+    width: 60%;
+    height: 30px;
+    border-radius: 3px;
+    margin-bottom: 2%;
+    border: solid lightgray 2px;
+    font-size: 100%;
+    padding: 0 1%;
+    outline: none;
+    border-radius: 5px;
+    font-family: georgia
+}
+.input-body {
+    width: 100%;
+    height: 60vh;
+    border-radius: 3px;
+    border: solid lightgray 2px;
+    font-size: 100%;
+    box-sizing: border-box;
+    padding: 1%;
+    outline: none;
+    border-radius: 5px;
+    font-family: georgia
+}
+
+.save > button {
+    color: white;
+    background: darkturquoise;
+    border: solid rgb(172, 172, 172) 1px;
+    border-radius: 2px;
+    font-size: 90%;
+    height: 40px;
+    width: 100%;
+    margin-top: 10%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.save {
+    width: 45%;
+}
+
+/* themes */
+
+.savepink > button {
+    background: rgb(233, 146, 175);
+    border: solid rgb(206, 97, 133) 1px;
+}
+
+.saveblue> button {
+    background: skyblue;
+    border: solid rgb(90, 153, 205) 1px;
+}
+
+.editbtns {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
