@@ -1,7 +1,13 @@
 {
   "name": "notes",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
+  "description": "Lambda Notes frontend project week",
+  "main": "index.js",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpdis/front-end-project-week.git"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
@@ -20,9 +26,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
