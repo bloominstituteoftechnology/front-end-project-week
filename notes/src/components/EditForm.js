@@ -5,35 +5,13 @@ import { Form, Button } from "react-bootstrap";
 import styled from "styled-components";
 
 const Container = styled.div`
-  padding: 65px 20px 500px 20px;
-  background: #f2f0f2;
-  overflow-wrap: break-word;
-  min-width: 100%;
-  padding-bottom: 150%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  min-width: 100vw;
   overflow: hidden;
-`;
-
-const InputTitle = styled.input`
-  font-size: 14px;
-  padding-left: 10px;
-  height: 40px;
-  width: 60%;
-  margin-bottom: 15px;
-  border-radius: 3px;
-  outline: none;
-`;
-
-const InputBody = styled.textarea`
-  font-size: 14px;
-  padding-top: 10px;
-  padding-left: 10px;
-  width: 100%;
-  height: 300px;
-  margin-bottom: 15px;
-  border-radius: 3px;
-  outline: none;
-  resize: none;
-  overflow: auto;
 `;
 
 const EditForm = props => {
@@ -47,22 +25,35 @@ const EditForm = props => {
 
   return (
     <Container>
-      <h2>Edit Note:</h2>
-      <form>
-        <InputTitle
-          onChange={props.inputHandler}
-          placeholder="Note Title"
-          value={props.updateTitle}
-          name="updateTitle"
-        />
-        <InputBody
-          onChange={props.inputHandler}
-          placeholder="Note Content"
-          value={props.updateTextBody}
-          name="updateTextBody"
-        />
-        <Button onClick={updateNotes}>Update</Button>
-      </form>
+      <Form>
+        <Form.Group controlId="formTitle">
+          <Form.Label>Note Title</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Title..."
+            onChange={props.inputHandler}
+            value={props.updateTitle}
+            name="updateTitle"
+          />
+          <Form.Text className="text-muted">Or maybe Sam Altman.</Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="formBody">
+          <Form.Label>Body</Form.Label>
+          <Form.Control
+            as="textarea"
+            aria-label="With textarea"
+            placeholder="✍️"
+            style={{ height: "50vh", resize: "none", overflow: "auto" }}
+            onChange={props.inputHandler}
+            value={props.updateTextBody}
+            name="updateTextBody"
+          />
+        </Form.Group>
+        <Button variant="outline-primary" type="submit" onClick={updateNotes}>
+          Update
+        </Button>
+      </Form>
     </Container>
   );
 };

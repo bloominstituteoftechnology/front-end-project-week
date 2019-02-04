@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-const border = {
-  borderRight: "1px solid rgb(234, 237, 232)",
-  paddingRight: "20px"
-};
-
 // TODO: Create logo and app name
 // TODO: Add search functionality
 // TODO: Add sign up and login functionality
