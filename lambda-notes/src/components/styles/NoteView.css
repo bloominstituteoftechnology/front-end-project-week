@@ -1,0 +1,15 @@
+.NoteViewMain {
+    position: absolute;
+    left: 214px;
+    bottom: 0px;
+    top: 0px;
+    width: 612px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background: #f3f3f3;
+    flex-direction: row;
+    padding-left: 27px;
+    padding-top: 83px;
+    border-right: 1px solid #afafaf;
+}

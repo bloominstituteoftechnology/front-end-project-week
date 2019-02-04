@@ -1,0 +1,68 @@
+.NoteCreateMain {
+    background-color: red;
+    position: absolute;
+    left: 214px;
+    bottom: 0px;
+    top: 0px;
+    width: 612px;
+    height: 560px;
+    display: flex;
+    flex-direction: column;
+    background: #f3f3f3;
+    padding-left: 22px;
+    padding-top: 40px;
+    border-right: 1px solid #afafaf;
+}
+
+.NoteCreateTitle {
+    font-size: 19.2px;
+    color: #4a4a4a;
+    text-align: left;
+    margin-left: 2px;
+}
+
+.NoteCreateForm {
+    margin-top: 10px;
+    height: 480px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.NoteCreateInputTitle {
+    margin-bottom: 8px;
+    margin-top: 6px;
+    height: 37px;
+    width: 329px;
+    border-radius: 3px;
+    border: 1px solid #9a9a9a;
+    margin-left: 2px;
+    padding-left: 12px;
+    letter-spacing: 0.2px;
+    color: #4a4a4a;
+}
+
+.NoteCreateTextAreaContent {
+    height: 309px;
+    margin-bottom: 13px;
+    border-radius: 3px;
+    border: 1px solid #9a9a9a;
+    margin-top: 5px;
+    margin-left: 2px;
+    margin-right: 16px;
+    padding-left: 21px;
+    padding-top: 20px;
+    letter-spacing: 0.3px;
+}
+
+.NoteCreateButtonSave {
+    background-color: #29c1c4;
+    height: 41px;
+    width: 183px;
+    border: 1px solid #9a9a9a;
+    margin-left: 4px;
+    margin-top: 1px;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+}
