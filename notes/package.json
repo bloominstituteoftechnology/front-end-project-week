@@ -17,6 +17,7 @@
     "react-bootstrap": "^1.0.0-beta.5",
     "react-csv": "^1.0.18",
     "react-dom": "^16.6.3",
+    "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "styled-components": "^4.1.1"

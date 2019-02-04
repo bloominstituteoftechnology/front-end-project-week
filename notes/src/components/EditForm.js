@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
+
+import { Form, Button } from "react-bootstrap";
 
 import styled from "styled-components";
 
@@ -32,18 +34,6 @@ const InputBody = styled.textarea`
   outline: none;
   resize: none;
   overflow: auto;
-`;
-const Button = styled.button`
-  font-size: 14px;
-  font-weight: bold;
-  width: 250px;
-  text-align: center;
-  border: 1px solid rgb(150, 162, 162);
-  color: white;
-  background-color: rgb(54, 192, 195);
-  border-radius: 3px;
-  padding: 15px 25px;
-  cursor: pointer;
 `;
 
 const EditForm = props => {

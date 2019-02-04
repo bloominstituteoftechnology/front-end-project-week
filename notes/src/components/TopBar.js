@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 const border = {
   borderRight: "1px solid rgb(234, 237, 232)",
@@ -15,11 +17,19 @@ export default class TopBar extends Component {
     return (
       <div>
         <Navbar bg="light" variant="light">
-          <Navbar.Brand href="#home">Lambda Notes!</Navbar.Brand>
+          <Navbar.Brand>
+            <Link to="/">Lambda Notes!</Link>
+          </Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/new-note">Create</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
+            <LinkContainer to="/">
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/new-note">
+              <Nav.Link>Create</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <Nav.Link>About</Nav.Link>
+            </LinkContainer>
           </Nav>
           <Form
             inline
