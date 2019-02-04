@@ -39,14 +39,14 @@ const Notes = props => {
       <NotesContainer>
         {props.notes.map(note => {
           return (
-            <NoteContainer key={note._id}>
+            <NoteContainer key={note.id}>
               <Link
-                to={`/notes/${note._id}`}
+                to={`/notes/${note.id}`}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <NoteCard
-                  key={note._id}
-                  id={note._id}
+                  key={note.id}
+                  id={note.id}
                   title={note.title}
                   text={note.textBody}
                   {...props}

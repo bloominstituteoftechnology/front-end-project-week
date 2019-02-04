@@ -36,7 +36,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("https://onedrousdev.herokuapp.com/api/notes")
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -59,7 +59,7 @@ class App extends Component {
 
   addNote = () => {
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", {
+      .post("https://onedrousdev.herokuapp.com/api/create", {
         title: this.state.title,
         textBody: this.state.textBody
       })
@@ -73,10 +73,8 @@ class App extends Component {
 
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => {
-        // console.log(response.data)
-      })
+      .delete(`https://onedrousdev.herokuapp.com/api/delete/${id}`)
+      .then(response => {})
       .catch(err => {
         console.log(err);
       });
@@ -95,7 +93,7 @@ class App extends Component {
 
   editNote = id => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+      .put(`https://onedrousdev.herokuapp.com/api/edit/${id}`, {
         title: this.state.updateTitle,
         textBody: this.state.updateTextBody
       })

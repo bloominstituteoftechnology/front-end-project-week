@@ -47,13 +47,11 @@ const Button = styled.button`
 `;
 
 const EditForm = props => {
-  const note = props.notes.find(
-    note => `${note._id}` === props.match.params.id
-  );
+  const note = props.notes.find(note => `${note.id}` === props.match.params.id);
 
   const updateNotes = event => {
     event.preventDefault();
-    props.editNote(note._id);
+    props.editNote(note.id);
     props.history.push("/");
   };
 

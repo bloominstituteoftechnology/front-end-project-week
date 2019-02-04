@@ -93,13 +93,11 @@ const NoButton = styled.div`
 
 const Note = props => {
   if (props.notes.length) {
-    let note = props.notes.find(
-      note => `${note._id}` === props.match.params.id
-    );
+    let note = props.notes.find(note => `${note.id}` === props.match.params.id);
 
     const deleteNotes = event => {
       event.preventDefault();
-      props.deleteNote(note._id);
+      props.deleteNote(note.id);
       props.deleteToggleOff();
     };
 
@@ -119,7 +117,7 @@ const Note = props => {
 
         <Actions>
           <Link
-            to={`/note/${note._id}/edit`}
+            to={`/note/${note.id}/edit`}
             onClick={() => props.updatedNote(note.title, note.textBody)}
             style={{ color: "black" }}
           >
