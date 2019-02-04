@@ -1,9 +1,21 @@
 import React, { Component } from "react";
 
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  min-width: 100vw;
+  overflow: hidden;
+`;
+
 export default class About extends Component {
   render() {
     return (
-      <div>
+      <Container>
         <h2>About</h2>
         <p>
           Lambda Notes utilizes Blockstack's innovative technology which allows
@@ -16,7 +28,7 @@ export default class About extends Component {
           identity verificatiion, the user's notes are stored in decentralized
           multi-player Gaia storage.
         </p>
-      </div>
+      </Container>
     );
   }
 }
