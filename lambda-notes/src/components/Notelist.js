@@ -17,14 +17,13 @@ class NoteList extends Component {
     render() {
       return (
         <div className='main-page'>
-            <p>Your notes:</p>
+            <p className='your-notes'>Your Notes:</p>
             <div className="noteList">
                 {this.state.notes.map(note => {
                     return (
                         <div className="notes" key={note.id}>
                             <Link to={`/notes/${note.id}`}>
-                                <h4>{note.id} -- 
-                                {note.title}</h4>
+                                <h4>{note.title}</h4>
                                 <hr></hr>
                                 <p>{note.description}</p>
                             </Link>

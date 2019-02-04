@@ -7,8 +7,8 @@ const Nav = () => {
             <div className="nav">
                 <h1>Lambda Notes</h1>
                 <div className="nav-buttons-div">
-                    <Link to={'/'} className='navClick'>All notes</Link>
-                    <Link to={'/create'} className='navClick'>Add a new note</Link>
+                    <Link to={'/'} className='navClick'>All Notes</Link>
+                    <Link to={'/create'} className='navClick'>Create A Note</Link>
                 </div>
             </div>
         </div>    

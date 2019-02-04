@@ -1,48 +1,53 @@
 .App {
-  text-align: center;
-  display: flex;
-  width: 1024px;
+	text-align: center;
+	display: flex;
+	width: 1024px;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+	background-color: #222;
+	height: 150px;
+	padding: 20px;
+	color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+	font-size: large;
 }
 
 .nav {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .nav a {
-  text-decoration: none;
+	text-decoration: none;
+}
+
+.your-notes {
+	font-weight: 800;
+	font-size: 1.5em;
 }
 
 .allNotes {
-  display: flex;
+	display: flex;
 }
 
 .allNotes a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .main-page p {
-  text-align: center;
+	text-align: center;
 }
 
 /* .note {
@@ -57,192 +62,238 @@
 } */
 
 .create-form {
-  display: flex;
-  flex-direction: column;
-  padding: 0 5px;
+	display: flex;
+	flex-direction: column;
 }
 
 .create-name {
-  width: 200px;
-  height: 10px;
-  padding: 5px 10px;
-  margin-bottom: 5px;
-  border: 1px solid gray;
+	width: 200px;
+	height: 10px;
+	padding: 5px 10px;
+	margin-bottom: 5px;
+	border: 1px solid gray;
+	font-style: italic;
 }
 
 .create-text {
-  width: 400px;
-  height: 100px;
-  padding: 5px 10px;
-  margin-bottom: 5px;
-  border: 1px solid gray;
+	width: 400px;
+	height: 100px;
+	padding: 5px 10px;
+	margin-bottom: 5px;
+	color: lightgray;
+	font-style: italic;
+	border: 1px solid gray;
 }
 
 .add-button {
-  width: 200px;
-  background-color: teal;
-  color: white;
-  height: 25px;
+	display: flex;
+	justify-content: center;
+	color: white;
+	background-color: #23b8bd;
+	border: 1px solid #86aeb1;
+	margin: 15px 0;
+	padding-top: 1px;
+	border-radius: 10px;
+	height: 30px;
+	width: 200px;
+	font-weight: 800;
 }
 
 .create-container {
-  background-color: lightgrey;
-  text-align: left;
-  height: 600px;
-  width: 100%;
-  padding: 20px;
+	background-color: #f2f2f2;
+	text-align: left;
+	height: 600px;
+	width: 100%;
+	padding: 20px;
 }
 
 .nav-container {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: 25%;
-  min-height: 600px;
-  background-color: #D3D3D3;
-  border-right: 1px solid grey;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	width: 25%;
+	min-height: 600px;
+	background-color: #b7b5b7;
+	border-right: 1px solid grey;
 }
 
 .nav {
-  margin: 0;
+	margin: 0;
 }
 
 .nav h1 {
-  text-align: left;
+	text-align: left;
+	font-weight: 800;
 }
 
 .nav-buttons-div {
-  margin-top: 5px;
-  display: flex;
-  flex-direction: column;
+	margin-top: 5px;
+	display: flex;
+	flex-direction: column;
 }
 
 .navClick {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  color: white;
-  background-color: teal;
-  border: 1px solid #86AEB1;
-  margin: 5px 0;
-  height: 30px;
-  width: 200px;
+	display: flex;
+	justify-content: center;
+	color: white;
+	background-color: #23b8bd;
+	border: 1px solid #86aeb1;
+	margin: 15px 0;
+	padding-top: 10px;
+	border-radius: 10px;
+	height: 30px;
+	width: 200px;
+	font-weight: 600;
 }
 
 .main-page {
-  display: flex;
-  flex-direction: column;
-  background-color: lightgray;
-  width: 75%;
-  
+	display: flex;
+	flex-direction: column;
+	background-color: #f2f2f2;
+	width: 100%;
 }
 
 .main-page p {
-  text-align: left;
-  margin: 10px 5px;
+	text-align: left;
+	margin: 10px 5px;
 }
 
 .noteList {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 660px;
-  justify-content: space-between;
-  align-content: center;
-  padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 660px;
+	justify-content: space-between;
+	align-content: center;
+	padding: 20px;
 }
 
 .notes {
-  margin: 10px 5px;
-  width: 25%;
-  min-height: 10px;
-  overflow: hidden;
-  border: 1px solid black;
-  padding: 5px 10px;
-  background-color: white;
+	margin: 10px 5px;
+	width: 25%;
+	min-height: 10px;
+	overflow: hidden;
+	border: 1px solid black;
+	padding: 5px 10px;
+	background-color: white;
 }
 
 .notes h4 {
-  margin: 0;
-  text-align: left;
-  text-decoration: none;
+	margin: 0;
+	text-align: left;
+	text-decoration: none; 
+	color: black;
+	font-size: 1.6em;
 }
 
 .notes hr {
-  margin: 5px 0;
+	margin: 5px 0;
+}
+
+.notes a {
+	text-decoration: none;
 }
 
 .notes p {
-  margin: 0;
-  height: 10rem;
-  text-decoration: none;
+	margin: 0;
+	height: 10rem;
+	text-decoration: none;
+	color: black;
 }
 
 .note {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: lightgray;
-  height: 600px;
-  text-align: left;
-  padding: 20px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background-color: #f2f2f2;
+	height: 600px;
+	text-align: left;
+	padding: 20px;
+}
+
+.note h1 {
+	font-size: 1.5em;
+	padding-bottom: 10px;
+}
+
+.note h3 {
+	font-size: 1em;
 }
 
 .note a {
-  margin: 0 5px;
+	margin: 0 5px;
 }
 
-
-
 .noteHeader {
-  display: flex;
-  justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .editz {
-  padding: 10px;
-  background:none!important;
-  color:blue;
-  border:none; 
-  padding:0!important;
-  font: inherit;
-  text-decoration: underline;
-  /*border is optional*/
-  border: none; 
-  cursor: pointer;
+	padding: 10px;
+	background: none !important;
+	color: blue;
+	border: none;
+	/* padding: 0 !important; */
+	font: inherit;
+	text-decoration: underline;
+	/*border is optional*/
+	border: none;
+	cursor: pointer;
+	color: gray;
+	font-weight: 700;
+
 }
 
 .delete-buttons {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 .showDelete {
-  position: absolute;
-  top: 200px;
-  left: 200px;
-  opacity: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 500px;
-  height: 200px;
-  border: 1px solid black;
-  background-color: white;
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	opacity: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 200px;
+	border: 1px solid black;
+	background-color: white;
 }
 
 .hide-delete {
-  display: none;
+	display: none;
 }
 
 .delete {
-  background-color: red;
-  width:150px;
-  margin-right: 10px;
+	display: flex;
+	justify-content: center;
+	color: white;
+	background-color: black;
+	border: 1px solid #86aeb1;
+	margin: 15px 0;
+	padding-top: 5px;
+	border-radius: 10px;
+	height: 30px;
+	width: 200px;
+	font-weight: 600;
+	text-decoration: none;
 }
 
 .cancelDelete {
-  background-color: teal;
-  width:150px;
+	display: flex;
+	justify-content: center;
+	color: white;
+	background-color: #23b8bd;
+	border: 1px solid #86aeb1;
+	margin: 15px 0;
+	padding-top: 5px;
+	border-radius: 10px;
+	height: 30px;
+	width: 200px;
+	font-weight: 600;
 }

@@ -49,7 +49,7 @@ class CreateNote extends React.Component {
                     />
                 </form>
                 <div>
-                    <button className="add-button" onClick={this.addNote}>Add</button>
+                    <button className="add-button" onClick={this.addNote}>Create</button>
                 </div>
 
             </div>
