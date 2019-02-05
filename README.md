@@ -22,12 +22,12 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 ## MVP Features:
 
-- [ ] Display a list of notes
-- [ ] Create a note with a title and content
+- [X] Display a list of notes
+- [X] Create a note with a title and content
 - [ ] View an existing note
 - [ ] Edit an existing note
-- [ ] Delete an existing note
-- [ ] Wire up your static React App to our Notes API.
+- [X] Delete an existing note
+- [X] Wire up your static React App to our Notes API.
   - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
 
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
@@ -45,12 +45,12 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 
 ## MVP Features:
 
-- [ ] Display a list of notes
-- [ ] Create a note with a title and content
+- [X] Display a list of notes
+- [X] Create a note with a title and content
 - [ ] View an existing note
 - [ ] Edit an existing note
-- [ ] Delete an existing note
-- [ ] Wire up your static React App to our Notes API.
+- [X] Delete an existing note
+- [X] Wire up your static React App to our Notes API.
   - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
 ```
 
