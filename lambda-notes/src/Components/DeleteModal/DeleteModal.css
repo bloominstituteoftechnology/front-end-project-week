@@ -1,0 +1,53 @@
+.delete-modal-block {
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    min-width: 370px;
+    max-width: 370px;
+    min-height: 140px;
+    max-height: 140px;
+    background-color: white;
+    z-index: 1000;
+    position: fixed;
+    margin: 120px 0 0 -20px; 
+}
+
+.delete-modal-block p {
+    text-align: center;
+    font-weight: 600
+}
+
+.buttons-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-modal-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid gray;
+    height: 30px;
+    width: 120px;
+    margin: 10px;
+    color: white;
+    font-weight: 600;
+}
+
+.delete-button {
+    background-color: red;
+}
+
+.no-button {
+    background-color: #00CCCC;
+}
+
+.hide {
+    display: none;
+}
+
+.delete-link {
+    text-decoration: none;
+    color: white;
+}

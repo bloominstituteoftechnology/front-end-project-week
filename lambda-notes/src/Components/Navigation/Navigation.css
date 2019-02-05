@@ -1,0 +1,32 @@
+.nav {
+    background-color: #D3D3D3;
+    width: 250px;
+    height: 100vh;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.nav p {
+    font-size: 30px;
+    font-weight: 700;
+    font-family: Arial;
+    line-height: 90%;
+    margin: 15px 10px;
+}
+
+.nav div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    background-color: #00CCCC;
+    width: 230px;
+    height: 35px;
+    margin: 15px auto; 
+}
+
+.link {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+}

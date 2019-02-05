@@ -1,0 +1,18 @@
+.notes {
+    display: flex;
+    flex-direction: column;
+    background-color: #F0F0F0;
+}
+
+.your-notes-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 40px;
+}
+
+.noteslist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+

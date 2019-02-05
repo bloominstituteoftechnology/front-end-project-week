@@ -1,0 +1,43 @@
+.create-new-note {
+    display: flex;
+    flex-direction: column;
+    background-color: #F0F0F0;
+    min-width: 750px;
+}
+
+.create-new-note-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 40px;
+}
+
+.create-new-note-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-new-note-input input {
+    width: 400px;
+    height: 25px;
+    margin: 0 40px;
+}
+
+.create-new-note-input textarea {
+    width: 670px; 
+    height: 300px;
+    margin: 20px 40px;
+}
+
+.create-new-note-input button {
+    border: 1px solid gray;
+    background-color: #00CCCC;
+    width: 230px;
+    height: 35px;
+    margin: 0 40px; 
+}
+
+.link {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+}

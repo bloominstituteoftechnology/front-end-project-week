@@ -1,0 +1,30 @@
+.note-view {
+    display: flex;
+    flex-direction: column;
+    background-color: #F0F0F0;
+    min-width: 750px;
+}
+
+.note-view-links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.note-view-links div {
+    margin: 20px 20px 0 0;
+}
+
+.note-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 20px;
+}
+
+.note-content {
+    margin: 0 20px;
+}
+
+.edit-link {
+    text-decoration: none;
+    color: black;
+}
