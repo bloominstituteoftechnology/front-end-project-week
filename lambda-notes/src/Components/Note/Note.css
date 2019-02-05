@@ -1,0 +1,21 @@
+.note {
+    padding: 7px;
+    width: 200px;
+    height: 220px;
+    border: 1px solid gray;
+    margin: 5px;
+    background-color: aliceblue;
+}
+
+.note h4 {
+    margin: 0;
+}
+
+.note p {
+    margin: 0;
+}
+
+.note-link {
+    text-decoration: none;
+    color: black;
+}
