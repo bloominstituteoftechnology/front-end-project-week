@@ -1,0 +1,132 @@
+html,
+body {
+    height: 100%;
+}
+
+.App {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1200px;
+    background-color: whitesmoke;
+    margin: 0 auto;
+}
+
+.navbar {
+    background-color: #D8D8D8;
+    border-right: 1px solid grey;
+    width: 30%;
+    max-width: 300px;
+    margin-right: 20px;
+    position: fixed;
+    height: 100%;
+}
+
+.navbar h1 {
+    color: #4A4A4A;
+    margin-left: 15px;
+}
+
+.button {
+    padding: 12px;
+    color: white;
+    margin: 15px;
+    background-color: #2BC1C4;
+    border: 1px solid grey;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.note {
+    padding: 15px;
+    width: 200px;
+    border: 1px solid grey;
+    background-color: white;
+    margin-bottom: 30px;
+    height: 22vh;
+    cursor: pointer;
+}
+
+.note-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.notes {
+    width: 100%;
+    margin: 50px 60px 0px 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.notes h1 {
+    font-size: 22px;
+    color: #4A4A4A;
+    margin-bottom: 20px;
+}
+
+.note h1 {
+    font-size: 16px;
+    color: #4A4A4A;
+    border-bottom: 1px solid grey;
+    padding-bottom: 10px;
+}
+
+.single-note {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px 20px 0px 28%;
+    color: #4A4A4A;
+}
+
+.edit-buttons {
+    display: flex;
+    text-decoration: underline;
+    justify-content: flex-end;
+}
+
+.edit-buttons p {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.new-note h1 {
+    color: #4A4A4A;
+}
+
+.new-note {
+    width: 100%;
+    margin: 40px 3% 0px 28%;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-note input {
+    width: 55%;
+    margin: 15px 0px;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid grey;
+}
+
+.new-note textarea {
+    height: 35%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid grey;
+    resize: none;
+    margin-bottom: 15px;
+}
+
+.save-button {
+    padding: 10px;
+    color: white;
+    background-color: #2BC1C4;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    width: 20%;
+}
