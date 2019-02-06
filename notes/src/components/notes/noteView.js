@@ -14,24 +14,28 @@ class NoteView extends Component {
     let myId = this.props.match.params.id;
     const notes = this.props.notes
     const note  = notes.filter(item => {
-      return item.id === Number(myId);
+      return item._id === myId
     });
     this.setState({ note: note });
   }
 
+  goto = () =>{
+    this.props.history.push('/')
+  }
+
   render() {
-    console.log(this.state.note )
     return ( 
       <NoteContainer >
         <ViewCard>
         <div className='note-actions'>
-        <Button color="link">Edit</Button>
-        <Button color="link">Delete</Button>
+        <Button color="link" onClick={this.goto}>Back</Button>
+        <Button color="link" >Edit</Button>
+        <Button color="link" onClick={this.props.delete}>Delete</Button>
         </div>
         {this.state.note.map(item =>{
           return[
             <h1 className="title">{item.title}</h1>,
-            <p className="content">{item.content}</p>
+            <p className="content">{item.textBody}</p>
           ]
         })}
         </ViewCard>

@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/header/header'
 import Footer from './components/footer/footer';
 import NoteList from './components/notes/noteList';
-import { data } from './components/data/data';
+import axios from 'axios';
 import NoteView from './components/notes/noteView';
 import { Route }  from 'react-router-dom';
 import { Wrapper } from './style/style';
@@ -15,10 +15,17 @@ class App extends Component {
     super(props);
     this.state ={
       notes:[],
-      id:Date.now(),
+      id:'all',
+      tags:['Obed'],
       title:'',
-      content:''
+      textBody:''
     }
+  }
+
+  clickHandler = id =>{
+    this.setState({
+      id:id
+    })
   }
 
   handleChange =event =>{
@@ -28,37 +35,59 @@ class App extends Component {
     })
   }
 
-  handleSubmit = () => {
-    const note = {
-      id:this.state.id,
-      title: this.state.title,
-      content: this.state.content,
-    };
+  handleSubmit = event => {
+    event.preventDefault();
+    axios
+    .post('https://fe-notes.herokuapp.com/note/create',{
+        tags:this.state.tags,
+        title: this.state.title,
+        textBody: this.state.textBody,
+    })
+    .then(res =>{
+      this.setState({id: res.data.success})
+    })
+    .catch(err => console.log(err))
     this.setState({
       title:'',
-      content:'',
-      notes:[...this.state.notes, note]
-    })
+      textBody:''
+    });
     this.props.history.push('/');
-};
-
-  componentDidMount(){
-    this.setState({
-      notes:data
-    })
+    window.location.reload();
   }
 
+  deleteNote = e => {
+    e.preventDefault();
+    console.log(this.state.id);
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.id}`)
+      .then(() => {
+        this.setState({
+          notes:this.state.notes
+        });
+      })
+      .catch(err => console.log(err));
+      this.props.history.push('/');
+      window.location.reload();
+  };
+
+  componentDidMount(){
+    axios
+    .get(`https://fe-notes.herokuapp.com/note/get/${this.state.id}`)
+    .then(res => this.setState({
+      notes:res.data
+    }))
+    .catch(err => console.log(err))
+  }
 
   render() {
-    console.log(this.state.notes)
     return (
     <>
     <Header/>
     <Wrapper>
     <Side/>
-    <Route exact path="/" render={(props) => <NoteList {...props} notes={this.state.notes}/>}/>
-    <Route exact path="/form" render ={(props) => <Form {...props}  update={this.handleChange} submit={this.handleSubmit}/>}/>
-    <Route exact path='/noteView/:id' render={(props) => <NoteView {...props} notes={this.state.notes} />}/>
+    <Route exact path="/" render={(props) => <NoteList {...props} notes={this.state.notes} getId={this.clickHandler} id={this.state.id}/>}/>
+    <Route exact path="/form" render ={(props) => <Form {...props}  update={this.handleChange} submit={this.handleSubmit} />}/>
+    <Route exact path='/noteView/:id' render={(props) => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>}/>
     </Wrapper>
     <Footer/>
     </>
