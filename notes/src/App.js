@@ -1,31 +1,31 @@
 import React, { Component } from "react";
-import axios from "axios";
 import NoteList from "./Components/NoteList";
 import Nav from "./Components/Nav";
 import SingleNote from "./Components/SingleNote.js";
 import NewNote from "./Components/NewNote";
 import "./App.css";
+import { connect } from "react-redux";
+import {
+  getNotes,
+  selectNote,
+  deleteNote,
+  createNote
+} from "./actions/actions.js";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
-      id: "all",
       title: "",
       textBody: ""
     };
   }
-
+  componentDidMount() {
+    this.props.getNotes();
+  }
   clickHandler = id => {
-    this.setState({
-      id: id
-    });
-    if (id === "all") {
-      setTimeout(() => {
-        window.location.reload();
-      }, 500);
-    }
+    this.props.selectNote(id);
+    this.props.getNotes();
   };
 
   changeHandler = e => {
@@ -34,16 +34,6 @@ class App extends Component {
       [e.target.name]: e.target.value
     });
   };
-  componentDidMount() {
-    axios
-      .get(`https://fe-notes.herokuapp.com/note/get/all`)
-      .then(response => {
-        this.setState({
-          notes: response.data
-        });
-      })
-      .catch(err => console.log(err));
-  }
 
   createNote = e => {
     e.preventDefault();
@@ -51,41 +41,24 @@ class App extends Component {
       title: this.state.title,
       textBody: this.state.textBody
     };
-    axios
-      .post("https://fe-notes.herokuapp.com/note/create", note)
-      .then(response => {
-        this.setState({
-          id: response.data.success
-        });
-      })
-      .catch(err => console.log(err));
+    this.props.createNote(note);
   };
 
   deleteNote = e => {
     e.preventDefault();
-    console.log(this.state.id);
-    axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.id}`)
-      .then(() => {
-        this.setState({
-          id: "all"
-        });
-        setTimeout(() => {
-          window.location.reload();
-        }, 500);
-      })
-      .catch(err => console.log(err));
+    this.props.deleteNote(this.props.id);
+    this.props.getNotes();
   };
 
   render() {
-    if (this.state.id === "all") {
+    if (this.props.id === "all") {
       return (
         <div className="App">
           <Nav clickHandler={this.clickHandler} />{" "}
-          <NoteList notes={this.state.notes} clickHandler={this.clickHandler} />{" "}
+          <NoteList notes={this.props.notes} clickHandler={this.clickHandler} />{" "}
         </div>
       );
-    } else if (this.state.id === "new") {
+    } else if (this.props.id === "new") {
       return (
         <div className="App">
           <Nav clickHandler={this.clickHandler} />{" "}
@@ -100,11 +73,11 @@ class App extends Component {
         <div className="App">
           <Nav clickHandler={this.clickHandler} />{" "}
           <SingleNote
-            id={this.state.id}
-            notes={this.state.notes}
+            id={this.props.id}
+            notes={this.props.notes}
             toggleModal={this.toggleModal}
             deleteNote={this.deleteNote}
-            toggle={this.state.toggle}
+            toggle={this.props.toggle}
           />{" "}
         </div>
       );
@@ -112,4 +85,18 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    id: state.id,
+    title: state.title,
+    textBody: state.textBody,
+    message: state.message,
+    error: state.error
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getNotes, selectNote, deleteNote, createNote }
+)(App);
