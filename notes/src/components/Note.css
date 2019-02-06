@@ -1,0 +1,60 @@
+.edit-delete{
+    display: flex;
+    margin-right: 10px;
+    color: black;
+    text-decoration: underline #414141;
+    width:100px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: #414141;
+
+
+}
+.edit{
+    color:black;
+    text-decoration: underline #414141;
+    color: #414141;
+}
+.modal{
+    height: 140px;
+    width: 450px;
+    border: 1px solid black;
+    text-align: center;
+    margin-top: 140px;
+    background-color: white;
+    padding-top: 30px;
+    font-size: 12px;
+}
+.modal-buttons{
+    width: 300px;
+    display: flex;
+    height: 60px;
+    align-items: flex-end;
+    
+}
+
+.delete-modal{
+    width: 140px;
+    height: 35px;
+    background-color: #CA001A;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #AFAEAF;
+}
+
+.no-modal{
+    width: 140px;
+    height: 35px;
+    background-color:#23B8BD;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #AFAEAF;
+}
+
+.note-home-body{
+    font-size: 13px;
+    line-height: 1.7;
+    margin-left: 15px;
+}
