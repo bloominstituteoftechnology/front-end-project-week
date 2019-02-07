@@ -48,7 +48,11 @@ const NoteCard = props => {
         <hr />
         <TextContainer>{props.text}</TextContainer>
         <ButtonContainer>
-          <Button href="`/notes/${props.key}`" variant="outline-primary">
+          <Button
+            href="`/notes/${props.key}`"
+            variant="outline-primary"
+            style={{ width: "75px" }}
+          >
             Edit
           </Button>
           <Button

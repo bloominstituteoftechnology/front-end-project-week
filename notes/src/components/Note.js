@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { Button } from "react-bootstrap";
+
 import styled from "styled-components";
 
 // TODO: Use bootstrap to style
@@ -121,9 +123,15 @@ const Note = props => {
             onClick={() => props.updatedNote(note.title, note.textBody)}
             style={{ color: "black" }}
           >
-            <ActionButton>edit</ActionButton>
+            <Button style={{ marginRight: "20px", width: "75px" }}>Edit</Button>
           </Link>
-          <ActionButton onClick={props.deleteToggleOn}>delete</ActionButton>
+          <Button
+            variant="danger"
+            style={{ opacity: 0.5 }}
+            onClick={props.deleteToggleOn}
+          >
+            Delete
+          </Button>
         </Actions>
         <NoteContainer>
           <h2>{note.title}</h2>
