@@ -12,12 +12,19 @@ import EditForm from "./components/EditForm";
 import TopBar from "./components/TopBar";
 import styled from "styled-components";
 
+import { PushSpinner, GridSpinner } from "react-spinners-kit"
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
   width: 100%;
   border-top: 1px solid rgb(234, 237, 232);
+`;
+
+const Loading = styled.div`
+  display: flex;
+  margin: 50vh 50vw;
 `;
 
 class App extends Component {
@@ -30,7 +37,8 @@ class App extends Component {
       textBody: "",
       updateTitle: "",
       updateTextBody: "",
-      deleteToggle: false
+      deleteToggle: false,
+      loading: true
     };
   }
 
@@ -43,6 +51,8 @@ class App extends Component {
       .catch(error => {
         console.error("Server Error", error);
       });
+
+    this.setState({ loading: false })
   }
 
   // TODO: Figure how to update without constant GET requests
@@ -74,7 +84,7 @@ class App extends Component {
   deleteNote = id => {
     axios
       .delete(`https://onedrousdev.herokuapp.com/api/delete/${id}`)
-      .then(response => {})
+      .then(response => { })
       .catch(err => {
         console.log(err);
       });
@@ -111,69 +121,76 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div className="App">
-        <TopBar />
-        <Container>
-          {/* <Navigation /> */}
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <Notes
-                {...props}
-                notes={this.state.notes}
-                deleteNote={this.deleteNote}
-                deleteToggleOn={this.deleteToggleOn}
-                deleteToggleOff={this.deleteToggleOff}
-                delete={this.state.deleteToggle}
-              />
-            )}
-          />
-          <Route
-            path="/notes/:id"
-            render={props => (
-              <Note
-                {...props}
-                notes={this.state.notes}
-                updatedNote={this.updatedNote}
-                deleteNote={this.deleteNote}
-                deleteToggleOn={this.deleteToggleOn}
-                deleteToggleOff={this.deleteToggleOff}
-                delete={this.state.deleteToggle}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/note/:id/edit"
-            render={props => (
-              <EditForm
-                {...props}
-                notes={this.state.notes}
-                editNote={this.editNote}
-                inputHandler={this.inputHandler}
-                updateTitle={this.state.updateTitle}
-                updateTextBody={this.state.updateTextBody}
-              />
-            )}
-          />
-          <Route
-            path="/new-note"
-            render={props => (
-              <NewForm
-                {...props}
-                addNote={this.addNote}
-                inputHandler={this.inputHandler}
-                title={this.state.title}
-                textBody={this.state.textBody}
-              />
-            )}
-          />
-          <Route path="/about" component={About} />
-        </Container>
-      </div>
-    );
+    if (this.state.loading) {
+      return <Loading><GridSpinner
+        size={30}
+        color="#007bff"
+        loading={this.state.loading}
+      /></Loading>
+    } else {
+      return (
+        <div className="App">
+          <TopBar />
+          <Container>
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <Notes
+                  {...props}
+                  notes={this.state.notes}
+                  deleteNote={this.deleteNote}
+                  deleteToggleOn={this.deleteToggleOn}
+                  deleteToggleOff={this.deleteToggleOff}
+                  delete={this.state.deleteToggle}
+                />
+              )}
+            />
+            <Route
+              path="/notes/:id"
+              render={props => (
+                <Note
+                  {...props}
+                  notes={this.state.notes}
+                  updatedNote={this.updatedNote}
+                  deleteNote={this.deleteNote}
+                  deleteToggleOn={this.deleteToggleOn}
+                  deleteToggleOff={this.deleteToggleOff}
+                  delete={this.state.deleteToggle}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/note/:id/edit"
+              render={props => (
+                <EditForm
+                  {...props}
+                  notes={this.state.notes}
+                  editNote={this.editNote}
+                  inputHandler={this.inputHandler}
+                  updateTitle={this.state.updateTitle}
+                  updateTextBody={this.state.updateTextBody}
+                />
+              )}
+            />
+            <Route
+              path="/new-note"
+              render={props => (
+                <NewForm
+                  {...props}
+                  addNote={this.addNote}
+                  inputHandler={this.inputHandler}
+                  title={this.state.title}
+                  textBody={this.state.textBody}
+                />
+              )}
+            />
+            <Route path="/about" component={About} />
+          </Container>
+        </div>
+      );
+    }
   }
 }
 
