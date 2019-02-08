@@ -5,6 +5,7 @@ import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 import { InstantSearch } from "react-instantsearch-dom";
+import { SignInBlockstackButton } from "blockstack-signin-btn"
 
 import Search from "./Search";
 
@@ -48,9 +49,28 @@ export default class TopBar extends Component {
           >
             <Search />
           </InstantSearch> */}
-          <Button variant="success" style={{ marginLeft: "20px" }}>
+          {/* <Button variant="success" style={{ marginLeft: "20px" }}>
             Sign Up
-          </Button>
+          </Button> */}
+          {/* TODO: Update to bootstrap styling */}
+          <SignInBlockstackButton
+            includeBlockstackLogo={false}
+            signInBtnText="Login"
+            signOutBtnText="Sign Out"
+            textStyle={{
+              fontSize: "16px",
+              color: '#fff',
+            }}
+            style={{
+              textAlign: "center",
+              backgroundColor: '#28a745',
+              marginLeft: "20px",
+              width: "75px",
+              borderRadius: "5px",
+              padding: "5px 0px 8px 0px"
+            }}
+            defaultStyle={{}}
+          />
         </Navbar>
       </div>
     );
