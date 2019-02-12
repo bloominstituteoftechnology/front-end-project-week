@@ -12,6 +12,16 @@ class App extends Component {
       notes: []
     }
   }
+  componentDidMount() {
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState({notes: response.data})
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
   render() {
     return (
       <div className="App">
