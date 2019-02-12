@@ -32,7 +32,7 @@ export const getNotes = () => {
 export const createNote = (newNote) => {
   return (dispatch) => {
     dispatch({ type: CREATING_NOTE })
-    axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
+    axios.post('http://localhost:5000/api/notes', newNote)
       .then(response => {
         dispatch({ type: CREATE_NOTE, payload: response.data })
       })
@@ -45,7 +45,7 @@ export const createNote = (newNote) => {
 export const updateNote = (newNote, id) => {
   return (dispatch) => {
     dispatch({ type: UPDATING_NOTE })
-    const URL = 'https://fe-notes.herokuapp.com/note/edit/' + id;
+    const URL = 'http://localhost:5000/api/notes' + id;
     axios
       .put(URL, {
         title: newNote.title,
@@ -63,7 +63,7 @@ export const updateNote = (newNote, id) => {
 export const viewNote = (id) => {
   return (dispatch) => {
     dispatch({ type: GETTING_SINGLE_NOTE })
-    const URL = 'https://fe-notes.herokuapp.com/note/get/' + id;
+    const URL = 'http://localhost:5000/api/notes' + id;
     axios
       .get(URL)
       .then(response => {
@@ -77,7 +77,7 @@ export const viewNote = (id) => {
 
 export const deleteNote = (id) => {
   return (dispatch) => {
-    const URL = 'https://fe-notes.herokuapp.com/note/delete/' + id;
+    const URL = 'http://localhost:5000/api/notes' + id;
     dispatch({ type: DELETING_NOTE })
     axios
       .delete(URL)
