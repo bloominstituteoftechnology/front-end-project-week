@@ -58,7 +58,7 @@ class App extends Component {
   // TODO: Figure how to update without constant GET requests
   // componentDidUpdate() {
   //   axios
-  //     .get("https://fe-notes.herokuapp.com/note/get/all")
+  //     .get("https://onedrousdev.herokuapp.com/api/notes")
   //     .then(response => {
   //       this.setState(() => ({ notes: response.data }));
   //     })
@@ -66,6 +66,20 @@ class App extends Component {
   //       console.error("Server Error", error);
   //     });
   // }
+
+  componentDidUpdate(prevProps, prevState) {
+    // only update if the data has changed
+    if (prevState.notes !== this.state.notes) {
+      return axios
+        .get("https://onedrousdev.herokuapp.com/api/notes")
+        .then(response => {
+          this.setState(() => ({ notes: response.data }));
+        })
+        .catch(error => {
+          console.error("Server Error", error);
+        });
+    }
+  }
 
   addNote = () => {
     axios
