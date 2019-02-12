@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import SidebarView from './sidebarComponent/sbView';
 import NotesView from './NotesComponent/notesView';
+import FormView from './formComponent/formView';
 
 import './App.css';
 
@@ -29,6 +30,7 @@ class App extends Component {
       <div className="container">
           <SidebarView  />
           <NotesView notes={this.state.notes}/>
+          <FormView />
       </div>
     );
   }
