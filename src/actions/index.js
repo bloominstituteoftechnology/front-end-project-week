@@ -18,7 +18,8 @@ export const getNotes = () => {
   return (dispatch) => {
     dispatch({ type: GETTING_NOTES })
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+   // .get('https://fe-notes.herokuapp.com/note/get/all')
+    .get('http://localhost:5000/api/notes')
       .then(response => {
         dispatch({ type: GET_NOTES, payload: response.data })
       })
