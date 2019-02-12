@@ -50,7 +50,22 @@ export const addNote = newNote => dispatch => {
 };
 
 export const deleteNote = id => dispatch => {
-
+    dispatch({ type: LOADING });
+    axios
+        .delete(`${URL}/delete/${id}`)
+        .then(res => {
+            console.log(res.data);
+            dispatch({ type: UPDATE_NOTE, payload: res.data });
+        })
+        .then(res => {
+            dispatch(fetchNotes())
+        })
+        .catch(err => {
+            dispatch({
+                type: ERROR,
+                errorMessage: "This note cannot be deleted at this time."
+            });
+        });
 };
 
 export const editNote = editedNote => dispatch => {
