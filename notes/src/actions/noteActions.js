@@ -10,11 +10,30 @@ export const ADD_NOTE = 'ADD_NOTE'
 const URL = "https://onedrousdev.herokuapp.com/api";
 
 export const fetchNotes = () => dispatch => {
-
+    dispatch({ type: LOADING });
+    axios
+        .get(`${URL}/notes`)
+        .then(res => {
+            dispatch({ type: GET_NOTES, payload: res.data });
+        })
+        .catch(err => {
+            dispatch({ type: ERROR, errorMessage: "There was an error loading notes." });
+        });
 };
 
 export const fetchNote = id => dispatch => {
-
+    dispatch({ type: LOADING });
+    axios
+        .get(`${URL}/notes/${id}`)
+        .then(res => {
+            dispatch({ type: FETCH_NOTE, payload: res.data });
+        })
+        .catch(err => {
+            dispatch({
+                type: ERROR,
+                errorMessage: "There was an error fetching your note!"
+            });
+        });
 };
 
 export const addNote = newNote => dispatch => {
