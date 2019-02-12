@@ -1,0 +1,181 @@
+.App {
+	display: flex;
+}
+
+.App-logo {
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
+}
+
+.App-header {
+	background-color: #aaaaaa;
+
+	width: 30%;
+	padding: 20px;
+	color: #000000;
+}
+
+.App-title {
+	font-size: 1.5em;
+}
+
+.App-intro {
+	font-size: large;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+.Main-Note-Container {
+	width: 100%;
+	max-width: 1200px;
+	padding: 25px;
+	background-color: #f2f1f2;
+}
+.SideBar {
+}
+
+.Notes ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-top: 60px;
+}
+.Note {
+	width: 200px;
+	height: 200px;
+	background-color: #fff;
+	border: 1px solid gray;
+	box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+		0 2px 4px rgba(0, 0, 0, 0.24);
+	padding: 1rem;
+	cursor: pointer;
+	position: relative;
+	margin: 1rem auto;
+}
+
+.Note a {
+	text-decoration: none;
+}
+.Note p {
+	font-size: 50%;
+}
+.NoteList {
+	width: 200px;
+	height: 200px;
+	background-color: #fff;
+	border: 1px solid gray;
+	box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+		0 2px 4px rgba(0, 0, 0, 0.24);
+	padding: 1rem;
+	cursor: pointer;
+	position: relative;
+	margin: 1rem auto;
+}
+
+.NoteForm {
+	display: flex;
+	flex-direction: column;
+}
+.NoteForm .input-title {
+	width: 400px;
+	height: 75px;
+	border: 1.5px solid #ccc;
+	border-radius: 3px;
+}
+
+.NoteForm .input-note {
+	margin-top: 15px;
+	width: 700px;
+	height: 300px;
+	border: 1.5px solid #ccc;
+	border-radius: 3px;
+}
+
+.NoteForm button {
+	width: 200px;
+	height: 50px;
+}
+
+.Noteview {
+	width: 200px;
+	height: 200px;
+	background-color: #fff;
+	border: 1px solid gray;
+	box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+		0 2px 4px rgba(0, 0, 0, 0.24);
+	padding: 1rem;
+	cursor: pointer;
+	position: relative;
+	margin: 1rem auto;
+}
+.DeleteHeader {
+	font-size: 1.6rem;
+	margin-left: 60px;
+	margin-top: 60px;
+	margin-bottom: 45px;
+	color: #414141;
+}
+
+.NoteViewDiv {
+	width: 100%;
+	max-width: 600px;
+}
+
+.edit-delete {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 10px;
+}
+
+.edit-delete div {
+	text-decoration: underline;
+}
+
+.NoteViewHeader {
+	color: #414141;
+	font-size: 1.6rem;
+	margin-left: 60px;
+	margin-top: 32px;
+	margin-bottom: 45px;
+}
+
+.NoteViewParagraph {
+	margin-left: 70px;
+}
+
+.Create {
+	display: block;
+	border-style: solid;
+	border-color: gray;
+	border-width: 2px;
+	width: 200px;
+	height: 50px;
+	background: #90ccd3;
+	color: #333;
+	line-height: 2;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 900;
+	margin-bottom: 25px;
+}
+
+.View {
+	display: block;
+	border-style: solid;
+	border-color: gray;
+	border-width: 2px;
+	width: 200px;
+	height: 50px;
+	background: #90ccd3;
+	color: #333;
+	line-height: 2;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 900;
+}
