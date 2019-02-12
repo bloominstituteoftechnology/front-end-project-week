@@ -2,10 +2,10 @@ import React from 'react';
 
 const SideBar = () => {
     return (
-        <div>
+        <aside>
             <button>View Your Notes</button>
             <button> + Create Your Note</button>
-        </div>
+        </aside>
     )
 }
 

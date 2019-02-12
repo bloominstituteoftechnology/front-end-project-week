@@ -22,7 +22,11 @@
 .App-link {
   color: #61dafb;
 }
-
+aside {
+  float: left;
+  display: flex;
+  flex-direction: column;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
