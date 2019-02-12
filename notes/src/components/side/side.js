@@ -10,7 +10,9 @@ class Side extends Component {
     return ( 
       <Sidebar>
         <div className="actions">'
-        <Button color="success" size="lg"> View Your Notes</Button>
+        <Link to='/myNotes'>
+        <Button color="success" size="lg" block> View Your Notes</Button>
+        </Link>
         <Link to='/form'>
         <Button color="success"size="lg" block> + Create New Note </Button>
         </Link>

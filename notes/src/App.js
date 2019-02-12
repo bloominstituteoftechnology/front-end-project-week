@@ -10,6 +10,7 @@ import { Route }  from 'react-router-dom';
 import { Wrapper } from './style/style';
 import Side from './components/side/side';
 import Form from './components/form/form';
+import MyNotes from './components/notes/myNotes';
 
 class App extends Component {
   constructor(props){
@@ -40,7 +41,7 @@ class App extends Component {
     event.preventDefault();
     axios
     .post('https://fe-notes.herokuapp.com/note/create',{
-        tags:this.state.tags,
+        tags: 'obed',
         title: this.state.title,
         textBody: this.state.textBody,
     })
@@ -72,8 +73,6 @@ class App extends Component {
       
   };
 
-  
-
   componentDidMount(){
     axios
     .get(`https://fe-notes.herokuapp.com/note/get/${this.state.id}`)
@@ -97,6 +96,7 @@ class App extends Component {
     delete={this.deleteNote}/>}
     />
     <Route exact path='/noteView/editNote/:id' component={EditNote}/>
+    <Route exact path='/myNotes'component ={MyNotes}/>
     </Wrapper>
     <Footer/>
     </>

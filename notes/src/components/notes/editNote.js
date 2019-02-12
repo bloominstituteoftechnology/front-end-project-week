@@ -6,21 +6,18 @@ import { FormContainer } from '../../style/style';
 class EditNote extends Component {
   state = {
     id: this.props.match.params.id,
-    title: 'testing',
-    textBody: 'demofg',
+    title: '',
+    textBody: '',
 }
 
 componentDidMount() {
     axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
     .then(res =>{
-    this.setState({
-      title:res.data.title,
-      textBody:res.data.textBody
+      this.setState({
+        title:res.data.title,
+        textBody:res.data.textBody
+      })
     })
-    })
-    .then(data => this.setState(
-      
-  ))
     .catch(err => console.log(err))
 }
 
@@ -28,7 +25,7 @@ handleChange = (event) => {
   const {name, value} = event.target;
   this.setState(
       {
-          [name]: value
+        [name]: value
       }
   )
 }
@@ -45,9 +42,7 @@ handleEditNote = e => {
       this.setState({
         note: response.data,
       });
-      // window.location.reload();
       this.props.history.push(`/noteView/${this.state.id}`);
-      
     })
     .catch(err => console.log(err));
 };
@@ -65,7 +60,7 @@ goto = () =>{
       <form>
         <input type="text" name="title" placeholder="note title" value={this.state.title} onChange={this.handleChange}/><br/>
         <textarea placeholder="note content" name="textBody" onChange={this.handleChange} value={this.state.textBody}/><br/>
-        <Button color="primary" size="lg" onClick={this.handleEditNote}> Save</Button>
+        <Button color="primary" size="lg" onClick={this.handleEditNote}> Update</Button>
       </form>
       </FormContainer>
       </>
