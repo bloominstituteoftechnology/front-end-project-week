@@ -26,6 +26,7 @@ aside {
   float: left;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 @keyframes App-logo-spin {
   from {

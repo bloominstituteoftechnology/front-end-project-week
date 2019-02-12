@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
+import NotesList from './components/NotesList';
+
 import './App.css';
 
 class App extends Component {
@@ -8,6 +10,7 @@ class App extends Component {
       <div className="App">
         <div className="container">
             <Sidebar />
+            <NotesList />
         </div>
 
       </div>
