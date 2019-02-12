@@ -5,6 +5,7 @@ import Footer from './components/footer/footer';
 import NoteList from './components/notes/noteList';
 import axios from 'axios';
 import NoteView from './components/notes/noteView';
+import EditNote from './components/notes/editNote';
 import { Route }  from 'react-router-dom';
 import { Wrapper } from './style/style';
 import Side from './components/side/side';
@@ -71,22 +72,7 @@ class App extends Component {
       
   };
 
-  handleEditNote = e => {
-    e.preventDefault();
-    const note = {
-      title: this.state.title,
-      textBody: this.state.textBody
-    };
-    axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.id}`, note)
-      .then(response => {
-        this.setState({
-          note: response.data,
-          edit: false
-        });
-      })
-      .catch(err => console.log(err));
-  };
+  
 
   componentDidMount(){
     axios
@@ -108,9 +94,9 @@ class App extends Component {
     <Route exact path='/noteView/:id' 
     render={(props) => <NoteView {...props} 
     notes={this.state.notes} 
-    delete={this.deleteNote} 
-    edit={this.handleEditNote}/>}
+    delete={this.deleteNote}/>}
     />
+    <Route exact path='/noteView/editNote/:id' component={EditNote}/>
     </Wrapper>
     <Footer/>
     </>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {  NoteContainer, ViewCard} from '../../style/style';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class NoteView extends Component {
   constructor(props){
@@ -11,19 +13,22 @@ class NoteView extends Component {
   }
 
   componentDidMount(){
-    let myId = this.props.match.params.id;
-    const notes = this.props.notes
-    const note  = notes.filter(item => {
-      return item._id === myId
-    });
-    this.setState({ note: note });
+    axios
+    .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+    .then(res =>{
+      this.setState({
+        note:res.data
+      })
+    })
+    .catch(err =>{
+      console.log(err)
+    })
   }
 
   goto = () =>{
     this.props.history.push('/')
   }
-
- 
+  
 
   render() {
     return ( 
@@ -31,17 +36,16 @@ class NoteView extends Component {
         <ViewCard>
         <div className='note-actions'>
         <Button color="link" onClick={this.goto}>Back</Button>
-        <Button color="link" onClick={this.props.edit}>Edit</Button>
+        <Link to={`editNote/${this.props.match.params.id}`}>
+        <Button color="link">Edit</Button>
+        </Link>
         <Button color="link" onClick={this.props.delete}>Delete</Button>
         </div>
-        {this.state.note.map(item =>{
-          return[
-            <h1 className="title">{item.title}</h1>,
-            <p className="content">{item.textBody}</p>
-          ]
-        })}
+          <h1 className="title">{this.state.note.title}</h1>,
+          <p className="content">{this.state.note.textBody}</p>
         </ViewCard>
       </NoteContainer>
+      
     );
   }
 }
