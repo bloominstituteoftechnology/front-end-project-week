@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
 import NotesList from './components/NotesList';
+import axios from 'axios';
 
 import './App.css';
 
