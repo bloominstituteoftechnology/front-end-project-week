@@ -1,3 +1,5 @@
+- Trello URL: https://trello.com/b/g1EezyPi/lambda-notes-jonathan-dorety
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
@@ -12,13 +14,13 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 ## Trello Set Up:
 
-- [ ] Create a Trello account
-- [ ] Create a new board called "Lambda Notes - {Your Name}"
-- [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-- [ ] Fill in the `To Do` list with the MVP features listed below
-- [ ] Fill in the `backlog` list with all the extra features listed below
-- [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
-- [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+- [x] Create a Trello account
+- [x] Create a new board called "Lambda Notes - {Your Name}"
+- [x] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
+- [x] Fill in the `To Do` list with the MVP features listed below
+- [x] Fill in the `backlog` list with all the extra features listed below
+- [x] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
+- [x] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
 
 ## MVP Features:
 
