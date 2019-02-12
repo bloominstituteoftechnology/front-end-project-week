@@ -37,7 +37,16 @@ export const fetchNote = id => dispatch => {
 };
 
 export const addNote = newNote => dispatch => {
-
+    dispatch({ type: LOADING });
+    axios
+        .post(`${URL}/create`, newNote)
+        .then(res => {
+            console.log(res.data);
+            dispatch(fetchNotes());
+        })
+        .catch(err => {
+            dispatch({ type: ERROR, errorMessage: "A new note cannot be created at this time." });
+        });
 };
 
 export const deleteNote = id => dispatch => {
