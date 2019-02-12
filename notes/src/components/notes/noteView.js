@@ -23,13 +23,15 @@ class NoteView extends Component {
     this.props.history.push('/')
   }
 
+ 
+
   render() {
     return ( 
       <NoteContainer >
         <ViewCard>
         <div className='note-actions'>
         <Button color="link" onClick={this.goto}>Back</Button>
-        <Button color="link" >Edit</Button>
+        <Button color="link" onClick={this.props.edit}>Edit</Button>
         <Button color="link" onClick={this.props.delete}>Delete</Button>
         </div>
         {this.state.note.map(item =>{

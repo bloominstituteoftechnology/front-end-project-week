@@ -45,14 +45,14 @@ class App extends Component {
     })
     .then(res =>{
       this.setState({id: res.data.success})
+      this.props.history.push('/');
+      window.location.reload();
     })
     .catch(err => console.log(err))
     this.setState({
       title:'',
       textBody:''
     });
-    this.props.history.push('/');
-    window.location.reload();
   }
 
   deleteNote = e => {
@@ -64,10 +64,28 @@ class App extends Component {
         this.setState({
           notes:this.state.notes
         });
+        window.location.reload();
+        this.props.history.push('/');
       })
       .catch(err => console.log(err));
-      this.props.history.push('/');
-      window.location.reload();
+      
+  };
+
+  handleEditNote = e => {
+    e.preventDefault();
+    const note = {
+      title: this.state.title,
+      textBody: this.state.textBody
+    };
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.id}`, note)
+      .then(response => {
+        this.setState({
+          note: response.data,
+          edit: false
+        });
+      })
+      .catch(err => console.log(err));
   };
 
   componentDidMount(){
@@ -87,7 +105,12 @@ class App extends Component {
     <Side/>
     <Route exact path="/" render={(props) => <NoteList {...props} notes={this.state.notes} getId={this.clickHandler} id={this.state.id}/>}/>
     <Route exact path="/form" render ={(props) => <Form {...props}  update={this.handleChange} submit={this.handleSubmit} />}/>
-    <Route exact path='/noteView/:id' render={(props) => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>}/>
+    <Route exact path='/noteView/:id' 
+    render={(props) => <NoteView {...props} 
+    notes={this.state.notes} 
+    delete={this.deleteNote} 
+    edit={this.handleEditNote}/>}
+    />
     </Wrapper>
     <Footer/>
     </>

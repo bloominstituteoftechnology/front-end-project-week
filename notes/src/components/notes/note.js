@@ -11,7 +11,7 @@ class Note extends Component {
     return ( 
       <Notecard>
         <div className="title">
-        <p>{truncate(title,120,'...')}</p>
+        <p>{truncate(title,80,'...')}</p>
         </div>
         <Link className="content-link" to={`/noteView/${_id}`}>
         <div className="content"  onClick={() => this.props.getId(_id)}>
