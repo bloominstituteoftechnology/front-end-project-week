@@ -32,12 +32,13 @@ handleChange = (event) => {
 
 handleEditNote = e => {
   e.preventDefault();
+  const url = process.env.REACT_APP_API_URL
   const note = {
     title: this.state.title,
     textBody: this.state.textBody
   };
   axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${this.state.id}`, note)
+    .put(`${url}${this.state.id}`, note)
     .then(response => {
       this.setState({
         note: response.data,
