@@ -18,12 +18,25 @@ class NoteView extends React.Component {
         }
     }
 
+    // componentDidMount(){
+    //     const id = this.props.match.params.id
+    //     axios
+    //     .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    //     .then(response => {
+    //         this.setState({ note: response.data })
+    //     })
+    //     .catch(err => {
+    //         console.log("Fail to Get INDIVIDUAL note", err)
+    //     })
+    // }
+
     componentDidMount(){
         const id = this.props.match.params.id
         axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .get(`http://localhost:3000/notes/${id}`)
         .then(response => {
             this.setState({ note: response.data })
+            console.log(id)
         })
         .catch(err => {
             console.log("Fail to Get INDIVIDUAL note", err)
@@ -45,10 +58,12 @@ class NoteView extends React.Component {
 
 
     render(){
+        console.log(this.props.match.params.id)
         return (
             <div>
                 <div className="note-menu">
-                    <div><Link to={`/edit/${this.state.note._id}`}> edit </Link></div>
+                    {/* <div><Link to={`/edit/${this.state.note.id}`}> edit </Link></div> */}
+                    <div><Link to={`/edit/${this.props.match.params.id}`}> edit </Link></div>
                     <div onClick={this.handleClick}>
                         {this.state.isToggleOn ? 'close' : 'delete'}
                         {this.state.isToggleOn && (
@@ -68,12 +83,12 @@ class NoteView extends React.Component {
               
 
                 <div className="note-container">
-                    <div key={this.state.note._id}>
+                    <div key={this.state.note.id}>
                         <h2>Note Name: {this.state.note.title} </h2>
                         <p>Text Body: {this.state.note.textBody}</p>
-                        <p>ID: {this.state.note._id}</p>
+                        {/* <p>ID: {this.state.note.id}</p>
                         <p>Double_Underscore_V: {this.state.note.__v}</p>
-                        <p>TAGS: {this.state.note.tags}</p>
+                        <p>TAGS: {this.state.note.tags}</p> */}
                     </div>
                 </div>
             </div>

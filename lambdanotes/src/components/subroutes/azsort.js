@@ -49,12 +49,12 @@ class AzSort extends React.Component {
                 <div className="notebox-container">
                     {this.sortObjProperty(emptyArr3, 'title').map(obj => {
                         return(
-                                <div className="notebox" key={obj._id}>
+                                <div className="notebox" key={obj.id}>
                                     <div className="hoverinfo"><button>i</button> 
                                         <p>{obj.textBody}</p>
                                     </div>
                                     <h2>
-                                        <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
+                                        <Link to={`/notes/${obj.id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
                                         <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>

@@ -126,7 +126,7 @@ class NotesList extends React.Component {
         //ID
         {this.props.notes.map(note => {
             emptyArr7.push(note)
-            let emptyArr8 = this.sortObjProperty(emptyArr3, '_id');
+            let emptyArr8 = this.sortObjProperty(emptyArr3, 'id');
         })}
 
 
@@ -154,14 +154,14 @@ class NotesList extends React.Component {
                 <div className="notebox-container">
                     {this.props.notes.map(note => {
                         return(
-                            <div className="notebox" key={note._id}>
+                            <div className="notebox" key={note.id}>
                                 <h2>
-                                    Title: <Link to={`/notes/${note._id}`}>{note.title.toUpperCase()}</Link>
+                                    Title: <Link to={`/notes/${note.id}`}>{note.title.toUpperCase()}</Link>
                                 </h2>
                                 <div className="contentbox">
                                     <p> <strong>Content:</strong> {note.textBody.slice(0, 100) + (note.textBody.length > 100 ? "..." : "")}</p>
                                 </div>
-                                <p> <strong>ID:</strong> {note._id}</p>
+                                <p> <strong>ID:</strong> {note.id}</p>
                             </div>
                         )
                     })}
@@ -174,14 +174,14 @@ class NotesList extends React.Component {
                 <div className="notebox-container">
                     {this.sortObjProperty(emptyArr3, 'title').map(obj => {
                         return(
-                                <div className="notebox" key={obj._id}>
+                                <div className="notebox" key={obj.id}>
                                     <h2>
-                                        Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
+                                        Title: <Link to={`/notes/${obj.id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
                                         <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                                     </div>
-                                    <p> <strong>ID:</strong> {obj._id}</p>
+                                    <p> <strong>ID:</strong> {obj.id}</p>
                                 </div>
                             ) 
                     })}
@@ -193,14 +193,14 @@ class NotesList extends React.Component {
                 <div className="notebox-container">
                     {this.sortObjProperty2(emptyArr5, 'title').map(obj => {
                         return(
-                                <div className="notebox" key={obj._id}>
+                                <div className="notebox" key={obj.id}>
                                     <h2>
-                                        Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
+                                        Title: <Link to={`/notes/${obj.id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
                                         <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                                     </div>
-                                    <p> <strong>ID:</strong> {obj._id}</p>
+                                    <p> <strong>ID:</strong> {obj.id}</p>
                                 </div>
                             ) 
                     })}
@@ -210,16 +210,16 @@ class NotesList extends React.Component {
             {/* <div id="myDIV4" style={{display: this.state.showNoteContainer ? 'block' : 'none' }}>
                 <h2> BY ID: </h2>
                 <div className="notebox-container">
-                    {this.sortObjProperty2(emptyArr7, '_id').map(obj => {
+                    {this.sortObjProperty2(emptyArr7, 'id').map(obj => {
                         return(
-                                <div className="notebox" key={obj._id}>
+                                <div className="notebox" key={obj.id}>
                                     <h2>
-                                        Title: <Link to={`/notes/${obj._id}`}>{obj.title.toUpperCase()}</Link>
+                                        Title: <Link to={`/notes/${obj.id}`}>{obj.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
                                         <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>    
                                     </div>
-                                        <p> <strong>ID:</strong> {obj._id} </p>
+                                        <p> <strong>ID:</strong> {obj.id} </p>
                                 </div>
                             ) 
                     })}

@@ -28,12 +28,12 @@ class UnSorted extends React.Component {
                     <div className="notebox-container">
                         {this.props.notes.map(note => {
                             return(
-                                <div className="notebox" key={note._id}>
+                                <div className="notebox" key={note.id}>
                                     <div className="hoverinfo"><button>i</button> 
                                         <p>{note.textBody}</p>
                                     </div>
                                     <h2>
-                                        <Link to={`/notes/${note._id}`}>{note.title.toUpperCase()}</Link>
+                                        <Link to={`/notes/${note.id}`}>{note.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
                                         <p> <strong>Content:</strong> {note.textBody.slice(0, 100) + (note.textBody.length > 100 ? "..." : "")}</p>

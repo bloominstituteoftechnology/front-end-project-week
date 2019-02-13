@@ -87,7 +87,7 @@ class ReactSort extends React.Component {
     }
 
     sortClick4 = () => {
-        const notes = this.sortObjProperty2(this.state.notes, '_id');
+        const notes = this.sortObjProperty2(this.state.notes, 'id');
         this.setState({notes})
 
         // this.setState(prevState => ({
@@ -128,8 +128,8 @@ class ReactSort extends React.Component {
                                 <div>
                                     {this.state.notes.map(note => {
                                         return (
-                                            <div className="notebox1" key={note._id}>
-                                                <Link to={`/notes/${note._id}`}><h2>{note.title.toUpperCase()}</h2></Link>
+                                            <div className="notebox1" key={note.id}>
+                                                <Link to={`/notes/${note.id}`}><h2>{note.title.toUpperCase()}</h2></Link>
                                                 <p> <strong>Content:</strong> {note.textBody.slice(0, 100) + (note.textBody.length > 100 ? "..." : "")}</p>
                                             </div>
                                         )
@@ -148,8 +148,8 @@ class ReactSort extends React.Component {
                 //                     {this.sortObjProperty(emptyArr, 'title').map(obj => {
                 //                         return (
                 //                             <div>
-                //                                 <div className="notebox1" key={obj._id}>
-                //                                     <Link to={`/notes/${obj._id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
+                //                                 <div className="notebox1" key={obj.id}>
+                //                                     <Link to={`/notes/${obj.id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
                 //                                     <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                 //                                 </div>
                 //                             </div>
@@ -168,8 +168,8 @@ class ReactSort extends React.Component {
                 //                 <div>
                 //                     {this.sortObjProperty2(emptyArr, 'title').map(obj => {
                 //                         return (
-                //                             <div className="notebox1" key={obj._id}>
-                //                                 <Link to={`/notes/${obj._id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
+                //                             <div className="notebox1" key={obj.id}>
+                //                                 <Link to={`/notes/${obj.id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
                 //                                 <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                 //                             </div>
                 //                         )
@@ -184,10 +184,10 @@ class ReactSort extends React.Component {
                 //             <h2>{this.state.sortID ? 'Hide' : 'Most Recent'}</h2>
                 //             {this.state.sortID && (
                 //                 <div>
-                //                     {this.sortObjProperty2(emptyArr, '_id').map(obj => {   //sortObjProperty2 same as Z-A
+                //                     {this.sortObjProperty2(emptyArr, 'id').map(obj => {   //sortObjProperty2 same as Z-A
                 //                         return (
-                //                             <div className="notebox1" key={obj._id}>
-                //                                 <Link to={`/notes/${obj._id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
+                //                             <div className="notebox1" key={obj.id}>
+                //                                 <Link to={`/notes/${obj.id}`}><h2>{obj.title.toUpperCase()}</h2></Link>
                 //                                 <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                 //                             </div>
                 //                         )
@@ -221,7 +221,7 @@ export default connect(mapStateToProps, { getNotes})(ReactSort)
 
 // {this.props.notes.map(note => {
 //     return (
-//         <div className="notebox" key={note._id}>
+//         <div className="notebox" key={note.id}>
 //             <h2>{note.title}</h2>
 //         </div>
 //     )

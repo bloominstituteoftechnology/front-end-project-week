@@ -19,7 +19,7 @@ class CreateNewNote extends React.Component {
         this.state = {
             title: '',
             textBody: '',
-            tags: [],
+            //tags: [],
         }
     }
 
@@ -33,7 +33,8 @@ class CreateNewNote extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         //this.props.handleAddNewNote(this.state)
-        this.props.createNote({...this.state, tags: [this.state.tags]})
+        //this.props.createNote({...this.state, tags: [this.state.tags]})
+        this.props.createNote({...this.state})
         console.log(this.state)
     }
 

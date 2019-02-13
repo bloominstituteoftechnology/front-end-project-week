@@ -26,13 +26,28 @@ class UpdateNote extends React.Component {
     //     this.setState({notes: notes})
     // }
 
+    // componentDidMount(){
+    //     const id = this.props.match.params.id
+    //     axios
+    //     .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    //     .then(response => {
+    //         const {title, textBody} = response.data
+    //         this.setState({ title, textBody })
+    //         // this.setState({ note: response.data })
+    //     })
+    //     .catch(err => {
+    //         console.log("Fail to Get INDIVIDUAL note", err)
+    //     })
+    // }
+
     componentDidMount(){
         const id = this.props.match.params.id
         axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .get(`http://localhost:3000/notes/${id}`)
         .then(response => {
             const {title, textBody} = response.data
             this.setState({ title, textBody })
+            console.log(id)
             // this.setState({ note: response.data })
         })
         .catch(err => {
