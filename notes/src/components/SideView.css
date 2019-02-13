@@ -1,0 +1,32 @@
+
+nav {
+
+  width: 15%;
+  min-width: 250px;
+  height: 100%;
+  background-color: #D8D8D8;
+  border-right: 1px solid #A0A0A0;
+  text-align: left;
+  margin-left: 5%;
+}
+nav h1{
+  font-weight: bold;
+  color: #4A494A;
+  font-size: 2.4rem;
+  margin-left: 5%;
+}
+nav button{
+  display: block;
+  border: 1px solid #959898;
+  text-decoration: none;
+  background-color: #5DBEC3;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;  
+  font-weight: bold;
+  padding: 0.8rem 0;
+  width: 90%;
+  margin-bottom: 10px;
+  margin-left: 5%;
+}
