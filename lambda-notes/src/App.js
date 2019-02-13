@@ -27,22 +27,23 @@ class App extends Component {
   }
   addNote = (note) => {
 
-    const currentNotes = this.state.notes.slice();
-
     const newNote = {
       id: Date.now(),
       title: note.title,
-      textBody: note.textBody,
-      tags: ['legit', 'mstp', 'jquery']
+      textBody: note.textBody
     }
 
-    if (newNote.title === '') {
-      currentNotes.push();
-    }
-    else {
-      currentNotes.push(newNote);
-    }
-    this.setState({notes: currentNotes});
+    axios
+    
+      .post('https://fe-notes.herokuapp.com/note/create', newNote)
+      .then(response => {
+          this.setState({
+              notes: response.data
+          })
+      })
+      .catch(err =>{
+          console.log(err);
+      })
 
   }
   render() {
