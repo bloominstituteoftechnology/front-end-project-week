@@ -1,4 +1,2 @@
 [build]
   base    = "notes"
-  command = "make"
-  publish = "site/public"
