@@ -172,6 +172,7 @@ h2{
 	display:flex;
 	flex-wrap: wrap;	
 	margin-top:15px;
+	overflow-wrap: break-word;
 }
 .container{
 	margin:0px 25px;

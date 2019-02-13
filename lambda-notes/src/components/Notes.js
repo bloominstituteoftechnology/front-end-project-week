@@ -4,7 +4,7 @@ import '../index.css';
 
 class Notes extends Component {
   bodyellipsis = (str) => {
-    return (str.length > 145 ? str.slice(0, 145) + ' ...' : str)
+    return (str.length > 140 ? str.slice(0, 140) + ' ...' : str)
   }
   headerellipsis = (str) => {
     return (str.length > 10 ? str.slice(0, 10) + ' ...' : str)
@@ -16,10 +16,10 @@ class Notes extends Component {
         <div className="notes">
           {this.props.notes.map(note => {
             return (
-              <div key={note._id} className="notePreview">
+              <div key={note.id} className="notePreview">
                 <Note className="note"
                   title={this.headerellipsis(note.title)}
-                  id={note._id}
+                  id={note.id}
                   text={this.bodyellipsis(note.textBody)}
                 />
               </div>

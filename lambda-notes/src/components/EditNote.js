@@ -11,7 +11,9 @@ class EditNote extends Component {
   }
   componentDidMount() {
     const id = this.props.match.params.id;
-    const note = this.props.notes.find(note => note._id === id);
+    console.log(id);
+    const note = this.props.notes.find(note => `${note.id}` === id);
+    console.log(note)
     this.setState({
       title:note.title,
       textBody:note.textBody,
