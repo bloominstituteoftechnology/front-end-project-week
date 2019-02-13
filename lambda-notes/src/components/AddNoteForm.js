@@ -15,11 +15,8 @@ class AddNoteForm extends Component {
         this.setState({
             note: {
                 ...this.state.note,
-                [e.target.name]: e.target.value,
-                // [e.target.textBody]: e.target.value
+                [e.target.name]: e.target.value
             }
-                
-            // }
         })
     }
     addNoteHandler = e => {
