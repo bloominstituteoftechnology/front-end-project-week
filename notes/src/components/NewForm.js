@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchNotes, addNote } from "../../actions/noteActions";
+import { fetchNotes, addNote } from "../actions/noteActions";
 
 import { Form, Button } from "react-bootstrap";
 
@@ -31,7 +31,7 @@ class NewForm extends React.Component {
 
   createNote = event => {
     event.preventDefault();
-    this.addNote();
+    this.props.addNote(this.state);
     this.props.history.push("/");
   };
 

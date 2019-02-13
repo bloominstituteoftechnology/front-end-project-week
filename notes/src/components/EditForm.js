@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchNotes, editNote } from "../../actions/noteActions";
+import { fetchNotes, editNote } from "../actions/noteActions";
 
 import { Form, Button } from "react-bootstrap";
 
@@ -46,7 +46,7 @@ class EditForm extends React.Component {
   render() {
     return (
       <Container>
-        <Form>
+        <Form onSubmit={this.updateNote}>
           <Form.Group controlId="formTitle">
             <Form.Label>Note Title</Form.Label>
             <Form.Control
@@ -54,7 +54,7 @@ class EditForm extends React.Component {
               placeholder="Title..."
               onChange={this.inputHandler}
               value={this.state.title}
-              name="updateTitle"
+              name="title"
             />
             <Form.Text className="text-muted">Or maybe Sam Altman.</Form.Text>
           </Form.Group>
@@ -68,14 +68,10 @@ class EditForm extends React.Component {
               style={{ height: "50vh", resize: "none", overflow: "auto" }}
               onChange={this.inputHandler}
               value={this.state.textBody}
-              name="updateTextBody"
+              name="textBody"
             />
           </Form.Group>
-          <Button
-            variant="outline-primary"
-            type="submit"
-            onClick={this.updateNote}
-          >
+          <Button variant="outline-primary" type="submit" value="Update">
             Update
           </Button>
         </Form>

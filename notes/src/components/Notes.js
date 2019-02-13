@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchNotes } from "../../actions/noteActions";
+import { fetchNotes } from "../actions/noteActions";
 
 import NoteCard from "./NoteCard";
 import Search from "./Search";
@@ -19,6 +18,8 @@ const NotesContainer = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   padding-left: 15px;
+  min-width: 100vw;
+  overflow: hidden;
 `;
 
 const NoteContainer = styled.div`
@@ -73,18 +74,8 @@ class Notes extends React.Component {
         <NotesContainer>
           {filtered.map(note => {
             return (
-              <NoteContainer key={note.id}>
-                <Link
-                  to={`/notes/${note.id}`}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <NoteCard
-                    key={note.id}
-                    id={note.id}
-                    title={note.title}
-                    textBody={note.textBody}
-                  />
-                </Link>
+              <NoteContainer>
+                <NoteCard key={note.id} note={note} />
               </NoteContainer>
             );
           })}
