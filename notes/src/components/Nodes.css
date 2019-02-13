@@ -1,0 +1,16 @@
+
+
+.contentContainer{
+  display: table-cell;
+  min-width: 450px;
+  vertical-align: top;
+  padding-left: 2%;
+  background-color: rgb(240, 236, 236);
+  border: 1px solid #A0A0A0;
+}
+.contentContainer h2 {
+  color: #4A494A;
+  margin-left: 1%;
+  margin-top: 50px;
+
+}
