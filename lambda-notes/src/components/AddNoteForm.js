@@ -14,19 +14,16 @@ class AddNoteForm extends Component {
     changeHandler = e => {
         this.setState({
             note: {
-                // ...this.state.note,
-                [e.target.title]: e.target.value,
-                [e.target.textBody]: e.target.value
-                // [e.target.tags]: e.target.value,
+                ...this.state.note,
+                [e.target.name]: e.target.value,
+                // [e.target.textBody]: e.target.value
             }
+                
+            // }
         })
     }
     addNoteHandler = e => {
         e.preventDefault();
-        // if (([e.target.title] && [e.target.textBody]) === '') {
-        //     return false;
-        // }
-        // else {
             this.props.addNote(this.state.note);
             this.setState({
                 note: {
@@ -35,25 +32,25 @@ class AddNoteForm extends Component {
                     // tags: []
                 }
             })
-        // }
     }
 
     render() {
         return (
             <form onSubmit={this.addNoteHandler}>
                 <input
+                    value={this.state.title}
                     onChange={this.changeHandler}
                     name="title"
                     placeholder="Title"
                     type="text"
-                    value={this.state.note.title}
                 />
+
                 <textarea
+                    value={this.state.textBody}
                     onChange={this.changeHandler}
                     name="textBody"
                     placeholder="Body"
                     type="textarea"
-                    value={this.state.note.textBody}
                 />
                
                 <button type="submit">Add Note</button>

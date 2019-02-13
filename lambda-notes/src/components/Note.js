@@ -9,13 +9,13 @@ const Note = props => {
             <div className="card-body">
                 <h3>{props.note.textBody}</h3>
             </div>
-            <div className="card-tags">
+            {/* <div className="card-tags">
                 {props.note.tags.map((tag, index) => {
                     return (
                         <span key={index}>{tag}</span>
                     )
                 })}
-            </div>
+            </div> */}
         </div>
     )
 }

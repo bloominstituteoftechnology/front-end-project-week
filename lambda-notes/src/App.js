@@ -25,20 +25,22 @@ class App extends Component {
         console.log(err);
       })
   }
-  addNote = (note) => {
+  addNote = note => {
 
     const newNote = {
-      id: Date.now(),
+      // id: Date.now(),
       title: note.title,
       textBody: note.textBody
     }
-
+    console.log(note);
     axios
-    
       .post('https://fe-notes.herokuapp.com/note/create', newNote)
       .then(response => {
+          console.log(response)  ;
+          // ...this.state.note,
+          newNote.id = response.data.success;
           this.setState({
-              notes: response.data
+              notes: [...this.state.notes, newNote],
           })
       })
       .catch(err =>{
