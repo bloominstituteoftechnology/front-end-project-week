@@ -7,6 +7,14 @@ const AppContainer = styled.div`
   height:100vh;
 `
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      notes: []
+    }
+  }
+
+  
   render() {
     return (
       <AppContainer>
