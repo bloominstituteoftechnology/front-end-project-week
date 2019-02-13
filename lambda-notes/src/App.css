@@ -1,0 +1,131 @@
+.app{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.sideMenu{
+  margin-left: 10px;
+  background-color: lightgray;
+  padding: 20px;
+}
+
+h1{
+  font-size: 40px;
+}
+
+.noteCard{
+  border: 1px solid black;
+  margin: 10px;
+  padding: 5px;
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+}
+
+.noteHeading{
+  border-bottom: 1px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.notesBlock{
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.notesContent{
+  background-color: whitesmoke; 
+}
+
+.notesTitle{
+  font-size: 30px;
+  font-weight: bold;
+  padding: 50px 0px 10px 10px
+}
+
+.notePara{
+  margin-top: 5px;
+}
+
+.menuButton{
+  border: 1px solid turquoise;
+  background-color: turquoise;
+  width: 140px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  display: block
+}
+
+a{
+  text-decoration: none;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  min-width: 800px;
+  margin-left: 20px;
+}
+
+.formHeading{
+  font-size: 20px;
+  margin-bottom: 10px;
+  
+}
+
+.formTitle{
+  margin-bottom: 10px;
+  width: 500px;
+}
+
+.formContent{
+  min-height: 200px;
+  width: 500px;
+  margin-bottom: 10px;
+}
+
+.formSubmit{
+  border: 1px solid turquoise;
+  background-color: turquoise;
+  width: 140px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  display: block
+}
+
+.singleNote{
+  background-color: whitesmoke;
+  padding: 20px 10px;
+  min-width: 800px;
+}
+
+.singleDelete{
+  display: block;
+  text-decoration: underline;
+  margin: 5px;
+  text-align: right;
+}
+
+.singleEdit{
+  display: block;
+  text-decoration: underline;
+  color: black;
+  margin: 5px;
+  text-align: right;
+}
+
+.singleNoteHeading{
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0px;;
+
+}
