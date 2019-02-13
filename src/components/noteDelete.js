@@ -15,8 +15,8 @@ const customStyles = {
 };
 
 class noteDelete extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       notes: [],
@@ -34,7 +34,10 @@ class noteDelete extends React.Component {
   componentDidMount() {
     if (localStorage.getItem('modals')) {
       let modals = localStorage.getItem('modals')
+      //var isTrueSet = (myValue == 'true');
+      console.log("modals:", modals)
       if (modals) {
+        modals = true 
         this.setState(() => ({ modalIsOpen: modals }));    
       } else {
         let modals = false
@@ -75,7 +78,7 @@ class noteDelete extends React.Component {
           style={customStyles}
         >
           {<h2 ref={subtitle => this.subtitle = subtitle}>Are you sure you want to delete this?</h2>}
-          <button className="delete2-button" onClick={this.deleteRequest}>Delete</button>
+          <button className="delete2-button" onClick={() => this.deleteRequest(this.props.id)}>Delete</button>
           <button className="cancel-button" onClick={this.closeModal}>Cancel</button>
           <form className="modal-form">
           </form>

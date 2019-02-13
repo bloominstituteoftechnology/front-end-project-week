@@ -11,7 +11,7 @@ class NoteView extends Component {
       tags: '',
       title: '',
       textBody: '',
-      _id: '',
+      id: '',
       selected: null,
     };
   }

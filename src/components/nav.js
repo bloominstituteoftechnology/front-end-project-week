@@ -59,7 +59,7 @@ this.setState({ notes: newNotes });
         </ul>{(this.state.enableList) ?
         <ul className="nav-title-list">
         {this.props.notes.map((note, index) => {
-						return <NavNoteList key={index} title={note.title} viewNote={this.props.viewNote} textBody={note.textBody} _id={note._id} noteView={this.props.noteView} notes={this.state.notes} />
+						return <NavNoteList key={index} title={note.title} viewNote={this.props.viewNote} textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
 					})}
        
         </ul>: null}

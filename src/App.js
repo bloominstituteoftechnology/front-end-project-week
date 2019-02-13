@@ -70,13 +70,14 @@ class App extends React.Component {
 
   noteDelete = id => {
     // console.log("in the note delete, app.js")
-    let modalType = true;
+    const modalType = !false;
+    //let modalType = true;
     localStorage.setItem('modals', modalType)
     localStorage.setItem('viewPage', "noteDelete");
 
-    let pageType = `noteDelete`
+    let pageType = 'noteDelete';
     let _id = id;
-    this.setState(() => ({ viewPage: pageType, id: _id }))
+    this.setState(() => ({ viewPage: pageType, id: id }))
   }
 
   noteEdit = id => {
@@ -97,7 +98,7 @@ class App extends React.Component {
     let pageType = "noteView"
     let _id = id;
     //console.log("in noteView app.js")
-    this.setState(() => ({ viewPage: pageType, id: _id }));
+    this.setState(() => ({ viewPage: pageType, id: id }));
   }
 
 

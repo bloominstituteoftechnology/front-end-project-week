@@ -20,6 +20,11 @@ class NoteEdit extends Component {
 
     componentDidMount() {
         this.props.viewNote(this.props.id)
+        const currentTitle = this.props.noteSelected.title;
+        const currentTextBody = this.props.noteSelected.textBody;
+
+        this.setState({ title: currentTitle, textBody: currentTextBody });
+        console.log("the state:", this.state)
     }
 
     noteUpdate = (e) => {
@@ -65,7 +70,7 @@ class NoteEdit extends Component {
     };
 }
 const mapStateToProps = state => {
-   // const { singleNoteReducer } = state;
+    // const { singleNoteReducer } = state;
     return {
         error: state.notesReducer.error,
         noteSelected: state.singleNoteReducer.noteSelected
