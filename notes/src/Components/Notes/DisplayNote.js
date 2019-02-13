@@ -5,7 +5,9 @@ import './notes.css';
 
 const DisplayNote = props => {
     const note = props.notes.find(note => {
-        if(note._id === props.match.params.id) {
+        console.log(`Note find -> ${note.id}`)
+        
+        if(String(note.id) === props.match.params.id) {
             return note;
         }
         return undefined;
@@ -18,13 +20,13 @@ const DisplayNote = props => {
         <div className='display-note'>
             <header className='note-header'>
                 <div className='note-links-container'>
-                    <Link className='note-link' to={`${note._id}/edit`}>Edit</Link>
-                    <Link className='note-link' to={`${note._id}/delete`}>Delete</Link>
+                    <Link className='note-link' to={`${note.id}/edit`}>Edit</Link>
+                    <Link className='note-link' to={`${note.id}/delete`}>Delete</Link>
                 </div>
                 <div className='note-title'>{note.title}</div>
             </header>
             <div className='note-break'/>
-            <div className='note-body'>{note.textBody}</div>
+            <div className='note-body'>{note.content}</div>
         </div>
     )
 }

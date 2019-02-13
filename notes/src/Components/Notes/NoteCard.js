@@ -3,11 +3,11 @@ import React from 'react';
 import './notes.css';
 
 const NoteCard = props => {
-    let textBody = props.note.textBody;
+    let content = props.note.content;
 
-    if (textBody.length > 215) {
-        textBody = textBody.slice(0, 215);
-        textBody = textBody + '...';
+    if (content.length > 215) {
+        content = content.slice(0, 215);
+        content = content + '...';
     }
     console.log(props.key);
     return (
@@ -17,7 +17,7 @@ const NoteCard = props => {
             </div>
             <div className='note-card-break'/>
             <div className='note-card-body'>
-                {textBody}
+                {content}
             </div>
         </div>
     )

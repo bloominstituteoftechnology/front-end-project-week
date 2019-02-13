@@ -13,7 +13,7 @@ import DeleteModal from './Components/Notes/DeleteModal';
 let dummyData = [{
   "tags": ["tag", "otherTag"],
   "title": "Note Title",
-  "textBody": "Note Body",
+  "content": "Note Body",
 }];
 */
 
@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   getNotes = () => {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:5000/api/notes')
     .then(response => {
       this.setState({
         notes: response.data,
@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   createNote = (note) => {
-    axios.post('https://fe-notes.herokuapp.com/note/create', note)
+    axios.post('http://localhost:5000/api/notes', note)
     .then(() => {
       this.getNotes();
     })
@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   updateNote = (id, note) => {
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    axios.put(`http://localhost:5000/api/notes/${id}`, note)
     .then(() => {
       this.getNotes();
     })
@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   deleteNote = (id) => {
-    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    axios.delete(`http://localhost:5000/api/notes/${id}`)
     .then(() => {
       this.getNotes();
     })
@@ -73,6 +73,7 @@ class App extends Component {
 
   render() {
     if (this.state.notes === undefined) {
+      console.log(`notes undefined: ${this.state.notes}`);
       return (
         <div className="App">
           <nav className='menu'>
@@ -85,35 +86,38 @@ class App extends Component {
         </div>
       )
     }
-    return (
-      <div className="App">
-        <Route exact path='/note/:id/delete'
-            render={(props) => <DeleteModal {...props} notes={this.state.notes} deleteNote={this.deleteNote} />}
-        />
-        <nav className='menu'>
-          <h1>Lambda<br/>Notes</h1>
-          <Menu />
-        </nav>
-        <main className='notes'>
-          <Route exact path='/'
-            render={(props) => <NoteList {...props} notes={this.state.notes}/>}
-          />
-          <Route path='/notes/create'
-            render={(props) => <NoteForm {...props} type='Create' updateValue={this.updateValue} createNote={this.createNote} />}
-          />
-          <Route exact path='/note/:id'
-            render={(props) => <DisplayNote {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>}
-          />
+    else {
+      console.log(`notes: ${this.state.notes}`);
+      return (
+        <div className="App">
           <Route exact path='/note/:id/delete'
-            render={(props) => <DisplayNote {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>}
+              render={(props) => <DeleteModal {...props} notes={this.state.notes} deleteNote={this.deleteNote} />}
           />
+          <nav className='menu'>
+            <h1>Lambda<br/>Notes</h1>
+            <Menu />
+          </nav>
+          <main className='notes'>
+            <Route exact path='/'
+              render={(props) => <NoteList {...props} notes={this.state.notes}/>}
+            />
+            <Route path='/notes/create'
+              render={(props) => <NoteForm {...props} type='Create' updateValue={this.updateValue} createNote={this.createNote} />}
+            />
+            <Route exact path='/note/:id'
+              render={(props) => <DisplayNote {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>}
+            />
+            <Route exact path='/note/:id/delete'
+              render={(props) => <DisplayNote {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>}
+            />
 
-          <Route path='/note/:id/edit'
-            render={(props) => <NoteForm {...props} type='Edit' notes={this.state.notes} updateValue={this.updateValue} updateNote={this.updateNote} />}
-          />
-        </main>
-      </div>
-    );
+            <Route path='/note/:id/edit'
+              render={(props) => <NoteForm {...props} type='Edit' notes={this.state.notes} updateValue={this.updateValue} updateNote={this.updateNote} />}
+            />
+          </main>
+        </div>
+      );
+    }
   }
 }
 

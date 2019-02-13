@@ -11,8 +11,8 @@ const NoteList = props => {
         <div className='note-list'>
             {props.notes.map(note => {
                 return (
-                    <Link to={`/note/${note._id}`} className='card-link' key={note._id + note.title}> 
-                        <NoteCard key={note._id} note={note} />
+                    <Link to={`/note/${note.id}`} className='card-link' key={note.id + note.title}> 
+                        <NoteCard key={note.id} note={note} />
                     </Link>
                 )
             })}

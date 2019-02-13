@@ -8,7 +8,7 @@ class NoteForm extends React.Component {
         this.state = {
             note: undefined,
             title: '',
-            textBody: '',
+            content: '',
         }
     }
 
@@ -16,7 +16,7 @@ class NoteForm extends React.Component {
         let note;
         if (this.props.type === 'Edit') {
             note = this.props.notes.find(note => {
-                if (note._id === this.props.match.params.id) {
+                if (String(note.id) === this.props.match.params.id) {
                     return note;
                 }
                 return undefined;
@@ -26,27 +26,27 @@ class NoteForm extends React.Component {
             this.setState({
                 note: note,
                 title: note.title,
-                textBody: note.textBody,
+                content: note.content,
             })
         }
     }
     
     submitForm = e => {
         e.preventDefault();
-        const note = {title: this.state.title, textBody: this.state.textBody};
+        const note = {title: this.state.title, content: this.state.content};
         if (this.props.type === 'Create') {
             console.log('Inside create:', note)
             this.props.createNote(note);
             this.setState({
                 title: '',
-                textBody: '',
+                content: '',
             })
         }
         if (this.props.type === 'Edit') {
             this.props.updateNote(this.props.match.params.id, note);
             this.setState({
                 title: '',
-                textBody: '',
+                content: '',
             })
         }
     }
@@ -75,8 +75,8 @@ class NoteForm extends React.Component {
                 </p>
                 <p>
                     <textarea className='text-body-input' 
-                        name='textBody' 
-                        value={this.state.textBody} 
+                        name='content' 
+                        value={this.state.content} 
                         placeholder={this.props.type === 'Create' ? 'Note Content' : ''} 
                         onChange={this.updateValue} 
                     />
