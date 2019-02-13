@@ -6,10 +6,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Card,
-  Button,
-  CardTitle,
-  CardText,
   Row,
   Col
 } from "reactstrap";
@@ -17,7 +13,7 @@ import classnames from "classnames";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp";
 
-export default class Example extends React.Component {
+class UserAuthentication extends React.Component {
   constructor(props) {
     super(props);
 
@@ -78,3 +74,5 @@ export default class Example extends React.Component {
     );
   }
 }
+
+export default UserAuthentication;
