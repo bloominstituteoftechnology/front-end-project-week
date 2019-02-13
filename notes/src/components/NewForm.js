@@ -31,8 +31,8 @@ class NewForm extends React.Component {
 
   createNote = event => {
     event.preventDefault();
-    props.addNote();
-    props.history.push("/");
+    this.addNote();
+    this.props.history.push("/");
   };
 
   render() {

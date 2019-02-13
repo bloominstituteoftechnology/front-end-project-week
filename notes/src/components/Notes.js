@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { fetchNotes } from "../../actions/noteActions";
 
 import NoteCard from "./NoteCard";
-import Search from "./Search"
+import Search from "./Search";
 
 import styled from "styled-components";
 
@@ -37,9 +37,9 @@ const NoteContainer = styled.div`
 
 class Notes extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      search: '',
+      search: ""
     };
   }
 
@@ -49,15 +49,18 @@ class Notes extends React.Component {
 
   inputHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
   filterNotes = note => {
-    const lowerCase = this.state.search.toLowerCase()
+    const lowerCase = this.state.search.toLowerCase();
 
-    if (note.title.toLowerCase().includes(lowerCase) || note.textBody.toLowerCase().includes(lowerCase)) {
+    if (
+      note.title.toLowerCase().includes(lowerCase) ||
+      note.textBody.toLowerCase().includes(lowerCase)
+    ) {
       return note;
     }
-  }
+  };
 
   render() {
     const filtered = this.props.notes.filter(note => this.filterNotes(note));
@@ -79,8 +82,7 @@ class Notes extends React.Component {
                     key={note.id}
                     id={note.id}
                     title={note.title}
-                    text={note.textBody}
-                    {...props}
+                    textBody={note.textBody}
                   />
                 </Link>
               </NoteContainer>
@@ -90,7 +92,7 @@ class Notes extends React.Component {
       </Container>
     );
   }
-};
+}
 
 Notes.defaultProps = {
   notes: []

@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { deleteNote } from "../../actions/noteActions";
 
 import styled from "styled-components";
 import { Card, Button } from "react-bootstrap";
@@ -34,19 +36,19 @@ const ButtonContainer = styled.div`
   padding-top: 20px;
 `;
 
-const NoteCard = props => {
+const NoteCard = ({ note }) => {
   const deleteNotes = event => {
     event.preventDefault();
-    props.deleteNote(props.id);
-    props.deleteToggleOff();
+    this.props.deleteNote(note.id);
+    this.props.history.push("/");
   };
 
   return (
     <NoteContainer>
       <Card.Body>
-        <NoteTitle>{props.title}</NoteTitle>
+        <NoteTitle>{note.title}</NoteTitle>
         <hr />
-        <TextContainer>{props.text}</TextContainer>
+        <TextContainer>{note.textBody}</TextContainer>
         <ButtonContainer>
           <Button
             href="`/notes/${props.key}`"
@@ -74,4 +76,11 @@ NoteCard.defaultProps = {
   textBody: ""
 };
 
-export default NoteCard;
+const mapStateToProps = state => ({
+  notes: state.noteReducer.notes
+});
+
+export default connect(
+  mapStateToProps,
+  { deleteNote }
+)(NoteCard);

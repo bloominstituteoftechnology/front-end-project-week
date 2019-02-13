@@ -139,7 +139,7 @@ class Note extends React.Component {
                 <p>Are you sure you want to delete this?</p>
                 <ModalButtons>
                   <DeleteButton onClick={deleteNotes}>Delete</DeleteButton>
-                  <NoButton onClick={props.deleteToggleOff}>No</NoButton>
+                  <NoButton onClick={this.deleteToggleOff}>No</NoButton>
                 </ModalButtons>
               </DeleteModal>
             </Modal>
@@ -176,4 +176,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { fetchNotes, deleteNote }
-)(NotePage);
+)(Note);
