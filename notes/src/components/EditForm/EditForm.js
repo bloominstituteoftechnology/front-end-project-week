@@ -15,8 +15,8 @@ class EditForm extends React.Component {
 
   componentDidMount() {
     this.props.notes.map(note => {
-      if(this.props.match.params.id === `${note._id}`) {
-        this.setState({ id: note._id, title: note.title, text: note.textBody })
+      if(this.props.match.params.id === `${note.id}`) {
+        this.setState({ id: note.id, title: note.title, text: note.content })
       }
     })
   }

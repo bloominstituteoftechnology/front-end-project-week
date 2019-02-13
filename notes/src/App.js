@@ -23,7 +23,7 @@ class App extends Component {
     }
 
     getNotes = () => {
-      axios.get('https://fe-notes.herokuapp.com/note/get/all')
+      axios.get('https://notesbackend.herokuapp.com/api/notes')
       .then(response => {
         this.setState({ notes: response.data })
       })
@@ -31,9 +31,9 @@ class App extends Component {
     }
 
     createNote = (title, text) => {
-      axios.post('https://fe-notes.herokuapp.com/note/create', {
+      axios.post('https://notesbackend.herokuapp.com/api/notes', {
         title: title,
-        textBody: text
+        content: text
       })
       .then(response => {
         this.getNotes();
@@ -42,7 +42,7 @@ class App extends Component {
     }
 
     deleteNote = (id) => {
-      axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      axios.delete(`https://notesbackend.herokuapp.com/api/notes/${id}`)
       .then(response => {
         this.getNotes();
       })
@@ -50,9 +50,9 @@ class App extends Component {
     }
 
     editNote = (id, title, text) => {
-      axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+      axios.put(`https://notesbackend.herokuapp.com/api/notes/${id}`, {
         title: title,
-        textBody: text
+        content: text
       })
       .then(response => {
         this.getNotes();
@@ -68,6 +68,7 @@ class App extends Component {
         <Route exact path="/" render={(props) =>
           <ListView notes={this.state.notes} />
         } />
+        
         <Route exact path='/create' render={(props) => <CreateForm {...props} createNote={this.createNote} />} />
        
         <Route exact path='/note/:id' render={(props) => 

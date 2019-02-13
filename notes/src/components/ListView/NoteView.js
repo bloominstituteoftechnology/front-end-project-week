@@ -33,17 +33,17 @@ class NoteView extends React.Component {
             <div className="noteViewContainer">
                 
                 {this.props.notes.map(note => {
-                    if (this.props.match.params.id === `${note._id}`) {
+                    if (this.props.match.params.id === `${note.id}`) {
                         return (
                             <div>
                                 <div className="noteViewNav">
-                                    <Link to={`/note/edit/${note._id}`}>
+                                    <Link to={`/note/edit/${note.id}`}>
                                     <span className="noteButton" style={{cursor: 'pointer'}}>Edit</span>
                                     </Link>
                                     <span className="noteButton" style={{cursor: 'pointer'}} onClick={this.toggleModal}>Delete</span>
                                 </div>
                                 <h2 className="noteViewTitle">{note.title}</h2>
-                                <p className="noteViewText">{note.textBody}</p>
+                                <p className="noteViewText">{note.content}</p>
 
                                 <Modal 
                                     isOpen={this.state.modal} 
@@ -54,7 +54,7 @@ class NoteView extends React.Component {
                                     <ModalHeader toggle={this.toggleModal}>Modal Header</ModalHeader>
                                     <ModalBody>Are you sure you want to delete?</ModalBody>
                                     <ModalFooter>
-                                            <Button color='danger' onClick={() => this.deleteNoteHandler(note._id)} >Delete</Button>
+                                            <Button color='danger' onClick={() => this.deleteNoteHandler(note.id)} >Delete</Button>
                                         <Button color="primary" onClick={this.toggleModal}>Cancel</Button>
                                     </ModalFooter>
                                 </Modal>
