@@ -1,5 +1,7 @@
 import React from 'react';
 import Note from './Note';
+import {FaTrashAlt } from 'react-icons/fa';
+
 
 const NotesList = props => {
     return(
@@ -8,7 +10,11 @@ const NotesList = props => {
             <div className="notes-wrapper">
                 {props.notes.map((note, index) => {
                     return (
-                        <Note key={index} note={note}/>
+                        <div key={index} className="card">
+                            <Note note={note} id={note.id} />
+                            <button onClick={() => props.deleteNote(note._id)}><FaTrashAlt/></button>
+                        </div>
+                        
                     )
                 })}
             </div>

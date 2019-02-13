@@ -48,11 +48,15 @@ class App extends Component {
 
   deleteNote = id => {
     axios
-      .delete('https://fe-notes.herokuapp.com/note/delete/id')
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
+        let newNotes = this.state.notes.filter(note => id !== note._id);
         this.setState({
-          notes: response.data.filter(note => id !== note.id)
+          notes: newNotes
         })
+      })
+      .catch(err => {
+        console.log(err);
       })
   }
   render() {
@@ -62,7 +66,7 @@ class App extends Component {
             <Sidebar />
             <Route exact path="/" 
               render={props => 
-               <NotesList {...props} notes={this.state.notes}/>
+               <NotesList {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>
               }
             />
             <Route exact path="/notes/create" 
