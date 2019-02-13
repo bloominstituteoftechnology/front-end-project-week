@@ -1,0 +1,176 @@
+.App {
+  display: flex;
+  min-height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+/* test */
+.delete-modal-box {
+  background: whitesmoke;
+  width: 40vw;
+  height: 25vh;
+  border: 1px solid #282c34;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-25%, -50%);
+}
+
+.delete-button {
+  background: #24b8bd;
+  margin: 15px 0;
+  width: 34%;
+  padding: 15px 15px;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.cancel-delete {
+  background: red;
+  margin: 15px 0;
+  margin-left: 16px;
+  width: 34%;
+  padding: 15px 15px;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+/* navigation */
+.side-navbar {
+  width: 24%;
+  background: #d3d2d3;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 35px;
+}
+
+.side-navbar {
+  font-size: 1rem;
+}
+
+.nav-link {
+  background: #24b8bd;
+  margin: 15px 0;
+  width: 90%;
+  padding: 15px 15px;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* note list */
+.notes-application {
+  background-color: #f2f1f2;
+  margin: 0 auto;
+  padding: 25px;
+  padding-left: 83px;
+  width: 76%;
+}
+
+.note-list {
+  display: flex;
+  flex-flow: row wrap;
+  /* justify-content: space-between; */
+  align-content: baseline;
+  width: 100%;
+}
+
+.note-list a {
+  text-decoration: none;
+  color: black;
+}
+
+.notes-wrapper {
+  background: #f2f1f2;
+  width: 100%;
+}
+
+.notes-container:not(last-child) {
+  margin-right: 1rem;
+  height: 22vh;
+  display: flex;
+  border: 2px solid #d7d7d7;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 17vw;
+  margin-bottom: 25px;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  overflow: hidden;
+}
+
+h1 {
+  color: dimgrey;
+}
+
+h2 {
+  margin: 0;
+  text-align: left;
+  margin-bottom: 10px;
+  color: dimgrey;
+}
+
+hr {
+  width: 100%;
+  color: #ccc;
+}
+
+/* note form */
+.note-form-wrapper form,
+.edit-note form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.note-form-wrapper input,
+.edit-note input {
+  max-width: 50%;
+  margin: 15px 0px;
+  padding: 15px;
+  font-size: 1rem;
+}
+
+.note-form-wrapper textarea,
+.edit-note textarea {
+  height: 45vh;
+  margin: 15px 0px;
+  padding: 24px;
+  font-size: 1rem;
+}
+
+.note-form-wrapper button,
+.edit-note button {
+  background: #24b8bd;
+  margin: 15px 0;
+  width: 30%;
+  padding: 15px 15px;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* note view */
+.note-container-links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-container-links a {
+  display: block;
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+  padding: 0px 10px;
+}
+
+.single-note {
+  text-align: left;
+}
