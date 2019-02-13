@@ -1,5 +1,7 @@
 import React from "react";
 import { Button, Form, FormGroup, Input } from "reactstrap";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/authActions";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -7,7 +9,9 @@ class SignIn extends React.Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      message: "",
+      color: ""
     };
   }
   changeHandler = e => {
@@ -16,9 +20,19 @@ class SignIn extends React.Component {
   createUserObject = e => {
     e.preventDefault();
 
-    const user = Object.assign({}, this.state);
+    if (this.state.email && this.state.password) {
+      const user = {
+        email: this.state.email,
+        password: this.state.password
+      };
 
-    return this.props.registerUser(user);
+      return this.props.loginUser(user);
+    } else {
+      return this.setState({
+        color: "danger",
+        message: "Enter valid login info."
+      });
+    }
   };
   render() {
     return (
@@ -47,4 +61,13 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+const mapStateToProps = state => {
+  return {
+    error: state.authReducer.error
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(SignIn);

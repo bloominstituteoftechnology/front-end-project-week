@@ -1,5 +1,7 @@
 import React from "react";
 import { Button, Form, FormGroup, Input, Alert } from "reactstrap";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -10,8 +12,9 @@ class SignUp extends React.Component {
       email: "",
       password: "",
       password2: "",
-      error: "Please fill out the form below",
-      color: "light"
+      message: "Please fill out the form below",
+      color: "light",
+      error: ""
     };
   }
   changeHandler = e => {
@@ -26,21 +29,20 @@ class SignUp extends React.Component {
           email: this.state.email,
           password: this.state.password
         };
-        this.setState({ color: "info", error: "Registering User..." });
-        console.log(user);
+        this.setState({ color: "info", message: "Registering User..." });
+        return this.props.registerUser(user);
       } else {
         this.setState({
           color: "danger",
-          error: "Passwords do not match"
+          message: "Passwords do not match"
         });
       }
     } else {
       this.setState({
         color: "danger",
-        error: "Password minimum of 8 characters. "
+        message: "Password minimum of 8 characters. "
       });
     }
-    // return this.props.registerUser(user);
   };
   comparePasswords = () => {
     return this.state.password === this.state.password2 ? true : false;
@@ -48,7 +50,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <Form onSubmit={this.createUserObject}>
-        <Alert color={this.state.color}>{this.state.error}</Alert>
+        <Alert color={this.state.color}>{this.state.message}</Alert>
         <FormGroup>
           <Input
             type="text"
@@ -91,4 +93,14 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+const mapStateToProps = state => {
+  return {
+    register: state.authReducer.register,
+    error: state.authReducer.error
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(SignUp);
