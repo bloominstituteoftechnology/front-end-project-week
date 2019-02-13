@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar';
 import { Route } from 'react-router-dom';
 import NotesList from './components/NotesList';
 import AddNoteForm from './components/AddNoteForm';
+import Note from './components/Note';
 
 import axios from 'axios';
 
@@ -59,6 +60,18 @@ class App extends Component {
         console.log(err);
       })
   }
+
+  viewNote = id => {
+    axios
+      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
   render() {
     return (
       <div className="App">
@@ -72,6 +85,11 @@ class App extends Component {
             <Route exact path="/notes/create" 
               render={props => 
                 <AddNoteForm {...props} addNote={this.addNote}/>
+              }
+            />
+            <Route exact path="notes/:id" 
+              render={props =>
+                <Note viewNote={this.viewNote} />
               }
             />
         </div>

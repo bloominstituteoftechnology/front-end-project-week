@@ -11,10 +11,11 @@ const NotesList = props => {
                 {props.notes.map((note, index) => {
                     return (
                         <div key={index} className="card">
+                            
                             <Note note={note} id={note.id} />
+                            
                             <button onClick={() => props.deleteNote(note._id)}><FaTrashAlt/></button>
                         </div>
-                        
                     )
                 })}
             </div>
