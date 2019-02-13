@@ -8,7 +8,7 @@ const NotesList = props => {
             <div className="notes-wrapper">
                 {props.notes.map((note, index) => {
                     return (
-                        <Note key={index} note={note} tags={note.tags}/>
+                        <Note key={index} note={note}/>
                     )
                 })}
             </div>
