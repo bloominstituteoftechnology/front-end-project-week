@@ -1,8 +1,8 @@
 
 nav {
 
-  max-width: 250px;
-  min-width: 200px;
+  max-width: 300px;
+  min-width: 220px;
   height: 100%;
   background-color: #D8D8D8;
   border: 1px solid #A0A0A0;
@@ -26,7 +26,8 @@ nav button{
   text-align: center;  
   font-weight: bold;
   padding: 0.8rem 0;
-  width: 90%;
+  width: 85%;
   margin-bottom: 10px;
   margin-left: 5%;
+  margin-right: 5%;
 }
