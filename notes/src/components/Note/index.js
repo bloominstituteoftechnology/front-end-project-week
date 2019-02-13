@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { Link } from "react-router-dom";
 import "./note.css";
+const URL = "http://localhost:5002/";
 
 class Note extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Note extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(`${process.env.URL}api/notes/${this.props.match.params.id}`)
+      .get(`${URL}api/notes/${this.props.match.params.id}`)
       .then(res => this.setState({ note: res.data }));
   }
 
