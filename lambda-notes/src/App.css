@@ -22,11 +22,41 @@
 .App-link {
   color: #61dafb;
 }
-aside {
-  float: left;
+.container {
+  max-width: 1024px;
+  margin-left: auto;
+  display: flex;
+}
+.aside {
+  padding: 0px 40px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-top: 80px;
+}
+.notes-container {
+  flex-direction: column;
+  padding-top: 133px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+}
+.notes-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.notes-container h2 {
+  padding: 0px 0px 30px;
+}
+.card {
+  width: 30%;
+  height: 200px;
+  margin-bottom: 33px;
+}
+.card h2 {
+  text-transform: capitalize;
 }
 @keyframes App-logo-spin {
   from {

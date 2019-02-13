@@ -27,7 +27,7 @@ class App extends Component {
       <div className="App">
         <div className="container">
             <Sidebar />
-            <NotesList notes={this.state.state}/>
+            <NotesList notes={this.state.notes}/>
         </div>
 
       </div>
