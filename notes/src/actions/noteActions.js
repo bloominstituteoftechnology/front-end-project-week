@@ -7,7 +7,7 @@ export const UPDATE_NOTE = "UPDATE_NOTE";
 export const FETCH_NOTE = "FETCH_NOTE";
 export const ADD_NOTE = 'ADD_NOTE'
 
-const URL = "https://fe-notes.herokuapp.com/note";
+const URL = "http://localhost:5000/note";
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: LOADING });
