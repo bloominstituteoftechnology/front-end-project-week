@@ -1,6 +1,6 @@
 import React from "react";
 
-class UserAuthentication extends React.component {
+class UserAuthentication extends React.Component {
   render() {
     return (
       <section>
