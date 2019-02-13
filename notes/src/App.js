@@ -59,7 +59,7 @@ class App extends Component {
   // TODO: Figure how to update without constant GET requests
   componentDidUpdate() {
     axios
-      .get("https://fe-notes.herokuapp.com/note/get/all")
+      .get("https://onedrousdev.herokuapp.com/api/notes")
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
