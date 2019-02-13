@@ -46,7 +46,7 @@ width:100%;
 max-width:265px;
 border:1px dotted black;
 padding:35px;
-height:825px;
+height:870px;
 background-color:darkgrey;
 `;
 
