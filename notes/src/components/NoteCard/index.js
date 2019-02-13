@@ -6,7 +6,7 @@ import "./notecard.css";
 
 const NoteCard = props => {
   return (
-    <Link to={`/${props.note.id}`} name={props.note.id} className="note">
+    <Link to={`/notes/${props.note.id}`} name={props.note.id} className="note">
       <h2>{props.note.title}</h2>
       <hr />
       <p>{props.note.textBody}</p>

@@ -21,7 +21,7 @@ export const fetchNotes = () => {
     dispatch({ type: FETCHING });
 
     axios
-      .get("http://localhost:5002/api/notes/all")
+      .get(`${process.env.URL}api/notes/all`)
       .then(res => {
         dispatch({
           type: FETCHED,
@@ -39,13 +39,13 @@ export const createNote = note => {
     dispatch({ type: CREATING, payload: note });
 
     axios
-      .post("http://localhost:5002/api/notes/create", { newNote: note })
+      .post(`${process.env.URL}api/notes/create`, { newNote: note })
       .then(res => {
         dispatch({ type: CREATED });
       })
       .then(() => {
         axios
-          .get("http://localhost:5002/api/notes/all")
+          .get(`${process.env.URL}api/notes/all`)
           .then(res => {
             dispatch({ type: FETCHED, payload: res.data.reverse() });
           })
@@ -64,13 +64,13 @@ export const updateNote = note => {
     dispatch({ type: UPDATING });
 
     axios
-      .put(`http://localhost:5002/api/notes/${note.id}`, note)
+      .put(`${process.env.URL}api/notes/${note.id}`, note)
       .then(res => {
         dispatch({ type: UPDATED });
       })
       .then(() => {
         axios
-          .get("http://localhost:5002/api/notes/all")
+          .get(`${process.env.URL}api/notes/all`)
           .then(res => {
             dispatch({ type: FETCHED, payload: res.data.reverse() });
           })
@@ -87,14 +87,14 @@ export const updateNote = note => {
 export const deleteNote = id => {
   return dispatch => {
     axios
-      .delete(`http://localhost:5002/api/notes/${id}`)
+      .delete(`${process.env.URL}api/notes/${id}`)
       .then(res => {
         fetchNotes();
         dispatch({ type: DELETED });
       })
       .then(() => {
         axios
-          .get("http://localhost:5002/api/notes/all")
+          .get(`${process.env.URL}api/notes/all`)
           .then(res => {
             dispatch({ type: FETCHED, payload: res.data.reverse() });
           })
@@ -129,7 +129,7 @@ const compareById = (a, b) => {
 export const alpha = () => {
   return dispatch => {
     axios
-      .get("http://localhost:5002/api/notes/all")
+      .get(`${process.env.URL}api/notes/all`)
       .then(res => {
         let sortedData = res.data.sort(compareByTitle);
         dispatch({ type: A_Z, payload: sortedData });
@@ -143,7 +143,7 @@ export const alpha = () => {
 export const alphaReverse = () => {
   return dispatch => {
     axios
-      .get("http://localhost:5002/api/notes/all")
+      .get(`${process.env.URL}api/notes/all`)
       .then(res => {
         let sortedData = res.data.sort(compareByTitle).reverse();
         dispatch({ type: Z_A, payload: sortedData });
@@ -157,7 +157,7 @@ export const alphaReverse = () => {
 export const sortById = () => {
   return dispatch => {
     axios
-      .get("http://localhost:5002/api/notes/all")
+      .get(`${process.env.URL}api/notes/all`)
       .then(res => {
         let sortedData = res.data.sort(compareById);
         console.log(sortedData);
@@ -172,7 +172,7 @@ export const sortById = () => {
 export const search = term => {
   return dispatch => {
     axios
-      .get("http://localhost:5002/api/notes/all")
+      .get(`${process.env.URL}api/notes/all`)
       .then(res => {
         let sortedData = res.data.filter(note => {
           if (

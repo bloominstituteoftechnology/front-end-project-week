@@ -14,7 +14,7 @@ class Note extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(`http://localhost:5002/api/notes/${this.props.match.params.id}`)
+      .get(`${process.env.URL}api/notes/${this.props.match.params.id}`)
       .then(res => this.setState({ note: res.data }));
   }
 
@@ -27,7 +27,7 @@ class Note extends React.Component {
     return (
       <article className="note-container" name={this.state.note._id}>
         <span className="edit-delete">
-          <Link to={`/edit/${this.state.note.id}`}>Edit</Link>
+          <Link to={`/notes/${this.state.note.id}/edit`}>Edit</Link>
           <p onClick={this.delete}>Delete</p>
         </span>
         <header>

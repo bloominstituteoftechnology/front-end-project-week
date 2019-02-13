@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
-import { Route, Redirect, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import ListView from '../ListView';
-import CreateNote from '../CreateNote';
-import Navigation from '../Navigation';
-import Note from '../Note';
-import EditNote from '../EditNote';
-import DeleteModal from '../DeleteModal';
+import React, { Component } from "react";
+import { Route, Redirect, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import ListView from "../ListView";
+import CreateNote from "../CreateNote";
+import Navigation from "../Navigation";
+import Note from "../Note";
+import EditNote from "../EditNote";
+import DeleteModal from "../DeleteModal";
+import UserAuthentication from "../UserAuthentication";
 
-import './main.css';
-import { fetchNotes,
-         createNote, updateNote, deleteModal,
-         closeModal, deleteNote
-       } from '../../actions';
+import "./main.css";
+import {
+  fetchNotes,
+  createNote,
+  updateNote,
+  deleteModal,
+  closeModal,
+  deleteNote
+} from "../../actions";
 
 class Main extends Component {
-
   componentDidMount() {
     this.props.fetchNotes();
     //   // set State to fetching if no notes list is present
@@ -111,31 +115,71 @@ class Main extends Component {
   // }
   render() {
     return (
-      <section className='main-container'>
-        <section className='loading-container'>
-          {(this.props.created || this.props.deleted || this.props.updated ? <p className='loading position-top'>Updated...</p> : null)}
+      <section className="main-container">
+        <section className="loading-container">
+          {this.props.created || this.props.deleted || this.props.updated ? (
+            <p className="loading position-top">Updated...</p>
+          ) : null}
         </section>
-        <Navigation getNotes={this.props.fetchNotes}></Navigation>
+        <Navigation getNotes={this.props.fetchNotes} />
 
-        <Route path='/' exact render={(props) => <ListView notes={this.props.notes} fetching={this.props.fetching} />}/>
+        <Route
+          path="/"
+          exact
+          render={props => (
+            <ListView notes={this.props.notes} fetching={this.props.fetching} />
+          )}
+        />
 
-        <Route  exact path='/note/create/'  render={(props) => <CreateNote
-          createNote={this.props.createNote}
-          creatingNote={this.props.creating}/>} />
+        <Route
+          path="/note/create"
+          exact
+          render={props => (
+            <CreateNote
+              createNote={this.props.createNote}
+              creatingNote={this.props.creating}
+            />
+          )}
+        />
 
-        <Route path='/:id' exact render={(props) => <Note {...props}
-          delete={this.props.deleteModal}
-          deleting={this.props.delete}/>}/>
+        <Route
+          path="/notes/:id"
+          exact
+          render={props => (
+            <Note
+              {...props}
+              delete={this.props.deleteModal}
+              deleting={this.props.delete}
+            />
+          )}
+        />
 
-        <Route path='/edit/:id' exact render={(props) => <EditNote {...props} update={this.props.updateNote}
-        updating={this.props.updating}/>}/>
+        <Route
+          path="/notes/:id/edit"
+          exact
+          render={props => (
+            <EditNote
+              {...props}
+              update={this.props.updateNote}
+              updating={this.props.updating}
+            />
+          )}
+        />
 
-      {this.props.deleting ? <DeleteModal delete={this.props.deleteNote} close={this.props.closeModal} id={this.props.id} /> : null}
-      {this.props.deleted ? <Redirect exact push to='/' /> : null}
+        <Route path="/auth" exact render={props => <UserAuthentication />} />
 
-      {this.props.updated ? <Redirect exact push to='/' /> : null}
+        {this.props.deleting ? (
+          <DeleteModal
+            delete={this.props.deleteNote}
+            close={this.props.closeModal}
+            id={this.props.id}
+          />
+        ) : null}
+        {this.props.deleted ? <Redirect exact push to="/" /> : null}
 
-      {this.props.created ? <Redirect exact push to='/' /> : null}
+        {this.props.updated ? <Redirect exact push to="/" /> : null}
+
+        {this.props.created ? <Redirect exact push to="/" /> : null}
       </section>
     );
   }
@@ -154,7 +198,12 @@ const mapStateToProps = state => {
     error: state.notesReducer.error,
     id: state.notesReducer.id,
     notes: state.notesReducer.notes
-  }
-}
+  };
+};
 
-export default withRouter(connect(mapStateToProps, {fetchNotes, createNote, updateNote, deleteModal, closeModal, deleteNote} )(Main));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { fetchNotes, createNote, updateNote, deleteModal, closeModal, deleteNote }
+  )(Main)
+);
