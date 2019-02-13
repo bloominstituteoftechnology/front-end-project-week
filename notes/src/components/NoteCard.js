@@ -37,10 +37,11 @@ const ButtonContainer = styled.div`
   padding-top: 20px;
 `;
 
+// TODO: Fix the Delete button
 const NoteCard = ({ note }) => {
   const deleteNotes = event => {
     event.preventDefault();
-    this.props.deleteNote(note.id);
+    this.props.deleteNote(`${note.id}`);
     this.props.history.push("/");
   };
 
@@ -56,15 +57,12 @@ const NoteCard = ({ note }) => {
         <hr />
         <TextContainer>{note.textBody}</TextContainer>
         <ButtonContainer>
+          <Link to={`/note/${note.id}/edit`} style={{ color: "black" }}>
+            <Button variant="outline-primary" style={{ width: "75px" }}>
+              Edit
+            </Button>
+          </Link>
           <Button
-            href="`/notes/${props.key}`"
-            variant="outline-primary"
-            style={{ width: "75px" }}
-          >
-            Edit
-          </Button>
-          <Button
-            href="/"
             variant="link"
             onClick={deleteNotes}
             style={{ opacity: "0.4" }}
@@ -75,11 +73,6 @@ const NoteCard = ({ note }) => {
       </Card.Body>
     </NoteContainer>
   );
-};
-
-NoteCard.defaultProps = {
-  title: "",
-  textBody: ""
 };
 
 const mapStateToProps = state => ({

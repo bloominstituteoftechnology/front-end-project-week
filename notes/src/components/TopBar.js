@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import { Navbar, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-import { InstantSearch } from "react-instantsearch-dom";
-import { SignInBlockstackButton } from "blockstack-signin-btn"
+// import { InstantSearch } from "react-instantsearch-dom";
+import { SignInBlockstackButton } from "blockstack-signin-btn";
 
-import Search from "./Search";
+// import Search from "./Search";
 
 // TODO: Create logo and app name
-// TODO: Add search functionality
 // TODO: Add sign up and login functionality
 export default class TopBar extends Component {
   render() {
@@ -48,11 +47,11 @@ export default class TopBar extends Component {
             signOutBtnText="Sign Out"
             textStyle={{
               fontSize: "16px",
-              color: '#fff',
+              color: "#fff"
             }}
             style={{
               textAlign: "center",
-              backgroundColor: '#28a745',
+              backgroundColor: "#28a745",
               marginLeft: "20px",
               width: "75px",
               borderRadius: "5px",

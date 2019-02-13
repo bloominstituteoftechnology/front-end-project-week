@@ -63,6 +63,7 @@ class Notes extends React.Component {
     }
   };
 
+  // TODO: Fix search
   render() {
     const filtered = this.props.notes.filter(note => this.filterNotes(note));
 

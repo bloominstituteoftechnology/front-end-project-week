@@ -12,6 +12,7 @@ const Search = props => {
       >
         <FormControl
           type="text"
+          name="search"
           placeholder="Search"
           className="mr-sm-2"
           value={props.search}
