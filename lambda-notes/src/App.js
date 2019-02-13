@@ -31,11 +31,10 @@ class App extends Component {
       title: note.title,
       textBody: note.textBody
     }
-    
+
     axios
       .post('https://fe-notes.herokuapp.com/note/create', newNote)
       .then(response => {
-
           newNote.id = response.data.success;
           this.setState({
               notes: [...this.state.notes, newNote],
@@ -45,6 +44,16 @@ class App extends Component {
           console.log(err);
       })
 
+  }
+
+  deleteNote = id => {
+    axios
+      .delete('https://fe-notes.herokuapp.com/note/delete/id')
+      .then(response => {
+        this.setState({
+          notes: response.data.filter(note => id !== note.id)
+        })
+      })
   }
   render() {
     return (
