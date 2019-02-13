@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Nodes.css'
+import './Nodes.css';
 import axios from 'axios';
 
 class Notes extends Component {
