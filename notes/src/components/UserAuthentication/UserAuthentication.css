@@ -12,16 +12,16 @@
   margin: 20px auto 100px;
 }
 
-form {
+.auth_form {
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 300px;
 }
 
-form .alert {
+.auth_form .alert {
   min-width: 300px;
 }
-form input {
+.auth_form input {
   min-width: 300px;
 }

@@ -1,8 +1,7 @@
 .aside-nav {
   background-color: lightgray;
   border-right: 2px solid gray;
-  height: 100%;
-  position: fixed;
+  height: 100vh;
   padding: 10px 0 0 0;
   width: 320px;
 }

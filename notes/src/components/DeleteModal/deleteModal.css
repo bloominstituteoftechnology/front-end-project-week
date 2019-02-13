@@ -1,5 +1,5 @@
 .delete-modal {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   top: 0;
   left: 0;
@@ -9,9 +9,9 @@
   justify-content: center;
 }
 
-.modal {
+.modal_body {
   border: 1px solid rgb(7, 12, 29);
-  position: relative;
+  position: fixed;
   top: 100px;
   text-align: center;
   font-weight: bold;

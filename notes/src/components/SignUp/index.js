@@ -49,7 +49,7 @@ class SignUp extends React.Component {
   };
   render() {
     return (
-      <Form onSubmit={this.createUserObject}>
+      <Form className="auth_form" onSubmit={this.createUserObject}>
         <Alert color={this.state.color}>{this.state.message}</Alert>
         <FormGroup>
           <Input

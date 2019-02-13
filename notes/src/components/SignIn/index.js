@@ -36,7 +36,7 @@ class SignIn extends React.Component {
   };
   render() {
     return (
-      <Form>
+      <Form className="auth_form" onSubmit={this.createUserObject}>
         <Alert color={this.state.color}>{this.state.message}</Alert>
         <FormGroup>
           <Input

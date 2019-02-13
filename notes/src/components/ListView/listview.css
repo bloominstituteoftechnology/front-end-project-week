@@ -13,3 +13,7 @@
   padding: 0 10px;
   width: 100%;
 }
+
+.notes-container a:hover {
+  text-decoration: none;
+}

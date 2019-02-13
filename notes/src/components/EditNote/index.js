@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import "./editNote.css";
 
 class EditNote extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class EditNote extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.update}>
+      <form id="edit_notes_form" onSubmit={this.update}>
         <h2>Edit Note:</h2>
         <input
           onChange={this.inputHandler}

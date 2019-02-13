@@ -19,7 +19,7 @@ class DeleteModal extends React.Component {
   render() {
     return (
       <section className="delete-modal">
-        <section className="modal">
+        <section className="modal_body">
           <p>Are you sure you want to delete this?</p>
           <section className="buttons-modal">
             <button onClick={this.delete} className="delete-btn">

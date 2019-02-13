@@ -28,7 +28,7 @@ class CreateNote extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.createNote}>
+      <form id="create_form" onSubmit={this.createNote}>
         <h2>Create New Note:</h2>
         <input
           onChange={this.inputHandler}
@@ -45,7 +45,13 @@ class CreateNote extends React.Component {
           required
         />
         <section className="submitAndMsg">
-          {this.props.creatingNote ? <p className='loading'>Saving Note...</p> : <button type="submit" className="links">Save</button>}
+          {this.props.creatingNote ? (
+            <p className="loading">Saving Note...</p>
+          ) : (
+            <button type="submit" className="links">
+              Save
+            </button>
+          )}
         </section>
       </form>
     );
