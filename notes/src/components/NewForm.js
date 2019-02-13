@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { fetchNotes, addNote } from "../../actions/noteActions";
 
 import { Form, Button } from "react-bootstrap";
 
@@ -14,59 +16,73 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-const NewForm = props => {
-  const createNote = event => {
+class NewForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      textBody: ""
+    };
+  }
+
+  inputHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  createNote = event => {
     event.preventDefault();
     props.addNote();
     props.history.push("/");
   };
 
-  return (
-    <Container>
-      <Form>
-        <Form.Group controlId="formTitle">
-          <Form.Label>Note Title</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Title..."
-            onChange={props.inputHandler}
-            value={props.title}
-            name="title"
-          />
-          <Form.Text className="text-muted">
-            You're the next Paul Graham.
-          </Form.Text>
-        </Form.Group>
+  render() {
+    return (
+      <Container>
+        <Form>
+          <Form.Group controlId="formTitle">
+            <Form.Label>Note Title</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Title..."
+              onChange={this.inputHandler}
+              value={this.state.title}
+              name="title"
+            />
+            <Form.Text className="text-muted">
+              You're the next Paul Graham.
+            </Form.Text>
+          </Form.Group>
 
-        <Form.Group controlId="formBody">
-          <Form.Label>Body</Form.Label>
-          <Form.Control
-            as="textarea"
-            aria-label="With textarea"
-            placeholder="✍️"
-            style={{ height: "50vh", resize: "none", overflow: "auto" }}
-            onChange={props.inputHandler}
-            value={props.textBody}
-            name="textBody"
-          />
-        </Form.Group>
-        <Button variant="outline-primary" type="submit" onClick={createNote}>
-          Save Note
-        </Button>
-      </Form>
-    </Container>
-  );
+          <Form.Group controlId="formBody">
+            <Form.Label>Body</Form.Label>
+            <Form.Control
+              as="textarea"
+              aria-label="With textarea"
+              placeholder="✍️"
+              style={{ height: "50vh", resize: "none", overflow: "auto" }}
+              onChange={this.inputHandler}
+              value={this.state.textBody}
+              name="textBody"
+            />
+          </Form.Group>
+          <Button
+            variant="outline-primary"
+            type="submit"
+            onClick={this.createNote}
+          >
+            Save Note
+          </Button>
+        </Form>
+      </Container>
+    );
+  }
+}
+
+const mapStateToProps = () => {
+  return {};
 };
 
-export default NewForm;
-
-// font-size: 14px;
-// padding-top: 10px;
-// padding-left: 10px;
-// width: 100%;
-// height: 300px;
-// margin-bottom: 15px;
-// border-radius: 3px;
-// outline: none;
-// resize: none;
-// overflow: auto;
+export default connect(
+  mapStateToProps,
+  { fetchNotes, addNote: addNote }
+)(NewForm);
