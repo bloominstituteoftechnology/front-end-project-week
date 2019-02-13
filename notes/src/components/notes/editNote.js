@@ -11,7 +11,7 @@ class EditNote extends Component {
 }
 
 componentDidMount() {
-    axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+    axios.get(`${this.props.match.params.id}`)
     .then(res =>{
       this.setState({
         title:res.data.title,

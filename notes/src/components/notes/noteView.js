@@ -13,8 +13,9 @@ class NoteView extends Component {
   }
 
   componentDidMount(){
+    const url = process.env.REACT_APP_API_URL
     axios
-    .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+    .get(`${url}${this.props.match.params.id}`)
     .then(res =>{
       this.setState({
         note:res.data

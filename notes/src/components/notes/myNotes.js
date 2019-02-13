@@ -10,8 +10,9 @@ class MyNotes extends Component {
   }
 
   componentDidMount(){
+    const url = process.env.REACT_APP_API_URL
     axios
-    .get(`https://fe-notes.herokuapp.com/note/get/all`)
+    .get(`${url}`)
     .then(res => this.setState({
       notes:res.data
     }))

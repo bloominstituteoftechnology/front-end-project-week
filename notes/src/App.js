@@ -39,9 +39,9 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const url = process.env.REACT_APP_API_URL
     axios
-    .post('https://fe-notes.herokuapp.com/note/create',{
-        tags: 'obed',
+    .post(`${url}`,{
         title: this.state.title,
         textBody: this.state.textBody,
     })
@@ -60,8 +60,9 @@ class App extends Component {
   deleteNote = e => {
     e.preventDefault();
     console.log(this.state.id);
+    const url = process.env.REACT_APP_API_URL
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.id}`)
+      .delete(`${url}${this.state.id}`)
       .then(() => {
         this.setState({
           notes:this.state.notes
@@ -74,8 +75,9 @@ class App extends Component {
   };
 
   componentDidMount(){
+    const url = process.env.REACT_APP_API_URL
     axios
-    .get(`https://fe-notes.herokuapp.com/note/get/${this.state.id}`)
+    .get(`${url}`)
     .then(res => this.setState({
       notes:res.data
     }))
