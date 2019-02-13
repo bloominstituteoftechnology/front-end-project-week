@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, FormGroup, Input } from "reactstrap";
+import { Button, Form, FormGroup, Input, Alert } from "reactstrap";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 
@@ -10,8 +10,8 @@ class SignIn extends React.Component {
     this.state = {
       email: "",
       password: "",
-      message: "",
-      color: ""
+      message: "Please fill out the form below",
+      color: "light"
     };
   }
   changeHandler = e => {
@@ -37,6 +37,7 @@ class SignIn extends React.Component {
   render() {
     return (
       <Form>
+        <Alert color={this.state.color}>{this.state.message}</Alert>
         <FormGroup>
           <Input
             type="email"
