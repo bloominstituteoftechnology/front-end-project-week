@@ -1,0 +1,22 @@
+.container {
+	width: 100%;
+	max-height: 100%;
+	display: flex;
+	justify-content: flex-start;
+
+}
+
+.content {
+	width: 65%;
+	max-height: 100%;
+	margin-left: 32%;
+	background-color: #F2F1F2;
+
+}
+
+.wrapper {
+	margin: 38px 2%;
+	min-height: 100%;
+	max-height: 100%;
+
+}
