@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
+import { Route } from 'react-router-dom';
 import NotesList from './components/NotesList';
 import axios from 'axios';
 
@@ -22,12 +23,33 @@ class App extends Component {
         console.log(err);
       })
   }
+  addNote = (note) => {
+
+    const currentNotes = this.state.notes.slice();
+
+    const newNote = {
+      id: Date.now(),
+      title: note.title,
+      textBody: note.textBody,
+      tags: ['legit', 'mstp', 'jquery']
+    }
+
+    if (newNote.title === '') {
+      currentNotes.push();
+    }
+    else {
+      currentNotes.push(newNote);
+    }
+    this.setState({notes: currentNotes});
+
+  }
   render() {
     return (
       <div className="App">
         <div className="container">
             <Sidebar />
             <NotesList notes={this.state.notes}/>
+            {/* <Route path="/notes/create" /> */}
         </div>
 
       </div>

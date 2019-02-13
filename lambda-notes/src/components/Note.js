@@ -12,7 +12,7 @@ const Note = props => {
             <div className="card-tags">
                 {props.note.tags.map((tag, index) => {
                     return (
-                        <span>{tag}</span>
+                        <span key={index}>{tag}</span>
                     )
                 })}
             </div>
