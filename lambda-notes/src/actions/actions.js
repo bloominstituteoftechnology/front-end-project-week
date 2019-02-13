@@ -10,11 +10,12 @@ export const APP_HEIGHT = 'APP_HEIGHT';
 export const fetchNotes = ()=>{
     return dispatch=>{
         dispatch({type: FETCHING});
-        axios.get('https://fe-notes.herokuapp.com/note/get/all')
+        //axios.get('https://fe-notes.herokuapp.com/note/get/all')
+        axios.get('http://localhost:4000/api/notes')
         .then(response=>{
             dispatch({
                 type: SUCCESS,
-                notes: response.data
+                notes: response.data.notes
             })
         })
         .catch(error=>{
@@ -30,9 +31,10 @@ export const fetchNotes = ()=>{
 export const addNote = (note, notes)=>{
     return dispatch=>{
         dispatch({type: FETCHING});
-        axios.post('https://fe-notes.herokuapp.com/note/create', note)
+        //axios.post('https://fe-notes.herokuapp.com/note/create', note)
+        axios.post('http://localhost:4000/api/notes', note)
         .then(response=>{
-            const newNote = Object.assign({}, note, {'_id': response.data.success});
+            const newNote = Object.assign({}, note, {'id': response.data.id});
             const newNotes = notes;
             newNotes.push(newNote);
             dispatch({
@@ -52,9 +54,10 @@ export const addNote = (note, notes)=>{
 export const deleteNote = (id, notes)=>{
     return dispatch=>{
         dispatch({type: FETCHING});
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        //axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        axios.delete(`http://localhost:4000/api/notes/${id}`)
         .then(response=>{
-            const index = notes.findIndex(note=>note._id===id);
+            const index = notes.findIndex(note=>note.id===id);
             const newNotes = [...notes.slice(0, index), ...notes.slice(index + 1)];
             dispatch({
                 type: SUCCESS,
@@ -72,11 +75,12 @@ export const deleteNote = (id, notes)=>{
 export const editNote = (id, note, notes)=>{
     return dispatch=>{
         dispatch({type: FETCHING});
-        axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+        //axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+        axios.put(`http://localhost:4000/api/notes/${id}`, note)
         .then(response=>{
-            const index = notes.findIndex(note=>note._id===id)
+            const index = notes.findIndex(note=>note.id===id)
             const newNotes = notes;
-            newNotes[index] = response.data;
+            newNotes[index] = response.data.note;
             dispatch({
                 type: SUCCESS,
                 notes: newNotes

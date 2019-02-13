@@ -59,7 +59,7 @@ class DisplayNote extends Component{
 
     editNote = (event)=>{
         event.preventDefault();
-        this.props.history.push(`/edit/${this.props.note._id}`);
+        this.props.history.push(`/edit/${this.props.note.id}`);
     }
 
     confirmDelete = (event)=>{
@@ -70,7 +70,7 @@ class DisplayNote extends Component{
     deleteNote = (deleteNote)=>{
         this.setState({confirmDelete: false});
         if(deleteNote){
-            this.props.deleteNote(this.props.note._id, this.props.notes);
+            this.props.deleteNote(this.props.note.id, this.props.notes);
             this.props.history.push('/');
         }
     }
@@ -87,8 +87,8 @@ class DisplayNote extends Component{
                     <button onClick={this.confirmDelete}>delete</button>
                 </DisplayButtons>
                 <DisplayBody>
-                    <h2>{this.props.note.title}</h2>
-                    <p>{this.props.note.textBody}</p>
+                    <h2>{this.props.note.note_title}</h2>
+                    <p>{this.props.note.note_content}</p>
                 </DisplayBody>
                 {this.state.confirmDelete ? <DeleteNoteModal deleteNote={this.deleteNote}/> : null}
             </NoteContainer>

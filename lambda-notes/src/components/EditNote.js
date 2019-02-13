@@ -66,9 +66,9 @@ class EditNote extends Component{
     constructor(props){
         super(props);
         this.state = {
-            id: props.note._id,
-            name: props.note.title,
-            text: props.note.textBody
+            id: props.note.id,
+            title: props.note.note_title,
+            content: props.note.note_content
         }
     }
 
@@ -80,11 +80,11 @@ class EditNote extends Component{
         event.preventDefault();
         
         this.props.editNote(this.state.id, {
-            title: this.state.name,
-            textBody: this.state.text
+            note_title: this.state.title,
+            note_content: this.state.content
         }, this.props.notes)
         
-        this.props.history.push(`/note/${this.props.note._id}`);
+        this.props.history.push(`/note/${this.props.note.id}`);
     }
 
     render(){
@@ -95,8 +95,8 @@ class EditNote extends Component{
             <EditNoteContainer>
                 <h2>Edit Note:</h2>
                 <EditNoteForm onSubmit={this.handleSubmit}>
-                    <input type="text" name="name" value={this.state.name} placeholder="Note Title" onChange={this.handleInput}/>
-                    <textarea name="text" value={this.state.text} placeholder="Note Content" onChange={this.handleInput}/>
+                    <input type="text" name="title" value={this.state.title} placeholder="Note Title" onChange={this.handleInput}/>
+                    <textarea name="content" value={this.state.content} placeholder="Note Content" onChange={this.handleInput}/>
                     <EditNoteButton type="submit">Update</EditNoteButton>
                 </EditNoteForm>
             </EditNoteContainer>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
@@ -24,19 +24,27 @@ const NotesContainer = styled.div`
     width: 100%;
 `;
 
-const NotesList = props=>{
-    if(props.fetching){
-        return <div>Loading data...</div>
+class NotesList extends Component{
+    componentDidUpdate(){
+        if(this.refs.container){
+            this.props.updateHeight(this.refs.container.clientHeight);
+        }
     }
 
-    return(
-        <NotesListContainer>
-            <h2>Your Notes:</h2>
-            <NotesContainer>
-                {props.notes.map(note=><NoteCard key={note._id} {...props} note={note}/>)}
-            </NotesContainer>
-        </NotesListContainer>
-    )
+    render(){
+        if(this.props.fetching){
+            return <div>Loading data...</div>
+        }
+    
+        return(
+            <NotesListContainer ref="container">
+                <h2>Your Notes:</h2>
+                <NotesContainer>
+                    {this.props.notes.map(note=><NoteCard key={note.id} {...this.props} note={note}/>)}
+                </NotesContainer>
+            </NotesListContainer>
+        )
+    }
 }
 
 const mapStateToProps = state=>{

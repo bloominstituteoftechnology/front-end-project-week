@@ -65,8 +65,8 @@ class CreateNote extends Component{
     constructor(props){
         super(props);
         this.state = {
-            name: '',
-            text: ''
+            title: '',
+            content: ''
         }
     }
 
@@ -78,8 +78,8 @@ class CreateNote extends Component{
         event.preventDefault();
         
         this.props.addNote({
-            title: this.state.name,
-            textBody: this.state.text
+            note_title: this.state.title,
+            note_content: this.state.content
         }, this.props.notes)
 
         this.props.history.push('/');
@@ -90,8 +90,8 @@ class CreateNote extends Component{
             <CreateNoteContainer>
                 <h2>Create New Note:</h2>
                 <CreateNoteForm onSubmit={this.handleSubmit}>
-                    <input type="text" name="name" value={this.state.name} placeholder="Note Title" onChange={this.handleInput}/>
-                    <textarea name="text" value={this.state.text} placeholder="Note Content" onChange={this.handleInput}/>
+                    <input type="text" name="title" value={this.state.title} placeholder="Note Title" onChange={this.handleInput}/>
+                    <textarea name="content" value={this.state.content} placeholder="Note Content" onChange={this.handleInput}/>
                     <CreateNoteButton type="submit">Save</CreateNoteButton>
                 </CreateNoteForm>
             </CreateNoteContainer>

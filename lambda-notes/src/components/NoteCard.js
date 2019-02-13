@@ -41,13 +41,13 @@ const NoteCard = props=>{
     function selectNote(event){
         event.preventDefault();
         props.setCurrentNote(props.note);
-        props.history.push(`/note/${props.note._id}`);
+        props.history.push(`/note/${props.note.id}`);
     }
     
     return(
         <NoteContainer onClick={selectNote}>
-            <h3>{props.note.title}</h3>
-            <p>{props.note.textBody}</p>
+            <h3>{props.note.note_title}</h3>
+            <p>{props.note.note_content}</p>
         </NoteContainer>
     )
 }

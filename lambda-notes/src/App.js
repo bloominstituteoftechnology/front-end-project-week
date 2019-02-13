@@ -14,6 +14,7 @@ import EditNote from './components/EditNote';
 const AppContainer = styled.div`
   display: flex;
   justify-content: flex-start;
+  flex: 1;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
@@ -39,7 +40,7 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      height: window.innerHeight
+      height: 0
     }
 
     window.onbeforeunload = this.saveCurrentNote;
@@ -58,16 +59,20 @@ class App extends Component{
     }
   }
 
+  updateHeight = height=>{
+    console.log('This works set state in redux', height);
+  }
+
   render(){
     return (
-      <AppContainer>
+      <AppContainer ref="container">
   
         <NavContainer>
           <Route path="/" render={props=><NavSideBar {...props}/>}/>
         </NavContainer>
   
         <BodyContainer>
-          <Route exact path="/" component={NotesList}/>
+          <Route exact path="/" render={props=><NotesList {...props} updateHeight={this.updateHeight}/>}/>
           <Route path="/create-note" render={props=><CreateNote {...props}/>}/>
           <Route path="/note/:id" render={props=><DisplayNote {...props}/>}/>
           <Route path="/edit/:id" render={props=><EditNote {...props}/>}/>
