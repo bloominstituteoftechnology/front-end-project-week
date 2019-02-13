@@ -12,7 +12,7 @@ import EditForm from "./components/EditForm";
 import TopBar from "./components/TopBar";
 import styled from "styled-components";
 
-import { PushSpinner, GridSpinner } from "react-spinners-kit"
+import { PushSpinner, GridSpinner } from "react-spinners-kit";
 
 const Container = styled.div`
   display: flex;
@@ -38,7 +38,8 @@ class App extends Component {
       updateTitle: "",
       updateTextBody: "",
       deleteToggle: false,
-      loading: true
+      loading: true,
+      search: ""
     };
   }
 
@@ -52,7 +53,7 @@ class App extends Component {
         console.error("Server Error", error);
       });
 
-    this.setState({ loading: false })
+    this.setState({ loading: false });
   }
 
   // TODO: Figure how to update without constant GET requests
@@ -84,7 +85,7 @@ class App extends Component {
   deleteNote = id => {
     axios
       .delete(`https://onedrousdev.herokuapp.com/api/delete/${id}`)
-      .then(response => { })
+      .then(response => {})
       .catch(err => {
         console.log(err);
       });
@@ -121,12 +122,18 @@ class App extends Component {
   };
 
   render() {
+    let filterNote = this.state.notes.filter(
+      note =>
+        note.title.toLowerCase().includes(this.state.search) ||
+        note.textBody.toLowerCase().includes(this.state.search)
+    );
+
     if (this.state.loading) {
-      return <Loading><GridSpinner
-        size={30}
-        color="#007bff"
-        loading={this.state.loading}
-      /></Loading>
+      return (
+        <Loading>
+          <GridSpinner size={30} color="#007bff" loading={this.state.loading} />
+        </Loading>
+      );
     } else {
       return (
         <div className="App">
