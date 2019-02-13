@@ -5,8 +5,8 @@ import CreateNewButton from './createNewButton';
 
 const SidebarView = props => {
     return (
-        <div>
-            <h2>Lambda Notes</h2>
+        <div className="sideBarWrap">
+            <h2 className="sbTitle">Lambda Notes</h2>
             <ViewNotesButton />
             <CreateNewButton />
         </div>

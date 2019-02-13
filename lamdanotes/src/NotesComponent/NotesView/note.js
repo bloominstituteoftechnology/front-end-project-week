@@ -6,8 +6,8 @@ import React from 'react';
 const Note = props => {
     console.log("props from note", props)
     return (
-        <div>
-            <h2>{props.title}</h2>
+        <div className="note">
+            <h2 className="noteTitles">{props.title}</h2>
             <p>{props.body}</p>
         </div>
     )

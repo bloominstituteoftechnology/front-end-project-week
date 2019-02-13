@@ -9,7 +9,7 @@ import Note from './note.js';
 const NotesIterator = props => {
     console.log("props from notesIterator", props)
     return (
-        <div>
+        <div className="noteBox">
             {props.notes.map( note => {
                 return <Note key={note._id} title={note.title} body={note.textBody} id={note._id} />
             })}
