@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     display:flex;
-    flex-direction:column
+    flex-direction:column;
     flex-wrap:wrap;
     width: 25%;
     border:1px solid red;
@@ -16,9 +16,6 @@ const ButtonContainer = styled.div`
     align-items: center;
     flex-direction:column;
 `
-const Button = styled.button`
-    width: 50%;
-`;
 
 const TitleContainer = styled.section`
     display:flex;
@@ -38,8 +35,12 @@ const MenuContainer = () => {
                 <Title>Lambda Notes</Title>
             </TitleContainer>
             <ButtonContainer>
-                <Button>View Your Notes</Button>
-                <Button>+ Create New Note</Button>
+                <Link to={'/'}>
+                    <button>View Your Notes</button>
+                </Link>
+                <Link to={'/create-new'}>
+                    <button>+ Create New Note</button>
+                </Link>
             </ButtonContainer>
         </Container>
     )
