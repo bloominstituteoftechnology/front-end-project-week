@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
 import { Route } from 'react-router-dom';
 import NotesList from './components/NotesList';
+import AddNoteForm from './components/AddNoteForm';
+
 import axios from 'axios';
 
 import './App.css';
@@ -53,7 +55,11 @@ class App extends Component {
                <NotesList {...props} notes={this.state.notes}/>
               }
             />
-            <Route exact path="/notes/create" />
+            <Route exact path="/notes/create" 
+              render={props => 
+                <AddNoteForm {...props} addNote={this.addNote}/>
+              }
+            />
         </div>
 
       </div>
