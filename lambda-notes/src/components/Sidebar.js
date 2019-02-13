@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const SideBar = props => {
+const SideBar = () => {
     return (
         <div className="aside">
             <h1>Lambda Notes</h1>
