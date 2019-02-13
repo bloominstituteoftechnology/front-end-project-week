@@ -50,7 +50,7 @@ class App extends Component {
             <Sidebar />
             <Route exact path="/" 
               render={props => 
-               <NotesList {...props} notes={this.state.notes} addNote={this.addNote}/>
+               <NotesList {...props} notes={this.state.notes}/>
               }
             />
             <Route exact path="/notes/create" />
