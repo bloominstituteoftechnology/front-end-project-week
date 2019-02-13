@@ -13,6 +13,19 @@ class UpdateForm extends Component {
 
     componentDidMount(){
         const id =this.props.match.params.id;
+        
+        axios
+            .get(`http://localhost:9999/api/notes/${id}`)
+            .then(response => {
+                this.setState({
+                    title: response.data.title,
+                    textBody: response.data.textBody
+                })
+            })
+            .catch(error => {
+                console.log("error", error);
+            });
+        
         this.setState({
             id: id
         })
@@ -24,7 +37,7 @@ class UpdateForm extends Component {
 
     submitHandler = (id)=>{
         axios
-            .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {
+            .put(`http://localhost:9999/api/notes/${id}`, {
                 title: this.state.title,
                 textBody: this.state.textBody,
             })

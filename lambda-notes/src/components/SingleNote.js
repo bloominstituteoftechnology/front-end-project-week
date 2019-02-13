@@ -22,7 +22,7 @@ class SingleNote extends Component {
 
     fetchNote = id => {
         axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .get(`http://localhost:9999/api/notes/${id}`)
             .then(response => {
                 this.setState(()=>({note: response.data}))
             })
@@ -34,7 +34,7 @@ class SingleNote extends Component {
     deleteHandler=(id)=>{
         return()=>{
             axios
-                .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+                .delete(`http://localhost:9999/api/notes/${id}`)
                 .then(response =>{
                     console.log(response)
                 })
@@ -49,13 +49,13 @@ class SingleNote extends Component {
         if(!this.state.note){
             return <div>Loading note...</div>;
         }
-
+        console.log(this.state.note)
         return (
             <div className="singleNote">
                 <Link className="singleEdit" to ={`/edit/${this.state.id}`}>Edit</Link>
                 <p className="singleDelete" onClick={this.deleteHandler(this.state.id)}>Delete</p>
-                <h2 className="singleNoteHeading">{this.state.note.title}</h2>
-                <p className="singlePara">{this.state.note.textBody}</p>
+                <h2 className="singleNoteHeading">{this.state.note[0].title}</h2>
+                <p className="singlePara">{this.state.note[0].textBody}</p>
             </div>
         )
     }

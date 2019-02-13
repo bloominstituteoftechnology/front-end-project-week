@@ -14,7 +14,7 @@ class Notes extends Component {
 
     componentDidMount() {
         axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
+            .get('http://localhost:9999/api/notes')
             .then(response => {
                 this.setState(()=>({notes:response.data}));
             })
@@ -30,8 +30,8 @@ class Notes extends Component {
                 <h2 className="notesTitle">Your Notes:</h2>
                 <div className="notesBlock">
                 {this.state.notes.map( item => (
-                    <Link to={`/note/${item._id}`}>
-                        <Note note={item} id={item._id} key={item._id} />
+                    <Link to={`/note/${item.id}`}>
+                        <Note note={item} id={item.id} key={item.id} />
                     </Link>
                     ))}
                 </div>
