@@ -1,0 +1,66 @@
+*{
+  box-sizing: border-box;
+  font-size: 62.5%
+}
+
+a:visited{
+  color: black;
+}
+
+a:link {
+  color: black;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  min-height: 700px;
+  height: 100%;
+  margin: 0 auto;
+  font-size: 1.6rem;
+}
+
+.listViewContainer {
+  background-color: #F2F1F2;
+  padding: 10px 20px;
+  width: 800px;
+  height: 100%;
+}
+
+.notesHeader{
+  font-size: 2.8rem;
+}
+
+
+.listView {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  background-color: #D3D2D3;
+}
+
+.title {
+  font-size: 3.5rem;
+  width: 180px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 35px;
+  font-size: 1.8rem;
+  color: white;
+  border: 1px solid black;
+  background-color: #24B8BD;
+  margin-top: 10px;
+}
