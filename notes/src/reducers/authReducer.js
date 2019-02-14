@@ -1,4 +1,4 @@
-import { REGISTER, SIGNIN, ERROR } from "../actions/authActions";
+import { REGISTER, SIGNIN, ERROR, SET_CURR_USER } from "../actions/authActions";
 
 const initialState = {
   register: false,
@@ -12,7 +12,7 @@ export const authReducer = (state = initialState, action) => {
     case REGISTER:
       return Object.assign({}, state, {
         register: true,
-        login: false,
+        loggedIn: false,
         error: ""
       });
     case SIGNIN:
@@ -25,8 +25,14 @@ export const authReducer = (state = initialState, action) => {
     case ERROR:
       return Object.assign({}, state, {
         register: false,
-        login: false,
+        loggedIn: false,
         error: action.payload
+      });
+    case SET_CURR_USER:
+      return Object.assign({}, state, {
+        register: false,
+        loggedIn: true,
+        user: action.payload
       });
     default:
       return state;

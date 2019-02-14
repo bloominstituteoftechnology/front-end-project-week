@@ -25,8 +25,7 @@ class SignIn extends React.Component {
         email: this.state.email,
         password: this.state.password
       };
-
-      return this.props.loginUser(user);
+      return this.props.loginUser({ ...user });
     } else {
       return this.setState({
         color: "danger",

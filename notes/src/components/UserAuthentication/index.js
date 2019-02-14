@@ -10,6 +10,8 @@ import {
   Col
 } from "reactstrap";
 import classnames from "classnames";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import "./UserAuthentication.css";
 import SignIn from "../SignIn";
@@ -34,6 +36,9 @@ class UserAuthentication extends React.Component {
   render() {
     return (
       <div className="auth-container">
+        {this.props.loggedIn ? (
+          <Redirect to={`dashboard/${this.props.user.id}`} />
+        ) : null}
         <h1>Join Lambda Notes</h1>
         <div className="auth-nav">
           <Nav tabs>
@@ -80,4 +85,14 @@ class UserAuthentication extends React.Component {
   }
 }
 
-export default UserAuthentication;
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.authReducer.loggedIn,
+    user: state.authReducer.user
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(UserAuthentication);
