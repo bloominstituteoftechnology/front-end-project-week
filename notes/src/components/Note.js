@@ -30,13 +30,6 @@ const Actions = styled.div`
   padding-right: 20px;
 `;
 
-const ActionButton = styled.div`
-  text-decoration: underline;
-  font-weight: bold;
-  margin-right: 10px;
-  cursor: pointer;
-`;
-
 const Modal = styled.div`
   display: flex;
   justify-content: center;
@@ -66,33 +59,7 @@ const DeleteModal = styled.div`
 const ModalButtons = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 10px;
-`;
-
-const DeleteButton = styled.div`
-  width: 200px;
-  padding: 15px 60px;
-  font-size: 20px;
-  color: white;
-  background: rgb(164, 0, 0);
-  text-align: center;
-  text-decoration: none;
-  margin: 10px;
-  cursor: pointer;
-  outline: none;
-`;
-
-const NoButton = styled.div`
-  width: 200px;
-  padding: 15px 60px;
-  font-size: 20px;
-  color: white;
-  background: rgb(48, 184, 188);
-  text-align: center;
-  text-decoration: none;
-  margin: 10px;
-  cursor: pointer;
-  outline: none;
+  justify-content: center;
 `;
 
 class Note extends React.Component {
@@ -138,8 +105,20 @@ class Note extends React.Component {
               <DeleteModal>
                 <p>Are you sure you want to delete this?</p>
                 <ModalButtons>
-                  <DeleteButton onClick={deleteNotes}>Delete</DeleteButton>
-                  <NoButton onClick={this.deleteToggleOff}>No</NoButton>
+                  <Button
+                    variant="danger"
+                    style={{ width: "75px", margin: "0 10px" }}
+                    onClick={deleteNotes}
+                  >
+                    Delete
+                  </Button>
+                  <Button
+                    variant="primary"
+                    style={{ width: "75px", margin: "0 10px" }}
+                    onClick={this.deleteToggleOff}
+                  >
+                    No
+                  </Button>
                 </ModalButtons>
               </DeleteModal>
             </Modal>
