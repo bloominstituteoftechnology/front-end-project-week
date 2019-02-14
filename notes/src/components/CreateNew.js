@@ -6,13 +6,14 @@ export default class CreateNew extends React.Component {
     super(props); 
     this.state={
       title: '',
-      content: ''
+      details: ''
     }
   }
 
   submitHandler = (event) => {
     event.preventDefault(); 
-    this.props.newNote(this.state.title, this.state.content); 
+    this.props.newNote(this.state.title, this.state.details) 
+    this.props.post();
     this.props.history.push('/'); 
   }
 
@@ -30,7 +31,7 @@ export default class CreateNew extends React.Component {
         <h3>Create New Note:</h3> 
         <form onSubmit={this.submitHandler}>
           <input onChange={this.inputHandler} value={this.state.title} name="title" placeholder="Note Title" className='input' type='text'/>
-          <input onChange={this.inputHandler} name="content" value={this.state.content} placeholder="Note Content" className="text-area" type='text'/> 
+          <input onChange={this.inputHandler} name="details" value={this.state.details} placeholder="Note Content" className="text-area" type='text'/> 
           <button type="submit" className="buttonTwo">Submit</button> 
         </form> 
       </div> 

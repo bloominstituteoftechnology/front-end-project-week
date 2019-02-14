@@ -14,7 +14,7 @@ export default class NoteView extends React.Component  {
   }
 
   componentDidMount() {
-    axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+    axios.get(`http://localhost:4000/notes/${this.props.match.params.id}`)
       .then( (response) => {
         this.setState( () => ({ note: response.data }) )
       })
@@ -31,7 +31,7 @@ export default class NoteView extends React.Component  {
   };
    
   confirmedDelete = (e) => {
-    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
+    axios.delete(`http://localhost:4000/notes/${this.props.match.params.id}`)
       .then( () => {
         this.setState( () => ({ redirect: true }) );
       })

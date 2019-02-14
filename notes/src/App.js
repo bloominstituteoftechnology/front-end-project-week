@@ -16,13 +16,13 @@ class App extends Component {
       newId: 3,
       id: null,
       title: '',
-      textBody: ''
+      details: ''
     }  
   }
 
   componentDidMount(){
     axios
-    .get("https://fe-notes.herokuapp.com/note/get/all")
+    .get("//localhost:4000/notes")
       .then(response => {
         this.setState({notes: response.data})
       })
@@ -41,10 +41,10 @@ class App extends Component {
 
   addNote = () => {
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", this.state.newNote)
+      .post("http://localhost:4000/notes", this.state.newNote)
       .then(response =>
         this.setState({
-          newNote: { title: "", textBody: "" }
+          newNote: { title: "", details: "" }
         })
       )
       .catch(error => {
@@ -54,10 +54,10 @@ class App extends Component {
 
   updateNote = id => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
+      .put(`http://localhost:4000/notes/${id}`, this.state.newNote)
       .then(response =>
         this.setState({
-          newNote: { title: "", textBody: "" }
+          newNote: { title: "", details: "" }
         })
       )
       .catch(error => {
@@ -65,13 +65,13 @@ class App extends Component {
       });
   };
 
-    newNote = (newtitle, content) => {
+    newNote = (newtitle, newDetails) => {
       this.setState({
         notes:[
           ...this.state.notes, 
-          {title: newtitle, textBody: content, id: this.state.newId}
+          {title: newtitle, details: newDetails}
         ],
-        newId: this.state.newId + 1
+       // newId: this.state.newId + 1
       })
     }
 
@@ -96,6 +96,7 @@ class App extends Component {
                 notes={this.state.notes}
                 id={this.state.newId}    
                 newNote={this.newNote}
+                post={this.inputChange}
               />)}
           /> 
 

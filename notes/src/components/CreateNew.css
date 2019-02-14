@@ -3,6 +3,7 @@ form{
     flex-wrap: wrap;
     flex-direction: column; 
     margin-left: 25px; 
+    font-family: 'Abril Fatface', cursive;
 }
 
 
@@ -11,17 +12,20 @@ form{
     width: 90%;
     margin: 20px 0px; 
     border-radius: 5px; 
+    font-family: 'Abril Fatface', cursive;
 }
 
 .text-area::placeholder{
-  transform: translate(0px, -120px); 
+  transform: translate(0px, -130px); 
   padding-left: 10px; 
+  font-family: 'Abril Fatface', cursive;
 }
 
 .input{
     width: 80%; 
     height: 40px; 
-    border-radius: 5px; 
+    border-radius: 5px;
+    font-family: 'Abril Fatface', cursive; 
 }
 
 .input::placeholder{
