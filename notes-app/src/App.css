@@ -1,0 +1,223 @@
+html {
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  height: 2000px;
+}
+
+.App-header {
+  background-color: #D3D2D3;
+  height: auto;
+  width: 100%;
+  max-width: 200px;
+  padding: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #CCC;
+}
+
+.App-header h1 {
+  margin-left: 10px;
+  margin-bottom: 14px;
+}
+
+.App-header div {
+  margin-left: 10px;
+  border: 1px solid #CCC;
+  margin-top: 10px;
+  padding: 8px;
+  width: 165px;
+  height: 20px;
+  color: white;
+  background-color: #ea8826;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.App-title {
+  color: #414141;
+  font-size: 2.8em;
+}
+
+/* right side of page */
+
+.main-component {
+  width: 100%;
+  max-width: 1200px;
+  background-color: #F2F1F2;
+}
+
+/* Notes Component */
+
+.noteslistcontainer-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+
+.notelist-header {
+  color: #414141;
+  font-size: 1.6rem;
+  margin-left: 60px;
+  margin-top: 60px;
+  margin-bottom: 25px;
+}
+
+.noteslist-div {
+  margin-left: 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note-div {
+  height: 180px;
+  /* padding: 20px; */
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 240px;
+  border: 1px solid #414141;
+  background-color: white;
+  overflow: hidden;
+  font-size: .8rem;
+}
+
+.note-div h1 {
+  border-bottom: 1px solid black;
+  font-size: 1.2rem;
+  color: #414141;
+  margin-left: 12px;
+  margin-right: 18px;
+  padding-bottom: 7px;
+}
+
+.note-div p {
+  margin-top: -5px;
+  padding-right: 12px;
+  padding-left: 12px;
+
+}
+
+.noteform-div {
+  display: flex;
+}
+
+/* Noteform */
+
+.noteform-div {
+  /* margin-left: 50px; */
+  display: flex;
+  flex-direction: column;
+}
+
+.noteform-div h1 {
+  font-size: 1.6rem;
+  margin-left: 60px;
+  margin-top: 60px;
+  margin-bottom: 45px;
+  color: #414141;
+
+}
+
+.noteform-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+}
+
+.noteform-title-input {
+  width: 360px;
+  height: 20px;
+  border: 1.5px solid #CCC;
+  border-radius: 3px;
+}
+
+.noteform-body-input {
+  margin-top: 15px;
+  width: 600px;
+  height: 300px;
+  border: 1.5px solid #CCC;
+  border-radius: 3px;
+}
+
+.noteform-button {
+  margin-top: 15px;
+  width: 160px;
+  height: 30px;
+  border: 1px solid #CCC;
+  color: white;
+  background-color: #ea8826;
+}
+
+/* NotePage */
+
+
+.notepage-div {
+  width: 100%;
+  max-width: 600px;
+}
+
+.edit-delete {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.edit-delete div {
+  text-decoration: underline;
+}
+
+.notepage-header {
+  color: #414141;
+  font-size: 1.6rem;
+  margin-left: 60px;
+  margin-top: 32px;
+  margin-bottom: 45px;
+} 
+
+.notepage-paragraph {
+  margin-left: 70px;
+}
+
+/* delete modal */
+
+.delete-header {
+  font-size: 1.6rem;
+  margin-left: 60px;
+  margin-top: 60px;
+  margin-bottom: 45px;
+  color: #414141;
+}
+
+.button-form {
+  margin-left: 70px;
+  display: flex; 
+}
+
+.delete-button {
+  margin-left: 10px;
+  border: 1px solid #CCC;
+  margin-top: 10px;
+  padding: 8px;
+  width: 165px;
+  height: 20px;
+  color: white;
+  background-color: orangered;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cancel-button {
+  margin-left: 10px;
+  border: 1px solid #CCC;
+  margin-top: 10px;
+  padding: 8px;
+  width: 165px;
+  height: 20px;
+  color: white;
+  background-color: #D3D2D3;
+  text-align: center;
+  font-size: 1rem;
+}
