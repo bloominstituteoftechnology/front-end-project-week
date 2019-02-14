@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {Link, withRouter} from "react-router-dom";
-import {createNote, getNotes} from "../actions";
-import {connect} from "react-redux";
-import {Modal, Paper} from './Styles/Components';
-import {FlexColumn, FlexRow, InputL, Input, TextArea, Button, Tag} from "./Styles/Components";
+import { Link, withRouter } from "react-router-dom";
+import { createNote, getNotes } from "../actions";
+import { connect } from "react-redux";
+import { Modal, Paper } from './Styles/Components';
+import { FlexColumn, FlexRow, InputL, Input, TextArea, Button, Tag } from "./Styles/Components";
 
 const TagContainer = styled(FlexRow)`
     position: absolute;
@@ -22,7 +22,7 @@ class CreateNote extends Component {
             title: "",
             textBody: "",
             tags: []
-        }
+        };
     }
 
     handleSubmit = e => {
@@ -38,41 +38,41 @@ class CreateNote extends Component {
     };
 
     handleClose = () => {
-        this.props.history.push("/")
+        this.props.history.push("/");
     };
 
     enterTags = e => {
         let tags = this.state.tags;
         if (e.keyCode === 32) {
             tags.push(e.target.value.trim());
-            this.setState({tags});
+            this.setState({ tags });
             e.target.value = this.offset();
         }
     };
 
     offset = () => {
-      let tags = this.state.tags, length = 0, offset = "  ";
-      for (let tag of tags) {
-          offset += "   ";
-          length += tag.length;
-      }
+        let tags = this.state.tags, length = 0, offset = "  ";
+        for (let tag of tags) {
+            offset += "   ";
+            length += tag.length;
+        }
 
-      for (let i = 0; i < length + tags.length; i++) {
-          offset += "  "
-      }
+        for (let i = 0; i < length + tags.length; i++) {
+            offset += "  ";
+        }
 
-      return offset
+        return offset;
     };
 
     removeTag = i => {
-      let tags = this.state.tags;
-      tags.splice(i, 1);
-      this.setState({tags: tags});
+        let tags = this.state.tags;
+        tags.splice(i, 1);
+        this.setState({ tags: tags });
     };
 
     render() {
-        const {loading, error} = this.props,
-            {textBody, title, tags} = this.state;
+        const { loading, error } = this.props,
+            { textBody, title, tags } = this.state;
 
 
         return (
@@ -81,23 +81,26 @@ class CreateNote extends Component {
                     {loading && <><Modal><h1>LOADING...</h1></Modal></>}
                     {error && <><h1>Error</h1><p>{error}</p></>}
                     <FlexColumn>
-                        <form onSubmit={this.handleSubmit} style={{width: "100%"}}>
+                        <form onSubmit={this.handleSubmit} style={{ width: "100%" }}>
                             <FlexColumn width="full" alignEnd>
                                 <InputL placeholder="Title goes here" value={title}
-                                        onChange={e => this.setState({title: e.target.value})}/>
+                                        onChange={e => this.setState({ title: e.target.value })}/>
                                 <TextArea placeholder="Start typing your note here..." value={textBody}
-                                          onChange={e => this.setState({textBody: e.target.value})}/>
-                                <FlexRow width="full" style={{position: "relative", marginBottom: "40px"}}>
+                                          onChange={e => this.setState({ textBody: e.target.value })}/>
+                                <FlexRow width="full" style={{ position: "relative", marginBottom: "40px" }}>
                                     <TagContainer width="full-width">
-                                        {!!tags.length && tags.map((tag, i) => <Tag key={i} onClick={() => this.removeTag(i)}>{tag}</Tag>)}
+                                        {!!tags.length && tags.map((tag, i) => <Tag key={i}
+                                                                                    onClick={() => this.removeTag(i)}
+                                                                                    style={{ margin: "0 10px 0 0" }}>{tag}</Tag>)}
                                     </TagContainer>
 
-                                    <Input placeholder={!!tags.length ? "" : "Enter tags here"} onKeyUp={e => this.enterTags(e)}/>
+                                    <Input placeholder={!!tags.length ? "" : "Enter tags here"}
+                                           onKeyUp={e => this.enterTags(e)}/>
                                 </FlexRow>
 
                                 <FlexRow width="full" justifyEnd>
                                     <Button onClick={this.handleClose} border
-                                            style={{marginRight: "10px"}}>CANCEL</Button>
+                                            style={{ marginRight: "10px" }}>CANCEL</Button>
                                     <Button primary type="submit">CREATE</Button>
                                 </FlexRow>
                             </FlexColumn>
@@ -114,11 +117,11 @@ CreateNote.propTypes = {
     error: PropTypes.bool
 };
 
-const mapStateToProps = ({loading, error}) => {
+const mapStateToProps = ({ loading, error }) => {
     return {
         loading,
         error
-    }
+    };
 };
 
-export default connect(mapStateToProps, {createNote, getNotes})(withRouter(CreateNote));
+export default connect(mapStateToProps, { createNote, getNotes })(withRouter(CreateNote));

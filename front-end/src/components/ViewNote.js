@@ -42,7 +42,7 @@ class NoteView extends Component {
                                 <Button border>DELETE</Button>
                             </Link>
                             <Button onClick={this.handleClose} border style={{marginRight: "10px"}}>CLOSE</Button>
-                            <Link to={`/edit/${note._id}`}>
+                            <Link to={`/edit/${note.id}`}>
                                 <Button primary border>EDIT</Button>
                             </Link>
                         </FlexRow>

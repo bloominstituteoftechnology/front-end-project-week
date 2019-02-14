@@ -74,8 +74,8 @@ class Notes extends Component {
                 {error && <><h1>Error</h1><p>{error}</p></>}
                 {!error && notes && !!notes.length && notes.map((note, i) => {
                     return (
-                        <FlexRow key={note._id}>
-                            <Link to={`/note/${note._id}`}>
+                        <FlexRow key={note.id}>
+                            <Link to={`/note/${note.id}`}>
                                 <Note note={note}
                                       handleDragStart={() => this.setState({dragStart: i, dragEl: note})}
                                       handleDragDrop={this.handleDragDrop}/>

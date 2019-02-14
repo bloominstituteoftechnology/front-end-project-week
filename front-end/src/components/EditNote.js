@@ -18,17 +18,17 @@ class NoteEdit extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.note && nextProps.note._id !== this.state._id) {
+        if (nextProps.note && nextProps.note.id !== this.state.id) {
             this.setState(nextProps.note);
         }
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        const {_id, textBody, title} = this.state,
+        const {id, textBody, title} = this.state,
             update = {textBody, title};
 
-        this.props.editNote(_id, update)
+        this.props.editNote(id, update)
             .then(() => this.props.getNotes())
             .then(() => this.props.history.push("/"));
     };
@@ -39,7 +39,7 @@ class NoteEdit extends Component {
 
     render() {
         const {loading, error, note} = this.props;
-        const {title, textBody, _id} = this.state;
+        const {title, textBody, id} = this.state;
 
         return (
             <Modal>
