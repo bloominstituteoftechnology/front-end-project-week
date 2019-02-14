@@ -1,14 +1,16 @@
-import React , { Component } from 'react';
+import React from 'react';
 
-export default class Notes extends Component {
- 
-    render() {
-        console.log(this.props)
-        return (
+
+const Notes = props => {
+    console.log(props)
+    return (
             <div>
-               <h3>{this.props.title}</h3>
-               <p>{this.props.textBody}</p>
+                <h3>{props.title}</h3>
+                <p>{props.textBody}</p>
             </div>
-        )
-    }
+
+    )
+    
 }
+
+export default Notes;
