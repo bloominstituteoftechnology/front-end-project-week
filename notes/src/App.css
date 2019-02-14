@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  width: 100%;
+  background: #f2f1f2;
+}
