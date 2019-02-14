@@ -1,23 +1,55 @@
 import React from 'react';
-const Note = props => {
-    return(
-        <div>
-            <div className="card-title">
-                <h3>{props.note.title}</h3>
+import axios from 'axios';
+import NoteCard from './NoteCard';
+import { Link } from 'react-router-dom';
+class Note extends React.Component  {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            note: null
+        }
+    }
+    viewNote = id => {
+        axios
+            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+            .then(response => {
+                console.log(response);
+                // let newNote = this.props.notes.find(note => note._id === id);
+                // console
+                this.setState({ note: response.data });
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+    
+    componentDidMount() {
+        console.log(this.props);
+        const id = this.props.match.params.id;
+        this.viewNote(id);
+    }
+    render() {
+        console.log(this.state);
+        // const { title, textBody } = this.state.note;
+        
+        return(
+            <div>
+                <NoteCard {...this.state.note } editNote={this.editNote}/>
+
+                <Link to={`/edit/${this.state.note._id}`}>
+                    <div>Edit</div>
+                </Link>
+                {/* <div className="card-tags">
+                    {props.note.tags.map((tag, index) => {
+                        return (
+                            <span key={index}>{tag}</span>
+                        )
+                    })}
+                </div> */}
             </div>
-            <div className="card-body">
-                <h4>{props.note.textBody}</h4>
-            </div>
-           
-            {/* <div className="card-tags">
-                {props.note.tags.map((tag, index) => {
-                    return (
-                        <span key={index}>{tag}</span>
-                    )
-                })}
-            </div> */}
-        </div>
-    )
+        )
+    }
 }
 
 export default Note;

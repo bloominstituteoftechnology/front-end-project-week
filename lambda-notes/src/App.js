@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
 import { Route } from 'react-router-dom';
+import Note from './components/Note';
 import NotesList from './components/NotesList';
 import AddNoteForm from './components/AddNoteForm';
-import Note from './components/Note';
+import EditForm from './components/EditForm';
 
 import axios from 'axios';
 
@@ -13,7 +14,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      note: null
     }
   }
   componentDidMount() {
@@ -47,6 +49,33 @@ class App extends Component {
 
   }
 
+  editNote = (id, note) => {
+
+    let editNote = {
+      id: note._id,
+      title: note.title,
+      textBody: note.textBody,
+      tag: []
+    }
+
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editNote)
+      .then(response => {
+          editNote.id = response.data.success;
+
+          // let newArray = this.state.notes.slice().concat(editNote);
+
+          this.setState({
+            // notes: newArray;
+              notes: [...this.state.notes, editNote],
+          })
+      })
+      .catch(err =>{
+          console.log(err);
+      })
+
+  }
+
   deleteNote = id => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
@@ -61,16 +90,7 @@ class App extends Component {
       })
   }
 
-  viewNote = id => {
-    axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
+  
 
   render() {
     return (
@@ -82,14 +102,21 @@ class App extends Component {
                <NotesList {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>
               }
             />
-            <Route exact path="/notes/create" 
+            <Route path="/notes/create" 
               render={props => 
                 <AddNoteForm {...props} addNote={this.addNote}/>
               }
             />
-            <Route exact path="notes/:id" 
+
+            <Route exact path="/note/:id" 
               render={props =>
-                <Note viewNote={this.viewNote} />
+                <Note {...props} />
+              }
+            />
+
+            <Route exact path="/edit/:id"
+              render={props =>
+                <EditForm {...props} editNote={this.editNote}/>
               }
             />
         </div>

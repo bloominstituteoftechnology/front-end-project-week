@@ -1,7 +1,7 @@
 import React from 'react';
-import Note from './Note';
-import {FaTrashAlt } from 'react-icons/fa';
-
+import NoteCard from './NoteCard';
+import { FaTrashAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const NotesList = props => {
     return(
@@ -11,9 +11,9 @@ const NotesList = props => {
                 {props.notes.map((note, index) => {
                     return (
                         <div key={index} className="card">
-                            
-                            <Note note={note} id={note.id} />
-                            
+                            <Link to={`/note/${note._id}`} >
+                                <NoteCard {...props} title={note.title} id={note._id} textBody={note.textBody}/>
+                            </Link>
                             <button onClick={() => props.deleteNote(note._id)}><FaTrashAlt/></button>
                         </div>
                     )
