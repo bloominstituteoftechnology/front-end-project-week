@@ -15,7 +15,7 @@ nav h1{
   font-size: 2.4rem;
   margin-left: 5%;
 }
-nav button{
+nav .nav_link {
   display: block;
   border: 1px solid #959898;
   text-decoration: none;

@@ -6,8 +6,16 @@ import { NavLink } from 'react-router-dom';
   return (
           <nav>
               <h1>Lambda<br/>Notes</h1>
-              <button>View Your Notes</button>
-              <NavLink to='/create'> + Create New Note</NavLink>
+              <NavLink 
+               to='/'
+               className="nav_link" 
+               activeClassName="activeRoute"
+               activeStyle={{ color: 'teal' }}>View Your Notes</NavLink>
+              <NavLink
+               to='/create' 
+               className="nav_link" 
+               activeClassName="activeRoute"
+               activeStyle={{ color: 'teal' }}> + Create New Note</NavLink>
           </nav>
   )
 }

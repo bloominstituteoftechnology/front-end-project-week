@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 
 import CreateNote from './components/CreateNote';
 import SideView from './components/SideView';
-import Notes from './components/Notes';
+import Notes from './components/NotesPreview';
 
 
 class App extends Component {
@@ -15,10 +15,12 @@ class App extends Component {
         <SideView />          
         <Notes />
         <Route
-          path={`/create`} render={props =>
-          <CreateNote {...props} refresh={this.refresh}/>
+          path={`/create`}
+          render={props =>
+          <CreateNote {...props}/>
         }
         />
+       
 
       </div>
     );
