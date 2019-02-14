@@ -8,9 +8,9 @@ import Search from "./Search";
 import styled from "styled-components";
 
 const Container = styled.div`
-  background-color: rgb(248, 249, 250);
-  overflow-wrap: break-word;
-  width: 100%;
+  /* background-color: rgb(248, 249, 250); */
+  /* overflow-wrap: break-word;
+  width: 100%; */
 `;
 
 const NotesContainer = styled.div`
@@ -34,6 +34,13 @@ const NoteContainer = styled.div`
   margin: 20px 25px 20px 0px;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+const SearchContainer = styled.div`
+  display: flex;
+  align-content: center;
+  /* width: 100vw; */
+  margin: 20px 0;
 `;
 
 class Notes extends React.Component {
@@ -68,10 +75,12 @@ class Notes extends React.Component {
     const filtered = this.props.notes.filter(note => this.filterNotes(note));
 
     return (
-      <Container>
-        <Search search={this.props.search} inputHandler={this.inputHandler} />
-        {this.props.loading ? <h1>LOADING....</h1> : null}
-        {this.props.error !== null ? <h1>{this.props.error}</h1> : null}
+      <div>
+        <SearchContainer>
+          <Search search={this.props.search} inputHandler={this.inputHandler} />
+        </SearchContainer>
+        {/* {this.props.loading ? <h1>LOADING....</h1> : null} */}
+        {/* {this.props.error !== null ? <h1>{this.props.error}</h1> : null} */}
         <NotesContainer>
           {filtered.map(note => {
             return (
@@ -81,7 +90,7 @@ class Notes extends React.Component {
             );
           })}
         </NotesContainer>
-      </Container>
+      </div>
     );
   }
 }

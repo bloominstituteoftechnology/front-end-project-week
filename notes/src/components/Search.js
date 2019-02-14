@@ -4,12 +4,7 @@ import { Form, FormControl } from "react-bootstrap";
 const Search = props => {
   return (
     <div className="container">
-      <Form
-        inline
-        style={{
-          borderRight: "1px solid rgb(234, 237, 232)"
-        }}
-      >
+      <Form>
         <FormControl
           type="text"
           name="search"
