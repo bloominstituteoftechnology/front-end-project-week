@@ -26,7 +26,7 @@ export const fetchNotes = () => {
   return dispatch => {
     dispatch({ type: FETCHING });
     axios
-      .get(`http://localhost:4700/notes`)
+      .get(`https://notable-littleton.herokuapp.com/notes`)
       .then(response => {
         dispatch({ type: SUCCESS, payload: response.data });
       })
