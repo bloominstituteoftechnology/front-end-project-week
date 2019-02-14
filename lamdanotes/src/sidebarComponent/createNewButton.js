@@ -1,9 +1,13 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 const CreateNewButton = props => {
     return (
         <div>
-            <button>+ Create New Note</button>
+            <Link to="/addnote">
+                <button className="sbButtons">+ Create New Note</button>
+            </Link>
         </div>
     )
 }

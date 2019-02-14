@@ -92,7 +92,7 @@ h3, h4, h5, h6 {
     padding-bottom: 20px;
 }
 
-button {
+.sbButtons {
     margin-bottom: 10px;
     padding: 8px;
     width: 85%;
@@ -110,9 +110,10 @@ button:focus {
 /*-------------------------------Notes View Styling*/
 
 .notesView {
-	width: 80%;
+	width: 100%;
 	padding-left: 21%;
 	background-color: #F2F1F2;
+	height: auto;
 }
 
 .nvTitle {
@@ -122,13 +123,15 @@ button:focus {
 .noteBox {
 	display: inline-grid;
 	grid-template-rows: 1fr;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 25% 25% 25%;
 	grid-gap: 20px;
 }
 
 .note {
 	border: 2px solid #D9D9D9;
 	padding: 10px;
+	background-color: white;
+	word-wrap: break-word;
 }
 
 .noteTitles {
@@ -140,6 +143,51 @@ button:focus {
 
 
 /*-------------------------------Add Note Styling*/
+
+.addForm {
+	width: 80%;
+	padding-left: 21%;
+	background-color: #F2F1F2;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.addTitle {
+	width: 40%;
+	height: 30px;
+	margin-bottom: 15px;
+	border-radius: 4px;
+	padding-left: 12px;
+}
+.addBody {
+	width: 85%;
+	height: 40%;
+	border-radius: 4px;
+	padding-left: 15px;
+	padding-top: 20px;
+}
+
+.addButton {
+	width: 22%;
+	margin-top: 10px;
+	height: 5%;
+	margin-left: 2px;
+
+	font-size: 16px;
+	font-weight: 600;
+	color: white;
+
+    background-color: #24B8BD;
+    border: .5px solid #B7B7B7;
+    box-shadow: -.5px .5px .8px #B7B7B7;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 /*-------------------------------Edit Note Styling*/
 /*-------------------------------*/
 /*-------------------------------*/
