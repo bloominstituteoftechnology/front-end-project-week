@@ -61,7 +61,7 @@ export const editNote = (id, note) => dispatch => {
     dispatch({ type: WORKING });
 
     return axios
-        .put(`http://localhost:8080/notes/edit/${id}`, note)
+        .put(`http://localhost:8080/notes/update/${id}`, note)
         .then(({ data }) => {
             dispatch({ type: VIEW, note: data });
         })
