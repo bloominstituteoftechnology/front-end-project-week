@@ -32,4 +32,9 @@
   height: 66px;
   text-decoration: none;
   width: 285px;
+  text-decoration: none;
+}
+.links:hover {
+  text-decoration: none;
+  color: rgb(7, 12, 29);
 }

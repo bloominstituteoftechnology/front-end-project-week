@@ -3,13 +3,12 @@
   width: 100%;
 }
 
-
 .edit-delete {
-  align-items: center;
+  align-items: baseline;
   color: rgb(7, 12, 29);
   display: flex;
   justify-content: flex-end;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .edit-delete p {
   cursor: pointer;
@@ -17,13 +16,14 @@
 .edit-delete p:hover {
   color: darkgray;
 }
-a {
+.edit-delete a {
   color: rgb(7, 12, 29);
   margin-right: 10px;
 }
 
-a:hover {
+.edit-delete a:hover {
   color: darkgray;
+  text-decoration: none;
 }
 
 header {

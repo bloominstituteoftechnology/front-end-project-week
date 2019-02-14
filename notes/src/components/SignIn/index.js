@@ -56,7 +56,7 @@ class SignIn extends React.Component {
             value={this.state.password}
           />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button color="primary">Submit</Button>
       </Form>
     );
   }
