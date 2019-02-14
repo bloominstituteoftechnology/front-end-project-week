@@ -41,7 +41,7 @@ class NotePage extends Component {
   //   this.setState({ title: title, textBody: textBody })
   //
   deleted = () => {
-    deleteNote(this.props.notes._id)
+    deleteNote(this.props.notes.id)
   }
   componentDidMount() {
     this.props.fetchNotes();
@@ -49,16 +49,16 @@ class NotePage extends Component {
   render() {
     if (this.props.notes.length) {
       let note = this.props.notes.find(
-        note => `${note._id}` === this.props.match.params.id
+        note => `${note.id}` === this.props.match.params.id
       );
 
       const deleted = e => {
         e.preventDefault();
-        this.props.deleteNote(note._id);
+        this.props.deleteNote(note.id);
         this.props.history.push("/");
       };
       return (
-        <Main key={note._id}>
+        <Main key={note.id}>
           {this.state.delete && (
             <Modal>
               <Container>
@@ -73,7 +73,7 @@ class NotePage extends Component {
             </Modal>
           )}
           <NvLinks>
-            <Link to={`/note/${note._id}/edit`}>
+            <Link to={`/note/${note.id}/edit`}>
               <LinkBtns>
                 edit
               </LinkBtns>

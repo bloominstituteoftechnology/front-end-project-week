@@ -56,7 +56,7 @@ export const deleteNote = id => dispatch => {
 export const editNote = editedNote => dispatch => {
   dispatch({ type: LOADING });
   axios
-    .put(`${URL}/edit/${editedNote._id}`, editedNote)
+    .put(`${URL}/edit/${editedNote.id}`, editedNote)
     .then(res => {
       console.log(res.data)
       dispatch({type: UPDATE_NOTE, payload: res.data})

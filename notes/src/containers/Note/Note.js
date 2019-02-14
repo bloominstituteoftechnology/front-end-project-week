@@ -48,7 +48,7 @@ const Note = ({ note }) => {
       <NoteCard>
         <h1>
           <Link
-            to={`note/${note._id}`}
+            to={`note/${note.id}`}
             style={{ textDecoration: "none", color: "black" }}
           >
             {note.title}

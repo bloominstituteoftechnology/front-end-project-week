@@ -53,7 +53,7 @@ class NoteList extends React.Component {
         {this.props.error !== null ? <h1>{this.props.error}</h1> : null}
         <Container>
           {filteredNotes.map(note => (
-            <Note note={note} key={note._id + note} />
+            <Note note={note} key={note.id + note} />
           ))}
         </Container>
       </div>
