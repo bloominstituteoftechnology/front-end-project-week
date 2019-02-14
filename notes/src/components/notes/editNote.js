@@ -56,7 +56,7 @@ handleEditNote = e => {
 };
 
 goto = () =>{
-  this.props.history.push('/')
+  this.props.history.push(`/noteView/${this.state.id}`)
 }
 
   render() { 
