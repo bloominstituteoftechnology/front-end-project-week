@@ -6,6 +6,8 @@ import { Route } from 'react-router-dom';
 import SidebarView from './sidebarComponent/sbView';
 import NotesView from './NotesComponent/NotesView/notesView';
 import AddNote from './formComponent/addNote';
+import SingleNote from './NotesComponent/NotesView/singleNote/singleNote';
+
 
 import './App.css';
 
@@ -34,6 +36,13 @@ class App extends Component {
           .catch(err => console.log(err))
   }
 
+  deleteNote = (id) => {
+    axios
+      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+  } 
+
 
 // {/* Declare Routes, Sidebar navigation should always show so it is the root */}
   render() {
@@ -49,7 +58,17 @@ class App extends Component {
 
           <Route 
             path="/addnote"
-            render={props=> ( <AddNote {...props} addNote={this.addNote} />)} />
+            render={props=> ( <AddNote {...props} addNote={this.addNote} />)} 
+          />
+
+          <Route 
+            path="/note/:id" 
+            render={props => (
+              <SingleNote {...props} note={this.state.notes} deleteNote={this.deleteNote} />
+            )}
+          />
+
+          
           
       </div>
     );

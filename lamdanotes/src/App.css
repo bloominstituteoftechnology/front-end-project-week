@@ -53,7 +53,8 @@ table {
 /*STYLING STARTS HERE*/
 
 .container {
-	width: 100%;
+	height: 100vh;
+	background-color: #F2F1F2;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Sans+Pro:700');
@@ -110,10 +111,11 @@ button:focus {
 /*-------------------------------Notes View Styling*/
 
 .notesView {
-	width: 100%;
+	max-width: 100%;
 	padding-left: 21%;
 	background-color: #F2F1F2;
 	height: auto;
+	overflow: scroll;
 }
 
 .nvTitle {
@@ -123,7 +125,7 @@ button:focus {
 .noteBox {
 	display: inline-grid;
 	grid-template-rows: 1fr;
-	grid-template-columns: 25% 25% 25%;
+	grid-template-columns: 250px 250px 250px;
 	grid-gap: 20px;
 }
 
@@ -188,6 +190,65 @@ a {
 	color: inherit;
 }
 
-/*-------------------------------Edit Note Styling*/
-/*-------------------------------*/
+/*-------------------------------Single Note Styling*/
+.viewNoteContainer {
+	width: auto;
+	padding: 2% 5% 0 22% ;
+	overflow-y: hidden;
+}
+
+.viewNoteTitle {
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+
+.viewNoteLinks {
+	margin-left: 20px;
+	text-decoration: underline;
+	position: relative;
+	top: 10px;
+	left: 80%;
+}
+
+
+
+/*-------------------------------Delete Modal*/
+.dModal {
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: rgba(221, 221, 221, .7)
+}
+
+.modalContent {
+	position: fixed;
+	top: 40%;
+	left: 40%;
+	padding: 40px 80px;
+	border: 1px solid black;
+	background-color: white;
+	text-align: center;
+}
+
+.modalButtons {
+	width: 180px;
+	margin-top: 20px;
+	padding: 10px 10px;
+	background-color: #2AC0C4;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	border: 1px solid #B7B7B7;
+}
+
+.firstButton {
+	color: white;
+	font-weight: bold;
+	margin-right: 25px;
+	background-color: #D0011B;
+}
 /*-------------------------------*/
