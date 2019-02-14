@@ -7,7 +7,7 @@ const Container = styled.div`
     flex-direction:column;
     flex-wrap:wrap;
     width: 25%;
-    border:1px solid red;
+    background:grey;
 `;
 
 const ButtonContainer = styled.div`

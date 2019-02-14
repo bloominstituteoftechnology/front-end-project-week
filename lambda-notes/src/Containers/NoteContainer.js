@@ -6,11 +6,12 @@ import styled from 'styled-components';
 const Container = styled.div`
     display:flex;
 `
-const NoteContainer = () => {
+const NoteContainer = props => {
+    console.log(props.notes)
     return (
         <Container>
             <MenuContainer/>
-            <MainContent/>
+            <MainContent notes={props.notes}/>
         </Container>
     )
 }

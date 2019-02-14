@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from '../Components/CardComponent';
 import styled from 'styled-components';
-import axios from 'axios';
 
 const Container = styled.div`
     display:flex;
@@ -34,31 +33,21 @@ class MainContent extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            notes: []
         }
     }
 
     componentDidMount(){
-        axios
-        .get('https://fe-notes.herokuapp.com/note/get/all')
-        .then(res => {
-            this.setState({ notes: res.data})
-        })
-        .catch(err => console.log(err))
-    }
 
+    }
     render(){
+        const { notes } = this.props;
         return(
             <Container>
                 <TitleContainer>
                     <Title>Your Notes:</Title>
                 </TitleContainer>
                 <NotesContainer>
-                    {this.state.notes.map(note => {
-                        return(
-                            <Card note={note}/>
-                        )
-                    })}
+                    {notes.map(note => <Card key={note._id}note={note}/>)}
                 </NotesContainer>
             </Container>
         )
