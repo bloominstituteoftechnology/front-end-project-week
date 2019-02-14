@@ -14,7 +14,6 @@ import EditNote from './components/EditNote';
 const AppContainer = styled.div`
   display: flex;
   justify-content: flex-start;
-  flex: 1;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
@@ -59,13 +58,9 @@ class App extends Component{
     }
   }
 
-  updateHeight = height=>{
-    console.log('This works set state in redux', height);
-  }
-
   render(){
     return (
-      <AppContainer ref="container">
+      <AppContainer>
   
         <NavContainer>
           <Route path="/" render={props=><NavSideBar {...props}/>}/>

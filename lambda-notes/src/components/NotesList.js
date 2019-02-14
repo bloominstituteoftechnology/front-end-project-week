@@ -25,19 +25,13 @@ const NotesContainer = styled.div`
 `;
 
 class NotesList extends Component{
-    componentDidUpdate(){
-        if(this.refs.container){
-            this.props.updateHeight(this.refs.container.clientHeight);
-        }
-    }
-
     render(){
         if(this.props.fetching){
             return <div>Loading data...</div>
         }
     
         return(
-            <NotesListContainer ref="container">
+            <NotesListContainer>
                 <h2>Your Notes:</h2>
                 <NotesContainer>
                     {this.props.notes.map(note=><NoteCard key={note.id} {...this.props} note={note}/>)}
