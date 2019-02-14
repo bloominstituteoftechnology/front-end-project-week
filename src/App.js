@@ -1,6 +1,7 @@
 import React from 'react';
 import "./App.css";
 import "./css/note.css"
+import Login from './components/login/login';
 import NoteList from './components/noteList';
 import NoteView from './components/noteView';
 import NoteCreate from './components/noteCreate';
@@ -68,6 +69,17 @@ class App extends React.Component {
     this.setState({ viewPage: pageType });
   }
 
+  login = () => {
+   
+    const modalType = !false;
+    //let modalType = true;
+    localStorage.setItem('modals', modalType)
+    localStorage.setItem('viewPage', "login");
+
+    let pageType = 'login';
+    //let _id = id;
+    this.setState(() => ({ viewPage: pageType }))
+  }
   noteDelete = id => {
     // console.log("in the note delete, app.js")
     const modalType = !false;
@@ -106,6 +118,16 @@ class App extends React.Component {
 
     /* let pageType = localStorage.getItem('viewPage'); */
     switch (this.state.viewPage) {
+
+      case 'login':
+        return <div className="App">
+          <div className="main-container">
+          <div className="main-display">
+            <Login noteList={this.noteList} registerUser={this.props.registerUser}/>
+            </div>
+          </div>
+        </div>;
+
       case 'noteCreate':
         return <div className="App">
           <div className="main-container">
