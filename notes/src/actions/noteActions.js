@@ -8,7 +8,7 @@ export const ERROR = "ERROR"
 export const getNotes = () => {
     return (dispatch) => {
         dispatch({type:LOADING})
-        axios.get("https://fe-notes.herokuapp.com/note/get/all")
+        axios.get("http://localhost:4000/api/notes")
         .then(response => {
             dispatch({type:SUCCESS, notes:response.data})
         })
@@ -21,7 +21,7 @@ export const getNotes = () => {
 export const getOneNote = (id) => {
     return (dispatch) => {
         dispatch({type:LOADING})
-        axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        axios.get(`http://localhost:4000/api/notes/${id}`)
         .then(response => {
             dispatch({type:SUCCESS_NOTE, singleNote:response.data})
         })
@@ -34,7 +34,7 @@ export const getOneNote = (id) => {
 export const createNote = (newNote) =>{
     return (dispatch) =>{
         dispatch({type:LOADING})
-        axios.post("https://fe-notes.herokuapp.com/note/create", newNote)
+        axios.post("http://localhost:4000/api/notes", newNote)
         .then(response => {
             dispatch(getNotes())
         })
@@ -47,7 +47,7 @@ export const createNote = (newNote) =>{
 export const updateNote = (updatedNote) => {
     return(dispatch) => {
         dispatch({type:LOADING})
-        axios.put(`https://fe-notes.herokuapp.com/note/edit/${updatedNote._id}`, updatedNote)
+        axios.put(`http://localhost:4000/api/notes/${updatedNote.id}`, updatedNote)
         .then( response =>{
             dispatch(getNotes())
         })
@@ -60,7 +60,7 @@ export const updateNote = (updatedNote) => {
 export const deleteNote = (id) =>{
     return (dispatch) =>{
         dispatch({type:LOADING})
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        axios.delete(`http://localhost:4000/api/notes/${id}`)
         .then(response=> {
             dispatch(getNotes())
         })

@@ -16,7 +16,7 @@ class UpdateNote extends Component {
 
     componentDidMount(){
         const { notes, match } = this.props
-        const notez = notes.find(item => `${item._id}` === match.params.id)
+        const notez = notes.find(item => `${item.id}` === match.params.id)
         console.log(notez)
         this.setState(notez)
     }

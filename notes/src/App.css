@@ -102,3 +102,8 @@ height:95vh;
   cursor:pointer;
   width:180px;
 }
+
+
+.delete-btn{
+  cursor: pointer;
+}

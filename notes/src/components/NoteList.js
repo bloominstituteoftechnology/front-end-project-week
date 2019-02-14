@@ -22,7 +22,7 @@ class NoteList extends Component {
                 {this.props.error !== '' ? <h1>{this.props.error}</h1> : null}
                 <h1 className="listHeader">Your Notes:</h1>
 
-                {this.props.notes.map(note => <Note note={note} key={note._id} />).reverse()}
+                {this.props.notes.map(note => <Note note={note} key={note.id} />).reverse()}
             </div>
         )
     }

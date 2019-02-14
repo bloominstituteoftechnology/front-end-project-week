@@ -14,8 +14,8 @@ const Note = props => {
     // }
     return(
         
-        <div key={note._id} className="note-card">
-        <Link to={`/Noteview/${note._id}`}>
+        <div key={note.id} className="note-card">
+        <Link to={`/Noteview/${note.id}`}>
             <h1>{note.title}</h1>
             <p>{note.textBody}</p>
             </Link>
