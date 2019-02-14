@@ -8,14 +8,14 @@ class NoteView extends Component {
   constructor(props){
     super(props);
     this.state={
-      note:[]
+      note:[],
     }
   }
 
   componentDidMount(){
     const url = process.env.REACT_APP_API_URL
     axios
-    .get(`${url}${this.props.match.params.id}`)
+    .get(`${url}/${this.props.match.params.id}`)
     .then(res =>{
       this.setState({
         note:res.data
@@ -32,6 +32,7 @@ class NoteView extends Component {
   
 
   render() {
+    console.log(this.state.note)
     return ( 
       <NoteContainer >
         <ViewCard>
@@ -42,8 +43,12 @@ class NoteView extends Component {
         </Link>
         <Button color="link" onClick={this.props.delete}>Delete</Button>
         </div>
-          <h1 className="title">{this.state.note.title}</h1>,
-          <p className="content">{this.state.note.textBody}</p>
+        {this.state.note.map(note =>{
+        return[
+          <h1 className="title">{note.title}</h1>,
+          <p className="content">{note.textBody}</p>
+        ]
+        })}
         </ViewCard>
       </NoteContainer>
       

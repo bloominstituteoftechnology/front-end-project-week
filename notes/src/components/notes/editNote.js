@@ -4,18 +4,25 @@ import { Button } from 'reactstrap';
 import { FormContainer } from '../../style/style';
 
 class EditNote extends Component {
-  state = {
-    id: this.props.match.params.id,
-    title: '',
-    textBody: '',
-}
+  constructor(props){
+    super(props);
+    // this.note =[]
+    this.state = {
+      id: this.props.match.params.id,
+      title:'',
+      textBody: '',
+  }
+} 
+
 
 componentDidMount() {
-    axios.get(`${this.props.match.params.id}`)
+  const url = process.env.REACT_APP_API_URL
+    axios.get(`${url}/${this.props.match.params.id}`)
     .then(res =>{
+      this.note = res.data[0]
       this.setState({
-        title:res.data.title,
-        textBody:res.data.textBody
+       title: this.note.title,
+       textBody:this.note.textBody
       })
     })
     .catch(err => console.log(err))
@@ -38,10 +45,10 @@ handleEditNote = e => {
     textBody: this.state.textBody
   };
   axios
-    .put(`${url}${this.state.id}`, note)
-    .then(response => {
+    .put(`${url}/${this.state.id}`, note)
+    .then(res => {
       this.setState({
-        note: response.data,
+        note: res.data,
       });
       this.props.history.push(`/noteView/${this.state.id}`);
     })
@@ -52,21 +59,23 @@ goto = () =>{
   this.props.history.push('/')
 }
 
-
   render() { 
-    return ( 
+    console.log(this.note)
+    return(
       <>
       <FormContainer>
-      <h1 className="form-title">Edit Note &nbsp;|<Button color="link" onClick={this.goto}>Back</Button></h1>
-      <form>
-        <input type="text" name="title" placeholder="note title" value={this.state.title} onChange={this.handleChange}/><br/>
-        <textarea placeholder="note content" name="textBody" onChange={this.handleChange} value={this.state.textBody}/><br/>
-        <Button color="primary" size="lg" onClick={this.handleEditNote}> Update</Button>
-      </form>
-      </FormContainer>
+          <h1 className="form-title">Edit Note &nbsp;|<Button color="link" onClick={this.goto}>Back</Button></h1>
+        <form>
+          <input type="text" name="title" placeholder="note title" value={this.state.title} onChange={this.handleChange}/><br/>
+          <textarea placeholder="note content" name="textBody" onChange={this.handleChange} value={this.state.textBody}/><br/>
+          <Button color="primary" size="lg" onClick={this.handleEditNote}> Update</Button>
+        </form>
+        </FormContainer>
       </>
-    );
+    )
   }
 }
  
 export default EditNote;
+
+

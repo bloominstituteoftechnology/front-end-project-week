@@ -7,14 +7,14 @@ import { truncate } from '../helpers/helpers';
 class Note extends Component {
 
   render() { 
-    const {_id, title, textBody } = this.props.notes
+    const {id, title, textBody } = this.props.notes
     return ( 
       <Notecard>
         <div className="title">
         <p>{truncate(title,80,'...')}</p>
         </div>
-        <Link className="content-link" to={`/noteView/${_id}`}>
-        <div className="content"  onClick={() => this.props.getId(_id)}>
+        <Link className="content-link" to={`/noteView/${id}`}>
+        <div className="content"  onClick={() => this.props.getId(id)}>
         <p> {truncate(textBody,400,'...')}</p>
         </div>
         </Link>

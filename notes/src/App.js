@@ -62,7 +62,7 @@ class App extends Component {
     console.log(this.state.id);
     const url = process.env.REACT_APP_API_URL
     axios
-      .delete(`${url}${this.state.id}`)
+      .delete(`${url}/${this.state.id}`)
       .then(() => {
         this.setState({
           notes:this.state.notes
