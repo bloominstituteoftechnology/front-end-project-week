@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
-import { Route } from 'react-router-dom';
 
-import CreateNote from './components/CreateNote';
+import './App.css';
+
+
+
 import SideView from './components/SideView';
 import Notes from './components/NotesPreview';
+import CreateNote from './components/CreateNote';
 
 
 class App extends Component {
@@ -14,14 +16,7 @@ class App extends Component {
 
         <SideView />          
         <Notes />
-        <Route
-          path={`/create`}
-          render={props =>
-          <CreateNote {...props}/>
-        }
-        />
-       
-
+  <CreateNote />
       </div>
     );
   }

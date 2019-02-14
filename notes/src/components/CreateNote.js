@@ -6,7 +6,9 @@ class CreateNote extends Component {
 constructor(props) {
   super(props);
   this.state = {
-    notes:[]    
+    title:'',
+    textBody:''
+
   }
 }
 inputChangehandler = (e) => {
@@ -14,29 +16,27 @@ inputChangehandler = (e) => {
       [e.target.name]: e.target.value
   })
 }
+
 addNew = (e) => {
   e.preventDefault();
-  const newNote = {
-    title: e.title,
-    textBody: e.textBody
-  }
   axios
-      .post(`https://fe-notes.herokuapp.com/note/create`, newNote)       
+      .post(`https://fe-notes.herokuapp.com/note/create`, this.state)       
       
       .then((response) => {
-        newNote.id = response.data.success;
-          this.setState({
-          notes: [...this.state.notes, newNote],
-      })
+       console.log(response.data)
+        this.props.addNoteOnServer(response.data)
     })
-      .catch(err => console.log(err));
-     
+      .catch(err => console.log('Error', err));
+    this.setState({
+      title:'',
+      textBody:''
+    })
   }
 render() {
   return (
     <div className="createContainer">
         <h1>Create New Note:</h1>
-      <div className="form" onSubmit={this.addNew}>
+      <form className="form" onSubmit={this.addNew}>
         <input className="title" 
               type='text' 
               name='title'
@@ -51,7 +51,7 @@ render() {
               onChange={this.inputChangehandler}
               value={this.state.textBody} />
           <button type='submit'>Save</button>       
-      </div>
+      </form>
     </div>
   )}
 }

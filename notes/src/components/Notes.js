@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import axios from 'axios';
 
 import CreateNote from './CreateNote'
+import NotesPreview from './NotesPreview';
 
 class Notes extends Component {
   constructor(props){
@@ -24,6 +25,10 @@ class Notes extends Component {
         .catch(err => console.log(err));
 }
 
+addNoteOnServer = newNote => {
+  this.setState({notes: newNote});
+}
+
 refresh = response => {
     window.location.reload();
 }
@@ -31,10 +36,18 @@ render() {
   return (
     <div> 
     <Route
-      path={`/create`}
+      path="/create"
       render={props =>
-      <CreateNote {...props} refresh={this.refresh}/>
+      <CreateNote {...props} refresh={this.refresh} />
     }
+      />
+      <Route 
+      exact path=""
+      render={props=>
+      <NotesPreview {...props} notes={this.state.notes} /> }
+      
+    
+      
       />
 </div>
 

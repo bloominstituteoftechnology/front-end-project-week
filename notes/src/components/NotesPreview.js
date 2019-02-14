@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Notes.css';
 import axios from 'axios';
 
-class Notes extends Component {
+class NotesPreview extends Component {
   constructor(props){
   super(props);
   this.state ={
@@ -41,4 +41,4 @@ render() {
   )
 }
 }
-export default Notes; 
+export default NotesPreview; 
