@@ -30,7 +30,7 @@ const CardDiv = styled.div`
 
 const NoteCard = props => {
   return (
-    <CardDiv onClick={() => props.gotoSingleNote(props.note._id)}>
+    <CardDiv onClick={() => props.gotoSingleNote(props.note.id)}>
       <h3>{props.note.title}</h3>
       <p>{props.note.textBody}</p>
     </CardDiv>

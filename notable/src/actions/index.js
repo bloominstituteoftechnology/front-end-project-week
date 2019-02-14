@@ -1,4 +1,5 @@
 import axios from "axios";
+const cl = console.log;
 
 export const FETCHING = "FETCHING";
 export const SUCCESS = "SUCCESS";
@@ -10,7 +11,7 @@ export const FILTER = "FILTER";
 export const addNote = data => {
   return dispatch => {
     axios
-      .post(`https://fe-notes.herokuapp.com/note/create`, data)
+      .post(`http://localhost:4700/notes/create`, data)
       .then(() => dispatch(fetchNotes()))
       .catch(err => {
         dispatch({
@@ -25,7 +26,7 @@ export const fetchNotes = () => {
   return dispatch => {
     dispatch({ type: FETCHING });
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .get(`http://localhost:4700/notes`)
       .then(response => {
         dispatch({ type: SUCCESS, payload: response.data });
       })
@@ -40,9 +41,9 @@ export const fetchNotes = () => {
 
 export const fetchSingleNote = id => {
   return dispatch => {
-    dispatch({ type: FETCHING });
+    // dispatch({ type: FETCHING });
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:4700/notes/${id}`)
       .then(response => {
         dispatch({ type: SUCCESS_SINGLE, payload: response.data });
       })
@@ -59,7 +60,7 @@ export const deleteNote = id => {
   return dispatch => {
     dispatch({ type: FETCHING });
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:4700/notes/delete/${id}`)
       .then(response => {
         dispatch(fetchNotes());
       })
@@ -77,13 +78,15 @@ export const setUpdate = () => {
 };
 
 export const updateNote = data => {
+  cl(5)
   return dispatch => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${data._id}`, {
+      .put(`http://localhost:4700/notes/edit/${data.id}`, {
         title: data.title,
         textBody: data.textBody
       })
       .then(response => {
+        cl(4)
         dispatch({ type: SUCCESS_SINGLE, payload: response.data });
       })
       .catch(err => {

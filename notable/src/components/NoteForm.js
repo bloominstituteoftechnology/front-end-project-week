@@ -69,11 +69,11 @@ class NoteForm extends React.Component {
     e.preventDefault();
     if (this.props.updating) {
       this.props.updateNote({
-        _id: this.props.note._id,
+        id: this.props.note.id,
         title: this.state.title,
         textBody: this.state.textBody
       });
-      this.props.history.push(`/note/${this.props.note._id}`);
+      this.props.history.push(`/note/${this.props.note.id}`);
     } else {
       this.props.addNote({
         title: this.state.title,

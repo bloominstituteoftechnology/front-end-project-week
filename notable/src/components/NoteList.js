@@ -12,39 +12,39 @@ const ListDiv = styled.div`
   }
 `;
 
-const TagList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
+// const TagList = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+// `;
 
-let colorWheel = 0;
-const colors = [
-  "mediumaquamarine",
-  "darkcyan",
-  "rebeccapurple",
-  "blue",
-  "green",
-  "red",
-  "orangered"
-];
+// let colorWheel = 0;
+// const colors = [
+//   "mediumaquamarine",
+//   "darkcyan",
+//   "rebeccapurple",
+//   "blue",
+//   "green",
+//   "red",
+//   "orangered"
+// ];
 
-const Tag = styled.div`
-  padding: 10px;
-  margin: 5px;
-  border: 1px solid darkcyan;
-  border-radius: 5px;
-  background-color: ${() => {
-    if (colorWheel > 5) {
-      colorWheel = 0;
-    } else {
-      // colorWheel += 0.5;
-    }
-    return colors[colorWheel];
-  }};
-  font-size: 1.2rem;
-  color: white;
-`;
+// const Tag = styled.div`
+//   padding: 10px;
+//   margin: 5px;
+//   border: 1px solid darkcyan;
+//   border-radius: 5px;
+//   background-color: ${() => {
+//     if (colorWheel > 5) {
+//       colorWheel = 0;
+//     } else {
+//       // colorWheel += 0.5;
+//     }
+//     return colors[colorWheel];
+//   }};
+//   font-size: 1.2rem;
+//   color: white;
+// `;
 
 const CardDiv = styled.div`
   display: flex;
@@ -80,7 +80,7 @@ class NoteList extends React.Component {
           <h1>Please Wait</h1>
         ) : (
           <div>
-            <TagList>
+            {/* <TagList>
               {this.props.allTags.map((item, index) => {
                 return (
                   <Tag key={index} onClick={() => this.filterOnTag(item)}>
@@ -88,13 +88,13 @@ class NoteList extends React.Component {
                   </Tag>
                 );
               })}
-            </TagList>
+            </TagList> */}
             <CardDiv>
               {this.props.filteredNotes
                 .map(item => {
                   return (
                     <NoteCard
-                      key={`${item._id}`}
+                      key={`${item.id}`}
                       note={item}
                       gotoSingleNote={this.gotoSingleNote}
                     />

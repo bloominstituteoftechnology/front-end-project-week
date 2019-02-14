@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { Badge } from "reactstrap";
+// import { Badge } from "reactstrap";
 
 import { fetchSingleNote, deleteNote, setUpdate } from "../actions/index";
 import DeleteModal from "./DeleteModal";
@@ -52,14 +52,14 @@ class SingleNote extends React.Component {
   };
 
   deleteHandler = () => {
-    this.props.deleteNote(this.props.note._id);
+    this.props.deleteNote(this.props.note.id);
     this.hideModal();
     this.props.history.push("/");
   };
 
   updateHandler = () => {
     this.props.setUpdate();
-    this.props.history.push(`/update/${this.props.note._id}`);
+    this.props.history.push(`/update/${this.props.note.id}`);
   };
 
   render() {
@@ -74,11 +74,13 @@ class SingleNote extends React.Component {
         ) : (
           <Note>
             <h1>{this.props.note.title}</h1>
-            <div>
-              {this.props.note.tags.map((item, index) => {
-                return <Badge key={index} >{item}</Badge>;
-              })}
-            </div>
+            {/* {this.props.note.tags.length() ? (
+              <div>
+                {this.props.note.tags.map((item, index) => {
+                  return <Badge key={index}>{item}</Badge>;
+                })}
+              </div>
+            ) : null} */}
             <p>{this.props.note.textBody}</p>
           </Note>
         )}
