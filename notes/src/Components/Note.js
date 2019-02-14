@@ -37,7 +37,8 @@ class Note extends React.Component{
          return (
             <div className="note">
 
-                <h2>{this.props.note.title} </h2>
+                <h3>{this.props.note.title} </h3>
+                <hr/>
                 <p> {this.props.note.textBody} </p>
                <div>
                   <p>Are you sure you want to delete this? </p>

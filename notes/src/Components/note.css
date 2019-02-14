@@ -2,4 +2,28 @@
     display: inline-block;
     background-color: aliceblue;
     margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+
+.myForm {
+    display:flex;
+    flex-direction: column;
+    margin-top: 4%;
+    margin-left:2%;
+
+
+
+
+}
+
+button {
+    background-color:lightseagreen;
+    width: 200px;
+    height: 50px;
+    margin-left: 20px;
+    font-size:20px;
+    color : white;
+    font-weight: bold;
+
 }

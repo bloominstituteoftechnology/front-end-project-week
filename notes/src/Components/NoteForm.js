@@ -38,12 +38,13 @@ class NoteForm extends React.Component{
 
   render(){
       return (
-       <form>
-       <input type="text" name="tags" value ={this.state.tags}onChange={this.changeHandler}/>
+       <form className="myForm">
+           <h3>Create New Notes:</h3>
+       {/*<input type="text" name="tags" value ={this.state.tags}onChange={this.changeHandler}/>*/}
        <input type="text" name="title" value ={this.state.title}placeholder="Note Title"
               onChange={this.changeHandler}/>
 
-       <input type="text" name="textBody" placeholder="Note Content"
+       <textarea type="text"  cols="40"  rows="40" name="textBody" placeholder="Note Content"
               value ={this.state.textBody} onChange={this.changeHandler}/>
         <button onClick={this.clickHandler}>Save</button>
 

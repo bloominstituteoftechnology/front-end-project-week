@@ -35,26 +35,40 @@
 
   display:flex;
 
-
 }
 .first{
+  width:22%;
+  background-color: lightgray;
+  height : auto;
 
-  width:25%;
-  border:1px solid lightgray;
 }
 .second{
 
-  width:75%;
-  margin-top: 5%;
-  margin-left:2%;
+  width:78%;
+
+
   border:1px solid lightgray;
+  background-color: white;
+
 
 }
 button{
 
+  background-color:lightseagreen;
+  width: 100px;
+}
+
+.leftbutton {
 
   background-color:lightseagreen;
+  width: 250px;
+  height: 50px;
+  margin-left: 20px;
+  font-size:20px;
+  color : white;
+  font-weight: bold;
 }
+
 h1{
   font-size: 5em;
 
