@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchNotes, deleteNote } from "../actions/noteActions";
 
 import { Button } from "react-bootstrap";
 
@@ -26,13 +28,6 @@ const Actions = styled.div`
   justify-content: flex-end;
   padding-top: 20px;
   padding-right: 20px;
-`;
-
-const ActionButton = styled.div`
-  text-decoration: underline;
-  font-weight: bold;
-  margin-right: 10px;
-  cursor: pointer;
 `;
 
 const Modal = styled.div`
@@ -64,84 +59,100 @@ const DeleteModal = styled.div`
 const ModalButtons = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 10px;
+  justify-content: center;
 `;
 
-const DeleteButton = styled.div`
-  width: 200px;
-  padding: 15px 60px;
-  font-size: 20px;
-  color: white;
-  background: rgb(164, 0, 0);
-  text-align: center;
-  text-decoration: none;
-  margin: 10px;
-  cursor: pointer;
-  outline: none;
-`;
-
-const NoButton = styled.div`
-  width: 200px;
-  padding: 15px 60px;
-  font-size: 20px;
-  color: white;
-  background: rgb(48, 184, 188);
-  text-align: center;
-  text-decoration: none;
-  margin: 10px;
-  cursor: pointer;
-  outline: none;
-`;
-
-const Note = props => {
-  if (props.notes.length) {
-    let note = props.notes.find(note => `${note.id}` === props.match.params.id);
-
-    const deleteNotes = event => {
-      event.preventDefault();
-      props.deleteNote(note.id);
-      props.deleteToggleOff();
+class Note extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      delete: false
     };
-
-    return (
-      <Container>
-        {props.delete && (
-          <Modal>
-            <DeleteModal>
-              <p>Are you sure you want to delete this?</p>
-              <ModalButtons>
-                <DeleteButton onClick={deleteNotes}>Delete</DeleteButton>
-                <NoButton onClick={props.deleteToggleOff}>No</NoButton>
-              </ModalButtons>
-            </DeleteModal>
-          </Modal>
-        )}
-
-        <Actions>
-          <Link
-            to={`/note/${note.id}/edit`}
-            onClick={() => props.updatedNote(note.title, note.textBody)}
-            style={{ color: "black" }}
-          >
-            <Button style={{ marginRight: "20px", width: "75px" }}>Edit</Button>
-          </Link>
-          <Button
-            variant="danger"
-            style={{ opacity: 0.5 }}
-            onClick={props.deleteToggleOn}
-          >
-            Delete
-          </Button>
-        </Actions>
-        <NoteContainer>
-          <h2>{note.title}</h2>
-          <p style={{ lineHeight: "2" }}>{note.textBody}</p>
-        </NoteContainer>
-      </Container>
-    );
-  } else {
-    return <p>Loading...</p>;
   }
-};
 
-export default Note;
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
+
+  deleteToggleOn = () => {
+    this.setState({ delete: true });
+  };
+
+  deleteToggleOff = () => {
+    this.setState({ delete: false });
+  };
+
+  // deleted = () => {
+  //   deleteNote(this.props.notes.id);
+  // }
+
+  render() {
+    if (this.props.notes.length) {
+      let note = this.props.notes.find(
+        note => `${note.id}` === this.props.match.params.id
+      );
+
+      const deleteNotes = event => {
+        event.preventDefault();
+        this.props.deleteNote(note.id);
+        this.props.history.push("/");
+      };
+
+      return (
+        <Container>
+          {this.state.delete && (
+            <Modal>
+              <DeleteModal>
+                <p>Are you sure you want to delete this?</p>
+                <ModalButtons>
+                  <Button
+                    variant="danger"
+                    style={{ width: "75px", margin: "0 10px" }}
+                    onClick={deleteNotes}
+                  >
+                    Delete
+                  </Button>
+                  <Button
+                    variant="primary"
+                    style={{ width: "75px", margin: "0 10px" }}
+                    onClick={this.deleteToggleOff}
+                  >
+                    No
+                  </Button>
+                </ModalButtons>
+              </DeleteModal>
+            </Modal>
+          )}
+
+          <Actions>
+            <Link to={`/note/${note.id}/edit`} style={{ color: "black" }}>
+              <Button style={{ marginRight: "20px", width: "75px" }}>
+                Edit
+              </Button>
+            </Link>
+            <Button
+              variant="danger"
+              style={{ opacity: 0.5 }}
+              onClick={this.deleteToggleOn}
+            >
+              Delete
+            </Button>
+          </Actions>
+          <NoteContainer>
+            <h2>{note.title}</h2>
+            <p style={{ lineHeight: "2" }}>{note.textBody}</p>
+          </NoteContainer>
+        </Container>
+      );
+    }
+  }
+}
+
+const mapStateToProps = state => ({
+  notes: state.noteReducer.notes
+});
+
+export default connect(
+  mapStateToProps,
+  { fetchNotes, deleteNote }
+)(Note);

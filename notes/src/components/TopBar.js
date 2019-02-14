@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-import { InstantSearch } from "react-instantsearch-dom";
-import { SignInBlockstackButton } from "blockstack-signin-btn"
+// import { InstantSearch } from "react-instantsearch-dom";
+import { SignInBlockstackButton } from "blockstack-signin-btn";
 
-import Search from "./Search";
+// import Search from "./Search";
 
 // TODO: Create logo and app name
-// TODO: Add search functionality
 // TODO: Add sign up and login functionality
 export default class TopBar extends Component {
   render() {
@@ -31,17 +30,6 @@ export default class TopBar extends Component {
               <Nav.Link>About</Nav.Link>
             </LinkContainer>
           </Nav>
-          <Form
-            inline
-            style={{
-              borderRight: "1px solid rgb(234, 237, 232)",
-              paddingRight: "20px"
-            }}
-          >
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-
-            <Button variant="outline-primary">Search</Button>
-          </Form>
           {/* <InstantSearch
             appId="RHLAQFA0BP"
             apiKey="6415e8bf55d29f2177940e02926c8848"
@@ -59,11 +47,11 @@ export default class TopBar extends Component {
             signOutBtnText="Sign Out"
             textStyle={{
               fontSize: "16px",
-              color: '#fff',
+              color: "#fff"
             }}
             style={{
               textAlign: "center",
-              backgroundColor: '#28a745',
+              backgroundColor: "#28a745",
               marginLeft: "20px",
               width: "75px",
               borderRadius: "5px",

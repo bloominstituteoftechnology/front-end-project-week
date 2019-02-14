@@ -1,14 +1,16 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { connect } from "react-redux";
+import { fetchNotes } from "../actions/noteActions";
 
 import NoteCard from "./NoteCard";
+import Search from "./Search";
 
 import styled from "styled-components";
 
 const Container = styled.div`
-  background-color: rgb(248, 249, 250);
-  overflow-wrap: break-word;
-  width: 100%;
+  /* background-color: rgb(248, 249, 250); */
+  /* overflow-wrap: break-word;
+  width: 100%; */
 `;
 
 const NotesContainer = styled.div`
@@ -16,6 +18,8 @@ const NotesContainer = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   padding-left: 15px;
+  min-width: 100vw;
+  overflow: hidden;
 `;
 
 const NoteContainer = styled.div`
@@ -32,36 +36,78 @@ const NoteContainer = styled.div`
   text-overflow: ellipsis;
 `;
 
-const Notes = props => {
-  return (
-    <Container>
-      {/* <NotesHeader>Your Notes:</NotesHeader> */}
-      <NotesContainer>
-        {props.notes.map(note => {
-          return (
-            <NoteContainer key={note.id}>
-              <Link
-                to={`/notes/${note.id}`}
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <NoteCard
-                  key={note.id}
-                  id={note.id}
-                  title={note.title}
-                  text={note.textBody}
-                  {...props}
-                />
-              </Link>
-            </NoteContainer>
-          );
-        })}
-      </NotesContainer>
-    </Container>
-  );
-};
+const SearchContainer = styled.div`
+  display: flex;
+  align-content: center;
+  /* width: 100vw; */
+  margin: 20px 0;
+`;
+
+class Notes extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: ""
+    };
+  }
+
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
+
+  inputHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  filterNotes = note => {
+    const lowerCase = this.state.search.toLowerCase();
+
+    if (
+      note.title.toLowerCase().includes(lowerCase) ||
+      note.textBody.toLowerCase().includes(lowerCase)
+    ) {
+      return note;
+    }
+  };
+
+  // TODO: Fix search
+  render() {
+    const filtered = this.props.notes.filter(note => this.filterNotes(note));
+
+    return (
+      <div>
+        <SearchContainer>
+          <Search search={this.props.search} inputHandler={this.inputHandler} />
+        </SearchContainer>
+        {/* {this.props.loading ? <h1>LOADING....</h1> : null} */}
+        {/* {this.props.error !== null ? <h1>{this.props.error}</h1> : null} */}
+        <NotesContainer>
+          {filtered.map(note => {
+            return (
+              <NoteContainer>
+                <NoteCard key={note.id} note={note} />
+              </NoteContainer>
+            );
+          })}
+        </NotesContainer>
+      </div>
+    );
+  }
+}
 
 Notes.defaultProps = {
   notes: []
 };
 
-export default Notes;
+const mapStateToProps = state => {
+  return {
+    notes: state.noteReducer.notes,
+    loading: state.noteReducer.loading,
+    error: state.noteReducer.error
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchNotes }
+)(Notes);

@@ -1,16 +1,19 @@
 import React from "react";
+import { Form, FormControl } from "react-bootstrap";
 
-import { InstantSearch, Hits, SearchBox } from "react-instantsearch-dom";
-
-import Product from "./Product";
-
-// [...]
-
-const Search = () => {
+const Search = props => {
   return (
     <div className="container">
-      <SearchBox />
-      <Hits hitComponent={Product} />
+      <Form>
+        <FormControl
+          type="text"
+          name="search"
+          placeholder="Search"
+          className="mr-sm-2"
+          value={props.search}
+          onChange={props.inputHandler}
+        />
+      </Form>
     </div>
   );
 };

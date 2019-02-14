@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { deleteNote } from "../actions/noteActions";
 
 import styled from "styled-components";
 import { Card, Button } from "react-bootstrap";
@@ -34,29 +37,32 @@ const ButtonContainer = styled.div`
   padding-top: 20px;
 `;
 
-const NoteCard = props => {
+// TODO: Fix the Delete button
+const NoteCard = ({ note }) => {
   const deleteNotes = event => {
     event.preventDefault();
-    props.deleteNote(props.id);
-    props.deleteToggleOff();
+    this.props.deleteNote(`${note.id}`);
+    this.props.history.push("/");
   };
 
   return (
     <NoteContainer>
       <Card.Body>
-        <NoteTitle>{props.title}</NoteTitle>
+        <Link
+          to={`note/${note.id}`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <NoteTitle>{note.title}</NoteTitle>
+        </Link>
         <hr />
-        <TextContainer>{props.text}</TextContainer>
+        <TextContainer>{note.textBody}</TextContainer>
         <ButtonContainer>
+          <Link to={`/note/${note.id}/edit`} style={{ color: "black" }}>
+            <Button variant="outline-primary" style={{ width: "75px" }}>
+              Edit
+            </Button>
+          </Link>
           <Button
-            href="`/notes/${props.key}`"
-            variant="outline-primary"
-            style={{ width: "75px" }}
-          >
-            Edit
-          </Button>
-          <Button
-            href="/"
             variant="link"
             onClick={deleteNotes}
             style={{ opacity: "0.4" }}
@@ -69,9 +75,11 @@ const NoteCard = props => {
   );
 };
 
-NoteCard.defaultProps = {
-  title: "",
-  textBody: ""
-};
+const mapStateToProps = state => ({
+  notes: state.noteReducer.notes
+});
 
-export default NoteCard;
+export default connect(
+  mapStateToProps,
+  { deleteNote }
+)(NoteCard);
