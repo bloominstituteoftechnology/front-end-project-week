@@ -29,27 +29,26 @@ addNoteOnServer = newNote => {
   this.setState({notes: newNote});
 }
 
-refresh = response => {
-    window.location.reload();
-}
+// refresh = response => {
+//     window.location.reload();
+
 render() {
   return (
     <div> 
     <Route
       path="/create"
       render={props =>
-      <CreateNote {...props} refresh={this.refresh} />
-    }
+      <CreateNote {...props} notes={this.state.notes} addNoteOnServer={this.addNoteOnServer} /> } />
+    
+
       />
       <Route 
-      exact path=""
+      exact path="/"
       render={props=>
       <NotesPreview {...props} notes={this.state.notes} /> }
-      
-    
-      
       />
-</div>
+  </div>
 
-  )}}
+  );}}
+      
   export default Notes;
