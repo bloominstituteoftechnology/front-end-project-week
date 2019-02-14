@@ -1,0 +1,56 @@
+html{
+  font-family: 'Raleway Medium';
+}
+
+.app-container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  /* background-color: #f3f3f3; */
+  
+  background-color: #D3BC8D;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 25%;
+  height: 100%;
+  min-height: 725px;
+  /* background-color: #D8D8D8; */
+  background-color: #101820;
+}
+
+.sidebar h1{
+  font-weight: bold;
+  color: #FF0013;
+  /* color: hotpink; */
+  margin: 15px;
+  box-shadow: -5px -5px 10px #FFB936, 5px 5px 10px #FFB936;
+  border-radius: 5%;
+  padding: 5px;
+  text-align: center;
+}
+
+.sidebar button{
+  color: #FFF;
+  background-color: #D3BC8D;
+  margin: 10px 15px;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.main-header{
+  margin: 30px 40px;
+  font-weight: bold;
+  color: #000;
+}
+
+button:hover {
+  background-color: rgb(31, 148, 150);
+}
+
+button{
+  box-shadow: 1px 1px 5px hotpink;
+}
