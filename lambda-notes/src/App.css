@@ -1,0 +1,127 @@
+*{
+  box-sizing: border-box;
+}
+
+.wrapper {
+  margin-left: 20rem;
+  width: 87.5rem;
+}
+
+.navbar {
+  background: #e3f2fd;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+.nav-links {
+  list-style: none;
+  text-decoration: none;
+  border: 1px solid red;
+}
+
+.sidebar-nav li a {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-right: 10rem;
+  display: block;
+}
+
+.sidebar-wrapper{
+  width: 18rem;
+  height: 100vh;
+  background-color: #e0e0e0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-wrapper {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+margin-top: 1rem;
+}
+
+.logo {
+margin-left: 0.625rem;
+}
+
+.notes-span {
+margin-right: 2.4rem;
+}
+
+.note-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  margin-left: 15rem;
+}
+
+.card-body {
+  font-family: 'Slabo 27px', serif;
+  font-size: 1.4rem;
+  height: 5rem;
+  overflow: hidden;
+  line-height: 32px;
+}
+
+.card-title {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  color: #007BFF;
+}
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+a.card {
+  width: 25rem;
+  height: 25rem;
+  line-height: 1.9rem;
+  box-shadow: 2px 2px 2px #cccccc;
+  margin-left: 5rem;
+  color: black;
+  overflow: hidden;
+}
+
+a.card:hover {
+text-decoration: none;
+box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+transition: all .2s;
+background: #fdfdfd;
+color: black;
+transform: translateY(-3px)
+}
+
+a.card:active {
+  transform: translateY(-1px)
+  }
+
+.fa {
+  font-size: 1.5rem;
+  padding-left: 0.625rem;
+  cursor: pointer;
+  color: #707070;
+}
+
+.page-title-heading {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+form {
+  margin-left: 20rem;
+  width: 87.5rem;
+}
+
+.modalContent {
+  text-align: center;
+  margin-top: 5rem;
+}
