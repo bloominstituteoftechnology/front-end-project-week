@@ -16,6 +16,16 @@ class NoteList extends React.Component{
              axios.get("https://fe-notes.herokuapp.com/note/get/all")
                  .then(res=> {
                      console.log("GET DATA", res);
+                     // let notes=res.data;//res.data is the array we get all the data from server
+                     // let newNotes=this.state.notes.filter(note=>{
+                     //     for(let i=0;i<notes.tags.length;i++){
+                     //         if (notes.tags[i]==="Arpita") {
+                     //             return true;
+                     //         }
+                     //     }
+                     //     return false;
+                     // })
+
                      this.setState({notes: res.data})
                  })
 
@@ -48,13 +58,23 @@ class NoteList extends React.Component{
             })
     }
 
+    updateNote=(id,note)=>{
+      axios.put("https://fe-notes.herokuapp.com/note/edit/" +id,note)
+          .then (res=>{
+              console.log("UPDATE RESPONSE",res);
+              //this.setState({notes:res.data})
+          })
+
+   }
+
 
     render(){
         return(
            <div>
                {
                   this.state.notes.map(note=>{
-                    return <Note key={note._id} note={note}deleteNote={this.deleteNote} />
+                    return <Note key={note._id} note={note}deleteNote={this.deleteNote}
+                             updateNote={this.updateNote}/>
                   })
 
                }

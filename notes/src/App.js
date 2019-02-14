@@ -24,6 +24,8 @@ class App extends Component {
     createNewNote=(newNote)=>{
 
 
+        console.log("New note ");
+        console.log(newNote);
         axios.post("https://fe-notes.herokuapp.com/note/create",newNote)
             .then(res=>{
 
@@ -42,13 +44,17 @@ class App extends Component {
 
     render() {
     return (
-      <div className="App">
-          <h1>Lambda Notes</h1>
-          <h2><button>View Your Notes</button></h2>
-          <h2><button>+ Create New Notes</button></h2>
+      <div className="myApp">
+          <div classname="first">
+               <h1>Lambda Notes</h1>
+               <h2><button>View Your Notes</button></h2>
+              <NoteForm  createFunc={this.createNewNote}/> +create new note
+         </div>
+        <div className="second">
           <h3>Your Notes:</h3>
           <NoteList  notes={this.state.notes} />
-          <NoteForm createFunc={this.createNewNote}/>
+
+        </div>
       </div>
     );
   }

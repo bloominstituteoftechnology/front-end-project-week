@@ -5,7 +5,7 @@ class NoteForm extends React.Component{
             super(props);
              this.state={
 
-                 "tags": [],
+                 "tags": ["Arpita"],
                  "title": "",
                  "textBody": ""
 
@@ -19,17 +19,14 @@ class NoteForm extends React.Component{
 
        this.setState({[event.target.name]:event.target.value})
 
-
     }
 
    clickHandler=event =>{
      event.preventDefault();
        let newNote={
-
            "tags":this.state.tags,
            "title":this.state.title,
            "textBody":this.state.textBody
-
        }
        this.props.createFunc(newNote)
      this.setState({tags:[],title:"",textBody:""})

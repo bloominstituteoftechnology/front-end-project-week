@@ -31,3 +31,37 @@
     transform: rotate(360deg);
   }
 }
+.myApp {
+
+  display:flex;
+
+
+}
+.first{
+
+  width:25%;
+  border:1px solid lightgray;
+}
+.second{
+
+  width:75%;
+  margin-top: 5%;
+  margin-left:2%;
+  border:1px solid lightgray;
+
+}
+button{
+
+
+  background-color:lightseagreen;
+}
+h1{
+  font-size: 5em;
+
+}
+
+h2{
+  font-size: 3em;
+  font-weight: bold;
+
+}
