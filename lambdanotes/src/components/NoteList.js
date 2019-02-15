@@ -2,6 +2,8 @@ import React from 'react';
 //import ReactDom from 'react-dom';
 // import axios from 'axios';
 import dummyData from '../dummydata';
+import { Route } from 'react-router-dom';
+import NotePage from './NotePage';
 
 import Note from './Note';
 
@@ -38,10 +40,16 @@ class NoteList extends React.Component {
     render() {
         return(
             <div className='note-list'>
-                {this.state.noteList.map((note, id) => {
+                {this.state.noteList.map((note) => {
                     console.log(note);
-                    return <Note key={id} content = {note} />
+                    return <Note key={note.id} content = {note} />
                 })}
+                <Route
+                    path='notes/:id'
+                    render={props => (
+                        <NotePage note={this.state.noteList} {...props} />
+                    )}
+                />
             </div>
         )
     }
