@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import NoteCard from './NoteCard';
-import { FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
+
 
 class Note extends React.Component  {
     constructor(props) {
@@ -44,13 +46,18 @@ class Note extends React.Component  {
     render() {
         
         return(
-            <div>
+            <section>
+                <div class="action-buttons">
+                    <Link to={`/note/${this.props.match.params.id}`}>
+                        <Button color="danger" onClick={() => this.deleteNote(this.props.match.params.id)}><FaTrashAlt/></Button>
+                    </Link>
+                    <Link to={`/edit/${this.props.match.params.id}`}>
+                        <Button color="warning"><FaEdit/></Button> 
+                    </Link>
+                </div>
                 <NoteCard {...this.state.note } editNote={this.editNote}/>
 
-                <Link to={`/edit/${this.props.match.params.id}`}>
-                    <div>Edit</div>
-                </Link>
-                <button onClick={() => this.deleteNote(this.props.match.params.id)}><FaTrashAlt/></button>
+                
 
                 
                 {/* <div className="card-tags">
@@ -60,7 +67,7 @@ class Note extends React.Component  {
                         )
                     })}
                 </div> */}
-            </div>
+            </section>
         )
     }
 }

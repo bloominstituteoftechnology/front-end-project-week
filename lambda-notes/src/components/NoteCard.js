@@ -4,8 +4,8 @@ const NoteCard = props => {
         return(
             <div className="note-card">
 
-                <h2>{props.title}</h2>
-                <div className="note-age">
+                <h2 className="note-title">{props.title}</h2>
+                <div className="note-textBody">
                     {props.textBody}
                 </div>
                 {/* <Link to={`/edit/${props._id}`}>

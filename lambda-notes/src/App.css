@@ -28,10 +28,27 @@
   display: flex;
 }
 .aside {
-  padding: 0px 40px;
+  padding: 100px 30px;
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
+  min-width: 266px;
+  background-color: gray;
+}
+.aside h1 {
+  text-align: left;
+  line-height: 1;
+}
+.aside button {
+  padding: 10px 15px;
+  margin-top: 33px;
+  border-radius: 2px;
+}
+.aside button a {
+  color: aliceblue;
+  font-weight: 700;
+}
+.aside a:hover {
+  text-decoration: none;
 }
 .notes-container {
   flex-direction: column;
@@ -50,6 +67,7 @@
 .notes-container h2 {
   padding: 0px 0px 30px;
 }
+
 .card {
   width: 30%;
   height: 200px;
@@ -58,6 +76,35 @@
 .card h2 {
   text-transform: capitalize;
 }
+.note-card {
+  margin-top: 66px;
+  text-align: left;
+  padding-left: 40px;
+}
+.note-card h2 {
+  padding-bottom: 20px;
+}
+.action-buttons {
+  margin-top: 33px;
+  width: 100%;
+  display: flex;
+  flex-flow: row-reverse;
+}
+.action-buttons button {
+  padding: 10px 33px;
+  margin-left: 33px;
+}
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
