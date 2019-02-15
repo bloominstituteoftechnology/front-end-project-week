@@ -30,8 +30,8 @@ class NoteList extends Component {
                   </div>
                   <NavLink
                     className="viewnotebutton"
-                    to={`/viewnote/${note._id}`}
-                    key={note._id}
+                    to={`/viewnote/${note.id}`}
+                    key={note.id}
                   >
                     View full note
                   </NavLink>

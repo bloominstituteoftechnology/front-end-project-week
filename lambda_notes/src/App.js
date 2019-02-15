@@ -33,7 +33,7 @@ class App extends Component {
 
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:3500/api/notes/:id`)
       .then(res => {
         this.getNotes();
       })

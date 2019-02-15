@@ -16,7 +16,7 @@ class EditNote extends Component {
   componentDidMount() {
     console.log(this.props.notes);
     this.props.notes.map(note => {
-      if (this.props.match.params.id === note._id) {
+      if (this.props.match.params.id === note.id) {
         this.setState({ title: note.title, body: note.textBody });
       }
     });
@@ -36,7 +36,7 @@ class EditNote extends Component {
     };
 
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+      .put(`http://localhost:3500/api/notes/:id`, note)
       .then(res => {
         console.log(res);
         this.setState({ title: "", body: "", noteEdited: true });

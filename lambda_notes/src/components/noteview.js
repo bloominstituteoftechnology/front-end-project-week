@@ -53,9 +53,9 @@ class NoteView extends Component {
 
         <div className="singlenote">
           {this.props.notes.map(note => {
-            if (this.props.match.params.id === note._id) {
+            if (this.props.match.params.id === note.id) {
               return (
-                <div className="note" key={note._id}>
+                <div className="note" key={note.id}>
                   <h1 className="notetitle">{note.title}</h1>
                   <p className="notetext">
                     {this.truncateString(note.textBody, 90)}
