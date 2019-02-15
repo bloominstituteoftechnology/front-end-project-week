@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { Link } from "react-router-dom";
 
+
 export default class NewNote extends Component {
     constructor(props) {
         super(props);
@@ -17,10 +18,10 @@ export default class NewNote extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    addNote = e => {
+    addNote = (e) => {
         // const note = {this.state}
         console.log(this.state)
-        // e.preventDefault();
+        e.preventDefault();
         if(this.state.title === "" || this.state.textBody === "") {
             alert("Cannot be blank")
         }
@@ -28,9 +29,11 @@ export default class NewNote extends Component {
             axios
                 .post("https://fe-notes.herokuapp.com/note/create", this.state )
                 .then(response => {
-                    // console.log(response)
-                    // console.log(this.state.history)
-                    this.state.history.push('/')
+                    // console.log(response.data)
+                    // console.log(this.state)
+                    // this.state.history.push('/')
+                    window.location.href="/"
+                    
                     
                 })
                 .catch(error => {
@@ -45,6 +48,8 @@ export default class NewNote extends Component {
     }
 
     render() {
+
+
         return (
             <div>
                 <h2>Create new note</h2>
@@ -64,11 +69,11 @@ export default class NewNote extends Component {
                         name="textBody"
                     />
      
-                    <Link to="/">
-                        <button type="submit">Save</button>
-                    </Link>
+                    <button type="submit">Save</button>
+
           
                 </form>
+
             </div>
         )
     }

@@ -13,11 +13,6 @@ import SingleNote from './components/SingleNote';
 
 
 class App extends Component {
-
-  newNote = note => {
-    console.log(note)
-  }
-
   
   render() {
     return (
