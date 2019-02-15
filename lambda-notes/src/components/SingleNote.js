@@ -40,6 +40,8 @@ export default class SingleNote extends Component {
         }
         return(
             <div>
+                <button>Edit</button>
+                <button>Delete</button>
                 <Notes
                     title = {this.state.note.title}
                     textBody = {this.state.note.textBody}

@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Notes = props => {
-    console.log(props)
+    // console.log(props)
     return (
             <div>
                 <h3>{props.title}</h3>
