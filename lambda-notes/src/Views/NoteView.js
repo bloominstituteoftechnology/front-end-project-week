@@ -1,12 +1,15 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import CardComponent from '../Components/CardComponent';
+
 
 class NoteView extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            note:null
+            note:null,
+            noteView: true
         }
     }
 
@@ -42,7 +45,7 @@ class NoteView extends React.Component {
                         <li>delete</li>
                     </ul>
                 </div>
-                <CardComponent note={this.state.note}/>
+                <CardComponent note={this.state.note} noteView={this.state.noteView}/>
             </div>
         )
     }
