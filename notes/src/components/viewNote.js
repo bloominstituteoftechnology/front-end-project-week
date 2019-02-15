@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Modal, ModalBody} from 'reactstrap'
+import { Button, Modal, ModalBody } from 'reactstrap'
 
 class ViewNote extends Component {
   constructor(props) {
@@ -8,8 +8,8 @@ class ViewNote extends Component {
     this.state = {
       title: '',
       text: '',
-      id:'',
-      modal:false
+      id: '',
+      modal: false
     }
   }
   componentDidMount() {
@@ -30,17 +30,16 @@ class ViewNote extends Component {
     console.log(this.state.modal, "ModalState")
   }
 
- submitHandler = (e) => {
+  submitHandler = (e) => {
     e.preventDefault()
     const id = this.state.id;
-    const note = { title: this.state.title, textBody: this.state.text, id: this.state.id }
     this.props.history.push(`/update/${id}`)
-}
+  }
 
-deleteHandler = () => {
-const id = this.state.id;
-this.props.deleteNote(id)
-}
+  deleteHandler = () => {
+    const id = this.state.id;
+    this.props.deleteNote(id)
+  }
 
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value })
@@ -48,24 +47,24 @@ this.props.deleteNote(id)
   render() {
     return (
       <div className="viewNote">
-      <div className="links">
-      <h3 onClick={this.submitHandler} >edit</h3>
-      <h3 onClick={this.toggle}>delete</h3>
-      </div>
-      <h1>{this.state.title}</h1>
+        <div className="links">
+          <h3 onClick={this.submitHandler} >edit</h3>
+          <h3 onClick={this.toggle}>delete</h3>
+        </div>
+        <h1>{this.state.title}</h1>
         <p>{this.state.text}</p>
-        
+
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody className="deleteModal">
             <h1>Are You Sure You Want To Delete This Note?</h1>
             <div className="buttonsModal">
-            <Button onClick={this.deleteHandler}color="danger">Yes</Button>
-            <Button onClick={this.toggle} color="primary">No</Button>
+              <Button onClick={this.deleteHandler} color="danger">Yes</Button>
+              <Button onClick={this.toggle} color="primary">No</Button>
             </div>
           </ModalBody>
         </Modal>
-    
-       </div>
+
+      </div>
     )
   }
 }

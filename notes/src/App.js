@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.scss';
 import MainSection from './components/MainSection';
-import SideBar from './components/sidebar'
 import axios from 'axios'
 import CreateNote from './components/CreateNote'
 import UpdateNote from './components/UpdateNote'
@@ -9,6 +8,7 @@ import { Route } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import ViewNote from './components/viewNote';
 import LoginView from './components/loginView';
+import Sidebar from './components/sidebar';
 
 
 
@@ -20,6 +20,8 @@ class App extends React.Component {
       isLoggedIn: false,
       username:''
     }
+    this.logout = this.logout.bind(this);
+    this.login = this.login.bind(this);
   }
   componentDidMount() {
     axios
@@ -42,6 +44,14 @@ class App extends React.Component {
       })
     }
   }
+
+  logout(){
+    this.setState({isLoggedIn:false,username:''})
+  }
+
+ login(){
+   this.setState({isLoggedIn:true,username:localStorage.getItem('username')})  
+ }
 
   getNotes = () => {
     axios
@@ -80,13 +90,13 @@ class App extends React.Component {
       <div className="appContainer">
         <div className="sideBarClass">
           <h1>Lambda <br></br>Notes</h1>
-          <Route path="/" component={SideBar}></Route>
+          <Route path="/" render={props => <Sidebar state={this.state} logout={this.logout} />}></Route>
         </div>
         <Route path="/create" render={props => <CreateNote createNote={this.createNote} />}></Route>
         <Route exact path="/" render={(props => (<MainSection notes={this.state.notes} />))}></Route>
         <Route path="/update/:id" render={(props => (<UpdateNote {...props} deleteNote={this.deleteNote} updateNote={this.updateNote} notes={this.state.notes} />))}></Route>
-        <Route path="/view/:id" render={(props => (<ViewNote {...props} deleteNote={this.deleteNote} updateNote={this.updateNote} notes={this.state.notes} />))}> </Route>
-        <Route eact path="/login" render={(props => (<LoginView {...props} />))}> </Route>
+        <Route path="/view/:id" render={(props => (<ViewNote {...props} deleteNote={this.deleteNote} updateNote={this.updateNote} notes={this.state.notes} loggedIn={this.state.isLoggedIn} />))}> </Route>
+        <Route eact path="/login" render={(props => (<LoginView {...props} login={this.login} />))}> </Route>
         {console.log(this.state, 'state from homepage')}
       </div>
     );

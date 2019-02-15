@@ -41,10 +41,12 @@ class loginView extends Component {
         console.log(response);
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('username', response.data.username)
+        this.props.login();
       }
     )
     .catch(err => console.log(err));
     this.props.history.push('/')
+    
   }
 
 
