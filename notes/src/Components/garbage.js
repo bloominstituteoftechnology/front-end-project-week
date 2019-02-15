@@ -1,3 +1,5 @@
+import axios from "axios";
+
 {}/*handleCreateNote = (event) => {*///     this.setState({rightPanel:"CreateNote"})
 // }
 //
@@ -43,3 +45,32 @@
 //         </div>
 //     );
 // }
+
+
+//App.js
+// componentDidMount() {
+//     axios.get("https://fe-notes.herokuapp.com/note/get/all")
+//         .then(res=> {
+//             console.log("GET DATA", res);
+//             // let notes=res.data;//res.data is the array we get all the data from server
+//             // let newNotes=this.state.notes.filter(note=>{
+//             //     for(let i=0;i<notes.tags.length;i++){
+//             //         if (notes.tags[i]==="Arpita") {
+//             //             return true;
+//             //         }
+//             //     }
+//             //     return false;
+//             // })
+//
+//             this.setState({notes: res.data})
+//         })
+//
+//         .catch (err=>{
+//
+//             console.log("Error in get", err) ;
+//
+//         })
+//
+// }
+
+

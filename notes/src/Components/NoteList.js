@@ -46,8 +46,13 @@ class NoteList extends React.Component{
               console.log("UPDATE RESPONSE",res);
               //this.setState({notes:res.data})
           })
+          .catch (err=>{
 
-   }
+              console.log("Error in Update", err) ;
+
+          })
+
+    }
 
 
     render(){

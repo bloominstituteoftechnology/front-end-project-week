@@ -5,6 +5,7 @@ import axios from "axios";
 import{Route,Link, NavLink} from "react-router-dom";
 import Note from "./Components/Note";
 import DeleteForm from "./Components/DeleteForm"
+import EditForm from "./Components/EditForm"
 
 import './App.css';
 
@@ -40,6 +41,24 @@ class App extends Component {
             })
 
     }
+    editNote=(note)=>{
+
+
+        console.log("New note ");
+        console.log(note);
+        axios.put("https://fe-notes.herokuapp.com/note/edit/" + note._id,note)
+            .then(res=>{
+
+                console.log("PUT IT",res) ;
+                this.setState({notes:res.data.success})
+
+            })
+
+            .catch(err=>{
+                console.log("update Error",err);
+            })
+
+    }
     deleteNote=(id)=>{
 
         axios.delete("https://fe-notes.herokuapp.com/note/delete/" +id)
@@ -66,15 +85,7 @@ class App extends Component {
         axios.get("https://fe-notes.herokuapp.com/note/get/all")
             .then(res=> {
                 console.log("GET DATA", res);
-                // let notes=res.data;//res.data is the array we get all the data from server
-                // let newNotes=this.state.notes.filter(note=>{
-                //     for(let i=0;i<notes.tags.length;i++){
-                //         if (notes.tags[i]==="Arpita") {
-                //             return true;
-                //         }
-                //     }
-                //     return false;
-                // })
+
 
                 this.setState({notes: res.data})
             })
@@ -113,6 +124,9 @@ class App extends Component {
 
                     <Route exact path="/Note/:noteId" render={(props)=><Note {...props} tmp="TMP" notes={this.state.notes} />}/>
                     <Route exact path ="/DeleteForm/:noteId" render={(props)=><DeleteForm{...props}deleteNote={this.deleteNote}/>}/>
+                    <Route exact path ="/EditForm/:noteId" render={(props)=><EditForm{...props} editNote={this.editNote}
+                          notes = {this.state.notes}/>}/>
+
 
                 </div>
             </div>
