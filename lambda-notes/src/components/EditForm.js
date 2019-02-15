@@ -14,13 +14,16 @@ class EditForm extends Component {
     changeHandler = e => {
         this.setState({
             note: {
+                ...this.state.note,
                 [e.target.name]: e.target.value
             }
         })
     }
     editNoteHandler = e => {
         e.preventDefault();
-            this.props.editNote(this.props.note._id, this.state.note);
+        console.log(this.props.match.params.id);
+        console.log(e.target.value);
+            this.props.editNote(this.props.match.params.id, this.state.note);
             this.setState({
                 note: {
                     title: '',

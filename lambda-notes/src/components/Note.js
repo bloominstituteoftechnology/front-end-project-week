@@ -37,7 +37,7 @@ class Note extends React.Component  {
             <div>
                 <NoteCard {...this.state.note } editNote={this.editNote}/>
 
-                <Link to={`/edit/${this.state.note._id}`}>
+                <Link to={`/edit/${this.props.match.params.id}`}>
                     <div>Edit</div>
                 </Link>
                 {/* <div className="card-tags">

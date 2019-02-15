@@ -50,9 +50,8 @@ class App extends Component {
   }
 
   editNote = (id, note) => {
-
+    console.log(note);
     let editNote = {
-      id: note._id,
       title: note.title,
       textBody: note.textBody,
       tag: []
@@ -61,7 +60,8 @@ class App extends Component {
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editNote)
       .then(response => {
-          editNote.id = response.data.success;
+        console.log(response)
+          editNote.id = response;
 
           // let newArray = this.state.notes.slice().concat(editNote);
 
@@ -116,7 +116,7 @@ class App extends Component {
 
             <Route exact path="/edit/:id"
               render={props =>
-                <EditForm {...props} editNote={this.editNote}/>
+                <EditForm {...props} note={this.state.note} editNote={this.editNote}/>
               }
             />
         </div>
