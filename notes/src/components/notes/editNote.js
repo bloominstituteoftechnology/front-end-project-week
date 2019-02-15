@@ -10,7 +10,7 @@ class EditNote extends Component {
     this.state = {
       id: this.props.match.params.id,
       title:'',
-      textBody: '',
+      textBody: ''
   }
 } 
 
@@ -21,8 +21,8 @@ componentDidMount() {
     .then(res =>{
       this.note = res.data[0]
       this.setState({
-       title: this.note.title,
-       textBody:this.note.textBody
+      title: this.note.title,
+      textBody:this.note.textBody
       })
     })
     .catch(err => console.log(err))
@@ -31,9 +31,9 @@ componentDidMount() {
 handleChange = (event) => {
   const {name, value} = event.target;
   this.setState(
-      {
-        [name]: value
-      }
+    {
+      [name]:value
+    }
   )
 }
 
@@ -42,7 +42,7 @@ handleEditNote = e => {
   const url = process.env.REACT_APP_API_URL
   const note = {
     title: this.state.title,
-    textBody: this.state.textBody
+    textBody: this.state.content
   };
   axios
     .put(`${url}/${this.state.id}`, note)
@@ -60,14 +60,14 @@ goto = () =>{
 }
 
   render() { 
-    console.log(this.note)
+    
     return(
       <>
       <FormContainer>
           <h1 className="form-title">Edit Note &nbsp;|<Button color="link" onClick={this.goto}>Back</Button></h1>
         <form>
           <input type="text" name="title" placeholder="note title" value={this.state.title} onChange={this.handleChange}/><br/>
-          <textarea placeholder="note content" name="textBody" onChange={this.handleChange} value={this.state.textBody}/><br/>
+          <textarea placeholder="note content" name="textBody" onChange={this.handleChange} value={this.state.textBody}/><br/> 
           <Button color="primary" size="lg" onClick={this.handleEditNote}> Update</Button>
         </form>
         </FormContainer>
