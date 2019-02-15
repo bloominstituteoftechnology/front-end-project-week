@@ -18,29 +18,31 @@ class Login extends Component {
             userList: [],
             userInfo: []
         })
+        this.handleInputChange = this.handleInputChange.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
 
-    handleSubmit = event => {
-        event.preventDefault();
-        const credentials = this.state;
-        const endpoint = 'http://localhost:5000/api/users/login';
-        axios.post(endpoint, credentials)
-            .then(res => {
-                console.log('reponse data from login', res.data);
-                localStorage.setItem('jwt', res.data.token);
-                alert("login successful")
-                const name = "";
-                const password = "";
-                this.setState({ username: name, password: password })
-                console.log("this.state is: ", this.state)
-            }).catch(err => {
-                console.log('err from login', err);
-            });
-    }
+    /*  handleSubmit = event => {
+         event.preventDefault();
+         const credentials = this.state;
+         const endpoint = 'http://localhost:5000/api/users/login';
+         axios.post(endpoint, credentials)
+             .then(res => {
+                 console.log('reponse data from login', res.data);
+                 localStorage.setItem('jwt', res.data.token);
+                 alert("login successful")
+                 const name = "";
+                 const password = "";
+                 this.setState({ username: name, password: password })
+                 console.log("this.state is: ", this.state)
+             }).catch(err => {
+                 console.log('err from login', err);
+             });
+     } */
     // ********* USER LOGIN **************************
     login = (e) => {
         e.preventDefault();
@@ -61,7 +63,7 @@ class Login extends Component {
                     const passWord = "";
                     const userName = "";
                     this.setState(() => ({ username: userName, password: passWord, display: false, disabled: false }))
-                    this.props.noteList();
+                    // this.props.noteList();
                 })
                 .catch(err => {
                     console.error('err from login', err);
@@ -81,16 +83,16 @@ class Login extends Component {
                 password: this.state.password
 
             };
-           console.log("state.username:", userInfo)
-           this.props.registerUser(userInfo);
-           //console.log("password:", password)
-         /*    const regUser = (userInfo) => {
-                this.props.registerUser(userInfo);
-           }
-            
-           regUser(); */
-          /*  axios
-                .post('http://localhost:5000/api/users/register', userInfo)
+            console.log("state.username:", userInfo)
+             this.props.registerUser(userInfo);
+            //console.log("password:", password)
+            /*    const regUser = (userInfo) => {
+                   this.props.registerUser(userInfo);
+              }
+               
+              regUser(); */
+            axios
+                .post('http://localhost:5000/api/users', userInfo)
                 .then(response => {
                     alert('registration complete...')
                     let passWord = "";
@@ -100,7 +102,7 @@ class Login extends Component {
                 })
                 .catch(error => {
                     console.error('Server Error', error);
-                }); */
+                });
 
 
         } else {
@@ -109,49 +111,49 @@ class Login extends Component {
     }
 
     // ************ GET USER LIST *******************
-    userList = (e) => {
-        e.preventDefault();
-        const token = localStorage.getItem('jwt');
-        const endpoint = 'http://localhost:5000/api/users/login';
-        const options = {
-            headers: {
-                Authorization: token
-            }
-        };
-        axios
-            .get('http://localhost:3300/api/users/', options)
-            //.then(res => {
-            .then(response => {
-                console.log("reponse.data", response.data)
-                //let tmpArray2 = []; 
-                let tmpArray = [];
-                //const tmpArray2 = response.data;
-
-                for (let x = 0; x < response.data.length; x++) {
-                    tmpArray.push(response.data[x].username)
-                }
-
-                this.setState(() => ({ userList: tmpArray }))
-            })
-
-
-
-
-            //  console.log('data from /api/users', response.data);
-            //  this.setState({ users: res.data })
-            // })
-
-            //.then(response => {
-            // let tmpArray = [];
-            // for (let x = 0; x < response.data.length; x++) {
-            //   tmpArray.push(response.data[x].username)
-            //  }
-            //  this.setState(() => ({ userList: tmpArray }));
-            //})
-            .catch(error => {
-                console.error('Server Error', error);
-            });
-    }
+    /*   userList = (e) => {
+          e.preventDefault();
+          const token = localStorage.getItem('jwt');
+          const endpoint = 'http://localhost:5000/api/users/login';
+          const options = {
+              headers: {
+                  Authorization: token
+              }
+          };
+          axios
+              .get('http://localhost:3300/api/users/', options)
+              //.then(res => {
+              .then(response => {
+                  console.log("reponse.data", response.data)
+                  //let tmpArray2 = []; 
+                  let tmpArray = [];
+                  //const tmpArray2 = response.data;
+  
+                  for (let x = 0; x < response.data.length; x++) {
+                      tmpArray.push(response.data[x].username)
+                  }
+  
+                  this.setState(() => ({ userList: tmpArray }))
+              })
+  
+  
+  
+  
+              //  console.log('data from /api/users', response.data);
+              //  this.setState({ users: res.data })
+              // })
+  
+              //.then(response => {
+              // let tmpArray = [];
+              // for (let x = 0; x < response.data.length; x++) {
+              //   tmpArray.push(response.data[x].username)
+              //  }
+              //  this.setState(() => ({ userList: tmpArray }));
+              //})
+              .catch(error => {
+                  console.error('Server Error', error);
+              });
+      } */
     //************************************ */
 
     /*   Axios.get(endpoint, options)
@@ -199,37 +201,32 @@ class Login extends Component {
             'btnNoWork': this.state.display
         })
         return (
-            <div className="container-1">
-                <div className="text"><p>You must first register. When complete use your registration info
-         to login. To view the list of users, select the User List button. Click logout when you are finished</p> </div>
-                <form className="main-form" onSubmit={this.login}>
-                    <Input type="text" id="username" value={this.state.username} name='username' className="form-control" placeholder="Enter Username" onChange={this.handleInputChange} />
-                    <Input type="text" id="password" value={this.state.password} name='password' className="form-control" placeholder="Enter Password" onChange={this.handleInputChange} />
 
 
-                    <button className="btn-register" value="register" onClick={this.register} name="viewHome" id="register">Register</button>
-                    <button type="submit" className="btn-login" value="login" onSubmit={this.login} name="viewHome" id="login">Login</button>
-                    <button className={btnClass} disabled={this.state.disabled} value="user-list" id="user-list" onClick={this.userList} name="viewHome">User List</button>
-                    <button className={btnClass} disabled={this.state.disabled} value="logout" id="logout" onClick={this.logout} name="viewHome">Logout</button>
+            <form className="main-form" onSubmit={this.login}>
+                <Input type="text" id="username" value={this.state.username} name='username' className="form-control" placeholder="Enter Username" onChange={this.handleInputChange} />
+                <Input type="text" id="password" value={this.state.password} name='password' className="form-control" placeholder="Enter Password" onChange={this.handleInputChange} />
 
-                </form>
-                <div className="message" onClick={this.message}><p>Click Here if you forgot your password.</p> </div>
-                <div className={btnClass}>New User List:{this.state.userList.map((user, index) => {
-                    return <User user={user} key={index} />;
-                })}
-                </div>
-            </div>
+
+                <button type="button" className="btn-register" value="register" onClick={this.register} name="viewHome" id="register">Register</button>
+                <button type="submit" className="btn-login" value="login" onSubmit={this.login} name="viewHome" id="login">Login</button>
+                <button type="button" className={btnClass} disabled={this.state.disabled} value="user-list" id="user-list" onClick={this.userList} name="viewHome">User List</button>
+                <button type="button" className={btnClass} disabled={this.state.disabled} value="logout" id="logout" onClick={this.logout} name="viewHome">Logout</button>
+                <input type="submit" value="Submit" />
+            </form>
+
+
         );
     }
 }
 const mapStateToProps = state => {
     //const { singleNoteReducer } = state;
     return {
-      error: state.usersReducer.error
-      /* noteSelected: state.singleNoteReducer.noteSelected */
+        error: state.usersReducer.error
+        /* noteSelected: state.singleNoteReducer.noteSelected */
     };
-  };
-  
-  export default connect(mapStateToProps, {
+};
+
+export default connect(mapStateToProps, {
     registerUser
-  })(Login);
+})(Login);

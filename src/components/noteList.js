@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../css/note.css"
 import Note from './note'
-import { getNotes } from '../actions';
+import { getNotes } from '../actions/notesActions';
 import { connect } from 'react-redux';
 import { CSVLink } from "react-csv";
 

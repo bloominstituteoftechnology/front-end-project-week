@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
 import "../css/note.css"
 import { connect } from 'react-redux';
-import { createNote } from '../actions';
+import { createNote } from '../actions/notesActions';
 
 class NoteCreate extends Component {
 
 	state = {
 		tags: '',
 		title: '',
-		textBody: ''
+		textBody: '',
+		_id: 1234,
+		image: "",
+		users_id: 1
 	};
 
 	handleInputChange = event => {
 		this.setState({ [event.target.name]: event.target.value });
 	};
 
-	handleAddNote = _ => {
-		const { tags, title, textBody } = this.state;
-		this.props.createNote({ tags, title, textBody });
-		this.setState({ tags: '', title: '', textBody: '' });
+	handleAddNote = (e) => {
+		e.preventDefault();
+		const { tags, title, textBody, _id, image, users_id } = this.state;
+		
+		this.props.createNote({ title, textBody, tags, _id, image, users_id });
+		this.setState({ tags: '', title: '', textBody: '', _id: "", image: "", users_id: "" });
 	};
 
 	render() {
 		return (
-			<form className="note-create-form">
+			<form className="note-create-form" onSubmit={this.handleAddNote}>
 				<header className="note-create-header">Create New Note</header>
 				<input
 					type="text"
@@ -39,7 +44,7 @@ class NoteCreate extends Component {
 					value={this.state.value}
 					onChange={this.handleInputChange}
 					name="textBody" />
-				<button className="save-button" onClick={() => this.handleAddNote()}>Save</button>
+				<button className="save-button" onSubmit={this.handleAddNote}>Save</button>
 			</form>
 		);
 	}

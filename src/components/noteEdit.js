@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../css/note.css"
-import { viewNote } from '../actions';
-import { updateNote } from '../actions';
+import { viewNote } from '../actions/notesActions';
+import { updateNote } from '../actions/notesActions';
 import { connect } from 'react-redux';
 
 

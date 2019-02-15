@@ -1,34 +1,34 @@
-import * as actionTypes from '../actions/usersActions.js';
+import * as actionTypes from '../actions/usersActions';
 
 const initialState = {
   users: [],
-  gettingUsers: false,
+  loggingUser: false,
   updatingUser: false,
-  creatingUser: false,
-  deletingUser: false,
+  registeringUser: false,
+ /*  deletingUser: false, */
   error: null
 };
 
 export const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.GETTING_USERS:
-      return { ...state, gettingUsers: true };
-    case actionTypes.GET_USERS:
-      return { ...state, users: action.payload, gettingUsers: false };
+    case actionTypes.LOGGING_USER:
+      return { ...state, loggingUser: true };
+    case actionTypes.LOGIN_USER:
+      return { ...state, users: action.payload, loggingUser: false };
     case actionTypes.UPDATING_USER:
       return { ...state, updatingUser: true };
     case actionTypes.UPDATE_USER:
       return { ...state, users: action.payload, updatingUser: false };
-    case actionTypes.CREATING_USER:
-      return { ...state, creatingUser: true };
-    case actionTypes.CREATE_USER:
-      return { ...state, users: action.payload, creatingUser: false };
+    case actionTypes.REGISTERING_USER:
+      return { ...state, registeringUser: true };
+    case actionTypes.REGISTER_USER:
+      return { ...state, users: action.payload, registeringUser: false };
     case actionTypes.ERROR:
       return {
         ...state,
-        gettingUsers: false,
-        creatingUser: false,
-        deletingUser: false,
+        loggingUser: false,
+        registeringUser: false,
+       /*  deletingUser: false, */
         updatingUser: false,
         error: action.payload
       };

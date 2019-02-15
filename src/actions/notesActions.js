@@ -33,6 +33,7 @@ export const getNotes = () => {
 }
 
 export const createNote = (newNote) => {
+  console.log("newNote", newNote)
   return (dispatch) => {
     dispatch({ type: CREATING_NOTE })
    // axios.post('https://frontend-william.herokuapp.com/api/notes', newNote)
@@ -55,6 +56,10 @@ export const updateNote = (newNote, id) => {
       .put(URL, {
         title: newNote.title,
         textBody: newNote.textBody,
+        tags: "",
+        _id: 1234,
+        image: "",
+        users_id: 1
       })
       .then(response => {
         dispatch({ type: UPDATE_NOTE, payload: response.data })

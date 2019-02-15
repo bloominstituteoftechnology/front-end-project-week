@@ -9,7 +9,7 @@ import NoteEdit from './components/noteEdit';
 import NoteDelete from './components/noteDelete';
 import Nav from './components/nav';
 import Modal from "react-modal";
-import { getNotes } from './actions';
+import { getNotes } from './actions/notesActions';
 import { connect } from 'react-redux';
 
 class App extends React.Component {
@@ -69,10 +69,10 @@ class App extends React.Component {
     this.setState({ viewPage: pageType });
   }
 
-  login = () => {
+  login = (e) => {
    
-    const modalType = !false;
-    //let modalType = true;
+    //const modalType = !false;
+    let modalType = true;
     localStorage.setItem('modals', modalType)
     localStorage.setItem('viewPage', "login");
 
@@ -131,7 +131,7 @@ class App extends React.Component {
       case 'noteCreate':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} />
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} login={this.login}/>
             <div className="main-display">
               <NoteCreate changeHandler={this.changeHandler} saveNote={this.saveNote} />
             </div>
@@ -141,7 +141,7 @@ class App extends React.Component {
       case 'noteDelete':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView} />
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView}  login={this.login}/>
             <div className="main-display">
               <NoteDelete id={this.state.id} noteList={this.noteList} />
             </div>
@@ -151,7 +151,7 @@ class App extends React.Component {
       case 'noteEdit':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteEdit={this.noteEdit} noteView={this.noteView} />
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteEdit={this.noteEdit} noteView={this.noteView} login={this.login} />
             <div className="main-display">
               <NoteEdit changeHandler={this.changeHandler} tags={this.tags} id={this.state.id} />
             </div>
@@ -161,7 +161,7 @@ class App extends React.Component {
       case 'noteList':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView} />
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView}  login={this.login}/>
             <div className="main-display">
               <NoteList noteView={this.noteView} notes={this.state.notes} />
             </div>
@@ -171,7 +171,7 @@ class App extends React.Component {
       case 'noteView':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView} />
+            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView}  login={this.login}/>
             <div className="main-display">
               <NoteView id={this.state.id} notes={this.notes} selected={this.props.noteSelected} noteEdit={this.noteEdit} noteDelete={this.noteDelete} />
             </div>

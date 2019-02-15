@@ -1,7 +1,7 @@
 import React from 'react';
 import "../css/note.css"
 import NavNoteList from "./navNoteList"
-import { getNotes } from '../actions';
+import { getNotes } from '../actions/notesActions';
 import { connect } from 'react-redux';
 
 class Nav extends React.Component {
@@ -42,7 +42,12 @@ this.setState({ notes: newNotes });
       <form className="nav-left">
         <div className="nav-title">Lambda Notes</div>
         <ul className="nav-list">
+        <li className="nav-left-item icon1">
+       
+            <button className="nav-button" value="login" onClick={this.props.login} name="login">Login</button>
+          </li>
           <li className="nav-left-item icon1">
+          <div id="icon2" className="nav-left-icon-1"></div>
             <button className="nav-button" value="noteList" onClick={this.props.noteList} name="noteList">View Notes</button>
           </li>
           <li className="nav-left-item">

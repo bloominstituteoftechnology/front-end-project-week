@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { deleteNote } from '../actions';
+import { deleteNote } from '../actions/notesActions';
 
 const customStyles = {
   content: {

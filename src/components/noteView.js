@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../css/note.css"
 import { connect } from 'react-redux';
-import { viewNote } from '../actions';
+import { viewNote } from '../actions/notesActions';
 
 class NoteView extends Component {
   constructor(props) {
