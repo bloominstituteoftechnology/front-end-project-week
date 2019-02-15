@@ -31,7 +31,6 @@ export default class Edit extends Component {
 
   submitHandler = e => {
     const id = this.props.match.params.id
-    console.log(id)
     axios
       .put(`http://localhost:4500/note/${id}/edit`, this.state)
       .then( () => {

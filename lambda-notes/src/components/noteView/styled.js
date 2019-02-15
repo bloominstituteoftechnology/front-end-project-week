@@ -36,3 +36,21 @@ export const Time = styled.p `
   margin-top: 20px;
   text-align: end;
 `
+
+export const Completed = styled.div `
+  margin-top: 40px;
+  margin-left: 30%
+  padding: 5px 0;
+  width: 30%;
+  height: 50px;
+  background-color: white
+  color: green
+  font-weight: bold
+  font-size: 2.5rem
+  text-align: center
+  border-radius: 4px
+`
+export const Complete = styled(Completed) `
+  color: red
+  cursor: pointer;
+`
