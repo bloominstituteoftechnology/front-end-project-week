@@ -25,7 +25,8 @@ componentDidMount() {
 }
 
 fetNotes = () => {
-  axios.get('https://fe-notes.herokuapp.com/note/get/all')
+     axios.get('http://localhost:2300/api/notes')
+//   axios.get('https://fe-notes.herokuapp.com/note/get/all')
         .then( response => {
          
             this.setState({
@@ -42,10 +43,11 @@ fetNotes = () => {
 }
 
 addContent = (event,newNotes) => {
-    axios.post(`https://fe-notes.herokuapp.com/note/create`, newNotes)
+       axios.post(`http://localhost:2300/api/notes`, newNotes)
+   //  axios.post(`https://fe-notes.herokuapp.com/note/create`, newNotes)
        .then( response => {
-           console.log(newNotes.title);
-           newNotes._id = response.data.success;
+           console.log(`create view`, newNotes.title);
+           newNotes.id = response.data.success;
            this.setState({ notes: [newNotes, ...this.state.notes] })
        })
        .catch( error => {
@@ -54,9 +56,11 @@ addContent = (event,newNotes) => {
 }
 
 updateContent = (id, editedNote) => {
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editedNote)
+       axios.put(`http://localhost:2300/api/notes/${id}`, editedNote)
+   //  axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editedNote)
          .then( response => {
             // this.setState({notes:[editedNote, ...this.state.notes]})
+            console.log(editedNote);
             this.fetNotes();
          })
          .catch( err => { this.setState({ errorMessage: "Cannot edit now"})
@@ -64,8 +68,8 @@ updateContent = (id, editedNote) => {
 }
 
 deleteContent = (id) => {
-    
-    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    axios.delete(`http://localhost:2300/api/notes/${id}`)
+   //  axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
          .then( response => {
              this.fetNotes();
          })

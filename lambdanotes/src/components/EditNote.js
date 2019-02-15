@@ -13,7 +13,7 @@ class EditNote extends Component {
         this.state ={
             note:[],
             title: "",
-            textBody: "",
+            content: "",
             noteAdded: false
         }
     }
@@ -21,14 +21,15 @@ componentDidMount() {
         // console.log(this.props.notes)
         // this.props.notes.map( note => {
         //     if(this.props.match.params.id === note._id) {
-        //         this.setState({title:note.title, textBody:note.textBody})
+        //         this.setState({title:note.title, content:note.content})
         //     }
         // })
         const id = this.props.match.params.id;
-        axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        axios.get(`http://localhost:2300/api/notes/${id}`)
+        // axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
               .then(res => {
                 //  this.setState({note: res.data})
-                this.setState({title: res.data.title, textBody:res.data.textBody})
+                this.setState({title: res.data.title, content:res.data.content})
               })
  }
 inputHandler = event => {
@@ -42,7 +43,7 @@ submitHandler = event => {
         this.props.updateContent(id, this.state);
         this.setState({
             title:'',
-            textBody:''
+            content:''
         })    
         this.props.history.push("/");  
     }
@@ -64,8 +65,8 @@ submitHandler = event => {
                       <textarea 
                              className='textarea' rows="15" cols="90"
                              placeholder="Your New Content"
-                             name="textBody"
-                             value={this.state.textBody}
+                             name="content"
+                             value={this.state.content}
                              onChange={this.inputHandler} required></textarea>
                       <Button type='submit' className="save">Update</Button>
                   </form>

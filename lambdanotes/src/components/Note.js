@@ -13,10 +13,10 @@ class Note extends Component {
             <>
             <NoteStyles>
               <div className="note">
-                <Link to={`/note/${note._id}`}  className="a">
+                <Link to={`/note/${note.id}`}  className="a">
                    <h3>{this.props.note.title}</h3>
                 </Link>
-                   {this.props.note.textBody}
+                   {this.props.note.content}
                </div>
             </NoteStyles>   
             </>

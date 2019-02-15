@@ -13,7 +13,7 @@ class MyNote extends Component {
         this.state={
           note: [],
           title: '',
-          textBody: "",
+          content: "",
           showBox: false,
           deletedNote:false
         }
@@ -21,12 +21,14 @@ class MyNote extends Component {
 
 componentDidMount() {
   const id = this.props.match.params.id;
-  axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+     axios.get(`http://localhost:2300/api/notes/${id}`)
+//   axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(res => {
-           this.setState({title:res.data.title, textBody:res.data.textBody})
+           this.setState({title:res.data.title, content:res.data.content})
         })
         .catch(err => console.log(err));
-  axios.put(`https://fe-notes.herokuapp.com/note/delete/${id}`)      
+  axios.put(`http://localhost:2300/api/notes/${id}`)        
+//   axios.put(`https://fe-notes.herokuapp.com/note/delete/${id}`)      
 }
 
 toggleBox = () => {
@@ -64,7 +66,7 @@ render() {
                      <NoteStyle>
                     <Card>
                         <h3>{this.state.title}</h3>
-                        <p>{this.state.textBody}</p>
+                        <p>{this.state.content}</p>
                     </Card>
                     </NoteStyle>
                   </div>

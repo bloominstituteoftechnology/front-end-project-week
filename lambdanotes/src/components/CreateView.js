@@ -12,7 +12,7 @@ class CreateView extends Component {
 
         this.state ={
             title: "",
-            textBody: "",
+            content: "",
             createdNote:false
         }
     }
@@ -23,12 +23,13 @@ class CreateView extends Component {
     }
     submitHandler = event => {
         event.preventDefault();
-        if(this.state.title && this.state.textBody) {
+        if(this.state.title && this.state.content) {
+            console.log(this.state);
         this.props.addContent(event,this.state);
         }
         this.setState({
             title:'',
-            textBody:'',
+            content:'',
             createdNote:true
 
         })    
@@ -47,7 +48,7 @@ class CreateView extends Component {
     //          })
     // }
     render() {
-        console.log(this.state.title, this.state.textBody);
+        console.log(this.state.title, this.state.content);
         if(this.state.createdNote) {
                 this.props.fetchNotes();
                 return <Redirect to='/' />
@@ -67,8 +68,8 @@ class CreateView extends Component {
                       <textarea 
                              className='textarea' rows="15" cols="90"
                              placeholder="New Content"
-                             name="textBody"
-                             value={this.state.textBody}
+                             name="content"
+                             value={this.state.content}
                              onChange={this.inputHandler} required></textarea>
                       <Button type='submit' className="save">Save</Button>
                   </form>
