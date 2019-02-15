@@ -34,8 +34,8 @@ addNew = (e) => {
   }
 render() {
   return (
-    <div className="createContainer">
-        <h1>Create New Note:</h1>
+    <div className="contentContainer">
+        <h2>Create New Note:</h2>
       <form className="form" onSubmit={this.addNew}>
         <input className="title" 
               type='text' 
@@ -50,7 +50,7 @@ render() {
               placeholder='Note Content' 
               onChange={this.inputChangehandler}
               value={this.state.textBody} />
-          <button type='submit'>Save</button>       
+          <button className="button" type='submit'>Save</button>       
       </form>
     </div>
   )}

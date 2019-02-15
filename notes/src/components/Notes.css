@@ -42,3 +42,49 @@ margin-top: 5px;
   overflow: hidden;
  
 }
+/* Create Note styling */
+
+
+.contentContainer h2{
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+.contentContainer .form{
+  display: flex;
+  flex-direction: column;
+  width: 93%;
+}
+.contentContainer .form .title{
+  border: 1px solid #757474;
+  border-radius: 5px;
+  width: 50%;
+  height: 40px;
+  padding: 0 5px 0 5px;
+  font-size: 0.9rem;
+  margin-bottom: 25px; 
+}
+.contentContainer .form .textBody{
+  border: 1px solid #757474;
+  border-radius: 5px;
+  width: 100%;
+  height: 600px;
+  padding:25px 5px 0 5px;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+.contentContainer .form .button{
+  display: block;
+  border: 1px solid #959898;
+  text-decoration: none;
+  background-color: #5DBEC3;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;  
+  font-weight: bold;
+  padding: 0.8rem 0;
+  width: 35%;
+  margin-bottom: 40px;
+ 
+}
