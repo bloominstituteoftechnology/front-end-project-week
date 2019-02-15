@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.scss';
 import MainSection from './components/MainSection';
 import SideBar from './components/sidebar'

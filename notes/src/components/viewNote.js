@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap'
+import { Button, Modal, ModalBody} from 'reactstrap'
 
 class ViewNote extends Component {
   constructor(props) {
@@ -63,7 +63,7 @@ this.props.deleteNote(id)
             <Button onClick={this.toggle} color="primary">No</Button>
             </div>
           </ModalBody>
-         </Modal>
+        </Modal>
     
        </div>
     )

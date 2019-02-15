@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button }  from 'reactstrap'
-import {Route, NavLink} from 'react-router-dom'
-import CreateNote from './CreateNote'
+import {NavLink} from 'react-router-dom'
+
 
 function Sidebar(props) {
 

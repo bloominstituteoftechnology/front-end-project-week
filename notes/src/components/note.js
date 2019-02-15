@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.scss'
 import {Link} from 'react-router-dom'
-import UpdateNote from './UpdateNote';
+
 
 const Note = props => {
   const {note} = props
