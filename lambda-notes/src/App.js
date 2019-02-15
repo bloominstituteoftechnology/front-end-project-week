@@ -76,19 +76,19 @@ class App extends Component {
 
   }
 
-  deleteNote = id => {
-    axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-      .then(response => {
-        let newNotes = this.state.notes.filter(note => id !== note._id);
-        this.setState({
-          notes: newNotes
-        })
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
+  // deleteNote = id => {
+  //   axios
+  //     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+  //     .then(response => {
+  //       let newNotes = this.state.notes.filter(note => id !== note._id);
+  //       this.setState({
+  //         notes: newNotes
+  //       })
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     })
+  // }
 
   
 
@@ -99,7 +99,7 @@ class App extends Component {
             <Sidebar />
             <Route exact path="/" 
               render={props => 
-               <NotesList {...props} notes={this.state.notes} deleteNote={this.deleteNote}/>
+               <NotesList {...props} notes={this.state.notes} />
               }
             />
             <Route path="/notes/create" 
@@ -110,13 +110,13 @@ class App extends Component {
 
             <Route exact path="/note/:id" 
               render={props =>
-                <Note {...props} />
+                <Note {...props} deleteNote={this.deleteNote}/>
               }
             />
 
             <Route exact path="/edit/:id"
               render={props =>
-                <EditForm {...props} note={this.state.note} editNote={this.editNote}/>
+                <EditForm {...props} notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote}/>
               }
             />
         </div>

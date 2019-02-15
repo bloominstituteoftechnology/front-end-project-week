@@ -11,6 +11,19 @@ class EditForm extends Component {
             }
         }
     }
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        console.log(id);
+        console.log(this.props);
+        let newNote = this.props.notes.find(note => id === note._id);
+        console.log(newNote);
+        this.setState({
+            note: {
+                title: newNote.title,
+                textBody: newNote.textBody,
+            }
+        })
+    }
     changeHandler = e => {
         this.setState({
             note: {
@@ -21,14 +34,11 @@ class EditForm extends Component {
     }
     editNoteHandler = e => {
         e.preventDefault();
-        console.log(this.props.match.params.id);
-        console.log(e.target.value);
             this.props.editNote(this.props.match.params.id, this.state.note);
             this.setState({
                 note: {
-                    title: '',
-                    textBody: ''
-                    // tags: []
+                    title: this.state.note.title,
+                    textBody: this.state.note.textBody,
                 }
             })
     }
