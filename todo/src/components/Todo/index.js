@@ -41,21 +41,21 @@ const TextBodyP = styled.p`
 
 const ToDo = (props) => {
     let toDoContent = props.textBody;
-    
-    if(props.textBody.length > 160) { toDoContent = toDoContent.substring(0,160) + '...'}
-    
+
+    if (props.textBody.length > 160) { toDoContent = toDoContent.substring(0, 160) + '...' }
+
     let toDoTitle = props.title;
-    
-    if(props.title.length > 13) { toDoTitle = toDoTitle.substring(0,13 )}
-    
-    return(
+
+    if (props.title.length > 13) { toDoTitle = toDoTitle.substring(0, 13) }
+
+    return (
         <ToDoDiv>
             <Link to={`/notes/${props.id}`}>
-        {/* //  onClick = { () => { */}
-        {/* //     props.getToDo(props.id);
+                {/* //  onClick = { () => { */}
+                {/* //     props.getToDo(props.id);
         //     props.history.push(`/notes/${props.id}`)
         // }}> */}
-        
+
                 {/* <TitleH3>{props.title}</TitleH3> */}
                 <TitleH3>{toDoTitle}</TitleH3>
 

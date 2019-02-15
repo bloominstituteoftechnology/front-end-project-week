@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateToDo } from '../../actions';
 import styled from 'styled-components';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 const EditNoteForm = styled.form`
@@ -76,8 +76,8 @@ class EditNote extends React.Component {
         }
     }
 
-    componentDidMount(){
-        const note = this.props.notes.find(item=> `${item._id}` === this.props.match.params.id);
+    componentDidMount() {
+        const note = this.props.notes.find(item => `${item._id}` === this.props.match.params.id);
         this.setState({
             note: note,
             title: note.title,

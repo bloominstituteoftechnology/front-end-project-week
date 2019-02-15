@@ -102,4 +102,4 @@ class AddToDo extends React.Component {
     }
 }
 
-export default connect( ()=>({}), { addingToDo })(AddToDo); 
+export default connect(() => ({}), { addingToDo })(AddToDo); 

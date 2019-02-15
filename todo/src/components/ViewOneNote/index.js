@@ -60,8 +60,8 @@ class ViewOneNote extends React.Component {
         }
     }
 
-    componentDidMount(){
-        const note = this.props.notes.find(item=> `${item._id}` === this.props.match.params.id);
+    componentDidMount() {
+        const note = this.props.notes.find(item => `${item._id}` === this.props.match.params.id);
         this.setState({
             note: note,
         })
@@ -91,23 +91,23 @@ class ViewOneNote extends React.Component {
 
 
     render() {
-        if(!this.state.note) return null;
+        if (!this.state.note) return null;
 
         return (
             <div>
                 {this.state.fetching ? null : (
 
-                <UpdateToDoDiv key={this.props.id}>
-                    <SpanDivs>
-                        <SpanButton onClick={this.updateRoute}>edit</SpanButton>
-                        <SpanButton onClick={this.deletePopUp}>delete</SpanButton>
-                    </SpanDivs>
+                    <UpdateToDoDiv key={this.props.id}>
+                        <SpanDivs>
+                            <SpanButton onClick={this.updateRoute}>edit</SpanButton>
+                            <SpanButton onClick={this.deletePopUp}>delete</SpanButton>
+                        </SpanDivs>
 
-                    <TitleH3>{this.state.note.title}</TitleH3>
-                    <SingleTextP>{this.state.note.textBody}</SingleTextP>
+                        <TitleH3>{this.state.note.title}</TitleH3>
+                        <SingleTextP>{this.state.note.textBody}</SingleTextP>
 
-                </UpdateToDoDiv> )}
-                {this.state.delete ? <DeleteModal delete={this.deleteThatNote} closeForm={this.closeButton} /> : null }
+                    </UpdateToDoDiv>)}
+                {this.state.delete ? <DeleteModal delete={this.deleteThatNote} closeForm={this.closeButton} /> : null}
             </div>
         )
     }

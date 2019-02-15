@@ -42,10 +42,10 @@ class ToDoList extends React.Component {
             <ToDoListMainDiv>
                 <ToDoListH3>Your Notes:</ToDoListH3>
                 <ToDoListMainDiv>
-                {/* {this.props.fetching ? <h2>Fetching Data. Please Wait</h2> : null }
+                    {/* {this.props.fetching ? <h2>Fetching Data. Please Wait</h2> : null }
                 {this.props.error !== '' ? <h2>{this.props.error}</h2>: '' } */}
-                    {this.props.notes.map( note => (
-                        < ToDo note={ note } key={note._id} id={note._id} textBody={note.textBody} title={note.title} getToDo={this.props.getToDo} history={this.props.history} />
+                    {this.props.notes.map(note => (
+                        < ToDo note={note} key={note._id} id={note._id} textBody={note.textBody} title={note.title} getToDo={this.props.getToDo} history={this.props.history} />
                     ))}
                 </ToDoListMainDiv>
             </ToDoListMainDiv>
