@@ -25,7 +25,11 @@ class CreateView extends Component {
         event.preventDefault();
         if(this.state.title && this.state.content) {
             console.log(this.state);
-        this.props.addContent(event,this.state);
+         let newNote = {
+              title: this.state.title,
+              content:this.state.content
+         }
+        this.props.addContent(event, newNote);
         }
         this.setState({
             title:'',

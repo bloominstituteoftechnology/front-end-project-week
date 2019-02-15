@@ -43,14 +43,16 @@ fetNotes = () => {
 }
 
 addContent = (event,newNotes) => {
-       axios.post(`http://localhost:2300/api/notes`, newNotes)
-   //  axios.post(`https://fe-notes.herokuapp.com/note/create`, newNotes)
-       .then( response => {
+       event.preventDefault();
+       console.log(newNotes)
+       axios.post('http://localhost:2300/api/notes', newNotes)
+         .then( response => {
            console.log(`create view`, newNotes.title);
            newNotes.id = response.data.success;
            this.setState({ notes: [newNotes, ...this.state.notes] })
        })
        .catch( error => {
+          console.log(`we cannot create a note now`, error);
           this.setState({ errorMessage: "Error: There is some error getting notes"})
        })
 }
