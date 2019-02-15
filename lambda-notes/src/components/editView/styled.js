@@ -13,7 +13,7 @@ export const Title = styled.input `
   margin-top: 25px;
 `
 
-export const TextBody = styled.textarea `
+export const Content = styled.textarea `
   width: 100%
   height: 400px;
 `

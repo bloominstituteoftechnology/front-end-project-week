@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Form, Title, TextBody, StyledLink, MainDiv } from './styled';
+import { Form, Title, Content, StyledLink, MainDiv } from './styled';
 
 export default class Edit extends Component {
   state = {
     title: '',
-    textBody: ''
+    content: '',
+    completed: false
   }
 
   componentDidMount() {
@@ -15,10 +16,10 @@ export default class Edit extends Component {
 
   fetchNote = id => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:4500/note/${id}`)
       .then( response => {
         console.log(response.data)
-        this.setState({title: response.data.title, textBody: response.data.textBody})
+        this.setState({title: response.data.title, content: response.data.content, completed: response.data.completed})
       })
       .catch(err => console.log(err))
   }
@@ -32,7 +33,7 @@ export default class Edit extends Component {
     const id = this.props.match.params.id
     console.log(id)
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state)
+      .put(`http://localhost:4500/note/${id}/edit`, this.state)
       .then( () => {
         this.props.getNotes()
       })
@@ -44,7 +45,7 @@ export default class Edit extends Component {
         <Form>
           <h1>Edit Note:</h1>
           <Title type='text' name='title' value={this.state.title} onChange={this.changeHandler} />
-          <TextBody name='textBody' value={this.state.textBody} onChange={this.changeHandler} />
+          <Content name='content' value={this.state.content} onChange={this.changeHandler} />
           <StyledLink to={'/'}><div onClick={this.submitHandler}>Update</div></StyledLink>
         </Form>
       </MainDiv>

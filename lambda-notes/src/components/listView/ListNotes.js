@@ -7,7 +7,7 @@ export default function ListNotes(props) {
     <MainList>
       <Title>Your Notes:</Title>
       <List>
-        {props.notes.map( note => <Preview key={note._id} note={note} />)}
+        {props.notes.map( note => <Preview key={note.id} note={note} />)}
       </List>
     </MainList>
   )

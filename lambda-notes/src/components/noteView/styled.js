@@ -22,11 +22,17 @@ export const Edit = styled(StyledLink) `
 `
 
 export const Content = styled.div `
-text-align: start
+  text-align: start
 `
 export const H1Header = styled.h1 `
   margin-bottom: 25px;
 `
 export const PTag = styled.p `
-font-size: 1.4rem
+  font-size: 1.4rem
+`
+export const Time = styled.p `
+  font-size: 1.1rem;
+  color: black;
+  margin-top: 20px;
+  text-align: end;
 `
