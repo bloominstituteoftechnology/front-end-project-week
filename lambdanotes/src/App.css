@@ -64,6 +64,7 @@
 
 .search {
   position: absolute;
-  top:32px;
+  top:33px;
   left:60px;
+  z-index: 1000;
 }

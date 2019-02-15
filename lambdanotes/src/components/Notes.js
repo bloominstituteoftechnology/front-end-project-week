@@ -82,7 +82,7 @@ class Notes extends Component {
             <>
              <Wrapper>
                 <form className="form-element"onSubmit={this.submitHandler} autoComplete="off">
-                   
+                   <FontAwesome name="search" className="search"/>
                     <SearchInput value={this.state.text}
                                  onChange={this.inputHandler} 
                                  placeholder="Search....."  name="text"
