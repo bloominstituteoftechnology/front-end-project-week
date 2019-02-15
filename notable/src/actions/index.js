@@ -11,7 +11,7 @@ export const FILTER = "FILTER";
 export const addNote = data => {
   return dispatch => {
     axios
-      .post(`http://localhost:4700/notes/create`, data)
+      .post(`https://notable-littleton.herokuapp.com/notes/create`, data)
       .then(() => dispatch(fetchNotes()))
       .catch(err => {
         dispatch({
@@ -41,9 +41,9 @@ export const fetchNotes = () => {
 
 export const fetchSingleNote = id => {
   return dispatch => {
-    // dispatch({ type: FETCHING });
+    dispatch({ type: FETCHING });
     axios
-      .get(`http://localhost:4700/notes/${id}`)
+      .get(`https://notable-littleton.herokuapp.com/notes/${id}`)
       .then(response => {
         dispatch({ type: SUCCESS_SINGLE, payload: response.data });
       })
@@ -60,7 +60,7 @@ export const deleteNote = id => {
   return dispatch => {
     dispatch({ type: FETCHING });
     axios
-      .delete(`http://localhost:4700/notes/delete/${id}`)
+      .delete(`https://notable-littleton.herokuapp.com/notes/delete/${id}`)
       .then(response => {
         dispatch(fetchNotes());
       })
@@ -81,7 +81,7 @@ export const updateNote = data => {
   cl(5)
   return dispatch => {
     axios
-      .put(`http://localhost:4700/notes/edit/${data.id}`, {
+      .put(`https://notable-littleton.herokuapp.com/notes/edit/${data.id}`, {
         title: data.title,
         textBody: data.textBody
       })
