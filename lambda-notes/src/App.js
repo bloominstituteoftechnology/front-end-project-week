@@ -1,7 +1,8 @@
 import React from 'react';
 import NoteContainer from './Containers/NoteContainer';
 import CreateNew from './Views/CreateNew';
-import { Route, withRouter } from 'react-router-dom';
+import NoteView from './Views/NoteView';
+import { Route } from 'react-router-dom';
 import axios from 'axios'
 import './App.css';
 import styled from 'styled-components';
@@ -50,13 +51,24 @@ class App extends React.Component {
     return (
       <AppContainer>
       { isLoaded ?
-        <Route exact path="/"
-        render={(props) => <NoteContainer {...props} notes={notes} />}
-        /> :
+        [ <Route exact path="/"
+          render={(props) =>
+          <NoteContainer {...props}
+          notes={notes}
+          />}/>,
+          <Route path='/note/:id'
+          render={(props) =>
+          <NoteView {...props}
+          />}
+        />] :
         <div>Loading</div>
       }
         <Route path='/create-new'
-        render={(props) => <CreateNew {...props} newNote={this.addNewNote}/>} />
+        render={(props) => <CreateNew {...props} newNote={this.addNewNote}/>}
+        />
+
+
+
       </AppContainer>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Components/CardComponent';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     display:flex;
@@ -47,7 +48,7 @@ class MainContent extends React.Component{
                     <Title>Your Notes:</Title>
                 </TitleContainer>
                 <NotesContainer>
-                    {notes.map(note => <Card key={note._id}note={note}/>)}
+                    {notes.map(note => <Link to={`/note/${note._id}`} key={note._id}><Card key={note._id}note={note}/></Link>)}
                 </NotesContainer>
             </Container>
         )
