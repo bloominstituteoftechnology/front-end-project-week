@@ -43,6 +43,8 @@ class loginView extends Component {
         localStorage.setItem('username', response.data.username)
       }
     )
+    .catch(err => console.log(err));
+    this.props.history.push('/')
   }
 
 
