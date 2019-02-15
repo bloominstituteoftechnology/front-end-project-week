@@ -26,7 +26,7 @@ class CreateNote extends Component {
     };
 
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", note)
+      .post("http://localhost:3500/api/notes", note)
       .then(res => {
         this.setState({ title: "", body: "", noteCreated:true });
       })
