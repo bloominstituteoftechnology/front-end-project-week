@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = props => {
+const editForm = props => {
     return (
         <div>
             <input type='text' />
@@ -8,4 +8,4 @@ const Form = props => {
     )
 }
 
-export default Form
+export default editForm

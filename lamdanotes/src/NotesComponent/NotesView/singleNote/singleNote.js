@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import DeleteModal from './deleteModal';
 
 
-//props from app note={this.state.notes}
+//props from app note={this.state.notes} deleteNote={this.deleteNote}
 
 class SingleNote extends React.Component {
     constructor(props) {
@@ -34,11 +34,16 @@ class SingleNote extends React.Component {
         return(
             <div className='viewNoteContainer'>
                 <Link to='/' className="viewNoteLinks">edit</Link>
-                <Link to={`/note/${this.state.notes._id}/delete`} className="viewNoteLinks">delete</Link> 
+                <Link 
+                    to={`/note/${this.state.notes._id}/delete`} 
+                    className="viewNoteLinks"
+                    >
+                        delete
+                </Link> 
 
                 <Route
                     path="/note/:id/delete" 
-                    render={props => ( <DeleteModal {...props} id={this.state.notes._id} /> )}  
+                    render={props => ( <DeleteModal {...props} id={this.state.notes._id} deleteNote={this.props.deleteNote} /> )}  
                 />
 
 

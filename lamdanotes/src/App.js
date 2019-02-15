@@ -7,6 +7,7 @@ import SidebarView from './sidebarComponent/sbView';
 import NotesView from './NotesComponent/NotesView/notesView';
 import AddNote from './formComponent/addNote';
 import SingleNote from './NotesComponent/NotesView/singleNote/singleNote';
+import editForm from './formComponent/editNote';
 
 
 import './App.css';
@@ -66,6 +67,11 @@ class App extends Component {
             render={props => (
               <SingleNote {...props} note={this.state.notes} deleteNote={this.deleteNote} />
             )}
+          />
+
+          <Route 
+            path="/editnote/:id"
+            render={props=> ( <editForm {...props}/>)} 
           />
 
           
