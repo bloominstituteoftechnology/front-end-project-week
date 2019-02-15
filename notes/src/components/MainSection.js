@@ -3,9 +3,9 @@ import Note from '../components/note'
 import '../App.scss'
 
 class MainSection extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     return (
