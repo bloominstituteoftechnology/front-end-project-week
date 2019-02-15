@@ -35,7 +35,6 @@ class NoteForm extends React.Component {
         e.preventDefault();
         const note = {title: this.state.title, content: this.state.content};
         if (this.props.type === 'Create') {
-            console.log('Inside create:', note)
             this.props.createNote(note);
             this.setState({
                 title: '',
