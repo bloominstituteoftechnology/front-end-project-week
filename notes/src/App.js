@@ -15,7 +15,6 @@ import LoginView from './components/loginView';
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       notes: []
     }

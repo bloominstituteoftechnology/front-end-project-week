@@ -1,36 +1,59 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Button, Form, FormGroup, Label, Input,FormText} from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import './loginView.scss';
 import axios from 'axios';
+
 
 class loginView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
-      name:'',
+      name: '',
       password: '',
       password2: '',
-      email: ''
+      email: '',
+      role: 'user',
+      response: {}
     }
     this.password1 = React.createRef();
     this.password2 = React.createRef();
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSumbit = this.handleSubmit.bind(this);
+    this.handleSumbit = this.handleSubmit.bind(this);
   }
-    handleChange(e){
-      this.setState({[e.target.name]:e.target.value})
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = {
+      name: this.state.name,
+      username: this.state.username,
+      password: this.state.password,
+      email: this.state.email,
+      role: this.state.role
     }
+    axios
+      .post('http://localhost:5000/api/users/signup', user)
+      .then(response => {
+        console.log(response);
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('username', response.data.username)
+      }
+    )
+  }
+
 
   render() {
-    const {email,password,password2,username,name} = this.state;
-    const isEnabled = email.length > 0 && username.length >0 && name.length > 0 && password === password2 && password.length >=6;
+    const { email, password, password2, username, name } = this.state;
+    const isEnabled = email.length > 0 && username.length > 0 && name.length > 0 && password === password2 && password.length >= 6;
     return (
       <div className="loginPage">
         {console.log(this.state)}
         <h1>Register</h1>
-        <Form onChange={this.handleChange} className="loginForm">
+        <Form onSubmit={(e) => this.handleSubmit(e)} onChange={this.handleChange} className="loginForm">
           <FormGroup>
             <Label for="username">Username</Label>
             <Input type="text" name="username" id="username" placeholder="username"></Input>
