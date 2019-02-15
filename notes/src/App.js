@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import NoteList from "./Components/NoteList";
 import NoteForm from "./Components/NoteForm";
 import axios from "axios";
+import{Route,Link, NavLink} from "react-router-dom";
+import Note from "./Components/Note";
+import DeleteForm from "./Components/DeleteForm"
 
 import './App.css';
 
@@ -37,54 +40,85 @@ class App extends Component {
             })
 
     }
+    deleteNote=(id)=>{
 
-    handleCreateNote = (event) => {
-        this.setState({rightPanel:"CreateNote"})
+        axios.delete("https://fe-notes.herokuapp.com/note/delete/" +id)
+            .then(res=>{
+                console.log("DELETE NOTE",res);
+                if(res.data.success==="Note successfully deleted"){
+
+                    let newNotes=this.state.notes.filter(note=>{
+                        return (note._id != id)
+                    })
+                    this.setState({notes:newNotes})
+                }
+
+
+
+            })
+            .catch(err=>{
+                console.log("DELETE Error",err);
+            })
     }
 
-    handleViewNotes=(event) => {
-        this.setState({rightPanel:"AllNotes"})
+
+    componentDidMount() {
+        axios.get("https://fe-notes.herokuapp.com/note/get/all")
+            .then(res=> {
+                console.log("GET DATA", res);
+                // let notes=res.data;//res.data is the array we get all the data from server
+                // let newNotes=this.state.notes.filter(note=>{
+                //     for(let i=0;i<notes.tags.length;i++){
+                //         if (notes.tags[i]==="Arpita") {
+                //             return true;
+                //         }
+                //     }
+                //     return false;
+                // })
+
+                this.setState({notes: res.data})
+            })
+
+            .catch (err=>{
+
+                console.log("Error in get", err) ;
+
+            })
+
     }
-    render() {
-        if (this.state.rightPanel == "AllNotes") {
-            return (
-                <div className="myApp">
-                    <div className="first">
-                        <h1>Lambda Notes</h1>
-                        <h2>
-                            <button className="leftbutton" onClick={this.handleViewNotes}>View Your Notes</button>
-                        </h2>
-                        <button className="leftbutton" onClick={this.handleCreateNote}> +Create new note </button>
+
+    render(){
+
+        return(
+            <div className="myApp">
+                <div className="first">
+                    <h1>Lambda Notes</h1>
+                    {/*<button className="leftbutton" onClick={this.handleViewNotes}>View Your Notes</button>*/}
+                    {/*<button className="leftbutton" onClick={this.handleCreateNote}> +Create new note </button>*/}
+
+                    <div className="navButtons">
+                        <NavLink className="oneNavButton" to="/">NoteList</NavLink>
+                        <NavLink className="oneNavButton" to="/NoteForm">+ Create a new note</NavLink>
                     </div>
 
-                    <div className="second">
-                        <h3>Your Notes:</h3>
-                        <NoteList notes={this.state.notes}/>
 
-                    </div>
                 </div>
-            );
-        } else if (this.state.rightPanel == "CreateNote") {
-            return (
-                <div className="myApp">
-                    <div className="first">
-                        <h1>Lambda Notes</h1>
-                        <h2>
-                            <button className="leftbutton" onClick={this.handleViewNotes}>View Your Notes</button>
-                        </h2>
-                        <button className="leftbutton" onClick={this.handleCreateNote}> +Create new note </button>
 
-                    </div>
 
-                    <div className="second">
-                        <h3>Your Notes:</h3>
-                        <NoteForm createFunc={this.createNewNote}/>
+                <div className="second">
 
-                    </div>
+
+                    <Route  exact path="/" render={(props)=> <NoteList {...props}   />}/>
+                    <Route  exact path="/NoteForm" render={(props)=> <NoteForm {...props} createFunc={this.createNewNote}/>}/>
+
+                    <Route exact path="/Note/:noteId" render={(props)=><Note {...props} tmp="TMP" notes={this.state.notes} />}/>
+                    <Route exact path ="/DeleteForm/:noteId" render={(props)=><DeleteForm{...props}deleteNote={this.deleteNote}/>}/>
+
                 </div>
-            );
-        }
-  }
+            </div>
+        );
+    }
 }
 
-export default App;
+export default App
+

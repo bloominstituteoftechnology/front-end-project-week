@@ -79,3 +79,27 @@ h2{
   font-weight: bold;
 
 }
+
+.myApp .first .navButtons {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.myApp .first .navButtons .oneNavButton {
+  background-color: lightseagreen;
+  margin-top: 10px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  padding-top: 20px;
+  color: white;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.NavButton-two{
+
+
+}

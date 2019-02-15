@@ -1,62 +1,73 @@
 import React  from 'react';
 import "./note.css"
+import axios from "axios";
+import{Route,Link} from "react-router-dom"
 
 
 class Note extends React.Component{
 
-     constructor(props){
-      super(props);
-      this.state={
-          "tags": this.props.note.tags,
-          "title": this.props.note.title,
-          "textBody":this.props.note.textBody
+     constructor(props) {
+         super(props);
+         console.log("props = ", props, "tmp = ", this.props.tmp);
+         this.state = {
+             // "tags": this.props.note.tags,
+             // "title": this.props.note.title,
+             // "textBody":this.props.note.textBody,
+             "notes": this.props.notes,
+             "noteId": this.props.match.params.noteId,
+             "myNote": {
+                 "title" : "Loading",
+                 "textBody": "Loading"
+             }
+         }
 
-      }
+         console.log("My note = ", this.state.noteId, this.props.match.params.noteId, this.state.notes);
+
+
      }
 
 
-     deleteHandler=()=>{
-
-         this.props.deleteNote(this.props.note._id)
-
-
-     }
      editHandler=()=>{
          let note={
              "tags": this.props.note.tags,
              "title": this.props.note.title,
              "textBody":this.props.note.textBody
          }
-         this.props.updateNote(this.props.note._id,note)
+         this.props.updateNote(this.state.noteId,note)
          //this.setState ({tags:[],title:"",textBody:""})
 
      }
 
-     render(){
+     componentDidMount() {
+         console.log("Notes - ", this.state.notes);
+         if (this.state.notes.length != 0) {
+             let myNote = this.state.notes.find(note => {
+                     return note._id == this.state.noteId;
+                 }
+             )
+             if (myNote != null) {
+                 this.setState({myNote: myNote})
+             }
+         }
+     }
+
+
+    render(){
 
          return (
             <div className="note">
 
-                <h3>{this.props.note.title} </h3>
+
+                    <div>
+                        <Link to ={`/DeleteForm/${this.state.noteId}`} >Delete</Link>
+                        <button onClick={this.editHandler}>Edit</button>
+                    </div>
+
+                <h3>{this.state.myNote.title} </h3>
                 <hr/>
-                <p> {this.props.note.textBody} </p>
-               <div>
-                  <p>Are you sure you want to delete this? </p>
-                   <div>
-                      <button onClick={this.deleteHandler}>Delete</button>
-                      <button >No</button>
-                   </div>
-                   <button onClick={this.editHandler}>Edit</button>
-              </div>
-
+                <p> {this.state.myNote.textBody} </p>
             </div>
-
-
-
          )
-
      }
-
-
 }
 export default Note

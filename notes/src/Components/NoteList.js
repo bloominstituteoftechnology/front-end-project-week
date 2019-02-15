@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios" ;
-import Note from "./Note"
+import Note from "./Note";
+import {Route,Link} from "react-router-dom"
+import "./note.css"
 
 class NoteList extends React.Component{
          constructor(props){
@@ -37,26 +39,6 @@ class NoteList extends React.Component{
 
          }
 
-    deleteNote=(id)=>{
-
-        axios.delete("https://fe-notes.herokuapp.com/note/delete/" +id)
-            .then(res=>{
-                console.log("DELETE NOTE",res);
-                if(res.data.success==="Note successfully deleted"){
-
-                    let newNotes=this.state.notes.filter(note=>{
-                        return (note._id != id)
-                    })
-                    this.setState({notes:newNotes})
-                }
-
-
-
-            })
-            .catch(err=>{
-                console.log("DELETE Error",err);
-            })
-    }
 
     updateNote=(id,note)=>{
       axios.put("https://fe-notes.herokuapp.com/note/edit/" +id,note)
@@ -71,10 +53,22 @@ class NoteList extends React.Component{
     render(){
         return(
            <div>
+               <h3>Your Notes</h3>
                {
                   this.state.notes.map(note=>{
-                    return <Note key={note._id} note={note}deleteNote={this.deleteNote}
-                             updateNote={this.updateNote}/>
+                    // return <Note key={note._id} note={note}deleteNote={this.deleteNote}
+                    //          updateNote={this.updateNote}/>
+                      return (
+                            <Link className="noteLink" to={`Note/${note._id}`}>
+
+                                <div>{note.title} </div>
+
+                                <hr/>
+                                <div>{note.textBody.substr(0, 100)} </div>
+                            </Link>
+
+                  )
+
                   })
 
                }
@@ -85,3 +79,4 @@ class NoteList extends React.Component{
 }
 
 export default NoteList
+

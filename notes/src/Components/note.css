@@ -12,18 +12,48 @@
     margin-top: 4%;
     margin-left:2%;
 
-
-
-
 }
 
-button {
+
+.saveButton {
     background-color:lightseagreen;
-    width: 200px;
+    width: 400px;
     height: 50px;
     margin-left: 20px;
     font-size:20px;
     color : white;
     font-weight: bold;
+}
+h3{
+
+    font-size:1.5em;
+}
+
+p{
+   font-size:1em;
+
+}
+
+.noteTitle {
+     width : 100px;
+     height: 40px;
+     background-color: lightgray;
+     margin-bottom: 20px;
+ }
+
+.noteText {
+    width : 400px;
+    height: 400px;
+    background-color: lightgray;
+    margin-bottom: 20px;
+}
+
+.noteLink {
+    display: inline-block;
+    width : 200px;
+    height: 200px;
+    background-color: ghostwhite;
+    margin-left: 10px;
+    margin-bottom: 10px;
 
 }
