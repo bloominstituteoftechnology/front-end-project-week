@@ -40,10 +40,12 @@ inputHandler = event => {
 submitHandler = event => {
         event.preventDefault();
         const id = this.props.match.params.id;
-        this.props.updateContent(id, this.state);
+        let editedNote = {title: this.state.title, content: this.state.content};
+        this.props.updateContent(id, editedNote);
         this.setState({
             title:'',
-            content:''
+            content:'',
+            
         })    
         this.props.history.push("/");  
     }

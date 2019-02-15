@@ -58,6 +58,7 @@ addContent = (event,newNotes) => {
 }
 
 updateContent = (id, editedNote) => {
+       console.log(`update note`, editedNote);
        axios.put(`http://localhost:2300/api/notes/${id}`, editedNote)
    //  axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editedNote)
          .then( response => {
@@ -65,7 +66,9 @@ updateContent = (id, editedNote) => {
             console.log(editedNote);
             this.fetNotes();
          })
-         .catch( err => { this.setState({ errorMessage: "Cannot edit now"})
+         .catch( err =>
+            // console.log('error updating the notes now', err)
+            { this.setState({ errorMessage: "Cannot edit now"})
       })
 }
 
