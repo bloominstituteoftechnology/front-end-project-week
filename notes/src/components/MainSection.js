@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Note from '../components/note'
 import '../App.scss'
-import axios from 'axios'
 
 class MainSection extends Component {
   constructor(props) {

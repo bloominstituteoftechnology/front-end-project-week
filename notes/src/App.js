@@ -8,6 +8,8 @@ import UpdateNote from './components/UpdateNote'
 import {Route} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import ViewNote from './components/viewNote';
+import LoginView from './components/loginView';
+
 
 
 class App extends React.Component {
@@ -68,6 +70,7 @@ createNote=(note)=>{
         <Route exact path="/" render={(props => (<MainSection notes={this.state.notes}/>))}></Route>
         <Route path="/update/:id" render={(props=>(<UpdateNote {...props} deleteNote={this.deleteNote} updateNote={this.updateNote} notes={this.state.notes}/>))}></Route>
         <Route path="/view/:id" render={(props=>(<ViewNote {...props} deleteNote={this.deleteNote} updateNote={this.updateNote} notes={this.state.notes}/>))}> </Route>
+        <Route eact path= "/login" render={(props => (<LoginView {...props} />))}> </Route>
         </div>
     );
   }
