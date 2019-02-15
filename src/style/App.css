@@ -1,0 +1,86 @@
+.App {
+  min-height: 100vh;
+  border: 1px solid green;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+.container{
+  display: flex;
+  width: 1200px;
+ 
+  margin: 0 auto;
+}
+.sidebar{
+  width: 20%;
+  height: 100vh;
+  border: 1px solid red;
+  background-color: #D2D1D2;
+  text-align: left;
+  padding-left: 2%;
+}
+.button{
+  background-color: #00BCBA;
+  color: #FFFFFF;
+  height: auto;
+  width: 80%;
+  display: inline-block;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 70%;
+  height: auto;
+  border: 1px solid red;
+  background-color: #F2F0F2;
+}
+.notes-list-view {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 30%;
+  height: 200px;
+  margin: 15px 0;
+  text-align: left;
+  border: 1px solid red;
+  word-wrap: break-word;
+  background-color: #ffffff;
+}
+
+.note-title {
+  font-weight: bold;
+  border-bottom: 1px solid #D0D0D0;
+  width: 90%;
+  margin: 10px auto;
+}
+
+.notes-container h2 {
+  padding: 2% 2% 0% 2%;
+  width: 100%;
+  text-align: left;
+}
+
+.note-body {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
