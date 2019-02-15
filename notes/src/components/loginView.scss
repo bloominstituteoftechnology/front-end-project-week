@@ -1,0 +1,15 @@
+.loginPage{
+margin: auto;
+h1{
+  margin:auto;
+  margin-bottom:10px;
+}
+ 
+  display: flex;
+  flex-direction: column;
+  .loginForm{
+    width: 300px;
+    display:flex;
+    flex-direction: column;
+  }
+}

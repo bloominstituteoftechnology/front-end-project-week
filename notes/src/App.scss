@@ -1,0 +1,140 @@
+.appContainer{
+display:flex;
+max-width: 1200px;
+margin: auto;
+height: 100%;
+background-color:rgb(242,242,242);
+}
+
+.sideBarClass{
+padding-left: 10px;
+border: 2px solid black;
+background-color: lightgray;
+height: 100 vh;
+width:20%;
+height: 100 vh;
+  h1{
+  color: black;
+  font-weight: 700; 
+  }
+
+  button{
+  margin-bottom: 10px;
+  }
+}
+
+.noteSection{
+width:100%;
+display:flex;
+flex-wrap: wrap;
+flex-direction: row;
+border: 1px solid black;
+}
+
+.note{
+  h2{
+  font-weight: 700;
+  font-size: 18px;
+  border-bottom: 1px solid black;
+  padding: 0 5px 5px 5px;
+  }
+display:flex;
+flex-direction: column;
+height: 200px;
+width: 28%;
+border: 1px solid black;
+margin: 2%;
+padding: 0 10px 10px 5px;
+overflow: hidden;
+color: black;
+
+}
+
+.createNote{
+display: flex;
+flex-direction: column;
+width: 100%;
+border: 2px solid black;
+padding-left: 5px;
+height: 100vh;
+background-color:rgb(242,242,242);
+
+h1{
+font-weight: 600;
+}
+
+button{
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+form{
+  input{
+    width: 80%;
+    margin-bottom: 5px;
+    border: 1px solid black;
+  }
+display:flex;
+flex-direction: column;
+}
+
+.textArea{
+width: 80%;
+height: 300px;
+}
+}
+
+.viewNote{
+background-color:rgb(242,242,242);
+display:flex;
+flex-direction: column;
+h1{
+margin-top: 50px;
+margin-bottom: 25px;
+font-size: 18px;
+font-weight: bold;
+}
+
+.links{
+h3{
+font-size: 18px;
+margin-right: 15px;
+text-decoration: underline
+}
+display:flex;
+justify-content: flex-end;
+}
+
+margin-left: 15px;
+height:100vh;
+width: 100%;
+button{
+margin-right: 10px;
+}
+}
+
+.deleteModal{
+  height: 300px;
+  width: 500px;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  h1{
+  font-size: 18px;
+  margin-bottom: 30px;
+  }
+  .buttonsModal{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    button{
+    margin-right: 10px;
+    width: 150px;
+    align-self: center;
+  }
+}
+}
+
