@@ -53,11 +53,23 @@
   border-right: 2px solid gray;
 }
 
+.form-container {
+width: 1000px;
+/* background-color: blue; */
+height: 2000px;
+
+
+}
+
 .main-form {
   width: 100%;
   padding-top: 6px;
-  background-color: gray;
-  height: 156px;
+  background-color: rgb(74, 74, 74);
+  height: 270px;
+  width: 400px;
+  margin-left: 300px;
+  margin-top: 100px;
+  border: 2px solid rgb(151, 151, 151);
 }
 
 button {
@@ -65,6 +77,17 @@ button {
   background-color: darkgray;
   height: 30px;
   width: 75px;
+}
+
+.main-title {
+text-align: center;
+color: rgb(192, 192, 192);
+}
+
+.header-text {
+  text-align: center;
+font-size: 14px;
+padding: 8px;
 }
 
 .user-list {
@@ -86,7 +109,8 @@ button {
   border: 0px solid blue;
   border-right: 1px solid gray;
   color: white;
-  background-color: #3a499e;
+  font-size: 16px;
+  background-color: rgb(43, 193, 196);
 }
 
 .message {
@@ -96,6 +120,10 @@ button {
   background-color: gray;
   color: white;
   cursor: pointer;
+}
+
+.btn-register {
+  margin-left: 88px;
 }
 
 .btnNoWork {
@@ -108,12 +136,13 @@ button {
 
 #register:hover, #login:hover  {
   color: yellow;
-  background-color: blue;
+  background-color: rgb(238, 115, 14);
 
 }
 
-#logout, #user-list {
-  background-color: #3a499e;
+#logout {
+  background-color: rgb(43, 193, 196);
+  font-size: 16px;
 
 } 
 
@@ -122,6 +151,4 @@ button {
   
 }  */
 
-#department {
-  margin-bottom: 4px;
-}
+

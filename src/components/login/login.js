@@ -58,12 +58,13 @@ class Login extends Component {
                 .post('http://localhost:5000/api/users/login', userInfo)
                 .then(res => {
                     console.log('reponse data from login', res.data);
-                    localStorage.setItem('jwt', res.data.token);
+                   // localStorage.setItem('jwt', res.data.token);
                     alert('Login successful...')
                     const passWord = "";
                     const userName = "";
                     this.setState(() => ({ username: userName, password: passWord, display: false, disabled: false }))
-                    // this.props.noteList();
+                    console.log("ready to go to noteList")
+                    this.props.noteList(e);
                 })
                 .catch(err => {
                     console.error('err from login', err);
@@ -84,7 +85,7 @@ class Login extends Component {
 
             };
             console.log("state.username:", userInfo)
-             this.props.registerUser(userInfo);
+           //  this.props.registerUser(userInfo);
             //console.log("password:", password)
             /*    const regUser = (userInfo) => {
                    this.props.registerUser(userInfo);
@@ -92,7 +93,7 @@ class Login extends Component {
                
               regUser(); */
             axios
-                .post('http://localhost:5000/api/users', userInfo)
+                .post('http://localhost:5000/api/users/register', userInfo)
                 .then(response => {
                     alert('registration complete...')
                     let passWord = "";
@@ -202,18 +203,23 @@ class Login extends Component {
         })
         return (
 
-
-            <form className="main-form" onSubmit={this.login}>
-                <Input type="text" id="username" value={this.state.username} name='username' className="form-control" placeholder="Enter Username" onChange={this.handleInputChange} />
+<div className="form-container">
+           
+            <form className="main-form" onSubmit={this.login}> 
+            <h2 className="main-title">Lambda Notes App</h2>
+            <div className="header-text">Please register if you are a new user. Enter your email address, create a password and then
+            press the Register button. Use the same email and password to Login.</div>
+                <Input type="text" id="username" value={this.state.username} name='username' className="form-control" placeholder="Enter Email" onChange={this.handleInputChange} />
                 <Input type="text" id="password" value={this.state.password} name='password' className="form-control" placeholder="Enter Password" onChange={this.handleInputChange} />
 
 
                 <button type="button" className="btn-register" value="register" onClick={this.register} name="viewHome" id="register">Register</button>
                 <button type="submit" className="btn-login" value="login" onSubmit={this.login} name="viewHome" id="login">Login</button>
-                <button type="button" className={btnClass} disabled={this.state.disabled} value="user-list" id="user-list" onClick={this.userList} name="viewHome">User List</button>
+               {/*  <button type="button" className={btnClass} disabled={this.state.disabled} value="user-list" id="user-list" onClick={this.userList} name="viewHome">User List</button> */}
                 <button type="button" className={btnClass} disabled={this.state.disabled} value="logout" id="logout" onClick={this.logout} name="viewHome">Logout</button>
-                <input type="submit" value="Submit" />
+               {/*  <input type="submit" value="Submit" /> */}
             </form>
+            </div>
 
 
         );
