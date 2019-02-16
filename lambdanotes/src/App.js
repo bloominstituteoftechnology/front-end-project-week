@@ -6,10 +6,11 @@ import {
   NavLink,
 } from 'react-router-dom';
 
-import dummyData from './dummydata';
+
 import NoteList from './components/NoteList'
 import NotePage from './components/NotePage';
 import CreateNote from './components/CreateNote';
+import axios from 'axios';
 
 import './App.css';
 
@@ -17,30 +18,33 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      note: 
-        {
-          title: '',
-          content: '',
-        },
+    this.state = {      
       noteList: [],
-      input: ''
     }
   }
 
   componentDidMount() {
-      this.setState({
-          noteList: dummyData
+    axios
+      .get('http://localhost:5050/api/notes')
+      .then(response => {
+        this.setState({noteList: response.data})
       })
-//     axios
-//       .get('localhost:5050/api/notes')
-//       .then(response => {
-//         console.log(response)
-//         this.setState({noteList: response.data})
-//       })
-//       .catch(err => {
-//         console.log("IN CATCH", err);
-//       })
+      .catch(err => {
+        console.log("IN CATCH", err);
+      })
+    }
+
+    componentDidUpdate(prevProps) {
+      if(this.state.noteList !== prevProps.noteList){
+        axios
+          .get('http://localhost:5050/api/notes')
+          .then(response => {
+            this.setState({noteList: response.data})
+          })
+          .catch(err => {
+            console.log("IN CATCH", err);
+          })
+      }
     }
 
   render() {

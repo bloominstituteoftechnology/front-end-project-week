@@ -12,7 +12,6 @@ class NoteList extends React.Component {
         return(
             <div className='note-list'>
                 {this.props.content.map((note) => {
-                    console.log(note);
                     return <Note key={note.id} content = {note} />
                 })}
                 

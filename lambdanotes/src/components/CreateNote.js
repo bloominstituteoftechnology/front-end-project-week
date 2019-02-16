@@ -2,8 +2,6 @@ import React from 'react';
 import axios from 'axios';
 
 
-import dummyData from '../dummydata';
-
 class CreateNote extends React.Component {
     constructor(props){
         super(props)
@@ -23,22 +21,23 @@ class CreateNote extends React.Component {
     }
 
     handleSubmit(event) {
-       alert('A note was submitted ' + this.state.title + ' '+ this.state.note)
-       //axios.post call
-       
-       dummyData.push(this.state);
-       this.setState({
-           title: '',
-           content: ''
-       })
-       event.preventDefault();
-       console.log(dummyData);
-       this.props.history.push('/');
+        event.preventDefault();
+        axios({
+            method: "post",
+            url: "http://localhost:5050/api/notes",
+            data: this.state
+        })
+        .catch(err => {
+            console.log('in catch', err)
+        })       
+        this.setState({
+            title: '',
+            content: ''
+        })        
+        this.props.history.push('/');
     }
 
-    componentDidMount(){
-
-    }
+    
 
 
     render() {
@@ -46,7 +45,7 @@ class CreateNote extends React.Component {
             <form onSubmit={this.handleSubmit} className='create-note'>
                 <input type='text' value={this.state.value} name='title' onChange={this.handleInput} />                    
                 <input type='text' value={this.state.value} name='note' onChange={this.handleInput} />
-                <input type='submit' value="Submit" />
+                <input type='submit' value="Submit" />                
             </form>
         )
     }
