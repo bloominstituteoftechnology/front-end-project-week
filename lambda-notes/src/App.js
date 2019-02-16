@@ -118,7 +118,7 @@ class App extends Component {
         
         {this.state.modal === true ? 
           <div className="container">
-            Modal
+            {/* Modal */}
           </div>
           :
           <div className="container">
