@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import NoteList from "./components/NoteList";
 import NoteForm from "./components/NoteForm";
 import SingleNote from "./components/SingleNote";
+import SignIn from "./components/SignIn";
 
 // something styled - need flex for sidebar and notes
 const MainDiv = styled.div`
@@ -46,6 +47,8 @@ const Button = styled.div`
   font-size: 1.4rem;
 `;
 
+const signedOut = true;
+
 class App extends Component {
   sendToForm = () => {
     this.props.history.push(`/form`);
@@ -57,33 +60,46 @@ class App extends Component {
 
   render() {
     return (
-      <MainDiv>
-        <SideBar>
-          <h1>Lambda Notes</h1>
-          <Button onClick={this.sendToHome}>View Your Notes</Button>
-          <Button onClick={this.sendToForm}>+ Create a New Note</Button>
-        </SideBar>
-        <DisplayDiv>
-          <Route exact path="/" render={props => <NoteList {...props} />} />
-          <Route
-            path="/form"
-            render={props => (
-              <NoteForm
-                {...props}
-                purpose="Create New Note:"
-                buttonText="Save"
+      <div>
+        {signedOut ? (
+          <SignIn />
+        ) : (
+          <MainDiv>
+            <SideBar>
+              <h1>Notable</h1>
+              <Button onClick={this.sendToHome}>View Your Notes</Button>
+              <Button onClick={this.sendToForm}>+ Create a New Note</Button>
+            </SideBar>
+            <DisplayDiv>
+              <Route exact path="/" render={props => <NoteList {...props} />} />
+              <Route
+                path="/form"
+                render={props => (
+                  <NoteForm
+                    {...props}
+                    purpose="Create New Note:"
+                    buttonText="Save"
+                  />
+                )}
               />
-            )}
-          />
-          <Route path="/note/:id" render={props => <SingleNote {...props} />} />
-          <Route
-            path="/update/:id"
-            render={props => (
-              <NoteForm {...props} purpose="Edit Note:" buttonText="Update" />
-            )}
-          />
-        </DisplayDiv>
-      </MainDiv>
+              <Route
+                path="/note/:id"
+                render={props => <SingleNote {...props} />}
+              />
+              <Route
+                path="/update/:id"
+                render={props => (
+                  <NoteForm
+                    {...props}
+                    purpose="Edit Note:"
+                    buttonText="Update"
+                  />
+                )}
+              />
+            </DisplayDiv>
+          </MainDiv>
+        )}
+      </div>
     );
   }
 }
