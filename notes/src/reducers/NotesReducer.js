@@ -27,7 +27,9 @@ const initialState = {
   tags: [],
   tag: {},
   newTag: "",
-  noteTags: []
+  noteTags: [],
+  username: "",
+  password: ""
 };
 
 export default (state = initialState, action) => {
