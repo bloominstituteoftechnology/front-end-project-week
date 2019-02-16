@@ -17,13 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    instance.get('/notes')
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
-      })
-      .catch(err => {
-        console.log(err, 'Whoops');
-      });
+    return this.getNotes();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -38,6 +32,16 @@ class App extends Component {
         console.log(err, 'Whoops');
       });
     }
+  }
+
+  getNotes() {
+    instance.get('/notes')
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })
+      .catch(err => {
+        console.log(err, 'Whoops');
+      });
   }
 
   render() {
