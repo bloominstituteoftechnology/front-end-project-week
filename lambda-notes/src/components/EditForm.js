@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Button, Input } from 'reactstrap';
 import axios from 'axios';
 
@@ -42,6 +41,7 @@ class EditForm extends Component {
             // console.log(noteInfo);
             this.setState({note: noteInfo})
         }
+
     }
     changeHandler = e => {
         this.setState({
@@ -53,10 +53,10 @@ class EditForm extends Component {
     }
     editNoteHandler = e => {
         e.preventDefault();
-        
         this.props.editNote(this.props.match.params.id, this.state.note);
-        this.props.history.push(`/note/${this.props.match.params.id}`);
+        this.props.history.push(`/${this.props.match.params.id}`);
         // this.props.history.goForward()
+
     }
 
     render() {
@@ -77,9 +77,7 @@ class EditForm extends Component {
                     placeholder="Body"
                     type="textarea"
                 />
-               {/* <Link to={`/note/${this.props.match.params.id}`}> */}
-                    <Button color="success" type="submit">Edit Note</Button>
-               {/* </Link> */}
+                <Button color="success" type="submit">Edit Note</Button>
                 
             </form>
         )

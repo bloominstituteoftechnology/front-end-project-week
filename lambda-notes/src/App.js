@@ -57,7 +57,6 @@ class App extends Component {
     console.log('lol');
 
     let updatedNote = {
-      id: note._id,
       title: note.title,
       textBody: note.textBody,
       tag: []
@@ -66,22 +65,26 @@ class App extends Component {
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
       .then(response => {
-        console.log(response)
-          updatedNote.id = response;
+         console.log(response)
+          // editNote.id = response;
+          updatedNote._id = response;
           // const newNotes = this.state.notes.slice();
-
-          let newArray = this.state.notes.filter(note => note._id !== id).concat(updatedNote);
+ 
+         // let newArray = this.state.notes.slice().concat(editNote);
+          // let newArray = this.state.notes.filter(note => note._id !== id).concat(updatedNote);
           // console.log(newNotes)
-
-          this.setState({
-              // note: updatedNote,
-              notes: newArray,
+ 
+           this.setState({
+           // notes: newArray;
+              notes: [...this.state.notes, updatedNote],
+             // note: updatedNote,
+              // notes: newArray,
+           })
+           this.props.history.push(`note/${id}`);
           })
-          // this.props.history.push(`note/${id}`);
-      })
-      .catch(err =>{
-          console.log(err);
-      })
+          .catch(err => {
+            console.log(err);
+          })
 
   }
 
@@ -97,6 +100,7 @@ class App extends Component {
           .catch(err => {
               console.log(err);
           })
+          
   }
 
   deleteNote = id => {
