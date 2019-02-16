@@ -17,6 +17,8 @@ const NoteCard = styled.div`
   height: 310px;
   border: 1px solid #ccc;
   background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 15px 1px Gainsboro;
 
   h1 {
     white-space: nowrap;
@@ -45,18 +47,20 @@ const NoteCard = styled.div`
 const Note = ({ note }) => {
   return (
     <Container>
+      <Link
+        to={`notes/${note.id}`}
+        style={{ textDecoration: "none", color: "black" }}
+      >
       <NoteCard>
-        <h1>
-          <Link
-            to={`note/${note.id}`}
-            style={{ textDecoration: "none", color: "black" }}
-          >
+          <h1>
             {note.title}
-          </Link>
+
         </h1>
         <hr />
         <p>{note.textBody}</p>
-      </NoteCard>
+
+        </NoteCard>
+      </Link>
     </Container>
   );
 };
