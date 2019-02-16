@@ -7,8 +7,7 @@ import {
   fetchNote,
   addNote,
   addTag,
-  addTagToTags,
-  addTagsToNote
+  deleteTag
 } from "../actions/actions";
 
 import "../styles/App.css";
@@ -20,7 +19,7 @@ class CreateNote extends React.Component {
     super();
     this.state = {
       title: "",
-      textBody: "",
+      content: "",
       added: false,
       tag: "",
       tags: []
@@ -36,7 +35,7 @@ class CreateNote extends React.Component {
     this.props
       .addNote({
         title: this.state.title,
-        textBody: this.state.textBody
+        content: this.state.content
       })
       // .then(() => this.props.fetchNotes())
       // .then(() => this.props.addTagsToNote(this.props.newNote))
@@ -45,7 +44,7 @@ class CreateNote extends React.Component {
       .then(() =>
         this.setState({
           title: "",
-          textBody: "",
+          content: "",
           tag: "",
           added: true,
           tags: []
@@ -54,11 +53,12 @@ class CreateNote extends React.Component {
   };
 
   newTagHandler = () => {
-    //  this.setState({tags: [...this.state.tags, this.state.tag]})
-    //  this.setState({tag: ""})
     this.props.addTag(this.state.tag);
-    this.props.addTagToTags();
     this.setState({ tag: ""});
+  };
+
+  deleteTagHandler = (id) => {
+    this.props.deleteTag(id);
   };
 
   render() {
@@ -78,8 +78,8 @@ class CreateNote extends React.Component {
           <textarea
             cols="50"
             rows="25"
-            name="textBody"
-            value={this.state.textBody}
+            name="content"
+            value={this.state.content}
             onChange={this.inputChange}
             placeholder="Note Content"
           />
@@ -108,8 +108,8 @@ class CreateNote extends React.Component {
         </div>
         <div>
           <h3>Tags:</h3>
-          {this.props.newTags.map(tag => (
-            <span key={tag.date}>{`#${tag.tagText},`}</span>
+          {this.state.tags.map(tag => (
+            <span key={tag.id}><div onClick={this.deleteTagHandler}>x</div>{`#${tag.tag},`}</span>
           ))}
         </div>
       </div>
@@ -124,10 +124,11 @@ const mapStateToProps = state => {
     tag: state.tag,
     newNote: state.newNote,
     note: state.note,
-    newTags: state.newTags
+    noteTags: state.noteTags,
+    newTag: state.newTag
   };
 };
 export default connect(
   mapStateToProps,
-  { fetchNotes, fetchNote, addNote, addTag, addTagToTags, addTagsToNote }
+  { fetchNotes, fetchNote, addNote, addTag, deleteTag }
 )(CreateNote);

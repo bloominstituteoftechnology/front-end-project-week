@@ -14,11 +14,11 @@ const Note = props => {
   return (
   <div className="noteCard">
     <h3>
-      <Link to={`/note/${props.note._id}`}>{props.note.title}</Link>
+      <Link to={`/notes/${props.note.id}`}>{props.note.title}</Link>
     </h3>
     <hr />
-      <p>{truncateString(props.note.textBody, 91)}</p>
-      {props.tags.filter(tag => tag.id === props.note._id).map(tag => <span key={tag.date}>{`#${tag.tagText},`}</span>)}
+      <p>{truncateString(props.note.content, 91)}</p>
+      {props.tags.filter(tag => tag.id === props.note.id).map(tag => <span key={tag.date}>{`#${tag.tag},`}</span>)}
     
   </div>
 )};

@@ -31,7 +31,7 @@ class Notes extends React.Component {
         <h2>Your Notes:</h2>
         <div className="notesContainer">
           {notes.map(note => (
-            <Note key={note._id} note={note} tags={this.props.tags} />
+            <Note key={note.id} note={note} tags={this.props.tags} />
           ))}
         </div>
       </div>

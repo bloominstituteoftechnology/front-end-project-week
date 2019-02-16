@@ -6,10 +6,16 @@ import {
   UPDATED,
   DELETED,
   ERROR,
-  ADD_TAG,
-  ADD_TAG_TO_TAGS,
-  ADD_TAGS_TO_NOTE,
-  CHANGE_TAG_IDS
+  FETCHALLTAGS,
+  FETCHONETAG,
+  ADDEDTAG,
+  UPDATEDTAG,
+  DELETEDTAG,
+  FETCHNOTETAGS
+  // ADD_TAG,
+  // ADD_TAG_TO_TAGS,
+  // ADD_TAGS_TO_NOTE,
+  // CHANGE_TAG_IDS
 } from "../actions/actions";
 
 const initialState = {
@@ -20,7 +26,8 @@ const initialState = {
   error: null,
   tags: [],
   tag: {},
-  newTags: [],
+  newTag: "",
+  noteTags: []
 };
 
 export default (state = initialState, action) => {
@@ -37,7 +44,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         fetching: false,
-        note: action.payload,
+        note: action.payload[0],
       };
     case ADDED:
       return {
@@ -48,7 +55,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         notes: state.notes.map(note => {
-          return note._id === action.payload._id ? action.payload : note;
+          return note.id === action.payload.id ? action.payload : note;
         }),
       };
     case DELETED:
@@ -61,35 +68,72 @@ export default (state = initialState, action) => {
         fetching: false,
         error: action.payload
       };
-    case ADD_TAG:
+      case FETCHALLTAGS:
       return {
         ...state,
-        tag: {tagText: action.payload, id: action.id, date: action.date}
-      }
-    case ADD_TAG_TO_TAGS:
-      return {
-          ...state,
-          newTags: [...state.newTags, state.tag]
-      }
-
-    case CHANGE_TAG_IDS:
+        fetching: false,
+        tags: [...action.payload],
+      };
+    case FETCHNOTETAGS:
+    return {
+      ...state,
+      fetching: false,
+      noteTags: [...action.payload],
+    };
+    case FETCHONETAG:
       return {
         ...state,
-        newTags: state.newTags.map(tag => {
-            return {...tag, id: action.payload}
-          })
-      }
+        fetching: false,
+        tag: action.payload[0],
+      };
 
-    case ADD_TAGS_TO_NOTE:
+      case ADDEDTAG:
       return {
-          ...state,
-          // notes: state.notes.map(note => {
-          //     return note._id === action.payload ? {...note, tags: state.tags} : note;
-          // }),
-          tags: [...state.tags, ...state.newTags],
-          newTags: [],
-          tag: ""
-      }
+        ...state,
+        newTag: action.payload.success
+      };
+    case UPDATEDTAG:
+      return {
+        ...state,
+        tags: state.tags.map(tag => {
+          return tag.id === action.payload.id ? action.payload : tag;
+        }),
+      };
+    case DELETEDTAG:
+      return {
+        ...state
+      };
+
+
+    // case ADD_TAG:
+    //   return {
+    //     ...state,
+    //     tag: {tagText: action.payload, id: action.id, date: action.date}
+    //   }
+    // case ADD_TAG_TO_TAGS:
+    //   return {
+    //       ...state,
+    //       newTags: [...state.newTags, state.tag]
+    //   }
+
+    // case CHANGE_TAG_IDS:
+    //   return {
+    //     ...state,
+    //     newTags: state.newTags.map(tag => {
+    //         return {...tag, id: action.payload}
+    //       })
+    //   }
+
+    // case ADD_TAGS_TO_NOTE:
+    //   return {
+    //       ...state,
+    //       // notes: state.notes.map(note => {
+    //       //     return note._id === action.payload ? {...note, tags: state.tags} : note;
+    //       // }),
+    //       tags: [...state.tags, ...state.newTags],
+    //       newTags: [],
+    //       tag: ""
+    //   }
     default:
       return state;
   }

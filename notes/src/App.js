@@ -17,7 +17,7 @@ const App = () => {
       <SideBar />
       <Route exact path="/" component={Notes} />
       <Route exact path="/create" component={CreateNote} />
-      <Route exact path="/note/:id" render={props => <NotePage {...props} />} />
+      <Route exact path="/notes/:id" render={props => <NotePage {...props} />} />
       <Route
         exact
         path="/note/:id/edit"

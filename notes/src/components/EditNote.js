@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { fetchNote, updateNote, fetchNotes } from "../actions/actions";
+import { fetchNote, updateNote, fetchNotes, deleteTag, addTag } from "../actions/actions";
 
 import "../styles/App.css";
 import "../styles/CreateNote.css";
@@ -13,10 +13,11 @@ class EditNote extends React.Component {
     super();
     this.state = {
       title: "",
-      textBody: "",
+      content: "",
       id: null,
       edited: false,
-      tags: []
+      tags: [],
+      tag: ""
     };
   }
 
@@ -25,9 +26,9 @@ class EditNote extends React.Component {
         this.props.fetchNote(this.props.match.params.id).then(() => {
             this.setState({
                 title: this.props.note.title,
-                textBody: this.props.note.textBody,
-                id: this.props.note._id,
-                tags: this.props.tags.filter(tag => tag.id === this.props.note._id)
+                content: this.props.note.content,
+                id: this.props.note.id,
+                tags: this.props.noteTags
             })
           })
         }
@@ -41,12 +42,21 @@ class EditNote extends React.Component {
 
     editNote = event => {
         event.preventDefault();
-        const { title, textBody, id } = this.state;
+        const { title, content, id } = this.state;
         // let oldTags = this.props.tags.filter(tag => tag !== this.props.note._id);
-        let editedNote = {title, textBody, id}
+        let editedNote = {title, content, id}
         this.props.updateNote(editedNote)
         this.setState({ edited: true })
     }
+
+    newTagHandler = () => {
+    this.props.addTag(this.state.tag);
+    this.setState({ tag: ""});
+  };
+
+  deleteTagHandler = (id) => {
+    this.props.deleteTag(id);
+  };
 
 
   render() {
@@ -66,8 +76,8 @@ class EditNote extends React.Component {
           <textarea
             cols="50"
             rows="25"
-            name="textBody"
-            value={this.state.textBody}
+            name="content"
+            value={this.state.content}
             onChange={this.inputChange}
             placeholder="Note Content"
           />
@@ -82,7 +92,7 @@ class EditNote extends React.Component {
             <input
               type="text"
               name="tag"
-              value={this.state.tags}
+              value={this.state.tag}
               onChange={this.inputChange}
               placeholder="Note Tag"
             />
@@ -96,8 +106,10 @@ class EditNote extends React.Component {
         </div>
         <div>
           <h3>Tags:</h3>
-          {this.state.tags.map(tag => (
-            <span key={tag.date}>{`#${tag.tagText},`}</span>
+          {this.props.tags
+          .filter(tag => tag.note_id === this.props.note.id)
+          .map(tag => (
+             <span key={tag.id}><div onClick={this.deleteTagHandler}>x</div>{`#${tag.tag},`}</span>
           ))}
         </div>
       </div>
@@ -109,8 +121,11 @@ class EditNote extends React.Component {
 const mapStateProps = state => {
   return {
     note: state.note,
-    tags: state.tags
+    tags: state.tags,
+    noteTags: state.noteTags,
+    tag: state.tag,
+    newTag: state.newTag
   }
 }
 
-export default connect(mapStateProps, { fetchNote, updateNote, fetchNotes })(EditNote)
+export default connect(mapStateProps, { fetchNote, updateNote, fetchNotes, deleteTag, addTag })(EditNote)

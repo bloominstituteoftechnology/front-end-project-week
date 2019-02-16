@@ -68,11 +68,11 @@ class NotePage extends React.Component {
             <span>delete</span>
           </div>
           <h2>{this.props.note.title}</h2>
-          <p className="noteText">{this.props.note.textBody}</p>
+          <p className="noteText">{this.props.note.content}</p>
           {this.props.tags
-            .filter(tag => tag.id === this.props.note._id)
+            .filter(tag => tag.note_id === this.props.note.id)
             .map(tag => (
-              <span key={tag.date}>{`#${tag.tagText},`}</span>
+              <span key={tag.id}>{`#${tag.tag},`}</span>
             ))}
         </div>
       </>
@@ -83,11 +83,11 @@ class NotePage extends React.Component {
           <span onClick={() => this.modalHandler()}>delete</span>
         </div>
         <h2>{this.props.note.title}</h2>
-        <p className="noteText">{this.props.note.textBody}</p>
+        <p className="noteText">{this.props.note.content}</p>
         {this.props.tags
-          .filter(tag => tag.id === this.props.note._id)
+          .filter(tag => tag.note_id === this.props.note.id)
           .map(tag => (
-            <span key={tag.date}>{`#${tag.tagText},`}</span>
+            <span key={tag.id}>{`#${tag.tag},`}</span>
           ))}
       </div>
     );
