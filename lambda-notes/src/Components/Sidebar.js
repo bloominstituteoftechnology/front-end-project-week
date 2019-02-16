@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { SignInBlockstackButton } from "blockstack-signin-btn"
+
 import styled from 'styled-components';
 
 //The sidebar component with buttons linking to view page and create page
@@ -41,6 +43,24 @@ const Sidebar = props => {
         <h1>Lambda Notes</h1>
       </Header>
       <div>
+        <SignInBlockstackButton
+          includeBlockstackLogo={false}
+          signInBtnText="Login"
+          signOutBtnText="Sign Out"
+          textStyle={{
+            fontSize: "16px",
+            color: '#fff',
+          }}
+          style={{
+            textAlign: "center",
+            backgroundColor: '#28a745',
+            marginLeft: "20px",
+            width: "75px",
+            borderRadius: "5px",
+            padding: "5px 0px 8px 0px"
+          }}
+          defaultStyle={{}}
+        />
         <StyledLink to="/">
           <Button type = "sidebar-button-view">View Your Notes</Button>
         </StyledLink>

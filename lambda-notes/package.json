@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "blockstack-signin-btn": "^1.0.3",
     "bootstrap": "^4.2.1",
     "classnames": "^2.2.6",
     "dotenv": "^6.2.0",
