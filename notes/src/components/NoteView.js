@@ -7,12 +7,13 @@ export class NoteView extends React.Component {
    constructor(props){
       super(props)
       this.state = {
-         note: []
+         noteData: []
       }
    }
 
    componentDidMount(){
       this.importNote(this.props.match.params.id)
+      console.log(`id ${this.props.match.params.id}`)
    }
 
    componentWillReceiveProps(noteProps) {
@@ -22,25 +23,30 @@ export class NoteView extends React.Component {
    }
 
    importNote = id => {
-      axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-         .then(response => {this.setState({note: response.data})})
+      axios.get(`http://localhost:3333/notes/${id}`)
+         .then(response => {
+            console.log(response)
+            this.setState({noteData: response.data[0]})
+            console.log(`this is state ${this.state.noteData}`)
+            })
          .catch(err => console.log(err))
    }
 
+   
    render(){
       return(
-         <div className="Completeview">
+         <div className="Completeview">     
             <div className="Topbar">
-               <Link to={`/edit/${this.state.note._id}`} >
+               <Link to={`/edit/${this.state.noteData.id}`} >
                   <span>edit</span>
                </Link>
-               <Link to={`/note/${this.state.note._id}/delete`} >
+               <Link to={`/note/${this.state.noteData.id}/delete`} >
                   <span>delete</span>
                </Link>
             </div>
             <div className="Noteview">
-               <h2>{this.state.note.title}</h2>
-               <p>{this.state.note.textBody}</p>
+               <h2>{this.state.noteData.title}</h2>
+               <p>{this.state.noteData.text}</p>
             </div>
          </div>
       )

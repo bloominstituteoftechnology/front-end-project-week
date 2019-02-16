@@ -12,7 +12,7 @@ export class DeleteNote extends Component {
     }
 
     deleteItem = id => {
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        axios.delete(`https://localhost:3333/notes/${id}`)
             .then(response => {this.setState(
                 {open: false}
             )})

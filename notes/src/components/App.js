@@ -22,15 +22,16 @@ class App extends Component {
 
   componentDidMount= () => {
     axios
-    .get(`https://fe-notes.herokuapp.com/note/get/all`)
-    .then ( response => {
+    .get(`http://localhost:3333/notes`)
+    .then (response => {
+      console.log(response)
       this.setState({notes: response.data})
     })
     .catch( err=> console.log(err))
   }
 
   addNote = obj => {
-    axios.post('https://fe-notes.herokuapp.com/note/create', obj)
+    axios.post('http://localhost:3333/notes', obj)
     .then(response => {
       this.setState({
         notes: response.data
@@ -43,12 +44,21 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Sidebar">
-          <h1>Lambda</h1>
-          <h1>Notes</h1>
-          <NavLink to='/note'><button>View Your Notes</button></NavLink>
+          <h1>Lambda Notes</h1>
+          
+          <NavLink to='/note'><button><i class="fa fa-file-text-o" aria-hidden="true"></i>View Your Notes</button></NavLink>
           <NavLink to='/add-note'><button>+ Add Note</button></NavLink>
         </div>
         <div className="Notesection">
+        <div>
+         
+      </div>
+
+      {/* <div>
+        {this.state.notes.map(note => 
+          <li key={note.id}>{note.title}</li>
+        )}
+      </div> */}
         <Route path="/add-note"
           render={props => (
             <AddNote addNote={this.addNote} />

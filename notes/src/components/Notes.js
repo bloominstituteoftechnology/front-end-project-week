@@ -11,11 +11,10 @@ export class Notes extends Component {
             {this.props.notes.map(note => {
                 return (
                     <div>
-                        <Link to={`/note/${note._id}`}>
+                        <Link to={`/note/${note.id}`}>
                             <div className="Note">
                                 <h3>{note.title}</h3>
-                                <hr />
-                                <p>{note.textBody}</p>
+                                <p>{note.text}</p>
                             </div>
                         </Link>
                         

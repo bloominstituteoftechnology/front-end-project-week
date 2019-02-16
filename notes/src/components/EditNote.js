@@ -8,13 +8,32 @@ export class EditNote extends Component {
         super(props);
         this.state = {
             title: "",
-            textBody: "",
+            text: "",
+            noteData: []
         }
     }
+
+    componentDidMount(){
+        this.importNote(this.props.match.params.id)
+        console.log(`id ${this.props.match.params.id}`)
+     }
+
+
+    importNote = id => {
+        axios.get(`http://localhost:3333/notes/${id}`)
+           .then(response => {
+              console.log(response)
+              this.setState({noteData: response.data[0]})
+              console.log(`this is state ${this.state.noteData}`)
+              })
+           .catch(err => console.log(err))
+     }
+
     editNote = e => {
-        axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, this.state)
-            .then(response => {this.setState(
-                {title: "", textBody: ""}
+        axios.put(`https://localhost:3333/notes/${this.props.match.params.id}`, this.state)
+        .then(response => 
+                {this.setState(
+                {title: "", text: ""},
             )})
             .catch(err => {console.log(err)})
     }
@@ -23,25 +42,25 @@ export class EditNote extends Component {
         this.setState( { [e.target.name]: e.target.value});
     };
 
-    
 
     render() {
+        console.log(this.state)
         return (
             <div className="Createnote">
             <h2>Edit Note:</h2>
                 <form onSubmit={this.editNote}>
                     <input 
                         onChange={this.handleInputChange}
-                        placeholder="New Title"
+                        placeholder={this.state.noteData.title}
                         value={this.state.title}
                         name="title"
                     />
                     <textarea 
                     className="textform"
                         onChange={this.handleInputChange}
-                        placeholder= "New Text"
-                        value={this.state.textBody}
-                        name="textBody"
+                        placeholder= {this.state.noteData.text}
+                        value={this.state.text}
+                        name="text"
                     />
                     <button type="submit">Update</button>
                 </form>

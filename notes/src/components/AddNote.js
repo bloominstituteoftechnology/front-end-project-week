@@ -5,19 +5,19 @@ export class AddNote extends Component {
         super(props);
         this.state = {
             title: "",
-            textBody: "",
+            text: "",
         }
     }
     addNote = e => {
         const newNote = {
             title: this.state.title,
-            textBody: this.state.textBody,
+            text: this.state.text,
         }
         this.props.addNote(newNote);
 
         this.setState({
             title: '',
-            textBody: '',
+            text: '',
         });
     }
 
@@ -40,8 +40,8 @@ export class AddNote extends Component {
                     className="textform"
                         onChange={this.handleInputChange}
                         placeholder="Text"
-                        value={this.state.textBody}
-                        name="textBody"
+                        value={this.state.text}
+                        name="text"
                     />
                     <button type="submit">Save</button>
                 </form>
