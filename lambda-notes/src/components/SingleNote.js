@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 
 import Notes from './Notes'
@@ -32,8 +33,10 @@ export default class SingleNote extends Component {
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
-                // console.log(response)
+                // console.log(this.state)
                 this.setState({ note: response.data })
+                // this.props.updateNote(this.state)
+               
             })
             .catch(error => {
                 console.log(error)
@@ -54,11 +57,17 @@ export default class SingleNote extends Component {
             .catch(error => console.log(error))
     }
 
+    fetchNoteforEdit = () => {
+        // console.log(this.state)
+        this.props.updateNote(this.state)
+
+    }
+
     render() {
         if(this.state.note.length===0) {
             return <div>Loading...</div>
         }
-
+        console.log(this.state)
         return(
             <div>
                 <div>
@@ -67,7 +76,9 @@ export default class SingleNote extends Component {
                     </Modal>
                 </div>
 
-                <button>Edit</button>
+                {/* <Link to={`EditNote/${this.state.note._id}`}> */}
+                <button onClick={this.fetchNoteforEdit}>Edit</button>
+                {/* </Link> */}
                 <button onClick={this.toggleModal}>Delete</button>
                 <Notes
                     title = {this.state.note.title}

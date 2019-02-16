@@ -23,6 +23,12 @@ export default class AllNotes extends Component {
             })
     }
 
+    updateNote = () => {
+        console.log("HI FROM ALLNOTES")
+    }
+
+
+
     render() {
         // console.log(this.props)
         // console.log(this.state.notes)
@@ -34,7 +40,8 @@ export default class AllNotes extends Component {
                             <NoteDetails
                                 key = {note._id}
                                 id = {note._id}
-                                note = {note}/>
+                                note = {note}
+                                />
                         </div>
                     ))}
                 </ul>
