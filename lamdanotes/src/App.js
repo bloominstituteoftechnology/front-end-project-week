@@ -7,7 +7,8 @@ import SidebarView from './sidebarComponent/sbView';
 import NotesView from './NotesComponent/NotesView/notesView';
 import AddNote from './formComponent/addNote';
 import SingleNote from './NotesComponent/NotesView/singleNote/singleNote';
-import editForm from './formComponent/editNote';
+import EditForm from './formComponent/editNote';
+
 
 
 import './App.css';
@@ -16,7 +17,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      cNote: ""
     }
   }
 
@@ -30,10 +32,21 @@ class App extends Component {
           .catch(err => console.log(err))
   }
 
+  componentDidUpdate(prevState) {
+    if(this.state.notes !== prevState.notes) {
+      axios
+        .get('https://fe-notes.herokuapp.com/note/get/all')
+          .then(res => this.setState({
+              notes: res.data
+          }))
+          .catch(err => console.log(err))
+    }
+  }
+
   addNote = (note) => {
     axios
       .post('https://fe-notes.herokuapp.com/note/create', note)
-          .then(res => console.log(res))
+          .then(res => console.log("returned from add",res))
           .catch(err => console.log(err))
   }
 
@@ -43,6 +56,18 @@ class App extends Component {
         .then(res => console.log(res))
         .catch(err => console.log(err))
   } 
+
+  editNote = (id, obj) => {
+    axios
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, obj)
+        .then
+  }
+
+  setCNote = (id) => {
+    this.setState({
+      cNote: id
+    })
+  }
 
 
 // {/* Declare Routes, Sidebar navigation should always show so it is the root */}
@@ -65,15 +90,15 @@ class App extends Component {
           <Route 
             path="/note/:id" 
             render={props => (
-              <SingleNote {...props} note={this.state.notes} deleteNote={this.deleteNote} />
+              <SingleNote {...props} note={this.state.notes} deleteNote={this.deleteNote} setCNote={this.setCNote} />
             )}
           />
 
+          
           <Route 
-            path="/editnote/:id"
-            render={props=> ( <editForm {...props}/>)} 
+              path="/editnote/:id"
+              render={props=> ( <EditForm {...props}/>)} 
           />
-
           
           
       </div>

@@ -39,7 +39,7 @@ class AddNote extends Component {
         console.log('State from addForm', this.state)
         return(
             <div className="addForm">
-                <h3>Create New Note:</h3>
+                <h3 className="formTitles">Create New Note:</h3>
                 <input 
                     className="addTitle"
                     type="text" 

@@ -251,4 +251,18 @@ a {
 	margin-right: 25px;
 	background-color: #D0011B;
 }
-/*-------------------------------*/
+
+
+
+/*-------------------------------EDIT FORM STYLING*/
+
+.editForm {
+	width: 80%;
+	padding-left: 21%;
+	background-color: #F2F1F2;
+	height: 100vh;
+}
+
+.formTitles {
+	padding-top: 50px;
+}

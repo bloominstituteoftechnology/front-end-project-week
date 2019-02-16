@@ -13,8 +13,8 @@ const NotesIterator = props => {
         <div className="noteBox">
             {props.notes.map( note => {
                 return (
-                <Link to={`note/${note._id}`}>
-                    <Note key={note._id} title={note.title} body={note.textBody} id={note._id} />
+                <Link to={`note/${note._id}`} key={note._id}>
+                    <Note  title={note.title} body={note.textBody} id={note._id} />
                 </Link>
             )})}
         </div>
