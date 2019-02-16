@@ -9,6 +9,8 @@ class NoteForm extends React.Component {
             note: undefined,
             title: '',
             content: '',
+            tagItem: '',
+            tagsList: [],
         }
     }
 
@@ -23,17 +25,22 @@ class NoteForm extends React.Component {
             })
         }
         if (note !== undefined) {
+            let tags = [];
+            if (note.tags !== undefined) {
+                tags = note.tags.tags;
+            }
             this.setState({
                 note: note,
                 title: note.title,
                 content: note.content,
+                tagsList: tags,
             })
         }
     }
     
     submitForm = e => {
         e.preventDefault();
-        const note = {title: this.state.title, content: this.state.content};
+        const note = {title: this.state.title, content: this.state.content, tags: JSON.stringify(this.state.tagsList)};
         if (this.props.type === 'Create') {
             this.props.createNote(note);
             this.setState({
@@ -55,6 +62,15 @@ class NoteForm extends React.Component {
             [e.target.name]: e.target.value,
         })
     }
+    
+    addTag = e => {
+        const updateTagList = this.state.tagsList;
+        updateTagList.push(this.state.tagItem);
+        this.setState({
+            tagItem: '',
+            tagsList: updateTagList
+        })
+    }
 
     render()
     {
@@ -63,15 +79,34 @@ class NoteForm extends React.Component {
         }
         return(
             <form onSubmit={this.submitForm} className='note-form'>
-                <p>
-                    <h2>{this.props.type === 'Create' ? 'Create Note' : 'Edit Note'}</h2>
+                <section>
+                    <div className='note-form-title'>
+                        {this.props.type === 'Create' ? 'Create Note' : 'Edit Note'}
+                    </div>
                     <input className='title-input' 
                         name='title' 
                         value={this.state.title} 
                         placeholder={this.props.type === 'Create' ? 'Note Title' : ''} 
                         onChange={this.updateValue} 
                     />
-                </p>
+                    <label>Tags</label>
+                    <input className='tags-input'
+                        name='tagItem'
+                        value={this.state.tags}
+                        placeholder={this.props.type === 'Create' ? 'Note Tags' : ''}
+                        onChange={this.updateValue}
+                    />
+                    <button className='tags-submit' type='button' onClick={this.addTag}>Add Tag</button>
+                    <select className='tags-selection'
+                        name='tagsList'
+                        size='4'
+                        select='multiple'
+                    >
+                    {Array.isArray(this.state.tagsList) ? this.state.tagsList.map(tag => {
+                        return <option key={tag}>{tag}</option>
+                    }) : ''}
+                    </select>
+                </section>
                 <p>
                     <textarea className='text-body-input' 
                         name='content' 
