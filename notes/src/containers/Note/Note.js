@@ -15,7 +15,7 @@ const NoteCard = styled.div`
   flex: 1;
   width: 250px;
   height: 310px;
-  border: 1px solid #ccc;
+  border: .5px solid #ccc;
   background-color: white;
   border-radius: 5px;
   box-shadow: 1px 1px 15px 1px Gainsboro;
@@ -41,6 +41,7 @@ const NoteCard = styled.div`
   }
   hr {
     width:  90%;
+    border: .5px solid #ccc;
   }
 `;
 
@@ -52,9 +53,8 @@ const Note = ({ note }) => {
         style={{ textDecoration: "none", color: "black" }}
       >
       <NoteCard>
-          <h1>
+        <h1>
             {note.title}
-
         </h1>
         <hr />
         <p>{note.textBody}</p>
