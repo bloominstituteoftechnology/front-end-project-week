@@ -54,7 +54,7 @@ class NoteForm extends Component {
     //Adds new note, renders the notes list, sets to top of page
     else {
       axios
-        .post("https://beplambdanotes.herokuapp.com/note/create", this.state)
+        .post("https://beplambdanotes.herokuapp.com/api/create", this.state)
         .then(() =>
           this.setState({
             title: "",

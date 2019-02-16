@@ -41,7 +41,7 @@ class App extends Component {
   //Gets all notes from database
   fetchNotes = () => {
     axios
-      .get("https://beplambdanotes.herokuapp.com/note/get/all")
+      .get("https://beplambdanotes.herokuapp.com/api/notes")
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   };
@@ -52,7 +52,7 @@ class App extends Component {
     console.log(index);
 
     axios
-      .put(`https://beplambdanotes.herokuapp.com/note/edit/${obj.id}`, obj)
+      .put(`https://beplambdanotes.herokuapp.com/api/edit/${obj.id}`, obj)
       .then(res => {
         this.setState({ notes: this.state.notes.splice(index, 1, res.data) });
         console.log("edited", res);
@@ -63,7 +63,7 @@ class App extends Component {
   //Deletes note by id
   deleteNote = id => {
     axios
-      .delete(`https://beplambdanotes.herokuapp.com/note/delete/${id}`)
+      .delete(`https://beplambdanotes.herokuapp.com/api/delete/${id}`)
       .then(res => {
         console.log("deleted", res);
       })
