@@ -33,8 +33,8 @@ render(){
   return(
     <div className="contentContainer">
       <div className="linkContainer">
-        <Link to={`/edit/${this.props.match.params.id}`}>Edit</Link>
-        <Link to= {`/notes/delete/${this.props.match.params.id}`}>Delete</Link>
+        <Link className="button" to={`/edit/${this.props.match.params.id}`}>Edit</Link>
+        <Link className="button" to= {`/notes/delete/${this.props.match.params.id}`}>Delete</Link>
       </div>
       <div className="noteContainer">
         <h3>{this.state.note.title}</h3>

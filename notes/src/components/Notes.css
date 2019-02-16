@@ -43,7 +43,7 @@ margin-top: 5px;
   overflow: hidden;
  
 }
-/* Create Note styling */
+/* CreateNote styling */
 
 
 .contentContainer h2{
@@ -95,3 +95,18 @@ margin-top: 5px;
   margin-bottom: 40px;
  
 }
+/* ViewOneNote Style */
+
+.contentContainer .linkContainer{
+  display: flex; 
+  justify-content: flex-end;
+}
+.contentContainer .linkContainer .button{
+    color: rgb(56, 55, 56);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-right: 25px;
+    margin-top: 20px;
+}
+
