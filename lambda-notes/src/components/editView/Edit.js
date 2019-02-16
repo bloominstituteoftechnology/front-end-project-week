@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import moment from 'moment'
 import { Form, Title, Content, StyledLink, MainDiv } from './styled';
 
 export default class Edit extends Component {
   state = {
     title: '',
     content: '',
-    completed: false
+    completed: false,
+    time_updated: moment().format('YYYY-MM-DD hh:mm:ss a'),
   }
 
   componentDidMount() {
@@ -16,7 +18,7 @@ export default class Edit extends Component {
 
   fetchNote = id => {
     axios
-      .get(`http://localhost:4500/note/${id}`)
+      .get(`https://alf-lambda-notes.herokuapp.com/note/${id}`)
       .then( response => {
         console.log(response.data)
         this.setState({title: response.data.title, content: response.data.content, completed: response.data.completed})
@@ -32,7 +34,7 @@ export default class Edit extends Component {
   submitHandler = e => {
     const id = this.props.match.params.id
     axios
-      .put(`http://localhost:4500/note/${id}/edit`, this.state)
+      .put(`https://alf-lambda-notes.herokuapp.com/note/${id}/edit`, this.state)
       .then( () => {
         this.props.getNotes()
       })

@@ -6,7 +6,7 @@ import { MainDiv, Links, StyledLink, Edit, Content, H1Header, PTag, Time, Comple
 export default class Note extends Component {
 
   state = {
-
+    
   }
 
   componentDidMount() {
@@ -16,7 +16,7 @@ export default class Note extends Component {
 
   fetchNote = id => {
     axios
-      .get(`http://localhost:4500/note/${id}`)
+      .get(`https://alf-lambda-notes.herokuapp.com/note/${id}`)
       .then( response => {
         this.setState({...response.data})
       })
@@ -25,7 +25,7 @@ export default class Note extends Component {
 
   deleteNote = () => {
     axios
-      .delete(`http://localhost:4500/note/${this.state.id}/delete`)
+      .delete(`https://alf-lambda-notes.herokuapp.com/note/${this.state.id}/delete`)
       .then( () => {
         this.props.getNotes()
       })
@@ -36,7 +36,7 @@ export default class Note extends Component {
     const status = this.state
     const id = this.props.match.params.id
     axios
-    .put(`http://localhost:4500/note/${id}/edit`, {...status, completed: true})
+    .put(`https://alf-lambda-notes.herokuapp.com/note/${id}/edit`, {...status, completed: true})
     .then( () => {
       this.fetchNote(id)
     }).catch( err => console.log('failed'))

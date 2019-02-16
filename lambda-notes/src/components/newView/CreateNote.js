@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 
 import {Form, Title, Content, StyledLink, MainDiv } from '../editView/styled'
 
@@ -6,7 +7,8 @@ export default class CreateNote extends Component {
   state = {
     title: '',
     content: '',
-    completed: false
+    completed: false,
+    time_posted: moment().format('YYYY-MM-DD hh:mm:ss a'),
   }
 
   changeHandler = e => {

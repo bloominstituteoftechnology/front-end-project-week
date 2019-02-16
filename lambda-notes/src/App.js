@@ -23,7 +23,7 @@ class App extends Component {
 
   getNotes = () => {
     axios
-    .get('http://localhost:4500/notes')
+    .get('https://alf-lambda-notes.herokuapp.com/notes')
     .then( response => {
       console.log(response)
       this.setState({notes: response.data})
@@ -33,7 +33,7 @@ class App extends Component {
 
   createNote = note => {
     axios
-      .post('http://localhost:4500/note/create', note)
+      .post('https://alf-lambda-notes.herokuapp.com/note/create', note)
       .then( response => {
         console.log(response)
         this.getNotes()
