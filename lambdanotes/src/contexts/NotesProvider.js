@@ -16,7 +16,7 @@ class NotesProvider extends Component{
     //********.GET - Grab all the notes************
     fetchNotes = () =>{
         this.setState({loading: true})
-        axios.get('https://fe-notes.herokuapp.com/note/get/all')
+        axios.get('http://localhost:4000/api/notes/')
             .then((response) => {
                 this.setState({ 
                     notes: response.data,
@@ -36,11 +36,12 @@ class NotesProvider extends Component{
     //*********.POST - Add note to notes array**************** */
     createNote = (newNote) =>{
         this.setState({loading: true})
-        axios.post('https://fe-notes.herokuapp.com/note/create', newNote)
+        axios.post('http://localhost:4000/api/notes/', newNote)
         //if successful, returns id of new note within response.data.success
         .then((response) => {
+            console.log('response after post', response);
             //grap individual newly created note
-            axios.get(`https://fe-notes.herokuapp.com/note/get/${response.data.success}`)
+            axios.get(`http://localhost:4000/api/notes/${response.data.id}`)
                 .then((response) => {
                     this.setState({ 
                         //add new note to notes array
@@ -48,8 +49,9 @@ class NotesProvider extends Component{
                         loading: false,
                         error: null
                 })
+                console.log('notes after getbyID',this.state.notes);
                 //go to '/' route - which displays ViewNotes.js
-                this.props.history.push('/')
+                this.props.history.push('/api/notes')
             })
             
         })
@@ -64,7 +66,7 @@ class NotesProvider extends Component{
     //*********.PUT - Edit note in notes array**************** */
     editNote = (id, newNote) =>{
         this.setState({loading: true})
-        axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, newNote)
+        axios.put(`http://localhost:4000/api/notes/${id}`, newNote)
         .then((response) => {
             this.fetchNotes()  //necessary to update this.state.notes
             this.props.history.push('/')
@@ -80,7 +82,7 @@ class NotesProvider extends Component{
     //********.DELETE - Delete note in notes array******************* */
     deleteNote = (id) =>{
         this.setState({loading: true})
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        axios.delete(`http://localhost:4000/api/notes/${id}`)
         .then((response)=>{
             this.fetchNotes() //necessary to update this.state.notes
             this.props.history.push('/')

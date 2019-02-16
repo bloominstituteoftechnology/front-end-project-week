@@ -18,7 +18,7 @@ class ViewNotes extends Component{
                 if(data.state.error){ return <h1>Unable to load notes...</h1>}
                 const noteData = data.state.notes;
                 const notes = noteData.map(note =>{
-                    return <NoteCard key={note._id} note={note} />
+                    return <NoteCard key={note.id} note={note} />
                 })
 
                 return (

@@ -20,7 +20,7 @@ class Edit extends Component{
             .then((response) =>{
                 this.setState({
                     title: response.data.title,
-                    content: response.data.textBody
+                    content: response.data.content
                 })
                 const textArea = document.querySelector('textarea')
                 textArea.value= this.state.content
@@ -34,7 +34,7 @@ class Edit extends Component{
           [e.target.name]: e.target.value,
         }, () =>{
           this.setState({
-            newNote: {title: this.state.title, textBody: this.state.content}
+            newNote: {title: this.state.title, content: this.state.content}
           })
         })
     }

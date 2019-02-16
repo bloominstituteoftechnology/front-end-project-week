@@ -17,7 +17,7 @@ class CreateNote extends Component{
       [e.target.name]: e.target.value,
     }, () =>{
       this.setState({
-        newNote: {title: this.state.title, textBody: this.state.content}
+        newNote: {title: this.state.title, content: this.state.content}
       })
     })
   }

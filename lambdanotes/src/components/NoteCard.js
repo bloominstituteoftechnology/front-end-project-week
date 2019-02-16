@@ -6,10 +6,11 @@ const NoteCard = ({note})=> {
 
   //Determine if note is too long to fit inside card, and add ellipsis if so
   let noteText = ''
-  noteText = (note.textBody.length > 140) ? note.textBody.slice(0,140).concat('',' ...') : note.textBody
+  console.log(note);
+  noteText = (note.content.length > 140) ? note.content.slice(0,140).concat('',' ...') : note.content
   
   return (
-    <Link to={`note/${note._id}`} style={{textDecoration:"none"}} className="noteCard">
+    <Link to={`note/${note.id}`} style={{textDecoration:"none"}} className="noteCard">
       <div className="noteContent">
 
           <h3>{note.title}</h3>
