@@ -110,3 +110,53 @@ margin-top: 5px;
     margin-top: 20px;
 }
 
+/* DeleteNote */
+
+.deleteContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(77, 75, 75, 0.4);
+}
+.deleteContainer .confirm {
+  border: 1px solid rgb(73, 71, 71);
+  border-radius: 5px;
+  background-color: white;
+  width: 70%;
+  height: 250px;
+  text-align: center;
+
+}
+
+.deleteContainer .confirm .confermMessage{
+  margin: 65px 0 30px 0;
+  color: #4A4A4A;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.deleteContainer .confirm .yesNo {
+  display: flex;
+  justify-content: center;
+ 
+
+}
+
+.yesNo .noContainer{
+  background-color:dodgerblue;
+  text-decoration: none;
+  margin: 10px;
+}
+.yesNo .yesContainer {
+ 
+  background-color:red;
+  text-decoration: none;
+  margin: 10px;
+  
+}

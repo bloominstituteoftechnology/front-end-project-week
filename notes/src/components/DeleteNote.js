@@ -19,19 +19,18 @@ class DeleteNote extends Component {
   }
   render() {
     return (
-      <div className="DeleteContainer">
-        <div className="yesContainer">
-          <Link to={`/`} onClick={this.deleteNote}>
-            <button>Yes</button>
-          </Link>
+      <div className="deleteContainer">
+        <div className="confirm">
+          <div className="confermMessage">Are you sure want to delete this?</div>
+            <div className="yesNo"> 
+                  <Link to={`/`} onClick={this.deleteNote}>
+                    <div className="yesContainer">Yes</div>
+                  </Link>
+                  <Link to={`/notes/${this.props.match.params.id}`}>
+                    <div className="noContainer">No</div>                 
+                  </Link>
+         </div>
         </div>
-
-        <div className="noContainer">
-          <Link to={`/notes/${this.props.match.params.id}`}>
-            <button>No</button>
-          </Link>
-        </div>
-
       </div>
 
     )
