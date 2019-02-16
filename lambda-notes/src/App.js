@@ -39,12 +39,13 @@ class App extends Component {
     axios
       .post('https://fe-notes.herokuapp.com/note/create', newNote)
       .then(response => {
-          newNote.id = response.data.success;
+          console.log(response)
+          newNote._id = response.data.success;
           
           this.setState({
               notes: [...this.state.notes, newNote],
           })
-          this.props.history.push(`/note/${newNote.id}`);
+          this.props.history.push(`/note/${newNote._id}`);
           
       })
       .catch(err =>{

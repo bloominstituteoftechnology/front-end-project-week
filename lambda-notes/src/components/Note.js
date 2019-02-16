@@ -20,10 +20,12 @@ class Note extends React.Component  {
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
-                
+                console.log('this is our response ' , response.data)
                 this.setState({ 
                     note: response.data,
                 });
+                // console.log('this is our response ' , response.data)
+
             })
             .catch(err => {
                 console.log(err);

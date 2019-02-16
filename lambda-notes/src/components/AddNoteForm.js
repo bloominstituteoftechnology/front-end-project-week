@@ -24,7 +24,7 @@ class AddNoteForm extends Component {
         e.preventDefault();
         console.log('hello')
             this.props.addNote(this.state.note);
-            this.props.history.push(`/note/${this.props.match.params.id}`);
+            // this.props.history.push(`/note/${this.props.match.params.id}`);
 
             // this.setState({
             //     note: {
