@@ -18,11 +18,13 @@ class App extends Component {
 
   getNotes = event => {
     axios
-      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+      .get(`http://localhost:2200/api/notes`)
       .then(response => {
+        console.log('Data!', response)
         this.setState({
           notes: response.data
         })
+        console.log('Notes!', this.state.notes)
       })
       .catch(error => console.log('error!'))
   }
@@ -31,19 +33,30 @@ class App extends Component {
     this.getNotes()
   }
 
+  // getNote = (note) => {
+  //   console.log('clicked')
+  //   console.log(note)
+  //   axios.get(`http://localhost:2200/api/notes/:${note.id}`)
+  //     .then(response => {
+  //     this.getNotes()
+  //     })
+  //   .catch(error => console.log('error!'))
+  // }
+
   newNote = note => {
-    console.log('clicked')
     axios
-      .post(`https://fe-notes.herokuapp.com/note/create`, note)
-      .then(response => {
+    .post(`http://localhost:2200/api/notes`, note)
+    .then(response => {
         this.getNotes()
+        this.setState({ notes: response.data})
       })
       .catch(error => console.log('error!'))
   }
 
   updateNote = (note) => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${note.id}`, note)
+      .put(`http://localhost:2200/api/notes/:${note.id}`, note)
+      console.log(note)
       .then(response => {
         this.getNotes()
       })
@@ -52,7 +65,7 @@ class App extends Component {
 
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:2200/api/notes/:${id}`)
       .then(response => {
         this.getNotes()
       })
@@ -74,7 +87,7 @@ class App extends Component {
             newNote={this.newNote}
           />
         )} />
-        <Route exact path='/:id' render={props => (
+        <Route exact path='/notes/:id' render={props => (
           <NoteCard
             {...props}
             notes={this.state.notes}

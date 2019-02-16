@@ -9,7 +9,7 @@ class NoteForm extends Component {
         this.state = {
             notes: [],
             title: '',
-            textBody: ''
+            body: ''
         }
     }
 
@@ -17,14 +17,14 @@ class NoteForm extends Component {
         event.preventDefault()
         const addedNote = {
             title: this.state.title,
-            textBody: this.state.textBody
+            body: this.state.body
         }
 
         this.props.newNote(addedNote)
 
         this.setState({
             title: '',
-            textBody: ''
+            body: ''
         })
     }
 
@@ -34,27 +34,27 @@ class NoteForm extends Component {
 
     render() {
         return (
-            <div class='form'>
+            <div className='form'>
                 <Menu />
-                <div class='note-form'>
+                <div className='note-form'>
                     <h2>
                         Create New Note:
                     </h2>
                     <input
-                        class='new-note-title'
+                        className='new-note-title'
                         placeholder='Note Title'
                         name='title'
                         onChange={this.inputHandleChange}
                         value={this.state.title}
                     />
                     <textarea
-                        class='note-content'
+                        className='note-content'
                         placeholder='Note Content'
-                        name='textBody'
+                        name='body'
                         onChange={this.inputHandleChange}
-                        value={this.state.textBody}
+                        value={this.state.body}
                     />
-                    <div class='save-button' onClick={this.addNote}>
+                    <div className='save-button' onClick={this.addNote}>
                         Save
                     </div>
                 </div>

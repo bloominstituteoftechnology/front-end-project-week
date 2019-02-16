@@ -35,27 +35,27 @@ class EditNote extends Component {
 
     render() {
         return (
-            <div class='edit-container'>
+            <div className='edit-container'>
                 <Menu />
-                <div class='input-container'>
+                <div className='input-container'>
                     <h2>
                         Edit Note:
                     </h2>
                     <input
-                        class='new-note-title'
+                        className='new-note-title'
                         placeholder='Note Title'
                         name='title'
                         onChange={this.inputHandleChange}
                         value={this.state.title}
                     />
                     <textarea
-                        class='note-content'
+                        className='note-content'
                         placeholder='Note Content'
                         name='textBody'
                         onChange={this.inputHandleChange}
                         value={this.state.textBody}
                     />
-                    <div class='save-button' onClick={this.editNote}>
+                    <div className='save-button' onClick={this.editNote}>
                         Update
                     </div>
                 </div>

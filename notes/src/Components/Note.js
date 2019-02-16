@@ -6,12 +6,12 @@ class Note extends Component {
 
     render() {
         return (
-            <Link to={`/${this.props.note._id}`} class='note'>
-                <h3 class='note-title'>
+            <Link to={`/${this.props.note.id}`} className='note'>
+                <h3 className='note-title'>
                     {this.props.note.title}
                 </h3>
-                <div class='note-body'>
-                    {this.props.note.textBody}
+                <div className='note-body'>
+                    {this.props.note.body}
                 </div>
             </Link>
         )

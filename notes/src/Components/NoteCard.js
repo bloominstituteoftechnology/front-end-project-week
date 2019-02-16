@@ -6,7 +6,7 @@ import './NoteCard.css';
 const NoteCard = props => {
 
     const note = props.notes.find(note => {
-        if (note._id === props.match.params.id)
+        if (note.id === props.match.params.id)
             return note;
     })
 
@@ -15,19 +15,19 @@ const NoteCard = props => {
     }
 
     return (
-        <div class='container'>
+        <div className='container'>
             <Menu />
-            <div class='note-container'>
-                <div class='notecard-buttons'>
-                    <Link class='edit' to={`/${note._id}/edit`}>edit</Link>
-                    <div class='delete' onClick={() => { props.deleteNote(props.match.params.id) }}>delete</div>
+            <div className='note-container'>
+                <div className='notecard-buttons'>
+                    <Link className='edit' to={`/${note.id}/edit`}>edit</Link>
+                    <Link className='delete' to='/' onClick={() => { props.deleteNote(props.match.params.id) }}>delete</Link>
                 </div>
-                <div class='notecard'>
+                <div className='notecard'>
                     <h2 class='title'>
                         {note.title}
                     </h2>
-                    <p class='body'>
-                        {note.textBody}
+                    <p className='body'>
+                        {note.body}
                     </p>
                 </div>
             </div>

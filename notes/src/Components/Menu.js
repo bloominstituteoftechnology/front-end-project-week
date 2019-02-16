@@ -7,19 +7,19 @@ class Menu extends Component {
 
     render() {
         return (
-            <div class='menu'>
-                <h1 class='lambda-notes'>
+            <div className='menu'>
+                <h1 className='lambda-notes'>
                     <p>Lambda</p> 
                     <p>Notes</p>
                 </h1>
-                <div class='menu-buttons'>
-                    <Link to='/' class='link'>
-                        <div class='button'>
+                <div className='menu-buttons'>
+                    <Link to='/' className='link'>
+                        <div className='button'>
                             View Your Notes
                         </div>
                     </Link>
-                    <Link to='/notes/form' class='link'>
-                        <div class='button'>
+                    <Link to='/notes/form' className='link'>
+                        <div className='button'>
                             + Create New Notes
                         </div>
                     </Link>

@@ -6,14 +6,15 @@ import Menu from './Menu';
 class NoteList extends Component {
     render() {
         return (
-            <div class='list'>
+            <div className='list'>
                 <Menu />
-                <div class='note-list'>
+                <div className='note-list'>
                     <h2>
                         Your Notes:
                     </h2>
-                    <div class='notes'>
+                    <div className='notes'>
                         {this.props.notes.map(note => {
+                            console.log('note!', note)
                             return (
                                 <Note
                                     note={note}
