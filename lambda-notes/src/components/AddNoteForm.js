@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Input } from 'reactstrap';
 
 class AddNoteForm extends Component {
     constructor(props) {
@@ -21,36 +22,39 @@ class AddNoteForm extends Component {
     }
     addNoteHandler = e => {
         e.preventDefault();
+        console.log('hello')
             this.props.addNote(this.state.note);
-            this.setState({
-                note: {
-                    title: '',
-                    textBody: ''
-                    // tags: []
-                }
-            })
+
+            // this.setState({
+            //     note: {
+            //         title: '',
+            //         textBody: ''
+            //         // tags: []
+            //     }
+            // })
+
     }
 
     render() {
         return (
             <form onSubmit={this.addNoteHandler}>
-                <input
-                    value={this.state.title}
+                <Input
+                    value={this.state.note.title}
                     onChange={this.changeHandler}
                     name="title"
                     placeholder="Title"
                     type="text"
                 />
 
-                <textarea
-                    value={this.state.textBody}
+                <Input
+                    value={this.state.note.textBody}
                     onChange={this.changeHandler}
                     name="textBody"
                     placeholder="Body"
                     type="textarea"
                 />
                
-                <button type="submit">Add Note</button>
+                <Button color="success" type="submit">Add Note</Button>
             </form>
         )
     }

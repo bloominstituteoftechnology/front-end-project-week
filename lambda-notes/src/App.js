@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Note from './components/Note';
 import NotesList from './components/NotesList';
 import AddNoteForm from './components/AddNoteForm';
@@ -15,7 +15,8 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      note: null
+      note: null,
+      modal: false
     }
   }
   componentDidMount() {
@@ -39,9 +40,12 @@ class App extends Component {
       .post('https://fe-notes.herokuapp.com/note/create', newNote)
       .then(response => {
           newNote.id = response.data.success;
+          
           this.setState({
               notes: [...this.state.notes, newNote],
           })
+          this.props.history.push(`/note/${newNote.id}`);
+          
       })
       .catch(err =>{
           console.log(err);
@@ -50,25 +54,30 @@ class App extends Component {
   }
 
   editNote = (id, note) => {
-    console.log(note);
-    let editNote = {
+    console.log('lol');
+
+    let updatedNote = {
+      id: note._id,
       title: note.title,
       textBody: note.textBody,
       tag: []
     }
 
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editNote)
+      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
       .then(response => {
         console.log(response)
-          editNote.id = response;
+          updatedNote.id = response;
+          // const newNotes = this.state.notes.slice();
 
-          // let newArray = this.state.notes.slice().concat(editNote);
+          let newArray = this.state.notes.filter(note => note._id !== id).concat(updatedNote);
+          // console.log(newNotes)
 
           this.setState({
-            // notes: newArray;
-              notes: [...this.state.notes, editNote],
+              // note: updatedNote,
+              notes: newArray,
           })
+          // this.props.history.push(`note/${id}`);
       })
       .catch(err =>{
           console.log(err);
@@ -76,30 +85,47 @@ class App extends Component {
 
   }
 
-  // deleteNote = id => {
-  //   axios
-  //     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-  //     .then(response => {
-  //       let newNotes = this.state.notes.filter(note => id !== note._id);
-  //       this.setState({
-  //         notes: newNotes
-  //       })
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-  // }
+  viewNote = id => {
+      axios
+          .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+          .then(response => {
+              
+              this.setState({ 
+                  note: response.data
+              });
+          })
+          .catch(err => {
+              console.log(err);
+          })
+  }
 
-  
+  deleteNote = id => {
+      axios
+          .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+          .then(response => {
+              const newNotes = this.state.notes.filter(note => note._id !== id);
+              this.setState({notes: newNotes});
+
+          })
+          .catch(err => {
+              console.log(err);
+          })
+  }
 
   render() {
     return (
       <div className="App">
-        <div className="container">
+        
+        {this.state.modal === true ? 
+          <div className="container">
+            Modal
+          </div>
+          :
+          <div className="container">
             <Sidebar />
             <Route exact path="/" 
               render={props => 
-               <NotesList {...props} notes={this.state.notes} />
+               <NotesList {...props} viewNote={this.viewNote} editNote={this.editNote} notes={this.state.notes} />
               }
             />
             <Route path="/notes/create" 
@@ -110,20 +136,23 @@ class App extends Component {
 
             <Route exact path="/note/:id" 
               render={props =>
-                <Note {...props} deleteNote={this.deleteNote}/>
+                <Note {...props} note={this.state.note} notes={this.state.notes} editNote={this.editNote} viewNote={this.viewNote} deleteNote={this.deleteNote}/>
               }
             />
 
             <Route exact path="/edit/:id"
               render={props =>
-                <EditForm {...props} notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote}/>
+                <EditForm {...props} note={this.state.note} notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote}/>
               }
             />
         </div>
+      }
+        
+        
 
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

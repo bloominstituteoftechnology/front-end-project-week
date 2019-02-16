@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import NoteCard from './NoteCard';
+import axios from 'axios';
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
@@ -14,48 +14,53 @@ class Note extends React.Component  {
             note: null
         }
     }
-    viewNote = id => {
+    
+    componentDidMount() {
+        const id = this.props.match.params.id;
         axios
             .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
             .then(response => {
                 
                 this.setState({ 
-                    note: response.data 
+                    note: response.data,
                 });
             })
             .catch(err => {
                 console.log(err);
             })
+        
+        // let newNote = this.props.notes.find(note => note._id === id);
+        // this.setState({note: newNote});
+        this.props.viewNote(id);
     }
-    deleteNote = id => {
-        axios
-            .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-            .then(response => {
-                this.setState({
-                    note: null
-                })
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }
-    componentDidMount() {
-        const id = this.props.match.params.id;
-        this.viewNote(id);
-    }
+    // componentDidUpdate(prevProps) {
+    //     // Typical usage (don't forget to compare props):
+    //     if (this.props.note !== prevProps.note) {
+    //         this.setState({ note: this.props.note });
+    //         this.props.viewNote(this.state.note._id);
+    //     }
+    // }
     render() {
         
         return(
             <section>
-                <div class="action-buttons">
-                    <Link to={`/note/${this.props.match.params.id}`}>
-                        <Button color="danger" onClick={() => this.deleteNote(this.props.match.params.id)}><FaTrashAlt/></Button>
+                <div className="action-buttons">
+                    <Link to={`/`}>
+                        <Button color="danger" 
+                            onClick={() => {
+                                this.props.deleteNote(this.props.match.params.id);
+                            }}>
+                                <FaTrashAlt/>
+                        </Button>
                     </Link>
                     <Link to={`/edit/${this.props.match.params.id}`}>
-                        <Button color="warning"><FaEdit/></Button> 
+                        <Button color="warning">
+                            <FaEdit/>
+                        </Button> 
                     </Link>
                 </div>
-                <NoteCard {...this.state.note } editNote={this.editNote}/>
+
+                <NoteCard {...this.state.note } notes={this.props.notes} editNote={this.props.editNote}/>
 
                 
 

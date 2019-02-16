@@ -72,17 +72,36 @@
   width: 30%;
   height: 200px;
   margin-bottom: 33px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 .card h2 {
   text-transform: capitalize;
 }
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card a {
+  text-decoration: none;
+  color: #000;
+}
+.card a:hover {
+  text-decoration: none;
+}
+.note-card h2:hover {
+  color:gold;
+}
 .note-card {
-  margin-top: 66px;
   text-align: left;
-  padding-left: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .note-card h2 {
-  padding-bottom: 20px;
+  padding: 12px 0px 5px;
+  border-bottom: 1.5px solid #000;
+}
+.note-card a:hover {
+  text-decoration: none;
 }
 .action-buttons {
   margin-top: 33px;
@@ -94,15 +113,22 @@
   padding: 10px 33px;
   margin-left: 33px;
 }
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+section {
+  padding-left: 33px;
+}
+section h1 {
+  text-align: left;
+  margin-top: 66px;
+  margin-bottom: 33px;
 }
 
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+form {
+  margin-left: 33px;
+  margin-top: 55px;
+}
+
+input.form-control, textarea.form-control  {
+  margin-bottom: 33px;
 }
 
 @keyframes App-logo-spin {

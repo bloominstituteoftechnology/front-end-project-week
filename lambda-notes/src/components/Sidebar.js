@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
 const SideBar = () => {
@@ -7,10 +7,10 @@ const SideBar = () => {
         <div className="aside">
             <h1>Lambda Notes</h1>
             <Button color="info">
-                <NavLink to={'/'}> View Your Notes</NavLink>
+                <Link to={'/'}> View Your Notes</Link>
             </Button>
             <Button color="info">
-                <NavLink to={'/notes/create'}> + Create Your Note</NavLink>
+                <Link to={'/notes/create'}> + Create Your Note</Link>
             </Button>
         </div>
     )
