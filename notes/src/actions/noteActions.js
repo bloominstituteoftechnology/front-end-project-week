@@ -7,7 +7,7 @@ export const UPDATE_NOTE = "UPDATE_NOTE";
 export const FETCH_NOTE = "FETCH_NOTE";
 export const ADD_NOTE = 'ADD_NOTE'
 
-const URL = "http://localhost:5000/note";
+const URL = "https://lambda-schools-notes.herokuapp.com/";
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: LOADING });
