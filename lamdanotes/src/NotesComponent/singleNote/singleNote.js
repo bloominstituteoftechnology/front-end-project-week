@@ -35,6 +35,7 @@ class SingleNote extends React.Component {
         console.log(this.state.notes)
         return(
             <div className='viewNoteContainer'>
+                {/* link to edit note and send the id for this note. onClick will send the id of this note to app.js */}
                 <Link 
                     to={`/editnote/${this.state.notes._id}`} 
                     className="viewNoteLinks"

@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 import SidebarView from './sidebarComponent/sbView';
 import NotesView from './NotesComponent/NotesView/notesView';
 import AddNote from './formComponent/addNote';
-import SingleNote from './NotesComponent/NotesView/singleNote/singleNote';
+import SingleNote from './NotesComponent/singleNote/singleNote';
 import EditForm from './formComponent/editNote';
 
 
@@ -24,24 +24,18 @@ class App extends Component {
 
   // {/* Call to API and set the response data to our state */}
   componentDidMount() {
-      axios
-        .get('https://fe-notes.herokuapp.com/note/get/all')
-          .then(res => this.setState({
-              notes: res.data
-          }))
-          .catch(err => console.log(err))
+      this.getUpdatedNotes()
   }
 
-  // componentDidUpdate(prevState) {
-  //   if(this.state.notes !== prevState.notes) {
-  //     axios
-  //       .get('https://fe-notes.herokuapp.com/note/get/all')
-  //         .then(res => this.setState({
-  //             notes: res.data
-  //         }))
-  //         .catch(err => console.log(err))
-  //   }
-  // }
+  getUpdatedNotes = () => {
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+        .then(res => this.setState({
+            notes: res.data
+          }))
+        .catch(err => console.log(err))
+    }
+  
 
   addNote = (note) => {
     axios
@@ -53,8 +47,14 @@ class App extends Component {
   deleteNote = (id) => {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        .then(res => {
+            const filtered = this.state.notes.filter(note => note._id !== id);
+            console.log(filtered)
+            this.setState({
+              notes: filtered
+            })
+        })
+        .catch(err => console.log(err));
   } 
 
   editNote = (id, obj) => {
@@ -70,14 +70,15 @@ class App extends Component {
     })
   }
 
+  
+
 
 // {/* Declare Routes, Sidebar navigation should always show so it is the root */}
   render() {
-    console.log(this.state.cNote)
     return (
       <div className="container">
 
-          <Route path="/" component={SidebarView} />
+          <Route path="/" render={props => (<SidebarView {...props}  getUpdatedNotes={this.getUpdatedNotes} /> )} />
 
           <Route 
             path="/notes"
@@ -99,7 +100,7 @@ class App extends Component {
           
           <Route 
               path="/editnote/:id"
-              render={props=> ( <EditForm {...props} cNote={this.state.cNote} editNote={this.editNote} />)} 
+              render={props=> ( <EditForm {...props} notes={this.state.notes} cNote={this.state.cNote} editNote={this.editNote} />)} 
           />
           
           

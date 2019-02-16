@@ -1,8 +1,8 @@
 import React from 'react';
-
+import axios from 'axios';
 
 //props from app.js
-//{...props} editNote={this.editNote}
+//{...props} notes={this.state.notes} cNote={this.state.cNote} editNote={this.editNote}
 
 class EditForm extends React.Component {
     constructor() {
@@ -13,6 +13,21 @@ class EditForm extends React.Component {
                 title: ""
             }
         }
+    }
+    
+    componentDidMount() {
+        axios
+            .get(`https://fe-notes.herokuapp.com/note/get/${this.props.cNote}`)
+                .then(res => {
+                    console.log("CDM FROM EDIT:", res)
+                    this.setState({
+                        notes: {
+                            textBody: res.data.textBody,
+                            title: res.data.title
+                        }
+                    })
+                })
+                .catch(err => console.log(err))
     }
 
     handleChange = e => {
@@ -35,8 +50,7 @@ class EditForm extends React.Component {
     }
 
     render() {
-        console.log(this.state.notes)
-        console.log(this.props.cNote)
+        
         return (
             <div className="editForm">
                 <h3 className="formTitles">Edit Note:</h3>
@@ -65,4 +79,4 @@ class EditForm extends React.Component {
     }
 }
 
-export default EditForm
+export default EditForm 
