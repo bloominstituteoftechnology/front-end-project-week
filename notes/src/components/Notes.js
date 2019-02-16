@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 
-import CreateNote from './CreateNote'
+import CreateNote from './CreateNote';
 import NotesPreview from './NotesPreview';
+import ViewOneNote from './ViewOneNote';
 
 class Notes extends Component {
   constructor(props){
@@ -47,6 +48,13 @@ render() {
       render={props=>
       <NotesPreview {...props} notes={this.state.notes} /> }
       />
+
+       <Route 
+      path="/notes/:id"
+      render={props=>
+      <ViewOneNote {...props} notes={this.state.notes} /> }
+      />
+      
   </div>
 
   );}}

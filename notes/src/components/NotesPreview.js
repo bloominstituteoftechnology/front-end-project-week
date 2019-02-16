@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Notes.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class NotesPreview extends Component {
   constructor(props){
@@ -27,13 +28,14 @@ componentDidMount() {
 render() {
   return (
     <div className="contentContainer">
+
       <h2>Your Notes: </h2>
       <div className="notesContainer">
         {this.state.notes.map((note) => (
-          <div key={note._id} className="note" >
+          <Link className="note" to={`/notes/${note._id}`}>
             <h3>{note.title}</h3>
             <p>{note.textBody}</p>   
-          </div>  
+          </Link>  
         ))}           
       </div>
         

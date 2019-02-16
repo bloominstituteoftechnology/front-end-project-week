@@ -12,11 +12,12 @@
   color: #4A494A;
   margin-left: 1%;
   margin-top: 50px;
-
+  display: flex;
+  flex-wrap: wrap;
 }
 .contentContainer .notesContainer{
   display: flex;
-    flex-wrap: wrap;
+  flex-wrap: wrap;
     
 }
 .contentContainer .notesContainer .note{
@@ -72,6 +73,12 @@ margin-top: 5px;
   padding:25px 5px 0 5px;
   font-size: 0.9rem;
   margin-bottom: 25px;
+ 
+}
+.contentContainer .form .input ::placeholder{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 .contentContainer .form .button{
   display: block;

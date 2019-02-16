@@ -6,9 +6,9 @@ import './App.css';
 
 
 import SideView from './components/SideView';
-import NotesPreview from './components/NotesPreview'
+import NotesPreview from './components/NotesPreview';
 import CreateNote from './components/CreateNote';
-
+import ViewOneNote from './components/ViewOneNote';
 
 class App extends Component {
   render() {
@@ -28,6 +28,11 @@ class App extends Component {
               render={props => 
               <NotesPreview {...props}/>
             } 
+          />
+          <Route 
+              path="/notes/:id"
+              render={props=>
+              <ViewOneNote {...props} /> }
           />
  
       </div>
