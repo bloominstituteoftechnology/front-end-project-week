@@ -9,3 +9,7 @@
 .auth-container h1 {
   margin: 20px auto 100px;
 }
+
+.nav-item {
+  cursor: pointer;
+}

@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { Link } from "react-router-dom";
 import "./note.css";
-const URL = "http://localhost:5002/";
+const URL = "https://lambda-notes-backend-jt.herokuapp.com/";
 
 class Note extends React.Component {
   constructor(props) {

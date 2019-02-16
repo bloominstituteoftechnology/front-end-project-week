@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { logout } from "../../actions/authActions";
 
 import "./nav.css";
 
 class Navigation extends React.Component {
+  logout = () => {
+    this.props.logout();
+  };
   render() {
     return (
       <aside className="aside-nav">
@@ -22,9 +26,9 @@ class Navigation extends React.Component {
             + Create New Note
           </Link>
           {this.props.loggedIn ? (
-            <Link className="links" to="/auth/logout">
+            <button className="links" onClick={this.logout}>
               Logout
-            </Link>
+            </button>
           ) : (
             <Link className="links" to="/auth">
               Sign In/Sign Up
@@ -44,5 +48,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { logout }
 )(Navigation);

@@ -2,12 +2,13 @@ import axios from "axios";
 import setJWT from "../utils/setJWT";
 import jwt from "jsonwebtoken";
 
-const URL = "http://localhost:5002/";
+const URL = "https://lambda-notes-backend-jt.herokuapp.com/";
 
 export const REGISTER = "REGISTER";
 export const SIGNIN = "SIGNIN";
 export const ERROR = "ERROR";
 export const SET_CURR_USER = "SET_CURR_USER";
+export const LOGOUT = "LOGOUT";
 
 export const setCurrUser = user => {
   return { type: SET_CURR_USER, payload: user };
@@ -40,5 +41,12 @@ export const loginUser = user => {
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
       });
+  };
+};
+
+export const logout = () => {
+  return dispatch => {
+    localStorage.removeItem("notes_jwt");
+    dispatch({ type: LOGOUT });
   };
 };

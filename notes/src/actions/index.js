@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "http://localhost:5002/";
+const URL = "https://lambda-notes-backend-jt.herokuapp.com/";
 
 export const FETCHING = "FETCHING";
 export const FETCHED = "FETCHED";
