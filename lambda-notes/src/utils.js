@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: 'https://fe-notes.herokuapp.com/note'
+  baseURL: 'http://localhost:8080/api'
 });

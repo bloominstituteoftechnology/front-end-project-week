@@ -14,7 +14,7 @@ export default class NotesList extends Component {
         </Header>
         <ListContainer>
           {this.props.notes.map((note) => {
-            return <NoteDetails key={note._id} note={note} />
+            return <NoteDetails key={note.id} note={note} />
           })}
         </ListContainer>
       </Container>
@@ -25,7 +25,7 @@ export default class NotesList extends Component {
 function NoteDetails({ note }) {
   const { title, textBody } = note;
   return (
-    <Link to={`/get/${note._id}`}>
+    <Link to={`/notes/${note.id}`}>
       <NoteContainer>
         <NoteTitle>{title}</NoteTitle>
         <NoteText>{textBody}</NoteText>

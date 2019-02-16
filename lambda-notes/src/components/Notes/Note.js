@@ -17,14 +17,14 @@ export default class Note extends Component {
   componentDidMount() {
     console.log('Note mounted');
     const id = this.props.match.params.id;
+    console.log('id with params stuff', id);
     this.fetchNote(id);
   }
 
   fetchNote = id => {
-      instance.get(`/get/${id}`)
+      instance.get(`/notes/${id}`)
       .then(response => {
-        console.log(response);
-        this.setState(() => ({ note: response.data }));
+        this.setState(() => ({ note: response.data[0] }));
       })
       .catch(err => {
         console.log(err);
@@ -42,7 +42,7 @@ export default class Note extends Component {
   handleSubmit = () => {
     // /edit/${this.note._id}
     console.log('some updated changes', this.state.note);
-    instance.put(`/edit/${this.state.note._id}`, {
+    instance.put(`/notes/${this.state.note.id}`, {
       title: this.state.note.title,
       textBody: this.state.note.textBody
     })
@@ -71,7 +71,7 @@ export default class Note extends Component {
   handleDelete = () => {
     const id = this.props.match.params.id;
     console.log(id);
-    instance.delete(`/delete/${this.state.note._id}`)
+    instance.delete(`/notes/${this.state.note.id}`)
       .then(response => {
         console.log(response.data);
         this.setState({
@@ -85,6 +85,7 @@ export default class Note extends Component {
   }
 
   render() {
+    console.log('state of a note', this.state);
     if (!this.state.note) {
       return <div className='Note'>Loading note information...</div>
     }

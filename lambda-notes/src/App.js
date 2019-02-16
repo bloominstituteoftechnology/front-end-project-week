@@ -12,21 +12,12 @@ class App extends Component {
   constructor() {
     super();
       this.state = {
-        notes: [
-          {
-            title: 'pizza',
-            textBody: 'please eat some good pizza kid'
-          },
-          {
-            title: 'cows',
-            textBody: 'good for beef tacos!!'
-          }
-        ]
+        notes: []
       }
   }
 
   componentDidMount() {
-    instance.get('/get/all')
+    instance.get('/notes')
       .then(response => {
         this.setState(() => ({ notes: response.data }));
       })
@@ -35,8 +26,9 @@ class App extends Component {
       });
   }
 
-  componentDidUpdate(prevState) {
-    instance.get('/get/all')
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.notes.length !== prevState.notes.length) {
+      instance.get('/notes')
       .then(response => {
         if (this.state.notes !== response.data) {
           this.setState(() => ({ notes: response.data }));
@@ -45,6 +37,7 @@ class App extends Component {
       .catch(err => {
         console.log(err, 'Whoops');
       });
+    }
   }
 
   render() {
@@ -60,7 +53,7 @@ class App extends Component {
           render={props => (
             <NotesList notes={this.state.notes} />
           )} />
-        <Route path='/get/:id' component={Note} />
+        <Route path='/notes/:id' component={Note} />
         <Route path='/create' component={CreateNote} />
       </div>
     );
