@@ -1,0 +1,4 @@
+[build]
+  base = "notes/"
+  command = "yarn build"
+  publish = "notes/dist"
