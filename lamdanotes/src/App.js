@@ -34,7 +34,7 @@ class App extends Component {
             notes: res.data
           }))
         .catch(err => console.log(err))
-    }
+  }
   
 
   addNote = (note) => {
