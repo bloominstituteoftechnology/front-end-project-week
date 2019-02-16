@@ -69,7 +69,7 @@ class NotesProvider extends Component{
         axios.put(`http://localhost:4000/api/notes/${id}`, newNote)
         .then((response) => {
             this.fetchNotes()  //necessary to update this.state.notes
-            this.props.history.push('/')
+            this.props.history.push('/api/notes')
         })
         .catch(err => {
             this.setState({
@@ -85,7 +85,7 @@ class NotesProvider extends Component{
         axios.delete(`http://localhost:4000/api/notes/${id}`)
         .then((response)=>{
             this.fetchNotes() //necessary to update this.state.notes
-            this.props.history.push('/')
+            this.props.history.push('/api/notes')
         })
         .catch(err => {
             this.setState({

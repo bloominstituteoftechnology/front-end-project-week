@@ -40,16 +40,16 @@ class Note extends Component{
                     <Link to={`/edit/${id}`}>
                         <p>Edit</p>
                     </Link>
-                    <a onClick={this.openModal} href="_blank"><p>Delete</p></a>
+                    <a onClick={this.openModal} href="#"><p>Delete</p></a>
                 </nav>
                 <NotesContext.Consumer>
                     {data =>{
                         const notesArray = data.state.notes
-                        let currNote = notesArray.find(note => note.id === id);
+                        let currNote = notesArray.find(note => `${note.id}` === id);
                     return (
                         <div className="noteEnlarged">
-                            <h2>{currNote.title}</h2>
-                            <p>{currNote.textBody}</p>
+                            <h2>{currNote.title}</h2>   
+                            <p>{currNote.content}</p>
                         </div>
                     )
             
