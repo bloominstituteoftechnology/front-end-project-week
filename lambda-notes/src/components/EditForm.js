@@ -7,26 +7,29 @@ class EditForm extends Component {
         super(props);
         this.state = {
             note: {
-                id: null,
+                _id: null,
                 title: '',
                 textBody: ''
                 // tags: []
             },
-            notes: this.props.notes
+
+            notes: []
         }
     }
     componentDidMount() {
 
-        const id = this.props.match.params.id;
-        console.log(this.props.notes);
-        if (this.props.notes.length === 0) {
+        // const id = this.props.match.params.id;
+        // console.log(this.props.notes);
+        if (this.props.notes.length !== 0 && this.props.note !== null) {
+
+            // console.log(this.props.notes);
             axios
                 .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
                 .then(response => {
                     
                     this.setState({ 
                         note: response.data,
-                        // notes: this.state.notes
+                        notes: this.props.notes
                     });
                 })
                 .catch(err => {
@@ -36,10 +39,23 @@ class EditForm extends Component {
             // this.props.viewNote(id);
         }
         else {
-            console.log(this.props)
-            let noteInfo = this.props.notes.find(note => id === note._id);
+        console.log(this.props.notes);
+
+            // console.log(this.props.notes)
+            // console.log(this.state)
+            // this.setState({ notes: this.state.notes})
+            // console.log(this.state)
+            axios
+                .get(`https://fe-notes.herokuapp.com/note/get/all`)
+                .then(response => {
+                    this.setState({notes: response.data})
+                })
+                  .catch(err => {
+                    console.log(err);
+                  })
+            // let noteInfo = this.state.notes.find(note => id === note._id);
             // console.log(noteInfo);
-            this.setState({note: noteInfo})
+            // this.setState({note: noteInfo})
         }
 
     }
@@ -54,7 +70,7 @@ class EditForm extends Component {
     editNoteHandler = e => {
         e.preventDefault();
         this.props.editNote(this.props.match.params.id, this.state.note);
-        this.props.history.push(`/${this.props.match.params.id}`);
+        // this.props.history.push(`/${this.props.match.params.id}`);
         // this.props.history.goForward()
 
     }

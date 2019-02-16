@@ -35,13 +35,6 @@ class Note extends React.Component  {
         // this.setState({note: newNote});
         this.props.viewNote(id);
     }
-    // componentDidUpdate(prevProps) {
-    //     // Typical usage (don't forget to compare props):
-    //     if (this.props.note !== prevProps.note) {
-    //         this.setState({ note: this.props.note });
-    //         this.props.viewNote(this.state.note._id);
-    //     }
-    // }
     render() {
         
         return(

@@ -39,7 +39,6 @@ class App extends Component {
     axios
       .post('https://fe-notes.herokuapp.com/note/create', newNote)
       .then(response => {
-          console.log(response)
           newNote._id = response.data.success;
           
           this.setState({
@@ -55,7 +54,6 @@ class App extends Component {
   }
 
   editNote = (id, note) => {
-    console.log('lol');
 
     let updatedNote = {
       title: note.title,
@@ -66,7 +64,6 @@ class App extends Component {
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
       .then(response => {
-         console.log(response)
           // editNote.id = response;
           updatedNote._id = response;
           // const newNotes = this.state.notes.slice();
@@ -81,7 +78,7 @@ class App extends Component {
              // note: updatedNote,
               // notes: newArray,
            })
-           this.props.history.push(`note/${id}`);
+           this.props.history.push(`/note/${id}`);
           })
           .catch(err => {
             console.log(err);
