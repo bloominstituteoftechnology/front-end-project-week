@@ -9,6 +9,7 @@ import SideView from './components/SideView';
 import NotesPreview from './components/NotesPreview';
 import CreateNote from './components/CreateNote';
 import ViewOneNote from './components/ViewOneNote';
+import DeleteNote from './components/DeleteNote';
 
 class App extends Component {
   render() {
@@ -34,6 +35,12 @@ class App extends Component {
               render={props=>
               <ViewOneNote {...props} /> }
           />
+
+            <Route 
+              path={`/notes/delete/:id`}
+              render={props=>
+              <DeleteNote {...props} /> }
+              />
  
       </div>
     );

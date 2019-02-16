@@ -5,6 +5,7 @@ import axios from 'axios';
 import CreateNote from './CreateNote';
 import NotesPreview from './NotesPreview';
 import ViewOneNote from './ViewOneNote';
+import DeleteNote from './ViewOneNote';
 
 class Notes extends Component {
   constructor(props){
@@ -30,8 +31,6 @@ addNoteOnServer = newNote => {
   this.setState({notes: newNote});
 }
 
-// refresh = response => {
-//     window.location.reload();
 
 render() {
   return (
@@ -39,10 +38,9 @@ render() {
     <Route
       path="/create"
       render={props =>
-      <CreateNote {...props} notes={this.state.notes} addNoteOnServer={this.addNoteOnServer} /> } />
-    
+      <CreateNote {...props} notes={this.state.notes} addNoteOnServer={this.addNoteOnServer} /> }
+       />
 
-      />
       <Route 
       exact path="/"
       render={props=>
@@ -50,9 +48,15 @@ render() {
       />
 
        <Route 
-      path="/notes/:id"
+       path="/notes/:id"
       render={props=>
       <ViewOneNote {...props} notes={this.state.notes} /> }
+      />
+
+        <Route 
+      path="/notes/delete/:id"
+      render={props=>
+      <DeleteNote {...props} notes={this.state.notes} deleteNote={this.deleteNote} /> }
       />
       
   </div>
