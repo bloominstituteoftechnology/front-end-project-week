@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios" ;
 import Note from "./Note";
 import {Route,Link} from "react-router-dom"
-import "./note.css"
+import "./NoteList.css"
 
 class NoteList extends React.Component{
          constructor(props){
@@ -56,22 +56,36 @@ class NoteList extends React.Component{
 
 
     render(){
+
         return(
-           <div>
-               <h3>Your Notes</h3>
+           <div >
+               <h3>Your Notes:</h3>
                {
                   this.state.notes.map(note=>{
                     // return <Note key={note._id} note={note}deleteNote={this.deleteNote}
                     //          updateNote={this.updateNote}/>
+                      let title = note.title;
+                      if (note.title.length > 10) {
+                          title = title.substring(0,10) + "...";
+                      }
+
+                      let body = note.textBody;
+                      if (body.length > 30) {
+                          body = body.substring(0, 30) + " ...";
+                      }
+
+
+                      console.log("TRimmed:", title, "body",body)
                       return (
+                          <div className="content">
                             <Link className="noteLink" to={`Note/${note._id}`}>
 
-                                <div>{note.title} </div>
+                                <div  className="title">{title} </div>
 
                                 <hr/>
-                                <div>{note.textBody.substr(0, 100)} </div>
+                                <div className="body">{body} </div>
                             </Link>
-
+                          </div>
                   )
 
                   })

@@ -103,7 +103,7 @@ class App extends Component {
         return(
             <div className="myApp">
                 <div className="first">
-                    <h1>Lambda Notes</h1>
+                    <h2>Lambda Notes</h2>
                     {/*<button className="leftbutton" onClick={this.handleViewNotes}>View Your Notes</button>*/}
                     {/*<button className="leftbutton" onClick={this.handleCreateNote}> +Create new note </button>*/}
 

@@ -58,10 +58,9 @@ class Note extends React.Component{
             <div className="note">
 
 
-                    <div className="action">
-                        <Link to ={`/EditForm/${this.state.noteId}`} >edit</Link>
-                        <Link to  ={`/DeleteForm/${this.state.noteId}`} >delete</Link>
-
+                    <div >
+                        <Link className="action1" to ={`/EditForm/${this.state.noteId}`} >edit</Link>
+                        <Link className="action2" to  ={`/DeleteForm/${this.state.noteId}`} >delete</Link>
                         {/*<button onClick={this.editHandler}>Edit</button>*/}
                     </div>
 

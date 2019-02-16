@@ -1,12 +1,10 @@
 .note {
-    display: inline-block;
-    background-color: whitesmoke;
+
     margin-left: 20px;
     margin-bottom: 20px;
     width:100%;
     height:900px;
-
-    border:1px solid grey;
+    display: inline-block;
 }
 
 
@@ -17,14 +15,19 @@
     margin-left:2%;
 
 }
-.action{
+.action1{
+    margin-left: 900px;
 
-    display:flex;
-    justify-content: flex-end;
-    margin-top: 30px;
-
+    color: black;
+    font-size: 20px;
 }
 
+.action2{
+    margin-left: 20px;
+
+    color: black;
+    font-size: 20px;
+}
 .action .edit {
 
     margin-left: 10px;
@@ -50,27 +53,4 @@
 
 }
 
-.noteTitle {
-     width : 100px;
-     height: 40px;
-     background-color: lightgray;
-     margin-bottom: 20px;
- }
 
-.noteText {
-    width : 400px;
-    height: 400px;
-    background-color: lightgray;
-    margin-bottom: 20px;
-
-}
-
-.noteLink {
-    display: inline-block;
-    width : 200px;
-    height: 200px;
-    background-color: ghostwhite;
-    margin-left: 10px;
-    margin-bottom: 10px;
-
-}
