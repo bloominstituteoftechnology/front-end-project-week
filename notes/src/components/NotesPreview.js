@@ -32,7 +32,7 @@ render() {
       <h2>Your Notes: </h2>
       <div className="notesContainer">
         {this.state.notes.map((note) => (
-        <Link key={note._id} className="note" to={`/notes/${note._id}`}>
+        <Link key={note._id} className="note" to={`/note/${note._id}`}>
           <h3>{note.title}</h3>
           <p>{note.textBody}</p>   
         </Link>   

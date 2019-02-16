@@ -5,7 +5,8 @@ import axios from 'axios';
 import CreateNote from './CreateNote';
 import NotesPreview from './NotesPreview';
 import ViewOneNote from './ViewOneNote';
-import DeleteNote from './ViewOneNote';
+import DeleteNote from './DeleteNote';
+import EditNote from './EditNote';
 
 class Notes extends Component {
   constructor(props){
@@ -48,16 +49,22 @@ render() {
       />
 
        <Route 
-       path="/notes/:id"
+       path="/note/:id"
       render={props=>
       <ViewOneNote {...props} notes={this.state.notes} /> }
       />
 
         <Route 
-      path="/notes/delete/:id"
+      path="/note/delete/:id"
       render={props=>
       <DeleteNote {...props} notes={this.state.notes} deleteNote={this.deleteNote} /> }
       />
+
+        <Route 
+      path="/note/edit/:id"
+      render={props=>
+      <EditNote /> }
+      /> 
       
   </div>
 
