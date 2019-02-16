@@ -14,7 +14,7 @@ class NoteList extends Component {
                     </h2>
                     <div className='notes'>
                         {this.props.notes.map(note => {
-                            console.log('note!', note)
+                            // console.log('note!', note)
                             return (
                                 <Note
                                     note={note}

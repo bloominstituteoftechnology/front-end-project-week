@@ -20,11 +20,11 @@ class App extends Component {
     axios
       .get(`http://localhost:2200/api/notes`)
       .then(response => {
-        console.log('Data!', response)
+        // console.log('Data!', response)
         this.setState({
           notes: response.data
         })
-        console.log('Notes!', this.state.notes)
+        // console.log('Notes!', this.state.notes)
       })
       .catch(error => console.log('error!'))
   }
@@ -36,7 +36,7 @@ class App extends Component {
   // getNote = (note) => {
   //   console.log('clicked')
   //   console.log(note)
-  //   axios.get(`http://localhost:2200/api/notes/:${note.id}`)
+  //   axios.get(`http://localhost:2200/api/notes/${note.id}`)
   //     .then(response => {
   //     this.getNotes()
   //     })
@@ -55,8 +55,7 @@ class App extends Component {
 
   updateNote = (note) => {
     axios
-      .put(`http://localhost:2200/api/notes/:${note.id}`, note)
-      console.log(note)
+      .put(`http://localhost:2200/api/notes/${note.id}`, note)
       .then(response => {
         this.getNotes()
       })
@@ -65,7 +64,7 @@ class App extends Component {
 
   deleteNote = id => {
     axios
-      .delete(`http://localhost:2200/api/notes/:${id}`)
+      .delete(`http://localhost:2200/api/notes/${id}`)
       .then(response => {
         this.getNotes()
       })

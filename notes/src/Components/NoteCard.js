@@ -6,8 +6,7 @@ import './NoteCard.css';
 const NoteCard = props => {
 
     const note = props.notes.find(note => {
-        if (note.id === props.match.params.id)
-            return note;
+            return note.id.toString() === props.match.params.id;
     })
 
     if (note === undefined) {
