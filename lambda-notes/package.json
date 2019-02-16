@@ -1,6 +1,13 @@
 {
   "name": "lambda-notes",
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "description": "Lambda Notes frontend project week",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreeKeyBoy/front-end-project-week.git"
+  },
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
