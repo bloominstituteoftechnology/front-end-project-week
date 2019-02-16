@@ -60,6 +60,9 @@ class AzSort extends React.Component {
                                         <p> <strong>Content:</strong> {obj.textBody.slice(0, 100) + (obj.textBody.length > 100 ? "..." : "")}</p>
                                        
                                     </div>
+                                    <div>
+                                        <p>{obj.tagTitle}</p>
+                                    </div>
                                     
                                 </div>
                             ) 

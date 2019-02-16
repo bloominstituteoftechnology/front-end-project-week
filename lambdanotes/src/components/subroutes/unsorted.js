@@ -36,7 +36,10 @@ class UnSorted extends React.Component {
                                         <Link to={`/notes/${note.id}`}>{note.title.toUpperCase()}</Link>
                                     </h2>
                                     <div className="contentbox">
-                                        <p> <strong>Content:</strong> {note.textBody.slice(0, 100) + (note.textBody.length > 100 ? "..." : "")}</p>
+                                        <p> <strong>Content2:</strong> {note.textBody.slice(0, 100) + (note.textBody.length > 100 ? "..." : "")}</p>
+                                    </div>
+                                    <div>
+                                        <p>{note.tagTitle}</p>
                                     </div>
                                 </div>
                             )

@@ -18,10 +18,24 @@ export const ERROR = "ERROR"
 //     }
 // }
 
+// export const getNotes = () => {
+//     return (dispatch) => {
+//         dispatch({ type: LOADING })
+//         axios.get(`http://localhost:3000/notes`)         // had to change from https => http
+//             .then(response => {
+//                 dispatch({ type: SUCCESS, notes: response.data })
+//             })
+//             .catch(err => {
+//                 dispatch({ type: ERROR, errorMessage: "Trouble GETTING notes"})
+//             })
+//     }
+// }
+
+// NOTES_EX
 export const getNotes = () => {
     return (dispatch) => {
         dispatch({ type: LOADING })
-        axios.get(`http://localhost:3000/notes`)         // had to change from https => http
+        axios.get(`http://localhost:3000/notes_ex`)         // had to change from https => http
             .then(response => {
                 dispatch({ type: SUCCESS, notes: response.data })
             })
@@ -30,6 +44,7 @@ export const getNotes = () => {
             })
     }
 }
+
 
 //POST
 // export const createNote = note => {

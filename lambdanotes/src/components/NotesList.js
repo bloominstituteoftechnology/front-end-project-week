@@ -140,11 +140,11 @@ class NotesList extends React.Component {
         return (
             <div className="noteslist">
 
-
+           
             
     
             <SearchBar filterNote={this.filterNote}/>
-            <DisplayData dummyData={this.state.notes}/>
+            <DisplayData dummyData={this.props.notes}/>
 
 
 

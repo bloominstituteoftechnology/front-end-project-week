@@ -35,8 +35,9 @@ class NoteView extends React.Component {
         axios
         .get(`http://localhost:3000/notes/${id}`)
         .then(response => {
-            this.setState({ note: response.data })
+            this.setState({ note: response.data[0] })
             console.log(id)
+            console.log(response.data[0].title)
         })
         .catch(err => {
             console.log("Fail to Get INDIVIDUAL note", err)
@@ -59,6 +60,7 @@ class NoteView extends React.Component {
 
     render(){
         console.log(this.props.match.params.id)
+        console.log(this.state.note.title)
         return (
             <div>
                 <div className="note-menu">
