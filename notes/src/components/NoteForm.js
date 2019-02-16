@@ -11,7 +11,7 @@ class NoteForm extends React.Component {
             loading: false,
             updating: false,
             title: '',
-            textBody: '',
+            content: '',
         }
     }
 
@@ -23,20 +23,20 @@ class NoteForm extends React.Component {
         e.preventDefault();
         const note = {
             title: this.state.title,
-            textBody: this.state.textBody
+            content: this.state.content
         }
         if (this.props.match.params.id) {
             this.setState({...this.state, updating: true});
-            axios.put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, note)
+            axios.put(`http://localhost:3300/api/notes/${this.props.match.params.id}`, note)
                 .then( response => {
-                    this.props.history.push(`/note/${response.data._id}`);
+                    this.props.history.push(`/note/${response.data.id}`);
                 })
                 .catch( err => {
                     this.setState({error: "Unable to update note on server", updating: false});
                 })
         } else {
             this.setState({...this.state, creating: true});
-            axios.post('https://fe-notes.herokuapp.com/note/create', note)
+            axios.post('http://localhost:3300/api/notes', note)
                 .then( response => {
                     this.props.history.push(`/note/${response.data.success}`);
                 })
@@ -49,13 +49,13 @@ class NoteForm extends React.Component {
     componentDidMount() {
         if (this.props.match.params.id) {
             this.setState({...this.state, loading: true});
-            axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+            axios.get(`http://localhost:3300/api/notes/${this.props.match.params.id}`)
                 .then( response => {
                     this.setState({
                         error: null, 
                         loading: false, 
                         title: response.data.title, 
-                        textBody: response.data.textBody
+                        content: response.data.content
                     });
                 })
                 .catch( err => {
@@ -82,8 +82,8 @@ class NoteForm extends React.Component {
                         placeholder="Note Title"
                     />
                     <textarea
-                        name="textBody"
-                        value={this.state.textBody}
+                        name="content"
+                        value={this.state.content}
                         onChange={this.inputHandler}
                         placeholder="Note Content"
                     />

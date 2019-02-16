@@ -15,11 +15,12 @@ class NoteList extends React.Component {
 
     componentDidMount() {
         this.setState({...this.state, loading: true});
-        axios.get('https://fe-notes.herokuapp.com/note/get/all')
+        axios.get('http://localhost:3300/api/notes')
             .then( response => {
                 this.setState({error: null, loading: false, notes: response.data});
             })
             .catch( err => {
+                console.log(err);
                 this.setState({error: "Unable to retrieve notes from server", loading: false, notes: []});
             })
     }
@@ -33,7 +34,7 @@ class NoteList extends React.Component {
                 <section className="note-list">
                     { this.state.loading === true ? <h1>Loading...</h1>: null }
                     { this.state.error !== null ? <h1>{this.state.error}</h1> : null }
-                    { this.state.notes.map(note => <NoteCard note={note} key={note._id} /> ) }
+                    { this.state.notes.map(note => <NoteCard note={note} key={note.id} /> ) }
                 </section>
             </React.Fragment>
         )

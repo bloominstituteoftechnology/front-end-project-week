@@ -24,7 +24,7 @@ class Note extends React.Component {
 
         this.note = {
             title: '',
-            textBody: ''
+            content: ''
         }
 
         this.state = {
@@ -37,9 +37,9 @@ class Note extends React.Component {
     }
 
     deleteHandler = e => {
-        this.props.history.push(`/delete/${this.state.note._id}`);
+        this.props.history.push(`/delete/${this.state.note.id}`);
         this.setState({...this.state, modal: false, deleting: true});
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
+        axios.delete(`http://localhost:3300/api/notes/${this.props.match.params.id}`)
             .then( response => {
                 this.props.history.push(`/`);
             })
@@ -59,7 +59,7 @@ class Note extends React.Component {
 
     componentDidMount() {
         this.setState({...this.state, loading: true});
-        axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
+        axios.get(`http://localhost:3300/api/notes/${this.props.match.params.id}`)
             .then( response => {
                 this.setState({error: null, loading: false, note: response.data});
             })
@@ -75,14 +75,14 @@ class Note extends React.Component {
                 <header>
                     <h2>{this.state.note.title}</h2>
                     <div className="options">
-                        <Link to={`/edit/${this.state.note._id}`}>edit</Link>
-                        <a href={`/delete/${this.state.note._id}`} onClick={this.displayModal}>delete</a>
+                        <Link to={`/edit/${this.state.note.id}`}>edit</Link>
+                        <a href={`/delete/${this.state.note.id}`} onClick={this.displayModal}>delete</a>
                     </div>
                 </header>
                 { this.state.loading === true ? <h1>Loading...</h1> : null }
                 { this.state.deleting === true ? <h1>Deleting...</h1> : null }
                 { this.state.error !== null ? <h1>{this.state.error}</h1> : null }
-                <p>{this.state.note.textBody}</p>
+                <p>{this.state.note.content}</p>
             </div>
         )
     }
