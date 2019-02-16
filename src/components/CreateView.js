@@ -9,7 +9,6 @@ import {Redirect} from 'react-router-dom';
 class CreateView extends Component {
     constructor(props) {
         super(props);
-
         this.state ={
             title: "",
             content: "",

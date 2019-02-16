@@ -6,7 +6,8 @@ import NoteStyle from './styles/NoteStyle';
 import Card from './styles/SingleNoteView';
 import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
-const API = process.env.API_URL
+
+const API = process.env.API_URL || `http://localhost:2300/`
 
 class MyNote extends Component {
     constructor(props){
