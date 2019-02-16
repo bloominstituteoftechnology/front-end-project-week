@@ -1,11 +1,10 @@
 import React from 'react';
 
-class NotePage extends React.Component {
+class NotePage extends React.Component {    
     
-    
-    render(){
+    render(props){
         return(
-            <div>Note Page</div>
+            <div>{console.log("note page", props.content)}</div>
         )
     }
 }
