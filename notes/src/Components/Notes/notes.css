@@ -6,7 +6,7 @@
 
 .note-card {
     width: 250px;
-    height: 200px;
+    height: 250px;
     margin: 1%;
     border: 1px solid black;
     display: flex;
@@ -18,7 +18,7 @@
 .note-card .note-card-title {
     font-size: 1.2rem;
     font-weight: bold;
-    padding: 6px;
+    padding: 4px;
 }
 
 .note-card .note-card-break {
@@ -28,9 +28,10 @@
 }
 
 .note-card .note-card-body {
+    height: 80%;
+    min-height: 60px;
     padding: 6px;
     overflow: hidden;
-    
 }
 
 .note-title {

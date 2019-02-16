@@ -90,13 +90,6 @@ class NoteForm extends React.Component {
                         onChange={this.updateValue} 
                     />
                     <label>Tags</label>
-                    <input className='tags-input'
-                        name='tagItem'
-                        value={this.state.tags}
-                        placeholder={this.props.type === 'Create' ? 'Note Tags' : ''}
-                        onChange={this.updateValue}
-                    />
-                    <button className='tags-submit' type='button' onClick={this.addTag}>Add Tag</button>
                     <select className='tags-selection'
                         name='tagsList'
                         size='4'
@@ -106,6 +99,13 @@ class NoteForm extends React.Component {
                         return <option key={tag}>{tag}</option>
                     }) : ''}
                     </select>
+                    <input className='tags-input'
+                        name='tagItem'
+                        value={this.state.tags}
+                        placeholder={this.props.type === 'Create' ? 'Note Tags' : ''}
+                        onChange={this.updateValue}
+                    />
+                    <button className='tags-submit' type='button' onClick={this.addTag}>Add Tag</button>
                 </section>
                 <p>
                     <textarea className='text-body-input' 

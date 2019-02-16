@@ -19,6 +19,13 @@ const NoteCard = props => {
             <div className='note-card-body'>
                 {content}
             </div>
+            <div className='note-card-break'/>
+            <div className='note-card-tags'>
+                <h5>Tags</h5>
+                {props.note.tags.tags.map(tag => {
+                    return <div key={tag}>{tag}</div>;
+                })}
+            </div>
         </div>
     )
 }
