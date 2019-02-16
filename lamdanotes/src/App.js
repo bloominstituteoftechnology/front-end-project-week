@@ -32,16 +32,16 @@ class App extends Component {
           .catch(err => console.log(err))
   }
 
-  componentDidUpdate(prevState) {
-    if(this.state.notes !== prevState.notes) {
-      axios
-        .get('https://fe-notes.herokuapp.com/note/get/all')
-          .then(res => this.setState({
-              notes: res.data
-          }))
-          .catch(err => console.log(err))
-    }
-  }
+  // componentDidUpdate(prevState) {
+  //   if(this.state.notes !== prevState.notes) {
+  //     axios
+  //       .get('https://fe-notes.herokuapp.com/note/get/all')
+  //         .then(res => this.setState({
+  //             notes: res.data
+  //         }))
+  //         .catch(err => console.log(err))
+  //   }
+  // }
 
   addNote = (note) => {
     axios
@@ -60,7 +60,8 @@ class App extends Component {
   editNote = (id, obj) => {
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, obj)
-        .then
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
   }
 
   setCNote = (id) => {
@@ -72,6 +73,7 @@ class App extends Component {
 
 // {/* Declare Routes, Sidebar navigation should always show so it is the root */}
   render() {
+    console.log(this.state.cNote)
     return (
       <div className="container">
 
@@ -97,7 +99,7 @@ class App extends Component {
           
           <Route 
               path="/editnote/:id"
-              render={props=> ( <EditForm {...props}/>)} 
+              render={props=> ( <EditForm {...props} cNote={this.state.cNote} editNote={this.editNote} />)} 
           />
           
           

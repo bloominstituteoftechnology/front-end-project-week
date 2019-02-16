@@ -1,5 +1,9 @@
 import React from 'react';
 
+
+//props from app.js
+//{...props} editNote={this.editNote}
+
 class EditForm extends React.Component {
     constructor() {
         super();
@@ -21,7 +25,7 @@ class EditForm extends React.Component {
     }
 
     sendAndReset = (id, obj) => {
-        this.props.editNote(this.state.notes);
+        this.props.editNote(this.props.cNote, this.state.notes);
         this.setState({
             notes: {
                 textBody: "Note Body",
@@ -31,6 +35,8 @@ class EditForm extends React.Component {
     }
 
     render() {
+        console.log(this.state.notes)
+        console.log(this.props.cNote)
         return (
             <div className="editForm">
                 <h3 className="formTitles">Edit Note:</h3>
@@ -50,7 +56,10 @@ class EditForm extends React.Component {
                     value={this.state.notes.textBody}
                 />
 
-                <button className="modalButtons">Update</button>
+                <button 
+                    className="modalButtons"
+                    onClick={this.sendAndReset}
+                    >Update</button>
             </div>
         )
     }
