@@ -20,10 +20,10 @@ inputChangehandler = (e) => {
 addNew = (e) => {
   e.preventDefault();
   axios
-      .post(`https://fe-notes.herokuapp.com/note/create`, this.state)       
+      .post(`https://fe-notes.herokuapp.com/note/create`,this.state)       
       
       .then((response) => {
-       console.log(response.data)
+       
         this.props.addNoteOnServer(response.data)
     })
       .catch(err => console.log('Error', err));
