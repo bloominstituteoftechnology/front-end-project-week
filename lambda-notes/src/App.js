@@ -19,7 +19,7 @@ class App extends Component {
   }
   componentDidMount() {
     axios
-      .get('http://localhost:4000/api/notes/')
+      .get('https://dewayne-lambda-notes.herokuapp.com/')
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -38,7 +38,7 @@ class App extends Component {
   }
   updateNoteList = () => {
     axios
-      .get('http://localhost:4000/api/notes/')
+      .get('https://dewayne-lambda-notes.herokuapp.com/')
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -47,7 +47,7 @@ class App extends Component {
       });
 }
   addNewNote = note => {
-    axios.post('http://localhost:4000/api/notes/', note)
+    axios.post('https://dewayne-lambda-notes.herokuapp.com/', note)
       .then((response) => {
         console.log(response);
         this.updateNoteList();
@@ -57,7 +57,7 @@ class App extends Component {
       });
   }
   updateNote = (id, note) => {
-    axios.put(`http://localhost:4000/api/notes/${id}`, note)
+    axios.put(`https://dewayne-lambda-notes.herokuapp.com/${id}`, note)
       .then((response) => {
         this.updateNoteList();
       })
@@ -66,7 +66,7 @@ class App extends Component {
       });
   }
   deleteNote = (id) => {
-    axios.delete(`http://localhost:4000/api/notes/${id}`)
+    axios.delete(`https://dewayne-lambda-notes.herokuapp.com/${id}`)
       .then((response) => {
         this.updateNoteList();
         this.visible()
