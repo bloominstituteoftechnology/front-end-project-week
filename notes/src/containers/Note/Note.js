@@ -48,7 +48,7 @@ const Note = ({ note }) => {
   return (
     <Container>
       <Link
-        to={`notes/${note.id}`}
+        to={`note/${note.id}`}
         style={{ textDecoration: "none", color: "black" }}
       >
       <NoteCard>
