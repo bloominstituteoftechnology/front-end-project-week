@@ -4,7 +4,13 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.2.1",
+    "classnames": "^2.2.6",
+    "dotenv": "^6.2.0",
+    "netlify-cli": "^2.2.1",
     "react": "^16.6.3",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-csv": "^1.0.18",
     "react-dom": "^16.6.3",
     "react-modal": "^3.6.1",
     "react-responsive-modal": "^3.5.1",
