@@ -5,6 +5,7 @@ import Input from './styles/Input';
 import Button from './styles/Button';
 import axios from 'axios';
 
+const API = process.env.API_URL
 
 class EditNote extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ componentDidMount() {
         //     }
         // })
         const id = this.props.match.params.id;
-        axios.get(`http://localhost:2300/api/notes/${id}`)
+        axios.get(`${API}/api/notes/${id}`)
         // axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
               .then(res => {
                 //  this.setState({note: res.data})

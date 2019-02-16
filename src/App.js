@@ -9,7 +9,7 @@ import CreateView from './components/CreateView';
 import MyNote from './components/MyNote';
 import EditNote from './components/EditNote';
 
-
+const API = process.env.API_URL
 
 
 class App extends Component {
@@ -25,7 +25,7 @@ componentDidMount() {
 }
 
 fetNotes = () => {
-     axios.get('http://localhost:2300/api/notes')
+     axios.get(`${API}/api/notes`)
 //   axios.get('https://fe-notes.herokuapp.com/note/get/all')
         .then( response => {
          
@@ -45,7 +45,7 @@ fetNotes = () => {
 addContent = (event,newNotes) => {
        event.preventDefault();
        console.log(newNotes)
-       axios.post('http://localhost:2300/api/notes', newNotes)
+       axios.post(`${API}/api/notes`, newNotes)
          .then( response => {
            console.log(`create view`, newNotes.title);
            newNotes.id = response.data.success;
@@ -59,7 +59,7 @@ addContent = (event,newNotes) => {
 
 updateContent = (id, editedNote) => {
        console.log(`update note`, editedNote);
-       axios.put(`http://localhost:2300/api/notes/${id}`, editedNote)
+       axios.put(`${API}/api/notes/${id}`, editedNote)
    //  axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, editedNote)
          .then( response => {
             // this.setState({notes:[editedNote, ...this.state.notes]})
@@ -73,7 +73,7 @@ updateContent = (id, editedNote) => {
 }
 
 deleteContent = (id) => {
-    axios.delete(`http://localhost:2300/api/notes/${id}`)
+    axios.delete(`${API}/api/notes/${id}`)
    //  axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
          .then( response => {
              this.fetNotes();

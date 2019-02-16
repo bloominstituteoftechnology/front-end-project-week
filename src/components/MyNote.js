@@ -6,6 +6,7 @@ import NoteStyle from './styles/NoteStyle';
 import Card from './styles/SingleNoteView';
 import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
+const API = process.env.API_URL
 
 class MyNote extends Component {
     constructor(props){
@@ -21,13 +22,13 @@ class MyNote extends Component {
 
 componentDidMount() {
   const id = this.props.match.params.id;
-     axios.get(`http://localhost:2300/api/notes/${id}`)
+     axios.get(`${API}/api/notes/${id}`)
 //   axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(res => {
            this.setState({title:res.data.title, content:res.data.content})
         })
         .catch(err => console.log(err));
-  axios.put(`http://localhost:2300/api/notes/${id}`)        
+  axios.put(`${API}/api/notes/${id}`)        
 //   axios.put(`https://fe-notes.herokuapp.com/note/delete/${id}`)      
 }
 
