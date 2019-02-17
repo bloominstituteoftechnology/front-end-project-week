@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Csillag61/fron-end-project-week.git"
+    "url": "git+https://github.com/Csillag61/front-end-project-week.git"
   },
   "dependencies": {
     "axios": "^0.18.0",
