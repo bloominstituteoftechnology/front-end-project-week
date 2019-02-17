@@ -11,12 +11,12 @@ class NewNote extends React.Component {
         }
     }
 
-    handleChange = event => {
-        this.setState({[event.target.name]: event.target.value})
+    handleChange = e => {
+        this.setState({[e.target.name]: e.target.value})
     }
 
-    submitHandler = event => {
-        event.preventDefault();
+    submitHandler = e => {
+        e.preventDefault();
 
         this.props.addNote(this.state)
         this.setState({
@@ -25,11 +25,9 @@ class NewNote extends React.Component {
         })
 
         this.props.history.push('/');
-
-        window.location.reload();
     }
 
-    render () {
+    render() {
         return (
             <div className = 'page-header'>
                 <h3>new note</h3>

@@ -1,0 +1,7 @@
+.mm-popup {
+    display: none;
+}
+
+.mm-popup--visible {
+    display: block;
+}

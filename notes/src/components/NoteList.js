@@ -13,11 +13,11 @@ const NoteList = props => {
                 {props.notes.map(note => {
                     return(
                         <Note
-                        id={note._id}
-                        key={note._id}
-                        tags={note.tags}
-                        title={note.title}
-                        textBody={note.textBody}
+                            id = {note._id}
+                            key = {note._id}
+                            tags = {note.tags}
+                            title = {note.title}
+                            textBody = {note.textBody}
                         />
                     )
                 })}

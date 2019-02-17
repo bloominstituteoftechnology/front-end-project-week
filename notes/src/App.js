@@ -7,6 +7,7 @@ import Menu from './components/Menu';
 import NewNote from './components/NewNote';
 import NoteList from './components/NoteList';
 import SingleNote from './components/SingleNote';
+import EditNote from './components/EditNote';
 
 class App extends Component {
   constructor() {
@@ -31,10 +32,23 @@ class App extends Component {
   addNote = data => {
     axios.post('https://fe-notes.herokuapp.com/note/create', data)
     .then(response => {
-      this.setState({
-        title: response.title,
-        textBody: response.textBody,
+      data["_id"] = response.data.success;
+
+      this.setState({note: [...this.state.note, data]})
       })
+  }
+
+  editNote = (id, data) => {
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
+    .then(response => {
+      this.setState({note: [...this.state.note, response.data]})
+    })
+  }
+  
+  deleteNote = (id) => {
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      this.setState({note: [...this.state.note, response]})
     })
   }
 
@@ -49,6 +63,8 @@ class App extends Component {
           <Route exact path = '/' render = {props => <NoteList {...props} notes = {this.state.note} />} />
 
           <Route path = '/new-note' render = {props => <NewNote {...props} notes = {this.state.note} addNote = {this.addNote}/>} />
+
+          <Route exact path = '/edit-note/:_id' render = {props => <EditNote {...props} notes = {this.state.note} editNote = {this.editNote}/>} />
 
           <Route path = '/note/:noteID' render = {props => <SingleNote {...props} notes = {this.state.note}/>} />
           </section>
