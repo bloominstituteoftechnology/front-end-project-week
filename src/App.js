@@ -26,6 +26,7 @@ class App extends React.Component {
       id: "",
       tags: "",
       modalIsOpen: false,
+      saveList: [],
     };
   }
 

@@ -15,7 +15,7 @@ class Nav extends React.Component {
       id: "",
       enableList: false,
       enableSaveList: false,
-      list: [],
+      listItems: [],
       listSaveName: ""
     };
   }
@@ -38,6 +38,13 @@ class Nav extends React.Component {
     this.setState({ enableSaveList: enableSaveList });
   }
 
+  listHandler = (listItem) => {
+    let list = [];
+    list = this.state.listItems; 
+    list.push(listItem);
+		this.setState(() => ({ listItems: list}));
+  }
+  
   sortThis = () => {
     const newNotes = this.props.notes.sort((a, b) => a.title.localeCompare(b.title))
     //const newNotes =  this.props.notes.sort((a, b) => parseFloat(a.title) - parseFloat(b.title));
@@ -87,7 +94,7 @@ class Nav extends React.Component {
         {(this.state.enableSaveList) ?
           <ul className="nav-title-list">
             {this.props.notes.map((note, index) => {
-              return <NavSaveList key={index} title={note.title} viewNote={this.props.viewNote} textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
+              return <NavSaveList key={index} title={note.title} viewNote={this.props.viewNote} listHandler={this.listHandler} textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
             })}
 
           </ul> : null}

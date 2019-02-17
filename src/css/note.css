@@ -390,12 +390,30 @@ li {
     text-align: left;
 }
 
-.nav-note-lists-item:hover {
+.nav-note-lists-item:hover, .nav-save-lists-item:hover {
     background-color: rgb(43, 193, 196);
 }
 
 .nav-note-lists-item:active {
     color: red;
+}
+
+.nav-save-lists-item {
+    font-weight: bold;
+    font-size: 18px;
+    border: 2px solid white;
+    background-color: white;
+    color: black;
+    height: 28px;
+    line-height: 20px;
+    padding-top: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 6px;
+    cursor: pointer;
+    width: 256px;
+    text-align: left;
+
 }
 
 .sort-button, .save-list-button {

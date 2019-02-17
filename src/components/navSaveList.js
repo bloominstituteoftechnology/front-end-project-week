@@ -3,7 +3,7 @@ import "../css/note.css"
 
 const NavSaveList = props => {
   return <li className="nav-save-list-item">
-          <div className="nav-save-lists-item" onClick={() => props.noteView(props.id)} >{props.title}</div>
+          <div className="nav-save-lists-item" onClick={() => props.listHandler(props.id)} >{props.title}</div>
   </li>
 };
 export default NavSaveList;
