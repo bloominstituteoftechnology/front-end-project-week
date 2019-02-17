@@ -3,12 +3,14 @@ import axios from 'axios';
 import { Button } from 'reactstrap';
 import { FormContainer } from '../../style/style';
 
-class Login extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       username :'',
-      password :'' 
+      password :'',
+      firstName:'',
+      lastName:''
     }
   }
 
@@ -22,14 +24,17 @@ class Login extends Component {
   handleSubmit = (e) =>{
     e.preventDefault();
     const url = `${process.env.REACT_APP_AUTH_URL}/register`;
-    const creds ={
+    const user ={
       username:this.state.username,
-      password:this.state.password
+      password:this.state.password,
+      first_name:this.state.firstName,
+      last_name:this.state.lastName
     }
     axios
-    .post(url, creds)
+    .post(url, user)
     .then(res =>{
-      localStorage.setItem('jwt', res.data.token)
+      console.log(res)
+      this.props.history.push('/');
     })
     .catch(err =>{
       console.log(err)
@@ -40,11 +45,13 @@ class Login extends Component {
     return ( 
       <>
       <FormContainer>
-      <h1 className="form-title">PLEASE LOGIN</h1>
+      <h1 className="form-title">PLEASE REGISTER TO ADD NOTES</h1>
       <form>
+      <input name="firstName" type="text"placeholder="First Name" onChange={this.handleChange} value={this.state.firstName}/><br/>
+      <input name="lastName" type="text"placeholder="Last Name" onChange={this.handleChange} value={this.state.lastName}/><br/>
       <input name="username" type="text"placeholder="Username" onChange={this.handleChange} value={this.state.username}/><br/>
       <input name="password" type="password" placeholder="Password" onChange={this.handleChange}value={this.state.password}/><br/>
-        <Button color="primary" size="lg" onClick={this.handleSubmit}> Register </Button>
+      <Button color="primary" size="lg" onClick={this.handleSubmit}> Register </Button>
       </form>
       </FormContainer>
       </>
@@ -52,4 +59,4 @@ class Login extends Component {
   }
 }
  
-export default Login;
+export default Register;
