@@ -57,17 +57,12 @@ export default class SingleNote extends Component {
             .catch(error => console.log(error))
     }
 
-    fetchNoteforEdit = () => {
-        // console.log(this.state)
-        this.props.updateNote(this.state)
-
-    }
 
     render() {
         if(this.state.note.length===0) {
             return <div>Loading...</div>
         }
-        console.log(this.state)
+        // console.log(this.state)
         return(
             <div>
                 <div>
@@ -77,7 +72,7 @@ export default class SingleNote extends Component {
                 </div>
 
                 {/* <Link to={`EditNote/${this.state.note._id}`}> */}
-                <button onClick={this.fetchNoteforEdit}>Edit</button>
+                <Link to={`/EditNote/${this.props.match.params.id}`}><button>Edit</button></Link>
                 {/* </Link> */}
                 <button onClick={this.toggleModal}>Delete</button>
                 <Notes

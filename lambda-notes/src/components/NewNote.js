@@ -2,9 +2,6 @@ import React , { Component } from 'react';
 
 import axios from 'axios';
 
-import { Link } from "react-router-dom";
-
-
 export default class NewNote extends Component {
     constructor(props) {
         super(props);
@@ -18,9 +15,14 @@ export default class NewNote extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
+
+    returnHome = () => {
+        this.props.history.push("/")
+    }
+
     addNote = (e) => {
         // const note = {this.state}
-        console.log(this.state)
+        // console.log(this.state)
         e.preventDefault();
         if(this.state.title === "" || this.state.textBody === "") {
             alert("Cannot be blank")
@@ -31,8 +33,8 @@ export default class NewNote extends Component {
                 .then(response => {
                     // console.log(response.data)
                     // console.log(this.state)
-                    // this.state.history.push('/')
-                    window.location.href="/"
+                    // window.location.href="/"
+                    this.returnHome();
                     
                     
                 })
