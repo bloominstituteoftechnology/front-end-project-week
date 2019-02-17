@@ -4,6 +4,8 @@ import { Button } from "reactstrap";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import ReactCSSTG from "react-addons-css-transition-group";
+import { library } from '@fortawesome/fontawesome-svg-core';
+
 //const ReactCSSTG = React.addons.CSSTransitionGroup;
 
 // class App extends React.Component {
@@ -78,11 +80,15 @@ class Modal extends React.Component {
             </Link>
 
         </Button>
+        
           <Button className= "face" onClick={this.props.onSubmit}>
-            <i className="fab fa-facebook" aria-hidden="true" />
-          </Button>
-          <Button className="tweet" onClick={this.props.onSubmit}>
-            <i className="fab fa-twitter" aria-hidden="true" />
+            <i className="fab fa-facebook"></i> <a href="https://facebook.com"/>
+            </Button>
+            
+          
+         <Button className="tweet" onClick={this.props.onSubmit}>
+            <i className="fab fa-twitter"></i> <a href= "https://www.twitter.com"/>
+            
           </Button>
         </div>
         <div>
@@ -120,7 +126,7 @@ class Logo extends React.Component {
     return (
       <div className="logo">
         <i className="fa fa-edit fa-spin" />
-        <span> Lambda Notes </span>
+        <span> CSILLAG NOTES </span>
       </div>
     );
   }
