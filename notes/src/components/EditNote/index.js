@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import "./editNote.css";
+import URL from "../../utils/URL";
 
 class EditNote extends React.Component {
   constructor(props) {
@@ -16,12 +17,12 @@ class EditNote extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(`http://localhost:5002/api/notes/${this.props.match.params.id}`)
+      .get(`${URL}api/notes/${this.props.match.params.id}`)
       .then(res => {
         this.setState({
           title: res.data.title,
           textBody: res.data.textBody,
-          id: res.data._id
+          id: res.data.id
         });
       })
       .catch(err => {

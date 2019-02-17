@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { Link } from "react-router-dom";
 import "./note.css";
-const URL = "https://lambda-notes-backend-jt.herokuapp.com/";
+import URL from "../../utils/URL";
 
 class Note extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Note extends React.Component {
 
   render() {
     return (
-      <article className="note-container" name={this.state.note._id}>
+      <article className="note-container" name={this.state.note.id}>
         <span className="edit-delete">
           <Link to={`/notes/${this.state.note.id}/edit`}>Edit</Link>
           <p onClick={this.delete}>Delete</p>

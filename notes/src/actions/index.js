@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "https://lambda-notes-backend-jt.herokuapp.com/";
+import URL from "../utils/URL";
 
 export const FETCHING = "FETCHING";
 export const FETCHED = "FETCHED";
@@ -63,9 +63,9 @@ export const createNote = note => {
 export const updateNote = note => {
   return dispatch => {
     dispatch({ type: UPDATING });
-
+    console.log(note);
     axios
-      .put(`${URL}api/notes/${note.id}`, note)
+      .put(`${URL}api/notes/${note.id}/edit`, { ...note })
       .then(res => {
         dispatch({ type: UPDATED });
       })

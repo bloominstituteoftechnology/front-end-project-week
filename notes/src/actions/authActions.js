@@ -1,8 +1,7 @@
 import axios from "axios";
 import setJWT from "../utils/setJWT";
 import jwt from "jsonwebtoken";
-
-const URL = "https://lambda-notes-backend-jt.herokuapp.com/";
+import URL from "../utils/URL";
 
 export const REGISTER = "REGISTER";
 export const SIGNIN = "SIGNIN";
