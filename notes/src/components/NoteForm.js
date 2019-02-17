@@ -38,7 +38,7 @@ class NoteForm extends React.Component {
             this.setState({...this.state, creating: true});
             axios.post('http://localhost:3300/api/notes', note)
                 .then( response => {
-                    this.props.history.push(`/note/${response.data.success}`);
+                    this.props.history.push(`/note/${response.data.id}`);
                 })
                 .catch( err => {
                     this.setState({error: "Unable to create note on server", creating: false});
