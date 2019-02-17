@@ -1,23 +1,30 @@
 import React from 'react';
+import '../App.css';
 //import ReactDom from 'react-dom';
 // import axios from 'axios';
 
-import Note from './Note';
-
-class NoteList extends React.Component {
-
+function NoteList(props) {
     
+    return(
+        <div className='note-list'>
+            {props.content.map((note) => {
+                return(
+                    <div 
+                        className='note' 
+                        key={note.id} 
+                        onClick={()=> {
+                            props.history.push(`/notes/${note.id}`)                            
+                        }} 
+                    >
+                        <h2>{note.title}</h2>
+                        <div>{note.note}</div>
+                    </div>
+                )
+            })}
+            
+        </div>
+    )
 
-    render() {
-        return(
-            <div className='note-list'>
-                {this.props.content.map((note) => {
-                    return <Note key={note.id} content = {note} />
-                })}
-                
-            </div>
-        )
-    }
 }
 
 export default NoteList;

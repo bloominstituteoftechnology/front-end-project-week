@@ -8,7 +8,7 @@ import {
 
 
 import NoteList from './components/NoteList'
-import NotePage from './components/NotePage';
+import Note from './components/Note';
 import CreateNote from './components/CreateNote';
 import axios from 'axios';
 
@@ -61,11 +61,13 @@ class App extends Component {
         </nav>
         
         <Route exact path='/' render={props => (
-          <NoteList content={this.state.noteList} {...props}/>
+          <NoteList {...props} content={this.state.noteList} />
         )}/>
         <Route
-          exact path='notes/:id'
-          component={NotePage} />
+          path='/notes/:id'
+          render={props => (
+            <Note {...props} content={this.state.noteList}/>
+          )} />
         <Route exact path='/create' component={CreateNote} />
  
         
