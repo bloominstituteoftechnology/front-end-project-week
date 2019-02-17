@@ -100,6 +100,17 @@ li {
     justify-content: center;
 }
 
+.list-save-input {
+ 
+    border: 2px solid rgb(151, 151, 151);
+    width: 260px;
+  margin-bottom: 8px;
+}
+
+.save-list-button {
+
+}
+
 .main-display {
     display: flex;
     flex-direction: column;
@@ -387,7 +398,7 @@ li {
     color: red;
 }
 
-.sort-button {
+.sort-button, .save-list-button {
     border: 2px solid rgb(151, 151, 151);
     text-align: center;
     background-color: rgb(43, 193, 196);

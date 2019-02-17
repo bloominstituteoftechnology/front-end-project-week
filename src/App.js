@@ -64,7 +64,7 @@ class App extends React.Component {
 
   noteCreate = (e) => {
     e.preventDefault();
-    localStorage.setItem('viewPage', "noteCreate");
+    //localStorage.setItem('viewPage', "noteCreate");
     let pageType = `noteCreate`
     this.setState({ viewPage: pageType });
   }
@@ -74,7 +74,7 @@ class App extends React.Component {
     //const modalType = !false;
     let modalType = true;
     localStorage.setItem('modals', modalType)
-    localStorage.setItem('viewPage', "login");
+   // localStorage.setItem('viewPage', "login");
 
     let pageType = 'login';
     //let _id = id;
@@ -85,7 +85,7 @@ class App extends React.Component {
     const modalType = !false;
     //let modalType = true;
     localStorage.setItem('modals', modalType)
-    localStorage.setItem('viewPage', "noteDelete");
+   // localStorage.setItem('viewPage', "noteDelete");
 
     let pageType = 'noteDelete';
     let _id = id;
@@ -93,20 +93,20 @@ class App extends React.Component {
   }
 
   noteEdit = id => {
-    localStorage.setItem('viewPage', "noteEdit");
+  //  localStorage.setItem('viewPage', "noteEdit");
     let pageType = "noteEdit"
     this.setState(() => ({ viewPage: pageType, id: id }));
   }
 
   noteList = (e) => {
     e.preventDefault();
-    localStorage.setItem('viewPage', "noteList");
+    //localStorage.setItem('viewPage', "noteList");
     let pageType = "noteList"
     this.setState(() => ({ viewPage: pageType }));
   }
 
   noteView = id => {
-    localStorage.setItem('viewPage', "noteView");
+   // localStorage.setItem('viewPage', "noteView");
     let pageType = "noteView"
     let _id = id;
     //console.log("in noteView app.js")
@@ -133,7 +133,7 @@ class App extends React.Component {
           <div className="main-container">
             <Nav noteList={this.noteList} noteCreate={this.noteCreate} login={this.login}/>
             <div className="main-display">
-              <NoteCreate changeHandler={this.changeHandler} saveNote={this.saveNote} />
+              <NoteCreate changeHandler={this.changeHandler} saveNote={this.saveNote} noteList={this.noteList} />
             </div>
           </div>
         </div>;
@@ -153,7 +153,7 @@ class App extends React.Component {
           <div className="main-container">
             <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteEdit={this.noteEdit} noteView={this.noteView} login={this.login} />
             <div className="main-display">
-              <NoteEdit changeHandler={this.changeHandler} tags={this.tags} id={this.state.id} />
+              <NoteEdit changeHandler={this.changeHandler} tags={this.tags} id={this.state.id} noteList={this.noteList}/>
             </div>
           </div>
         </div>;

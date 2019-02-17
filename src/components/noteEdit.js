@@ -9,7 +9,7 @@ class NoteEdit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: [],
+           // notes: [],
             tags: '',
             title: '',
             textBody: '',
@@ -35,6 +35,7 @@ class NoteEdit extends Component {
             textBody: this.state.textBody,
         }
         this.props.updateNote(newRec, this.props.id);
+        this.props.noteList(e);
     };
 
     changeHandler = (e) => {
@@ -44,7 +45,7 @@ class NoteEdit extends Component {
 
     render() {
         return (
-            <form className="note-edit-form" >
+            <form className="note-edit-form" onSubmit={this.noteUpdate}>
                 <header className="note-create-header">Edit Note:</header>
                 <input
                     type="text"
@@ -62,7 +63,7 @@ class NoteEdit extends Component {
                     name="textBody" />
                 <button
                     className="update-button"
-                    onClick={this.noteUpdate}>
+                    onSubmit={this.noteUpdate}>
                     Update
             </button>
             </form>
@@ -70,10 +71,12 @@ class NoteEdit extends Component {
     };
 }
 const mapStateToProps = state => {
-    // const { singleNoteReducer } = state;
+    const { singleNoteReducer } = state;
     return {
-        error: state.notesReducer.error,
-        noteSelected: state.singleNoteReducer.noteSelected
+        error: state.error,
+	//	creatingNote: state.creatingNote
+        // error: state.singleNoteReducer.error,
+        noteSelected: singleNoteReducer.noteSelected
     };
 };
 

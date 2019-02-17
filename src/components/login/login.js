@@ -58,8 +58,8 @@ class Login extends Component {
                 .post('http://localhost:5000/api/users/login', userInfo)
                 .then(res => {
                     console.log('reponse data from login', res.data);
-                   // localStorage.setItem('jwt', res.data.token);
-                    alert('Login successful...')
+                    localStorage.setItem('jwt', res.data.token);
+                    alert('Login successful...');
                     const passWord = "";
                     const userName = "";
                     this.setState(() => ({ username: userName, password: passWord, display: false, disabled: false }))

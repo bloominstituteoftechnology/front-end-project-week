@@ -18,11 +18,11 @@ export const notesReducer = (state = initialState, action) => {
     case actionTypes.UPDATING_NOTE:
       return { ...state, updatingNote: true };
     case actionTypes.UPDATE_NOTE:
-      return { ...state, notes: action.payload, updatingNote: false };
+      return { ...state, noteSelected: action.payload, updatingNote: false };
     case actionTypes.CREATING_NOTE:
       return { ...state, creatingNote: true };
     case actionTypes.CREATE_NOTE:
-      return { ...state, notes: action.payload, creatingNote: false };
+      return { ...state,  noteSelected: action.payload, creatingNote: false };
     case actionTypes.ERROR:
       return {
         ...state,

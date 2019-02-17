@@ -40,6 +40,7 @@ export const registerUser = (newUser) => {
    axios.post('http://localhost:5000/api/users/register', newUser)  
     .then(response => {
         dispatch({ type: REGISTER_USER, payload: response.data })
+       
         alert('registration complete...')
       })
       .catch(err => {
@@ -76,6 +77,7 @@ export const loginUser = (id) => {
       .post(URL)
       .then(response => {
         dispatch({ type: LOGIN_USER, payload: response.data })
+        localStorage.setItem('jwt', response.data.token);
       })
       .catch(error => {
         dispatch({ type: ERROR, payload: error })

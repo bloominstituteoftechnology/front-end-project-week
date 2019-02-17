@@ -23,11 +23,13 @@ class NoteCreate extends Component {
 		const { tags, title, textBody, _id, image, users_id } = this.state;
 		
 		this.props.createNote({ title, textBody, tags, _id, image, users_id });
-		this.setState({ tags: '', title: '', textBody: '', _id: "", image: "", users_id: "" });
+		//this.setState({ tags: '', title: '', textBody: '', _id: "", image: "", users_id: "" });
+		this.props.noteList(e);
 	};
 
 	render() {
 		return (
+			
 			<form className="note-create-form" onSubmit={this.handleAddNote}>
 				<header className="note-create-header">Create New Note</header>
 				<input
@@ -44,12 +46,14 @@ class NoteCreate extends Component {
 					value={this.state.value}
 					onChange={this.handleInputChange}
 					name="textBody" />
-				<button className="save-button" onSubmit={this.handleAddNote}>Save</button>
+				<button className="save-button" type="submit" onSubmit={this.handleAddNote}>Save</button>
 			</form>
+		
 		);
 	}
 };
 const mapStateToProps = state => {
+	//const { notesReducer } = state;
 	return {
 		error: state.error,
 		creatingNote: state.creatingNote

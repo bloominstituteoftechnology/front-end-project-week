@@ -19,11 +19,21 @@ export const TOGGLE_UPDATE_NOTE = 'TOGGLE_UPDATE_NOTE';
 export const getNotes = () => {
   return (dispatch) => {
     dispatch({ type: GETTING_NOTES })
+    const token = localStorage.getItem('jwt');
+    const endpoint = 'http://localhost:5000/api/notes';
+    const options = {
+    /*   headers: {
+        Authorization: token
+      } */
+    };
     axios
+     // .get('http://localhost:5000/api/notes', options)
+   // axios
    // .get('https://fe-notes.herokuapp.com/note/get/all')
-   .get('http://localhost:5000/api/notes')
+  .get('http://localhost:5000/api/notes')
    // .get('https://frontend-william.herokuapp.com/api/notes')
       .then(response => {
+        //console.log("response:", response)
         dispatch({ type: GET_NOTES, payload: response.data })
       })
       .catch(error => {
@@ -33,7 +43,7 @@ export const getNotes = () => {
 }
 
 export const createNote = (newNote) => {
-  console.log("newNote", newNote)
+  //console.log("newNote", newNote)
   return (dispatch) => {
     dispatch({ type: CREATING_NOTE })
    // axios.post('https://frontend-william.herokuapp.com/api/notes', newNote)
