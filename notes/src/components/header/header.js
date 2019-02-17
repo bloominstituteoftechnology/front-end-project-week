@@ -18,7 +18,7 @@ class Header extends Component {
             </div>
             <Nav>
               <NavLink to ='/'>Login</NavLink>
-              <NavLink to ='/help'>Help</NavLink>
+              <NavLink to ='/register'>Register</NavLink>
             </Nav>
           </HeaderNav>
         </Container>

@@ -12,6 +12,7 @@ import Side from './components/side/side';
 import Form from './components/form/form';
 import MyNotes from './components/notes/myNotes';
 import Login from './components/auth/login';
+import Register from './components/auth/register';
 
 class App extends Component {
   constructor(props){
@@ -98,6 +99,7 @@ class App extends Component {
     <Wrapper>
     <Side/>
     <Route exact path='/' component ={ Login }/>
+    <Route exact path='/register' component ={ Register }/>
     <Route exact path="/notes" render={(props) => <NoteList {...props} notes={this.state.notes} getId={this.clickHandler} id={this.state.id}/>}/>
     <Route exact path="/form" render ={(props) => <Form {...props}  update={this.handleChange} submit={this.handleSubmit} />}/>
     <Route exact path='/noteView/:id' render={(props) => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>}/>
