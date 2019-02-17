@@ -10,9 +10,15 @@ const NoteList = props => {
             </div>
         
             <div className = 'note-list'>
-                {props.notes.map(notes => {
+                {props.notes.map(note => {
                     return(
-                        <Note key = {notes.id} tags = {notes.tags} title = {notes.title} textBody = {notes.textBody} />
+                        <Note
+                        id={note._id}
+                        key={note._id}
+                        tags={note.tags}
+                        title={note.title}
+                        textBody={note.textBody}
+                        />
                     )
                 })}
             </div>
