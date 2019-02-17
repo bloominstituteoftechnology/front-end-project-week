@@ -13,15 +13,10 @@ class NoteView extends Component {
         path: "Note View",
     }
 
-    
-
  componentDidMount() {
 
     this.getNote(this.props.match.params.id) 
  }
-       
- 
-
     getNote = (id) => {
         axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then( res => { this.setState({

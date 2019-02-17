@@ -28,8 +28,6 @@ class DeleteModal extends Component {
          alert("Delete Successful");
     }
 
-
-
   render() {
     const { open } = this.state;
       return (

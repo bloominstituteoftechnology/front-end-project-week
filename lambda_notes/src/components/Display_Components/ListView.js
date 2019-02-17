@@ -16,7 +16,7 @@ class ListView extends Component {
 }
     componentDidUpdate() {
     
-    axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+    axios.get(`http://localhost:4500/api/notes`)
         .then( res => {
             this.setState({
             notes: res.data,
@@ -28,18 +28,15 @@ class ListView extends Component {
         
 }
 
-   
-
     render() {
         return (
-            
             <NoteWrap>
                 <NoteHeading></NoteHeading>
             {this.state.notes.map( note => {
                 return (
-               <NoteContent  key={note._id}>
-                   <Link to={`/note/${note._id}`} note={this.props.notes} ><Title>{note.title}</Title></Link> 
-                    <p>{note.textBody}</p>
+               <NoteContent  key={note.id}>
+                   <Link to={`/note/${note.id}`} note={this.props.notes} ><Title>{note.title}</Title></Link> 
+                    <p>{note.note}</p>
                </NoteContent>
                 )
             })}
