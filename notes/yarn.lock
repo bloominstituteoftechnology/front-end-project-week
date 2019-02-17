@@ -883,6 +883,13 @@
     "@svgr/core" "^2.4.1"
     loader-utils "^1.1.0"
 
+"@tinymce/tinymce-react@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@tinymce/tinymce-react/-/tinymce-react-3.0.1.tgz#6343e004d14fcc875cfe1cd6d0cf552a341ac55b"
+  integrity sha512-19g2iHR6Bxp7FpnyA/71Aq5kzzM7D5adT87hL+QvcySH1NoqB2aTqBBdiF/0HoDVI/nXq7FbalmlIcVTen1WrQ==
+  dependencies:
+    prop-types "^15.6.2"
+
 "@types/tapable@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.2.tgz#e13182e1b69871a422d7863e11a4a6f5b814a4bd"

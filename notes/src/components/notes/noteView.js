@@ -14,9 +14,16 @@ class NoteView extends Component {
 
   componentDidMount(){
     const url = process.env.REACT_APP_API_URL
+    const token = localStorage.getItem('jwt');
+    const options = {
+      headers: {
+          Authorization: token
+      }
+    }
     axios
-    .get(`${url}/${this.props.match.params.id}`)
+    .get(`${url}/${this.props.match.params.id}`,options)
     .then(res =>{
+      console.log(res)
       this.setState({
         note:res.data
       })
@@ -27,7 +34,7 @@ class NoteView extends Component {
   }
 
   goto = () =>{
-    this.props.history.push('/')
+    this.props.history.push('/notes')
   }
   
 

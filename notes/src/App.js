@@ -11,6 +11,7 @@ import { Wrapper } from './style/style';
 import Side from './components/side/side';
 import Form from './components/form/form';
 import MyNotes from './components/notes/myNotes';
+import Login from './components/auth/login';
 
 class App extends Component {
   constructor(props){
@@ -68,7 +69,7 @@ class App extends Component {
           notes:this.state.notes
         });
         window.location.reload();
-        this.props.history.push('/');
+        this.props.history.push('/notes');
       })
       .catch(err => console.log(err));
       
@@ -76,8 +77,14 @@ class App extends Component {
 
   componentDidMount(){
     const url = process.env.REACT_APP_API_URL
+    const token = localStorage.getItem('jwt');
+    const options = {
+      headers: {
+          Authorization: token
+      }
+    }
     axios
-    .get(`${url}`)
+    .get(`${url}`, options)
     .then(res => this.setState({
       notes:res.data
     }))
@@ -90,13 +97,10 @@ class App extends Component {
     <Header/>
     <Wrapper>
     <Side/>
-    <Route exact path="/" render={(props) => <NoteList {...props} notes={this.state.notes} getId={this.clickHandler} id={this.state.id}/>}/>
+    <Route exact path='/' component ={ Login }/>
+    <Route exact path="/notes" render={(props) => <NoteList {...props} notes={this.state.notes} getId={this.clickHandler} id={this.state.id}/>}/>
     <Route exact path="/form" render ={(props) => <Form {...props}  update={this.handleChange} submit={this.handleSubmit} />}/>
-    <Route exact path='/noteView/:id' 
-    render={(props) => <NoteView {...props} 
-    notes={this.state.notes} 
-    delete={this.deleteNote}/>}
-    />
+    <Route exact path='/noteView/:id' render={(props) => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>}/>
     <Route exact path='/noteView/editNote/:id' component={EditNote}/>
     <Route exact path='/myNotes'component ={MyNotes}/>
     </Wrapper>

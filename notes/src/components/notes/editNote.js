@@ -10,42 +10,53 @@ class EditNote extends Component {
     this.state = {
       id: this.props.match.params.id,
       title:'',
-      textBody: '',
+      textBody: ''
   }
 } 
 
-
 componentDidMount() {
   const url = process.env.REACT_APP_API_URL
-    axios.get(`${url}/${this.props.match.params.id}`)
-    .then(res =>{
-      this.note = res.data[0]
+  const token = localStorage.getItem('jwt');
+  const options = {
+    headers: {
+        Authorization: token
+    }
+  }
+  axios.get(`${url}/${this.props.match.params.id}`,options)
+  .then(res =>{
+    this.note = res.data[0]
       this.setState({
-       title: this.note.title,
-       textBody:this.note.textBody
+        title: this.note.title,
+        textBody:this.note.textBody
       })
-    })
-    .catch(err => console.log(err))
+  })
+  .catch(err => console.log(err))
 }
 
 handleChange = (event) => {
   const {name, value} = event.target;
   this.setState(
-      {
-        [name]: value
-      }
+    {
+      [name]:value
+    }
   )
 }
 
 handleEditNote = e => {
   e.preventDefault();
   const url = process.env.REACT_APP_API_URL
+  const token = localStorage.getItem('jwt');
+  const options = {
+    headers: {
+        Authorization: token
+    }
+  }
   const note = {
     title: this.state.title,
     textBody: this.state.textBody
   };
   axios
-    .put(`${url}/${this.state.id}`, note)
+    .put(`${url}/${this.state.id}`, note, options)
     .then(res => {
       this.setState({
         note: res.data,
@@ -60,7 +71,6 @@ goto = () =>{
 }
 
   render() { 
-    console.log(this.note)
     return(
       <>
       <FormContainer>
