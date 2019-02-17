@@ -163,6 +163,16 @@ input[type=text] {
   outline:none;
 }
 
+input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+  outline:none;
+}
+
 .note-actions{
   display: flex;
   justify-content: flex-end;

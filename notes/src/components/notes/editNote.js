@@ -14,18 +14,23 @@ class EditNote extends Component {
   }
 } 
 
-
 componentDidMount() {
   const url = process.env.REACT_APP_API_URL
-    axios.get(`${url}/${this.props.match.params.id}`)
-    .then(res =>{
-      this.note = res.data[0]
+  const token = localStorage.getItem('jwt');
+  const options = {
+    headers: {
+        Authorization: token
+    }
+  }
+  axios.get(`${url}/${this.props.match.params.id}`,options)
+  .then(res =>{
+    this.note = res.data[0]
       this.setState({
-      title: this.note.title,
-      textBody:this.note.textBody
+        title: this.note.title,
+        textBody:this.note.textBody
       })
-    })
-    .catch(err => console.log(err))
+  })
+  .catch(err => console.log(err))
 }
 
 handleChange = (event) => {
@@ -40,12 +45,18 @@ handleChange = (event) => {
 handleEditNote = e => {
   e.preventDefault();
   const url = process.env.REACT_APP_API_URL
+  const token = localStorage.getItem('jwt');
+  const options = {
+    headers: {
+        Authorization: token
+    }
+  }
   const note = {
     title: this.state.title,
-    textBody: this.state.content
+    textBody: this.state.textBody
   };
   axios
-    .put(`${url}/${this.state.id}`, note)
+    .put(`${url}/${this.state.id}`, note, options)
     .then(res => {
       this.setState({
         note: res.data,
@@ -60,14 +71,13 @@ goto = () =>{
 }
 
   render() { 
-    
     return(
       <>
       <FormContainer>
           <h1 className="form-title">Edit Note &nbsp;|<Button color="link" onClick={this.goto}>Back</Button></h1>
         <form>
           <input type="text" name="title" placeholder="note title" value={this.state.title} onChange={this.handleChange}/><br/>
-          <textarea placeholder="note content" name="textBody" onChange={this.handleChange} value={this.state.textBody}/><br/> 
+          <textarea placeholder="note content" name="textBody" onChange={this.handleChange} value={this.state.textBody}/><br/>
           <Button color="primary" size="lg" onClick={this.handleEditNote}> Update</Button>
         </form>
         </FormContainer>
