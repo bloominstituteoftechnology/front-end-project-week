@@ -12,6 +12,7 @@
     "dotenv": "^6.2.0",
     "i": "^0.3.6",
     "immutability-helper": "^2.8.1",
+    "kleur": "3",
     "lodash.flow": "^3.5.0",
     "logger": "^0.0.1",
     "moment-js": "^1.1.15",
@@ -28,7 +29,7 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
+    "react-scripts": "^2.1.5",
     "react-transition-group": "^2.5.3",
     "reactstrap": "^6.4.0",
     "redux": "^4.0.0",
@@ -45,5 +46,11 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.4.2"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
