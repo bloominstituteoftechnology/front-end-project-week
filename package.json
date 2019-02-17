@@ -2,6 +2,10 @@
   "name": "lambdanotes",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Csillag61/fron-end-project-week.git"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
