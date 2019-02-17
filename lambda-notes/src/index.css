@@ -1,0 +1,231 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html {
+	font-size:62.5%;
+}
+.app {
+	max-width: 900px;
+	display: flex;
+	
+}
+.sidebar-links {
+	width:25%;
+	background-color:#D2D2D2;
+	border:1px solid gray;
+	display: flex;
+	flex-direction: column;
+	
+	
+}
+.content {
+	width:74%;
+	background-color: #F1F1F1;
+	border:1px solid gray;
+}
+.link {
+	background-color:#25BBBD;
+	color:white;
+	font-size:1.6rem;
+	text-decoration: none;
+	padding: 8px;
+	margin:0px auto;
+	margin-top:20px;
+	border:1px solid gray;
+	width:170px;
+	text-align: center;
+}
+.fullscreen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background-color: rgba(216, 216, 216, 0.7);
+}
+.delete {
+	width:400px;
+	padding:30px;
+	margin: 0px auto;
+	margin-left:170px;
+	background-color: white;
+	margin-top:160px;
+	font-size:16px;
+	text-align: center;
+	border:1px solid gray;
+}
+.hidden{
+	display:none;
+}
+.deletepara{
+	margin-bottom:15px;
+}
+.button1{
+	background-color:#CE0120;
+	color:white;
+	padding:10px;
+	cursor: pointer;
+	width:150px;
+	margin-right:10px;
+	display: inline-block
+}
+.button2{
+	background-color:#26B5C4;
+	cursor: pointer;
+	color:white;
+	padding:10px;
+	width:150px;
+	display: inline-block
+}
+.navlink{
+	width:80%;
+	padding:10px;
+}
+.notelink{
+	color:black;
+	text-decoration: none;
+}
+h1{
+	font-size:3.6rem;
+	margin-left:10px;
+	margin-top:10px;
+	font-weight: bold;
+}
+h2{
+	font-size:2.4rem;
+}
+
+.noteheadline{
+	padding-bottom:5px;
+}
+.modifynote{
+	display: flex;
+	flex-direction: column;
+	height:100vh;
+}
+.input{
+	width:50%;
+	margin-top:30px;
+	margin-bottom:15px;
+	height:25px;
+	border-radius: 5px;
+}
+.textarea{
+	max-width:99%;
+	width:99%;
+	border-radius: 5px;
+	height:300px;
+	margin-bottom: -10px;
+	outline:none;
+	resize: none;
+	overflow: auto
+}
+.notes{
+	width:100%;
+	justify-content: space-between;
+	display:flex;
+	flex-wrap: wrap;	
+	margin-top:15px;
+	overflow-wrap: break-word;
+}
+.container{
+	margin:0px 25px;
+	margin-top:50px;
+	
+}
+.notePreview {
+	border:1px solid gray ;
+	width:26%;
+	height:200px;
+	padding-left: 15px;
+	padding-right:15px;
+	margin-top: 10px;
+	margin-bottom:10px;
+	font-size:1.8rem;	
+	background-color: white;
+}
+
+.notelist-note {
+	line-height: 1.6;
+	font-size:1.4rem
+
+}
+.heading {
+	border-bottom: 1px solid gray;
+	margin-bottom: 10px;
+	padding-bottom:10px;
+	font-size:1.8rem;
+	font-weight: bold;
+}
+.navbar {
+	text-align: end;
+	margin-bottom:10px;
+}
+.edit-delete {
+	text-decoration: underline;
+	color: black;
+	font-size:1.4rem;
+	cursor: pointer;
+}
+span {
+	padding-left:10px;
+}
+.notecard {
+	margin-top:15px;
+	height:100vh;
+}
+h3 {
+	font-size:2.4rem;
+	margin-top:20px;
+}
+.notepara {
+	line-height: 1.6;
+	font-size:1.4rem;
+	margin-top:15px;
+}
