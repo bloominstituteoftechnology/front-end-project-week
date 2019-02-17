@@ -4,7 +4,8 @@ import {
   ERROR,
   SUCCESS_SINGLE,
   UPDATE,
-  FILTER
+  FILTER,
+  SIGNIN
 } from "../actions";
 
 const initialState = {
@@ -24,7 +25,8 @@ const initialState = {
   allTags: [],
   fetching: false,
   updating: false,
-  error: ""
+  error: "",
+  signedOut: true
 };
 
 export default (state = initialState, action) => {
@@ -50,7 +52,7 @@ export default (state = initialState, action) => {
         notes: action.payload,
         filteredNotes: action.payload,
         fetching: false,
-        error: "",
+        error: ""
         // allTags: tagList
       });
     case ERROR:
@@ -73,6 +75,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { updating: true });
     case FILTER:
       return Object.assign({}, state, { filteredNotes: action.payload });
+    case SIGNIN:
+      localStorage.setItem('jwt', action.payload.token);
+      return Object.assign({}, state, { signedOut: false });
     default:
       return state;
   }

@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { loginReq } from "../actions/index";
+import { register } from "../actions/index";
 
-const SigninForm = styled.div`
+const SignupForm = styled.div`
    {
     display: flex;
     flex-direction: column;
@@ -16,11 +16,11 @@ const SigninForm = styled.div`
     margin: auto;
   }
 
-  .unauthorized {
-    color: red;
-    margin: auto;
-    font-size: 1.1 rem;
-    padding-bottom: 5px;
+  .error-message {
+      color: red;
+      margin: auto;
+      font-size: 1.1rem;
+      padding-bottom: 5px;
   }
 
   form {
@@ -54,8 +54,9 @@ class SignIn extends React.Component {
     super();
     this.state = {
       username: "",
-      password: "",
-      unauth: true
+      passwordOne: "",
+      passwordTwo: "",
+      error: ""
     };
   }
 
@@ -65,22 +66,21 @@ class SignIn extends React.Component {
 
   submitHandler = e => {
     e.preventDefault();
-    this.props.loginReq({
-      username: this.state.username,
-      password: this.state.password
-    });
+    if (this.state.passwordOne !== this.state.passwordTwo) {
+      this.setState({ error: "Passwords do not match", passwordOne: '', passwordTwo: '' });
+    } else {
+      this.props.register({
+        username: this.state.username,
+        password: this.state.passwordOne
+      });
+    }
   };
-
-  sendToSignUp = e => {
-    e.preventDefault();
-    this.props.history.push(`/signup`);
-  }
 
   render() {
     return (
-      <SigninForm>
+      <SignupForm>
         <h3>Please Sign Into Notable</h3>
-        {this.state.unauth ? (<div className="unauthorized"> Incorrect username or password </div>): null}
+        <div className="error-message">{this.state.error}</div>
         <form onSubmit={this.submitHandler}>
           <input
             type="text"
@@ -92,18 +92,23 @@ class SignIn extends React.Component {
           />
           <input
             type="password"
-            name="password"
-            id="password"
-            value={this.state.password}
+            name="passwordOne"
+            id="passwordOne"
+            value={this.state.passwordOne}
             placeholder="password"
             onChange={this.changeHandler}
           />
-          <button type="submit">Sign In</button>
+          <input
+            type="password"
+            name="passwordTwo"
+            id="passwordTwo"
+            value={this.state.passwordTwo}
+            placeholder="retype your password"
+            onChange={this.changeHandler}
+          />
+          <button type="submit">Sign Up</button>
         </form>
-        <form>
-          <button onClick={this.sendToSignUp} >Sign up for a new account</button>
-        </form>
-      </SigninForm>
+      </SignupForm>
     );
   }
 }
@@ -114,5 +119,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { loginReq }
+  { register }
 )(SignIn);

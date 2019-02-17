@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 
 import NoteList from "./components/NoteList";
 import NoteForm from "./components/NoteForm";
 import SingleNote from "./components/SingleNote";
 import SignIn from "./components/SignIn";
+import SignUp from './components/SignUp';
 
 // something styled - need flex for sidebar and notes
 const MainDiv = styled.div`
@@ -47,8 +49,6 @@ const Button = styled.div`
   font-size: 1.4rem;
 `;
 
-const signedOut = true;
-
 class App extends Component {
   sendToForm = () => {
     this.props.history.push(`/form`);
@@ -61,8 +61,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        {signedOut ? (
-          <SignIn />
+        {this.props.signedOut ? (
+          <div>
+            <Route exact path="/" render={props => <SignIn {...props} />} />
+            <Route exact path="/signup" render={props => <SignUp {...props} />} />
+          </div>
         ) : (
           <MainDiv>
             <SideBar>
@@ -104,4 +107,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    signedOut: state.signedOut
+  };
+};
+
+export default connect(mapStateToProps)(App);
