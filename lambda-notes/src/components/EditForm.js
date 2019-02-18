@@ -43,7 +43,7 @@ class EditForm extends Component {
                         notes: response.data,
                         note: this.props.note
                     })
-                    
+
                 })
                 .catch(err => {
                     console.log(err);
@@ -67,6 +67,7 @@ class EditForm extends Component {
     render() {
         return (
             <form onSubmit={this.editNoteHandler}>
+            <h2>Edit note</h2>
                 <Input
                     value={this.state.note.title}
                     onChange={this.changeHandler}

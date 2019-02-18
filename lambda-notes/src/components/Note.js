@@ -51,8 +51,6 @@ class Note extends React.Component  {
         return(
             <section>
 
-                <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
-
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
 
                 <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
@@ -64,6 +62,10 @@ class Note extends React.Component  {
                     <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                 </ModalFooter>
                 </Modal>
+                
+                <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
+
+               
                 <Link to={`/edit/${this.props.match.params.id}`}>
                     <Button color="warning">Edit <FaEdit/></Button>
                 </Link>

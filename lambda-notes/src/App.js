@@ -129,6 +129,7 @@ class App extends Component {
       <div className="App">
         
           <div className="container">
+
             <Route path="/"
               render={props =>
                 <Sidebar {...props}/>
@@ -136,7 +137,7 @@ class App extends Component {
             />
             <Route exact path="/" 
               render={props => 
-               <NotesList {...props} viewNote={this.viewNote} editNote={this.editNote} notes={this.state.notes} />
+               <NotesList {...props} viewNote={this.viewNote} notes={this.state.notes} />
               }
             />
             <Route path="/notes/create" 
@@ -144,18 +145,17 @@ class App extends Component {
                 <AddNoteForm {...props} addNote={this.addNote}/>
               }
             />
-
             <Route exact path="/note/:id" 
               render={props =>
-                <Note {...props} notes={this.state.notes} editNote={this.editNote} viewNote={this.viewNote} deleteNote={this.deleteNote}/>
+                <Note {...props} notes={this.state.notes} viewNote={this.viewNote} deleteNote={this.deleteNote}/>
               }
             />
-
             <Route exact path="/edit/:id"
               render={props =>
                 <EditForm {...props} note={this.state.note} notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote}/>
               }
             />
+
         </div>
 
       </div>

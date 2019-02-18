@@ -125,8 +125,18 @@ section h1 {
 form {
   margin-left: 33px;
   margin-top: 55px;
+  width: 100%;
 }
-
+form h2 {
+  /* text-align: left; */
+  padding-bottom: 30px;
+}
+form button {
+  width: 100%;
+}
+textarea {
+  min-height: 333px;
+}
 input.form-control, textarea.form-control  {
   margin-bottom: 33px;
 }
