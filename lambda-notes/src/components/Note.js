@@ -23,7 +23,6 @@ class Note extends React.Component  {
             
             this.setState({ 
                 notes: response.data
-                
             });
             
             let activeNote = this.state.notes.find(note => note._id === this.props.match.params.id);
