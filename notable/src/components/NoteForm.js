@@ -73,7 +73,8 @@ class NoteForm extends React.Component {
         title: this.state.title,
         textBody: this.state.textBody
       });
-      this.props.history.push(`/note/${this.props.note.id}`);
+      // this.props.history.push(`/note/${this.props.note.id}`);
+      this.props.history.push(`/`);
     } else {
       this.props.addNote({
         title: this.state.title,
