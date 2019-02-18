@@ -5,7 +5,7 @@ const NotesList = props => {
   return (
     <div onDragOver={()=>{}} className='notes-container'>
       <h2 className='your-notes'>Your Notes:</h2>
-      <button onClick={props.sortNotesAZ} className='sort-button'>Sort A-Z</button>
+      <button className='sort-button'>Sort A-Z</button>
       {props.notes.map(note => {
         const id = note.id
         return (

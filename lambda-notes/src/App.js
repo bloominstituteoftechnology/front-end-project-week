@@ -37,7 +37,7 @@ class App extends Component {
     this.props.history.push('/notes'); 
   };
   sortNotesAZ = () => {
-    this.props.sortNote();  
+      
   };
   
   render() {
@@ -64,11 +64,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes,
-    fetching: state.fetching,
-  };
-};
 
 export default App;
