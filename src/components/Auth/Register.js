@@ -3,37 +3,55 @@ import axios from 'axios';
 import Modal from '../styles/Modal';
 import Input from '../styles/LoginInput.js';
 
+const API = process.env.API_URL || `http://localhost:2300`;
+
+
 export default class Register extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    msg: ''
  }
+
  handleInput = (event) => {
     event.preventDefault();
     const target = event.target;
     this.setState({
        [target.name] : target.value
-    })
+    });
  }
+ 
  handleSubmit = (event) => {
     event.preventDefault();
-    const credentials = this.state;
+    const credentials = {email:this.state.email, password:this.state.password};
     if(!credentials.email) alert('Pleaser enter email');
     if(!credentials.password) alert('Pleaser enter password');
-    const endpoint = 'http://localhost:3300/api/register';
+    const endpoint = `${API}/api/register`;
     axios.post(endpoint, credentials)
          .then(response => {
-            console.log(response);
+            console.log(`Registered response`, response);
+            this.setState({
+               msg:`**`+response.data.msg
+            })
          })
          .catch(err => {
-            console.log(`errorMessage: `, err);
+             this.setState({
+                msg: `**Something went wrong..already registered??`
+             })           
          });
      
    this.setState({
      email: '',
      password:''
      });    
+   this.props.history.push('/login');
  } 
+
+ deleteMessage = () => {
+    this.setState({
+       msg: ''
+    });
+ }
 
  render() {
    return (
@@ -57,8 +75,12 @@ export default class Register extends Component {
                    placeholder='Password'></Input>
          </div>
          <div>
-           <button type='submit' className='register'>Register</button>
+           <button type='submit'
+                   className='register'
+                   onMouseLeave={this.deleteMessage}
+                   >Register</button>
          </div>
+         <p className='para-msg'>{this.state.msg}</p>
        </form>
        </Modal>
       </div>

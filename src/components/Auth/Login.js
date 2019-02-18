@@ -3,6 +3,8 @@ import axios from 'axios';
 import Modal from '../styles/Modal';
 import Input from '../styles/LoginInput';
 
+const API = process.env.API_URL || `http://localhost:2300`;
+
 export default class Login extends Component {
   
   state = {
@@ -19,13 +21,15 @@ export default class Login extends Component {
   handleSubmit = (event) => {
      event.preventDefault();
      const credentials = this.state;
-     if(!credentials.username) alert('Pleaser enter a valid email');
+     if(!credentials.email) alert('Pleaser enter a valid email');
      if(!credentials.password) alert('Pleaser enter a valid password');
-     const endpoint = 'http://localhost:3300/api/login';
+     const endpoint = `${API}/api/login`;
      axios.post(endpoint, credentials)
           .then(response => {
              console.log(response);
              localStorage.setItem('jwt', response.data.token);
+             console.log(`props from sign-in`,this.props);
+             this.props.history.push('/');
           })
           .catch(err => {
              console.log(`errorMessage: `, err);

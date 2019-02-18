@@ -6,6 +6,11 @@ import Register from './Auth/Register';
 import {Link, Route} from 'react-router-dom';
 
 class LambdaNotes extends Component {
+    logout = (event) => {
+      event.preventDefault();
+      console.log(`local storage removed`);
+      localStorage.removeItem('jwt');
+    }
     render() {
         return (
             <>
@@ -22,7 +27,7 @@ class LambdaNotes extends Component {
                 <Link className='reg' to='/Login'>Log in</Link>
                 <Link className='reg' to='/Register'>Register</Link>
               </nav> 
-              <a className='reg'>Sign out</a>
+              <a className='reg' onClick={this.logout}>Sign out</a>
             </div>
             </SideNotes>
            

@@ -34,6 +34,15 @@ const Modal = styled.div`
           padding:0px;
           color:#DAA520;
         }
+        .para-msg {
+          margin:0px;
+          margin-left:-30px;
+          margin-bottom:-5px;
+          margin-top:30px;
+          padding:0px;
+          color:#FF0;
+          
+        }
         ${'' /* p{
             color: orange;
         }

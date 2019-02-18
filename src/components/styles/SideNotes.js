@@ -15,6 +15,9 @@ const SideNotes = styled.div`
         text-align: left;
         margin-top: 20px;
      }
+     .reg {
+        cursor:pointer;
+     }
     
 `
 export default SideNotes;
