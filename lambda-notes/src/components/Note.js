@@ -45,13 +45,12 @@ class Note extends React.Component  {
         return(
             <section>
                 
-                <NoteCard { ...this.state.note } editNote={this.props.editNote} /> 
-
                 <Link to={`/edit/${this.props.match.params.id}`}>
                     <Button color="warning">Edit <FaEdit/></Button>
                 </Link>
 
-                <Button color="danger" onClick={() => this.props.deleteNote(this.props.match.params.id)}>Delete <FaTrashAlt/></Button>
+                <Button color="danger" onClick={() => this.props.deleteNote(this.props.match.params.id)}>Delete <FaTrashAlt/></Button>                
+                <NoteCard { ...this.state.note } editNote={this.props.editNote} /> 
 
             </section>
         )
