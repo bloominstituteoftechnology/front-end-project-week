@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "parsleyjs": "^2.8.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-icons": "^3.4.0",
