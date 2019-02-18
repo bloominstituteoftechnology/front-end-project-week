@@ -17,23 +17,23 @@ class App extends Component {
     }
   };
   componentWillMount() {
-    this.props.fetchNotes();
+    
   };
   componentWillUnmount() {
-    this.props.fetchNotes();
+    
   };
   handleInputChange = event => this.setState({ 
     [event.target.name]: event.target.value 
   });
   clickHandler = event => {
     event.preventDefault();
-    this.props.addNote(this.state)
+    
     this.setState({ title: '', textBody: '' });
     this.props.history.push('/notes');
     
   };
   handleDelete=(event)=> { 
-    this.props.deleteNote(event);
+    
     this.props.history.push('/notes'); 
   };
   sortNotesAZ = () => {
@@ -71,4 +71,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps,{ fetchNotes, addNote, deleteNote, sortNote })(App));
+export default App;
