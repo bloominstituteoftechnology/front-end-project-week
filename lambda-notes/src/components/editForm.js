@@ -17,18 +17,17 @@ class EditForm extends Component {
     
     this.setState({ ...note });
   };
-  handleInputChange = event => this.setState({ 
-    [event.target.name]: event.target.value 
+  handleInputChange = e => this.setState({ 
+    [e.target.name]: e.target.value 
   });
-  editNote = (event) => {
-    event.preventDefault();
-    this.props.editNote(this.state );
+  editNote = (e) => {
+    e.preventDefault();
     this.setState({ title: '', textBody: '' });
     this.props.history.push('/notes');
   }
   render() {
     return (
-      <form onSubmit={(event) => this.editNote(event)} className='form'>
+      <form onSubmit={() => {}} className='form'>
         <h3 className='add-header'>Edit Note:</h3>
         <input 
           onChange={this.handleInputChange}
@@ -55,4 +54,4 @@ const mapStateToProps = state => {
       notes: state.notes
   };
 };
-export default withRouter(connect(mapStateToProps, { editNote, fetchNotes })(EditForm));
+export default EditForm;
