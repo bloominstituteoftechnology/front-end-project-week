@@ -68,3 +68,23 @@
   left:60px;
   z-index: 1000;
 }
+
+.register {
+  width: 120px;
+  background: rgba(255,0,0,.9);
+  margin-top: 20px;
+  padding: 8px;
+  margin-right: 20px;
+  color: yellow;
+  cursor: pointer;
+}
+
+.reg {
+   text-decoration: none;
+   padding: 7px 10px;
+   background:tomato;
+   display:block;
+   margin-top:10px;
+   color:yellow;
+
+}

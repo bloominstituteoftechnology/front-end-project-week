@@ -5,7 +5,7 @@ import Input from './styles/Input';
 import Button from './styles/Button';
 import axios from 'axios';
 
-const API = process.env.API_URL || `http://localhost:2300/`;
+const API = process.env.API_URL || `http://localhost:2300`;
 
 class EditNote extends Component {
     constructor(props) {

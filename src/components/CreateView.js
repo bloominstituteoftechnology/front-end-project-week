@@ -60,7 +60,6 @@ class CreateView extends Component {
             <>
                <Wrapper>
                 <h2>Create New Note:</h2>
-               
                 <Container>
                   <form className='form' onSubmit= {this.submitHandler}>
                       <Input className="input"
