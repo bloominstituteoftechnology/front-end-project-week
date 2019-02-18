@@ -45,10 +45,4 @@ class EditForm extends Component {
     );
   }
 }
-
-const mapStateToProps = state => { 
-  return {
-      notes: state.notes
-  };
-};
 export default EditForm;
