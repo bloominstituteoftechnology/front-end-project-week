@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/navigation';
 import NotesList from './components/notesList';
-import { Route, withRouter } from'react-router-dom';
+import { Route} from'react-router-dom';
 import AddNoteForm from './components/addNoteForm';
 import EditForm from './components/editForm';
 import SingleNote from './components/singleNote';
