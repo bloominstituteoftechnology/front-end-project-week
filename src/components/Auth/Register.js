@@ -5,7 +5,7 @@ import Input from '../styles/LoginInput.js';
 
 export default class Register extends Component {
   state = {
-    username: '',
+    email: '',
     password: ''
  }
  handleInput = (event) => {
@@ -18,7 +18,7 @@ export default class Register extends Component {
  handleSubmit = (event) => {
     event.preventDefault();
     const credentials = this.state;
-    if(!credentials.username) alert('Pleaser enter username');
+    if(!credentials.email) alert('Pleaser enter email');
     if(!credentials.password) alert('Pleaser enter password');
     const endpoint = 'http://localhost:3300/api/register';
     axios.post(endpoint, credentials)
@@ -30,7 +30,7 @@ export default class Register extends Component {
          });
      
    this.setState({
-     username: '',
+     email: '',
      password:''
      });    
  } 
@@ -38,18 +38,19 @@ export default class Register extends Component {
  render() {
    return (
      <div>
-     <h1>Sign-Up/Register</h1>
+    
      <Modal>
+       <h1 className='h1'>Sign-Up/Register:</h1>
         <form onSubmit={this.handleSubmit}>
         <div>         
-            
-            <Input type='text' name='username'
-                   value={this.state.username}
+            <p className='para'>Your Email:</p>
+            <Input type='email' name='email'
+                   value={this.state.email}
                    onChange={this.handleInput}
-                   placeholder='User name'></Input>
+                   placeholder='Email'></Input>
          </div>
          <div>
-            
+            <p className='para'>Password:</p>
             <Input type='text' name='password'
                    value={this.state.password}
                    onChange={this.handleInput}

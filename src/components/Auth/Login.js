@@ -6,7 +6,7 @@ import Input from '../styles/LoginInput';
 export default class Login extends Component {
   
   state = {
-     username: '',
+     email: '',
      password: ''
   }
   handleInput = (event) => {
@@ -19,7 +19,7 @@ export default class Login extends Component {
   handleSubmit = (event) => {
      event.preventDefault();
      const credentials = this.state;
-     if(!credentials.username) alert('Pleaser enter a valid username');
+     if(!credentials.username) alert('Pleaser enter a valid email');
      if(!credentials.password) alert('Pleaser enter a valid password');
      const endpoint = 'http://localhost:3300/api/login';
      axios.post(endpoint, credentials)
@@ -32,7 +32,7 @@ export default class Login extends Component {
           });
       
     this.setState({
-      username: '',
+      email: '',
       password:''
       });    
   } 
@@ -40,25 +40,26 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-       <h1>Log-in form</h1>
+      
        <Modal>
+       <h1 className='h1'>Log-in form:</h1>
         <form onSubmit={this.handleSubmit}>
         <div>         
-           
-            <Input type='text' name='username'
-                   value={this.state.username}
+            <p className='para'>Your Email:</p>
+            <Input type='email' name='email'
+                   value={this.state.email}
                    onChange={this.handleInput}
-                   placeholder='User name'></Input>
+                   placeholder='Email'></Input>
          </div>
          <div>
-           
+            <p className='para'>Password:</p> 
             <Input type='text' name='password'
                    value={this.state.password}
                    onChange={this.handleInput}
                    placeholder='Password'></Input>
          </div>
          <div>
-           <button type='submit' className='sign'>Sign In</button>
+           <button type='submit' className='register'>Sign In</button>
          </div>
        </form>
        </Modal>

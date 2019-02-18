@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const Modal = styled.div`
         position: fixed;
-        top: 25%;
-        left:22%;
+        top: 5%;
+        left:30%;
         color:yellow;
         background-color: rgba(0,0,0,0.65);
         z-index: 2;
@@ -16,17 +16,24 @@ const Modal = styled.div`
         border:1px solid rgba(0,0,0,.65);
         align-items: center;
         width: 50%;
-        padding: 90px 30px 60px 60px;
+        padding: 20px 30px 60px 60px;
         margin:100px auto;
-        .sign {
-           width:280px;
-           background:rgba(255,0,0,.9);
-           margin-top:20px;
-           padding:12px;
-           margin-right:20px;
-           color:yellow;
-           cursor:pointer;
-       }
+        .h1{
+          font-size:32px;
+          text-align:left;
+          display:flex;
+          justify-content:start;
+          margin-left: -250px;
+        }
+       
+        .para {
+          margin:0px;
+          margin-left:-120px;
+          margin-bottom:-5px;
+          margin-top:10px;
+          padding:0px;
+          color:#DAA520;
+        }
         ${'' /* p{
             color: orange;
         }
