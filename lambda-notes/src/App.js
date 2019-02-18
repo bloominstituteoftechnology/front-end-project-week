@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchNotes, addNote, deleteNote, sortNote } from './actions';
 import Navigation from './components/navigation';
 import NotesList from './components/notesList';
-import { connect } from 'react-redux';
 import { Route, withRouter } from'react-router-dom';
 import AddNoteForm from './components/addNoteForm';
 import EditForm from './components/editForm';
