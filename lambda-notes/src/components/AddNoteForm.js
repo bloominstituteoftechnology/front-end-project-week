@@ -8,7 +8,6 @@ class AddNoteForm extends Component {
             note: {
                 title: '',
                 textBody: ''
-                // tags: []
             }
         }
     }
@@ -22,18 +21,7 @@ class AddNoteForm extends Component {
     }
     addNoteHandler = e => {
         e.preventDefault();
-        console.log('hello')
-            this.props.addNote(this.state.note);
-            // this.props.history.push(`/note/${this.props.match.params.id}`);
-
-            // this.setState({
-            //     note: {
-            //         title: '',
-            //         textBody: ''
-            //         // tags: []
-            //     }
-            // })
-
+        this.props.addNote(this.state.note);
     }
 
     render() {

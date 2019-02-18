@@ -7,7 +7,9 @@ const SideBar = () => {
         <div className="aside">
             <h1>Lambda Notes</h1>
             <Button color="info">
-                <Link to={'/'}> View Your Notes</Link>
+                <Link to={'/'}>
+                    View Your Notes
+                </Link>
             </Button>
             <Button color="info">
                 <Link to={'/notes/create'}> + Create Your Note</Link>

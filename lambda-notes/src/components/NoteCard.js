@@ -1,9 +1,12 @@
 import React from 'react';
 
+
+
 const NoteCard = props => {
-    // console.log(props);
+
         return(
             <div className="note-card">
+                
 
                 <h2 className="note-title">
                     {props.title}
@@ -11,9 +14,7 @@ const NoteCard = props => {
                 <div className="note-textBody">
                     {props.textBody}
                 </div>
-                {/* <Link to={`/edit/${props._id}`}>
-                    <div>Edit</div>
-                </Link> */}
+                
                 
             </div>
         )

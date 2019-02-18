@@ -20,18 +20,30 @@ class App extends Component {
     }
   }
   componentDidMount() {
+      
+    this.fetchNotes();
+    
+  }
+ 
+  fetchNotes = () => {
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
-        this.setState({notes: response.data})
+        
+          this.setState({
+              notes: response.data
+          })
+
       })
       .catch(err => {
         console.log(err);
       })
   }
+
   addNote = note => {
 
     const newNote = {
+      tags: note.tags,
       title: note.title,
       textBody: note.textBody
     }
@@ -56,34 +68,31 @@ class App extends Component {
   editNote = (id, note) => {
 
     let updatedNote = {
+      tags: note.tags,
+      id: note._id,
       title: note.title,
       textBody: note.textBody,
-      tag: []
     }
 
     axios
       .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedNote)
       .then(response => {
-          // editNote.id = response;
-          updatedNote._id = response;
-          // const newNotes = this.state.notes.slice();
- 
-         // let newArray = this.state.notes.slice().concat(editNote);
-          // let newArray = this.state.notes.filter(note => note._id !== id).concat(updatedNote);
-          // console.log(newNotes)
- 
-           this.setState({
-           // notes: newArray;
-              notes: [...this.state.notes, updatedNote],
-             // note: updatedNote,
-              // notes: newArray,
-           })
-           this.props.history.push(`/note/${id}`);
-          })
-          .catch(err => {
-            console.log(err);
+       
+          let noteIndex = this.state.notes.findIndex(note => note._id === response.data._id)
+          let firstHalf = this.state.notes.slice(0, noteIndex);
+          let secondHalf = this.state.notes.slice(noteIndex + 1, this.state.notes.length - 1);
+          let updatedNotes = firstHalf.concat([response.data]).concat(secondHalf);
+
+          this.setState({
+            notes: updatedNotes,
           })
 
+          this.props.history.push(`/note/${id}`);
+        
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   viewNote = id => {
@@ -112,6 +121,7 @@ class App extends Component {
           .catch(err => {
               console.log(err);
           })
+          this.props.history.push(`/`);
   }
 
   render() {
@@ -124,7 +134,11 @@ class App extends Component {
           </div>
           :
           <div className="container">
-            <Sidebar />
+            <Route path="/"
+              render={props =>
+                <Sidebar {...props}/>
+              }
+            />
             <Route exact path="/" 
               render={props => 
                <NotesList {...props} viewNote={this.viewNote} editNote={this.editNote} notes={this.state.notes} />
@@ -138,7 +152,7 @@ class App extends Component {
 
             <Route exact path="/note/:id" 
               render={props =>
-                <Note {...props} note={this.state.note} notes={this.state.notes} editNote={this.editNote} viewNote={this.viewNote} deleteNote={this.deleteNote}/>
+                <Note {...props} notes={this.state.notes} editNote={this.editNote} viewNote={this.viewNote} deleteNote={this.deleteNote}/>
               }
             />
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import NoteCard from './NoteCard';
 import { Link } from 'react-router-dom';
 
 const NotesList = props => {
+
     return(
         <section>
             <h1>Your notes</h1>
@@ -11,7 +11,14 @@ const NotesList = props => {
                     return (
                         <div key={index} className="card">
                             <Link to={`/note/${note._id}`} >
-                                <NoteCard {...props} notes={props.notes} editNote={props.editNote} title={note.title} id={note._id} textBody={note.textBody}/>
+
+                                <h2 className="note-title">
+                                    {note.title}
+                                </h2>
+                                <div className="note-textBody">
+                                    {note.textBody}
+                                </div>
+                                
                             </Link>
                         </div>
                     )
