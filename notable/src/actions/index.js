@@ -1,7 +1,8 @@
 import axios from "axios";
+// eslint-disable-next-line
 const cl = console.log;
-// const address = 'https://notable-littleton.herokuapp.com'
-const address = "http://localhost:4700";
+const address = 'https://notable-littleton.herokuapp.com'
+// const address = "http://localhost:4700";
 
 export const FETCHING = "FETCHING";
 export const SUCCESS = "SUCCESS";
@@ -10,6 +11,7 @@ export const ERROR = "ERROR";
 export const UPDATE = "UPDATE";
 export const FILTER = "FILTER";
 export const SIGNIN = "SIGNIN";
+export const AUTH = "AUTH";
 
 export const addNote = data => {
   return dispatch => {
@@ -25,11 +27,11 @@ export const addNote = data => {
   };
 };
 
-export const fetchNotes = () => {
+export const fetchNotes = header => {
   return dispatch => {
     dispatch({ type: FETCHING });
     axios
-      .get(`${address}/notes`)
+      .get(`${address}/notes`, header)
       .then(response => {
         dispatch({ type: SUCCESS, payload: response.data });
       })
@@ -117,14 +119,33 @@ export const loginReq = user => {
 
 export const register = user => {
   return dispatch => {
-    axios.post(`${address}/register`, user).then(response => {
-      dispatch({ type: SIGNIN, payload: response.data })
-    }).catch(err => {
-      dispatch({type: ERROR, payload: `Problem registering. ${err}`})
-    })
-  }
-}
+    axios
+      .post(`${address}/register`, user)
+      .then(response => {
+        dispatch({ type: SIGNIN, payload: response.data });
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, payload: `Problem registering. ${err}` });
+      });
+  };
+};
 
 export const filterNotes = list => {
   return { type: FILTER, payload: list };
+};
+
+export const checkAuth = header => {
+  return dispatch => {
+    axios
+      .get(`${address}/users`, header)
+      .then(response => {
+        dispatch({ type: AUTH, payload: response.data });
+      })
+      .catch(err => {
+        dispatch({
+          type: ERROR,
+          payload: `Problem getting active user. ${err}`
+        });
+      });
+  };
 };

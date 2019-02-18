@@ -55,7 +55,7 @@ class SignIn extends React.Component {
     this.state = {
       username: "",
       password: "",
-      unauth: true
+      unauth: false
     };
   }
 

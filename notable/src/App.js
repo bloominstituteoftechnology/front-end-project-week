@@ -7,7 +7,8 @@ import NoteList from "./components/NoteList";
 import NoteForm from "./components/NoteForm";
 import SingleNote from "./components/SingleNote";
 import SignIn from "./components/SignIn";
-import SignUp from './components/SignUp';
+import SignUp from "./components/SignUp";
+import { checkAuth } from "./actions/index";
 
 // something styled - need flex for sidebar and notes
 const MainDiv = styled.div`
@@ -58,13 +59,27 @@ class App extends Component {
     this.props.history.push(`/`);
   };
 
+  componentDidMount() {
+    const token = localStorage.getItem("jwt");
+    const reqOptions = {
+      headers: {
+        Authorization: token
+      }
+    };
+    this.props.checkAuth(reqOptions)
+  }
+
   render() {
     return (
       <div>
         {this.props.signedOut ? (
           <div>
             <Route exact path="/" render={props => <SignIn {...props} />} />
-            <Route exact path="/signup" render={props => <SignUp {...props} />} />
+            <Route
+              exact
+              path="/signup"
+              render={props => <SignUp {...props} />}
+            />
           </div>
         ) : (
           <MainDiv>
@@ -113,4 +128,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(
+  mapStateToProps,
+  { checkAuth }
+)(App);

@@ -5,7 +5,8 @@ import {
   SUCCESS_SINGLE,
   UPDATE,
   FILTER,
-  SIGNIN
+  SIGNIN,
+  AUTH
 } from "../actions";
 
 const initialState = {
@@ -34,37 +35,15 @@ export default (state = initialState, action) => {
     case FETCHING:
       return Object.assign({}, state, { fetching: true });
     case SUCCESS:
-      // const tagList = [];
-      // action.payload.forEach(note => {
-      //   const strArr = note.textBody.split(" ");
-      //   strArr.forEach(word => {
-      //     const tag = word.substr(1).trim();
-      //     if (word[0] === "#" && !tagList.includes(word.substr(1))) {
-      //       note.tags.push(tag);
-      //       tagList.push(tag);
-      //     } else if (word[0] === "#" && tagList.includes(word.substr(1))) {
-      //       note.tags.push(tag);
-      //     }
-      //   });
-      // });
-      // tagList.push("ALL");
       return Object.assign({}, state, {
         notes: action.payload,
         filteredNotes: action.payload,
         fetching: false,
         error: ""
-        // allTags: tagList
       });
     case ERROR:
       return Object.assign({}, state, { error: action.payload });
     case SUCCESS_SINGLE:
-      // const strArr = action.payload.textBody.split(" ");
-      // strArr.forEach(word => {
-      //   if (word[0] === "#") {
-      //     const tag = word.substr(1).trim();
-      //     action.payload.tags.push(tag);
-      //   }
-      // });
       return Object.assign({}, state, {
         singleNote: action.payload,
         fetching: false,
@@ -76,8 +55,14 @@ export default (state = initialState, action) => {
     case FILTER:
       return Object.assign({}, state, { filteredNotes: action.payload });
     case SIGNIN:
-      localStorage.setItem('jwt', action.payload.token);
+      localStorage.setItem("jwt", action.payload.token);
       return Object.assign({}, state, { signedOut: false });
+    case AUTH:
+      if (action.payload.user) {
+        return Object.assign({}, state, { signedOut: false });
+      } else {
+        return Object.assign({}, state, { signedOut: true });
+      }
     default:
       return state;
   }

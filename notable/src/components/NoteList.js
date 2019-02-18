@@ -54,7 +54,14 @@ const CardDiv = styled.div`
 
 class NoteList extends React.Component {
   componentDidMount() {
-    this.props.fetchNotes();
+    const token = localStorage.getItem("jwt");
+    const reqOptions = {
+      headers: {
+        Authorization: token
+      }
+    };
+
+    this.props.fetchNotes(reqOptions);
   }
 
   gotoSingleNote = id => {
