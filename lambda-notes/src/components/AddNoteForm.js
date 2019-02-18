@@ -27,7 +27,6 @@ class AddNoteForm extends Component {
     render() {
         return (
             <form onSubmit={this.addNoteHandler}>
-            <h2>Add a note</h2>
                 <Input
                     value={this.state.note.title}
                     onChange={this.changeHandler}
