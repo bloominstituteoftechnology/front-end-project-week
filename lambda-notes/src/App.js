@@ -15,8 +15,7 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      note: null,
-      modal: false
+      note: null
     }
   }
   componentDidMount() {
@@ -25,6 +24,7 @@ class App extends Component {
     
   }
  
+  
   fetchNotes = () => {
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
@@ -128,11 +128,6 @@ class App extends Component {
     return (
       <div className="App">
         
-        {this.state.modal === true ? 
-          <div className="container">
-            {/* Modal */}
-          </div>
-          :
           <div className="container">
             <Route path="/"
               render={props =>
@@ -162,9 +157,6 @@ class App extends Component {
               }
             />
         </div>
-      }
-        
-        
 
       </div>
     );
