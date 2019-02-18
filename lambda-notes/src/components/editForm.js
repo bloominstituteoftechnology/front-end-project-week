@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { editNote, fetchNotes } from '../actions';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 class EditForm extends Component {
   constructor(props) {

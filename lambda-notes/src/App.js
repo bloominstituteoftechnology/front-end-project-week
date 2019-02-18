@@ -45,7 +45,7 @@ class App extends Component {
       <div className="App">
         <Navigation className='nav-bar'/>
         <Route exact path='/notes' render={()=>
-          <NotesList {...this.props} sortNotesAZ={this.sortNotesAZ} delete={this.handleDelete} notes={this.props.notes} />
+          <NotesList {...this.props} />
         } />        
         <Route path='/new-note' render={()=>
           <AddNoteForm 

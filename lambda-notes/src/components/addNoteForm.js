@@ -15,10 +15,10 @@ const AddNoteForm = props => {
         className='body'
         type='text'
         name='textBody' 
-        value={props.data.textBody}
+        value={}
         placeholder='Note Content'
         onChange={props.inputChange}/>
-      <button className='save' onClick={props.clickHandler}>Save</button>
+      <button className='save' onClick={}>Save</button>
     </form> 
   );
 }
