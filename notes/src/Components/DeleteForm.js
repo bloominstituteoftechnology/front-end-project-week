@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class DeleteForm extends React.Component{
          constructor(props){
             super(props);
@@ -14,12 +15,23 @@ class DeleteForm extends React.Component{
 
   render(){
         return(
+
+
+
+
           <div>
-              <h2>Are you sure you want to Delete?</h2>
-              <div className="btn">
-                  <button onClick={this.deleteHandler}>Delete</button>
-                  <button> No </button>
-              </div>
+
+
+
+                  <h2>Are you sure you want to Delete?</h2>
+                  <div className="btn">
+                      <button onClick={this.deleteHandler}>Delete</button>
+                      <button> No </button>
+                  </div>
+
+
+
+
 
           </div>
 

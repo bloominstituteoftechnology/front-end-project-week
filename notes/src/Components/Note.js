@@ -2,6 +2,8 @@ import React  from 'react';
 import "./note.css"
 import axios from "axios";
 import{Route,Link} from "react-router-dom"
+import Modal from 'react-modal';
+
 
 
 class Note extends React.Component{
@@ -18,7 +20,8 @@ class Note extends React.Component{
              "myNote": {
                  "title" : "Loading",
                  "textBody": "Loading"
-             }
+             },
+             deleteModelShown : false
          }
 
          console.log("My note = ", this.state.noteId, this.props.match.params.noteId, this.state.notes);
@@ -51,7 +54,16 @@ class Note extends React.Component{
          }
      }
 
-
+    deleteButtonClicked = event => {
+         this.setState({deleteModelShown:true})
+    }
+    noClicked = event => {
+         this.setState({deleteModelShown:false})
+    }
+    yesClicked=()=>{
+        this.props.deleteNote(this.state.noteId)
+        this.setState({deleteModelShown:false})
+    }
     render(){
 
          return (
@@ -60,8 +72,22 @@ class Note extends React.Component{
 
                     <div >
                         <Link className="action1" to ={`/EditForm/${this.state.noteId}`} >edit</Link>
-                        <Link className="action2" to  ={`/DeleteForm/${this.state.noteId}`} >delete</Link>
-                        {/*<button onClick={this.editHandler}>Edit</button>*/}
+                        <button className="action2" onClick={this.deleteButtonClicked}>delete</button>
+
+                        <Modal className = "modal" isOpen={this.state.deleteModelShown} contentLabel="Minimal Modal Example">
+
+
+                            {/*<Link className="action2" to={`/DeleteForm/${this.state.noteId}`} >delete</Link>*/}
+                           <div className="modalButtons">
+                               <h3>Are you sure you want to delete this? </h3>
+
+                            <div>
+                            <button className="modalButtonsDeleteYes" onClick={this.yesClicked}>Delete</button>
+                            <button className="modalButtonsDeleteNo" onClick={this.noClicked}>No</button>
+                            </div>
+                           </div>
+                        </Modal>
+
                     </div>
 
                 <h3>{this.state.myNote.title} </h3>

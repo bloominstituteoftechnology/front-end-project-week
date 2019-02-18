@@ -7,6 +7,7 @@ import Note from "./Components/Note";
 import DeleteForm from "./Components/DeleteForm"
 import EditForm from "./Components/EditForm"
 
+
 import './App.css';
 
 class App extends Component {
@@ -119,10 +120,10 @@ class App extends Component {
                 <div className="second">
 
 
-                    <Route  exact path="/" render={(props)=> <NoteList {...props}   />}/>
+                    <Route  exact path="/" render={(props)=> <NoteList deleteNote={this.deleteNote} {...props}   />}/>
                     <Route  exact path="/NoteForm" render={(props)=> <NoteForm {...props} createFunc={this.createNewNote}/>}/>
 
-                    <Route exact path="/Note/:noteId" render={(props)=><Note {...props} tmp="TMP" notes={this.state.notes} />}/>
+                    <Route exact path="/Note/:noteId" render={(props)=><Note deleteNote={this.deleteNote} {...props} tmp="TMP" notes={this.state.notes} />}/>
                     <Route exact path ="/DeleteForm/:noteId" render={(props)=><DeleteForm{...props}deleteNote={this.deleteNote}/>}/>
                     <Route exact path ="/EditForm/:noteId" render={(props)=><EditForm{...props} editNote={this.editNote}
                           notes = {this.state.notes}/>}/>
