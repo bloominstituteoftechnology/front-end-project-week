@@ -6,15 +6,15 @@ const Note = props => {
 
     <div className="note" onClick={() => props.noteView(props.id)}>
       <div className="title">{props.title}</div> <div className="form-check">
-            <label className="form-check-label">
-              <input type="checkbox"
+           {/*  <label className="form-check-label">
+             <input type="checkbox"
                // checked={true}
                 defaultChecked={true}
-                //onChange={props.toggleChange}
+               onChange={props.toggleChange}
                 className="form-check-input"
               />
               Save
-            </label>
+            </label> */}
           </div>
       <div className="textBody">{props.textBody}</div>
     </div>

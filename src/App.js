@@ -4,6 +4,7 @@ import "./css/note.css"
 import Login from './components/login/login';
 import NoteList from './components/noteList';
 import NoteView from './components/noteView';
+import ListView from './components/listView';
 import NoteCreate from './components/noteCreate';
 import NoteEdit from './components/noteEdit';
 import NoteDelete from './components/noteDelete';
@@ -32,7 +33,6 @@ class App extends React.Component {
 
 
   componentDidMount() {
-
     Modal.setAppElement('#root');
     const pageType = "noteList";
     this.setState(() => ({ viewTrip: pageType }));
@@ -47,7 +47,6 @@ class App extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-
   }
 
   openModal() {
@@ -65,116 +64,111 @@ class App extends React.Component {
 
   noteCreate = (e) => {
     e.preventDefault();
-    //localStorage.setItem('viewPage', "noteCreate");
     let pageType = `noteCreate`
     this.setState({ viewPage: pageType });
   }
 
   login = (e) => {
-   
     //const modalType = !false;
     let modalType = true;
     localStorage.setItem('modals', modalType)
-   // localStorage.setItem('viewPage', "login");
-
     let pageType = 'login';
     //let _id = id;
     this.setState(() => ({ viewPage: pageType }))
   }
   noteDelete = id => {
-    // console.log("in the note delete, app.js")
     const modalType = !false;
-    //let modalType = true;
     localStorage.setItem('modals', modalType)
-   // localStorage.setItem('viewPage', "noteDelete");
-
     let pageType = 'noteDelete';
     let _id = id;
     this.setState(() => ({ viewPage: pageType, id: id }))
   }
 
   noteEdit = id => {
-  //  localStorage.setItem('viewPage', "noteEdit");
     let pageType = "noteEdit"
     this.setState(() => ({ viewPage: pageType, id: id }));
   }
 
   noteList = (e) => {
     e.preventDefault();
-    //localStorage.setItem('viewPage', "noteList");
     let pageType = "noteList"
     this.setState(() => ({ viewPage: pageType }));
   }
 
   noteView = id => {
-   // localStorage.setItem('viewPage', "noteView");
     let pageType = "noteView"
     let _id = id;
-    //console.log("in noteView app.js")
     this.setState(() => ({ viewPage: pageType, id: id }));
   }
 
+  listView = (e) => {
+    e.preventDefault();
+    let pageType = "listView"
+    this.setState(() => ({ viewPage: pageType }));
+  }
 
   render() {
-
-    /* let pageType = localStorage.getItem('viewPage'); */
     switch (this.state.viewPage) {
 
       case 'login':
         return <div className="App">
           <div className="main-container">
-          <div className="main-display">
-            <Login noteList={this.noteList} registerUser={this.props.registerUser}/>
+            <div className="main-display">
+              <Login noteList={this.noteList} registerUser={this.props.registerUser} />
             </div>
           </div>
         </div>;
-
       case 'noteCreate':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} login={this.login}/>
+            <Nav noteList={this.noteList} listView={this.listView} saveListName={this.props.saveListName} noteCreate={this.noteCreate} login={this.login} />
             <div className="main-display">
               <NoteCreate changeHandler={this.changeHandler} saveNote={this.saveNote} noteList={this.noteList} />
             </div>
           </div>
         </div>;
-
       case 'noteDelete':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView}  login={this.login}/>
+            <Nav noteList={this.noteList} listView={this.listView} saveListName={this.props.saveListName} noteCreate={this.noteCreate} noteView={this.noteView} login={this.login} />
             <div className="main-display">
               <NoteDelete id={this.state.id} noteList={this.noteList} />
             </div>
           </div>
         </div>;
-
       case 'noteEdit':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteEdit={this.noteEdit} noteView={this.noteView} login={this.login} />
+            <Nav noteList={this.noteList} listView={this.listView} saveListName={this.props.saveListName} noteCreate={this.noteCreate} noteEdit={this.noteEdit} noteView={this.noteView} login={this.login} />
             <div className="main-display">
-              <NoteEdit changeHandler={this.changeHandler} tags={this.tags} id={this.state.id} noteList={this.noteList}/>
+              <NoteEdit changeHandler={this.changeHandler} tags={this.tags} id={this.state.id} noteList={this.noteList} />
             </div>
           </div>
         </div>;
-
       case 'noteList':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView}  login={this.login}/>
+            <Nav noteList={this.noteList} listView={this.listView} saveListName={this.props.saveListName} noteCreate={this.noteCreate} noteView={this.noteView} login={this.login} />
             <div className="main-display">
               <NoteList noteView={this.noteView} notes={this.state.notes} />
             </div>
           </div>
         </div>;
-
       case 'noteView':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} noteCreate={this.noteCreate} noteView={this.noteView}  login={this.login}/>
+            <Nav noteList={this.noteList} listView={this.listView} saveListName={this.props.saveListName} noteCreate={this.noteCreate} noteView={this.noteView} login={this.login} />
             <div className="main-display">
               <NoteView id={this.state.id} notes={this.notes} selected={this.props.noteSelected} noteEdit={this.noteEdit} noteDelete={this.noteDelete} />
+            </div>
+          </div>
+        </div>;
+      case 'listView':
+        return <div className="App">
+          <div className="main-container">
+            <Nav noteList={this.noteList} listView={this.listView} saveListName={this.props.saveListName} noteCreate={this.noteCreate} noteView={this.noteView} login={this.login} />
+            <div className="main-display">
+              <ListView id={this.state.listId} lists={this.lists} selected={this.props.listSelected}/>
             </div>
           </div>
         </div>;
@@ -183,8 +177,10 @@ class App extends React.Component {
 }
 const mapStateToProps = state => {
   const { notesReducer } = state;
+  const { listsReducer } = state;
   return {
     notes: notesReducer.notes,
+    lists: listsReducer.lists,
     error: notesReducer.error,
     gettingNotes: notesReducer.gettingNotes
   };

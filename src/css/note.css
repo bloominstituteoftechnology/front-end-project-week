@@ -101,15 +101,12 @@ li {
 }
 
 .list-save-input {
- 
     border: 2px solid rgb(151, 151, 151);
     width: 260px;
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }
 
-.save-list-button {
-
-}
+.save-list-button {}
 
 .main-display {
     display: flex;
@@ -390,7 +387,8 @@ li {
     text-align: left;
 }
 
-.nav-note-lists-item:hover, .nav-save-lists-item:hover {
+.nav-note-lists-item:hover,
+.nav-save-lists-item:hover {
     background-color: rgb(43, 193, 196);
 }
 
@@ -413,10 +411,10 @@ li {
     cursor: pointer;
     width: 256px;
     text-align: left;
-
 }
 
-.sort-button, .save-list-button {
+.sort-button,
+.save-list-button {
     border: 2px solid rgb(151, 151, 151);
     text-align: center;
     background-color: rgb(43, 193, 196);
@@ -429,10 +427,12 @@ li {
     cursor: pointer;
 }
 
-.sort-button:hover {
+.sort-button:hover,
+.save-list-button:hover {
     color: rgb(8, 89, 143);
 }
 
-.sort-button:active {
+.sort-button:active,
+.save-list-button:active {
     color: red;
 }
