@@ -19,7 +19,7 @@ class EditNote extends React.Component {
             this.setState({
                 title: note.title,
                 textBody: note.textBody,
-                _id: note._id
+                _id: note._id,
             })
         }
         
@@ -55,10 +55,9 @@ class EditNote extends React.Component {
                 
                     <button>update</button>
                 </form>
-            </section>
-            
+            </section>        
         )
     }
-    
 }
+
 export default EditNote;

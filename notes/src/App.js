@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Menu from './components/Menu';
 import NewNote from './components/NewNote';
 import NoteList from './components/NoteList';
-import SingleNote from './components/SingleNote';
+import {SingleNote} from './components/SingleNote';
 import EditNote from './components/EditNote';
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
   addNote = data => {
     axios.post('https://fe-notes.herokuapp.com/note/create', data)
     .then(response => {
-      data["_id"] = response.data.success;
+      data['_id'] = response.data.success;
 
       this.setState({note: [...this.state.note, data]})
       })
@@ -48,7 +48,7 @@ class App extends Component {
   deleteNote = (id) => {
     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
-      this.setState({note: [...this.state.note, response]})
+      this.setState({note: [...this.state.note, response.data]})
     })
   }
 

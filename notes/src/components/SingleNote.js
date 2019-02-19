@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import NoteMenu from './NoteMenu';
 
-const SingleNote = props => {
+export const SingleNote = props => {
     const note = props.notes.find(note => `${note._id}` === props.match.params.noteID);
 
     if (note === undefined) {
@@ -25,5 +25,3 @@ const SingleNote = props => {
     }
 
 }
-
-export default SingleNote;

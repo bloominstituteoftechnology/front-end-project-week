@@ -23,7 +23,7 @@ class NewNote extends React.Component {
             title:'',
             textBody: '',
         })
-
+        
         this.props.history.push('/');
     }
 
