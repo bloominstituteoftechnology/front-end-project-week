@@ -1,5 +1,5 @@
 .App {
-  min-width: 801px;
+  min-width: 98vw;
   display: flex;
   width: 100%;
 }
@@ -7,7 +7,7 @@
 .menu {
   padding: 1%;
   background-color: rgb(211, 210, 211);
-  min-height: 100vh;
+  min-height: 98vh;
 }
 
 .menu h1 {

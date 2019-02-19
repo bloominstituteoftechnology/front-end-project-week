@@ -24,6 +24,8 @@ const DisplayNote = props => {
                     <Link className='note-link' to={`${note.id}/delete`}>Delete</Link>
                 </div>
                 <div className='note-title'>{note.title}</div>
+                <div className='note-break'/>
+                <div className='note-tags'>{note.tags}</div>
             </header>
             <div className='note-break'/>
             <div className='note-body'>{note.content}</div>

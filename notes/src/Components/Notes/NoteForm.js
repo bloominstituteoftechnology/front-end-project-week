@@ -27,7 +27,7 @@ class NoteForm extends React.Component {
         if (note !== undefined) {
             let tags = [];
             if (note.tags !== undefined) {
-                tags = note.tags.tags;
+                tags = note.tags;
             }
             this.setState({
                 note: note,

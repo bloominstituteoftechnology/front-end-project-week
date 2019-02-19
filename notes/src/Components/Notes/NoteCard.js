@@ -4,12 +4,11 @@ import './notes.css';
 
 const NoteCard = props => {
     let content = props.note.content;
-
+    console.log(props.note.tags);
     if (content.length > 215) {
         content = content.slice(0, 215);
         content = content + '...';
     }
-    console.log(props.key);
     return (
         <div className='note-card'>
             <div className='note-card-title'>
@@ -22,7 +21,7 @@ const NoteCard = props => {
             <div className='note-card-break'/>
             <div className='note-card-tags'>
                 <h5>Tags</h5>
-                {props.note.tags.tags.map(tag => {
+                {props.note.tags.map(tag => {
                     return <div key={tag}>{tag}</div>;
                 })}
             </div>
