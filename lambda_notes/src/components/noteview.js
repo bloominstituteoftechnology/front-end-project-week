@@ -53,7 +53,7 @@ class NoteView extends Component {
 
         <div className="singlenote">
           {this.props.notes.map(note => {
-            if (this.props.match.params.id === note.id) {
+            if (this.props.match.params.id === note.id.toString()) {
               return (
                 <div className="note" key={note.id}>
                   <h1 className="notetitle">{note.title}</h1>
