@@ -21,7 +21,6 @@ class NoteList extends React.Component {
                 this.setState({error: null, loading: false, notes: response.data});
             })
             .catch( err => {
-                console.log(err);
                 this.setState({error: "Unable to retrieve notes from server", loading: false, notes: []});
             })
     }
@@ -33,8 +32,6 @@ class NoteList extends React.Component {
                     <h2>Your Notes:</h2>
                 </header>
                 <section className="note-list">
-                    { process.env.NODE_ENV }
-                    { process.env.API_URL }
                     { this.state.loading === true ? <h1>Loading...</h1>: null }
                     { this.state.error !== null ? <h1>{this.state.error}</h1> : null }
                     { this.state.notes.map(note => <NoteCard note={note} key={note.id} /> ) }
