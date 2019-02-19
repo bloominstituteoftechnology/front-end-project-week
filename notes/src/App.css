@@ -76,9 +76,9 @@
 
 .text-area {
   text-align: left;
-  margin-left: 20px;
+  /* margin-left: 20px;
   margin-bottom: 25px;
-  padding: 150px;
+  padding: 150px; */
 }
 
 .form-btn {

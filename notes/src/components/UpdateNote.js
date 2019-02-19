@@ -50,6 +50,8 @@ class UpdateNote extends Component {
           className="text-area"
           type="text"
           name="textBody"
+          cols="80"
+          rows="30"
           value={this.state.textBody}
           onChange={this.inputHandler}
           placeholder="New Content"
