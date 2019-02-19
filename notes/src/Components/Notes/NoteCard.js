@@ -4,7 +4,6 @@ import './notes.css';
 
 const NoteCard = props => {
     let content = props.note.content;
-    console.log(props.note.tags);
     if (content.length > 215) {
         content = content.slice(0, 215);
         content = content + '...';

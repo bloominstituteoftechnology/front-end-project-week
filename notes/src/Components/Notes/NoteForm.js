@@ -64,7 +64,6 @@ class NoteForm extends React.Component {
     }
     
     addTag = e => {
-        console.log(`Tag list: ${this.state.tagsList}`)
         const updateTagList = this.state.tagsList;
         updateTagList.push(this.state.tagItem);
         this.setState({

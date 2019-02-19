@@ -4,9 +4,7 @@ import {Link} from 'react-router-dom';
 import './notes.css';
 
 const DisplayNote = props => {
-    const note = props.notes.find(note => {
-        console.log(`Note find -> ${note.id}`)
-        
+    const note = props.notes.find(note => {       
         if(String(note.id) === props.match.params.id) {
             return note;
         }
