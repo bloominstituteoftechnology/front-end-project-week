@@ -8,7 +8,7 @@ export const ERROR = "ERROR"
 export const getNotes = () => {
     return (dispatch) => {
         dispatch({type:LOADING})
-        axios.get("http://localhost:4000/api/notes")
+        axios.get("https://notes-ptapp.herokuapp.com/api/notes")
         .then(response => {
             dispatch({type:SUCCESS, notes:response.data})
         })
@@ -21,7 +21,7 @@ export const getNotes = () => {
 export const getOneNote = (id) => {
     return (dispatch) => {
         dispatch({type:LOADING})
-        axios.get(`http://localhost:4000/api/notes/${id}`)
+        axios.get(`https://notes-ptapp.herokuapp.com/api/notes/${id}`)
         .then(response => {
             dispatch({type:SUCCESS_NOTE, singleNote:response.data})
         })
@@ -34,7 +34,7 @@ export const getOneNote = (id) => {
 export const createNote = (newNote) =>{
     return (dispatch) =>{
         dispatch({type:LOADING})
-        axios.post("http://localhost:4000/api/notes", newNote)
+        axios.post("https://notes-ptapp.herokuapp.com/api/notes", newNote)
         .then(response => {
             dispatch(getNotes())
         })
@@ -47,7 +47,7 @@ export const createNote = (newNote) =>{
 export const updateNote = (updatedNote) => {
     return(dispatch) => {
         dispatch({type:LOADING})
-        axios.put(`http://localhost:4000/api/notes/${updatedNote.id}`, updatedNote)
+        axios.put(`https://notes-ptapp.herokuapp.com/api/notes/${updatedNote.id}`, updatedNote)
         .then( response =>{
             dispatch(getNotes())
         })
@@ -60,7 +60,7 @@ export const updateNote = (updatedNote) => {
 export const deleteNote = (id) =>{
     return (dispatch) =>{
         dispatch({type:LOADING})
-        axios.delete(`http://localhost:4000/api/notes/${id}`)
+        axios.delete(`https://notes-ptapp.herokuapp.com/api/notes/${id}`)
         .then(response=> {
             dispatch(getNotes())
         })
