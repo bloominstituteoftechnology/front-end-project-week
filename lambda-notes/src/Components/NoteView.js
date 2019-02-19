@@ -135,7 +135,7 @@ class NoteView extends Component {
       });
   };
 
-  /****** Edit Handling Functions *******/
+  /****** Edit Handling Functions  *******/
 
   //Toggles the edit form
   toggleEdit = e => {
