@@ -5,7 +5,7 @@ const initialState = {
   gettingNotes: false,
   updatingNote: false,
   creatingNote: false,
-  deletingNote: false,
+  //deletingNote: false,
   error: null
 };
 
@@ -28,7 +28,7 @@ export const notesReducer = (state = initialState, action) => {
         ...state,
         gettingNotes: false,
         creatingNote: false,
-        deletingNote: false,
+        //deletingNote: false,
         updatingNote: false,
         error: action.payload
       };

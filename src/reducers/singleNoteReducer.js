@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/notesActions';
 
 const initialState = {
   noteSelected: {},
-  showUpdate: false,
+  //showUpdate: false,
   deletingNote: false,
   gettingSingleNote: false,
 };

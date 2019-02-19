@@ -19,13 +19,13 @@ export const TOGGLE_UPDATE_NOTE = 'TOGGLE_UPDATE_NOTE';
 export const getNotes = () => {
   return (dispatch) => {
     dispatch({ type: GETTING_NOTES })
-    const token = localStorage.getItem('jwt');
-    const endpoint = 'http://localhost:5000/api/notes';
-    const options = {
+   // const token = localStorage.getItem('jwt');
+  //  const endpoint = 'http://localhost:5000/api/notes';
+  //  const options = {
     /*   headers: {
         Authorization: token
       } */
-    };
+  //  };
     axios
      // .get('http://localhost:5000/api/notes', options)
    // axios

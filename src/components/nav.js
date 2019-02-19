@@ -26,7 +26,7 @@ class Nav extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getNotes();
+   // this.props.getNotes();
     this.props.getLists();
   }
 
@@ -83,7 +83,7 @@ class Nav extends React.Component {
         users_id: 1
       }
       this.props.createList(newRec);
-      this.props.getLists();
+     // this.props.getLists();
       this.setState({ listSaveInput: "" })
   }
 
@@ -105,11 +105,11 @@ class Nav extends React.Component {
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button className="nav-button" value="noteListCreate" onClick={this.enableSaveList} name="noteListCreate">{(this.state.enableSaveList) ? <p>- Close Note List</p> : <p>+ Create Note List</p>}</button>
+            <button className="nav-button" value="noteListCreate" onClick={this.enableSaveList} name="noteListCreate">{(this.state.enableSaveList) ? <p>- Close List</p> : <p>+ Create New List</p>}</button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button className="nav-button" value="noteCreate" onClick={this.enableOpenList} name="noteCreate">{(this.state.enableOpenList) ? <p>Close Note List</p> : <p>Open Note List</p>}</button>
+            <button className="nav-button" value="noteCreate" onClick={this.enableOpenList} name="noteCreate">{(this.state.enableOpenList) ? <p>Close Note List's</p> : <p>Open List</p>}</button>
           </li>
           <li className="nav-left-item">
             </li>

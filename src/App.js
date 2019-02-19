@@ -28,6 +28,7 @@ class App extends React.Component {
       tags: "",
       modalIsOpen: false,
       saveList: [],
+      listId: "",
     };
   }
 
@@ -64,7 +65,7 @@ class App extends React.Component {
 
   noteCreate = (e) => {
     e.preventDefault();
-    let pageType = `noteCreate`
+    const pageType = `noteCreate`
     this.setState({ viewPage: pageType });
   }
 
@@ -72,39 +73,39 @@ class App extends React.Component {
     //const modalType = !false;
     let modalType = true;
     localStorage.setItem('modals', modalType)
-    let pageType = 'login';
+    const pageType = 'login';
     //let _id = id;
     this.setState(() => ({ viewPage: pageType }))
   }
   noteDelete = id => {
     const modalType = !false;
     localStorage.setItem('modals', modalType)
-    let pageType = 'noteDelete';
-    let _id = id;
+    const pageType = 'noteDelete';
+   // let _id = id;
     this.setState(() => ({ viewPage: pageType, id: id }))
   }
 
   noteEdit = id => {
-    let pageType = "noteEdit"
+    const pageType = "noteEdit"
     this.setState(() => ({ viewPage: pageType, id: id }));
   }
 
   noteList = (e) => {
     e.preventDefault();
-    let pageType = "noteList"
+    const pageType = "noteList"
     this.setState(() => ({ viewPage: pageType }));
   }
 
   noteView = id => {
-    let pageType = "noteView"
-    let _id = id;
+    const pageType = "noteView"
+    //let _id = id;
     this.setState(() => ({ viewPage: pageType, id: id }));
   }
 
-  listView = (e) => {
-    e.preventDefault();
-    let pageType = "listView"
-    this.setState(() => ({ viewPage: pageType }));
+  listView = (id) => {
+    //e.preventDefault();
+    const pageType = "listView"
+    this.setState(() => ({ viewPage: pageType, listId: id  }));
   }
 
   render() {
@@ -168,7 +169,7 @@ class App extends React.Component {
           <div className="main-container">
             <Nav noteList={this.noteList} listView={this.listView} saveListName={this.props.saveListName} noteCreate={this.noteCreate} noteView={this.noteView} login={this.login} />
             <div className="main-display">
-              <ListView id={this.state.listId} lists={this.lists} selected={this.props.listSelected}/>
+              <ListView id={this.state.listId} lists={this.lists} selected={this.props.listSelected}  notes={this.state.notes} />
             </div>
           </div>
         </div>;

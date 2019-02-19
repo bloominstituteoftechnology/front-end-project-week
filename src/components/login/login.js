@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import User from './user';
+//import User from './user';
 import { Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/usersActions.js';
@@ -53,7 +53,7 @@ class Login extends Component {
                 password: this.state.password
 
             };
-            const endpoint = 'http://localhost:5000/api/users/login';
+           // const endpoint = 'http://localhost:5000/api/users/login';
             axios
                 .post('http://localhost:5000/api/users/login', userInfo)
                 .then(res => {
