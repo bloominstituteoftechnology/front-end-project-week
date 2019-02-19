@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SignInBlockstackButton } from "blockstack-signin-btn"
 
+import Signup from '../auth/Signup';
+import Login from '../auth/Login';
+
 import styled from 'styled-components';
 
 //The sidebar component with buttons linking to view page and create page
@@ -43,6 +46,8 @@ const Sidebar = props => {
         <h1>Lambda Notes</h1>
       </Header>
       <div>
+        <Signup />
+        <Login />
         <SignInBlockstackButton
           includeBlockstackLogo={false}
           signInBtnText="Login"
