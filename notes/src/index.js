@@ -15,10 +15,10 @@ const middleware = applyMiddleware(logger, thunk);
 const store = createStore(rootReducer, middleware);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router>
-            <App />
-        </Router>
-    </Provider>,
-    document.getElementById("root")
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById("root")
 );

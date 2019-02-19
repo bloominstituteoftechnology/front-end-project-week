@@ -9,17 +9,13 @@
     "url": "git+https://github.com/cpdis/front-end-project-week.git"
   },
   "dependencies": {
-    "algoliasearch": "^3.32.0",
     "axios": "^0.18.0",
-    "blockstack-signin-btn": "^1.0.3",
     "bootstrap": "^4.2.1",
     "classnames": "^2.2.6",
     "netlify-cli": "^2.6.6",
     "react": "^16.6.3",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.6.3",
-    "react-instantsearch": "^5.3.2",
-    "react-instantsearch-dom": "^5.3.2",
     "react-redux": "^6.0.0",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.3.1",
