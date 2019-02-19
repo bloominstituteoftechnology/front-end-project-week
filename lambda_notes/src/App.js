@@ -23,7 +23,7 @@ class App extends Component {
 
     componentDidMount() {
 
-     getNotes();
+     this.props.getNotes();
     
     }
 
@@ -54,7 +54,7 @@ class App extends Component {
             />
 
             <Route path={`/note/:id`} exact
-              render={(props) => <NoteView   {...props.notes} />}
+              render={(props) => <NoteView   {...props} />}
             />
 
             <Route path={`/note/edit/:id`} exact

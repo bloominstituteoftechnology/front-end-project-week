@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getNotes } from '../Actions/index.js'
@@ -10,18 +9,16 @@ import { Title, NoteWrap, NoteContent } from '../Styles/ListViewStyle';
 
 
 class ListView extends Component {
-    constructor(props) {
-        super(props)
-}
 
-    componentDidMount() {
+
+    componentWillMount() {
        this.props.getNotes()
     } 
 
 
 
     render() {
-        console.log("listView", this.props)
+       
         return (
             <NoteWrap>
                 <NoteHeading></NoteHeading>
@@ -34,8 +31,6 @@ class ListView extends Component {
                 )
             })}
             </NoteWrap>
-            
-            
         )
     }
 }

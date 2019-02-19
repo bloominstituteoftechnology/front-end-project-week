@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getNote } from '../Actions/index';
@@ -8,24 +7,27 @@ import { Link } from 'react-router-dom';
 import { NoteBody, MenuWrap } from '../Styles/NoteViewStyle';
 
 class NoteView extends Component {
-    state = {
-        note: {},
-        path: "Note View",
+    constructor(props) {
+        super(props)
+        this.state = {
+            note: [],
+        }
     }
+ 
 
- componentDidMount() {
+ componentWillUpdate(props) {
     const noteId = this.props.match.params.id
-    getNote(noteId);
+    this.props.getNote(noteId);
  }
 
 
 
   render() {
-      console.log(this.state);
+      console.log("noteView", this.props);
         return (
             <NoteBody>
                 <MenuWrap>
-                <p><Link to={`/note/edit/${this.state.note.id}`}
+                <p><Link to={`/note/edit/${this.props.match.params.id}`}
                 note={this.state.note.id} >Edit</ Link></p>
                 <p>{<Link to={DeleteModal}><DeleteModal id={this.state.note.id} /></Link>}</p>
                 </MenuWrap>
@@ -38,8 +40,8 @@ class NoteView extends Component {
 
 const mapStateToProps =(state)=> {
     return {
-        note: state.note,
+        notes: state.notes,
     }
 }
 
-export default withRouter(connect(mapStateToProps, {getNote})(NoteView))
+export default withRouter(connect(mapStateToProps, { getNote })(NoteView))

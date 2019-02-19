@@ -20,13 +20,12 @@ export const getNotes = () => {
 }
 
 export const getNote =(id)=> {
-  console.log(id);
-  console.log("------------")
+  console.log('getNote', id)
   return (dispatch) => {
     dispatch({type: LOADING, fetching: true})
     axios.get(`http://localhost:4500/api/note/${id}`)
     .then( res => {
-      dispatch({type: NOTE, payload: res.data, path: "Note View", fetching: false})
+      dispatch({type: SUCCESS, payload: res.data, path: "Note View", fetching: false})
     })
     .catch (err => {
       dispatch({type: ERROR, errorMessage: "Notes Not Found!"})
@@ -41,7 +40,7 @@ export const newNote = (note) => {
     .then( res => {
       dispatch({type: SUCCESS, payload: res.data, path: "Create Note" , fetching: false })
     })
-    .catch (err => {
+    .catch (err => { 
       dispatch({type: ERROR, errorMessage: "Notes Not Found!"})
     })
   }
