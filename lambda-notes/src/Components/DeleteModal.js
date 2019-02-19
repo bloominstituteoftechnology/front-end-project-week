@@ -3,6 +3,7 @@ import '../App.css'
 import axios from 'axios'
 import {BrowserRouter as Router,Route, NavLink} from 'react-router-dom';
 class DeleteModal extends Component {
+    _isMounted=false;
     constructor() {
         super();
         this.state = {
@@ -10,9 +11,20 @@ class DeleteModal extends Component {
         }
     }
 
+    componentDidMount() {
+        this._isMounted = true;
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
     deleteNote = (id) => {
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-        .then( response => this.setState({notes: response.data}))
+        axios.delete(`http://localhost:4444/note/${id}`)
+        .then( response => {
+            if (this._isMounted) {this.setState({notes: response.data})
+            this.props.history.push(`/home`)
+        }})
         .then ( response => this.props.this.setState({deleteNote:false}))
         .catch(err => console.log(err))
         

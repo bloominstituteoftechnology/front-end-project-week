@@ -28,18 +28,13 @@ class App extends Component {
   }
   }
 
-  
-  componentDidMount() {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-    .then(response => this.setState({notes: response.data}))
-    .catch(err => console.log('There is a Note Error'))
+
+
+componentDidMount() {
+  axios.get('http://localhost:4444/home')
+  .then(response => {this.setState({notes: response.data})})
+  .catch(err => console.log('There is a Note Error'))
 }
-
-  componentDidUpdate() {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-    .then(response => this.setState({notes: response.data}))
-    .catch(err => console.log('There is a Note Error'))}
-
 
   // clickForNewHandler = () => {
   //   this.setState ({
@@ -75,6 +70,7 @@ class App extends Component {
   }
 
   render() {
+    
     // let Modal = '';
     // if (this.state.deleteNote === true) {Modal = <DeleteModal noHandler={this.noHandler} notes={this.state.notes}/>}
     // else { Modal = ''}

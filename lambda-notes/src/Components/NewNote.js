@@ -28,8 +28,10 @@ class NewNote extends Component {
             const tags = this.state.tags;
             const title = this.state.title;
             const textBody = this.state.textBody;
-            axios.post('https://fe-notes.herokuapp.com/note/create', {title,textBody})
-            .then( response => this.setState({notes: response.data}))
+            axios.post('http://localhost:4444/new', {title,textBody})
+            .then( response => {this.setState({notes: response.data})
+        }
+            )
             .catch(err => console.log(err))
           }
 

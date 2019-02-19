@@ -5,21 +5,34 @@ import DeleteModal from './DeleteModal'
 import {BrowserRouter as Router,Route, NavLink} from 'react-router-dom';
 
 class SingleNote extends Component {
+    _isMounted = false;
+
     constructor(props) {
         super(props);
         this.state= {
             note: [],
             deleteNote: false,
             home:false,
+            
         };
     }
 
     componentDidMount() {
+        this._isMounted = true;
         const ID = this.props.match.params.id;
-        console.log(ID)
-        axios.get(`https://fe-notes.herokuapp.com/note/get/${ID}`)
-        .then(response => this.setState({note: response.data}))
+        console.log("componentdidmount",ID)
+        axios.get(`http://localhost:4444/note/${ID}`)
+        .then(response => {
+            if (this._isMounted) {
+            console.log(response)
+            this.setState({note: response.data})
+        }
+        })
         .catch (err => console.log(err))
+    }
+
+    componentWillUnmount(){
+        this._isMounted = false;
     }
 
     deleteHandler= (event) => {
@@ -33,9 +46,8 @@ class SingleNote extends Component {
 
     render(){
         let Modal = '';
-        if (this.state.deleteNote === true) {Modal = <DeleteModal clickForAllHandler={this.props.clickForAllHandler} id={this.state.note._id} noHandler={this.noHandler} notes={this.state.notes}/>}
+        if (this.state.deleteNote === true) {Modal = <DeleteModal clickForAllHandler={this.props.clickForAllHandler} id={this.state.note.id} noHandler={this.noHandler} notes={this.state.notes}/>}
         else { Modal = ''}
-        console.log(this.state.note.id)
     return (
         <div className='singleContainer'>
         {Modal}
