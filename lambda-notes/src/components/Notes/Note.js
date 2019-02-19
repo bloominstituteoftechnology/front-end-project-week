@@ -49,9 +49,9 @@ export default class Note extends Component {
       textBody: this.state.note.textBody
     })
     .then(response => {
-      console.log(response);
+      console.log('submit response', response);
       // this.props.getNotes();
-      this.props.history.push(`/`);
+      this.props.history.push('/');
     })
     .catch(err => {
       console.log('Sorry, we could not complete your request', err);
@@ -88,7 +88,7 @@ export default class Note extends Component {
   }
 
   render() {
-    console.log('state of a note', this.state);
+    // console.log('state of a note', this.state);
     if (!this.state.note) {
       return <div className='Note'>Loading note information...</div>
     }
