@@ -36,7 +36,7 @@ class EditNote extends Component {
     };
 
     axios
-      .put(`http://localhost:3500/api/notes/${id}`, note)
+      .put(`https://robs-back-end-project.herokuapp.com/api/notes/${id}`, note)
       .then(res => {
         console.log(res);
         this.setState({ title: "", body: "", noteEdited: true });
