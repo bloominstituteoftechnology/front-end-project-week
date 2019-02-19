@@ -11,6 +11,7 @@ export const ERROR = "ERROR";
 export const UPDATE = "UPDATE";
 export const FILTER = "FILTER";
 export const SIGNIN = "SIGNIN";
+export const SIGNOUT = "SIGNOUT";
 export const AUTH = "AUTH";
 
 export const addNote = data => {
@@ -133,6 +134,10 @@ export const register = user => {
 export const filterNotes = list => {
   return { type: FILTER, payload: list };
 };
+
+export const signout = () => {
+  return { type: SIGNOUT, payload: {}}
+}
 
 export const checkAuth = header => {
   return dispatch => {

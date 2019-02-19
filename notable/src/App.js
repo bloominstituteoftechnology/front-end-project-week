@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 
@@ -8,47 +7,8 @@ import NoteForm from "./components/NoteForm";
 import SingleNote from "./components/SingleNote";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import { checkAuth } from "./actions/index";
-
-// something styled - need flex for sidebar and notes
-const MainDiv = styled.div`
-  display: flex;
-  width: 100%;
-  max-width: 1024px;
-  margin: 5px auto;
-  -webkit-box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.52);
-  -moz-box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.52);
-  box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.52);
-`;
-
-const SideBar = styled.div`
-  width: 25%;
-  min-height: 95vh;
-  background-color: silver;
-  padding: 15px;
-  h1 {
-    font-size: 2.6rem;
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
-`;
-
-const DisplayDiv = styled.div`
-  width: 75%;
-  background-color: whitesmoke;
-`;
-
-const Button = styled.div`
-  width: 95%;
-  height: 50px;
-  margin: 20px auto 15px;
-  background-color: darkcyan;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4rem;
-`;
+import { checkAuth, signout } from "./actions/index";
+import { SideBar, Button, MainDiv, DisplayDiv } from "./css/styles";
 
 class App extends Component {
   sendToForm = () => {
@@ -66,8 +26,13 @@ class App extends Component {
         Authorization: token
       }
     };
-    this.props.checkAuth(reqOptions)
+    this.props.checkAuth(reqOptions);
   }
+
+  logout = e => {
+    this.props.signout();
+    this.props.history.push("/");
+  };
 
   render() {
     return (
@@ -87,6 +52,7 @@ class App extends Component {
               <h1>Notable</h1>
               <Button onClick={this.sendToHome}>View Your Notes</Button>
               <Button onClick={this.sendToForm}>+ Create a New Note</Button>
+              <Button onClick={this.logout}>Logout</Button>
             </SideBar>
             <DisplayDiv>
               <Route exact path="/" render={props => <NoteList {...props} />} />
@@ -130,5 +96,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { checkAuth }
+  { checkAuth, signout }
 )(App);
