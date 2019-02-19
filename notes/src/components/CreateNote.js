@@ -37,14 +37,14 @@ render() {
     <div className="contentContainer">
         <h2>Create New Note:</h2>
       <form className="form" onSubmit={this.addNew}>
-        <input className="title" 
+        <textarea className="title" 
               type='text' 
               name='title'
               placeholder='Note Title' 
               onChange={this.inputChangehandler}
               value={this.state.title} />
 
-          <input className="textBody" 
+          <textarea className="textBody" 
               type='text' 
               name='textBody'
               placeholder='Note Content' 

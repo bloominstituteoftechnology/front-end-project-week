@@ -60,13 +60,13 @@ class EditNote extends Component {
       <div className="contentContainer">
           <h2>Edit Note:</h2>
         <form className="form" onSubmit={this.submitEditedNote}>
-          <input className="title" 
+          <textarea className="title" 
                 type='text' 
                 name='title'
                 onChange={this.updateTitleInputChangehandler}
                 value={this.state.noteToEdit.title} />
   
-            <input className="textBody" 
+            <textarea className="textBody" 
                 type='text' 
                 name='textBody'
                 onChange={this.updateTeaxtBodyInputChangehandler}
