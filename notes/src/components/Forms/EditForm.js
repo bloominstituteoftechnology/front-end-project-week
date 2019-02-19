@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchNotes, addNote } from "../actions/noteActions";
+import { fetchNotes, editNote } from "../../actions/noteActions";
 
 import { Form, Button } from "react-bootstrap";
 
@@ -16,7 +16,7 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-class NewForm extends React.Component {
+class EditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,20 +25,28 @@ class NewForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const { notes, match } = this.props;
+    const note = notes.find(note => `${note.id}` === match.params.id);
+    this.setState(note);
+  }
+
   inputHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  createNote = event => {
+  updateNote = event => {
+    const { notes, match } = this.props;
+    const note = notes.find(note => `${note.id}` === match.params.id);
     event.preventDefault();
-    this.props.addNote(this.state);
-    this.props.history.push("/");
+    this.props.editNote(this.state);
+    this.props.history.push(`/note/${note.id}`);
   };
 
   render() {
     return (
       <Container>
-        <Form>
+        <Form onSubmit={this.updateNote}>
           <Form.Group controlId="formTitle">
             <Form.Label>Note Title</Form.Label>
             <Form.Control
@@ -48,9 +56,7 @@ class NewForm extends React.Component {
               value={this.state.title}
               name="title"
             />
-            <Form.Text className="text-muted">
-              You're the next Paul Graham.
-            </Form.Text>
+            <Form.Text className="text-muted">Or maybe Sam Altman.</Form.Text>
           </Form.Group>
 
           <Form.Group controlId="formBody">
@@ -65,12 +71,8 @@ class NewForm extends React.Component {
               name="textBody"
             />
           </Form.Group>
-          <Button
-            variant="outline-primary"
-            type="submit"
-            onClick={this.createNote}
-          >
-            Save Note
+          <Button variant="outline-primary" type="submit" value="Update">
+            Update
           </Button>
         </Form>
       </Container>
@@ -78,11 +80,13 @@ class NewForm extends React.Component {
   }
 }
 
-const mapStateToProps = () => {
-  return {};
+const mapStateToProps = state => {
+  return {
+    notes: state.noteReducer.notes
+  };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchNotes, addNote: addNote }
-)(NewForm);
+  { fetchNotes, editNote: editNote }
+)(EditForm);

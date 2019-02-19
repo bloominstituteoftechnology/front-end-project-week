@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchNotes } from "../actions/noteActions";
+import { fetchNotes } from "../../actions/noteActions";
 
 import NoteCard from "./NoteCard";
 import Search from "./Search";

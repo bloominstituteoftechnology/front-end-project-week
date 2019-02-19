@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { deleteNote } from "../actions/noteActions";
+import { deleteNote } from "../../actions/noteActions";
 
 import styled from "styled-components";
 import { Card, Button } from "react-bootstrap";

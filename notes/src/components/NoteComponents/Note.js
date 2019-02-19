@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchNotes, deleteNote } from "../actions/noteActions";
+import { fetchNotes, deleteNote } from "../../actions/noteActions";
 
 import { Button } from "react-bootstrap";
 
