@@ -1,55 +1,55 @@
 .App {
-display: flex;
-width:100%;
-max-width: 1000px;
-margin: auto 0;
-height:95vh;
-  background:whitesmoke;
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto 0;
+  height: 95vh;
+  background: whitesmoke;
 }
 
 .note-card {
-  border:2px solid black;
-  color:black;
-  text-decoration:none;
-  height:200px;
-  margin:5px;
+  border: 2px solid black;
+  color: black;
+  text-decoration: none;
+  height: 200px;
+  margin: 5px;
   width: 30%;
   overflow-y: scroll;
 }
 
 .note-card h1 {
   font-size: 18px;
-  color:black;
+  color: black;
   border-bottom: 1px solid lightgray;
 }
 
 .note-card p {
-  font-size:10px;
-  color:black;
+  font-size: 10px;
+  color: black;
 }
 
 .navbar {
   /* display:flex;
   justify-content: flex-start;
   justify-content: center; */
-  background:lightgray;
-  padding-right:65px;
-  width:30%;
-  height:100%;
+  background: lightgray;
+  padding-right: 65px;
+  width: 30%;
+  height: 100%;
 }
 
 
 .note-list {
-  display:flex;
-  flex-wrap:wrap;
-  height:100%;
-  width:75%;
-  margin-left:20px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 75%;
+  margin-left: 20px;
 }
 
 .listHeader {
-  margin-top:35px;
-  width:100%
+  margin-top: 35px;
+  width: 100%
 }
 
 .mainHeader {
@@ -57,53 +57,53 @@ height:95vh;
 }
 
 .form {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
 .form h1 {
-  margin-top:35px;
-  margin-left:20px;
+  margin-top: 35px;
+  margin-left: 20px;
 }
 
 .form-input {
-  margin-left:20px;
-  margin-top:75px;
-  margin-bottom:25px;
-  padding-right:45px;
-  padding:10px;
+  margin-left: 20px;
+  margin-top: 75px;
+  margin-bottom: 25px;
+  padding-right: 45px;
+  padding: 10px;
 }
 
-.text-area  {
-  text-align:left;
-  margin-left:20px;
-  margin-bottom:25px;
-  padding:150px;
+.text-area {
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 25px;
+  padding: 150px;
 }
 
 .form-btn {
-  color:white;
-  background:#17a2b8;
+  color: white;
+  background: #17a2b8;
   border-radius: 5px;
-  margin-left:25px;
-  text-align:center;
-  padding:10px;
-  width:150px;
-  cursor:pointer;
+  margin-left: 25px;
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+  cursor: pointer;
 }
 
 .nav-btn {
-  color:white;
-  background:#17a2b8;
+  color: white;
+  background: #17a2b8;
   border-radius: 5px;
-  margin-left:25px;
-  text-align:center;
-  padding:10px;
-  cursor:pointer;
-  width:180px;
+  margin-left: 25px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  width: 180px;
 }
 
 
-.delete-btn{
+.delete-btn {
   cursor: pointer;
 }
