@@ -3,6 +3,7 @@ import SideNotes from './styles/SideNotes';
 import Button from './styles/Button';
 import Login from './Auth/Login';
 import Register from './Auth/Register';
+import Logout from './Auth/Logout';
 import {Link, Route} from 'react-router-dom';
 
 class LambdaNotes extends Component {
@@ -26,14 +27,18 @@ class LambdaNotes extends Component {
              <nav>
                 <Link className='reg' to='/Login'>Log in</Link>
                 <Link className='reg' to='/Register'>Register</Link>
+                <a  onClick={this.logout}>
+                  <Link className='reg' to='/Logout'>Sign out</Link>
+                </a>
               </nav> 
-              <a className='reg' onClick={this.logout}>Sign out</a>
+             
             </div>
             </SideNotes>
            
             <main>
                 <Route path='/Login' component={Login} exact></Route>
                 <Route path='/Register' component={Register}></Route>
+                <Route path='/Logout' component={Logout}></Route>
             </main>
             </>
         );
