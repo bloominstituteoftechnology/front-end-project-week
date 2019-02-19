@@ -3,11 +3,10 @@ import React from "react";
 const NoteForm = props => {
   const handleClick = () => {
     const newNote = {
-      tags: props.tags,
+      tags: props.newTags,
       title: props.title,
-      textBody: props.textBody
+      contents: props.contents
     };
-    console.log(newNote)
     props.postNotes(newNote);
     props.history.push(`/`);
   };
@@ -16,24 +15,26 @@ const NoteForm = props => {
     <div>
       <div className="note-form">
         <header className="body-header">
-          <form className="tags-form" onSubmit={props.handleSubmitTag}>
-            <div className="tags">
-              {props.tags.map(tag => {
-                return <p className="tag" key={tag}>{tag}</p>
-              })}
+          <div className="tags-container">
+            <form className="tags-form" onSubmit={props.handleSubmitTag}>
+              <div className="tags">
+                {props.newTags.map(tag => {
+                  return <p className="tag" key={tag}>{tag}</p>
+                })}
+              </div>
+              <input
+                className="input-tags"
+                type="text"
+                name="tag"
+                value={props.tag}
+                onChange={props.handleInput}
+                onSubmit={props.handleSubmitTag}
+                placeholder="add tags"
+              />
+            </form>
+            <div className="btn-container">
+              <button onClick={handleClick}>Save</button>
             </div>
-            <input
-              className="input-tags"
-              type="text"
-              name="tag"
-              value={props.tag}
-              onChange={props.handleInput}
-              onSubmit={props.handleSubmitTag}
-              placeholder="add tags"
-            />
-          </form>
-          <div className="btn-container">
-            <button onClick={handleClick}>Save</button>
           </div>
         </header>
         <hr></hr>
@@ -48,7 +49,7 @@ const NoteForm = props => {
         <textarea
           className="input-body"
           type="textarea"
-          name="textBody"
+          name="contents"
           value={props.value}
           onChange={props.handleInput}
           placeholder="Start writing..."

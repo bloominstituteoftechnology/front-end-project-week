@@ -16,6 +16,50 @@
         h2 {
             font-size: 1.2rem;
         }
+        .tags {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 120px;
+            .tag-header {
+                display: flex;
+                align-items: center;
+                margin-left: 20px;
+                .tag-icon {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 5px;
+                }
+            }
+            .tag {
+                display: flex;
+                justify-content: flex-start;
+                font-size: 0.8rem;
+                margin: 10px 0 10px 25px;
+                background: #79B0D5;
+                color: black;
+                padding: 0 10px;
+                border-radius: 10px;
+                width: auto;
+                p {
+                    margin: 5px 0;
+                }
+                .hide {
+                    display: none;
+                }
+                &:hover {
+                    // width: 45px;
+                    justify-content: flex-start;
+
+                    cursor: pointer;
+                    padding-right: 8px;
+                    .hide {
+                        display: flex;
+                        margin-left: 3px;
+                    }
+                }
+            }
+        }
     }
     .body {
         background-color: whitesmoke;
@@ -95,27 +139,39 @@
         }
         .body-header {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
-            .tags {
-                display: inline-block;
-                width: auto;
-                .tag {
+            flex-direction: column;
+            .tags-container {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                .tags {
                     display: inline-block;
-                    font-size: 0.8rem;
-                    margin: 0 10px 0 0;
-                    background: #79B0D5;
-                    padding: 5px 10px;
-                    border-radius: 10px;
+                    width: auto;
+                    .tag {
+                        display: inline-block;
+                        font-size: 0.8rem;
+                        margin: 0 10px 0 0;
+                        background: #79B0D5;
+                        padding: 5px 10px;
+                        border-radius: 10px;
+                    }
+                }
+                .input-tags {
+                    display: inline-block;
+                    width: auto;
+                }
+                .btn-container {
+                    display: flex;
+                    align-items: center;
                 }
             }
-            .input-tags {
-                display: inline-block;
-                width: auto;
-            }
-            .btn-container {
-                display: flex;
-                align-items: center;
+            .timeStamp {
+                p {
+                    font-size: 0.8rem;
+                    display: inline-block;
+                    margin: 10px 10px 0 0;
+                    color: #404040;
+                }
             }
         }
         button {

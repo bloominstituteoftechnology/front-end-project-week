@@ -6,7 +6,7 @@ const NoteList = props => {
   return (
       <Sortable tag="div" className="note-list">
         {props.notes.map(note => (
-          <Note key={note._id} note={note} />
+          <Note key={note.id} note={note} />
         ))}
       </Sortable>
   );

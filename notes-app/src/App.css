@@ -17,6 +17,48 @@
 .App .header h2 {
   font-size: 1.2rem;
 }
+.App .header .tags {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 120px;
+}
+.App .header .tags .tag-header {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.App .header .tags .tag-header .tag-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.App .header .tags .tag {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 0.8rem;
+  margin: 10px 0 10px 25px;
+  background: #79B0D5;
+  color: black;
+  padding: 0 10px;
+  border-radius: 10px;
+  width: auto;
+}
+.App .header .tags .tag p {
+  margin: 5px 0;
+}
+.App .header .tags .tag .hide {
+  display: none;
+}
+.App .header .tags .tag:hover {
+  justify-content: flex-start;
+  cursor: pointer;
+  padding-right: 8px;
+}
+.App .header .tags .tag:hover .hide {
+  display: flex;
+  margin-left: 3px;
+}
 .App .body {
   background-color: whitesmoke;
   width: 80%;
@@ -97,14 +139,18 @@
 }
 .App .body .body-header {
   display: flex;
+  flex-direction: column;
+}
+.App .body .body-header .tags-container {
+  display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.App .body .body-header .tags {
+.App .body .body-header .tags-container .tags {
   display: inline-block;
   width: auto;
 }
-.App .body .body-header .tags .tag {
+.App .body .body-header .tags-container .tags .tag {
   display: inline-block;
   font-size: 0.8rem;
   margin: 0 10px 0 0;
@@ -112,13 +158,19 @@
   padding: 5px 10px;
   border-radius: 10px;
 }
-.App .body .body-header .input-tags {
+.App .body .body-header .tags-container .input-tags {
   display: inline-block;
   width: auto;
 }
-.App .body .body-header .btn-container {
+.App .body .body-header .tags-container .btn-container {
   display: flex;
   align-items: center;
+}
+.App .body .body-header .timeStamp p {
+  font-size: 0.8rem;
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  color: #404040;
 }
 .App .body button {
   display: flex;

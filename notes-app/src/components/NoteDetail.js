@@ -5,11 +5,12 @@ class NoteDetail extends React.Component {
   constructor() {
     super();
     this.state = {
-      _id: "",
+      id: "",
       tags: [],
-      tag: "",
       title: "",
-      textBody: "",
+      contents: "",
+      created_at: "",
+      updated_at: "",
       editing: false
     };
   }
@@ -17,14 +18,16 @@ class NoteDetail extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
+        `http://localhost:4000/api/posts/${this.props.match.params.id}`
       )
       .then(response => {
         this.setState({
-          _id: response.data._id,
+          id: response.data.id,
           title: response.data.title,
-          textBody: response.data.textBody,
-          tags: response.data.tags
+          contents: response.data.contents,
+          tags: response.data.tags,
+          created_at: response.data.created_at,
+          updated_at: response.data.updated_at
         });
       })
       .catch(err => console.log(err.response));
@@ -44,11 +47,10 @@ class NoteDetail extends React.Component {
 
   putNote = note => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${note._id}`, {
+      .put(`http://localhost:4000/api/posts/${note.id}`, {
         ...note
       })
       .then(response => {
-        console.log(response);
         this.props.fetchNotes();
       })
       .catch(err => console.log(err));
@@ -62,15 +64,14 @@ class NoteDetail extends React.Component {
 
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`http://localhost:4000/api/posts/${id}`)
       .then(response => {
-        console.log(response);
         this.props.fetchNotes();
       })
       .catch(err => console.log(err));
   };
   handleDelete = () => {
-    this.deleteNote(this.state._id);
+    this.deleteNote(this.state.id);
     this.props.history.push("/");
   };
 
@@ -78,32 +79,38 @@ class NoteDetail extends React.Component {
     return (
       <div className="note-detail">
         <header className="body-header">
-          <form className="tags-form" onSubmit={this.props.handleSubmitTag}>
-            <div className="tags">
-              {this.props.tags.map(tag => {
-                return <p className="tag">{tag}</p>
-              })}
+          <div className="tags-container">
+            <form className="tags-form" onSubmit={this.props.handleSubmitTag}>
+              <div className="tags">
+                {this.state.tags.map(tag => {
+                  return <p className="tag">{tag}</p>
+                })}
+              </div>
+              <input
+                className="input-tags"
+                type="text"
+                name="tag"
+                value={this.props.tag}
+                onChange={this.props.handleInput}
+                onSubmit={this.props.handleSubmitTag}
+                placeholder="add tags"
+              />
+            </form>
+            <div className="btn-container">
+              <button
+                className={this.state.editing ? "save-btn" : "hide"}
+                onClick={this.handleUpdate}
+              >
+                save
+          </button>
+              <button className="delete-btn" onClick={this.handleDelete}>
+                delete
+          </button>
             </div>
-            <input
-              className="input-tags"
-              type="text"
-              name="tag"
-              value={this.props.tag}
-              onChange={this.props.handleInput}
-              onSubmit={this.props.handleSubmitTag}
-              placeholder="add tags"
-            />
-          </form>
-          <div className="btn-container">
-            <button
-              className={this.state.editing ? "save-btn" : "hide"}
-              onClick={this.handleUpdate}
-            >
-              save
-          </button>
-            <button className="delete-btn" onClick={this.handleDelete}>
-              delete
-          </button>
+          </div>
+          <div className="timeStamp">
+            <p>Created: {this.state.created_at}</p>
+            <p>Updated: {this.state.updated_at}</p>
           </div>
         </header>
         <hr></hr>
@@ -124,13 +131,13 @@ class NoteDetail extends React.Component {
           className={this.state.editing ? "none" : "note-body"}
           onClick={this.handleEditing.bind(this)}
         >
-          {this.state.textBody}
+          {this.state.contents}
         </p>
         <textarea
           className={this.state.editing ? "input-body" : "none"}
           type="textarea"
-          value={this.state.textBody}
-          name="textBody"
+          value={this.state.contents}
+          name="contents"
           onChange={this.handleEditingChange.bind(this)}
         />
 
