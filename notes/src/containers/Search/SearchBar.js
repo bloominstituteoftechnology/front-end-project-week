@@ -3,16 +3,16 @@ import styled from "styled-components";
 
 const Search = styled.div`
 display: flex;
-justify-conent: space-arround;
+justify-conent: space-around;
 align-items: center;
 padding: 10px;
 margin-top: 20px;
 
-  ${'' /* h2 {
+  h2 {
       margin-right:6px;
       margin-top:16px;
       align-self:center;
-  } */}
+  }
 `;
 
 const Input = styled.input`
