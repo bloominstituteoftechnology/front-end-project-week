@@ -40,7 +40,7 @@ class NoteForm extends React.Component {
     
     submitForm = e => {
         e.preventDefault();
-        const note = {title: this.state.title, content: this.state.content, tags: JSON.stringify(this.state.tagsList)};
+        const note = {title: this.state.title, content: this.state.content, tags: this.state.tagsList};
         if (this.props.type === 'Create') {
             this.props.createNote(note);
             this.setState({
@@ -64,6 +64,7 @@ class NoteForm extends React.Component {
     }
     
     addTag = e => {
+        console.log(`Tag list: ${this.state.tagsList}`)
         const updateTagList = this.state.tagsList;
         updateTagList.push(this.state.tagItem);
         this.setState({
