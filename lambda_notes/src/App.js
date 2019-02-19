@@ -16,13 +16,14 @@ import { AppWrap , BtnStyle, HeadStyle, LambdaNotes, NoteContent, NoteHeading } 
 class App extends Component {
 
   state = {
+    notes: [],
     path: 'List View',
   }
 
 
     componentDidMount() {
 
-     this.props.getNotes();
+     getNotes();
     
     }
 
@@ -46,14 +47,14 @@ class App extends Component {
             </NavLink>
           </HeadStyle>
             <Route path='/' exact 
-              render={ props => <ListView />}
+              render={ props => <ListView {...props} />}
             />
             <Route path='/create' exact
             render={props => <CreateNewNote />}
             />
 
             <Route path={`/note/:id`} exact
-              render={(props) => <NoteView   {...props} />}
+              render={(props) => <NoteView   {...props.notes} />}
             />
 
             <Route path={`/note/edit/:id`} exact

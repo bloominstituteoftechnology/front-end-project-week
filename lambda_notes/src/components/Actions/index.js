@@ -8,11 +8,10 @@ export const ERROR = "ERROR";
 
 
 export const getNotes = () => {
-  return(dispatch) => {
-    dispatch({type: LOADING, fetching: true})
-    axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
+  return  (dispatch) => {
+    axios.get(`http://localhost:4500/api/notes`)
     .then( res => {
-      dispatch({type: SUCCESS, payload: res.data, path: "List View" , fetching: false})
+      dispatch({ type: SUCCESS, payload: res.data, path: "List View" , fetching: false })
     })
     .catch (err => {
       dispatch({type: ERROR, errorMessage: "Notes Not Found!"})
@@ -21,9 +20,11 @@ export const getNotes = () => {
 }
 
 export const getNote =(id)=> {
-  return(dispatch) => {
-    dispatch({type: LOADING})
-    axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+  console.log(id);
+  console.log("------------")
+  return (dispatch) => {
+    dispatch({type: LOADING, fetching: true})
+    axios.get(`http://localhost:4500/api/note/${id}`)
     .then( res => {
       dispatch({type: NOTE, payload: res.data, path: "Note View", fetching: false})
     })
@@ -33,9 +34,10 @@ export const getNote =(id)=> {
   }
 }
 
+//connected to my local server
 export const newNote = (note) => {
   return (dispatch) => {
-    axios.post(`https://fe-notes.herokuapp.com/note/create`, note)
+    axios.post(`http://localhost:4500/api/notes`, note)
     .then( res => {
       dispatch({type: SUCCESS, payload: res.data, path: "Create Note" , fetching: false })
     })

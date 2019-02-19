@@ -3,7 +3,7 @@ import { LOADING, SUCCESS, ERROR, NOTE } from '../Actions/index';
 
 
 const initialState = {
-    notes: {},
+    notes: [],
     path:'',
 }
 

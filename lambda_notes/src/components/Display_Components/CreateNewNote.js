@@ -12,7 +12,7 @@ class CreateNewNote extends Component {
  state = {
      
         title: "",
-        textBody: "",
+        note: "",
     }
 
 inputHandler = (e) => {
@@ -33,7 +33,7 @@ inputHandler = (e) => {
                 <h2>Create New Note:</h2>
                 <FormStyle onSubmit={this.submitHandler}>
                     <TitleInputStyle type='text' name='title' placeholder="Note Title" onInput={this.inputHandler}></TitleInputStyle>
-                    <ContentInputStyle type='textBox' name='textBody' placeholder="Note Content" onInput={this.inputHandler}></ContentInputStyle>
+                    <ContentInputStyle type='textBox' name='note' placeholder="Note Content" onInput={this.inputHandler}></ContentInputStyle>
                     <BtnWrap>
                       <BtnStyle type="submit">Add Note</BtnStyle>
                     </BtnWrap>
