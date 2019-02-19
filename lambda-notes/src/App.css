@@ -9,8 +9,8 @@
 
 .sidebar-container{
   width: 22%; 
-  background-color: rgb(179, 179, 180); 
-  border: 1px solid navy; 
+  background-color: rgba(189, 189, 189,0.6); 
+  border: 1px solid grey; 
   border-right: none; 
   display: flex; 
   flex-wrap: wrap; 
@@ -20,7 +20,7 @@
 .notes-container{
   width: 70%; 
   background-color: rgb(232, 232, 255); 
-  border: 1px solid navy; 
+  border: 1px solid grey; 
 }
 
 h1{
@@ -29,4 +29,5 @@ h1{
   line-height: .8;
   margin-left: 9%;    
 }
+
 

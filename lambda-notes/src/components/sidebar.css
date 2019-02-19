@@ -1,7 +1,7 @@
 .button{
     background-color: rgb(23, 196, 202);
-    border: 1px solid rgb(114, 63, 119); 
-    width: 84%;
+    border: 1px solid rgb(173, 173, 173); 
+    width: 83%;
     height: 36px;  
     color: white; 
     font-weight: bold; 
@@ -15,7 +15,7 @@
 }
 
 .button:hover{
-    background-color: rgba(220, 202, 224, 0.89); 
+    background-color: rgb(9, 142, 146); 
     transition: 0.5s; 
     font-weight: bold; 
     font-size: 17px; 

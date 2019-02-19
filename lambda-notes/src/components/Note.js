@@ -9,13 +9,16 @@ export const Note = (props) => {
                   <Link 
                     style={{textDecoration: "none", color: "black"}} 
                     to={`/NoteView/${props.id}`}>
-                    {props.note.title}
+                    {props.title}
                   </Link>
                   <br/>
                   <hr/> 
                   <br/> 
                 </h4> 
-                <p>{props.note.textBody}</p> 
+                <p>{props.textBody}</p> 
+                <div className="image"> 
+                  <img src={props.image} />
+                </div> 
               </div> 
         )
 }

@@ -10,7 +10,8 @@ form{
     height: 300px; 
     width: 90%;
     margin: 20px 0px; 
-    border-radius: 5px; 
+    border-radius: 3px; 
+    border: 1px solid rgb(172, 172, 172);
 }
 
 .text-area::placeholder{
@@ -22,6 +23,7 @@ form{
     width: 80%; 
     height: 40px; 
     border-radius: 5px; 
+    border: 1px solid rgb(172, 172, 172); 
 }
 
 .input::placeholder{
@@ -30,7 +32,7 @@ form{
 
 .button-2{
     background-color: rgb(23, 196, 202);
-    border: 1px solid rgb(114, 63, 119); 
+    border: 1px solid rgb(160, 160, 160); 
     width: 220px; 
     height: 36px;  
     color: white; 

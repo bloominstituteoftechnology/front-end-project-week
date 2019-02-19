@@ -3,30 +3,46 @@ import './App.css';
 import Sidebar from './components/sidebar'; 
 import Notes from './components/Notes'; 
 import {Route} from 'react-router-dom'; 
-import  CreateNew  from './components/CreateNew';
-import  NoteView   from './components/NoteView'; 
+import CreateNew  from './components/CreateNew';
+import NoteView   from './components/NoteView'; 
 import axios from 'axios'
-import { Edit } from './components/Edit.js'
+import Edit from './components/Edit.js'
+import Search from './components/Search'
+import Register from './components/Register'
+import Login from './components/Login'
 
 class App extends Component {
   constructor(){
     super(); 
     this.state = {
-      notes: [],
-      newId: 3,
-      id: null,
-      title: '',
-      textBody: ''
+      notes: []
     }  
   }
 
-  componentDidMount(){
-    axios
-    .get("https://fe-notes.herokuapp.com/note/get/all")
+displayNotes = () => {
+  const token = localStorage.getItem('jwt')
+  const headers = {
+    headers: {
+      'Authorization': token
+    }
+  }
+  axios
+    .get("http://localhost:5566/api/home", headers)
       .then(response => {
-        this.setState({notes: response.data})
+        this.setState({
+          notes: response.data
+        })
       })
         .catch(err => console.log(err)); 
+}
+
+componentDidMount(){
+  this.displayNotes(); 
+}
+
+signOut = () => {
+  localStorage.removeItem('token');
+  console.log("boom")
 }
 
   inputChange = e => {
@@ -39,9 +55,22 @@ class App extends Component {
     });
   };
 
+  searchHandler = (string) => {
+   const searchFilter = this.state.notes.filter(item => {
+     return item.title.includes(string)
+    })
+    if(!this.state.notes.length < 1){
+       this.setState({
+         notes: searchFilter
+       })
+    } else{
+      this.componentDidMount(); 
+    }
+  }
+
   addNote = () => {
     axios
-      .post("https://fe-notes.herokuapp.com/note/create", this.state.newNote)
+      .post("http://localhost:5566/api/notes", this.state.newNote)
       .then(response =>
         this.setState({
           newNote: { title: "", textBody: "" }
@@ -52,12 +81,22 @@ class App extends Component {
       });
   };
 
-  updateNote = id => {
+
+  updateHandler = (title, textBody, id) => {
+    this.setState({
+      notes: [ ...this.state.notes,
+        {title:title, textBody: textBody}
+      ]
+    })
+    let updatedNote = {
+      title: title,
+      textBody: textBody,
+    }
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, this.state.newNote)
+      .put(`http://localhost:5566/api/notes/${id}`, updatedNote)
       .then(response =>
         this.setState({
-          newNote: { title: "", textBody: "" }
+          updatedNote: { title: "", textBody: "" , id: null}
         })
       )
       .catch(error => {
@@ -65,29 +104,62 @@ class App extends Component {
       });
   };
 
-    newNote = (newtitle, content) => {
+    newNote = (newtitle, content, image) => {
       this.setState({
         notes:[
           ...this.state.notes, 
-          {title: newtitle, textBody: content, id: this.state.newId}
+          {title: newtitle, textBody: content, image: image}
         ],
-        newId: this.state.newId + 1
       })
+      const newNote = {
+        title: newtitle,
+        textBody: content,
+        image: image,
+        tags: null
+      }
+      axios.post('http://localhost:5566/api/notes', newNote)
+      .then( response => {
+          this.setState({
+            newNote: {
+            title: '',
+            textBody: '',
+            image: '', 
+            tags: null,
+            }
+          })
+        })
+        .catch( error => console.log( "we've encountered an error"))
     }
 
   render() {
     return (
       <div className="App">
         <div className="sidebar-container">
-          <Sidebar />
+          <Sidebar signOut={this.signOut} />
         </div> 
         <div className="notes-container">
+        <Search className="search-bar" searchHandler={this.searchHandler} notes={this.state.notes} />
+        
           <Route 
             exact path='/' 
             render = {props => <Notes {...props} 
             notes={this.state.notes} />}  
           />
-          
+          <Route 
+             path='/Register'
+             render = {props => (
+               <Register  
+                 {...props}
+            />)}
+          />
+           <Route 
+             path='/Login'
+             render = {props => (
+               <Login  
+                 {...props}
+            />)}
+          />
+
           <Route 
             path='/CreateNew' 
             render = { props=> (
@@ -112,7 +184,7 @@ class App extends Component {
               notes={this.state.notes}
               inputChange={this.inputChange}
               newNote={this.newNote}
-              updateNote={this.updateNote}
+              updateHandler={this.updateHandler}
             />)}
           />
         </div> 

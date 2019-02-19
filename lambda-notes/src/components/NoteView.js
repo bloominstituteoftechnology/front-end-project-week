@@ -8,17 +8,20 @@ export default class NoteView extends React.Component  {
   constructor(props){
     super(props); 
     this.state = {
-      note: {},
+      note: [],
       redirect: false
     };
   }
 
   componentDidMount() {
-    axios.get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
-      .then( (response) => {
-        this.setState( () => ({ note: response.data }) )
+    axios.get(`http://localhost:5566/api/notes/${this.props.match.params.id}`)
+    .then( response => {
+        this.setState({ 
+          note: response.data 
+        })   
+        console.log(this.state.note)
       })
-      .catch( (error) => console.error(error) );
+      .catch(error => console.error(error) );
   };
    
   handleDelete = (event) => {
@@ -31,7 +34,7 @@ export default class NoteView extends React.Component  {
   };
    
   confirmedDelete = (event) => {
-    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.match.params.id}`)
+    axios.delete(`http://localhost:5566/api/notes/${this.props.match.params.id}`)
       .then( () => {
         this.setState( () => ({ redirect: true }) );
       })
@@ -58,13 +61,18 @@ export default class NoteView extends React.Component  {
               <Link style={{color: 'black'}} to={`/Edit/${this.props.match.params.id}`}>edit </Link>
             </h6>
             <h6>
-              <Link style={{color: 'black'}} to={`/delete/${this.state.note._id}`} onClick={this.handleDelete}>delete</Link>
+              <Link style={{color: 'black'}} to={`/delete/${this.state.note.id}`} onClick={this.handleDelete}>delete</Link>
             </h6>
           </div> 
-          <h3>{this.state.note.title}</h3> 
-          <div className="note-textBody"> 
-            <h5>{this.state.note.textBody}</h5> 
-          </div> 
+          {this.state.note.map(item => (
+            <div key={item.id}> 
+              <h3>{item.title}</h3> 
+              <div className="note-textBody"> 
+                <h5>{item.textBody}</h5> 
+                <img className="noteview-image" src={item.image}/>
+              </div> 
+            </div> 
+          ))} 
         </div>  
       )
     }

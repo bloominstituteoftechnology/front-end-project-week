@@ -1,6 +1,6 @@
 .note-textBody{
     width: 90%; 
-    margin-left: 23px; 
+    margin-left: 27px; 
     font-size: 18px; 
 }
 
@@ -76,6 +76,19 @@ h6:last-child{
       border-radius: 2px; 
   }
 
+  .buttonRed:hover{
+      border: 2px solid black; 
+  }
+
+  .buttonBlue:hover{ 
+      border: 2px solid black; 
+  }
+
   .deleteText{
       margin-bottom: 25px; 
+  }
+
+  .noteview-image{
+      width: 70%; 
+      height: 250px; 
   }
