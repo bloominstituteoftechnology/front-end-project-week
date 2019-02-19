@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import NoteCard from './NoteCard';
+import { API_URL } from '../config';
 
 class NoteList extends React.Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class NoteList extends React.Component {
 
     componentDidMount() {
         this.setState({...this.state, loading: true});
-        axios.get('http://localhost:3300/api/notes')
+        axios.get(`${API_URL}/notes`)
             .then( response => {
                 this.setState({error: null, loading: false, notes: response.data});
             })

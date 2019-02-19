@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { API_URL } from '../config';
 
 class NoteForm extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class NoteForm extends React.Component {
         }
         if (this.props.match.params.id) {
             this.setState({...this.state, updating: true});
-            axios.put(`http://localhost:3300/api/notes/${this.props.match.params.id}`, note)
+            axios.put(`${API_URL}/notes/${this.props.match.params.id}`, note)
                 .then( response => {
                     this.props.history.push(`/note/${response.data.id}`);
                 })
@@ -36,7 +37,7 @@ class NoteForm extends React.Component {
                 })
         } else {
             this.setState({...this.state, creating: true});
-            axios.post('http://localhost:3300/api/notes', note)
+            axios.post(`${API_URL}/notes`, note)
                 .then( response => {
                     this.props.history.push(`/note/${response.data.id}`);
                 })
@@ -49,7 +50,7 @@ class NoteForm extends React.Component {
     componentDidMount() {
         if (this.props.match.params.id) {
             this.setState({...this.state, loading: true});
-            axios.get(`http://localhost:3300/api/notes/${this.props.match.params.id}`)
+            axios.get(`${API_URL}/notes/${this.props.match.params.id}`)
                 .then( response => {
                     this.setState({
                         error: null, 

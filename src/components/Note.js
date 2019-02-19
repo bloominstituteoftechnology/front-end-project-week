@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../config';
 
 const Modal = (props) => {
     return (
@@ -39,7 +40,7 @@ class Note extends React.Component {
     deleteHandler = e => {
         this.props.history.push(`/delete/${this.state.note.id}`);
         this.setState({...this.state, modal: false, deleting: true});
-        axios.delete(`http://localhost:3300/api/notes/${this.props.match.params.id}`)
+        axios.delete(`${API_URL}/notes/${this.props.match.params.id}`)
             .then( response => {
                 this.props.history.push(`/`);
             })
@@ -59,7 +60,7 @@ class Note extends React.Component {
 
     componentDidMount() {
         this.setState({...this.state, loading: true});
-        axios.get(`http://localhost:3300/api/notes/${this.props.match.params.id}`)
+        axios.get(`${API_URL}/notes/${this.props.match.params.id}`)
             .then( response => {
                 this.setState({error: null, loading: false, note: response.data});
             })
