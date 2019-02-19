@@ -14,26 +14,24 @@ export const GETTING_SINGLE_LIST = 'GETTING_SINGLE_LIST';
 export const TOGGLE_UPDATE_LIST = 'TOGGLE_UPDATE_LIST';
 
 
-
-
 export const getLists = () => {
   return (dispatch) => {
     dispatch({ type: GETTING_LISTS })
     const token = localStorage.getItem('jwt');
     const endpoint = 'http://localhost:5000/api/lists';
     const options = {
-    /*   headers: {
-        Authorization: token
-      } */
+      /*   headers: {
+          Authorization: token
+        } */
     };
     axios
-     // .get('http://localhost:5000/api/notes', options)
-   // axios
-   // .get('https://fe-notes.herokuapp.com/note/get/all')
-  .get('http://localhost:5000/api/lists')
-   // .get('https://frontend-william.herokuapp.com/api/notes')
+      // .get('http://localhost:5000/api/notes', options)
+      // axios
+      // .get('https://fe-notes.herokuapp.com/note/get/all')
+      .get('http://localhost:5000/api/lists')
+      // .get('https://frontend-william.herokuapp.com/api/notes')
       .then(response => {
-        //console.log("response:", response)
+        // console.log("response:", response)
         dispatch({ type: GET_LISTS, payload: response.data })
       })
       .catch(error => {
@@ -43,16 +41,11 @@ export const getLists = () => {
 }
 
 export const createList = (newRec) => {
- 
- console.log("newRec:", newRec)
- 
-  
-   // console.log("newList", newList)
   return (dispatch) => {
     dispatch({ type: CREATING_LIST })
-   // axios.post('https://frontend-william.herokuapp.com/api/notes', newNote)
-    axios.post('http://localhost:5000/api/lists', newRec)  
-    .then(response => {
+    // axios.post('https://frontend-william.herokuapp.com/api/notes', newNote)
+    axios.post('http://localhost:5000/api/lists', newRec)
+      .then(response => {
         dispatch({ type: CREATE_LIST, payload: response.data })
       })
       .catch(err => {
@@ -65,7 +58,7 @@ export const createList = (newRec) => {
 export const updateList = (newList, id) => {
   return (dispatch) => {
     dispatch({ type: UPDATING_LIST })
-   // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
+    // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
     const URL = 'http://localhost:5000/api/lists/' + id;
     axios
       .put(URL, {
@@ -88,7 +81,7 @@ export const updateList = (newList, id) => {
 export const viewList = (id) => {
   return (dispatch) => {
     dispatch({ type: GETTING_SINGLE_LIST })
-  // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
+    // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
     const URL = 'http://localhost:5000/api/lists/' + id;
     axios
       .get(URL)
@@ -103,8 +96,8 @@ export const viewList = (id) => {
 
 export const deleteList = (id) => {
   return (dispatch) => {
-   // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
-   const URL = 'http://localhost:5000/api/lists/' + id;
+    // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
+    const URL = 'http://localhost:5000/api/lists/' + id;
     dispatch({ type: DELETING_LIST })
     axios
       .delete(URL)

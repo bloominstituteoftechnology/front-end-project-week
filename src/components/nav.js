@@ -75,14 +75,17 @@ class Nav extends React.Component {
     //console.log("saveName:", saveName)
 
     const list = this.state.listItems;
-    for (let x = 0; x < list.length; x++) {
+    const listJSON = JSON.stringify(list); 
+   // for (let x = 0; x < list.length; x++) {
       let newRec = {
-        notes_id: list[x],
+        list: listJSON,
+        notes_id: 1,
         listTitle: saveName,
         users_id: 1
       }
       this.props.createList(newRec);
-    }
+      this.props.getLists();
+   // }
   }
 
   render() {
@@ -99,7 +102,7 @@ class Nav extends React.Component {
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button className="nav-button" value="noteCreate" onClick={this.props.noteCreate} name="noteCreate">+ Create New Note</button>
+            <button className="nav-button" value="noteCreate" onClick={this.props.noteCreate} name="noteCreate"><p>+ Create New Note</p></button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
@@ -126,7 +129,7 @@ class Nav extends React.Component {
           </ul> : null}
         {(this.state.enableList) ? <div className="sort-button" onClick={this.sortThis}>Sort By Title</div> : null}
         {(this.state.enableSaveList) ?
-          <ul className="nav-title-list">
+          <ul className="nav-title-list">Select notes to save
             {this.props.notes.map((note, index) => {
               return <NavSaveList key={index} title={note.title} saveList={this.saveList} viewNote={this.props.viewNote} listHandler={this.listHandler} textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
             })}
@@ -139,12 +142,12 @@ class Nav extends React.Component {
           name="listSaveInput" /> : null}
         {(this.state.enableSaveList) ? <button className="save-list-button" onSubmit={this.saveList}>Save List</button> : null}
         {(this.state.enableOpenList) ?
-          <ul className="nav-title-list">
+          <ul className="nav-title-list">Select a List to open
             {this.props.lists.map((list, index) => {
               return <NavOpenList key={index} listTitle={list.listTitle} listView={this.props.listView} list={list.list} id={list.id} lists={this.state.lists} />
             })}
           </ul> : null}
-        {(this.state.enableOpenList) ? <div className="open-button" onClick={this.sortThis}>Open List</div> : null}
+       {/*  {(this.state.enableOpenList) ? <div className="open-button" onClick={this.sortThis}>Open List</div> : null} */}
       
       </form>
     );

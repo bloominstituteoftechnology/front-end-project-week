@@ -414,7 +414,8 @@ li {
 }
 
 .sort-button,
-.save-list-button {
+.save-list-button,
+.open-button {
     border: 2px solid rgb(151, 151, 151);
     text-align: center;
     background-color: rgb(43, 193, 196);
@@ -428,11 +429,13 @@ li {
 }
 
 .sort-button:hover,
-.save-list-button:hover {
+.save-list-button:hover,
+.open-button:hover {
     color: rgb(8, 89, 143);
 }
 
 .sort-button:active,
-.save-list-button:active {
+.save-list-button:active,
+.open-button:active {
     color: red;
 }
