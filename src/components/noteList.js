@@ -22,8 +22,6 @@ class NoteList extends Component {
 		this.props.getNotes();
 	}
 
-	
-	
 	render() {
 		return (
 			<div className="note-list"><div className="title-container"><div className="list-title">Notes:</div>

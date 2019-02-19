@@ -66,7 +66,6 @@ class Nav extends React.Component {
 
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    //console.log("listSaveInput:", this.state.listSaveInput)
   }
 
   saveList = (event) => {
@@ -76,7 +75,7 @@ class Nav extends React.Component {
 
     const list = this.state.listItems;
     const listJSON = JSON.stringify(list); 
-   // for (let x = 0; x < list.length; x++) {
+  
       let newRec = {
         list: listJSON,
         notes_id: 1,
@@ -85,7 +84,7 @@ class Nav extends React.Component {
       }
       this.props.createList(newRec);
       this.props.getLists();
-   // }
+      this.setState({ listSaveInput: "" })
   }
 
   render() {

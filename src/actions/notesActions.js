@@ -43,7 +43,7 @@ export const getNotes = () => {
 }
 
 export const createNote = (newNote) => {
-  //console.log("newNote", newNote)
+ 
   return (dispatch) => {
     dispatch({ type: CREATING_NOTE })
    // axios.post('https://frontend-william.herokuapp.com/api/notes', newNote)
