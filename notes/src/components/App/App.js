@@ -15,7 +15,6 @@ import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
-import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
 
@@ -36,13 +35,13 @@ class App extends Component {
         <TopBar />
         <Container>
           <Switch>
-            <Route exact path={ROUTES.LANDING} component={LandingPage} />
+            <Route path={ROUTES.LANDING} exact component={LandingPage} />
             <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
             <Route path={ROUTES.SIGN_IN} component={SignInPage} />
             <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
             <Route path={ROUTES.ACCOUNT} component={AccountPage} />
             <Route path={ROUTES.ADMIN} component={AdminPage} />
-            <Route exact path="/home" render={props => <Notes {...props} />} />
+            <Route path={ROUTES.HOME} render={props => <Notes {...props} />} />
             <Route
               exact
               path="/note/:id"

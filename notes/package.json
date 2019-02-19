@@ -22,6 +22,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "react-spinners-kit": "^1.7.5",
+    "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
