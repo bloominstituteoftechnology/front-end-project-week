@@ -56,3 +56,4 @@ render() {
   )}
 }
 export default CreateNote;
+
