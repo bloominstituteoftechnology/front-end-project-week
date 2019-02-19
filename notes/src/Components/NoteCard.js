@@ -6,7 +6,8 @@ import './NoteCard.css';
 const NoteCard = props => {
 
     const note = props.notes.find(note => {
-            return note.id.toString() === props.match.params.id;
+
+        return note.id == props.match.params.id;
     })
 
     if (note === undefined) {
@@ -18,7 +19,7 @@ const NoteCard = props => {
             <Menu />
             <div className='note-container'>
                 <div className='notecard-buttons'>
-                    <Link className='edit' to={`/${note.id}/edit`}>edit</Link>
+                    <Link className='edit' to={`/notes/edit/${note.id}`}>edit</Link>
                     <Link className='delete' to='/' onClick={() => { props.deleteNote(props.match.params.id) }}>delete</Link>
                 </div>
                 <div className='notecard'>

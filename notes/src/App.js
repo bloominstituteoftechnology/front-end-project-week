@@ -45,19 +45,21 @@ class App extends Component {
 
   newNote = note => {
     axios
-    .post(`http://localhost:2200/api/notes`, note)
-    .then(response => {
+      .post(`http://localhost:2200/api/notes`, note)
+      .then(response => {
         this.getNotes()
-        this.setState({ notes: response.data})
+        this.setState({ notes: response.data })
       })
       .catch(error => console.log('error!'))
   }
 
-  updateNote = (note) => {
+  updateNote = (updateNote) => {
+    console.log('Clicked!')
     axios
-      .put(`http://localhost:2200/api/notes/${note.id}`, note)
+      .put(`http://localhost:2200/api/notes/${updateNote.id}`, updateNote)
       .then(response => {
         this.getNotes()
+        console.log('response', response)
       })
       .catch(error => console.log('error!'))
   }
@@ -93,7 +95,7 @@ class App extends Component {
             deleteNote={this.deleteNote}
           />
         )} />
-        <Route exact path='/:id/edit' render={props => (
+        <Route exact path='/notes/edit/:id' render={props => (
           <EditNote
             {...props}
             updateNote={this.updateNote}

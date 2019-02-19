@@ -9,7 +9,7 @@ class EditNote extends Component {
         this.state = {
             notes: [],
             title: '',
-            textBody: '',
+            body: '',
         }
     }
 
@@ -21,7 +21,7 @@ class EditNote extends Component {
         event.preventDefault()
         const note = {
             title: this.state.title,
-            textBody: this.state.textBody,
+            body: this.state.body,
             id: this.props.match.params.id,
         }
 
@@ -29,10 +29,11 @@ class EditNote extends Component {
 
         this.setState({
             title: '',
-            textBody: '',
+            body: '',
         })
     }
 
+    
     render() {
         return (
             <div className='edit-container'>
@@ -51,9 +52,9 @@ class EditNote extends Component {
                     <textarea
                         className='note-content'
                         placeholder='Note Content'
-                        name='textBody'
+                        name='body'
                         onChange={this.inputHandleChange}
-                        value={this.state.textBody}
+                        value={this.state.body}
                     />
                     <div className='save-button' onClick={this.editNote}>
                         Update
