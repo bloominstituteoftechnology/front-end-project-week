@@ -2,6 +2,7 @@ import React from 'react';
 import NoteContainer from './Containers/NoteContainer';
 import CreateNew from './Views/CreateNew';
 import NoteView from './Views/NoteView';
+import EditNote from './Views/EditView';
 import { Route } from 'react-router-dom';
 import axios from 'axios'
 import './App.css';
@@ -32,6 +33,21 @@ class App extends React.Component {
     })
     .catch(err => console.log(err))
 
+  }
+
+  editNoteFromServer = (note,id) => {
+    axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    .then(res => {
+      this.setState({
+        notes: res.data
+      })
+    })
+    .catch(err => console.log(err))
+  }
+
+  editNote = (note, id) => {
+    this.addNewNoteToServer(note,id);
   }
 
   addNewNoteToServer = note => {
@@ -66,6 +82,7 @@ class App extends React.Component {
         <Route path='/create-new'
         render={(props) => <CreateNew {...props} newNote={this.addNewNote}/>}
         />
+        <Route path='/edit/:id' render={(props) => <EditNote {...props} editNote={this.editNote} />}/>
 
 
 

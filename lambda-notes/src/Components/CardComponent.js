@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import './CardComponent.css';
+
 
 const CardContainer = styled.div`
     display:flex;
@@ -18,10 +18,18 @@ const CardContainerNoteView = styled.div`
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    width: 80%;
-    margin-right:20px;
-    margin-bottom:20px;
+    width: 75%;
+    margin-top:-100px;
     overflow: auto;
+`;
+
+const TitleContainerNoteView = styled.div`
+    display:flex;
+    justify-content:flex-start;
+    width:100%;
+    position:absolute;
+    top:100px;
+    left:22%;
 `;
 
 const TitleContainer = styled.div`
@@ -30,27 +38,30 @@ const TitleContainer = styled.div`
     width:100%;
 `;
 
-const LineThrough = styled.div`
-    display:flex;
-
-    border-bottom:1px solid black;
-`
 const BodyContainer = styled.div`
     display:flex;
     justify-content:center;
-`
+`;
+
+const BodyContainerNoteView = styled.div`
+    display:flex;
+    justify-content:flex-start;
+    width:100%;
+    position:absolute;
+    top:150px;
+    left:22%;
+`;
 
 const Card = (props) => {
     if(props.noteView){
         return(
             <CardContainerNoteView>
-                <TitleContainer>
+                <TitleContainerNoteView>
                     <h2>{props.note.title}</h2>
-                </TitleContainer>
-                <LineThrough></LineThrough>
-                <BodyContainer>
+                </TitleContainerNoteView>
+                <BodyContainerNoteView>
                     <p>{props.note.textBody}</p>
-                </BodyContainer>
+                </BodyContainerNoteView>
             </CardContainerNoteView>
         )
     }
@@ -60,7 +71,6 @@ const Card = (props) => {
             <TitleContainer>
                <h2>{props.note.title}</h2>
             </TitleContainer>
-            <LineThrough></LineThrough>
             <BodyContainer>
                 <p>{props.note.textBody}</p>
             </BodyContainer>
