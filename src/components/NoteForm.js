@@ -22,6 +22,7 @@ class NoteForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        console.log(API_URL);
         const note = {
             title: this.state.title,
             content: this.state.content
