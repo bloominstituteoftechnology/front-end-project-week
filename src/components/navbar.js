@@ -31,7 +31,7 @@ const NavButton = styled.button`
 const NavBar = (props) => {
     return (  
         <NavbarAttrib className="Navbar-Container">
-            <NavTitle>Lambda Notes</NavTitle>
+            <NavTitle>Adam's Note Taker</NavTitle>
             <Link to="/"><NavButton onClick={props.edittoggle}>View Your Notes</NavButton></Link>
             <Link to="/form"><NavButton>+ Create New Note</NavButton></Link>
         </NavbarAttrib>
