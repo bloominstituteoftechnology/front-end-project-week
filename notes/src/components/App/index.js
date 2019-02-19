@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 
-import About from "../About";
+import About from "../About/About";
 import Notes from "../Notes";
 import Note from "./components/Note";
 import NewForm from "./components/NewForm";
 import EditForm from "./components/EditForm";
-import TopBar from "../TopBar";
+import TopBar from "../Navigation/TopBar";
 import styled from "styled-components";
 
 const Container = styled.div`
