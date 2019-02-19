@@ -47,7 +47,7 @@ class App extends React.Component {
   }
 
   editNote = (note, id) => {
-    this.addNewNoteToServer(note,id);
+    this.editNoteFromServer(note,id);
   }
 
   addNewNoteToServer = note => {

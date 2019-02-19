@@ -48,7 +48,7 @@ class MainContent extends React.Component{
                     <Title>Your Notes:</Title>
                 </TitleContainer>
                 <NotesContainer>
-                    {notes.map(note => <Link to={`/note/${note._id}`} key={note._id}><Card key={note._id}note={note}/></Link>)}
+                    { notes ? notes.map(note => <Link to={`/note/${note._id}`} key={note._id}><Card key={note._id}note={note}/></Link> ) : (<div>loading</div> )}
                 </NotesContainer>
             </Container>
         )

@@ -67,7 +67,7 @@ class EditNote extends React.Component{
 
     EditNotes = event => {
         event.preventDefault();
-        this.props.editNote(this.state.note,this.state.id);
+        this.props.editNote(this.state.note, this.state.id);
         this.props.history.push('/');
     }
 
