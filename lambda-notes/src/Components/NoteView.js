@@ -121,7 +121,7 @@ class NoteView extends Component {
   //Fetches an individual note by id and sets its values to state of this component.
   fetch = id => {
     axios
-      .get(`https://beplambdanotes.herokuapp.com/note/get/${id}`)
+      .get(`https://beplambdanotes.herokuapp.com/api/notes/${id}`)
       .then(res => {
         console.log("noteview", res);
         this.setState(() => ({

@@ -38,7 +38,6 @@ class NoteForm extends Component {
     this.state = {
       title: "",
       textBody: ""
-      
     };
   }
 
