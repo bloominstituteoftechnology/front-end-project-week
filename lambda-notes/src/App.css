@@ -1,0 +1,205 @@
+* {
+  box-sizing:border-box;
+}
+
+
+
+
+
+
+
+.noteStyle {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  flex-direction: column;
+  background-color: white;
+  align-items: flex-start;
+  text-align:left;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  height:250px;
+  margin: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #DEDEDE;
+  z-index: 0;
+}
+
+.noteStyle:hover {
+  box-shadow: 0px 0px 20px 10px #24B8BD;
+}
+
+.line {
+  height: 2px;
+  background-color: #C4C4C4;
+  width: 100%;
+}
+
+.fullText {
+  position: relative;
+  z-index: 0;
+  text-align: left;
+  text-overflow: scroll;
+}
+
+.notesContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 0;
+  background-color: #F2F1F2;
+}
+.gridList {
+  display: grid;
+  width: 80%;
+  flex-direction: column;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+  z-index: 0;
+}
+
+.notesSingle {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: white;
+  z-index: 0;
+  
+}
+.textList {
+  height: 200px;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+
+.Main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 2000px;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  max-width:340px;
+  width:30%;
+  flex-direction: column;
+  position: relative;
+  background-color: #D3D2D3;
+  padding:30px;
+  z-index: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+
+}
+
+h3 {
+  text-decoration: none;
+  word-break: break-word;
+  }
+
+h1 {
+  margin:0px;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  text-align: left;
+}
+button {
+  background-color: #24B8BD;
+  width: 250px;
+  color:white;
+  padding:20px;
+  font-size: 1.25rem;
+  border-radius: 0%;
+  margin: 10px 10px 10px 20px;
+}
+
+.red {
+  background-color: #CA001A;
+  width: 250px;
+  color:white;
+  padding:20px;
+  font-size: 1.25rem;
+  border-radius: 0%;
+  margin: 10px 10px 10px 20px;
+}
+
+form {
+  display: flex;
+  width: 80%;
+}
+.title {
+  height: 35px;
+  width: 50%;
+  margin: 20px;
+  font-size: 1rem;
+
+}
+
+
+textarea {
+  margin-left: 20px;
+  font-size: 1rem;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  justify-content: space-around;
+  color: black;
+  align-self: flex-end
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+h5:hover {
+  text-decoration: underline;
+  color: #24B8BD;
+  cursor: pointer;
+}
+
+
+.deleteContainer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 300px;
+  width: 600px;
+  height: 200px;
+  background-color: white;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  box-shadow: 0 0 15px 5px black, 0 0 1000px 1000px rgba(0, 0, 0, 0.5); 
+}
+
+.singleContainer {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+justify-content: flex-start;
+}
