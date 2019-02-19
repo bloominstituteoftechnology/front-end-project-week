@@ -26,7 +26,7 @@ export default class CreateNote extends Component {
       .then(response => {
         console.log(response);
         console.log(this.props.history);
-        this.props.history.push(`/notes/${response.data.success}`);
+        this.props.history.push(`/notes/${response.data[0]}`);
       })
       .catch(err => {
         console.log('Whoops, unable to create a note!', err);

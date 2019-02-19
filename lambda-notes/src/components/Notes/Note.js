@@ -19,6 +19,8 @@ export default class Note extends Component {
     const id = this.props.match.params.id;
     console.log('id with params stuff', id);
     this.fetchNote(id);
+    console.log("match : ", this.props)
+    // console.log(this.props.getNotes())
   }
 
   fetchNote = id => {
@@ -48,6 +50,7 @@ export default class Note extends Component {
     })
     .then(response => {
       console.log(response);
+      // this.props.getNotes();
       this.props.history.push(`/`);
     })
     .catch(err => {
