@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Signika+Negative|Bungee+Inline');
+
 .App {
   text-align: center;
 }
@@ -37,6 +39,8 @@
 .aside h1 {
   text-align: left;
   line-height: 1;
+  font-family: 'Bungee Inline', serif;
+
 }
 .aside button {
   padding: 10px 15px;
@@ -74,12 +78,15 @@
   margin-bottom: 33px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  padding: 8px 15px 10px;
+  padding: 10px 10px 15px;
 }
-.card h2 {
+.card h2, .note-title {
   text-transform: capitalize;
-  margin-top: 15px;
+
   min-height: 75px;
+  text-align: left;
+  font-family: 'Signika Negative', serif;
+  font-weight: bold;
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -98,9 +105,11 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.note-card h2:hover {
-  color:gold;
+.note-textBody {
+  font-family: 'Lato', serif;
+  padding-top: 12px;
 }
+
 .note-card {
   text-align: left;
   padding-left: 15px;
@@ -137,23 +146,23 @@ section {
   width: 100%;
 }
 section h1 {
-  text-align: left;
-  margin-top: 66px;
-  margin-bottom: 33px;
+  text-align: center;
+  margin: 66px auto;
+  font-family: 'Bungee Inline', serif;
+  padding-bottom: 20px;
 }
 .error-title {
   margin-top: 40px;
 }
-section form {
+form {
   margin-left: 33px;
   margin-top: 55px;
   width: 100%;
 }
-section form h2 {
-  /* text-align: left; */
+form h1 {
   padding-bottom: 30px;
 }
-section form button {
+form button {
   width: 100%;
 }
 textarea {

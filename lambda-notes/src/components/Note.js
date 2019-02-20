@@ -65,12 +65,15 @@ class Note extends React.Component  {
                     </ModalFooter>
                     </Modal>
 
+                    <div className="action-buttons">
+                        <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete <FaTrashAlt/>
+                        </Button>
 
-                    <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete <FaTrashAlt/></Button>
-
-                    <Link to={`/edit/${this.props.match.params.id}`}>
-                    <Button color="warning">Edit <FaEdit/></Button>
-                    </Link>
+                        <Link to={`/edit/${this.props.match.params.id}`}>
+                            <Button color="warning">Edit <FaEdit/></Button>
+                        </Link>
+                    </div>
+                    
                     <NoteCard { ...this.state.note } editNote={this.props.editNote} /> 
                 </>
                 }

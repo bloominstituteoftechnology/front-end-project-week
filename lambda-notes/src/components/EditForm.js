@@ -104,7 +104,7 @@ class EditForm extends Component {
                             </ModalFooter>
                         </Modal>
                         <form onSubmit={this.editNoteHandler}>
-                        <h2>Edit note</h2>
+                        <h1>Edit note</h1>
                             <Input
                                 value={this.state.note.title}
                                 onChange={this.changeHandler}

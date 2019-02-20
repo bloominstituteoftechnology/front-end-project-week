@@ -7,7 +7,7 @@ const NotesList = props => {
 
     return(
         <section>
-            <h1>Your notes</h1>
+            <h1>Your cool notes</h1>
             <div className="notes-wrapper">
                 {props.notes.map((note, index) => {
                     return (
@@ -17,8 +17,9 @@ const NotesList = props => {
                                 <div className="card-wrapper">
 
                                     <h2 className="note-title">
+                                    
                                     {note.title.length > maxLenTitle ?
-                                        note.title.slice(0, maxLenTitle).concat('...').toLowerCase()
+                                         note.title.slice(0, maxLenTitle).concat('...').toLowerCase()
                                     :
                                     note.title
                                         

@@ -56,33 +56,34 @@ class AddNoteForm extends Component {
 
         const { title, textBody, titleError, textBodyError } = this.state.note;
         return (
-
+            <section>
             
-            <form onSubmit={this.addNoteHandler} noValidate>
-                <Input
-                    onChange={this.changeHandler}
-                    type="text"
-                    value={this.state.note.title}
-                    name="title"
-                    placeholder="Title"
-                    // titleError={t}
-                    noValidate
-                />
+                <form onSubmit={this.addNoteHandler} noValidate>
+                    <h1>Add note</h1>
+                    <Input
+                        onChange={this.changeHandler}
+                        type="text"
+                        value={this.state.note.title}
+                        name="title"
+                        placeholder="Title"
+                        // titleError={t}
+                        noValidate
+                    />
 
-                <Input
-                    onChange={this.changeHandler}
-                    type="textarea"
-                    value={this.state.note.textBody}
-                    name="textBody"
-                    placeholder="Body"
-                    // textBodyError={t}
-                    noValidate
-                />
-               
-                <Button color="success" type="submit">Add Note</Button>
+                    <Input
+                        onChange={this.changeHandler}
+                        type="textarea"
+                        value={this.state.note.textBody}
+                        name="textBody"
+                        placeholder="Body"
+                        // textBodyError={t}
+                        noValidate
+                    />
                 
-            </form>
-            
+                    <Button color="success" type="submit">Add Note</Button>
+                    
+                </form>
+            </section>   
         )
     }
 }
