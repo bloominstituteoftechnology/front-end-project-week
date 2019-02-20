@@ -14,8 +14,8 @@ class Note extends React.Component {
 
     fetchNote = id => {
         axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-            .then(response => this.setState({ note: response.data }))
+            .get(`http://localhost:4200/notes/get/${id}`)
+            .then(response => this.setState({ note: response.data[0] }))
             .catch(response => console.log(response));
     }
 
@@ -44,14 +44,14 @@ class Note extends React.Component {
     };
 
     render() {
-        const { _id } = this.state.note
+        const { id } = this.state.note
 
 
         return (
             <div>
                 <div className='edit-delete'>
                     <div>
-                        <NavLink to={`/edit/${_id}`}>
+                        <NavLink to={`/edit/${id}`}>
                         <p className='edit'>edit</p>
                         </NavLink>
                     </div>
@@ -61,7 +61,7 @@ class Note extends React.Component {
                 </div>
                 <div className='note-full-body'>
                     <h2 className='home-title'>{this.state.note.title}</h2>
-                    <p className='note-home-body' >{this.state.note.textBody}</p>
+                    <p className='note-home-body' >{this.state.note.body}</p>
                 </div>
                 <Modal
                     className='modal'

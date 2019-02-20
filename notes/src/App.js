@@ -14,7 +14,7 @@ class App extends Component {
     note: {
       tags: [],
       title: "",
-      textBody: "",
+      body: "",
     }
   }
 

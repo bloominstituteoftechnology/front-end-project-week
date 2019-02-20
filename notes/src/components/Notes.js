@@ -32,7 +32,7 @@ class Notes extends React.Component {
                     <div className="home-body">
                         {this.state.notes.map((note, i) => (
                             <div className="note">
-                                <Link to={`/note/${note._id}`}key={i} >
+                                <Link to={`/note/${note.id}`}key={i} >
                                     <div className='note-title'>
                                         <h3 className='background-white'>{note.title}</h3>
                                     </div>
