@@ -174,8 +174,8 @@ const Landing = () => {
                   </a>
                 </div>
                 <div className="footer__row">
-                  <a href="./additional.html" className="footer__link">
-                    MIT license
+                  <a href="https://evie.undraw.co/" className="footer__link">
+                    Based on Evie
                   </a>
                 </div>
               </div>

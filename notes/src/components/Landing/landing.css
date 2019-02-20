@@ -143,27 +143,27 @@ select::-ms-expand {
   width: 100%;
   opacity: 0.96;
   z-index: 1;
-  background-color: #6c63ff;
+  background-color: rgb(146, 28, 36);
 }
 .hero__overlay--gradient {
   background: -webkit-gradient(
     linear,
     left top,
     right top,
-    from(#6c63ff),
-    to(#4641ff)
+    from(rgb(146, 28, 36)),
+    to(rgb(143, 16, 24))
   );
-  background: linear-gradient(90deg, #6c63ff, #4641ff);
+  background: linear-gradient(90deg, rgb(146, 28, 36), rgb(143, 16, 24));
 }
 .hero__overlay--gradientVertical {
   background: -webkit-gradient(
     linear,
     left top,
     left bottom,
-    from(#6c63ff),
-    to(#4641ff)
+    from(rgb(146, 28, 36)),
+    to(rgb(143, 16, 24))
   );
-  background: linear-gradient(180deg, #6c63ff, #4641ff);
+  background: linear-gradient(180deg, rgb(146, 28, 36), rgb(143, 16, 24));
 }
 .hero__mask {
   position: absolute;
@@ -401,15 +401,16 @@ select::-ms-expand {
 .expanded__text {
   max-width: 60ch;
 }
+
 .cta {
   background: -webkit-gradient(
     linear,
     left top,
     right top,
-    from(#6c63ff),
-    to(#4641ff)
+    from(rgb(146, 28, 36)),
+    to(rgb(143, 16, 24))
   );
-  background: linear-gradient(90deg, #6c63ff, #4641ff);
+  background: linear-gradient(90deg, rgb(146, 28, 36), rgb(143, 16, 24));
   color: #fff;
   padding: 48pt 0;
   text-align: center;
@@ -420,16 +421,16 @@ select::-ms-expand {
     linear,
     right top,
     left top,
-    from(#6c63ff),
-    to(#4641ff)
+    from(rgb(146, 28, 36)),
+    to(rgb(143, 16, 24))
   );
-  background: linear-gradient(270deg, #6c63ff, #4641ff);
+  background: linear-gradient(270deg, rgb(146, 28, 36), rgb(143, 16, 24));
 }
 .cta--plain {
-  background: #6c63ff;
+  background: rgb(146, 28, 36);
 }
 .cta--secondary {
-  background: #4641ff;
+  background: rgb(143, 16, 24);
 }
 .cta__title {
   color: inherit;
