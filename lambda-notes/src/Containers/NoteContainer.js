@@ -7,7 +7,6 @@ const Container = styled.div`
     display:flex;
 `
 const NoteContainer = props => {
-    console.log(props.notes)
     return (
         <Container>
             <MenuContainer/>

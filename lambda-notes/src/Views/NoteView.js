@@ -51,7 +51,6 @@ class NoteView extends React.Component {
         axios
         .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(res => {
-            console.log(res.data)
             this.setState({
                 note: res.data
             })

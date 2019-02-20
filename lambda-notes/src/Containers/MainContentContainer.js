@@ -30,18 +30,16 @@ const NotesContainer = styled.section`
     padding-left: 10px;
 `;
 
-class MainContent extends React.Component{
+class MainContent extends React.PureComponent{
     constructor(props){
         super(props);
         this.state = {
+            notes: this.props.notes
         }
     }
 
-    componentDidMount(){
-
-    }
     render(){
-        const { notes } = this.props;
+        const { notes } = this.state;
         return(
             <Container>
                 <TitleContainer>

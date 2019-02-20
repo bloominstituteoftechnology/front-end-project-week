@@ -25,22 +25,33 @@ class App extends React.Component {
     axios
     .get('https://fe-notes.herokuapp.com/note/get/all')
     .then(res => {
+      console.log(res.data)
         this.setState({
           notes: res.data,
           isLoaded: true
         })
-        console.log(res.data)
     })
     .catch(err => console.log(err))
+  }
 
+  componentDidUpdate(){
+    console.log(this.state.notes)
   }
 
   editNoteFromServer = (note,id) => {
     axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
     .then(res => {
-      this.setState({
-        notes: res.data
+      this.setState(currentState => {
+        let newArray = currentState.notes.map(item =>
+          {
+            if(item.id === id){
+              return res.data
+            }else{
+              return item
+            }
+          });
+        return {notes: newArray}
       })
     })
     .catch(err => console.log(err))
@@ -50,16 +61,18 @@ class App extends React.Component {
     this.editNoteFromServer(note,id);
   }
 
-  addNewNoteToServer = note => {
+  addNewNoteToServer = (note) => {
     axios
     .post('https://fe-notes.herokuapp.com/note/create', note)
     .then(res => {
-      console.log(res.data)
+      this.setState( prevState => ({
+        notes: [ ...prevState.notes, note]
+      }))
     })
     .catch(err => console.log(err))
   }
 
-  addNewNote = note => {
+  addNewNote = (note) => {
     this.addNewNoteToServer(note)
   }
   render() {
