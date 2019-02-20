@@ -7,7 +7,7 @@ class NoteEdit extends React.Component {
     state = {
             note: [],
             title: '',
-            textBody: '',
+            body: '',
         }
 
     changeHandler = e => {
@@ -15,8 +15,8 @@ class NoteEdit extends React.Component {
     };
 
     submitNote = e => {
-        this.props.editNote(e, this.state.note._id, this.state);
-        this.setState({ title: "", textBody: "" });
+        this.props.editNote(e, this.state.note[0].id, {title: this.state.title, body: this.state.body});
+        this.setState({ title: "", body: "" });
         this.props.history.push("/");
     };
 
@@ -27,7 +27,7 @@ class NoteEdit extends React.Component {
     
     fetchNote = id => {
         axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+        .get(`http://localhost:4200/notes/get/${id}`)
         .then(response => this.setState({ note: response.data }))
         .catch(response => console.log(response));
     }
@@ -54,13 +54,13 @@ class NoteEdit extends React.Component {
                     <textarea
                         contentEditable='true'
                         className="edit-content"
-                        name="textBody"
+                        name="body"
                         cols='80'
                         rows='30'
-                        value={this.state.textBody}
+                        value={this.state.body}
                         onChange={this.changeHandler}
                         type="text"
-                        placeholder={this.state.note.textBody}
+                        placeholder={this.state.note.body}
                     />
                     <br/>
                     <button className="update-button">Update</button>

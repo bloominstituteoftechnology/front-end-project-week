@@ -9,7 +9,7 @@ class Notes extends React.Component {
         newNote: {
             tag: '',
             title: '',
-            textBody: ''
+            body: ''
         }
     }
 

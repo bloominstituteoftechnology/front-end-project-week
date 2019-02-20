@@ -39,10 +39,10 @@ class App extends Component {
   editNote = (e, id, state) => {
     e.preventDefault();
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, state)
+      .put(`http://localhost:4200/notes/edit/${id}`, state)
       .then(response => {
         const updateList = this.state.notes.map(note => {
-          if (note._id === response.data._id) {
+          if (note.id === response.data.id) {
             return response.data;
           }
           return note;
