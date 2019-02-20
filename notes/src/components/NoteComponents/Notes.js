@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchNotes } from "../../actions/noteActions";
+import { withAuthorization } from "../Session";
+import { compose } from "recompose";
 
 import NoteCard from "./NoteCard";
 import Search from "./Search";
@@ -103,7 +105,14 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchNotes }
+const condition = authUser => !!authUser;
+
+const NoteComp = compose(
+  withAuthorization(condition),
+  connect(
+    mapStateToProps,
+    { fetchNotes }
+  )
 )(Notes);
+
+export default NoteComp;
