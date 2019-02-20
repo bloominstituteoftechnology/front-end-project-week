@@ -25,9 +25,9 @@ class Note extends React.Component {
     }
 
     deleteNote = () => {
-        const id = this.state.note._id
+        const id = this.state.note.id
         axios
-        .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+        .delete(`http://localhost:4200/notes/delete/${id}`)
         .then(response => {
             this.setState({ notes: response.data });
 
