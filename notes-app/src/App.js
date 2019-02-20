@@ -24,7 +24,7 @@ class App extends Component {
 
   fetchNotes = () => {
     axios
-      .get("http://localhost:4000/api/posts")
+      .get("https://stark-refuge-65834.herokuapp.com/api/posts")
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -33,7 +33,7 @@ class App extends Component {
 
   fetchTags = () => {
     axios
-      .get("http://localhost:4000/api/tags")
+      .get("https://stark-refuge-65834.herokuapp.com/api/tags")
       .then(response => {
         this.setState({ tags: response.data });
       })
@@ -67,7 +67,7 @@ class App extends Component {
 
   postNotes = note => {
     axios
-      .post("http://localhost:4000/api/posts", note)
+      .post("https://stark-refuge-65834.herokuapp.com/api/posts", note)
       .then(response => {
         this.setState({
           tag: "",
@@ -83,7 +83,7 @@ class App extends Component {
 
   deleteTag = id => {
     axios
-      .delete(`http://localhost:4000/api/tags/${id}`)
+      .delete(`https://stark-refuge-65834.herokuapp.com/api/tags/${id}`)
       .then(response => {
         this.fetchTags();
       })

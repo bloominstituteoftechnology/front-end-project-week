@@ -18,7 +18,7 @@ class NoteDetail extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `http://localhost:4000/api/posts/${this.props.match.params.id}`
+        `https://stark-refuge-65834.herokuapp.com/api/posts/${this.props.match.params.id}`
       )
       .then(response => {
         this.setState({
@@ -47,7 +47,7 @@ class NoteDetail extends React.Component {
 
   putNote = note => {
     axios
-      .put(`http://localhost:4000/api/posts/${note.id}`, {
+      .put(`https://stark-refuge-65834.herokuapp.com/api/posts/${note.id}`, {
         ...note
       })
       .then(response => {
@@ -64,7 +64,7 @@ class NoteDetail extends React.Component {
 
   deleteNote = id => {
     axios
-      .delete(`http://localhost:4000/api/posts/${id}`)
+      .delete(`https://stark-refuge-65834.herokuapp.com/api/posts/${id}`)
       .then(response => {
         this.props.fetchNotes();
       })
