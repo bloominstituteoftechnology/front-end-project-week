@@ -70,6 +70,7 @@ h1, .error-title {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  padding: 0px 5px;
 }
 .notes-container h2 {
   padding: 0px 0px 30px;
@@ -139,11 +140,20 @@ h1, .error-title {
 section {
   padding-left: 33px;
   width: 100%;
+  
 }
-section h1 {
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.notes-list h1 {
   text-align: center;
-  margin: 66px auto;
-  padding-bottom: 20px;
+  background-color: #fff;
+  padding: 66px 0px 66px;
+  position: fixed;
+  width: 800px;
+  z-index: 33;
 }
 .error-title {
   margin-top: 40px;

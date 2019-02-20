@@ -6,8 +6,10 @@ let maxLenTitle = 12;
 const NotesList = props => {
 
     return(
-        <section>
-            <h1>Your notes</h1>
+        <section className="notes-list">
+            <div>
+                <h1>Your notes</h1>
+            </div>
             <div className="notes-wrapper">
                 {props.notes.map((note, index) => {
                     return (
