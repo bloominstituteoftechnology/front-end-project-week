@@ -205,3 +205,10 @@ input[type=password] {
   line-height:1.5;
   font-weight: lighter;
 }
+
+.loading{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+}

@@ -8,7 +8,8 @@ class Login extends Component {
     super(props);
     this.state = { 
       username :'',
-      password :'' 
+      password :'',
+      message :''
     }
   }
 
@@ -30,6 +31,7 @@ class Login extends Component {
     .post(url, creds)
     .then(res =>{
       console.log(res)
+      this.setState({message:res.msg})
       localStorage.setItem('jwt', res.data.token)
       this.props.history.push('/notes');
       window.location.reload();
@@ -40,10 +42,12 @@ class Login extends Component {
   }
 
   render() { 
+    console.log(this.state.message)
     return ( 
       <>
       <FormContainer>
       <h1 className="form-title">PLEASE LOGIN</h1>
+      <p>{this.state.message}</p>
       <form>
       <input name="username" type="text"placeholder="Username" onChange={this.handleChange} value={this.state.username}/><br/>
       <input name="password" type="password" placeholder="Password" onChange={this.handleChange}value={this.state.password}/><br/>

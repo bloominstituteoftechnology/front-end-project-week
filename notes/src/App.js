@@ -42,14 +42,20 @@ class App extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const url = process.env.REACT_APP_API_URL
+    const token = localStorage.getItem('jwt');
+    const options = {
+      headers: {
+          Authorization: token
+      }
+    }
     axios
     .post(`${url}`,{
         title: this.state.title,
         textBody: this.state.textBody,
-    })
+    },options)
     .then(res =>{
       this.setState({id: res.data.success})
-      this.props.history.push('/');
+      this.props.history.push('/notes');
       window.location.reload();
     })
     .catch(err => console.log(err))
@@ -63,8 +69,14 @@ class App extends Component {
     e.preventDefault();
     console.log(this.state.id);
     const url = process.env.REACT_APP_API_URL
+    const token = localStorage.getItem('jwt');
+    const options = {
+      headers: {
+          Authorization: token
+      }
+    }
     axios
-      .delete(`${url}/${this.state.id}`)
+      .delete(`${url}/${this.state.id}`, options)
       .then(() => {
         this.setState({
           notes:this.state.notes
@@ -89,7 +101,11 @@ class App extends Component {
     .then(res => this.setState({
       notes:res.data
     }))
-    .catch(err => console.log(err))
+    .catch(err =>{
+      if(err.msg ==="invalid token" ){
+        this.props.history.push('/')
+      }
+    })
   }
 
   render() {

@@ -29,7 +29,9 @@ class NoteView extends Component {
       })
     })
     .catch(err =>{
-      console.log(err)
+      if(err.msg ==="invalid token" ){
+        this.props.history.push('/')
+      }
     })
   }
 
