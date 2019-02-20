@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { deleteNote } from "../../actions/noteActions";
+import * as ROUTES from "../../constants/routes";
 
 import styled from "styled-components";
 import { Card, Button } from "react-bootstrap";
@@ -42,7 +43,7 @@ const NoteCard = ({ note }) => {
   const deleteNotes = event => {
     event.preventDefault();
     this.props.deleteNote(`${note.id}`);
-    this.props.history.push("/");
+    this.props.history.push(ROUTES.HOME);
   };
 
   return (

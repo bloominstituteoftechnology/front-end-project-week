@@ -8,9 +8,7 @@ import Search from "./Search";
 import styled from "styled-components";
 
 const Container = styled.div`
-  /* background-color: rgb(248, 249, 250); */
-  /* overflow-wrap: break-word;
-  width: 100%; */
+  min-width: 100vw;
 `;
 
 const NotesContainer = styled.div`
@@ -75,22 +73,20 @@ class Notes extends React.Component {
     const filtered = this.props.notes.filter(note => this.filterNotes(note));
 
     return (
-      <div>
+      <Container>
         <SearchContainer>
           <Search search={this.props.search} inputHandler={this.inputHandler} />
         </SearchContainer>
-        {/* {this.props.loading ? <h1>LOADING....</h1> : null} */}
-        {/* {this.props.error !== null ? <h1>{this.props.error}</h1> : null} */}
         <NotesContainer>
           {filtered.map(note => {
             return (
-              <NoteContainer>
+              <NoteContainer key={note.id}>
                 <NoteCard key={note.id} note={note} />
               </NoteContainer>
             );
           })}
         </NotesContainer>
-      </div>
+      </Container>
     );
   }
 }
