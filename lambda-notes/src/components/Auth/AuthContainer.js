@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-// import Login from './Login'
-// import Register from './Register'
+import Login from './Login'
+import Register from './Register'
 
 class AuthContainer extends Component {
   constructor() {
@@ -11,7 +11,8 @@ class AuthContainer extends Component {
   render() {
     return (
       <div>
-
+        <Login />
+        <Register />
       </div>
     );
   }
