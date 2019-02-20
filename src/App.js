@@ -6,10 +6,6 @@ import NoteList from "./components/notelist";
 import CreateNote from "./components/createnote";
 import NoteView from "./components/noteview";
 import EditNote from "./components/editnote";
-import Auth from './Auth/Auth';
-
-const auth = new Auth();
-auth.login();
 
 class App extends Component {
   constructor() {
