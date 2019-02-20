@@ -33,7 +33,7 @@ class App extends Component {
           this.setState({
               notes: response.data
           })
-
+          this.props.history.push(`/`);
       })
       .catch(err => {
         console.log(err);
@@ -124,6 +124,28 @@ class App extends Component {
           this.props.history.push(`/`);
   }
 
+  searchTerm = term => {
+    axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        
+        let newNotes = []
+        response.data.map(note => {
+
+          if (!(note.title.toLowerCase().indexOf(term.toLowerCase()) && note.textBody.toLowerCase().indexOf(term.toLowerCase()))) {
+            newNotes.push(note)
+          }
+        });
+          
+        this.setState({
+            notes: newNotes
+        })
+
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
   render() {
     return (
       <div className="App">
@@ -132,9 +154,10 @@ class App extends Component {
 
             <Route path="/"
               render={props =>
-                <Sidebar {...props}/>
+                <Sidebar {...props} fetchNotes={this.fetchNotes} searchTerm={this.searchTerm}/>
               }
             />
+
             <Route exact path="/" 
               render={props => 
                <NotesList {...props} viewNote={this.viewNote} notes={this.state.notes} />

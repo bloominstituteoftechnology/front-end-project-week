@@ -143,10 +143,13 @@ section {
   width: 100%;
   
 }
+.notes-header {
+  height: 200px;
+}
 .notes-list {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .notes-list h1 {
   text-align: center;

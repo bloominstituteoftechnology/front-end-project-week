@@ -7,7 +7,7 @@ const NotesList = props => {
 
     return(
         <section className="notes-list">
-            <div>
+            <div className="notes-header">
                 <h1>Your notes</h1>
             </div>
             <div className="notes-wrapper">
