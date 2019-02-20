@@ -27,9 +27,9 @@ class LambdaNotes extends Component {
              <nav>
                 <Link className='reg' to='/Login'>Log in</Link>
                 <Link className='reg' to='/Register'>Register</Link>
-                <a  onClick={this.logout}>
+                <div  onClick={this.logout}>
                   <Link className='reg' to='/Logout'>Sign out</Link>
-                </a>
+                </div>
               </nav> 
              
             </div>

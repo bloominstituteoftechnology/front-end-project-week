@@ -53,14 +53,14 @@ export default class Login extends Component {
             <Input type='email' name='email'
                    value={this.state.email}
                    onChange={this.handleInput}
-                   placeholder='Email'></Input>
+                   placeholder='Email' required></Input>
          </div>
          <div>
             <p className='para'>Password:</p> 
             <Input type='text' name='password'
                    value={this.state.password}
                    onChange={this.handleInput}
-                   placeholder='Password'></Input>
+                   placeholder='Password' required></Input>
          </div>
          <div>
            <button type='submit' className='register'>Sign In</button>

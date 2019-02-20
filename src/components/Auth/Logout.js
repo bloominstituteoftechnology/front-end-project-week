@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Modal from '../styles/Modal';
 import Login from '../Auth/Login';
 import {Link,Route} from 'react-router-dom';
