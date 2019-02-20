@@ -81,6 +81,7 @@ export const updateNote = (newNote, id) => {
 }
 
 export const viewNote = (id) => {
+ console.log("id:", id)
   return (dispatch) => {
     dispatch({ type: GETTING_SINGLE_NOTE })
   // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;

@@ -4,6 +4,7 @@ import NavNoteList from "./navNoteList";
 import NavSaveList from "./navSaveList";
 import NavOpenList from "./navOpenList";
 import { getNotes } from '../actions/notesActions';
+import { viewNote } from '../actions/notesActions';
 import { createList } from '../actions/listsActions';
 import { getLists } from '../actions/listsActions';
 import { connect } from 'react-redux';
@@ -66,6 +67,12 @@ class Nav extends React.Component {
 
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  viewNoteList = (list, listId) => {
+    const listJSON = JSON.parse(list);
+    this.props.viewNote(listJSON[0]);
+    console.log("list:", list)
   }
 
   saveList = (event) => {
@@ -143,7 +150,7 @@ class Nav extends React.Component {
         {(this.state.enableOpenList) ?
           <ul className="nav-title-list">Select a List to open
             {this.props.lists.map((list, index) => {
-              return <NavOpenList key={index} listTitle={list.listTitle} listView={this.props.listView} list={list.list} id={list.id} lists={this.state.lists} />
+              return <NavOpenList key={index} listTitle={list.listTitle}  viewNoteList={this.viewNoteList} listView={this.props.listView} list={list.list} id={list.id} lists={this.state.lists} />
             })}
           </ul> : null}
        {/*  {(this.state.enableOpenList) ? <div className="open-button" onClick={this.sortThis}>Open List</div> : null} */}
@@ -160,11 +167,12 @@ const mapStateToProps = state => {
     notes: notesReducer.notes,
     lists: listsReducer.lists,
     error: notesReducer.error,
-    gettingNotes: notesReducer.gettingNotes
+    gettingNotes: notesReducer.gettingNotes,
+    gettingLists: listsReducer.gettingLists
   };
 };
 
 export default connect(mapStateToProps, {
-  getNotes, createList, getLists
+  getNotes, createList, getLists, viewNote
 })(Nav);
 

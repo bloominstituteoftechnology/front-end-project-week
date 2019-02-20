@@ -11,6 +11,7 @@ import NoteDelete from './components/noteDelete';
 import Nav from './components/nav';
 import Modal from "react-modal";
 import { getNotes } from './actions/notesActions';
+import { viewNote } from './actions/notesActions';
 import { connect } from 'react-redux';
 
 class App extends React.Component {
@@ -167,7 +168,7 @@ class App extends React.Component {
       case 'listView':
         return <div className="App">
           <div className="main-container">
-            <Nav noteList={this.noteList} listView={this.listView} saveListName={this.props.saveListName} noteCreate={this.noteCreate} noteView={this.noteView} login={this.login} />
+            <Nav noteList={this.noteList} listView={this.listView} viewNote={this.props.viewNote} saveListName={this.props.saveListName} noteCreate={this.noteCreate} noteView={this.noteView} login={this.login} />
             <div className="main-display">
               <ListView id={this.state.listId} lists={this.lists} selected={this.props.listSelected}  notes={this.state.notes} />
             </div>
@@ -187,5 +188,5 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getNotes })(App);
+export default connect(mapStateToProps, { getNotes, viewNote })(App);
 
