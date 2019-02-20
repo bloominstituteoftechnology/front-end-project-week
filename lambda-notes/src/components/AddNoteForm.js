@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Input, Alert } from 'reactstrap';
 
-const initialState = {
-    
-}
-
 class AddNoteForm extends Component {
     constructor(props) {
         super(props);

@@ -34,6 +34,7 @@
   display: flex;
   flex-direction: column;
   min-width: 266px;
+  min-height: 800px;
   background-color: black;
 }
 h1, .error-title {
@@ -87,6 +88,8 @@ h1, .error-title {
   text-align: left;
   font-family: 'Laila', serif;
   font-weight: bold;
+  min-height: 75px;
+  margin-bottom: 10px;
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -101,23 +104,20 @@ h1, .error-title {
   color: teal;
 }
 .card-wrapper {
+  height: 100%;
   display: flex;
   text-align: left;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: end;
 }
 .note-textBody {
-  font-family: 'Lato', serif;
-  padding-top: 12px;
+  font-family: 'Laila', serif;
 }
  
 .note-card .note-title{
   margin-top: 5px;
   padding: 5px 0px 5px;
   border-bottom: 1.5px solid #000;
-}
-.note-title {
-  min-height: 75px;
 }
 .note-card a:hover {
   text-decoration: none;
