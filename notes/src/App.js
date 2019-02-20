@@ -73,7 +73,6 @@ class App extends Component {
 
   render() {
     if (this.state.notes === undefined) {
-      console.log(`notes undefined: ${this.state.notes}`);
       return (
         <div className="App">
           <nav className='menu'>
@@ -87,7 +86,6 @@ class App extends Component {
       )
     }
     else {
-      console.log(`notes: ${this.state.notes}`);
       return (
         <div className="App">
           <Route exact path='/note/:id/delete'
