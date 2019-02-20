@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import { Button , Input} from 'reactstrap';
+import SearchForm from './SearchForm';
 
 const SideBar = () => {
     return (
@@ -14,6 +15,7 @@ const SideBar = () => {
             <Button color="info">
                 <Link to={'/notes/create'}> + Create Your Note</Link>
             </Button>
+            <SearchForm />
         </div>
     )
 }
