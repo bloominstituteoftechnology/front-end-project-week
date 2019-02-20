@@ -4,7 +4,6 @@ const NoteCard = props => {
 
     return(
         <div className="note-card">
-            
 
             <h2 className="note-title">
                 {props.title}
@@ -20,3 +19,4 @@ const NoteCard = props => {
 }
 
 export default NoteCard;
+

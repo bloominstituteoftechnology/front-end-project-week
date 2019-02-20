@@ -150,6 +150,7 @@ class App extends Component {
                 <Note {...props} notes={this.state.notes} viewNote={this.viewNote} deleteNote={this.deleteNote}/>
               }
             />
+
             <Route exact path="/edit/:id"
               render={props =>
                 <EditForm {...props} note={this.state.note} notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote}/>
