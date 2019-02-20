@@ -1,44 +1,44 @@
 /* eslint no-restricted-globals:0 */
-
 import auth0 from 'auth0-js';
-
+// import Login from './Login';
 const LOGIN_SUCCESS_PAGE = '/note'
 const LOGIN_FAILURE_PAGE = '/'
 class Auth {
-  constructor() {
-    this.auth0 = new auth0.WebAuth({
-        domain: 'stefan-rhys.auth0.com',
-        clientID: '7vx7kBUj7b6K7bg6fBGB9lU2YxrV0M5g',
-        redirectUri: "http://localhost:3000/note/callback",
-        responseType: 'token id_token',
-        scope: 'openid'
-    });
+    constructor() {
+        this.auth0 = new auth0.WebAuth({
+            domain: 'stefan-rhys.auth0.com',
+            clientID: '7vx7kBUj7b6K7bg6fBGB9lU2YxrV0M5g',
+            redirectUri: "http://localhost:3000/note/callback",
+            responseType: 'token id_token',
+            scope: 'openid'
+        });
 
-    this.getProfile = this.getProfile.bind(this);
-    // this.loadSession = this.loadSession.bind(this);
-    this.isAuthenticated = this.isAuthenticated.bind(this);
-    this.login = this.login.bind(this);
-    // this.signOut = this.signOut.bind(this);
-  }
+        this.getProfile = this.getProfile.bind(this);
+        this.loadSession = this.loadSession.bind(this);
+        this.isAuthenticated = this.isAuthenticated.bind(this);
 
-  getAccessToken() {
-    return this.accessToken;
-  }
+    }
 
-  getProfile() {
-    return this.profile;
-  }
+    getAccessToken() {
+        return this.accessToken;
+    }
 
-  getIdToken() {
-    return this.idToken;
-  }
+    getProfile() {
+        return this.profile;
+    }
 
-  isAuthenticated() {
-    let expiresAt = JSON.parse(localStorage.getItem("expires_at"))
-    return new Date().getTime() < expiresAt
-  }
-    handleAuthentication() {
+    getIdToken() {
+        return this.idToken;
+    }
 
+    isAuthenticated() {
+        let expiresAt = JSON.parse(localStorage.getItem("expires_at"))
+        return new Date().getTime() <  expiresAt;
+    }
+
+    loadSession() {
+
+        // not returning from Auth0 (no hash)
         this.auth0.parseHash((err, authResults) => {
 
             if (authResults && authResults.accessToken && authResults.idToken) {
@@ -52,17 +52,14 @@ class Auth {
                 location.pathname = LOGIN_FAILURE_PAGE;
                 console.log(err)
             }
-      })
-  }
 
-
-  login() {
-    this.auth0.authorize();
-  }
-
-
+        }
+        )
+    }
+    login = () => {
+        this.auth0.authorize();
+    }
 }
+    const auth0Client = new Auth();
 
-const auth0Client = new Auth();
-
-export default auth0Client;
+    export default auth0Client;
