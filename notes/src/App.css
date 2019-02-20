@@ -1,0 +1,128 @@
+.App {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 100%;
+  background:whitesmoke;
+}
+
+.note-card {
+  border: 2px solid black;
+  color: black;
+  text-decoration: none;
+  height: 200px;
+  margin: 5px;
+  width: 30%;
+  overflow-y: scroll;
+}
+
+.note-card h1 {
+  font-size: 18px;
+  color: black;
+  border-bottom: 1px solid lightgray;
+}
+
+.note-card p {
+  font-size: 10px;
+  color: black;
+}
+
+.navbar {
+  justify-content: center;
+  background: lightgray;
+  padding-right: 65px;
+  padding-bottom:100%;
+  margin-left: 0px;
+  max-width: 30%; 
+  height: 100%; 
+}
+
+
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 75%;
+  margin-left: 20px;
+}
+
+.listHeader {
+  margin-top: 35px;
+  width: 100%
+}
+
+.mainHeader {
+  margin-bottom: 2px;
+}
+
+.main-view{
+  width:100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form h1 {
+  margin-top: 35px;
+  margin-left: 20px;
+}
+
+.form-input {
+  margin-left: 20px;
+  margin-top: 75px;
+  margin-bottom: 25px;
+  padding-right: 45px;
+  padding: 10px;
+}
+
+.text-area {
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 25px;
+}
+
+.form-btn {
+  color: white;
+  background: #17a2b8;
+  border-radius: 5px;
+  margin-left: 25px;
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.nav-btn {
+  color: white;
+  background: #17a2b8;
+  border-radius: 5px;
+  margin-left: 25px;
+  margin-bottom:25px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  width: 180px;
+}
+
+.bigNote .big-note-btns{
+  display:flex;
+  justify-content: flex-end;
+  text-align:right;
+  text-decoration:underline;
+}
+
+.big-note-content{
+  margin-left:30px;
+}
+
+.navbar .top {
+  margin-top:25px;
+}
+.delete-btn {
+  margin-left:20px;
+  margin-right:40px;
+  cursor: pointer;
+}
