@@ -91,7 +91,7 @@ const NotesList = props => {
       <NoteListHeader>
         <NoteListText>Your Notes:</NoteListText>
         <NoteListSearch
-          placeholder="Search"
+          placeholder="Search Note Contents"
           type="text"
           name="input"
           value={props.input}
