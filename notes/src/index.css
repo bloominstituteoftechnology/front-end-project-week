@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis|Oswald');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Dosis', sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html, body, #root, .App {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #e8e8e8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+  margin: 0;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+ul {
+  padding-left: 12%;
+}
+
+ul, li {
+  margin: 0;
+}
+
+li {
+  line-height: 1;
+}
+
+.button {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.navigation {
+  background-color: lightskyblue;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: 'Oswald', sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+  transition: background-color .2s ease;
+}
+
+.navigation:hover {
+  background-color: whitesmoke;
+}
+
+.search {
+  font-weight: bold;
+  color: whitesmoke;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  background-color: transparent;
+  transition: background-color .2s ease;
+}
+
+.search:hover {
+  background-color: #5d8ad8;
+}
+  
+.sidebar-input {
+  border: none;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 3px;
+  font-size: 18px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  outline-color: #FFBB00;
+  margin-bottom: 5px;
+}
+
+.new-note {
+  width: 1550px;
+  position: relative;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.new-note form {
+  width: 600px;
+  display: flex; 
+  flex-direction: column;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+  background-color: whitesmoke;
+  padding: 10px 10px 10px 20px;
+  border-radius: 2px;
+}
+
+.new-note form input, .new-note form textarea {
+  border: none;
+  background: none;
+  max-width: 560px;
+  min-width: 560px;
+  outline: none;
+  height: 25px;
+  min-height: 25px;
+  font-size: 16px;
+}
+
+.new-note form input {
+  display: none;
+  border-bottom: 1px solid #FFBB00;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.new-note.display form input, .new-note.display form .buttons {
+  display: flex;
+}
+
+.new-note form .buttons {
+  display: flex; 
+  justify-content: flex-end;
+  display: none;
+  margin-top: 10px;
+}
+
+.new-note form .buttons .button {
+  margin: 0;
+  width: 25%;
+  height: 40px;
+}
+
+.new-note form .buttons .button.create {
+  background-color: #FFBB00;
+  position: relative;
+}
+
+.new-note form .buttons .button.close {
+  border: 2px solid #FFBB00;
+  width: 13%;
+  margin-left: 1rem;
+}
+
+.your-notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-left: 2rem;
+  background: #e8e8e8;
+  padding-right: 30px;
+}
+
+.your-notes h2 {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.your-notes .note {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 0px 0px rgba(0,0,0,0.30);
+  border-radius: 3px;
+  transition: all .1s ease, box-shadow .2s ease !important;
+}
+
+.your-notes .note:nth-child(10n + 5) {
+  width: 100%;
+}
+
+.your-notes .note:nth-child(5n + 1) {
+  width: 65%;
+}
+
+
+.your-notes .note:hover {
+box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 2px 15px rgba(0,0,0,0.30);
+}
+
+.your-notes .note .note-container { 
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+  padding: 10px 20px 30px 20px;
+  height: 100%;
+}
+
+.your-notes .note .note-container div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+
+.your-notes .note h3 {
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #FFBB00;
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-height: 35px;
+}
+
+.view-note {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(240, 248, 255, .75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-note .note {
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aliceblue;
+  box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 2px 15px rgba(0,0,0,0.30);
+  padding: 5px 10px 20px 10px;
+}
+
+.view-note .button {
+  width: 150px;
+  margin-bottom: 0;
+}
+
+.view-note .button:hover {
+  background-color: tomato;
+}
+
+.view-note .delete {
+  background-color: lightskyblue;
+}
+
+.view-note .update {
+  background-color: lightskyblue;
+}
+
+.note-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-container .note-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around; 
+}
+
+.view-note textarea {
+min-height: 100px;
+margin-bottom: 20px;
+padding-left: 5px;
+outline: none;
+resize: vertical;
+border: none;
+background: none;
+font-size: 16px;
+}
+
+.view-note  input {
+  font-family: 'Oswald', sans-serif;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #FFBB00;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 5px;  
+  outline: none;
+  background: none;
+}
+
+.react-grid-layout {
+  position: relative;
+  transition: height 200ms ease;
+}
+.react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top;
+}
+.react-grid-item.cssTransforms {
+  transition-property: transform;
+}
+.react-grid-item.resizing {
+  z-index: 1;
+  will-change: width, height;
+}
+
+.react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  will-change: transform;
+}
+
+.react-grid-item.react-grid-placeholder {
+  background: cornflowerblue;
+  opacity: 0.2;
+  transition-duration: 100ms;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.react-grid-item > .react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+
+.react-grid-item > .react-resizable-handle::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.react-resizable {
+  position: relative;
+}
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+');
+  background-position: bottom right;
+  padding: 0 3px 3px 0;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  cursor: se-resize;
+}
