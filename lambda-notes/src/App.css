@@ -34,13 +34,13 @@
   display: flex;
   flex-direction: column;
   min-width: 266px;
-  background-color: gray;
+  background-color: black;
 }
 .aside h1 {
   text-align: left;
   line-height: 1;
   font-family: 'Bungee Inline', serif;
-
+  color: #fff;
 }
 .aside button {
   padding: 10px 15px;

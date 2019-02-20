@@ -99,7 +99,7 @@ class EditForm extends Component {
                                 Are you sure you want to edit your note.
                             </ModalBody>
                             <ModalFooter>
-                                <Button color="info" type="submit" onClick={this.editNoteHandler}>Edit<FaEdit/></Button>
+                                <Button color="success" type="submit" onClick={this.editNoteHandler}>Edit<FaEdit/></Button>
                                 <Button color="danger" onClick={this.toggle}>Cancel</Button>
                             </ModalFooter>
                         </Modal>

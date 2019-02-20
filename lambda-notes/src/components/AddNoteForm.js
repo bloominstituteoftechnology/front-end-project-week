@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Input } from 'reactstrap';
+import { Button, Input, Alert } from 'reactstrap';
 
 
 class AddNoteForm extends Component {
@@ -9,10 +9,13 @@ class AddNoteForm extends Component {
             note: {
                 title: '',
                 textBody: '',
-                titleError: '',
+                titleError: true,
                 textBodyError: ''
             }
         }
+    }
+    validate = () => {
+        
     }
     changeHandler = e => {
         this.setState({
@@ -63,17 +66,22 @@ class AddNoteForm extends Component {
                     <Input
                         onChange={this.changeHandler}
                         type="text"
-                        value={this.state.note.title}
+                        value={title}
                         name="title"
                         placeholder="Title"
                         // titleError={t}
                         noValidate
                     />
+                    {titleError === true ?
+                        <Alert color="danger">'There is an error'</Alert>
+                    :
+                        null
+                    }
 
                     <Input
                         onChange={this.changeHandler}
                         type="textarea"
-                        value={this.state.note.textBody}
+                        value={textBody}
                         name="textBody"
                         placeholder="Body"
                         // textBodyError={t}
