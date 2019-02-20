@@ -15,7 +15,7 @@ class Notes extends React.Component {
 
     componentDidMount() {
         axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
+            .get('http://localhost:4200/notes/get/all')
             .then(response => {
                 this.setState({ notes: response.data })
             })
@@ -37,7 +37,7 @@ class Notes extends React.Component {
                                         <h3 className='background-white'>{note.title}</h3>
                                     </div>
                                     <div className="note-body">
-                                        <p className='background-white'>{note.textBody}</p>
+                                        <p className='background-white'>{note.body}</p>
                                     </div>
                                 </Link>
                             </div>
