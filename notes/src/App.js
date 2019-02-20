@@ -28,9 +28,9 @@ class App extends Component {
   addNewNote = (e, addedNote) => {
     e.preventDefault();
     axios
-      .post('https://fe-notes.herokuapp.com/note/create', addedNote)
+      .post('http://localhost:4200/notes/create', addedNote)
       .then(response => {
-        addedNote._id = response.data.success;
+        addedNote.id = response.data.success;
         this.setState({ notes: [addedNote, ...this.state.notes] })
       })
       .catch(error => console.log('error'));
@@ -75,7 +75,7 @@ class App extends Component {
           <Route
             path='/create-new-note'
             render={props =>
-              <NoteForm {...props} addNote={this.addNote} />} />
+              <NoteForm {...props} addNote={this.addNewNote} />} />
           <Route
             path='/note/:id'
             render={props =>

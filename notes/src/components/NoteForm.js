@@ -5,7 +5,7 @@ import './noteForm.css';
 class Form extends React.Component {
     state = {
             title: "",
-            textBody: ""
+            body: ""
         }
 
     changeHandler = e => {
@@ -14,7 +14,7 @@ class Form extends React.Component {
 
     createNote = e => {
         this.props.addNote(e, this.state);
-        this.setState({ title: "", textBody: "" })
+        this.setState({ title: "", body: "" })
         this.props.history.push("/")
     }
 
@@ -37,10 +37,10 @@ class Form extends React.Component {
                     />
                     <textarea
                         className="edit-content"
-                        name="textBody"
+                        name="body"
                         cols='80'
                         rows='30'
-                        value={this.state.textBody}
+                        value={this.state.body}
                         onChange={this.changeHandler}
                         type="text"
                         placeholder='Note Content'
