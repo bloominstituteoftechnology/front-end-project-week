@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "auth0-js": "^9.10.0",
+    "jwt-decode": "^2.2.0",
     "styled-components": "^4.1.1"
   }
 }

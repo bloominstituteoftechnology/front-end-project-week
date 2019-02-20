@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Sidebar from "./containers/Note/Sidebar";
+import Authenticate from "./containers/Auth/Auth"
 import { Switch, Route } from "react-router-dom";
 import NoteList from "./containers/Note/NoteList";
 import NotePage from "./containers/Note/NotePage";
@@ -13,8 +14,9 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar />
+
         <Switch>
-          <Route exact path="/" render={props => <NoteList {...props} />} />
+          <Route exact path="/note" render={props => <NoteList {...props} />} />
           <Route
             exact
             path="/note/:id"
@@ -31,4 +33,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Authenticate(App);

@@ -41,8 +41,6 @@ const Sidebar = props => {
         <Button>View Your Notes</Button></NavLink>
       <NavLink to='/create' style={{ textDecoration: 'none' }}>
         <Button>+ Create New Note</Button> </NavLink>
-      <NavLink to='/signin' style={{ textDecoration: 'none' }}>
-        <Button>Logout</Button> </NavLink>
     </SideBar>
   );
 };
