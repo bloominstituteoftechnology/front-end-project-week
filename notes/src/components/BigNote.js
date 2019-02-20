@@ -47,12 +47,14 @@ class BigNote extends Component {
             No
           </Button>
         </Modal>
-        <Link to={`/update/${singleNote.id}`}>edit</Link>
-        <p className="delete-btn" onClick={this.triggerModal}>
-          Delete
-        </p>
-        <h1>{singleNote.title}</h1>
-        <p>{singleNote.textBody}</p>
+        <div className="big-note-btns">
+        <Link to={`/update/${singleNote.id}`} className="edit-btn">edit</Link>
+        <a className="delete-btn" onClick={this.triggerModal}>
+          delete
+        </a>
+        </div>
+        <h1 className="big-note-content">{singleNote.title}</h1>
+        <p className="big-note-content">{singleNote.textBody}</p>
       </div>
     );
   }

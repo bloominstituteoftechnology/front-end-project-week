@@ -2,9 +2,9 @@
   display: flex;
   width: 100%;
   max-width: 1000px;
-  margin: auto 0;
-  height: 95vh;
-  background: whitesmoke;
+  margin: 0 auto;
+  height: 100%;
+  background:whitesmoke;
 }
 
 .note-card {
@@ -29,13 +29,13 @@
 }
 
 .navbar {
-  /* display:flex;
-  justify-content: flex-start;
-  justify-content: center; */
+  justify-content: center;
   background: lightgray;
   padding-right: 65px;
-  width: 30%;
-  height: 100%;
+  padding-bottom:100%;
+  margin-left: 0px;
+  max-width: 30%; 
+  height: 100%; 
 }
 
 
@@ -54,6 +54,10 @@
 
 .mainHeader {
   margin-bottom: 2px;
+}
+
+.main-view{
+  width:100%;
 }
 
 .form {
@@ -76,9 +80,8 @@
 
 .text-area {
   text-align: left;
-  /* margin-left: 20px;
+  margin-left: 20px;
   margin-bottom: 25px;
-  padding: 150px; */
 }
 
 .form-btn {
@@ -97,13 +100,29 @@
   background: #17a2b8;
   border-radius: 5px;
   margin-left: 25px;
+  margin-bottom:25px;
   text-align: center;
   padding: 10px;
   cursor: pointer;
   width: 180px;
 }
 
+.bigNote .big-note-btns{
+  display:flex;
+  justify-content: flex-end;
+  text-align:right;
+  text-decoration:underline;
+}
 
+.big-note-content{
+  margin-left:30px;
+}
+
+.navbar .top {
+  margin-top:25px;
+}
 .delete-btn {
+  margin-left:20px;
+  margin-right:40px;
   cursor: pointer;
 }

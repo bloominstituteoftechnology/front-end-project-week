@@ -16,8 +16,6 @@ const Note = props => {
         <h1>{note.title}</h1>
         <p>{note.textBody}</p>
       </Link>
-      {/* <button onClick={clickHandler}>Delete</button>
-            <Link to={`/update/${note._id}`}>edit</Link> */}
     </div>
   );
 };

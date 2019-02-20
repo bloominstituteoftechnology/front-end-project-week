@@ -14,7 +14,7 @@ class App extends Component {
         <div className="navbar">
           <h1 className="mainHeader">Lambda Notes</h1>
           <NavLink to="/create">
-            <div className="nav-btn" color="info">
+            <div className="nav-btn top" color="info">
               + Create New Note
             </div>
           </NavLink>

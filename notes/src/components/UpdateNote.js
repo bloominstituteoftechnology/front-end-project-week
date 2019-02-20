@@ -51,7 +51,7 @@ class UpdateNote extends Component {
           type="text"
           name="textBody"
           cols="80"
-          rows="30"
+          rows="15"
           value={this.state.textBody}
           onChange={this.inputHandler}
           placeholder="New Content"
