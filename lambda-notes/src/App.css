@@ -113,6 +113,7 @@ h1, .error-title {
 }
 .note-textBody {
   font-family: 'Laila', serif;
+  line-height: 1.4;
 }
  
 .note-card .note-title{
