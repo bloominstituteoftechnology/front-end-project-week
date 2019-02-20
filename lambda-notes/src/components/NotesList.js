@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-let maxLenBody = 133;
+let maxLenBody = 150;
 let maxLenTitle = 12;
 
 const NotesList = props => {

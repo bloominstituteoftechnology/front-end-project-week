@@ -84,7 +84,6 @@ h1, .error-title {
 }
 .note-title {
   text-transform: capitalize;
-  min-height: 75px;
   text-align: left;
   font-family: 'Laila', serif;
   font-weight: bold;
