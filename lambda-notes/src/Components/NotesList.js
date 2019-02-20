@@ -25,7 +25,7 @@ class NotesList extends Component {
             <div className='notesContainer'>
             <h2> Your Notes: </h2>
             <div className='gridList'>
-            {sortedNotes.map( jot => <Link to={`/note/${jot._id}`}><Note title={jot.title} key={jot._id} textBody={jot.textBody} jot={jot} /></Link>)}
+            {sortedNotes.map( jot => <Link to={`/note/${jot.id}`}><Note title={jot.title} key={jot.id} textBody={jot.textBody} jot={jot} /></Link>)}
             </div>
             </div>
         )

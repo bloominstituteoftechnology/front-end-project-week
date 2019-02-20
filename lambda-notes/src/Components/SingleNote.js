@@ -17,7 +17,7 @@ class SingleNote extends Component {
     componentDidMount() {
         const ID = this.props.match.params.id;
         console.log(ID)
-        axios.get(`https://fe-notes.herokuapp.com/note/get/${ID}`)
+        axios.get(`http://localhost:4444/note/${ID}`)
         .then(response => this.setState({note: response.data}))
         .catch (err => console.log(err))
     }
@@ -33,7 +33,7 @@ class SingleNote extends Component {
 
     render(){
         let Modal = '';
-        if (this.state.deleteNote === true) {Modal = <DeleteModal clickForAllHandler={this.props.clickForAllHandler} id={this.state.note._id} noHandler={this.noHandler} notes={this.state.notes}/>}
+        if (this.state.deleteNote === true) {Modal = <DeleteModal clickForAllHandler={this.props.clickForAllHandler} id={this.state.note.id} noHandler={this.noHandler} notes={this.state.notes}/>}
         else { Modal = ''}
         console.log(this.state.note.id)
     return (

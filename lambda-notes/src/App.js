@@ -30,13 +30,13 @@ class App extends Component {
 
   
   componentDidMount() {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:4444/home')
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log('There is a Note Error'))
 }
 
   componentDidUpdate() {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:4444/home')
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log('There is a Note Error'))}
 

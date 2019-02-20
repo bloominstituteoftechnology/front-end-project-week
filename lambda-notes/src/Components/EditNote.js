@@ -11,8 +11,8 @@ class EditNote extends Component {
         this.state = {
             notes:[],
             tags:[],
-            title: '',
-            textBody: '',
+            title: this.props.location.state.title,
+            textBody: this.props.location.state.textBody,
         }
         }
 
@@ -25,8 +25,9 @@ class EditNote extends Component {
         editNote = (id) => {
             const title = this.state.title;
             const textBody = this.state.textBody;
-            axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {title,textBody})
-            .then( response => this.setState({notes: response.data}))
+            axios.put(`http://localhost:4444/note/edit/${id}`, {title,textBody})
+            .then( response => {this.setState({notes: response.data});
+            console.log(response)})
             .catch(err => console.log(err))
           }
 
