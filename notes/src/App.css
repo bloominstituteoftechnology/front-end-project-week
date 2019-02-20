@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+
+.App {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background: rgb(238, 238, 238);
+  display: flex;
+  max-width: 1000px;
+}
+.sidebarContainer {
+  background-color: lightgray;
+  width: 20em;
+  height: 100vh;
+  text-align: left;
+  padding: 15px 15px;
+  border-right: 2px grey solid;
+}
+.sidebarTitle {
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #272727;
+}
+.sidebarButton {
+  background: #34a7a7;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border: 1.5px grey solid;
+  letter-spacing: 1px;
+  width: 12rem;
+  font-size: 16px;
+}
+.notesViewContainer {
+  padding: 4em 2em;
+  text-align: left;
+  overflow: hidden;
+  width: 100%;
+  
+}
+.viewTitle {
+  font-size: 24px;
+  font-weight: 600;
+}
+.notecard {
+  background: white;
+  border: 2px lightgray solid;
+  padding: 1em;
+  text-align: left;
+  width: 10em;
+  height: 11em;
+  margin: 0 1em 1.5em 0;
+  word-wrap:break-word;
+  overflow:hidden;
+}
+.cardTitle {
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.cardBody {
+  font-size: 14px;
+}
+.cardBox {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+.formLayout {
+  display: flex;
+  flex-direction: column;
+  width: 93%;
+  margin-top: 2em;
+}
+.notesubmit {
+  padding: 1em;
+  border-radius: 5px;
+  border: 2px solid grey;
+  font-weight: bold;
+}
+input {
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+textarea {
+  width: 100%;
+  height: 25em;
+}
+.svButtonRow {
+  display: flex;
+  justify-content: flex-end;
+}
+.svButtonRow {
+  margin-top: -3em;
+  margin-bottom: 1em;
+}
+.svButtons {
+  margin: 5px;
+}
+.viewBody {
+  margin-top: 2em;
+  word-wrap:break-word;
+}
+.Modal {
+  position: absolute;
+  top: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: 12em;
+  width: 35em;
+  border: 2px grey solid;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  outline:none;
+}
+.modalButtonRow{
+  display:flex;
+  justify-content: space-around;
+  width: 90%;
+}
+.modalText{
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.redButton{
+  background-color:red !important;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.ReactTags__tagInputField{
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 5px;
+  border: 2px solid grey;
+  font-weight: bold;
+  margin-top:10px;
+}
+.ReactTags__tag{
+border: 2px grey solid;
+background: white;
+border-radius: 5px;
+margin: 5px;
+padding: 2px;
+}
+.ReactTags__tags{
+  margin:10px 0
+}
+.tagtitle{
+  font-weight: bold;
+  font-size: 18px;
+}
+.checkListItem{
+  border: 2px solid grey;
+  border-radius: 5px;
+  background-color: white;
+  padding: 3px;
+  margin: 5px;
+  display: inline-block
+}
+.removeButton{
+  font-size: 14px;
+  vertical-align: 1px;
+  cursor: pointer;
+}
+.checkboxRow{
+  display:flex;
+}
+.searchContainer{
+  margin-top: 10px;
+  display:flex;
+}
+select{
+  background: white;
+  border: 2px grey solid;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: .4em;
+}
+.lowerSelect{
+  margin-right: 15px;
+}
