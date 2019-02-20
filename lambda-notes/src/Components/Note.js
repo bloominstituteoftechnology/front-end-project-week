@@ -1,56 +1,96 @@
 import React from "react";
-import PropTypes from "prop-types";
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchNotes, deleteNote } from "../actions/noteActions";
 
-const NoteBox = styled.div`
-display: flex;
-flex-direction: column;
-border: 1px solid black;
-padding: 0px 10px;
-margin: 10px;
-width: 200px;
-height: 250px;
-background-color: white;
-`
+import { Button } from "react-bootstrap";
 
-const Title = styled.div`
-border-bottom: 1px solid lightgrey;
-`
+class Note extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      delete: false
+    };
+  }
 
-const TextBody = styled.p`
-overflow: auto; //Could not get elipses to work
-width: 100%;
-font-size: 1.4rem;
-word-break: break-word;
-`
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
 
-const TitleDisp = styled.h2`
-word-break: break-word;
-`
+  deleteToggleOn = () => {
+    this.setState({ delete: true });
+  };
 
-const Note = props => {
-  return (
-    <NoteBox>
-      <Title>
-        <TitleDisp>{props.title}</TitleDisp>
-      </Title>
-      <TextBody>
-        {props.textBody}
-      </TextBody>
-    </NoteBox>
-  );
-};
+  deleteToggleOff = () => {
+    this.setState({ delete: false });
+  };
 
-//Sets default prop values
-Note.defaultProps = {
-  title: "",
-  textBody: ""
-};
+  render() {
+    if (this.props.notes.length) {
+      let note = this.props.notes.find(
+        note => `${note.id}` === this.props.match.params.id
+      );
 
-//Type validation for props
-Note.propTypes = {
-  title: PropTypes.string.isRequired,
-  textBody: PropTypes.string.isRequired
-};
+      const deleteNotes = event => {
+        event.preventDefault();
+        this.props.deleteNote(note.id);
+        this.props.history.push("/");
+      };
 
-export default Note;
+      return (
+        <div>
+          {this.state.delete && (
+            <div>
+              <div>
+                <p>Are you sure you want to delete this?</p>
+                <div>
+                  <Button
+                    variant="danger"
+                    style={{ width: "75px", margin: "0 10px" }}
+                    onClick={deleteNotes}
+                  >
+                    Delete
+                  </Button>
+                  <Button
+                    variant="info"
+                    style={{ width: "75px", margin: "0 10px" }}
+                    onClick={this.deleteToggleOff}
+                  >
+                    No
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div>
+            <Link to={`/note/${note.id}/edit`} style={{ color: "black" }}>
+              <Button style={{ marginRight: "20px", width: "75px" }}>
+                Edit
+              </Button>
+            </Link>
+            <Button
+              variant="danger"
+              onClick={this.deleteToggleOn}
+            >
+              Delete
+            </Button>
+          </div>
+          <div>
+            <h2>{note.title}</h2>
+            <p style={{ lineHeight: "2" }}>{note.textBody}</p>
+          </div>
+        </div>
+      );
+    }
+  }
+}
+
+const mapStateToProps = state => ({
+  notes: state.noteReducer.notes
+});
+
+export default connect(
+  mapStateToProps,
+  { fetchNotes, deleteNote }
+)(Note);

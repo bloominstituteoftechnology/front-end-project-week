@@ -1,124 +1,46 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Route, Switch } from "react-router-dom";
+import "./App.css";
+import { Switch, Route } from "react-router-dom";
 
-import NotesList from "./Components/NotesList";
-import NoteForm from "./Components/NoteForm";
-import Sidebar from "./Components/Sidebar";
-import NoteView from "./Components/NoteView";
-import styled from 'styled-components';
+import About from "./Components/About";
+import Notes from "./Components/Notes";
+import Note from "./Components/Note";
+import NewForm from "./Components/NewForm";
+import EditForm from "./Components/EditForm";
+import TopBar from "./Components/TopBar";
+import styled from "styled-components";
 
-const AppContainer = styled.div`
-display: flex;
-border: 1px solid black;
-width: 100%;
-max-width: 1080px;
-`
-
-const HomeView = styled.div`
-display: flex;
-width: 100%;
-`
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  max-width: 1080px;
+  border-top: 1px solid rgb(234, 237, 232);
+`;
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      notes: [],
-      fnotes: []
-    };
-  }
-
-  componentDidMount() {
-    this.fetchNotes();
-  }
-
-  componentDidUpdate() {
-    this.fetchNotes();
-  }
-
-  //Gets all notes from database
-  fetchNotes = () => {
-    axios
-      .get("https://beplambdanotes.herokuapp.com/api/notes")
-      .then(res => this.setState({ notes: res.data }))
-      .catch(err => console.log(err));
-  };
-
-  //Edits notes, takes an object as a parameter
-  editNote = obj => {
-    const index = this.state.notes.findIndex(note => note._id === obj.id);
-    console.log(index);
-
-    axios
-      .put(`https://beplambdanotes.herokuapp.com/api/edit/${obj.id}`, obj)
-      .then(res => {
-        this.setState({ notes: this.state.notes.splice(index, 1, res.data) });
-        console.log("edited", res);
-      })
-      .catch(err => console.dir(err));
-  };
-
-  //Deletes note by id
-  deleteNote = id => {
-    axios
-      .delete(`https://beplambdanotes.herokuapp.com/api/delete/${id}`)
-      .then(res => {
-        console.log("deleted", res);
-      })
-      .catch(err => console.dir(err));
-  };
-
   render() {
     return (
-      <AppContainer>
-        <HomeView>
-          <div>
-            <Sidebar />
-          </div>
-
+      <div className="App">
+        <TopBar />
+        <Container>
           <Switch>
+            <Route exact path="/" render={props => <Notes {...props} />} />
             <Route
               exact
-              path="/"
-              render={props => (
-                <NotesList
-                  {...props}
-                  notes={
-                    this.state.fnotes.length > 0
-                      ? this.state.fnotes
-                      : this.state.notes
-                  }
-                  editNote={this.editNote}
-                  deleteNote={this.deleteNote}
-                />
-              )}
+              path="/note/:id"
+              render={props => <Note {...props} />}
             />
-
+            <Route path="/new-note" render={props => <NewForm {...props} />} />
             <Route
-              exact
-              path="/create"
-              render={props => <NoteForm {...props} notes={this.state.notes} />}
+              path="/note/:id/edit"
+              render={props => <EditForm {...props} />}
             />
-
-            <Route
-              exact
-              path="/:id"
-              render={props => (
-                <NoteView
-                  {...props}
-                  notes={this.state.notes}
-                  editNote={this.editNote}
-                  editHandler={this.editHandler}
-                  handleChange={this.handleChange}
-                  deleteNote={this.deleteNote}
-                />
-              )}
-            />
+            <Route path="/about" component={About} />
           </Switch>
-        </HomeView>
-      </AppContainer>
+        </Container>
+      </div>
     );
   }
 }
