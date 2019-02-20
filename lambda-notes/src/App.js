@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import NotesList from './components/Notes/NotesList';
 import Note from './components/Notes/Note';
 import CreateNote from './components/Notes/CreatNote';
+import AuthContainer from './components/Auth/AuthContainer';
 
 class App extends Component {
   constructor() {
@@ -59,6 +60,7 @@ class App extends Component {
           )} />
         <Route path='/notes/:id' component={Note} />
         <Route path='/create' component={CreateNote} />
+        <Route path='/login' component={AuthContainer} />
       </div>
     );
   }
