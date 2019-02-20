@@ -11,6 +11,11 @@ const DisplayNote = props => {
         return undefined;
     })
 
+    function cloneNote(){
+        props.createNote({title: note.title, content: note.content, tags: note.tags})
+        alert('Note Cloned.');
+    }
+
     if (note === undefined) {
         return <h1>No note by that ID</h1>
     }
@@ -20,6 +25,7 @@ const DisplayNote = props => {
                 <div className='note-links-container'>
                     <Link className='note-link' to={`${note.id}/edit`}>Edit</Link>
                     <Link className='note-link' to={`${note.id}/delete`}>Delete</Link>
+                    <button onClick={cloneNote}>Clone</button>
                 </div>
                 <div className='note-title'>{note.title}</div>
                 <div className='note-break'/>

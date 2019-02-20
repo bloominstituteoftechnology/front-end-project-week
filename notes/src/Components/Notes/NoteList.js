@@ -20,6 +20,7 @@ class NoteList extends React.Component {
         })
     }
 
+    /* Goto the previous page of notes. */
     prevPage = () => {
         if (this.state.pageNumber === 1) {
             return 0;
@@ -31,6 +32,7 @@ class NoteList extends React.Component {
         }
     }
 
+    /* Goto the next page of notes. */
     nextPage = () => {
         if (this.state.pageNumber === this.state.totalPages) {
             return 0;
@@ -43,9 +45,13 @@ class NoteList extends React.Component {
     }
 
     render() {
+        /* Pagination logic */
         let pageNotes = [];
+
+        // This returns NaN without coercing it into a Number
         let x = Number(this.state.notesPerPage * this.state.pageNumber);
         if (x > this.props.notes.length) {
+            // If we've reached the end of the notes then don't get an index out of bounds exception.
             x = this.props.notes.length;
         }
         if (this.props.notes.length > this.state.notesPerPage) {
@@ -53,10 +59,11 @@ class NoteList extends React.Component {
                 pageNotes.push(this.props.notes[i]);
             }
         } 
+        /* End Pagination logic */
 
         return (
             <>
-            <h2>Your Notes:</h2>
+            <h2>Your Notes: Page {this.state.pageNumber}</h2>
             <label>Search: </label>
             <input className='search-bar' name='search' type='text'></input>
             <div className='note-list'>
