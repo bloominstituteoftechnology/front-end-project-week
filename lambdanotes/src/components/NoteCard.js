@@ -6,7 +6,6 @@ const NoteCard = ({note})=> {
   
   //Determine if note is too long to fit inside card, and add ellipsis if so
   let noteText = ''
-  console.log(note);
   noteText = (note.content.length > 140) ? note.content.slice(0,140).concat('',' ...') : note.content
   
   return (

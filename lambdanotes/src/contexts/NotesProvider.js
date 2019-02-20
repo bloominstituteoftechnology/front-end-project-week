@@ -39,7 +39,6 @@ class NotesProvider extends Component{
         axios.post('http://localhost:4000/api/notes/', newNote)
         //if successful, returns id of new note within response.data.success
         .then((response) => {
-            console.log('response after post', response);
             //grap individual newly created note
             axios.get(`http://localhost:4000/api/notes/${response.data.id}`)
                 .then((response) => {
@@ -49,8 +48,7 @@ class NotesProvider extends Component{
                         loading: false,
                         error: null
                 })
-                console.log('notes after getbyID',this.state.notes);
-                //go to '/' route - which displays ViewNotes.js
+                //go to '/api/notes' route - which displays ViewNotes.js
                 this.props.history.push('/api/notes')
             })
             

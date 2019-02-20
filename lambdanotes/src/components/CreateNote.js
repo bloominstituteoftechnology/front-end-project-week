@@ -23,7 +23,6 @@ class CreateNote extends Component{
   }
 
   render(){
-    
     return (
       <div className="createContainer">
         <h3 className="createHeader">Create New Note:</h3>
