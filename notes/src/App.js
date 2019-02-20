@@ -13,7 +13,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      note: [],
+      note: []
     }
   }
 
@@ -48,7 +48,7 @@ class App extends Component {
   deleteNote = (id) => {
     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
-      this.setState({note: [...this.state.note, response.data]})
+      this.setState({note: [...this.state.note, response]})
     })
   }
 

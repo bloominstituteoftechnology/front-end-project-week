@@ -12,7 +12,7 @@ const NoteMenu = props => {
                     <Link to = {`/edit-note/${props.props.match.params.noteID}`}>edit</Link>
                 </div>
 
-            <div className = 'menu-item' onClick = {(props) => {
+            <div className = 'menu-item' onClick = {() => {
                 Popup.create({
                     title: null,
                     content: 'Are you super, duper sure you wish to delete?',
@@ -20,16 +20,16 @@ const NoteMenu = props => {
                         left: [{
                             text: 'delete',
                             className: 'danger',
-                            action: function() {
+                            action: function () {
                                 props.deleteNote(props.noteID)
                             
-                                // props.props.history.push('/')
+                                props.props.history.push('/')
 
-                                Popup.close(props.props.history.push('/'));
+                                Popup.close();
                             }
                         }],
 
-                        right: [ {
+                        right: [{
                             text: 'no',
                             className: 'success',
                             action: function () {
@@ -41,7 +41,6 @@ const NoteMenu = props => {
             }}>delete this
             </div>
         </div>
-        
     )
 }
 

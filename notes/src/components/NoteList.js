@@ -1,10 +1,15 @@
 import React from 'react';
 import '../App.css';
 import Note from './Note';
+import styled from 'styled-components';
+
+const Section = styled.section`
+    margin 5% 3%;
+`
 
 const NoteList = props => {
     return (
-        <section className = 'list-page'>
+        <Section>
             <div className = 'page-header'>
                 <h3>Notes</h3>
             </div>
@@ -22,7 +27,7 @@ const NoteList = props => {
                     )
                 })}
             </div>
-        </section>
+        </Section>
     )
 }
 

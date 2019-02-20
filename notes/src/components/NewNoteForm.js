@@ -1,9 +1,20 @@
 import React from 'react';
 import '../App.css';
+import styled from 'styled-components';
+
+const Button = styled.button`
+    background: whitesmoke;
+    color: purple;
+`
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+`
 
 const NewNoteForm = props => {
     return (
-        <form onSubmit = {props.submitHandler}>
+        <Form onSubmit = {props.submitHandler}>
             <input
                 className = 'input' 
                 name = 'title' 
@@ -13,7 +24,7 @@ const NewNoteForm = props => {
                 value = {props.title} 
             />
 
-            <textArea
+            <textarea
                 className = 'text-area' 
                 name = 'textBody'
                 placeholder = 'content' 
@@ -22,8 +33,8 @@ const NewNoteForm = props => {
                 value = {props.textBody}
             />
 
-            <button>save</button>
-        </form>
+            <Button>save</Button>
+        </Form>
     )
 }
 

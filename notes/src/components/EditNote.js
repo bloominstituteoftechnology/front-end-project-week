@@ -1,5 +1,23 @@
 import React from 'react';
 import '../App.css';
+import styled from 'styled-components';
+
+const Content = styled.section`
+    width: 100%;
+    margin: 5% 3%;
+`
+
+const Button = styled.button`
+    background: whitesmoke;
+    border: 1px solid gray;
+`
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+`
+
+
 
 class EditNote extends React.Component {
     constructor() {
@@ -32,8 +50,8 @@ class EditNote extends React.Component {
 
     render() {
         return (
-            <section className = 'page-header'>
-                <form onSubmit = {this.props.editNote(this.state._id, {title: this.state.title, textBody: this.state.textBody})}>
+            <Content className = 'page-header'>
+                <Form onSubmit = {this.props.editNote(this.state._id, {title: this.state.title, textBody: this.state.textBody})}>
                     <input 
                         className = 'input'
                         name = 'title'
@@ -53,9 +71,9 @@ class EditNote extends React.Component {
                         value = {this.state.textBody}
                     />
                 
-                    <button>update</button>
-                </form>
-            </section>        
+                    <Button>update</Button>
+                </Form>
+            </Content>        
         )
     }
 }
