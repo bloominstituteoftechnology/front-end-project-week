@@ -100,7 +100,8 @@ h3, h4, h5, h6 {
     color: white;
     background-color: #24B8BD;
     border: .5px solid #B7B7B7;
-    box-shadow: -1px 1px 3px 1px #B7B7B7;
+	box-shadow: -1px 1px 3px 1px #B7B7B7;
+	border-radius: 4px;
 }
 
 button:focus {
@@ -125,26 +126,61 @@ button:focus {
 .noteBox {
 	display: inline-grid;
 	grid-template-rows: 1fr;
-	grid-template-columns: 250px 250px 250px;
+	grid-template-columns: 15em 15em 15em;
 	grid-gap: 20px;
 }
 
-.note {
+.card-body {
 	border: 2px solid #D9D9D9;
+	border-radius: 4px;
 	padding: 10px;
 	background-color: white;
-	word-wrap: break-word;
+	line-height: 1.3em;
+	overflow: hidden;
 }
 
-.noteTitles {
+.card-text {
+	padding: .2em .2em .8em;
+	max-height: 4em;
+	overflow: hidden;
+}
+
+.card-title {
 	font-size: 22px;
 	width: 90%;
 	border-bottom: 2px solid #D9D9D9;
-	padding-bottom: 5px;
+	padding-bottom: .5em;
+}
+
+.btn {
+	margin-top: .5em;
+	border-radius: 5px;
+	border-color: white;
+	background-color: #24B8BD;
+	color: white;
+	padding: .3em .5em;
+}
+
+/*-------------------------------NOTES SHOW/HIDE MORE*/
+
+.fade {
+	height: 6.2em;
+	position: relative;
+}
+
+.fade::after {
+	content: "";
+	text-align: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 65%;
+	height: 1.2em;
+	background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 30%);
 }
 
 
-/*-------------------------------Add Note Styling*/
+/*-------------------------------Add Note form Styling*/
 
 .addForm {
 	width: 80%;
@@ -193,12 +229,13 @@ a {
 /*-------------------------------Single Note Styling*/
 .viewNoteContainer {
 	width: auto;
-	padding: 2% 5% 0 22% ;
+	padding: 2% 5% 5% 22% ;
 	overflow-y: hidden;
+	background-color: #F2F1F2;
 }
 
 .viewNoteTitle {
-	margin-top: 50px;
+	margin-top: 40px;
 	margin-bottom: 10px;
 }
 
@@ -266,3 +303,4 @@ a {
 .formTitles {
 	padding-top: 50px;
 }
+

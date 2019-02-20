@@ -9,8 +9,6 @@ import AddNote from './formComponent/addNote';
 import SingleNote from './NotesComponent/singleNote/singleNote';
 import EditForm from './formComponent/editNote';
 
-
-
 import './App.css';
 
 class App extends Component {

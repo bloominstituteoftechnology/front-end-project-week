@@ -1,16 +1,18 @@
 import React from 'react';
+import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 
+const Note = (props) => {
+  return (
+    <Row>
+      <Col sm="6">
+        <Card body>
+          <CardTitle>{props.title}</CardTitle>
+          <CardText>{props.body}</CardText>
+          <Button>More...</Button>
+        </Card>
+      </Col>
+    </Row>
+  );
+};
 
-//props from notesIterator
-//key={note._id} title={note.title} body={note.textBody} id={note._id}
-
-const Note = props => {
-    return (
-        <div className="note">
-            <h2 className="noteTitles">{props.title}</h2>
-            <p>{props.body}</p>
-        </div>
-    )
-}
-
-export default Note
+export default Note;
