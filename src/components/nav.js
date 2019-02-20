@@ -93,29 +93,29 @@ class Nav extends React.Component {
         <div className="nav-title">Lambda Notes</div>
         <ul className="nav-list">
           <li className="nav-left-item icon1">
-            <button className="nav-button" value="login" onClick={this.props.login} name="login">Logout</button>
+            <button id="icon1" className="nav-button" value="login" onClick={this.props.login} name="login"><p>Logout</p></button>
           </li>
           <li className="nav-left-item icon1">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button className="nav-button" value="noteList" onClick={this.props.noteList} name="noteList">View Notes</button>
+            <button  id="icon1" className="nav-button" value="noteList" onClick={this.props.noteList} name="noteList"><p>View Notes</p></button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button className="nav-button" value="noteCreate" onClick={this.props.noteCreate} name="noteCreate"><p>+ Create New Note</p></button>
+            <button  id="icon1" className="nav-button" value="noteCreate" onClick={this.props.noteCreate} name="noteCreate"><p>+ Create Note</p></button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button className="nav-button" value="noteListCreate" onClick={this.enableSaveList} name="noteListCreate">{(this.state.enableSaveList) ? <p>- Close List</p> : <p>+ Create New List</p>}</button>
+            <button  id="icon1" className="nav-button" value="noteListCreate" onClick={this.enableSaveList} name="noteListCreate">{(this.state.enableSaveList) ? <p>- Close List</p> : <p>+ Create List</p>}</button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button className="nav-button" value="noteCreate" onClick={this.enableOpenList} name="noteCreate">{(this.state.enableOpenList) ? <p>Close Note List's</p> : <p>Open List</p>}</button>
+            <button  id="icon1" className="nav-button" value="noteCreate" onClick={this.enableOpenList} name="noteCreate">{(this.state.enableOpenList) ? <p>Close Note List's</p> : <p>Open List</p>}</button>
           </li>
           <li className="nav-left-item">
             </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button className="nav-button" value="noteCreate" onClick={this.enableList} name="noteCreate">{(this.state.enableList) ? <p>Disable Quick Select</p> : <p>Enable Quick Select</p>}</button>
+            <button  id="icon1" className="nav-button" value="noteCreate" onClick={this.enableList} name="noteCreate">{(this.state.enableList) ? <p>Disable Select</p> : <p>Quick Select</p>}</button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>

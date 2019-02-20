@@ -17,13 +17,13 @@ export const TOGGLE_UPDATE_LIST = 'TOGGLE_UPDATE_LIST';
 export const getLists = () => {
   return (dispatch) => {
     dispatch({ type: GETTING_LISTS })
-   // const token = localStorage.getItem('jwt');
-   // const endpoint = 'http://localhost:5000/api/lists';
- //   const options = {
-      /*   headers: {
-          Authorization: token
-        } */
-  //  };
+    // const token = localStorage.getItem('jwt');
+    // const endpoint = 'http://localhost:5000/api/lists';
+    //   const options = {
+    /*   headers: {
+        Authorization: token
+      } */
+    //  };
     axios
       // .get('http://localhost:5000/api/notes', options)
       // axios
@@ -78,13 +78,12 @@ export const updateList = (newList, id) => {
   }
 }
 
-export const  viewList = (id) => {
-  console.log("id:", id)
+export const viewList = (id) => {
   return (dispatch) => {
     dispatch({ type: GETTING_SINGLE_LIST })
     // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
     const URL = 'http://localhost:5000/api/lists/' + id;
-     axios
+    axios
       .get(URL)
       .then(response => {
         dispatch({ type: SINGLE_LIST, payload: response.data })

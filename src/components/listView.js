@@ -11,38 +11,37 @@ class ListView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: [],
-            list: [],
-            tags: '',
-            title: '',
-            textBody: '',
-            id: '',
-            listItems: [],
+            selectedNotes: []
         };
     }
 
-    async componentDidMount() {
-        const notes = [];                                              // setup array to hold notes 
-    
-        const list = await this.props.viewList(this.props.id);         // api get the list from server
-        console.log("list:", list)
-        const newList = await JSON.parse(list.list);                   // parse the string back into an array
-
-        for (let i = 0; i < newList.length; i++) {                     // step through the array of note id's
-            let singleNote = await this.props.viewNote(newList[i]);    // api get single note
-            notes.push(singleNote);                                    // save each note into an array
-        }
-        this.setState({ notes: notes });                               // save the array to state
-       // this.props.getNotes();                                       // api get notes 
+    componentDidMount() {
+        this.props.viewList(this.props.id);                                         // api get the list from server
+         const selectedNotes = [];                                                // setup array to hold notes 
+           const newList = this.props.listSelected.list;   
+console.log("newList:", newList)
+            for (let i = 0; i < newList.length; i++) {                            // step through the array of note id's
+               let singleNote = this.props.viewNote(newList[i]);                   // api get single note
+               selectedNotes.push(singleNote);                                    // save each note into an array
+           }
+           this.setState({ selectedNotes: selectedNotes });                    // save it to state 
     }
 
 
+
+
+
+
     render() {
+
+
         return (
-            <div className="note-list"><div className="title-container"><div className="list-title">Notes:</div>
+            <div className="note-list"><div className="title-container"><div className="list-title">List of Notes:</div>
                 <div className="csv-button"><CSVLink data={this.props.notes}>Export to .csv</CSVLink></div></div>
+                <div className="note-name">{this.props.listSelected.listTitle}</div>
+                <div className="note-body">{this.props.listSelected.list}</div>
                 <div className="list-container">
-                    {this.state.notes.map((note, index) => {
+                    {this.state.selectedNotes.map((note, index) => {
                         return <Note key={index} title={note.title} viewNote={this.props.viewNote} textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
                     })}
                 </div>
@@ -55,11 +54,11 @@ const mapStateToProps = state => {
     const { listsReducer } = state;
     const { singleListReducer } = state;
     return {
-        listSelected: singleListReducer.listSelected,
+        listSelected: state.singleListReducer.listSelected,
         notes: notesReducer.notes,
-        lists: listsReducer.list,
-        error: notesReducer.error,
-        gettingNotes: notesReducer.gettingNotes
+        lists: listsReducer.lists,
+        error: listsReducer.error,
+     //   gettingNotes: notesReducer.gettingNotes
     };
 };
 
