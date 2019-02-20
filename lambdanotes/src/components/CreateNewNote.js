@@ -19,7 +19,7 @@ class CreateNewNote extends React.Component {
         this.state = {
             title: '',
             textBody: '',
-            //tags: [],
+            tags: '',
         }
     }
 
@@ -57,6 +57,14 @@ class CreateNewNote extends React.Component {
                         type="text"
                         name="textBody"
                         value={this.state.textBody}
+                        onChange={this.handleChange}
+                    />
+                     <input 
+                        className="input-title"
+                        placeholder="Note Tags"
+                        type="text"
+                        name="tags"
+                        value={this.state.tags}
                         onChange={this.handleChange}
                     />
                 </form>

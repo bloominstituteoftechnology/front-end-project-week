@@ -61,7 +61,7 @@ class AzSort extends React.Component {
                                        
                                     </div>
                                     <div>
-                                        <p>{obj.tagTitle}</p>
+                                        <p>{obj.tags}</p>
                                     </div>
                                     
                                 </div>

@@ -21,9 +21,11 @@ class NoteView extends React.Component {
     // componentDidMount(){
     //     const id = this.props.match.params.id
     //     axios
-    //     .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    //     .get(`http://localhost:3000/notes/${id}`)
     //     .then(response => {
-    //         this.setState({ note: response.data })
+    //         this.setState({ note: response.data[0] })
+    //         console.log(id)
+    //         console.log(response.data[0].title)
     //     })
     //     .catch(err => {
     //         console.log("Fail to Get INDIVIDUAL note", err)
@@ -35,9 +37,9 @@ class NoteView extends React.Component {
         axios
         .get(`http://localhost:3000/notes/${id}`)
         .then(response => {
-            this.setState({ note: response.data[0] })
+            this.setState({ note: response.data })
             console.log(id)
-            console.log(response.data[0].title)
+            console.log(response.data.title)
         })
         .catch(err => {
             console.log("Fail to Get INDIVIDUAL note", err)
@@ -60,7 +62,7 @@ class NoteView extends React.Component {
 
     render(){
         console.log(this.props.match.params.id)
-        console.log(this.state.note.title)
+        //console.log(this.state.note.title)
         return (
             <div>
                 <div className="note-menu">
@@ -88,9 +90,7 @@ class NoteView extends React.Component {
                     <div key={this.state.note.id}>
                         <h2>Note Name: {this.state.note.title} </h2>
                         <p>Text Body: {this.state.note.textBody}</p>
-                        {/* <p>ID: {this.state.note.id}</p>
-                        <p>Double_Underscore_V: {this.state.note.__v}</p>
-                        <p>TAGS: {this.state.note.tags}</p> */}
+                        <p>TAGS: {this.state.note.tags}</p>
                     </div>
                 </div>
             </div>
@@ -104,6 +104,3 @@ const mapStateToProps = () => {
 
 export default connect(mapStateToProps, { deleteNote })(NoteView)
 
-//export default NoteView
-
-//<div onClick={this.handleDelete}><Link to="/idsort" style={{cursor: "pointer"}} > delete </Link></div> 

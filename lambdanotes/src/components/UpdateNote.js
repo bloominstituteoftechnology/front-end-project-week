@@ -12,41 +12,19 @@ class UpdateNote extends React.Component {
         this.state = {
             title: '',
             textBody: '',
-            // notes: [],
-            // note: {
-            //     title: '',
-            //     textBody: '',
-            // },
+            tags: '',
         }
     }
 
-    // WHY NOT componentDidMount needed?
-    // componentDidMount(){
-    //     let notes = this.props.getNotes();
-    //     this.setState({notes: notes})
-    // }
-
-    // componentDidMount(){
-    //     const id = this.props.match.params.id
-    //     axios
-    //     .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    //     .then(response => {
-    //         const {title, textBody} = response.data
-    //         this.setState({ title, textBody })
-    //         // this.setState({ note: response.data })
-    //     })
-    //     .catch(err => {
-    //         console.log("Fail to Get INDIVIDUAL note", err)
-    //     })
-    // }
+   
 
     componentDidMount(){
         const id = this.props.match.params.id
         axios
         .get(`http://localhost:3000/notes/${id}`)
         .then(response => {
-            const {title, textBody} = response.data
-            this.setState({ title, textBody })
+            const {title, textBody, tags} = response.data
+            this.setState({ title, textBody, tags })
             console.log(id)
             // this.setState({ note: response.data })
         })
@@ -55,41 +33,7 @@ class UpdateNote extends React.Component {
         })
     }
 
-    // componentDidMount(){
-    //     const id = this.props.match.params.id
-    //     axios
-    //     .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    //     .then(response => {
-    //         this.setState({ note: response.data })
-    //     })
-    //     .catch(err => {
-    //         console.log("Fail to Edit individual note", err)
-    //     })
-    // }
-
-    // componentDidMount(){
-    //     const note = this.props.notes.find( item => item.id === Number(this.props.match.params.id))
-    //     axios 
-    //     .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, note)
-    //     .then(response => {
-    //         this.setState({ notes: response.data })
-    //         console.log(this.state.notes)
-    //         console.log(this.state.note)
-    //     })
-    //     .catch(err => {
-    //         console.log("Fail to UPDATE individual note", err)
-    //     })
-    // }
-
-    // componentDidMount(){
-    //     console.log(this.props.notes)
-    //     console.log(this.props.match)
-    //     //const { notes, match } = this.props 
-    //     const note = this.props.notes.find( item => item.id === Number(this.props.match.params.id))
-    //     this.setState({note})
-    //     console.log(this.props.match.params.id)
-    //     console.log(this.note)
-    // }
+   
 
     handleChange = event => {
         event.preventDefault();
@@ -126,6 +70,14 @@ class UpdateNote extends React.Component {
                         type="text"
                         name="textBody"
                         value={this.state.textBody}
+                        onChange={this.handleChange}
+                    />
+                    <input 
+                        className="input-title"
+                        placeholder="Note Tags"
+                        type="text"
+                        name="tags"
+                        value={this.state.tags}
                         onChange={this.handleChange}
                     />
                 </form>
