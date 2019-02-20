@@ -1,19 +1,38 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
+import { Form, Button } from "react-bootstrap";
 
 import { SignUpLink } from "../SignUp";
 import { PasswordForgetLink } from "../PasswordForget";
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  min-width: 100vw;
+  overflow: hidden;
+`;
+
+const Error = styled.p`
+  padding: 20px 0px;
+  color: red;
+  opacity: 0.7;
+`;
+
 const SignInPage = () => (
-  <div>
+  <Container>
     <h1>Sign In</h1>
     <SignInForm />
     <PasswordForgetLink />
     <SignUpLink />
-  </div>
+  </Container>
 );
 
 const INITIAL_STATE = {
@@ -50,32 +69,41 @@ class SignInFormBase extends Component {
   };
 
   render() {
-    const { email, password, error } = this.state;
+    const { email, password, error, validated } = this.state;
 
     const isInvalid = password === "" || email === "";
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
+      <Form onSubmit={this.onSubmit}>
+        <Form.Group controlId="formSignUpEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Enter email"
+          />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+        <Form.Group controlId="formSignUpPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            name="password"
+            value={password}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Password"
+          />
+        </Form.Group>
+        <Button disabled={isInvalid} type="submit">
+          Submit
+        </Button>
 
-        {error && <p>{error.message}</p>}
-      </form>
+        {error && <Error>{error.message}</Error>}
+      </Form>
     );
   }
 }

@@ -5,17 +5,35 @@ import { compose } from "recompose";
 
 import * as ROUTES from "../../constants/routes";
 
+import styled from "styled-components";
+import { Form, Button } from "react-bootstrap";
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  min-width: 100vw;
+  overflow: hidden;
+`;
+
+const SignUp = styled.div`
+  padding-top: 10px;
+  opacity: 0.7;
+`;
+
 const SignUpPage = () => (
-  <div>
-    <h1>Sign Up</h1>
+  <Container>
+    <h2>Sign Up</h2>
     <SignUpForm />
-  </div>
+  </Container>
 );
 
 const SignUpLink = () => (
-  <p>
+  <SignUp>
     Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>{" "}
-  </p>
+  </SignUp>
 );
 
 const INITIAL_STATE = {
@@ -63,41 +81,53 @@ class SignUpFormBase extends Component {
 
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
-          <input
-            name="username"
-            value={username}
-            onChange={this.onChange}
-            type="text"
-            placeholder="Full Name"
-          />
-          <input
-            name="email"
-            value={email}
-            onChange={this.onChange}
-            type="text"
-            placeholder="Email Address"
-          />
-          <input
-            name="passwordOne"
-            value={passwordOne}
-            onChange={this.onChange}
-            type="password"
-            placeholder="Password"
-          />
-          <input
-            name="passwordTwo"
-            value={passwordTwo}
-            onChange={this.onChange}
-            type="password"
-            placeholder="Confirm Password"
-          />
-          <button disabled={isInvalid} type="submit">
+        <Form onSubmit={this.onSubmit}>
+          <Form.Group controlId="formSignUpUsername">
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              name="username"
+              value={username}
+              onChange={this.onChange}
+              type="text"
+              placeholder="Full Name"
+            />
+          </Form.Group>
+          <Form.Group controlId="formSignUpEmail">
+            <Form.Label>Email Address</Form.Label>
+            <Form.Control
+              name="email"
+              value={email}
+              onChange={this.onChange}
+              type="text"
+              placeholder="Email Address"
+            />
+          </Form.Group>
+          <Form.Group controlId="formSignUpPasswordOne">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              name="passwordOne"
+              value={passwordOne}
+              onChange={this.onChange}
+              type="password"
+              placeholder="Password"
+            />
+          </Form.Group>
+          <Form.Group controlId="formSignUpPasswordTwo">
+            <Form.Label>Confirm password</Form.Label>
+            <Form.Control
+              name="passwordTwo"
+              value={passwordTwo}
+              onChange={this.onChange}
+              type="password"
+              placeholder="Confirm Password"
+            />
+          </Form.Group>
+          <Button disabled={isInvalid} type="submit">
             Sign Up
-          </button>
+          </Button>
 
           {error && <p>{error.message}</p>}
-        </form>
+        </Form>
       </div>
     );
   }
