@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Signika+Negative|Bungee+Inline');
+@import url('https://fonts.googleapis.com/css?family=Lato|Laila|Bungee+Inline');
 
 .App {
   text-align: center;
@@ -36,10 +36,12 @@
   min-width: 266px;
   background-color: black;
 }
+h1, .error-title {
+  font-family: 'Bungee Inline', serif;
+}
 .aside h1 {
   text-align: left;
   line-height: 1;
-  font-family: 'Bungee Inline', serif;
   color: #fff;
 }
 .aside button {
@@ -80,12 +82,11 @@
   transition: 0.3s;
   padding: 10px 10px 15px;
 }
-.card h2, .note-title {
+.note-title {
   text-transform: capitalize;
-
   min-height: 75px;
   text-align: left;
-  font-family: 'Signika Negative', serif;
+  font-family: 'Laila', serif;
   font-weight: bold;
 }
 .card:hover {
@@ -148,11 +149,11 @@ section {
 section h1 {
   text-align: center;
   margin: 66px auto;
-  font-family: 'Bungee Inline', serif;
   padding-bottom: 20px;
 }
 .error-title {
   margin-top: 40px;
+  font-size: 30px;
 }
 form {
   margin-left: 33px;
