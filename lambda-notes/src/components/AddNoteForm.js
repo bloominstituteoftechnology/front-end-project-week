@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Input, Alert } from 'reactstrap';
 
+const initialState = {
+    
+}
 
 class AddNoteForm extends Component {
     constructor(props) {
@@ -8,13 +11,35 @@ class AddNoteForm extends Component {
         this.state = {
             note: {
                 title: '',
-                textBody: '',
-                titleError: true,
-                textBodyError: ''
-            }
+                textBody: ''
+            },
+            titleError: '',
+            textBodyError: ''
         }
     }
     validate = () => {
+        
+        let titleError = '';
+        let textBodyError = '';
+        if (this.state.note.title.length < 3) {
+            titleError =  'Title has to have minimum 3 characters';
+        }
+        if (this.state.note.textBody.length < 50) {
+            textBodyError = 'Body has to have minimum 50 characters';
+        }
+        
+        if (textBodyError || titleError) {
+            this.setState({
+                titleError,
+                textBodyError
+            });
+            
+            return false;
+        }
+        else {
+            return true;
+        }
+    
         
     }
     changeHandler = e => {
@@ -27,37 +52,17 @@ class AddNoteForm extends Component {
     }
     addNoteHandler = e => {
         e.preventDefault();
-
-        // let { title, textBody } = this.state.formErrors;
-        
-        // console.log(this.state.formErrors);
-
-        // switch (name) {
-        //     case 'title':
-        //         formErrors.title = value.length < 3 && value.length > 0 
-        //             ? 'minimum 3 characters required'
-        //             : '';
-        //         break;
-            
-        //     case 'textBody':
-        //         formErrors.textBody = value.length < 10 && value.length > 0
-        //             ? 'minimum 10 characters required'
-        //             : '';
-        //         break;
-        //         default:
-        //         break;
-            
-                
-        // }
-        // if (formValid(this.state.formErrors)) {
-
-        // }
-        this.props.addNote(this.state.note);
+        const isValid = this.validate();
+        if (!isValid) {
+        } 
+        else {
+            this.props.addNote(this.state.note);
+        }
     }
 
     render() {
 
-        const { title, textBody, titleError, textBodyError } = this.state.note;
+        const { title, textBody } = this.state.note;
         return (
             <section>
             
@@ -69,11 +74,10 @@ class AddNoteForm extends Component {
                         value={title}
                         name="title"
                         placeholder="Title"
-                        // titleError={t}
                         noValidate
                     />
-                    {titleError === true ?
-                        <Alert color="danger">'There is an error'</Alert>
+                    {this.state.titleError ?
+                        <Alert color="danger">{this.state.titleError}</Alert>
                     :
                         null
                     }
@@ -84,9 +88,13 @@ class AddNoteForm extends Component {
                         value={textBody}
                         name="textBody"
                         placeholder="Body"
-                        // textBodyError={t}
                         noValidate
                     />
+                    {this.state.textBodyError ?
+                        <Alert color="danger">{this.state.textBodyError}</Alert>
+                    :
+                        null
+                    }
                 
                     <Button color="success" type="submit">Add Note</Button>
                     

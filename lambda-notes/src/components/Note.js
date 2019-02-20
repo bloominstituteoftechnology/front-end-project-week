@@ -51,31 +51,32 @@ class Note extends React.Component  {
         return(
             <section>
 
-                {this.state.note === null ? 
-                    <h2 className="error-title">Can't seem to find that note.</h2>
-                    :
+                {this.state.note !== null ? 
                     <>
-                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalBody>
-                        Are you sure you want to delete your note.
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color="danger" onClick={() => this.props.deleteNote(this.props.match.params.id)}>Delete <FaTrashAlt/></Button>
-                        <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                    </ModalFooter>
-                    </Modal>
+                        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                        <ModalBody>
+                            Are you sure you want to delete your note.
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="danger" onClick={() => this.props.deleteNote(this.props.match.params.id)}>Delete <FaTrashAlt/></Button>
+                            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                        </ModalFooter>
+                        </Modal>
 
-                    <div className="action-buttons">
-                        <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete <FaTrashAlt/>
-                        </Button>
+                        <div className="action-buttons">
+                            <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete <FaTrashAlt/>
+                            </Button>
 
-                        <Link to={`/edit/${this.props.match.params.id}`}>
-                            <Button color="warning">Edit <FaEdit/></Button>
-                        </Link>
-                    </div>
+                            <Link to={`/edit/${this.props.match.params.id}`}>
+                                <Button color="warning">Edit <FaEdit/></Button>
+                            </Link>
+                        </div>
+                        
+                        <NoteCard { ...this.state.note } editNote={this.props.editNote} /> 
+                    </>
+                    :
+                    <h2 className="error-title">Can't seem to find that note.</h2>
                     
-                    <NoteCard { ...this.state.note } editNote={this.props.editNote} /> 
-                </>
                 }
 
             </section>
