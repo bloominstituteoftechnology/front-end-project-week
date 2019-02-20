@@ -27,8 +27,6 @@ class App extends Component {
     
     }
 
-
-
   render() {
     return (
       <AppWrap>
@@ -39,22 +37,24 @@ class App extends Component {
               <h1>Lambda</h1>
               <h1> Notes</h1>
             </LambdaNotes>
-            <NavLink exact to='/'>
+            <NavLink  to='/'>
                 <BtnStyle> View your notes </BtnStyle>
             </NavLink>
             <NavLink to='/create'>
                 <BtnStyle> + Create new note </BtnStyle>
             </NavLink>
           </HeadStyle>
+          
             <Route path='/' exact 
               render={ props => <ListView {...props} />}
             />
+
             <Route path='/create' exact
             render={props => <CreateNewNote />}
             />
 
             <Route path={`/note/:id`} exact
-              render={(props) => <NoteView   {...props} />}
+              render={ (props) => <NoteView   {...props} />}
             />
 
             <Route path={`/note/edit/:id`} exact

@@ -7,17 +7,12 @@ import { Link } from 'react-router-dom';
 import { NoteBody, MenuWrap } from '../Styles/NoteViewStyle';
 
 class NoteView extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            note: [],
-        }
-    }
- 
 
- componentWillUpdate(props) {
-    const noteId = this.props.match.params.id
-    this.props.getNote(noteId);
+
+ componentDidMount(props) {
+
+    const id = this.props.match.params.id;
+    this.props.getNote(id)
  }
 
 
@@ -27,20 +22,20 @@ class NoteView extends Component {
         return (
             <NoteBody>
                 <MenuWrap>
-                <p><Link to={`/note/edit/${this.props.match.params.id}`}
-                note={this.state.note.id} >Edit</ Link></p>
-                <p>{<Link to={DeleteModal}><DeleteModal id={this.state.note.id} /></Link>}</p>
+                <article><Link to={`/note/edit/${this.props.match.params.id}`}
+                note={this.props.match.params.id} >Edit</ Link></article>
+                <article>{<Link to={DeleteModal}><DeleteModal id={this.props.note.id} /></Link>}</article>
                 </MenuWrap>
-                <h4>{this.state.note.title}</h4>
-                <h4>{this.state.note.note}</h4>
+                <h4>{this.props.note.title}</h4>
+                <h4>{this.props.note.note}</h4>
             </NoteBody>
         )
     }
 }
 
-const mapStateToProps =(state)=> {
+const mapStateToProps = (state)=> {
     return {
-        notes: state.notes,
+        note: state.note,
     }
 }
 
