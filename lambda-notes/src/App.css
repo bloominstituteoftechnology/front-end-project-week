@@ -167,7 +167,21 @@ input.form-control, textarea.form-control  {
   margin-bottom: 33px;
 }
 .search-form {
-  margin-left: 0px;
+    margin-left: 0px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.search-form input {
+  margin-bottom: 0px;
+
+}
+.search-form svg {
+  font-size: 30px;
+    color: teal;
+    align-self: center;
+    position: absolute;
+    padding-right: 7px;
 }
 @keyframes App-logo-spin {
   from {
