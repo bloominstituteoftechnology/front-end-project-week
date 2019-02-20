@@ -9,20 +9,14 @@ export default class UpdateNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: [],
-            // {
-            //     title: '',
-            //     textBody: '',
-            // }
-            // title: '',
-            // textBody: '',
+            note: {},
         };
-        // this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
     }
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        // not sure if this id will be id or _id! Boom! It's id becuase it's built into React (not the _id of the server).
         this.fetchNote(id);
     }
 
@@ -39,7 +33,10 @@ export default class UpdateNote extends Component {
     };
 
     handleChange = (e) => {
+        // this is where the problem is! Not actually where I'm looking in the submitHandler()!!!!
         this.setState({ [e.target.name]: e.target.value });
+        // this.setState({value: e.target.value});
+        console.log(e.target.value);
     }
 
     submitHandler = (e) => {
@@ -49,13 +46,10 @@ export default class UpdateNote extends Component {
             textBody: this.state.textBody,
         };
         const id = this.props.match.params.id;
-        console.log(note);
-        console.log(id)
         axios
             .put(`${URL}/edit/${id}`, note)
             .then(response => {
                 this.setState({ title: '', textBody: '' })
-                // textBody: '', could be added once working...
                 this.setState({ note: response.data })
             })
             .catch(error => {

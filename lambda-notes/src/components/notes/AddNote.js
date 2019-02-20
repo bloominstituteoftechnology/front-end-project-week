@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Notes.css';
 import axios from 'axios';
 
 const URL = 'https://fe-notes.herokuapp.com/note';
 
-export default class AddNote extends Component {
+class AddNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -39,6 +40,7 @@ export default class AddNote extends Component {
         axios
             .post(`${URL}/create`, note)
             .then(response => {
+                this.props.history.push('/');  
                 this.setState({ title: '', textBody: '', });
                 this.setState({ notes: response.data });
             })
@@ -60,3 +62,5 @@ export default class AddNote extends Component {
         )
     }
 };
+
+export default withRouter(AddNote);

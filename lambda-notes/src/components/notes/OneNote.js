@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
@@ -31,7 +32,7 @@ const MyButton = styled(Button)`
 
 const URL = 'https://fe-notes.herokuapp.com/note';
 
-export default class OneNote extends Component {
+class OneNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,6 +43,7 @@ export default class OneNote extends Component {
         };
     
     this.toggle = this.toggle.bind(this);
+    this.deleteHandler = this.deleteHandler.bind(this);
     }
 
     componentDidMount() {
@@ -74,11 +76,11 @@ export default class OneNote extends Component {
             .delete(`${URL}/delete/${id}`)
             .then(response => {
                 console.log(response);
+                this.props.history.push('/');
             })
             .catch(error => {
                 console.error(error);
             });
-            // this.props.history.push('/')
     };
 
     render() {
@@ -112,3 +114,5 @@ export default class OneNote extends Component {
         );
     }
 };
+
+export default withRouter(OneNote);
