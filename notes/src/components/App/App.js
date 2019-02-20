@@ -35,7 +35,7 @@ class App extends Component {
       <div className="App">
         <TopBar />
         <Container>
-          {/* <Route path={ROUTES.LANDING} exact component={LandingPage} /> */}
+          <Route path={ROUTES.LANDING} exact component={LandingPage} />
           <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
           <Route path={ROUTES.SIGN_IN} component={SignInPage} />
           <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />

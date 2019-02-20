@@ -75,7 +75,7 @@ class SignInFormBase extends Component {
 
     return (
       <Form onSubmit={this.onSubmit}>
-        <Form.Group controlId="formSignUpEmail">
+        <Form.Group controlId="formSignInEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             name="email"
@@ -88,7 +88,7 @@ class SignInFormBase extends Component {
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-        <Form.Group controlId="formSignUpPassword">
+        <Form.Group controlId="formSignInPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             name="password"
