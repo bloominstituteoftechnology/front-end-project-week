@@ -23,16 +23,17 @@ const NoteMenu = props => {
                             action: function () {
                                 props.deleteNote(props.noteID)
                             
-                                props.props.history.push('/')
+                                
 
-                                Popup.close();
-                            }
+                                Popup.close(props.props.history.push('/'));
+                            },
                         }],
 
                         right: [{
                             text: 'no',
                             className: 'success',
                             action: function () {
+                                // props.props.history.push('/')
                                 Popup.close();
                             }
                         }]

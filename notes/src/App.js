@@ -66,7 +66,8 @@ class App extends Component {
 
           <Route exact path = '/edit-note/:_id' render = {props => <EditNote {...props} notes = {this.state.note} editNote = {this.editNote}/>} />
 
-          <Route path = '/note/:noteID' render = {props => <SingleNote {...props} notes = {this.state.note}/>} />
+          <Route path = '/note/:noteID' render = {props => <SingleNote {...props} notes = {this.state.note} deleteNote={this.deleteNote} editNote={this.editNote}/>} />
+
           </section>
       </div>
     );
