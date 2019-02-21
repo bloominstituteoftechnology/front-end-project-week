@@ -19,35 +19,35 @@ export default class App extends Component {
 
   componentDidMount() {
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .get('/note/get/all')
       .then(response => this.setState({ notes: response.data }))
       .catch(err => console.log(err));
   }
 
   updateNotes = () => {
     axios
-      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .get('/note/get/all')
       .then(response => this.setState({ notes: response.data }))
       .catch(err => console.log(err));
   };
 
   handleSubmit = note => {
     axios
-      .post('https://fe-notes.herokuapp.com/note/create', note)
+      .post('/note/create', note)
       .then(() => this.updateNotes())
       .catch(err => console.log(err));
   };
 
   editNote = (note, id) => {
     axios
-      .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+      .put(`/note/edit/${id}`, note)
       .then(() => this.updateNotes())
       .catch(err => console.log(err));
   };
 
   deleteNote = id => {
     axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`/note/delete/${id}`)
       .then(() => this.updateNotes())
       .catch(err => console.log(err));
   };

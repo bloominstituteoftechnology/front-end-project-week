@@ -5,7 +5,7 @@ import Note from './Note';
 const Notes = ({ notes }) => (
   <div className="notes">
     {notes.map(note => (
-      <Note note={note} key={note._id} />
+      <Note note={note} key={note.id} />
     ))}
   </div>
 );

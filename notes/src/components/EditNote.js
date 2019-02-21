@@ -4,7 +4,7 @@ export default class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      _id: null,
+      id: null,
       title: '',
       textBody: '',
     };
@@ -12,7 +12,7 @@ export default class EditNote extends Component {
 
   componentDidMount() {
     const note = this.props.notes.find(
-      note => `${note._id}` === this.props.match.params.id
+      note => `${note.id}` === this.props.match.params.id
     );
     this.setState(note);
   }
@@ -23,7 +23,7 @@ export default class EditNote extends Component {
       this.props.match.params.id !== prevProps.match.params.id
     ) {
       const note = this.props.notes.find(
-        note => `${note._id}` === this.props.match.params.id
+        note => `${note.id}` === this.props.match.params.id
       );
       this.setState(note);
     }
@@ -40,7 +40,7 @@ export default class EditNote extends Component {
         title: this.state.title,
         textBody: this.state.textBody,
       },
-      this.state._id
+      this.state.id
     );
     this.props.history.push('/');
   };

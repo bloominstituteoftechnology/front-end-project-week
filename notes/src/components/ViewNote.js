@@ -7,7 +7,7 @@ export default class ViewNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      _id: null,
+      id: null,
       title: '',
       textBody: '',
       show: false,
@@ -16,7 +16,7 @@ export default class ViewNote extends Component {
 
   componentDidMount() {
     const note = this.props.notes.find(
-      note => `${note._id}` === this.props.match.params.id
+      note => `${note.id}` === this.props.match.params.id
     );
     this.setState(note);
   }
@@ -27,14 +27,14 @@ export default class ViewNote extends Component {
       this.props.match.params.id !== prevProps.match.params.id
     ) {
       const note = this.props.notes.find(
-        note => `${note._id}` === this.props.match.params.id
+        note => `${note.id}` === this.props.match.params.id
       );
       this.setState(note);
     }
   }
 
   deleteNote = () => {
-    this.props.deleteNote(this.state._id);
+    this.props.deleteNote(this.state.id);
     this.props.history.push('/');
   };
 
@@ -50,7 +50,7 @@ export default class ViewNote extends Component {
     return (
       <div className="view-note">
         <div className="view-note-actions">
-          <Link to={`/edit/${this.state._id}`}>edit</Link>
+          <span><Link to={`/edit/${this.state.id}`}>edit</Link></span>
           <span onClick={this.showModal}>delete</span>
         </div>
         <h2>{this.state.title}</h2>

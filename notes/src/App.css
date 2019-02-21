@@ -137,7 +137,12 @@ html {
 }
 
 body {
-  background-color: #24b8bd;
+  /* background-color: #24b8bd; */
+}
+
+a {
+  text-decoration: none;
+  text-overflow: hidden;
 }
 
 .app-container {
@@ -205,8 +210,13 @@ body {
   height: 152px;
   margin: 10px 5px;
   overflow-wrap: break-word;
+  text-overflow: clip;
   padding: 15px;
-  width: 28%;
+  width: 29%;
+}
+
+.note a {
+  max-width: 150px;
 }
 
 .note h3 {
@@ -215,6 +225,7 @@ body {
   font-weight: bold;
   margin-bottom: 10px;
   padding-bottom: 5px;
+  text-overflow: hidden;
 }
 
 form {
@@ -288,6 +299,10 @@ form button {
   cursor: pointer;
   margin-left: 10px;
   text-decoration: underline;
+}
+
+.view-note p {
+  margin-bottom: 10px;
 }
 
 .view-note h2 {
