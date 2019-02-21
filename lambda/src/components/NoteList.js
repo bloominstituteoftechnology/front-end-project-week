@@ -42,9 +42,7 @@ class NoteList extends React.Component {
     return (
       <ListDiv>
         <h1>All Notes:</h1>
-        {this.props.fetching ? (
-          <h1></h1>
-        ) : (
+        {this.props.fetching(
           <div>
             <CardDiv>
               {this.props.filteredNotes.map(item => {
