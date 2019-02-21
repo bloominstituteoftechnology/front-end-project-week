@@ -32,6 +32,25 @@ class NoteDetail extends React.Component {
         });
       })
       .catch(err => console.log(err.response));
+    // this.fetchNote();
+  }
+
+  fetchNote = () => {
+    axios
+      .get(
+        `https://stark-refuge-65834.herokuapp.com/api/posts/${this.props.match.params.id}`
+      )
+      .then(response => {
+        this.setState({
+          id: response.data.id,
+          title: response.data.title,
+          contents: response.data.contents,
+          tags: response.data.tags,
+          created_at: response.data.created_at,
+          updated_at: response.data.updated_at
+        });
+      })
+      .catch(err => console.log(err.response));
   }
 
   handleEditing = () => {
@@ -80,7 +99,7 @@ class NoteDetail extends React.Component {
 
   putNote = note => {
     axios
-      .put(`https://stark-refuge-65834.herokuapp.com/api/posts/${note.id}`, {
+      .put(`https://stark-refuge-65834.herokuapp.com/api/posts/${this.state.id}`, {
         ...note
       })
       .then(response => {
