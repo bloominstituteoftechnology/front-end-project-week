@@ -17,7 +17,7 @@ export const DELETEDTAG = "DELETEDTAG";
 // export const LOGIN = "LOGIN";
 // export const LOGOUT = "LOGOUT";
 
-const url = "https://alasalle-backend.herokuapp.com/";
+const url = "https://alasalle-backend.herokuapp.com";
 
 // export const register = newUser => dispatch => {
 //   axios.post(`${url}/auth/register`, newUser)
