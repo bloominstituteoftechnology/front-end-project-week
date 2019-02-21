@@ -2,4 +2,27 @@
   margin: 0 auto;
   width: 100%;
   max-width: 1080px;
+  display: flex;
+}
+
+.navbar-expand {
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+h1 {
+font-size: 2rem;
+}
+
+.navbar-expand .navbar-nav {
+  -ms-flex-direction: row;
+  flex-direction: column;
+}
+
+button {
+  margin: 0%;
+  width: 70px;
 }

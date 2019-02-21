@@ -3,12 +3,17 @@ import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-// TODO: Create logo and app name
-// TODO: Add sign up and login functionality
+import styled from "styled-components";
+
+const Header = styled.div`
+display: flex;
+flex-direction: collum;
+`
+
 export default class TopBar extends Component {
   render() {
     return (
-      <div>
+      <Header>
         <Navbar bg="light" variant="light">
           <Navbar.Brand>
             <h1>Lambda Notes</h1>
@@ -25,7 +30,7 @@ export default class TopBar extends Component {
             </LinkContainer>
           </Nav>
         </Navbar>
-      </div>
+      </Header>
     );
   }
 }

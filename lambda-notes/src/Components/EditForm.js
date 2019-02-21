@@ -4,6 +4,12 @@ import { fetchNotes, editNote } from "../actions/noteActions";
 
 import { Form, Button } from "react-bootstrap";
 
+import styled from "styled-components";
+
+const EditContainer = styled.div`
+  margin: 3%;
+`
+
 
 class EditForm extends React.Component {
   constructor(props) {
@@ -34,7 +40,7 @@ class EditForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <EditContainer>
         <Form onSubmit={this.updateNote}>
           <Form.Group controlId="formTitle">
             <Form.Label>Note Title</Form.Label>
@@ -64,7 +70,7 @@ class EditForm extends React.Component {
             Update
           </Button>
         </Form>
-      </div>
+      </EditContainer>
     );
   }
 }

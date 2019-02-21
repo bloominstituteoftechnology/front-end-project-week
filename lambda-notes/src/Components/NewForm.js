@@ -3,6 +3,11 @@ import { connect } from "react-redux";
 import { fetchNotes, addNote } from "../actions/noteActions";
 
 import { Form, Button } from "react-bootstrap";
+import styled from "styled-components";
+
+const CreateContainer = styled.div`
+  margin: 3%;
+`
 
 class NewForm extends React.Component {
   constructor(props) {
@@ -25,7 +30,7 @@ class NewForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <CreateContainer>
         <Form>
           <Form.Group controlId="formTitle">
             <Form.Label>Note Title</Form.Label>
@@ -54,10 +59,10 @@ class NewForm extends React.Component {
             type="submit"
             onClick={this.createNote}
           >
-            Save Note
+            Save
           </Button>
         </Form>
-      </div>
+      </CreateContainer>
     );
   }
 }

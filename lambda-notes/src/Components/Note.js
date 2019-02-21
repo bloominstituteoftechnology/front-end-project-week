@@ -78,7 +78,7 @@ class Note extends React.Component {
           </div>
           <div>
             <h2>{note.title}</h2>
-            <p style={{ lineHeight: "2" }}>{note.textBody}</p>
+            <p>{note.textBody}</p>
           </div>
         </div>
       );

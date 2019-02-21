@@ -4,10 +4,29 @@ import { connect } from "react-redux";
 
 import { Card, Button } from "react-bootstrap";
 
+import styled from 'styled-components'
+
+const Container = styled.div`
+  margin: 2%;
+`
+
+const Body = styled.div`
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  width:150px;
+  padding: 1%;
+  margin-bottom: 9%;
+`
+
+const ButtonContainer = styled.div`
+  display: flex;
+`
+
 const NoteCard = ({ note }) => {
 
   return (
-    <div>
+    <Container>
       <Card.Body>
         <Link
           to={`note/${note.id}`}
@@ -16,16 +35,21 @@ const NoteCard = ({ note }) => {
           <div>{note.title}</div>
         </Link>
         <hr />
-        <div>{note.textBody}</div>
-        <div>
+        <Body>{note.textBody}</Body>
+        <ButtonContainer>
           <Link to={`/note/${note.id}/edit`} style={{ color: "black" }}>
             <Button variant="info" style={{ width: "75px" }}>
               Edit
             </Button>
           </Link>
-        </div>
+          <Link to={`note/${note.id}`} style={{ color: "black" }}>
+            <Button variant="info" style={{ width: "75px" }}>
+              View
+            </Button>
+          </Link>
+        </ButtonContainer>
       </Card.Body>
-    </div>
+    </Container>
   );
 };
 
