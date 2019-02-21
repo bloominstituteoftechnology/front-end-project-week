@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import ViewNotesButton from './viewButton';
 import CreateNewButton from './createNewButton';
-import SearchBar from './sortBar/sort';
+import SearchBar from './searchBar/searchbar';
 
 
 //props from app.js {...props}  getUpdatedNotes={this.getUpdatedNotes} notes={this.state.notes} searchNotes={this.searchNotes}
