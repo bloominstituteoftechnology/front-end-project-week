@@ -4,6 +4,7 @@ import OktaSignIn from '@okta/okta-signin-widget'
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import '@okta/okta-signin-widget/dist/css/okta-theme.css';
 
+
 const LoginContent = styled.div`
  display: flex;
  flex-direction: column;
@@ -84,7 +85,15 @@ export default class Login extends React.Component {
             <LoginContent>
                 <HEADER>LOGIN IN LAMBDA NOTES</HEADER>
 
-                <div ref={(div) => { this.loginContainer = div; }} />
+                {this.state.user ? (
+                    <div className="container">
+                        <div>Welcome, {this.state.user}!</div>
+                        <button onClick={this.logout}>Logout</button>
+                    </div>
+                ) : null}
+                {this.state.user ? null : (
+                    <div ref={(div) => { this.loginContainer = div; }} />
+                )}
             </LoginContent>
         )
     };
