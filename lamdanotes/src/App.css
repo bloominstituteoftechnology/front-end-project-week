@@ -147,7 +147,7 @@ button:focus {
 
 .card-title {
 	font-size: 22px;
-	width: 90%;
+	width: 99%;
 	border-bottom: 2px solid #D9D9D9;
 	padding-bottom: .5em;
 }
@@ -159,24 +159,6 @@ button:focus {
 	background-color: #24B8BD;
 	color: white;
 	padding: .3em .5em;
-}
-
-/*-------------------------------NOTES SHOW/HIDE MORE*/
-
-.fade {
-	height: 6.2em;
-	position: relative;
-}
-
-.fade::after {
-	content: "";
-	text-align: right;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	width: 65%;
-	height: 1.2em;
-	background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 30%);
 }
 
 
@@ -304,3 +286,27 @@ a {
 	padding-top: 50px;
 }
 
+
+/*-------------------------------searchbar STYLING*/
+.search {
+	width: 90%;
+	border-bottom: 2px solid #B7B7B7;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.searchBar {
+	
+	height: 20px;
+	border-radius: 6px;
+	padding-left: 8px;
+	width:  9em;
+}
+
+.searchButton {
+	background-color: #2AC0C4;
+	border: 1px solid #B7B7B7;
+	height: 25px;
+	width: 2.2em;
+	border-radius: 4px;
+}

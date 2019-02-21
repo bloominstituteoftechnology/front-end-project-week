@@ -68,7 +68,13 @@ class App extends Component {
     })
   }
 
-  
+  searchNotes = (term) => {
+    console.log(term)
+    const filteredSearch = this.state.notes.filter(string => string.title.includes(term) || string.textBody.includes(term) )
+    this.setState({
+      notes: filteredSearch
+    })
+  }
 
 
 // {/* Declare Routes, Sidebar navigation should always show so it is the root */}
@@ -76,7 +82,7 @@ class App extends Component {
     return (
       <div className="container">
 
-          <Route path="/" render={props => (<SidebarView {...props}  getUpdatedNotes={this.getUpdatedNotes} /> )} />
+          <Route path="/" render={props => (<SidebarView {...props} notes={this.state.notes} searchNotes={this.searchNotes}  getUpdatedNotes={this.getUpdatedNotes} /> )} />
 
           <Route 
             path="/notes"
