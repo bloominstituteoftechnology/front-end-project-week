@@ -4,20 +4,24 @@ import axios from 'axios';
 import './App.css';
 
 export class DeleteNote extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             open: true,
+            id: this.props.match.params.id
         }
+        console.log(this.state.id)
     }
 
+    
+
     deleteItem = id => {
-        axios.delete(`https://localhost:3333/notes/${id}`)
+        axios.delete(`https://localhost:3333/notes/${id}/delete`)
             .then(response => {this.setState(
                 {open: false}
             )})
             .catch(err => console.log(err))
-        this.closeBox()
+        // this.closeBox()
     }
 
     closeBox = () => {
@@ -26,11 +30,12 @@ export class DeleteNote extends Component {
 
 
     render() {
+    
         return(
             this.state.open === true ?
             <div className="delete">
                 <p>Are you sure you want to delete this?</p>
-                <button onClick={() => this.deleteItem(this.props.match.params.id)}>Delete</button>
+                <button onClick={() => this.deleteItem(this.state.id)}>Delete</button>
                 <Link to={`/note/${this.props.match.params.id}`} >
                     <button onClick={() => this.closeBox()} >No</button>
                 </Link>

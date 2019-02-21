@@ -6,59 +6,71 @@ import './App.css';
 export class EditNote extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props)
         this.state = {
-            title: "",
-            text: "",
-            noteData: []
+            title: this.props.title,
+            text: this.props.text   
         }
-    }
+    };
+    
 
     componentDidMount(){
-        this.importNote(this.props.match.params.id)
-        console.log(`id ${this.props.match.params.id}`)
-     }
-
-
-    importNote = id => {
-        axios.get(`http://localhost:3333/notes/${id}`)
-           .then(response => {
-              console.log(response)
-              this.setState({noteData: response.data[0]})
-              console.log(`this is state ${this.state.noteData}`)
+        axios.get(`http://localhost:3333/notes/${this.props.match.params.id}`)
+        .then(res =>{
+            this.note = res.data[0]
+              this.setState({
+                title: this.note.title,
+                text: this.note.text
               })
+          })
            .catch(err => console.log(err))
      }
 
     editNote = e => {
-        axios.put(`https://localhost:3333/notes/${this.props.match.params.id}`, this.state)
-        .then(response => 
-                {this.setState(
-                {title: "", text: ""},
-            )})
+        e.preventDefault();
+        axios.put(`http://localhost:3333/notes/${this.props.match.params.id}`, this.state)
+        .then(res => {
+            this.setState({
+                title: "", 
+                text: ""
+            });
+        })
             .catch(err => {console.log(err)})
     }
 
     handleInputChange = e => {
         this.setState( { [e.target.name]: e.target.value});
+        console.log(e.target.name)
     };
 
+    // handleInputChange = (event) => {
+    //     const {name, value} = event.target;
+    //     this.setState(
+    //       {
+    //         [name]:value
+    //       }
+    //     )
+    //   }
+
+    //   submit = () => {
+    //     console.log("submit")
+    //   }
 
     render() {
-        console.log(this.state)
         return (
             <div className="Createnote">
             <h2>Edit Note:</h2>
                 <form onSubmit={this.editNote}>
                     <input 
                         onChange={this.handleInputChange}
-                        placeholder={this.state.noteData.title}
+                        placeholder={this.state.title}
                         value={this.state.title}
                         name="title"
                     />
-                    <textarea 
-                    className="textform"
+                    <textarea
+                        className="textform"
                         onChange={this.handleInputChange}
-                        placeholder= {this.state.noteData.text}
+                        placeholder= {this.state.text}
                         value={this.state.text}
                         name="text"
                     />
