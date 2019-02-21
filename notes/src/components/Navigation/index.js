@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { AuthUserContext } from "../Session";
+import logo from "./logo.svg";
 
 import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import styled from "styled-components";
 
 import SignOutButton from "../SignOut";
 
 import * as ROUTES from "../../constants/routes";
 
-// TODO: Create logo and app name
-// TODO: Add sign up and login functionality
+const Image = styled.img`
+  height: 50px;
+  width: auto;
+`;
+
 const TopBar = () => (
   <AuthUserContext.Consumer>
     {authUser => (authUser ? <TopBarAuth /> : <TopBarPublic />)}
@@ -20,7 +25,9 @@ const TopBar = () => (
 const TopBarAuth = () => (
   <Navbar bg="light" variant="light">
     <Navbar.Brand>
-      <Link to={ROUTES.HOME}>Lambda Notes!</Link>
+      <Link to={ROUTES.HOME}>
+        <Image src={logo} />
+      </Link>
     </Navbar.Brand>
     <Nav className="mr-auto">
       <LinkContainer to={ROUTES.HOME}>
@@ -45,7 +52,9 @@ const TopBarAuth = () => (
 const TopBarPublic = () => (
   <Navbar bg="light" variant="light">
     <Navbar.Brand>
-      <Link to={ROUTES.LANDING}>Lambda Notes!</Link>
+      <Link to={ROUTES.LANDING}>
+        <Image src={logo} />
+      </Link>
     </Navbar.Brand>
     <Nav className="mr-auto">
       <LinkContainer to={ROUTES.LANDING}>

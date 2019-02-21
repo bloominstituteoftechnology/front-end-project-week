@@ -82,7 +82,7 @@ class SignInFormBase extends Component {
             value={email}
             onChange={this.onChange}
             type="text"
-            placeholder="Enter email"
+            placeholder="hello@example.com"
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -95,7 +95,7 @@ class SignInFormBase extends Component {
             value={password}
             onChange={this.onChange}
             type="password"
-            placeholder="Password"
+            placeholder="******"
           />
         </Form.Group>
         <Button disabled={isInvalid} type="submit">

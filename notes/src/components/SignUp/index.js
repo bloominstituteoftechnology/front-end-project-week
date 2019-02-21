@@ -83,43 +83,46 @@ class SignUpFormBase extends Component {
       <div>
         <Form onSubmit={this.onSubmit}>
           <Form.Group controlId="formSignUpUsername">
-            <Form.Label>Username</Form.Label>
+            <Form.Label>Pick a username:</Form.Label>
             <Form.Control
               name="username"
               value={username}
               onChange={this.onChange}
               type="text"
-              placeholder="Full Name"
+              placeholder="Username"
             />
           </Form.Group>
           <Form.Group controlId="formSignUpEmail">
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label>Enter your email address:</Form.Label>
             <Form.Control
               name="email"
               value={email}
               onChange={this.onChange}
               type="text"
-              placeholder="Email Address"
+              placeholder="hello@example.com"
             />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
           </Form.Group>
           <Form.Group controlId="formSignUpPasswordOne">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Choose a password:</Form.Label>
             <Form.Control
               name="passwordOne"
               value={passwordOne}
               onChange={this.onChange}
               type="password"
-              placeholder="Password"
+              placeholder="******"
             />
           </Form.Group>
           <Form.Group controlId="formSignUpPasswordTwo">
-            <Form.Label>Confirm password</Form.Label>
+            <Form.Label>Confirm password:</Form.Label>
             <Form.Control
               name="passwordTwo"
               value={passwordTwo}
               onChange={this.onChange}
               type="password"
-              placeholder="Confirm Password"
+              placeholder="******"
             />
           </Form.Group>
           <Button disabled={isInvalid} type="submit">
