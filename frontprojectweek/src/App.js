@@ -36,13 +36,14 @@ class App extends Component {
   handleCreateNote = (ev) => {
     ev.preventDefault();
       axios
-      .post(`https://fe-notes.herokuapp.com/note/create`,
+      //.post(`https://fe-notes.herokuapp.com/note/create`,
+      .post(`http://localhost:3111/note/create`,
       {
         title:this.state.title,
         textBody:this.state.textBody
       })
       .then(response => {
-        this.setState({notes : response.data}) 
+        this.setState({notes : response.data[0]}) 
       })
       .catch(err => {
         console.log("IN CATCH", err);
@@ -57,9 +58,11 @@ class App extends Component {
 
   handleViewNote = (id) => {
       axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      //.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .get(`http://localhost:3111/note/get/${id}`)
       .then(response => {
-        this.setState({note : response.data}) 
+        console.log(Array.from(response.data)[0]._id)
+        this.setState({note : response.data[0]}) 
       })
       .catch(err => {
         console.log("IN CATCH", err);
@@ -73,9 +76,10 @@ class App extends Component {
 
     
     axios
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    //.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .delete(`http://localhost:3111/note/delete/${id}`)
     .then(response => {
-      this.setState({notes : response.data})
+      this.setState({notes : response.data[0]})
     })
     .catch(err => {
       console.log("IN CATCH", err);
@@ -84,7 +88,8 @@ class App extends Component {
 };}
   componentDidMount(){
     axios
-    .get(`https://fe-notes.herokuapp.com/note/get/all`)
+   // .get(`https://fe-notes.herokuapp.com/note/get/all`)
+    .get(`http://localhost:3111/note/get/all`)
     .then(response => {
       this.setState({notes : response.data})
       console.log(this.state.note)

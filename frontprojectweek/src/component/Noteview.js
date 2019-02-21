@@ -26,7 +26,7 @@ class Noteview extends Component {
    
     <div class="card-header1">
   <Link to={`/Notes/${this.props.match.params.id}/edit`} className="btn2 btn-info" >Edit</Link>
-  <Link to={`/Notes/:id/delete`}  className="btn2  btn-danger" >Delete</Link>
+  <Link to={`/Notes/${this.props.match.params.id}/delete`}  className="btn2  btn-danger" >Delete</Link>
   </div>
   </div>
 </div>

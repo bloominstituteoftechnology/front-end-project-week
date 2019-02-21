@@ -14,20 +14,22 @@ class UpdateNote extends Component {
   }
   handleInputChange2 = ev => {
     this.setState({ [ev.target.name]: ev.target.value });
-    console.log(ev.target.value)
+   
     ev.preventDefault();
   };
 
   handleUpdateNote = (ev) => {
    let id = this.props.id
+   console.log(this.props)
     ev.preventDefault();
     
           axios
-          .put(`https://fe-notes.herokuapp.com/note/edit/${id}`,
+          //.put(`https://fe-notes.herokuapp.com/note/edit/${id}`,
+          .put(`http://localhost:3111/note/edit/${id}`,
           {
             title:this.state.titleUpdate,
             textBody:this.state.textBodyUpdate,
-            id :id
+            _id :id
           })
           .then(response => {
             this.setState({notes : response.data}) 
