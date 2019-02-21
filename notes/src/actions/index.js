@@ -30,8 +30,7 @@ export const saveNote = data => dispatch => {
 	dispatch({ type: SAVING });
 	console.log('action saveNote fired');
 	axios
-		.post('https://fe-notes.herokuapp.com/note/create', {
-			tags: [''],
+		.post('http://localhost:8000/api/notes', {
 			title: data.title,
 			textBody: data.textBody
 		})
@@ -40,7 +39,7 @@ export const saveNote = data => dispatch => {
 			dispatch({
 				type: SAVED,
 				payload: {
-					_id: response.data.success,
+					id: response.data.success,
 					title: data.title,
 					textBody: data.textBody
 				}
@@ -55,9 +54,9 @@ export const getIndividual = data => dispatch => {
 	dispatch({ type: FETCHINGNOTE });
 	console.log('url is' + data);
 	axios
-		.get(`https://fe-notes.herokuapp.com/note/get/${data}`)
+		.get(`http://localhost:8000/api/notes/${data}`)
 		.then(response => {
-			dispatch({ type: FETCHEDNOTE, payload: response.data });
+			dispatch({ type: FETCHEDNOTE, payload: response.data[0] });
 		})
 		.catch(err => {
 			dispatch({ type: ERROR, message: 'got an error in getIndividual' });
@@ -67,9 +66,9 @@ export const getIndividual = data => dispatch => {
 export const editNote = data => dispatch => {
 	dispatch({ type: UPDATING });
 	axios
-		.put(`https://fe-notes.herokuapp.com/note/edit/${data._id}`, {
+		.put(`http://localhost:8000/api/notes/${data.id}`, {
 			title: data.title,
-			_id: data._id,
+			id: data.id,
 			textBody: data.textBody
 		})
 		.then(response => {
@@ -86,10 +85,11 @@ export const deleting = data => dispatch => {
 };
 
 export const deleted = data => dispatch => {
+	console.log('data====' + data);
 	axios
 		.delete(
 			`
-https://fe-notes.herokuapp.com/note/delete/${data}`
+http://localhost:8000/api/notes/${data}`
 		)
 		.then(response => {
 			dispatch({ type: DELETED, payload: data });

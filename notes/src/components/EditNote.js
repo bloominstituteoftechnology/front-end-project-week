@@ -52,7 +52,7 @@ class EditNote extends React.Component {
 		super(props);
 
 		this.state = {
-			_id: this.props.match.params.id,
+			id: this.props.match.params.id,
 			title: this.props.title,
 			textBody: this.props.textBody
 		};
@@ -71,6 +71,7 @@ class EditNote extends React.Component {
 
 	submitHandler = e => {
 		e.preventDefault();
+		console.log('this.state' + JSON.stringify(this.state));
 		this.props.editNote(this.state);
 		this.props.history.push(`/`);
 	};
@@ -103,7 +104,8 @@ const mapStateToProps = state => {
 	console.log("state we're getting" + state.currentIndividual.textBody);
 	return {
 		title: state.currentIndividual.title,
-		textBody: state.currentIndividual.textBody
+		textBody: state.currentIndividual.textBody,
+		id: state.currentIndividual.textBody
 	};
 };
 

@@ -22,7 +22,7 @@ const initialState = {
 	fetchingNotes: false,
 	deleting: false,
 	currentIndividual: {
-		_id: '',
+		id: '',
 		title: '',
 		textBody: ''
 	}
@@ -54,7 +54,7 @@ const NotesReducer = (state = initialState, action) => {
 			return Object.assign({}, state, {
 				fetchingNote: false,
 				currentIndividual: {
-					_id: action.payload._id,
+					id: action.payload.id,
 					title: action.payload.title,
 					textBody: action.payload.textBody
 				}
@@ -66,8 +66,8 @@ const NotesReducer = (state = initialState, action) => {
 			let newNotes = state.notes.slice();
 			console.log('newNotes=' + newNotes);
 			newNotes.map(note => {
-				if (note._id === action.payload._id) {
-					return action.payload._id;
+				if (note.id === action.payload.id) {
+					return action.payload.id;
 				}
 				return note;
 			});
@@ -75,7 +75,7 @@ const NotesReducer = (state = initialState, action) => {
 				updating: false,
 				updated: true,
 				currentIndividual: {
-					_id: '',
+					id: '',
 					title: '',
 					textBody: ''
 				},
@@ -85,11 +85,14 @@ const NotesReducer = (state = initialState, action) => {
 		case DELETING:
 			return Object.assign({}, state, { deleting: true });
 		case ERROR:
-			return Object.assign({}, state, { error: action.message });
+			return Object.assign({}, state, {
+				error: action.message,
+				deleting: false
+			});
 		case DELETED:
 			let afterDeleted = state.notes
 				.slice()
-				.filter(note => note._id !== action.payload);
+				.filter(note => note.id !== action.payload);
 			return Object.assign({}, state, { deleting: false, notes: afterDeleted });
 		case DIDNTDELETE:
 			console.log('didntdeletefiredatleast');

@@ -57,7 +57,7 @@ class IndividualNote extends Component {
 	componentDidMount() {
 		console.log('deleting' + this.props.deleting);
 		if (this.props.deleting) {
-			console.log('state _id' + this.props.state.title);
+			console.log('state id' + this.props.state.title);
 			const id = this.props.passedId;
 			console.log('passedid=' + this.props.passedId);
 			this.props.getIndividual(id);
@@ -73,13 +73,11 @@ class IndividualNote extends Component {
 				<LinkWrapper>
 					<Linky>
 						{' '}
-						<Link to={`/individual/${this.props.state._id}/edit`}>EDIT</Link>
+						<Link to={`/individual/${this.props.state.id}/edit`}>EDIT</Link>
 					</Linky>
 					<Linky>
 						{' '}
-						<Link to={`/individual/${this.props.state._id}/delete`}>
-							DELETE
-						</Link>
+						<Link to={`/individual/${this.props.state.id}/delete`}>DELETE</Link>
 					</Linky>
 				</LinkWrapper>
 				<Text>{this.props.state.textBody}</Text>
