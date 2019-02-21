@@ -16,7 +16,7 @@ class Edit extends Component{
         //Set initial state - use id of note clicked
         //Add initial values to input box and textArea
         const {id} = this.props.match.params
-        axios.get(`http://localhost:4000/api/notes/${id}`)
+        axios.get(`https://lambdanotesapp.herokuapp.com/api/notes/${id}`)
             .then((response) =>{
                 this.setState({
                     title: response.data.title,

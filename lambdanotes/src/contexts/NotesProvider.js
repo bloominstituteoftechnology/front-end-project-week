@@ -16,7 +16,8 @@ class NotesProvider extends Component{
     //********.GET - Grab all the notes************
     fetchNotes = () =>{
         this.setState({loading: true})
-        axios.get('http://localhost:4000/api/notes/')
+        // axios.get('http://localhost:4000/api/notes/')
+        axios.get('https://lambdanotesapp.herokuapp.com/api/notes')
             .then((response) => {
                 this.setState({ 
                     notes: response.data,
@@ -36,11 +37,11 @@ class NotesProvider extends Component{
     //*********.POST - Add note to notes array**************** */
     createNote = (newNote) =>{
         this.setState({loading: true})
-        axios.post('http://localhost:4000/api/notes/', newNote)
+        axios.post('https://lambdanotesapp.herokuapp.com/api/notes/', newNote)
         //if successful, returns id of new note within response.data.success
         .then((response) => {
             //grap individual newly created note
-            axios.get(`http://localhost:4000/api/notes/${response.data.id}`)
+            axios.get(`https://lambdanotesapp.herokuapp.com/api/notes/${response.data.id}`)
                 .then((response) => {
                     this.setState({ 
                         //add new note to notes array
@@ -64,7 +65,7 @@ class NotesProvider extends Component{
     //*********.PUT - Edit note in notes array**************** */
     editNote = (id, newNote) =>{
         this.setState({loading: true})
-        axios.put(`http://localhost:4000/api/notes/${id}`, newNote)
+        axios.put(`https://lambdanotesapp.herokuapp.com/api/notes/${id}`, newNote)
         .then((response) => {
             this.fetchNotes()  //necessary to update this.state.notes
             this.props.history.push('/api/notes')
@@ -80,7 +81,7 @@ class NotesProvider extends Component{
     //********.DELETE - Delete note in notes array******************* */
     deleteNote = (id) =>{
         this.setState({loading: true})
-        axios.delete(`http://localhost:4000/api/notes/${id}`)
+        axios.delete(`https://lambdanotesapp.herokuapp.com/api/notes/${id}`)
         .then((response)=>{
             this.fetchNotes() //necessary to update this.state.notes
             this.props.history.push('/api/notes')
