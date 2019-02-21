@@ -50,16 +50,32 @@ export default class Login extends React.Component {
         })
     }
 
+    // ...other stuff removed for brevity's sake
     componentDidMount() {
+        this.widget.session.get((response) => {
+            if (response.status !== 'INACTIVE') {
+                this.setState({ user: response.login });
+            } else {
+                this.showLogin();
+            }
+        });
+    }
+    showLogin = () => {
         this.widget.renderEl({ el: this.loginContainer },
             (response) => {
                 this.setState({ user: response.claims.email });
-                console.log(this.state)
             },
             (err) => {
                 console.log(err);
             }
         );
+    }
+
+    logout = () => {
+        this.widget.signOut(() => {
+            this.setState({ user: null });
+            this.showLogin();
+        });
     }
 
 

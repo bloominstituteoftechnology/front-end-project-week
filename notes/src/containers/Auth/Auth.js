@@ -6,7 +6,7 @@ const Authenticate = App =>
         constructor(props) {
             super(props);
             this.state = {
-
+                user: '',
                 loggedIn: false
             };
         }
@@ -14,11 +14,13 @@ const Authenticate = App =>
             if (this.props.user === null) {
                 this.setState({ loggedIn: false });
 
-            } else if (!this.props.user) {
+            } else if (this.props.user !== null) {
 
                 this.setState({ loggedIn: true });
+
             }
         };
+
 
         render() {
             // return <App />
