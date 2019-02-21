@@ -6,7 +6,7 @@ import { H1, Div, ContainerStyle } from './styled-components/SidebarStyledCompon
 const Sidebar = props => {
  return (
       <ContainerStyle>
-       <H1>Lambda Notes</H1>
+       <H1>Duly Noted</H1>
        <Link to="/">
        <Div>
        <Button color="info">
