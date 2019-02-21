@@ -17,10 +17,15 @@ const NoteForm = props => {
         <header className="body-header">
           <div className="tags-container">
             <form className="tags-form" onSubmit={props.handleSubmitTag}>
-              <div className="tags">
-                {props.newTags.map(tag => {
-                  return <p className="tag" key={tag}>{tag}</p>
-                })}
+              <div className="tags-list">
+                <div className="tags">
+                  {props.newTags.map(tag => {
+                    return <div className="tag" key={tag.id}>
+                      <p key={tag}>{tag}</p>
+                      {/* <p className='x hide-x' onClick={props.deletePostTag.bind(this, tag)}>|  x</p> */}
+                    </div>
+                  })}
+                </div>
               </div>
               <input
                 className="input-tags"

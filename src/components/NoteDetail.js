@@ -104,6 +104,7 @@ class NoteDetail extends React.Component {
       })
       .then(response => {
         this.props.fetchNotes();
+        this.props.fetchTags();
       })
       .catch(err => console.log(err));
   };

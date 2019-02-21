@@ -84,6 +84,14 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  deletePostTag = tag => {
+    this.setState({
+      tags: this.state.tags.filter(ele => {
+        return ele !== tag;
+      })
+    })
+  }
+
   confirmDeleteTag = id => {
     if (window.confirm('Are you sure you want to delete this tag?')) {
       this.deleteTag(id);
@@ -137,6 +145,7 @@ class App extends Component {
                 handleSubmitTag={this.handleSubmitTag}
                 fetchTags={this.fetchTags}
                 postNotes={this.postNotes}
+                // deletePostTag={this.deletePostTag}
               />
             )}
           />
@@ -151,6 +160,7 @@ class App extends Component {
               <NoteDetail
                 {...props}
                 fetchNotes={this.fetchNotes}
+                fetchTags={this.fetchTags}
               />
             )}
           />

@@ -170,7 +170,6 @@
 }
 .App .body .body-header .tags-container .tags-list .tags .tag:hover {
   justify-content: flex-start;
-  padding-right: 8px;
 }
 .App .body .body-header .tags-container .tags-list .tags .tag:hover .hide-x {
   cursor: pointer;
