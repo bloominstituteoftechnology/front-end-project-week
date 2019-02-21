@@ -1,16 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { deleteNote } from "../actions/noteActions";
 
 import { Card, Button } from "react-bootstrap";
 
 const NoteCard = ({ note }) => {
-  const deleteNotes = event => {
-    event.preventDefault();
-    this.props.deleteNote(`${note.id}`);
-    this.props.history.push("/");
-  };
 
   return (
     <div>
@@ -29,12 +23,6 @@ const NoteCard = ({ note }) => {
               Edit
             </Button>
           </Link>
-          <Button
-            variant="danger"
-            onClick={deleteNotes}
-          >
-            Delete
-          </Button>
         </div>
       </Card.Body>
     </div>
@@ -47,5 +35,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deleteNote }
+  {  }
 )(NoteCard);
