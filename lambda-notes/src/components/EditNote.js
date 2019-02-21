@@ -1,5 +1,15 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+
+
+const EditMainDiv = styled.div`
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+`
+
 
 class EditNote extends React.Component {
     constructor(props){
@@ -77,24 +87,28 @@ class EditNote extends React.Component {
     render(){
         // console.log(this.props.match.params.id)
         return(
-            <div>
+            <EditMainDiv>
                 <h1>EDIT NOTE</h1>
                 <form onSubmit={this.makeChange}>
-                    <input
-                        type="text"
-                        name="title"
-                        value={this.state.note.title}
-                        onChange={this.updateTitleHandler}
-                    />
-                    <input
-                        type="text"
-                        name="textBody"
-                        value={this.state.note.textBody}
-                        onChange={this.updateTextBodyHandler}
-                    />
+                    <div>
+                        <textarea cols="80" rows="2"
+                            type="text"
+                            name="title"
+                            value={this.state.note.title}
+                            onChange={this.updateTitleHandler}
+                        />
+                    </div>
+                    <div>
+                        <textarea cols="80" rows="25"
+                            type="text"
+                            name="textBody"
+                            value={this.state.note.textBody}
+                            onChange={this.updateTextBodyHandler}
+                        />
+                    </div>
                     <button type="submit">Save</button>
                 </form>
-            </div>
+            </EditMainDiv>
         )
     }
 }
