@@ -94,10 +94,10 @@ class NotesList extends Component {
 
 					{this.props.notes.map(note => {
 						return (
-							<StyledCard key={note._id}>
+							<StyledCard key={note.id}>
 								<Link
 									style={{ textDecoration: 'none' }}
-									to={`/individual/${note._id}`}
+									to={`/individual/${note.id}`}
 								>
 									<LinkWrapper>
 										<Heading>{note.title}</Heading>

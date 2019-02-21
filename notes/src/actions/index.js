@@ -16,8 +16,9 @@ export const DIDNTDELETE = 'DIDNTDELETE';
 export const getNotes = () => dispatch => {
 	dispatch({ type: FETCHING });
 	axios
-		.get('https://fe-notes.herokuapp.com/note/get/all')
+		.get('http://localhost:8000/api/notes')
 		.then(response => {
+			console.log('response.data' + response.data);
 			dispatch({ type: FETCHED, payload: response.data });
 		})
 		.catch(err => {

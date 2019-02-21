@@ -31,7 +31,9 @@ const NotesReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FETCHING:
 			return Object.assign({}, state, { fetchingNotes: true });
+
 		case FETCHED:
+			console.log('fetched fired');
 			const newState = Object.assign({}, state, {
 				fetchingNotes: false,
 				notes: action.payload
