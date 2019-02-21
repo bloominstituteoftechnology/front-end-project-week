@@ -4,6 +4,7 @@ import { LOADING, SUCCESS, ERROR, NOTE } from '../Actions/index';
 
 const initialState = {
     notes: [],
+    note: {},
     path:'',
 }
 
@@ -15,7 +16,7 @@ export const rootReducer = ( state = initialState, action ) => {
             case SUCCESS: 
                 return Object.assign({}, state, {notes: action.payload, fetching: false});
             case NOTE:
-                return Object.assign({}, state, {note: action.payload,  fetching: false});
+                return Object.assign({}, state, {note: action.payload, path: action.path,  fetching: false});
             case ERROR: 
                 return Object.assign({}, state, { fetching: false});
         default: return state;
