@@ -3,6 +3,7 @@ import "./App.css";
 import Sidebar from "./containers/Note/Sidebar";
 import Authenticate from "./containers/Auth/Auth"
 import { Switch, Route } from "react-router-dom";
+
 import NoteList from "./containers/Note/NoteList";
 import NotePage from "./containers/Note/NotePage";
 import NoteForm from "./containers/Note/NoteForm";
@@ -16,7 +17,8 @@ class App extends Component {
         <Sidebar />
 
         <Switch>
-          <Route exact path="/note" render={props => <NoteList {...props} />} />
+
+          <Route exact path="/" render={props => <NoteList {...props} />} />
           <Route
             exact
             path="/note/:id"
@@ -26,7 +28,7 @@ class App extends Component {
           <Route
             path="/note/:id/edit"
             render={props => <EditNote {...props} />}
-          />
+            />
         </Switch>
       </div>
     );

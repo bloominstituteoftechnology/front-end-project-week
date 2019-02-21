@@ -6,13 +6,16 @@ const Authenticate = App =>
         constructor(props) {
             super(props);
             this.state = {
+
                 loggedIn: false
             };
         }
         componentDidMount = () => {
-            if (!this.props.user === null) {
+            if (this.props.user === null) {
                 this.setState({ loggedIn: false });
-            } else {
+
+            } else if (!this.props.user) {
+
                 this.setState({ loggedIn: true });
             }
         };
