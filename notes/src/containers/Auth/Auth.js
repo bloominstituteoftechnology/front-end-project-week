@@ -1,7 +1,6 @@
 import React  from 'react';
 import Login from "./Login"
 
-
 const Authenticate = App =>
     class extends React.Component {
         constructor(props) {
@@ -11,10 +10,9 @@ const Authenticate = App =>
             };
         }
         componentDidMount = () => {
-            if (!localStorage.getItem("jwt")) {
+            if (!this.props.user === null) {
                 this.setState({ loggedIn: false });
             } else {
-                setTimeout(() => { localStorage.clear() }, 300000)
                 this.setState({ loggedIn: true });
             }
         };

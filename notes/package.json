@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@okta/okta-signin-widget": "2.3.0",
     "auth0-js": "^9.10.0",
     "axios": "^0.18.0",
     "react": "^16.6.1",
