@@ -1,209 +1,133 @@
-body {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
-.App{
-  display:flex;
+body {
+  line-height: 1;
 }
-.App .sidebar{
-  width:15%;
-  background-color:#D3D2D3;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
+ol,
+ul {
+  list-style: none;
 }
-.btn-section{
-  width:100%;
-  display:flex;
-  box-sizing: border-box;
-  padding:5px 5% 0px 1%;
-  justify-content: space-between;
-  background-color:#D3D2D3;
-  border-left:2px dashed rgb(87, 80, 150);
-  height:50px;
+blockquote,
+q {
+  quotes: none;
 }
-.size-btns{
-  display:flex;
-  width:5%;
-  justify-content: space-between;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
-.export{
-  /* margin-right:70%; */
-  background : whitesmoke;
-  height:25px;
-}.export:hover{
-  background:white;
-  transition : .1s;
-}
-.fas{
-  cursor:pointer;
-}.fas:hover{
-  color:rgb(96, 130, 146);
-  transition:.2s;
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-.note-list{
-  display: flex;
-  flex-wrap: wrap;
-  width:85%;
-}
-.note-card{
-  width: 30%;
-  height:300px;
-  background : whitesmoke;
-  border : 1px solid black;
-  margin:1%;
-  color : black;
-  text-decoration: none;
-  box-shadow: 2.5px 5px rgb(83, 83, 83);
-}.note-card:hover{
-  transform: skewY(.5deg);
-  border:1px solid rgb(87, 80, 150);
-  box-shadow: 2px 7px rgb(87, 80, 150);
-  transition:.2s;
-}
-.note-card-dbl{
-  width: 45%;
-  height:300px;
-  background : whitesmoke;
-  border : 1px solid rgb(87, 80, 150);
-  margin:1%;
-  color : black;
-  text-decoration: none;
-}
-.card-title{
-  border-bottom : 2px solid rgb(87, 80, 150);
-}
-
-/* Create New Note Styling */
-.create-new{
-  width:85%;
-  height:100vh;
-  background-color:rgb(87, 80, 150);
-}
-.create-new form{
-  display:flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding:20px;
-}
-.create-new form input{
-  border-radius:5px;
-}
-.create-new form .form-title{
-  width:30%;
-  height:50px;
-  margin-bottom: 20px;
-}
-.create-new form .form-content{
-  width:90%;
-  height:500px;
-  margin-bottom:20px;
-  
-}
-.form-save{
-  background : rgb(87, 80, 150);
-  width:20%;
-  height: 50px;
-  cursor:pointer;
-}.form-save:hover{
-  background:rgb(87, 80, 150);
-  transition : 0.15s ease-in-out;
-}
-
-/* View Note Styling */
-.view-note{
-  height : 100vh;
-  box-sizing: border-box;
-  padding : 20px;
-  background-color: #f1f2f1;
-  width:85%;
-  text-align: right;
-}
-.view-note a{
-  margin : 10px;
-}
-.view-note .note-section{
-  display:flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-/* Edit Note Styling */
-.edit-note{
-  height : 100vh;
-  width:70%;
-}
-.edit-note form{
-  display : flex;
-  flex-direction: column;
-}
-.edit-note form input{
-  border-radius:5px;
-}
-.edit-note .title-input{
-  width:30%;
-  height:50px;
-  margin-bottom: 20px;
-}
-.edit-note .text-body-input{
-  width:90%;
-  height:500px;
-  margin-bottom:20px;
-}
-.modul-bg{
-  background : rgba(128, 128, 128, 0.459);
-  height:100vh;
-  width : 100vw;
-  margin-left : -20%;
-  margin-top:-20px;
-}
-.delete-modul{
-  position : fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin  : 20% 40%;
-  width:500px;
-  border : 1px solid black;
-  background : white;
-}
-.delete-modul .btn-section{
-  display:flex;
-  justify-content: center;
-  align-items : center;
-  width:100%;
-}
-.delete-modul .btn-section div{
-  height : 40px;
-  width : 100px;
-  display : flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom:10px;
-  color : white;
-  cursor : pointer;
-}
-.delete-modul .btn-section div:hover{
-  background : rgb(98, 107, 236);
-  transition : 0.5s ease;
-}
-.delete-modul .btn-section .r-btn{
-  background : rgb(240, 3, 34);
-  margin-right:10px;
-}
-.delete-modul .btn-section .b-btn{
-  background : rgb(87, 80, 150);
-}
-.hidden{
-  display : none;
+body {
+  font-size: 10px;
 }

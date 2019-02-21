@@ -1,40 +1,77 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import styled from "styled-components";
 
-class DeleteNote extends React.Component {
+const ModalDiv = styled.div`
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .modal-main {
+    position: fixed;
+    background: white;
+    width: 40%;
+    height: auto;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+  }
+  .display-block {
+    display: block;
+  }
+  .display-none {
+    display: none;
+  }
+  .delete-warning {
+    margin: 5px auto 10px;
+    padding: 15px;
+  }
+  .delete-button {
+    display: flex;
+    justify-content: space-around;
+  }
+  .button {
+    width: 25%;
+    padding: 5px;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+  }
+  .yes {
+    background-color: red;
+  }
+  .no {
+    background-color: green;
+  }
+`;
 
-    deleteNote = () => {
-        axios.delete(`https://fe-notes.herokuapp.com/note/delete/${this.props.ID}`)
-        .then(response => {
-            this.props.toggleHidden();
-            this.props.history.push("/");
-            this.props.refresh();
-        })
-        .catch(error => console.log(error))
-    }
-
-    render(){
-        return(
-            <div className={`modul-bg ${this.props.hidden}`}>
-                <div className={`delete-modul ${this.props.hidden}`}>
-                    <h3>Are you sure you want to delete this?</h3>
-                    <div className="btn-section">
-
-                        <div 
-                        className="r-btn"
-                        onClick={this.deleteNote}
-                        >Delete</div>
-
-                        <div
-                        onClick={this.props.toggleHidden}
-                        className="b-btn"
-                        >Never Mind</div>
-
-                    </div>
-                </div>
-            </div>
-        );
-    }
-}
+const DeleteNote = props => {
+  const showHideClassName = props.show ? "modal display-block" : "modal display-none";
+  return (
+    <ModalDiv>
+      <div className={showHideClassName}>
+        <section className="modal-main">
+          <h3 className="delete-warning">
+            Would you like to delete this note?
+          </h3>
+          <div className="delete-button">
+            <button className="yes button" onClick={props.deleteHandler}>
+              Delete
+            </button>
+            <button className="no button" onClick={props.hideModal}>
+              No
+            </button>
+          </div>
+        </section>
+      </div>
+    </ModalDiv>
+  );
+};
 
 export default DeleteNote;

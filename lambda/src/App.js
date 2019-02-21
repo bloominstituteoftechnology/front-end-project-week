@@ -1,111 +1,88 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import './App.css';
-import { Route } from 'react-router-dom';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { Route } from "react-router-dom";
+import NoteList from "./components/NoteList";
+import NoteForm from "./components/NoteForm";
+import SingleNote from "./components/SingleNote";
 
-// Component Imports
-import SideBar from './components/sidebar/SideBar'
-import NoteList from './components/NoteList';
-import CreateNew from './components/CreateNew';
-import ViewNote from './components/ViewNote'
-import EditNote from './components/EditNote'
+
+const MainDiv = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 1024px;
+  margin: 5px auto;
+  -webkit-box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.52);
+  box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.52);
+`;
+
+const SideBar = styled.div`
+  width: 25%;
+  min-height: 95vh;
+  background-color: silver;
+  padding: 15px;
+  h1 {
+    font-size: 2.6rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+`;
+
+const DisplayDiv = styled.div`
+  width: 75%;
+  background-color: whitesmoke;
+`;
+
+const Button = styled.div`
+  width: 95%;
+  height: 50px;
+  margin: 20px auto 15px;
+  background-color: darkcyan;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+`;
 
 class App extends Component {
+  sendToForm = () => {
+    this.props.history.push(`/form`);
+  };
 
-  constructor(){
-    super();
-    this.state = 
-    {
-      notes : [],
-      newNote : {
-        title : '',
-        textBody : '',
-      },
-      size : 'note-card'
-    }
-  }
-
-  exportCsv = () => {
-    var csvRow =[];
-    var A = [['title','name']];//header portion of csv
-    var data = this.state.notes; // brings the notes from state
-    for(var i =0;i < data.length;i++){
-      A.push([data[i].title,data[i].textBody])//pushes data from state.notes 
-    }
-    for(let i = 0; i < A.length; i++){
-      csvRow.push(A[i].join(','))//joins arrays together 
-    }
-    let csvString=csvRow.join("%0A");//adds a space 
-    //code to start the download
-    let a = document.createElement("a");//creates an element through document object
-    a.href = 'data:attachment/csv,' + csvString; // href is set to  a csv file with csv string
-    a.target = "_Blank";
-    a.download = "NotesFile.csv";//downloads file 
-    document.body.appendChild(a);
-    a.click();
-  }
-
-  changeSize = bool => {
-    if(bool === true){
-      this.setState({size : 'note-card-dbl'})
-    }else{
-      this.setState({size : 'note-card'});
-    }
-  }
-
-  refreshState(){
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-    .then(response => this.setState({notes : response.data}))
-    .catch(error => console.log("Refresh State ::: Axios says :", error))
-  }
-  //Functions for other components
-  createNewSubmit = e =>{
-    e.preventDefault();
-    axios.post('https://fe-notes.herokuapp.com/note/create',this.state.newNote)
-    .then(response => {
-      this.setState({newNote : {
-        title : '',
-        textBody : '',
-      }})
-      this.refreshState();
-      this.history.push("/");
-    })
-    .catch(error => alert("ERROR :::", error));
-  }
-  onChangeHandler = e => {
-    this.setState({newNote : {...this.state.newNote,[e.target.name] : e.target.value }})
-  }
-  //        End Functions
-
-  componentDidMount(){
-    //fetch data from api
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
-      .then(response => this.setState({notes : response.data}))
-      .catch(error => alert("CDM ::: Axios says :", error))
-  }
-
+  sendToHome = () => {
+    this.props.history.push(`/`);
+  };
 
   render() {
     return (
-      <div className="App">
-        <SideBar refresh={this.refreshState()}/>
-        <Route exact path='/' render={() => <NoteList 
-        size={this.state.size}
-        changeSize={this.changeSize} 
-        export={this.exportCsv} 
-        notes={this.state.notes} 
-        /> } />
-        {/* Create New Card Route  */}
-        <Route path='/create-new' render={() => <CreateNew 
-        submit={this.createNewSubmit} 
-        onChangeHandler ={this.onChangeHandler}
-        { ...this.props }
-        />} />
-        {/* View Card Route */}
-        <Route path='/view/:id' render={(props) => <ViewNote {...props} refresh={this.refreshState()} notes={this.state.notes} /> } />
-        {/* Edit Card Route */}
-        <Route path='/edit/:id' render={(props) => <EditNote {...props} refresh={this.refreshState()} notes={this.state.notes} /> } />
-      </div>
+      <MainDiv>
+        <SideBar>
+          <h1>Lambda Notes</h1>
+          <Button onClick={this.sendToHome}>View All Notes</Button>
+          <Button onClick={this.sendToForm}> Create a New Note</Button>
+        </SideBar>
+        <DisplayDiv>
+          <Route exact path="/" render={props => <NoteList {...props} />} />
+          <Route
+            path="/form"
+            render={props => (
+              <NoteForm
+                {...props}
+                purpose="Create New Note:"
+                buttonText="Save"
+              />
+            )}
+          />
+          <Route path="/note/:id" render={props => <SingleNote {...props} />} />
+          <Route
+            path="/update/:id"
+            render={props => (
+              <NoteForm {...props} purpose="Edit Note:" buttonText="Update" />
+            )}
+          />
+        </DisplayDiv>
+      </MainDiv>
     );
   }
 }
