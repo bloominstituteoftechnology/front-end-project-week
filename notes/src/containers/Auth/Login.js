@@ -53,6 +53,7 @@ export default withAuth(class Login extends Component {
 
     onSuccess = (res) => {
         if (res.status === 'SUCCESS') {
+            res.session.setCookieAndRedirect('https://dev-106394.okta.com/app/note')
             return this.props.auth.redirect({
                 sessionToken: res.session.token
             });
