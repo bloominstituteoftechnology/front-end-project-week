@@ -30,7 +30,7 @@ const initialState = {
 const NotesReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FETCHING:
-			return Object.assign({}, state, { fetchingNotes: false });
+			return Object.assign({}, state, { fetchingNotes: true });
 		case FETCHED:
 			const newState = Object.assign({}, state, {
 				fetchingNotes: false,

@@ -53,8 +53,8 @@ class EditNote extends React.Component {
 
 		this.state = {
 			_id: this.props.match.params.id,
-			title: '',
-			textBody: ''
+			title: this.props.title,
+			textBody: this.props.textBody
 		};
 	}
 	componentDidMount() {
@@ -65,12 +65,8 @@ class EditNote extends React.Component {
 		console.log('title=' + this.state.title);
 	}
 	componentDidUpdate(prevProps) {}
-	changeHandlerTitle = e => {
-		this.setState({ title: e.target.value });
-	};
-
-	changeHandlertextBody = e => {
-		this.setState({ textBody: e.target.value });
+	changeHandler = e => {
+		this.setState({ [e.target.name]: e.target.value });
 	};
 
 	submitHandler = e => {
@@ -85,13 +81,13 @@ class EditNote extends React.Component {
 				<ViewHeader>Edit Note:</ViewHeader>
 				<form onSubmit={this.submitHandler}>
 					<Title
-						onChange={this.changeHandlerTitle}
+						onChange={this.changeHandler}
 						type="text"
 						name="title"
 						value={this.state.title}
 					/>
 					<TextBody
-						onChange={this.changeHandlertextBody}
+						onChange={this.changeHandler}
 						type="text"
 						name="textBody"
 						value={this.state.textBody}
