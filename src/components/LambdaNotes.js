@@ -7,18 +7,26 @@ import Logout from './Auth/Logout';
 import {Link, Route} from 'react-router-dom';
 
 class LambdaNotes extends Component {
+
     logout = (event) => {
       event.preventDefault();
       console.log(`local storage removed`);
       localStorage.removeItem('jwt');
+      
+      this.props.reset();
+      
+    }
+    resetState = () => {
+      this.props.fetch();
     }
     render() {
+        console.log(this.props.fetch)
         return (
             <>
             <SideNotes>
             <h1>Lambda Notes</h1>
             <Link to='/'>
-               <Button>View Your Notes</Button>
+               <Button onClick={this.resetState}>View Your Notes</Button>
             </Link>
             <Link to='/notes'>
               <Button>Create New Notes</Button>
@@ -36,7 +44,7 @@ class LambdaNotes extends Component {
             </SideNotes>
            
             <main>
-                <Route path='/Login' component={Login} exact></Route>
+                <Route path='/Login' render= { (props) => <Login {...props} />} exact></Route>
                 <Route path='/Register' component={Register}></Route>
                 <Route path='/Logout' component={Logout}></Route>
             </main>

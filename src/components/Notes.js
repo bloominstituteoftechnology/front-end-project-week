@@ -41,9 +41,9 @@ class Notes extends Component {
     }
     submitHandler = event => {
         event.preventDefault();
-        
         this.setState({ text: " "})
     }
+    
     Sort = () => {
         this.setState({
             newSort: true

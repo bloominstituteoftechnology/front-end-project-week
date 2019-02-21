@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import NoteStyles from './styles/NoteStyle';
 import {Link} from 'react-router-dom';
 
 const Note = (props) => {  
     const note = props.note;
+    console.log(`props from note`,props)
         return (
             <>
             <NoteStyles>

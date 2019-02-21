@@ -19,6 +19,7 @@ export default class Login extends Component {
      })
   }
   handleSubmit = (event) => {
+     console.log(this.props);
      event.preventDefault();
      const credentials = this.state;
      if(!credentials.email) alert('Pleaser enter a valid email');
@@ -26,19 +27,22 @@ export default class Login extends Component {
      const endpoint = `${API}/api/login`;
      axios.post(endpoint, credentials)
           .then(response => {
-             console.log(response);
+             console.log('Response for Login',response.data);
              localStorage.setItem('jwt', response.data.token);
-             console.log(`props from sign-in`,this.props);
              this.props.history.push('/');
+           
           })
           .catch(err => {
              console.log(`errorMessage: `, err);
           });
-      
+               
     this.setState({
       email: '',
       password:''
       });    
+    
+      
+   
   } 
  
   render() {

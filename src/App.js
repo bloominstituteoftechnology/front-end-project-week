@@ -88,19 +88,31 @@ deleteContent = (id) => {
     })
  
 }
+resetState = () => {
+   this.setState({
+        notes:[]
+   })
+}
+
+refreshUser = () => { 
+   this.setState( this.forceUpdate());
+}   
   render() {
     const notes = this.state.notes;
     return (
       <div className="App">
         <MainContainer>
-          <LambdaNotes />
-          <Route exact path='/' render={ props => <Notes {...props} notes={notes}/>}></Route>
+          <LambdaNotes reset = {this.resetState}
+                       fetch={this.fetNotes } 
+                       updateState={this.updateState} />
+          <Route exact path='/' render={ props => 
+            <Notes {...props}  notes={notes}/>}></Route>
           {/* <Notes notes={this.state.notes} /> */}
           <Route exact path='/notes' render={ props =>
                         <CreateView {...props} 
                            addContent={this.addContent} 
                            notes={notes} />}
-                           fetNotes={this.fetNotes} />
+                            />
           <Route path='/note/:id' render={ props =>
                         <MyNote {...props} notes= {notes} 
                          deleteContent={this.deleteContent} /> } />
@@ -117,3 +129,4 @@ deleteContent = (id) => {
 }
 
 export default App;
+
