@@ -55,7 +55,7 @@ class NotePage extends Component {
       const deleted = e => {
         e.preventDefault();
         this.props.deleteNote(note.id);
-        this.props.history.push("/");
+        this.props.history.push("/note");
       };
       return (
         <Main key={note.id}>

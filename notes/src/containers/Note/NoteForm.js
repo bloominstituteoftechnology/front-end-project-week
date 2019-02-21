@@ -54,7 +54,7 @@ class NoteForm extends Component {
   createNote = e => {
     e.preventDefault()
     this.props.addNote(this.state)
-    this.props.history.push("/");
+    this.props.history.push("/note");
   }
 
   componentDidMount() {
