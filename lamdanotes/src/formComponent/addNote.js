@@ -28,8 +28,8 @@ class AddNote extends Component {
         this.props.addNote(this.state.notes);
         this.setState({
             notes: {
-                textBody: "Note Body",
-                title: "Note Title"
+                textBody: "",
+                title: ""
             }
         });
     }

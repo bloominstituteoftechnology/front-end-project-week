@@ -11,7 +11,7 @@ const ViewNotesButton = props => {
                 to="/notes"
                 onClick={() => props.getUpdatedNotes()}    
             >
-                <button className="sbButtons">View Your Notes</button>
+                <button className="sbButtons">View All Notes</button>
             </Link>
         
         </div>
