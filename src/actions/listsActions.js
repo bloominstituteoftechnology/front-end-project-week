@@ -78,8 +78,9 @@ export const updateList = (newList, id) => {
   }
 }
 
-export const viewList = (id) => {
+export const viewList = (id, notesList) => {
   return (dispatch) => {
+    
     dispatch({ type: GETTING_SINGLE_LIST })
     // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
     const URL = 'http://localhost:5000/api/lists/' + id;
@@ -87,6 +88,8 @@ export const viewList = (id) => {
       .get(URL)
       .then(response => {
         dispatch({ type: SINGLE_LIST, payload: response.data })
+
+
       })
       .catch(error => {
         dispatch({ type: ERROR, payload: error })

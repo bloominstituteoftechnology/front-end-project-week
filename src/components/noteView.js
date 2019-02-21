@@ -8,11 +8,11 @@ class NoteView extends Component {
     super(props);
     this.state = {
       notes: [],
-      tags: '',
+     // tags: '',
       title: '',
       textBody: '',
       id: '',
-      selected: null,
+      //selected: null,
     };
   }
   //"redux-logger": "^3.0.6",

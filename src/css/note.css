@@ -201,13 +201,13 @@ li {
 }
 
 .note-card {
-    border: 2px solid rgb(166, 166, 166);
+    border: 0px solid rgb(166, 166, 166);
     height: 300px;
     color: black;
     width: 295px;
     margin-bottom: 38px;
     background-color: white;
-    /* background-image: url('../graphics/note.png'); */
+     background-image: url('../graphics/note7.png'); 
 }
 
 .note-card:hover {

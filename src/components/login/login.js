@@ -210,7 +210,7 @@ class Login extends Component {
             <div className="header-text">Please register if you are a new user. Enter your email address, create a password and then
             press the Register button. Use the same email and password to Login.</div>
                 <Input type="text" id="username" value={this.state.username} name='username' className="form-control" placeholder="Enter Email" onChange={this.handleInputChange} />
-                <Input type="text" id="password" value={this.state.password} name='password' className="form-control" placeholder="Enter Password" onChange={this.handleInputChange} />
+                <Input type="password" id="password" value={this.state.password} name='password' className="form-control" placeholder="Enter Password" onChange={this.handleInputChange} />
 
 
                 <button type="button" className="btn-register" value="register" onClick={this.register} name="viewHome" id="register">Register</button>

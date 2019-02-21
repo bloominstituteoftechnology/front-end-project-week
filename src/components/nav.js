@@ -22,7 +22,9 @@ class Nav extends React.Component {
       enableSaveList: false,
       enableOpenList: false,
       listItems: [],
-      listSaveInput: ""
+      listSaveInput: "",
+      selectedNotes: [],
+      noteSelected: [],
     };
   }
 
@@ -70,9 +72,27 @@ class Nav extends React.Component {
   }
 
   viewNoteList = (list, listId) => {
-    const listJSON = JSON.parse(list);
-    this.props.viewNote(listJSON[0]);
-    console.log("list:", list)
+    let selectedNotes = []; 
+    localStorage.setItem('localNotes', selectedNotes);  
+  const listJSON = JSON.parse(list);
+    //this.props.viewNote(listJSON[0]);
+    for (let i = 0; i < listJSON.length; i++) {                            // step through the array of note id's 
+      this.props.viewNote(listJSON[i]);
+  }
+      // selectedNotes.push(selectedNote);
+      // console.log("noteSelected:", this.state.noteSelected)                   // api get single note
+     //  selectedNotes.push(singleNote);                                    // save each note into an array
+     setTimeout(() => {
+      this.setState({ position: 1 });
+    }, 3000); 
+
+    //setTimeout();
+
+    let temp = localStorage.getItem('localNotes');
+    console.log("temp:", temp)
+ //  console.log("selectedNotes:", selectedNotes)
+// this.setState({ selectedNotes: selectedNotes });
+   // console.log("selectedNotes:", this.state.selectedNotes )
   }
 
   saveList = (event) => {
@@ -162,13 +182,15 @@ class Nav extends React.Component {
 
 const mapStateToProps = state => {
   const { notesReducer } = state;
-  const { listsReducer } = state; 
+  const { listsReducer } = state;
+  const { singleNoteReducer } = state;
   return {
     notes: notesReducer.notes,
     lists: listsReducer.lists,
     error: notesReducer.error,
     gettingNotes: notesReducer.gettingNotes,
-    gettingLists: listsReducer.gettingLists
+    gettingLists: listsReducer.gettingLists,
+    noteSelected: state.singleNoteReducer.noteSelected
   };
 };
 

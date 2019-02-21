@@ -17,7 +17,7 @@ class ListView extends Component {
     }
 
     componentDidMount() {
-        this.props.viewList(this.props.id);                                         // api get the list from server
+      //  this.props.viewList(this.props.id);                                         // api get the list from server
         
        // setTimeout(this.getList(newList), 3000 * 10);
      //  this.setState({ listReady: true }); 
@@ -34,20 +34,20 @@ class ListView extends Component {
     }
 
     getList = (newList) => {
-       // let selectedNotes = []; 
+        let selectedNotes = []; 
        // const newList = this.props.listSelected.list; 
        const listJSON = JSON.parse(newList);
      
        console.log("listJSON:", listJSON)
 
-     //  for (let i = 0; i < listJSON.length; i++) {                            // step through the array of note id's
+       for (let i = 0; i < listJSON.length; i++) {                            // step through the array of note id's
       
-       this.props.viewNote(listJSON[0]);
+      let singleNote = this.props.viewNote(listJSON[0]);
 
       // console.log("singleNote", singleNote)                   // api get single note
-   //    selectedNotes.push(singleNote);                                    // save each note into an array
- //  } 
- //this.setState({ selectedNotes: selectedNotes }); 
+       selectedNotes.push(singleNote);                                    // save each note into an array
+   } 
+ this.setState({ selectedNotes: selectedNotes }); 
   // console.log("selectedNotes:", this.state.selectedNotes)     
         
        // alert('Hello');
@@ -65,7 +65,7 @@ class ListView extends Component {
                 <div className="note-name">{this.props.listSelected.listTitle}</div>
                 <div className="note-body">{(this.props.listSelected.list) ? this.getList(this.props.listSelected.list) : null}</div>
                 <div className="list-container">
-                    {this.state.noteSelected.map((note, index) => {
+                    {this.state.selectedNotes.map((note, index) => {
                         return <Note key={index} title={note.title} viewNote={this.props.viewNote} textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
                     })}
                 </div>
