@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { AuthUserContext } from "../Session";
-import logo from "./logo.svg";
+import logo from "./logo.png";
 
 import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
