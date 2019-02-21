@@ -45,12 +45,6 @@ class App extends Component {
     this.fetchTags();
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevProps.tags !== this.state.tags) {
-  //     this.fetchTags();
-  //   }
-  // }
-
   handleInput = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -156,9 +150,7 @@ class App extends Component {
             render={props => (
               <NoteDetail
                 {...props}
-                notes={this.state.notes}
                 fetchNotes={this.fetchNotes}
-                handleInput={this.handleInput}
               />
             )}
           />

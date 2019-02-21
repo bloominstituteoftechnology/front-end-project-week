@@ -50,7 +50,6 @@
                 &:hover {
                     // width: 45px;
                     justify-content: flex-start;
-
                     cursor: pointer;
                     padding-right: 8px;
                     .hide {
@@ -144,16 +143,35 @@
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
-                .tags {
+                .tags-list {
                     display: inline-block;
                     width: auto;
-                    .tag {
-                        display: inline-block;
-                        font-size: 0.8rem;
-                        margin: 0 10px 0 0;
-                        background: #79B0D5;
-                        padding: 5px 10px;
-                        border-radius: 10px;
+                    .tags {
+                        display: flex;
+                        .tag {
+                            display: flex;
+                            align-items: center;
+                            font-size: 0.8rem;
+                            margin: 0 5px 0 0;
+                            background: #79B0D5;
+                            padding: 0 10px;
+                            border-radius: 10px;
+                            p {
+                                margin: 5px 0;
+                            }
+                            .hide-x {
+                                display: none;
+                            }
+                            &:hover {
+                                justify-content: flex-start;
+                                padding-right: 8px;
+                                .hide-x {
+                                    cursor: pointer;
+                                    display: flex;
+                                    margin-left: 3px;
+                                }
+                            }
+                        }
                     }
                 }
                 .input-tags {

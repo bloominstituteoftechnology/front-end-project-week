@@ -7,6 +7,7 @@ class NoteDetail extends React.Component {
     this.state = {
       id: "",
       tags: [],
+      tag: '',
       title: "",
       contents: "",
       created_at: "",
@@ -39,10 +40,42 @@ class NoteDetail extends React.Component {
     });
   };
 
-  handleEditingChange = e => {
+  handleInput = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
+  };
+
+  handleSubmitTag = e => {
+    e.preventDefault();
+    this.setState({
+      tags: [...this.state.tags, this.state.tag],
+      tag: ''
+    })
+  }
+
+  deletePostTag = tag => {
+    this.setState({
+      tags: this.state.tags.filter(ele => {
+        return ele !== tag;
+      })
+    })
+  }
+
+  handleUpdate = e => {
+    e.preventDefault();
+    const newNote = {
+      tags: this.state.tags,
+      title: this.state.title,
+      contents: this.state.contents
+    };
+    this.putNote(newNote);
+    this.setState({ editing: false });
+  };
+
+  handleDelete = () => {
+    this.deleteNote(this.state.id);
+    this.props.history.push("/");
   };
 
   putNote = note => {
@@ -56,12 +89,6 @@ class NoteDetail extends React.Component {
       .catch(err => console.log(err));
   };
 
-  handleUpdate = e => {
-    e.preventDefault();
-    this.putNote(this.state);
-    this.setState({ editing: false });
-  };
-
   deleteNote = id => {
     axios
       .delete(`https://stark-refuge-65834.herokuapp.com/api/posts/${id}`)
@@ -70,29 +97,30 @@ class NoteDetail extends React.Component {
       })
       .catch(err => console.log(err));
   };
-  handleDelete = () => {
-    this.deleteNote(this.state.id);
-    this.props.history.push("/");
-  };
 
   render() {
     return (
       <div className="note-detail">
         <header className="body-header">
           <div className="tags-container">
-            <form className="tags-form" onSubmit={this.props.handleSubmitTag}>
-              <div className="tags">
-                {this.state.tags.map(tag => {
-                  return <p className="tag">{tag}</p>
-                })}
+            <form className="tags-form" onClick={this.handleEditing.bind(this)}
+              onSubmit={this.handleSubmitTag}>
+              <div className="tags-list">
+                <div className="tags">
+                  {this.state.tags.map(tag => {
+                    return <div className="tag" key={tag.id}>
+                      <p key={tag}>{tag}</p>
+                      <p className='x hide-x' onClick={this.deletePostTag.bind(this, tag)}>|  x</p>
+                    </div>
+                  })}
+                </div>
               </div>
               <input
                 className="input-tags"
                 type="text"
                 name="tag"
-                value={this.props.tag}
-                onChange={this.props.handleInput}
-                onSubmit={this.props.handleSubmitTag}
+                value={this.state.tag}
+                onChange={this.handleInput}
                 placeholder="add tags"
               />
             </form>
@@ -125,7 +153,7 @@ class NoteDetail extends React.Component {
           type="text"
           value={this.state.title}
           name="title"
-          onChange={this.handleEditingChange.bind(this)}
+          onChange={this.handleInput.bind(this)}
         />
         <p
           className={this.state.editing ? "none" : "note-body"}
@@ -138,7 +166,7 @@ class NoteDetail extends React.Component {
           type="textarea"
           value={this.state.contents}
           name="contents"
-          onChange={this.handleEditingChange.bind(this)}
+          onChange={this.handleInput.bind(this)}
         />
 
       </div>

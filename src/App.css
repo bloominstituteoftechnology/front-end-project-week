@@ -146,17 +146,36 @@
   justify-content: space-between;
   width: 100%;
 }
-.App .body .body-header .tags-container .tags {
+.App .body .body-header .tags-container .tags-list {
   display: inline-block;
   width: auto;
 }
-.App .body .body-header .tags-container .tags .tag {
-  display: inline-block;
+.App .body .body-header .tags-container .tags-list .tags {
+  display: flex;
+}
+.App .body .body-header .tags-container .tags-list .tags .tag {
+  display: flex;
+  align-items: center;
   font-size: 0.8rem;
-  margin: 0 10px 0 0;
+  margin: 0 5px 0 0;
   background: #79B0D5;
-  padding: 5px 10px;
+  padding: 0 10px;
   border-radius: 10px;
+}
+.App .body .body-header .tags-container .tags-list .tags .tag p {
+  margin: 5px 0;
+}
+.App .body .body-header .tags-container .tags-list .tags .tag .hide-x {
+  display: none;
+}
+.App .body .body-header .tags-container .tags-list .tags .tag:hover {
+  justify-content: flex-start;
+  padding-right: 8px;
+}
+.App .body .body-header .tags-container .tags-list .tags .tag:hover .hide-x {
+  cursor: pointer;
+  display: flex;
+  margin-left: 3px;
 }
 .App .body .body-header .tags-container .input-tags {
   display: inline-block;
