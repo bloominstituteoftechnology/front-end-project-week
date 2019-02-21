@@ -7,36 +7,45 @@ export const ERROR = "ERROR";
 export const ADDED = "ADDED";
 export const UPDATED = "UPDATED";
 export const DELETED = "DELETED";
-// export const ADD_TAG = 'ADD_TAG';
-// export const ADD_TAG_TO_TAGS = 'ADD_TAG_TO_TAGS';
-// export const ADD_TAGS_TO_NOTE = 'ADD_TAGS_TO_NOTE';
-// export const CHANGE_TAG_IDS = 'CHANGE_TAG_IDS';
-
 export const FETCHALLTAGS = "FETCHALLTAGS";
 export const FETCHNOTETAGS = "FETCHNOTETAGS";
 export const FETCHONETAG = "FETCHONETAG";
 export const ADDEDTAG = "ADDEDTAG";
 export const UPDATEDTAG = "UPDATEDTAG";
 export const DELETEDTAG = "DELETEDTAG";
+// export const REGISTER = "REGISTER";
+// export const LOGIN = "LOGIN";
+// export const LOGOUT = "LOGOUT";
 
-// const url = 'https://fe-notes.herokuapp.com/note'
 const url = "https://al-backend-notes.herokuapp.com";
 
-// export const addTag = tag => dispatch => {
-//     dispatch({type: ADD_TAG, payload: tag, id: Date.now(), date: Date.now()});
-
+// export const register = newUser => dispatch => {
+//   axios.post(`${url}/auth/register`, newUser)
+//   .then(res => {
+//     dispatch({type: REGISTER, payload: res.data})
+//   })
+//   .catch(err => {
+//     dispatch({type: ERROR, payload: err})
+//   })
+// }
+// export const login = user => dispatch => {
+//   axios.post(`${url}/auth/login`, user)
+//   .then(res => {
+//     dispatch({type: LOGIN, payload: res.data})
+//     .catch(err => {
+//       dispatch({type: ERROR, payload: err})
+//     })
+//   })
 // }
 
-// export const addTagToTags = () => dispatch => {
-//     dispatch({type: ADD_TAG_TO_TAGS});
-// }
-
-// export const addTagsToNote = () => dispatch => {
-//     dispatch({type: ADD_TAGS_TO_NOTE});
-// }
-
-// export const changeTagIds = id => dispatch => {
-//     dispatch({type: CHANGE_TAG_IDS, payload: id})
+// export const logout = () => dispatch => {
+//   axios.post(`${url}/auth/logout`)
+//   .then(res => {
+//     dispatch({type: LOGOUT, payload: res.data})
+//     .catch(err => {
+//       dispatch({type: ERROR, payload: err})
+//     })
+//   })
 // }
 
 export const fetchNotes = () => dispatch => {
@@ -74,7 +83,12 @@ export const fetchNote = id => dispatch => {
     .then(response => {
       axios.get(`${url}/notes/${id}/tags`).then(res => {
         dispatch({ type: FETCHNOTETAGS, payload: res.data });
-      });
+      })
+    })
+    .then(res => {
+      axios.get(`${url}/tags`).then(res => {
+        dispatch({ type: FETCHALLTAGS, payload: res.data });
+      })
     })
     .catch(error => {
       dispatch({ type: ERROR, payload: error });
@@ -91,9 +105,9 @@ export const addNote = newNote => dispatch => {
     });
 };
 
-export const addTag = (newTag, id) => dispatch => {
+export const addTag = (newTag) => dispatch => {
   return axios
-    .post(`${url}/tags/${id}`, newTag)
+    .post(`${url}/tags/${newTag.note_id}`, newTag)
     .then(response => {
       dispatch({ type: ADDEDTAG, payload: response.data });
     })

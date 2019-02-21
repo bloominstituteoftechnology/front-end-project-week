@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import Note from "./Note";
 
-import { fetchNotes } from "../actions/actions";
+import { fetchNotes, fetchTags } from "../actions/actions";
 
 import "../styles/App.css";
 
@@ -11,6 +11,7 @@ class Notes extends React.Component {
 
   componentDidMount() {
     this.props.fetchNotes();
+    this.props.fetchTags();
   }
   // sortNotes = (a, b) => {
   //   if (b.id < a.id) return 1;
@@ -46,5 +47,5 @@ const mapStatetoProps = state => {
   };
 };
 
-export default connect(mapStatetoProps, { fetchNotes })(Notes);
+export default connect(mapStatetoProps, { fetchNotes, fetchTags })(Notes);
 // }

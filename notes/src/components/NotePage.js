@@ -34,49 +34,94 @@ class NotePage extends React.Component {
 
   render() {
     let id = this.props.match.params.id;
+
     return this.state.deleted ? (
       <Redirect to="/" />
     ) : this.state.modal ? (
-      <>
-        <div className="modalWrapper">
-          <div className="modal">
-            <p>Are you sure you want to delete this?</p>
-            <div className="modalButtonBox">
-              <div
-                className="first modalButton"
-                onClick={() => {
-                  this.modalHandler();
-                  this.deleteHandler(id);
-                }}
-              >
-                Delete
-              </div>
-              <div
-                className="second modalButton"
-                onClick={() => this.modalHandler()}
-              >
-                No
+      // this.props.registered || this.props.loggedIn ? (
+        <>
+          <div className="modalWrapper">
+            <div className="modal">
+              <p>Are you sure you want to delete this?</p>
+              <div className="modalButtonBox">
+                <div
+                  className="first modalButton"
+                  onClick={() => {
+                    this.modalHandler();
+                    this.deleteHandler(id);
+                  }}
+                >
+                  Delete
+                </div>
+                <div
+                  className="second modalButton"
+                  onClick={() => this.modalHandler()}
+                >
+                  No
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="modalBackground" />
-        <div className="componentContainer">
-          <div className="spanButtonsContainer">
-            <a href={`/note/${id}/edit`}>edit</a>
-            <span>delete</span>
+          <div className="modalBackground" />
+          <div className="componentContainer">
+            <div className="spanButtonsContainer">
+              <a href={`/note/${id}/edit`}>edit</a>
+              <span>delete</span>
+            </div>
+            <h2>{this.props.note.title}</h2>
+            <p className="noteText">{this.props.note.content}</p>
+            {this.props.tags
+              .filter(tag => tag.note_id === this.props.note.id)
+              .map(tag => (
+                <span key={tag.id}>{`#${tag.tag},`}</span>
+              ))}
           </div>
-          <h2>{this.props.note.title}</h2>
-          <p className="noteText">{this.props.note.content}</p>
-          {this.props.tags
-            .filter(tag => tag.note_id === this.props.note.id)
-            .map(tag => (
-              <span key={tag.id}>{`#${tag.tag},`}</span>
-            ))}
-        </div>
-      </>
-    ) : (
+        </>
+      ) 
+      // : 
+      // (
+      //   <>
+      //     <div className="modalWrapper">
+      //       <div className="modal">
+      //         <p>You must first register or Login</p>
+      //         <div className="modalButtonBox">
+      //           <div
+      //             className="first modalButton"
+      //             onClick={() => {
+      //               this.modalHandler();
+      //             }}
+      //           >
+      //             Okay
+      //           </div>
+      //           {/* <div
+      //           className="second modalButton"
+      //           onClick={() => this.modalHandler()}
+      //         >
+      //           No
+      //         </div> */}
+              // </div>
+            // </div>
+          // </div>
+
+      //     <div className="modalBackground" />
+      //     <div className="componentContainer">
+      //       <div className="spanButtonsContainer">
+      //         <a href={`/note/${id}/edit`}>edit</a>
+      //         <span>delete</span>
+      //       </div>
+      //       <h2>{this.props.note.title}</h2>
+      //       <p className="noteText">{this.props.note.content}</p>
+      //       {this.props.tags
+      //         .filter(tag => tag.note_id === this.props.note.id)
+      //         .map(tag => (
+      //           <span key={tag.id}>{`#${tag.tag},`}</span>
+      //         ))}
+      //     </div>
+      //   </>
+      // )
+    // ) 
+    : (
       <div className="componentContainer">
         <div className="spanButtonsContainer">
           <a href={`/note/${id}/edit`}>edit</a>
@@ -91,13 +136,78 @@ class NotePage extends React.Component {
           ))}
       </div>
     );
+
+    // let id = this.props.match.params.id;
+    // return this.state.deleted ? (
+    //   <Redirect to="/" />
+    // )
+    // : this.state.modal
+    // ? (
+    //   <>
+    //     <div className="modalWrapper">
+    //       <div className="modal">
+    //         <p>Are you sure you want to delete this?</p>
+    //         <div className="modalButtonBox">
+    //           <div
+    //             className="first modalButton"
+    //             onClick={() => {
+    //               this.modalHandler();
+    //               this.deleteHandler(id);
+    //             }}
+    //           >
+    //             Delete
+    //           </div>
+    //           <div
+    //             className="second modalButton"
+    //             onClick={() => this.modalHandler()}
+    //           >
+    //             No
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+
+    //     <div className="modalBackground" />
+    //     <div className="componentContainer">
+    //       <div className="spanButtonsContainer">
+    //         <a href={`/note/${id}/edit`}>edit</a>
+    //         <span>delete</span>
+    //       </div>
+    //       <h2>{this.props.note.title}</h2>
+    //       <p className="noteText">{this.props.note.content}</p>
+    //       {this.props.tags
+    //         .filter(tag => tag.note_id === this.props.note.id)
+    //         .map(tag => (
+    //           <span key={tag.id}>{`#${tag.tag},`}</span>
+    //         ))}
+    //     </div>
+    //   </>
+    // )
+
+    // : (
+    //   <div className="componentContainer">
+    //     <div className="spanButtonsContainer">
+    //       <a href={`/note/${id}/edit`}>edit</a>
+    //       <span onClick={() => this.modalHandler()}>delete</span>
+    //     </div>
+    //     <h2>{this.props.note.title}</h2>
+    //     <p className="noteText">{this.props.note.content}</p>
+    //     {this.props.tags
+    //       .filter(tag => tag.note_id === this.props.note.id)
+    //       .map(tag => (
+    //         <span key={tag.id}>{`#${tag.tag},`}</span>
+    //       ))}
+    //   </div>
+    // );
   }
 }
 
 const mapStateToProps = state => {
   return {
     note: state.note,
-    tags: state.tags
+    tags: state.tags,
+    registered: state.registered,
+    loggedIn: state.loggedIn
   };
 };
 

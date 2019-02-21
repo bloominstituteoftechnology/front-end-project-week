@@ -11,11 +11,10 @@ import {
   ADDEDTAG,
   UPDATEDTAG,
   DELETEDTAG,
-  FETCHNOTETAGS
-  // ADD_TAG,
-  // ADD_TAG_TO_TAGS,
-  // ADD_TAGS_TO_NOTE,
-  // CHANGE_TAG_IDS
+  FETCHNOTETAGS,
+  // REGISTER,
+  // LOGIN,
+  // LOGOUT
 } from "../actions/actions";
 
 const initialState = {
@@ -28,8 +27,9 @@ const initialState = {
   tag: {},
   newTag: "",
   noteTags: [],
-  username: "",
-  password: ""
+  registered: false,
+  loggedIn: false,
+  user: {}
 };
 
 export default (state = initialState, action) => {
@@ -105,37 +105,26 @@ export default (state = initialState, action) => {
       return {
         ...state
       };
-
-
-    // case ADD_TAG:
-    //   return {
-    //     ...state,
-    //     tag: {tagText: action.payload, id: action.id, date: action.date}
-    //   }
-    // case ADD_TAG_TO_TAGS:
-    //   return {
-    //       ...state,
-    //       newTags: [...state.newTags, state.tag]
-    //   }
-
-    // case CHANGE_TAG_IDS:
-    //   return {
-    //     ...state,
-    //     newTags: state.newTags.map(tag => {
-    //         return {...tag, id: action.payload}
-    //       })
-    //   }
-
-    // case ADD_TAGS_TO_NOTE:
-    //   return {
-    //       ...state,
-    //       // notes: state.notes.map(note => {
-    //       //     return note._id === action.payload ? {...note, tags: state.tags} : note;
-    //       // }),
-    //       tags: [...state.tags, ...state.newTags],
-    //       newTags: [],
-    //       tag: ""
-    //   }
+    // case REGISTER:
+    // return {
+    //   ...state,
+    //   registered: true,
+    //   loggedIn: true,
+    //   user: action.payload
+    // }
+    // case LOGIN:
+    // return {
+    //   ...state,
+    //   loggedIn: true,
+    //   user: action.payload
+    // }
+    // case LOGOUT:
+    // return {
+    //   ...state,
+    //   registered: false,
+    //   loggedIn: false,
+    //   user: {}
+    // }
     default:
       return state;
   }

@@ -7,6 +7,8 @@ import Notes from "./components/Notes";
 import CreateNote from "./components/CreateNote";
 import NotePage from "./components/NotePage";
 import EditNote from "./components/EditNote";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 import "./styles/App.css";
 
@@ -23,6 +25,8 @@ const App = () => {
         path="/note/:id/edit"
         render={props => <EditNote {...props} />}
       />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/login" component={Login} />
     </div>
   );
 };

@@ -6,8 +6,8 @@ import {
   fetchNotes,
   fetchNote,
   addNote,
-  addTag,
-  deleteTag
+  // addTag,
+  // deleteTag
 } from "../actions/actions";
 
 import "../styles/App.css";
@@ -52,10 +52,10 @@ class CreateNote extends React.Component {
       );
   };
 
-  newTagHandler = () => {
-    this.props.addTag(this.state.tag);
-    this.setState({ tag: ""});
-  };
+  // newTagHandler = () => {
+  //   this.props.addTag(this.state.tag);
+  //   this.setState({ tag: ""});
+  // };
 
   deleteTagHandler = (id) => {
     this.props.deleteTag(id);
@@ -64,7 +64,10 @@ class CreateNote extends React.Component {
   render() {
     return this.state.added ? (
       <Redirect to="/" />
-    ) : (
+    ) 
+    // : this.props.registered || this.props.loggedIn
+    // ?
+     : (
       <div className="componentContainer">
         <h2>Create New Note:</h2>
         <form onSubmit={this.newNoteHandler} method="post">
@@ -89,7 +92,7 @@ class CreateNote extends React.Component {
           </button>
         </form>
 
-        <div className="tagInput">
+        {/* <div className="tagInput">
           <div className="inputBox">
             <input
               type="text"
@@ -111,9 +114,12 @@ class CreateNote extends React.Component {
           {this.state.tags.map(tag => (
             <span key={tag.id}><div onClick={this.deleteTagHandler}>x</div>{`#${tag.tag},`}</span>
           ))}
-        </div>
+        </div> */}
       </div>
-    );
+    )
+    // : (<div className="componentContainer">
+    //   <div>Please register or login</div>
+    // </div>)
   }
 }
 
@@ -125,10 +131,12 @@ const mapStateToProps = state => {
     newNote: state.newNote,
     note: state.note,
     noteTags: state.noteTags,
-    newTag: state.newTag
+    newTag: state.newTag,
+    registered: state.registered,
+    loggedIn: state.loggedIn
   };
 };
 export default connect(
   mapStateToProps,
-  { fetchNotes, fetchNote, addNote, addTag, deleteTag }
+  { fetchNotes, fetchNote, addNote }
 )(CreateNote);
