@@ -1,58 +1,68 @@
-import React from 'react';
-import {withRouter} from 'react-router-dom';
-import {Navbar, NavItem, NavbarBrand} from 'reactstrap';
+import React from "react";
+import { withRouter } from "react-router-dom";
+import { Navbar, NavItem, NavbarBrand } from "reactstrap";
 
 class NavBar extends React.Component {
   viewNotes = () => {
-    this.props.history.push ('/notes');
+    this.props.history.push("/notes");
   };
   createNewNote = () => {
-    this.props.history.push ('/create');
+    this.props.history.push("/create");
   };
   logout = () => {
-    localStorage.removeItem ('jwt');
-    localStorage.removeItem ('id');
-    this.props.history.push ('/login');
-    localStorage.setItem ('location', '/login');
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("id");
+    this.props.history.push("/login");
+    localStorage.setItem("location", "/login");
   };
   redirectToLogIn = () => {
-    if (localStorage.getItem ('location') === '/signup') {
-      this.props.history.push ('/login');
-      localStorage.setItem ('location', '/login');
+    if (localStorage.getItem("location") === "/signup") {
+      this.props.history.push("/login");
+      localStorage.setItem("location", "/login");
     }
   };
   redirectToSignUp = () => {
-    if (localStorage.getItem ('location') === '/login') {
-      this.props.history.push ('/signup');
-      localStorage.setItem ('location', '/signup');
+    if (localStorage.getItem("location") === "/login") {
+      this.props.history.push("/signup");
+      localStorage.setItem("location", "/signup");
     }
   };
-  render () {
+
+  render() {
+    const location = localStorage.getItem("location");
     return (
       <Navbar className="navigation" color="light" light expand="md">
-        <NavbarBrand className="link ml-3" onClick={this.viewNotes}>
+        <NavbarBrand
+          className="link ml-3"
+          onClick={
+            location !== "/signup" && location !== "/login" ? (
+              this.viewNotes
+            ) : null
+          }
+        >
           Notes
         </NavbarBrand>
-        {localStorage.getItem ('location') === '/signup' ||
-          localStorage.getItem ('location') === '/login'
-          ? <div>
-              <NavItem className="link mr-5" onClick={this.redirectToLogIn}>
-                Log In
-              </NavItem>
-              <NavItem className="link mr-3" onClick={this.redirectToSignUp}>
-                Sign Up
-              </NavItem>
-            </div>
-          : <div>
-              <NavItem className="link mr-5" onClick={this.createNewNote}>
-                New Note
-              </NavItem>
-              <NavItem className="link mr-3" onClick={this.logout}>
-                Log Out
-              </NavItem>
-            </div>}
+        {location === "/signup" || location === "/login" ? (
+          <div>
+            <NavItem className="link mr-5" onClick={this.redirectToLogIn}>
+              Log In
+            </NavItem>
+            <NavItem className="link mr-3" onClick={this.redirectToSignUp}>
+              Sign Up
+            </NavItem>
+          </div>
+        ) : (
+          <div>
+            <NavItem className="link mr-5" onClick={this.createNewNote}>
+              New Note
+            </NavItem>
+            <NavItem className="link mr-3" onClick={this.logout}>
+              Log Out
+            </NavItem>
+          </div>
+        )}
       </Navbar>
     );
   }
 }
-export default withRouter (NavBar);
+export default withRouter(NavBar);
