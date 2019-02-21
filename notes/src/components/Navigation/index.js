@@ -44,6 +44,8 @@ const TopBarAuth = () => (
       <LinkContainer to={ROUTES.ACCOUNT}>
         <Nav.Link>Account</Nav.Link>
       </LinkContainer>
+    </Nav>
+    <Nav>
       <SignOutButton />
     </Nav>
   </Navbar>

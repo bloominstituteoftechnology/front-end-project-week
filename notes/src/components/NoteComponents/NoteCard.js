@@ -63,13 +63,13 @@ const NoteCard = ({ note }) => {
               Edit
             </Button>
           </Link>
-          <Button
+          {/* <Button
             variant="link"
-            onClick={deleteNotes}
+            onClick={() => deleteNotes}
             style={{ opacity: "0.4" }}
           >
             Delete
-          </Button>
+          </Button> */}
         </ButtonContainer>
       </Card.Body>
     </NoteContainer>
