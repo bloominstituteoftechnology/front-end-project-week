@@ -2,24 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addNote } from '../../actions'
 import { Button, Input } from 'reactstrap'
-import styled from 'styled-components'
+import { CreateViewContainer, CreateViewStyle, CreateText} from './styled-components/CreateViewStyledComponents'
 
-const CreateViewContainer = styled.div `
-display: flex ;
-flex-direction: column ;
-${'' /* justify-content: center ; */}
-margin: 0 auto ;
-`
-
-const CreateViewStyle = styled.div `
- display: flex;
- flex-direction: column;
-`
-const CreateText = styled.span `
-font-family: 'Archivo Black';
-font-size: 2rem ;
-margin-bottom: 15% ;
-`
 class CreateNote extends Component {
  constructor(){
   super()

@@ -1,23 +1,9 @@
 import React, { Component } from 'react'
 import { Button, Input} from 'reactstrap'
-import styled from 'styled-components'
 import { fetchNote, editNote } from '../../actions/'
 import { connect } from 'react-redux'
+import { EditViewStyle, InputStyles } from './styled-components/EditViewStyledComponents'
 
-const EditViewStyle = styled.div `
- display: flex;
- flex-direction: row;
- width: 75% ;
-`
-
-const InputStyles = styled.div `
- display: flex;
- flex-direction: column;
- justify-content: center ;
- width: 100% ;
- height: 200px ;
- align-items: flex-start ;
-`
 class EditView extends Component {
  constructor(props){
   super(props)

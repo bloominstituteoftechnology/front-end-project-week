@@ -1,19 +1,9 @@
 import React from 'react'
 import Note from './Note'
-import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { fetchNotes } from '../../actions/index'
 import { withRouter } from 'react-router'
-
-const NoteContainerStyle = styled.div `
-display: flex ;
- flex-direction: row ;
- flex-wrap: wrap ;
- margin: 5% 5% 5% 5%;
- padding: 5%;
- width: 80% ;
- justify-content: space-between ;
-`
+import { NoteContainerStyle } from './styled-components/NoteContainerStyledComponents'
 
 class NoteContainer extends React.Component {
 

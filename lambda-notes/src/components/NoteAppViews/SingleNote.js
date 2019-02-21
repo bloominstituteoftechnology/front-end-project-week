@@ -1,16 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import { fetchNote, getNote } from '../../actions'
 import { fetchNote, deleteNote } from '../../actions/index'
 import { withRouter, Link } from 'react-router-dom'
-import styled from 'styled-components'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
-
-const SingleNoteTitle = styled.div `
-font-family: 'Archivo Black';
-font-size: 1.6rem ;
-`
+import { SingleNoteTitle } from './styled-components/SingleNoteStyledComponents'
 
 class SingleNote extends React.Component {
 
