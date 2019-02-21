@@ -3,6 +3,16 @@ import './Notes.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import { connect } from "react-redux";
+
+// import {
+//   getNotes,
+//   addNote,
+//   updateNote,
+//   deleteNote  
+// } from "../Actions";
+
+
 class DeleteNote extends Component {
   deleteNote = (e) => {
       e.preventDefault();

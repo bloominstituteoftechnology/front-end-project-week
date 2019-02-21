@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Notes.css';
-import axios from 'axios';
+//import axios from 'axios';
+import { connect } from "react-redux";
+import { addNote } from "../Actions";
 
 class CreateNote extends Component {
 constructor(props) {
@@ -15,28 +17,38 @@ inputChangehandler = (e) => {
   this.setState({
       [e.target.name]: e.target.value
   })
-}
+} 
+//React part:
 
-addNew = (e) => {
-  e.preventDefault();
-  axios
-      .post(`https://fe-notes.herokuapp.com/note/create`,this.state)       
+
+// addNew = (e) => {
+//   e.preventDefault();
+//   axios
+//       .post(`https://fe-notes.herokuapp.com/note/create`,this.state)       
       
-      .then((response) => {
+//       .then((response) => {
        
-        this.props.addNoteOnServer(response.data)
-    })
-      .catch(err => console.log('Error', err));
-    this.setState({
-      title:'',
-      textBody:''
-    })
-  }
+//         this.props.addNoteOnServer(response.data)
+//     })
+//       .catch(err => console.log('Error', err));
+//     this.setState({
+//       title:'',
+//       textBody:''
+//     })
+//   }
+
+
+handleSubmit = event => {
+  event.preventDefault();
+  this.props.addNote(this.state);
+  this.setState({ title:'', textBody:'' })
+
+}
 render() {
   return (
     <div className="contentContainer">
         <h2>Create New Note:</h2>
-      <form className="form" onSubmit={this.addNew}>
+      <form className="form" onSubmit={this.handleSubmit}>
         <textarea className="title" 
               type='text' 
               name='title'
@@ -55,5 +67,5 @@ render() {
     </div>
   )}
 }
-export default CreateNote;
+export default connect(null, {addNote})(CreateNote);
 
