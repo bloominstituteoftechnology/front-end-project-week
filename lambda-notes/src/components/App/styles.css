@@ -1,0 +1,26 @@
+h1, h2, h3, h4, h5 {
+    font-family: "Roboto", sans-serif;
+    color: #4a4a4a;
+}
+
+.App {
+    display: flex;
+    flex-direction: row;
+    width: 980px;
+    margin: 20px auto;
+    font-family: "Raleway", sans-serif;
+    min-height: 400px;
+    height: 100%;
+}
+
+h1 {
+    margin-left: 7.5%;
+    font-size: 40px;
+    line-height: 40px;
+}
+
+a {
+    color: #4a4a4a;
+    text-decoration: none;
+}
+
