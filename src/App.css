@@ -1,0 +1,117 @@
+body {
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 1100px;
+  margin: 0 auto;
+}
+.sidebar {
+  background-color: #d3d2d3;
+  font-size: 15px;
+  line-height: 0.2;
+}
+.sidebarbutton {
+  text-align: center;
+  padding: 20px 40px;
+  color: white;
+  background-color: #24b8bd;
+  margin: 15px;
+  text-decoration: none;
+}
+.navigation {
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+  width: 245px;
+}
+h1 {
+  margin: 25px;
+  color: #424242;
+  font-size: 35px;
+}
+.noteview {
+  display: flex;
+}
+.note {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 225px;
+  height: 200px;
+  margin: 10px;
+}
+.notetitle {
+  font-size: 15px;
+  border-bottom: 2px solid black;
+  margin-bottom: 0px;
+}
+.notelist {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.notetext {
+  margin: 0px 25px;
+}
+.viewnotebutton {
+  text-align: center;
+  padding: 5px 40px;
+  color: white;
+  background-color: #24b8bd;
+  margin: 35px;
+  text-decoration: none;
+}
+.display {
+  background-color: whitesmoke;
+  padding-left: 40px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+button {
+  text-align: center;
+  padding: 5px 40px;
+  color: white;
+  background-color: #24b8bd;
+  margin: 15px 35px;
+  text-decoration: none;
+}
+input {
+  border: 5px solid white;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+    0 0 16px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.1);
+  padding: 10px 40px;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 8px 10px 15px 10px;
+}
+.header {
+  margin-top: 35px;
+}
+.changebuttons {
+  display: flex;
+}
+.editbutton {
+    text-align: center;
+    padding: 5px 40px;
+    color: white;
+    background-color: #24b8bd;
+    margin: 15px 35px;
+    text-decoration: none;
+}
+.singlenote {
+  margin-left: 50px;
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  padding: 40px;
+}
+.modal {
+  margin: 60px;
+}
