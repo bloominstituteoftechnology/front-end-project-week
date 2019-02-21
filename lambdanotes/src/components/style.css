@@ -1,0 +1,189 @@
+/**************** NavigationPanel.js */
+.navContainer {
+
+    background-color: #D3D2D3;
+    color: #414141;
+    /* border: 1px solid #7B7B7C; */
+    height: 100vh;
+    text-align: left;
+    padding-top: 20px;
+}
+
+.navBtn {
+    background-color: #24B8BD;
+    border: none;
+    display: block;
+    margin: 20px auto;
+    width: 80%;
+    height: 35px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.navBtn:hover {
+    cursor: pointer;
+}
+.navContainer h1 {
+    margin: 0 10%;
+    
+}
+
+
+/******************* ViewNotes.js, NoteCard.js */
+.notesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px 5%;
+    border: 1px solid #7B7B7C;
+    
+}
+.notesContainer h3 {
+    margin-bottom: 20px;
+}
+.viewHeader {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+}
+.noteCard {
+    display: flex;
+    flex-direction: column;
+    width: 23%;
+    background: #FFFFFF;
+    border: 1px solid #414141;
+    padding: 0 4%;
+    margin-bottom: 20px;
+    color: #414141;
+ 
+}
+
+.noteContent h3 {
+    margin-bottom: 5px;
+    height: 65px;
+    border-bottom: 1px solid #414141;
+    text-align: left;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+.noteContent p {
+    font-size: 1.0em;
+    text-align: left;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    height: 10.8em;
+    line-height: 1.2em
+}
+
+
+
+.noteContent {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+}
+
+
+
+/*************** CreateNote.js, Edit.js */
+.createContainer, .editContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 4% 0;
+}
+
+input[name="title"] {
+    width: 53%;
+    margin: 10px 0 25px;
+}
+
+
+textarea {
+    width: 90%;
+    margin-bottom: 25px;
+}
+
+.createBtn, .editBtn {
+    width: 28%;
+    background-color: #24B8BD;
+    border: none;
+    height: 35px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/************* Note.js */
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav a {
+    color: #414141;
+    margin: 0 4% 0 1%;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.noteEnlarged {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 4%;
+}
+.noteEnlarged p {
+    text-align: left;
+}
+
+
+/* Delete.js */
+.modalDisplay{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.modalHide{
+    display: none;
+}
+.modalContent{
+    background: #FFFFFF;
+    max-width: 576px;
+    width: 100%;
+    margin: 160px auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #414141;
+    padding: 20px 0 35px;
+}
+
+
+.modalButtons{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.modalDelete, .modalCancel{
+    width: 28%;
+    background-color: #24B8BD;
+    border: none;
+    height: 35px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modalDelete {
+    background-color: #CA001A;
+}
+
+.modalCancel {
+    margin-left: 4%;
+}
+
+
