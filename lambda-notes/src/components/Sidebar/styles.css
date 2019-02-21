@@ -41,3 +41,7 @@
     background: white;
     color: #48c7cb;
 }
+
+.sidebar button:focus {
+    outline: 0;
+}

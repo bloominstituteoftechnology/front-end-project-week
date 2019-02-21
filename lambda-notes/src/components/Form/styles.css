@@ -13,7 +13,8 @@
     text-align: left;
     padding-left: 30px;
     padding-top: 50px;
-    min-height: 950px
+    min-height: 950px;
+    overflow: hidden;
 }
 
 .form-header {
@@ -33,10 +34,10 @@ input {
     font-size: 16px;
     width: 350px;
     height: 40px;
+    overflow: hidden;
 }
 
 .note-content {
-    width: 645px;
     width: 630px;
     height: 350px;
     margin-bottom: 20px;
@@ -47,6 +48,7 @@ input {
     font-size: 16px;
     padding-top: 15px;
     padding-left: 15px;
+    overflow: hidden;
 }
 
 .button {

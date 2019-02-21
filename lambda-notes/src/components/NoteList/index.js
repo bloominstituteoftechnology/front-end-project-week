@@ -1,81 +1,77 @@
-import React from "react";
-import { connect } from "react-redux";
-import { 
-    getNotes, 
-    // getNote, 
-    addNote, 
-    // deleteNote 
-} from "../../store/actions";
-import "./style.css";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import "./styles.css";
 
-class NoteList extends React.Component {
+const url = `https://fe-notes.herokuapp.com/note`;
+
+class NoteList extends Component {
     constructor(props) {
-    super(props);
+        super(props);
         this.state = {
-            tags: [],
-            title: "",
-            textBody: "",
-        }
-    }   
-
-    inputHandler = (event) => {
-        this.setState({
-        [event.target.name]: event.target.value
-        })
-    }
-
-    submitHandler = (e) => {
-    e.preventDefault();
-    this.props.fetchingNotes(this.state);
-    console.log("inside of this.submitHandler")
-    this.setState({
         notes: [],
-        loading: false,
-        error: false 
-        })
+        title: "",
+        textBody: "",
+        loading: true
+        };
     }
 
+    // LOGIC FOR RETREIVING NOTES FROM THE SERVER
+    getNotes = () => {
+        axios
+        .get(`${url}/get/all`)
+        .then(response => {
+            this.setState({ notes: response.data, loading: false });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    };
+
+    // LOGIC TO RENDER NOTES AFTER COMPONENT HAS MOUNTED
     componentDidMount() {
-        this.props.getNotes();
+        this.getNotes();
     }
 
     render() {
+        if (this.state.loading) {
         return (
-            <div className="note-list">
-                {this.props.loading ? (
-                    <h3>Loading notes...</h3>
-                ) : (
-                    <div className="notelist">
-                    <h1>Here's the notes, ya'll</h1>
-                    <h2>Your Notes:</h2>
-                        <div className="notelist-area">
-                        {this.props.notes.map( (note, index) => {
-                                return(
-                                    <div className="notelist-header" key={index}>
-                                        <div className="note">
-                                            <h3>{note.title}</h3>
-                                            <p>{note.textBody}</p>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                )}
-                {this.props.error !== "" ? <h4>{this.props.error}</h4> : null}
+            <div className="notelist">
+            <h2 className="loading-text">Loading Notes...</h2>
             </div>
+        );
+        }
+
+        return (
+        <div className="notelist">
+            <h2 className="notelist-header">Your Notes:</h2>
+            <div className="note-box-grid">
+            {this.state.notes.map(note => {
+                return (
+                <Link
+                    to={`/note/${note._id}`}
+                    key={note._id}
+                    className="note-box"
+                >
+                    <div className="note-preview-container">
+                    <h3>
+                        {note.title.length > 15
+                        ? note.title.slice(0, 15) + "..."
+                        : note.title}
+                    </h3>
+                    <p>
+                        {note.textBody.length > 150
+                        ? note.textBody.slice(0, 180) + "..."
+                        : note.textBody}
+                    </p>
+                    </div>
+                </Link>
+                );
+            })}
+            </div>
+        </div>
         );
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        notes: state.notes,
-        title: state.title,
-        textBody: state.textBody,
-        error: state.error,
-        loading: state.loading,
-    }
-};
-
-export default connect(mapStateToProps, { getNotes, addNote } )(NoteList);
+export default NoteList;

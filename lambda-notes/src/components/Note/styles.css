@@ -26,7 +26,7 @@
 .note-textBody {
     font-size: 20px;
     line-height: 26px;
-} 
+}
 
 .action-container {
     display: flex;
@@ -48,7 +48,7 @@
 }
 
 .overlay {
-    background-color: rgba(207, 207, 207, 0.80);
+    background-color: rgba(207, 207, 207, 0.8);
     position: fixed;
     top: 0;
     left: 0;
@@ -61,12 +61,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translate(65%, 120%);
     width: 530px;
     height: 175px;
     border: 1px solid #979797;
-    background: #FFFFFF;
+    background: #ffffff;
     z-index: 10;
+    position: absolute;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .modal:focus {
@@ -80,13 +84,17 @@
     margin-bottom: 20px;
 }
 
+.modal button:focus {
+    outline: none;
+}
+
 .modal-buttons button:first-child {
-    background: #D0021B;
+    background: #d0021b;
 }
 
 .modal-buttons button:first-child:hover {
     background: white;
-    color: #D0021B;
+    color: #d0021b;
     font-weight: 700;
     border: 2px solid #979797;
 }
