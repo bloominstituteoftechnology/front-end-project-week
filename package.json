@@ -10,6 +10,7 @@
     "react-csv": "^1.0.18",
     "react-dom": "^16.6.3",
     "react-draggable": "^3.0.5",
+    "react-images-upload": "^1.2.6",
     "react-modal": "^3.6.1",
     "react-redux": "^5.1.1",
     "react-scripts": "2.1.1",

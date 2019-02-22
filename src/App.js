@@ -30,6 +30,7 @@ class App extends React.Component {
       modalIsOpen: false,
       saveList: [],
       listId: "",
+      selectedNotes: [],
     };
   }
 
@@ -103,10 +104,12 @@ class App extends React.Component {
     this.setState(() => ({ viewPage: pageType, id: id }));
   }
 
-  listView = (id) => {
+  listView = (selectedNote) => {
+    selectedNote = JSON.stringify(selectedNote);
+    localStorage.setItem("selectedNotes", selectedNote);
     //e.preventDefault();
     const pageType = "listView"
-    this.setState(() => ({ viewPage: pageType, listId: id  }));
+    this.setState(() => ({ viewPage: pageType, selectedNotes: selectedNote  }));
   }
 
   render() {
@@ -170,7 +173,7 @@ class App extends React.Component {
           <div className="main-container">
             <Nav noteList={this.noteList} listView={this.listView} viewNote={this.props.viewNote} saveListName={this.props.saveListName} noteCreate={this.noteCreate} noteView={this.noteView} login={this.login} />
             <div className="main-display">
-              <ListView id={this.state.listId} lists={this.lists} selected={this.props.listSelected}  notes={this.state.notes} />
+              <ListView id={this.state.listId} lists={this.lists} selectedNotes={this.state.selectedNotes}  notes={this.state.notes} />
             </div>
           </div>
         </div>;

@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import "../css/note.css"
+import ImageUploader from 'react-images-upload';
 import { connect } from 'react-redux';
 import { createNote } from '../actions/notesActions';
 
 class NoteCreate extends Component {
+	constructor() {
+		super();
+		this.state = {
+			tags: '',
+			title: '',
+			textBody: '',
+			_id: 1234,
+			pictures: "",
+			users_id: 1
+		};
 
-	state = {
-		tags: '',
-		title: '',
-		textBody: '',
-		_id: 1234,
-		image: "",
-		users_id: 1
-	};
+		this.onDrop = this.onDrop.bind(this);
+
+	}
+
+	 //code added for the image uploader
+	 onDrop(picture) {
+		this.setState({
+			pictures: this.state.pictures.concat(picture),
+		});
+	}
 
 	handleInputChange = event => {
 		this.setState({ [event.target.name]: event.target.value });
@@ -21,7 +34,7 @@ class NoteCreate extends Component {
 	handleAddNote = (e) => {
 		e.preventDefault();
 		const { tags, title, textBody, _id, image, users_id } = this.state;
-		
+
 		this.props.createNote({ title, textBody, tags, _id, image, users_id });
 		//this.setState({ tags: '', title: '', textBody: '', _id: "", image: "", users_id: "" });
 		this.props.noteList(e);
@@ -29,7 +42,7 @@ class NoteCreate extends Component {
 
 	render() {
 		return (
-			
+
 			<form className="note-create-form" onSubmit={this.handleAddNote}>
 				<header className="note-create-header">Create New Note</header>
 				<input
@@ -46,9 +59,16 @@ class NoteCreate extends Component {
 					value={this.state.value}
 					onChange={this.handleInputChange}
 					name="textBody" />
+					 <ImageUploader
+                withIcon={true}
+                buttonText='Choose images'
+                onChange={this.onDrop}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+            />
 				<button className="save-button" type="submit" onSubmit={this.handleAddNote}>Save</button>
 			</form>
-		
+
 		);
 	}
 };

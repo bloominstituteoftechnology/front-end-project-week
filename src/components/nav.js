@@ -3,6 +3,7 @@ import "../css/note.css"
 import NavNoteList from "./navNoteList";
 import NavSaveList from "./navSaveList";
 import NavOpenList from "./navOpenList";
+
 import { getNotes } from '../actions/notesActions';
 import { viewNote } from '../actions/notesActions';
 import { createList } from '../actions/listsActions';
@@ -21,17 +22,21 @@ class Nav extends React.Component {
       enableList: false,
       enableSaveList: false,
       enableOpenList: false,
+      pictures: [],
       listItems: [],
       listSaveInput: "",
       selectedNotes: [],
       noteSelected: [],
     };
+   
   }
 
   componentDidMount() {
    // this.props.getNotes();
     this.props.getLists();
   }
+
+ 
 
   enableList = (e) => {
     e.preventDefault();
@@ -72,24 +77,39 @@ class Nav extends React.Component {
   }
 
   viewNoteList = (list, listId) => {
-    let selectedNotes = []; 
-    localStorage.setItem('localNotes', selectedNotes);  
+    let selectedNote = []; 
+   // localStorage.setItem('localNotes', selectedNotes);  
   const listJSON = JSON.parse(list);
-    //this.props.viewNote(listJSON[0]);
+   // localStorage.setItem('localNotes', listJSON);  
+  // already have note list
+    
     for (let i = 0; i < listJSON.length; i++) {                            // step through the array of note id's 
-      this.props.viewNote(listJSON[i]);
+   // console.log("i:", i)
+    for (let j = 0; j < this.props.notes.length; j++) {
+        if (listJSON[i] === this.props.notes[j].id) {
+                                                                        //so i have an object here.
+       //   console.log("this.props.notes[j]:", this.props.notes[j] )
+         //alert(this.props.notes[j]);
+          selectedNote.concat(this.props.notes[j]);
+        }
+
+     } 
+   //  this.setState({ priceLog: this.state.pricelog.concat(this.props.price)});
+     this.setState({ selectedNotes: selectedNote });
+    // localStorage.setItem('localNotes', selectedNotes); 
+    this.props.listView(selectedNote);
   }
       // selectedNotes.push(selectedNote);
       // console.log("noteSelected:", this.state.noteSelected)                   // api get single note
      //  selectedNotes.push(singleNote);                                    // save each note into an array
-     setTimeout(() => {
+   /*   setTimeout(() => {
       this.setState({ position: 1 });
-    }, 3000); 
+    }, 5000);  */
 
     //setTimeout();
 
-    let temp = localStorage.getItem('localNotes');
-    console.log("temp:", temp)
+   // let temp = localStorage.getItem('localNotes');
+  //  console.log("temp:", temp)
  //  console.log("selectedNotes:", selectedNotes)
 // this.setState({ selectedNotes: selectedNotes });
    // console.log("selectedNotes:", this.state.selectedNotes )
@@ -102,7 +122,8 @@ class Nav extends React.Component {
 
     const list = this.state.listItems;
     const listJSON = JSON.stringify(list); 
-  
+ 
+
       let newRec = {
         list: listJSON,
         notes_id: 1,
@@ -145,7 +166,8 @@ class Nav extends React.Component {
             <button  id="icon1" className="nav-button" value="noteCreate" onClick={this.enableList} name="noteCreate">{(this.state.enableList) ? <p>Disable Select</p> : <p>Quick Select</p>}</button>
           </li>
           <li className="nav-left-item">
-            <div id="icon2" className="nav-left-icon-1"></div>
+            <div id="icon2" className="nav-left-icon-2">
+           </div>
           </li>
         </ul>{(this.state.enableList) ?
           <ul className="nav-title-list">

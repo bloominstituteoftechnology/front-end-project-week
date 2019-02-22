@@ -81,7 +81,7 @@ export const updateNote = (newNote, id) => {
 }
 
 export const viewNote = (id) => {
- console.log("id:", id)
+// console.log("id:", id)
   return (dispatch) => {
     dispatch({ type: GETTING_SINGLE_NOTE })
   // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
@@ -90,8 +90,9 @@ export const viewNote = (id) => {
       .get(URL)
       .then(response => {
        let noteData = localStorage.getItem('localNotes');
-       noteData = response.data + noteData;
-       console.log("noteData:", noteData);
+       noteData.concat(response.data);
+     
+      // console.log("noteData:", noteData);
        localStorage.setItem('localNotes', noteData);
       // console.log("response.data", response.data); // selectedNotes.push(response.data);
         dispatch({ type: SINGLE_NOTE, payload: response.data })
