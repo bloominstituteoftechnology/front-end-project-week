@@ -11,6 +11,7 @@ class NoteList extends React.Component {
             pageNumber: 1,
             totalPages: 1,
             notesPerPage: 10,
+            searchText: '',
         }
     }
 
@@ -44,6 +45,12 @@ class NoteList extends React.Component {
         }
     }
 
+    search = e => {
+        this.setState({
+            searchText: e.target.value,
+        })
+    }
+
     render() {
         /* Pagination logic */
         let pageNotes = [];
@@ -62,18 +69,17 @@ class NoteList extends React.Component {
         else {
             pageNotes = this.props.notes;
         }
-        /* End Pagination logic */
 
         return (
             <>
             <h2>Your Notes: Page {this.state.pageNumber}</h2>
-            <label>Search: </label>
-            <input className='search-bar' name='search' type='text'></input>
+            <label onChange={this.search}>Search: </label>
+            <input className='search-bar' name='search' type='text' onChange={this.search}>{this.searchText}</input>
             <div className='note-list'>
                 {pageNotes.map(note => {                 
                     return (
                         <Link to={`/note/${note.id}`} className='card-link' key={note.id + note.title}> 
-                            <NoteCard key={note.id} note={note} />
+                            <NoteCard key={note.id} note={note} search={this.state.searchText}/>
                         </Link>
                     )
                 })}

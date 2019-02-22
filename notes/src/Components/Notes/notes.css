@@ -154,3 +154,7 @@
 .tags-selection {
     width: 150px;
 }
+
+.found {
+    background-color: yellow;
+}

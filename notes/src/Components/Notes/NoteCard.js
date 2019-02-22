@@ -9,7 +9,7 @@ const NoteCard = props => {
         content = content + '...';
     }
     return (
-        <div className='note-card'>
+        <div className={props.note.title.includes(props.search) ? 'note-card found' : 'note-card'}>
             <div className='note-card-title'>
                 {props.note.title}
             </div>

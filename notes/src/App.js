@@ -72,7 +72,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.notes);
     if (this.state.notes === undefined) {
       return (
         <div className="App">
