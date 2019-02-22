@@ -44,6 +44,7 @@ class EditForm extends React.Component {
         <Form onSubmit={this.updateNote}>
           <Form.Group controlId="formTitle">
             <Form.Label>Note Title</Form.Label>
+            <Form.Text className="text-muted">Please Enter A Title.</Form.Text>
             <Form.Control
               type="text"
               placeholder="Title..."
@@ -51,7 +52,6 @@ class EditForm extends React.Component {
               value={this.state.title}
               name="title"
             />
-            <Form.Text className="text-muted">Or maybe Sam Altman.</Form.Text>
           </Form.Group>
 
           <Form.Group controlId="formBody">
@@ -59,14 +59,17 @@ class EditForm extends React.Component {
             <Form.Control
               as="textarea"
               aria-label="With textarea"
-              placeholder=""
+              placeholder="Make Words Here..."
               style={{ height: "50vh", resize: "none", overflow: "auto" }}
               onChange={this.inputHandler}
               value={this.state.textBody}
               name="textBody"
             />
           </Form.Group>
-          <Button variant="info" type="submit" value="Update">
+          <Button 
+            type="submit" 
+            value="Update"
+            style={{ width: "75px", margin: "0 10px", background: "#373737" }}>
             Update
           </Button>
         </Form>

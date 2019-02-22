@@ -34,6 +34,7 @@ class NewForm extends React.Component {
         <Form>
           <Form.Group controlId="formTitle">
             <Form.Label>Note Title</Form.Label>
+            <Form.Text className="text-muted">Please Enter A Title.</Form.Text>
             <Form.Control
               type="text"
               placeholder="Title..."
@@ -58,6 +59,7 @@ class NewForm extends React.Component {
             variant="info"
             type="submit"
             onClick={this.createNote}
+            style={{ width: "75px", margin: "0 10px", background: "#373737" }}
           >
             Save
           </Button>

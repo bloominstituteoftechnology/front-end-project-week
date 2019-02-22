@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 import styled from 'styled-components'
 
@@ -11,17 +11,37 @@ const Container = styled.div`
 `
 
 const Body = styled.div`
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow:ellipsis;
-  width:150px;
+  overflow: hidden;
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
+  width: 113px;
+  height: 5rem;
   padding: 1%;
-  margin-bottom: 9%;
+  margin: 3% 0% 17% 0%;
+  background: #F4F4F4;
+  line-height: 5;
+  text-align: center;
 `
 
 const ButtonContainer = styled.div`
   display: flex;
+  margin: 0 auto;
+  justify-content: space-evenly;
 `
+const Button = styled.button`
+  border-radius: 10%;
+  border: none;
+  margin: 0% 1%;
+  color: white;
+  background-color: #373737;
+  width: 50px;
+`
+
+const Title = styled.div`
+  border-bottom: 1px solid black;
+  padding-bottom: .5rem
+`
+
 
 const NoteCard = ({ note }) => {
 
@@ -32,18 +52,17 @@ const NoteCard = ({ note }) => {
           to={`note/${note.id}`}
           style={{ textDecoration: "none", color: "black" }}
         >
-          <div>{note.title}</div>
+          <Title>{note.title}</Title>
         </Link>
-        <hr />
         <Body>{note.textBody}</Body>
         <ButtonContainer>
           <Link to={`/note/${note.id}/edit`} style={{ color: "black" }}>
-            <Button variant="info" style={{ width: "75px" }}>
+            <Button>
               Edit
             </Button>
           </Link>
           <Link to={`note/${note.id}`} style={{ color: "black" }}>
-            <Button variant="info" style={{ width: "75px" }}>
+            <Button>
               View
             </Button>
           </Link>

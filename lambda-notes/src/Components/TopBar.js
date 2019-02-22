@@ -8,13 +8,15 @@ import styled from "styled-components";
 const Header = styled.div`
 display: flex;
 flex-direction: collum;
+background-color: #DCD0C0;
+height: 100%;
 `
 
 export default class TopBar extends Component {
   render() {
     return (
       <Header>
-        <Navbar bg="light" variant="light">
+        <Navbar>
           <Navbar.Brand>
             <h1>Lambda Notes</h1>
           </Navbar.Brand>

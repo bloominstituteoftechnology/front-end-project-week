@@ -65,7 +65,9 @@ class Note extends React.Component {
 
           <div>
             <Link to={`/note/${note.id}/edit`} style={{ color: "black" }}>
-              <Button style={{ marginRight: "20px", width: "75px" }}>
+              <Button 
+                variant="info" 
+                style={{ marginRight: "10px", width: "75px", background: "#373737" }}>
                 Edit
               </Button>
             </Link>
