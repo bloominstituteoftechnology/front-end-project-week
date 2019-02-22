@@ -240,7 +240,7 @@ strong {
 }
 .notes-list a {
 	width: 20%;
-	margin: 2.5%; 
+	margin: 2.5%;
 }
 .notes-list .note-preview {
 	display: flex;
@@ -361,10 +361,11 @@ form .button {
 	color: #24B8BD;
 }
 
-.note-container p {
+.note-container span {
 	font-family: 'Raleway', sans-serif;
 	white-space: pre-wrap;
 	line-height: 1.7;
+	font-size: 1.6rem;
 }
 
 .modal {
