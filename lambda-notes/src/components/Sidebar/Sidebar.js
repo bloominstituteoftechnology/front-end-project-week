@@ -5,18 +5,19 @@ import { H1, Div, ContainerStyle } from './styled-components/SidebarStyledCompon
 
 const Sidebar = props => {
  return (
-      <ContainerStyle>
-       <H1>Duly Noted</H1>
-       <Link to="/">
-       <Div>
-       <Button color="info">
+  <></>
+      // <ContainerStyle>
+      //  <H1>Duly Noted</H1>
+      //  <Link to="/">
+      //  <Div>
+      //  <Button color="info">
        
-       View Your Notes.</Button></Div></Link>
-       {' '}
-       <Link to="/create"><Button color="info">
-       <Div>
-       Add Note +</Div></Button></Link>
-      </ContainerStyle>
+      //  View Your Notes.</Button></Div></Link>
+      //  {' '}
+      //  <Link to="/create"><Button color="info">
+      //  <Div>
+      //  Add Note +</Div></Button></Link>
+      // </ContainerStyle>
     )
 }
 
