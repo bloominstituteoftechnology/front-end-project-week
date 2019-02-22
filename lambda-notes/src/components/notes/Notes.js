@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import './Notes.css';
 import Note from './Note';
 
-// const URL = 'https://fe-notes.herokuapp.com/note';
-const URL = 'https://morning-tundra-78343.herokuapp.com/note';
+const URL = 'https://fe-notes.herokuapp.com/note';
+// const URL = 'https://morning-tundra-78343.herokuapp.com/note';
 
 export default class Notes extends Component {
     constructor(props) {
@@ -35,7 +35,7 @@ export default class Notes extends Component {
                 <div className="all-notes">
                     {this.state.notes.map(note => (
                         // <Link key={note._id} to={`/note/${note._id}`} className="card-link">
-                        <Link key={note.id} to={`/note/${note.id}`} className="card-link">
+                        <Link key={note._id} to={`/note/${note._id}`} className="card-link">
                             <Note note={note} />
                         </Link>
                     ))}

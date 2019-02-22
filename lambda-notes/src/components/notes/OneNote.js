@@ -30,8 +30,8 @@ const MyButton = styled(Button)`
     margin-top: 0;
 `;
 
-// const URL = 'https://fe-notes.herokuapp.com/note';
-const URL = 'https://morning-tundra-78343.herokuapp.com/note';
+const URL = 'https://fe-notes.herokuapp.com/note';
+// const URL = 'https://morning-tundra-78343.herokuapp.com/note';
 
 class OneNote extends Component {
     constructor(props) {

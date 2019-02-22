@@ -3,8 +3,8 @@ import axios from 'axios';
 
 import './Notes.css';
 
-// const URL = 'https://fe-notes.herokuapp.com/note';
-const URL = 'https://morning-tundra-78343.herokuapp.com/note';
+const URL = 'https://fe-notes.herokuapp.com/note';
+// const URL = 'https://morning-tundra-78343.herokuapp.com/note';
 
 export default class UpdateNote extends Component {
     constructor(props) {

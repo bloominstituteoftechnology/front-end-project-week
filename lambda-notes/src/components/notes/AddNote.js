@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import './Notes.css';
 import axios from 'axios';
 
-// const URL = 'https://fe-notes.herokuapp.com/note';
-const URL = 'https://morning-tundra-78343.herokuapp.com/note';
+const URL = 'https://fe-notes.herokuapp.com/note';
+// const URL = 'https://morning-tundra-78343.herokuapp.com/note';
 
 class AddNote extends Component {
     constructor(props) {
