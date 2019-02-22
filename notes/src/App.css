@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    max-width: 900px;
+    margin: 0 auto;
+}
+body{
+    background-color: white;
+}
+.container{
+    height: 100%;
+    background-color: white;
+    border: 1px solid silver;
+}
+.App{
+    display: flex;
+    height: 1200px;
+}
+.side-bar{
+    width: 200px;
+    text-align: center;
+    background: darkgray;
+    margin-left: 0;
+    border-right: 1px solid rgb(107, 107, 107);
+    
+}
+.side-button{
+    height: 35px;
+    width: 140px;
+    text-align: center;
+    color: white;
+    background: rgb(15, 145, 150);
+    margin: 5px 0;
+    font-weight: bold;
+    border: 1px solid rgb(107, 107, 107);
+    font-size: 12px;
+}
+.home-title{
+    margin:25px;
+    margin-top: 50px;
+}
+.home-body{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+
+.lambda-notes{
+    text-align: left;
+    margin: 15px;
+    color: dimgray;
+}

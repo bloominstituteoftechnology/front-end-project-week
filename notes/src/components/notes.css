@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.container{
+    max-width: 880px;
+}
+.main-view{
+    width: 100%;
+    background: lightgray;
+}
+.home-body{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+.note{
+    height: 160px;
+    border: 1px solid dimgray;
+    width: 160px;
+    margin: 5px;
+    background-color: white;
+}
+.note-title{
+    border-bottom: 1px solid dimgray;
+    width: 85%;
+    text-align: left;
+    color: black;
+    text-decoration: underline white;
+    margin-top: 5px ;
+    padding-bottom: 5px;
+    overflow: hidden;
+    text-overflow: '';
+    white-space: nowrap;
+    font-size: 15px;
+}
+.note-body{
+    width: 85%;
+    overflow: hidden;
+    text-overflow: '';
+    margin-top: 5px;
+    text-align: left;
+    height: 110px;
+    color: black;
+    text-decoration: underline white;
+    font-size: 13px;
+}
+.home-title{
+    margin:25px 15px;
+    margin-top: 50px;
+    color: dimgray;
+}
+.note-page-title{
+    margin:25px;
+    margin-top: 50px;
+}
+.note-page-body{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    color: #414141;
+}
+.note-full-body{
+    margin-left: 10px;
+    width: 725px;
+    color: #414141;
+}
