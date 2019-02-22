@@ -29,7 +29,7 @@ class NoteView extends Component {
         <button className="delete-button" onClick={() => this.props.noteDelete(this.props.id)}>delete</button></div>
         <div className="note-name">{this.props.noteSelected.title}</div>
         <div className="note-body">{this.props.noteSelected.textBody}</div>
-      </div>
+       </div>
     )
   };
 }

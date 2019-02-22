@@ -8,24 +8,29 @@ class NoteCreate extends Component {
 	constructor() {
 		super();
 		this.state = {
-			tags: '',
 			title: '',
 			textBody: '',
+			tags: '',
 			_id: 1234,
 			pictures: "",
-			users_id: 1
+			users_id: 1,
+			pictures: "",
+			pictureDataURLs: "",
 		};
 
 		this.onDrop = this.onDrop.bind(this);
 
 	}
 
-	 //code added for the image uploader
-	 onDrop(picture) {
-		this.setState({
-			pictures: this.state.pictures.concat(picture),
-		});
-	}
+	//code added for the image uploader
+	onDrop(pictureFiles, pictureDataURLs) {
+		console.log('pictureFiles', pictureFiles);
+		console.log('pictureDataURLs', pictureDataURLs);
+		
+        this.setState({
+            pictures: pictureFiles, pictureDataURLs: pictureDataURLs
+        });
+    }
 
 	handleInputChange = event => {
 		this.setState({ [event.target.name]: event.target.value });
@@ -33,10 +38,10 @@ class NoteCreate extends Component {
 
 	handleAddNote = (e) => {
 		e.preventDefault();
-		const { tags, title, textBody, _id, image, users_id } = this.state;
+		const { title, textBody, tags, _id, pictures, pictureDataURLs, users_id } = this.state;
 
-		this.props.createNote({ title, textBody, tags, _id, image, users_id });
-		//this.setState({ tags: '', title: '', textBody: '', _id: "", image: "", users_id: "" });
+		this.props.createNote({ title, textBody, tags, _id, pictures, pictureDataURLs, users_id });
+		this.setState({ tags: '', title: '', textBody: '', _id: "", pictures: "", pictureDataURLs: "", users_id: "" });
 		this.props.noteList(e);
 	};
 
@@ -59,14 +64,15 @@ class NoteCreate extends Component {
 					value={this.state.value}
 					onChange={this.handleInputChange}
 					name="textBody" />
-					 <ImageUploader
-                withIcon={true}
-                buttonText='Choose images'
-                onChange={this.onDrop}
-                imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                maxFileSize={5242880}
-            />
-				<button className="save-button" type="submit" onSubmit={this.handleAddNote}>Save</button>
+				<div className="image-container">
+					<ImageUploader
+						withIcon={true}
+						buttonText='Choose images'
+						onChange={this.onDrop}
+						imgExtension={['.jpg', '.gif', '.png', '.gif']}
+						maxFileSize={5242880}
+					/>
+				<button className="save-button" type="submit" onSubmit={this.handleAddNote}>Save</button></div>
 			</form>
 
 		);

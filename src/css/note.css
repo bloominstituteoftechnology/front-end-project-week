@@ -210,19 +210,19 @@ li {
 
 .note-card {
     border: 0px solid rgb(166, 166, 166);
-    height: 300px;
+    height: 315px;
     color: black;
-    width: 295px;
+    width: 312px;
     margin-bottom: 38px;
     background-color: white;
-     background-image: url('../graphics/note7.png'); 
+     background-image: url('../graphics/note11.png'); 
 }
 
 .note-card:hover {
     /* background-image: url('../graphics/note1.png'); */
      transform: scale(1.1, 1.1); 
-     animation: scale .5s 1; 
-     transform: scale(1.08, 1.08); 
+     animation: scale .3s 1; 
+     transform: scale(1.06, 1.06); 
      animation-direction: alternate; 
 }
 
@@ -231,7 +231,7 @@ li {
       transform: scale(1, 1);
     }
     100% {
-      transform: scale(1.1, 1.1);
+      transform: scale(1.07, 1.07);
     }
   }
 .note {
@@ -244,27 +244,31 @@ li {
 }
 
 .title {
-    border: 2px solid white;
+    border: 1px solid rgb(151, 151, 151);
    /*  background-color: white; */
     color: rgb(0, 0, 0);
-    height: 58px;
+    height: 46px;
     line-height: 20px;
     padding-top: 14px;
     font-weight: bold;
     overflow: hidden;
     white-space: nowrap;
+    margin-top: 34px;
     font-size: 24px;
     padding-left: 4px;
-    border-bottom-color: rgb(151, 151, 151);
+    border-radius: 10px;
+    border-bottom-color: white;
 }
 
 .textBody {
     line-height: 28px;
-    padding-top: 10px;
+    padding-top: 4px;
     font-size: 22px;
     line-height: 32px;
     overflow: hidden;
-    height: 200px;
+    height: 196px;
+    margin-top: 6px;
+    /* border: 2px solid blue; */
 }
 
 .modal-message {
@@ -466,4 +470,25 @@ li {
 .save-list-button:active,
 .open-button:active {
     color: red;
+}
+
+.image-container {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    /* margin-left: 50%; */
+   /*  margin-right: auto; */
+   /*  border: 2px solid blue; */
+
+}
+
+.save-button {
+display: inline-block;
+}
+
+.saved-picture {
+    border: 2px solid blue;
+    width: 200px;
+    height: 200px;
 }
