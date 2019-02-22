@@ -63,7 +63,7 @@ export const createNote = note => {
 export const updateNote = note => {
   return dispatch => {
     dispatch({ type: UPDATING });
-    console.log(note);
+
     axios
       .put(`${URL}api/notes/${note.id}/edit`, { ...note })
       .then(res => {

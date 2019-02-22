@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./note.css";
 import URL from "../../utils/URL";
+import Tags from "../Tags";
 
 class Note extends React.Component {
   constructor(props) {
@@ -14,9 +15,10 @@ class Note extends React.Component {
     };
   }
   componentDidMount() {
-    axios
-      .get(`${URL}api/notes/${this.props.match.params.id}`)
-      .then(res => this.setState({ note: res.data }));
+    axios.get(`${URL}api/notes/${this.props.match.params.id}`).then(res => {
+      console.log(res, this.props.match.params.id);
+      this.setState({ note: res.data });
+    });
   }
 
   delete = () => {
@@ -40,6 +42,7 @@ class Note extends React.Component {
         </header>
         <hr className="hr" />
         <p>{this.state.note.textBody}</p>
+        <Tags tags={this.state.note ? this.state.note.tags : []} />
       </article>
     );
   }
