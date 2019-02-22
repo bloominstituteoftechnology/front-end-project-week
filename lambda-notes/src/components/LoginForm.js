@@ -1,27 +1,35 @@
 import React from 'react'
-import { Input, Form } from 'reactstrap';
+import { Input, Form, Button } from 'reactstrap';
 
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            password: ''
+            user: {
+                username: '',
+                password: ''
+            }
         }
+    }
+    loginHandler = e => {
+        e.preventDefault();
+        this.props.loginUser(this.state.user);
+        console.log(e);
     }
     render() {
         return (
-            <Form>
+            <Form onSubmit={this.loginHandler}>
                 <Input 
                     placeholder="Username"
-                    value={this.state.username}
+                    value={this.state.user.username}
                     name="username"
                 />
                 <Input 
                     placeholder="Password"
-                    value={this.state.password}
+                    value={this.state.user.password}
                     name="password"
                 />
+                <Button type="submit" color="info">Login</Button>
             </Form>
         )
     }
