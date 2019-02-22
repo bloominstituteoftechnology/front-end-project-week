@@ -6,17 +6,13 @@ import {Route} from 'react-router-dom';
 import  CreateNew  from './components/CreateNew';
 import  NoteView   from './components/NoteView'; 
 import axios from 'axios'
-import { Edit } from './components/Edit.js'
+import  Edit  from './components/Edit.js'
 
 class App extends Component {
   constructor(){
     super(); 
     this.state = {
       notes: [],
-      newId: 3,
-      id: null,
-      title: '',
-      details: ''
     }  
   }
 
@@ -52,12 +48,23 @@ class App extends Component {
       });
   };
 
-  updateNote = id => {
+
+
+  updateHandler = (title, details, id) => {
+    this.setState({
+      notes: [ ...this.state.notes,
+        {title:title, details: details}
+      ]
+    })
+    let updatedNote = {
+      title: title,
+      details: details,
+    }
     axios
-      .put(`http://localhost:4000/notes/${id}`, this.state.newNote)
+      .put(`http://localhost:4000/notes/${id}`, updatedNote)
       .then(response =>
         this.setState({
-          newNote: { title: "", details: "" }
+          updatedNote: { title: "", details: "" , id: null}
         })
       )
       .catch(error => {
@@ -65,14 +72,29 @@ class App extends Component {
       });
   };
 
-    newNote = (newtitle, newDetails) => {
+
+    newNote = (newtitle, content) => {
       this.setState({
         notes:[
           ...this.state.notes, 
-          {title: newtitle, details: newDetails}
+          {title: newtitle, details: content}
         ],
-       // newId: this.state.newId + 1
       })
+      const newNote = {
+        title: newtitle,
+        details: content,
+        
+      }
+      axios.post('http://localhost:4000/notes', newNote)
+      .then( response => {
+          this.setState({
+            newNote: {
+            title: '',
+            details: '',
+            }
+          })
+        })
+        .catch( error => console.log( "we've encountered an error"))
     }
 
   render() {
@@ -96,7 +118,7 @@ class App extends Component {
                 notes={this.state.notes}
                 id={this.state.newId}    
                 newNote={this.newNote}
-                post={this.inputChange}
+                
               />)}
           /> 
 
@@ -113,7 +135,7 @@ class App extends Component {
               notes={this.state.notes}
               inputChange={this.inputChange}
               newNote={this.newNote}
-              updateNote={this.updateNote}
+              updateHandler={this.updateHandler}
             />)}
           />
         </div> 

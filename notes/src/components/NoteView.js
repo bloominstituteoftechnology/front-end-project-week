@@ -63,7 +63,7 @@ export default class NoteView extends React.Component  {
           </div> 
           <h3>{this.state.note.title}</h3> 
           <div className="note-textBody"> 
-            <h5>{this.state.note.textBody}</h5> 
+            <h5>{this.state.note.details}</h5> 
           </div> 
         </div>  
       )

@@ -10,5 +10,5 @@ export const Note = (props) => {
 				color: "black"
 			}
 		}
-		to = {`/NoteView/${props.id}`}> {props.note.title} </Link><br/><hr/><br/> </h4><p>{props.note.details}</p>  </div> )
+		to = {`/NoteView/${props.id}`}> {props.title} </Link><br/><hr/><br/> </h4><p>{props.details}</p>  </div> )
 }
