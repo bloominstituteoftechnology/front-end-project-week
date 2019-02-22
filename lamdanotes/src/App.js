@@ -76,13 +76,65 @@ class App extends Component {
     })
   }
 
+  handleAscendingSort = () => {
+    //map through state to create a new array (keeps us from mutating state) then sort through the new array to compare each title and sort in acsending order.
+    let nArr = this.state.notes.map(arr => {return arr}).sort((a,b) => {
+
+        const titleA = a.title.toUpperCase();
+        const titleB = b.title.toUpperCase();
+
+        let comparison = 0;
+
+        if(titleA > titleB) {
+          comparison = 1
+        } else if (titleA < titleB) {
+          comparison = -1;
+        }
+        return comparison
+    }) 
+   
+    //set the state to the nArr so view will update
+    this.setState({
+      notes: nArr
+    })
+  }
+
+  handleDescendingSort = () => {
+    
+    let nArr = this.state.notes.map(arr => {return arr}).sort((a,b) => {
+
+        const titleA = a.title.toUpperCase();
+        const titleB = b.title.toUpperCase();
+
+        let comparison = 0;
+
+        if(titleA < titleB) {
+          comparison = 1
+        } else if (titleA > titleB) {
+          comparison = -1;
+        }
+        return comparison
+    }) 
+
+    this.setState({
+      notes: nArr
+    })
+  }
 
 // {/* Declare Routes, Sidebar navigation should always show so it is the root */}
   render() {
     return (
       <div className="container">
 
-          <Route path="/" render={props => (<SidebarView {...props} notes={this.state.notes} searchNotes={this.searchNotes}  getUpdatedNotes={this.getUpdatedNotes} /> )} />
+          <Route path="/" render={props => (
+            <SidebarView 
+              {...props} 
+              notes={this.state.notes} 
+              searchNotes={this.searchNotes}  
+              getUpdatedNotes={this.getUpdatedNotes} 
+              handleAscendingSort = {this.handleAscendingSort}
+              handleDescendingSort = {this.handleDescendingSort}
+              /> )} />
 
           <Route 
             path="/notes"

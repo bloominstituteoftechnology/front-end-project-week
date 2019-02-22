@@ -100,7 +100,7 @@ h3, h4, h5, h6 {
     color: white;
     background-color: #24B8BD;
     border: .5px solid #B7B7B7;
-	box-shadow: -1px 1px 3px 1px #B7B7B7;
+	box-shadow: 2px 2px 3px #B7B7B7;
 	border-radius: 4px;
 }
 
@@ -309,4 +309,25 @@ a {
 	height: 25px;
 	width: 2.2em;
 	border-radius: 4px;
+}
+
+
+/* -------------------------------------SORT STYLE */
+
+.alphaContainer {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+}
+
+.alphaSortButtons {
+	background-color: #2AC0C4;
+	border: 1px solid #B7B7B7;
+	border-radius: 5px;
+	box-shadow: 2px 2px 3px #B7B7B7;
+	padding: 5px;
+}
+
+.firstSort {
+	margin-right: 1em;
 }
