@@ -11,7 +11,7 @@ export const getNotes = (filterSort = {}) => dispatch => {
     dispatch({ type: WORKING });
 
     return axios
-        .get(`http://localhost:8080/notes/get`)
+        .get(`http://localhost:8080/notes`)
         .then(({ data }) => {
             console.log(data);
             data = data.reverse();
@@ -35,7 +35,7 @@ export const getNote = id => dispatch => {
     dispatch({ type: WORKING });
 
     return axios
-        .get(`http://localhost:8080/notes/get/${id}`)
+        .get(`http://localhost:8080/notes/${id}`)
         .then(({ data }) => {
             dispatch({ type: VIEW, note: data });
         })
@@ -48,7 +48,7 @@ export const createNote = note => dispatch => {
     dispatch({ type: WORKING });
 
     return axios
-        .post(`http://localhost:8080/notes/create`, note)
+        .post(`http://localhost:8080/notes`, note)
         .then(({ data }) => {
             dispatch({ type: SUCCESS, notes: data });
         })
@@ -61,7 +61,7 @@ export const editNote = (id, note) => dispatch => {
     dispatch({ type: WORKING });
 
     return axios
-        .put(`http://localhost:8080/notes/update/${id}`, note)
+        .put(`http://localhost:8080/notes/${id}`, note)
         .then(({ data }) => {
             dispatch({ type: VIEW, note: data });
         })
@@ -74,7 +74,7 @@ export const deleteNote = id => dispatch => {
     dispatch({ type: WORKING });
 
     return axios
-        .delete(`http://localhost:8080/notes/delete/${id}`)
+        .delete(`http://localhost:8080/notes/${id}`)
         .then(() => getNotes()(dispatch))
         .catch(err => dispatch({ type: FAILURE, error: err }));
 };
