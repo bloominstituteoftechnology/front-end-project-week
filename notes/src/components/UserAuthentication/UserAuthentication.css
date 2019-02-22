@@ -1,0 +1,15 @@
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.auth-container h1 {
+  margin: 20px auto 100px;
+}
+
+.nav-item {
+  cursor: pointer;
+}

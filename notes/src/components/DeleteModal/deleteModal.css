@@ -1,0 +1,52 @@
+.delete-modal {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.modal_body {
+  border: 1px solid rgb(7, 12, 29);
+  position: fixed;
+  top: 100px;
+  text-align: center;
+  font-weight: bold;
+  padding: 30px;
+  height: 150px;
+  width: 600px;
+}
+.buttons-modal {
+  display: flex;
+  justify-content: space-evenly;
+}
+.no-btn {
+  align-items: center;
+  background-color: rgb(78, 175, 230);
+  border: 2px solid gray;
+  color: white;
+  display: flex;
+  font-size: 24px;
+  font-weight: bold;
+  justify-content: center;
+  height: 50px;
+  text-decoration: none;
+  width: 220px;
+}
+
+.delete-btn {
+  align-items: center;
+  background-color: rgb(230, 30, 30);
+  border: 2px solid gray;
+  color: white;
+  display: flex;
+  font-size: 24px;
+  font-weight: bold;
+  justify-content: center;
+  height: 50px;
+  text-decoration: none;
+  width: 220px;
+}

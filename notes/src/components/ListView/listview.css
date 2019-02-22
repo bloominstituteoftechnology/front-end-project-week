@@ -1,0 +1,20 @@
+.listview {
+  width: 100%;
+}
+.listview h1 {
+  font-size: 32px;
+  padding: 20px 0 0 20px;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.notes-container a:hover {
+  text-decoration: none;
+  color: rgb(7, 12, 29);
+}
