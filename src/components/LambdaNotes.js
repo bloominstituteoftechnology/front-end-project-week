@@ -20,7 +20,7 @@ class LambdaNotes extends Component {
       this.props.fetch();
     }
     render() {
-        console.log(this.props.fetch)
+        
         return (
             <>
             <SideNotes>

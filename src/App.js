@@ -34,7 +34,7 @@ fetNotes = () => {
      axios.get(`${API}/api/notes`, options)
 //   axios.get('https://fe-notes.herokuapp.com/note/get/all')
         .then( response => {
-            console.log(`response from get method notes`, response);
+            // console.log(`response from get method notes`, response);
             this.setState({
                 notes: response.data
             })

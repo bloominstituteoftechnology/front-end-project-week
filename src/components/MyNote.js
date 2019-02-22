@@ -7,7 +7,7 @@ import Card from './styles/SingleNoteView';
 import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 
-const API = process.env.API_URL || `http://localhost:2300/`
+const API = process.env.API_URL || `http://localhost:2300`;
 
 class MyNote extends Component {
     constructor(props){
@@ -15,7 +15,7 @@ class MyNote extends Component {
         this.state={
           note: [],
           title: '',
-          content: "",
+          content: '',
           showBox: false,
           deletedNote:false
         }
@@ -29,7 +29,7 @@ componentDidMount() {
            this.setState({title:res.data.title, content:res.data.content})
         })
         .catch(err => console.log(err));
-  axios.put(`${API}/api/notes/${id}`)        
+        axios.put(`${API}/api/notes/${id}`)        
 //   axios.put(`https://fe-notes.herokuapp.com/note/delete/${id}`)      
 }
 
@@ -47,7 +47,7 @@ render() {
         if(this.state.deletedNote) {
             return <Redirect to="/" />;
         }
-        console.log(this.state.note)
+        console.log('Line from my note',this.state.note)
         return (
         <div className='single-note'>
                 <DeleteContainer style={{display: this.state.showBox ? 'flex' : 'none' }}> 
@@ -72,7 +72,6 @@ render() {
                     </Card>
                     </NoteStyle>
                   </div>
-                 
                 </SingleNote>
                   
             </div> 
