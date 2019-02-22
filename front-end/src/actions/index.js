@@ -6,16 +6,13 @@ export const VIEW = "VIEW";
 export const WORKING = "WORKING";
 
 export const getNotes = (filterSort = {}) => dispatch => {
-    const { filter, sort } = filterSort;
+    const { filter, sort, page, pageSize } = filterSort;
 
     dispatch({ type: WORKING });
 
     return axios
-        .get(`http://localhost:8080/notes`)
+        .get(`http://localhost:8080/notes?page=${page}&pageSize=${pageSize}`)
         .then(({ data }) => {
-            console.log(data);
-            data = data.reverse();
-
             if (sort) {
                 data.sort((a, b) => (a[sort].toLowerCase() > b[sort].toLowerCase()) ? 1 : ((b[sort].toLowerCase() > a[sort].toLowerCase()) ? -1 : 0));
             }

@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styled from "styled-components";
-import { Route, Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { getNotes, editNote } from "../actions";
-import { FlexRow } from "./Styles/Components";
-import Note from "./Note";
-import CreateNote from "./CreateNote";
-import NoteView from "./ViewNote";
-import NoteEdit from "./EditNote";
-import { Modal, Margin } from "./Styles/Components";
-import { InvertedColor } from "./Styles/Colors";
-import InfiniteScroll from 'react-infinite-scroller';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Route, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getNotes, editNote } from '../actions'
+import { FlexRow } from './Styles/Components'
+import Note from './Note'
+import CreateNote from './CreateNote'
+import NoteView from './ViewNote'
+import NoteEdit from './EditNote'
+import { Modal, Margin } from './Styles/Components'
+import { InvertedColor } from './Styles/Colors'
+import InfiniteScroll from 'react-infinite-scroller'
 
 const Container = styled(FlexRow)`
     color: #8C8C8C;
@@ -19,114 +19,136 @@ const Container = styled(FlexRow)`
     overflow: auto;
     padding: 50px;
     box-sizing: border-box;
-`;
+`
+
+const Loading = styled.div`
+    font-size: 1.8rem;
+    color: white;
+`
 
 class Notes extends Component {
-    constructor(props) {
-        super(props);
+  constructor (props) {
+    super(props)
 
-        this.state = {
-            notes: null,
-            dragStart: null,
-            dragEnd: null,
-            dragEl: null
-        };
+    this.state = {
+      notes: [],
+      dragStart: null,
+      dragEnd: null,
+      dragEl: null,
+      page: 0,
+      pageSize: 10,
+      hasMore: true
+    }
+  }
+
+  componentDidMount () {
+    const { page, pageSize } = this.state
+    this.props.getNotes({ page, pageSize })
+  }
+
+  componentWillReceiveProps (nextProps) {
+    let notes = this.state.notes
+
+    if (nextProps.notes && nextProps.notes.length) {
+      const ind = notes.findIndex(n => n.id === nextProps.notes[0].id)
+
+      if (ind === -1) {
+        this.setState({ notes: [...notes, ...nextProps.notes] })
+      }
+    }
+  }
+
+  handleDragOver = (e, i) => {
+    e.target.style.width = '450px'
+    this.setState({ dragEnd: i })
+  }
+
+  handleDragLeave = (e) => {
+    let target = e.target
+
+    setTimeout(() => {
+      target.style.width = '40px'
+    }, 250)
+  }
+
+  handleDragDrop = () => {
+    let { notes, dragEnd, dragStart, dragEl } = this.state
+    if (dragStart > dragEnd) {
+      dragEnd = dragEnd + 1
     }
 
-    componentDidMount() {
-        this.props.getNotes();
-    }
+    notes.splice(dragStart, 1)
+    notes.splice(dragEnd, 0, dragEl)
+    this.setState({ notes })
+  }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ notes: nextProps.notes });
-    }
+  loadMore = () => {
+    let { page, pageSize } = this.state
+    this.props.getNotes({ page, pageSize }).then(() => this.setState({ hasMore: true }))
+    this.setState({ page: page + 1, hasMore: false })
+  }
 
-    handleDragOver = (e, i) => {
-        e.target.style.width = "450px";
-        this.setState({ dragEnd: i });
-    };
+  render () {
+    const { loading, error } = this.props
+    const { notes, hasMore } = this.state
 
-    handleDragLeave = (e) => {
-        let target = e.target;
+    return (
 
-        setTimeout(() => {
-            target.style.width = "40px";
-        }, 250);
-    };
+      <Container width="100%" height="200px" grow wrap justifyCenter>
+        {error && <><h1>Error</h1><p>{error}</p></>}
+        <InfiniteScroll
+          style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center' }}
+          pageStart={0}
+          loadMore={this.loadMore}
+          hasMore={hasMore}
+          useWindow={false}
+        >
 
-    handleDragDrop = () => {
-        let { notes, dragEnd, dragStart, dragEl } = this.state;
-        if (dragStart > dragEnd) {
-            dragEnd = dragEnd + 1;
-        }
+          {!error && notes.length && notes.map((note, i) => {
+            return (
+              <FlexRow key={i}>
+                <Link to={`/note/${note.id}`}>
+                  <Note note={note}
+                        handleDragStart={() => this.setState({ dragStart: i, dragEl: note })}
+                        handleDragDrop={this.handleDragDrop}/>
+                </Link>
 
-        notes.splice(dragStart, 1);
-        notes.splice(dragEnd, 0, dragEl);
-        this.setState({ notes });
-    };
+                <Margin height="350px" width="40px" onDragOver={e => this.handleDragOver(e, i)}
+                        onDragLeave={e => this.handleDragLeave(e)}/>
+              </FlexRow>
+            )
 
-    loadMore = () => {
-        console.log('loading more');
-    };
+          })}
 
-    render() {
-        const { loading, error } = this.props;
-        const { notes } = this.state;
+          {loading && <Loading>Loading...</Loading>}
 
-        return (
-            <InfiniteScroll
-                pageStart={0}
-                loadMore={this.loadMore}
-                hasMore={true || false}
-                loader={<div>Loading ...</div>}
-            >
-                <Container width="100%" height="200px" grow wrap justifyCenter>
-                    {loading && <><Modal><h1>LOADING...</h1></Modal></>}
-                    {error && <><h1>Error</h1><p>{error}</p></>}
+        </InfiniteScroll>
 
-                    {!error && notes && !!notes.length && notes.map((note, i) => {
-                        return (
-                            <FlexRow key={note.id}>
-                                <Link to={`/note/${note.id}`}>
-                                    <Note note={note}
-                                          handleDragStart={() => this.setState({ dragStart: i, dragEl: note })}
-                                          handleDragDrop={this.handleDragDrop}/>
-                                </Link>
-
-                                <Margin height="350px" width="40px" onDragOver={e => this.handleDragOver(e, i)}
-                                        onDragLeave={e => this.handleDragLeave(e)}/>
-                            </FlexRow>
-                        );
-
-                    })}
-
-
-                    <Route path="/note/:id" render={({ match }) => <NoteView id={match.params.id}/>}/>
-                    <Route path="/create/" render={() => <CreateNote/>}/>
-                    <Route path="/edit/:id" render={({ match }) => <NoteEdit id={match.params.id}/>}/>
-                </Container>
-            </InfiniteScroll>
-        );
-    }
+        <Route path="/note/:id" render={({ match }) => <NoteView id={match.params.id}/>}/>
+        <Route path="/create/" render={() => <CreateNote/>}/>
+        <Route path="/edit/:id" render={({ match }) => <NoteEdit id={match.params.id}/>}/>
+      </Container>
+    )
+  }
 }
 
 Notes.propTypes = {
-    loading: PropTypes.bool,
-    error: PropTypes.bool,
-    notes: PropTypes.arrayOf(
-        PropTypes.shape({
-            title: PropTypes.string,
-            textBody: PropTypes.string,
-            tags: PropTypes.arrayOf(PropTypes.string)
-        }))
-};
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      textBody: PropTypes.string,
+      tags: PropTypes.arrayOf(PropTypes.string)
+    }))
+}
 
 const mapStateToProps = ({ loading, error, notes }) => {
-    return {
-        loading,
-        error,
-        notes
-    };
-};
+  return {
+    loading,
+    error,
+    notes
+  }
+}
 
-export default connect(mapStateToProps, { getNotes, editNote })(Notes);
+export default connect(mapStateToProps, { getNotes, editNote })(Notes)
