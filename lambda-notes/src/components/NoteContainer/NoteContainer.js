@@ -18,7 +18,7 @@ class NoteContainer extends React.Component {
       key={index}
       title={note.title}
       textBody={note.textBody}
-      id={note._id}
+      id={note.id}
      />
      )}
     </NoteContainerStyle>

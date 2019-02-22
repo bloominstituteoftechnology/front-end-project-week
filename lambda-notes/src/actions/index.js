@@ -43,7 +43,7 @@ export const deleteNote = id => {
  return dispatch => {
   dispatch({type: DELETING})
   axios
-  .delete(`http://localhost:3945/api/notes/delete/${id}`)
+  .delete(`http://localhost:3945/api/notes/${id}`)
   .then(() => {
    dispatch({type: DELETED})
   })

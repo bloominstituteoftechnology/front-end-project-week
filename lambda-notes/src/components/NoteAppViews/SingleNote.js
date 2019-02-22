@@ -35,7 +35,7 @@ class SingleNote extends React.Component {
       {this.props.textBody}
      </div>
      <Button color="danger" onClick={this.toggle}>Delete</Button>
-     <Link to={`/edit/${this.props._id}/`}><Button>Edit</Button></Link>
+     <Link to={`/edit/${this.props.id}/`}><Button>Edit</Button></Link>
      <Modal isOpen={this.state.modal} toggle={this.toggle} color="info" onClick={this.toggle}>
       <ModalHeader toggle={this.toggle}> Are you sure you want to delete this?
        <ModalBody>
@@ -57,7 +57,7 @@ const mapStateToProps = state => {
  return {
   title: note.title,
   textBody: note.textBody,
-  _id: note._id, 
+  _id: note.id, 
   deleted: deleted
  }
 }
