@@ -361,7 +361,7 @@ form .button {
 	color: #24B8BD;
 }
 
-.note-container span {
+.note-container span, .note-container p {
 	font-family: 'Raleway', sans-serif;
 	white-space: pre-wrap;
 	line-height: 1.7;
