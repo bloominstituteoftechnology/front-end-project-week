@@ -32,7 +32,7 @@ class EditView extends Component {
  submitEdit = (event) => {
   event.preventDefault()
   this.props.editNote(this.state.id, 
-   {title: this.state.title, textBody: this.state.body})
+   {title: this.state.title, body: this.state.body})
   this.setState({
    title: '',
    body: ''

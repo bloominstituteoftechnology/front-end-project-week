@@ -32,7 +32,7 @@ class SingleNote extends React.Component {
      <SingleNoteTitle>
       {this.props.title}
      </SingleNoteTitle>
-      {this.props.textBody}
+      {this.props.body}
      </div>
      <Button color="danger" onClick={this.toggle}>Delete</Button>
      <Link to={`/edit/${this.props.id}/`}><Button>Edit</Button></Link>
@@ -56,8 +56,8 @@ const mapStateToProps = state => {
  console.log(note)
  return {
   title: note.title,
-  textBody: note.textBody,
-  _id: note.id, 
+  body: note.body,
+  id: note.id, 
   deleted: deleted
  }
 }

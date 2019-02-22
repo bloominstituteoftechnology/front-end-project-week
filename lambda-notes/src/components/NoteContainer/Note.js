@@ -16,7 +16,7 @@ const Note = props => {
        </CardTitle>
        <hr />
        <CardText>
-       <NoteBody className="note_body">{props.textBody}</NoteBody>
+       <NoteBody className="note_body">{props.body}</NoteBody>
        </CardText>
       </CardBody>
      </Card>
