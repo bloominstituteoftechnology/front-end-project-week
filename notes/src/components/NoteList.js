@@ -5,13 +5,16 @@ import styled from 'styled-components';
 
 const Section = styled.section`
     margin 5% 3%;
+    font-size: 15px;
+    text-align: left;
+    width: 75%;
 `
 
 const NoteList = props => {
     return (
         <Section>
             <div className = 'page-header'>
-                <h3>Notes</h3>
+                <h3>Your Notes:</h3>
             </div>
         
             <div className = 'note-list'>

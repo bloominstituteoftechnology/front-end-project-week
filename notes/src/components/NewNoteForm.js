@@ -4,7 +4,15 @@ import styled from 'styled-components';
 
 const Button = styled.button`
     background: whitesmoke;
-    color: purple;
+    border-radius: 1px;
+    border: 1px solid gray;
+    margin-top: 3%;
+    padding: .75em 0em;
+    width: 35%;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    background: rgb(22, 175, 180);
 `
 
 const Form = styled.form`
@@ -19,7 +27,7 @@ const NewNoteForm = props => {
                 className = 'input' 
                 name = 'title' 
                 type = 'text' 
-                placeholder = 'note title' 
+                placeholder = 'Note Title' 
                 onChange = {props.handleChange} 
                 value = {props.title} 
             />
@@ -27,13 +35,13 @@ const NewNoteForm = props => {
             <textarea
                 className = 'text-area' 
                 name = 'textBody'
-                placeholder = 'content' 
+                placeholder = 'Note Content' 
                 rows = '25' cols = '50'
                 onChange = {props.handleChange}
                 value = {props.textBody}
             />
 
-            <Button>save</Button>
+            <Button>Save</Button>
         </Form>
     )
 }

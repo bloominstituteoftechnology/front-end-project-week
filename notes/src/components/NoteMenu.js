@@ -15,7 +15,7 @@ const NoteMenu = props => {
             <div className = 'menu-item' onClick = {() => {
                 Popup.create({
                     title: null,
-                    content: 'Are you super, duper sure you wish to delete?',
+                    content: 'Are you sure you want to delete this?',
                     buttons: {
                         left: [{
                             text: 'delete',
@@ -23,9 +23,8 @@ const NoteMenu = props => {
                             action: function () {
                                 props.deleteNote(props.noteID)
                             
-                                
-
-                                Popup.close(props.props.history.push('/'));
+                                Popup.close(props.props.history.push('/'))
+                            
                             },
                         }],
 
@@ -39,7 +38,7 @@ const NoteMenu = props => {
                         }]
                     }
                 });
-            }}>delete this
+            }}><Link to = '/'>delete</Link>
             </div>
         </div>
     )

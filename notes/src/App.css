@@ -2,6 +2,8 @@
   text-align: center;
   margin: 0px auto;
   max-width: 860px;
+  border: 1px solid black;
+  padding: 0 10px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -11,27 +13,35 @@ h1, h2, h3, h4, h5, h6 {
 .app-header {
   display: flex;
   justify-content: flex-start;
-}
-
-.App-link {
-  color: #61dafb;
+  margin-bottom: 2%;
+  border-bottom: 1px solid lightgray;
+  padding: 7px 0;
 }
 
 .appBody {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 50%;
+  width: 100%;
+  border: 1px solid gray;
+  background: rgb(241, 240, 240);
 }
 
 .app-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: lightgray;
+  text-align: left;
+  background-color: rgb(216, 216, 216);
   color: black;
-  border-bottom: 5px solid purple;
-  width: 40%;
+  min-height: 100vh;
+  width: 20%;
+  padding: 2%;
+}
+
+.app-menu h1 {
+  margin-top: 10px;
+  font-size: 27px;
 }
 
 .note-menu {
@@ -45,5 +55,80 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding-left: 10px;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.menu-button {
+  padding-bottom: 13px;
+}
+
+.note {
+  margin-bottom: 10px;
+  background: white;
+  border: 1px solid gray;
+  width: 24%;
+  padding: 1% 3%;
+  overflow: hidden;
+  margin-bottom: 6%;
+  margin-right: 2%;
+}
+
+.note-title {
+  border-bottom: 2px solid lightgray;
+  padding-bottom: 2%;
+  text-transform: uppercase;
+}
+
+.note-title-single {
+  padding-bottom: 2%;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 30px;
+  line-height: .8;
+}
+
+h4 {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.page-header {
+  margin-bottom: 6%;
+}
+
+.page-header h3 {
+  text-align: left;
+  font-size: 17px;
+}
+
+.input {
+  width: 60%;
+  margin: 5% 0;
+  padding: 1.5%;
+  border-radius: 2px;
+  border: 2px solid rgb(194, 194, 194);
+}
+
+.text-area {
+  padding: 1.5%;
+  border-radius: 2px;
+  border: 2px solid rgb(194, 194, 194);
+  resize: none;
+  width: 95%;
+}
+
+.menu-item {
+  margin-left: 20px;
+  font-size: 12px
 }

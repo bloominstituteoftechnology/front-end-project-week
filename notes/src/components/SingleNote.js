@@ -22,6 +22,11 @@ export const SingleNote = props => {
                 <div className = 'note-title-single'>
                     <h3>{note.title}</h3>
                 </div>
+
+                <div>
+                    <p>{note.textBody}</p>
+                </div>
+                
             </Section> 
         )  
     }

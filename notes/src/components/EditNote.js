@@ -8,8 +8,16 @@ const Content = styled.section`
 `
 
 const Button = styled.button`
-    background: whitesmoke;
+    background: rgb(22, 175, 180);
     border: 1px solid gray;
+    border-radius: 1px;
+    color: white;
+    margin-top: 3%;
+    padding: .75em 0em;
+    width: 150px;
+    font-weight: bold;
+    font-size: 13px;
+    width: 160px;
 `
 
 const Form = styled.form`
@@ -56,7 +64,7 @@ class EditNote extends React.Component {
                         className = 'input'
                         name = 'title'
                         type = 'text'
-                        placeholder = 'note title'
+                        placeholder = 'Note Title'
                         onChange = {this.handleChange}
                         value = {this.state.title}
                         />
@@ -65,13 +73,13 @@ class EditNote extends React.Component {
                     <textarea
                         className = 'text-area' 
                         name = 'textBody'
-                        placeholder = 'content' 
+                        placeholder = 'Note Content' 
                         rows = '25' cols = '50'
                         onChange = {this.handleChange}
                         value = {this.state.textBody}
                     />
                 
-                    <Button>update</Button>
+                    <Button>Update</Button>
                 </Form>
             </Content>        
         )

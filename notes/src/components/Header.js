@@ -4,7 +4,7 @@ import '../App.css';
 const Header = props => {
     return (
         <div className = 'app-header'>
-            <h3>list</h3>
+            <h3>List View</h3>
         </div>
     )
 }

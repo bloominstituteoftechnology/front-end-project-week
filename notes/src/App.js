@@ -41,15 +41,16 @@ class App extends Component {
   editNote = (id, data) => {
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
     .then(response => {
-      this.setState({note: [...this.state.note, response.data]})
+      this.setState({note: [...this.state.note, data]})
     })
   }
   
   deleteNote = (id) => {
     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
-      this.setState({note: [...this.state.note, response]})
+      this.setState({note: [...this.state.note, response.data]})
     })
+    
   }
 
   render() {

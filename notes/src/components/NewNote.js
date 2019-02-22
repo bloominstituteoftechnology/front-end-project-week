@@ -37,7 +37,7 @@ class NewNote extends React.Component {
         return (
             <Section>
                 <div className = 'page-header'>
-                    <h3>new note</h3>
+                    <h3>Create New Note:</h3>
 
                     <NewNoteForm 
                     title = {this.props.title} 
