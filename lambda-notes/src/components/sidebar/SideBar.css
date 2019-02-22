@@ -1,0 +1,33 @@
+.sidebar {
+    width: 25%;
+    /* height: 100vh;
+    height: 100%; */
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+}
+
+.title {
+    margin-bottom: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.button-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-button {
+    width: 80%;
+    margin: 3% 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-content: center;
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+}
+
+.side-button:hover {
+    cursor: pointer;
+}

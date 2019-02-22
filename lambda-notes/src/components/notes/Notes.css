@@ -1,0 +1,223 @@
+
+.notes-list {
+    background-color: whitesmoke;
+    align-self: right;
+    width: 75%;
+    height: 100vh;
+    height: 100%;
+    padding: 5%;
+    /* I had a problem later on so I added this padding on bottom */
+    padding-bottom: 110px;
+}
+
+.your-notes {
+    color: darkslategrey;
+    font-weight: bolder;
+    height: 100vh;
+    height: 100%;
+}
+
+.all-notes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.single-note {
+
+    height: 10.5em;
+    overflow: hidden;
+    line-height: 2em;
+
+    /* overflow: hidden; */
+    
+    /* -webkit-line-clamp: 3;
+    text-overflow: -o-ellipsis-lastline; */
+
+    /* border: 1px solid grey;
+    width: 200px;
+    background-color: white;
+    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 170px; */
+
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+    white-space: pre-line; */
+
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3; */
+
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+.card-link {
+    text-decoration: none;
+    color: black;
+    /* this is taken from .single-note to keep styling now that Router added elements */
+    border: 1px solid grey;
+    width: 200px;
+    background-color: white;
+    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 170px;
+}
+
+.note-title {
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+    padding-bottom: 2%;
+    margin: 0;
+}
+
+.text-body {
+    margin-top: 4%;
+    line-height: 150%;
+    
+
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+    white-space: pre-line; */
+
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+
+    /* overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; */
+
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+
+    /* display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  */
+}
+
+.module {
+    overflow: hidden;
+
+    /* display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: horizontal; 
+    border: 1px solid red; */
+
+}
+
+.line-clamp {
+    display: -webkit-box;
+}
+
+/* AddNote Component */
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-form > * {
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+/* ::-webkit-input-placeholder {
+    
+} */
+
+.input-form > input {
+    width: 60%;
+}
+
+textarea {
+    height: 350px;
+}
+
+.submit-button {
+    width: 30%;
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+    
+.submit-button:hover {
+    cursor: pointer;
+}
+
+.menu-container {
+    width: 86%;
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+.link-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.link {
+    margin: 15px;
+    font-weight: 700;
+    font-size: .8rem;
+    color: black;
+    text-decoration: underline;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+.link:last-child {
+    margin-right: 30px;
+}
+
+.note-view {
+    background-color: whitesmoke;
+    padding: 5%;
+    min-height: 100vh;
+}
+
+.red-button {
+    width: 30%;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.red-button:hover {
+    cursor: pointer;
+}
+
+.modal {
+    background:grey;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1050;
+}
+
+/* .modal-open {
+    
+} */
+
+.modal-backdrop {
+    z-index: 1050;
+    position: relative;
+}
