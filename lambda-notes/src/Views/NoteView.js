@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import CardComponent from '../Components/CardComponent';
 import MenuContainer from '../Containers/MenuContainer';
+import DeleteView from './DeleteView';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
@@ -38,7 +39,8 @@ class NoteView extends React.Component {
         super(props);
         this.state = {
             note:null,
-            noteView: true
+            noteView: true,
+            delete: false
         }
     }
 
@@ -59,6 +61,17 @@ class NoteView extends React.Component {
             console.error(err)
         })
     }
+
+    dontDelete = event => {
+        event.preventDefault();
+        this.setState({delete: !this.state.delete})
+    }
+
+    delete = () => {
+        this.props.deleteNote(this.props.match.params.id)
+        this.props.history.push('/')
+    }
+
     render(){
 
         if(!this.state.note){
@@ -68,11 +81,12 @@ class NoteView extends React.Component {
         return(
             <Container>
                 <MenuContainer/>
+                {this.state.delete ? <DeleteView deleteNote={this.delete} dontDelete={this.dontDelete}/> : null}
                 <NoteViewContainer>
                     <OptionsContainer>
                         <OptionsList>
                             <Options><Link to={`/edit/${this.props.match.params.id}`}>edit</Link></Options>
-                            <Options>delete</Options>
+                            <Options onClick={this.dontDelete}>delete</Options>
                         </OptionsList>
                     </OptionsContainer>
                     <CardComponent note={this.state.note} noteView={this.state.noteView}/>

@@ -16,20 +16,39 @@ const TitleContainer = styled.div`
     display:flex;
     justify-content: flex-start;
     width: 100%;
+    height:40px;
+    margin-top:0;
+    margin-bottom:0;
 `
 const Title = styled.h2`
+    display:flex;
+    height:20px;
 `;
 
 const NotesContainer = styled.section`
     display:flex;
-    justify-content:center;
+    justify-content:flex-start;
+    flex-direction: row;
     flex-wrap:wrap;
+    position:relative;
+    top:-200px;
     padding-top:25px;
     width: 100%;
     border: 1px solid black;
     padding-left: 10px;
 `;
 
+const StyledLink = styled(Link)`
+    display:flex;
+    text-decoration:none;
+    color:black;
+    width:30%;
+    height:0px;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
 const MainContent = props => {
     return(
         <Container>
@@ -37,7 +56,7 @@ const MainContent = props => {
                 <Title>Your Notes:</Title>
             </TitleContainer>
             <NotesContainer>
-                { props.notes ? props.notes.map(note => <Link to={`/note/${note._id}`} key={note._id}><Card key={note._id}note={note}/></Link> ) : (<div>loading</div> )}
+                { props.notes ? props.notes.map(note => <StyledLink to={`/note/${note._id}`} key={note._id}><Card key={note._id}note={note}/></StyledLink> ) : (<div>loading</div> )}
             </NotesContainer>
         </Container>
     )

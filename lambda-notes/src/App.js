@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteContainer from './Containers/NoteContainer';
 import CreateNew from './Views/CreateNew';
+import DeleteView from './Views/DeleteView';
 import NoteView from './Views/NoteView';
 import EditNote from './Views/EditView';
 import { Route } from 'react-router-dom';
@@ -73,6 +74,28 @@ class App extends React.Component {
     this.editNoteFromServer(note,id);
   }
 
+  deleteNoteFromServer = id => {
+    axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(res => {
+      console.log('res.data:', res.data)
+      axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(res => {
+        this.setState({
+          notes: res.data,
+          isLoaded: true
+        })
+      })
+    })
+    .catch(err => console.log(err))
+  }
+
+  deleteNote = id => {
+    this.deleteNoteFromServer(id)
+  }
+
+
   addNewNoteToServer = (note) => {
     axios
     .post('https://fe-notes.herokuapp.com/note/create', note)
@@ -99,7 +122,7 @@ class App extends React.Component {
           />}/>,
           <Route path='/note/:id'
           render={(props) =>
-          <NoteView {...props}
+          <NoteView {...props} deleteNote={this.deleteNote}
           />}
         />] :
         <div>Loading</div>
