@@ -4,6 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 import Note from './components/Note';
 import NotesList from './components/NotesList';
 import AddNoteForm from './components/AddNoteForm';
+import LoginForm from './components/LoginForm';
 import EditForm from './components/EditForm';
 import loading from './loading.gif'
 import pageError from './components/pageError';
@@ -20,7 +21,8 @@ class App extends Component {
       searchStatus: false,
       loading: false,
       noSuccess: false,
-      requestError: false
+      requestError: false,
+      isLoggedIn: false
     }
   }
   componentDidMount() {
@@ -221,51 +223,59 @@ class App extends Component {
     return (
       <div className="App">
         
-          <div className="app-container">
+        {!this.state.isLoggedIn  ?
+          <div className="login-container">
+            <LoginForm />
+          </div>
+            : 
+        
+        <div className="app-container">
             
-            <Route path="/"
+          <Route path="/"
+            render={props =>
+              <Sidebar {...props} fetchNotes={this.fetchNotes} searchTerm={this.searchTerm}/>
+            }
+          />
+
+          <div className="section">
+            <div className="header">
+                <h1>Your notes</h1>
+                {this.state.loading ? <div className="loading"><img src={loading} /></div> : null }
+            </div>
+
+            
+            
+            <Route exact path="/" 
+              render={props => 
+              <NotesList {...props} viewNote={this.viewNote} notes={this.state.notes} loading={this.state.loading} searchStatus={this.state.searchStatus}/>
+              }
+            />
+            
+            <Route path="/notes/create" 
+              render={props => 
+                <AddNoteForm {...props} addNote={this.addNote}/>
+              }
+            />
+            <Route exact path="/note/:id" 
               render={props =>
-                <Sidebar {...props} fetchNotes={this.fetchNotes} searchTerm={this.searchTerm}/>
+                <Note {...props} notes={this.state.notes} requestError={this.state.requestError} viewNote={this.viewNote} deleteNote={this.deleteNote}/>
               }
             />
 
-            <div className="section">
-              <div className="header">
-                  <h1>Your notes</h1>
-                  {this.state.loading ? <div className="loading"><img src={loading} /></div> : null }
-              </div>
+            <Route exact path="/edit/:id"
+              render={props =>
+                <EditForm {...props} note={this.state.note} notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote}/>
+              }
+            />
+            <div className="error-page">
+            <Route path="/404" component={pageError} />
+          </div>
+          </div>
+          
+      </div>
 
-              
-              
-              <Route exact path="/" 
-                render={props => 
-                <NotesList {...props} viewNote={this.viewNote} notes={this.state.notes} loading={this.state.loading} searchStatus={this.state.searchStatus}/>
-                }
-              />
-              
-              <Route path="/notes/create" 
-                render={props => 
-                  <AddNoteForm {...props} addNote={this.addNote}/>
-                }
-              />
-              <Route exact path="/note/:id" 
-                render={props =>
-                  <Note {...props} notes={this.state.notes} requestError={this.state.requestError} viewNote={this.viewNote} deleteNote={this.deleteNote}/>
-                }
-              />
-
-              <Route exact path="/edit/:id"
-                render={props =>
-                  <EditForm {...props} note={this.state.note} notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote}/>
-                }
-              />
-              <div className="error-page">
-              <Route path="/404" component={pageError} />
-            </div>
-            </div>
-            
-        </div>
-
+        } 
+          
       </div>
     );
   }

@@ -191,8 +191,12 @@ section {
   margin-top: 40px;
   font-size: 30px;
 }
+.login-container form {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
 form {
-  margin-left: 33px;
   margin-top: 55px;
   width: 100%;
 }
