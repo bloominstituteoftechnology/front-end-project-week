@@ -1,0 +1,43 @@
+{
+  "name": "notes",
+  "version": "0.2.0",
+  "description": "Lambda Notes frontend project week",
+  "main": "index.js",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpdis/front-end-project-week.git"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.2.1",
+    "classnames": "^2.2.6",
+    "firebase": "^5.8.3",
+    "netlify-cli": "^2.6.6",
+    "react": "^16.6.3",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0",
+    "react-router-bootstrap": "^0.24.4",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "react-spinners-kit": "^1.7.5",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
