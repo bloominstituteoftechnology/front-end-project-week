@@ -3,12 +3,10 @@ import './Notes.css';
 import axios from 'axios';
 
 import { connect } from "react-redux";
-// import {
-//   getNotes,
-//   addNote,
-//   updateNote,
-//   deleteNote  
-// } from "../Actions";
+import {
+ // getNotes,
+  updateNote
+} from "../Actions";
 
 class EditNote extends Component {
   constructor(props) {
@@ -39,18 +37,18 @@ class EditNote extends Component {
             console.log(err)
         });
   }
-  submitEditedNote = (e) => {
-    e.preventDefault();
-    axios
-        .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, {
-            title: this.state.updatedTitle,
-            textBody: this.state.updatedText,
-        })
-        .then((response) => {
-            this.props.history.push(`/note/${this.props.match.params.id}`);
-        })
-        .catch(err => console.log(err));
-  }
+  // submitEditedNote = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //       .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, {
+  //           title: this.state.updatedTitle,
+  //           textBody: this.state.updatedText,
+  //       })
+  //       .then((response) => {
+  //           this.props.history.push(`/note/${this.props.match.params.id}`);
+  //       })
+  //       .catch(err => console.log(err));
+  // }
   updateTitleInputChangehandler = (e) => {
       this.setState({
           updatedTitle: e.target.value});
@@ -84,4 +82,13 @@ class EditNote extends Component {
       </div>
     )}
   }
-  export default EditNote;
+
+  const mapStateToPops = state =>{
+    console.log(state);
+    return {
+      notes: state.notes,
+      fetchingNotes: state.fetchingNotes,
+     
+    }
+  }
+  export default connect (mapStateToPops, {updateNote})(EditNote);

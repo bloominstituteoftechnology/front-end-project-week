@@ -75,5 +75,14 @@ render() {
   )
   }
 }
+const mapStateToPops = state =>{
+  console.log(state);
+  return {
+    notes: state.notes,
+    fetchingNotes: state.fetchingNotes,
+  
+  }
+}
+
  
-  export default connect (null, {getNotes})(Notes);
+  export default connect (mapStateToPops, { getNotes })(Notes);

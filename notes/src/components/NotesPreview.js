@@ -23,6 +23,7 @@ class NotesPreview extends Component {
 componentDidMount() {
 
   this.props.getNotes();
+  
   // axios
   //     .get(`https://fe-notes.herokuapp.com/note/get/all`)
      
