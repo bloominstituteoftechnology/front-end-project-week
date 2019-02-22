@@ -98,6 +98,12 @@ class App extends React.Component {
     this.setState(() => ({ viewPage: pageType }));
   }
 
+  noteList2 = () => {
+    //e.preventDefault();
+    const pageType = "noteList"
+    this.setState(() => ({ viewPage: pageType }));
+  }
+
   noteView = id => {
     const pageType = "noteView"
     //let _id = id;
@@ -164,7 +170,7 @@ class App extends React.Component {
           <div className="main-container">
             <Nav noteList={this.noteList} listView={this.listView} saveListName={this.props.saveListName} noteCreate={this.noteCreate} noteView={this.noteView} login={this.login} />
             <div className="main-display">
-              <NoteView id={this.state.id} notes={this.notes} selected={this.props.noteSelected} noteEdit={this.noteEdit} noteDelete={this.noteDelete} />
+              <NoteView id={this.state.id} noteList2={this.noteList2} notes={this.notes} selected={this.props.noteSelected} noteEdit={this.noteEdit} noteDelete={this.noteDelete} />
             </div>
           </div>
         </div>;

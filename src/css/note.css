@@ -313,16 +313,22 @@ li {
 
 .csv-button {
     color: black;
-    height: 24px;
+    height: 65px;
+    width: 172px;
     margin-top: 92px;
     cursor: pointer;
-    text-decoration-line: underline;
+    padding-left: 26px;
+    padding-top: 17px;
+   /*  text-decoration-line: underline; */
     font-weight: 500;
+    /* border: 2px solid blue; */
+    background-image: url('../graphics/rndBtn01.png'); 
 }
 
 .csv-button:hover {
-    background-color: rgb(43, 193, 196);
-    border-radius: 10px;
+   /*  background-color: rgb(43, 193, 196); */
+  /*   border-radius: 10px; */
+  background-image: url('../graphics/rndBtn02.png');
     color: white;
 }
 
@@ -344,35 +350,44 @@ li {
 .note-view-container {
     display: flex;
     flex-direction: row;
+  /*   border: 2px solid purple; */
 }
 
 .spacer {
-    width: 856px;
+    width: 408px;
     height: 60px;
+   /*  border: 2px solid orange; */
 }
 
 .edit-button,
-.delete-button {
-    border: 0px solid red;
-    width: 70px;
-    margin-right: 10px;
+.delete-button,
+.clone-button {
+     border: 0px solid red; 
+    width: 172px;
+    height: 65px;
+    /* margin-right: 10px; */
     background-color: rgb(243, 243, 243);
     color: rgb(74, 74, 74);
     margin-top: 30px;
     font-weight: 500;
     font-size: 20px;
-    text-decoration-line: underline;
+    padding-bottom: 6px;
+    /* text-decoration-line: underline; */
+    background-image: url('../graphics/rndBtn01.png');
 }
 
 .edit-button:hover,
-.delete-button:hover {
-    background-color: rgb(43, 193, 196);
-    border-radius: 10px;
+.delete-button:hover, 
+.clone-button:hover {
+   /*  background-color: rgb(43, 193, 196); */
+   /*  border-radius: 10px; */
     color: white;
+    background-image: url('../graphics/rndBtn02.png');
 }
 
 .edit-button:active,
-.delete-button:active {
+.delete-button:active,
+.clone-button:active  {
     color: red;
 }
 
@@ -492,3 +507,104 @@ display: inline-block;
     width: 200px;
     height: 200px;
 }
+
+.main-form {
+    width: 100%;
+    padding-top: 6px;
+    background-color: rgb(74, 74, 74);
+    height: 270px;
+    width: 400px;
+    margin-left: 300px;
+    margin-top: 100px;
+    border: 2px solid rgb(151, 151, 151);
+  }
+  
+  /* button {
+    color: black;
+    background-color: darkgray;
+    height: 30px;
+    width: 75px;
+  } */
+  
+  .main-title {
+  text-align: center;
+  color: rgb(192, 192, 192);
+  }
+  
+  .header-text {
+    text-align: center;
+  font-size: 14px;
+  padding: 8px;
+  }
+  
+  .user-list {
+    width: 100%;
+    height: auto;
+    border: 2px solid gray;
+  }
+  
+  .btnLogout {
+   /*  color: black; */
+    border: 0px solid blue;
+    border-left: 1px solid gray;
+     background-color: #9e3a41;
+     color: white; 
+  } 
+  
+  .btn-register,
+  .btn-login {
+    border: 0px solid blue;
+    border-right: 1px solid gray;
+    color: white;
+    font-size: 16px;
+    background-color: rgb(43, 193, 196);
+  }
+  
+  .message {
+    font-size: 12px;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .btn-register {
+    margin-left: 88px;
+  }
+  
+  .btnNoWork {
+    color: black;
+  }
+  
+  .disable {
+    display: inline;
+  }
+  
+  #register:hover, #login:hover  {
+    color: yellow;
+    background-color: rgb(238, 115, 14);
+  
+  }
+  
+  #logout {
+    background-color: rgb(43, 193, 196);
+    font-size: 16px;
+  
+  } 
+  
+  /* #logout:hover, #user-list:hover {
+    background-color: blue;
+    
+  }  */
+  
+  #icon1 {
+    background-image: url('../graphics/button05.png');
+    height: 62px;
+  }
+  
+  #icon1:hover {
+    background-image: url('../graphics/button06.png');
+    color: white;
+  }
+  
