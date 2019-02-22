@@ -30,17 +30,6 @@ class Note extends React.Component{
      }
 
 
-     editHandler=()=>{
-         let note={
-             "tags": this.props.note.tags,
-             "title": this.props.note.title,
-             "textBody":this.props.note.textBody
-         }
-         this.props.updateNote(this.state.noteId,note)
-         //this.setState ({tags:[],title:"",textBody:""})
-
-     }
-
      componentDidMount() {
          console.log("Notes - ", this.state.notes);
          if (this.state.notes.length != 0) {

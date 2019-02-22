@@ -3,41 +3,25 @@ import axios from "axios" ;
 import Note from "./Note";
 import {Route,Link} from "react-router-dom"
 import "./NoteList.css"
+import Login from "./Login";
 
 class NoteList extends React.Component{
          constructor(props){
 
            super(props);
 
-           this.state={
-                notes:[]
-           }
+             this.state={
+               isLogged : this.loginCheck()
+             }
 
          }
          componentDidMount() {
-             axios.get("https://fe-notes.herokuapp.com/note/get/all")
-                 .then(res=> {
-                     console.log("GET DATA", res);
-                     // let notes=res.data;//res.data is the array we get all the data from server
-                     // let newNotes=this.state.notes.filter(note=>{
-                     //     for(let i=0;i<notes.tags.length;i++){
-                     //         if (notes.tags[i]==="Arpita") {
-                     //             return true;
-                     //         }
-                     //     }
-                     //     return false;
-                     // })
-
-                     this.setState({notes: res.data})
-                 })
-
-                 .catch (err=>{
-
-                           console.log("Error in get", err) ;
-
-                 })
+             // let x = this.loginCheck();
+             // console.log("mount...", x)
+             // this.setState({isLogged:x});
 
          }
+
 
 
     updateNote=(id,note)=>{
@@ -54,46 +38,81 @@ class NoteList extends React.Component{
 
     }
 
+    loginCheck=()=>{
+        console.log(localStorage.getItem("user"))
+        if(localStorage.getItem("user")){
+            this.setState({isLogged: true});
+            return true;
+        }else{
+            this.setState({isLogged: false});
+            return false;
+        }
+    }
+
+    sortHandler=(a,b)=> {
+             //a is note1 and b is note2
+        let titleA = a.title.toLowerCase();
+        let titleB = b.title.toLowerCase();
+        if (titleA > titleB) {
+            return +1;
+
+        } else if (titleA < titleB) {
+            return -1;
+        }
+
+        return 0;
+    }
+
+
 
     render(){
 
-        return(
-           <div >
-               <h3>Your Notes:</h3>
-               {
-                  this.state.notes.map(note=>{
-                    // return <Note key={note._id} note={note}deleteNote={this.deleteNote}
-                    //          updateNote={this.updateNote}/>
-                      let title = note.title;
-                      if (note.title.length > 10) {
-                          title = title.substring(0,10) + "...";
-                      }
+             this.props.notes.sort(this.sortHandler);
 
-                      let body = note.textBody;
-                      if (body.length > 30) {
-                          body = body.substring(0, 30) + " ...";
-                      }
+        console.log("Render...", this.state.isLogged)
+        if (this.state.isLogged) {
+            return (
+                <div>
+                    <h3>Your Notes:</h3>
+                    {
 
 
-                      console.log("TRimmed:", title, "body",body)
-                      return (
-                          <div className="content">
-                            <Link className="noteLink" to={`Note/${note._id}`}>
+                        this.props.notes.map(note => {
+                            // return <Note key={note._id} note={note}deleteNote={this.deleteNote}
+                            //          updateNote={this.updateNote}/>
+                            let title = note.title;
+                            if (note.title.length > 10) {
+                                title = title.substring(0, 10) + "...";
+                            }
 
-                                <div  className="title">{title} </div>
+                            let body = note.textBody;
+                            if (body.length > 30) {
+                                body = body.substring(0, 30) + " ...";
+                            }
 
-                                <hr/>
-                                <div className="body">{body} </div>
-                            </Link>
-                          </div>
-                  )
 
-                  })
+                            //console.log("TRimmed:", title, "body",body)
+                            return (
+                                <div className="content">
+                                    <Link className="noteLink" to={`Note/${note._id}`}>
 
-               }
+                                        <div className="title">{title} </div>
 
-           </div>
-        )
+                                        <hr/>
+                                        <div className="body">{body} </div>
+                                    </Link>
+                                </div>
+                            )
+
+                        })
+
+                    }
+
+                </div>
+            )
+        } else {
+            return <Login loginCheck={this.loginCheck}/>;
+        }
     }
 }
 
