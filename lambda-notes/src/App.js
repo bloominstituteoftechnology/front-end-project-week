@@ -16,6 +16,10 @@ class App extends React.Component {
     super()
     this.state = {
       notes: null,
+      note: {
+        title: "",
+        textBody: ""
+      },
       isLoaded: false
     }
   }
@@ -34,10 +38,10 @@ class App extends React.Component {
     .catch(err => console.log(err))
   }
 
-  componentDidUpdate(){
-    console.log(this.state.notes)
+  handleInput = event => {
+    event.preventDefault();
+    this.setState({ note: {...this.state.note, [event.target.name]: event.target.value}})
   }
-
   editNoteFromServer = (note,id) => {
     axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
@@ -52,6 +56,14 @@ class App extends React.Component {
             }
           });
         return {notes: newArray}
+      })
+      axios
+      .get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(res => {
+        this.setState({
+          notes: res.data,
+          isLoaded: true
+        })
       })
     })
     .catch(err => console.log(err))
@@ -95,7 +107,7 @@ class App extends React.Component {
         <Route path='/create-new'
         render={(props) => <CreateNew {...props} newNote={this.addNewNote}/>}
         />
-        <Route path='/edit/:id' render={(props) => <EditNote {...props} editNote={this.editNote} />}/>
+        <Route path='/edit/:id' render={(props) => <EditNote {...props} note={this.state.note} editNote={this.editNote} handleInput={this.handleInput}/>}/>
 
 
 

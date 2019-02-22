@@ -48,46 +48,27 @@ const Title = styled.h2`
     display:flex;
     width:100%;
 `;
-class EditNote extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            note: {
-                title:"",
-                textBody:""
-            },
-            id: this.props.match.params.id
-        }
-    };
 
-    handleInput = event => {
+const EditNote = props => {
+    const EditNotes = event => {
         event.preventDefault();
-        this.setState({ note: {...this.state.note, [event.target.name]: event.target.value}})
+        props.editNote(props.note, props.match.params.id);
+        props.history.push('/');
     }
 
-    EditNotes = event => {
-        event.preventDefault();
-        this.props.editNote(this.state.note, this.state.id);
-        // this.props.history.push('/');
-    }
-
-
-
-    render(){
-        return(
-            <EditNoteContainer>
-                <MenuContainer/>
-                <FormContainter>
-                    <Title>Edit Note: </Title>
-                    <Form onSubmit={this.EditNotes}>
-                        <NoteTitle type="text" name="title" placeholder="Note Title" onChange={this.handleInput}/>
-                        <NoteContent type="text" name="textBody" placeholder="Note Content" onChange={this.handleInput}/>
-                        <NoteSubmit type="submit" value="save" />
-                    </Form>
-                </FormContainter>
-            </EditNoteContainer>
-        )
-    }
+    return(
+        <EditNoteContainer>
+            <MenuContainer/>
+            <FormContainter>
+                <Title>Edit Note: </Title>
+                <Form onSubmit={EditNotes}>
+                    <NoteTitle type="text" name="title" placeholder="Note Title" onChange={props.handleInput}/>
+                    <NoteContent type="text" name="textBody" placeholder="Note Content" onChange={props.handleInput}/>
+                    <NoteSubmit type="submit" value="save" />
+                </Form>
+            </FormContainter>
+        </EditNoteContainer>
+    )
 }
 
 export default EditNote;
