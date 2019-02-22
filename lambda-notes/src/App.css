@@ -1,0 +1,413 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html{
+  font-size: 62.5%;
+	font-family: 'Roboto', sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #F2F1F2;
+  color: #524E4D;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+h1{
+  font-size: 3.6rem;
+  margin: 5px;
+	font-weight: bold;
+	line-height: .9;
+}
+
+h2 {
+	font-size: 2.8rem;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+h4 {
+	font-size: 1.8rem;
+}
+
+p {
+	font-size: 1.4rem;
+	font-family: 'Raleway', sans-serif;
+}
+
+em {
+	font-style: italic;
+	margin: inherit;
+}
+
+strong {
+	font-weight: bold;
+}
+
+.App {
+		min-height: 100vh;
+}
+
+.welcome {
+	width: 40%;
+	margin: 70px auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: white;
+	padding: 40px 20px 20px;
+	border-radius: 3px;
+	border: 1px solid #524E4D;
+}
+
+.welcome h4 {
+		margin-top: 20px;
+}
+
+.welcome-links {
+	display: flex;
+}
+
+.note-container p {
+	display: inline;
+}
+
+.container {
+	display: flex;
+	align-items: flex-start;
+	min-height: 100vh;
+}
+
+.login {
+	width: 40%;
+	margin: 70px auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: white;
+	padding: 40px 20px 20px;
+	border-radius: 3px;
+	border: 1px solid #524E4D;
+}
+
+.login h4 {
+	margin-top: 20px;
+}
+.login form {
+	diplay: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+.login form button {
+	width: 50%;
+	align-self: center;
+}
+.sidebar {
+	position: sticky;
+	top: 0;
+  background: #D3D2D3;
+	height: 100vh;
+	max-width: 240px;
+	min-width: 240px;
+  padding: 10px;
+  border: 1px solid #524E4D;
+}
+
+.sidebar h4 {
+	margin: 25px 0 15px 10px;
+}
+
+.button {
+  background: #24B8BD;
+  color: white;
+  border: 1px solid #524E4D;
+	width: 184px;
+  padding: 10px;
+  font-size: 1.6rem;
+  margin: 25px 0 15px 10px;
+  cursor: pointer;
+	text-align: center;
+}
+
+.csv-button {
+	position: absolute;
+}
+
+.create-button {
+	margin-top: 20px;
+}
+
+.notes-list {
+	width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+}
+
+.notes-list .top-bar {
+	background: #F2F1F2;
+	z-index: 1;
+	align-self: flex-start;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px;
+	justify-content: center;
+}
+
+.top-bar .search-bar {
+	width: 80%;
+}
+
+.notes-list .top-bar .sort-bar {
+	display: flex;
+	width: 85%;
+	justify-content: space-between;
+
+}
+
+.sort-bar .button {
+	display: flex;
+	padding: 15px;
+	align-items: center;
+	justify-content: center;
+	width: 165px;
+	height: 40px;
+	font-size: 1.2rem;
+}
+
+.notes-list h3 {
+	width: 100%;
+	margin: 5px;
+	font-weight: bold;
+	align-self: flex-start;
+}
+.notes-list a {
+	width: 20%;
+	margin: 2.5%;
+}
+.notes-list .note-preview {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid #524e4d;
+	width: 100%;
+	height: 185px;
+	margin: 15px 5px;
+	padding: 5px 10px;
+	background: white;
+	overflow: hidden;
+}
+
+.notes-list .note-preview h4 {
+	font-size: 1.8rem;
+	width: 90%;
+	min-height: 30px;
+	border-bottom: 1px solid #524e4d;
+	padding: 7px 0;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.notes-list .note-preview span {
+	margin: 5px;
+	font-size: 1.2rem;
+	width: 80%;
+	height: 80%;
+	align-self: flex-start;
+	line-height: 1.8;
+	white-space: pre-wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.notes-list .note-preview p {
+		margin: 5px;
+		font-size: 1.2rem;
+		width: 80%;
+		height: 80%;
+		align-self: flex-start;
+		line-height: 1.8;
+		white-space: pre-wrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+}
+
+.notes-list .note-preview img {
+	width: 100%;
+	height: auto;
+}
+
+.note-preview p a {
+	text-decoration: underline;
+	color: #24B8BD;
+}
+
+
+form {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+	width: 100%;
+}
+
+form h3 {
+		margin: 8% 0 5%;
+}
+
+form input {
+	padding: 12px;
+	margin: 10px 0;
+	border-radius: 3px;
+	border: 1px solid #A9A9A9;
+	width: 85%;
+}
+
+form textarea {
+	font-family: 'Roboto', sans-serif;
+	padding: 20px;
+	border-radius: 3px;
+	width: 100%;
+	min-height: 300px;
+	height: 70%;
+}
+
+form .button {
+	margin-top: 10px;
+}
+
+.note-container {
+	margin: 40px auto;
+	width: 100%;
+	padding: 5px 25px;
+}
+
+.note-container .note-buttons {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.note-buttons .button2 {
+	margin: 5px;
+	padding: 3px;
+	font-size: 1.4rem;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.note-container h3 {
+	margin-bottom: 25px;
+}
+
+.note-container p a {
+	text-decoration: underline;
+	color: #24B8BD;
+}
+
+.note-container span, .note-container p {
+	font-family: 'Raleway', sans-serif;
+	white-space: pre-wrap;
+	line-height: 1.7;
+	font-size: 1.6rem;
+}
+
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #524e4d;
+	z-index: 1;
+	width: 100vw;
+	height: 100vh;
+	padding: 25% 0 0 10%;
+	opacity: .97;
+}
+
+.delete-modal {
+	width: 60%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: space-around;
+	padding: 30px;
+	margin: auto;
+	background: white;
+}
+
+.delete-modal h4{
+	width: 100%;
+	text-align: center;
+	font-size: 1.8rem;
+	margin-bottom: 10px;
+}
+
+.delete-modal .button{
+	padding: 10px;
+	width: 184px;
+	margin: 15px;
+}
+
+.delete-modal .yes-button{
+	background: #CA001A;
+}
+
+.loading {
+	margin: 10% 5%;
+}
