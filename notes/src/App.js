@@ -20,7 +20,7 @@ class App extends Component {
 
   componentDidMount(){
     axios
-    .get('http://localhost:4200/notes/get/all')
+    .get('https://jbrockbackendproject.herokuapp.com/notes/get/all')
     .then(response => this.setState({ notes: response.data, loading: false }))
     .catch(error => console.log('error'));
   }
@@ -28,7 +28,7 @@ class App extends Component {
   addNewNote = (e, addedNote) => {
     e.preventDefault();
     axios
-      .post('http://localhost:4200/notes/create', addedNote)
+      .post('https://jbrockbackendproject.herokuapp.com/notes/create', addedNote)
       .then(response => {
         addedNote.id = response.data.success;
         this.setState({ notes: [addedNote, ...this.state.notes] })
@@ -39,7 +39,7 @@ class App extends Component {
   editNote = (e, id, state) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:4200/notes/edit/${id}`, state)
+      .put(`https://jbrockbackendproject.herokuapp.com/notes/edit/${id}`, state)
       .then(response => {
         const updateList = this.state.notes.map(note => {
           if (note.id === response.data.id) {

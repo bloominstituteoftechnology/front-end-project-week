@@ -14,7 +14,7 @@ class Note extends React.Component {
 
     fetchNote = id => {
         axios
-            .get(`http://localhost:4200/notes/get/${id}`)
+            .get(`https://jbrockbackendproject.herokuapp.com/notes/get/${id}`)
             .then(response => this.setState({ note: response.data[0] }))
             .catch(response => console.log(response));
     }
@@ -27,7 +27,7 @@ class Note extends React.Component {
     deleteNote = () => {
         const id = this.state.note.id
         axios
-        .delete(`http://localhost:4200/notes/delete/${id}`)
+        .delete(`https://jbrockbackendproject.herokuapp.com/notes/delete/${id}`)
         .then(response => {
             this.setState({ notes: response.data });
 

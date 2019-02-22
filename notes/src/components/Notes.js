@@ -15,7 +15,7 @@ class Notes extends React.Component {
 
     componentDidMount() {
         axios
-            .get('http://localhost:4200/notes/get/all')
+            .get('https://jbrockbackendproject.herokuapp.com/notes/get/all')
             .then(response => {
                 this.setState({ notes: response.data })
             })

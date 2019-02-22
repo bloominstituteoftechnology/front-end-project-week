@@ -27,7 +27,7 @@ class NoteEdit extends React.Component {
     
     fetchNote = id => {
         axios
-        .get(`http://localhost:4200/notes/get/${id}`)
+        .get(`https://jbrockbackendproject.herokuapp.com/notes/get/${id}`)
         .then(response => this.setState({ note: response.data }))
         .catch(response => console.log(response));
     }
