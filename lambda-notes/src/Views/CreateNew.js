@@ -9,6 +9,7 @@ const CreateNewContainer = styled.div`
     flex-wrap:wrap;
     width:100%;
     height:100%;
+    background:#f2f1f2;
 `;
 const FormContainter = styled.div`
     display:flex;

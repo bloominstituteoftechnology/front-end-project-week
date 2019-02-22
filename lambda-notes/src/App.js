@@ -1,7 +1,6 @@
 import React from 'react';
 import NoteContainer from './Containers/NoteContainer';
 import CreateNew from './Views/CreateNew';
-import DeleteView from './Views/DeleteView';
 import NoteView from './Views/NoteView';
 import EditNote from './Views/EditView';
 import { Route } from 'react-router-dom';

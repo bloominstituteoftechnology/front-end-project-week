@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     display:flex;
+    height:100%;
     width:100%;
+    background:#f2f1f2;
 `
 const NoteViewContainer = styled.div`
     display:flex;
@@ -20,6 +22,7 @@ const OptionsContainer = styled.div`
     width:100%;
     justify-content:flex-end;
     height:100px;
+    padding-right:10px;
 `
 const OptionsList = styled.ul`
     display:flex;
@@ -32,8 +35,17 @@ const Options = styled.li`
     display:flex;
     margin-left:5px;
     height:5px;
+    cursor: pointer;
 `;
 
+const StyledLink = styled(Link)`
+    color:black;
+    text-decoration:none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
 class NoteView extends React.Component {
     constructor(props){
         super(props);
@@ -85,7 +97,7 @@ class NoteView extends React.Component {
                 <NoteViewContainer>
                     <OptionsContainer>
                         <OptionsList>
-                            <Options><Link to={`/edit/${this.props.match.params.id}`}>edit</Link></Options>
+                            <Options><StyledLink to={`/edit/${this.props.match.params.id}`}>edit</StyledLink></Options>
                             <Options onClick={this.dontDelete}>delete</Options>
                         </OptionsList>
                     </OptionsContainer>

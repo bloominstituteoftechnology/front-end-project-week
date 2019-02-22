@@ -6,30 +6,30 @@ const CardContainer = styled.div`
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    max-width: 30%;
-    min-width:30%;
+    max-width: 50%;
+    min-width:50%;
     min-height:200px;
     max-height:200px;
+    background:#ffffff;
     border: 1px solid grey;
-    overflow:auto;
+    padding:5px;
 `;
 
 const CardContainerNoteView = styled.div`
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
+    position:relative;
+    top:-300px;
     width: 75%;
     margin-top:-100px;
-    overflow: auto;
+    padding:20px;
 `;
 
 const TitleContainerNoteView = styled.div`
     display:flex;
     justify-content:flex-start;
     width:100%;
-    position:absolute;
-    top:100px;
-    left:22%;
 `;
 
 const TitleContainer = styled.div`
@@ -59,8 +59,7 @@ const BodyContainerNoteView = styled.div`
     justify-content:flex-start;
     width:100%;
     position:relative;
-    top:150px;
-    left:22%;
+    top:-150px;
 `;
 
 const Card = (props) => {

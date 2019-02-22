@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 const Container = styled.div`
     display:flex;
     justify-content:flex-start;
-    width:75%;
+    width:100%;
     flex-wrap:wrap;
     padding-left:50px;
     padding-right:50px;
+    background:#f2f1f2;
 `;
 
 const TitleContainer = styled.div`
@@ -31,10 +32,9 @@ const NotesContainer = styled.section`
     flex-direction: row;
     flex-wrap:wrap;
     position:relative;
-    top:-200px;
+    top:-400px;
     padding-top:25px;
     width: 100%;
-    border: 1px solid black;
     padding-left: 10px;
 `;
 

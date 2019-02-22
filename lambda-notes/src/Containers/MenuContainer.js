@@ -4,29 +4,53 @@ import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     display:flex;
+    align-items:center;
     flex-direction:column;
     flex-wrap:wrap;
-    height:100vh;
-    width: 25%;
-    background:grey;
+    height:100%;
+    width: 15%;
+    background:#d3d2d3;
 `;
 
 const ButtonContainer = styled.div`
     display:flex;
     justify-content: center;
+    flex-wrap:wrap;
     align-items: center;
-    flex-direction:column;
+    flex-direction:row;
 `
 
 const TitleContainer = styled.section`
     display:flex;
-    justify-content:flex-start;
+    justify-content:center;
     height:100px;
-    width: 50px;
-    border: 1px solid red;
+    width: 10%;
+    margin-bottom:10px;
 `
 const Title = styled.h1`
     text-align:justify;
+    font-size:2em;
+`;
+
+const Button = styled.div`
+    display:flex;
+    justify-content:center;
+    min-width:150px;
+    max-width: 150px;
+    border:1px solid black;
+    margin-bottom:10px;
+    padding:5px;
+    background:#24b8bd;
+`;
+
+const StyledLink = styled(Link)`
+    display:flex;
+    text-decoration:none;
+    color:black;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
 `;
 
 const MenuContainer = () => {
@@ -36,12 +60,12 @@ const MenuContainer = () => {
                 <Title>Lambda Notes</Title>
             </TitleContainer>
             <ButtonContainer>
-                <Link to={'/'}>
-                    <button>View Your Notes</button>
-                </Link>
-                <Link to={'/create-new'}>
-                    <button>+ Create New Note</button>
-                </Link>
+                <StyledLink to={'/'}>
+                    <Button>View Your Notes</Button>
+                </StyledLink>
+                <StyledLink to={'/create-new'}>
+                    <Button>+ Create New Note</Button>
+                </StyledLink>
             </ButtonContainer>
         </Container>
     )
