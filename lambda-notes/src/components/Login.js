@@ -68,7 +68,7 @@ const mapStateToProps = state => {
   return {
     user: state.authReducer.user,
     authorizing: state.authReducer.authorizing,
-    token: state.authReducer.token,
+    // token: state.authReducer.token,
     error: state.authReducer.error,
     loggedIn: state.authReducer.loggedIn,
   }

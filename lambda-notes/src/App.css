@@ -192,12 +192,12 @@ strong {
 }
 
 .notes-list {
-	width: 75%;
+	width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 	align-items: center;
-	margin: 20px;
+	padding: 20px;
 }
 
 .notes-list .top-bar {
@@ -238,13 +238,16 @@ strong {
 	font-weight: bold;
 	align-self: flex-start;
 }
-
+.notes-list a {
+	width: 20%;
+	margin: 2.5%; 
+}
 .notes-list .note-preview {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	border: 1px solid #524e4d;
-	width: 185px;
+	width: 100%;
 	height: 185px;
 	margin: 15px 5px;
 	padding: 5px 10px;

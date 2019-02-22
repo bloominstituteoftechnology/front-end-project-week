@@ -80,7 +80,7 @@ export const deleteNote = id => dispatch => {
     axios
       .delete(`${url}/delete/${id}`)
       .then(response => {
-        dispatch({ type: DELETE_NOTE_SUCCESS});
+        dispatch({ type: DELETE_NOTE_SUCCESS, payload: id });
       })
       .catch(error => {
         dispatch({ type: DELETE_NOTE_FAILURE, payload: error });

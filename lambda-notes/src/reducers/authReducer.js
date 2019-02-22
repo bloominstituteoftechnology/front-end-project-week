@@ -30,6 +30,7 @@ export const authReducer = (state = initialAuthState, action) => {
         ...state,
         user: action.payload.user,
         authorizing: false,
+        loggedIn: true,
       };
 
     case REGISTER_FAILURE:
@@ -50,6 +51,7 @@ export const authReducer = (state = initialAuthState, action) => {
         ...state,
         user: action.payload.user,
         authorizing: false,
+        loggedIn: true,
       }
 
     case LOGIN_FAILURE:

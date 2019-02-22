@@ -58,12 +58,16 @@ export const notesReducer = (state = initialState, action) => {
       };
 
     case DELETE_NOTE_SUCCESS:
+      console.log(state.notes[0].id)
+      console.log(parseInt(action.payload))
+      let afterDelete = state.notes.filter(note => note.id !== parseInt(action.payload))
+      console.log('are', state.notes, 'will', afterDelete)
       return {
         ...state,
         deletingNote: false,
         note: null,
         notesSaved: true,
-        // notes: [...action.payload]
+        notes: afterDelete
       };
 
     case DELETE_NOTE_FAILURE:
@@ -80,6 +84,7 @@ export const notesReducer = (state = initialState, action) => {
       };
 
     case POST_NOTE_SUCCESS:
+    console.log(action.payload)
       return {
         ...state,
         savingNotes: false,

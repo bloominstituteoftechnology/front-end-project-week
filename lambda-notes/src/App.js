@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { CreateView, NoteView, ListView } from './views';
 import './App.css';
 import { Login, Welcome } from './components';
@@ -17,6 +18,13 @@ class App extends Component {
       sortedByLengthDes: false,
     }
   }
+
+  // componentDidMount() {
+  //   console.log(this.props)
+    // if (!this.props.loggedIn) {
+    //   this.props.history.push('/')
+    // }
+  // }
 
   sortHelper = (type, dir) => {
     if ((type === 'title') && (dir === 'asc')) {
@@ -67,5 +75,15 @@ class App extends Component {
     );
   }
 }
+
+// const mapStateToProps = state => {
+//   return {
+//     loggedIn: state.authReducer.loggedIn
+//   }
+// }
+//
+// export default connect(
+//   mapStateToProps, null
+// )(withRouter(App));
 
 export default withRouter(App);

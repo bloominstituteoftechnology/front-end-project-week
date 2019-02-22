@@ -35,6 +35,7 @@ const mapStateToProps = state => {
     error: state.notesReducer.error,
     deletingNote: state.notesReducer.deletingNote,
     notesSaved: state.notesReducer.notesSaved,
+    loggedIn: state.authReducer.loggedIn
   }
 }
 

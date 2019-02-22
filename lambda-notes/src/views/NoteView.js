@@ -11,6 +11,9 @@ import { Note, Sidebar, DeleteModal } from '../components';
 class NoteView extends React.Component {
 
   componentDidMount() {
+    if (!this.props.loggedIn) {
+      this.props.history.push('/')
+    }
     const noteId = this.props.match.params.id;
     this.props.fetchNoteById(noteId);
   }
@@ -45,6 +48,7 @@ const mapStateToProps = state => {
     note: state.noteReducer.note,
     error: state.noteReducer.error,
     fetchingNote: state.noteReducer.fetchingNote,
+    loggedIn: state.authReducer.loggedIn
   }
 }
 

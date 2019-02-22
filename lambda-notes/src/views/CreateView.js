@@ -6,6 +6,12 @@ import {
 } from '../actions';
 
 class CreateView extends React.Component {
+
+  componentDidMount(){
+    if (!this.props.loggedIn) {
+      this.props.history.push('/')
+    }
+  }
   render() {
     return(
       <div className='container'>
@@ -16,10 +22,14 @@ class CreateView extends React.Component {
   }
 }
 
-
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.authReducer.loggedIn
+  }
+}
 
 export default connect(
-  null,
+  mapStateToProps,
   {
     addNote
   }
