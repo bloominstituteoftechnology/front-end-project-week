@@ -3,7 +3,16 @@ import { Button, Input} from 'reactstrap'
 import { fetchNote, editNote } from '../../actions/'
 import { connect } from 'react-redux'
 import { EditViewStyle, InputStyles } from './styled-components/EditViewStyledComponents'
+import styled from 'styled-components'
 
+const FormStyle = styled.form `
+ ${'' /* margin-top: 30% ; */}
+ border: 1px solid black ;
+ display: flex ;
+ justify-content: center ;
+ align-items: center ;
+ ${'' /* margin: 0 auto ; */}
+`
 class EditView extends Component {
  constructor(props){
   super(props)
@@ -41,7 +50,7 @@ class EditView extends Component {
 
   render() {
     return (
-     <form onSubmit={this.submitEdit}>
+     <FormStyle onSubmit={this.submitEdit}>
      <InputStyles>
       <Input
        name="title"
@@ -60,7 +69,7 @@ class EditView extends Component {
       <Button color="info">Save Changes</Button>
      </InputStyles>
       {this.props.edited ? this.props.history.push(`/note/${this.state.id}`) : null}
-     </form>
+     </FormStyle>
     )
   }
 }
