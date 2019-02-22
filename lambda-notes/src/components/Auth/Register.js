@@ -31,7 +31,7 @@ class Register extends Component {
 
   render() {
     return (
-      <form handleSubmit={this.onSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label for='login'>Register</label>
         <input
           type='text'
