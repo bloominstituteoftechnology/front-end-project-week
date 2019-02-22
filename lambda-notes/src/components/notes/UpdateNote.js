@@ -3,7 +3,8 @@ import axios from 'axios';
 
 import './Notes.css';
 
-const URL = 'https://fe-notes.herokuapp.com/note';
+// const URL = 'https://fe-notes.herokuapp.com/note';
+const URL = 'https://morning-tundra-78343.herokuapp.com/note';
 
 export default class UpdateNote extends Component {
     constructor(props) {
@@ -22,6 +23,7 @@ export default class UpdateNote extends Component {
 
     fetchNote = id => {
         axios
+            // .get(`${URL}/get/${id}`)
             .get(`${URL}/get/${id}`)
             .then(response => {
                 console.log(response);
@@ -47,6 +49,7 @@ export default class UpdateNote extends Component {
         };
         const id = this.props.match.params.id;
         axios
+            // .put(`${URL}/edit/${id}`, note)
             .put(`${URL}/edit/${id}`, note)
             .then(response => {
                 this.setState({ title: '', textBody: '' })
@@ -64,7 +67,7 @@ export default class UpdateNote extends Component {
                     <form className="input-form" onSubmit={this.submitHandler} >
                         <input type="text" defaultValue={this.state.note.title} name="title" onChange={this.handleChange} />
                         {this.state.textBody}
-                        <textarea type="textarea" value={this.state.note.textBody} name="textBody" onChange={this.handleChange} />
+                        <textarea value={this.state.note.textBody} name="textBody" onChange={this.handleChange} />
                         <button type="submit" className="submit-button">Update</button>
                     </form>
             </div>

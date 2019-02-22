@@ -30,7 +30,8 @@ const MyButton = styled(Button)`
     margin-top: 0;
 `;
 
-const URL = 'https://fe-notes.herokuapp.com/note';
+// const URL = 'https://fe-notes.herokuapp.com/note';
+const URL = 'https://morning-tundra-78343.herokuapp.com/note';
 
 class OneNote extends Component {
     constructor(props) {
@@ -52,11 +53,14 @@ class OneNote extends Component {
         this.fetchNote(id);
     }
 
-    fetchNote = id => {
+    fetchNote = (id) => {
         axios
+            // .get(`${URL}/get/${id}`)
             .get(`${URL}/get/${id}`)
             .then(response => {
                 console.log(response);
+                console.log('id:', id);
+                console.log('id type:', typeof(id));
                 this.setState(() => ({ note: response.data }));
             })
             .catch(error => {
@@ -73,6 +77,7 @@ class OneNote extends Component {
     deleteHandler = () => {
         const id = this.props.match.params.id;
         axios
+            // .delete(`${URL}/delete/${id}`)
             .delete(`${URL}/delete/${id}`)
             .then(response => {
                 console.log(response);

@@ -3,13 +3,14 @@ import { withRouter } from 'react-router-dom';
 import './Notes.css';
 import axios from 'axios';
 
-const URL = 'https://fe-notes.herokuapp.com/note';
+// const URL = 'https://fe-notes.herokuapp.com/note';
+const URL = 'https://morning-tundra-78343.herokuapp.com/note';
 
 class AddNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: [],
+            notes: {},
             title: '',
             textBody: '',
         };
@@ -17,6 +18,7 @@ class AddNote extends Component {
 
     componentDidMount() {
         axios
+            // .get(`${URL}/get/all`)
             .get(`${URL}/get/all`)
             .then(response => {
                 this.setState(() => ({ notes: response.data }))
@@ -38,6 +40,7 @@ class AddNote extends Component {
         };
         console.log(note);
         axios
+            // .post(`${URL}/create`, note)
             .post(`${URL}/create`, note)
             .then(response => {
                 this.props.history.push('/');  
@@ -54,8 +57,8 @@ class AddNote extends Component {
             <div className="notes-list">
                 <h2 className="your-notes">Create New Note:</h2>
                     <form className="input-form" onSubmit={this.submitHandler} >
-                        <input type="text" placeholder="Note Title" name="title" value={this.state.title} onChange={this.handleChange} />
-                        <textarea type="text" placeholder="Note Content" name="textBody" value={this.state.textBody} onChange={this.handleChange} />
+                        <input type="text" placeholder="Note Title" name="title" defaultValue={this.state.title} onChange={this.handleChange} />
+                        <textarea placeholder="Note Content" name="textBody" value={this.state.textBody} onChange={this.handleChange} />
                         <button type="submit" className="submit-button">Save</button>
                     </form>
             </div>
