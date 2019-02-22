@@ -30,7 +30,7 @@ export const addNote = note => {
  return dispatch => {
   dispatch({type: ADDING })
   axios
-   .post('https://fe-notes.herokuapp.com/note/create', note)
+   .post('http://localhost:3945/api/notes', note)
    .then(() => {
    dispatch({type: ADDED})
    })
@@ -43,7 +43,7 @@ export const deleteNote = id => {
  return dispatch => {
   dispatch({type: DELETING})
   axios
-  .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+  .delete(`http://localhost:3945/api/notes/delete/${id}`)
   .then(() => {
    dispatch({type: DELETED})
   })

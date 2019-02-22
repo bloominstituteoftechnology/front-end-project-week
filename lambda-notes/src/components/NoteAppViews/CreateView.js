@@ -23,9 +23,8 @@ class CreateNote extends Component {
   console.log('In submitNote')
   event.preventDefault()
    this.props.addNote({
-    tags: [],
     title: this.state.title, 
-    textBody: this.state.body})
+    body: this.state.body})
     this.setState({
      title: '',
      body: ''
