@@ -12,6 +12,9 @@ class NotesList extends Component {
     }
 
     render() {
+
+        console.log(`NotesList Render`, this.props);
+
         let sortedNotes = this.props.notes.sort( (x,y) => {
             let XTITLE = x.title.toLowerCase();
             let YTITLE = y.title.toLowerCase();
@@ -21,11 +24,15 @@ class NotesList extends Component {
 
 
         })
+        console.log(sortedNotes)
+
         return (
+            
             <div className='notesContainer'>
             <h2> Your Notes: </h2>
             <div className='gridList'>
-            {sortedNotes.map( jot => <Link to={`/note/${jot.id}`}><Note title={jot.title} key={jot.id} textBody={jot.textBody} jot={jot} /></Link>)}
+            {sortedNotes.map( jot => {
+                return <Link key={`link-${jot.id}`} to={`/note/${jot.id}`}><Note title={jot.title} key={jot.id} textBody={jot.textBody} jot={jot} /></Link>})}
             </div>
             </div>
         )
