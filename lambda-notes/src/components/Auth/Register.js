@@ -9,19 +9,29 @@ class Register extends Component {
     }
   }
 
-  handleInput = (e) => {
+  handleInput = e => {
+    e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value
     });
   }
 
-  onSubmit = (e) => {
-
+  handleSubmit = e => {
+    e.preventDefault();
+    const creds = this.state;
+    const endpoint = '';
+    instance.post(endpoint, creds)
+      .then(res => {
+        localStorage.setItem('jwt', res.data.token);
+      })
+      .catch(err => {
+        console.log('error', err);
+      })
   }
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form handleSubmit={this.onSubmit}>
         <label for='login'>Register</label>
         <input
           type='text'
@@ -35,7 +45,7 @@ class Register extends Component {
             placeholder='password'
             value={this.state.password}
             onChange={this.handleInput} />
-          <button type='submit' onClick={this.onSubmit}>Register</button>
+          <button type='submit'>Register</button>
       </form>
     );
   }
