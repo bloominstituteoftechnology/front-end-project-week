@@ -13,7 +13,7 @@ const Authenticate = Home => {
         }
 
         componentDidMount(){
-            if (!localStorage.getItem('user')){
+            if (!localStorage.getItem('jwt')){
                 this.setState({ loggedIn: false });
             } else {
                 this.setState({ loggedIn: true });

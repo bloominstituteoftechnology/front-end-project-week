@@ -80,4 +80,3 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, { createNote: createNote })(CreateNewNote)
 
-//export default CreateNewNote

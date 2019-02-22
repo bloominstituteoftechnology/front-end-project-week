@@ -109,7 +109,7 @@ class App extends Component {
   // }
 
   handleLogOut = event => {
-    localStorage.setItem('user', '')
+    localStorage.setItem('jwt', '')
     window.location.reload();
   }
   
@@ -186,7 +186,7 @@ class App extends Component {
                 render={props => <ZaSort {...props}/>}
               />
 
-               <Route path="/idsort"
+              <Route path="/idsort"
                 render={props => <IdSort {...props}/>}
               />
 
