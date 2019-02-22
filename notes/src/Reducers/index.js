@@ -91,14 +91,18 @@ const rootReducer = (state = initialState, action) => {
           }
       case DELETE_SUCCESS:
       console.log(action.payload.success) 
+      console.log(action.payload._id) 
           return {
               ...state,
               error: null,
               fetchingNotes: false,
               notes: state.notes.filter(note => 
-                  !(note._id === action.payload._id)
+                  (note._id !== action.payload._id)
+                   
               )
           }
+     
+          
       case DELETE_FAILURE:
           return {
               ...state,

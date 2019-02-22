@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import './Notes.css';
 import axios from 'axios';
 
+import { connect } from "react-redux";
+// import {
+//   getNotes,
+//   addNote,
+//   updateNote,
+//   deleteNote  
+// } from "../Actions";
+
 class EditNote extends Component {
   constructor(props) {
       super(props);

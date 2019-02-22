@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import './Notes.css';
-import axios from 'axios';
+//import axios from 'axios';
 import { Link } from 'react-router-dom';
+
+import { getNotes } from "../Actions";
+import { connect } from "react-redux";
+
+//   getNotes,
+//   addNote,
+//   updateNote,
+//   deleteNote  
+// } from "../Actions";
 
 class NotesPreview extends Component {
   constructor(props){
@@ -12,17 +21,19 @@ class NotesPreview extends Component {
   }  
 }
 componentDidMount() {
-  axios
-      .get(`https://fe-notes.herokuapp.com/note/get/all`)
+
+  this.props.getNotes();
+  // axios
+  //     .get(`https://fe-notes.herokuapp.com/note/get/all`)
      
-      .then(response => {
-        console.log(response)
-          this.setState({
-            notes:response.data,
-            loading:false,
-        })
-      })
-      .catch(err => console.log(err));
+  //     .then(response => {
+  //       console.log(response)
+  //         this.setState({
+  //           notes:response.data,
+  //           loading:false,
+  //       })
+  //     })
+  //     .catch(err => console.log(err));
 
 }
 render() {
@@ -43,5 +54,13 @@ render() {
   )
 }
 }
-export default NotesPreview; 
+const mapStateToPops = state =>{
+  console.log(state);
+  return {
+    notes: state.notes,
+    fetchingNotes: state.fetchingNotes
+  }
+}
+
+export default connect (mapStateToPops, { getNotes })(NotesPreview); 
 

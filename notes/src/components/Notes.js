@@ -8,6 +8,9 @@ import ViewOneNote from './ViewOneNote';
 import DeleteNote from './DeleteNote';
 import EditNote from './EditNote';
 
+import { getNotes } from "../Actions";
+import { connect } from "react-redux";
+
 class Notes extends Component {
   constructor(props){
       super(props);
@@ -17,17 +20,18 @@ class Notes extends Component {
       }
   }
   componentDidMount() {
-    axios
-        .get(`https://fe-notes.herokuapp.com/note/get/all`)
-        .then(response => {
-            this.setState({
-                notes: response.data,
-                loading: false,
-            });
-        })
-        .catch(err => console.log(err));
-}
-
+    this.props.getNotes();
+//     axios
+//         .get(`https://fe-notes.herokuapp.com/note/get/all`)
+//         .then(response => {
+//             this.setState({
+//                 notes: response.data,
+//                 loading: false,
+//             });
+//         })
+//         .catch(err => console.log(err));
+// }
+  }
 addNoteOnServer = newNote => {
   this.setState({notes: newNote});
 }
@@ -39,7 +43,7 @@ render() {
     <Route
       path="/create"
       render={props =>
-      <CreateNote {...props} notes={this.state.notes} addNoteOnServer={this.addNoteOnServer} /> }
+      <CreateNote {...props} notes={this.state.notes} /> }
        />
 
       <Route 
@@ -68,6 +72,8 @@ render() {
       
   </div>
 
-  );}}
-      
-  export default Notes;
+  )
+  }
+}
+ 
+  export default connect (null, {getNotes})(Notes);
