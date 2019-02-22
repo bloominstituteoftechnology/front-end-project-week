@@ -47,7 +47,7 @@ export const newNote = (note) => {
 
 export const editNote = (id, note) => {
   return (dispatch) => {
-    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    axios.put(`http://localhost:4500/api/note/edit/${id}`, note)
     .then( res => {
       dispatch({type: SUCCESS, payload: res.data, path: "Edit Note", fetching: false})
     })
@@ -59,7 +59,7 @@ export const editNote = (id, note) => {
 
 export const deleteNote =(id)=> {
   return (dispatch) => {
-    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    axios.delete(`http://localhost:4500/api/note/delete/${id}`)
     .then( res => {
       dispatch({type: SUCCESS, payload: res.data, fetching: false})
     })

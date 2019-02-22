@@ -58,7 +58,7 @@ class App extends Component {
             />
 
             <Route path={`/note/edit/:id`} exact
-              render={(props) => <EditView notes={this.state.notes} {...props} />}
+              render={(props) => <EditView  {...props} />}
             />
         </NoteContent>
       </AppWrap>

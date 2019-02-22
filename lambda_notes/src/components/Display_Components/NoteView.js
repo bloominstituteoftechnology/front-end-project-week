@@ -25,7 +25,6 @@ class NoteView extends Component {
 
 
   render() {
-      console.log("noteView", this.props);
         return (
             <NoteBody>
                 <MenuWrap>
@@ -33,8 +32,8 @@ class NoteView extends Component {
                 note={this.props.note} >Edit</ Link></article>
                 <article>{<Link to={DeleteModal}><DeleteModal id={this.props.note.id} /></Link>}</article>
                 </MenuWrap>
-                <h4>{this.props.note.title}</h4>
-                <h4>{this.props.note.note}</h4>
+                <h2>{this.props.note.title}</h2>
+                <p>{this.props.note.note}</p>
             </NoteBody>
         )
     }
