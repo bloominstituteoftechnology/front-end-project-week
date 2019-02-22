@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   getNotes = () => {
-    axios.get('http://localhost:5000/api/notes')
+    axios.get('https://quiet-tundra-17358.herokuapp.com/api/notes')
     .then(response => {
       this.setState({
         notes: response.data,
@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   createNote = (note) => {
-    axios.post('http://localhost:5000/api/notes', note)
+    axios.post('https://quiet-tundra-17358.herokuapp.com/api/notes', note)
     .then(() => {
       this.getNotes();
     })
@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   updateNote = (id, note) => {
-    axios.put(`http://localhost:5000/api/notes/${id}`, note)
+    axios.put(`https://quiet-tundra-17358.herokuapp.com/api/notes/${id}`, note)
     .then(() => {
       this.getNotes();
     })
@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   deleteNote = (id) => {
-    axios.delete(`http://localhost:5000/api/notes/${id}`)
+    axios.delete(`https://quiet-tundra-17358.herokuapp.com/api/notes/${id}`)
     .then(() => {
       this.getNotes();
     })
@@ -72,6 +72,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.notes);
     if (this.state.notes === undefined) {
       return (
         <div className="App">

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import './notes.css';
 
 const DeleteModal = props => {
-    const ID = props.math.params.id;
+    const ID = props.match.params.id;
     return (
         <div className='delete-modal'>
             <div className='delete-modal-box'>
