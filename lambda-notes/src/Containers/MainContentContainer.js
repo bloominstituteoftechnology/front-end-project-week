@@ -30,27 +30,17 @@ const NotesContainer = styled.section`
     padding-left: 10px;
 `;
 
-class MainContent extends React.PureComponent{
-    constructor(props){
-        super(props);
-        this.state = {
-            notes: this.props.notes
-        }
-    }
-
-    render(){
-        const { notes } = this.state;
-        return(
-            <Container>
-                <TitleContainer>
-                    <Title>Your Notes:</Title>
-                </TitleContainer>
-                <NotesContainer>
-                    { notes ? notes.map(note => <Link to={`/note/${note._id}`} key={note._id}><Card key={note._id}note={note}/></Link> ) : (<div>loading</div> )}
-                </NotesContainer>
-            </Container>
-        )
-    }
+const MainContent = props => {
+    return(
+        <Container>
+            <TitleContainer>
+                <Title>Your Notes:</Title>
+            </TitleContainer>
+            <NotesContainer>
+                { props.notes ? props.notes.map(note => <Link to={`/note/${note._id}`} key={note._id}><Card key={note._id}note={note}/></Link> ) : (<div>loading</div> )}
+            </NotesContainer>
+        </Container>
+    )
 }
 
 export default MainContent;
