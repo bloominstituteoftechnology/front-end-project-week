@@ -7,48 +7,35 @@ import { BtnStyle } from '../Styles/AppStyle';
 import { FormStyle, TitleInputStyle, ContentInputStyle , FormWrap, BtnWrap } from '../Styles/EditViewStyle';
 
 
+
 class EditView extends Component {
 
-   state = {
+    state = {
         path: "Edit View",
-        note: {
-            title: "",
-            note: "",
-        }
+        title: "",
+        note: "",
     }
 
-    componentWillMount(){
-        const id = this.props.match.params.id;
-        this.props.getNote(id);
-     }
-
-     componentDidUpdate(){
-        
-     }
-
-   
+      
+      componentDidMount = () => {
+        console.log("EDIT TITLE", this.props.note.title, "NOTE BODY", this.props.note.note)
+          this.setState({
+              title: this.props.note.title,
+              note: this.props.note.note,
+          })
+    }
 
 submitHandler = (e) => {
        e.preventDefault()
         const id = this.props.match.params.id;
-        this.props.editNote(id , this.state.note);
-    } 
-
-inputHandler = (e) => {
-    e.preventDefault();
-    this.setState({
-        note: {
-          ...this.state.note,
-          path: this.state.path,
-          [e.target.name]: e.target.value,
-        }
-        
-    })
-}
+    this.props.editNote(id, {title: this.state.title, note: this.state.note} );
+    this.props.history.push('/');
+    }
 
 
-
-  
+    inputHandler = (e) => {
+        this.setState({ [e.target.name]: e.target.value })
+};
 
 
     render() {
@@ -57,8 +44,8 @@ inputHandler = (e) => {
             <FormWrap>
                 <h2>Edit Note:</h2>
                 <FormStyle onSubmit={this.submitHandler}> 
-                    <TitleInputStyle  type="text" name="title" placeholder={this.props.note.title}  onInput={this.inputHandler} ></TitleInputStyle>
-                    <ContentInputStyle  type="text" name="note" placeholder={this.props.note.note}  onInput={this.inputHandler}>
+                    <TitleInputStyle  type="text" name="title" placeholder="title" value={this.state.title}  onInput={this.inputHandler} ></TitleInputStyle>
+                    <ContentInputStyle  type="text" name="note" placeholder="Note Body" value={this.state.note}  onInput={this.inputHandler}>
                     </ContentInputStyle>
                     <BtnWrap>
                         <BtnStyle type="submit" >Save</BtnStyle>

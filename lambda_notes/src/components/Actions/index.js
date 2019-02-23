@@ -8,7 +8,9 @@ export const ERROR = "ERROR";
 
 
 export const getNotes = () => {
-  return  (dispatch) => {
+  console.log("")
+  return (dispatch) => {
+    dispatch({type: LOADING, fetch: true})
     axios.get(`http://localhost:4500/api/notes`)
     .then( res => {
       dispatch({ type: SUCCESS, payload: res.data, path: "List View" , fetching: false })
@@ -46,14 +48,17 @@ export const newNote = (note) => {
 }
 
 export const editNote = (id, note) => {
+  console.log("------edit note id--------", id, note);
   return (dispatch) => {
     axios.put(`http://localhost:4500/api/note/edit/${id}`, note)
     .then( res => {
       dispatch({type: SUCCESS, payload: res.data, path: "Edit Note", fetching: false})
     })
-    .catch( err => {
+      
+      .catch(err => {
+      
       dispatch({type: ERROR, errorMessage: "Notes Not Found!"})
-    })
+      })
   }
 }
 

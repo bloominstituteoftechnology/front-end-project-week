@@ -11,9 +11,25 @@ import { Title, NoteWrap, NoteContent } from '../Styles/ListViewStyle';
 class ListView extends Component {
 
 
-    componentWillMount() {
-       this.props.getNotes()
-    } 
+    // componentWillUnmount() {
+    //    this.props.getNotes()
+    // }
+
+    componentDidMount() {
+        // this.props.getNotes()
+        this.setState({
+            notes: this.props.getNotes()
+        })
+    }
+    
+    // componentDidUpdate() {
+    //     if (this.props.notes === undefined) {
+    //         this.props.getNotes();
+    //     }
+        
+        
+    // }
+
 
 
 

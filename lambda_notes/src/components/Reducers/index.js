@@ -12,7 +12,7 @@ const initialState = {
 export const rootReducer = ( state = initialState, action ) => {
     switch(action.type) {
             case LOADING:
-                return Object.assign({}, state, {notes: action.payload, fetching: true});
+                return Object.assign({}, state, {fetching: true});
             case SUCCESS: 
                 return Object.assign({}, state, {notes: action.payload, fetching: false});
             case NOTE:
