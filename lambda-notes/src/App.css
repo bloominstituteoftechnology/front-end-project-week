@@ -49,11 +49,9 @@ table {
 
 * {
  font-size: 62.5%;
- /* border: 1px solid black !important; */
 }
 .App {
  margin: 0 auto ;
- /* max-width: 1024px; */
  width: 100% ;
  box-sizing: border-box;
  height: 100%;

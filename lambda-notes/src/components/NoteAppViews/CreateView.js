@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addNote } from '../../actions'
-import { Button, Input } from 'reactstrap'
+import { Button } from 'reactstrap'
 import { CreateViewContainer, CreateViewStyle, CreateText} from './styled-components/CreateViewStyledComponents'
 import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'

@@ -1,6 +1,4 @@
 import React from 'react'
-import { Button } from 'reactstrap'
-// import { H1, Div, ContainerStyle } from './styled-components/SidebarStyledComponents'
 import { Link } from 'react-router-dom'
 import {List, ListItem, ListItemIcon, ListItemText, ListSubheader} from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles';
@@ -9,7 +7,6 @@ import Drawer from '@material-ui/core/Drawer';
 /* Icons*/
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
@@ -20,10 +17,7 @@ import { Add } from '@material-ui/icons/'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 /* Misc */ 
 import classNames from 'classnames';
-// import { styles } from '../NoteContainer/styled-components/NoteContainerStyledComponents-Deprecated'
 import { H1 } from './styled-components/SidebarStyledComponents'
-import Note from '../NoteContainer/Note'
-import { NoteContainerStyle } from '../NoteContainer/styled-components/NoteContainerStyledComponents'
 import { styles } from './styled-components/SidebarStyledComponents' 
 
 class Sidebar extends React.Component {

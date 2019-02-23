@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Button } from 'reactstrap'
-// import { Button } from '@material-ui/core/Button'
 import { fetchNote, editNote } from '../../actions/'
 import { connect } from 'react-redux'
 import { EditViewStyle, InputStyles } from './styled-components/EditViewStyledComponents'
@@ -8,14 +7,11 @@ import styled from 'styled-components'
 import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import { styles } from './styled-components/EditViewStyledComponents'
+
 const FormStyle = styled.form `
- ${'' /* margin-top: 30% ; */}
  display: flex ;
  flex-direction: column ;
- ${'' /* margin: 0 auto ; */}
  justify-content: center;
-
- ${'' /* margin: 0 auto ; */}
 `
 class EditView extends Component {
  
@@ -95,6 +91,4 @@ const mapStateToProps = state => {
  }
 }
  
-// export default connect(mapStateToProps, { fetchNote, editNote })(withStyles(styles)(EditView))
-// export default withStyles(styles)(connect(mapStateToProps, { fetchNote, editNote})(EditView))
 export default connect(mapStateToProps, { fetchNote, editNote})(withStyles(styles)(EditView))

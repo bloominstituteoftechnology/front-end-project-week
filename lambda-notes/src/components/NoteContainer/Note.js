@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles';
@@ -11,25 +10,18 @@ import { NoteTitle, NoteNumber } from './styled-components/NoteStyledComponents'
 
 const styles = theme => ({
  root: {
-  // flexGrow: 0,
   width: 400,
  },
  paper: {
   padding: theme.spacing.unit * 1.5,
-  // margin: 'auto',
   marginTop: 40,
   maxWidth: 200,
   maxHeight: 400,
-  border: "2px solid green",
  },
  image: {
   width: 128,
   height: 128,
  },
- img: {
-  // margin: 'auto',
-  // display: 'block',
- }
 })
 
 const Note = props => {
@@ -55,8 +47,7 @@ const Note = props => {
        <Grid item>
         <Typography variant="subtitle1">
         <NoteNumber>
-
-       #{props.id}
+        #{props.id}
         </NoteNumber>
         </Typography>
        </Grid>
