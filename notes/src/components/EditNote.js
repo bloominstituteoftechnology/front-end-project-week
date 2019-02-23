@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './Notes.css';
-import axios from 'axios';
+//import axios from 'axios';
 
 import { connect } from "react-redux";
 import {
- // getNotes,
+  getNotes,
   updateNote
 } from "../Actions";
 
@@ -20,25 +20,25 @@ class EditNote extends Component {
   }
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.fetchNote(id);
+    this.getchNotes(id);
 }
-  fetchNote = id => {
-    axios
-        .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-        .then(response => {
-            this.setState(
-                {
-                    noteToEdit: response.data,
-                    loading: false
-                });
-        })
-        .catch(err => {
-            this.setState({loading: false});
-            console.log(err)
-        });
-  }
+  // fetchNote = id => {
+  //   axios
+  //       .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+  //       .then(response => {
+  //           this.setState(
+  //               {
+  //                   noteToEdit: response.data,
+  //                   loading: false
+  //               });
+  //       })
+  //       .catch(err => {
+  //           this.setState({loading: false});
+  //           console.log(err)
+  //       });
+  // }
   // submitEditedNote = (e) => {
-  //   e.preventDefault();
+  //  e.preventDefault();
   //   axios
   //       .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params.id}`, {
   //           title: this.state.updatedTitle,
@@ -65,7 +65,7 @@ class EditNote extends Component {
     return (
       <div className="contentContainer">
           <h2>Edit Note:</h2>
-        <form className="form" onSubmit={this.submitEditedNote}>
+        <form className="form" onSubmit={this.updateNote}>
           <textarea className="title" 
                 type='text' 
                 name='title'
@@ -91,4 +91,4 @@ class EditNote extends Component {
      
     }
   }
-  export default connect (mapStateToPops, {updateNote})(EditNote);
+  export default connect (mapStateToPops, {updateNote, getNotes})(EditNote);

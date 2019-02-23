@@ -34,7 +34,7 @@ const rootReducer = (state = initialState, action) => {
               fetchingNotes:false,
               error: action.payload
           }
-
+    
   //ADD
       case ADD_FETCH:
           return {
