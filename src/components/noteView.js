@@ -44,7 +44,7 @@ class NoteView extends Component {
     return (
       <form className="note-view"> <div className="note-view-container">
         <div className="spacer"></div>
-        <button className="clone-button" onClick={this.noteClone}>copy</button>
+        <button className="clone-button" onClick={this.noteClone}>clone</button>
         <button className="edit-button" onClick={() => this.props.noteEdit(this.props.id)}>edit</button>
         <button className="delete-button" onClick={() => this.props.noteDelete(this.props.id)}>delete</button></div>
         <div className="note-name">{this.props.noteSelected.title}</div>

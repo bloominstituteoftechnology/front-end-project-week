@@ -33,7 +33,7 @@ class Nav extends React.Component {
   }
 
   componentDidMount() {
-   // this.props.getNotes();
+    this.props.getNotes();
     this.props.getLists();
   }
 

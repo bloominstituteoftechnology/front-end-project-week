@@ -41,7 +41,7 @@ class NoteCreate extends Component {
 
 		
 		this.props.createNote({ title, textBody, tags, _id, pictures, pictureDataURLs, users_id });
-		//this.setState({ tags: '', title: '', textBody: '', _id: "", pictures: "", pictureDataURLs: "", users_id: "" });
+		this.setState({ tags: '', title: '', textBody: '', _id: "", pictures: "", pictureDataURLs: "", users_id: "" });
 		this.props.noteList(e);
 	};
 
