@@ -8,7 +8,7 @@ import NoteCard from "./NoteCard";
 const ListDiv = styled.div`
   h1 {
     font-size: 1.8rem;
-    padding: 60px 5% 20px;
+    padding: 55px 5% 25px;
   }
 `;
 
@@ -41,9 +41,11 @@ class NoteList extends React.Component {
   render() {
     return (
       <ListDiv>
-        <h1>All Notes:</h1>
-        {this.props.fetching(
-          <div>
+      <h1>Your Notes:</h1>
+      {this.props.fetching ? (
+        <h1>One Sec</h1>
+      ) : (
+        <div>
             <CardDiv>
               {this.props.filteredNotes.map(item => {
                   return (

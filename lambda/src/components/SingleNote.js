@@ -60,10 +60,12 @@ class SingleNote extends React.Component {
     return (
       <div>
         <OptionsBar>
-          <div onClick={this.updateHandler}>edit</div>
-          <div onClick={this.showModal}>delete</div>
+          <div onClick={this.updateHandler}>Edit</div>
+          <div onClick={this.showModal}>Delete</div>
         </OptionsBar>
-        {this.props.fetching(
+        {this.props.fetching ? (
+          <h1>One Sec</h1>
+        ) : (
           <Note>
             <h1>{this.props.note.title}</h1>
             <p>{this.props.note.textBody}</p>

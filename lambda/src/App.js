@@ -78,7 +78,7 @@ class App extends Component {
           <Route
             path="/update/:id"
             render={props => (
-              <NoteForm {...props} purpose="Edit Note:" buttonText="Update" />
+              <NoteForm {...props} purpose="Edit Note:" buttonText="That's better" />
             )}
           />
         </DisplayDiv>
