@@ -7,7 +7,7 @@ import Card from './styles/SingleNoteView';
 import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 
-const API =  `http://localhost:2300`;
+const API =  `https://venkynotesapi.herokuapp.com` || `http://localhost:2300`;
 
 class MyNote extends Component {
     constructor(props){
