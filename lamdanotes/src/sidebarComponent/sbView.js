@@ -6,6 +6,7 @@ import ViewNotesButton from './viewButton';
 import CreateNewButton from './createNewButton';
 import SearchBar from './searchBar/searchbar';
 import SortButtonView from './sortComponents/sortView';
+import Logout from './logoutButton';
 
 
 //props from app.js 
@@ -15,6 +16,7 @@ import SortButtonView from './sortComponents/sortView';
 //searchNotes={this.searchNotes}
 //handleAscendingSort = {this.handleAscendingSort}
 //handleDescendingSort = {this.handleDescendingSort}
+//handleLogout={this.handleLogout}
 
 const SidebarView = props => {
     return (
@@ -28,6 +30,7 @@ const SidebarView = props => {
             <CreateNewButton />
             <SortButtonView handleAscendingSort={props.handleAscendingSort} 
                                       handleDescendingSort={props.handleDescendingSort} />
+            <Logout handleLogout={props.handleLogout} />
         </div>
     )
 }

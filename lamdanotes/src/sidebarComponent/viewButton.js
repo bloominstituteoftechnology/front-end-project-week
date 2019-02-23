@@ -12,7 +12,7 @@ const ViewNotesButton = props => {
                 onClick={() => props.getUpdatedNotes()}    
             >
                 <button className="sbButtons">
-                    <img src="https://img.icons8.com/material/20/FFFFFF/real-estate.png" />
+                    <img src="https://img.icons8.com/material/20/FFFFFF/real-estate.png" alt="home" />
                         <p>Home</p>
                 </button>
             </Link>

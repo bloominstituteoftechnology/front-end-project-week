@@ -18,9 +18,13 @@ class App extends Component {
     this.state = {
       notes: [],
       cNote: "",
-      isLoggedIn: true
+      isLoggedIn: false,
+      users: {
+          username: "testName",
+          password: "testPass"
+        } 
+      }
     }
-  }
 
   // {/* Call to API and set the response data to our state */}
   componentDidMount() {
@@ -75,7 +79,7 @@ class App extends Component {
 
   searchNotes = (term) => {
     console.log(term)
-    const filteredSearch = this.state.notes.filter(string => string.title.includes(term) || string.textBody.includes(term) )
+    const filteredSearch = this.state.notes.filter(string => string.title.toUpperCase().includes(term.toUpperCase()) || string.textBody.toUpperCase().includes(term.toUpperCase()) )
     this.setState({
       notes: filteredSearch
     })
@@ -126,6 +130,23 @@ class App extends Component {
     })
   }
 
+  handleLogin = obj => {
+    console.log(obj.username)
+    if(obj.username === this.state.users.username && obj.password === this.state.users.password) {
+      this.setState({
+      isLoggedIn: true
+    }) 
+    } else {
+      console.log("failed")
+    }
+  }
+
+  handleLogout = () => {
+    this.setState({
+      isLoggedIn: false
+    }) 
+  }
+
 
 // <---------------------{{{----APPLICATION/ROUTES------}}}--------------------->
 
@@ -133,7 +154,7 @@ class App extends Component {
   render() {
     if(this.state.isLoggedIn === false) {
       return(
-        <LoginPage />
+        <LoginPage handleLogin={this.handleLogin} />
       )
     }
     return (
@@ -147,6 +168,7 @@ class App extends Component {
               getUpdatedNotes={this.getUpdatedNotes} 
               handleAscendingSort = {this.handleAscendingSort}
               handleDescendingSort = {this.handleDescendingSort}
+              handleLogout={this.handleLogout}
               /> )} />
 
           <Route 
