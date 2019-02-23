@@ -1,0 +1,184 @@
+
+.App {
+  /* text-align: center; */
+  /* border: 2px solid red; */
+  display: flex;
+
+  max-width: 950px;
+  width: 100%;
+  margin: 0 auto;
+
+  font-size: 62.5%;
+}
+
+.App-header {
+  background-color: lightgray;
+  height: 3500px;
+  width: 25%;
+
+
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+
+  font-size: 1.2rem;
+  color: white;
+}
+
+h1 {
+  font-size: 3rem;
+  padding-left: 30px;
+  color: #404247;
+}
+
+ul {
+  /* border: 3px solid green; */
+  height: 300px;
+  list-style-type: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.button {
+  background: #20b0b5;
+  height: 40px;
+  width: 80%;
+  padding-top: 10px;
+  text-align: center;
+  border: 2px solid gray;
+}
+
+.logoutbutton {
+  margin-top: 200px;
+  margin-left: 40px;
+  background: gray;
+  height: 40px;
+  width: 65%;
+  padding-top: 10px;
+  text-align: center;
+  border: 2px solid gray;
+}
+
+
+.Container {
+  background-color: whitesmoke;
+  width: 75%;
+}
+
+/* DROP DOWN MENU */
+
+.dropbtn {
+  background-color: #20b0b5;
+  border: 2px solid gray;
+  width: 80%;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+/* .dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+} */
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+
+
+/*  NotesList.js */
+
+.noteslist-container {
+  background-color: whitesmoke;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*  CreateNewNote.js */
+
+.note-container {
+  /* border: 3px solid goldenrod; */
+  margin-top: 50px;
+  height: 600px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.button.save {
+  width: 30%;
+  font-size: 1.2rem;
+}
+
+form {
+  /* border: 1px solid purple; */
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.input-title {
+  width: 60%;
+  height: 50px;
+}
+
+.input-content {
+  width: 95%;
+  height: 400px;
+  margin-top: 20px;
+}
+
+/*  NoteView.js */
+
+.note-menu {
+  /* border: 1px solid salmon; */
+  height: 40px;
+
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+
+.note-menu div {
+  padding-right: 10px;
+}

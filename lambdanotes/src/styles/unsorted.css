@@ -1,0 +1,46 @@
+/* styling for all sub-routes: 
+unsorted.js
+azsort.js
+zasort.js
+idsort.js
+*/
+
+#myDIV {
+  /* border: 1px solid orange; */
+  margin-top: 50px;
+}
+
+.filter-title {
+  padding-left: 40px;
+}
+
+.notebox-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* border: 0.5px solid gray; */
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.notebox {
+  background-color: white;
+  border: 1px solid gray;
+  width: 40%;
+  height: 250px;
+  padding: 5px 10px 5px 10px;
+  margin-bottom: 30px;
+}
+
+.notebox:hover {
+  background-color: #20b0b5;
+  color: white;
+}
+
+.contentbox {
+  height: 120px;
+  border-top: 2px solid gray;
+  font-size: 1.2rem;
+}
+

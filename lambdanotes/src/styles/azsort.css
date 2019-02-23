@@ -1,0 +1,55 @@
+
+
+.hoverinfo {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  font-size: 1rem;
+  color: red;
+  cursor: pointer;
+  /* border: 1px solid orange; */
+  width: 250px;
+  /* padding-bottom: 50px; */
+}
+
+.hoverinfo p {
+  display: none;
+  color: #000000;
+}
+
+.hoverinfo:hover p {
+  background-color: rgba(255, 255, 255, 0.454);
+  display: block;
+}
+
+
+
+/* Navigation Menu from previous project does NOT work*/
+/* .navigation {
+    display: none;
+    position: fixed;
+    max-width: 800px;
+    width: 100%;
+    height: 100vh;
+    background-color: dodgerblue;
+    opacity: 0.9;
+    z-index: 2;
+    transition: 0.8s;
+}
+
+.hamburger-close {
+  display: none;
+  z-index: 3;
+  height: 35px;
+  padding: 15px 70px 0 0;
+}
+
+.navigation--open {
+  display: block;
+}
+
+.hamburger--open {
+  display: block;
+} */
+
+
