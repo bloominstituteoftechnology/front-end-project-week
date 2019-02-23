@@ -6,7 +6,6 @@ import NotesList from './components/NotesList';
 import AddNoteForm from './components/AddNoteForm';
 import LoginForm from './components/LoginForm';
 import EditForm from './components/EditForm';
-import loading from './loading.gif'
 import pageError from './components/pageError';
 import axios from 'axios';
 
@@ -18,51 +17,55 @@ class App extends Component {
     this.state = {
       notes: [],
       note: null,
-      searchStatus: false,
+      searchStatus: '',
       loading: false,
       noSuccess: false,
       requestError: false,
-      isLoggedIn: false
+      isLoggedIn: false,
+      loginError: false,
+      username: '',
+      password: ''
     }
   }
+
+  
+
   componentDidMount() {
-      
-    this.setState({ loading: true, noSuccess: false})
-    axios
+    this.setState({ loading: true, searchStatus: '' });
+    if (localStorage.getItem('username') === 'username' && localStorage.getItem('password') === 'password') {
+      this.setState({ isLoggedIn: true, loading: false });
+      axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
-        console.log(response.data.length)
           this.setState({
               notes: response.data,
-              searchStatus: false,
               loading: false,
               noSuccess: false
           })
-          
-          // this.props.history.push(`/`);
       })
       .catch(err => {
         this.setState({
             notes: [],
-            searchStatus: false,
             loading: false,
             noSuccess: err
         })
         console.log(err);
       })
-    
+      
+    }
+    else {
+      this.setState({ isLoggedIn: false, loading: false });
+      this.props.history.push('/login')
+    }
   }
- 
   
   fetchNotes = () => {
-    this.setState({ loading: true, noSuccess: false})
+    this.setState({ loading: true, noSuccess: false, searchStatus: ''})
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
-        console.log(response.data.length)
           this.setState({
               notes: response.data,
-              searchStatus: false,
               loading: false,
               noSuccess: false
           })
@@ -72,12 +75,12 @@ class App extends Component {
       .catch(err => {
         this.setState({
             notes: [],
-            searchStatus: false,
             loading: false,
             noSuccess: err
         })
         console.log(err);
       })
+
   }
 
   addNote = note => {
@@ -129,42 +132,40 @@ class App extends Component {
             notes: updatedNotes,
             loading: false
           })
-
-          this.props.history.push(`/note/${id}`);
+          this.props.history.push(`/note/${response.data._id}`);
         
       })
       .catch(err => {
         console.log(err);
+        this.setState({
+          loading: false
+        })
+        this.props.history.push(`/edit/${id}`);
       })
+
   }
 
   viewNote = id => {
-    // this.setState({ loading: true})
+    this.setState({ loading: true})
       axios
           .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
           .then(response => {
               
               this.setState({ 
                   note: response.data,
-                  searchStatus: false,
-                  // loading: false,
+                  loading: false,
                   requestError: false
               });
-            console.log(this.state.note._id)
-              this.props.history.push(`/note/${this.state.note._id}`);
-            
+              this.props.history.push(`/note/${id}`);
           })
           .catch(err => {
               console.log(err);
               this.setState({
-                note: null,
-                searchStatus: false,
-                // loading: false,
+                loading: false,
                 requestError: true
               })
-            console.log(this.state.note._id)
 
-              this.props.history.push(`/note/${this.state.note._id}`);
+              this.props.history.push(`/404`);
           })
         
   }
@@ -184,70 +185,92 @@ class App extends Component {
   }
 
   searchTerm = term => {
-    this.setState({searchStatus: `Searching...`})
+    this.setState({ searchStatus: 'Searching...'})
+    let newNotes = [];
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
         
-        let newNotes = []
         response.data.map(note => {
 
           if ((note.title.toLowerCase().includes(term.toLowerCase()) || note.textBody.toLowerCase().includes(term.toLowerCase()))) {
             newNotes.push(note)
           }
+          return newNotes;
         });
+        console.log(newNotes);
+        if (newNotes.length > 0) {
+          this.setState({
+            notes: newNotes,
+            searchStatus: `Here is what we found matching with ${term}: `
+          })
+        }
+        else {
+          this.setState({
+            notes: [],
+            searchStatus: 'Sorry, nothing found'
+          })
+        }
         
-        newNotes.length === 0 ?
-
-        this.setState({
-          notes: [],
-          loading: false,
-          searchStatus: `No notes with term: ${term} were found`
-        })
-
-        :
-        this.setState({
-          notes: newNotes,
-          loading: false,
-          searchStatus: false
-        })
-        this.props.history.push(`/`);
 
       })
       .catch(err => {
         console.log(err);
+        
       })
+      this.props.history.push(`/`);
+
   }
   
+
+  loginUser = (name, pass) => {
+    this.setState({ loading: true })
+
+    if (name === 'username' && pass === 'password') {
+
+      localStorage.setItem('username', name);
+      localStorage.setItem('password', pass);
+      
+      this.setState({
+        username: name,
+        password: pass,
+        isLoggedIn: true,
+        loginError: false,
+        loading: false,
+      })
+      this.props.history.push(`/`);
+      
+    }
+    else {
+      this.setState({
+        isLoggedIn: false,
+        loginError: true,
+        loading: false,
+      })
+    }
+    
+  }
+
   render() {
+
     return (
       <div className="App">
         
-        {!this.state.isLoggedIn  ?
-          <div className="login-container">
-            <LoginForm />
-          </div>
-            : 
-        
-        <div className="app-container">
+        {this.state.isLoggedIn ?
+         
+         <div className="app-container">
             
           <Route path="/"
             render={props =>
-              <Sidebar {...props} fetchNotes={this.fetchNotes} searchTerm={this.searchTerm}/>
+              <Sidebar {...props} notes={this.state.notes} searchStatus={this.searchStatus} fetchNotes={this.fetchNotes} searchTerm={this.searchTerm}/>
             }
           />
 
           <div className="section">
-            <div className="header">
-                <h1>Your notes</h1>
-                {this.state.loading ? <div className="loading"><img src={loading} /></div> : null }
-            </div>
-
-            
             
             <Route exact path="/" 
               render={props => 
-              <NotesList {...props} viewNote={this.viewNote} notes={this.state.notes} loading={this.state.loading} searchStatus={this.state.searchStatus}/>
+              <NotesList {...props} notes={this.state.notes} viewNote={this.viewNote} searchStatus={this.state.searchStatus} loading={this.state.loading}/>
               }
             />
             
@@ -258,22 +281,30 @@ class App extends Component {
             />
             <Route exact path="/note/:id" 
               render={props =>
-                <Note {...props} notes={this.state.notes} requestError={this.state.requestError} viewNote={this.viewNote} deleteNote={this.deleteNote}/>
+                <Note {...props} note={this.state.note} requestError={this.state.requestError} viewNote={this.viewNote} deleteNote={this.deleteNote}/>
               }
             />
 
             <Route exact path="/edit/:id"
               render={props =>
-                <EditForm {...props} note={this.state.note} notes={this.state.notes} deleteNote={this.deleteNote} editNote={this.editNote}/>
+                <EditForm {...props} notes={this.state.notes} editNote={this.editNote}/>
               }
             />
             <div className="error-page">
-            <Route path="/404" component={pageError} />
-          </div>
+              <Route path="/404" component={pageError} />
+            </div>
           </div>
           
-      </div>
-
+        </div>
+        
+        :
+        <Route path="/"
+          render={props => 
+            <LoginForm {...props} loginUser={this.loginUser}/>
+          }
+        />
+        
+        
         } 
           
       </div>

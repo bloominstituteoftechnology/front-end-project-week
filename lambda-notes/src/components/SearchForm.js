@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Form, Button} from 'reactstrap';
+import { Input, Form} from 'reactstrap';
 import { FaSearch } from 'react-icons/fa';
 
 class SearchForm extends React.Component {
@@ -16,9 +16,7 @@ class SearchForm extends React.Component {
     searchTermHandler = e => {
         e.preventDefault();
         this.props.searchTerm(this.state.term);
-        this.setState({
-          term: ''  
-        })
+        this.setState({ term: '' });
     }
     render() {
         return(

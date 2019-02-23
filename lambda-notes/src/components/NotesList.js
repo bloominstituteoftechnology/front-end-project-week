@@ -1,20 +1,26 @@
 import React from 'react';
+// import axios from 'axios';
 import { Link } from 'react-router-dom';
-import image from './../loading.gif'
-let maxLenBody = 133;
+import loading from './../loading.gif'
+let maxLenBody = 120;
 let maxLenTitle = 12;
 
 const NotesList = props => {
-
+   
     return(
         <section className="notes-list">
-            {props.searchStatus === false ?
-                <></>
-                :    <h2 className="note-title text-center">{props.searchStatus}</h2>        
-            }
-                    
-            <div className="notes-wrapper">
+            
+            <div className="header">
+                <h1>Your notes</h1>
 
+                {props.searchStatus.length > 0 ? <h2>{props.searchStatus}</h2> :null        
+            }
+            </div>    
+            <div className="notes-wrapper">
+            
+            
+            {props.loading ? <div className="loading"><img alt="Loading gif" src={loading} /></div> : null }
+            
                 {props.notes.map((note, index) => {
                     return (
                         <div key={index} className="card">
@@ -45,10 +51,9 @@ const NotesList = props => {
                     )
                 })}
                 
-            </div>
-                
+            </div>      
         </section>
     )
 }
-
+    
 export default NotesList;

@@ -4,7 +4,6 @@ import axios from 'axios';
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
-import image from './../../src/404.jpeg'
 import loading from './../loading.gif'
 
 class Note extends React.Component  {
@@ -13,7 +12,6 @@ class Note extends React.Component  {
 
         this.state = {
             note: null,
-            notes: [],
             modal: false,
             loading: false
         }
@@ -25,56 +23,47 @@ class Note extends React.Component  {
         }))
     }
     componentDidMount() {
+
         this.setState({ loading: true })
         axios
-        .get(`https://fe-notes.herokuapp.com/note/get/all`)
+        .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
         .then(response => {
-            
-            this.setState({ 
-                notes: response.data,
-                loading: false
-            });
-            
-            let activeNote = this.state.notes.find(note => note._id === this.props.match.params.id);
-            activeNote._id = this.props.match.params.id;
-
-            if (activeNote) {
-                this.setState({ 
-                    note: activeNote,
-                    loading: false
-                });
-                this.props.viewNote(this.state.note._id);
+           
+            if (response.data.errorMessage) {
+                this.props.history.push(`/404`);
+                this.setState({ loading: false })
             }
             else {
                 this.setState({ 
-                    note: null,
+                    note: response.data,
                     loading: false
                 });
+
+            this.props.history.push(`/note/${this.props.match.params.id}`);
             }
-            
             
         })
         .catch(err => {
             console.log(err);
-            this.props.history.push(`/404`);
+            this.setState({
+                loading: false
+            })
 
         })
     }
 
     render() {
-        console.log(this.props.requestError)
         return(
             <section>
-
                 
                 <div>
 
-                    {this.state.loading &&  <img src={loading} />}
+                    {this.state.loading &&  <img alt="Loading gif" src={loading} />}
 
                     { this.props.requestError === true ? 
                         <h1 className="note-title">Note wasn't found</h1>
                         :                           
-                        <div>
+                        <div className="note-wrapper">
                             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                                 <ModalBody>
                                     Are you sure you want to delete your note.
@@ -86,11 +75,11 @@ class Note extends React.Component  {
                             </Modal>
 
                             <div className="action-buttons">
-                                <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete <FaTrashAlt/>
+                                <Button color="danger" size="md" onClick={this.toggle}>{this.props.buttonLabel}Delete <FaTrashAlt/>
                                 </Button>
 
                                 <Link to={`/edit/${this.props.match.params.id}`}>
-                                    <Button color="warning">Edit <FaEdit/></Button>
+                                    <Button size="md" color="warning">Edit <FaEdit/></Button>
                                 </Link>
                             </div>
 

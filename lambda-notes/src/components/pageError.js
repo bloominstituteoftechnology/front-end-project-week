@@ -4,7 +4,7 @@ const pageError = () => {
     return(
         <>
             <h2 className="text-center note-title">Note? What note?...</h2>
-            <img className="img-responsive" src={error}/>
+            <img className="img-responsive" alt="Loading gif" src={error}/>
         </>
     )
 }

@@ -57,7 +57,7 @@
   min-height: 800px;
   background-color: black;
 }
-h1, .error-title {
+h1, .error-title, .note-card .note-title {
   font-family: 'Bungee Inline', serif;
 }
 .aside h1 {
@@ -91,6 +91,7 @@ h1, .error-title {
   align-items: center;
   justify-content: space-between;
   padding: 0px 5px;
+  margin-top: 200px;
 }
 .notes-container h2 {
   padding: 0px 0px 30px;
@@ -108,7 +109,7 @@ h1, .error-title {
   text-transform: capitalize;
   text-align: left;
   font-family: 'Laila', serif;
-  font-weight: bold;
+  /* font-weight: bold; */
   min-height: 75px;
   margin-bottom: 10px;
 }
@@ -129,7 +130,10 @@ h1, .error-title {
   display: flex;
   text-align: left;
   flex-direction: column;
-  justify-content: end;
+  flex: flex-end;
+}
+.card .note-title {
+  font-weight: bold;
 }
 .note-textBody {
   font-family: 'Laila', serif;
@@ -137,8 +141,8 @@ h1, .error-title {
 }
  
 .note-card .note-title{
-  margin-top: 5px;
-  padding: 5px 0px 5px;
+  margin: 33px auto;
+  padding: 25px 0px 35px;
   border-bottom: 1.5px solid #000;
 }
 .note-card a:hover {
@@ -149,14 +153,14 @@ h1, .error-title {
   margin-top: 40px;
 }
 .action-buttons {
-  margin-top: 33px;
+  margin: 50px auto;
   width: 100%;
   display: flex;
   flex-flow: row-reverse;
 }
 .action-buttons button {
-  padding: 10px 33px;
-  margin-left: 33px;
+  /* padding: 10px 33px;
+  margin-left: 33px; */
   margin-right: 10px;
 }
 .modal svg {
@@ -164,7 +168,7 @@ h1, .error-title {
 }
 section {
   padding-left: 33px;
-  width: 100%;
+  width: 700px;
   
 }
 .notes-header {
@@ -173,14 +177,14 @@ section {
 .notes-list {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  padding-left: 0px;
 }
-.notes-list h1 {
+.header {
   text-align: center;
   background-color: #fff;
   padding: 66px 0px 66px;
   position: fixed;
-  width: 800px;
+  width: 700px;
   z-index: 33;
 }
 .error-page img {

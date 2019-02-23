@@ -10,7 +10,7 @@ class EditForm extends Component {
         super(props);
         this.state = {
             note: {
-                _id: null,
+                // _id: null,
                 title: '',
                 textBody: ''
             },
@@ -33,19 +33,16 @@ class EditForm extends Component {
                 .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`)
                 .then(response => {
                     console.log(response);
+                    
                     if (response.data.errorMessage) {
-                        this.setState({ 
-                            note: null,
-                            notes: this.props.notes
-                        });
+                        this.props.history.push(`/404`);
                     }
                     else {
                         this.setState({ 
                             note: response.data,
-                            notes: this.props.notes
+                            // notes: this.props.notes
                         });
                     }
-                    
 
                 })
                 .catch(err => {
