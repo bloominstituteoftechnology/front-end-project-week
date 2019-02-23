@@ -39,19 +39,39 @@ class App extends Component {
   }
 
   editNote = (id, data) => {
+    let index = -1;
+    
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
     .then(response => {
       this.setState({note: [...this.state.note, response.data]})
     })
+
+    return axios.get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState({
+          note: response.data,
+          index: index++,
+        })
+      })
   }
   
   deleteNote = (id) => {
+    let index = -1;
+
     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
       this.setState({note: [...this.state.note]})
+
+    return axios.get('https://fe-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState({
+          note: response.data,
+          index: index++,
+        })
+      })
     })
   }
-
+    
   render() {
     return (
       <div className="App">

@@ -130,5 +130,7 @@ h4 {
 
 .menu-item {
   margin-left: 20px;
-  font-size: 12px
+  font-size: 12px;
+  text-decoration: underline;
+  color: blue;
 }

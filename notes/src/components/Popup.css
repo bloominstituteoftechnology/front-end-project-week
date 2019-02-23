@@ -65,7 +65,7 @@
     margin: 0;
     line-height: 32px;
     height: 32px;
-    width: 100px;
+    width: 175px;
     border: 1px solid #666;
     text-align: center;
     display: inline-block;
@@ -79,11 +79,11 @@
 }
 
 .mm-popup__box {
-    width: 350px;
+    width: 31%;
     position: fixed;
-    top: 10%;
+    top: 27.6%;
     left: 50%;
-    margin-left: -175px;
+    margin-left: -14.5%;
     background: #fff;
     box-shadow: 0px 5px 20px 0px rgba(126,137,140,0.20);
     border-radius: 5px;
@@ -113,6 +113,7 @@
     background: #fff;
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 .mm-popup__box__body p {

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const Content = styled.section`
     width: 100%;
@@ -78,9 +79,10 @@ class EditNote extends React.Component {
                         onChange = {this.handleChange}
                         value = {this.state.textBody}
                     />
-                
-                    <Button>Update</Button>
+                    
+                    <Link to = '/'><Button>Update</Button></Link>
                 </Form>
+                
             </Content>        
         )
     }

@@ -8,6 +8,7 @@ const Section = styled.section`
     font-size: 15px;
     text-align: left;
     width: 75%;
+    text-decoration: none;
 `
 
 const NoteList = props => {
@@ -17,14 +18,14 @@ const NoteList = props => {
                 <h3>Your Notes:</h3>
             </div>
         
-            <div className = 'note-list'>
+            <div className = 'note-list' >
                 {props.notes.map(note => {
                     return(
                         <Note
                             id = {note._id}
                             key = {note._id}
                             tags = {note.tags}
-                            title = {note.title}
+                            title = {note.title} 
                             textBody = {note.textBody}
                         />
                     )

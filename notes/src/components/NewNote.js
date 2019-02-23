@@ -28,8 +28,7 @@ class NewNote extends React.Component {
         this.setState({
             title:'',
             textBody: '',
-        })
-        
+        }) 
         this.props.history.push('/');
     }
 

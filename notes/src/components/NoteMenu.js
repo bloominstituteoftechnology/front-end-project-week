@@ -3,8 +3,6 @@ import '../App.css';
 import {Link} from 'react-router-dom';
 import Popup from 'react-popup';
 import './Popup.css';
-import NoteList from './NoteList';
-import {BrowserRouter as Route} from 'react-router-dom';
 
 const NoteMenu = props => {
     return (
@@ -24,13 +22,9 @@ const NoteMenu = props => {
                             action: function () {
                                 props.deleteNote(props.noteID)
 
-                                
-
                                 props.props.history.push('/')
 
                                 Popup.close()
-
-                                // window.location.assign('/')
                             },
                         }],  
 
@@ -45,7 +39,7 @@ const NoteMenu = props => {
                     }
                 });
                 // props.props.history.push('/')     
-            }}><Link to = {'/'}>delete</Link>
+            }}>delete
             </div>
         </div>
     )
