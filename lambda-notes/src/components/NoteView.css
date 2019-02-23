@@ -1,7 +1,15 @@
 .note-textBody{
     width: 90%; 
-    margin-left: 27px; 
     font-size: 18px; 
+    margin: 40px auto; 
+    border: 2px solid rgb(213, 131, 252); 
+    background-color: rgb(205, 205, 252);
+    border-radius: 15px; 
+}
+
+.noteview-title{
+    font-size: 27px;
+    text-decoration: underline; 
 }
 
 .noteView-menu{
@@ -16,7 +24,7 @@ h6{
  font-size: 14px; 
  color: black; 
  text-decoration: underline; 
- margin-top: 15px; 
+ margin-top: 0px; 
 }
 
 h6:last-child{
@@ -91,4 +99,5 @@ h6:last-child{
   .noteview-image{
       width: 70%; 
       height: 250px; 
+      margin-bottom: 40px; 
   }

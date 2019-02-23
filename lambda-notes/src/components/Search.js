@@ -21,7 +21,8 @@ export default class Search extends React.Component {
         return(
             <div> 
               <form> 
-                <input placeholder='Search' 
+                <input className='search-input'
+                       placeholder='Search' 
                        value={this.state.search}
                        onChange={this.inputHandler}
                        type='text'/> 

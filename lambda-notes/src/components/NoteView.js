@@ -36,6 +36,7 @@ export default class NoteView extends React.Component  {
   confirmedDelete = (event) => {
     axios.delete(`http://localhost:5566/api/notes/${this.props.match.params.id}`)
       .then( () => {
+        this.props.getNotes()
         this.setState( () => ({ redirect: true }) );
       })
       .catch( (error) => console.error(error) );
@@ -66,10 +67,11 @@ export default class NoteView extends React.Component  {
           </div> 
           {this.state.note.map(item => (
             <div key={item.id}> 
-              <h3>{item.title}</h3> 
-              <div className="note-textBody"> 
+               
+              <div className="note-textBody">
+                <h3 className='noteview-title'>{item.title}</h3>
                 <h5>{item.textBody}</h5> 
-                <img className="noteview-image" src={item.image}/>
+                <img alt='view-note' className="noteview-image" src={item.image}/>
               </div> 
             </div> 
           ))} 

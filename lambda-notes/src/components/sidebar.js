@@ -22,9 +22,9 @@ export default class Sidebar extends React.Component {
               <p className='button'>  
                <Link style={{textDecoration: 'none', color: 'white'}} to='login'>Login</Link> 
               </p>
-              <div className='button'>
-                <button onClick={this.props.signOut}>Sign Out</button>
-              </div> 
+              <p className='button' onClick={this.props.signOut}>
+                 Sign Out
+              </p>
           </div> 
         )
     }

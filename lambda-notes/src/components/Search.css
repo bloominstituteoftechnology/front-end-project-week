@@ -1,4 +1,6 @@
-input{
+.search-input{
     width: 40%; 
-    margin: 25px auto 0px auto; 
+    margin: 40px auto 30px auto; 
+    border: 1.5px solid rgb(187, 106, 187)
 }
+

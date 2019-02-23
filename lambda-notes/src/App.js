@@ -11,38 +11,60 @@ import Search from './components/Search'
 import Register from './components/Register'
 import Login from './components/Login'
 
+
 class App extends Component {
   constructor(){
     super(); 
     this.state = {
-      notes: []
+      notes: [],
+      loggedIn: false
     }  
   }
 
-displayNotes = () => {
-  const token = localStorage.getItem('jwt')
-  const headers = {
-    headers: {
-      'Authorization': token
+  displayNotes = () => {
+    const token = localStorage.getItem('jwt')
+    const headers = {
+      headers: {
+        'Authorization': token
+      }
     }
-  }
-  axios
-    .get("http://localhost:5566/api/home", headers)
-      .then(response => {
-        this.setState({
-          notes: response.data
+    axios
+      .get("http://localhost:5566/api/notes", headers)
+        .then(response => {
+          this.setState({
+            notes: response.data
+          })
         })
-      })
         .catch(err => console.log(err)); 
 }
 
-componentDidMount(){
+getNotes = () => {
+  axios.get('http://localhost:5566/api/notes')
+    .then(response => {
+      this.setState({
+        notes: response.data
+      })
+    })
+    .catch( err => { console.log( "unable to load user notes")})
+}
+
+
+loggedIn = (loggedIn) => {
+  this.setState({
+    loggedIn: loggedIn
+  })
   this.displayNotes(); 
+  console.log(this.state.loggedIn)
 }
 
 signOut = () => {
   localStorage.removeItem('token');
-  console.log("boom")
+  this.setState({
+    loggedIn: false,
+    notes: []
+  })
+  
+  console.log(this.state.loggedIn)
 }
 
   inputChange = e => {
@@ -64,7 +86,7 @@ signOut = () => {
          notes: searchFilter
        })
     } else{
-      this.componentDidMount(); 
+      this.getNotes()
     }
   }
 
@@ -94,7 +116,8 @@ signOut = () => {
     }
     axios
       .put(`http://localhost:5566/api/notes/${id}`, updatedNote)
-      .then(response =>
+      .then( () =>
+        this.getNotes(),
         this.setState({
           updatedNote: { title: "", textBody: "" , id: null}
         })
@@ -118,7 +141,8 @@ signOut = () => {
         tags: null
       }
       axios.post('http://localhost:5566/api/notes', newNote)
-      .then( response => {
+      .then( () => {
+          this.getNotes()
           this.setState({
             newNote: {
             title: '',
@@ -139,12 +163,13 @@ signOut = () => {
         </div> 
         <div className="notes-container">
         <Search className="search-bar" searchHandler={this.searchHandler} notes={this.state.notes} />
-        
-          <Route 
+         
+        <Route 
             exact path='/' 
             render = {props => <Notes {...props} 
             notes={this.state.notes} />}  
           />
+
           <Route 
              path='/Register'
              render = {props => (
@@ -157,6 +182,7 @@ signOut = () => {
              render = {props => (
                <Login  
                  {...props}
+                 loggedIn={this.loggedIn}
             />)}
           />
 
@@ -175,6 +201,7 @@ signOut = () => {
             <NoteView
               {...props}
               notes={this.state.notes}
+              getNotes={this.getNotes}
             />)} 
           />  
 

@@ -17,7 +17,7 @@ export const Note = (props) => {
                 </h4> 
                 <p>{props.textBody}</p> 
                 <div className="image"> 
-                  <img src={props.image} />
+                  <img alt='single-note' src={props.image} />
                 </div> 
               </div> 
         )

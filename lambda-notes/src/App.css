@@ -10,7 +10,7 @@
 .sidebar-container{
   width: 22%; 
   background-color: rgba(189, 189, 189,0.6); 
-  border: 1px solid grey; 
+  border: 2px solid grey;
   border-right: none; 
   display: flex; 
   flex-wrap: wrap; 
@@ -20,7 +20,7 @@
 .notes-container{
   width: 70%; 
   background-color: rgb(232, 232, 255); 
-  border: 1px solid grey; 
+  border: 2px solid grey;  
 }
 
 h1{

@@ -30,7 +30,7 @@ export default class CreateNew extends React.Component {
         <h3>Type Your Notes Here:</h3> 
         <form onSubmit={this.submitHandler}>
           <input onChange={this.inputHandler} value={this.state.title} name="title" placeholder="Note Title" className='input' type='text'/>
-          <input onChange={this.inputHandler} value={this.state.image} name="image" placeholder="add image link" type='text' className='input' />
+          <input onChange={this.inputHandler} value={this.state.image} name="image" className='image-input' placeholder="add image link" type='text' className='input' />
           <input onChange={this.inputHandler} name="content" value={this.state.content} placeholder="Note Content" className="text-area" type='text'/> 
           <button type="submit" className="button-2">Save</button> 
         </form> 

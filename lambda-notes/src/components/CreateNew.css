@@ -30,6 +30,10 @@ form{
     padding-left: 10px; 
 }
 
+input{
+    margin-top: 20px; 
+}
+
 .button-2{
     background-color: rgb(23, 196, 202);
     border: 1px solid rgb(160, 160, 160); 
@@ -44,4 +48,11 @@ form{
     padding: 3px;  
     font-size: 16px; 
     letter-spacing: 0.5; 
+    border-radius: 5px; 
+}
+
+.button-2:hover{
+  background-color: rgb(105, 105, 252);
+  border: 2px solid rgb(216, 216, 216); 
+  transition: .3s; 
 }
