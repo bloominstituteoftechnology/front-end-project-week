@@ -8,7 +8,7 @@ export default class NoteView extends React.Component  {
   constructor(props){
     super(props); 
     this.state = {
-      note: {},
+      note: [],
       redirect: false
     };
   }
@@ -61,11 +61,31 @@ export default class NoteView extends React.Component  {
               <Link style={{color: 'black'}} to={`/delete/${this.state.note._id}`} onClick={this.handleDelete}>delete</Link>
             </h6>
           </div> 
-          <h3>{this.state.note.title}</h3> 
-          <div className="note-textBody"> 
-            <h5>{this.state.note.details}</h5> 
+
+          <div className='noteView-menu'>
+            <h6>
+              <Link style={{color: 'black'}} to={`/Edit/${this.props.match.params.id}`}>edit </Link>
+            </h6>
+            <h6>
+              <Link style={{color: 'black'}} to={`/delete/${this.state.note.id}`} onClick={this.handleDelete}>delete</Link>
+            </h6>
           </div> 
-        </div>  
+          {this.state.note.map(item => (
+            <div key={item.id}> 
+               
+              <div className="note-textBody">
+                <h3 className='noteview-title'>{item.title}</h3>
+                <h5>{item.details}</h5> 
+                
+              </div> 
+            </div> 
+          ))} 
+        </div>           
+
+        
+
+        
+ 
       )
     }
 }
