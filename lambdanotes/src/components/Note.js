@@ -43,14 +43,14 @@ class Note extends React.Component {
     deleteNote = (id) => {
         // const id = this.state.note._id
         axios
-          .delete(`http://localhost:5050/api/notes/${id}`)
+          .delete(`http://localhost:5050/api/notes/${id.id}`)
           .then(response => {
             console.log(response)
           })
           .catch(err => {
             console.log(err);
           })
-          //this.props.history.push('/');
+          this.props.history.push('/');
     }
     
     
