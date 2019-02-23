@@ -21,9 +21,9 @@ class EditNote extends React.Component {
     }
 
     handleSubmit(event) {
-        const id = this.props.match.params
         event.preventDefault();
-        axios.put(`http://localhost:5050/api/notes/${id}`, this.state)
+        const id = this.props.match.params        
+        axios.put(`http://localhost:5050/api/notes/${id.id}`, this.state)
         .then(response => {
             console.log(response);
         })
