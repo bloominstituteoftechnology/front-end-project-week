@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { instance } from '../../utils';
 
 class Login extends Component {
   constructor() {
@@ -15,13 +16,22 @@ class Login extends Component {
     });
   }
 
-  onSubmit = (e) => {
-    
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const creds = this.state;
+    const endpoint = '/users/login';
+    instance.post(endpoint, creds)
+      .then(res => {
+        localStorage.setItem('jwt', res.data.token);
+      })
+      .catch(err => {
+        console.log('error', err);
+      });
   }
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label for='login'>Login</label>
         <input
           type='text'
