@@ -76,14 +76,14 @@ class App extends React.Component {
     let modalType = true;
     localStorage.setItem('modals', modalType)
     const pageType = 'login';
-    //let _id = id;
+    
     this.setState(() => ({ viewPage: pageType }))
   }
   noteDelete = id => {
     const modalType = !false;
     localStorage.setItem('modals', modalType)
     const pageType = 'noteDelete';
-   // let _id = id;
+  
     this.setState(() => ({ viewPage: pageType, id: id }))
   }
 
@@ -108,25 +108,25 @@ class App extends React.Component {
     const pageType = 'login';
    
     this.setState(() => ({ viewPage: pageType }))
-    //this.setState(() => ({ userList: [], display: true, disabled: true }));
+    
 }
 
   noteList2 = () => {
-    //e.preventDefault();
+ 
     const pageType = "noteList"
     this.setState(() => ({ viewPage: pageType }));
   }
 
   noteView = id => {
     const pageType = "noteView"
-    //let _id = id;
+   
     this.setState(() => ({ viewPage: pageType, id: id }));
   }
 
   listView = (selectedNote) => {
     selectedNote = JSON.stringify(selectedNote);
     localStorage.setItem("selectedNotes", selectedNote);
-    //e.preventDefault();
+   
     const pageType = "listView"
     this.setState(() => ({ viewPage: pageType, selectedNotes: selectedNote  }));
   }

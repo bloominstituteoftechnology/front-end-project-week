@@ -65,7 +65,7 @@ class Nav extends React.Component {
     list = this.state.listItems;
     list.push(listItem);
     this.setState(() => ({ listItems: list }));
-    // console.log("this.listItems:", this.state.listItems)
+   
   }
 
   sortThis = () => {
@@ -79,47 +79,34 @@ class Nav extends React.Component {
 
   viewNoteList = (list, listId) => {
     let selectedNote = []; 
-   // localStorage.setItem('localNotes', selectedNotes);  
+   
   const listJSON = JSON.parse(list);
-   // localStorage.setItem('localNotes', listJSON);  
-  // already have note list
+    
+  
     
     for (let i = 0; i < listJSON.length; i++) {                            // step through the array of note id's 
-   // console.log("i:", i)
+  
     for (let j = 0; j < this.props.notes.length; j++) {
         if (listJSON[i] === this.props.notes[j].id) {
                                                                         //so i have an object here.
-       //   console.log("this.props.notes[j]:", this.props.notes[j] )
-         //alert(this.props.notes[j]);
+    
+      
           selectedNote.concat(this.props.notes[j]);
         }
 
      } 
-   //  this.setState({ priceLog: this.state.pricelog.concat(this.props.price)});
+  
      this.setState({ selectedNotes: selectedNote });
-    // localStorage.setItem('localNotes', selectedNotes); 
+
     this.props.listView(selectedNote);
   }
-      // selectedNotes.push(selectedNote);
-      // console.log("noteSelected:", this.state.noteSelected)                   // api get single note
-     //  selectedNotes.push(singleNote);                                    // save each note into an array
-   /*   setTimeout(() => {
-      this.setState({ position: 1 });
-    }, 5000);  */
-
-    //setTimeout();
-
-   // let temp = localStorage.getItem('localNotes');
-  //  console.log("temp:", temp)
- //  console.log("selectedNotes:", selectedNotes)
-// this.setState({ selectedNotes: selectedNotes });
-   // console.log("selectedNotes:", this.state.selectedNotes )
+     
   }
 
   saveList = (event) => {
     event.preventDefault();
     const saveName = this.state.listSaveInput;
-    //console.log("saveName:", saveName)
+   
 
     const list = this.state.listItems;
     const listJSON = JSON.stringify(list); 
