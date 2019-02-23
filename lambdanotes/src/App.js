@@ -14,6 +14,8 @@ import axios from 'axios';
 
 import './App.css';
 
+
+
 class App extends Component {
 
   constructor(props) {
@@ -21,31 +23,27 @@ class App extends Component {
     this.state = {      
       noteList: [],
     }
+
+    
   }
 
-  componentDidMount() {
+  getNotes = () =>
+   {
     axios
       .get('http://localhost:5050/api/notes')
       .then(response => {
+        console.log(response)
         this.setState({noteList: response.data})
       })
       .catch(err => {
         console.log("IN CATCH", err);
       })
+  }
+
+  componentDidMount() {
+    this.getNotes();
     }
 
-    componentDidUpdate(prevProps) {
-      if(this.state.noteList !== prevProps.noteList){
-        axios
-          .get('http://localhost:5050/api/notes')
-          .then(response => {
-            this.setState({noteList: response.data})
-          })
-          .catch(err => {
-            console.log("IN CATCH", err);
-          })
-      }
-    }
 
   render() {
     return (
@@ -66,9 +64,9 @@ class App extends Component {
         <Route
           path='/notes/:id'
           render={props => (
-            <Note {...props} content={this.state.noteList}/>
+            <Note {...props} content={this.state.noteList} />
           )} />
-        <Route exact path='/create' component={CreateNote} />
+        <Route exact path='/create' component={CreateNote} getNotes = 'getNotes' />
  
         
       </div>

@@ -35,6 +35,7 @@ class CreateNote extends React.Component {
             content: ''
         })        
         this.props.history.push('/');
+        
     }
 
     
@@ -42,11 +43,14 @@ class CreateNote extends React.Component {
 
     render() {
         return(
-            <form onSubmit={this.handleSubmit} className='create-note'>
-                <input type='text' value={this.state.value} name='title' onChange={this.handleInput} />                    
-                <input type='text' value={this.state.value} name='note' onChange={this.handleInput} />
-                <input type='submit' value="Submit" />                
-            </form>
+            <div className='create-note'>
+                <div>Create New Note</div>
+                <form onSubmit={this.handleSubmit} >
+                    <input type='text' value={this.state.value} name='title' placeholder='Title!' id='title' onChange={this.handleInput} />                    
+                    <input type='text' value={this.state.value} name='note' placeholder='Content!' id='content' onChange={this.handleInput} />
+                    <input type='submit' value="Submit" id='submit'/>                
+                </form>
+            </div>
         )
     }
 }
