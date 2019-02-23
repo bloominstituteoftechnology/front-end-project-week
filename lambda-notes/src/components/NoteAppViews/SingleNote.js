@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchNote, deleteNote } from '../../actions/index'
 import { withRouter, Link } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { SingleNoteTitle } from './styled-components/SingleNoteStyledComponents'
+import { SingleNoteTitle, SingleNoteContainer } from './styled-components/SingleNoteStyledComponents'
 
 class SingleNote extends React.Component {
 
@@ -27,7 +27,7 @@ class SingleNote extends React.Component {
 
    render(){
    return (
-    <div>
+    <SingleNoteContainer>
      <div>
      <SingleNoteTitle>
       {this.props.title}
@@ -36,18 +36,19 @@ class SingleNote extends React.Component {
      </div>
      <Button color="danger" onClick={this.toggle}>Delete</Button>
      <Link to={`/edit/${this.props.id}/`}><Button>Edit</Button></Link>
-     <Modal isOpen={this.state.modal} toggle={this.toggle} color="info" onClick={this.toggle}>
-      <ModalHeader toggle={this.toggle}> Are you sure you want to delete this?
-       <ModalBody>
+     <Modal style={{marginTop: 100, background: '#90A4AE'}} isOpen={this.state.modal} toggle={this.toggle} color="#90A4AE" onClick={this.toggle}>
+      <ModalHeader style={{background: '#90A4AE'}} toggle={this.toggle}> Are you sure you want to delete this?
+       <ModalBody style={{background: '#90A4AE'}}>
+       If you do, you may not be able to reverse the change!
        </ModalBody>
-       <ModalFooter>
+       <ModalFooter style={{background: '#90A4AE'}}>
          <Button onClick={this.deleteHandler}>Delete</Button>
          <Button>Cancel</Button>
        </ModalFooter>
       </ModalHeader>
      </Modal>
      {this.props.deleted ? this.props.history.push('/') : null }
-    </div>
+    </SingleNoteContainer>
   )}
 }
 

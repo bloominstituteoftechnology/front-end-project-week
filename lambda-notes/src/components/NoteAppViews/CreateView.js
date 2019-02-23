@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { addNote } from '../../actions'
 import { Button, Input } from 'reactstrap'
 import { CreateViewContainer, CreateViewStyle, CreateText} from './styled-components/CreateViewStyledComponents'
+import { withStyles } from '@material-ui/core/styles'
+import MenuItem from '@material-ui/core/MenuItem'
+import TextField from '@material-ui/core/TextField'
 
 class CreateNote extends Component {
  constructor(){
@@ -30,27 +33,32 @@ class CreateNote extends Component {
      body: ''
     })
  }
+
   render() {
+   
     return (
       <CreateViewContainer>
       <CreateText>Create new note:</CreateText>
       <form onSubmit={this.submitNote} >
        <CreateViewStyle>
-        <Input 
+        <TextField
         name="title" 
         type="text"
         onChange={this.inputHandler}
         value={this.state.title}
         />
-       <textarea 
+       <TextField
         name="body"
+        body
+        rowsMax="80"
         rows="10"
         type="text"
-        cols="40"
         value={this.state.body}
         onChange={this.inputHandler}
-       >
-       </textarea>
+        margin="normal"
+        helperText="Start typing in the box above..."
+        variant="outlined"
+       />
        <Button 
          color="info">Save Note
         </Button>

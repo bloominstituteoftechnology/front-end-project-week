@@ -6,6 +6,7 @@ export const H1 = styled.h1 `
 font-size: 1.6rem ;
 font-family: 'Permanent Marker' ;
 margin-bottom: 5px ;
+color: #90A4AE ;
 `
 
 export const Div = styled.div `

@@ -4,6 +4,7 @@ export const NoteTitle = styled.div `
  font-size: 1rem ;
  font-family: 'Archivo Black';
  overflow: hidden;
+ white-space: nowrap
  text-overflow: ellipsis;
  max-width: 100px ;
  width: 100%

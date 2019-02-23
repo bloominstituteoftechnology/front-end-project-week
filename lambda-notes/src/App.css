@@ -56,7 +56,7 @@ table {
  /* max-width: 1024px; */
  width: 100% ;
  box-sizing: border-box;
- height: 100vh;
+ height: 100%;
  display: flex;
  flex-direction: row ;
  background: #90A4AE ;

@@ -17,6 +17,9 @@ const middleWare = applyMiddleware(thunk, logger)
 const DevTools = composeWithDevTools(middleWare)
 const store = createStore(reducer, DevTools)
 const theme = createMuiTheme({
+ typography: {
+  useNextVariants: true
+ },
  palette: {
   primary: {
     light:'#004D40',
