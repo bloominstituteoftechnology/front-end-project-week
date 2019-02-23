@@ -3,6 +3,7 @@ import "../css/note.css"
 import NavNoteList from "./navNoteList";
 import NavSaveList from "./navSaveList";
 import NavOpenList from "./navOpenList";
+import Login from "./login/login";
 
 import { getNotes } from '../actions/notesActions';
 import { viewNote } from '../actions/notesActions';
@@ -141,7 +142,7 @@ class Nav extends React.Component {
         <div className="nav-title">Lambda Notes</div>
         <ul className="nav-list">
           <li className="nav-left-item icon1">
-            <button id="icon1" className="nav-button" value="login" onClick={this.props.login} name="login"><p>Logout</p></button>
+            <button id="icon1" className="nav-button" value="logout" onClick={this.props.logout} name="logout"><p>Logout</p></button>
           </li>
           <li className="nav-left-item icon1">
             <div id="icon2" className="nav-left-icon-1"></div>

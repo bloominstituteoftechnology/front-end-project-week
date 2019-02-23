@@ -55,7 +55,7 @@ class Login extends Component {
             };
            // const endpoint = 'http://localhost:5000/api/users/login';
             axios
-                .post('http://localhost:5000/api/users/login', userInfo)
+                .post('https://frontend-william.herokuapp.com/api/users/login', userInfo)
                 .then(res => {
                     console.log('reponse data from login', res.data);
                     localStorage.setItem('jwt', res.data.token);
@@ -93,7 +93,7 @@ class Login extends Component {
                
               regUser(); */
             axios
-                .post('http://localhost:5000/api/users/register', userInfo)
+                .post('https://frontend-william.herokuapp.com/api/users/register', userInfo)
                 .then(response => {
                     alert('registration complete...')
                     let passWord = "";

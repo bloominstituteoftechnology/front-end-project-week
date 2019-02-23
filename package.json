@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
+    "cloudinary-react": "^1.1.0",
     "netlify-cli": "^2.2.1",
     "react": "^16.6.3",
     "react-csv": "^1.0.18",

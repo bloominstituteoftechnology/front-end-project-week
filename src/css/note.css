@@ -10,6 +10,31 @@ body {
     background-color: rgb(192, 192, 192);
 }
 
+.container-1 {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    color: white;
+    height: 100px;
+    background-color: black;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+}
+
+.form-container {
+    width: 1000px;
+    height: 2000px;
+}
+
 li {
     font-size: 16px;
 }
@@ -74,7 +99,7 @@ li {
     margin-left: 0px;
     width: 300px;
     height: 75px;
-     border: 0px solid rgb(151, 151, 151); 
+    border: 0px solid rgb(151, 151, 151);
 }
 
 .nav-button:hover {
@@ -96,7 +121,6 @@ li {
 .nav-left-icon-2 {
     background-repeat: no-repeat;
     width: 220px;
-    /* height: 10px; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -114,8 +138,6 @@ li {
     margin-bottom: 8px;
 }
 
-.save-list-button {}
-
 .main-display {
     display: flex;
     flex-direction: column;
@@ -130,7 +152,6 @@ li {
     left: 146px;
     top: 0px;
     border: 2px solid rgb(151, 151, 151);
-    /* background-image: url('../graphics/bg.png'); */
 }
 
 .note-create-form,
@@ -208,6 +229,17 @@ li {
     height: auto;
 }
 
+.save-button {
+    width: 316px;
+    height: 77px;
+    border: 0px solid blue;
+    background-image: url('../graphics/button09.png');
+}
+
+.save-button:hover {
+    background-image: url('../graphics/button10.png');
+}
+
 .note-card {
     border: 0px solid rgb(166, 166, 166);
     height: 315px;
@@ -215,37 +247,35 @@ li {
     width: 312px;
     margin-bottom: 38px;
     background-color: white;
-     background-image: url('../graphics/note11.png'); 
+    background-image: url('../graphics/note11.png');
 }
 
 .note-card:hover {
-    /* background-image: url('../graphics/note1.png'); */
-     transform: scale(1.1, 1.1); 
-     animation: scale .3s 1; 
-     transform: scale(1.06, 1.06); 
-     animation-direction: alternate; 
+    transform: scale(1.1, 1.1);
+    animation: scale .3s 1;
+    transform: scale(1.06, 1.06);
+    animation-direction: alternate;
 }
 
 @keyframes scale {
     0% {
-      transform: scale(1, 1);
+        transform: scale(1, 1);
     }
     100% {
-      transform: scale(1.07, 1.07);
+        transform: scale(1.07, 1.07);
     }
-  }
+}
+
 .note {
     height: 238px;
     width: 236px;
     margin-left: 29px;
     margin-top: 20px;
     cursor: pointer;
-   
 }
 
 .title {
     border: 1px solid rgb(151, 151, 151);
-   /*  background-color: white; */
     color: rgb(0, 0, 0);
     height: 46px;
     line-height: 20px;
@@ -268,7 +298,6 @@ li {
     overflow: hidden;
     height: 196px;
     margin-top: 6px;
-    /* border: 2px solid blue; */
 }
 
 .modal-message {
@@ -319,16 +348,12 @@ li {
     cursor: pointer;
     padding-left: 26px;
     padding-top: 17px;
-   /*  text-decoration-line: underline; */
     font-weight: 500;
-    /* border: 2px solid blue; */
-    background-image: url('../graphics/rndBtn01.png'); 
+    background-image: url('../graphics/rndBtn01.png');
 }
 
 .csv-button:hover {
-   /*  background-color: rgb(43, 193, 196); */
-  /*   border-radius: 10px; */
-  background-image: url('../graphics/rndBtn02.png');
+    background-image: url('../graphics/rndBtn02.png');
     color: white;
 }
 
@@ -350,44 +375,38 @@ li {
 .note-view-container {
     display: flex;
     flex-direction: row;
-  /*   border: 2px solid purple; */
 }
 
 .spacer {
     width: 408px;
     height: 60px;
-   /*  border: 2px solid orange; */
 }
 
 .edit-button,
 .delete-button,
 .clone-button {
-     border: 0px solid red; 
+    border: 0px solid red;
     width: 172px;
     height: 65px;
-    /* margin-right: 10px; */
     background-color: rgb(243, 243, 243);
     color: rgb(74, 74, 74);
     margin-top: 30px;
     font-weight: 500;
     font-size: 20px;
     padding-bottom: 6px;
-    /* text-decoration-line: underline; */
     background-image: url('../graphics/rndBtn01.png');
 }
 
 .edit-button:hover,
-.delete-button:hover, 
+.delete-button:hover,
 .clone-button:hover {
-   /*  background-color: rgb(43, 193, 196); */
-   /*  border-radius: 10px; */
     color: white;
     background-image: url('../graphics/rndBtn02.png');
 }
 
 .edit-button:active,
 .delete-button:active,
-.clone-button:active  {
+.clone-button:active {
     color: red;
 }
 
@@ -492,14 +511,10 @@ li {
     width: 100%;
     height: 30px;
     margin-top: 10px;
-    /* margin-left: 50%; */
-   /*  margin-right: auto; */
-   /*  border: 2px solid blue; */
-
 }
 
 .save-button {
-display: inline-block;
+    display: inline-block;
 }
 
 .saved-picture {
@@ -517,94 +532,79 @@ display: inline-block;
     margin-left: 300px;
     margin-top: 100px;
     border: 2px solid rgb(151, 151, 151);
-  }
-  
-  /* button {
-    color: black;
-    background-color: darkgray;
-    height: 30px;
-    width: 75px;
-  } */
-  
-  .main-title {
-  text-align: center;
-  color: rgb(192, 192, 192);
-  }
-  
-  .header-text {
+}
+
+.main-title {
     text-align: center;
-  font-size: 14px;
-  padding: 8px;
-  }
-  
-  .user-list {
+    color: rgb(192, 192, 192);
+}
+
+.header-text {
+    text-align: center;
+    font-size: 14px;
+    padding: 8px;
+}
+
+.user-list {
     width: 100%;
     height: auto;
     border: 2px solid gray;
-  }
-  
-  .btnLogout {
-   /*  color: black; */
+}
+
+.btnLogout {
     border: 0px solid blue;
     border-left: 1px solid gray;
-     background-color: #9e3a41;
-     color: white; 
-  } 
-  
-  .btn-register,
-  .btn-login {
+    background-color: #9e3a41;
+    color: white;
+}
+
+.btn-register,
+.btn-login {
     border: 0px solid blue;
     border-right: 1px solid gray;
     color: white;
     font-size: 16px;
     background-color: rgb(43, 193, 196);
-  }
-  
-  .message {
+}
+
+.message {
     font-size: 12px;
     border-left: 2px solid gray;
     border-right: 2px solid gray;
     background-color: gray;
     color: white;
     cursor: pointer;
-  }
-  
-  .btn-register {
+}
+
+.btn-register {
     margin-left: 88px;
-  }
-  
-  .btnNoWork {
+}
+
+.btnNoWork {
     color: black;
-  }
-  
-  .disable {
+}
+
+.disable {
     display: inline;
-  }
-  
-  #register:hover, #login:hover  {
+}
+
+#register:hover,
+#login:hover {
     color: yellow;
     background-color: rgb(238, 115, 14);
-  
-  }
-  
-  #logout {
+}
+
+#logout {
     background-color: rgb(43, 193, 196);
     font-size: 16px;
-  
-  } 
-  
-  /* #logout:hover, #user-list:hover {
-    background-color: blue;
-    
-  }  */
-  
-  #icon1 {
+}
+
+#icon1 {
     background-image: url('../graphics/button05.png');
     height: 62px;
-  }
-  
-  #icon1:hover {
+}
+
+#icon1:hover {
     background-image: url('../graphics/button06.png');
     color: white;
-  }
-  
+}
