@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { NoteTitle, NoteNumber } from './styled-components/NoteStyledComponents'
+import { Wobble, FadeIn, Flip } from 'animate-css-styled-components'
 
 const styles = theme => ({
  root: {
@@ -17,7 +18,11 @@ const styles = theme => ({
   marginTop: 40,
   maxWidth: 200,
   maxHeight: 400,
+  // background: '#CFD8DC',
+  border: '2px solid black ',
+  boxShadow: '10px 10px 12px #263238'
  },
+ 
  image: {
   width: 128,
   height: 128,
@@ -27,6 +32,11 @@ const styles = theme => ({
 const Note = props => {
  const { classes } = props
  return (
+  <Wobble delay="0.5s">
+  <Flip>
+
+ <FadeIn>
+
   <div className={classes.root}> 
   <Link to={`/note/${props.id}`} style={{ textDecoration: 'none', color: 'black' }}>
    <Paper className={classes.paper}>
@@ -47,7 +57,7 @@ const Note = props => {
        <Grid item>
         <Typography variant="subtitle1">
         <NoteNumber>
-        #{props.id}
+        Note #{props.id}
         </NoteNumber>
         </Typography>
        </Grid>
@@ -57,6 +67,9 @@ const Note = props => {
    </Paper>
   </Link>
   </div>
+ </FadeIn>
+  </Flip>
+  </Wobble>
  )
 }
 

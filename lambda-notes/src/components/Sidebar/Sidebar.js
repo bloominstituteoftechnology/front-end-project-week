@@ -17,7 +17,7 @@ import { Add } from '@material-ui/icons/'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 /* Misc */ 
 import classNames from 'classnames';
-import { H1 } from './styled-components/SidebarStyledComponents'
+import { H1, H4 } from './styled-components/SidebarStyledComponents'
 import { styles } from './styled-components/SidebarStyledComponents' 
 
 class Sidebar extends React.Component {
@@ -69,16 +69,17 @@ class Sidebar extends React.Component {
        noWrap
        className={classes.title}
        >
+       <H4>"For all your note-taking needs."</H4>
        </Typography>
        <IconButton color="inherit">
-        <Badge badgeContent={this.props.notes.length} color="lightGray">
-         <NotificationsIcon />
+        <Badge badgeContent={this.props.notes.length} color="#29B6F6">
+         <NotificationsIcon color="pink"/>
         </Badge>
        </IconButton>
       </Toolbar>
      </AppBar>
    <Drawer
-     variant="temporary"
+     variant="persistent"
      classes={{paper: classNames(classes.drawerPaper, this.state.open && classes.onClose)}}
      open={this.state.open}
      >
@@ -111,7 +112,7 @@ class Sidebar extends React.Component {
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <Link to="/create">
+      <Link to="/">
       <ListItemText primary="Note Lists" />
       </Link>
     </ListItem>
@@ -119,7 +120,7 @@ class Sidebar extends React.Component {
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <Link to="/note/:id">
+      <Link to="/">
       <ListItemText primary="Collaborate" />
       </Link>
     </ListItem>

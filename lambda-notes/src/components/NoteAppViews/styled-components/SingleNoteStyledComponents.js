@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const SingleNoteContainer = styled.div `
 margin-top: 180px ;
+margin-left: 5px ;
 display: flex;
 flex-direction: column;
 `

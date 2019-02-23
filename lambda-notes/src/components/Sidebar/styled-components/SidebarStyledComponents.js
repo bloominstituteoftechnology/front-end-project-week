@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 
-export const drawerWidth = 300 
+export const drawerWidth = 330 
 
 export const H1 = styled.h1 `
 font-size: 1.6rem ;
+font-family: 'Permanent Marker' ;
+margin-bottom: 5px ;
+color: #90A4AE ;
+`
+export const H4 = styled.h4 `
+font-size: 1rem ;
 font-family: 'Permanent Marker' ;
 margin-bottom: 5px ;
 color: #90A4AE ;

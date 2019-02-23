@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const NoteTitle = styled.div `
  font-size: 1rem ;
- font-family: 'Archivo Black';
+ font-family: 'Knewave';
  overflow: hidden;
  white-space: nowrap
  text-overflow: ellipsis;
@@ -19,5 +19,6 @@ export const NoteBody = styled.span `
 `
 export const NoteNumber = styled.div `
 font-style: italic ;
+font-family: 'Kranky'
 font-size: 0.8rem ;
 `
