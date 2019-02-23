@@ -71,7 +71,7 @@ class Sidebar extends React.Component {
        >
        </Typography>
        <IconButton color="inherit">
-        <Badge badgeContent={this.props.notes.length} color="secondary">
+        <Badge badgeContent={this.props.notes.length} color="lightGray">
          <NotificationsIcon />
         </Badge>
        </IconButton>
