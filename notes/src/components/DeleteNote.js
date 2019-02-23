@@ -13,13 +13,15 @@ export class DeleteNote extends Component {
         console.log(this.state.id)
     }
 
-    
+    refresh = response => {
+        window.location.reload();
+    }
 
     deleteItem = id => {
-        axios.delete(`https://localhost:3333/notes/${id}/delete`)
-            .then(response => {this.setState(
-                {open: false}
-            )})
+        axios.delete(`https://localhost:3333/notes/${this.props.match.params.id}`)        
+        .then(response => {
+            this.refresh();
+        })
             .catch(err => console.log(err))
         // this.closeBox()
     }
@@ -28,6 +30,8 @@ export class DeleteNote extends Component {
         this.setState({open: false})
     }
 
+    
+
 
     render() {
     
@@ -35,7 +39,7 @@ export class DeleteNote extends Component {
             this.state.open === true ?
             <div className="delete">
                 <p>Are you sure you want to delete this?</p>
-                <button onClick={() => this.deleteItem(this.state.id)}>Delete</button>
+                <button onClick={() => this.deleteItem(this.props.match.params.id)} >Delete</button>
                 <Link to={`/note/${this.props.match.params.id}`} >
                     <button onClick={() => this.closeBox()} >No</button>
                 </Link>

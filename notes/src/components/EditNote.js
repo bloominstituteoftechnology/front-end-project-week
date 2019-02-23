@@ -27,7 +27,7 @@ export class EditNote extends Component {
      }
 
     editNote = e => {
-        e.preventDefault();
+        // e.preventDefault();
         axios.put(`http://localhost:3333/notes/${this.props.match.params.id}`, this.state)
         .then(res => {
             this.setState({
