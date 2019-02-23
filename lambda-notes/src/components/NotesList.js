@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios from 'axios';
 import { Link } from 'react-router-dom';
 import loading from './../loading.gif'
 let maxLenBody = 120;
@@ -45,6 +44,8 @@ const NotesList = props => {
 
                                         }
                                     </p>
+
+                                    
                                 </div>
                             </Link>
                         </div>
