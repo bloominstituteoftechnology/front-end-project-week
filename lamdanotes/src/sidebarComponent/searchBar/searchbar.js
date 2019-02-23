@@ -27,21 +27,23 @@ class SearchBar extends React.Component{
 
     render() {
         return (
-            <div className="search">
-                <h6>Search your notes:</h6>
-                <input 
-                    type="text"
-                    name="search"
-                    className="searchBar"
-                    placeholder="Search..."
-                    onChange={this.handleChange}
-                    value={this.state.search} />
+            <div className="searchWrapper">
+                <div className="search">
+                    <input 
+                        type="text"
+                        name="search"
+                        className="searchBar"
+                        placeholder="Search..."
+                        onChange={this.handleChange}
+                        value={this.state.search} 
+                    />
                     <button 
                         className="searchButton"
                         onClick={this.SAR}
                     >
-                        <img src="https://img.icons8.com/ios-glyphs/15/000000/search.png" alt="search icon" />
+                        &#8594;
                     </button>
+                </div>
             </div>
         )
     }

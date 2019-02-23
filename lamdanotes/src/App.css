@@ -57,7 +57,7 @@ table {
 	background-color: #F2F1F2;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Sans+Pro:700');
+@import url('https://fonts.googleapis.com/css?family=Dosis|Open+Sans');
 
 html {
     font-family: 'Open Sans', sans-serif;
@@ -65,11 +65,12 @@ html {
 }
 
 h1, h2 {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Dosis', sans-serif;
+	font-weight: bold;
 }
 
 h3, h4, h5, h6 {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Dosis', sans-serif;
     font-size: 20px;
     padding-top: 15px;
     padding-bottom: 20px;
@@ -78,34 +79,46 @@ h3, h4, h5, h6 {
 
 /*-------------------------------Side Bar Styling*/
 .sideBarWrap {
-	width: 18%;
+	width: 15em;
 	height: 100vh;
 	position: fixed;
-    background-color: #D3D2D3;
-    border-right: 2px solid #B7B7B7;
-    padding-left: 12px;
+    background-color: #283D4A;
 }
 
 .sbTitle {
+	width: 8.8em;
+	margin: 0;
+	font-size: 25px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 18px;
 	
-    font-size: 40px;
-    padding-top: 15px;
-    padding-bottom: 20px;
+	background-color: #101B2F; 
+	color: #91A8C3;
 }
 
 .sbButtons {
-    margin-bottom: 10px;
-    padding: 8px;
-    width: 85%;
-    color: white;
-    background-color: #24B8BD;
-    border: .5px solid #B7B7B7;
-	box-shadow: 2px 2px 3px #B7B7B7;
-	border-radius: 4px;
+	display: flex;
+	flex-direction: row;
+	width: 18em;
+	margin: 10px auto 0;
+	text-align: left;
+	color: white;
+	border: none;
+	background-color: inherit;
+}
+
+.sbButtons p {
+	padding-top: .3em;
+	padding-left: 1em;
 }
 
 button:focus {
     outline: 0;
+}
+
+input:focus {
+	outline: 0;
 }
 
 
@@ -113,10 +126,9 @@ button:focus {
 
 .notesView {
 	max-width: 100%;
-	padding-left: 21%;
+	
 	background-color: #F2F1F2;
 	height: auto;
-	overflow: scroll;
 }
 
 .nvTitle {
@@ -132,7 +144,7 @@ button:focus {
 
 .card-body {
 	border: 2px solid #D9D9D9;
-	border-radius: 4px;
+	border-radius: 15px;
 	padding: 10px;
 	background-color: white;
 	line-height: 1.3em;
@@ -155,8 +167,9 @@ button:focus {
 .btn {
 	margin-top: .5em;
 	border-radius: 5px;
-	border-color: white;
-	background-color: #24B8BD;
+	border-color: #1DA0E0;
+	background-color: #1DA0E0;
+	border-radius: 25px;
 	color: white;
 	padding: .3em .5em;
 }
@@ -166,7 +179,8 @@ button:focus {
 
 .addForm {
 	width: 80%;
-	padding-left: 21%;
+	margin: 0 auto;
+	padding-left: 16em;
 	background-color: #F2F1F2;
 	height: 100vh;
 	display: flex;
@@ -181,7 +195,7 @@ button:focus {
 	padding-left: 12px;
 }
 .addBody {
-	width: 85%;
+	width: 50%;
 	height: 40%;
 	border-radius: 4px;
 	padding-left: 15px;
@@ -198,8 +212,9 @@ button:focus {
 	font-weight: 600;
 	color: white;
 
-    background-color: #24B8BD;
-    border: .5px solid #B7B7B7;
+    background-color: #1DA0E0;
+	border: .5px solid #B7B7B7;
+	border-radius: 25px;
     box-shadow: -.5px .5px .8px #B7B7B7;
 }
 
@@ -210,8 +225,9 @@ a {
 
 /*-------------------------------Single Note Styling*/
 .viewNoteContainer {
-	width: auto;
-	padding: 2% 5% 5% 22% ;
+	width: 50%;
+	margin: 0 auto;
+	padding: 2% 5% 5% 16em ;
 	overflow-y: hidden;
 	background-color: #F2F1F2;
 }
@@ -249,6 +265,7 @@ a {
 	left: 40%;
 	padding: 40px 80px;
 	border: 1px solid black;
+	border-radius: 25px;
 	background-color: white;
 	text-align: center;
 }
@@ -257,11 +274,12 @@ a {
 	width: 180px;
 	margin-top: 20px;
 	padding: 10px 10px;
-	background-color: #2AC0C4;
+	background-color: #1DA0E0;
 	color: white;
 	font-weight: bold;
 	font-size: 16px;
-	border: 1px solid #B7B7B7;
+	border: 1px solid #1DA0E0;
+	border-radius: 25px;
 }
 
 .firstButton {
@@ -269,6 +287,7 @@ a {
 	font-weight: bold;
 	margin-right: 25px;
 	background-color: #D0011B;
+	border: 1px solid #D0011B;
 }
 
 
@@ -277,9 +296,12 @@ a {
 
 .editForm {
 	width: 80%;
-	padding-left: 21%;
+	margin: 0 auto;
+	padding-left: 16em;
 	background-color: #F2F1F2;
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .formTitles {
@@ -288,46 +310,150 @@ a {
 
 
 /*-------------------------------searchbar STYLING*/
-.search {
-	width: 90%;
-	border-bottom: 2px solid #B7B7B7;
+.searchWrapper {
+	width: 14em;
 	padding-bottom: 10px;
-	margin-bottom: 10px;
+	margin: 10px auto;
+}
+
+.search {
+	display: flex;
+	flex-direction: row;
+	border: #152134;
+	background-color:#152134;
+	height: 2.5em;
+	border-radius: 25px;
+	width:  100%;
+
 }
 
 .searchBar {
-	
-	height: 20px;
-	border-radius: 6px;
-	padding-left: 8px;
-	width:  9em;
+	border: none;
+	flex-grow: 2;
+	padding-left: 15px;
+	background-color:#152134;
+	color: #fff;
+	border-radius: 25px;
+}
+
+.searchBar::placeholder {
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 11px;
 }
 
 .searchButton {
-	background-color: #2AC0C4;
-	border: 1px solid #B7B7B7;
-	height: 25px;
-	width: 2.2em;
-	border-radius: 4px;
+	border: none;
+	background-color:#152134;
+	color: #fff;
+	padding-right: 20px;
+	border-radius: 25px;
 }
 
+.searchButton:hover {
+	cursor: pointer;
+}
 
 /* -------------------------------------SORT STYLE */
-
 .alphaContainer {
-	width: 80%;
+	width: 10em;
+	margin: 0 auto;
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 }
 
 .alphaSortButtons {
-	background-color: #2AC0C4;
-	border: 1px solid #B7B7B7;
-	border-radius: 5px;
-	box-shadow: 2px 2px 3px #B7B7B7;
 	padding: 5px;
 }
 
 .firstSort {
 	margin-right: 1em;
+}
+
+/* -------------------------------------LOGIN PAGE */
+.loginFormWrapper {
+	width: 100%;
+	height:100vh;
+	background-color: #2E414C;
+}
+
+.test{
+	position: relative;
+	top: 30%;
+}
+
+.appName {
+	width: 20.3%;
+	padding: 0;
+	height: 3em;
+	text-align: center;
+	margin: 0 auto;
+	text-align: center;
+	
+
+	background-color: #152134;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	color: #91A8C3;
+}
+
+.appName h1 {
+	margin-top: 0;
+	font-size: 22px;
+	position: relative;
+	top: 20%;
+}
+
+.headingOne {
+	padding: 0;
+	margin: 1.5em 0 .5em;
+}
+
+.headingTwo {
+	padding: 0;
+	margin: 1em 0 .5em;
+}
+
+.loginForm {
+	width: 20%;
+	height: 280px;
+	margin: 0 auto;
+	text-align: center;
+	/* position: fixed;
+	bottom: 40%;
+	left: 40%; */
+
+	background-color: #FFF;
+	border: 1px solid #fff;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	box-shadow: 3px 3px 5px #152134;
+}
+
+.loginInputs {
+	width: 65%;
+	height: 2.5em;
+	background-color: #152134;
+	color: #fff;
+	border: #152134;
+	border-radius: 25px;
+	padding-left: 15px;
+}
+
+.loginInputs::placeholder {
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 11px;
+}
+
+.loginSubmit {
+	margin-top: 1.5em;
+	margin-bottom: 2em;
+	width: 32.5%;
+	height: 2.5em;
+
+	color: #fff;
+	background-color: #1DA0E0;
+	border: #1DA0E0;
+	border-radius: 25px;
 }

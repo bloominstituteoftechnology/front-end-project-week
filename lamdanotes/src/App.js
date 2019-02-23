@@ -8,6 +8,7 @@ import NotesView from './NotesComponent/NotesView/notesView';
 import AddNote from './formComponent/addNote';
 import SingleNote from './NotesComponent/singleNote/singleNote';
 import EditForm from './formComponent/editNote';
+import LoginPage from './LoginPage/loginview';
 
 import './App.css';
 
@@ -16,7 +17,8 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      cNote: ""
+      cNote: "",
+      isLoggedIn: true
     }
   }
 
@@ -25,6 +27,7 @@ class App extends Component {
       this.getUpdatedNotes()
   }
 
+  // <---------------------{{{----API CALLS------}}}--------------------->
   getUpdatedNotes = () => {
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
@@ -62,6 +65,8 @@ class App extends Component {
         .catch(err => console.log(err))
   }
 
+
+  // <---------------------{{{----EVENT HANDLERS------}}}--------------------->
   setCNote = (id) => {
     this.setState({
       cNote: id
@@ -121,8 +126,16 @@ class App extends Component {
     })
   }
 
+
+// <---------------------{{{----APPLICATION/ROUTES------}}}--------------------->
+
 // {/* Declare Routes, Sidebar navigation should always show so it is the root */}
   render() {
+    if(this.state.isLoggedIn === false) {
+      return(
+        <LoginPage />
+      )
+    }
     return (
       <div className="container">
 

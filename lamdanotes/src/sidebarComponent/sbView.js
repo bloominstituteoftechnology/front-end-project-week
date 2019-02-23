@@ -19,8 +19,8 @@ import SortButtonView from './sortComponents/sortView';
 const SidebarView = props => {
     return (
         <div className="sideBarWrap">
-            <Link to="/">
-                <h2 className="sbTitle">Lambda Notes</h2>
+            <Link to="/notes">
+                <h2 className="sbTitle">&#955; Lambda Notes</h2>
             </Link>
             
             <SearchBar notes={props.notes} searchNotes={props.searchNotes}/>

@@ -10,7 +10,8 @@ const SortInactive = props => {
             className="sbButtons"
             onClick={() => {props.handleToggle()}}    
         >
-            Sort Options &#8628;
+        <img src="https://img.icons8.com/material/20/FFFFFF/down2.png"></img>
+            <p>Sort Options</p>
         </button>
     </>
     )

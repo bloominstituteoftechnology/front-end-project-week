@@ -11,19 +11,20 @@ const SortActive = props => {
             className="sbButtons"
             onClick={() => {props.handleToggle()}}    
         >
-            Sort Options &#10548;
+            <img src="https://img.icons8.com/material/20/FFFFFF/left-up2.png" />
+            <p>Sort Options</p>
         </button>
         <br />
             <div className="alphaContainer">
                 <img 
-                    src="https://img.icons8.com/material/20/000000/alphabetical-sorting.png" 
+                    src="https://img.icons8.com/material/20/FFFFFF/alphabetical-sorting.png" 
                     alt="sorting a-z" 
                     className="alphaSortButtons firstSort"
                     onClick={() => {props.handleAscendingSort()}}
                 />
 
                 <img 
-                    src="https://img.icons8.com/material/20/000000/alphabetical-sorting-2.png" 
+                    src="https://img.icons8.com/material/20/FFFFFF/alphabetical-sorting-2.png" 
                     alt="sorting z-a" 
                     className="alphaSortButtons"
                     onClick={() => {props.handleDescendingSort()}}

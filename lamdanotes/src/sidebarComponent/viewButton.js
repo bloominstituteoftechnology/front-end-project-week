@@ -11,7 +11,10 @@ const ViewNotesButton = props => {
                 to="/notes"
                 onClick={() => props.getUpdatedNotes()}    
             >
-                <button className="sbButtons">View All Notes</button>
+                <button className="sbButtons">
+                    <img src="https://img.icons8.com/material/20/FFFFFF/real-estate.png" />
+                        <p>Home</p>
+                </button>
             </Link>
         
         </div>

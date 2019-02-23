@@ -6,7 +6,10 @@ const CreateNewButton = props => {
     return (
         <div>
             <Link to="/addnote">
-                <button className="sbButtons">+ Create New Note</button>
+                <button className="sbButtons">
+                    <img src="https://img.icons8.com/material/20/FFFFFF/plus-math.png" /> 
+                    <p>Create New Note</p>
+                </button>
             </Link>
         </div>
     )
