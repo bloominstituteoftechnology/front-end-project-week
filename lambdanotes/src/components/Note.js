@@ -13,9 +13,6 @@ class Note extends React.Component {
             note: {},
             modalIsOpen: false,
         }
-        this.openModal = this.openModal.bind(this);
-        this.afterOpenModal = this.afterOpenModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
     }
     
     componentDidMount() {
