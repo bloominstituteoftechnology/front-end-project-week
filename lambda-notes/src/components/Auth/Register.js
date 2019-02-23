@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { instance } from '../../utils';
 
 class Register extends Component {
   constructor() {
@@ -19,14 +20,14 @@ class Register extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const creds = this.state;
-    const endpoint = '';
+    const endpoint = '/users/regiser';
     instance.post(endpoint, creds)
       .then(res => {
         localStorage.setItem('jwt', res.data.token);
       })
       .catch(err => {
         console.log('error', err);
-      })
+      });
   }
 
   render() {
