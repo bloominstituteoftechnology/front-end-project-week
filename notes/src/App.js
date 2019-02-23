@@ -41,16 +41,15 @@ class App extends Component {
   editNote = (id, data) => {
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
     .then(response => {
-      this.setState({note: [...this.state.note, data]})
+      this.setState({note: [...this.state.note, response.data]})
     })
   }
   
   deleteNote = (id) => {
     axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
-      this.setState({note: [...this.state.note, response.data]})
+      this.setState({note: [...this.state.note]})
     })
-    
   }
 
   render() {
@@ -68,7 +67,6 @@ class App extends Component {
           <Route exact path = '/edit-note/:_id' render = {props => <EditNote {...props} notes = {this.state.note} editNote = {this.editNote}/>} />
 
           <Route path = '/note/:noteID' render = {props => <SingleNote {...props} notes = {this.state.note} deleteNote={this.deleteNote} editNote={this.editNote}/>} />
-
           </section>
       </div>
     );

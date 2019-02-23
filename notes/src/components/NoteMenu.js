@@ -3,7 +3,8 @@ import '../App.css';
 import {Link} from 'react-router-dom';
 import Popup from 'react-popup';
 import './Popup.css';
-
+import NoteList from './NoteList';
+import {BrowserRouter as Route} from 'react-router-dom';
 
 const NoteMenu = props => {
     return (
@@ -17,28 +18,34 @@ const NoteMenu = props => {
                     title: null,
                     content: 'Are you sure you want to delete this?',
                     buttons: {
-                        left: [{
+                        left : [{
                             text: 'delete',
                             className: 'danger',
                             action: function () {
                                 props.deleteNote(props.noteID)
-                            
-                                Popup.close(props.props.history.push('/'))
-                            
+
+                                
+
+                                props.props.history.push('/')
+
+                                Popup.close()
+
+                                // window.location.assign('/')
                             },
-                        }],
+                        }],  
 
                         right: [{
                             text: 'no',
                             className: 'success',
                             action: function () {
                                 // props.props.history.push('/')
-                                Popup.close();
+                                Popup.close()
                             }
                         }]
                     }
                 });
-            }}><Link to = '/'>delete</Link>
+                // props.props.history.push('/')     
+            }}><Link to = {'/'}>delete</Link>
             </div>
         </div>
     )
