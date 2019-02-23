@@ -16,22 +16,6 @@ class NewNote extends Component {
         }
         }
 
-        inputHandler = (event) => {
-            let value=event.target.value;
-            let property= event.target.name;
-            this.setState({[property]: value})
-    }
-
-    addNote = (event) => {
-
-        console.log('This is working')
-        const tags = this.state.tags;
-        const title = this.state.title;
-        const textBody = this.state.textBody;
-        axios.post('http://localhost:4444/new', {title,textBody})
-        .then( response => this.setState({notes: response.data}))
-        .catch(err => console.log(err))
-      }
 
     render() {
 

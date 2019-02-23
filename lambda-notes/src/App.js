@@ -18,8 +18,8 @@ class App extends Component {
 
     this.state = {
       notes: [],
-      title: this.props.location.state.title || 'title',
-      textBody: this.props.location.state.textBody || 'textbody',
+      title: '',
+      textBody: '',
       allNotes: true,
       newNote: false,
       fullNote: false,
@@ -125,12 +125,27 @@ class App extends Component {
 
 
   editNote = (id) => {
+    let notesE = this.state.notes.filter( note => note.id !== Number(id))
+
     const title = this.state.title;
     const textBody = this.state.textBody;
     axios.put(`http://localhost:4444/note/edit/${id}`, {title,textBody})
-    .then( response => {this.setState({notes: response.data});
-    console.log('edit', response.data)})
+    .then( response => 
+      {this.setState({notes: [...notesE, {id:id , title:title, textBody:textBody}]})
+    })
     .catch(err => console.log(err))
+
+    axios.get(`http://localhost:4444/note/${id}`)
+        .then(response => this.setState({note: response.data}))
+        .catch (err => console.log(err))
+  }
+
+  deleteHandler= (event) => {
+    this.setState({deleteNote: !this.state.deleteNote})
+  }
+
+  noHandler= (event) => {
+    this.setState({deleteNote:false})
   }
   
 
@@ -145,7 +160,7 @@ class App extends Component {
         <Route exact path="/home" render={(props) =>  <NotesList {...props} selectedHandler={this.selectedHandler} notes={this.state.notes} />} />
         <Route exact path="/new" render={(props) =>  <NewNote {...props} this={this} inputHandler={this.inputHandler} addNote={this.addNote} notes={this.state.notes} />} />
         <Route exact path="/note/edit/:id" render={(props) =>  <EditNote {...props} this={this} editNote={this.editNote} inputHandler={this.inputHandler} notes={this.state.notes} />} />
-        <Route exact path="/note/:id" render={(props) =>  <SingleNote {...props} deleteNote={this.deleteNote} deleteHandler={this.deleteHandler} />} />
+        <Route exact path="/note/:id" render={(props) =>  <SingleNote {...props} deleteNote={this.deleteNote} DEL={this.state.deleteNote} noHandler={this.noHandler} this={this} deleteHandler={this.deleteHandler} />} />
 
       </div>
     );

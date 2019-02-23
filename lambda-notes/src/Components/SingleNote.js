@@ -17,21 +17,14 @@ class SingleNote extends Component {
     componentDidMount() {
         const ID = Number(this.props.match.params.id);
         axios.get(`http://localhost:4444/note/${ID}`)
-        .then(response => this.setState({note: response.data}))
+        .then(response => {this.setState({note: response.data});
+        this.props.this.setState({title:this.state.note.title, textBody: this.state.note.textBody})})
         .catch (err => console.log(err))
     }
 
-    deleteHandler= (event) => {
-        this.setState({deleteNote: !this.state.deleteNote})
-      }
-
-      noHandler= (event) => {
-        this.setState({deleteNote:false})
-      }
-
     render(){
         let Modal = '';
-        if (this.state.deleteNote === true) {Modal = <DeleteModal clickForAllHandler={this.props.clickForAllHandler} deleteNote={this.props.deleteNote}  id={Number(this.props.match.params.id)} noHandler={this.noHandler} notes={this.state.notes}/>}
+        if (this.props.DEL === true) {Modal = <DeleteModal clickForAllHandler={this.props.clickForAllHandler} deleteNote={this.props.deleteNote}  id={Number(this.props.match.params.id)} noHandler={this.props.noHandler} notes={this.state.notes}/>}
         else { Modal = ''}
     return (
         <div className='singleContainer'>
@@ -42,7 +35,7 @@ class SingleNote extends Component {
             <NavLink activeClassName='selected' to={{pathname: `/note/edit/${this.props.match.params.id}`, state:{ID: Number(this.props.match.params.id), title: this.state.note.title, textBody: this.state.note.textBody}}}>
             <h5>edit</h5>
             </NavLink>
-                <h5 onClick={this.deleteHandler}>delete</h5>
+                <h5 onClick={this.props.deleteHandler}>delete</h5>
             </div>
             <h3>{this.state.note.title}</h3>
             <div className='line'></div>
