@@ -31,7 +31,8 @@ class Sidebar extends React.Component {
   super(props)
 
   this.state = {
-   open: false
+   open: false,
+   noteCount: this.props.notes
   }
  }
 
@@ -76,7 +77,7 @@ class Sidebar extends React.Component {
        >
        </Typography>
        <IconButton color="inherit">
-        <Badge badgeContent={4} color="secondary">
+        <Badge badgeContent={this.props.notes.length} color="secondary">
          <NotificationsIcon />
         </Badge>
        </IconButton>

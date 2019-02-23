@@ -6,6 +6,7 @@ import { CreateViewContainer, CreateViewStyle, CreateText} from './styled-compon
 import { withStyles } from '@material-ui/core/styles'
 import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
+import { styles } from './styled-components/CreateViewStyledComponents'
 
 class CreateNote extends Component {
  constructor(){
@@ -35,23 +36,27 @@ class CreateNote extends Component {
  }
 
   render() {
-   
+   const { classes } = this.props
     return (
       <CreateViewContainer>
       <CreateText>Create new note:</CreateText>
-      <form onSubmit={this.submitNote} >
+      <form onSubmit={this.submitNote} className={classes.container}>
        <CreateViewStyle>
         <TextField
         name="title" 
         type="text"
+        className={classes.textField}
         onChange={this.inputHandler}
         value={this.state.title}
+        helperText="Title..."
         />
        <TextField
         name="body"
-        body
+        label="Multiline"
+        multiline
         rowsMax="80"
         rows="10"
+        className={classes.textField}
         type="text"
         value={this.state.body}
         onChange={this.inputHandler}
@@ -77,4 +82,4 @@ const mapStateToProps = state => {
  }
 }
 
-export default connect(mapStateToProps, { addNote })(CreateNote)
+export default connect(mapStateToProps, { addNote })(withStyles(styles)(CreateNote))

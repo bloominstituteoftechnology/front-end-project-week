@@ -17,3 +17,7 @@ export const NoteBody = styled.span `
  font-family: 'Courier New', Courier, monospace ;
  font-size: 0.8rem ;
 `
+export const NoteNumber = styled.div `
+font-style: italic ;
+font-size: 0.8rem ;
+`

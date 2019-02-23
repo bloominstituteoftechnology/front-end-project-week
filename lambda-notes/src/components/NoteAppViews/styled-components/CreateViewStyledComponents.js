@@ -1,5 +1,18 @@
 import styled from 'styled-components'
 
+export const styles = theme => ({
+ textField: {
+  marginLeft: theme.spacing.unit + 1,
+  marginRight: theme.spacing.unit + 1,
+ },
+ dense: {
+  marginTop: 16,
+ },
+ menu: {
+  width: 200
+ }
+})
+
 export const CreateViewContainer = styled.div `
 display: flex ;
 flex-direction: column ;

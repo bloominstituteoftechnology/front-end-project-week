@@ -1,9 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchNote, deleteNote } from '../../actions/index'
+// import Modal from '@material-ui/core/Modal'
+// import Button from '@material-ui/core/Button'
+import { withStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 import { withRouter, Link } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { SingleNoteTitle, SingleNoteContainer } from './styled-components/SingleNoteStyledComponents'
+import { SingleNoteTitle, SingleNoteContainer, SingleNoteBody, styles, modalStyle } from './styled-components/SingleNoteStyledComponents'
 
 class SingleNote extends React.Component {
 
@@ -16,26 +20,71 @@ class SingleNote extends React.Component {
  }
 
  toggle = () => {
-  this.setState({
-   modal: !this.state.modal
-  })
+  this.setState({ modal: !this.state.modal })
  }
 
+ // onOpen = () => {
+ //  this.setState({
+ //   open: true
+ //  })
+ // }
+
+ // onClose = () => {
+ //  this.setState({
+ //   open: false
+ //  })
+ // }
  deleteHandler = () => {
   this.props.deleteNote(this.props.match.params.id)
  }
 
    render(){
+    const { classes } = this.props
    return (
-    <SingleNoteContainer>
-     <div>
-     <SingleNoteTitle>
-      {this.props.title}
-     </SingleNoteTitle>
-      {this.props.body}
+    // <div>
+    // <SingleNoteContainer>
+
+    //  <Typography>
+    //  Click
+    //  </Typography>
+    //  <Button onClick={this.onOpen}>Click</Button>
+    //  <Modal
+    //  open={this.state.open}
+
+    //  onClose={this.onClose}
+    //  >
+    //   <div style={modalStyle()} className={classes.paper}>
+    //    <Typography>
+    //     Content
+    //    </Typography>
+    //    <Typography>
+    //     Content
+    //    </Typography>
+    //   </div>
+    //  </Modal>
+    // </SingleNoteContainer>
+    // </div>
+
+
+     <SingleNoteContainer>
+      <div>
+      <SingleNoteTitle>
+       {this.props.title}
+      </SingleNoteTitle>
+      <SingleNoteBody>
+ 
+       {this.props.body}
+      </SingleNoteBody>
+
+
+    
      </div>
-     <Button color="danger" onClick={this.toggle}>Delete</Button>
-     <Link to={`/edit/${this.props.id}/`}><Button>Edit</Button></Link>
+     <Button size="lg" style={{marginBottom: 10}} color="#5A6268" onClick={this.toggle}>Delete</Button>
+     <Link style={{color: 'white'}} to={`/edit/${this.props.id}/`}>
+     <Button size="lg" >
+     Edit 
+     </Button>
+     </Link>
      <Modal style={{marginTop: 100, background: '#90A4AE'}} isOpen={this.state.modal} toggle={this.toggle} color="#90A4AE" onClick={this.toggle}>
       <ModalHeader style={{background: '#90A4AE'}} toggle={this.toggle}> Are you sure you want to delete this?
        <ModalBody style={{background: '#90A4AE'}}>
@@ -62,4 +111,4 @@ const mapStateToProps = state => {
   deleted: deleted
  }
 }
-export default withRouter(connect(mapStateToProps, { fetchNote, deleteNote })(SingleNote))
+export default withRouter(connect(mapStateToProps, { fetchNote, deleteNote })(withStyles(styles)(SingleNote)))

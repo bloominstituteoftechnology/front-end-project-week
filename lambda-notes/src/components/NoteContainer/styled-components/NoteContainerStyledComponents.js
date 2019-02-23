@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const NoteContainerStyle = styled.div `
  display: flex ;
- flex-direction: column ;
+ flex-direction: row ;
  flex-wrap: wrap ;
  ${'' /* margin: 5% 5% 5% 5%; */}
  padding: 5%;

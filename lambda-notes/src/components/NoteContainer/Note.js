@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
-import { NoteTitle } from './styled-components/NoteStyledComponents'
+import { NoteTitle, NoteNumber } from './styled-components/NoteStyledComponents'
 
 const styles = theme => ({
  root: {
@@ -36,45 +36,35 @@ const Note = props => {
  const { classes } = props
  return (
   <div className={classes.root}> 
-  <Paper className={classes.paper}>
-   <Grid container spacing={8}>
-    <Grid item>
-     <ButtonBase>
-     <Link to={`/note/${props.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-     <NoteTitle>
-     {props.title}
-     </NoteTitle>
-     </Link>
-     </ButtonBase>
-    </Grid>
-    <Grid item xs={12} sm container>
-     <Grid item xs container direction="column" spacing ={16}>
-      <Grid item xs>
-       <Typography style={{cursor: 'pointer'}}>
-       </Typography>
-      </Grid>
-      <Grid item>
-       <Typography variant="subtitle1">
-      {props.id}
-       </Typography>
+  <Link to={`/note/${props.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+   <Paper className={classes.paper}>
+    <Grid container spacing={8}>
+     <Grid item>
+      <ButtonBase>
+      <NoteTitle>
+      {props.title}
+      </NoteTitle>
+      </ButtonBase>
+     </Grid>
+     <Grid item xs={12} sm container>
+      <Grid item xs container direction="column" spacing ={16}>
+       <Grid item xs>
+        <Typography style={{cursor: 'pointer'}}>
+        </Typography>
+       </Grid>
+       <Grid item>
+        <Typography variant="subtitle1">
+        <NoteNumber>
+
+       #{props.id}
+        </NoteNumber>
+        </Typography>
+       </Grid>
       </Grid>
      </Grid>
     </Grid>
-   </Grid>
-  </Paper>
-   {/* <Link to={`/note/${props.id}`} style={{ textDecoration: 'none', color: 'black' }} >
-    <Card>
-     <CardBody>
-      <CardTitle>
-       <NoteTitle>{props.title}</NoteTitle>
-       </CardTitle>
-       <hr />
-       <CardText>
-       <NoteBody className="note_body">{props.body}</NoteBody>
-       </CardText>
-      </CardBody>
-     </Card>
-   </Link> */}
+   </Paper>
+  </Link>
   </div>
  )
 }
