@@ -18,7 +18,7 @@ export default class CreateNote extends Component {
   }
 
   onSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     instance.post('/notes', {
       title: this.state.noteTitle,
       textBody: this.state.noteContent
