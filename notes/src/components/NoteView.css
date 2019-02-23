@@ -1,0 +1,76 @@
+.note-textBody {
+	width: 90%;
+	margin-left: 23px;
+	font-size: 18px;
+}
+.noteView-menu {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	height: 2px;
+}
+h6 {
+	margin-right: 15px;
+	font-size: 14px;
+	color: black;
+	text-decoration: underline;
+	margin-top: 15px;
+}
+h6:last-child {
+	margin-right: 30px;
+}
+.deleteOverlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	background: rgba(0, 0, 0, 0.3);
+}
+.hidden {
+	visibility: hidden;
+}
+.delete {
+	margin: 200px auto;
+	border: 1px solid black;
+	background-color: white;
+	font-weight: 500;
+	width: 550px;
+	height: 190px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.deleteButton {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 10px;
+	width: 400px;
+}
+.buttonBlue {
+	font-weight: bold;
+	color: white;
+	border: 1px solid grey;
+	background-color: rgb(87, 183, 212);
+	width: 170px;
+	text-align: center;
+	padding: 10px;
+	border-radius: 2px;
+}
+.buttonRed {
+	background-color: rgb(194, 4, 4);
+	width: 170px;
+	text-align: center;
+	padding: 10px;
+	color: white;
+	border: 1px solid maroon;
+	border-radius: 2px;
+	font-weight: bold;
+}
+.deleteText {
+	margin-bottom: 25px;
+}

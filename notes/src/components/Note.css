@@ -1,0 +1,21 @@
+.note {
+	border: 1px solid black;
+	width: 25%;
+	overflow: hidden;
+	height: 185px;
+	margin: 10px 0px;
+	padding: 0px 10px 10px 10px;
+	background-color: white;
+	font-size: 13px;
+}
+h4 {
+	margin-top: 8px;
+	font-size: 18px;
+	font-weight: 730;
+}
+p {
+	margin-top: -50px;
+	font-size: 14px;
+    font-weight: 500;
+    font-family: 'Abril Fatface', cursive;
+}

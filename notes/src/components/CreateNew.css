@@ -1,0 +1,57 @@
+form{
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: column; 
+    margin-left: 25px; 
+    font-family: 'Abril Fatface', cursive;
+}
+
+
+.text-area{
+    height: 300px; 
+    width: 90%;
+    margin: 20px 0px; 
+    border-radius: 5px; 
+    font-family: 'Abril Fatface', cursive;
+}
+
+.text-area::placeholder{
+  transform: translate(0px, -130px); 
+  padding-left: 10px; 
+  font-family: 'Abril Fatface', cursive;
+}
+
+.input{
+    width: 80%; 
+    height: 40px; 
+    border-radius: 5px;
+    font-family: 'Abril Fatface', cursive; 
+}
+
+.input::placeholder{
+    padding-left: 10px; 
+}
+
+.buttonTwo{
+    background-color: rgb(23, 196, 202);
+    
+    width: 220px; 
+    height: 36px;  
+    color: white; 
+    font-weight: bold; 
+    margin: 17px 0px;  
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 3px;  
+    font-size: 16px; 
+    letter-spacing: 0.5; 
+    font-family: 'Abril Fatface', cursive;
+}
+
+.buttonTwo:hover{
+    color: black;
+    border: solid 2px black;
+    background-color: aqua;
+
+}

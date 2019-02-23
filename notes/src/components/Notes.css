@@ -1,0 +1,13 @@
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	width: 95%;
+    justify-content: space-evenly;
+    font-family: 'Abril Fatface', cursive;
+}
+h3 {
+	margin-top: 50px;
+	font-size: 23px;
+    padding-left: 25px;
+    font-family: 'Abril Fatface', cursive;
+}

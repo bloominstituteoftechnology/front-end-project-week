@@ -1,0 +1,32 @@
+.App {
+  width: 100%; 
+  display: flex;
+  flex-wrap: wrap; 
+  margin: 0 auto; 
+  max-width: 800px; 
+}
+
+.sidebar-container{
+  width: 22%; 
+  border-right: none; 
+  background-color: #D3D2D3;
+  border: 1px solid #AEAEAE; 
+  display: flex; 
+  justify-content: center;  
+  flex-wrap: wrap;
+}
+
+.notes-container{
+  width: 70%; 
+  border: 1px solid #B7B7B7; 
+  background-color: white; 
+  
+}
+
+h1{
+  font-weight: 650;
+  font-size: 35px;
+  line-height: .8;
+  margin-left: 9%;
+  font-family: 'Abril Fatface', cursive;    
+}
