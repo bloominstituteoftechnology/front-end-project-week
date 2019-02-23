@@ -1,0 +1,14 @@
+{
+  "name": "fontawesome",
+  "version": "5.6.3",
+  "description": "Get the Font Awesome unicode character by the icon name.",
+  "author": "Moritz Marquardt",
+  "license": "MIT",
+
+  "main": "index.js",
+  
+  "keywords": [ "fontawesome", "unicode", "icons", "icon", "utf", "character", "font", "awesome" ],
+  "repository": { "type": "git", "url": "git+https://github.com/moqmar/node-fontawesome.git" },
+  "bugs": { "url": "https://github.com/moqmar/node-fontawesome/issues" },
+  "homepage": "https://github.com/moqmar/node-fontawesome#readme"
+}

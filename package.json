@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "axios": "^0.18.0",
+    "fontawesome": "^5.6.3"
+  }
+}
