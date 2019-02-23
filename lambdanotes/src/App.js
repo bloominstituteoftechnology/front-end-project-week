@@ -13,6 +13,7 @@ import CreateNote from './components/CreateNote';
 import axios from 'axios';
 
 import './App.css';
+import EditNote from './components/EditNote';
 
 
 
@@ -67,8 +68,7 @@ class App extends Component {
             <Note {...props} content={this.state.noteList} />
           )} />
         <Route exact path='/create' component={CreateNote} getNotes = 'getNotes' />
- 
-        
+        <Route exact path='/edit/:id' component={EditNote} />        
       </div>
     );
   }
