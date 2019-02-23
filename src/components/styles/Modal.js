@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Modal = styled.div`
         position: fixed;
         top: 5%;
-        left:30%;
+        left:35%;
         color:yellow;
         background-color: rgba(0,0,0,0.65);
         z-index: 2;

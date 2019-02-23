@@ -88,10 +88,23 @@
    color:yellow;
 }
 
-.login {
-  padding: 10px 25px;
-  background: blue;
-  color:white;
 
+
+.login {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 38px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 
+.login {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
