@@ -33,8 +33,8 @@ export default class Edit extends React.Component {
         <h3>Edit Note:</h3> 
         <form onSubmit = {this.submitHandler}>
           <input onChange={this.inputHandler} value={this.state.title} name="title" placeholder="Note Title" className='input' type='text'/>
-          <input onChange={this.inputHandler} name="textBody" value={this.state.textBody} placeholder="Note Content" className="text-area" type='text'/> 
           <input onChange={this.inputHandler} value={this.state.image} name="image" placeholder="add image link" type='text' className='input' />
+          <input onChange={this.inputHandler} name="textBody" value={this.state.textBody} placeholder="Note Content" className="text-area" type='text'/> 
           <button type="submit" className="button-2">Save</button> 
         </form> 
       </div> 

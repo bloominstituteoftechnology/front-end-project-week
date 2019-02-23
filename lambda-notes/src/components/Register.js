@@ -47,7 +47,7 @@ export default class Register extends React.Component {
                     Username: <input value={this.state.username} onChange={this.inputHandler} name='username' type='text' className="username"/>
                 </div> 
                 <div >
-                    Password: <input value={this.state.password} onChange={this.inputHandler} name='password' type='text' className="password"/>
+                    Password: <input value={this.state.password} onChange={this.inputHandler} name='password' type='password' className="password"/>
                 </div> 
                 <button type='submit'>submit</button>
                 </form> 
