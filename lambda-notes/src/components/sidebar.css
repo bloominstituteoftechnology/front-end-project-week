@@ -1,0 +1,28 @@
+.button{
+    background-color: rgb(23, 196, 202);
+    border: 1px solid rgb(173, 173, 173); 
+    box-shadow: 1px 2px 2px 1px rgb(173, 173, 173);
+    width: 83%;
+    height: 36px;  
+    color: white; 
+    font-weight: bold; 
+    margin: 17px auto; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 3px;  
+    font-size: 16px; 
+    letter-spacing: 0.5; 
+    border-radius: 15px; 
+}
+
+.button:hover{
+    background-color: rgb(13, 173, 179); 
+    box-shadow: 0px 1px 1px 0px rgb(173, 173, 173);
+    box-shadow: 0px 1px 1px 0px;
+    transition: 0.5s; 
+    font-weight: bold; 
+    font-size: 17px; 
+}
+
+

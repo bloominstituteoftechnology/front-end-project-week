@@ -1,0 +1,32 @@
+.container{
+    display: flex; 
+    flex-wrap: wrap; 
+    width: 100%; 
+    justify-content: space-evenly; 
+}
+
+.please-sign-in{
+    font-size: 27px; 
+    margin-top: 15%;  
+    font-weight: 700;
+    animation-name: signin;
+    animation-duration: 2s;
+}
+
+@keyframes signin {
+    0%{
+        transform: translate(600px, 0px); 
+    }
+    10%{
+        transform: translate(0px, 0px); 
+    }
+    11%{
+        transform: rotate(355464deg);
+        }
+    35%{
+        font-size: 40px; 
+    }
+    100%{
+        transform: rotate(0deg); 
+    }
+}

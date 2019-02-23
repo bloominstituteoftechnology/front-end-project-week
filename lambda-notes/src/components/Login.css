@@ -1,0 +1,30 @@
+.login-container{
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    flex-direction: column;  
+    border: 2px solid black; 
+    width: 75%; 
+    margin: 50px auto; 
+    padding: 10px; 
+    background-color: rgba(0,0,0,0.2)
+}
+
+.password{
+    margin-left: 5px; 
+    margin-bottom: 25px; 
+}
+
+h2{
+    text-align: center; 
+    text-decoration: underline; 
+}
+
+div{
+    text-align: center; 
+}
+
+button{
+    width: 55%;
+    margin: 0px auto 30px auto; 
+}
