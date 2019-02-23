@@ -43,8 +43,11 @@ export default class Register extends Component {
    this.setState({
      email: '',
      password:''
-     });    
-   this.props.history.push('/login');
+     });   
+
+   setTimeout( () =>{
+      this.props.history.push('/login');
+   }, 1200);
  } 
 
  deleteMessage = () => {
@@ -76,7 +79,7 @@ export default class Register extends Component {
          </div>
          <div>
            <button type='submit'
-                   className='register'
+                   className='register login'
                    onMouseLeave={this.deleteMessage}
                    >Register</button>
          </div>

@@ -67,7 +67,7 @@ export default class Login extends Component {
                    placeholder='Password' required></Input>
          </div>
          <div>
-           <button type='submit' className='register'>Sign In</button>
+           <button type='submit' className='register login'>Sign In</button>
          </div>
        </form>
        </Modal>
