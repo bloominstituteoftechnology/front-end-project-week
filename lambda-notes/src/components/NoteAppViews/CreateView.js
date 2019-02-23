@@ -4,7 +4,6 @@ import { addNote } from '../../actions'
 import { Button, Input } from 'reactstrap'
 import { CreateViewContainer, CreateViewStyle, CreateText} from './styled-components/CreateViewStyledComponents'
 import { withStyles } from '@material-ui/core/styles'
-import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
 import { styles } from './styled-components/CreateViewStyledComponents'
 
