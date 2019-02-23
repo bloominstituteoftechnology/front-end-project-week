@@ -43,8 +43,8 @@ class ListView extends Component {
 const mapStateToProps = state => {
     const { notesReducer } = state;
     const { listsReducer } = state;
-    const { singleListReducer } = state;
-    const { singleNoteReducer } = state;
+   // const { singleListReducer } = state;
+   // const { singleNoteReducer } = state;
     
     return {
         listSelected: state.singleListReducer.listSelected,

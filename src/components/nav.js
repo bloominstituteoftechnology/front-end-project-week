@@ -3,7 +3,7 @@ import "../css/note.css"
 import NavNoteList from "./navNoteList";
 import NavSaveList from "./navSaveList";
 import NavOpenList from "./navOpenList";
-import Login from "./login/login";
+//import Login from "./login/login";
 
 import { getNotes } from '../actions/notesActions';
 import { viewNote } from '../actions/notesActions';
@@ -81,37 +81,22 @@ class Nav extends React.Component {
     let selectedNote = []; 
    
   const listJSON = JSON.parse(list);
-    
-  
-    
     for (let i = 0; i < listJSON.length; i++) {                            // step through the array of note id's 
-  
     for (let j = 0; j < this.props.notes.length; j++) {
-        if (listJSON[i] === this.props.notes[j].id) {
-                                                                        //so i have an object here.
-    
-      
+        if (listJSON[i] === this.props.notes[j].id) {                                                         
           selectedNote.concat(this.props.notes[j]);
         }
-
      } 
-  
      this.setState({ selectedNotes: selectedNote });
-
     this.props.listView(selectedNote);
-  }
-     
+  }   
   }
 
   saveList = (event) => {
     event.preventDefault();
     const saveName = this.state.listSaveInput;
-   
-
     const list = this.state.listItems;
     const listJSON = JSON.stringify(list); 
- 
-
       let newRec = {
         list: listJSON,
         notes_id: 1,
@@ -183,7 +168,7 @@ class Nav extends React.Component {
               return <NavOpenList key={index} listTitle={list.listTitle}  viewNoteList={this.viewNoteList} listView={this.props.listView} list={list.list} id={list.id} lists={this.state.lists} />
             })}
           </ul> : null}
-       {/*  {(this.state.enableOpenList) ? <div className="open-button" onClick={this.sortThis}>Open List</div> : null} */}
+        {(this.state.enableOpenList) ? <div className="open-button" onClick={this.sortThis}>Open List</div> : null} 
       
       </form>
     );
@@ -193,7 +178,7 @@ class Nav extends React.Component {
 const mapStateToProps = state => {
   const { notesReducer } = state;
   const { listsReducer } = state;
-  const { singleNoteReducer } = state;
+  //const { singleNoteReducer } = state;
   return {
     notes: notesReducer.notes,
     lists: listsReducer.lists,

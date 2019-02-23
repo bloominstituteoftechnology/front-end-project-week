@@ -244,13 +244,15 @@ li {
     border: 0px solid rgb(166, 166, 166);
     height: 315px;
     color: black;
+    margin-bottom: 8px;
     width: 312px;
-    margin-bottom: 38px;
+    /* margin-right: 1px;  */
     background-color: white;
-    background-image: url('../graphics/note11.png');
+    background-image: url('../graphics/note8.png');
 }
 
 .note-card:hover {
+    background-image: url('../graphics/note9.png');
     transform: scale(1.1, 1.1);
     animation: scale .3s 1;
     transform: scale(1.06, 1.06);

@@ -26,23 +26,6 @@ class Login extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
-    /*  handleSubmit = event => {
-         event.preventDefault();
-         const credentials = this.state;
-         const endpoint = 'http://localhost:5000/api/users/login';
-         axios.post(endpoint, credentials)
-             .then(res => {
-                 console.log('reponse data from login', res.data);
-                 localStorage.setItem('jwt', res.data.token);
-                 alert("login successful")
-                 const name = "";
-                 const password = "";
-                 this.setState({ username: name, password: password })
-                 console.log("this.state is: ", this.state)
-             }).catch(err => {
-                 console.log('err from login', err);
-             });
-     } */
     // ********* USER LOGIN **************************
     login = (e) => {
         e.preventDefault();
@@ -84,7 +67,7 @@ class Login extends Component {
                 password: this.state.password
 
             };
-            console.log("state.username:", userInfo)
+         
            //  this.props.registerUser(userInfo);
             //console.log("password:", password)
             /*    const regUser = (userInfo) => {

@@ -20,17 +20,17 @@ export const getNotes = () => {
   return (dispatch) => {
     dispatch({ type: GETTING_NOTES })
     const token = localStorage.getItem('jwt');
-   const endpoint = 'http://localhost:5000/api/notes';
+ //  const endpoint = 'http://localhost:5000/api/notes';
     const options = {
        headers: {
         Authorization: token
       } 
     };
     axios
-     // .get('http://localhost:5000/api/notes', options)
+   //  .get('http://localhost:5000/api/notes', options)
    // axios
    // .get('https://fe-notes.herokuapp.com/note/get/all')
-  //.get('http://localhost:5000/api/notes')
+ // .get('http://localhost:5000/api/notes')
     .get('https://frontend-william.herokuapp.com/api/notes', options)
       .then(response => {
         //console.log("response:", response)
@@ -60,15 +60,16 @@ export const createNote = (newNote) => {
 export const updateNote = (newNote, id) => {
   return (dispatch) => {
     dispatch({ type: UPDATING_NOTE })
-    const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
-   // const URL = 'http://localhost:5000/api/notes/' + id;
+   const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
+ //  const URL = 'http://localhost:5000/api/notes/' + id;
     axios
       .put(URL, {
         title: newNote.title,
         textBody: newNote.textBody,
         tags: "",
         _id: 1234,
-        image: "",
+        pictures: newNote.pictures,
+        pictureDataURLs: newNote.pictureDataURLs,
         users_id: 1
       })
       .then(response => {
@@ -85,16 +86,17 @@ export const viewNote = (id) => {
   return (dispatch) => {
     dispatch({ type: GETTING_SINGLE_NOTE })
    const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
-   // const URL = 'http://localhost:5000/api/notes/' + id;
+  //  const URL = 'http://localhost:5000/api/notes/' + id;
     axios
       .get(URL)
       .then(response => {
        let noteData = localStorage.getItem('localNotes');
        noteData.concat(response.data);
      
-      // console.log("noteData:", noteData);
+     
        localStorage.setItem('localNotes', noteData);
-      // console.log("response.data", response.data); // selectedNotes.push(response.data);
+      // console.log("response.data", response.data); 
+      // selectedNotes.push(response.data);
         dispatch({ type: SINGLE_NOTE, payload: response.data })
         return response.data;
        

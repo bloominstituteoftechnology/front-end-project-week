@@ -22,13 +22,14 @@ class NoteList extends Component {
 		this.props.getNotes();
 	}
 
+	
 	render() {
 		return (
 			<div className="note-list"><div className="title-container"><div className="list-title">Notes:</div>
 				<div className="csv-button"><CSVLink data={this.props.notes}>Export to .csv</CSVLink></div></div>
 				<div className="list-container">
 					{this.props.notes.map((note, index) => {
-						return <Note key={index} title={note.title} viewNote={this.props.viewNote}  textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
+						return <Note key={index} title={note.title} uploadHandler={this.uploadHandler} fileChangedHandler={this.fileChangedHandler} viewNote={this.props.viewNote}  textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
 					})}
 				</div>
 			</div>

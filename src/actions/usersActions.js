@@ -21,8 +21,8 @@ export const getUsers = () => {
     dispatch({ type: GETTING_USERS })
     axios
    // .get('https://fe-users.herokuapp.com/note/get/all')
-   //.get('http://localhost:5000/api/users')
-    .get('https://frontend-william.herokuapp.com/api/users')
+  //.get('http://localhost:5000/api/users')
+   .get('https://frontend-william.herokuapp.com/api/users')
       .then(response => {
         dispatch({ type: GET_USERS, payload: response.data })
       })
@@ -71,8 +71,8 @@ export const registerUser = (newUser) => {
 export const loginUser = (id) => {
   return (dispatch) => {
     dispatch({ type: LOGGING_USER })
-   const URL = 'https://frontend-william.herokuapp.com/api/users/' + id;
-   // const URL = 'http://localhost:5000/api/users/login/' + id;
+   const URL = 'https://frontend-william.herokuapp.com/api/users/login/' + id;
+  //  const URL = 'http://localhost:5000/api/users/login/' + id;
     axios
       .post(URL)
       .then(response => {
@@ -88,7 +88,7 @@ export const loginUser = (id) => {
 export const deleteUser = (id) => {
   return (dispatch) => {
    const URL = 'https://frontend-william.herokuapp.com/api/users/' + id;
-  // const URL = 'http://localhost:5000/api/users/' + id;
+ //  const URL = 'http://localhost:5000/api/users/' + id;
     dispatch({ type: DELETING_USER })
     axios
       .delete(URL)
@@ -105,7 +105,7 @@ export const logoutUser = (id) => {
   return (dispatch) => {
     dispatch({ type: LOGGING_USER })
    const URL = 'https://frontend-william.herokuapp.com/api/users/' + id;
-   // const URL = 'http://localhost:5000/api/users/login/' + id;
+  // const URL = 'http://localhost:5000/api/users/login/' + id;
     axios
       .post(URL)
       .then(response => {
