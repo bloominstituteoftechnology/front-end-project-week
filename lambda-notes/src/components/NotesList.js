@@ -11,13 +11,12 @@ const NotesList = props => {
             
             <div className="header">
                 <h1>Your notes</h1>
-
-                {props.searchStatus.length > 0 ? <h2>{props.searchStatus}</h2> :null        
-            }
-            </div>    
+                
+            </div>
+                
             <div className="notes-wrapper">
-            
-            
+            {props.searchStatus.length > 0 ? <h2 className="text-center note-title"><b>{props.searchStatus}</b></h2> :null        
+            }
             {props.loading ? <div className="loading"><img alt="Loading gif" src={loading} /></div> : null }
             
                 {props.notes.map((note, index) => {

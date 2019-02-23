@@ -19,10 +19,9 @@ class App extends Component {
       note: null,
       searchStatus: '',
       loading: false,
-      noSuccess: false,
+      noSuccess: '',
       requestError: false,
       isLoggedIn: false,
-      loginError: false,
       username: '',
       password: ''
     }
@@ -32,42 +31,42 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({ loading: true, searchStatus: '' });
-    if (localStorage.getItem('username') === 'username' && localStorage.getItem('password') === 'password') {
-      this.setState({ isLoggedIn: true, loading: false });
       axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
-          this.setState({
-              notes: response.data,
-              loading: false,
-              noSuccess: false
-          })
+        this.setState({
+            notes: response.data,
+            loading: false,
+            noSuccess: ''
+        })
+        if (localStorage.getItem('username') === 'username' && localStorage.getItem('password') === 'password') {
+            this.setState({ isLoggedIn: true });
+            // this.props.history.push('/');
+          }
+        else {
+          this.setState({ isLoggedIn: false });
+          this.props.history.push('/login');
+        }
+          
       })
       .catch(err => {
         this.setState({
-            notes: [],
             loading: false,
             noSuccess: err
         })
         console.log(err);
       })
-      
-    }
-    else {
-      this.setState({ isLoggedIn: false, loading: false });
-      this.props.history.push('/login')
-    }
   }
   
   fetchNotes = () => {
-    this.setState({ loading: true, noSuccess: false, searchStatus: ''})
+    this.setState({ loading: true, noSuccess: '', searchStatus: ''})
     axios
       .get('https://fe-notes.herokuapp.com/note/get/all')
       .then(response => {
           this.setState({
               notes: response.data,
               loading: false,
-              noSuccess: false
+              noSuccess: ''
           })
           
           this.props.history.push(`/`);
@@ -202,7 +201,7 @@ class App extends Component {
         if (newNotes.length > 0) {
           this.setState({
             notes: newNotes,
-            searchStatus: `Here is what we found matching with ${term}: `
+            searchStatus: `Here is what we found matching with ' ${term} ': `
           })
         }
         else {
@@ -245,10 +244,9 @@ class App extends Component {
       this.setState({
         isLoggedIn: false,
         loginError: true,
-        loading: false,
+        loading: false
       })
     }
-    
   }
 
   render() {
@@ -298,11 +296,13 @@ class App extends Component {
         </div>
         
         :
-        <Route path="/"
-          render={props => 
-            <LoginForm {...props} loginUser={this.loginUser}/>
-          }
-        />
+        <div className="login-container">
+          <Route path="/"
+            render={props => 
+              <LoginForm {...props}  loginUser={this.loginUser}/>
+            }
+          />
+        </div>
         
         
         } 

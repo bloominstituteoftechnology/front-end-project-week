@@ -30,7 +30,7 @@
   justify-content: center;
 }
 .header {
-  width: 100%;
+  margin-top: -50px;
   height: 166px;
   display: flex;
   justify-content: center;
@@ -40,6 +40,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 50px;
+  margin-top: 50px;
 }
 .app-container {
   max-width: 1024px;
@@ -91,7 +92,7 @@ h1, .error-title, .note-card .note-title {
   align-items: center;
   justify-content: space-between;
   padding: 0px 5px;
-  margin-top: 200px;
+  margin-top: 133px;
 }
 .notes-container h2 {
   padding: 0px 0px 30px;
@@ -153,7 +154,7 @@ h1, .error-title, .note-card .note-title {
   margin-top: 40px;
 }
 .action-buttons {
-  margin: 50px auto;
+  margin: 25px auto;
   width: 100%;
   display: flex;
   flex-flow: row-reverse;
@@ -169,7 +170,6 @@ h1, .error-title, .note-card .note-title {
 section {
   padding-left: 33px;
   width: 700px;
-  
 }
 .notes-header {
   height: 200px;
@@ -197,8 +197,12 @@ section {
 }
 .login-container form {
   width: 400px;
+  margin-top: 380px;
   margin-left: auto;
   margin-right: auto;
+}
+.login-error {
+  margin-top: 22px;
 }
 form {
   margin-top: 55px;
@@ -239,5 +243,47 @@ input.form-control, textarea.form-control  {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+.login-container {
+  background: url('./welcome.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background- */
+  padding-top: 80px;
+  height: 800px;
+}
+.welcome {
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  .app-container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .aside {
+    min-width: 100%;
+    min-height: 400px;
+    max-width: 400px;
+  }
+  .header {
+    position: relative;
+    max-width: 500px;
+  }
+  section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card {
+    width: 100%;
   }
 }

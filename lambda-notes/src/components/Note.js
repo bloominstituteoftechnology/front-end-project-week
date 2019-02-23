@@ -30,8 +30,8 @@ class Note extends React.Component  {
         .then(response => {
            
             if (response.data.errorMessage) {
-                this.props.history.push(`/404`);
                 this.setState({ loading: false })
+                this.props.history.push(`/404`);
             }
             else {
                 this.setState({ 
