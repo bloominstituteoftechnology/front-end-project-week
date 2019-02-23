@@ -22,6 +22,10 @@ import IdSort from './components/subroutes/idsort'
 //react & redux -sort
 import ReactSort from './components/ReactSort'
 
+// import Auth from './Auth/Auth.js';
+// const auth = new Auth();
+// auth.login();
+
 
 const StyledLink = styled(Link)`
     text-decoration: none;

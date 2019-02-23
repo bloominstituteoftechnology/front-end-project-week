@@ -5,6 +5,12 @@ import "../styles/Login.css"
 
 import Signup from './Signup';
 
+//import Auth from './../Auth/Auth.js';
+// const auth = new Auth();
+// auth.login();
+
+//import LoginControl from './LoginControl';
+
 
 class Login extends React.Component {
     constructor(){
@@ -48,6 +54,7 @@ class Login extends React.Component {
 
 
     render(){
+   
         return (
             <>
                     <div className="loginform-container">
@@ -73,6 +80,10 @@ class Login extends React.Component {
                     </div>
                     <div>
                         <Signup/>
+                    </div>
+                    <div>
+                        <h1>Auth0</h1>
+                        {/* <LoginControl /> */}
                     </div>
             </>
         )
