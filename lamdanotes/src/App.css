@@ -62,6 +62,7 @@ table {
 html {
     font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
+	color: #49525B;
 }
 
 h1, h2 {
@@ -101,6 +102,7 @@ h3, h4, h5, h6 {
 	display: flex;
 	flex-direction: row;
 	width: 18em;
+	padding-left: 15px;
 	margin: 10px auto 0;
 	text-align: left;
 	color: white;
@@ -126,17 +128,19 @@ input:focus {
 
 .notesView {
 	max-width: 100%;
-	
+	padding-left: 16em;
 	background-color: #F2F1F2;
 	height: auto;
 }
 
 .nvTitle {
 	padding-top: 50px;
+	font-family: 'Dosis', sans-serif;
+	font-weight: bold;
 }
 
 .noteBox {
-	padding-left: 16em;
+	/* padding-left: 16em; */
 	display: inline-grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: 15em 15em 15em;
@@ -144,10 +148,11 @@ input:focus {
 }
 
 .card-body {
-	border: 2px solid #D9D9D9;
+	border: 1px solid #FFF;
 	border-radius: 15px;
 	padding: 10px;
 	background-color: white;
+	box-shadow: 5px 5px 8px #D9D9D9;
 	line-height: 1.3em;
 	overflow: hidden;
 }
@@ -161,18 +166,17 @@ input:focus {
 .card-title {
 	font-size: 22px;
 	width: 99%;
-	border-bottom: 2px solid #D9D9D9;
+	border-bottom: 1px solid #91A8C3;
 	padding-bottom: .5em;
 }
 
 .btn {
 	margin-top: .5em;
-	border-radius: 5px;
-	border-color: #1DA0E0;
+	border: #1DA0E0;
 	background-color: #1DA0E0;
 	border-radius: 25px;
 	color: white;
-	padding: .3em .5em;
+	padding: .4em .8em;
 }
 
 
@@ -369,6 +373,7 @@ a {
 
 .firstSort {
 	margin-right: 1em;
+	margin-left: .2em;
 }
 
 /* -------------------------------------LOGIN PAGE */

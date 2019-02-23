@@ -9,7 +9,7 @@ const NotesView = props => {
     console.log("props from notesView", props)
     return (
         <div className="notesView">
-            <h5 className="nvTitle">Your Notes:</h5>
+            <h5 className="nvTitle">Your Notes:</h5><br />
             <NotesIterator notes={props.notes} />
         </div>
     )
