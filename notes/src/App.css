@@ -1,0 +1,8 @@
+.App {
+
+  max-width: 880px;
+  display: table;
+	width: 100%;
+  height: 100%;
+  padding: 2%;
+}

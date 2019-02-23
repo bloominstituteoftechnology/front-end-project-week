@@ -1,0 +1,165 @@
+/* App View */
+
+.contentContainer{
+  display: table-cell;
+  min-width: 450px;
+  vertical-align: top;
+  padding-left: 2%;
+  background-color: rgb(240, 236, 236);
+  border: 1px solid #A0A0A0;
+}
+.contentContainer h2 {
+  color: #4A494A;
+  margin-left: 1%;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.contentContainer .notesContainer{
+  display: flex;
+  flex-wrap: wrap;
+    
+}
+.contentContainer .notesContainer .note{
+border: 1px solid #959898;
+background: white;
+margin: 0 20px 30px 0;
+color: black;
+padding: 20px;
+display: flex;
+flex-direction: column;
+width: 20%;
+height: 150px;
+}
+.contentContainer .notesContainer h3{
+
+border-bottom: rgb(136, 126, 136);
+margin-top: 5px;
+}
+.contentContainer .notesContainer p{
+  font-size: 0.8rem;
+  line-height: 1.2;
+  display: block;
+  overflow: hidden;
+ 
+}
+/* CreateNote styling */
+
+
+.contentContainer h2{
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+.contentContainer .form{
+  display: flex;
+  flex-direction: column;
+  width: 93%;
+}
+.contentContainer .form .title{
+  border: 1px solid #757474;
+  border-radius: 5px;
+  width: 50%;
+  height: 40px;
+  padding: 0 5px 0 5px;
+  font-size: 0.9rem;
+  margin-bottom: 25px; 
+}
+.contentContainer .form .textBody{
+  border: 1px solid #757474;
+  border-radius: 5px;
+  width: 100%;
+  height: 300px;
+  padding:25px 5px 0 5px;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+  
+}
+.textBody::placeholder{
+ display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+
+}
+.contentContainer .form .button{
+  display: block;
+  border: 1px solid #959898;
+  text-decoration: none;
+  background-color: #5DBEC3;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;  
+  font-weight: bold;
+  padding: 0.8rem 0;
+  width: 35%;
+  margin-bottom: 40px;
+ 
+}
+/* ViewOneNote Style */
+
+.contentContainer .linkContainer{
+  display: flex; 
+  justify-content: flex-end;
+  
+}
+.contentContainer .linkContainer .button{
+    color: rgb(56, 55, 56);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-right: 25px;
+    margin-top: 20px;
+}
+
+/* DeleteNote */
+
+.deleteContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(77, 75, 75, 0.4);
+}
+.deleteContainer .confirm {
+  border: 1px solid rgb(73, 71, 71);
+  border-radius: 5px;
+  background-color: white;
+  width: 70%;
+  height: 250px;
+  text-align: center;
+
+}
+
+.deleteContainer .confirm .confermMessage{
+  margin: 65px 0 30px 0;
+  color: #4A4A4A;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.deleteContainer .confirm .yesNo {
+  display: flex;
+  justify-content: center;
+ 
+
+}
+
+.yesNo .noContainer{
+  background-color:dodgerblue;
+  text-decoration: none;
+  margin: 10px;
+}
+.yesNo .yesContainer {
+ 
+  background-color:red;
+  text-decoration: none;
+  margin: 10px;
+  
+}
