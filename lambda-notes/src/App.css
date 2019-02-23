@@ -1,0 +1,53 @@
+.App {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1080px;
+  display: flex;
+}
+
+.navbar-expand {
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+h1 {
+font-size: 2rem;
+}
+
+.navbar-expand .navbar-nav {
+  -ms-flex-direction: row;
+  flex-direction: column;
+  font-size: 1.5rem;
+  margin: 10% 0% 20% 0%;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  border: 1px solid black;
+  border-radius: 5%;
+  background-color: #C0B283
+}
+
+.btn {
+  margin: 2% 5px;
+  width: 60px;
+}
+
+.form-control {
+  margin: 5% auto;
+}
+
+html {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+hr {
+  margin: 0;
+
+}
