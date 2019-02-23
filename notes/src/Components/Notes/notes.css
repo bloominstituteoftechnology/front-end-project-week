@@ -1,0 +1,160 @@
+.note-list {
+    display: flex;
+    align-content: space-around;
+    flex-flow: wrap;
+    min-width: 80vw;
+}
+
+.note-card {
+    width: 250px;
+    height: 250px;
+    margin: 1%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1%;
+}
+
+.note-card .note-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.note-card .note-card-break {
+    align-self: center;
+    border: 1px solid black;
+    width: 95%;
+}
+
+.note-card .note-card-body {
+    height: 80%;
+    min-height: 60px;
+    padding: 6px;
+    overflow: hidden;
+}
+
+.note-title {
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.note-links-container {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.note-link {
+    font-weight: bold;
+    margin: 10px;
+    color: black;
+}
+
+.card-link {
+    margin: 1%;
+    text-decoration: none;
+    color: black;
+}
+
+.display-note {
+    min-width: 801px;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+.display-note .note-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.note-break {
+    width: 80%;
+    border: 1px solid black;
+    margin: 1% 0%;
+}
+
+.delete-modal {
+    position: absolute;
+    width: 98vw;
+    height: 98vh;
+    background-color: rgba(100, 100, 100, 0.5);
+}
+
+.delete-modal .delete-modal-box {
+    background-color: white;
+    z-index: 100;
+    border: 1px solid black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 30vh;
+    left: 30vw;
+    width: 30%;
+    padding: 1%;
+}
+
+.delete-modal-box .delete-button-box {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.delete-modal-button.delete {
+    text-decoration: none;
+    width: 150px;
+    border: 1px solid black;
+    background-color: red;
+    text-align: center;
+    color: white;
+}
+
+.delete-modal-button.no {
+    text-decoration: none;
+    width: 150px;
+    border: 1px solid black;
+    background-color: #24B8BD;
+    text-align: center;
+    color: white;
+}
+
+.note-form {
+    width: 80vw;
+    height: 80vh;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.form-button {
+    width: 200px;
+    height: 50px;
+    background-color: #24B8BD;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    border: 1px inset grey;
+    cursor: pointer;
+}
+
+.title-input {
+    width: 255px;
+}
+
+.text-body-input {
+    width: 600px;
+    height: 60vh;
+}
+
+.tags-selection {
+    width: 150px;
+}
+
+.found {
+    background-color: yellow;
+}

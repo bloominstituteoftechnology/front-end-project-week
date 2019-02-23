@@ -1,0 +1,20 @@
+.App {
+  min-width: 98vw;
+  display: flex;
+  width: 100%;
+}
+
+.menu {
+  padding: 1%;
+  background-color: rgb(211, 210, 211);
+  min-height: 98vh;
+}
+
+.menu h1 {
+  text-align: left;
+}
+
+.notes {
+  padding: 1%;
+  background-color: rgb(242, 241, 242);
+}
