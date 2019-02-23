@@ -17,6 +17,7 @@ const Container = styled.div`
   width: 100%;
   max-width: 1080px;
   border-top: 1px solid rgb(234, 237, 232);
+  margin: 3%;
 `;
 
 class App extends Component {

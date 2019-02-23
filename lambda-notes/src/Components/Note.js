@@ -4,6 +4,21 @@ import { connect } from "react-redux";
 import { fetchNotes, deleteNote } from "../actions/noteActions";
 
 import { Button } from "react-bootstrap";
+import styled from "styled-components";
+
+const ModalPopUp = styled.div`
+  margin: 26% auto;
+  position: absolute;
+  width: 40%;
+  height: 150px;
+  background:rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+`
+
+const ModalTextContainer = styled.div`
+  margin-top: 5%;
+`
 
 class Note extends React.Component {
   constructor(props) {
@@ -40,8 +55,8 @@ class Note extends React.Component {
       return (
         <div>
           {this.state.delete && (
-            <div>
-              <div>
+            <ModalPopUp>
+              <ModalTextContainer>
                 <p>Are you sure you want to delete this?</p>
                 <div>
                   <Button
@@ -53,14 +68,14 @@ class Note extends React.Component {
                   </Button>
                   <Button
                     variant="info"
-                    style={{ width: "75px", margin: "0 10px" }}
+                    style={{ width: "75px", margin: "0 10px", background: "#373737" }}
                     onClick={this.deleteToggleOff}
                   >
                     No
                   </Button>
                 </div>
-              </div>
-            </div>
+              </ModalTextContainer>
+            </ModalPopUp>
           )}
 
           <div>
@@ -73,6 +88,7 @@ class Note extends React.Component {
             </Link>
             <Button
               variant="danger"
+              style={{ marginRight: "10px", width: "75px" }}
               onClick={this.deleteToggleOn}
             >
               Delete

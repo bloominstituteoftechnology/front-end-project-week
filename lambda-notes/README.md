@@ -1,5 +1,12 @@
 # Front End Project Week
 
+## Heroku
+https://beplambdanotes.herokuapp.com/
+
+## Netlify
+
+https://5c717a8e9c6a81e5e411eeb8--eloquent-mayer-b3e420.netlify.com/
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/34e7e03e-9458-4dff-af24-1099e2380079/deploy-status)](https://app.netlify.com/sites/eloquent-mayer-b3e420/deploys)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
