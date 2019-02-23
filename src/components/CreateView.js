@@ -30,6 +30,7 @@ class CreateView extends Component {
          }
         this.props.addContent(event, newNote);
         }
+        
         this.setState({
             title:'',
             content:'',

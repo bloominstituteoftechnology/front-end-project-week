@@ -7,7 +7,7 @@ import Card from './styles/SingleNoteView';
 import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 
-const API = `https://venkynotesapi.herokuapp.com` || `http://localhost:2300`;
+const API =  `http://localhost:2300`;
 
 class MyNote extends Component {
     constructor(props){
@@ -26,6 +26,8 @@ componentDidMount() {
      axios.get(`${API}/api/notes/${id}`)
 //   axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
         .then(res => {
+           console.log(`line 29 for single note`, res.data)
+           console.log(id)
            this.setState({title:res.data.title, content:res.data.content})
         })
         .catch(err => console.log(err));
@@ -67,6 +69,7 @@ render() {
                      </div>
                      <NoteStyle>
                     <Card>
+                        <p>yes, I am what you looking for..</p>
                         <h3>{this.state.title}</h3>
                         <p>{this.state.content}</p>
                     </Card>

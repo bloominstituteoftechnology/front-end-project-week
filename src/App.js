@@ -50,11 +50,12 @@ fetNotes = () => {
 
 addContent = (event,newNotes) => {
        event.preventDefault();
-       console.log(newNotes)
+       
        axios.post(`${API}/api/notes`, newNotes)
          .then( response => {
-           console.log(`create view`, newNotes.title);
-           newNotes.id = response.data.success;
+         
+           newNotes.id = response.data.id;
+           console.log(`Line 58 add content`, response);
            this.setState({ notes: [newNotes, ...this.state.notes] })
        })
        .catch( error => {

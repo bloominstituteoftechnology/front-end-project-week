@@ -5,12 +5,14 @@ import {Link} from 'react-router-dom';
 const Note = (props) => {  
     // const note = props.note;
     //   console.log(note);
+       
         return (
             <>
             <NoteStyles>
-              <div className="note">
+              <div className="note yellow-bg">
                 <Link to={`/note/${props.note.id}`}  className="a">
                    <h3>{props.note.title}</h3>
+                   <h6>{props.note.id}</h6>
                 </Link>
                    
                    {props.note.content}
