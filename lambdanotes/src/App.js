@@ -31,7 +31,6 @@ class App extends Component {
     axios
       .get('http://localhost:5050/api/notes')
       .then(response => {
-        console.log(response)
         this.setState({noteList: response.data})
       })
       .catch(err => {
@@ -43,6 +42,11 @@ class App extends Component {
     this.getNotes();
     }
 
+  componentDidUpdate(prevState) {
+    if(this.state !== this.prevState){
+      this.getNotes();
+    }
+  }
 
   render() {
     return (

@@ -34,16 +34,18 @@ class Note extends React.Component {
 
     openModal = () => {
         this.setState({modalIsOpen: true})
+        console.log(this.state.note.id)
     }
 
     closeModal = () => {
         this.setState({modalIsOpen: false})
     }
 
-    deleteNote = (id) => {
-        // const id = this.state.note._id
+    deleteNote = () => {
+        const deleteNote = this.state.note.id
+        console.log(`in deleteNote ${deleteNote}`);
         axios
-          .delete(`http://localhost:5050/api/notes/${id.id}`)
+          .delete(`http://localhost:5050/api/notes/${deleteNote}`, this.state.note.id)
           .then(response => {
             console.log(response)
           })
