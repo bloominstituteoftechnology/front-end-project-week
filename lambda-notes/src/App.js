@@ -38,6 +38,7 @@ class App extends Component {
         .catch(err => console.log(err)); 
 }
 
+
 getNotes = () => {
   axios.get('http://localhost:5566/api/notes')
     .then(response => {

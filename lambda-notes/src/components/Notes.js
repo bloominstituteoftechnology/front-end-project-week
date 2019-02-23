@@ -8,9 +8,11 @@ export default class Notes extends React.Component {
     }
 
     render(){
+      if(this.props.notes.length < 1){
+        return <div className='please-sign-in'>Yikes! <br/> Please sign in! </div>
+      }
         return(
           <div> 
-             
             <div className='container'> 
               {this.props.notes.map((note, index) => {
                 return <Note id={note.id} key={index} title={note.title} image={note.image} textBody={note.textBody}></Note> 
