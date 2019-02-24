@@ -34,11 +34,9 @@ class noteDelete extends React.Component {
   componentDidMount() {
     if (localStorage.getItem('modals')) {
       let modals = localStorage.getItem('modals')
-      //var isTrueSet = (myValue == 'true');
-      //console.log("modals:", modals)
       if (modals) {
-        modals = true 
-        this.setState(() => ({ modalIsOpen: modals }));    
+        modals = true
+        this.setState(() => ({ modalIsOpen: modals }));
       } else {
         let modals = false
         localStorage.setItem('modals', false);
@@ -75,8 +73,7 @@ class noteDelete extends React.Component {
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          style={customStyles}
-        >
+          style={customStyles}>
           {<h2 ref={subtitle => this.subtitle = subtitle}>Are you sure you want to delete this?</h2>}
           <button className="delete2-button" onClick={() => this.deleteRequest(this.props.id)}>Delete</button>
           <button className="cancel-button" onClick={this.closeModal}>Cancel</button>

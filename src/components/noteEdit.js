@@ -74,8 +74,6 @@ const mapStateToProps = state => {
     const { singleNoteReducer } = state;
     return {
         error: state.error,
-	//	creatingNote: state.creatingNote
-        // error: state.singleNoteReducer.error,
         noteSelected: singleNoteReducer.noteSelected
     };
 };

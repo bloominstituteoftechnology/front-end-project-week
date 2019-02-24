@@ -16,22 +16,10 @@ class ListView extends Component {
         };
     }
 
-    componentDidMount() {
-          
-    }
-
-  noteView2 = () => {
-
-  }
-
     render() {
-
-
         return (
             <form className="note-list"><div className="title-container"><div className="list-title">List of Notes:</div>
                 <div className="csv-button"><CSVLink data={this.props.notes}>Export to .csv</CSVLink></div></div>
-               
-                
                 <div className="list-container">
                     {this.props.selectedNotes.map((note, index) => {
                         return <Note2 key={index} title={note.title} viewNote={this.props.viewNote} textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
@@ -41,19 +29,17 @@ class ListView extends Component {
         );
     }
 };
+
 const mapStateToProps = state => {
     const { notesReducer } = state;
     const { listsReducer } = state;
-   // const { singleListReducer } = state;
-   // const { singleNoteReducer } = state;
-    
+
     return {
         listSelected: state.singleListReducer.listSelected,
         notes: notesReducer.notes,
         lists: listsReducer.lists,
         error: listsReducer.error,
         noteSelected: state.singleNoteReducer.noteSelected
-     //   gettingNotes: notesReducer.gettingNotes
     };
 };
 

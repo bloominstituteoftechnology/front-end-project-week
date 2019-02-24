@@ -19,27 +19,18 @@ class NoteCreate extends Component {
 
 	fileChangedHandler = event => {
 		const file = event.target.files[0]
-		//console.log("file", file)
-		//console.log("file.name", file.name)
 		const fileName = file.name;
 		const fileStr = JSON.stringify(file);
 		this.setState({ pictures: fileStr, pictureDataURLs: fileName })
-		//console.log("pictures:", this.state.pictures)
-		//const name = this.state.pictures
-		//console.log("name:", name.name)
 	}
 
-	
 	handleInputChange = event => {
 		this.setState({ [event.target.name]: event.target.value });
 	};
 
 	handleAddNote = (e) => {
 		e.preventDefault();
-	
 		const { title, textBody, tags, _id, pictures, pictureDataURLs, users_id } = this.state;
-
-		
 		this.props.createNote({ title, textBody, tags, _id, pictures, pictureDataURLs, users_id });
 		this.setState({ tags: '', title: '', textBody: '', _id: "", pictures: "", pictureDataURLs: "", users_id: "" });
 		this.props.noteList(e);
@@ -47,7 +38,6 @@ class NoteCreate extends Component {
 
 	render() {
 		return (
-
 			<form className="note-create-form" onSubmit={this.handleAddNote}>
 				<header className="note-create-header">Create New Note</header>
 				<input
@@ -73,7 +63,6 @@ class NoteCreate extends Component {
 	}
 };
 const mapStateToProps = state => {
-	//const { notesReducer } = state;
 	return {
 		error: state.error,
 		creatingNote: state.creatingNote

@@ -36,7 +36,7 @@ export const registerUser = (newUser) => {
   return (dispatch) => {
     dispatch({ type: REGISTERING_USER })
     axios.post('https://frontend-william.herokuapp.com/api/users/register', newUser)
-  // console.log("newUser:", newUser)
+
   // axios.post('http://localhost:5000/api/users/register', newUser)  
     .then(response => {
         dispatch({ type: REGISTER_USER, payload: response.data })

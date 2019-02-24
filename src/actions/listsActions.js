@@ -31,7 +31,6 @@ export const getLists = () => {
      // .get('http://localhost:5000/api/lists')
       .get('https://frontend-william.herokuapp.com/api/lists', options)
       .then(response => {
-        // console.log("response:", response)
         dispatch({ type: GET_LISTS, payload: response.data })
       })
       .catch(error => {
