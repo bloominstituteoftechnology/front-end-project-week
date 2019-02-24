@@ -13,6 +13,7 @@ export default class Login extends Component {
      email: '',
      password: ''
   }
+
   handleInput = (event) => {
      event.preventDefault();
      const target = event.target;
@@ -31,6 +32,7 @@ export default class Login extends Component {
           .then(response => {
              console.log('Response for Login',response.data);
              localStorage.setItem('jwt', response.data.token);
+
              this.props.history.push('/');
            
           })
@@ -38,14 +40,11 @@ export default class Login extends Component {
              console.log(`errorMessage: `, err);
           });
                
-    this.setState({
+   this.setState({
       email: '',
-      password:''
+      password:'',
       });    
-    
-      
-   
-  } 
+} 
  
   render() {
     return (

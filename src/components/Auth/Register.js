@@ -3,8 +3,8 @@ import axios from 'axios';
 import Modal from '../styles/Modal';
 import Input from '../styles/LoginInput.js';
 
-const API = process.env.API_URL || `http://localhost:2300`;
-
+// const API = process.env.API_URL || `http://localhost:2300`;
+const API = `https://venkynotesapi.herokuapp.com`;
 
 export default class Register extends Component {
   state = {
