@@ -9,8 +9,7 @@ import CreateView from './components/CreateView';
 import MyNote from './components/MyNote';
 import EditNote from './components/EditNote';
 
-const API = process.env.API_URL || `http://localhost:2300`
-
+const API = `https://venkynotesapi.herokuapp.com`;
 
 class App extends Component {
 constructor(props) {
