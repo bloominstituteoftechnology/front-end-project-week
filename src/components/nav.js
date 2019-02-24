@@ -28,6 +28,7 @@ class Nav extends React.Component {
       listSaveInput: "",
       selectedNotes: [],
       noteSelected: [],
+      selectThis: false,
     };
   }
 
@@ -59,9 +60,10 @@ class Nav extends React.Component {
 
   listHandler = (listItem) => {
     let list = [];
+
     list = this.state.listItems;
     list.push(listItem);
-    this.setState(() => ({ listItems: list }));
+    this.setState(() => ({ listItems: list, selectThis: true }));
   }
 
   sortThis = () => {
@@ -104,6 +106,7 @@ class Nav extends React.Component {
   }
 
   render() {
+   
     return (
       <form className="nav-left" onSubmit={this.saveList}>
         <div className="nav-title">Lambda Notes</div>
@@ -147,7 +150,7 @@ class Nav extends React.Component {
         {(this.state.enableSaveList) ?
           <ul className="nav-title-list">Select notes to save
             {this.props.notes.map((note, index) => {
-              return <NavSaveList key={index} title={note.title} saveList={this.saveList} viewNote={this.props.viewNote} listHandler={this.listHandler} textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
+              return <NavSaveList key={index} title={note.title} selectThis={this.state.selectThis} saveList={this.saveList} viewNote={this.props.viewNote} listHandler={this.listHandler} textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
             })}
           </ul> : null}
         {(this.state.enableSaveList) ? <input type="text"

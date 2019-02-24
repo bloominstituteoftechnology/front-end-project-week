@@ -57,6 +57,10 @@ class noteDelete extends React.Component {
     this.setState({ modalIsOpen: false });
   }
 
+  viewAll = () => {
+    this.props.noteList()
+  }
+
   deleteRequest = (id) => {
     this.props.deleteNote(id);
     localStorage.setItem('modals', false);
@@ -68,7 +72,7 @@ class noteDelete extends React.Component {
   render() {
     return (
       <div className="div-modal"><div className="modal-message">
-        {(this.state.message.length > 0) ? <p>Item Deleted, click View Notes to continue...</p> : <p></p>}</div>
+        {(this.state.message.length > 0) ? <p>Note has been deleted. Click View Notes to continue...</p> : <p></p>}</div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -94,5 +98,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-  deleteNote,
+  deleteNote
 })(noteDelete);

@@ -490,6 +490,10 @@ li {
     text-align: left;
 }
 
+.nav-select-item{
+    background-color: rgb(43, 193, 196);
+}
+
 .sort-button,
 .save-list-button,
 .open-button {
