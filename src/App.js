@@ -20,7 +20,7 @@ class App extends React.Component {
 
     /*****Set the initial state**** */
     this.state = {
-      viewPage: "noteList",
+      viewPage: "login",
       noteList: [],
       inputText: '',
       title: "",
@@ -37,7 +37,7 @@ class App extends React.Component {
 
   componentDidMount() {
     Modal.setAppElement('#root');
-    const pageType = "noteList";
+    const pageType = "login";
     this.setState(() => ({ viewTrip: pageType }));
     /* if (localStorage.getItem('viewPage')) {
       let pageType = localStorage.viewPage
@@ -118,7 +118,7 @@ class App extends React.Component {
   }
 
   noteView = id => {
-    const pageType = "noteView"
+    const pageType = "noteView";
    console.log("new id:", id)
     this.setState(() => ({ viewPage: pageType, id: id }));
   }

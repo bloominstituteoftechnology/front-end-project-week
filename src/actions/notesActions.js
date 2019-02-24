@@ -90,15 +90,15 @@ export const viewNote = (id) => {
     axios
       .get(URL)
       .then(response => {
-       let noteData = localStorage.getItem('localNotes');
-       noteData.concat(response.data);
+       //let noteData = localStorage.getItem('localNotes');
+      // noteData.concat(response.data);
      
      
-       localStorage.setItem('localNotes', noteData);
+       //localStorage.setItem('localNotes', noteData);
       // console.log("response.data", response.data); 
       // selectedNotes.push(response.data);
         dispatch({ type: SINGLE_NOTE, payload: response.data })
-        return response.data;
+       // return response.data;
        
       })
       .catch(error => {
