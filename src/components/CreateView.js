@@ -15,22 +15,24 @@ class CreateView extends Component {
             createdNote:false
         }
     }
+
     inputHandler = event => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
+
     submitHandler = event => {
         event.preventDefault();
         if(this.state.title && this.state.content) {
             console.log(this.state);
          let newNote = {
               title: this.state.title,
-              content:this.state.content
+            content:this.state.content
          }
         this.props.addContent(event, newNote);
         }
-        
+
         this.setState({
             title:'',
             content:'',

@@ -5,7 +5,9 @@ import Input from './styles/Input';
 import Button from './styles/Button';
 import axios from 'axios';
 
-const API = `https://venkynotesapi.herokuapp.com` || `http://localhost:2300`;
+const API = `https://venkynotesapi.herokuapp.com`;
+
+// const API =  `http://localhost:2300`;
 
 class EditNote extends Component {
     constructor(props) {

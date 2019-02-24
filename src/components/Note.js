@@ -12,10 +12,9 @@ const Note = (props) => {
               <div className="note yellow-bg">
                 <Link to={`/note/${props.note.id}`}  className="a">
                    <h3>{props.note.title}</h3>
-                   
                 </Link>
-                   
-                   {props.note.content}
+                    {props.note.content} 
+                    <p>{props.note.id}</p>
                </div>
             </NoteStyles>   
             </>

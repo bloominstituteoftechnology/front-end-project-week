@@ -7,7 +7,8 @@ import Card from './styles/SingleNoteView';
 import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 
-const API =  `https://venkynotesapi.herokuapp.com` || `http://localhost:2300`;
+const API =  `https://venkynotesapi.herokuapp.com`;
+// const API =   `http://localhost:2300`;
 
 class MyNote extends Component {
     constructor(props){
@@ -30,7 +31,7 @@ componentDidMount() {
            console.log(id)
            this.setState({title:res.data.title, content:res.data.content})
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
         axios.put(`${API}/api/notes/${id}`)        
 //   axios.put(`https://fe-notes.herokuapp.com/note/delete/${id}`)      
 }
@@ -38,6 +39,7 @@ componentDidMount() {
 toggleBox = () => {
     this.setState({showBox: !this.state.showBox})
 }  
+
 delNote = (event) => {
     event.preventDefault();
    this.props.deleteContent(this.props.match.params.id);
@@ -56,7 +58,7 @@ render() {
                     <p>Are you sure you want to delete this?</p>
                     <div className="delete">
                         <Button className='delete-button' onClick={this.delNote}>Delete</Button>
-                         <Button className='no-button' onClick={this.toggleBox}>No</Button>
+                        <Button className='no-button' onClick={this.toggleBox}>No</Button>
                     </div>
                 </DeleteContainer> 
                 <SingleNote>

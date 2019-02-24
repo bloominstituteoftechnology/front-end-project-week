@@ -50,13 +50,11 @@ fetNotes = () => {
 
 addContent = (event,newNotes) => {
        event.preventDefault();
-       
        axios.post(`${API}/api/notes`, newNotes)
          .then( response => {
-         
            newNotes.id = response.data.id;
            console.log(`Line 58 add content`, response);
-           this.setState({ notes: [newNotes, ...this.state.notes] })
+           this.setState({ notes: [...this.state.notes, newNotes]});
        })
        .catch( error => {
           console.log(`we cannot create a note now`, error);
@@ -95,9 +93,9 @@ resetState = () => {
    })
 }
 
-refreshUser = () => { 
-   this.setState( this.forceUpdate());
-}   
+// refreshUser = () => { 
+//    this.setState( this.forceUpdate());
+// }   
   render() {
     const notes = this.state.notes;
     return (
@@ -112,6 +110,7 @@ refreshUser = () => {
           <Route exact path='/notes' render={ props =>
                         <CreateView {...props} 
                            addContent={this.addContent} 
+                           fetchNotes={this.fetNotes}
                            notes={notes} />}
                             />
           <Route path='/note/:id' render={ props =>
