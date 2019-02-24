@@ -27,11 +27,11 @@ export const getNotes = () => {
       } 
     };
     axios
-   //  .get('http://localhost:5000/api/notes', options)
+     .get('http://localhost:5000/api/notes', options)
    // axios
    // .get('https://fe-notes.herokuapp.com/note/get/all')
  // .get('http://localhost:5000/api/notes')
-    .get('https://frontend-william.herokuapp.com/api/notes', options)
+  //  .get('https://frontend-william.herokuapp.com/api/notes', options)
       .then(response => {
         //console.log("response:", response)
         dispatch({ type: GET_NOTES, payload: response.data })
@@ -46,8 +46,8 @@ export const createNote = (newNote) => {
  
   return (dispatch) => {
     dispatch({ type: CREATING_NOTE })
-    axios.post('https://frontend-william.herokuapp.com/api/notes', newNote)
-   // axios.post('http://localhost:5000/api/notes', newNote)  
+ //   axios.post('https://frontend-william.herokuapp.com/api/notes', newNote)
+    axios.post('http://localhost:5000/api/notes', newNote)  
     .then(response => {
         dispatch({ type: CREATE_NOTE, payload: response.data })
       })
@@ -60,8 +60,8 @@ export const createNote = (newNote) => {
 export const updateNote = (newNote, id) => {
   return (dispatch) => {
     dispatch({ type: UPDATING_NOTE })
-   const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
- //  const URL = 'http://localhost:5000/api/notes/' + id;
+  // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
+   const URL = 'http://localhost:5000/api/notes/' + id;
     axios
       .put(URL, {
         title: newNote.title,
@@ -85,8 +85,8 @@ export const viewNote = (id) => {
 // console.log("id:", id)
   return (dispatch) => {
     dispatch({ type: GETTING_SINGLE_NOTE })
-   const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
-  //  const URL = 'http://localhost:5000/api/notes/' + id;
+  // const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
+    const URL = 'http://localhost:5000/api/notes/' + id;
     axios
       .get(URL)
       .then(response => {
@@ -109,8 +109,8 @@ export const viewNote = (id) => {
 
 export const deleteNote = (id) => {
   return (dispatch) => {
-    const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
-  // const URL = 'http://localhost:5000/api/notes/' + id;
+  //  const URL = 'https://frontend-william.herokuapp.com/api/notes/' + id;
+   const URL = 'http://localhost:5000/api/notes/' + id;
     dispatch({ type: DELETING_NOTE })
     axios
       .delete(URL)

@@ -17,19 +17,19 @@ export const TOGGLE_UPDATE_LIST = 'TOGGLE_UPDATE_LIST';
 export const getLists = () => {
   return (dispatch) => {
     dispatch({ type: GETTING_LISTS })
-     const token = localStorage.getItem('jwt');
+     //const token = localStorage.getItem('jwt');
      //const endpoint = 'http://localhost:5000/api/lists';
-       const options = {
+    /*    const options = {
        headers: {
         Authorization: token
-      } 
-      };
+      }  */
+     // };
     axios
-      // .get('http://localhost:5000/api/notes', options)
+     //  .get('http://localhost:5000/api/notes', options)
       // axios
       // .get('https://fe-notes.herokuapp.com/note/get/all')
-     // .get('http://localhost:5000/api/lists')
-      .get('https://frontend-william.herokuapp.com/api/lists', options)
+      .get('http://localhost:5000/api/lists')
+     // .get('https://frontend-william.herokuapp.com/api/lists', options)
       .then(response => {
         // console.log("response:", response)
         dispatch({ type: GET_LISTS, payload: response.data })
@@ -43,8 +43,8 @@ export const getLists = () => {
 export const createList = (newRec) => {
   return (dispatch) => {
     dispatch({ type: CREATING_LIST })
-   axios.post('https://frontend-william.herokuapp.com/api/lists', newRec)
-  //  axios.post('http://localhost:5000/api/lists', newRec)
+ //  axios.post('https://frontend-william.herokuapp.com/api/lists', newRec)
+    axios.post('http://localhost:5000/api/lists', newRec)
       .then(response => {
         dispatch({ type: CREATE_LIST, payload: response.data })
       })
@@ -58,8 +58,8 @@ export const createList = (newRec) => {
 export const updateList = (newList, id) => {
   return (dispatch) => {
     dispatch({ type: UPDATING_LIST })
-    const URL = 'https://frontend-william.herokuapp.com/api/lists/' + id;
-  // const URL = 'http://localhost:5000/api/lists/' + id;
+  //  const URL = 'https://frontend-william.herokuapp.com/api/lists/' + id;
+   const URL = 'http://localhost:5000/api/lists/' + id;
     axios
       .put(URL, {
         list: newList.list,
@@ -80,8 +80,8 @@ export const viewList = (id, notesList) => {
   return (dispatch) => {
     
     dispatch({ type: GETTING_SINGLE_LIST })
-     const URL = 'https://frontend-william.herokuapp.com/api/lists/' + id;
-   // const URL = 'http://localhost:5000/api/lists/' + id;
+   //  const URL = 'https://frontend-william.herokuapp.com/api/lists/' + id;
+    const URL = 'http://localhost:5000/api/lists/' + id;
     axios
       .get(URL)
       .then(response => {
@@ -97,8 +97,8 @@ export const viewList = (id, notesList) => {
 
 export const deleteList = (id) => {
   return (dispatch) => {
-    const URL = 'https://frontend-william.herokuapp.com/api/lists/' + id;
-  //  const URL = 'http://localhost:5000/api/lists/' + id;
+  //  const URL = 'https://frontend-william.herokuapp.com/api/lists/' + id;
+    const URL = 'http://localhost:5000/api/lists/' + id;
     dispatch({ type: DELETING_LIST })
     axios
       .delete(URL)

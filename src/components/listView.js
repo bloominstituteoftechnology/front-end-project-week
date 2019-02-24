@@ -32,7 +32,7 @@ class ListView extends Component {
                
                 
                 <div className="list-container">
-                    {this.props.notes.map((note, index) => {
+                    {this.props.selectedNotes.map((note, index) => {
                         return <Note key={index} title={note.title} viewNote={this.props.viewNote} textBody={note.textBody} id={note.id} noteView={this.props.noteView} notes={this.state.notes} />
                     })}
                 </div>

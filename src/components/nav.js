@@ -79,12 +79,23 @@ class Nav extends React.Component {
 
   viewNoteList = (list, listId) => {
     let selectedNote = []; 
-   
+   console.log("list:", list);
+   console.log("listId:", listId);
   const listJSON = JSON.parse(list);
-    for (let i = 0; i < listJSON.length; i++) {                            // step through the array of note id's 
+  console.log("listJSON:", listJSON);
+  
+    for (let i = 0; i < listJSON.length; i++) { 
+      console.log("i:", i)                           // step through the array of note id's 
     for (let j = 0; j < this.props.notes.length; j++) {
-        if (listJSON[i] === this.props.notes[j].id) {                                                         
-          selectedNote.concat(this.props.notes[j]);
+      console.log("j:", j) 
+      if (listJSON[i] === this.props.notes[j].id) { 
+        let obj = this.props.notes[j];
+      //  this.setState({
+        //  selectedNote: [...this.state.selectedNote, obj]   })
+
+          selectedNote.push(this.props.notes[j]);
+          console.log("this.props.notes:", this.props.notes[j]);
+          console.log("selectedNote:", selectedNote);
         }
      } 
      this.setState({ selectedNotes: selectedNote });
@@ -114,23 +125,23 @@ class Nav extends React.Component {
         <div className="nav-title">Lambda Notes</div>
         <ul className="nav-list">
           <li className="nav-left-item icon1">
-            <button id="icon1" className="nav-button" value="logout" onClick={this.props.logout} name="logout"><p>Logout</p></button>
+            <button id="icon1" className="nav-button" value="logout" onClick={this.props.logout} name="logout">Logout</button>
           </li>
           <li className="nav-left-item icon1">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button  id="icon1" className="nav-button" value="noteList" onClick={this.props.noteList} name="noteList"><p>View Notes</p></button>
+            <button  id="icon1" className="nav-button" value="noteList" onClick={this.props.noteList} name="noteList">View Notes</button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button  id="icon1" className="nav-button" value="noteCreate" onClick={this.props.noteCreate} name="noteCreate"><p>+ Create Note</p></button>
+            <button  id="icon1" className="nav-button" value="noteCreate" onClick={this.props.noteCreate} name="noteCreate">Create Note</button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button  id="icon1" className="nav-button" value="noteListCreate" onClick={this.enableSaveList} name="noteListCreate">{(this.state.enableSaveList) ? <p>- Close List</p> : <p>+ Create List</p>}</button>
+            <button  id="icon1" className="nav-button" value="noteListCreate" onClick={this.enableSaveList} name="noteListCreate">{(this.state.enableSaveList) ? <p>Close List</p> : <p>Create List</p>}</button>
           </li>
           <li className="nav-left-item">
             <div id="icon2" className="nav-left-icon-1"></div>
-            <button  id="icon1" className="nav-button" value="noteCreate" onClick={this.enableOpenList} name="noteCreate">{(this.state.enableOpenList) ? <p>Close Note List's</p> : <p>Open List</p>}</button>
+            <button  id="icon1" className="nav-button" value="noteList" onClick={this.enableOpenList} name="noteList">{(this.state.enableOpenList) ? <p>Close Note List</p> : <p>Open List</p>}</button>
           </li>
           <li className="nav-left-item">
             </li>
@@ -168,7 +179,7 @@ class Nav extends React.Component {
               return <NavOpenList key={index} listTitle={list.listTitle}  viewNoteList={this.viewNoteList} listView={this.props.listView} list={list.list} id={list.id} lists={this.state.lists} />
             })}
           </ul> : null}
-        {(this.state.enableOpenList) ? <div className="open-button" onClick={this.sortThis}>Open List</div> : null} 
+       {/*  {(this.state.enableOpenList) ? <div className="open-button" onClick={this.viewNoteList}>Open List</div> : null}  */}
       
       </form>
     );
