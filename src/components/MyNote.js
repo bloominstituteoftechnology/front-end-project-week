@@ -71,8 +71,7 @@ render() {
                      </div>
                      <NoteStyle>
                     <Card>
-                        <p>yes, I am what you looking for..</p>
-                        <h3>{this.state.title}</h3>
+                         <h3>{this.state.title}</h3>
                         <p>{this.state.content}</p>
                     </Card>
                     </NoteStyle>
