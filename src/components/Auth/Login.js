@@ -3,7 +3,9 @@ import axios from 'axios';
 import Modal from '../styles/Modal';
 import Input from '../styles/LoginInput';
 
-const API = process.env.API_URL || `http://localhost:2300`;
+// const API = process.env.API_URL || `http://localhost:2300`;
+const API = `https://venkynotesapi.herokuapp.com`;
+
 
 export default class Login extends Component {
   
