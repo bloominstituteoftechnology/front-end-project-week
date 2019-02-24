@@ -19,7 +19,7 @@ class NoteCreate extends Component {
 
 	fileChangedHandler = event => {
 		const file = event.target.files[0]
-		console.log("file", file)
+		//console.log("file", file)
 		//console.log("file.name", file.name)
 		const fileName = file.name;
 		const fileStr = JSON.stringify(file);

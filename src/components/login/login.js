@@ -40,13 +40,13 @@ class Login extends Component {
             axios
                 .post('https://frontend-william.herokuapp.com/api/users/login', userInfo)
                 .then(res => {
-                    console.log('reponse data from login', res.data);
+                   // console.log('reponse data from login', res.data);
                     localStorage.setItem('jwt', res.data.token);
                     alert('Login successful...');
                     const passWord = "";
                     const userName = "";
                     this.setState(() => ({ username: userName, password: passWord, display: false, disabled: false }))
-                    console.log("ready to go to noteList")
+                  //  console.log("ready to go to noteList")
                     this.props.noteList(e);
                 })
                 .catch(err => {

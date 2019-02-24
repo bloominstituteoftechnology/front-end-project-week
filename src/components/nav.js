@@ -53,8 +53,8 @@ class Nav extends React.Component {
     this.setState({ enableSaveList: enableSaveList });
   }
 
-  enableOpenList = (e) => {
-    e.preventDefault();
+  enableOpenList = (event) => {
+    event.preventDefault();
     let enableOpenList = this.state.enableOpenList;
     enableOpenList = !enableOpenList;
     this.setState({ enableOpenList: enableOpenList });
@@ -79,26 +79,27 @@ class Nav extends React.Component {
 
   viewNoteList = (list, listId) => {
     let selectedNote = []; 
-   console.log("list:", list);
-   console.log("listId:", listId);
+   //console.log("list:", list);
+  // console.log("listId:", listId);
   const listJSON = JSON.parse(list);
-  console.log("listJSON:", listJSON);
+  //console.log("listJSON:", listJSON);
   
     for (let i = 0; i < listJSON.length; i++) { 
-      console.log("i:", i)                           // step through the array of note id's 
+     // console.log("i:", i)                           // step through the array of note id's 
     for (let j = 0; j < this.props.notes.length; j++) {
-      console.log("j:", j) 
+     // console.log("j:", j) 
       if (listJSON[i] === this.props.notes[j].id) { 
         let obj = this.props.notes[j];
       //  this.setState({
         //  selectedNote: [...this.state.selectedNote, obj]   })
 
           selectedNote.push(this.props.notes[j]);
-          console.log("this.props.notes:", this.props.notes[j]);
-          console.log("selectedNote:", selectedNote);
+       //   console.log("this.props.notes:", this.props.notes[j]);
+        //  console.log("selectedNote:", selectedNote);
         }
      } 
      this.setState({ selectedNotes: selectedNote });
+    // this.enableOpenList(event);
     this.props.listView(selectedNote);
   }   
   }

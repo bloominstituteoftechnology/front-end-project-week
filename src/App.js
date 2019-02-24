@@ -119,7 +119,7 @@ class App extends React.Component {
 
   noteView = id => {
     const pageType = "noteView"
-   
+   console.log("new id:", id)
     this.setState(() => ({ viewPage: pageType, id: id }));
   }
 

@@ -20,8 +20,9 @@ class NoteView extends Component {
   }
   //"redux-logger": "^3.0.6",
   componentDidMount() {
+    //console.log("this.props.id:", this.props.id)
     this.props.viewNote(this.props.id)
-    window.scrollTo(0, 0)
+   // window.scrollTo(0, 0)
   }
 
   noteClone = () => {

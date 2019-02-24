@@ -35,7 +35,7 @@ class noteDelete extends React.Component {
     if (localStorage.getItem('modals')) {
       let modals = localStorage.getItem('modals')
       //var isTrueSet = (myValue == 'true');
-      console.log("modals:", modals)
+      //console.log("modals:", modals)
       if (modals) {
         modals = true 
         this.setState(() => ({ modalIsOpen: modals }));    
