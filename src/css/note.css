@@ -351,7 +351,8 @@ li {
     padding-left: 26px;
     padding-top: 17px;
     font-weight: 500;
-     border: 2px solid blue; 
+    background-repeat: no-repeat;
+    /*  border: 2px solid blue;  */
     background-image: url('../graphics/rndBtn01.png');
 }
 
