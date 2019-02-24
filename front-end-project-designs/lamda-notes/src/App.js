@@ -1,14 +1,15 @@
 import React, { Component } from "react"
 import { Route } from "react-router-dom"
 
-import CardsList from "./containers/CardsList"
+import Navbar from "./components/Navbar"
+import NotesList from "./containers/NotesList"
 
 class App extends Component {
   render() {
     return (
       <div>
-        <h1>Lambda Notes</h1>
-        <Route path="/" component={CardsList} />
+        <Navbar />
+        <Route path="/" component={NotesList} />
       </div>
     )
   }
