@@ -1,0 +1,27 @@
+.note {
+    width: 75%;
+    margin-top: 50px;
+}
+
+.note h3 {
+    margin-left: 1.3em;
+    font-size: 1.8rem;
+
+    color: #4A4A4A;
+}
+
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 50px;
+    bottom: 130px;
+}
+.actions h4 {
+    margin: 10px;
+}
+
+.content {
+    margin: 25px;
+}

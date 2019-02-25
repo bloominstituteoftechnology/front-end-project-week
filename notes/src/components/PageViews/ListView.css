@@ -1,0 +1,36 @@
+.list-view {
+    width: 75%;
+    margin-top: 50px;
+  }
+  
+  .list-view h3 {
+    margin-left: 1.3em;
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    color: #4A4A4A;
+  }
+  
+  .tiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  
+  }
+  
+  .tile {
+    border: 1px solid #979797;
+    width: 28%;
+    height: 275px;
+    margin-bottom: 40px;
+  }
+  
+  .tile h4 {
+    margin: 20px 20px;
+  }
+  
+  .tile p {
+    margin: 20px;
+    padding: 20px 0;
+    border-top:  1px solid #979797;
+    font-size: 18px;
+  }
