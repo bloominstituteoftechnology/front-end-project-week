@@ -85,7 +85,7 @@ class Nav extends React.Component {
           selectedNote.push(this.props.notes[j]);
         }
       }
-      this.setState({ selectedNotes: selectedNote });
+      this.setState({ selectedNotes: selectedNote, enableOpenList: false });
       this.props.listView(selectedNote);
     }
   }
@@ -102,7 +102,7 @@ class Nav extends React.Component {
       users_id: 1
     }
     this.props.createList(newRec);
-    this.setState({ listSaveInput: "" })
+    this.setState({ listSaveInput: "", enableSaveList: false })
   }
 
   render() {
