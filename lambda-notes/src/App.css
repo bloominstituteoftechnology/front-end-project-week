@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Laila|Bungee+Inline');
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.header {
+  margin-top: -50px;
+  height: 166px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+.app-container {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+
+}
+.aside {
+  padding: 100px 30px;
+  display: flex;
+  flex-direction: column;
+  max-width: 266px;
+  min-width: 266px;
+  min-height: 800px;
+  background-color: black;
+}
+h1, .error-title, .note-card .note-title {
+  font-family: 'Bungee Inline', serif;
+}
+.aside h1 {
+  text-align: left;
+  line-height: 1;
+  color: #fff;
+}
+.aside button {
+  padding: 10px 15px;
+  margin-top: 33px;
+  border-radius: 2px;
+}
+.aside button a {
+  color: aliceblue;
+  font-weight: 700;
+}
+.aside a:hover {
+  text-decoration: none;
+}
+.notes-container {
+  flex-direction: column;
+  padding-top: 133px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+}
+.notes-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 5px;
+  margin-top: 133px;
+}
+.notes-container h2 {
+  padding: 0px 0px 30px;
+}
+
+.card {
+  width: 30%;
+  height: 266px;
+  margin-bottom: 33px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 15px;
+}
+.note-title {
+  text-transform: capitalize;
+  text-align: left;
+  font-family: 'Laila', serif;
+  /* font-weight: bold; */
+  min-height: 75px;
+  margin-bottom: 10px;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card a {
+  text-decoration: none;
+  color: #000;
+  height: 100%;
+}
+.card a:hover {
+  text-decoration: none;
+  color: teal;
+}
+.card-wrapper {
+  height: 100%;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  flex: flex-end;
+}
+.card .note-title {
+  font-weight: bold;
+}
+.note-textBody {
+  font-family: 'Laila', serif;
+  line-height: 1.4;
+}
+ 
+.note-card .note-title{
+  margin: 33px auto;
+  padding: 25px 0px 35px;
+  border-bottom: 1.5px solid #000;
+}
+.note-card a:hover {
+  text-decoration: none;
+}
+.text-center {
+  width: 100%;
+  margin-top: 40px;
+}
+.action-buttons {
+  margin: 25px auto;
+  width: 100%;
+  display: flex;
+  flex-flow: row-reverse;
+}
+.action-buttons button {
+  /* padding: 10px 33px;
+  margin-left: 33px; */
+  margin-right: 10px;
+}
+.modal svg {
+  padding-left: 5px;
+}
+section {
+  padding-left: 33px;
+  width: 700px;
+}
+.notes-header {
+  height: 200px;
+}
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0px;
+}
+.header {
+  text-align: center;
+  background-color: #fff;
+  padding: 66px 0px 66px;
+  position: fixed;
+  width: 700px;
+  z-index: 33;
+}
+.error-page img {
+  /* max-width: 800px; */
+  max-height: 600px;
+}
+.error-title {
+  margin-top: 40px;
+  font-size: 30px;
+}
+.login-container form {
+  width: 400px;
+  /* margin-top: 380px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-error {
+  margin-top: 22px;
+}
+form {
+  margin-top: 55px;
+  width: 100%;
+}
+form h1 {
+  padding-bottom: 30px;
+}
+form button {
+  width: 100%;
+}
+textarea {
+  min-height: 333px;
+}
+input.form-control, textarea.form-control  {
+  margin-bottom: 33px;
+}
+.search-form {
+    margin-left: 0px;
+    /* max-width: 100%; */
+    display: flex;
+    flex-direction: row-reverse;
+}
+.search-form input {
+  margin-bottom: 0px;
+
+}
+.search-form svg {
+  font-size: 30px;
+    color: teal;
+    align-self: center;
+    position: absolute;
+    padding-right: 7px;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.login-container {
+  background: url('./lambda.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background- */
+  padding-top: 80px;
+  height: 1000px;
+}
+.welcome {
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  .app-container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .aside {
+    min-width: 100%;
+    min-height: 400px;
+    max-width: 400px;
+  }
+  .header {
+    position: relative;
+    max-width: 500px;
+  }
+  section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card {
+    width: 100%;
+  }
+}
