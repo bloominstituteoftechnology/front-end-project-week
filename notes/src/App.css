@@ -1,0 +1,104 @@
+/*.App {*/
+  /*text-align: center;*/
+/*}*/
+
+/*.App-logo {*/
+  /*animation: App-logo-spin infinite 20s linear;*/
+  /*height: 40vmin;*/
+  /*pointer-events: none;*/
+/*}*/
+
+/*.App-header {*/
+  /*background-color: #282c34;*/
+  /*min-height: 100vh;*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*font-size: calc(10px + 2vmin);*/
+  /*color: white;*/
+/*}*/
+
+/*.App-link {*/
+  /*color: #61dafb;*/
+/*}*/
+
+/*@keyframes App-logo-spin {*/
+  /*from {*/
+    /*transform: rotate(0deg);*/
+  /*}*/
+  /*to {*/
+    /*transform: rotate(360deg);*/
+  /*}*/
+/*}*/
+.myApp {
+
+  display:flex;
+  width:100%;
+  height:4900px;
+
+
+}
+.first{
+  width:30%;
+  background-color: lightgray;
+  height:100%;
+}
+.second{
+
+  width:70%;
+  height:100%;
+
+  background-color: white;
+}
+button{
+
+  background-color:lightseagreen;
+  width: 100px;
+}
+
+.leftbutton {
+
+  background-color:lightseagreen;
+  width: 250px;
+  height: 50px;
+  margin-left: 20px;
+  font-size:20px;
+  color : white;
+  font-weight: bold;
+}
+
+h1{
+  font-size: 5em;
+
+}
+
+h2{
+  font-size: 3em;
+  font-weight: bold;
+
+}
+
+.myApp .first .navButtons {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.myApp .first .navButtons .oneNavButton {
+  background-color: lightseagreen;
+  margin-top: 10px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  padding-top: 20px;
+  color: white;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.NavButton-two{
+
+
+}

@@ -1,0 +1,103 @@
+.note {
+
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width:100%;
+    height:900px;
+    display: inline-block;
+}
+
+
+.myForm {
+    display:flex;
+    flex-direction: column;
+    margin-top: 4%;
+    margin-left:2%;
+
+}
+.action1{
+    margin-left: 900px;
+
+    color: black;
+    font-size: 20px;
+}
+
+.action2{
+    margin-left: 20px;
+
+    color: black;
+    font-size: 20px;
+    background-color: white;
+    border-color: white;
+    text-decoration: underline;
+}
+.action .edit {
+
+    margin-left: 10px;
+}
+.saveButton {
+    background-color:lightseagreen;
+    width: 400px;
+    height: 50px;
+    margin-left: 20px;
+    font-size:20px;
+    color : white;
+    font-weight: bold;
+}
+.note h3{
+
+    font-size:2em;
+    font-weight: bold;
+}
+
+.note p{
+   font-size:1.5em;
+    margin-left:2%;
+
+}
+
+.modal {
+    height: 300px;
+    width: 1000px;
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: white;
+}
+.modalButtons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:800px;
+    height:40px;
+    margin-top: 200px;
+    margin-left: 100px;
+
+}
+.modalButtonsDeleteYes{
+    margin-top: 100px;
+    background-color: darkred;
+    height: 50px;
+    color : white;
+    width : 300px;
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 100px;
+}
+
+.modalButtonsDeleteNo{
+    margin-top: 100px;
+    background-color: lightseagreen;
+    height: 50px;
+    color : white;
+    width : 300px;
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.modalButtons h3 {
+    margin-top: 230px;
+    text-align: center;
+    font-size: 25px;
+    font-weight:normal;
+}

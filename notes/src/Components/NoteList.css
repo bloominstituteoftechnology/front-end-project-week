@@ -1,0 +1,32 @@
+.content{
+
+    width:250px;
+    height:260px;
+    display: inline-block;
+    border:1px solid grey;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+
+}
+
+
+.noteLink {
+    text-decoration: none;
+    font-size: 1.0em;
+    color: black;
+    height: 40px;
+}
+
+.title {
+    font-weight: bold;
+    font-size:2em;
+    text-decoration: none;
+    text-align: center;
+}
+
+.body {
+    text-decoration: none;
+    text-align: justify;
+
+}
