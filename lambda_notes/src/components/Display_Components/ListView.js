@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { getNotes } from '../Actions/index.js'
 import { Link } from 'react-router-dom';
 import { NoteHeading } from '../Styles/AppStyle';
@@ -9,32 +10,24 @@ import { Title, NoteWrap, NoteContent } from '../Styles/ListViewStyle';
 
 
 class ListView extends Component {
+    state = {
+       mounted: false,
+    }
 
 
-    // componentWillUnmount() {
-    //    this.props.getNotes()
-    // }
 
-    componentDidMount() {
-        // this.props.getNotes()
-        this.setState({
-            notes: this.props.getNotes()
-        })
+    componentDidUpdate() {
+        this.props.getNotes()
+        
     }
     
-    // componentDidUpdate() {
-    //     if (this.props.notes === undefined) {
-    //         this.props.getNotes();
-    //     }
-        
-        
-    // }
+
 
 
 
 
     render() {
-       
+
         return (
             <NoteWrap>
                 <NoteHeading></NoteHeading>

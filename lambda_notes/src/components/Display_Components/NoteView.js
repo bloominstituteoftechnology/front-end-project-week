@@ -5,7 +5,7 @@ import { getNote } from '../Actions/index';
 import {getNotes} from '../Actions/index';
 import DeleteModal from './DeleteModal';
 import { Link } from 'react-router-dom';
-import { NoteBody, MenuWrap } from '../Styles/NoteViewStyle';
+import { NoteBody, MenuWrap, MenuBtn } from '../Styles/NoteViewStyle';
 
 class NoteView extends Component {
   
@@ -28,9 +28,9 @@ class NoteView extends Component {
         return (
             <NoteBody>
                 <MenuWrap>
-                <article><Link to={`/note/edit/${this.props.note.id}`}
-                note={this.props.note} >Edit</ Link></article>
-                <article>{<Link to={DeleteModal}><DeleteModal id={this.props.note.id} /></Link>}</article>
+                <MenuBtn><Link to={`/note/edit/${this.props.note.id}`}
+                note={this.props.note} >Edit</ Link></MenuBtn>
+                <MenuBtn>{<Link to={DeleteModal}><DeleteModal id={this.props.note.id} /></Link>}</MenuBtn>
                 </MenuWrap>
                 <h2>{this.props.note.title}</h2>
                 <p>{this.props.note.note}</p>

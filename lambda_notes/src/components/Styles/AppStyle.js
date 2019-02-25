@@ -35,7 +35,6 @@ export const BtnStyle = styled.button`
 `
 
 export const HeadStyle = styled.div`
-   position: fixed; 
    border: 1px solid black;
    width: 200px;
    height: 760px;

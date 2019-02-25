@@ -16,7 +16,7 @@ export const FormWrap = styled.div`
 
 
 export const BtnWrap = styled.div`
-        margin: 0 0 0 10px;
+        margin-left: 10px;
 `
 
 
@@ -24,12 +24,14 @@ export const TitleInputStyle = styled.input`
     height: 30px ;
     width: 300px ;
     border-radius: 2px ;
-    margin: 10px ;
+    margin: 10px;
+    padding-left: 10px;
 `
 
 export const ContentInputStyle = styled.textarea`
     height: 500px;
     border-radius: 2px ;
-    margin: 10px ;
+    margin: 10px;
+    padding: 5px;
     
 `

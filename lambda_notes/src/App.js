@@ -2,7 +2,7 @@ import React, { Component } from 'react' ;
 import '../src/App.css' ;
 import { connect } from 'react-redux';
 import { getNotes } from '../src/components/Actions/index';
-import { Route, NavLink, withRouter } from 'react-router-dom' ;
+import { Route, NavLink, withRouter } from 'react-router-dom';
 import ListView from './components/Display_Components/ListView' ;
 import CreateNewNote from './components/Display_Components/CreateNewNote' ;
 import NoteView from './components/Display_Components/NoteView' ;
@@ -21,11 +21,11 @@ class App extends Component {
   }
 
 
-    componentDidMount() {
-
+    componentDidMount(){
      this.props.getNotes();
-    
-    }
+  }
+  
+
 
   render() {
     return (
@@ -45,7 +45,7 @@ class App extends Component {
             </NavLink>
           </HeadStyle>
           
-            <Route path='/' exact 
+            <Route path='/' exact
               render={ props => <ListView {...props} />}
             />
 

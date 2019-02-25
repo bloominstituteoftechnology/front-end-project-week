@@ -3,11 +3,11 @@ import styled from 'styled-components' ;
 export const NoteWrap = styled.div`
     width: 900px;
     height: 100%;
-    justify-content: center ;
     display: flex ;
     flex-wrap: wrap ;
+    flex-direction: row;
     background-color: #f2f1f2 ;
-    margin-left: 220px;
+    margin-left: 10px;
     
 `
 

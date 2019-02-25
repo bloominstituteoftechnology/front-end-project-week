@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { editNote, getNote } from '../Actions/index';
+import { Redirect } from 'react-router-dom';
 import { NoteBody } from '../Styles/NoteViewStyle';
 import { BtnStyle } from '../Styles/AppStyle';
 import { FormStyle, TitleInputStyle, ContentInputStyle , FormWrap, BtnWrap } from '../Styles/EditViewStyle';
@@ -14,6 +15,7 @@ class EditView extends Component {
         path: "Edit View",
         title: "",
         note: "",
+        mounted: false,
     }
 
       
@@ -27,9 +29,9 @@ class EditView extends Component {
 
 submitHandler = (e) => {
        e.preventDefault()
-        const id = this.props.match.params.id;
+    const id = this.props.match.params.id;
     this.props.editNote(id, {title: this.state.title, note: this.state.note} );
-    this.props.history.push('/');
+    this.setState({ mounted: true })
     }
 
 
@@ -39,6 +41,7 @@ submitHandler = (e) => {
 
 
     render() {
+        if (this.state.mounted) { return <Redirect to={'/'} />}
         return (
             <NoteBody>
             <FormWrap>
