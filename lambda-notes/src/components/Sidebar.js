@@ -15,6 +15,9 @@ const SideBar = props => {
             <Button color="info">
                 <Link to={'/notes/create'}> + Create Your Note</Link>
             </Button>
+            <Button color="info" onClick={() => props.sortNotes(props.notes)}>
+                Sort A-Z
+            </Button>
             <SearchForm searchTerm={props.searchTerm} />
         </div>
     )

@@ -18,7 +18,7 @@ const NotesList = props => {
             {props.searchStatus.length > 0 ? <h2 className="text-center note-title"><b>{props.searchStatus}</b></h2> :null        
             }
             {props.loading ? <div className="loading"><img alt="Loading gif" src={loading} /></div> : null }
-            
+            {/* <button >Sort</button> */}
                 {props.notes.map((note, index) => {
                     return (
                         <div key={index} className="card">

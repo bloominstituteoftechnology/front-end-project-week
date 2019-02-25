@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input, Form, Button, Alert } from 'reactstrap';
-
+import logo from '../logo1.png'
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
@@ -12,9 +12,16 @@ class LoginForm extends React.Component {
             loginError: false
         }
     }
-    // componentDidMount() {
-
-    // }
+    componentDidMount() {
+        if (localStorage.getItem('username') === 'username' && localStorage.getItem('password') === 'password') {
+            this.setState({ isLoggedIn: true });
+            this.props.history.push('/');
+          }
+        else {
+          this.setState({ isLoggedIn: false });
+          this.props.history.push('/login');
+        }
+    }
     changeHandler = e => {
         this.setState({
             [e.target.name]: e.target.value,
@@ -91,7 +98,7 @@ class LoginForm extends React.Component {
             <>
             <div className="container welcome" >
                 <h1 style={{color: 'white'} } >Welcome to</h1>
-            
+                <img src={logo} alt="Lambda Logo"/>
                 <Form onSubmit={this.loginHandler}>
                 {/* <h2 className="text-center note-title">Login</h2> */}
                     <Input 

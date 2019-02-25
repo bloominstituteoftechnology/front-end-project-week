@@ -197,7 +197,7 @@ section {
 }
 .login-container form {
   width: 400px;
-  margin-top: 380px;
+  /* margin-top: 380px; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -246,12 +246,12 @@ input.form-control, textarea.form-control  {
   }
 }
 .login-container {
-  background: url('./welcome.png');
+  background: url('./lambda.png');
   background-repeat: no-repeat;
   background-size: cover;
   /* background- */
   padding-top: 80px;
-  height: 800px;
+  height: 1000px;
 }
 .welcome {
   height: 100%;

@@ -4,7 +4,6 @@ import { Route, withRouter } from 'react-router-dom';
 import Note from './components/Note';
 import NotesList from './components/NotesList';
 import AddNoteForm from './components/AddNoteForm';
-import LoginForm from './components/LoginForm';
 import EditForm from './components/EditForm';
 import pageError from './components/pageError';
 import axios from 'axios';
@@ -19,11 +18,8 @@ class App extends Component {
       note: null,
       searchStatus: '',
       loading: false,
-      noSuccess: '',
       requestError: false,
-      isLoggedIn: false,
-      username: '',
-      password: ''
+      noSuccess: '',
     }
   }
 
@@ -38,16 +34,7 @@ class App extends Component {
             notes: response.data,
             loading: false,
             noSuccess: ''
-        })
-        if (localStorage.getItem('username') === 'username' && localStorage.getItem('password') === 'password') {
-            this.setState({ isLoggedIn: true });
-            // this.props.history.push('/');
-          }
-        else {
-          this.setState({ isLoggedIn: false });
-          this.props.history.push('/login');
-        }
-          
+        })   
       })
       .catch(err => {
         this.setState({
@@ -100,7 +87,7 @@ class App extends Component {
               loading: false
           })
           this.props.history.push(`/note/${newNote._id}`);
-          
+          console.log(newNote._id);
       })
       .catch(err =>{
           console.log(err);
@@ -168,7 +155,34 @@ class App extends Component {
           })
         
   }
-
+  sortNotes = (notes) => {
+    // function compare(a, b) {
+    //   if (a < b) {
+    //     return -1;
+    //   }
+    //   if (a > b) {
+    //     return 1;
+    //   }
+    //   // a must be equal to b
+    //   return 0;
+    // }
+    // notes.sort(compare(notes.title))
+    let newNotes = this.state.notes.slice();
+    let topNotch =  newNotes.sort(function(a, b) {
+      var noteA = a.title.toUpperCase(); // ignore upper and lowercase
+      var noteB = b.title.toUpperCase(); // ignore upper and lowercase
+      if (noteA < noteB) {
+        return -1;
+      }
+      if (noteA > noteB) {
+        return 1;
+      }
+    
+      // names must be equal
+      return 0;
+    });
+    this.setState({ notes: topNotch})
+  }
   deleteNote = id => {
       axios
           .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
@@ -222,45 +236,17 @@ class App extends Component {
   }
   
 
-  loginUser = (name, pass) => {
-    this.setState({ loading: true })
-
-    if (name === 'username' && pass === 'password') {
-
-      localStorage.setItem('username', name);
-      localStorage.setItem('password', pass);
-      
-      this.setState({
-        username: name,
-        password: pass,
-        isLoggedIn: true,
-        loginError: false,
-        loading: false,
-      })
-      this.props.history.push(`/`);
-      
-    }
-    else {
-      this.setState({
-        isLoggedIn: false,
-        loginError: true,
-        loading: false
-      })
-    }
-  }
-
+  
   render() {
 
     return (
       <div className="App">
         
-        {this.state.isLoggedIn ?
-         
          <div className="app-container">
             
           <Route path="/"
             render={props =>
-              <Sidebar {...props} notes={this.state.notes} searchStatus={this.searchStatus} fetchNotes={this.fetchNotes} searchTerm={this.searchTerm}/>
+              <Sidebar {...props} sortNotes={this.sortNotes} notes={this.state.notes} searchStatus={this.searchStatus} fetchNotes={this.fetchNotes} searchTerm={this.searchTerm}/>
             }
           />
 
@@ -295,21 +281,10 @@ class App extends Component {
           
         </div>
         
-        :
-        <div className="login-container">
-          <Route path="/"
-            render={props => 
-              <LoginForm {...props}  loginUser={this.loginUser}/>
-            }
-          />
-        </div>
-        
-        
-        } 
-          
       </div>
     );
   }
 }
 
 export default withRouter(App);
+
