@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: 'Raleway Medium', sans-serif;
+  color: #4a4a4a;
+}
+
+.App {
+  display: flex;
+  max-width: 889px;
+  margin: 0 auto;
+  border: 1px solid #979797;
+  min-height: 891px;
+}
+
+.notes-card-wrapper {
+  margin-bottom: 24px;
+  height: 197px;
+  width: 192px;
+}
+
+.fa-trash-alt {
+  font-size: 2rem;
+}
+
+@media (max-width: 886px) {
+  .notes-card-wrapper {
+    margin-right: 14px;
+  }
+
+  .notes-card-wrapper:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 690px) {
+  .notes-card-wrapper {
+    margin-right: 0;
+  }
+}

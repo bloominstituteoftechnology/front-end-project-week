@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: 'Raleway Medium', sans-serif;
+  color: #4A4A4A;
+}
+
+.App {
+  display: flex;
+  max-width: 889px;
+  margin: 0 auto;
+  border: 1px solid #979797;
+  min-height: 891px;
+}
+
+.notes-card-wrapper {
+  margin-right: 14px;
+  width: 192px;
+  height: 197px;
+  margin-left: 3px;
+  margin-right: 14px;
+  margin-bottom: 24px;
+}
+
+.notes-card-wrapper:nth-child(3n+3) {
+  margin-right: 0;
+}
+
+.fa-trash-alt {
+  font-size: 2rem;
+}
