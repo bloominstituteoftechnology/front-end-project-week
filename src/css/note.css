@@ -209,6 +209,22 @@ li {
     border: 2px solid rgb(151, 151, 151);
 }
 
+.delete2-button {
+    margin-top: 15px;
+    width: 313px;
+    height: 79px;
+    border: 0px solid blue;
+    background-image: url('../graphics/delete.png');
+}
+
+.cancel-button {
+    margin-top: 15px;
+    width: 313px;
+    height: 79px;
+    border: 0px solid blue;
+    background-image: url('../graphics/cancel.png');
+}
+
 .save-button:hover,
 .update-button:hover,
 .delete2-button:hover,
@@ -228,7 +244,7 @@ li {
 }
 
 .delete2-button {
-    background-color: red;
+  /*   background-color: red; */
 }
 
 .modal-form {
