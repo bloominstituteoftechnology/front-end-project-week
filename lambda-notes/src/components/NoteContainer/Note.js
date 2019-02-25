@@ -8,6 +8,12 @@ import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { NoteTitle, NoteNumber } from './styled-components/NoteStyledComponents'
 import { Wobble, FadeIn, Flip } from 'animate-css-styled-components'
+import posed from 'react-pose'
+
+const Hover = posed.div({
+ idle: {scale: 1},
+ hovered: {scale: 1.5}
+})
 
 const styles = theme => ({
  root: {
@@ -18,7 +24,7 @@ const styles = theme => ({
   marginTop: 40,
   maxWidth: 200,
   maxHeight: 400,
-  // background: '#CFD8DC',
+  background: '#CFD8DC',
   border: '2px solid black ',
   boxShadow: '10px 10px 12px #263238'
  },
@@ -29,22 +35,35 @@ const styles = theme => ({
  },
 })
 
-const Note = props => {
- const { classes } = props
- return (
+class Note extends React.Component {
+
+ constructor(props){
+  super(props)
+  this.state = {
+   hovering: false
+  }
+ }
+
+ render(){
+  const { classes } = this.props
+  // this.state = {hovering: false}
+  return (
+
   <Wobble delay="0.5s">
   <Flip>
 
  <FadeIn>
 
   <div className={classes.root}> 
-  <Link to={`/note/${props.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-   <Paper className={classes.paper}>
+  <Link to={`/note/${this.props.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+   <Paper 
+   
+   className={classes.paper}>
     <Grid container spacing={8}>
      <Grid item>
       <ButtonBase>
       <NoteTitle>
-      {props.title}
+      {this.props.title}
       </NoteTitle>
       </ButtonBase>
      </Grid>
@@ -57,7 +76,7 @@ const Note = props => {
        <Grid item>
         <Typography variant="subtitle1">
         <NoteNumber>
-        Note #{props.id}
+        Note #{this.props.id}
         </NoteNumber>
         </Typography>
        </Grid>
@@ -71,6 +90,7 @@ const Note = props => {
   </Flip>
   </Wobble>
  )
+}
 }
 
 export default withRouter(withStyles(styles)(Note))

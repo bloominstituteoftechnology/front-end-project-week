@@ -4,7 +4,8 @@ export const EditViewStyle = styled.div `
 display: flex;
 flex-direction: row;
 ${'' /* width: 75% ; */}
-margin: 10px 10px 10px 10px;
+${'' /* margin: 10px 10px 70px 10px; */}
+margin-bottom: 70px ;
 `
 
 export const InputStyles = styled.div `
@@ -22,7 +23,7 @@ export const styles = theme => ({
   width: 400 
  },
  dense: {
-  marginTop: 16,
+  // marginTop: 10,
  },
  menu: {
   width: 200
