@@ -19,9 +19,10 @@ class App extends Component {
       notes: [],
       cNote: "",
       isLoggedIn: false,
+      loginFailed: true,
       users: {
-          username: "testName",
-          password: "testPass"
+          username: "test",
+          password: "test"
         } 
       }
     }
@@ -147,6 +148,9 @@ class App extends Component {
     }) 
   }
 
+handleError = () => {
+
+}
 
 // <---------------------{{{----APPLICATION/ROUTES------}}}--------------------->
 
@@ -154,7 +158,13 @@ class App extends Component {
   render() {
     if(this.state.isLoggedIn === false) {
       return(
-        <LoginPage handleLogin={this.handleLogin} />
+        <Route path="/" render={props => (
+            <LoginPage
+            {...props} 
+            handleLogin={this.handleLogin} 
+            loginFailed={this.state.loginFailed}
+            />
+        )} />
       )
     }
     return (

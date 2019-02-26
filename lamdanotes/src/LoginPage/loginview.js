@@ -1,7 +1,11 @@
 import React from 'react';
 
+import Error from './error';
+
 //props from app.js
 //handleLogin={this.handleLogin}
+// loginFailed={this.state.loginFailed}
+//handleLogout={this.handleLogout}
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -35,6 +39,11 @@ class LoginPage extends React.Component {
 
 
     render() {
+        // if(this.props.loginFailed === true) {
+        //     return(
+        //         <Error handleLogout={this.props.handleLogout}/>
+        //         )
+        // }
         console.log(this.state.users)
         return(
             <div className="loginFormWrapper">
@@ -77,8 +86,8 @@ class LoginPage extends React.Component {
                     </button>
 
                 </div> 
-                </div>
             </div>
+        </div>
         )
     }
 }
