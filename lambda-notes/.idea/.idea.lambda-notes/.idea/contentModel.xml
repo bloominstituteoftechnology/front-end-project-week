@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\seanw\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\seanw\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_lambda-notes.-2004328811.00" t="ExcludeRecursive" />
+    <e p="C:\Users\seanw\Desktop\Lambda School\Project Week Front End\front-end-project-week\lambda-notes" t="IncludeFlat">
+      <e p="node_modules" t="ExcludeRecursive">
+        <e p="@types" t="IncludeRecursive">
+          <e p="node" t="IncludeRecursive" />
+          <e p="unist" t="IncludeRecursive" />
+          <e p="vfile-message" t="IncludeRecursive" />
+        </e>
+        <e p="react" t="IncludeRecursive" />
+        <e p="react-dom" t="IncludeRecursive" />
+        <e p="react-scripts" t="IncludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
