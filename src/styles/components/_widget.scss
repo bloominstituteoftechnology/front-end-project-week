@@ -1,0 +1,14 @@
+// widget
+
+.widget {
+width: 1200px;
+min-width: 850px ;
+//   display: flex;
+//   flex-direction: row;
+}
+
+.main-widget {
+  width: 750px;
+  display: flex;
+  flex-flow: wrap;
+}
