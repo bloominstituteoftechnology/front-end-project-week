@@ -29,7 +29,7 @@ const SidebarView = props => {
             <ViewNotesButton getUpdatedNotes={props.getUpdatedNotes}/>
             <CreateNewButton />
             <SortButtonView handleAscendingSort={props.handleAscendingSort} 
-                                      handleDescendingSort={props.handleDescendingSort} />
+                            handleDescendingSort={props.handleDescendingSort} />
             <Logout handleLogout={props.handleLogout} />
         </div>
     )
