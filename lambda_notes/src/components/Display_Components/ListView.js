@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 import { getNotes } from '../Actions/index.js'
 import { Link } from 'react-router-dom';
 import { NoteHeading } from '../Styles/AppStyle';
@@ -14,20 +13,21 @@ class ListView extends Component {
        mounted: false,
     }
 
-
-
-    componentDidUpdate() {
+    componentDidMount() {
         this.props.getNotes()
-        
     }
+
+    componentWillUpdate(prevProps) {
+        console.log("PREVIOUS PROPS", prevProps)
+        console.log("CURRENT PROPS", this.props)
+      if(this.props.notes.length !== prevProps.notes.length){
+        return this.props.getNotes();
+      }
     
-
-
-
-
+    }
 
     render() {
-
+        if(this.props.notes.length > 0) {
         return (
             <NoteWrap>
                 <NoteHeading></NoteHeading>
@@ -41,6 +41,10 @@ class ListView extends Component {
             })}
             </NoteWrap>
         )
+        }
+            else {
+                return(<><h1>Notes Loading....</h1></>)
+            }
     }
 }
 

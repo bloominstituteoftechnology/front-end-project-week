@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { newNote } from '../Actions/index';
 import { FormStyle, ContentInputStyle, TitleInputStyle } from '../Styles/EditViewStyle';
@@ -13,6 +14,7 @@ class CreateNewNote extends Component {
      
         title: "",
         note: "",
+        createdNote: false,
     }
 
 inputHandler = (e) => {
@@ -21,13 +23,22 @@ inputHandler = (e) => {
 
  submitHandler = (e) => {
     e.preventDefault();
-    this.props.newNote(this.state);
+    const newNote = {
+        title: this.state.title,
+        note: this.state.note
+    }
+    this.props.newNote(newNote);
+    this.setState({
+        createdNote: true,
+    })
  }
 
 
 
     render() {
-        console.log(this.props)
+        if(this.state.createdNote) {
+            return <Redirect to='/' /> 
+        }
         return (
             <FormFormat>
                 <h2>Create New Note:</h2>
