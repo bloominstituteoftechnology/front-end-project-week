@@ -30,7 +30,7 @@ export const addNote = note => {
  return dispatch => {
   dispatch({type: ADDING })
   axios
-   .post('http://localhost:3945/api/notes', note)
+   .post('https://morning-ridge-90937.herokuapp.com/api/notes', note)
    .then(() => {
    dispatch({type: ADDED})
    })
@@ -43,7 +43,7 @@ export const deleteNote = id => {
  return dispatch => {
   dispatch({type: DELETING})
   axios
-  .delete(`http://localhost:3945/api/notes/${id}`)
+  .delete(`https://morning-ridge-90937.herokuapp.com/api/notes/${id}`)
   .then(() => {
    dispatch({type: DELETED})
   })
@@ -58,12 +58,12 @@ export const editNote = (id, note) => {
  return dispatch => {
   dispatch({type: EDITING})
   axios
-  .put(`http://localhost:3945/api/notes/edit/${id}`, note)
+  .put(`https://morning-ridge-90937.herokuapp.com/api/notes/${id}`, note)
   .then((response) => {
    dispatch({type: EDITED, payload: response.data})
   })
-  .catch(() => {
-   dispatch({type: ERROR, payload: 'Error Editing Note'})
+  .catch((error) => {
+   dispatch({type: ERROR, payload: 'Error Editing Note', error})
   })
  }
 }
@@ -72,7 +72,7 @@ export const fetchNote = (id) => {
  return dispatch => {
   dispatch({type: FETCHING_NOTE})
   axios
-  .get(`http://localhost:3945/api/notes/${id}`)
+  .get(`https://morning-ridge-90937.herokuapp.com/api/notes/${id}`)
   .then(response => {
     dispatch({type: NOTE_FETCHED, payload: response.data})
   })
