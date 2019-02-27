@@ -17,7 +17,7 @@ export const fetchNotes = () => {
  return dispatch => {
   dispatch({type: FETCHING_NOTES})
  axios
-  .get('http://localhost:3945/api/notes')
+  .get('https://morning-ridge-90937.herokuapp.com/api/notes')
   .then(response => {
    dispatch({type: NOTES_FETCHED, payload: response.data})
   })
