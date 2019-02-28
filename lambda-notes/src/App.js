@@ -25,7 +25,6 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    console.log(this.state.notes)
     axios
     .get('https://fe-notes.herokuapp.com/note/get/all')
     .then(res => {
@@ -42,6 +41,7 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({ note: {...this.state.note, [event.target.name]: event.target.value}})
   }
+
   editNoteFromServer = (note,id) => {
     axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
