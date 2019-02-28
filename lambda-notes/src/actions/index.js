@@ -58,7 +58,7 @@ export const editNote = (id, note) => {
  return dispatch => {
   dispatch({type: EDITING})
   axios
-  .put(`https://morning-ridge-90937.herokuapp.com/api/notes/${id}`, note)
+  .put(`https://morning-ridge-90937.herokuapp.com/api/notes/edit/${id}`, note)
   .then((response) => {
    dispatch({type: EDITED, payload: response.data})
   })
