@@ -12,7 +12,7 @@ class NoteList extends Component {
                 <h2 className = "note-title">Your Notes:</h2>
                 <div className = "note-list">
                     {this.props.notes.map(note =>
-                        <Link to = {`/${note.id}`} onClick = {()=>this.props.handleId(note.id)}><NoteCard
+                        <Link key = {note.id} to = {`/${note.id}`} onClick = {()=>this.props.handleId(note.id)}><NoteCard
                             key = {note.id}
                             title = {note.title}
                             content = {note.content}

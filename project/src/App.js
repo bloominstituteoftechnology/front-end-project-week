@@ -123,6 +123,7 @@ axios
             <NoteList {...props} 
               handleId = {this.handleId} 
               notes = {this.state.notes} 
+              key = {this.state.id}
             />} 
           />
           <Route exact path = '/:id' render = {props =>
