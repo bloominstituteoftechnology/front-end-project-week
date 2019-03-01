@@ -9,7 +9,7 @@ import EditNote from './components/EditNote'
 import AddNote from './components/AddNote'
 import axios from 'axios';
 
- const url = "https://notes-huthman.herokuapp.com/api/notes/";
+ const url = "http://localhost:9000/notes";
  
 
 class App extends Component {
@@ -135,8 +135,9 @@ axios
             <EditNote {...props}
               handleEditNote = {this.handleEditNote}
               handleChange = {this.handleChange}
-              content = {this.state.content}
               title = {this.state.title}
+              content = {this.state.content}
+              
               
             />} 
           />
