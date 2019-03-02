@@ -25,7 +25,8 @@ class UpdateNote extends Component {
     
           axios
           //.put(`https://fe-notes.herokuapp.com/note/edit/${id}`,
-          .put(`http://localhost:3111/note/edit/${id}`,
+          //.put(`http://localhost:3111/note/edit/${id}`,
+          .put(`https://witandaynoteserver.herokuapp.com/note/edit/${id}`,
           {
             title:this.state.titleUpdate,
             textBody:this.state.textBodyUpdate,

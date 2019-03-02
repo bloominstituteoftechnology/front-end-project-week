@@ -37,7 +37,9 @@ class App extends Component {
     ev.preventDefault();
       axios
       //.post(`https://fe-notes.herokuapp.com/note/create`,
-      .post(`http://localhost:3111/note/create`,
+      //https://witandaynoteserver.herokuapp.com/note/get/3
+      //.post(`http://localhost:3111/note/create`,
+      .post(`https://witandaynoteserver.herokuapp.com/note/create`,
       {
         title:this.state.title,
         textBody:this.state.textBody
@@ -59,7 +61,8 @@ class App extends Component {
   handleViewNote = (id) => {
       axios
       //.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-      .get(`http://localhost:3111/note/get/${id}`)
+      //.get(`http://localhost:3111/note/get/${id}`)
+      .get(`https://witandaynoteserver.herokuapp.com/note/get/${id}`)
       .then(response => {
         console.log(Array.from(response.data)[0]._id)
         this.setState({note : response.data[0]}) 
@@ -77,7 +80,8 @@ class App extends Component {
     
     axios
     //.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
-    .delete(`http://localhost:3111/note/delete/${id}`)
+    //.delete(`http://localhost:3111/note/delete/${id}`)
+    .delete(`https://witandaynoteserver.herokuapp.com/note/delete/${id}`)
     .then(response => {
       this.setState({notes : response.data[0]})
     })
@@ -90,6 +94,7 @@ class App extends Component {
     axios
    // .get(`https://fe-notes.herokuapp.com/note/get/all`)
     .get(`http://localhost:3111/note/get/all`)
+    .get(`https://witandaynoteserver.herokuapp.com/note/get/all`)
     .then(response => {
       this.setState({notes : response.data})
       console.log(this.state.note)
