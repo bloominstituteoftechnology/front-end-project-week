@@ -5,6 +5,9 @@
   "dependencies": {
     "@shopify/draggable": "^1.0.0-beta.7",
     "axios": "^0.18.0",
+    "babel-loader": "^8.0.5",
+    "gh-pages": "^2.0.1",
+    "moment": "^2.24.0",
     "papaparse": "^4.6.0",
     "rapidapi-connect": "0.0.6",
     "react": "^16.4.2",
@@ -24,8 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build", 
-    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-  "homepage" :  "https://codejoncode.github.io/front-end-project-week"
+  "homepage": "https://codejoncode.github.io/front-end-project-week"
 }
