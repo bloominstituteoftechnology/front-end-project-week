@@ -93,7 +93,7 @@ class App extends Component {
   componentDidMount(){
     axios
    // .get(`https://fe-notes.herokuapp.com/note/get/all`)
-    .get(`http://localhost:3111/note/get/all`)
+   // .get(`http://localhost:3111/note/get/all`)
     .get(`https://witandaynoteserver.herokuapp.com/note/get/all`)
     .then(response => {
       this.setState({notes : response.data})
