@@ -114,7 +114,7 @@ class App extends Component {
           <div className="col-4">
           <Route  path="/" component={Home} />
           </div>
-          <div class="col-8">
+          <div className="col-8">
           <Route exact path="/Note/New" render={() =>
              <CreateNote
              handleInputChange = {this.handleInputChange}
