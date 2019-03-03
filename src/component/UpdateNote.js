@@ -58,7 +58,7 @@ render(){
   <div class="form-group">
     <textarea class="form-control textarea"  placeholder={this.props.textBody} name ="textBodyUpdate" onChange={this.handleInputChange2}></textarea>
   </div>
-  <Link to={`/Notes/${this.props.id}`} type ="submit" className="btn btnhome btn-primary" onClick={this.handleUpdateNote}>Update</Link>
+  <Link to={`/`} type ="submit" className="btn btnhome btn-primary" onClick={this.handleUpdateNote}>Update</Link>
     <Link to={`/Notes/${this.props.id}`} className="btn btnhome btn-warning" >Cancel</Link>
   </form>
   </div>
