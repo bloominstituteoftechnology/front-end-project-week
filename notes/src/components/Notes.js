@@ -12,8 +12,8 @@ class Notes extends Component {
       };
 
       handleDeleteNote = () => {
-          const { id } = this.props.noteSelected;
-          this.props.deleteNote(id);
+          const { _id } = this.props.noteSelected;
+          this.props.deleteNote(_id);
       };
 
     render() {
@@ -22,10 +22,11 @@ class Notes extends Component {
                 <div className="notes">
                     {this.props.notes.map(note => {
                         return (
-                            <div className="noteCard"onClick={() => this.handleShowNote(note)} key={note.id}>
-                                <div className="name"><h2> {note.name}</h2></div>
-                                <div className="details"><p>Date: {note.date}</p>
-                                <p>Notes: <br></br><br></br> {note.notes}</p></div>
+                            <div className="noteCard"onClick={() => this.handleShowNote(note)} key={note._id}>
+                                <div className="tags"><p>Tags: {note.tags}</p></div>
+                                <div className="id"><p>ID: {note._id}</p></div>
+                                <div className="details"><p>Title: {note.title}</p>
+                                <p>Content: <br></br><br></br> {note.textBody}</p></div>
                             </div>
                         );
                     })}    

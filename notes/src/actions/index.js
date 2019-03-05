@@ -29,7 +29,7 @@ export const TOGGLE_UPDATE_NOTE = 'TOGGLE_UPDATE_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const DELETING_NOTE = 'DELETING_NOTE';
 
-  const URL = 'http://localhost:3333/smurfs/';
+  const URL = 'https://fe-notes.herokuapp.com/note/get/all';
 
   export const getNotes = () => {
     const noteGet = axios.get(`${URL}`);

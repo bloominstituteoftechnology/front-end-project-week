@@ -4,19 +4,20 @@ import { createNote } from '../actions';
 
 class NotesForm extends Component {
     state = {
-        name: "",
-        age: "",
-        height: ""
+        tags: "",
+        _id: "",
+        title: "",
+        textBody: ""
     };
 
     handleInputChange = e => {
-        this.setState({ [e.target.name]: e.target.value })
+        this.setState({ [e.target._id]: e.target.value })
     }
 
     handleAddNote = () => {
-        const { name, age, height } = this.state;
-        this.props.createNote({ name, age, height });
-        this.setState({ name: "", age: "", height: ""})
+        const { tags, _id, title, textBody } = this.state;
+        this.props.createNote({ tags, _id, title, textBody });
+        this.setState({ tags: "", _id: "", title: "", textBody: ""})
     };
 
     render() {
@@ -24,26 +25,34 @@ class NotesForm extends Component {
         <form>
             <input 
                 className="input"
-                value={this.state.name}
-                name="name"
+                value={this.state.tags}
+                name="tags"
+                type="text"
+                placeholder="Tags"
+                onChange={this.handleInputChange}
+            />
+            <input 
+                className="input"
+                value={this.state._id}
+                name="id"
+                type="text"
+                placeholder="ID"
+                onChange={this.handleInputChange}
+            />
+            <input
+                className="input"
+                value={this.state.title}
+                name="title"
                 type="text"
                 placeholder="Title"
                 onChange={this.handleInputChange}
             />
             <input
                 className="input"
-                value={this.state.age}
-                name="age"
+                value={this.state.textBody}
+                name="textBody"
                 type="text"
-                placeholder="Date"
-                onChange={this.handleInputChange}
-            />
-            <input
-                className="input"
-                value={this.state.height}
-                name="height"
-                type="text"
-                placeholder="Notes"
+                placeholder="Content"
                 onChange={this.handleInputChange}
             />
             <button onClick={() => this.handleAddNote()} type="button">
