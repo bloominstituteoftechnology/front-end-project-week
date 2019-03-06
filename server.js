@@ -12,7 +12,14 @@ const sendUserError = (msg, res) => {
   return;
 };
 
-let notes = [];
+let notes = [
+  {
+    tags: [],
+    id: "slhfefherfheijijdfiwej",
+    title: "Server.js",
+    textBody: "OVER HERE"
+  }
+];
 
 server.get('/notes', (req, res) => {
   res.json(notes);
@@ -20,8 +27,8 @@ server.get('/notes', (req, res) => {
 let noteId = 0;
 
 server.post('/notes', (req, res) => {
-  const { tags, _id, title, textBody } = req.body;
-  const newNote = { tags, _id, title, textBody, _id: noteId };
+  const { tags, title, textBody } = req.body;
+  const newNote = { tags, title, textBody, _id: noteId };
   if (!_id || !title || !textBody) {
     return sendUserError(
       'Error! ID/Title/Content are all required to create a note in the note DB.',
@@ -45,7 +52,7 @@ server.post('/notes', (req, res) => {
 
 server.put('/notes/:_id', (req, res) => {
   const { _id } = req.params;
-  const { tags, _id, title, textBody } = req.body;
+  const { tags, title, textBody } = req.body;
   const findNoteById = note => {
     return note._id == _id;
   };
