@@ -1,0 +1,51 @@
+.createNote_form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+}
+
+.createNote_title {
+    height: 40px;
+    width: 450px;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 0.2rem;
+    border: 1px solid #b2b2b2;
+}
+
+.createNote_body {
+    resize: none;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 0.2rem;
+    border: 1px solid #b2b2b2; 
+
+}
+
+.createNote_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    background-color: #23B8BE;
+    border: 1px solid #86AEB1;
+    margin: 0.5rem 0;
+    height: 40px;
+    border-radius: 0.1rem;
+    width: 200px;
+}
+
+.createNote_button--danger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    background-color: red;
+    border: 1px solid #86AEB1;
+    margin: 0.5rem 0;
+    height: 40px;
+    border-radius: 0.1rem;
+    width: 200px;
+}
