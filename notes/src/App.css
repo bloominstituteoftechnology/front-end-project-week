@@ -1,0 +1,441 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* /* DEV STYLES */
+.ModuleBorderGreen {
+  border-style: solid;
+  border-width: 5pt;
+  border-color: green;
+}
+
+.ModuleBorderRed {
+  border-style: solid;
+  border-width: 5pt;
+  border-color: red;
+}
+/* BUILD STYLES */
+.App {
+  /* display: flex;
+  flex-direction: row;  */
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: rgb(14, 124, 158);
+  height: 250px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 3.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* DD Additions */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.Container {
+  width: 100%;
+  /* DD FFC */
+  display: flex;
+  flex-direction: column;
+  height: 100% !important;
+
+}
+.PanelContainer {
+  display: inline-flex;
+  flex-direction: row;
+  /* align-items: space-between; */
+}
+.Nav-Panel, .Notes-Panel {
+  /* display: inline-flex;
+  justify-content: flex-start; */
+  align-items: space-between;
+  padding: 10pt;
+/* FIBONACCI SETTINGS */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  /*   align-content: stretch;
+  align-items: stretch; */
+}
+
+.Nav-panel {
+  position: fixed;
+  top: 40;
+  left: 0;
+  width: 12%;
+  height: 100%;
+  min-width: 150px;
+  max-width: 150px;
+  /* margin-left: 0px; */
+  padding: 2pt;
+  background-color: darkgrey;
+
+  /* TURN OFF BEFORE BUILD */
+  /* border-style: solid; */
+  border-width: 2px;
+  border-color: blue;
+}
+
+.Notes-panel {
+  /* FFC */
+  /* flex-wrap: nowrap; */
+  top: 40;
+  left: 3;
+  min-width: 80%  ;
+  max-width: 90%;
+  height: 100%;
+  padding: 5pt;
+  margin-left: 8%;
+  /* TURN OFF BEFORE BUILD */
+  /* border-style: solid; */
+  border-width: 2px;
+  border-color: red;
+  
+  /* DD */
+  display: "inline-block";
+  /* background: lightgrey; */
+
+}
+
+.View-header {
+  background-color: rgb(182, 90, 90);
+  height: 50px;
+  padding: 20px; 
+  color: white;
+}
+
+.Note-row {
+  display: inline-flex;
+  justify-content: space-between;
+	margin: 10px;
+	/* border: 1px solid #eee;
+	box-shadow: 0 2px 2px #ccc; */
+	/* width: 70%; */
+	/* padding: 20px; */
+}
+
+.Note-item {
+  display: inline-block;
+	margin: 10px;
+	border: 1px solid #eee;
+	box-shadow: 0 2px 2px #ccc;
+  width: 250px;
+  margin: 2px 2px 2px;
+  padding: 0px 0px 0px 0px;
+  background: lightcyan;
+  color: black;
+}
+
+.Note-header {
+  background-color: rgb(14, 124, 158);
+  height: 60px;
+  width: 350px;
+  margin: 2px 2px 2px;
+  padding: 5px 2px;
+  font-family: sans-serif;
+  font-size: 13pt;
+  /* font-style: oblique; */
+  color: white;
+  text-align: center;
+
+}
+
+.Note-summary {
+  background-color: rgb(70, 175, 207);
+  height: 100px;
+  width: 348px;
+  /* margin: 10px 0px 5px; */
+  margin: 0px 0px 0px;
+  /* padding: 10px 10px 10px 10px; */
+  padding: 5px 2px;
+  font-family: sans-serif;
+  font-size: 13pt;
+  color: white;
+  text-align: justify;
+  text-overflow: ellipsis;
+}
+.Note-body {
+  background-color: rgba(81, 187, 236, 0.329);
+  height: 90%;
+  width: 20%;
+  margin: 0px 10px 0px;
+  padding: 5pt;
+  font-family: sans-serif;
+  font-size: 11pt;
+  color: black;
+  text-align: justify;
+  text-overflow: scroll;
+}
+.Note-header-showNote {
+  background-color: rgb(14, 124, 158);
+  height: 24pt;
+  width: 43%;
+  margin: 0px 10px 0px 30%;
+  padding: 10pt;
+  font-family: sans-serif;
+  font-size: 24pt;
+  color: white;
+  text-align: center;
+}
+
+.Note-body-showNote {
+  background-color: rgba(81, 187, 236, 0.329);
+  height: 90%;
+  width: 43%;
+  margin: 0px 10px 0px 30%;
+  padding: 10pt;
+  font-family: sans-serif;
+  font-size: 11pt;
+  color: black;
+  text-align: justify;
+}
+.btn-showNote-update {
+  display: flex;
+  direction: row;
+  justify-content: center;
+  align-content: center;
+  vertical-align: middle;
+  align-items: center;
+  
+  padding: 2px;
+  width: 46%;
+  height: 15%;
+  margin: 0px 10px 0px 30%;
+  padding: 10pt;
+  /*margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;*/
+  line-height: 30px;
+  
+  /*border: solid 1.5px #888f91;*/
+  /*border-radius: 5%;*/
+  /*border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  border-bottom-right-radius:  30%;
+  border-bottom-left-radius:  30%;*/
+  box-shadow: 20%;
+
+
+  background-color: rgb(182, 90, 90);
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+.btn-showNote-delete {
+  display: flex;
+  direction: row;
+  justify-content: center;
+  align-content: center;
+  vertical-align: middle;
+  align-items: center;
+  
+  padding: 2px;
+  width: 46%;
+  height: 15%;
+  margin: 0px 10px 0px 30%;
+  padding: 10pt;
+  /*margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;*/
+  line-height: 30px;
+  
+  /*border: solid 1.5px #888f91;*/
+  /*border-radius: 5%;*/
+  /*border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  border-bottom-right-radius:  30%;
+  border-bottom-left-radius:  30%;*/
+  box-shadow: 20%;
+
+
+  background-color: rgb(126, 82, 82);
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14pt;
+}
+.Column-Layout {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: space-between;
+  width: 80%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 12pt;
+}
+.Input {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: space-between;
+  width: 20%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 12pt;
+}
+.Input-priority {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: space-between;
+  width: 6%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 12pt;
+}
+.Input-placeholder {
+  font-size: 12pt;
+}
+
+.btn-Input-save, .btn-Input-saveUpdate {
+  width: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 12pt;
+  margin: 30px 0px 30px 0px;
+  color: white;
+  background-color: rgba(81, 187, 236, 0.329);
+
+}
+
+.btn-Input-saveUpdate {
+  /* width: 10%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 12pt;
+  margin: 30px 0px 30px 0px; */
+  color:black;
+  background-color: rgba(70, 112, 131, 0.329);
+
+}
+
+.Label {
+  font-weight: bold;
+  display:  block;
+  margin-bottom: 8px;
+}
+.InputTitle {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: white;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 500px;
+  box-sizing: border-box;
+
+}
+.InputBody {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: white;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 500px;
+  height: 300px;
+  box-sizing: border-box;
+}
+.InputElement {
+  /* display: inline-block;
+  direction: row; */
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: white;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 10%;
+  box-sizing: border-box;
+}
+
+.InputElement:focus {
+  outline: none;
+  background-color: #ccc;
+}
+
+.btn-NavButton {
+  display: flex;
+  direction: row;
+  justify-content: center;
+  align-content: center;
+  vertical-align: middle;
+  align-items: center;
+  
+  padding: 2px;
+  width: 140px;
+  height: 35px;
+  margin: 5px;
+  /*margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;*/
+  line-height: 30px;
+  
+  /*border: solid 1.5px #888f91;*/
+  /*border-radius: 5%;*/
+  /*border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  border-bottom-right-radius:  30%;
+  border-bottom-left-radius:  30%;*/
+  box-shadow: 20%;
+
+
+  background: rgb(14, 124, 158);
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
