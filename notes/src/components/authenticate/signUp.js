@@ -1,6 +1,6 @@
-import React from 'react';
-import axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import axios from "axios";
+import { withRouter } from "react-router-dom";
 import {
   UncontrolledAlert,
   Container,
@@ -8,43 +8,43 @@ import {
   Form,
   FormGroup,
   Input,
-  Button,
-} from 'reactstrap';
+  Button
+} from "reactstrap";
 
 class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: '',
-      password: '',
-      state: 0,
+      username: "",
+      password: "",
+      state: 0
     };
   }
   componentDidMount() {
-    localStorage.setItem('location', this.props.location.pathname);
+    localStorage.setItem("location", this.props.location.pathname);
   }
-  onChangeHandler = (e) => {
+  onChangeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  onSubmitHandler = (e) => {
+  onSubmitHandler = e => {
     e.preventDefault();
     const newUser = {
       username: this.state.username,
-      password: this.state.password,
+      password: this.state.password
     };
     axios
-      .post('https://notes-lambda.herokuapp.com/api/register', newUser)
-      .then((res) => {
-        localStorage.setItem('id', res.data.user_id);
-        localStorage.setItem('jwt', res.data.token);
-        localStorage.setItem('location', '/notes');
-        this.props.history.push('/notes');
+      .post("https://notes-lambda.herokuapp.com/api/register", newUser)
+      .then(res => {
+        localStorage.setItem("id", res.data.user_id);
+        localStorage.setItem("jwt", res.data.token);
+        localStorage.setItem("location", "/notes");
+        this.props.history.push("/notes");
       })
-      .catch((err) => {
-        if (err.message === 'Request failed with status code 400') {
-          this.setState({ state: 1, username: '', password: '' });
-        } else if (err.message === 'Request failed with status code 500') {
-          this.setState({ state: 2, username: '', password: '' });
+      .catch(err => {
+        if (err.message === "Request failed with status code 400") {
+          this.setState({ state: 1, username: "", password: "" });
+        } else if (err.message === "Request failed with status code 409") {
+          this.setState({ state: 2, username: "", password: "" });
         }
       });
   };
@@ -55,7 +55,7 @@ class SignUp extends React.Component {
         {this.state.state === 1 ? (
           <UncontrolledAlert
             onClick={() => this.setState({ state: 0 })}
-            color="primary"
+            color="danger"
           >
             Invalid field(s). Username and password must be at least 3
             characters long.
@@ -64,7 +64,7 @@ class SignUp extends React.Component {
         {this.state.state === 2 ? (
           <UncontrolledAlert
             onClick={() => this.setState({ state: 0 })}
-            color="primary"
+            color="danger"
           >
             That username is already in use.
           </UncontrolledAlert>
