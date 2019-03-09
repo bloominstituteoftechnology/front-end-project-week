@@ -1,0 +1,109 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.note-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  height: 1200px;
+  width: 70%;
+  margin: 10px auto;
+  background: rgb(241, 241, 241);
+
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  height: 1200px;
+  width: 20%;
+  background: rgb(207, 207, 207);
+}
+
+.menu h1 {
+  padding: 20px 0px 0px 15px;
+}
+
+.menu-button{
+  border: 1px solid gray;
+  background: rgb(0, 206, 206);
+  color: white;
+  text-align: center;
+  justify-self: center;
+  padding: 15px 10px;
+  margin-left: 15px;
+  width: 80%;
+}
+
+.menu-button:hover {
+  background: rgb(1, 129, 129);
+
+}
+
+.your-notes {
+  border-bottom: 1px solid black;
+  text-align: center;
+  width: 80%;
+
+}
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+
+}
+
+.noteCard {
+  border: 1px solid black;
+  background: white;
+  width: 250px;
+  height: 200px;
+  padding: 20px;
+  margin: 10px;
+  hyphens: auto;
+  word-wrap: break-word;
+}
+
+.noteCard:hover {
+  width: 255px;
+  height: 202px;
+}
+
+.title {
+  border-bottom: 1px solid black;
+}
+
+.input {
+  margin-top: 15px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
