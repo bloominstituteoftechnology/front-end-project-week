@@ -40,12 +40,7 @@ class LogIn extends React.Component {
         localStorage.setItem("location", "/notes");
         this.props.history.push("/notes");
       })
-      .catch(
-        err =>
-          err.message === "Invalid Credentials"
-            ? this.setState({ state: 1, username: "", password: "" })
-            : null
-      );
+      .catch(err => this.setState({ state: 1, username: "", password: "" }));
   };
   render() {
     return (

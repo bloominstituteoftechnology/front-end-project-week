@@ -1,22 +1,28 @@
-import React from 'react';
-import DeleteModal from './deleteModal.js';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getSingleNote } from '../../actions';
+import React from "react";
+import DeleteModal from "./deleteModal.js";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { getSingleNote } from "../../actions";
 import {
   Container,
   Button,
   Card,
   CardText,
   CardBody,
-  CardTitle,
-} from 'reactstrap';
-import ReactMarkdown from 'react-markdown';
+  CardTitle
+} from "reactstrap";
+import ReactMarkdown from "react-markdown";
 
 class SingleNotePage extends React.Component {
   componentDidMount() {
-    localStorage.setItem('location', this.props.location.pathname);
-    this.props.getSingleNote(this.props.match.params.noteId);
+    const token = localStorage.getItem("jwt");
+    const reqOptions = {
+      headers: {
+        Authorization: token
+      }
+    };
+    localStorage.setItem("location", this.props.location.pathname);
+    this.props.getSingleNote(this.props.match.params.noteId, reqOptions);
   }
   render() {
     if (!this.props.fetchingNote) {
@@ -29,7 +35,7 @@ class SingleNotePage extends React.Component {
                 <ReactMarkdown source={this.props.note.textBody} />
                 {this.props.note.tags ? (
                   <CardText>
-                    {'tags: '}
+                    {"tags: "}
                     {this.props.note.tags}
                   </CardText>
                 ) : null}
@@ -55,10 +61,10 @@ class SingleNotePage extends React.Component {
     }
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     note: state.note,
-    fetchingNote: state.fetchingNote,
+    fetchingNote: state.fetchingNote
   };
 };
 export default connect(mapStateToProps, { getSingleNote })(
