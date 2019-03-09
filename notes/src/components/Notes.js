@@ -28,9 +28,11 @@ class Notes extends Component {
                     <h2 className="your-notes">Your Notes:</h2>
                     {this.props.notes.map(note => {
                         return (
-                            <div className="noteCard"onClick={() => this.handleShowNote(note)} key={note._id}>
-                                <div className="details"><h2 className="title">{note.title}</h2>
-                                <p className="content">Content: <br></br><br></br> {note.textBody}</p></div>
+                            <div className="noteCard" onClick={() => this.handleShowNote(note)} key={note._id}>
+                                <div className="details">
+                                    <h2 className="title">{note.title.length > 20 ? `${note.title.slice(0, 20)}...` : note.title}</h2>
+                                    <p className="content">{note.textBody.length > 140 ? `${note.textBody.slice(0, 140)}...` : note.textBody}</p>
+                                </div>
                             </div>
                         );
                     })}    

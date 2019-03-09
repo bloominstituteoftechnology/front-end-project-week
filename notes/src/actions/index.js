@@ -40,8 +40,10 @@ export const createNote = note => dispatch => {
       });
   };
 
+
+
 export const deleteNote = id => {
-  const deletedNote = axios.delete(`${URL}`, {
+  const deletedNote = axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`, {
     data: { id }
   });
   return dispatch => {
