@@ -11,9 +11,9 @@ export const DELETEDNOTE = "DELETEDNOTE";
 export const UPDATINGNOTE = "UPDATINGNOTE";
 export const UPDATEDNOTE = "UPDATEDNOTE";
 
-export const getNotes = options => {
+export const getNotes = (options, id) => {
   const request = axios.get(
-    "https://notes-lambda.herokuapp.com/api/notes",
+    `https://notes-lambda.herokuapp.com/note/get/all/${id}`,
     options
   );
   return function(dispatch) {

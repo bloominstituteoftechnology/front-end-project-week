@@ -1,30 +1,29 @@
-import React from 'react';
-import Note from './note.js';
-import { connect } from 'react-redux';
-import { getNotes } from '../../actions/index.js';
-import { Container, Input } from 'reactstrap';
+import React from "react";
+import Note from "./note.js";
+import { connect } from "react-redux";
+import { getNotes } from "../../actions/index.js";
+import { Container, Input } from "reactstrap";
 
 class Notes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       filteredNotes: [],
-      filterParam: '',
+      filterParam: ""
     };
   }
   componentDidMount() {
-    localStorage.setItem('location', this.props.location.pathname);
-    const token = localStorage.getItem('jwt');
-    const id = localStorage.getItem('id');
+    localStorage.setItem("location", this.props.location.pathname);
+    const token = localStorage.getItem("jwt");
+    const id = localStorage.getItem("id");
     const reqOptions = {
       headers: {
-        Authorization: token,
-        id: id,
-      },
+        Authorization: token
+      }
     };
-    this.props.getNotes(reqOptions);
+    this.props.getNotes(reqOptions, id);
   }
-  onChangeHandler = (e) => {
+  onChangeHandler = e => {
     this.setState({ [e.target.name]: e.target.value }, () => {
       this.filterNotes();
     });
@@ -33,7 +32,7 @@ class Notes extends React.Component {
     let filteredNotes = this.props.notes.slice();
     const filterParam = this.state.filterParam.toLowerCase();
     filteredNotes = filteredNotes.filter(
-      (e) =>
+      e =>
         e.textBody.toLowerCase().includes(filterParam) ||
         e.title.toLowerCase().includes(filterParam) ||
         (e.tags !== null && e.tags.toLowerCase().includes(filterParam))
@@ -67,10 +66,10 @@ class Notes extends React.Component {
     }
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     notes: state.notes,
-    fetchingNotes: state.fetchingNotes,
+    fetchingNotes: state.fetchingNotes
   };
 };
 export default connect(mapStateToProps, { getNotes })(Notes);
