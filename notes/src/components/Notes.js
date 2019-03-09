@@ -19,13 +19,17 @@ class Notes extends Component {
     render() {
         return (
             <div className="note-container">
+                <div className="menu">
+                    <h1>Lambda<br></br>Notes</h1>
+                    <h3 className="menu-button">View Your Notes</h3>
+                    <h3 className="menu-button">+Create New Note</h3>
+
+                </div>
                 <div className="notes">
                     {this.props.notes.map(note => {
                         return (
                             <div className="noteCard"onClick={() => this.handleShowNote(note)} key={note._id}>
-                                <div className="tags"><p>Tags: {note.tags}</p></div>
-                                <div className="id"><p>ID: {note._id}</p></div>
-                                <div className="details"><p>Title: {note.title}</p>
+                                <div className="details"><h2 className="title">{note.title}</h2>
                                 <p>Content: <br></br><br></br> {note.textBody}</p></div>
                             </div>
                         );

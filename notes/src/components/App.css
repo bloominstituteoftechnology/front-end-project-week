@@ -28,26 +28,70 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  height: 800px;
+  width: 70%;
   margin: 10px auto;
-  border: 1px solid blue;
+  background: rgb(241, 241, 241);
+
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  height: 100%;
+  width: 20%;
+  background: rgb(207, 207, 207);
+}
+
+.menu h1 {
+  padding: 20px 0px 0px 15px;
+}
+
+.menu-button{
+  border: 1px solid gray;
+  background: rgb(0, 206, 206);
+  color: white;
+  text-align: center;
+  justify-self: center;
+  padding: 15px 10px;
+  margin-left: 15px;
+  width: 80%;
+}
+
+.menu-button:hover {
+  background: rgb(1, 129, 129);
 
 }
 
 .notes {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  border: 1px solid red;
+  justify-content: center;
+  width: 80%;
 
 }
 
 .noteCard {
   border: 1px solid black;
-  width: 300px;
-  height: 450px;
+  background: white;
+  width: 250px;
+  height: 100%;
   padding: 20px;
   margin: 10px;
+}
+
+.noteCard:hover {
+  width: 255px;
+  height: 102%;
+}
+
+.title {
+  border-bottom: 1px solid black;
+}
+
+.input {
+  margin-top: 15px;
 }
 
 @keyframes App-logo-spin {

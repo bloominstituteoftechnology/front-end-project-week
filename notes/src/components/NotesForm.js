@@ -4,41 +4,23 @@ import { createNote } from '../actions';
 
 class NotesForm extends Component {
     state = {
-        tags: "",
-        _id: "",
         title: "",
         textBody: ""
     };
 
     handleInputChange = e => {
-        this.setState({ [e.target._id]: e.target.value })
+        this.setState({ [e.target.title]: e.target.value })
     }
 
     handleAddNote = () => {
-        const { tags, _id, title, textBody } = this.state;
-        this.props.createNote({ tags, _id, title, textBody });
-        this.setState({ tags: "", _id: "", title: "", textBody: ""})
+        const { title, textBody } = this.state;
+        this.props.createNote({ title, textBody });
+        this.setState({ title: "", textBody: ""})
     };
 
     render() {
         return (
         <form>
-            <input 
-                className="input"
-                value={this.state.tags}
-                name="tags"
-                type="text"
-                placeholder="Tags"
-                onChange={this.handleInputChange}
-            />
-            <input 
-                className="input"
-                value={this.state._id}
-                name="id"
-                type="text"
-                placeholder="ID"
-                onChange={this.handleInputChange}
-            />
             <input
                 className="input"
                 value={this.state.title}
