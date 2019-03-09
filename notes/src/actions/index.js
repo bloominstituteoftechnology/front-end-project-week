@@ -29,11 +29,9 @@ export const getNotes = () => {
   };
 };
 
-export const createNote = note => {
-  const notePost = axios.post(`${URL}`, note);
-  return dispatch => {
-    dispatch({ type: CREATING_NOTE });
-    notePost
+export const createNote = note => dispatch => {
+  dispatch({type: CREATING_NOTE})
+  axios.post('https://fe-notes.herokuapp.com/note/create', note)
       .then(({ data }) => {
         dispatch({ type: CREATE_NOTE, payload: data });
       })
@@ -41,7 +39,6 @@ export const createNote = note => {
         dispatch({ type: ERROR, payload: err });
       });
   };
-};
 
 export const deleteNote = id => {
   const deletedNote = axios.delete(`${URL}`, {

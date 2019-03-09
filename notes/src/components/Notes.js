@@ -23,14 +23,14 @@ class Notes extends Component {
                     <h1>Lambda<br></br>Notes</h1>
                     <h3 className="menu-button">View Your Notes</h3>
                     <h3 className="menu-button">+Create New Note</h3>
-
                 </div>
                 <div className="notes">
+                    <h2 className="your-notes">Your Notes:</h2>
                     {this.props.notes.map(note => {
                         return (
                             <div className="noteCard"onClick={() => this.handleShowNote(note)} key={note._id}>
                                 <div className="details"><h2 className="title">{note.title}</h2>
-                                <p>Content: <br></br><br></br> {note.textBody}</p></div>
+                                <p className="content">Content: <br></br><br></br> {note.textBody}</p></div>
                             </div>
                         );
                     })}    
