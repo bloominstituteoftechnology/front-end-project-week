@@ -30,21 +30,6 @@ class CreateNewNote extends Component {
         this.setState({ textBody: newText });
       }
 
-    // handleEditChange =  (propertyName, event) => {
-    //     const textContent = this.state.text;
-    //     textContent[propertyName] = event.target.value;
-    //     this.setState({ textContent: textContent });
-    //   }
-
-    //   handleChangeFor = (propertyName) => (event) => {
-    //     const { text } = this.state.text;
-    //     const newText = {
-    //       ...text,
-    //       [propertyName]: event.target.value
-    //     };
-    //     this.setState({ text: newText });
-    //   }
-
     submitHandler = (event) => {
         event.preventDefault();
         if(this.props.edit) {
