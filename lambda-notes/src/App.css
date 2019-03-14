@@ -38,11 +38,11 @@
   align-items: center;
   margin-top: 10px;
   width: 50%;
-  /* border: 1px solid red; */
+  border: 1px solid green;
 }
 
 
 .note-page {
-  border: 1px solid red;
-  height: 100vh;
+  /* border: 1px solid orange; */
+  /* height: 100vh; */
 }
