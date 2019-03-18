@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* border: 1px solid black; */
+  border: 1px solid black;
   /* height: 100vh; */
 }
 

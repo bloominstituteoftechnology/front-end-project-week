@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar';
 import NotesList from '../components/NotesList';
 import Note from '../components/Note';
 import CreateNewNote from '../components/CreateNewNote';
-
+import EditNote from './EditNote';
 import { AppWrapper } from '../style';
 import '../App.css'
 
@@ -31,6 +31,16 @@ class NotesPage extends Component {
       })})
       .catch(err => console.log(err))
   }
+
+  // getNoteById = id => {
+  //   axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+  //   .then(res => {
+  //     console.log(res)
+  //     this.setState({
+  //       notes: res.data
+  //     })
+  //   })
+  // }
 
   createNote  = (data) => {
     axios.post('https://fe-notes.herokuapp.com/note/create/', data)
@@ -159,7 +169,7 @@ class NotesPage extends Component {
         <Route
           exact path='/edit-note/:id'
           render={props => 
-            <CreateNewNote
+            <EditNote
               {...props}
               note={notes.map(note => note)}
               text={notes.map(note => note.textBody)}

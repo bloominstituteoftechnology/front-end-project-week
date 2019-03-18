@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import Markdown from 'react-markdown';
 
-import CheckList from './CheckList';
+// import CheckList from './CheckList';
 
 import { NoteWrapper, NoteNav, NoteButton, ModalWrapper, ModalContent, ModalButtons, Buttons } from '../style';
 
@@ -27,7 +27,7 @@ class Note extends Component {
 
     render () {
         const note = this.props.notes.find( note  => { return this.props.match.params.id === `${note._id}`})
-            console.log(note)
+            
         return (
             <NoteWrapper>
                 <NoteNav>
@@ -35,6 +35,7 @@ class Note extends Component {
                     <NoteButton  onClick={() => {this.toggleModal()}}  className='note-button'>Delete</NoteButton> 
                  </NoteNav>
                 <h2>{note.title}</h2>
+                {console.log(note.title)}
                 <Markdown source={note.textBody}/>
              {/* <CheckList/> */}
                     <ReactModal className='ReactModal' isOpen={this.state.showModal} contentLabel="Minimal Modal Example">

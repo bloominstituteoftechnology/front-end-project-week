@@ -203,7 +203,7 @@ export const NoteButton = styled.button`
   margin-top: 15px;
   margin-right: 10px;
   border: none;
-  background: #F2F1F2;
+  // background: #F2F1F2;
   text-decoration: underline;
   font-size: 15px;
 `;

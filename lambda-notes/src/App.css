@@ -1,3 +1,6 @@
+.note-page {
+  height: 100vh;
+}
 .nav-links {
       display: flex;
     text-decoration: none;
@@ -18,7 +21,6 @@
   margin-top: 15px;
   margin-right: 10px;
   border: none;
-  background: #F2F1F2;
   text-decoration: underline;
   font-size: 15px;
 }

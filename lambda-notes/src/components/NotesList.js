@@ -1,6 +1,6 @@
 import React from 'react';
-// import EllipsisText from 'react-ellipsis-text';
-// import Markdown from 'react-markdown';
+import EllipsisText from 'react-ellipsis-text';
+import Markdown from 'react-markdown';
 import TopNav from './TopNav';
 
 import { NotesView, NotesHeader, NotesWrapper, NotesContent, Notes, NotesTitle, NotesBody } from '../style'
@@ -51,9 +51,9 @@ class NotesList extends React.Component  {
                             }>
                             <NotesTitle>{note.title}</NotesTitle>
                             <NotesBody>
-
-                               {/* <Markdown source={this.truncate(note.textBody)}/>  */}
-                                 {/* <EllipsisText text={note.textBody} length={'200'}/> */}
+                                {/* {note.textBody} */}
+                               <Markdown source={this.truncate(note.textBody)}/> 
+                                 {/* <EllipsisText text={note.textBody} length={'180'}/> */}
                             </NotesBody>
                         </Notes>
                         </NotesContent>

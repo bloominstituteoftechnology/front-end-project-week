@@ -8,7 +8,6 @@ class CreateNewNote extends Component {
         this.state = {
             title: '',
             textBody: '',
-            text: props.text
         }
     }
 
@@ -45,7 +44,7 @@ class CreateNewNote extends Component {
     }
 
     render () {
-        console.log(this.state)
+       console.log(this.state.title)
         return (
             <FormWrapper>
                 <FormHeader>{this.props.edit ? 'Edit Note': 'Create New Note'}</FormHeader>
