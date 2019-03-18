@@ -5,6 +5,13 @@
   background-image: url("../../images/note.jpg");
 }
 
+@-moz-document url-prefix() {
+  .home {
+    height: 750px;
+    width: auto;
+  }
+}
+
 .signupBTN {
   padding: 10px 85px;
   font-size: 2rem;
@@ -21,7 +28,7 @@
 }
 
 .homeNote {
-  position: fixed;
+  position: absolute;
   top: 48%;
   left: 2%;
   width: 34%;
