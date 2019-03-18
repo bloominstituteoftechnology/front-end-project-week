@@ -1,0 +1,41 @@
+.home {
+  /* overflow: hidden; */
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+  background-image: url("../../images/note.jpg");
+}
+
+.signupBTN {
+  padding: 10px 85px;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: #2bc1c4;
+}
+
+.title {
+  font-size: 10rem;
+  position: absolute;
+  top: 43%;
+  left: 75%;
+  line-height: 0.5;
+}
+
+.homeNote {
+  position: fixed;
+  top: 48%;
+  left: 2%;
+  width: 34%;
+  line-height: 2;
+  -webkit-transform: rotate(-44deg);
+  -moz-transform: rotate(-44deg);
+  -o-transform: rotate(-44deg);
+  -ms-transform: rotate(-44deg);
+  transform: rotate(-44deg);
+}
+
+.desciption {
+  font-size: 3rem;
+  color: #2bc1c4;
+
+  /* box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24); */
+}

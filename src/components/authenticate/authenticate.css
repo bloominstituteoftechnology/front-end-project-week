@@ -1,79 +1,80 @@
 .auth-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .auth-wrapper h1 {
-    font-size: 5rem;
-    margin: 30px 0;
-    padding-bottom: 30px;
+  font-size: 5rem;
+  margin: 30px 0;
+  padding-bottom: 5px;
 }
 
-.login-wrapper{ 
-    background-color: #2BC1C4;
-    width: 30%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.login-wrapper {
+  background-color: #2bc1c4;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 100px 0;
 }
 
-.login-wrapper h2{
-    margin: 20px 0;
-    font-size: 2.6rem;
+.login-wrapper h2 {
+  margin: 10px 0 20px 0;
+  font-size: 2.6rem;
 }
 
 .sign-in-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 30px 0;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0;
+  width: 100%;
 }
 
 .sign-in-form input {
-    margin: 0 0 20px 0;
-    width: 45%
+  margin: 0 0 20px 0;
+  width: 45%;
 }
 
-.sign-in-form label{
-    padding: 5px 0;
-    font-size: 1.6rem;
+.sign-in-form label {
+  padding: 5px 0;
+  font-size: 1.6rem;
 }
 
 .sign-in-form button {
-    padding: 0 20px;
-    font-size: 2rem;
-    cursor: pointer;
+  padding: 0 20px;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .sign-in-form h3 {
-    font-size: 2.3rem;
+  font-size: 2.3rem;
 }
 
 .signUp-toggle {
-    font-size: 2rem;
-    padding-bottom: 20px;
-    text-decoration: underline;
-    cursor: pointer;
+  font-size: 2rem;
+  padding-bottom: 20px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-#username  {
-font-size: 1.6rem;
+#username {
+  font-size: 1.6rem;
 }
 
 #password {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 @media (max-width: 960px) {
-    .login-wrapper{
-        width: 60%;
-    }
+  .login-wrapper {
+    width: 60%;
+  }
 }
 
 @media (max-width: 650px) {
-    .login-wrapper{
-        width: 100%;
-    }
+  .login-wrapper {
+    width: 100%;
+  }
 }
