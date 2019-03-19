@@ -5,8 +5,3 @@
 
 
 
-[template.environment]
-  OKTA_BASE_URL = "https://dev-106394.okta.com"
-  OKTA_API_TOKEN = "00tlf0KTfo7PhjZat3RtqV6R_VbujgOYoCrI9Tpz_w"
-  OKTA_CLIENT_ID = "0oab6y992hZoZmVyi356"
-  JWT_SECRET = "00tlf0KTfo7PhjZat3RtqV6R_VbujgOYoCrI9Tpz_w"
