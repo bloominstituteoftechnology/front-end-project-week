@@ -1,7 +1,5 @@
 [build]
-  base    = "./notes"
-  publish = "./notes/build"
-  command = "yarn build"
+  base    = "/notes"
 
 
 
