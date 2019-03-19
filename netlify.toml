@@ -5,3 +5,6 @@
 
 
 
+[[redirects]]
+  from = "/login"
+  to = "/*"
