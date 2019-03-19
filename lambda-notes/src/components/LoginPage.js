@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { LoginWrapper, LoginFormWrapper } from '../style';
+import { LoginWrapper, LoginFormWrapper, LoginHeading, LoginForm, LoginFormInput, LoginButton,  } from '../style';
 
 class LoginPage extends Component {
     constructor () {
@@ -27,11 +27,12 @@ class LoginPage extends Component {
     render () {
         return (
             <LoginWrapper>
+                <LoginHeading>Welcome to Lambda Notes</LoginHeading>
                 <LoginFormWrapper>
                     <h2>Log in to Lambda Notes</h2>
-                <form>
-                    <p>Email <span>(or username</span></p>
-                    <input
+                <LoginForm>
+                    <h3>Username</h3>
+                    <LoginFormInput
                         type='text'
                         name='username'
                         value={this.state.username}
@@ -39,7 +40,7 @@ class LoginPage extends Component {
                         onChange= {this.handleChange}
                     />
                     <h3>Password</h3>
-                    <input
+                    <LoginFormInput
                         type='password'
                         name='password'
                         value={this.state.password}
@@ -47,8 +48,8 @@ class LoginPage extends Component {
                         onChange= {this.handleChange}
                     /> 
 
-                    <button onClick={this.addLogin}>Login In</button>
-                </form> 
+                    <LoginButton onClick={this.addLogin}>Login In</LoginButton>
+                </LoginForm> 
                 </LoginFormWrapper>
             </LoginWrapper>
         );

@@ -10,18 +10,48 @@ export const AppWrapper = styled.div`
 export const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
   width: 55%;
-  margin: 0 auto;
-  //border: 1px solid red;
+  
+  background-color: #d3d2d3;
+  //height: 100%;
+  width: 100%;
+  border: 1px solid red;
+`;
+
+export const LoginHeading = styled.h1`
+  font-size: 5rem;
+  text-align: center;
 `;
 
 export const LoginFormWrapper = styled.div`
   margin: 0 auto;
-  display: flex:
-  justify-content: center;
-  align-items: center;
-  width: 50%;
+  flex-direction: column;
+  text-align: center;
+  background-color: #F2F1F2;
+  width: 30%;
+  margin-top: 4rem;
+  padding-top: 10px;
+  padding-bottom: 40px;
   border: 1px solid green;
+`;
+
+export const LoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+`;
+
+export const LoginFormInput = styled.input`
+  width: 55%;
+  height: 30px;
+`;
+
+export const LoginButton = styled.button`
+  margin: 20px 0;
 `;
 
 export const SearchWrapper = styled.div`
@@ -97,6 +127,7 @@ export const DropdownWrapper = styled.div`
 
 export const Dropdown = styled.div`
   width: 100%;
+  padding-bottom: 5px;
 `;
 
 export const Ellipsis = styled.span`
@@ -187,7 +218,7 @@ export const NoteWrapper = styled.div`
   height: 100vh;
   width: 75%;
   padding-left: 15px;
-  // border: 1px solid red;
+  border: 1px solid red;
 `;
 
 export const NoteNav = styled.div`

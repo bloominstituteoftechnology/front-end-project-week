@@ -3,6 +3,7 @@ import NotesPage from './components/NotesPage';
 import Authenticate from './Authenticate/Authenticate';
 
 import './App.css';
+import './index.css';
 
 class App extends Component {
   constructor () {
@@ -14,7 +15,7 @@ class App extends Component {
 
   render () {
     return (
-      <div className='note-page'>
+      <div id='app' className='note-page'>
       <NotesPage />
       </div>
     );
