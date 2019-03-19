@@ -8,11 +8,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 import thunk from "redux-thunk"
 import logger from 'redux-logger'
 import rootReducer from "./reducers"
-
 //Middleware for logging error and dispatching
 const middleware = applyMiddleware(logger, thunk);
 //The overall store
 const store = createStore(rootReducer, middleware);
+
 
 ReactDOM.render(
   <Provider store={store}>

@@ -10,6 +10,15 @@ const Header = styled.h1`
   margin: 40px 10px;
   padding: 5px;
 `;
+const NoteBody = styled.div`
+display: flex;
+flex-direction:column;
+justify-content: flex-start;
+`
+const HeaderSearch = styled.div`
+align-self: center;
+margin-left:230px;
+`
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -43,20 +52,23 @@ class NoteList extends React.Component {
       this.filterNotes(note)
     );
     return (
-      <div>
+      <NoteBody>
+        <HeaderSearch>
         <SearchBar
           search={this.props.search}
           handleChange={this.handleChange}
         />
+
+        </HeaderSearch>
         <Header>Your Notes:</Header>
         {this.props.loading ? <h1>LOADING....</h1> : null}
         {this.props.error !== null ? <h1>{this.props.error}</h1> : null}
         <Container>
           {filteredNotes.map(note => (
-            <Note note={note} key={note._id} />
+            <Note note={note} key={note.id + note} />
           ))}
         </Container>
-      </div>
+      </NoteBody>
     );
   }
 }

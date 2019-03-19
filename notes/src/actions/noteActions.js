@@ -7,7 +7,7 @@ export const UPDATE_NOTE = "UPDATE_NOTE";
 export const FETCH_NOTE = "FETCH_NOTE";
 export const ADD_NOTE = 'ADD_NOTE'
 
-const URL = "https://fe-notes.herokuapp.com/note";
+const URL = "https://lambda-schools-notes.herokuapp.com/notes";
 
 export const fetchNotes = () => dispatch => {
   dispatch({ type: LOADING });
@@ -56,7 +56,7 @@ export const deleteNote = id => dispatch => {
 export const editNote = editedNote => dispatch => {
   dispatch({ type: LOADING });
   axios
-    .put(`${URL}/edit/${editedNote._id}`, editedNote)
+    .put(`${URL}/edit/${editedNote.id}`, editedNote)
     .then(res => {
       console.log(res.data)
       dispatch({type: UPDATE_NOTE, payload: res.data})

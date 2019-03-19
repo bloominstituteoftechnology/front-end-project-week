@@ -21,7 +21,7 @@ const TextArea = styled.textarea`
   outline: none;
   font-size: 20px;
   padding: 10px;
-  width: 700px;
+  width: 600px;
   height: 400px;
 `;
 const Button = styled.button`
@@ -54,24 +54,20 @@ class NoteForm extends Component {
   createNote = e => {
     e.preventDefault()
     this.props.addNote(this.state)
-    this.props.history.push("/");
+    this.props.history.push("/note");
   }
 
+  componentDidMount() {
+    this.refs.textArea.focus();
+  }
 
   render() {
-
-
-    // const createNote = e => {
-    //   e.preventDefault()
-    //   this.props.addNote()
-    //   this.props.history.push("/");
-    // }
-
     return (
       <Form>
         <h1>Create New Note</h1>
         <Input type="text" name="title" value={this.state.title} placeholder="Title" onChange={this.handleChange} />
         <TextArea
+          ref='textArea'
           name="textBody"
           value={this.state.textBody}
           id="props.id"
@@ -79,6 +75,7 @@ class NoteForm extends Component {
           rows="30"
           onChange={this.handleChange}
           placeholder="Note Content"
+          data-gramm_editor="false"
         />
         <Button onClick={this.createNote}>Save</Button>
       </Form>

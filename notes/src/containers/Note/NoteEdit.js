@@ -51,16 +51,16 @@ class EditNote extends Component {
 
   componentDidMount() {
     const { notes, match } = this.props;
-    const note = notes.find(note => match.params.id === `${note._id}`);
+    const note = notes.find(note => match.params.id === `${note.id}`);
     this.setState(note);
   }
 
   noteEdited = e => {
     const { notes, match } = this.props;
-    const note = notes.find(note => match.params.id === `${note._id}`);
+    const note = notes.find(note => match.params.id === `${note.id}`);
     e.preventDefault();
     this.props.editNote(this.state);
-    this.props.history.push(`/note/${note._id}`);
+    this.props.history.push(`/note/${note.id}`);
   };
 
   render() {
