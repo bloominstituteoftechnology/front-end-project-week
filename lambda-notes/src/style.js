@@ -14,10 +14,10 @@ export const LoginWrapper = styled.div`
   // align-items: center;
   width: 55%;
   
-  background-color: #d3d2d3;
-  //height: 100%;
+  // background-color: #d3d2d3;
+  height: 100vh;
   width: 100%;
-  border: 1px solid red;
+  //border: 1px solid red;
 `;
 
 export const LoginHeading = styled.h1`
@@ -34,7 +34,7 @@ export const LoginFormWrapper = styled.div`
   margin-top: 4rem;
   padding-top: 10px;
   padding-bottom: 40px;
-  border: 1px solid green;
+  border: 1.5px solid #B1B7B8;
 `;
 
 export const LoginForm = styled.form`
@@ -42,15 +42,27 @@ export const LoginForm = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
+  //border: 1px solid red;
 `;
+
+export const LoginFormInputLabel = styled.h4`
+  font-size: 19px;
+`;
+
 
 export const LoginFormInput = styled.input`
   width: 55%;
   height: 30px;
+  border: 1px solid #B1B7B8;
 `;
 
 export const LoginButton = styled.button`
+  background-color: #26B7BD;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1.5px solid #B1B7B8;
+  width: 35%;
   margin: 20px 0;
 `;
 
@@ -211,14 +223,14 @@ export const NotesTitle = styled.h3`
 export const NotesBody = styled.p`
   word-wrap: break-word;
 
-// border: 1px solid orange;
+//border: 1px solid orange;
 `;
 
 export const NoteWrapper = styled.div`
   height: 100vh;
   width: 75%;
   padding-left: 15px;
-  border: 1px solid red;
+  //border: 1px solid red;
 `;
 
 export const NoteNav = styled.div`
@@ -234,7 +246,7 @@ export const NoteButton = styled.button`
   margin-top: 15px;
   margin-right: 10px;
   border: none;
-  // background: #F2F1F2;
+  //background: #F2F1F2;
   text-decoration: underline;
   font-size: 15px;
 `;
@@ -275,9 +287,9 @@ export const Buttons = styled.button`
 
 export const FormWrapper = styled.div`
   height: 100vh;
-  width: 75%;
-  padding:0 1rem;
-  // border: 1px solid red
+  width: 100%;
+  padding: 0 1rem;
+  border: 1px solid green;
 `;
 
 export const FormHeader = styled.h2`
@@ -288,7 +300,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // border: 1px solid orange
+  border: 1px solid orange
 `;
 
 export const FormInputTitle = styled.input`
@@ -316,4 +328,20 @@ export const FormButton = styled.button`
   font-weight: bold;
 `;
 
+export const EditFormInputTitle = styled.input`
+width: 35%;
+height: 30px;
+border-radius: 3px;
+border: 1.5px solid #BABABA;
+  border: 1px solid red;
+`;
+
+export const EditFormInputText = styled.input`
+height: 250px;
+width: 50%;
+margin-top: 20px;
+border-radius: 3px;
+border: 1.5px solid #BABABA;
+  border: 1px solid blue;
+`;
 

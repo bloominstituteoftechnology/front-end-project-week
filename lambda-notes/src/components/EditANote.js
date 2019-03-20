@@ -1,40 +1,39 @@
 import React from 'react';
 import EditNote from './EditNote';
-import { FormWrapper, FormHeader, Form, FormInputTitle, FormInputText, FormButton } from '../style';
+import { FormWrapper, FormHeader, Form, EditFormInputTitle, EditFormInputText, FormInputText, FormButton } from '../style';
 
 class EditANote extends React.Component {
     constructor(props){
         super(props);
-        this.state={
-
-        }
+       
+       
     }
     render(){
         return(
             <FormWrapper>
-            <FormHeader>{this.props.edit ? 'Edit Note': 'Create New Note'}</FormHeader>
-            <Form onSubmit={this.submitHandler}>
-                <FormInputTitle
-                    className='title'
-                    type='text'
-                    maxLength='50'
-                    name='title'
-                    onChange={this.handleChange}
-                    placeholder='Enter Title'
-                    value={this.state.title}
-                />
+                <FormHeader>Edit Note</FormHeader>
+                <Form onSubmit={this.props.submitHandler}>
+                    <EditFormInputTitle
+                        className='title'
+                        type='text'
+                        maxLength='50'
+                        name='title'
+                        onChange={this.props.handleChange}
+                        placeholder='Enter Title'
+                        value={this.props.title}
+                    />
 
-                <FormInputText
-                    className='text'
-                    type='text'
-                    name='textBody'
-                    required={!this.props.edit}
-                    onChange={this.handleChange}
-                    placeholder='Edit Text'
-                    value={this.state.textBody}
-                />
-                <FormButton>{this.props.edit ? 'Edit Note': 'Save'}</FormButton>
-            </Form>
+                    <EditFormInputText
+                        className='text'
+                        type='text'
+                        name='textBody'
+                        required={!this.props.edit}
+                        onChange={this.props.handleChange}
+                        placeholder='Edit Text'
+                        value={this.props.body}
+                    />
+                    <FormButton>Edit Note</FormButton>
+                </Form>
         </FormWrapper>
         )
     }

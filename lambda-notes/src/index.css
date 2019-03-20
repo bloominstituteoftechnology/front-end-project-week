@@ -16,6 +16,7 @@ code {
 }
 
 
-/* html, body, #app, #app>div {
-  height: 100%
-} */
+html, body, #app, #app>div {
+  margin: 0;
+  padding: 0;
+}

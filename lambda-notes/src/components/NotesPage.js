@@ -32,15 +32,16 @@ class NotesPage extends Component {
       .catch(err => console.log(err))
   }
 
-  // getNoteById = id => {
-  //   axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-  //   .then(res => {
-  //     console.log(res)
-  //     this.setState({
-  //       notes: res.data
-  //     })
-  //   })
-  // }
+  getNoteById = id => {
+    axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    .then(res => {
+      console.log('getting by id', res)
+      this.setState({
+        notes: res.data
+      })
+    })
+    .catch(err => console.log(err))
+  }
 
   createNote  = (data) => {
     axios.post('https://fe-notes.herokuapp.com/note/create/', data)
@@ -67,6 +68,7 @@ class NotesPage extends Component {
       }
     })
     .catch(err => console.log(err))
+    console.log(data, 'data')
   }
 
   deleteNote = id => {
@@ -171,10 +173,10 @@ class NotesPage extends Component {
           render={props => 
             <EditNote
               {...props}
-              note={notes.map(note => note)}
-              text={notes.map(note => note.textBody)}
+              // note={notes.map(note => note)}
+              // text={notes.map(note => note.textBody)}
               editNote={this.editNote}
-              edit
+              geById={this.getNoteById}
             />
           }
         />

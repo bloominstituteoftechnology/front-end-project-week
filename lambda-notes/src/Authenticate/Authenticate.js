@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LoginPage from '../components/LoginPage';
+import '../App.css';
 
 const Authenticate = App => 
     class extends Component {
@@ -26,7 +27,10 @@ const Authenticate = App =>
                 return <App />
             } else {
                 return (
-                    <LoginPage />
+                    <div className='login'>
+                         <LoginPage />
+                    </div>
+                   
                 )
             }
         }
