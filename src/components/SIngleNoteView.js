@@ -7,9 +7,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 class SingleNoteView extends Component {
   constructor(props) {
     super(props);
-    {
-     
-    }
     this.state = {
       modal: false
     };
