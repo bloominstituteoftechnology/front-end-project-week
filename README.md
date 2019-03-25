@@ -1,5 +1,9 @@
 # Front End Project Week
 
+## Trello Board:
+[https://trello.com/b/k3txotkg/lambda-notes-frontend-tyson-gushiken](https://trello.com/b/k3txotkg/lambda-notes-frontend-tyson-gushiken)
+
+
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
 You are to treat this week as if you are working at a company and the instructor is your client. The project managers will be your main support throughout the week.
@@ -10,7 +14,7 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 - You are required to showcase progress with at least 1 commit a day. This will let your project manager know where you are and if you need help. This also allows the client to get progress reports from the company in a real world setting.
 
-## Trello Set Up:
+#### Trello Set Up:
 
 - [ ] Create a Trello account
 - [ ] Create a new board called "Lambda Notes - {Your Name}"
