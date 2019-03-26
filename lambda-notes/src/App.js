@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className='App'>
         {/* <Route path='/delete-note/:id' component={DeleteNote} /> */}
-        <Route path='/delete-note' component={DeleteNote} />
+        <Route path='/delete-note/:id' component={DeleteNote} />
         <SideBar />
         <Route exact path='/' component={ViewNotes} />
         <Route path='/create-note' component={NewNote} />

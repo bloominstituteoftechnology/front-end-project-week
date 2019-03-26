@@ -16,7 +16,6 @@ export const initialState = {
   deletingNote: false,
   notes: [
     {
-      tags: ["tag", "otherTag"],
       title: "Note Title",
       textBody: "Note Content"
     }
@@ -38,7 +37,7 @@ export const notesReducer = (state = initialState, action) => {
         notes: [...action.payload]
       };
     case ADD_NOTE:
-      window.location.reload();
+      // window.location.reload();
       return {
         ...state,
         creatingNote: true
@@ -66,7 +65,7 @@ export const notesReducer = (state = initialState, action) => {
         })
       };
     case DELETE_NOTE:
-      window.location.reload();
+      // window.location.reload();
       return {
         ...state,
         deleteingNote: true

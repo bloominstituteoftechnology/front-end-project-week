@@ -21,6 +21,7 @@ export const fetchingNotes = () => {
       // .get(`${URL}`)
       .get("https://killer-notes.herokuapp.com/note/get/all")
       .then(response => {
+        console.log(response);
         dispatch({
           type: FETCHED,
           payload: response.data
@@ -47,7 +48,7 @@ export const createNote = note => {
         console.log(response);
         dispatch({
           type: ADDED,
-          payload: response.data.results
+          payload: response.data
         });
       })
       .catch(error => {
@@ -92,6 +93,7 @@ export const deleteNote = id => {
       // .delete(`${URL}/${id}`)
       .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
       .then(response => {
+        console.log(response);
         dispatch({
           type: DELETED,
           payload: response.data

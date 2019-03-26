@@ -50,21 +50,26 @@ class DeleteNote extends Component {
     this.state = {
       notes: [],
       title: "",
-      content: "",
-      id: null
+      textBody: "",
+      _id: null
     };
   }
 
   componentDidMount() {
-    const id = this.props.match.params._id;
-    let note = this.props.notes.find(note => {
-      return id === note._id.toString();
+    const id = this.props.match.params.id;
+    let note = this.props.notes.find(note => id === note._id.toString());
+    // this.setState({ title: note.title, content: note.content })
+    this.setState({
+      _id: note._id,
+      title: note.title,
+      textBody: note.textBody
     });
-    this.setState({ id: note._id, title: note.title, content: note.content });
   }
 
   render() {
-    console.log(this.state.id);
+    console.log(this.state);
+    const { _id } = this.state;
+    console.log("note", _id);
     return (
       <Modal>
         <Heading>
@@ -72,9 +77,7 @@ class DeleteNote extends Component {
         </Heading>
         <DeleteBox>
           <Link to='/'>
-            <Del onClick={() => this.props.deleteNote(this.state.id)}>
-              Delete
-            </Del>
+            <Del onClick={() => this.props.deleteNote(_id)}>Delete</Del>
           </Link>
           <Cancel>No</Cancel>
         </DeleteBox>

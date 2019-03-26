@@ -12,7 +12,6 @@ background-color: #EEEEEE;`;
 
 class NewNote extends Component {
   state = {
-    tags: "",
     title: "",
     textBody: ""
   };
@@ -21,16 +20,20 @@ class NewNote extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleAddNote = () => {
-    const { title, textBody } = this.state;
-    this.props.createNote({ title, textBody });
-    this.setState({ title: "", textBody: "" });
+  handleAddNote = e => {
+    e.preventDefault();
+    const addedNote = {
+      title: this.state.title,
+      textBody: this.state.textBody
+    };
+    this.props.createNote(addedNote);
   };
 
   render() {
+    console.log(this.state);
     return (
       <NewForm>
-        <form onSubmit={() => this.handleAddNote()}>
+        <form onSubmit={e => this.handleAddNote(e)}>
           <h1>Create New Note:</h1>
           <input
             name='title'
@@ -57,6 +60,7 @@ class NewNote extends Component {
 
 const mapStateToProps = state => {
   return {
+    notes: state.notesReducer.notes,
     createNote: state.createNote
   };
 };
