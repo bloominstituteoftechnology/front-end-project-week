@@ -32,7 +32,7 @@ export default class Login extends Component {
           .then(response => {
              console.log('Response for Login',response.data);
              localStorage.setItem('jwt', response.data.token);
-
+            //  console.log(`local storage`, localStorage.response.data.token);
              this.props.history.push('/');
            
           })

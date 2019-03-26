@@ -28,9 +28,16 @@ class LambdaNotes extends Component {
             <Link to='/'>
                <Button onClick={this.resetState}>View Your Notes</Button>
             </Link>
-            <Link to='/notes'>
-              <Button>Create New Notes</Button>
-            </Link>
+            {localStorage.getItem('jwt') ?
+                                        <Link to='/notes'>
+                                          <Button>Create New Notes</Button>
+                                        </Link>
+                                        :
+                                        <Link to='/Login'>
+                                          <Button>Create New Notes</Button>
+                                        </Link>
+            }
+
             <div>
              <nav>
                 <Link className='reg' to='/Login'>Log in</Link>
