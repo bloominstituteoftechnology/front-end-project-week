@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createNote } from "../../actions/index";
 import styled from "styled-components";
+import withStyles from "@material-ui/core/styles/withStyles";
 import SectionLogin from "../material/Sections/SectionLogin";
 import WorkSection from "../../views/LandingPage/Sections/WorkSection";
 
@@ -95,7 +96,7 @@ class NewNote extends Component {
                   />
                   <GridContainer justify='center'>
                     <GridItem xs={12} sm={12} md={12}>
-                      <Button type='submit' color='primary'>
+                      <Button type='submit' color='info'>
                         Save
                       </Button>
                     </GridItem>
@@ -120,4 +121,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { createNote }
-)(NewNote);
+)(withStyles(workStyle)(NewNote));
