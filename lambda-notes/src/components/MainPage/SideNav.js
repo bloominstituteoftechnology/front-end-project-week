@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SectionPills from "../material/Sections/SectionPills";
+import Fade from "react-reveal";
 
 const Sidebar = styled.div`
   padding: 30px;
@@ -24,14 +25,16 @@ const NavButton = styled.div`
 
 const SideBar = () => {
   return (
-    <div className='sidebar-container'>
-      {/* <h1>
+    <Fade left>
+      <div className='sidebar-container'>
+        {/* <h1>
         Lambda
         <br />
         Notes
       </h1> */}
-      <SectionPills />
-    </div>
+        <SectionPills />
+      </div>
+    </Fade>
   );
 };
 

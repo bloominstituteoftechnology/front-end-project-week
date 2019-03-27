@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { editNote } from "../../actions/index";
 import styled from "styled-components";
+import Fade from "react-reveal";
 
 const EditForm = styled.div`
 display: flex;
@@ -48,26 +49,28 @@ class EditNote extends Component {
     console.log(this.props);
 
     return (
-      <EditForm>
-        <form onSubmit={e => this.handleEditNote(e)}>
-          <h1>Edit Note:</h1>
-          <input
-            name='title'
-            value={this.state.title}
-            type='text'
-            onChange={this.handleInputChange}
-          />
-          <br />
-          <input
-            name='textBody'
-            value={this.state.textBody}
-            type='text'
-            onChange={this.handleInputChange}
-          />
-          <br />
-          <button type='submit'>Update</button>
-        </form>
-      </EditForm>
+      <Fade left>
+        <EditForm>
+          <form onSubmit={e => this.handleEditNote(e)}>
+            <h1>Edit Note:</h1>
+            <input
+              name='title'
+              value={this.state.title}
+              type='text'
+              onChange={this.handleInputChange}
+            />
+            <br />
+            <input
+              name='textBody'
+              value={this.state.textBody}
+              type='text'
+              onChange={this.handleInputChange}
+            />
+            <br />
+            <button type='submit'>Update</button>
+          </form>
+        </EditForm>
+      </Fade>
     );
   }
 }

@@ -12,6 +12,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import Slide from "@material-ui/core/Slide";
 import { deleteNote } from "../../actions/index";
+import Fade from "react-reveal";
 
 import javascriptStyles from "../../assets/jss/material-kit-react/views/componentsSections/javascriptStyles";
 
@@ -22,6 +23,7 @@ import CardHeader from "../Card/CardHeader";
 import CardBody from "../Card/CardBody";
 import CardFooter from "../Card/CardFooter";
 import Button from "../CustomButtons/Button.jsx";
+import EditNote from "./EditNote";
 
 const Main = styled.div`
   padding-left: 32%;
@@ -80,120 +82,109 @@ class NoteViewer extends Component {
     });
   }
 
-  // componentWillMount() {
-  //   const id = this.props.match.params.id;
-  //   let note = this.props.notes.find(note => id === note._id.toString());
-  //   // this.setState({ title: note.title, content: note.content })
-  //   this.setState({
-  //     _id: note._id,
-  //     title: note.title,
-  //     textBody: note.textBody
-  //   });
-  // }
-
   render() {
     console.log(this.state);
     const { title, textBody, _id } = this.state.note;
     const { classes } = this.props;
     console.log("noteviewer", _id);
     return (
-      <Main>
-        {/* <div className={classes.section}>
+      <Fade right>
+        <Main>
+          {/* <div className={classes.section}>
           <div className={classes.container}> */}
-        <GridContainer justify='center'>
-          <GridItem xs={12} sm={12} md={6} lg={4}>
-            <Dialog
-              classes={{
-                root: classes.center,
-                paper: classes.modal
-              }}
-              open={this.state.classicModal}
-              TransitionComponent={Transition}
-              keepMounted
-              onClose={() => this.handleClose("classicModal")}
-              aria-labelledby='classic-modal-slide-title'
-              aria-describedby='classic-modal-slide-description'
-            >
-              <DialogTitle
-                id='classic-modal-slide-title'
-                disableTypography
-                className={classes.modalHeader}
-              >
-                <IconButton
-                  className={classes.modalCloseButton}
-                  key='close'
-                  aria-label='Close'
-                  color='inherit'
-                  onClick={() => this.handleClose("classicModal")}
-                >
-                  <Close className={classes.modalClose} />
-                </IconButton>
-                <h4>Are you sure you want to delete?</h4>
-              </DialogTitle>
-              <DialogContent
-                id='classic-modal-slide-description'
-                className={classes.modalBody}
-              />
-              <DialogActions className={classes.modalFooter}>
-                <Button
-                  onClick={() => this.props.deleteNote(_id)}
-                  color='danger'
-                  simple
-                >
-                  Delete Note
-                </Button>
-                <Button
-                  onClick={() => this.handleClose("classicModal")}
-                  color='info'
-                  simple
-                >
-                  Close
-                </Button>
-              </DialogActions>
-            </Dialog>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={12}>
-            <Card>
-              <form>
-                <CardHeader color='info'>
-                  <h1>{title}</h1>
-                  <div>
-                    <Button
-                      component={Link}
-                      to={`/edit-note/${_id}`}
-                      color='info'
-                      onClick={e => e.preventDefault()}
-                    >
-                      <Link to={`/edit-note/${_id}`}>
+          <GridContainer justify='center'>
+            <GridItem xs={12} sm={12} md={12}>
+              <Card>
+                <form>
+                  <CardHeader color='info'>
+                    <h1>{title}</h1>
+                    <div>
+                      <Button
+                        component={Link}
+                        to={`/edit-note/${_id}`}
+                        color='info'
+                        onClick={() => this.handleClickOpen(<EditNote />)}
+                      >
+                        <Link to={`/edit-note/${_id}`}>
+                          <LibraryBooks className={classes.icon} />
+                          Edit
+                        </Link>
+                      </Button>
+                      <Button
+                        color='info'
+                        onClick={() => this.handleClickOpen("classicModal")}
+                      >
                         <LibraryBooks className={classes.icon} />
-                        Edit
-                      </Link>
+                        Delete
+                      </Button>
+                    </div>
+                  </CardHeader>
+                  <NoteContainer>
+                    <div>{textBody}</div>
+                  </NoteContainer>
+                  <CardBody />
+                  <CardFooter>
+                    <Button component={Link} to='/' color='info' size='lg'>
+                      View Notes
                     </Button>
-                    <Button
-                      color='info'
-                      onClick={() => this.handleClickOpen("classicModal")}
-                    >
-                      <LibraryBooks className={classes.icon} />
-                      Delete
-                    </Button>
-                  </div>
-                </CardHeader>
-                <NoteContainer>
-                  <div>{textBody}</div>
-                </NoteContainer>
-                <CardBody />
-                <CardFooter>
-                  <Button component={Link} to='/' simple color='info' size='lg'>
-                    View Notes
+                  </CardFooter>
+                </form>
+              </Card>
+            </GridItem>
+            <GridItem xs={12} sm={12} md={6} lg={4}>
+              <Dialog
+                classes={{
+                  root: classes.center,
+                  paper: classes.modal
+                }}
+                open={this.state.classicModal}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={() => this.handleClose("classicModal")}
+                aria-labelledby='classic-modal-slide-title'
+                aria-describedby='classic-modal-slide-description'
+              >
+                <DialogTitle
+                  id='classic-modal-slide-title'
+                  disableTypography
+                  className={classes.modalHeader}
+                >
+                  <IconButton
+                    className={classes.modalCloseButton}
+                    key='close'
+                    aria-label='Close'
+                    color='inherit'
+                    onClick={() => this.handleClose("classicModal")}
+                  >
+                    <Close className={classes.modalClose} />
+                  </IconButton>
+                  <h4>Are you sure you want to delete?</h4>
+                </DialogTitle>
+                <DialogContent
+                  id='classic-modal-slide-description'
+                  className={classes.modalBody}
+                />
+                <DialogActions className={classes.modalFooter}>
+                  <Button
+                    onClick={() => this.props.deleteNote(_id)}
+                    color='danger'
+                  >
+                    Delete Note
                   </Button>
-                </CardFooter>
-              </form>
-            </Card>
-          </GridItem>
-        </GridContainer>
-        {/* </div>
+                  <Button
+                    onClick={() => this.handleClose("classicModal")}
+                    color='info'
+                  >
+                    Close
+                  </Button>
+                </DialogActions>
+              </Dialog>
+            </GridItem>
+          </GridContainer>
+          {/* </div>
         </div> */}
-      </Main>
+        </Main>
+      </Fade>
     );
   }
 }
