@@ -6,8 +6,6 @@ const NoteContainer = styled.div`
 margin 20px;
 border: 1px solid black;
 background-color: white;
-width: 200px;
-height: 150px;
 `;
 
 function SingleNote({ note }) {

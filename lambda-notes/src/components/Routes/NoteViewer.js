@@ -12,7 +12,6 @@ const Main = styled.div`
 const NoteContainer = styled.div`
 margin 20px;
 width: 200px;
-height: 150px;
 `;
 
 class NoteViewer extends Component {

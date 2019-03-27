@@ -4,11 +4,9 @@ import { createNote } from "../../actions/index";
 import styled from "styled-components";
 
 const NewForm = styled.div`
-display: flex;
-padding-left 500px;
-width: 100%;
-height: 500px;
-background-color: #EEEEEE;`;
+  display: flex;
+  width: 100%;
+`;
 
 class NewNote extends Component {
   state = {

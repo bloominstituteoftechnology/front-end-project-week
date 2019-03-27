@@ -13,9 +13,8 @@ class App extends Component {
       <div className='App'>
         {/* <Route path='/delete-note/:id' component={DeleteNote} /> */}
         <Route path='/delete-note/:id' component={DeleteNote} />
-        <SideBar />
-        <Route exact path='/' component={ViewNotes} />
-        <Route path='/create-note' component={NewNote} />
+        {/* <SideBar /> */}
+        <Route exact path='/' component={SideBar} />
         {/* <Route path='/notes/:id' component={NoteViewer} /> */}
         <Route path='/view-note/:id' component={NoteViewer} />
         <Route path='/edit-note/:id' component={EditNote} />
