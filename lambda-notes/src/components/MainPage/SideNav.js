@@ -25,11 +25,11 @@ const NavButton = styled.div`
 const SideBar = () => {
   return (
     <div className='sidebar-container'>
-      <h1>
+      {/* <h1>
         Lambda
         <br />
         Notes
-      </h1>
+      </h1> */}
       <SectionPills />
     </div>
   );

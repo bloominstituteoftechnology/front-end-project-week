@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import SectionLogin from "../material/Sections/SectionLogin";
 
 const Main = styled.div`
-  margin-left: 400px;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
 `;
 
 const NoteContainer = styled.div`
-margin 20px;
-width: 200px;
+margin auto;
+width: 100%;
 `;
 
 class NoteViewer extends Component {
@@ -44,6 +45,7 @@ class NoteViewer extends Component {
             <div>{textBody}</div>
           </NoteContainer>
         </div>
+        <SectionLogin />
       </Main>
     );
   }

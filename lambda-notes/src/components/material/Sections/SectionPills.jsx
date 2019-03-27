@@ -38,7 +38,6 @@ class SectionPills extends React.Component {
                       tabButton: "Your Notes",
                       tabIcon: Dashboard,
                       tabContent: <ViewNotes />,
-                      onClick: <Route path='/view-note/:id' component={NoteViewer} />
                     },
                     {
                       tabButton: "Create Note",
