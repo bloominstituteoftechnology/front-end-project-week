@@ -2,7 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import SectionLogin from "../material/Sections/SectionLogin";
+import withStyles from "@material-ui/core/styles/withStyles";
+import LibraryBooks from "@material-ui/icons/LibraryBooks";
+import Close from "@material-ui/icons/Close";
+import IconButton from "@material-ui/core/IconButton";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogActions from "@material-ui/core/DialogActions";
+import Slide from "@material-ui/core/Slide";
+import { deleteNote } from "../../actions/index";
+
+import javascriptStyles from "../../assets/jss/material-kit-react/views/componentsSections/javascriptStyles";
 
 import GridContainer from "../Grid/GridContainer";
 import GridItem from "../Grid/GridItem";
@@ -13,6 +24,8 @@ import CardFooter from "../Card/CardFooter";
 import Button from "../CustomButtons/Button.jsx";
 
 const Main = styled.div`
+  padding-left: 32%;
+  padding-top: 5%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -23,16 +36,60 @@ margin auto;
 width: 100%;
 `;
 
+function Transition(props) {
+  return <Slide direction='down' {...props} />;
+}
+
 class NoteViewer extends Component {
   state = {
-    note: {}
+    note: {},
+    title: "",
+    textBody: "",
+    _id: null
   };
+
+  handleClickOpen(modal) {
+    var x = [];
+    x[modal] = true;
+    this.setState(x);
+  }
+  handleClose(modal) {
+    var x = [];
+    x[modal] = false;
+    this.setState(x);
+  }
+  handleClosePopover(state) {
+    this.setState({
+      [state]: false
+    });
+  }
+  handleClickButton(state) {
+    this.setState({
+      [state]: true
+    });
+  }
 
   componentDidMount() {
     const id = this.props.match.params.id;
     const note = this.props.notes.filter(note => id === note._id.toString());
-    this.setState({ note: note[0] });
+    this.setState({
+      note: note[0],
+      _id: note._id,
+      title: note.title,
+      textBody: note.textBody
+    });
   }
+
+  // componentWillMount() {
+  //   const id = this.props.match.params.id;
+  //   let note = this.props.notes.find(note => id === note._id.toString());
+  //   // this.setState({ title: note.title, content: note.content })
+  //   this.setState({
+  //     _id: note._id,
+  //     title: note.title,
+  //     textBody: note.textBody
+  //   });
+  // }
 
   render() {
     console.log(this.state);
@@ -44,6 +101,57 @@ class NoteViewer extends Component {
         {/* <div className={classes.section}>
           <div className={classes.container}> */}
         <GridContainer justify='center'>
+          <GridItem xs={12} sm={12} md={6} lg={4}>
+            <Dialog
+              classes={{
+                root: classes.center,
+                paper: classes.modal
+              }}
+              open={this.state.classicModal}
+              TransitionComponent={Transition}
+              keepMounted
+              onClose={() => this.handleClose("classicModal")}
+              aria-labelledby='classic-modal-slide-title'
+              aria-describedby='classic-modal-slide-description'
+            >
+              <DialogTitle
+                id='classic-modal-slide-title'
+                disableTypography
+                className={classes.modalHeader}
+              >
+                <IconButton
+                  className={classes.modalCloseButton}
+                  key='close'
+                  aria-label='Close'
+                  color='inherit'
+                  onClick={() => this.handleClose("classicModal")}
+                >
+                  <Close className={classes.modalClose} />
+                </IconButton>
+                <h4>Are you sure you want to delete?</h4>
+              </DialogTitle>
+              <DialogContent
+                id='classic-modal-slide-description'
+                className={classes.modalBody}
+              />
+              <DialogActions className={classes.modalFooter}>
+                <Button
+                  onClick={() => this.props.deleteNote(_id)}
+                  color='danger'
+                  simple
+                >
+                  Delete Note
+                </Button>
+                <Button
+                  onClick={() => this.handleClose("classicModal")}
+                  color='info'
+                  simple
+                >
+                  Close
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </GridItem>
           <GridItem xs={12} sm={12} md={12}>
             <Card>
               <form>
@@ -53,24 +161,20 @@ class NoteViewer extends Component {
                     <Button
                       component={Link}
                       to={`/edit-note/${_id}`}
-                      target='_blank'
                       color='info'
                       onClick={e => e.preventDefault()}
                     >
                       <Link to={`/edit-note/${_id}`}>
-                        <div>edit</div>
+                        <LibraryBooks className={classes.icon} />
+                        Edit
                       </Link>
                     </Button>
                     <Button
-                      component={Link}
-                      to={`/delete-note/${_id}`}
-                      target='_blank'
                       color='info'
-                      onClick={e => e.preventDefault()}
+                      onClick={() => this.handleClickOpen("classicModal")}
                     >
-                      <Link to={`/delete-note/${_id}`}>
-                        <div>delete</div>
-                      </Link>
+                      <LibraryBooks className={classes.icon} />
+                      Delete
                     </Button>
                   </div>
                 </CardHeader>
@@ -79,7 +183,7 @@ class NoteViewer extends Component {
                 </NoteContainer>
                 <CardBody />
                 <CardFooter>
-                  <Button simple color='info' size='lg'>
+                  <Button component={Link} to='/' simple color='info' size='lg'>
                     View Notes
                   </Button>
                 </CardFooter>
@@ -100,5 +204,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
-)(NoteViewer);
+  { deleteNote }
+)(withStyles(javascriptStyles)(NoteViewer));

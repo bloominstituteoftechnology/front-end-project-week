@@ -37,11 +37,11 @@ export const notesReducer = (state = initialState, action) => {
         notes: [...action.payload]
       };
     case ADD_NOTE:
-      // window.location.reload();
       return {
         ...state,
         creatingNote: true
       };
+    // window.location.reload();
     case ADDED:
       return {
         ...state,
