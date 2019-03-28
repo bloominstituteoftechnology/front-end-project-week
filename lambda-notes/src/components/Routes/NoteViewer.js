@@ -88,7 +88,7 @@ class NoteViewer extends Component {
     const { classes } = this.props;
     console.log("noteviewer", _id);
     return (
-      <Fade right>
+      <Fade bottom>
         <Main>
           {/* <div className={classes.section}>
           <div className={classes.container}> */}
@@ -98,47 +98,55 @@ class NoteViewer extends Component {
                 <form>
                   <CardHeader color='info'>
                     <h1>{title}</h1>
-                    <div>
-                      <Button
-                        component={Link}
-                        to={`/edit-note/${_id}`}
-                        color='info'
-                        onClick={() => this.handleClickOpen(<EditNote />)}
-                      >
-                        <Link to={`/edit-note/${_id}`}>
-                          <LibraryBooks className={classes.icon} />
-                          Edit
-                        </Link>
-                      </Button>
-                      <Button
-                        color='info'
-                        onClick={() => this.handleClickOpen("classicModal")}
-                      >
-                        <LibraryBooks className={classes.icon} />
-                        Delete
-                      </Button>
-                    </div>
                   </CardHeader>
+                  <div>
+                    <Button
+                      component={Link}
+                      to={`/edit-note/${_id}`}
+                      simple
+                      color='info'
+                      onClick={() => this.handleClickOpen(<EditNote />)}
+                    >
+                      <Link to={`/edit-note/${_id}`}>
+                        <LibraryBooks className={classes.icon} />
+                        Edit
+                      </Link>
+                    </Button>
+                    <Button
+                      simple
+                      color='info'
+                      onClick={() => this.handleClickOpen("classicModal")}
+                    >
+                      <LibraryBooks className={classes.icon} />
+                      Delete
+                    </Button>
+                  </div>
                   <NoteContainer>
                     <div>{textBody}</div>
                   </NoteContainer>
                   <CardBody />
                   <CardFooter>
-                    <Button component={Link} to='/' color='info' size='lg'>
+                    <Button
+                      component={Link}
+                      block
+                      to='/'
+                      color='info'
+                      size='md'
+                    >
                       View Notes
                     </Button>
                   </CardFooter>
                 </form>
               </Card>
             </GridItem>
-            <GridItem xs={12} sm={12} md={6} lg={4}>
+            <GridItem xs={12} sm={12} md={12} lg={12}>
               <Dialog
                 classes={{
                   root: classes.center,
                   paper: classes.modal
                 }}
                 open={this.state.classicModal}
-                TransitionComponent={Transition}
+                // TransitionComponent={Transition}
                 keepMounted
                 onClose={() => this.handleClose("classicModal")}
                 aria-labelledby='classic-modal-slide-title'
@@ -153,17 +161,12 @@ class NoteViewer extends Component {
                     className={classes.modalCloseButton}
                     key='close'
                     aria-label='Close'
-                    color='inherit'
                     onClick={() => this.handleClose("classicModal")}
                   >
                     <Close className={classes.modalClose} />
                   </IconButton>
                   <h4>Are you sure you want to delete?</h4>
                 </DialogTitle>
-                <DialogContent
-                  id='classic-modal-slide-description'
-                  className={classes.modalBody}
-                />
                 <DialogActions className={classes.modalFooter}>
                   <Button
                     onClick={() => this.props.deleteNote(_id)}

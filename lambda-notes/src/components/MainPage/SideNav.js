@@ -25,7 +25,7 @@ const NavButton = styled.div`
 
 const SideBar = () => {
   return (
-    <Fade left>
+    <Fade right>
       <div className='sidebar-container'>
         {/* <h1>
         Lambda

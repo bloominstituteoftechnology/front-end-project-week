@@ -6,11 +6,9 @@ import styled from "styled-components";
 import Fade from "react-reveal";
 
 const EditForm = styled.div`
-display: flex;
-padding-left 500px;
-width: 100%;
-height: 850px;
-background-color: #EEEEEE;`;
+  display: flex;
+  width: 100%;
+`;
 
 class EditNote extends Component {
   constructor(props) {
@@ -49,7 +47,7 @@ class EditNote extends Component {
     console.log(this.props);
 
     return (
-      <Fade left>
+      <Fade bottom>
         <EditForm>
           <form onSubmit={e => this.handleEditNote(e)}>
             <h1>Edit Note:</h1>

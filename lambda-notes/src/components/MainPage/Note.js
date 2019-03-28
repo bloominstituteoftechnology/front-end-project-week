@@ -1,22 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Card from "../Card/Card";
+import CardHeader from "../Card/CardHeader";
+import CardBody from "../Card/CardBody";
 
-const NoteContainer = styled.div`
-margin 20px;
-border: 1px solid black;
-background-color: white;
-`;
+const NoteContainer = styled.div``;
 
 function SingleNote({ note }) {
   // const { id, title, content } = note;
   const { _id, title, textBody } = note;
   return (
-    <Link to={`/view-note/${_id}`}>
-      <NoteContainer>
-        <div className='headline'>{title}</div>
-        <div className='content'>{textBody}</div>
-      </NoteContainer>
+    <Link to={`/view-note/${_id}`} style={{ textDecoration: "none" }}>
+      <Card>
+        <CardBody>
+          <CardHeader color='info'>
+            <div className='headline'>{title}</div>
+          </CardHeader>
+          <CardBody>
+            <div className='content'>{textBody}</div>
+          </CardBody>
+        </CardBody>
+      </Card>
     </Link>
   );
 }

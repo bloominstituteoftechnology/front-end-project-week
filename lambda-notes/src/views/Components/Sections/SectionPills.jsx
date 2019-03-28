@@ -30,7 +30,7 @@ class SectionPills extends React.Component {
               </h3>
             </div>
             <GridContainer>
-              <GridItem xs={12} sm={12} md={8} lg={6}>
+              <GridItem xs={12} sm={12} md={12} lg={12}>
                 <NavPills
                   color="primary"
                   tabs={[
@@ -118,12 +118,12 @@ class SectionPills extends React.Component {
                   ]}
                 />
               </GridItem>
-              <GridItem xs={12} sm={12} md={12} lg={6}>
+              <GridItem xs={12} sm={12} md={12} lg={12}>
                 <NavPills
                   color="rose"
                   horizontal={{
                     tabsGrid: { xs: 12, sm: 4, md: 4 },
-                    contentGrid: { xs: 12, sm: 8, md: 8 }
+                    contentGrid: { xs: 12, sm: 12, md: 12 }
                   }}
                   tabs={[
                     {

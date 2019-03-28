@@ -81,19 +81,21 @@ class NewNote extends Component {
                       }}
                     />
                   </GridItem>
-                  <CustomInput
-                    name='textBody'
-                    value={this.state.textBody}
-                    labelText='Note Content'
-                    formControlProps={{
-                      fullWidth: true,
-                      onChange: this.handleInputChange
-                    }}
-                    inputProps={{
-                      multiline: true,
-                      rows: 5
-                    }}
-                  />
+                  <GridItem xs={12} sm={12} md={12}>
+                    <CustomInput
+                      name='textBody'
+                      value={this.state.textBody}
+                      labelText='Note Content'
+                      formControlProps={{
+                        fullWidth: true,
+                        onChange: this.handleInputChange
+                      }}
+                      inputProps={{
+                        multiline: true,
+                        rows: 5
+                      }}
+                    />
+                  </GridItem>
                   <GridContainer justify='center'>
                     <GridItem xs={12} sm={12} md={12}>
                       <Button type='submit' color='info'>
