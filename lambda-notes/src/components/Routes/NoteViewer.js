@@ -26,16 +26,22 @@ import Button from "../CustomButtons/Button.jsx";
 import EditNote from "./EditNote";
 
 const Main = styled.div`
-  padding-left: 32%;
-  padding-top: 5%;
-  margin: auto;
+  margin-top: 10%;
   display: flex;
   flex-wrap: wrap;
 `;
 
 const NoteContainer = styled.div`
-margin auto;
-width: 100%;
+  padding: 0 20px;
+  margin: 8% 5%;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const EditContainer = styled.div`
+  margin: 3% 0;
+  display: flex;
+  justify-content: center;
 `;
 
 function Transition(props) {
@@ -99,7 +105,7 @@ class NoteViewer extends Component {
                   <CardHeader color='info'>
                     <h1>{title}</h1>
                   </CardHeader>
-                  <div>
+                  <EditContainer>
                     <Button
                       component={Link}
                       to={`/edit-note/${_id}`}
@@ -120,11 +126,10 @@ class NoteViewer extends Component {
                       <LibraryBooks className={classes.icon} />
                       Delete
                     </Button>
-                  </div>
+                  </EditContainer>
                   <NoteContainer>
                     <div>{textBody}</div>
                   </NoteContainer>
-                  <CardBody />
                   <CardFooter>
                     <Button
                       component={Link}

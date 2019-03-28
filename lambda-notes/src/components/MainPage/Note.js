@@ -11,7 +11,10 @@ function SingleNote({ note }) {
   // const { id, title, content } = note;
   const { _id, title, textBody } = note;
   return (
-    <Link to={`/view-note/${_id}`} style={{ textDecoration: "none" }}>
+    <Link
+      to={`/view-note/${_id}`}
+      style={{ textDecoration: "none", margin: "0 10px" }}
+    >
       <Card>
         <CardBody>
           <CardHeader color='info'>

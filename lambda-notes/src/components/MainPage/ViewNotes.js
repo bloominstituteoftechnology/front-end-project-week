@@ -15,6 +15,12 @@ const Header = styled.div`
 `;
 
 const Main = styled.div`
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Note = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
