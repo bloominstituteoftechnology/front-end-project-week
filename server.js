@@ -61,7 +61,7 @@ server.use(cors(corsOptions));
 server.use("/api/notes", noteController);
 
 server.get("/", (req, res) => {
-res.status(200).json({SanityCheck: note()});
+res.status(200).json({SanityCheck: "Sanity check works..."});
 })
 
 server.listen(port, ()=>{
