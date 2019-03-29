@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5{
   font-family: 'Roboto', sans-serif;
 
 }
+
+.App {
+  display: flex;
+}
 .notelist-wrapper{
   display:flex;
   width:100%;
