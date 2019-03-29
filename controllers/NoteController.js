@@ -1,12 +1,21 @@
 
 const router = require("express").Router();
 const Notes = require("../schemas/NoteSchema");
+const fakerData = require("../controllers/FakerData");
 
 
 const sendUserError = (status, message, res) => {
     res.status(status).json({Error: message});
     return;
 }
+
+const getFakerData = (req, res) => {
+    if(fakerData() === undefined) {
+        sendUserError(400, "No fakerdata present", res)
+    } else {
+        res.send({FakerData: fakerData()});
+    }
+};
 
 const get = (req, res) => {
     Notes.find()
@@ -95,6 +104,8 @@ router.route("/")
     .get(get)
     .post(post);
 
+router.route("/faker")
+    .get(getFakerData)
 
 router.route("/:id")
     .get(getId)
