@@ -1,110 +1,68 @@
 const express = require("express");
+require("dotenv").config();
+const server = express();
+
+const port=process.env.PORT;
+
 const cors = require("cors");
 const helmet = require("helmet");
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
 
-//insert database requirements here
+const noteController = require("./controllers/NoteController");
+const note = require("./controllers/FakerData");
 
-const server = express();
-const port=5000;
+const database = "notesdb";
 
-const sendUserError = (status, message, res) => {
-    res.status(status).json({Error: message});
-    return;
-}
+//insert database connection here
+
+mongoose.connect(`mongodb://localhost:27017/${database}`, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false })
+    .then(response => {
+        console.log(`Connected to ${response.connection.name}`);
+    })
+    .catch(error => {
+        console.log({Error: err.message})
+    })
+
+//middleware
+
+    //local
+
+    //restricted function for auth
+
+    const restricted = (req, res, next) => {
+        const token = req.headers.authorization;
+        const secret = process.env.SECRET;
+
+        //if a token exists...let's verify it.
+        if(token){
+            jwt.verify(token, secret, (err, decodedToken) => {
+                if (err) {
+                    return res.status(401).json({message: 'Token was not decoded', err});
+                }
+                next();
+            });
+        } else {
+            //error in retrieving token
+            res.send({message: "Error in retrieving token"});
+        }
+    }
+
+//global middleware
+
+const corsOptions = {
+    origin: 'http://localhost:3000'
+};
+
 server.use(express.json());
 server.use(helmet());
-server.use(cors());
+server.use(cors(corsOptions));
 
+server.use("/api/notes", noteController);
 
-server.get("/api/notes", (req, res) =>{
-    //insert database file here
-    .get()
-    then(response =>{
-        if(response.length===0){
-            sendUserError(404, "Notes information could not be found", res);
-        }
-        res.status(200).json(response);
-    })
-    .catch(err=>{
-        sendUserError(500, "There was an error in retrieving notes information", res);
-    });
-});
-
-server.get("/api/notes/:id", (req, res) =>{
-    const { id } = req.params;
-    //insert database file here
-    .get(id)
-    then(response =>{
-        if(response.length===0){
-            sendUserError(404, "The note with the specified ID could not be found", res);
-        }
-        res.status(200).json(response);
-    })
-    .catch(err=>{
-        sendUserError(500, "There was an error in retrieving note information");
-    });
-});
-
-server.post("/api/notes", (req, res) =>{
-    const { title, body } = req.body;
-    if(!title||!body){
-        sendUserError(400, "Must include title and body", res);
-    }
-    
-    //insert database here
-    .insert({title, body})
-    .then(response =>{
-        res.status(201).json(response);
-    })
-    .catch(err =>{
-        sendUserError(500, "There was an error in saving note to database", res);
-    });
-});
-
-server.delete("/api/notes/:id", (req, res) =>{
-    const { id } = req.params;
-    if(!id){
-        sendUserError(404, "The specified ID is not found", res);
-    }
-    //insertdatabase here
-
-    .remove(id)
-    .then(response =>{
-        res.status(204).json(response);
-    })
-    .catch(err =>{
-        sendUserError(500, "There was an error in deleting this note", res);
-    });
-});
-
-server.put("/api/notes/:id", (req, res) =>{
-    const { id } = req.params;
-    const { title, body };
-
-    //insert database here
-        .get(id)
-        .then(response => {
-            if(!id){
-                sendUserError(404, "The specified ID is not found", res);
-            }
-            else{
-                //insert database here
-                .update({title, body})
-                .then(result =>{
-                    res.status(200).json(result);
-                })
-                .catch(err =>{
-                    sendUserError(500, "There was an error in updating the database", res);
-                });
-            }
-        })
+server.get("/", (req, res) => {
+res.status(200).json({SanityCheck: note()});
 })
-
-
-
-
-
-
 
 server.listen(port, ()=>{
     console.log(`Server is listening on port ${port}`);
