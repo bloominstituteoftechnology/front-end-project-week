@@ -1,0 +1,204 @@
+.App {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+  }
+  
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+  }
+  
+  .App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+  }
+  
+  .App-title {
+    font-size: 1.5em;
+  }
+  
+  .App-intro {
+    font-size: 2rem;
+  }
+  
+  .left-side {
+    background-color: #d7d7d7;
+    max-width: 250px;
+    width: 100%;
+  }
+  .right-side {
+    background-color: #f2f1f2;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .listDisplay {
+    max-width: 800px;
+    width: 100%;
+  }
+  .listDisplay h1 {
+    margin-left: 15px;
+    color: #424141;
+  }
+  
+  .noteDisplay {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .notesDisplay {
+    border: 1px solid #dedede;
+    width: 200px;
+    margin-left: 20px;
+    height: 200px;
+    margin-top: 20px;
+    overflow: auto;
+    background-color: #ffffff;
+  }
+  .notesDisplay p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .notesDisplay h2 {
+    border-bottom: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  a,
+  u {
+    text-decoration: none;
+    color: #080706;
+  }
+  
+  .side-bar {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+  }
+  
+  .side-bar h1 {
+    font-size: 50px;
+    color: #424141;
+  }
+  .side-bar .button {
+    color: white;
+  }
+  
+  .side-bar li {
+    list-style: none;
+    background-color: #24b8bd;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .singlenoteDisplay {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .singlenoteDisplay h1 {
+    color: #424141;
+  }
+  .singlenoteDisplay p {
+    line-height: 30px;
+  }
+  
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .button-flex {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+  }
+  .button-flex h3 {
+    cursor: pointer;
+    margin-right: 20px;
+    text-decoration: underline;
+  }
+  .button-flex a {
+    margin-right: 20px;
+    text-decoration: underline;
+  }
+  
+  .Column-Layout1 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 30px;
+    position: fixed;
+    top: 25%;
+    right: 50px;
+  }
+  .Column-Layout1 .input-title {
+    border-radius: 3px;
+    width: 350px;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  .Column-Layout1 .input-body {
+    border-radius: 3px;
+    padding-bottom: 300px;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  .Column-Layout1 h3 {
+    margin-top: 20px;
+    width: 100px;
+    padding: 10px 40px 10px 40px;
+    text-align: center;
+    background-color: #24b8bd;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  form {
+    box-shadow: none;
+  }
+  
+  .Column-Layout {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .Column-Layout .input-title {
+    border-radius: 3px;
+    width: 350px;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  .Column-Layout .input-body {
+    border-radius: 3px;
+    padding-bottom: 300px;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  .Column-Layout h3 {
+    margin-top: 20px;
+    width: 200px;
+    padding: 10px 40px 10px 40px;
+    text-align: center;
+    background-color: #24b8bd;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  form {
+    box-shadow: none;
+  }
+  
+  .edit-delete {
+    margin-left: 30px;
+  }
+  
+  
