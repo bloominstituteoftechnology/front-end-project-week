@@ -1,22 +1,35 @@
 import React, { Component } from 'react';
-import { dummydata } from './dummydata/dummydata';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class NoteCard extends Component {
     constructor(props){
         super(props);
         this.state={
-            notes:[{dummydata}]
+            notes:[]
         }
     }
 
+    componentDidMount() {
+        let promise = axios.get("http://localhost:5555/api/notes/faker");
+
+        promise 
+            .then(response => {
+                console.log(response);
+                this.setState({notes: response.data});
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     render() {
-        console.log(this.state.notes[0].dummydata);
+        // console.log(this.state.notes[0].dummydata);
         return (
             <div className="card-container">
                 <h2 className="main-container-header">{this.props.text}</h2>
                 <ul className="card-list">
-                  {this.state.notes[0].dummydata.map(element =>{
+                  {/* {this.state.notes[0].dummydata.map(element =>{
                       return(
                           <li className="card" key={element.id}>
                          <Link 
@@ -28,7 +41,7 @@ class NoteCard extends Component {
                           </li>
 
                       )
-                  })}  
+                  })}   */}
                 
                 </ul>
             </div>
