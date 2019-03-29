@@ -13,7 +13,12 @@ const getFakerData = (req, res) => {
     if(fakerData() === undefined) {
         sendUserError(400, "No fakerdata present", res)
     } else {
-        res.send({FakerData: fakerData()});
+        let length = 100;
+        const fakerNotes = [];
+        for(let i = 0; i < length; i++) {
+            fakerNotes.push(fakerData());
+        }
+        res.send(fakerNotes);
     }
 };
 
