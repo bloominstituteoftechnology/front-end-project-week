@@ -9,7 +9,6 @@ class EditNote extends Component {
         console.log(this.props);
         return (
             <div className="note-component-wrapper">
-               <Sidebar />
                <div className="create-header">
                <Header text="Edit Note" />
                <Form note = {this.props.location.state}/>

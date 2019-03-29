@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './index.css';
-import Sidebar from './Sidebar';
 import NoteCard from './NoteCard';
 
 export const Header = (props) =>{
@@ -14,7 +13,6 @@ class NoteList extends Component {
     render() {
         return (
             <div className="notelist-wrapper">
-                <Sidebar />
                 <NoteCard text="Your Notes"/>
             </div>
         );

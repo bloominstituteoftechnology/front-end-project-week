@@ -7,7 +7,6 @@ class CreateNote extends Component {
     render() {
         return (
             <div className="note-component-wrapper">
-               <Sidebar />
                <div className="create-header">
                <Header text="Create New Note" />
                <Form />

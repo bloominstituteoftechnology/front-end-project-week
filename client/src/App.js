@@ -5,11 +5,13 @@ import CreateNote from './CreateNote';
 import EditNote from './EditNote';
 import NoteList from './NoteList';
 import SingleNoteView from './SingleNoteView';
+import Sidebar from './Sidebar';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Sidebar />
         <Switch>
           <Route exact path="/" component={NoteList}/>
           <Route exact path="/notes" component={NoteList} />
