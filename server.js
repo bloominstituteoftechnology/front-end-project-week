@@ -49,9 +49,9 @@ mongoose.connect(`mongodb://localhost:27017/${database}`, { useNewUrlParser: tru
     }
 
 //global middleware
-
+//TODO: read up more on cors to fix the options
 const corsOptions = {
-    origin: 'http://localhost:3000'
+    origin: '*'
 };
 
 server.use(express.json());
