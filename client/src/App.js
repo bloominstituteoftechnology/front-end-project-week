@@ -1,6 +1,7 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './index.css';
+import './App.css';
 import CreateNote from './CreateNote';
 import EditNote from './EditNote';
 import NoteList from './NoteList';
