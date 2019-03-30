@@ -4,15 +4,16 @@ class Form extends Component {
     constructor(props){
         super(props);
         this.state ={
-            fetching:[],
+            title: '',
+            body: ''
         }
     }
+
     render() {
-        console.log(this.props.note);
         return (
             <div>
-                <input type="text" name= "note-name" className="input-text" value={this.props.note.note_title}/>
-                <input type="text" name= "note-content" className="input-text-area" value={this.props.note.note_body}/>
+                <input type="text" name= "name" className="input-text" value={this.props.title}/>
+                <textarea type="text" name= "body" className="input-text-area" value={this.props.body}/>
                 <div className="button save-button">Save</div>
             </div>
         );
