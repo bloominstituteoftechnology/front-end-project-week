@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom';
 class NoteCard extends Component {
 
     render() {
-        console.log(this.props.notes);
         return (
             <div className="card-container">
                 <h2 className="main-container-header">{this.props.text}</h2>
                 <ul className="card-list">
                   {this.props.notes.map(element =>{
                       return(
-                          <li className="card" key={element.id}>
+                          <li className="card" key={element.id + element.title}>
                          <Link 
-                            to={{pathname:`/notes/${element.id}`, state: this.props.notes}}>
+                            to={{pathname:`/notes/${element.id}`, state: {element}}}>
                             {element.title}
                         </Link>
                             <hr/>
