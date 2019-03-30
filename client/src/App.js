@@ -8,6 +8,14 @@ import SingleNoteView from './SingleNoteView';
 import Sidebar from './Sidebar';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: []
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+  }
   render() {
     return (
       <div className="App">
