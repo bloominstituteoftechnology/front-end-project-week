@@ -39,10 +39,26 @@ class App extends Component {
       <div className="App">
         <Sidebar />
         <Switch>
-          <Route exact path="/" component={NoteList}/>
-          <Route exact path="/notes" component={NoteList} />
+          <Route exact path="/" render={props => (
+            <NoteList
+              {...props}
+              notes={this.state.notes}
+            />
+          )}/>
+          <Route exact path="/notes" render={props => (
+            <NoteList
+              {...props}
+              notes={this.state.notes}
+            />
+          )}/>
           <Route exact path="/notes/:id" component={SingleNoteView}/>
-          <Route exact path="/create" component={CreateNote}/>
+          <Route exact path="/create" render={props => (
+            <CreateNote
+              {...props}
+              notes={this.state.notes}
+              handleChange={this.handleChange}
+            />
+          )}/>
           <Route path="/notes/:id/edit" component={EditNote}/>
         </Switch>
       </div>
