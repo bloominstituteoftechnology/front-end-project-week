@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import Sidebar from './Sidebar';
-import { Header } from './NoteList';
+import { Header } from './Header';
 import { Link } from 'react-router-dom';
 
 
