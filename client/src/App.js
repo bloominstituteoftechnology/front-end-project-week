@@ -16,6 +16,24 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
   }
+
+  componentDidMount() {
+    let promise = axios.get("http://localhost:5555/api/notes/faker");
+
+    promise 
+        .then(response => {
+            console.log(response);
+            this.setState({notes: response.data});
+        })
+        .catch(error => {
+            console.log(error);
+        })
+}
+
+  handleChange(event){
+    this.setState({[event.target.name] : event.target.value})
+  }
+
   render() {
     return (
       <div className="App">
