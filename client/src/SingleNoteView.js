@@ -10,6 +10,7 @@ class SingleNoteView extends Component{
         super(props);
         this.state ={
             modal:false,
+            note: {}
         };
         this.toggle=this.toggle.bind(this);
     }
@@ -20,28 +21,20 @@ class SingleNoteView extends Component{
       });
     }
 
-    componentWillMount(){
-        let routeId = this.props.match.params.id;
-        console.log("THISFORID",this.props.match.params.id);
-        let matched = this.props.location.state[0].dummydata.filter((noteItem)=> 
-          noteItem.id === Number(routeId)
-     );
-     console.log ("this matches", matched);
-     return this.setState(matched);
+    componentDidMount(){
+        this.setState({note: this.props.location.state.element});
 
 
     }
 
 
     render(){
-        console.log(this.state[0]);
         return(
             <div className="single-note-component-wrapper">
-            <Sidebar />
             <div className="singular-note-container">
                 <div className="edit-delete-bar">
                    <Link 
-                        to={{pathname:`/notes/${this.state[0].id}/edit`, state: this.state[0]}} 
+                        to={{pathname:`/notes/${this.state.note.id}/edit`, state: this.state.note}} 
                         className="link-edit-delete"> 
                             <div className="link edit-link">Edit</div>
                     </Link>
@@ -59,8 +52,8 @@ class SingleNoteView extends Component{
                                 {/* This div contains all the components of the modal */}
                     </div>
                 </div>
-                <Header text={this.state[0].note_title}/>
-                <p className="note-body-single">{this.state[0].note_body}</p>
+                <Header text={this.state.note.title}/>
+                <p className="note-body-single">{this.state.note.body}</p>
             </div>
             </div>
         )
