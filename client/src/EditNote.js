@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
-import { Header } from './NoteList';
-import Sidebar from './Sidebar';
+import { Header } from './Header';
 import Form from './Form';
 
 class EditNote extends Component {
@@ -11,7 +10,11 @@ class EditNote extends Component {
             <div className="note-component-wrapper">
                <div className="create-header">
                <Header text="Edit Note" />
-               <Form note = {this.props.location.state}/>
+               <Form 
+                title={this.props.location.state.title}
+                body={this.props.location.state.body}
+                handleChange={this.props.handleChange}
+                />
                </div>
             </div>
         );
