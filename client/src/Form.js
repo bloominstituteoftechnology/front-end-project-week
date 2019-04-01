@@ -11,7 +11,7 @@ class Form extends Component {
 
     render() {
         return (
-            <div>
+            <div className="edit-create-form">
                 <input type="text" name= "name" className="input-text" value={this.props.title}/>
                 <textarea type="text" name= "body" className="input-text-area" value={this.props.body}/>
                 <div className="button save-button">Save</div>
