@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const AppWrapper = styled.div` 
   display: flex;
   // background-color: #F2F1F2;
-  //height: 100vh;
-  //border: 3px solid blue;
+  height: 100vh;
+  border: 3px solid blue;
 `;
 
 export const LoginWrapper = styled.div`
@@ -223,14 +223,14 @@ export const NotesTitle = styled.h3`
 export const NotesBody = styled.p`
   word-wrap: break-word;
 
-//border: 1px solid orange;
+/* border: 1px solid orange; */
 `;
 
 export const NoteWrapper = styled.div`
   height: 100vh;
   width: 75%;
   padding-left: 15px;
-  //border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 
 export const NoteNav = styled.div`
@@ -238,7 +238,7 @@ export const NoteNav = styled.div`
   justify-content: flex-end;
   margin-right: 10px
   text-decoration: none;
-  // border: 1px solid black;
+  /* // border: 1px solid black; */
 `;
 
 export const NoteButton = styled.button`
@@ -246,7 +246,7 @@ export const NoteButton = styled.button`
   margin-top: 15px;
   margin-right: 10px;
   border: none;
-  //background: #F2F1F2;
+  /* //background: #F2F1F2; */
   text-decoration: underline;
   font-size: 15px;
 `;
@@ -255,16 +255,16 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  // border: 1px solid green;
+  /* // border: 1px solid green; */
 `;
 
 export const ModalContent = styled.div`
-  // display: flex;
-  // justify-content: center;
+  /* // display: flex;
+  // justify-content: center; */
   font-size: 20px;
   text-align: center;
   width: 75%;
-  // border: 1px solid orange;
+  /* // border: 1px solid orange; */
 `;
 
 export const ModalButtons = styled.div`
@@ -272,7 +272,7 @@ export const ModalButtons = styled.div`
   margin-top: 40px;
   display: flex;
   justify-content: space-around;
-  // border: 1px solid blue;
+  border: 1px solid blue;
 `;
 
 export const Buttons = styled.button`
@@ -285,7 +285,7 @@ export const Buttons = styled.button`
   font-weight: bold;
 `;
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.form`
   height: 100vh;
   width: 100%;
   padding: 0 1rem;
@@ -293,14 +293,14 @@ export const FormWrapper = styled.div`
 `;
 
 export const FormHeader = styled.h2`
-  // border: 1px solid green
+   border: 1px solid green;
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid orange
+  border: 1px solid orange;
 `;
 
 export const FormInputTitle = styled.input`

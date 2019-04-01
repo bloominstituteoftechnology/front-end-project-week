@@ -5,14 +5,44 @@ import { FormWrapper, FormHeader, Form, EditFormInputTitle, EditFormInputText, F
 class EditANote extends React.Component {
     constructor(props){
         super(props);
-       
-       
+       this.state = {
+           title: '' || props.title,
+           textBody: '' || props.textBody
+       }
     }
+
+    inputHandler = (event) => {
+        this.setState({
+            [event.target.value]: event.target.value
+        })
+    }
+
+    submitHandler = (event) => {
+        event.preventDefault();
+        this.props.editNote(this.props.match.params.id, {title: this.state.title, text: this.state.textBody})
+        this.setState({
+            title: '',
+            textInput: ''
+        })
+        // this.props.getNote(this.props.params.id)
+        console.log(this.title)
+    }
+
     render(){
+        const note = this.props.notes.find( note  => { return this.props.match.params.id === `${note._id}`})
+        console.log(note)
         return(
             <FormWrapper>
                 <FormHeader>Edit Note</FormHeader>
-                <Form onSubmit={this.props.submitHandler}>
+                    <EditNote
+                        inputHandler={this.inputHandler}
+                        submitHandler={this.submitHandler}
+                        title={this.state.title}
+                        textBody={this.state.textBody}
+                        // id={note._id}
+                        {...this.props}
+                    />
+                {/* <Form onSubmit={this.props.submitHandler}>
                     <EditFormInputTitle
                         className='title'
                         type='text'
@@ -33,7 +63,7 @@ class EditANote extends React.Component {
                         value={this.props.body}
                     />
                     <FormButton>Edit Note</FormButton>
-                </Form>
+                </Form> */}
         </FormWrapper>
         )
     }

@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar';
 import NotesList from '../components/NotesList';
 import Note from '../components/Note';
 import CreateNewNote from '../components/CreateNewNote';
-import EditNote from './EditNote';
+import EditANote from './EditANote';
 import { AppWrapper } from '../style';
 import '../App.css'
 
@@ -57,16 +57,17 @@ class NotesPage extends Component {
       
   }
 
-  editNote = ( data, id) => {
+  editNote = (id, data) => {
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
     .then(res => {
-       {
-        axios.get('https://fe-notes.herokuapp.com/note/get/all')
+       { console.log(data, 'edit')
+        axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then(res => {this.setState({
           notes: res.data
         })})
       }
     })
+
     .catch(err => console.log(err))
     console.log(data, 'data')
   }
@@ -169,14 +170,15 @@ class NotesPage extends Component {
         />
 
         <Route
-          exact path='/edit-note/:id'
+          path='/edit-note/:id'
           render={props => 
-            <EditNote
+            <EditANote
               {...props}
               // note={notes.map(note => note)}
               // text={notes.map(note => note.textBody)}
               editNote={this.editNote}
               geById={this.getNoteById}
+              notes={notes}
             />
           }
         />

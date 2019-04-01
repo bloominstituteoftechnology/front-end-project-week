@@ -27,7 +27,7 @@ class Note extends Component {
 
     render () {
         const note = this.props.notes.find( note  => { return this.props.match.params.id === `${note._id}`})
-            
+            console.log(note)
         return (
             <NoteWrapper>
                 <NoteNav>
