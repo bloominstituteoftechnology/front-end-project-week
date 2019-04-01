@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import CreateNote from './CreateNote';
 import EditNote from './EditNote';
+import { Header }from './Header';
 import NoteList from './NoteList';
 import SingleNoteView from './SingleNoteView';
 import Sidebar from './Sidebar';
