@@ -8,19 +8,19 @@ class NoteCard extends Component {
             <div className="card-container">
                 <h2 className="main-container-header">{this.props.text}</h2>
                 <ul className="card-list">
-                  {this.props.notes.map(element =>{
-                      return(
-                          <li className="card" key={element.id + element.title}>
-                         <Link 
-                            to={{pathname:`/notes/${element.id}`, state: {element}}}>
-                            {element.title}
-                        </Link>
+                {this.props.notes.map(element =>{
+                    return(
+                        <li className="card" key={element._id + element.title}>
+                            <Link 
+                                to={{pathname:`/notes/${element._id}`, state: {element}}}>
+                                {element.title}
+                            </Link>
                             <hr/>
                             {element.body}
-                          </li>
+                        </li>
 
-                      )
-                  })}  
+                    )
+                })}  
                 
                 </ul>
             </div>

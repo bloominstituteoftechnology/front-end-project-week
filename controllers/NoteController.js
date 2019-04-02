@@ -41,7 +41,7 @@ const post = (req, res) => {
         Notes.create({title, body})
             .then(note => {
                 if(!note) {
-                    sendUserError(404, "Note note found", res);
+                    sendUserError(404, "Note not found", res);
                 } else {
                     res.status(200).json(note);
                 }

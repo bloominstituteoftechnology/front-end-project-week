@@ -8,12 +8,13 @@ class EditNote extends Component {
         console.log(this.props);
         return (
             <div className="note-component-wrapper">
-               <div className="create-header">
-               <Header text="Edit Note" />
-               <Form 
-                title={this.props.location.state.title}
-                body={this.props.location.state.body}
-                handleChange={this.props.handleChange}
+                <div className="create-header">
+                <Header text="Editing" span={`${this.props.location.state.title}`} />
+                <Form 
+                    title={this.props.location.state.title}
+                    body={this.props.location.state.body}
+                    id={this.props.location.state._id}
+                    editing={true}
                 />
                </div>
             </div>

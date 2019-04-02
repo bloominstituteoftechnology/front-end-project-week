@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from 'axios';
+
 import "./css/index.css";
 import { Header } from "./Header";
 import { Link } from "react-router-dom";
@@ -11,6 +13,7 @@ class SingleNoteView extends Component {
       note: {}
     };
     this.toggle = this.toggle.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   toggle() {
@@ -23,6 +26,18 @@ class SingleNoteView extends Component {
     this.setState({ note: this.props.location.state.element });
   }
 
+  handleDelete(event) {
+    let promise = axios.delete(`http://localhost:5555/api/notes/${this.state.note._id}`, this.state);
+    promise
+        .then(response => {
+            console.log(response);
+            window.location.reload();
+        })
+        .catch(error => {
+            console.log(error);
+        })
+}
+
   render() {
     return (
       <div className="single-note-component-wrapper">
@@ -30,7 +45,7 @@ class SingleNoteView extends Component {
           <div className="edit-delete-bar">
             <Link
               to={{
-                pathname: `/notes/${this.state.note.id}/edit`,
+                pathname: `/notes/${this.state.note._id}/edit`,
                 state: this.state.note
               }}
               className="link-edit-delete"
@@ -48,7 +63,7 @@ class SingleNoteView extends Component {
                 Are you sure you want to delete this note?
               </h5>
               <div className="modal-footer">
-                <button className="delete-button">Delete</button>
+                <Link to="/"><button onClick={this.handleDelete} className="delete-button">Delete</button></Link>
                 <button className="no-button">No</button>
               </div>
               {/* This div contains all the components of the modal */}
