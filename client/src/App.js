@@ -12,58 +12,70 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      loading: true
     }
 
-    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    let promise = axios.get("http://localhost:5555/api/notes/faker");
+    let promise = axios.get("http://localhost:5555/api/notes/");
 
     promise 
         .then(response => {
-            console.log(response);
-            this.setState({notes: response.data});
+            console.log(response.data);
+            this.setState({notes: response.data, loading: false});
         })
         .catch(error => {
             console.log(error);
         })
 }
 
-  handleChange(event){
-    this.setState({[event.target.name] : event.target.value})
-  }
-
   render() {
-    return (
-      <div className="App">
-        <Sidebar />
-        <Switch>
-          <Route exact path="/" render={props => (
-            <NoteList
-              {...props}
-              notes={this.state.notes}
-            />
-          )}/>
-          <Route exact path="/notes" render={props => (
-            <NoteList
-              {...props}
-              notes={this.state.notes}
-            />
-          )}/>
-          <Route exact path="/notes/:id" component={SingleNoteView}/>
-          <Route exact path="/create" render={props => (
-            <CreateNote
-              {...props}
-              notes={this.state.notes}
-              handleChange={this.handleChange}
-            />
-          )}/>
-          <Route path="/notes/:id/edit" component={EditNote}/>
-        </Switch>
-      </div>
-    );
+    if(this.state.loading === true) {
+      return (
+        <div>
+          <Header style={{margin: '40px'}} text="loading..." color="dark" />
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className="App">
+          <Sidebar />
+          <Switch>
+            <Route exact path="/" render={props => (
+              <NoteList
+                {...props}
+                notes={this.state.notes}
+              />
+            )}/>
+            <Route exact path="/notes" render={props => (
+              <NoteList
+                {...props}
+                notes={this.state.notes}
+              />
+            )}/>
+            <Route exact path="/notes/:id" component={SingleNoteView}/>
+            <Route exact path="/create" render={props => (
+              <CreateNote
+                {...props}
+                notes={this.state.notes}
+                handleChange={this.handleChange}
+              />
+            )}/>
+            <Route path="/notes/:id/edit" render={props => (
+              <EditNote
+                {...props}
+                notes={this.state.notes}
+                handleChange={this.handleChange}
+              />
+            )}/>
+          </Switch>
+        </div>
+      );
+    }
+    
   }
 }
 
