@@ -19,9 +19,20 @@ class App extends Component {
   }
 
   componentDidMount() {
-    let promise = axios.get("http://localhost:5555/api/notes/");
-
-    promise 
+    if(process.env.NODE_ENV === 'development'){
+      let promise = axios.get("http://localhost:5555/api/notes/");
+      promise 
+      .then(response => {
+          console.log(response.data);
+          this.setState({notes: response.data, loading: false});
+      })
+      .catch(error => {
+          console.log(error);
+      })
+    }
+    else {
+      let promise = axios.get("https://notepen.herokuapp.com/api/notes");
+      promise 
         .then(response => {
             console.log(response.data);
             this.setState({notes: response.data, loading: false});
@@ -29,8 +40,8 @@ class App extends Component {
         .catch(error => {
             console.log(error);
         })
+    }
 }
-
   render() {
     if(this.state.loading === true) {
       return (
