@@ -25,17 +25,19 @@ if(process.env.NODE_ENV === "development") {
         console.log(`Connected to ${response.connection.name}`);
     })
     .catch(error => {
-        console.log({Error: err.message})
+        console.log({Error: error.message})
     })
 }
 
 else {
+    console.log(username);
     mongoose.connect(`mongodb://${username}:${password}@ds253094.mlab.com:53094/${prodDatabase}`, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false })
     .then(response => {
+
         console.log(`Connected to ${response.connection.name}`);
     })
     .catch(error => {
-        console.log({Error: err.message})
+        console.log({Error: error.message})
     })
 }
 
