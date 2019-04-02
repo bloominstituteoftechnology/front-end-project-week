@@ -26,27 +26,52 @@ class Form extends Component {
     handleSubmit(event) {
         console.log(this.props, "handleSubmit props");
         if(!this.props.editing) {
-            let promise = axios.post("http://localhost:5555/api/notes/", this.state);
-            promise 
-                .then(response => {
-                    console.log(response);
-                    window.location.reload();
-
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+            if(process.env.NODE_ENV === 'development'){
+                let promise = axios.post(`http://localhost:5555/api/notes`, this.state);
+                promise
+                    .then(response => {
+                        console.log(response);
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            } 
+            else {
+                let promise = axios.post(`https://notepen.herokuapp.com/api/notes/`, this.state);
+                promise
+                    .then(response => {
+                        console.log(response);
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
             }
+        }
         else {
-            let promise = axios.put(`http://localhost:5555/api/notes/${this.state.id}`, this.state);
-            promise
-                .then(response => {
-                    console.log(response);
-                    window.location.reload();
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+            if(process.env.NODE_ENV === 'development'){
+                let promise = axios.put(`http://localhost:5555/api/notes/${this.state.id}`, this.state);
+                promise
+                    .then(response => {
+                        console.log(response);
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+            else {
+                let promise = axios.put(`https://notepen.herokuapp.com/api/notes/${this.state.id}`, this.state);
+                promise
+                    .then(response => {
+                        console.log(response);
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
         }
     }
 

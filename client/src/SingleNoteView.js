@@ -27,7 +27,8 @@ class SingleNoteView extends Component {
   }
 
   handleDelete(event) {
-    let promise = axios.delete(`http://localhost:5555/api/notes/${this.state.note._id}`, this.state);
+    if(process.env.NODE_ENV === "development") {
+      let promise = axios.delete(`http://localhost:5555/api/notes/${this.state.note._id}`, this.state);
     promise
         .then(response => {
             console.log(response);
@@ -36,6 +37,18 @@ class SingleNoteView extends Component {
         .catch(error => {
             console.log(error);
         })
+    }
+    else {
+      let promise = axios.delete(`https://notepen.herokuapp.com/api/notes/${this.state.note._id}`, this.state);
+      promise
+          .then(response => {
+              console.log(response);
+              window.location.reload();
+          })
+          .catch(error => {
+              console.log(error);
+          });
+    } 
 }
 
   render() {
