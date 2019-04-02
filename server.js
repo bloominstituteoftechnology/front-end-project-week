@@ -12,17 +12,32 @@ const jwt = require("jsonwebtoken");
 const noteController = require("./controllers/NoteController");
 const note = require("./controllers/FakerData");
 
-const database = "notesdb";
+const devDatabase = process.env.DEVDB;
+const prodDatabase = process.env.PRODDB;
+const username = process.env.USERNAME;
+const password = process.env.PW;
+
 
 //insert database connection here
-
-mongoose.connect(`mongodb://localhost:27017/${database}`, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false })
+if(process.env.NODE_ENV === "development") {
+    mongoose.connect(`mongodb://localhost:27017/${devDatabase}`, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false })
     .then(response => {
         console.log(`Connected to ${response.connection.name}`);
     })
     .catch(error => {
         console.log({Error: err.message})
     })
+}
+
+else {
+    mongoose.connect(`mongodb://${username}:${password}@ds253094.mlab.com:53094/${prodDatabase}`, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false })
+    .then(response => {
+        console.log(`Connected to ${response.connection.name}`);
+    })
+    .catch(error => {
+        console.log({Error: err.message})
+    })
+}
 
 //middleware
 
