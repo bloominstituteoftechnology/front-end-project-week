@@ -22,7 +22,7 @@ const postRegister = (req, res) => { //this works
         .then((user) => {
         const token = generateToken(user);
 
-        res.status(201).json({username: user.username, race: user.race, token});
+        res.status(201).json({username: user.username, token});
     })
     .catch(err => {
         res.status(500).json({Error: err.message});
