@@ -1,8 +1,12 @@
 
+
+
+
 # Trello URL: "https://trello.com/b/fGW27zpI"
 ## [Backend Deployment](https://notepen.herokuapp.com/api/notes/faker)
 
 ## [Frontend Deployment](https://notepen.netlify.com/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/eb2e0571-f8bb-4d1f-853a-1660bc5804dc/deploy-status)](https://app.netlify.com/sites/notepen/deploys)
 
 # Front End Project Week
 
