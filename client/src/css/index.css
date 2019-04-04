@@ -667,3 +667,108 @@ p {
   font-size: 1.8rem;
   cursor: pointer;
 }
+.register-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  background-color: #F3F3F3;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .register-form {
+    width: 100%;
+    justify-content: center;
+    height: 100vh;
+  }
+}
+.register-form .register-header {
+  width: 50%;
+  height: 600px;
+  margin-bottom: 200px;
+  background-color: #FFFFFF;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 900px) {
+  .register-form .register-header {
+    width: 95%;
+    height: 500px;
+    justify-content: space-between;
+  }
+}
+.register-form .register-header .register-header-h2 {
+  color: #4A4A4A;
+  margin-bottom: 30px;
+}
+@media (max-width: 900px) {
+  .register-form .register-header .register-header-h2 {
+    margin: 20px;
+  }
+}
+.register-form .register-header .input-div {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+@media (max-width: 900px) {
+  .register-form .register-header .input-div {
+    height: 100px;
+    flex-direction: column;
+    width: 85%;
+  }
+}
+.register-form .register-header .input-div .input-text {
+  padding-left: 10px;
+  margin: 10px;
+  height: 100%;
+  width: 45%;
+}
+@media (max-width: 900px) {
+  .register-form .register-header .input-div .input-text {
+    width: 100%;
+    height: 50px;
+  }
+}
+@media (max-width: 900px) {
+  .register-form .register-header .input-div label {
+    align-self: flex-start;
+    width: 85%;
+    font-size: 1.4rem;
+  }
+}
+.register-form .register-header .checkbox-group {
+  width: 50%;
+  margin-bottom: 20px;
+}
+.register-form .register-header .checkbox-group input {
+  margin: 10px;
+  vertical-align: middle;
+}
+.register-form .register-header .account-already {
+  font-size: 1.4rem;
+}
+.register-form .register-header .submit-button {
+  height: 40px;
+  background-color: #2BC1C4;
+  padding: 20px;
+  margin: 20px 0px;
+  font-weight: bold;
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
