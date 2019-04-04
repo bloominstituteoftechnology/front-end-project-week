@@ -68,6 +68,7 @@ class SingleNoteView extends Component {
             <div className="link" onClick={this.toggle}>
               Delete
             </div>
+            <Link to="/login"><div className="link" onClick={this.props.destroyToken}>Signout</div></Link>
             <div /*This div contains all the components of the modal*/
               className={this.state.modal ? "modal-content" : "hidden"}
               onClick={this.toggle}
@@ -82,7 +83,7 @@ class SingleNoteView extends Component {
               {/* This div contains all the components of the modal */}
             </div>
           </div>
-          <Header text={this.state.note.title} />
+          <h1>{this.state.note.title} </h1> 
           <p className="note-body-single">{this.state.note.body}</p>
         </div>
       </div>

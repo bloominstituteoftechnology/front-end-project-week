@@ -14,7 +14,6 @@ const generateToken = (user) => {
     return jwt.sign(payload, secret, options);
 };
 
-
 const postRegister = (req, res) => { //this works
     console.log(req.body);
     User

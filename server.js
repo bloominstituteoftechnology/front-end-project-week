@@ -51,13 +51,14 @@ else {
     const restricted = (req, res, next) => {
         const token = req.headers.authorization;
         const secret = process.env.SECRET;
-
+        console.log("\n\n\ntoken: " + token + "\n\n\nsecret:", secret);
         //if a token exists...let's verify it.
         if(token){
             jwt.verify(token, secret, (err, decodedToken) => {
                 if (err) {
                     return res.status(401).json({message: 'Token was not decoded', err});
                 }
+                console.log(decodedToken);
                 next();
             });
         } else {
@@ -69,7 +70,7 @@ else {
 //global middleware
 //TODO: read up more on cors to fix the options
 const corsOptions = {
-    origin: '*'
+    origin: ['http://localhost:3000', 'https://notepen.netlify.com']
 };
 
 server.use(express.json());
@@ -81,6 +82,10 @@ server.use("/api/auth", authController);
 
 server.get("/", (req, res) => {
 res.status(200).json({SanityCheck: "Sanity check works..."});
+})
+
+server.get("/auth", restricted, (req, res) => {
+    res.status(200).json({AuthSanityCheck: "You have the secret!"})
 })
 
 server.listen(port, ()=>{

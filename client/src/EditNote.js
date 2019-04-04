@@ -9,7 +9,10 @@ class EditNote extends Component {
         return (
             <div className="note-component-wrapper">
                 <div className="create-header">
-                <Header text="Editing" span={`${this.props.location.state.title}`} />
+                <Header 
+                    text="Editing" 
+                    span={`${this.props.location.state.title}`}          destroyToken={this.destroyToken}
+                />
                 <Form 
                     title={this.props.location.state.title}
                     body={this.props.location.state.body}

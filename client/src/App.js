@@ -9,6 +9,7 @@ import NoteList from './NoteList';
 import SingleNoteView from './SingleNoteView';
 import Sidebar from './Sidebar';
 import './css/index.css';
+import Register from './Register';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,11 +18,23 @@ class App extends Component {
       loading: true
     }
 
+    this.destroyToken = this.destroyToken.bind(this);
+
   }
 
   componentDidMount() {
+    // get the token from somewhere
+    const token = localStorage.getItem('jwt');
+
+    // attach the token as the Authorization header
+    const requestOptions = {
+        headers: {
+          Authorization: token,
+        }
+      }
+      console.log(token, requestOptions);
     if(process.env.NODE_ENV === 'development'){
-      let promise = axios.get("http://localhost:5555/api/notes/");
+      let promise = axios.get("http://localhost:5555/api/notes/", requestOptions);
       promise 
       .then(response => {
           console.log(response.data);
@@ -33,7 +46,7 @@ class App extends Component {
       })
     }
     else {
-      let promise = axios.get("https://notepen.herokuapp.com/api/notes");
+      let promise = axios.get("https://notepen.herokuapp.com/api/notes", requestOptions);
       promise 
         .then(response => {
             console.log(response.data);
@@ -44,6 +57,20 @@ class App extends Component {
         })
     }
 }
+
+destroyToken(user){
+  if(localStorage.getItem) {
+    localStorage.removeItem("jwt")
+      .then(response => {
+        console.log(response, "Success");
+      })
+      .catch(error => {
+        console.log(error, "Error");
+      })
+
+  }
+}
+
   render() {
     if(this.state.loading === true) {
       return (
@@ -58,16 +85,20 @@ class App extends Component {
           <Sidebar />
           <Switch>
             <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
             <Route exact path="/" render={props => (
               <NoteList
                 {...props}
                 notes={this.state.notes}
+                destroyToken={this.destroyToken}
               />
             )}/>
             <Route exact path="/notes" render={props => (
               <NoteList
                 {...props}
                 notes={this.state.notes}
+                destroyToken={this.destroyToken}
+
               />
             )}/>
             <Route exact path="/notes/:id" component={SingleNoteView}/>
@@ -75,6 +106,7 @@ class App extends Component {
               <CreateNote
                 {...props}
                 notes={this.state.notes}
+                destroyToken={this.destroyToken}
                 handleChange={this.handleChange}
               />
             )}/>
@@ -83,6 +115,7 @@ class App extends Component {
                 {...props}
                 notes={this.state.notes}
                 handleChange={this.handleChange}
+                destroyToken={this.destroyToken}
               />
             )}/>
           </Switch>

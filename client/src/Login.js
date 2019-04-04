@@ -37,9 +37,9 @@ class Login extends Component {
 
     render() {
         return (
-            <form className="login-form">
+            <form className="login-form" onSubmit={this.handleSubmit}>
                 <div className="login-header">
-                    <Header text="Please login"/>
+                    <Header text="Please login" />
                     <div className="input-div">
                         <label>Username:</label>
                         <input placeholder="Enter username" type="text" name= "username" onChange={this.handleChange} className="input-text" value={this.state.username} required/>
