@@ -381,6 +381,7 @@ p {
 }
 @media (max-width: 900px) {
   .note-component-wrapper {
+    width: 100%;
     justify-content: center;
   }
 }
@@ -402,6 +403,11 @@ p {
 .note-component-wrapper .single-note-header span {
   color: #2BC1C4;
 }
+@media (max-width: 900px) {
+  .note-component-wrapper .single-note-header {
+    padding: 10px;
+  }
+}
 .note-component-wrapper .edit-create-form {
   display: flex;
   flex-direction: column;
@@ -422,7 +428,7 @@ p {
 }
 @media (max-width: 900px) {
   .note-component-wrapper .edit-create-form .input-text {
-    width: 100%;
+    width: 98%;
   }
 }
 .note-component-wrapper .edit-create-form .input-text-area {
@@ -451,21 +457,22 @@ p {
 }
 @media (max-width: 900px) {
   .note-component-wrapper .edit-create-form .save-button {
-    width: 100px;
+    width: calc(80vw);
   }
 }
 .note-component-wrapper .edit-create-form .save-button:hover {
   background-color: #26acaf;
 }
-@media (max-width: 900px) {
-  .note-component-wrapper .edit-create-form .save-button {
-    width: 100%;
-  }
-}
 .single-note-component-wrapper {
   display: flex;
   width: 75%;
   margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .single-note-component-wrapper {
+    width: 100%;
+    height: 100vh;
+  }
 }
 .single-note-component-wrapper .singular-note-container {
   display: flex;
@@ -511,25 +518,42 @@ p {
   box-shadow: 1px 1px 8px #979797;
   /*remove hackiness*/
 }
+@media (max-width: 900px) {
+  .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content {
+    max-width: 50%;
+    position: absolute;
+    padding: 20px;
+    top: 20vh;
+    left: 30vw;
+  }
+}
 .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-header {
   text-align: center;
+  width: 100%;
+  height: 40px;
 }
 .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-footer {
   display: flex;
   justify-content: center;
 }
+@media (max-width: 900px) {
+  .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-footer .delete-button {
   width: 100px;
   height: 40px;
-  color: white;
-  background-color: red;
+  color: #FFFFFF;
+  background-color: #D0021B;
   margin: 20px;
   cursor: pointer;
 }
 .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-footer .no-button {
   width: 100px;
   height: 40px;
-  color: white;
+  color: #FFFFFF;
   background-color: #2BC1C4;
   margin: 20px;
   cursor: pointer;
@@ -545,4 +569,63 @@ p {
   width: 50%;
   line-height: 1.5;
   font-size: 1.4rem;
+}
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  background-color: #F3F3F3;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .login-form {
+    justify-content: center;
+  }
+}
+.login-form .login-header {
+  width: 50%;
+  height: 300px;
+  margin-bottom: 200px;
+  background-color: #FFFFFF;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-form .login-header .login-header-h2 {
+  color: #4A4A4A;
+  margin-bottom: 30px;
+}
+.login-form .login-header .input-div {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.login-form .login-header .input-div .input-text {
+  margin: 10px;
+  height: 80%;
+  width: 45%;
+}
+.login-form .login-header .submit-button {
+  height: 40px;
+  background-color: #2BC1C4;
+  padding: 20px;
+  margin: 20px 0px;
+  font-weight: bold;
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
