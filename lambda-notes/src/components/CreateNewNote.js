@@ -1,53 +1,45 @@
 import React, { Component } from 'react';
-import { FormWrapper, FormHeader, Form, FormInputTitle, FormInputText, FormButton } from '../style';
-
+import { 
+    FormWrapper, 
+    FormHeader, 
+    Form, 
+    FormInputTitle, 
+    FormInputText, 
+    FormButton 
+} from '../style';
 
 class CreateNewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
+            title: '' ,
             textBody: '',
+            titleOne: '',
+            textBodyOne: ''
         }
+        
     }
-
-    
 
     handleChange = event => {
         event.preventDefault();
         this.setState({
             [event.target.name]: event.target.value
         })
-    }
-
-    changeText = (event) => {
-        const { textBody } = this.state.textBody;
-        const newText = {
-          ...textBody,
-          text: event.target.value
-        };
-        this.setState({ textBody: newText });
-      }
+    };
 
     submitHandler = (event) => {
         event.preventDefault();
-        if(this.props.edit) {
-            console.log('clicked')
-            this.props.editNote(
-                this.state,
-                this.props.match.params.id); 
-        } else {
-            this.props.createNote(this.state);
-        }
+        this.props.createNote(this.state);
         this.props.history.push('/')
-        
+        console.log('out else')
     }
 
     render () {
-       console.log(this.state.title)
+        
         return (
             <FormWrapper>
-                <FormHeader>{this.props.edit ? 'Edit Note': 'Create New Note'}</FormHeader>
+                <FormHeader>Create New Note</FormHeader>
+                {/* <FormHeader>{this.props.edit ? 'Edit Note': 'Create New Note'}</FormHeader> */}
                 <Form onSubmit={this.submitHandler}>
                     <FormInputTitle
                         className='title'
@@ -68,7 +60,7 @@ class CreateNewNote extends Component {
                         placeholder='Edit Text'
                         value={this.state.textBody}
                     />
-                    <FormButton>{this.props.edit ? 'Edit Note': 'Save'}</FormButton>
+                    <FormButton>Save</FormButton>
                 </Form>
             </FormWrapper>
         );

@@ -1,7 +1,10 @@
 .login {
-  height: 100vh;
-  background-color: #d3d2d3;
-  border: 1px solid orange;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: url('./kaleidico-754504-unsplash (1).jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .note-page {
@@ -52,4 +55,8 @@
   margin-top: 10px;
   width: 50%;
   border: 1px solid green;
+}
+
+.check-item {
+  border: 1px solid red;
 }

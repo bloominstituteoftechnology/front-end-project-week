@@ -2,38 +2,35 @@ import styled from 'styled-components'
 
 export const AppWrapper = styled.div` 
   display: flex;
-  // background-color: #F2F1F2;
+  /* background-color: #F2F1F2; */
   height: 100vh;
-  border: 3px solid blue;
 `;
 
 export const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  width: 55%;
-  
-  // background-color: #d3d2d3;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   width: 100%;
-  //border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 
 export const LoginHeading = styled.h1`
   font-size: 5rem;
   text-align: center;
+  color: #F2F1F2;
+  justify-content: flex-end;
 `;
 
 export const LoginFormWrapper = styled.div`
   margin: 0 auto;
-  flex-direction: column;
   text-align: center;
   background-color: #F2F1F2;
-  width: 30%;
+  opacity: .88;
+  width: 50%;
+  height: 400px;
   margin-top: 4rem;
-  padding-top: 10px;
-  padding-bottom: 40px;
   border: 1.5px solid #B1B7B8;
 `;
 
@@ -41,8 +38,7 @@ export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  //border: 1px solid red;
+  border: 1px solid red;
 `;
 
 export const LoginFormInputLabel = styled.h4`
@@ -53,6 +49,7 @@ export const LoginFormInputLabel = styled.h4`
 export const LoginFormInput = styled.input`
   width: 55%;
   height: 30px;
+  margin-bottom: 2rem;
   border: 1px solid #B1B7B8;
 `;
 
@@ -63,7 +60,7 @@ export const LoginButton = styled.button`
   font-weight: bold;
   border: 1.5px solid #B1B7B8;
   width: 35%;
-  margin: 20px 0;
+  margin-top: 3rem;
 `;
 
 export const SearchWrapper = styled.div`
@@ -74,7 +71,7 @@ export const SearchInput = styled.input`
   width: 85%;
   height: 40px;
   margin-left: 10px;
-  padding-left 10px;
+  padding-left: 10px;
   border-radius: 3px;
   border: 1.4px solid #C3C2C3;
 `;
@@ -83,13 +80,10 @@ export const NavWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 25%;
-  //height: 100vh;
-  posotion: fixed;
   top: 0;
   left: 0;
   background-color: #d3d2d3;
   border: 1.5px solid #C3C2C3;
-  //border: 1px solid orange;
 `;
 
 export const Nav = styled.div`
@@ -97,15 +91,12 @@ export const Nav = styled.div`
   flex-direction: column;
   width: 100%;
   margin: 0 1rem;
-  //  border: 1px solid green; 
 `;
 export const NavHeader = styled.p`
   font-size: 55px;
   font-weight: bold;
-  // line-height: 3rem;
   margin-top: 0px;
   padding-top: 1.9rem;
-  //border: 1px solid red;
 `;
 
 export const NavContent = styled.div `
@@ -115,7 +106,6 @@ export const NavContent = styled.div `
   height: 150px;
   margin-top: 15px;
   width: 100%;
-  // border: 1px solid orange;
 `;
 
 export const TopNavWrapper = styled.div `
@@ -124,8 +114,8 @@ export const TopNavWrapper = styled.div `
   align-items: center;
   margin-top: 20px;
   width: 50%;
-  //border: 1px solid pink;
 `;
+
 export const DropdownWrapper = styled.div`
   width: 25%;
   height: auto;
@@ -162,8 +152,6 @@ export const DropdownItem = styled.button`
   font-weight: bold;
   border: none;
   background: #26B7BD;
-  // border: 1px solid salmon;
-
   :hover {
     text-decoration: underline;
   }
@@ -172,16 +160,15 @@ export const DropdownItem = styled.button`
 export const NotesView = styled.div`
   width: 80%;
   background-color: #F2F1F2;
-  // height: 100vh;
-  //border: 1px solid red;
 `;
+
 export const NotesHeader = styled.h2 `
   font-size: 35px;
   font-weight: bold;
   margin-top: 100px;
   margin-left: 45px;
-  // border: 1px solid salmon;
 `;
+
 export const NotesWrapper = styled.div`
   display: flex;
   justify-content: space-around;
@@ -236,7 +223,7 @@ export const NoteWrapper = styled.div`
 export const NoteNav = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-right: 10px
+  margin-right: 10px;
   text-decoration: none;
   /* // border: 1px solid black; */
 `;
@@ -259,8 +246,6 @@ export const ModalWrapper = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  /* // display: flex;
-  // justify-content: center; */
   font-size: 20px;
   text-align: center;
   width: 75%;

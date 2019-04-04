@@ -9,13 +9,30 @@ class CheckList extends Component {
         super();
         this.state = {
             list: [],
-            inputText: ''
+            inputText: '',
+            checked: false
         }
     }
-    componentDidUpdate(){
+
+    componentDidMount(){
+        const storedItems = JSON.parse(localStorage.getItem('list'));
+        // const storedItems1 = JSON.parse(localStorage.getItem('checked'));
+
+        if (storedItems  ){
+          this.setState({list: storedItems})
+        } 
+        // if (storedItems1 ){
+        //     this.setState({checked: storedItems1})
+        //   } 
+      }
+    
+      componentDidUpdate(){
         localStorage.setItem('list', JSON.stringify(this.state.list));
+        // localStorage.setItem('checked', JSON.stringify(this.state.checked));
+
       }
 
+     
     handleChange = event => {
         event.preventDefault();
         this.setState({
@@ -23,27 +40,30 @@ class CheckList extends Component {
     })
     }
 
-    addItem = event => {
-        event.preventDefault()
+    handleClick = () => {
         this.setState({
-            list: [
-                ...this.state.list, 
-                { list: this.state.inputText }
-              ],
-              inputText: '[]'
+            checked: !this.state.checked
         })
+    }; 
+
+    addItem = event => {
+        event.preventDefault();
+        if (this.state.inputText.length > 0){
+          this.setState({
+            inputText: '',
+            list: [...this.state.list, this.state.inputText]
+          });
+        }
     }
+
     render () {
+        console.log(this.state.list)
         return (
             <div>
-                <div>
-                    {this.state.list.map((item, index) => <div key={index}>
-                        {item}
-                    </div>)}
-                </div>
+             
                  <form >
                 <input
-                    type='type'
+                    type='text'
                     name='inputText'
                     placeholder='ADD NEW ITEM'
                     value= {this.state.inputText}   //value attribute added so that the 'this.stae controls the data and not the input            
@@ -55,7 +75,19 @@ class CheckList extends Component {
                     </div>    
             </form> 
            
-             
+            <div>
+                    {this.state.list.map((item, index) => 
+                    <div key={index} className='check-item'>
+                        <input
+                            type='checkbox'
+                            onChange={() => this.handleClick}   
+                        />
+                        &nbsp;&nbsp;&nbsp;
+                            {item}
+                        
+                       
+                    </div>)}
+                </div>
             </div>
         )
     }

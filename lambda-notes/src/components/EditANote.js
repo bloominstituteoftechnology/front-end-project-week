@@ -1,69 +1,76 @@
 import React from 'react';
-import EditNote from './EditNote';
-import { FormWrapper, FormHeader, Form, EditFormInputTitle, EditFormInputText, FormInputText, FormButton } from '../style';
+import { 
+    FormWrapper, 
+    FormHeader, 
+    Form, 
+    FormInputTitle, 
+    FormInputText, 
+    FormButton 
+} from '../style';
 
 class EditANote extends React.Component {
     constructor(props){
         super(props);
        this.state = {
-           title: '' || props.title,
-           textBody: '' || props.textBody
+           title: '',
+           textBody: '' 
        }
     }
 
-    inputHandler = (event) => {
+    componentDidMount = () => {
+        const note = this.props.notes.find( note  => { return this.props.match.params.id === `${note._id}`})
+        console.log(note.title)
         this.setState({
-            [event.target.value]: event.target.value
+        title: note.title,
+        textBody: note.textBody
         })
-    }
+    };
+    handleChange = event => {
+        event.preventDefault();
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    };
+
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.editNote(this.props.match.params.id, {title: this.state.title, text: this.state.textBody})
-        this.setState({
-            title: '',
-            textInput: ''
-        })
-        // this.props.getNote(this.props.params.id)
-        console.log(this.title)
+        this.props.editNote(
+            {   
+                title: this.state.title, 
+                textBody: this.state.textBody
+            },
+            this.props.match.params.id
+        )
+        this.props.history.push('/')
     }
 
     render(){
-        const note = this.props.notes.find( note  => { return this.props.match.params.id === `${note._id}`})
-        console.log(note)
         return(
             <FormWrapper>
                 <FormHeader>Edit Note</FormHeader>
-                    <EditNote
-                        inputHandler={this.inputHandler}
-                        submitHandler={this.submitHandler}
-                        title={this.state.title}
-                        textBody={this.state.textBody}
-                        // id={note._id}
-                        {...this.props}
-                    />
-                {/* <Form onSubmit={this.props.submitHandler}>
-                    <EditFormInputTitle
+                   
+                <Form onSubmit={this.submitHandler}>
+                    <FormInputTitle
                         className='title'
                         type='text'
                         maxLength='50'
                         name='title'
-                        onChange={this.props.handleChange}
+                        onChange={this.handleChange}
                         placeholder='Enter Title'
-                        value={this.props.title}
+                        value={this.state.title}
                     />
 
-                    <EditFormInputText
-                        className='text'
-                        type='text'
-                        name='textBody'
-                        required={!this.props.edit}
-                        onChange={this.props.handleChange}
-                        placeholder='Edit Text'
-                        value={this.props.body}
+                    <FormInputText
+                      className='text'
+                      type='text'
+                      name='textBody'
+                      onChange={this.handleChange}
+                      placeholder='Enter Text'
+                      value={this.state.textBody}
                     />
                     <FormButton>Edit Note</FormButton>
-                </Form> */}
+                </Form>
         </FormWrapper>
         )
     }

@@ -10,9 +10,6 @@ import EditANote from './EditANote';
 import { AppWrapper } from '../style';
 import '../App.css'
 
-
-
-
 class NotesPage extends Component {
   constructor(){
     super();
@@ -46,6 +43,7 @@ class NotesPage extends Component {
   createNote  = (data) => {
     axios.post('https://fe-notes.herokuapp.com/note/create/', data)
     .then(res => {
+      console.log(res.data)
       if(res.data.success) {
         axios.get('https://fe-notes.herokuapp.com/note/get/all')
         .then(res => {this.setState({
@@ -57,17 +55,16 @@ class NotesPage extends Component {
       
   }
 
-  editNote = (id, data) => {
+  editNote = (data, id) => {
     axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, data)
     .then(res => {
-       { console.log(data, 'edit')
+        console.log(data, 'edit')
         axios.get(`https://fe-notes.herokuapp.com/note/get/all`)
         .then(res => {this.setState({
           notes: res.data
         })})
-      }
+      
     })
-
     .catch(err => console.log(err))
     console.log(data, 'data')
   }
@@ -87,8 +84,7 @@ class NotesPage extends Component {
    
   }
 
-  handleSearchInput = (event) => {
-    
+  handleSearchInput = (event) => { 
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -170,15 +166,14 @@ class NotesPage extends Component {
         />
 
         <Route
-          path='/edit-note/:id'
+          exact path='/edit-note/:id'
           render={props => 
             <EditANote
               {...props}
-              // note={notes.map(note => note)}
-              // text={notes.map(note => note.textBody)}
+              createNote={this.createNote}
               editNote={this.editNote}
-              geById={this.getNoteById}
               notes={notes}
+              edit
             />
           }
         />
