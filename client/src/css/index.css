@@ -580,7 +580,9 @@ p {
 }
 @media (max-width: 900px) {
   .login-form {
+    width: 100%;
     justify-content: center;
+    height: 100vh;
   }
 }
 .login-form .login-header {
@@ -595,9 +597,21 @@ p {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 900px) {
+  .login-form .login-header {
+    width: 95%;
+    height: 500px;
+    justify-content: space-between;
+  }
+}
 .login-form .login-header .login-header-h2 {
   color: #4A4A4A;
   margin-bottom: 30px;
+}
+@media (max-width: 900px) {
+  .login-form .login-header .login-header-h2 {
+    margin: 20px;
+  }
 }
 .login-form .login-header .input-div {
   height: 50px;
@@ -607,10 +621,34 @@ p {
   align-items: center;
   margin-bottom: 20px;
 }
+@media (max-width: 900px) {
+  .login-form .login-header .input-div {
+    height: 100px;
+    flex-direction: column;
+    width: 85%;
+  }
+}
 .login-form .login-header .input-div .input-text {
+  padding-left: 10px;
   margin: 10px;
-  height: 80%;
+  height: 100%;
   width: 45%;
+}
+@media (max-width: 900px) {
+  .login-form .login-header .input-div .input-text {
+    width: 100%;
+    height: 50px;
+  }
+}
+@media (max-width: 900px) {
+  .login-form .login-header .input-div label {
+    align-self: flex-start;
+    width: 85%;
+    font-size: 1.4rem;
+  }
+}
+.login-form .login-header .account-already {
+  font-size: 1.4rem;
 }
 .login-form .login-header .submit-button {
   height: 40px;
