@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import CreateNote from './CreateNote';
 import EditNote from './EditNote';
 import { Header }from './Header';
+import Login from './Login';
 import NoteList from './NoteList';
 import SingleNoteView from './SingleNoteView';
 import Sidebar from './Sidebar';
@@ -56,6 +57,7 @@ class App extends Component {
         <div className="App">
           <Sidebar />
           <Switch>
+            <Route path="/login" component={Login} />
             <Route exact path="/" render={props => (
               <NoteList
                 {...props}
