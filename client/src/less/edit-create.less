@@ -1,0 +1,80 @@
+.note-component-wrapper {
+    display: flex;
+    width: 75%;
+    background-color: @main-bg;
+    margin: 0;
+    @media @tablet {
+        justify-content: center;
+    }
+    .create-header {
+        display: flex;
+        flex-direction: column;
+        margin-left: 65px;
+        margin-top: 40px;
+        width: 100%;
+            @media @tablet {
+                margin-left: 0;
+            }
+    }
+    .single-note-header {
+        color: @main-font-color;
+        span {
+            color: @scooter;
+        }
+    }
+    .edit-create-form {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        @media @tablet {
+            align-items: center;
+            width: 100%;
+        }
+        .input-text {
+            margin-bottom: 25px;
+            padding-left: 10px;
+            border-radius: 5px;
+            height: 30px;
+            width: 60%;
+            @media @tablet {
+                width: 100%;
+            }
+        }
+        .input-text-area {
+            padding: 10px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            width: 98%;
+            height: 400px;
+        }
+        .save-button {
+            height: 40px;
+            width: 45%;
+            background-color: @main-button-bg;
+            margin: 20px 0px;
+            font-weight: bold;
+            display: flex;
+            align-self: flex-end;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 2px 2px 2px black;
+            border-radius: 5px;
+            text-decoration: none;
+            color: @main-button-color;
+            font-size: 1.8rem;
+            cursor: pointer;
+            @media @tablet {
+                width: 100px;
+            }
+            &:hover {
+                background-color: darken(@main-button-bg, 5%);
+            }
+            @media @tablet {
+                width: 100% 
+            }
+        }
+    }
+}
+
+
+    

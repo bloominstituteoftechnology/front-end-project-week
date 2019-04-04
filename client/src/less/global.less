@@ -40,14 +40,19 @@ p {
     font-size: 1rem;
 }
 
-.container {
-    max-width: 1600px;
+.App {
+    max-width:2400px;
     width: 100%;
+    display: flex;
+    justify-content: center;
     margin: 0 auto;
-
     @media @tablet {
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 2.6%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow: visible;
+        margin: 0;
+        padding: 0;
     }
 }
+

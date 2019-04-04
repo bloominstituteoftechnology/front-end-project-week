@@ -179,36 +179,24 @@ h6 {
 p {
   font-size: 1rem;
 }
-.container {
-  max-width: 1600px;
-  width: 100%;
-  margin: 0 auto;
-}
-@media (max-width: 768px) {
-  .container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 2.6%;
-  }
-}
 .App {
+  max-width: 2400px;
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .App {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     overflow: visible;
-    max-height: 100vh;
-    height: 100%;
     margin: 0;
     padding: 0;
   }
 }
-.App .sidebar-wrapper {
+.sidebar-wrapper {
   display: flex;
   flex-direction: column;
   width: 25%;
@@ -216,8 +204,8 @@ p {
   height: 100vh;
   border-right: 1px solid #979797;
 }
-@media (max-width: 768px) {
-  .App .sidebar-wrapper {
+@media (max-width: 900px) {
+  .sidebar-wrapper {
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -226,13 +214,13 @@ p {
     padding: 0;
   }
 }
-.App .sidebar-wrapper .sidebar-header {
+.sidebar-wrapper .sidebar-header {
   display: flex;
   width: 70%;
   height: 100px;
 }
-@media (max-width: 768px) {
-  .App .sidebar-wrapper .sidebar-header {
+@media (max-width: 900px) {
+  .sidebar-wrapper .sidebar-header {
     width: 100%;
     height: 50px;
     align-items: center;
@@ -240,7 +228,7 @@ p {
     margin-top: 20px;
   }
 }
-.App .sidebar-wrapper .button-container {
+.sidebar-wrapper .button-container {
   height: 50%;
   width: 100%;
   display: flex;
@@ -248,12 +236,12 @@ p {
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 768px) {
-  .App .sidebar-wrapper .button-container {
+@media (max-width: 900px) {
+  .sidebar-wrapper .button-container {
     height: 100px;
   }
 }
-.App .sidebar-wrapper .button-container .button {
+.sidebar-wrapper .button-container .button {
   height: 40px;
   width: 90%;
   background-color: #2BC1C4;
@@ -267,107 +255,93 @@ p {
   box-shadow: 2px 2px 2px black;
   border-radius: 5px;
 }
-@media (max-width: 768px) {
-  .App .sidebar-wrapper .button-container .button {
+@media (max-width: 900px) {
+  .sidebar-wrapper .button-container .button {
     height: 50%;
   }
 }
-.App .sidebar-wrapper .button-container .button a {
+.sidebar-wrapper .button-container .button:hover {
+  background-color: #26acaf;
+}
+.sidebar-wrapper .button-container .button a {
   text-decoration: none;
 }
-.App .sidebar-wrapper .button-container .button a .button-label {
+.sidebar-wrapper .button-container .button a .button-label {
   font-size: 1.8rem;
   text-decoration: none;
   color: #FFFFFF;
 }
-@media (max-width: 768px) {
-  .App .sidebar-wrapper .button-container .view-button {
+@media (max-width: 900px) {
+  .sidebar-wrapper .button-container .view-button {
     display: none;
   }
 }
-@media (max-width: 768px) {
-  .App .sidebar-wrapper .button-container .create-button {
+@media (max-width: 900px) {
+  .sidebar-wrapper .button-container .create-button {
     width: 90%;
     align-items: center;
     padding: 20px;
     text-align: center;
   }
 }
-.App .app-header {
+.app-header {
   display: flex;
   text-decoration: none;
   color: #4A4A4A;
 }
-@media (max-width: 768px) {
-  .App .app-header {
+@media (max-width: 900px) {
+  .app-header {
     width: 100%;
     margin: 0;
     height: 100%;
   }
 }
-.App .app-header .lambda-notes-headline {
+.app-header .lambda-notes-headline {
   align-self: center;
   padding-left: 25px;
   font-weight: bolder;
   font-size: 4rem;
   margin: 0;
 }
-@media (max-width: 768px) {
-  .App .app-header .lambda-notes-headline {
+@media (max-width: 900px) {
+  .app-header .lambda-notes-headline {
     font-size: 3rem;
     width: 100%;
     height: 100%;
     text-align: center;
   }
 }
-.App {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-@media (max-width: 768px) {
-  .App {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    overflow: visible;
-    max-height: 2000px;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-}
-.App .notelist-wrapper {
+.notelist-wrapper {
   display: flex;
   width: 75%;
   margin: 0;
 }
-@media (max-width: 768px) {
-  .App .notelist-wrapper {
+@media (max-width: 900px) {
+  .notelist-wrapper {
     width: 100%;
     height: 100vh;
   }
 }
-.App .notelist-wrapper .card-container {
+.notelist-wrapper .card-container {
   width: 100%;
   background-color: #F3F3F3;
   background-attachment: fixed;
   margin: 0;
   height: 100vmax;
 }
-@media (max-width: 768px) {
-  .App .notelist-wrapper .card-container {
+@media (max-width: 900px) {
+  .notelist-wrapper .card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
-.App .notelist-wrapper .card-container .main-container-header {
+.notelist-wrapper .card-container .main-container-header {
   margin-left: 65px;
   margin-top: 40px;
 }
-@media (max-width: 768px) {
-  .App .notelist-wrapper .card-container .main-container-header {
+@media (max-width: 900px) {
+  .notelist-wrapper .card-container .main-container-header {
     margin-left: 0;
   }
 }
@@ -391,7 +365,7 @@ p {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .card-list .card {
     width: 90%;
   }
@@ -399,4 +373,93 @@ p {
 .card-list .card a {
   text-decoration: none;
   color: #2BC1C4;
+}
+.note-component-wrapper {
+  display: flex;
+  width: 75%;
+  background-color: #F3F3F3;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .note-component-wrapper {
+    justify-content: center;
+  }
+}
+.note-component-wrapper .create-header {
+  display: flex;
+  flex-direction: column;
+  margin-left: 65px;
+  margin-top: 40px;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .note-component-wrapper .create-header {
+    margin-left: 0;
+  }
+}
+.note-component-wrapper .single-note-header {
+  color: #4A4A4A;
+}
+.note-component-wrapper .single-note-header span {
+  color: #2BC1C4;
+}
+.note-component-wrapper .edit-create-form {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+@media (max-width: 900px) {
+  .note-component-wrapper .edit-create-form {
+    align-items: center;
+    width: 100%;
+  }
+}
+.note-component-wrapper .edit-create-form .input-text {
+  margin-bottom: 25px;
+  padding-left: 10px;
+  border-radius: 5px;
+  height: 30px;
+  width: 60%;
+}
+@media (max-width: 900px) {
+  .note-component-wrapper .edit-create-form .input-text {
+    width: 100%;
+  }
+}
+.note-component-wrapper .edit-create-form .input-text-area {
+  padding: 10px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  width: 98%;
+  height: 400px;
+}
+.note-component-wrapper .edit-create-form .save-button {
+  height: 40px;
+  width: 45%;
+  background-color: #2BC1C4;
+  margin: 20px 0px;
+  font-weight: bold;
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .note-component-wrapper .edit-create-form .save-button {
+    width: 100px;
+  }
+}
+.note-component-wrapper .edit-create-form .save-button:hover {
+  background-color: #26acaf;
+}
+@media (max-width: 900px) {
+  .note-component-wrapper .edit-create-form .save-button {
+    width: 100%;
+  }
 }
