@@ -37,12 +37,13 @@ class Login extends Component {
                     <Header text="Please login"/>
                     <div className="input-div">
                         <label>Username:</label>
-                        <input type="text" name= "username" onChange={this.handleChange} className="input-text" value={this.state.username} required/>
+                        <input placeholder="Enter username" type="text" name= "username" onChange={this.handleChange} className="input-text" value={this.state.username} required/>
                     </div>
                     <div className="input-div">
                         <label>Password:</label>
-                        <input type="password" name= "password" onChange={this.handleChange} className="input-text" value={this.state.password} required/>
+                        <input placeholder="Enter password" type="password" name= "password" onChange={this.handleChange} className="input-text" value={this.state.password} required/>
                     </div>
+                    <div className="account-already">Already have an account? Please register <Link>here!</Link></div>
                     
                     <Link to="/" onClick={this.handleSubmit}><div  className="button submit-button">Submit</div></Link>
                 </div>
