@@ -10,14 +10,142 @@
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
 }
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
 html,
 body,
 #root {
-  max-width: 1600px;
-  width: 100%;
-  font-size: 67.5% !important;
-  font-family: 'Raleway', sans-serif;
-  color: #4A4A4A;
+  font-size: 67.5%;
+  font-family: 'Raleway Medium', sans-serif;
   margin: 0 auto;
   padding: 0;
 }
@@ -26,7 +154,9 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Bold', sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 h1 {
   font-size: 4rem;
@@ -49,12 +179,153 @@ h6 {
 p {
   font-size: 1rem;
 }
+.container {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2.6%;
+  }
+}
 .App {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-@media (max-width: 800px) {
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: visible;
+    max-height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+.App .sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  background-color: #D8D8D8;
+  height: 100vh;
+  border-right: 1px solid #979797;
+}
+@media (max-width: 768px) {
+  .App .sidebar-wrapper {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+  }
+}
+.App .sidebar-wrapper .sidebar-header {
+  display: flex;
+  width: 70%;
+  height: 100px;
+}
+@media (max-width: 768px) {
+  .App .sidebar-wrapper .sidebar-header {
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+.App .sidebar-wrapper .button-container {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .App .sidebar-wrapper .button-container {
+    height: 100px;
+  }
+}
+.App .sidebar-wrapper .button-container .button {
+  height: 40px;
+  width: 90%;
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  margin: 20px auto;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 5px;
+}
+@media (max-width: 768px) {
+  .App .sidebar-wrapper .button-container .button {
+    height: 50%;
+  }
+}
+.App .sidebar-wrapper .button-container .button a {
+  text-decoration: none;
+}
+.App .sidebar-wrapper .button-container .button a .button-label {
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+@media (max-width: 768px) {
+  .App .sidebar-wrapper .button-container .view-button {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .App .sidebar-wrapper .button-container .create-button {
+    width: 90%;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+}
+.App .app-header {
+  display: flex;
+  text-decoration: none;
+  color: #4A4A4A;
+}
+@media (max-width: 768px) {
+  .App .app-header {
+    width: 100%;
+    margin: 0;
+    height: 100%;
+  }
+}
+.App .app-header .lambda-notes-headline {
+  align-self: center;
+  padding-left: 25px;
+  font-weight: bolder;
+  font-size: 4rem;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .App .app-header .lambda-notes-headline {
+    font-size: 3rem;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+}
+.App {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 768px) {
   .App {
     flex-direction: column;
     align-items: flex-start;
@@ -71,11 +342,10 @@ p {
   width: 75%;
   margin: 0;
 }
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .App .notelist-wrapper {
     width: 100%;
     height: 100vh;
-    justify-content: center;
   }
 }
 .App .notelist-wrapper .card-container {
@@ -83,23 +353,35 @@ p {
   background-color: #F3F3F3;
   background-attachment: fixed;
   margin: 0;
-  height: 100vh;
+  height: 100vmax;
+}
+@media (max-width: 768px) {
+  .App .notelist-wrapper .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .App .notelist-wrapper .card-container .main-container-header {
   margin-left: 65px;
   margin-top: 40px;
 }
-.App .notelist-wrapper .card-container .card-list {
+@media (max-width: 768px) {
+  .App .notelist-wrapper .card-container .main-container-header {
+    margin-left: 0;
+  }
+}
+.card-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 88%;
   margin-top: 20px;
 }
-.App .notelist-wrapper .card-container .card-list .card {
-  height: 150px;
-  width: 150px;
-  background-color: #ffffff;
+.card-list .card {
+  height: 250px;
+  width: 250px;
+  background-color: #FFFFFF;
   padding: 15px;
   border: 4px double #979797;
   font-size: 1.6rem;
@@ -109,288 +391,12 @@ p {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-@media (max-width: 800px) {
-  .App .notelist-wrapper .card-container .card-list .card {
+@media (max-width: 768px) {
+  .card-list .card {
     width: 90%;
   }
 }
-.App .notelist-wrapper .card-container .card-list .card a {
+.card-list .card a {
   text-decoration: none;
   color: #2BC1C4;
-}
-.App .sidebar-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-  background-color: #D8D8D8;
-  height: 100vh;
-  border-right: 1px solid #979797;
-}
-@media (max-width: 800px) {
-  .App .sidebar-wrapper {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 125px;
-    margin: 0;
-    padding: 0;
-  }
-}
-.App .sidebar-wrapper .sidebar-header {
-  display: flex;
-  width: 70%;
-  height: 125px;
-}
-@media (max-width: 800px) {
-  .App .sidebar-wrapper .sidebar-header {
-    width: 100%;
-    height: 50%;
-    align-items: center;
-    justify-content: center;
-  }
-}
-.App .sidebar-wrapper .sidebar-header .app-header {
-  display: flex;
-  text-decoration: none;
-  color: #4A4A4A;
-}
-@media (max-width: 800px) {
-  .App .sidebar-wrapper .sidebar-header .app-header {
-    width: 100%;
-    margin: 0;
-    height: 100%;
-  }
-}
-.App .sidebar-wrapper .sidebar-header .app-header .lambda-notes-headline {
-  align-self: center;
-  padding-left: 25px;
-  font-weight: bolder;
-  font-size: 4rem;
-  margin: 0;
-}
-@media (max-width: 800px) {
-  .App .sidebar-wrapper .sidebar-header .app-header .lambda-notes-headline {
-    font-size: 3rem;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-  }
-}
-@media (max-width: 800px) {
-  .App .sidebar-wrapper .button-container {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-.App .sidebar-wrapper .button-container .button {
-  height: 40px;
-  width: 90%;
-  background-color: #2BC1C4;
-  color: #ffffff;
-  margin: 20px auto;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 1px 1px 1px black;
-  box-shadow: 2px 2px 2px black;
-  border-radius: 5px;
-}
-@media (max-width: 800px) {
-  .App .sidebar-wrapper .button-container .button {
-    height: 50%;
-  }
-}
-.App .sidebar-wrapper .button-container .button a {
-  text-decoration: none;
-  color: #ffffff;
-}
-.App .sidebar-wrapper .button-container .button a .button-label {
-  font-size: 1.8rem;
-}
-@media (max-width: 800px) {
-  .App .sidebar-wrapper .button-container .view-button {
-    display: none;
-  }
-}
-@media (max-width: 800px) {
-  .App .sidebar-wrapper .button-container .create-button {
-    width: 90%;
-    align-items: center;
-    padding: 5px;
-    text-align: center;
-  }
-}
-.App {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.App .single-note-component-wrapper {
-  display: flex;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-}
-.App .single-note-component-wrapper .singular-note-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 60px;
-  width: 100%;
-  background-color: #F3F3F3;
-  height: 100vmax;
-}
-.App .single-note-component-wrapper .singular-note-container .edit-delete-bar {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  text-decoration: none;
-  font-size: 1.4rem;
-}
-.App .single-note-component-wrapper .singular-note-container .edit-delete-bar .link {
-  padding: 20px;
-  text-decoration: none;
-  cursor: pointer;
-  color: black;
-}
-.App .single-note-component-wrapper .singular-note-container .edit-delete-bar .link-edit-delete {
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-}
-.App .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: fixed;
-  top: 30%;
-  left: 35%;
-  width: 100%;
-  height: 100%;
-  max-width: 600px;
-  max-height: 250px;
-  background-color: white;
-  z-index: 10000;
-  border: 1px solid #979797;
-  box-shadow: 1px 1px 8px #979797;
-  /*remove hackiness*/
-}
-.App .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-header {
-  text-align: center;
-}
-.App .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-footer {
-  display: flex;
-  justify-content: center;
-}
-.App .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-footer .delete-button {
-  width: 100px;
-  height: 40px;
-  color: white;
-  background-color: red;
-  margin: 20px;
-  cursor: pointer;
-}
-.App .single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-footer .no-button {
-  width: 100px;
-  height: 40px;
-  color: white;
-  background-color: #2BC1C4;
-  margin: 20px;
-  cursor: pointer;
-}
-.App .single-note-component-wrapper .singular-note-container .edit-delete-bar .hidden {
-  display: none;
-}
-.App .single-note-component-wrapper .singular-note-container .single-note-header {
-  margin-left: 0px;
-  width: 50%;
-}
-.App .single-note-component-wrapper .singular-note-container .note-body-single {
-  width: 50%;
-  line-height: 1.5;
-  font-size: 1.4rem;
-}
-.App .note-component-wrapper {
-  display: flex;
-  background-color: #F3F3F3;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-}
-@media (max-width: 800px) {
-  .App .note-component-wrapper {
-    justify-content: center;
-  }
-}
-.App .note-component-wrapper .create-header {
-  display: flex;
-  flex-direction: column;
-  padding-left: 25px;
-  width: 75%;
-}
-.App .note-component-wrapper .single-note-header {
-  color: #4A4A4A;
-}
-.App .note-component-wrapper .single-note-header span {
-  color: #22989a;
-}
-.App .note-component-wrapper .edit-create-form {
-  display: flex;
-  flex-direction: column;
-}
-@media (max-width: 800px) {
-  .App .note-component-wrapper .edit-create-form {
-    align-items: center;
-    width: 100%;
-  }
-}
-.App .note-component-wrapper .edit-create-form .input-text {
-  margin-bottom: 25px;
-  padding-left: 10px;
-  border-radius: 5px;
-  height: 30px;
-  width: 60%;
-}
-@media (max-width: 800px) {
-  .App .note-component-wrapper .edit-create-form .input-text {
-    width: 100%;
-  }
-}
-.App .note-component-wrapper .edit-create-form .input-text-area {
-  padding: 10px;
-  margin-bottom: 25px;
-  border-radius: 5px;
-  width: 98%;
-  height: 400px;
-}
-.App .note-component-wrapper .edit-create-form .save-button {
-  height: 40px;
-  width: 45%;
-  background-color: #2BC1C4;
-  margin: 20px 0px;
-  font-weight: bold;
-  display: flex;
-  align-self: flex-end;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 1px 1px 1px black;
-  box-shadow: 2px 2px 2px black;
-  border-radius: 5px;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-@media (max-width: 800px) {
-  .App .note-component-wrapper .edit-create-form .save-button {
-    width: 100%;
-  }
-}
-.App .note-component-wrapper .edit-create-form .save-button:hover {
-  background-color: #22989a;
 }

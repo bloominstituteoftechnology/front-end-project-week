@@ -20,11 +20,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-client/src/less/edit-create.less
-client/src/less/footer.less
-client/src/less/general-styles.less
-client/src/less/index.less
-client/src/less/main-content.less
-client/src/less/mixins.less
-client/src/less/reset.less
-client/src/less/variables.less
+client/src/less/compiled.less
+client/src/css/compiled.css

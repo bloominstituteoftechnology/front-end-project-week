@@ -1,0 +1,53 @@
+// General Styles
+
+* {
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    font-size: 67.5%; 
+    //trick to make 1rem 10px ==> makes the math to figure out rems easier
+    font-family: @font-body, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: @font-heading, sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.2rem;
+}
+h3 {
+    font-size: 2.4rem;
+}
+h4 {
+    font-size: 1.6rem;
+}
+h5 {
+    font-size: 1.4rem;
+}
+h6 {
+    font-size: 1rem;
+}
+p {
+    font-size: 1rem;
+}
+
+.container {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+
+    @media @tablet {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2.6%;
+    }
+}
