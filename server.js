@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 
 const noteController = require("./controllers/NoteController");
+const authController = require("./controllers/AuthController");
 const note = require("./controllers/FakerData");
 
 const devDatabase = process.env.DEVDB;
@@ -76,6 +77,7 @@ server.use(helmet());
 server.use(cors(corsOptions));
 
 server.use("/api/notes", noteController);
+server.use("/api/auth", authController);
 
 server.get("/", (req, res) => {
 res.status(200).json({SanityCheck: "Sanity check works..."});
