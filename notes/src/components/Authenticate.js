@@ -11,7 +11,7 @@ const Authenticate = App => class extends React.Component {
     }
 
     componentDidMount() {
-        if (localStorage.getItem('user') === 'darenlarson') {
+        if (localStorage.getItem('user') !== null) {
             this.setState({ loggedIn: true });
         } else {
             this.setState({ loggedIn: false });
