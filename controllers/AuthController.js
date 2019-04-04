@@ -1,7 +1,7 @@
 const router = require('express').Router();
 require("dotenv").config();
 const jwt = require('jsonwebtoken');
-const User = require('../users/User');
+const User = require('../schemas/AuthSchema');
 
 //unrestricted
 //helper function to generate token
