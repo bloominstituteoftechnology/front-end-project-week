@@ -20,10 +20,15 @@ class Login extends Component {
     }
 
     handleSubmit(event){
-        let promise = axios.post("https://notepen.herokuapp.com/api/auth/login", this.state);
+        event.preventDefault();
+        // let promise = axios.post("https://notepen.herokuapp.com/api/auth/register",
+        let promise = axios.post("http://localhost:5555/api/auth/register", this.state);
         promise 
             .then(response => {
-                console.log(response);
+                console.log(response.data);
+                localStorage.setItem('jwt', response.data.token);
+                this.props.history.push('/notes');
+
             })
             .catch(error => {
                 console.log(error);
@@ -32,7 +37,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="login-form">
+            <form className="login-form">
                 <div className="login-header">
                     <Header text="Please login"/>
                     <div className="input-div">
@@ -47,7 +52,7 @@ class Login extends Component {
                     
                     <Link to="/" onClick={this.handleSubmit}><div  className="button submit-button">Submit</div></Link>
                 </div>
-            </div>
+            </form>
         );
     }
 }
