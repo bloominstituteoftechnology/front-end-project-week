@@ -327,7 +327,6 @@ p {
   background-color: #F3F3F3;
   background-attachment: fixed;
   margin: 0;
-  height: 100vmax;
 }
 @media (max-width: 900px) {
   .notelist-wrapper .card-container {
@@ -462,4 +461,88 @@ p {
   .note-component-wrapper .edit-create-form .save-button {
     width: 100%;
   }
+}
+.single-note-component-wrapper {
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+}
+.single-note-component-wrapper .singular-note-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 60px;
+  width: 100%;
+  background-color: #F3F3F3;
+}
+.single-note-component-wrapper .singular-note-container .edit-delete-bar {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+.single-note-component-wrapper .singular-note-container .edit-delete-bar .link {
+  padding: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+.single-note-component-wrapper .singular-note-container .edit-delete-bar .link-edit-delete {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+.single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 30%;
+  left: 35%;
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  max-height: 250px;
+  background-color: white;
+  z-index: 10000;
+  border: 1px solid #979797;
+  box-shadow: 1px 1px 8px #979797;
+  /*remove hackiness*/
+}
+.single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-header {
+  text-align: center;
+}
+.single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-footer {
+  display: flex;
+  justify-content: center;
+}
+.single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-footer .delete-button {
+  width: 100px;
+  height: 40px;
+  color: white;
+  background-color: red;
+  margin: 20px;
+  cursor: pointer;
+}
+.single-note-component-wrapper .singular-note-container .edit-delete-bar .modal-content .modal-footer .no-button {
+  width: 100px;
+  height: 40px;
+  color: white;
+  background-color: #2BC1C4;
+  margin: 20px;
+  cursor: pointer;
+}
+.single-note-component-wrapper .singular-note-container .edit-delete-bar .hidden {
+  display: none;
+}
+.single-note-component-wrapper .singular-note-container .single-note-header {
+  margin-left: 0px;
+  width: 50%;
+}
+.single-note-component-wrapper .singular-note-container .note-body-single {
+  width: 50%;
+  line-height: 1.5;
+  font-size: 1.4rem;
 }
