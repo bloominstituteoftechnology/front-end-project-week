@@ -1,4 +1,8 @@
-Trello URL: https://trello.com/b/WlJAXboc/lambda-notes-daren-larson
+The front-end of this application was created by myself during a 4 day sprint at Lambda School. It was built to the provided specs below.
+
+The app is deployed here: https://app-lambda-notes.netlify.com/
+
+
 
 # Front End Project Week
 
