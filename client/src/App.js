@@ -4,12 +4,11 @@ import { Route, Switch } from 'react-router-dom';
 import CreateNote from './CreateNote';
 import EditNote from './EditNote';
 import { Header }from './Header';
-import Login from './Login';
 import NoteList from './NoteList';
 import SingleNoteView from './SingleNoteView';
 import Sidebar from './Sidebar';
 import './css/index.css';
-import Register from './Register';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,24 +16,11 @@ class App extends Component {
       notes: [],
       loading: true
     }
-
-    this.destroyToken = this.destroyToken.bind(this);
-
   }
 
   componentDidMount() {
-    // get the token from somewhere
-    const token = localStorage.getItem('jwt');
-
-    // attach the token as the Authorization header
-    const requestOptions = {
-        headers: {
-          Authorization: token,
-        }
-      }
-      console.log(token, requestOptions);
     if(process.env.NODE_ENV === 'development'){
-      let promise = axios.get("http://localhost:5555/api/notes/", requestOptions);
+      let promise = axios.get("http://localhost:5555/api/notes/");
       promise 
       .then(response => {
           console.log(response.data);
@@ -46,7 +32,7 @@ class App extends Component {
       })
     }
     else {
-      let promise = axios.get("https://notepen.herokuapp.com/api/notes", requestOptions);
+      let promise = axios.get("https://notepen.herokuapp.com/api/notes");
       promise 
         .then(response => {
             console.log(response.data);
@@ -56,19 +42,6 @@ class App extends Component {
             console.log(error);
         })
     }
-}
-
-destroyToken(user){
-  if(localStorage.getItem) {
-    localStorage.removeItem("jwt")
-      .then(response => {
-        console.log(response, "Success");
-      })
-      .catch(error => {
-        console.log(error, "Error");
-      })
-
-  }
 }
 
   render() {
@@ -84,20 +57,16 @@ destroyToken(user){
         <div className="App">
           <Sidebar />
           <Switch>
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
             <Route exact path="/" render={props => (
               <NoteList
                 {...props}
                 notes={this.state.notes}
-                destroyToken={this.destroyToken}
               />
             )}/>
             <Route exact path="/notes" render={props => (
               <NoteList
                 {...props}
                 notes={this.state.notes}
-                destroyToken={this.destroyToken}
 
               />
             )}/>
@@ -106,7 +75,6 @@ destroyToken(user){
               <CreateNote
                 {...props}
                 notes={this.state.notes}
-                destroyToken={this.destroyToken}
                 handleChange={this.handleChange}
               />
             )}/>
@@ -115,7 +83,6 @@ destroyToken(user){
                 {...props}
                 notes={this.state.notes}
                 handleChange={this.handleChange}
-                destroyToken={this.destroyToken}
               />
             )}/>
           </Switch>

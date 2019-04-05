@@ -7,7 +7,7 @@ class CreateNote extends Component {
         return (
             <div className="note-component-wrapper">
                 <div className="create-header">
-                    <Header text="Create New Note" destroyToken={this.destroyToken}
+                    <Header text="Create New Note" 
 />
                     <Form 
                         handleChange={this.props.handleChange}

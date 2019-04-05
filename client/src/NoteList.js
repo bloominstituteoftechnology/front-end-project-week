@@ -9,8 +9,7 @@ class NoteList extends Component {
                 <NoteCard 
                     text="Your Notes"
                     notes={this.props.notes}
-                    destroyToken={this.props.destroyToken}
-                    />
+                />
             </div>
         );
     }

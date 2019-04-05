@@ -77,7 +77,7 @@ server.use(express.json());
 server.use(helmet());
 server.use(cors(corsOptions));
 
-server.use("/api/notes", restricted, noteController);
+server.use("/api/notes", noteController);
 server.use("/api/auth", authController);
 
 server.get("/", (req, res) => {

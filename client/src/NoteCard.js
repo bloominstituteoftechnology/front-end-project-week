@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 class NoteCard extends Component {
 
     render() {
+        console.log(this.props.notes);
         return (
             <div className="card-container">
                 <h2 className="main-container-header">{this.props.text}</h2>

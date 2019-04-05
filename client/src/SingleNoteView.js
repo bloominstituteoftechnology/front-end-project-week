@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 import "./css/index.css";
-import { Header } from "./Header";
 import { Link } from "react-router-dom";
 
 class SingleNoteView extends Component {
@@ -68,7 +67,7 @@ class SingleNoteView extends Component {
             <div className="link" onClick={this.toggle}>
               Delete
             </div>
-            <Link to="/login"><div className="link" onClick={this.props.destroyToken}>Signout</div></Link>
+
             <div /*This div contains all the components of the modal*/
               className={this.state.modal ? "modal-content" : "hidden"}
               onClick={this.toggle}

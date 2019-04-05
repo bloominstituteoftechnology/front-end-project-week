@@ -5,13 +5,12 @@ import Form from './Form';
 
 class EditNote extends Component {
     render() {
-        console.log(this.props);
         return (
             <div className="note-component-wrapper">
                 <div className="create-header">
                 <Header 
                     text="Editing" 
-                    span={`${this.props.location.state.title}`}          destroyToken={this.destroyToken}
+                    span={`${this.props.location.state.title}`}
                 />
                 <Form 
                     title={this.props.location.state.title}
