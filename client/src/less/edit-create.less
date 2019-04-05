@@ -4,6 +4,7 @@
     background-color: @main-bg;
     margin: 0;
     @media @tablet {
+        width: 100%;
         justify-content: center;
     }
     .create-header {
@@ -21,6 +22,9 @@
         span {
             color: @scooter;
         }
+        @media @tablet {
+            padding: 10px;
+        }
     }
     .edit-create-form {
         display: flex;
@@ -37,7 +41,7 @@
             height: 30px;
             width: 60%;
             @media @tablet {
-                width: 100%;
+                width: 98%;
             }
         }
         .input-text-area {
@@ -64,13 +68,10 @@
             font-size: 1.8rem;
             cursor: pointer;
             @media @tablet {
-                width: 100px;
+                width: calc(80vw);
             }
             &:hover {
                 background-color: darken(@main-button-bg, 5%);
-            }
-            @media @tablet {
-                width: 100% 
             }
         }
     }

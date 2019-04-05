@@ -5,11 +5,13 @@ import Form from './Form';
 
 class EditNote extends Component {
     render() {
-        console.log(this.props);
         return (
             <div className="note-component-wrapper">
                 <div className="create-header">
-                <Header text="Editing" span={`${this.props.location.state.title}`} />
+                <Header 
+                    text="Editing" 
+                    span={`${this.props.location.state.title}`}
+                />
                 <Form 
                     title={this.props.location.state.title}
                     body={this.props.location.state.body}

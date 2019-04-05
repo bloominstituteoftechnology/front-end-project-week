@@ -8,6 +8,7 @@ import NoteList from './NoteList';
 import SingleNoteView from './SingleNoteView';
 import Sidebar from './Sidebar';
 import './css/index.css';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +16,6 @@ class App extends Component {
       notes: [],
       loading: true
     }
-
   }
 
   componentDidMount() {
@@ -43,6 +43,7 @@ class App extends Component {
         })
     }
 }
+
   render() {
     if(this.state.loading === true) {
       return (
@@ -66,6 +67,7 @@ class App extends Component {
               <NoteList
                 {...props}
                 notes={this.state.notes}
+
               />
             )}/>
             <Route exact path="/notes/:id" component={SingleNoteView}/>
