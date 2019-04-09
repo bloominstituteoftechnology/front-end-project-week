@@ -37,7 +37,7 @@ export const notesReducer = (state = initialState, action) => {
       return { ...state, addingNote: true, };
 
     case COMPLETE_NOTE_ADD:
-      return { ...state, addingNote: false, note: action.payload, };
+      return { ...state, addingNote: false };
 
     case ADD_NOTE_ERROR:
       return { ...state, error: 'Error adding note', addingNote: false, };
@@ -52,7 +52,7 @@ export const notesReducer = (state = initialState, action) => {
       return { ...state, updatingNote: true }
 
     case UPDATED_NOTES:
-      return { ...state, updatingNote: false, note: action.payload }
+      return { ...state, updatingNote: false, }
 
     case DELETING_NOTES:
       return { ...state, deletingNote: true }
