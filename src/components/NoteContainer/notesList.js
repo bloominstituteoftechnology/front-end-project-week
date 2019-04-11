@@ -7,10 +7,10 @@ import SearchBar from '../search/search';
 const NotesList = props => {
     return (
         <div className='notes-wrapper'>
-            <SearchBar 
-            stateSearch={props.searchResult} 
-            searchResults={props.searchResults} 
-            signOutHandler={props.signOutHandler} />
+            <SearchBar
+                stateSearch={props.searchResult}
+                searchResults={props.searchResults}
+                signOutHandler={props.signOutHandler} />
             <h3 className='notes-header'>Your Notes:</h3>
             <div className='all-note-cards'>
                 {props.notes.map(note => (
