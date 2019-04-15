@@ -14,7 +14,7 @@ import Home from "./components/Home";
 import axios from 'axios';
 
 
-const backend = "https://lamb-notes.herokuapp.com/";
+const backend = "https://contact-notes.herokuapp.com/";
 // let backend = 'http://localhost:5000/';
 // let heroku = 'https://lamb-notes.herokuapp.com/';
 // if (typeof(backend) !== 'string') {
