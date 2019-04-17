@@ -2,6 +2,8 @@ The front-end of this application was created by myself during a 4 day sprint at
 
 The app is deployed here: https://app-lambda-notes.netlify.com/
 
+# Technologies Used
+React | React Router | Redux | Redux-Thunk | Styled Components | Markdown to JSX | Axios
 
 
 # Front End Project Week
