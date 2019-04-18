@@ -14,6 +14,8 @@ export const LoginWrapper = styled.div`
   height: 100vh;
   width: 100%;
   /* border: 1px solid red; */
+
+ 
 `;
 
 export const LoginHeading = styled.h1`
@@ -21,6 +23,7 @@ export const LoginHeading = styled.h1`
   text-align: center;
   color: #F2F1F2;
   justify-content: flex-end;
+  text-transform: uppercase;
 `;
 
 export const LoginFormWrapper = styled.div`
@@ -32,13 +35,17 @@ export const LoginFormWrapper = styled.div`
   height: 400px;
   margin-top: 4rem;
   border: 1.5px solid #B1B7B8;
+
+  @media only screen and (max-width: 600px) {
+    width: 80%;
+    border: 1px solid orange;
+  }
 `;
 
 export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid red;
 `;
 
 export const LoginFormInputLabel = styled.h4`
@@ -109,7 +116,7 @@ export const MobileNavContent = styled.div`
 
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
   justify-content: space-around;
   width: 100%;
 }
@@ -118,6 +125,7 @@ export const NavWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 25%;
+  /* height: 100vh; */
   top: 0;
   left: 0;
   background-color: #d3d2d3;
@@ -231,9 +239,6 @@ export const NotesWrapper = styled.div`
   flex-wrap: wrap;
   margin: 0 auto;
   background-color: #F2F1F2;
-
- 
- 
 `;
 
 export const NotesContent = styled.div`
@@ -251,19 +256,18 @@ export const NotesContent = styled.div`
   }
 
   @media only screen and (max-width: 900px) {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(3, 10px); 
-    width: 30%;
-    :hover {
-    transform: scale(1.1);
-  }
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-template-rows: repeat(3, 10px); 
+      width: 30%;
+      :hover {
+      transform: scale(1.1);
+    }
   }
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 600px) {
     width: 45%;
-    border: 1px solid red;
-
+    
     :hover {
       transform: scale(1);
     }
@@ -278,7 +282,7 @@ export const NotesTitle = styled.h3`
   padding-bottom: .5rem;
   border-bottom: 1px solid black;
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 600px) {
     border: none;
   }
 `;
@@ -300,13 +304,6 @@ export const NoteWrapper = styled.div`
 
 export const NoteContent = styled.div`
 padding-left: 1.5rem;
- 
-
-  @media only screen and (max-width: 900px) {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-  }
 `;
 
 export const NoteNav = styled.div`
