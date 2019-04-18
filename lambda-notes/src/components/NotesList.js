@@ -1,6 +1,7 @@
 import React from 'react';
 import Markdown from 'react-markdown';
 import TopNav from './TopNav';
+import MobileNav from './MobileNav';
 
 import { 
     NotesView, 
@@ -28,6 +29,7 @@ class NotesList extends React.Component  {
 
         return(
             <NotesView>
+                <MobileNav/>
                 <TopNav
                     filteredSearch={this.props.filteredSearch}
                     handleSearchInput={this.props.handleSearchInput}

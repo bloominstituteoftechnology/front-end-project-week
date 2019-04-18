@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { 
     FormWrapper, 
-    FormHeader, 
     Form, 
     FormInputTitle, 
     FormInputText, 
     FormButton 
 } from '../style';
+import MobileNav from './MobileNav';
 
 class CreateNewNote extends Component {
     constructor(props) {
@@ -38,7 +38,8 @@ class CreateNewNote extends Component {
         
         return (
             <FormWrapper>
-                <FormHeader>Create New Note</FormHeader>
+                <MobileNav/>
+                <h2>Create New Note</h2>
                 {/* <FormHeader>{this.props.edit ? 'Edit Note': 'Create New Note'}</FormHeader> */}
                 <Form onSubmit={this.submitHandler}>
                     <FormInputTitle
@@ -57,7 +58,7 @@ class CreateNewNote extends Component {
                         name='textBody'
                         required={!this.props.edit}
                         onChange={this.handleChange}
-                        placeholder='Edit Text'
+                        placeholder='Enter Text'
                         value={this.state.textBody}
                     />
                     <FormButton>Save</FormButton>

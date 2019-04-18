@@ -1,7 +1,7 @@
 import React from 'react';
+import MobileNav from './MobileNav';
 import { 
     FormWrapper, 
-    FormHeader, 
     Form, 
     FormInputTitle, 
     FormInputText, 
@@ -48,7 +48,8 @@ class EditANote extends React.Component {
     render(){
         return(
             <FormWrapper>
-                <FormHeader>Edit Note</FormHeader>
+                <MobileNav/>
+                <h2>Edit Note</h2>
                    
                 <Form onSubmit={this.submitHandler}>
                     <FormInputTitle

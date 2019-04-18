@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {Checkbox, CheckboxGroup} from 'react-checkbox-group';
-import { Button, ButtonGroup } from 'reactstrap';
-
-
-
+import {ChecklistWrapper, ChecklistForm, ChecklistContent} from '../style'
 class CheckList extends Component {
     constructor(){
         super();
@@ -57,11 +53,23 @@ class CheckList extends Component {
     }
 
     render () {
-        console.log(this.state.list)
         return (
-            <div>
-             
-                 <form >
+            <ChecklistWrapper>
+                <h3>Checklist</h3>
+             <div>
+                    {this.state.list.map((item, index) => 
+                    <ChecklistContent key={index}>
+                        <input
+                            type='checkbox'
+                            onChange={() => this.handleClick}   
+                        />
+                        &nbsp;&nbsp;&nbsp;
+                            <p>{item}</p>
+                        
+                       
+                    </ChecklistContent>)}
+                </div>
+                 <ChecklistForm >
                 <input
                     type='text'
                     name='inputText'
@@ -73,22 +81,10 @@ class CheckList extends Component {
                 <div className='btns'>
                     <button onClick={this.addItem} className='add-btn'>Add Todo</button>   
                     </div>    
-            </form> 
+            </ChecklistForm> 
            
-            <div>
-                    {this.state.list.map((item, index) => 
-                    <div key={index} className='check-item'>
-                        <input
-                            type='checkbox'
-                            onChange={() => this.handleClick}   
-                        />
-                        &nbsp;&nbsp;&nbsp;
-                            {item}
-                        
-                       
-                    </div>)}
-                </div>
-            </div>
+            
+            </ChecklistWrapper>
         )
     }
 }

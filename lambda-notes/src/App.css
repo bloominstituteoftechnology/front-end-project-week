@@ -25,6 +25,10 @@
    font-weight: bold;
    border: 1px solid #B1B7B8;
 }
+.mobile-nav-link {
+  font-size: 2rem;
+  color: white;
+}
 
 .note-button {
   color: black;

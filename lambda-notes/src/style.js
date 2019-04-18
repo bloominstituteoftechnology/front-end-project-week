@@ -65,6 +65,10 @@ export const LoginButton = styled.button`
 
 export const SearchWrapper = styled.div`
   width: 90%;
+  @media only screen and (max-width: 900px) {
+    width: 30%;
+  }
+  /* border: 1px solid purple; */
 `;
 
 export const SearchInput = styled.input`
@@ -74,8 +78,42 @@ export const SearchInput = styled.input`
   padding-left: 10px;
   border-radius: 3px;
   border: 1.4px solid #C3C2C3;
+
+  @media only screen and (max-width: 900px) {
+      height: 30px;
+      width: 100%;
+     margin-left: 0;
+    }
+`;
+export const MobileNavWrapper = styled.section`
+  display: none;
+
+  @media only screen and (max-width: 900px) {
+    background-color: #26B7BD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    border: 1.4px solid #C3C2C3;
+  }
+
+
 `;
 
+export const MobileNavContent = styled.div`
+@media only screen and (max-width: 900px) {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+
+
+}
+
+@media only screen and (max-width: 400px) {
+  justify-content: space-around;
+  width: 100%;
+}
+`;
 export const NavWrapper = styled.div` 
   display: flex;
   justify-content: center;
@@ -84,6 +122,9 @@ export const NavWrapper = styled.div`
   left: 0;
   background-color: #d3d2d3;
   border: 1.5px solid #C3C2C3;
+  @media only screen and (max-width: 900px) {
+      display: none;
+    }
 `;
 
 export const Nav = styled.div`
@@ -114,6 +155,10 @@ export const TopNavWrapper = styled.div `
   align-items: center;
   margin-top: 20px;
   width: 50%;
+
+  @media only screen and (max-width: 900px) {
+      display: none;
+    }
 `;
 
 export const DropdownWrapper = styled.div`
@@ -160,6 +205,10 @@ export const DropdownItem = styled.button`
 export const NotesView = styled.div`
   width: 80%;
   background-color: #F2F1F2;
+  @media only screen and (max-width: 900px) {
+      width: 100%;
+    }
+
 `;
 
 export const NotesHeader = styled.h2 `
@@ -167,6 +216,13 @@ export const NotesHeader = styled.h2 `
   font-weight: bold;
   margin-top: 100px;
   margin-left: 45px;
+ 
+  @media only screen and (max-width: 900px) {
+      margin-top: 4rem;
+      margin-left: 0;
+      padding-left: 1rem;
+      /* border: 1px solid red; */
+    }
 `;
 
 export const NotesWrapper = styled.div`
@@ -175,9 +231,9 @@ export const NotesWrapper = styled.div`
   flex-wrap: wrap;
   margin: 0 auto;
   background-color: #F2F1F2;
-  // height: auto;
-  // height: 100vh;
-   //border: 1px solid green;
+
+ 
+ 
 `;
 
 export const NotesContent = styled.div`
@@ -188,13 +244,29 @@ export const NotesContent = styled.div`
   height: 270px;
   margin: 10px;
   background-color: #ffff;
+  border: 1.3px solid #BABABA;
   cursor: default;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
-  // border: 2px solid #D3D2D3;
-  
   :hover {
+    transform: scale(1.2);
+  }
+
+  @media only screen and (max-width: 900px) {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, 10px); 
+    width: 30%;
+    :hover {
     transform: scale(1.1);
+  }
+  }
+
+  @media only screen and (max-width: 400px) {
+    width: 45%;
+    border: 1px solid red;
+
+    :hover {
+      transform: scale(1);
+    }
   }
 `;
 
@@ -205,19 +277,36 @@ export const Notes =  styled.div`
 export const NotesTitle = styled.h3`
   padding-bottom: .5rem;
   border-bottom: 1px solid black;
+
+  @media only screen and (max-width: 400px) {
+    border: none;
+  }
 `;
 
 export const NotesBody = styled.p`
   word-wrap: break-word;
-
-/* border: 1px solid orange; */
 `;
 
 export const NoteWrapper = styled.div`
   height: 100vh;
   width: 75%;
   padding-left: 15px;
-  /* border: 1px solid red; */
+
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+    padding-left: 0;
+  }
+`;
+
+export const NoteContent = styled.div`
+padding-left: 1.5rem;
+ 
+
+  @media only screen and (max-width: 900px) {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+  }
 `;
 
 export const NoteNav = styled.div`
@@ -225,7 +314,6 @@ export const NoteNav = styled.div`
   justify-content: flex-end;
   margin-right: 10px;
   text-decoration: none;
-  /* // border: 1px solid black; */
 `;
 
 export const NoteButton = styled.button`
@@ -233,7 +321,6 @@ export const NoteButton = styled.button`
   margin-top: 15px;
   margin-right: 10px;
   border: none;
-  /* //background: #F2F1F2; */
   text-decoration: underline;
   font-size: 15px;
 `;
@@ -242,14 +329,13 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  /* // border: 1px solid green; */
 `;
 
 export const ModalContent = styled.div`
   font-size: 20px;
   text-align: center;
   width: 75%;
-  /* // border: 1px solid orange; */
+
 `;
 
 export const ModalButtons = styled.div`
@@ -257,7 +343,6 @@ export const ModalButtons = styled.div`
   margin-top: 40px;
   display: flex;
   justify-content: space-around;
-  border: 1px solid blue;
 `;
 
 export const Buttons = styled.button`
@@ -270,22 +355,29 @@ export const Buttons = styled.button`
   font-weight: bold;
 `;
 
-export const FormWrapper = styled.form`
-  height: 100vh;
+export const FormWrapper = styled.div`
+  /* height: 100vh; */
   width: 100%;
-  padding: 0 1rem;
-  border: 1px solid green;
+
+  @media only screen and (max-width: 900px) {
+    text-align: center;
+  }
+ 
 `;
 
-export const FormHeader = styled.h2`
-   border: 1px solid green;
-`;
+
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid orange;
+
+  @media only screen and (max-width: 900px) {
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+  }
+ 
 `;
 
 export const FormInputTitle = styled.input`
@@ -293,6 +385,10 @@ export const FormInputTitle = styled.input`
   height: 30px;
   border-radius: 3px;
   border: 1.5px solid #BABABA;
+
+  @media only screen and (max-width: 900px) {
+    width: 80%;
+  }
 `;
 
 export const FormInputText = styled.textarea`
@@ -301,6 +397,10 @@ export const FormInputText = styled.textarea`
   margin-top: 20px;
   border-radius: 3px;
   border: 1.5px solid #BABABA;
+
+  @media only screen and (max-width: 900px) {
+    width: 80%;
+  }
 `;
 
 export const FormButton = styled.button`
@@ -311,22 +411,50 @@ export const FormButton = styled.button`
   color: white;
   font-size: 20px;
   font-weight: bold;
+
+  @media only screen and (max-width: 900px) {
+    background-color:  #d3d2d3;
+    color: #26B7BD;
+    font-size: 3rem;
+    width: 50%;
+  }
 `;
 
-export const EditFormInputTitle = styled.input`
-width: 35%;
-height: 30px;
-border-radius: 3px;
-border: 1.5px solid #BABABA;
-  border: 1px solid red;
+export const ChecklistWrapper = styled.div`
+  margin: 4rem auto 0 auto;
+  padding: 1rem;
+  width: 90%;
+  border: 2px solid #C3C2C3;
+
+  h3 {
+    text-align: center;
+  }
 `;
 
-export const EditFormInputText = styled.input`
-height: 250px;
-width: 50%;
-margin-top: 20px;
-border-radius: 3px;
-border: 1.5px solid #BABABA;
-  border: 1px solid blue;
+export const ChecklistForm = styled.form`
+  display: flex;
+  margin-top: 3rem;
+  /* justify-content: space-around; */
+  /* border: 1px solid #C3C2C3; */
+  /* width: 60%; */
+  input {
+    margin-right: 2rem;
+    padding-left: 10px;
+    border-radius: 3px;
+    border: 1.4px solid #C3C2C3;
+  }
+
+  button {
+    background-color:  #d3d2d3;
+    color: #26B7BD;
+    font-size: 2rem;
+    /* font-size: 3rem; */
+    /* width: 50%; */
+  }
+`;
+
+export const ChecklistContent = styled.div`
+  display: flex;
+  /* border: 1px solid orange; */
 `;
 

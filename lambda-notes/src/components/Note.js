@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import MobileNav from './MobileNav';
 import CheckList from './CheckList';
 import ReactModal from 'react-modal';
 import Markdown from 'react-markdown';
 
 import { 
     NoteWrapper, 
-    NoteNav, 
+    NoteNav,
+    NoteContent, 
     NoteButton, 
     ModalWrapper, 
     ModalContent, 
@@ -33,14 +35,19 @@ class Note extends Component {
             console.log(note)
         return (
             <NoteWrapper>
+                <MobileNav/>
                 <NoteNav>
                     <NavLink to={`/edit-note/${note._id}`} className='note-button'> Edit </NavLink>
                     <NoteButton  onClick={() => {this.toggleModal()}}  className='note-button'>Delete</NoteButton> 
                  </NoteNav>
-                <h2>{note.title}</h2>
-                {console.log(note.title)}
-                <Markdown source={note.textBody}/>
+                 <NoteContent>
+                    <h2>{note.title}</h2>
+                    
+                    <Markdown source={note.textBody}/>
+                 
+               
                 <CheckList />
+                </NoteContent>
                     <ReactModal className='ReactModal' isOpen={this.state.showModal} contentLabel="Minimal Modal Example">
                         <ModalWrapper onClick={this.handleCloseModal}>
                             <ModalContent>

@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import axios from 'axios'
 
 import NavBar from '../components/NavBar';
+import MobileNav from './MobileNav';
 import NotesList from '../components/NotesList';
 import Note from '../components/Note';
 import CreateNewNote from '../components/CreateNewNote';
@@ -126,6 +127,7 @@ class NotesPage extends Component {
     const { notes } = this.state;
     return (
       <AppWrapper>
+        {/* <MobileNav/> */}
         <NavBar />
         
         <Route 
