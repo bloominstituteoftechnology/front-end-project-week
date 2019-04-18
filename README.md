@@ -1,82 +1,63 @@
 
 
+# Lambda Notes Application
 
-
-# Trello URL: "https://trello.com/b/fGW27zpI"
 ## [Backend Deployment](https://notepen.herokuapp.com/api/notes/faker)
 
 ## [Frontend Deployment](https://notepen.netlify.com/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/eb2e0571-f8bb-4d1f-853a-1660bc5804dc/deploy-status)](https://app.netlify.com/sites/notepen/deploys)
 
-# Front End Project Week
+#### Frontend Built Using:
 
-This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
+- React.js
+- Dependencies:
 
-You are to treat this week as if you are working at a company and the instructor is your client. The project managers will be your main support throughout the week.
+ 
+    - [Axios]()
+    - [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
+    - [dotenv](https://www.npmjs.com/package/dotenv)
+    - [react](https://reactjs.org/docs/getting-started.html)
+    - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+    - [reactstrap](https://reactstrap.github.io/)
 
-The main objective of this week is to develop the MVP feature set listed below using react and any other technologies you have learned here at Lambda School. There are design files in this repository you should use as a creative guide.
+- Heroku
+    - [https://www.heroku.com/](https://www.heroku.com/)
 
-## Git Commits
+#### Environmental Variables:
+    ##### Frontend Variables:
+    REACT_APP_TWITTER_URL=URL to your twitter
+    REACT_APP_GITHUB_URL=URL to your github
+    REACT_APP_LINKEDIN_URL=URL to your linked in profile
+    REACT_APP_FORMSPREE_URI=https://formspree.io/your-email
 
-* You are required to showcase progress with at least 1 commit a day. This will let your project manager know where you are and if you need help. This also allows the client to get progress reports from the company in a real world setting.
+Environmental variables are also used to point to the Github Repo and the Deployed Site for each of the portfolio pieces so that information is not in the code. Use the prefix `REACT_APP_` + whatever you want to call your variable to use environmental variables in a React application and just be sure that those vars match in your code. 
 
-## Trello Set Up:
+<p align="center"><a href="#"><strong>Back To Top</strong></a></p>
 
-* [ ] Create a Trello account
-* [ ] Create a new board called "Lambda Notes - {Your Name}"
-* [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-* [ ] Fill in the `To Do` list with the MVP features listed below
-* [ ] Fill in the `backlog` list with all the extra features listed below
-* [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead TA for guidance
-* [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+##### Using the Application
 
-## MVP Features:
+Requirements: 
+- Node
+- Package Manager (such as Yarn or npm)
+    - [**Yarn**](https://yarnpkg.com/en/) was used to build this project.
 
-* [ ] Display a list of notes
-* [ ] Create a note with a title and content
-* [ ] View an existing note
-* [ ] Edit an existing note
-* [ ] Delete an existing note
+Have Node? Have **Yarn** or **npm**?
+Follow these steps:
 
-Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
+1. Fork and clone repo
 
-```markdown
-## Trello Set Up:
+2. Add an `.env` file to the client side at the root of the folder (same level as the `package.json` file). 
 
-* [ ] Create a Trello account
-* [ ] Create a new board called "Lambda Notes - {Your Name}"
-* [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-* [ ] Fill in the `To Do` list with the MVP features listed below
-* [ ] Fill in the `backlog` list with all the extra features listed below
-* [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead TA for guidance
-* [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+3. Add environmental variables for the frontend. 
 
-## MVP Features:
+4. Run `yarn install` to install the necessary node_modules on the frontend. 
 
-* [ ] Display a list of notes
-* [ ] Create a note with a title and content
-* [ ] View an existing note
-* [ ] Edit an existing note
-* [ ] Delete an existing note
-```
+6. Run `yarn start` to run the frontend on `localhost:3000`
 
----
+7. Your application is now running and can be tested locally. 
 
-## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.
+<p align="center"><a href="#"><strong>Back To Top</strong></a></p> 
 
-Once your MVP has been approved, you have been given a feature list that the client would love to have completed. Your goal would be to finish MVP as soon as you can and get working the list of features.
 
-## Extra Features:
 
-* [ ] Re-factor your code to include redux for your state-management
-* [ ] Make the data persist with arrays / object literals (JSON) or a 3rd party service like Firebase
-* [ ] Search functionality
-* [ ] Markdown support in notes
-* [ ] Sorting options in the list view
-* [ ] Create and display tags that can be added to notes
-* [ ] Drag sorting in the list view
-* [ ] Add the ability to have checklists within the note view
-* [ ] Export all notes to a CSV
-* [ ] Create a login system around the MVP
 
-You will notice that this repository does not have any starter code. This is on purpose. You are to start from scratch using any files you have built throughout your time here at Lambda School.
