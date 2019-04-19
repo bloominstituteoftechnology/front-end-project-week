@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import { Modal, ModalBody, ModalFooter, Button } from 'reactstrap'
 
 import './index.css'
-
 
 const URL = 'https://lambda-notes0706.herokuapp.com/api/users'
 
@@ -63,12 +63,15 @@ class Note extends Component {
 
     render() {
       const { note } = this.state
-      
+
       const USER_ID = localStorage.getItem('userId')
-      
+
       if (!note) return <div>Loading note information...</div>
-      
-      const { title, text } = this.state.note
+
+      const {
+        title,
+        text
+      } = this.state.note
 
       const NOTE_ID = this.props.match.params.noteId
 
@@ -94,7 +97,7 @@ class Note extends Component {
               <Link
                 className='deleteLink'
                 to={`/${USER_ID}`}>
-                <Button 
+                <Button
                   className='deleteButton'
                   color='danger'
                   onClick={() => this.removeNote(USER_ID, NOTE_ID)}>
@@ -114,4 +117,15 @@ class Note extends Component {
     }
 }
 
-export default withRouter(Note) 
+Note.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      noteId: PropTypes.string.isRequired
+    })
+  }),
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
+}
+
+export default withRouter(Note)

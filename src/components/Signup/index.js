@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 
@@ -43,12 +44,12 @@ class Signup extends Component {
           password
         } = this.state
 
-        axios.post(URL, { 
+        axios.post(URL, {
           firstname,
           lastname,
           email,
           username,
-          password 
+          password
         }).then(() => {
           this.props.history.push('/login')
         }).catch(err => {
@@ -74,11 +75,11 @@ class Signup extends Component {
     }
 
     OnChange = (event) => {
-      const { 
+      const {
         name,
         value
       } = event.target
-      
+
       if (name === 'firstname') {
         this.setState({
           [name]: value.replace(' ', ''),
@@ -128,13 +129,14 @@ class Signup extends Component {
             <div>
               <input
                 name='firstname'
-                type='text' 
+                type='text'
                 placeholder='First Name'
                 style={this.state.firstnameError
                   ? { borderBottom: '1.5px solid red' }
                   : { borderBottom: '1.5px solid #979797' }}
+                value={firstname}
                 onChange={this.OnChange}
-                value={firstname} />
+              />
               {firstnameError
                 ? <div className='firstnameError'>{firstnameError}</div>
                 : null}
@@ -147,8 +149,9 @@ class Signup extends Component {
                 style={this.state.lastnameError
                   ? { borderBottom: '1.5px solid red' }
                   : { borderBottom: '1.5px solid #979797' }}
+                value={lastname}
                 onChange={this.OnChange}
-                value={lastname} />
+              />
               {lastnameError
                 ? <div className='lastnameError'>{lastnameError}</div>
                 : null}
@@ -161,8 +164,9 @@ class Signup extends Component {
                 style={emailError
                   ? { borderBottom: '1.5px solid red' }
                   : { borderBottom: '1.5px solid #979797' }}
+                value={email}
                 onChange={this.OnChange}
-                value={email} />
+              />
               {emailError
                 ? <div className='emailError'>{emailError}</div>
                 : null}
@@ -171,12 +175,13 @@ class Signup extends Component {
               <input
                 name='username'
                 type='text'
-                onChange={this.OnChange}
                 placeholder='Username'
                 style={usernameError
                   ? { borderBottom: '1.5px solid red' }
                   : { borderBottom: '1.5px solid #979797' }}
-                value={username} />
+                value={username}
+                onChange={this.OnChange}
+              />
               {usernameError
                 ? <div className='usernameError'>{usernameError}</div>
                 : null}
@@ -189,8 +194,9 @@ class Signup extends Component {
                 style={passwordError
                   ? { borderBottom: '1.5px solid red' }
                   : { borderBottom: '1.5px solid #979797' }}
+                value={password}
                 onChange={this.OnChange}
-                value={password} />
+              />
               {passwordError
                 ? <div className='passwordError'>{passwordError}</div>
                 : null}
@@ -203,8 +209,9 @@ class Signup extends Component {
                 style={passwordError
                   ? { borderBottom: '1.5px solid red' }
                   : { borderBottom: '1.5px solid #979797' }}
+                value={passwordMatch}
                 onChange={this.OnChange}
-                value={passwordMatch} />
+              />
               {passwordError
                 ? <div className='passwordError'>{passwordError}</div>
                 : null}
@@ -218,4 +225,10 @@ class Signup extends Component {
     }
 }
 
-export default withRouter(Signup) 
+Signup.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
+}
+
+export default withRouter(Signup)

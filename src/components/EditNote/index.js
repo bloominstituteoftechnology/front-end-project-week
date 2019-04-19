@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
 import './index.css'
@@ -62,7 +63,7 @@ class EditNote extends Component {
       event.preventDefault()
 
       const TOKEN = localStorage.getItem('jwt')
-      
+
       const REQUEST_OPTIONS = {
         headers: {
           Authorization: TOKEN
@@ -103,6 +104,7 @@ class EditNote extends Component {
         text,
         textError,
       } = this.state
+
       return (
         <div className='editNote' >
           <h4>Edit Note: </h4>
@@ -113,8 +115,9 @@ class EditNote extends Component {
               style={this.state.titleError
                 ? { borderBottom: '1.5px solid red' }
                 : { borderBottom: '1.5px solid #979797' }}
+              value={title}
               onChange={this.OnChange}
-              value={title} />
+            />
             {titleError
               ? <div className='titleError'>{titleError}</div>
               : null}
@@ -125,8 +128,9 @@ class EditNote extends Component {
               style={textError
                 ? { borderBottom: '1.5px solid red' }
                 : { borderBottom: '1.5px solid #979797' }}
+              value={text}
               onChange={this.OnChange}
-              value={text} />
+            />
             {textError
               ? <div className='textError'>{textError}</div>
               : null}
@@ -140,4 +144,15 @@ class EditNote extends Component {
     }
 }
 
-export default withRouter(EditNote) 
+EditNote.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      noteId: PropTypes.string.isRequired
+    })
+  }),
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
+}
+
+export default withRouter(EditNote)

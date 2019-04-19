@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 
@@ -26,7 +27,7 @@ class Navigation extends Component {
           ? <Link to={`/${USER_ID}`}>
             <h1>Lambda</h1>
             <h1>Notes</h1>
-          </Link> 
+          </Link>
           : <Link to='/'>
             <h1>Lambda</h1>
             <h1>Notes</h1>
@@ -52,6 +53,12 @@ class Navigation extends Component {
       </div>
     )
   }
+}
+
+Navigation.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
 }
 
 export default withRouter(Navigation)

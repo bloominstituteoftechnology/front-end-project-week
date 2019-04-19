@@ -15,11 +15,11 @@ class Notes extends Component {
       username: '',
       notes: []
     }
-  } 
+  }
 
   componentWillMount() {
     const token = localStorage.getItem('jwt')
-    const REQUEST_OPTIONS = { 
+    const REQUEST_OPTIONS = {
       headers: {
         Authorization: token
       }
@@ -54,7 +54,8 @@ class Notes extends Component {
       .then(res => {
         this.setState({
           username: res.data.username,
-          notes: res.data.notes })
+          notes: res.data.notes
+        })
       })
       .catch(err => {
         alert(`Error: ${err}`)
@@ -105,4 +106,4 @@ class Notes extends Component {
   }
 }
 
-export default withRouter(Notes) 
+export default withRouter(Notes)

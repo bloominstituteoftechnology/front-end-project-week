@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
 import './index.css'
@@ -22,28 +23,30 @@ class Login extends Component {
         usernameOrEmail,
         password
       } = this.state
-      
-      axios.post(URL, { username: usernameOrEmail, email: usernameOrEmail, password })
-        .then(res => {
-          if (res.data.token) {
-            localStorage.setItem('jwt', res.data.token)
-            localStorage.setItem('userId', res.data.id)
-            this.props.history.push(`/${res.data.id}`)
-          }
-        })
-        .catch(err => {
-          if (err.response.status) {
-            if (err.response.status === 401) {
-              this.setState({ invalid: err.response.data })
-            } else if (err.response.status === 400) {
-              this.setState({ invalid: err.response.data[1] })
-            } else {
-              alert(`Error: ${err.response.status} ${err.response.data[1]}`)
-            }
+
+      axios.post(URL, {
+        username: usernameOrEmail,
+        email: usernameOrEmail,
+        password
+      }).then(res => {
+        if (res.data.token) {
+          localStorage.setItem('jwt', res.data.token)
+          localStorage.setItem('userId', res.data.id)
+          this.props.history.push(`/${res.data.id}`)
+        }
+      }).catch(err => {
+        if (err.response.status) {
+          if (err.response.status === 401) {
+            this.setState({ invalid: err.response.data })
+          } else if (err.response.status === 400) {
+            this.setState({ invalid: err.response.data[1] })
           } else {
-            alert(`Error: ${err}`)
+            alert(`Error: ${err.response.status} ${err.response.data[1]}`)
           }
-        })
+        } else {
+          alert(`Error: ${err}`)
+        }
+      })
     }
 
     OnChange = (event) => {
@@ -51,7 +54,7 @@ class Login extends Component {
         name,
         value
       } = event.target
-      
+
       if (name === 'usernameOrEmail') {
         this.setState({
           [name]: value.replace(' ', '').toLowerCase(),
@@ -64,13 +67,14 @@ class Login extends Component {
         })
       }
     }
-    
+
     render() {
       const {
         usernameOrEmail,
         password,
         invalid
       } = this.state
+
       return (
         <div className='login'>
           <form onSubmit={this.submitHandler}>
@@ -82,8 +86,9 @@ class Login extends Component {
                 style={invalid
                   ? { borderBottom: '1.5px solid red' }
                   : { borderBottom: '1.5px solid #979797' }}
+                value={usernameOrEmail}
                 onChange={this.OnChange}
-                value={usernameOrEmail} />
+              />
               {invalid
                 ? <div className='invalid'>{invalid}</div>
                 : null}
@@ -96,8 +101,9 @@ class Login extends Component {
                 style={invalid
                   ? { borderBottom: '1.5px solid red' }
                   : { borderBottom: '1.5px solid #979797' }}
+                value={password}
                 onChange={this.OnChange}
-                value={password} />
+              />
               {invalid
                 ? <div className='invalid'>{invalid}</div>
                 : null}
@@ -111,4 +117,10 @@ class Login extends Component {
     }
 }
 
-export default withRouter(Login) 
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
+}
+
+export default withRouter(Login)
