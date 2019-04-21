@@ -1,22 +1,35 @@
 .navigation {
-    background: #D8D8D8; 
-    border-right: 1.5px solid #979797; 
+    background: #D8D8D8 !important; 
+    border-right: 1.5px solid #979797 !important; 
+    display: flex;
+    flex-direction: column;
     margin: 0; 
-    min-height: 100vh;
-    padding: 10px;  
+    min-height: 100vh !important;
+    padding: 2rem;  
     width: 25%; 
 }
 
-.navigation h1 {
+.navigation-header {
+  margin: 0;
+  width: 100%;
+}
+
+.navigation-header h1 {
     color: #4A4A4A; 
-    font-weight: Robot; 
+    font-size: 3rem;
+    font-weight: bold; 
+}
+
+.navigation-header h1:nth-child(2) {
+  margin: .5rem 0 0 0;
 }
 
 .navigation h1:first-child {
     margin: 0 0 -14px 0; 
 }
 
-.navigation button {
+.navigation .signup,
+.navigation .login {
     background: #2BC1C4; 
     border: 1.5px solid #979797; 
     color: #FFFFFF; 
@@ -34,4 +47,13 @@ a:hover {
 
 .logout {
     background: darkred !important;
+}
+
+@media(max-width: 560px) {
+  .navigation {
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-height: 100% !important;
+    width: 100%;
+  }
 }
