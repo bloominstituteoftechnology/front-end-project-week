@@ -28,7 +28,7 @@
 }
 
 .login form button {
-    background: #2BC1C4; 
+    background: #00ACC1; 
     border: 1.5px solid #979797; 
     color: #FFFFFF; 
     cursor: pointer;
@@ -43,4 +43,11 @@
     font-weight: bold;
     font-size: 9px;
     margin: 0;
+}
+
+@media(max-width: 767px) {
+  .login {
+    width: 100%;
+    min-height: 100vh;
+  }
 }
