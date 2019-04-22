@@ -23,9 +23,5 @@ yarn-error.log*
 #env
 .env
 
-#yarn
-yarn*
-yarn.lock
-
 #vs code
 .vscode/*
