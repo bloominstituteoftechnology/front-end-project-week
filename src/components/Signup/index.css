@@ -83,3 +83,10 @@
     margin: 0 !important; 
     width: 100% !important; 
 }
+
+@media(max-width: 767px) {
+  .signup {
+    width: 100%;
+    min-height: 100vh;
+  }
+}

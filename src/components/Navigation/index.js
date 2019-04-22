@@ -19,7 +19,7 @@ class Navigation extends Component {
     })
   }
 
-  logout = () => {
+  logOut = () => {
     const TOKEN = localStorage.getItem('jwt')
 
     if (TOKEN) {
@@ -41,6 +41,7 @@ class Navigation extends Component {
         ? <NavAuth
           isOpen={isOpen}
           toggle={this.toggle}
+          logOut={this.logOut}
         />
         : <NavNonAuth
           isOpen={isOpen}

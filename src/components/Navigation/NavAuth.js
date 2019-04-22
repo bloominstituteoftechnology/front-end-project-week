@@ -12,13 +12,14 @@ import PropTypes from 'prop-types'
 
 import './index.css'
 
-const NavAuth = ({ isOpen, toggle }) => {
+const NavAuth = ({ isOpen, toggle, logOut }) => {
   const USER_ID = localStorage.getItem('userId')
 
   return (
     <Navbar
       className='navigation'
-      expand='md'>
+      expand='md'
+      light>
       <NavbarBrand
         className='navigation-header'
         tag={Link}
@@ -26,27 +27,30 @@ const NavAuth = ({ isOpen, toggle }) => {
         <h1>Lambda</h1>
         <h1>Notes</h1>
       </NavbarBrand>
-      <NavbarToggler onClick={toggle} />
+      <NavbarToggler
+        className='toggler'
+        onClick={toggle} />
       <Collapse
+        className='navigation-collapse'
         isOpen={isOpen}
         navbar>
         <Nav
-          className='ml-auto'
+          className='navigation-items'
           navbar>
           <NavItem
             tag={Link}
             to={`/${USER_ID}`}>
-            <button>View Your Notes</button>
+            <button className='view-button'>View Notes</button>
           </NavItem>
           <NavItem
             tag={Link}
             to={`/${USER_ID}/createnote`}>
-            <button>+ Create New Note</button>
+            <button className='create-button'>+ Create Note</button>
           </NavItem>
           <NavItem>
             <button
-              className='logout'
-              onClick={this.logout}>
+              className='logout-button'
+              onClick={logOut}>
               Log Out
             </button>
           </NavItem>
@@ -58,7 +62,8 @@ const NavAuth = ({ isOpen, toggle }) => {
 
 NavAuth.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  toggle: PropTypes.func.isRequired
+  toggle: PropTypes.func.isRequired,
+  logOut: PropTypes.func.isRequired
 }
 
 export default NavAuth

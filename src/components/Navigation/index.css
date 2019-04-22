@@ -21,12 +21,15 @@
 }
 
 .toggler {
-  background: #2BC1C4;
+  background: #00ACC1;
 }
 
 .signup-button,
-.login-button {
-    background: #2BC1C4; 
+.login-button,
+.create-button,
+.view-button,
+.logout-button {
+    background: #00ACC1; 
     border: 1.5px solid #979797; 
     color: #FFFFFF; 
     cursor: pointer;
@@ -47,8 +50,8 @@
   width: 100%;
 }
 
-.logout {
-    background: darkred !important;
+.logout-button {
+    background: darkred;
 }
 
 @media(max-width: 767px) {
