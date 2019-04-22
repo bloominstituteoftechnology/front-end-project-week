@@ -32,7 +32,7 @@
 }
 
 .submit {
-    background: #2BC1C4; 
+    background: #00ACC1; 
     border: 1.5px solid #979797;
     color: #FFFFFF; 
     font-family: Raleway; 
@@ -40,4 +40,11 @@
     margin: 28px 0 28 4% !important; 
     padding: 10px; 
     width: 28%; 
+}
+
+@media(max-width: 767px) {
+  .editNote {
+    width: 100%;
+    min-height: 100vh;
+  }
 }

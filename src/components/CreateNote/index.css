@@ -30,11 +30,11 @@
 }
 
 .submit {
-    background: #2BC1C4; 
+    background: #00ACC1; 
     border: 1.5px solid #979797;
     color: #FFFFFF; 
     cursor: pointer;
-    font-family: Raleway; 
+    font-family: Raleway;
     font-weight: bold; 
     margin: 28px 0 28px 4% !important; 
     padding: 10px; 
@@ -55,4 +55,11 @@
     font-weight: bold;
     margin: 0 0 0 4%;
     width: 90%; 
+}
+
+@media(max-width: 767px) {
+  .createNote {
+    width: 100%;
+    min-height: 100vh;
+  }
 }

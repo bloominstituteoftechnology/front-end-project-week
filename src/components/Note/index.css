@@ -48,7 +48,7 @@
 }
 
 .noteButtons span:nth-child(2) {
-    margin: 13px 5% 0 2%; 
+    margin: 12px 5% 0 2%; 
 }
 
 .modal-content {
@@ -90,4 +90,12 @@
     height: 41px; 
     width: 40%; 
     margin: 0 !important; 
+}
+
+@media(max-width: 767px) {
+  .loading,
+  .note {
+    width: 100%;
+    min-height: 100vh;
+  }
 }

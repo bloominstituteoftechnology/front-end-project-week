@@ -68,7 +68,10 @@
   }
 
   .login-button,
-  .signup-button {
+  .signup-button,
+  .create-button,
+  .view-button,
+  .logout-button {
     width: 40%;
   }
 }

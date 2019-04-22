@@ -64,3 +64,11 @@ button {
     background: white; 
     border: none; 
 }
+
+@media(max-width: 767px) {
+  .loading,
+  .notesContainer {
+    width: 100%;
+    min-height: 100vh;
+  }
+}
