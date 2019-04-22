@@ -20,7 +20,7 @@
     padding: 0 5% 0 0; 
 }
 
-@media(max-width: 560px) {
+@media(max-width: 767px) {
   .about {
     width: 100%;
     min-height: 100vh;

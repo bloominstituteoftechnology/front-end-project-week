@@ -1,10 +1,10 @@
 .navigation {
-    background: #D8D8D8 !important; 
-    border-right: 1.5px solid #979797 !important; 
+    background: #D8D8D8; 
+    border-right: 1.5px solid #979797; 
     display: flex;
     flex-direction: column;
     margin: 0; 
-    min-height: 100vh !important;
+    min-height: 100vh;
     padding: 2rem;  
     width: 25%; 
 }
@@ -15,21 +15,17 @@
 }
 
 .navigation-header h1 {
-    color: #4A4A4A; 
-    font-size: 3rem;
-    font-weight: bold; 
+    color: #4A4A4A;
+    font-weight: bold;
+    margin: 0;
 }
 
-.navigation-header h1:nth-child(2) {
-  margin: .5rem 0 0 0;
+.toggler {
+  background: #2BC1C4;
 }
 
-.navigation h1:first-child {
-    margin: 0 0 -14px 0; 
-}
-
-.navigation .signup,
-.navigation .login {
+.signup-button,
+.login-button {
     background: #2BC1C4; 
     border: 1.5px solid #979797; 
     color: #FFFFFF; 
@@ -41,19 +37,35 @@
     width: 100%; 
 }
 
-a:hover {
-    text-decoration: none !important; 
+.navigation-collapse {
+  flex-grow: 0;
+  width: 100%;
+}
+
+.navigation-items {
+  flex-direction: column !important;
+  width: 100%;
 }
 
 .logout {
     background: darkred !important;
 }
 
-@media(max-width: 560px) {
+@media(max-width: 767px) {
   .navigation {
     flex-direction: row;
-    justify-content: space-evenly;
-    min-height: 100% !important;
+    justify-content: space-between;
+    min-height: 100%;
+    padding-bottom: 1rem;
     width: 100%;
+  }
+
+  .navigation-header {
+    width: 0;
+  }
+
+  .login-button,
+  .signup-button {
+    width: 40%;
   }
 }

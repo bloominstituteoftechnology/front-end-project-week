@@ -16,7 +16,8 @@ const NavNonAuth = ({ isOpen, toggle }) => {
   return (
     <Navbar
       className='navigation'
-      expand='sm'>
+      expand='md'
+      light>
       <NavbarBrand
         className='navigation-header'
         tag={Link}
@@ -24,14 +25,23 @@ const NavNonAuth = ({ isOpen, toggle }) => {
         <h1>Lambda</h1>
         <h1>Notes</h1>
       </NavbarBrand>
-      <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
-        <Nav navbar>
-          <NavItem tag={Link} to='/signup'>
-            <button className='signup'>Sign Up</button>
+      <NavbarToggler
+        className='toggler'
+        onClick={toggle} />
+      <Collapse
+        className='navigation-collapse'
+        isOpen={isOpen}
+        navbar>
+        <Nav
+          className='navigation-items'
+          navbar>
+          <NavItem
+            tag={Link}
+            to='/signup'>
+            <button className='signup-button'>Sign Up</button>
           </NavItem>
           <NavItem tag={Link} to='/login'>
-            <button className='login'>Log In</button>
+            <button className='login-button'>Log In</button>
           </NavItem>
         </Nav>
       </Collapse>
