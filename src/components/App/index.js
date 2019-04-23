@@ -18,40 +18,34 @@ class App extends Component {
     const TOKEN = localStorage.getItem('jwt')
     const USER_ID = localStorage.getItem('userId')
     return (
-      <div className="App">
+      <div className="app">
         <Navigation />
         {TOKEN && USER_ID
-          ? <Route
-            exact path='/:userId'
-            component={Notes} />
-          : <Route
-            exact path='/'
-            component={About} />}
-        {TOKEN && USER_ID
-          ? null
-          : <Route
-            exact path='/signup'
-            component={Signup} />}
-        {TOKEN && USER_ID
-          ? null
-          : <Route
-            exact path='/login'
-            component={Login} />}
-        {TOKEN && USER_ID
-          ? <Route
-            exact path='/:userId/createnote'
-            component={CreateNote} />
-          : null}
-        {TOKEN && USER_ID
-          ? <Route
-            exact path='/:userId/notes/:noteId'
-            component={Note} />
-          : null}
-        {TOKEN && USER_ID
-          ? <Route
-            exact path='/:userId/notes/:noteId/editnote'
-            component={EditNote} />
-          : null}
+          ? <div className='content'>
+            <Route
+              exact path='/:userId'
+              component={Notes} />
+            <Route
+              exact path='/:userId/createnote'
+              component={CreateNote} />
+            <Route
+              exact path='/:userId/notes/:noteId'
+              component={Note} />
+            <Route
+              exact path='/:userId/notes/:noteId/editnote'
+              component={EditNote} />
+          </div>
+          : <div className='content'>
+            <Route
+              exact path='/'
+              component={About} />
+            <Route
+              exact path='/signup'
+              component={Signup} />
+            <Route
+              exact path='/login'
+              component={Login} />
+          </div>}
         {TOKEN && USER_ID && window.location.pathname === '/'
           ? <Redirect to={`/${localStorage.getItem('userId')}`} />
           : null}

@@ -1,8 +1,6 @@
 .signup {
-    background: #F3F3F3; 
-    margin: 0; 
-    min-height: 100%; 
-    width: 75%; 
+    background: #F3F3F3;
+    width: 100%;
 }
 
 .signup form {
@@ -82,11 +80,4 @@
     font-size: 9px; 
     margin: 0 !important; 
     width: 100% !important; 
-}
-
-@media(max-width: 767px) {
-  .signup {
-    width: 100%;
-    min-height: 100vh;
-  }
 }
