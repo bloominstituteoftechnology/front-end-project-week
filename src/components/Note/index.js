@@ -66,7 +66,10 @@ class Note extends Component {
 
       const USER_ID = localStorage.getItem('userId')
 
-      if (!note) return <div>Loading note information...</div>
+      if (!note) return (
+        <div className='loading'>
+          <h4>Loading note information...</h4>
+        </div>)
 
       const {
         title,

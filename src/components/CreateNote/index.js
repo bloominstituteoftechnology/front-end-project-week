@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'semantic-ui-react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
@@ -110,10 +111,11 @@ class CreateNote extends Component {
           {textError
             ? <div className='textError'>{textError}</div>
             : null}
-          <input
-            className='submit'
-            type='submit'
-            value='Save' />
+          <Button
+            className='pacific-blue'
+            id='save'>
+            Save
+          </Button>
         </form>
         {notes.length > 0
           ? <Redirect to={`/${USER_ID}/notes/${notes[notes.length - 1]._id}`} />

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import {
   Navbar,
   NavbarBrand,
@@ -8,6 +7,8 @@ import {
   Nav,
   NavItem
 } from 'reactstrap'
+import { Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import './index.css'
@@ -38,10 +39,10 @@ const NavNonAuth = ({ isOpen, toggle }) => {
           <NavItem
             tag={Link}
             to='/signup'>
-            <button className='signup-button'>Sign Up</button>
+            <Button className='pacific-blue'>Sign Up</Button>
           </NavItem>
           <NavItem tag={Link} to='/login'>
-            <button className='login-button'>Log In</button>
+            <Button className='pacific-blue'>Log In</Button>
           </NavItem>
         </Nav>
       </Collapse>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import {
   Navbar,
   NavbarBrand,
@@ -8,6 +7,8 @@ import {
   Nav,
   NavItem
 } from 'reactstrap'
+import { Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import './index.css'
@@ -40,19 +41,19 @@ const NavAuth = ({ isOpen, toggle, logOut }) => {
           <NavItem
             tag={Link}
             to={`/${USER_ID}`}>
-            <button className='view-button'>View Notes</button>
+            <Button className='pacific-blue'>View Notes</Button>
           </NavItem>
           <NavItem
             tag={Link}
             to={`/${USER_ID}/createnote`}>
-            <button className='create-button'>+ Create Note</button>
+            <Button className='pacific-blue'>+ Create Note</Button>
           </NavItem>
           <NavItem>
-            <button
-              className='logout-button'
+            <Button
+              className='milano-red'
               onClick={logOut}>
               Log Out
-            </button>
+            </Button>
           </NavItem>
         </Nav>
       </Collapse>

@@ -1,8 +1,6 @@
 .about {
     background: #F3F3F3; 
-    margin: 0; 
-    min-height: 100%; 
-    width: 75%; 
+    width: 100%;
 }
 
 .about h4 {
@@ -18,11 +16,4 @@
     font-weight: bold; 
     margin: 24px 0 0 5%; 
     padding: 0 5% 0 0; 
-}
-
-@media(max-width: 767px) {
-  .about {
-    width: 100%;
-    min-height: 100vh;
-  }
 }
