@@ -16,7 +16,7 @@ class App extends Component {
   componentDidMount() {
     this.props.getNotes();
   }
-
+// i hate and love react and redux
   render() {
     // Jonathan's tip: might want to put all styled comps inside a file and import from there
 
