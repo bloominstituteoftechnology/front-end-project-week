@@ -24,22 +24,6 @@
   background: #00ACC1;
 }
 
-.signup-button,
-.login-button,
-.create-button,
-.view-button,
-.logout-button {
-    background: #00ACC1; 
-    border: 1.5px solid #979797; 
-    color: #FFFFFF; 
-    cursor: pointer;
-    font-family: Raleway; 
-    font-weight: bold; 
-    padding: 10px; 
-    margin: 15px 0 0 0; 
-    width: 100%; 
-}
-
 .navigation-collapse {
   flex-grow: 0;
   width: 100%;
@@ -48,10 +32,6 @@
 .navigation-items {
   flex-direction: column !important;
   width: 100%;
-}
-
-.logout-button {
-    background: darkred;
 }
 
 @media(max-width: 767px) {
@@ -65,13 +45,5 @@
 
   .navigation-header {
     width: 0;
-  }
-
-  .login-button,
-  .signup-button,
-  .create-button,
-  .view-button,
-  .logout-button {
-    width: 40%;
   }
 }

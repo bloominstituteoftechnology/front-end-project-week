@@ -11,9 +11,9 @@ class EditNote extends Component {
   constructor() {
     super()
     this.state = {
-      title: '',
+      title: null,
       titleError: null,
-      text: '',
+      text: null,
       textError: null,
     }
   }
@@ -104,6 +104,11 @@ class EditNote extends Component {
         text,
         textError,
       } = this.state
+
+      if (title === null && text === null) return (
+        <div className='loading'>
+          <h4>Loading note information...</h4>
+        </div>)
 
       return (
         <div className='editNote' >
