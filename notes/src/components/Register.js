@@ -5,10 +5,12 @@ const Register = (props) => {
     return (
         <div className ='registerpagecontainer'>
             <div className ='rcontent'>
-                <h1>LAMBDA NOTES</h1>
+                <h1>JOTTER</h1>
                 <form onSubmit={props.registerHandler}>
-                    <input placeholder='Username' name='username' onChange={props.changeHandler}/>
-                    <input placeholder='Password' name='password' onChange={props.changeHandler}/>
+                    <div className='inputs'>
+                        <input placeholder='Username' name='username' onChange={props.changeHandler}/>
+                        <input placeholder='Password' name='password' onChange={props.changeHandler}/>
+                    </div>
                     <button onClick={props.registerHandler}>Register</button>
                 </form>
             </div>

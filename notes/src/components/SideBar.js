@@ -10,7 +10,7 @@ const SideBar = (props) => {
     return (
         <div className='sideBarContainer'>
                 <div className ='sideBar'>
-                    <h1>Lambda Notes</h1>
+                    <h1>Jotter</h1>
                     <NavLink to='/notes' activeClassName="selected">
                         <button>View Your Notes</button>
                     </NavLink>

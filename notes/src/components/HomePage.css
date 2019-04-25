@@ -14,7 +14,7 @@
 
 .hpcontent {
     display: flex;
-    width: 30%;
+    width: 300px;
     flex-wrap: wrap;
     justify-content: center;
     height: 30%;

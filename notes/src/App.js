@@ -88,7 +88,7 @@ class App extends Component {
                 this.props.history.push('/notes')
             }
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log("HEY"))
     
   }
 

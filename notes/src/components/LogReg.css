@@ -14,7 +14,6 @@
 }
 
 .loginpagecontainer input {
-    width: 20rem;
     text-align: center;
     margin-bottom: 2rem;
     height: 2rem;
@@ -23,8 +22,17 @@
 .lcontent {
     justify-content: center;
     display: flex;
-    width: 40%;
+    width:  300px;
     flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.lcontent h1 {
+    width: 100%;
+}
+
+.lcontent form {
+    width: 100%;
 }
 
 .registerpagecontainer {
@@ -43,7 +51,6 @@ padding: 0px;
 }
 
 .registerpagecontainer input {
-width: 20rem;
 text-align: center;
 margin-bottom: 2rem;
 height: 2rem;
@@ -52,6 +59,20 @@ height: 2rem;
 .rcontent {
 justify-content: center;
 display: flex;
-width: 40%;
+width:  300px;
 flex-wrap: wrap;
+flex-direction: column;
+}
+
+.rcontent h1 {
+    width: 100%;
+}
+
+.rcontent form {
+    width: 100%;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
 }

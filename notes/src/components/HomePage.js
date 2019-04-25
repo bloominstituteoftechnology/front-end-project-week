@@ -6,7 +6,7 @@ const HomePage = (props) => {
     return (
         <div className ='homepagecontainer'>
             <div className ='hpcontent'>
-                <h1>LAMBDA NOTES</h1>
+                <h1>JOTTER</h1>
                 <NavLink to='/login'>
                     <button>Login</button>
                 </NavLink>
