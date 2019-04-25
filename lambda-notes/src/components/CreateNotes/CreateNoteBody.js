@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {resetCreateNotes, addNotesAction, fetchingSingleNote, fetchingCreatePage} from "../../actions";
 import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv'
+import {FadeLoader} from 'react-spinners';
+import { css } from 'react-emotion';
+
+
+const fadeloader = css`
+    display: block;
+    margin: 5%  auto;
+`;
+
 
 class CreateNoteBody extends React.Component {
 
@@ -35,11 +44,9 @@ fileChangedHandler = (event) => {
 
 addNote = event => {
 	event.preventDefault();
+	this.props.addNotesAction(this.state.title, this.state.content, this.state.selectedFile);
+	//this.setState({title: "", content: "", selectedFile:null});
 
-	this.props.addNotesAction(this.state.title, this.state.content, this.state.selectedFile,()=>{
-		this.setState({title: "", content: "", selectedFile:null});
-	});
-	//this.props.fetchingSingleNote(this.props.id);
 };
 
 
@@ -62,8 +69,14 @@ render() {
         return(
 	<div className="view-list-body desktop-view tablet-view">
                 <LambdaLeftDiv createNotesReset={this.createNotesReset}/>
-
-
+		
+		<div className="note-card-container">{this.props.addingNote ? (
+		<div>
+		<h4 className="note-save-message">Saving Note</h4>	
+                <FadeLoader  className={fadeloader}    color={'#36D7B7'}  size={200} />
+		</div>
+                ) :(
+		
                 <div className="note-card-container">{this.props.fetchedSingleNote? (
 		<div>	
 		<h4 className="note-save-message">New Note Created</h4>
@@ -83,7 +96,8 @@ render() {
 		<input onChange={this.changeHandler} className="title-style" type="text" name="title" placeholder="Note Title" value={this.state.title} required /><br />
                
 	       <textarea onChange={this.changeHandler} className="content-style" type="text" name="content" placeholder="Note Content" value={this.state.content} required></textarea><br />
-
+		
+		<h5 className="new-note-title">Add image</h5>	
 		<input type="file" className="image-field" onChange={this.fileChangedHandler} required/><br />
 
 		<button type="submit"  className="save-btn">Save</button>
@@ -92,6 +106,9 @@ render() {
 		</div>
 		)}
                 </div>
+		)}
+		</div>
+		
 </div>
 
         );
@@ -104,6 +121,7 @@ const mapStateToProps = state => {
   return {
           fetching: state.fetchingNotes,
 	  saved: state.noteSaved,
+	  addingNote: state.addingNote,
 	  id: state.id, //state.id.success
 	  single: state.singleNote,
 	  fetchedSingleNote: state.fetchedSingleNote

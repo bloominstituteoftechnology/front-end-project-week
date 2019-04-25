@@ -20,7 +20,7 @@ super(props);
 render() {
     return (
       <div className="App">
-	 <Route exact  path="/" component={Login} />   
+	<Route exact  path="/" render={(props) => <ViewNotesContainer {...props} />} />   
       	<Route exact  path="/notes" render={(props) => <ViewNotesContainer {...props} />} />
         <Route exact path="/add" render={(props) => <CreateNoteContainer {...props} />} />	   
 	<Route exact path="/note/:id" render={(props) => <EachNoteBody {...props} />} />

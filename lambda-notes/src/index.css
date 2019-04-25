@@ -193,9 +193,10 @@ body {
 
 .view-list-body{
 	margin: 15px 10px 0px 10px;
-	border: 1px solid #979797;
+	/*border: 1px solid #979797;
+	border-bottom: none;*/
 	display: flex;
-	 min-height: 800px;
+	min-height: 800px;
 	height: auto;
 }
 
@@ -207,7 +208,7 @@ body {
 .left-div{
 	width: 200px;
 	background-color: #fff;/*#D8D8D8;*/
-	/*height: 2000px;*/
+	height: 1%%;
 	border-right: 1px solid #979797;
 
 }
@@ -282,3 +283,4 @@ body {
         padding-left: 4px;
         font-size: 0.8rem;
 }
+

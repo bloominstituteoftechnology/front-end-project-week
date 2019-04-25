@@ -92,7 +92,7 @@ export const resetCreateNotes = () => {
 export const addNotesAction = (title, content, file) => {
 	const note= {title: title, content: content};
 	
-
+	
 	let data = new FormData();
 	data.append('title', title);
 	data.append('content', content);

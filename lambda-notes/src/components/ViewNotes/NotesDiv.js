@@ -58,7 +58,7 @@ render() {
 	
 	return (
 
-	<div className="view-list-body">
+	<div className="view-list-body desktop-view">
                 <LambdaLeftDiv viewNotesHandler={this.viewNotesHandler}/>
 
 
@@ -71,8 +71,9 @@ render() {
         ) :(
 	
 	<div>
+	{this.props.notes.length ==0 ? (<h1>No search match</h1>):(
+	<div>
 	<h3 className="card-body-title">Your Notes:</h3>
-	
 	<CardDeck>{this.props.notes.map(note =>{
 
      	return(	
@@ -88,8 +89,9 @@ render() {
 	  
       </Card>
       </div></Link>)
-	})}
+	})}	
     </CardDeck>
+	</div>)}
 		</div>
 	)}
 		</div>

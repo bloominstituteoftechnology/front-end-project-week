@@ -16,21 +16,11 @@ const fadeloader = css`
 `;
 
 
-
-
-
-
-
-
 const Image = styled.img`
         margin-top: 4%;
         margin-bottom: 1%;
 	max-height: 300px;
 `
-
-
-
-
 
 class EachNoteBody extends React.Component {
 
@@ -66,7 +56,7 @@ deleteNote = event => {
 
 render() {
 	return(
- 		<div className="view-list-body  tablet-view">
+ 		<div className="view-list-body desktop-view  tablet-view">
                 <LambdaLeftDiv />
 		<div className="note-card-container">
 		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(			

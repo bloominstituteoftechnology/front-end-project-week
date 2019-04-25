@@ -62,16 +62,16 @@ constructor(props){
 		
 			username:"",
 			password:"",
-			logged: false
+			logged: true
         };
 
 }
 
 componentDidMount() {
-        const token = localStorage.getItem('token');
+        /*const token = localStorage.getItem('token');
         if (token) {
             this.setState({logged: true});
-        }
+        }*/
     }
 
 
@@ -162,7 +162,6 @@ render() {
 		<Button onClick={(event)=>this.loginHandler(event)}>login</Button>
 		<Button onClick={(event)=>this.registerHandler(event)}>register</Button>
 		</form>
-		<Button onClick={(event)=>this.googleHandler(event)}>login with google</Button>	
 		</LoginDiv>	
                 )}
         </div>
