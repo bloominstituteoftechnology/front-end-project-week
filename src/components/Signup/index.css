@@ -13,7 +13,7 @@ form input {
     font-weight: bold; 
     height: 47px;
     margin: 14px 0 0 0;
-    width: 30%;  
+    width: 40%;  
 }
 
 form input:first-child {
@@ -52,5 +52,5 @@ form input:first-child {
 
 .register-button {
   margin: 14px 0 0 0 !important;
-  width: 30%;
+  width: 40%;
 }
