@@ -4,11 +4,18 @@ import {resetCreateNotes, addNotesAction, fetchingSingleNote, fetchingCreatePage
 import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv'
 import {FadeLoader} from 'react-spinners';
 import { css } from 'react-emotion';
-
+import styled from 'styled-components';
 
 const fadeloader = css`
     display: block;
     margin: 5%  auto;
+`;
+
+
+const Image = styled.img`
+        margin-top: 4%;
+        margin-bottom: 1%;
+        max-height: 300px;
 `;
 
 
@@ -84,7 +91,7 @@ render() {
 
 		<h3 className="single-note-title">{this.props.single.title}</h3>
                 <div className="single-note-container">{this.props.single.content}</div>
-		<img src={this.props.single.image} alt="" />			
+		<Image src={this.props.single.image} alt={this.props.single.title} />	
 		</div>
 
 		):(
