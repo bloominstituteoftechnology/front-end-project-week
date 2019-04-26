@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {resetCreateNotes, addNotesAction, fetchingSingleNote, fetchingCreatePage} from "../../actions";
-import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv'
+import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv';
 import {FadeLoader} from 'react-spinners';
 import { css } from 'react-emotion';
 import styled from 'styled-components';
+import NavBar from '../NavBar/NavBar';
 
 const fadeloader = css`
     display: block;
@@ -74,9 +75,9 @@ if (prevProps.saved !== this.props.saved){
 
 render() {
         return(
+
 	<div className="view-list-body desktop-view tablet-view">
-                <LambdaLeftDiv createNotesReset={this.createNotesReset}/>
-		
+		<NavBar/>
 		<div className="note-card-container">{this.props.addingNote ? (
 		<div>
 		<h4 className="note-save-message">Saving Note</h4>	
@@ -84,7 +85,7 @@ render() {
 		</div>
                 ) :(
 		
-                <div className="note-card-container">{this.props.fetchedSingleNote? (
+                <div className="create-card-container">{this.props.fetchedSingleNote? (
 		<div>	
 		<h4 className="note-save-message">New Note Created</h4>
 		

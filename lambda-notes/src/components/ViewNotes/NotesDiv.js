@@ -9,7 +9,7 @@ import LambdaLeftDiv from './LambdaLeftDiv';
 import Search from './Search';
 import {FadeLoader} from 'react-spinners';
 import { css } from 'react-emotion';
-
+import NavBar from '../NavBar/NavBar';
 
 const fadeloader = css`
     display: block;
@@ -56,7 +56,7 @@ render() {
 	return (
 
 	<div className="view-list-body desktop-view">
-                <LambdaLeftDiv viewNotesHandler={this.viewNotesHandler}/>
+        <NavBar/>
 
 
 	<div className="note-card-container">
@@ -70,7 +70,7 @@ render() {
 	<div>
 	{this.props.notes.length ==0 ? (<h1>No search match</h1>):(
 	<div>
-	<h3 className="card-body-title">Your Notes:</h3>
+	<h3 className="card-body-title">All Notes</h3>
 	<CardDeck>{this.props.notes.map(note =>{
 
      	return(	

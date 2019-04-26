@@ -2,7 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #fff!important;
 }
+
+
 
 @media(max-width: 768px){
 	.view-list-body{
@@ -15,7 +18,8 @@ body {
 	}
 
 	.note-card-container{
-		     width: 100%;	
+		     width: 100%;
+		     padding-top: 14%!important;
 	}
 	.content-style{
         	height: 200px!important;
@@ -33,12 +37,17 @@ body {
                 width: 100%;
         }
 
+	.note-card-container{
+        	padding-top: 14%!important;
+
+	}
+
 }
 
 .search-bar{
 	width: 45%;
 	height: 30px;
-	margin-top: 1%;
+	/*margin-top: 6%;/*1%*/
 	border-radius: 3px;
 	border: 1px solid #30B8BC;
 	color: gray;
@@ -57,7 +66,7 @@ body {
 
 .note-save-message, .delete-note-message{
 	color: #30B8BC;
-	margin-top: 20px;
+	/*margin-top: 6%; /*20px;*/
 }
 
 
@@ -115,7 +124,7 @@ body {
 
 
 .new-note-title{
-	   margin: 30px 0px 20px 25px;
+	   margin: 0px 0px 20px 25px;   /*6% was 30px*/
 
 }
 
@@ -123,11 +132,27 @@ body {
 	/*display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;*/
+
 	background-color: #fff; /*#F3F3F3;*/
 	width: 100%;
 	min-height: 800px;
         height: auto;
+	padding-top: 6%;
 }
+
+
+.create-card-container {
+    background-color: #fff;
+    width: 100%;
+    min-height: 800px;
+    height: auto;
+    padding-top: 1%;
+}
+
+
+
+
+
 
 .card-title-div{
 	border-bottom: 1px solid #979797;
@@ -208,8 +233,8 @@ body {
 .left-div{
 	width: 200px;
 	background-color: #fff;/*#D8D8D8;*/
-	height: 1%%;
-	border-right: 1px solid #979797;
+	height: auto;/*100%*/
+	/*border-right: 1px solid #979797;*/
 
 }
 

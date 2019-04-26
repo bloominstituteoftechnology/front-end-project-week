@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {addNotesAction} from "../../actions";
 import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv'
 import {fetchingSingleNote, editNoteAction} from "../../actions";
+import NavBar from '../NavBar/NavBar';
 
 class EditNoteBody extends React.Component {
 
@@ -36,7 +37,7 @@ changeHandler = event => {
 render() {
         return(
                 <div className="view-list-body desktop-view tablet-view">
-                <LambdaLeftDiv />
+                <NavBar />
                 <div className="note-card-container">
                 <div>{this.props.edited ? 
 		(<div>

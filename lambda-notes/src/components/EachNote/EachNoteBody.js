@@ -8,7 +8,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import styled from 'styled-components';
 import {FadeLoader} from 'react-spinners';
 import { css } from 'react-emotion';
-
+import NavBar from '../NavBar/NavBar';
 
 const fadeloader = css`
     display: block;
@@ -57,7 +57,7 @@ deleteNote = event => {
 render() {
 	return(
  		<div className="view-list-body desktop-view  tablet-view">
-                <LambdaLeftDiv />
+                <NavBar />
 		<div className="note-card-container">
 		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(			
 			<div>
