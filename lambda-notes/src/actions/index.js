@@ -14,7 +14,7 @@ export const FETCHING_CREATE_PAGE = "FETCHING_CREATE_PAGE";
 export const CREATE_NOTE_RESET = "CREATE_NOTE_RESET";
 
 export const fetchingNotesAction = () => {
-	const request = axios.get('https://lambdanotesproject.herokuapp.com/api/notes');
+	const request = axios.get('/api/notes');
 
         return (dispatch) => {
         dispatch({type: FETCHING});
@@ -32,7 +32,7 @@ export const fetchingNotesAction = () => {
 
 
 export const fetchingSingleNote = (id) => {
-        const request = axios.get(`https://lambdanotesproject.herokuapp.com/api/notes/${id}`);
+        const request = axios.get(`/api/notes/${id}`);
 
         return (dispatch) => {
         dispatch({type: FETCHING});
@@ -50,7 +50,7 @@ export const fetchingSingleNote = (id) => {
 
 
 export const searchAction = (search) =>{
-	const request = axios.get(`https://lambdanotesproject.herokuapp.com/api/notes/search/${search}`);
+	const request = axios.get(`/api/notes/search/${search}`);
 
         return (dispatch) => {
         dispatch({type: FETCHING});
@@ -85,10 +85,6 @@ export const resetCreateNotes = () => {
 
 
 
-
-
-
-
 export const addNotesAction = (title, content, file) => {
 	const note= {title: title, content: content};
 	
@@ -99,7 +95,7 @@ export const addNotesAction = (title, content, file) => {
 	data.append('file', file); 
 
 
-        const request = axios.post('https://lambdanotesproject.herokuapp.com/api/notes', data);
+        const request = axios.post(`/api/notes`, data);
 
         return (dispatch) => {
         dispatch({type: SAVING_NOTE});
@@ -118,7 +114,7 @@ export const addNotesAction = (title, content, file) => {
 
 export const editNoteAction = (id, title, content) => {
         const note= {title: title, content: content};
-        const request = axios.put(`https://lambdanotesproject.herokuapp.com/api/notes/${id}`, note);
+        const request = axios.put(`/api/notes/${id}`, note);
 
         return (dispatch) => {
         dispatch({type: EDITING_NOTE});
@@ -139,7 +135,7 @@ export const editNoteAction = (id, title, content) => {
 export const deleteNoteAction = (noteIdr) => {
 	 //const noteId= {_id:noteIdr};
 	const id = noteIdr;
-        const request = axios.delete(`https://lambdanotesproject.herokuapp.com/api/notes/${id}`);
+        const request = axios.delete(`/api/notes/${id}`);
 
         return (dispatch) => {
         dispatch({type: DELETING});

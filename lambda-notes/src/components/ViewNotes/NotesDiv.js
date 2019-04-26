@@ -18,9 +18,6 @@ const fadeloader = css`
  
 
 
-
-
-
 class NotesDiv extends React.Component {
 
 constructor(props){
