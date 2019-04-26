@@ -42,6 +42,25 @@ body {
 
 	}
 
+	.create-card-container {
+		width: 100%;
+	}
+
+	.single-note-title {
+		margin: 20px 10px 10px 0px!important;
+                padding-left: 10px!important;
+
+    	}
+
+	.single-note-container {
+    		margin: 18px 10px 10px 0px!important;
+		padding-left: 10px!important;
+	}
+
+	.delete-note-message {
+    		font-size: 22px;
+	}
+
 }
 
 .search-bar{

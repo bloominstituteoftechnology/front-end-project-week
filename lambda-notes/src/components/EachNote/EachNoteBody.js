@@ -20,6 +20,12 @@ const Image = styled.img`
         margin-top: 4%;
         margin-bottom: 1%;
 	max-height: 300px;
+
+	@media (max-width: 420px) {
+    		margin-top: 12%;
+    		margin-bottom: 0%;
+    		max-height: 200px;;
+  	}
 `
 
 class EachNoteBody extends React.Component {

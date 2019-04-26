@@ -107,7 +107,7 @@ render() {
           <CssBaseline />
 
           <Typography className={classes.appbarTitle} variant="h6" color="inherit">
-            Jottlify
+            Jottifi
           </Typography>
 
             <Link   style={{ textDecoration: 'none' }} to="/">
