@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Input, Button } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
@@ -124,103 +125,89 @@ class Signup extends Component {
       } = this.state
 
       return (
-        <div className='signup'>
-          <form onSubmit={this.submitHandler}>
-            <div>
-              <input
-                name='firstname'
-                type='text'
-                placeholder='First Name'
-                style={this.state.firstnameError
-                  ? { borderBottom: '1.5px solid red' }
-                  : { borderBottom: '1.5px solid #979797' }}
-                value={firstname}
-                onChange={this.OnChange}
-              />
-              {firstnameError
-                ? <div className='firstnameError'>{firstnameError}</div>
-                : null}
-            </div>
-            <div>
-              <input
-                name='lastname'
-                type='text'
-                placeholder='Last Name'
-                style={this.state.lastnameError
-                  ? { borderBottom: '1.5px solid red' }
-                  : { borderBottom: '1.5px solid #979797' }}
-                value={lastname}
-                onChange={this.OnChange}
-              />
-              {lastnameError
-                ? <div className='lastnameError'>{lastnameError}</div>
-                : null}
-            </div>
-            <div>
-              <input
-                name='email'
-                type='text'
-                placeholder='Email'
-                style={emailError
-                  ? { borderBottom: '1.5px solid red' }
-                  : { borderBottom: '1.5px solid #979797' }}
-                value={email}
-                onChange={this.OnChange}
-              />
-              {emailError
-                ? <div className='emailError'>{emailError}</div>
-                : null}
-            </div>
-            <div>
-              <input
-                name='username'
-                type='text'
-                placeholder='Username'
-                style={usernameError
-                  ? { borderBottom: '1.5px solid red' }
-                  : { borderBottom: '1.5px solid #979797' }}
-                value={username}
-                onChange={this.OnChange}
-              />
-              {usernameError
-                ? <div className='usernameError'>{usernameError}</div>
-                : null}
-            </div>
-            <div>
-              <input
-                name='password'
-                type='password'
-                placeholder='Password'
-                style={passwordError
-                  ? { borderBottom: '1.5px solid red' }
-                  : { borderBottom: '1.5px solid #979797' }}
-                value={password}
-                onChange={this.OnChange}
-              />
-              {passwordError
-                ? <div className='passwordError'>{passwordError}</div>
-                : null}
-            </div>
-            <div>
-              <input
-                name='passwordMatch'
-                type='password'
-                placeholder='Confirm Password'
-                style={passwordError
-                  ? { borderBottom: '1.5px solid red' }
-                  : { borderBottom: '1.5px solid #979797' }}
-                value={passwordMatch}
-                onChange={this.OnChange}
-              />
-              {passwordError
-                ? <div className='passwordError'>{passwordError}</div>
-                : null}
-            </div>
-            <div className='submitButton'>
-              <button type='submit'>Sign Up</button>
-            </div>
-          </form>
-        </div>
+        <form
+          autoComplete='off'
+          onSubmit={this.submitHandler}>
+          <Input
+            className={firstnameError
+              ? 'error'
+              : null}
+            name='firstname'
+            type='text'
+            placeholder='First Name'
+            value={firstname}
+            onChange={this.OnChange}
+          />
+          {firstnameError
+            ? <div className='error-message'>{firstnameError}</div>
+            : null}
+          <Input
+            className={lastnameError
+              ? 'error'
+              : null}
+            name='lastname'
+            type='text'
+            placeholder='Last Name'
+            value={lastname}
+            onChange={this.OnChange}
+          />
+          {lastnameError
+            ? <div className='error-message'>{lastnameError}</div>
+            : null}
+          <Input
+            className={emailError
+              ? 'error'
+              : null}
+            name='email'
+            type='text'
+            placeholder='Email'
+            value={email}
+            onChange={this.OnChange}
+          />
+          {emailError
+            ? <div className='error-message'>{emailError}</div>
+            : null}
+          <Input
+            className={usernameError
+              ? 'error'
+              : null}
+            name='username'
+            type='text'
+            placeholder='Username'
+            value={username}
+            onChange={this.OnChange}
+          />
+          {usernameError
+            ? <div className='error-message'>{usernameError}</div>
+            : null}
+          <Input
+            className={passwordError
+              ? 'error'
+              : null}
+            name='password'
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={this.OnChange}
+          />
+          {passwordError
+            ? <div className='error-message'>{passwordError}</div>
+            : null}
+          <Input
+            className={passwordError
+              ? 'error'
+              : null}
+            name='passwordMatch'
+            type='password'
+            placeholder='Confirm Password'
+            value={passwordMatch}
+            onChange={this.OnChange}
+          />
+          {passwordError
+            ? <div className='error-message'>{passwordError}</div>
+            : null}
+          <Button className='pacific-blue register-button'>Register</Button>
+        </form>
       )
     }
 }

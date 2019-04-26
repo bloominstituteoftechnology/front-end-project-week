@@ -1,83 +1,50 @@
-.signup {
+form {
+    align-items: center;
     background: #F3F3F3;
-    width: 100%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    width: 100%; 
 }
 
-.signup form {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: space-around; 
-    margin: 115px auto; 
-    width: 80%; 
+form div {
+  margin: 14px 0 0 0;
+  width: 40%;
 }
 
-.signup form div {
-    width: 37%;
-    margin: 0 0 14px 0; 
+form div:first-child {
+  margin: 0;
 }
 
-.signup form input {
-    border: 1.5px solid #979797; 
-    font-family: Raleway; 
-    font-weight: bold; 
-    height: 47px;
+form div input {
+    border: 1px solid #979797 !important;
     width: 100%;  
 }
 
-.submitButton {
-    cursor: pointer;
-    width: 27% !important; 
-    margin: 0 auto !important; 
+form div.error input {
+  border: 1px solid red !important;
 }
 
-.submitButton button {
-    background: #00ACC1; 
-    border: 1.5px solid #979797; 
-    color: #FFFFFF; 
-    cursor: pointer;
-    display: block; 
-    font-family: Raleway; 
-    font-weight: bold; 
-    width: 70%;
-    margin: 0 auto;  
-}
-
-.firstnameError {
-    color: red; 
-    font-weight: bold; 
-    font-size: 9px; 
-    margin: 0 !important; 
-    width: 100% !important; 
-}
-
-.lastnameError {
-    color: red; 
-    font-weight: bold; 
-    font-size: 9px; 
-    margin: 0 !important;
-    width: 100% !important; 
-}
-
-.usernameError {
+.error-message {
     color: red;
-    font-weight: bold;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-weight: bold; 
     font-size: 9px;
-    margin: 0 !important;
-    width: 100% !important; 
+    margin: 0;
+    text-align: center;
 }
 
-.emailError {
-    color: red; 
-    font-weight: bold; 
-    font-size: 9px; 
-    margin: 0 !important; 
-    width: 100% !important; 
+.register-button {
+  margin: 14px 0 0 0 !important;
+  width: 40%;
 }
 
-.passwordError {
-    color: red; 
-    font-weight: bold; 
-    font-size: 9px; 
-    margin: 0 !important; 
-    width: 100% !important; 
+@media(max-width: 767px) {
+  form div {
+    width: 60%;
+  }
+
+  .register-button {
+    width: 60%;
+  }
 }
