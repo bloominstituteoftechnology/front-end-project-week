@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from 'semantic-ui-react'
+import { Input, Button } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
@@ -125,84 +125,86 @@ class Signup extends Component {
       } = this.state
 
       return (
-        <form onSubmit={this.submitHandler}>
-          <input
+        <form
+          autoComplete='off'
+          onSubmit={this.submitHandler}>
+          <Input
+            className={firstnameError
+              ? 'error'
+              : null}
             name='firstname'
             type='text'
             placeholder='First Name'
-            style={this.state.firstnameError
-              ? { borderBottom: '1.5px solid red' }
-              : { borderBottom: '1.5px solid #979797' }}
             value={firstname}
             onChange={this.OnChange}
           />
           {firstnameError
-            ? <div className='firstnameError'>{firstnameError}</div>
+            ? <div className='error-message'>{firstnameError}</div>
             : null}
-          <input
+          <Input
+            className={lastnameError
+              ? 'error'
+              : null}
             name='lastname'
             type='text'
             placeholder='Last Name'
-            style={this.state.lastnameError
-              ? { borderBottom: '1.5px solid red' }
-              : { borderBottom: '1.5px solid #979797' }}
             value={lastname}
             onChange={this.OnChange}
           />
           {lastnameError
-            ? <div className='lastnameError'>{lastnameError}</div>
+            ? <div className='error-message'>{lastnameError}</div>
             : null}
-          <input
+          <Input
+            className={emailError
+              ? 'error'
+              : null}
             name='email'
             type='text'
             placeholder='Email'
-            style={emailError
-              ? { borderBottom: '1.5px solid red' }
-              : { borderBottom: '1.5px solid #979797' }}
             value={email}
             onChange={this.OnChange}
           />
           {emailError
-            ? <div className='emailError'>{emailError}</div>
+            ? <div className='error-message'>{emailError}</div>
             : null}
-          <input
+          <Input
+            className={usernameError
+              ? 'error'
+              : null}
             name='username'
             type='text'
             placeholder='Username'
-            style={usernameError
-              ? { borderBottom: '1.5px solid red' }
-              : { borderBottom: '1.5px solid #979797' }}
             value={username}
             onChange={this.OnChange}
           />
           {usernameError
-            ? <div className='usernameError'>{usernameError}</div>
+            ? <div className='error-message'>{usernameError}</div>
             : null}
-          <input
+          <Input
+            className={passwordError
+              ? 'error'
+              : null}
             name='password'
             type='password'
             placeholder='Password'
-            style={passwordError
-              ? { borderBottom: '1.5px solid red' }
-              : { borderBottom: '1.5px solid #979797' }}
             value={password}
             onChange={this.OnChange}
           />
           {passwordError
-            ? <div className='passwordError'>{passwordError}</div>
+            ? <div className='error-message'>{passwordError}</div>
             : null}
-          <input
+          <Input
+            className={passwordError
+              ? 'error'
+              : null}
             name='passwordMatch'
             type='password'
             placeholder='Confirm Password'
-            style={passwordError
-              ? { borderBottom: '1.5px solid red' }
-              : { borderBottom: '1.5px solid #979797' }}
             value={passwordMatch}
             onChange={this.OnChange}
           />
           {passwordError
-            ? <div className='passwordError'>{passwordError}</div>
+            ? <div className='error-message'>{passwordError}</div>
             : null}
           <Button className='pacific-blue register-button'>Register</Button>
         </form>

@@ -7,50 +7,44 @@ form {
     width: 100%; 
 }
 
-form input {
-    border: 1.5px solid #979797; 
-    font-family: Raleway; 
-    font-weight: bold; 
-    height: 47px;
-    margin: 14px 0 0 0;
-    width: 40%;  
+form div {
+  margin: 14px 0 0 0;
+  width: 40%;
 }
 
-form input:first-child {
+form div:first-child {
   margin: 0;
 }
 
-.firstnameError {
-    color: red; 
-    font-weight: bold; 
-    font-size: 9px; 
+form div input {
+    border: 1px solid #979797 !important;
+    width: 100%;  
 }
 
-.lastnameError {
-    color: red; 
-    font-weight: bold; 
-    font-size: 9px;
+form div.error input {
+  border: 1px solid red !important;
 }
 
-.usernameError {
+.error-message {
     color: red;
-    font-weight: bold;
-    font-size: 9px;
-}
-
-.emailError {
-    color: red; 
-    font-weight: bold; 
-    font-size: 9px; 
-}
-
-.passwordError {
-    color: red; 
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
     font-weight: bold; 
     font-size: 9px;
+    margin: 0;
+    text-align: center;
 }
 
 .register-button {
   margin: 14px 0 0 0 !important;
   width: 40%;
+}
+
+@media(max-width: 767px) {
+  form div {
+    width: 60%;
+  }
+
+  .register-button {
+    width: 60%;
+  }
 }
