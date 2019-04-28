@@ -9,7 +9,7 @@ import EditNote from '../EditNote/'
 import './index.css'
 
 const AuthRoutes = () => (
-  <div className='content'>
+  <div className='content-container'>
     <Route
       exact path='/:userId'
       component={Notes} />

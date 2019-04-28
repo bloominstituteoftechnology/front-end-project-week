@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { Button } from 'semantic-ui-react'
+import { Form, Input, TextArea, Button } from 'semantic-ui-react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
-
-import './index.css'
 
 const URL = 'https://lambda-notes0706.herokuapp.com/api/users'
 
@@ -51,7 +49,7 @@ class CreateNote extends Component {
       })
   }
 
-  OnChange = (event) => {
+  onChange = (event) => {
     const {
       name,
       value
@@ -83,40 +81,44 @@ class CreateNote extends Component {
     const USER_ID = localStorage.getItem('userId')
 
     return (
-      <div className='createNote'>
-        <h4>Create New Note:</h4>
-        <form onSubmit={this.submitHandler}>
-          <input
+      <div className='content padding'>
+        <h2>Create New Note:</h2>
+        <Form
+          className='create-note'
+          onSubmit={this.submitHandler}>
+          <Input
+            id='title'
+            className={titleError
+              ? 'error'
+              : null}
             name='title'
             type='text'
             placeholder='Note Title'
-            style={titleError
-              ? { borderBottom: '1.5px solid red' }
-              : { borderBottom: '1.5px solid #979797' }}
             value={title}
-            onChange={this.OnChange} />
+            onChange={this.onChange} />
           {titleError
-            ? <div className='titleError'>{titleError}</div>
+            ? <div className='error-message'>{titleError}</div>
             : null}
-          <textarea
+          <TextArea
+            id='text'
+            className={textError
+              ? 'error'
+              : null}
             name='text'
             placeholder='Note Content'
             cols='50'
             rows='15'
-            style={textError
-              ? { borderBottom: '1.5px solid red' }
-              : { borderBottom: '1.5px solid #979797' }}
             value={text}
-            onChange={this.OnChange} />
+            onChange={this.onChange} />
           {textError
-            ? <div className='textError'>{textError}</div>
+            ? <div className='error-message'>{textError}</div>
             : null}
           <Button
-            className='pacific-blue'
-            id='save'>
+            id='save'
+            className='pacific-blue'>
             Save
           </Button>
-        </form>
+        </Form>
         {notes.length > 0
           ? <Redirect to={`/${USER_ID}/notes/${notes[notes.length - 1]._id}`} />
           : null}

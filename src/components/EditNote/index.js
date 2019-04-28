@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
+import { Form, Input, TextArea, Button } from 'semantic-ui-react'
 import axios from 'axios'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-
-import './index.css'
 
 const URL = 'https://lambda-notes0706.herokuapp.com/api/users'
 
@@ -43,7 +42,7 @@ class EditNote extends Component {
       })
   }
 
-    OnChange = (event) => {
+    onChange = (event) => {
       const { name, value } = event.target
       if (name === 'title') {
         this.setState({
@@ -111,39 +110,44 @@ class EditNote extends Component {
         </div>)
 
       return (
-        <div className='editNote' >
-          <h4>Edit Note: </h4>
-          <form onSubmit={this.submitHandler}>
-            <input
+        <div className='content padding'>
+          <h2>Edit Note: </h2>
+          <Form
+            className='edit-note'
+            onSubmit={this.submitHandler}>
+            <Input
+              id='title'
+              className={titleError
+                ? 'error'
+                : null}
               name='title'
               type='text'
-              style={this.state.titleError
-                ? { borderBottom: '1.5px solid red' }
-                : { borderBottom: '1.5px solid #979797' }}
+              placeholder='Note Title'
               value={title}
-              onChange={this.OnChange}
-            />
+              onChange={this.onChange} />
             {titleError
-              ? <div className='titleError'>{titleError}</div>
+              ? <div className='error-message'>{titleError}</div>
               : null}
-            <textarea
+            <TextArea
+              id='text'
+              className={titleError
+                ? 'error'
+                : null}
               name='text'
               cols='50'
               rows='15'
-              style={textError
-                ? { borderBottom: '1.5px solid red' }
-                : { borderBottom: '1.5px solid #979797' }}
+              placeholder='Note Content'
               value={text}
-              onChange={this.OnChange}
-            />
+              onChange={this.onChange} />
             {textError
-              ? <div className='textError'>{textError}</div>
+              ? <div className='error-message'>{textError}</div>
               : null}
-            <input
-              className='submit'
-              type='submit'
-              value='Update' />
-          </form>
+            <Button
+              id='update'
+              className='pacific-blue'>
+              Update
+            </Button>
+          </Form>
         </div>
       )
     }
