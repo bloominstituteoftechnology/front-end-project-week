@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Input, Button } from 'semantic-ui-react'
-import PropTypes from 'prop-types'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import './index.css'
 
@@ -126,6 +126,7 @@ class Signup extends Component {
 
       return (
         <form
+          className='content'
           autoComplete='off'
           onSubmit={this.submitHandler}>
           <Input
@@ -206,7 +207,7 @@ class Signup extends Component {
           {passwordError
             ? <div className='error-message'>{passwordError}</div>
             : null}
-          <Button className='pacific-blue register-button'>Register</Button>
+          <Button className='pacific-blue authentication-button'>Register</Button>
         </form>
       )
     }

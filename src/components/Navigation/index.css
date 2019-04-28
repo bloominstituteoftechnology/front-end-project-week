@@ -14,14 +14,9 @@
   width: 100%;
 }
 
-.navigation-header h1 {
-    color: #4A4A4A;
-    font-weight: bold;
-    margin: 0;
-}
-
 .toggler {
   background: #00ACC1;
+  outline: none;
 }
 
 .navigation-collapse {
@@ -36,6 +31,7 @@
 
 @media(max-width: 767px) {
   .navigation {
+    border: none;
     flex-direction: row;
     justify-content: space-between;
     min-height: 100%;

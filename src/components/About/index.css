@@ -1,19 +1,3 @@
-.about {
-    background: #F3F3F3; 
-    width: 100%;
-}
-
-.about h4 {
-    color: #4A4A4A; 
-    font-family: Raleway; 
-    font-weight: bold; 
-    margin: 60px 0 0 5%; 
-}
-
-.about h5 {
-    color: #4A4A4A; 
-    font-family: Raleway; 
-    font-weight: bold; 
-    margin: 24px 0 0 5%; 
-    padding: 0 5% 0 0; 
+p {
+  margin: 2rem 0 0 0;
 }

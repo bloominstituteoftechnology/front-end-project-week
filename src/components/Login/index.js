@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
+import { Input, Icon, Button } from 'semantic-ui-react'
 import axios from 'axios'
-import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-
-import './index.css'
+import PropTypes from 'prop-types'
 
 const URL = 'https://lambda-notes0706.herokuapp.com/api/auth/login'
 
@@ -76,43 +75,46 @@ class Login extends Component {
       } = this.state
 
       return (
-        <div className='login'>
-          <form onSubmit={this.submitHandler}>
-            <div>
-              <input
-                name='usernameOrEmail'
-                type='text'
-                placeholder='Username or Email'
-                style={invalid
-                  ? { borderBottom: '1.5px solid red' }
-                  : { borderBottom: '1.5px solid #979797' }}
-                value={usernameOrEmail}
-                onChange={this.OnChange}
-              />
-              {invalid
-                ? <div className='invalid'>{invalid}</div>
-                : null}
-            </div>
-            <div className='secondDiv'>
-              <input
-                name='password'
-                type='password'
-                placeholder='Password'
-                style={invalid
-                  ? { borderBottom: '1.5px solid red' }
-                  : { borderBottom: '1.5px solid #979797' }}
-                value={password}
-                onChange={this.OnChange}
-              />
-              {invalid
-                ? <div className='invalid'>{invalid}</div>
-                : null}
-            </div>
-            <div className='thirdDiv'>
-              <button type='submit'>Log In</button>
-            </div>
-          </form>
-        </div>
+        <form
+          autoComplete='off'
+          className='content'
+          onSubmit={this.submitHandler}>
+          <Input
+            className={invalid
+              ? 'error'
+              : null}
+            name='usernameOrEmail'
+            type='text'
+            icon
+            iconPosition='left'
+            placeholder='Username or Email'
+            value={usernameOrEmail}
+            onChange={this.OnChange}>
+            <Icon name='user' />
+            <input />
+          </Input>
+          {invalid
+            ? <div className='error-message'>{invalid}</div>
+            : null}
+          <Input
+            className={invalid
+              ? 'error'
+              : null}
+            name='password'
+            type='password'
+            icon
+            iconPosition='left'
+            placeholder='Password'
+            value={password}
+            onChange={this.OnChange}>
+            <Icon name='lock' />
+            <input />
+          </Input>
+          {invalid
+            ? <div className='error-message'>{invalid}</div>
+            : null}
+          <Button className='pacific-blue authentication-button'>Log In</Button>
+        </form>
       )
     }
 }

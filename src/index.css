@@ -1,8 +1,10 @@
-body {
-  background: #4A4A4A; 
-  font-family: sans-serif;
-  height: 100%; 
-  min-height: 100%; 
-  margin: 0;
-  padding: 0;
+html {
+  background: #4A4A4A;
+  font-size: 62.5%;
+}
+
+html, body {
+  font-family: Lato,'Helvetica Neue', Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  min-width: 100vw;
 }

@@ -6,7 +6,7 @@ import Signup from '../Signup/'
 import Login from '../Login/'
 
 const NonAuthRoutes = () => (
-  <div className='content'>
+  <div className='content-container'>
     <Route
       exact path='/'
       component={About} />
