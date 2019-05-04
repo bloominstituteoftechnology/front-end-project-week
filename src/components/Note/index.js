@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
-import { Modal, ModalBody, ModalFooter, Button } from 'reactstrap'
+import PropTypes from 'prop-types'
+
+import { DeleteModal } from '../CustomModals'
 
 import './index.css'
 
@@ -17,7 +18,7 @@ class Note extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const TOKEN = localStorage.getItem('jwt')
 
     const REQUEST_OPTIONS = {
@@ -62,59 +63,41 @@ class Note extends Component {
     }
 
     render() {
-      const { note } = this.state
+      const { note, modal } = this.state
 
       const USER_ID = localStorage.getItem('userId')
 
       if (!note) return (
         <div className='loading'>
-          <h4>Loading note information...</h4>
+          <h2>Loading note information...</h2>
         </div>)
 
       const {
         title,
         text
-      } = this.state.note
+      } = note
 
       const NOTE_ID = this.props.match.params.noteId
 
       return (
-        <div className='note'>
+        <div className='content-sect padding'>
           <div className='noteButtons'>
             <Link
               className='editLink'
               to={`/${USER_ID}/notes/${NOTE_ID}/editnote`}>
-              <span>edit</span></Link>
-            <span onClick={this.toggle}>delete</span>
+              <h3>edit</h3>
+            </Link>
+            <h3 onClick={this.toggle}>delete</h3>
           </div>
-          <h4>{title}</h4>
+          <h2>{title}</h2>
           <p>{text}</p>
-          <Modal
-            className='popup'
-            isOpen={this.state.modal}
-            toggle={this.toggle}>
-            <ModalBody className='popupBody'>
-            Are you sure you want to delete this?
-            </ModalBody>
-            <ModalFooter className='popupFooter'>
-              <Link
-                className='deleteLink'
-                to={`/${USER_ID}`}>
-                <Button
-                  className='deleteButton'
-                  color='danger'
-                  onClick={() => this.removeNote(USER_ID, NOTE_ID)}>
-                  Delete
-                </Button>
-              </Link>
-              <Button
-                className='cancelButton'
-                color='info'
-                onClick={this.toggle}>
-                Cancel
-              </Button>
-            </ModalFooter>
-          </Modal>
+          <DeleteModal
+            USER_ID={USER_ID}
+            NOTE_ID={NOTE_ID}
+            modal={modal}
+            toggle={this.toggle}
+            removeNote={this.removeNote}
+          />
         </div>
       )
     }

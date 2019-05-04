@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
+import { Card } from 'semantic-ui-react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
-import { Card, CardBody, CardTitle, CardText } from 'reactstrap'
 
 import './index.css'
 
@@ -12,39 +11,16 @@ class Notes extends Component {
   constructor() {
     super()
     this.state = {
-      username: '',
-      notes: []
+      username: null,
+      notes: null
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const token = localStorage.getItem('jwt')
     const REQUEST_OPTIONS = {
       headers: {
         Authorization: token
-      }
-    }
-
-    const USER_ID = localStorage.getItem('userId')
-
-    axios.get(`${URL}/${USER_ID}/notes`, REQUEST_OPTIONS)
-      .then(res => {
-        this.setState({
-          username: res.data.username,
-          notes: res.data.notes
-        })
-      })
-      .catch(err => {
-        alert(`Error: ${err}`)
-      })
-  }
-
-  componentWillReceiveProps() {
-    const TOKEN = localStorage.getItem('jwt')
-
-    const REQUEST_OPTIONS = {
-      headers: {
-        Authorization: TOKEN
       }
     }
 
@@ -70,40 +46,37 @@ class Notes extends Component {
 
     const USER_ID = localStorage.getItem('userId')
 
-    if (!username) return (
+    if (!username && !notes) return (
       <div className='loading'>
-        <h4>Loading notes information...</h4>
+        <h2>Loading notes information...</h2>
       </div>)
 
     return (
-      <div className='notesContainer'>
-        <h4>{username} Notes:</h4>
+      <div className='content-sect padding'>
+        <h2>{username} Notes:</h2>
         {notes.length === 0
-          ? <h5 className='empty'>
-          You currently do not have any notes. Click on the create note button to create one.
-          </h5>
+          ? <p>You currently do not have any notes. Click on the create note button to create one.</p>
           : null}
         <div className='notes'>
           {notes.length > 0 ?
-            notes.map(note => {
-              return (
-                <Link
-                  key={note._id}
-                  className='link'
-                  to={`/${USER_ID}/notes/${note._id}`}>
-                  <Card>
-                    <CardBody>
-                      <CardTitle>{note.title}</CardTitle>
-                      <CardText>{note.text}</CardText>
-                    </CardBody>
-                  </Card>
-                </Link>
-              )
-            }) : null}
+            notes.map(note => (
+              <Card
+                className='card-container'
+                key={note._id}
+                as={Link}
+                to={`/${USER_ID}/notes/${note._id}`}>
+                <Card.Content
+                  className='card-header'
+                  header={note.title} />
+                <Card.Content
+                  className='card-description'
+                  description={note.text} />
+              </Card>
+            )) : null}
         </div>
       </div>
     )
   }
 }
 
-export default withRouter(Notes)
+export default Notes

@@ -3,7 +3,8 @@ html {
   font-size: 62.5%;
 }
 
-html, body {
+html,
+body {
   font-family: Lato,'Helvetica Neue', Arial, Helvetica, sans-serif;
   min-height: 100vh;
   min-width: 100vw;
