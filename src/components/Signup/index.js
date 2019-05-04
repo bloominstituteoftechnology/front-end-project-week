@@ -126,7 +126,7 @@ class Signup extends Component {
 
       return (
         <form
-          className='content'
+          className='content-sect'
           autoComplete='off'
           onSubmit={this.submitHandler}>
           <Input
@@ -207,7 +207,7 @@ class Signup extends Component {
           {passwordError
             ? <div className='error-message'>{passwordError}</div>
             : null}
-          <Button className='pacific-blue authentication-button'>Register</Button>
+          <Button className='pacific-blue auth-btn'>Register</Button>
         </form>
       )
     }

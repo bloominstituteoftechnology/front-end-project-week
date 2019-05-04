@@ -81,7 +81,7 @@ class CreateNote extends Component {
     const USER_ID = localStorage.getItem('userId')
 
     return (
-      <div className='content padding'>
+      <div className='content-sect padding'>
         <h2>Create New Note:</h2>
         <Form
           className='create-note'

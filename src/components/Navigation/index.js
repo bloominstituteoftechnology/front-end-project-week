@@ -1,60 +1,52 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
 
+import Nav from './Nav'
 import NavAuth from './NavAuth'
-import NavNonAuth from './NavNonAuth'
 
-class Navigation extends Component {
-  constructor() {
-    super()
-    this.state = {
-      isOpen: false
-    }
-  }
+import './index.css'
 
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
-  }
+const Navigation = ({
+  toggle,
+  redirect
+}) => {
+  const USER_ID = localStorage.getItem('userId')
 
-  logOut = () => {
-    const TOKEN = localStorage.getItem('jwt')
+  const TOKEN = localStorage.getItem('jwt')
 
-    if (TOKEN) {
-      localStorage.removeItem('jwt')
-      localStorage.removeItem('userId')
-      this.props.history.push('/')
-    }
-  }
-
-  render() {
-    const USER_ID = localStorage.getItem('userId')
-
-    const TOKEN = localStorage.getItem('jwt')
-
-    const { isOpen } = this.state
-
-    return (
-      TOKEN && USER_ID
-        ? <NavAuth
-          isOpen={isOpen}
-          toggle={this.toggle}
-          logOut={this.logOut}
-        />
-        : <NavNonAuth
-          isOpen={isOpen}
-          toggle={this.toggle}
-        />
-    )
-  }
+  return (
+    <div id='navigation'>
+      {TOKEN && USER_ID
+        ? [<Link
+          key={0}
+          to={`/${USER_ID}`}>
+          <h1>Lambda<br />
+          Notes</h1>
+        </Link>,
+        <NavAuth
+          key={1}
+          USER_ID={USER_ID}
+          toggle={toggle}
+          redirect={redirect}
+        />]
+        : [<Link
+          key={0}
+          to='/'>
+          <h1>Lambda<br />
+          Notes</h1>
+        </Link>,
+        <Nav
+          key={1}
+          toggle={toggle}
+          redirect={redirect} />]}
+    </div>
+  )
 }
 
 Navigation.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired
-  })
+  toggle: PropTypes.func.isRequired,
+  redirect: PropTypes.func.isRequired
 }
 
-export default withRouter(Navigation)
+export default Navigation

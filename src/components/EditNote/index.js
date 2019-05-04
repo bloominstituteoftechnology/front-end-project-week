@@ -17,7 +17,7 @@ class EditNote extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const TOKEN = localStorage.getItem('jwt')
 
     const REQUEST_OPTIONS = {
@@ -106,11 +106,11 @@ class EditNote extends Component {
 
       if (title === null && text === null) return (
         <div className='loading'>
-          <h4>Loading note information...</h4>
+          <h2>Loading note information...</h2>
         </div>)
 
       return (
-        <div className='content padding'>
+        <div className='content-sect padding'>
           <h2>Edit Note: </h2>
           <Form
             className='edit-note'

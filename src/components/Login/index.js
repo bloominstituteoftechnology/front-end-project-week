@@ -77,7 +77,7 @@ class Login extends Component {
       return (
         <form
           autoComplete='off'
-          className='content'
+          className='content-sect'
           onSubmit={this.submitHandler}>
           <Input
             className={invalid
@@ -113,7 +113,7 @@ class Login extends Component {
           {invalid
             ? <div className='error-message'>{invalid}</div>
             : null}
-          <Button className='pacific-blue authentication-button'>Log In</Button>
+          <Button className='pacific-blue auth-btn'>Log In</Button>
         </form>
       )
     }

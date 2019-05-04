@@ -1,0 +1,22 @@
+.modal-cont {
+  width: 50% !important;
+}
+
+.modal-desc {
+  text-align: center;
+}
+
+.modal-btn-sect {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.modal-btn {
+  width: 30% !important;
+}
+
+@media(max-width: 768px) {
+  .modal-cont {
+    width: 70% !important;
+  }
+}

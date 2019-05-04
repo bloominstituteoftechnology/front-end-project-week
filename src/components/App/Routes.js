@@ -5,8 +5,8 @@ import About from '../About/'
 import Signup from '../Signup/'
 import Login from '../Login/'
 
-const NonAuthRoutes = () => (
-  <div className='content-container'>
+const Routes = () => (
+  <div id='content-cont'>
     <Route
       exact path='/'
       component={About} />
@@ -19,4 +19,4 @@ const NonAuthRoutes = () => (
   </div>
 )
 
-export default NonAuthRoutes
+export default Routes
