@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <div className='App'>
         <div className='sideBar'>
-          <h1 className='LambdaNotes'>Lambda Notes</h1>
+          <h1 className='LambdaNotes'>Labs 12</h1>
           
           <div className='buttonViewDiv'>
             <NavLink className='buttonView' exact to='/'>View Your Notes</NavLink>
