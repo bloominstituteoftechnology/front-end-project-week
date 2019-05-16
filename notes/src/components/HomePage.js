@@ -1,29 +1,29 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import "../css/homePage.css";
-
+import '../css/homePage.css';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { Button, Card } from '@blueprintjs/core';
 
 const HomePage = () => {
-  return ( 
-   <div>
-        <div className="sideBar">
-          <NavLink className="lambdaTitle" to="/">
-            <h1 className="lambdaTitle">Lambda <br></br> Notes</h1>
-          </NavLink>
-          <div className="sideBarButtons">
-            <NavLink className="sideBarButtons" to="/notes">
-              <button>View Your Notes</button>
-            </NavLink >
-            <NavLink className="sideBarButtons" to="/createnote">
-              <button>+ Create New Note</button>
-            </NavLink>
-            <NavLink className="sideBarButtons" to="/search">
-              <button>Search for a Note</button>
-            </NavLink>
-          </div>
-        </div>
-   </div>
-   );
-}
- 
+	return (
+		<div>
+			<Card className="sideBar" style={{ backgroundColor: `#F16F72` }}>
+				<NavLink className="lambdaTitle" to="/">
+					<h1 className="lambdaTitle">
+						It's
+						<br />
+						Your <br /> Write
+					</h1>
+				</NavLink>
+
+				<NavLink className="sideBarButtons" to="/createnote">
+					<Button>+ Create New Note</Button>
+				</NavLink>
+				<NavLink className="sideBarButtons" to="/search">
+					<Button>Search for a Note</Button>
+				</NavLink>
+			</Card>
+		</div>
+	);
+};
+
 export default HomePage;

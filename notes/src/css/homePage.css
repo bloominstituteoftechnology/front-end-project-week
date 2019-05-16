@@ -1,30 +1,28 @@
-
 .sideBar {
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
-    background-color: #D2D1D2;
-    height: 80%;
+	margin-top: 20px;
+	width: 100%;
+	padding: 10px;
+	background-color: #d2d1d2;
+	height: 80%;
 }
 .lambdaTitle {
-    text-decoration: none;
-    color: black;
+	text-decoration: none;
+	color: black;
 }
 .sideBarButtons {
-    display: flex;
-    flex-direction: column;
-    height: 250px;
-    justify-content: space-between;
-    text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	height: 100px;
+	justify-content: space-between;
+	text-decoration: none;
 }
 .sideBarButtons button {
-    padding: 20px 0;
-    background-color: #00B8BA;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-
+	padding: 20px 0;
+	background-color: #00b8ba;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
 }
 .container .notesBody {
-    padding: 20px;
+	padding: 20px;
 }

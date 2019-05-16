@@ -14,8 +14,6 @@ class OneNote extends Component {
   }
   componentDidMount = () => {
     this.fetchNote(this.props.match.params.id);
-    console.log(this.props.match.params.id);
-    console.log(this.props.notes);
   };
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.id !== newProps.match.params.id) {
