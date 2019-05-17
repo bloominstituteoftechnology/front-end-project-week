@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const NavAuth = ({
-  USER_ID,
   toggle,
   redirect
 }) => {
@@ -16,7 +15,6 @@ const NavAuth = ({
 
     if (TOKEN) {
       localStorage.removeItem('jwt')
-      localStorage.removeItem('userId')
       redirect('/')
     }
   }
@@ -25,14 +23,14 @@ const NavAuth = ({
     [<Button
       key={0}
       as={Link}
-      to={`/${USER_ID}`}
+      to='/'
       className='pacific-blue hide-btn'>
       View Notes
     </Button>,
     <Button
       key={1}
       as={Link}
-      to={`/${USER_ID}/createnote`}
+      to='/createnote'
       className='pacific-blue hide-btn'>
       + Create Note
     </Button>,
@@ -52,7 +50,6 @@ const NavAuth = ({
 }
 
 NavAuth.propTypes = {
-  USER_ID: PropTypes.string.isRequired,
   toggle: PropTypes.func.isRequired
 }
 

@@ -4,119 +4,117 @@ import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-const URL = 'https://lambda-notes0706.herokuapp.com/api/auth/login'
+const {
+  REACT_APP_DEV_LOGIN,
+  REACT_APP_PROD_LOGIN
+} = process.env
+
+const URL = REACT_APP_DEV_LOGIN || REACT_APP_PROD_LOGIN
 
 class Login extends Component {
   constructor() {
     super()
     this.state = {
-      usernameOrEmail: '',
+      email: '',
       password: '',
       invalid: null
     }
   }
 
-    submitHandler = (event) => {
-      event.preventDefault()
-      const {
-        usernameOrEmail,
-        password
-      } = this.state
+  submitHandler = (event) => {
+    event.preventDefault()
+    const {
+      email,
+      password
+    } = this.state
 
-      axios.post(URL, {
-        username: usernameOrEmail,
-        email: usernameOrEmail,
-        password
-      }).then(res => {
-        if (res.data.token) {
-          localStorage.setItem('jwt', res.data.token)
-          localStorage.setItem('userId', res.data.id)
-          this.props.history.push(`/${res.data.id}`)
-        }
-      }).catch(err => {
-        if (err.response.status) {
-          if (err.response.status === 401) {
-            this.setState({ invalid: err.response.data })
-          } else if (err.response.status === 400) {
-            this.setState({ invalid: err.response.data[1] })
-          } else {
-            alert(`Error: ${err.response.status} ${err.response.data[1]}`)
-          }
-        } else {
-          alert(`Error: ${err}`)
-        }
+    axios.post(URL, {
+      email,
+      password
+    }).then(res => {
+      if (res.data.token) {
+        localStorage.setItem('jwt', res.data.token)
+        this.props.history.push('/')
+      }
+    }).catch(err => {
+      console.log('err', err.response)
+    })
+  }
+
+  onChange = (event) => {
+    const {
+      name,
+      value
+    } = event.target
+
+    if (name === 'email') {
+      this.setState({
+        [name]: value.replace(' ', '').toLowerCase(),
+        invalid: null
+      })
+    } else {
+      this.setState({
+        [name]: value,
+        invalid: null
       })
     }
+  }
 
-    OnChange = (event) => {
-      const {
-        name,
-        value
-      } = event.target
+  render() {
+    const {
+      email,
+      password,
+      invalid
+    } = this.state
 
-      if (name === 'usernameOrEmail') {
-        this.setState({
-          [name]: value.replace(' ', '').toLowerCase(),
-          invalid: null
-        })
-      } else {
-        this.setState({
-          [name]: value,
-          invalid: null
-        })
-      }
-    }
+    const {
+      submitHandler,
+      onChange
+    } = this
 
-    render() {
-      const {
-        usernameOrEmail,
-        password,
-        invalid
-      } = this.state
-
-      return (
-        <form
-          autoComplete='off'
-          className='content-sect'
-          onSubmit={this.submitHandler}>
-          <Input
-            className={invalid
-              ? 'error'
-              : null}
-            name='usernameOrEmail'
-            type='text'
-            icon
-            iconPosition='left'
-            placeholder='Username or Email'
-            value={usernameOrEmail}
-            onChange={this.OnChange}>
-            <Icon name='user' />
-            <input />
-          </Input>
-          {invalid
-            ? <div className='error-message'>{invalid}</div>
+    return (
+      <form
+        autoComplete='off'
+        className='content-sect'
+        onSubmit={submitHandler}>
+        <Input
+          className={invalid
+            ? 'error'
             : null}
-          <Input
-            className={invalid
-              ? 'error'
-              : null}
-            name='password'
-            type='password'
-            icon
-            iconPosition='left'
-            placeholder='Password'
-            value={password}
-            onChange={this.OnChange}>
-            <Icon name='lock' />
-            <input />
-          </Input>
-          {invalid
-            ? <div className='error-message'>{invalid}</div>
+          name='email'
+          type='text'
+          icon
+          iconPosition='left'
+          placeholder='E-mail'
+          value={email}
+          onChange={onChange}>
+          <Icon name='user' />
+          <input />
+        </Input>
+        {invalid
+          ? <div className='error-message'>{invalid}</div>
+          : null}
+        <Input
+          className={invalid
+            ? 'error'
             : null}
-          <Button className='pacific-blue auth-btn'>Log In</Button>
-        </form>
-      )
-    }
+          name='password'
+          type='password'
+          icon
+          iconPosition='left'
+          placeholder='Password'
+          value={password}
+          onChange={onChange}>
+          <Icon name='lock' />
+          <input />
+        </Input>
+        {invalid
+          ? <div className='error-message'>{invalid}</div>
+          : null}
+        <Button className='pacific-blue auth-btn'>Log In</Button>
+      </form>
+    )
+  }
 }
 
 Login.propTypes = {

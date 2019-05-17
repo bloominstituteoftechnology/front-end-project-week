@@ -11,35 +11,25 @@ const Navigation = ({
   toggle,
   redirect
 }) => {
-  const USER_ID = localStorage.getItem('userId')
 
   const TOKEN = localStorage.getItem('jwt')
 
   return (
     <div id='navigation'>
-      {TOKEN && USER_ID
-        ? [<Link
-          key={0}
-          to={`/${USER_ID}`}>
-          <h1>Lambda<br />
-          Notes</h1>
-        </Link>,
-        <NavAuth
-          key={1}
-          USER_ID={USER_ID}
-          toggle={toggle}
-          redirect={redirect}
-        />]
-        : [<Link
-          key={0}
-          to='/'>
-          <h1>Lambda<br />
-          Notes</h1>
-        </Link>,
-        <Nav
+      <Link
+        to='/'>
+        <h1>Lambda<br />
+        Notes</h1>
+      </Link>
+      {TOKEN
+        ? <NavAuth
           key={1}
           toggle={toggle}
-          redirect={redirect} />]}
+          redirect={redirect} />
+        : <Nav
+          key={1}
+          toggle={toggle}
+          redirect={redirect} />}
     </div>
   )
 }

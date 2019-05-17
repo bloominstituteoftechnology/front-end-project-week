@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import {
   Sidebar,
-  Button
-} from 'semantic-ui-react'
-import { Link, withRouter } from 'react-router-dom'
+  Button } from 'semantic-ui-react'
+import {
+  Link,
+  withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import Navigation from '../Navigation'
@@ -42,14 +43,12 @@ class App extends Component {
 
     if (TOKEN) {
       localStorage.removeItem('jwt')
-      localStorage.removeItem('userId')
       this.props.history.push('/')
     }
   }
 
   render()  {
     const TOKEN = localStorage.getItem('jwt')
-    const USER_ID = localStorage.getItem('userId')
 
     const {
       isOpen,
@@ -79,7 +78,7 @@ class App extends Component {
             <Navigation
               toggle={toggle}
               redirect={history.push} />
-            {TOKEN && USER_ID
+            {TOKEN
               ? <AuthRoutes />
               : <Routes />}
           </div>
@@ -91,21 +90,20 @@ class App extends Component {
 
 const SideBarBtns = ({ logOut }) => {
   const TOKEN = localStorage.getItem('jwt')
-  const USER_ID = localStorage.getItem('userId')
 
   return (
-    TOKEN && USER_ID
+    TOKEN
       ? [<Button
         key={0}
         as={Link}
-        to={`/${USER_ID}`}
+        to='/'
         className='pacific-blue'>
         View Notes
       </Button>,
       <Button
         key={1}
         as={Link}
-        to={`/${USER_ID}/createnote`}
+        to='/createnote'
         className='pacific-blue'>
         + Create Note
       </Button>,
