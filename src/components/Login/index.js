@@ -16,7 +16,9 @@ class Login extends Component {
     super()
     this.state = {
       email: '',
+      emailError: null,
       password: '',
+      passwordError: null,
       invalid: null
     }
   }
@@ -37,8 +39,13 @@ class Login extends Component {
         this.props.history.push('/')
       }
     }).catch(err => {
-      console.log('err', err.response)
-    })
+      const code = err.response.status
+
+      if (code === 400 || code === 401) {
+        this.setState({ ...err.response.data })
+      } else {
+        alert('Error: ', err.response.data)
+      }})
   }
 
   onChange = (event) => {
@@ -49,12 +56,14 @@ class Login extends Component {
 
     if (name === 'email') {
       this.setState({
-        [name]: value.replace(' ', '').toLowerCase(),
+        email: value.replace(' ', '').toLowerCase(),
+        emailError: null,
         invalid: null
       })
     } else {
       this.setState({
-        [name]: value,
+        password: value,
+        passowordError: null,
         invalid: null
       })
     }
@@ -63,7 +72,9 @@ class Login extends Component {
   render() {
     const {
       email,
+      emailError,
       password,
+      passwordError,
       invalid
     } = this.state
 
@@ -78,7 +89,7 @@ class Login extends Component {
         className='content-sect'
         onSubmit={submitHandler}>
         <Input
-          className={invalid
+          className={invalid || emailError
             ? 'error'
             : null}
           name='email'
@@ -91,11 +102,11 @@ class Login extends Component {
           <Icon name='user' />
           <input />
         </Input>
-        {invalid
-          ? <div className='error-message'>{invalid}</div>
+        {invalid || emailError
+          ? <div className='error-message'>{invalid || emailError}</div>
           : null}
         <Input
-          className={invalid
+          className={invalid || passwordError
             ? 'error'
             : null}
           name='password'
@@ -108,8 +119,8 @@ class Login extends Component {
           <Icon name='lock' />
           <input />
         </Input>
-        {invalid
-          ? <div className='error-message'>{invalid}</div>
+        {invalid || passwordError
+          ? <div className='error-message'>{invalid || passwordError}</div>
           : null}
         <Button className='pacific-blue auth-btn'>Log In</Button>
       </form>
