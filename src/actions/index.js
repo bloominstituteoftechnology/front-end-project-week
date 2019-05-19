@@ -22,7 +22,7 @@ const fetchNotes = (dispatch) => {
           type: GOT_NOTES,
           payload: data
         });
-      }, 2000);
+      }, 500);
     })
     .catch((error) => {
       dispatch({
@@ -86,8 +86,8 @@ export const deleteNote = (id) => {
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
-          const action = { type: DELETED_NOTE, id }
-          dispatch(action)
+          const action = { type: DELETED_NOTE, id };
+          dispatch(action);
         }
       })
       .catch((error) => {
