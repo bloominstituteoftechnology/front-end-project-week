@@ -15,6 +15,7 @@ import {
   DELETE_NOTE_SUCCESS,
   DELETE_NOTE_FAILURE,
 } from '../actions';
+
 const initialState = {
   notes: [],
   selectedNote: null,
