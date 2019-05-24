@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
     "popup": "^0.0.3",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
