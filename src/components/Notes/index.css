@@ -12,14 +12,17 @@
 .card-header {
   font-size: 1.4rem !important;
   text-align: center;
+  overflow-y: auto;
+  word-break: break-word;
 }
 
 .card-description {
   font-size: 1.4rem !important;
   height: 15rem;
-  overflow: auto;
+  overflow-y: auto;
+  word-break: break-word;
 }
 
-.card-description::-webkit-scrollbar {
-  width: 0 !important
-}
+.card-header::-webkit-scrollbar { width: 0 !important }
+
+.card-description::-webkit-scrollbar { width: 0 !important }

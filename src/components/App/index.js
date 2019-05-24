@@ -26,39 +26,31 @@ class App extends Component {
     window.addEventListener('resize', this.updateWidth)
   }
 
-  updateWidth = () => {
-    this.setState({
-      width: window.innerWidth
-    })
-  }
+  updateWidth = () =>
+    this.setState({ width: window.innerWidth })
 
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
-  }
+  toggle = () =>
+    this.setState({ isOpen: !this.state.isOpen })
 
   logOut = () => {
-    const TOKEN = localStorage.getItem('jwt')
+    const TOKEN = localStorage.getItem('token')
 
     if (TOKEN) {
-      localStorage.removeItem('jwt')
+      localStorage.removeItem('token')
       this.props.history.push('/')
     }
   }
 
   render()  {
-    const TOKEN = localStorage.getItem('jwt')
+    const TOKEN = localStorage.getItem('token')
 
     const {
       isOpen,
-      width
-    } = this.state
+      width } = this.state
 
     const {
       toggle,
-      logOut
-    } = this
+      logOut } = this
 
     const { history } = this.props
 
@@ -80,7 +72,7 @@ class App extends Component {
               redirect={history.push} />
             {TOKEN
               ? <AuthRoutes />
-              : <Routes />}
+              : <Routes /> }
           </div>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
@@ -89,7 +81,7 @@ class App extends Component {
 }
 
 const SideBarBtns = ({ logOut }) => {
-  const TOKEN = localStorage.getItem('jwt')
+  const TOKEN = localStorage.getItem('token')
 
   return (
     TOKEN

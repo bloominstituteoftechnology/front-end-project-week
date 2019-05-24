@@ -1,22 +1,17 @@
 import React from 'react'
 import {
   Button,
-  Icon
-} from 'semantic-ui-react'
+  Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const NavAuth = ({
   toggle,
-  redirect
-}) => {
-  const logOut = () => {
-    const TOKEN = localStorage.getItem('jwt')
+  redirect }) => {
 
-    if (TOKEN) {
-      localStorage.removeItem('jwt')
-      redirect('/')
-    }
+  const logOut = () => {
+    localStorage.removeItem('token')
+    redirect('/')
   }
 
   return (
@@ -49,8 +44,6 @@ const NavAuth = ({
   )
 }
 
-NavAuth.propTypes = {
-  toggle: PropTypes.func.isRequired
-}
+NavAuth.propTypes = { toggle: PropTypes.func.isRequired }
 
 export default NavAuth

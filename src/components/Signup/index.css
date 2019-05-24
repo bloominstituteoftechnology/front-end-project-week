@@ -1,5 +1,3 @@
 @media(max-width: 768px) {
-  form div {
-    width: 60%;
-  }
+  form div { width: 60%; }
 }

@@ -9,10 +9,9 @@ import './index.css'
 
 const Navigation = ({
   toggle,
-  redirect
-}) => {
+  redirect }) => {
 
-  const TOKEN = localStorage.getItem('jwt')
+  const TOKEN = localStorage.getItem('token')
 
   return (
     <div id='navigation'>

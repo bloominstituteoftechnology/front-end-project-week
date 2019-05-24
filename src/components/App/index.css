@@ -1,10 +1,6 @@
-h1 {
-  font-size: 3rem;
-}
+h1 { font-size: 3rem; }
 
-h2 {
-  font-size: 2rem;
-}
+h2 { font-size: 2rem; }
 
 h1,
 h2,
@@ -14,29 +10,22 @@ h3 {
   margin: 0;
 }
 
-h3 {
-  margin: 0 1rem 0 1rem;
-}
+h3 { margin: 0 1rem 0 1rem; }
 
-h3:hover {
-  cursor: pointer;
-}
+h3:hover { cursor: pointer; }
 
-a {
-  text-decoration: none !important;
-}
+a { text-decoration: none !important; }
 
 p {
   margin: 2rem 0 0 0;
+  word-break: break-word;
 }
 
 a, 
 p,
 input,
 textarea,
-button {
-  font-size: 1.4rem !important;
-}
+button { font-size: 1.4rem !important; }
 
 form {
   align-items: center;
@@ -50,9 +39,7 @@ form div {
   width: 50%;
 }
 
-form div:first-child {
-  margin: 0;
-}
+form div:first-child { margin: 0; }
 
 form div input,
 form textarea {
@@ -61,9 +48,7 @@ form textarea {
 }
 
 form div.error input,
-form textarea.error {
-  border: 1px solid red !important;
-}
+form textarea.error { border: 1px solid red !important; }
 
 textarea {
   resize: none !important; 
@@ -95,13 +80,9 @@ textarea {
 }
 
 .create-note,
-.edit-note {
-  align-items: flex-start !important; 
-}
+.edit-note { align-items: flex-start !important; }
 
-.padding {
-  padding: 5rem;
-}
+.padding { padding: 5rem; }
 
 .error-message {
   color: red;
@@ -111,6 +92,10 @@ textarea {
   text-align: center;
 }
 
+.titleError { width: 50%; }
+
+.textError { width: 100%; }
+
 .pacific-blue,
 .milano-red {
   color: #FFF !important;
@@ -118,21 +103,13 @@ textarea {
   width: 100%;
 }
 
-.pacific-blue {
-  background: #00ACC1 !important; 
-}
+.pacific-blue { background: #00ACC1 !important; }
 
-.pacific-blue:hover {
-  background: #00616F !important;
-}
+.pacific-blue:hover { background: #00616F !important; }
 
-.milano-red {
-  background: #c11500 !important;
-}
+.milano-red { background: #c11500 !important; }
 
-.milano-red:hover {
-background: #730D00 !important;
-}
+.milano-red:hover { background: #730D00 !important; }
 
 .auth-btn {
   margin: 2rem 0 0 0 !important;
@@ -142,14 +119,10 @@ background: #730D00 !important;
 #title,
 #text,
 #save,
-#update {
-  margin: 2rem 0 0 0 !important;
-}
+#update { margin: 2rem 0 0 0 !important; }
 
 #save,
-#update {
-  width: 30%;  
-}
+#update { width: 30%; }
 
 .loading {
   background: #F3F3F3; 
@@ -163,9 +136,7 @@ background: #730D00 !important;
 }
 
 @media(max-width: 768px) {
-  #app {
-    flex-direction: column;
-  }
+  #app { flex-direction: column; }
 
   #content-cont {
     width: 100%;

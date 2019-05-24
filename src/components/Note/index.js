@@ -1,25 +1,35 @@
 import React, { Component } from 'react'
+import decode from 'jwt-decode'
 import axios from 'axios'
-import { Link, withRouter } from 'react-router-dom'
+import {
+  Link,
+  withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { DeleteModal } from '../CustomModals'
 
 import './index.css'
 
-const URL = 'https://lambda-notes0706.herokuapp.com/api/users'
+const {
+  REACT_APP_DEV,
+  REACT_APP_PROD } = process.env
+
+const URL = REACT_APP_DEV || REACT_APP_PROD
 
 class Note extends Component {
   constructor() {
     super()
     this.state = {
-      note: null,
+      userId: null,
+      id: null,
+      title: null,
+      text: null,
       modal: false
     }
   }
 
   componentDidMount() {
-    const TOKEN = localStorage.getItem('jwt')
+    const TOKEN = localStorage.getItem('token')
 
     const REQUEST_OPTIONS = {
       headers: {
@@ -27,86 +37,103 @@ class Note extends Component {
       }
     }
 
-    const USER_ID = localStorage.getItem('userId')
+    const { id: USER_ID } = decode(TOKEN)
 
-    const NOTE_ID = this.props.match.params.noteId
+    const { state } = this.props.location
 
-    axios.get(`${URL}/${USER_ID}/notes/${NOTE_ID}`, REQUEST_OPTIONS)
-      .then(res => {
-        this.setState({ note: res.data })
-      })
+    if (!state) return this.props.history.push('/')
+
+    const { id: NOTE_ID } = state
+
+    axios.get(`${URL}/api/users/${USER_ID}/note/${NOTE_ID}`, REQUEST_OPTIONS)
+      .then(res => this.setState({
+        userId: USER_ID,
+        ...res.data
+      }))
       .catch(err => {
-        alert(`Error: ${err}`)
+        const {
+          status,
+          data } = err.response
+
+        if (status !== 500) alert(`Error: ${data}`)
+        else alert(`Error: ${data.msg1}`)
       })
   }
 
-    toggle = () => {
-      const { modal } = this.state
-      this.setState({ modal: !modal })
-    }
+  toggle = () => {
+    const { modal } = this.state
+    this.setState({ modal: !modal })
+  }
 
-    removeNote = (userId, noteId) => {
-      const TOKEN = localStorage.getItem('jwt')
-      const REQUEST_OPTIONS = {
-        headers: {
-          Authorization: TOKEN
-        }
+  removeNote = () => {
+    const TOKEN = localStorage.getItem('token')
+
+    const {
+      userId: USER_ID,
+      id: NOTE_ID } = this.state
+
+    const REQUEST_OPTIONS = {
+      headers: {
+        Authorization: TOKEN
       }
-
-      axios.delete(`${URL}/${userId}/notes/${noteId}`, REQUEST_OPTIONS)
-        .then(() => {
-          this.props.history.push(`/${userId}`)
-        })
-        .catch(err => {
-          alert(`Error: ${err}`)
-        })
     }
 
-    render() {
-      const { note, modal } = this.state
+    axios.delete(`${URL}/api/users/${USER_ID}/note/${NOTE_ID}`, REQUEST_OPTIONS)
+      .then(() => this.props.history.push('/'))
+      .catch(err => {
+        const {
+          status,
+          data } = err.response
 
-      const USER_ID = localStorage.getItem('userId')
+        if (status !== 500) alert(`Error: ${data}`)
+        else alert(`Error: ${data.msg1}`)
+      })
+  }
 
-      if (!note) return (
-        <div className='loading'>
-          <h2>Loading note information...</h2>
-        </div>)
+  render() {
+    const {
+      id,
+      title,
+      text,
+      modal } = this.state
 
-      const {
-        title,
-        text
-      } = note
+    const {
+      toggle,
+      removeNote } = this
 
-      const NOTE_ID = this.props.match.params.noteId
+    if (!id) return (
+      <div className='loading'>
+        <h2>Loading note information...</h2>
+      </div>)
 
-      return (
-        <div className='content-sect padding'>
-          <div className='noteButtons'>
-            <Link
-              className='editLink'
-              to={`/${USER_ID}/notes/${NOTE_ID}/editnote`}>
-              <h3>edit</h3>
-            </Link>
-            <h3 onClick={this.toggle}>delete</h3>
-          </div>
-          <h2>{title}</h2>
-          <p>{text}</p>
-          <DeleteModal
-            USER_ID={USER_ID}
-            NOTE_ID={NOTE_ID}
-            modal={modal}
-            toggle={this.toggle}
-            removeNote={this.removeNote}
-          />
+    return (
+      <div className='content-sect padding'>
+        <div className='noteButtons'>
+          <Link
+            className='editLink'
+            to={{
+              pathname: '/editnote',
+              state: { id }
+            }}>
+            <h3>edit</h3>
+          </Link>
+          <h3 onClick={toggle}>delete</h3>
         </div>
-      )
-    }
+        <h2>{title}</h2>
+        <p>{text}</p>
+        <DeleteModal
+          modal={modal}
+          toggle={toggle}
+          removeNote={removeNote} />
+      </div>
+    )
+  }
 }
 
 Note.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      noteId: PropTypes.string.isRequired
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      id: PropTypes.string.isRequired
     })
   }),
   history: PropTypes.shape({

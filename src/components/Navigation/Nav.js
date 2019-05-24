@@ -1,8 +1,7 @@
 import React from 'react'
 import {
   Button,
-  Icon
-} from 'semantic-ui-react'
+  Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -29,8 +28,6 @@ const Nav = ({ toggle }) => (
     onClick={toggle} />]
 )
 
-Nav.propTypes = {
-  toggle: PropTypes.func.isRequired
-}
+Nav.propTypes = { toggle: PropTypes.func.isRequired }
 
 export default Nav

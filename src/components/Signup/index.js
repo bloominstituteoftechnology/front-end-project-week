@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
-import { Input, Button } from 'semantic-ui-react'
+import {
+  Input,
+  Button } from 'semantic-ui-react'
 import axios from 'axios'
-import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 
 import './index.css'
 
 const {
-  REACT_APP_DEV_SIGNUP,
-  REACT_APP_PROD_SIGNUP
-} = process.env
+  REACT_APP_DEV,
+  REACT_APP_PROD } = process.env
 
-const URL = REACT_APP_DEV_SIGNUP || REACT_APP_PROD_SIGNUP
+const URL = REACT_APP_DEV || REACT_APP_PROD
 
 class Signup extends Component {
   constructor() {
@@ -29,45 +30,10 @@ class Signup extends Component {
     }
   }
 
-  submitHandler = (event) => {
-    event.preventDefault()
-
-    const {
-      password,
-      passwordMatch
-    } = this.state
-
-    if (password !== passwordMatch) {
-      this.setState({ passwordError: 'Passwords do not match.' })
-    } else {
-      const {
-        firstname,
-        lastname,
-        email,
-        password
-      } = this.state
-
-      axios.post(URL, {
-        firstname,
-        lastname,
-        email,
-        password
-      }).then(() => {
-        this.props.history.push('/login')
-      }).catch(err => {
-        if (err.response.status === 400) {
-          this.setState({ ...err.response.data })
-        } else {
-          alert('Error: ', err.response.data)
-        }})
-    }
-  }
-
-  changeHandler = (event) => {
+  onChange = (event) => {
     const {
       name,
-      value
-    } = event.target
+      value } = event.target
 
     if (name === 'firstname') {
       this.setState({
@@ -88,8 +54,41 @@ class Signup extends Component {
         [name]: value,
         passwordError: null
       })
+    }
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault()
+
+    const {
+      password,
+      passwordMatch } = this.state
+
+    if (password !== passwordMatch) {
+      this.setState({ passwordError: 'Passwords do not match.' })
     } else {
-      this.setState({ [name]: value.replace(' ', '') })
+      const {
+        firstname,
+        lastname,
+        email,
+        password } = this.state
+
+      axios.post(`${URL}/api/auth/signup`, {
+        firstname,
+        lastname,
+        email,
+        password })
+        .then(() => {
+          this.props.history.push('/login')
+        })
+        .catch(err => {
+          const {
+            status,
+            data } = err.response
+
+          if (status === 400) this.setState({ ...data })
+          else alert(`Error: ${data}`)
+        })
     }
   }
 
@@ -103,19 +102,17 @@ class Signup extends Component {
       emailError,
       password,
       passwordMatch,
-      passwordError
-    } = this.state
+      passwordError } = this.state
 
     const {
-      submitHandler,
-      changeHandler
-    } = this
+      onChange,
+      onSubmit } = this
 
     return (
       <form
         className='content-sect'
         autoComplete='off'
-        onSubmit={submitHandler}>
+        onSubmit={onSubmit}>
         <Input
           className={firstnameError
             ? 'error'
@@ -124,8 +121,7 @@ class Signup extends Component {
           type='text'
           placeholder='First Name'
           value={firstname}
-          onChange={changeHandler}
-        />
+          onChange={onChange} />
         {firstnameError
           ? <div className='error-message'>{firstnameError}</div>
           : null}
@@ -137,8 +133,7 @@ class Signup extends Component {
           type='text'
           placeholder='Last Name'
           value={lastname}
-          onChange={changeHandler}
-        />
+          onChange={onChange} />
         {lastnameError
           ? <div className='error-message'>{lastnameError}</div>
           : null}
@@ -150,8 +145,7 @@ class Signup extends Component {
           type='text'
           placeholder='E-mail'
           value={email}
-          onChange={changeHandler}
-        />
+          onChange={onChange} />
         {emailError
           ? <div className='error-message'>{emailError}</div>
           : null}
@@ -163,8 +157,7 @@ class Signup extends Component {
           type='password'
           placeholder='Password'
           value={password}
-          onChange={changeHandler}
-        />
+          onChange={onChange} />
         {passwordError
           ? <div className='error-message'>{passwordError}</div>
           : null}
@@ -176,8 +169,7 @@ class Signup extends Component {
           type='password'
           placeholder='Confirm Password'
           value={passwordMatch}
-          onChange={changeHandler}
-        />
+          onChange={onChange} />
         {passwordError
           ? <div className='error-message'>{passwordError}</div>
           : null}

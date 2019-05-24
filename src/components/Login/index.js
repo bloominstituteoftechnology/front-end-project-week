@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import { Input, Icon, Button } from 'semantic-ui-react'
+import {
+  Input,
+  Icon,
+  Button } from 'semantic-ui-react'
 import axios from 'axios'
-import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 
 const {
-  REACT_APP_DEV_LOGIN,
-  REACT_APP_PROD_LOGIN
-} = process.env
+  REACT_APP_DEV,
+  REACT_APP_PROD } = process.env
 
-const URL = REACT_APP_DEV_LOGIN || REACT_APP_PROD_LOGIN
+const URL = REACT_APP_DEV || REACT_APP_PROD
 
 class Login extends Component {
   constructor() {
@@ -23,36 +25,10 @@ class Login extends Component {
     }
   }
 
-  submitHandler = (event) => {
-    event.preventDefault()
-    const {
-      email,
-      password
-    } = this.state
-
-    axios.post(URL, {
-      email,
-      password
-    }).then(res => {
-      if (res.data.token) {
-        localStorage.setItem('jwt', res.data.token)
-        this.props.history.push('/')
-      }
-    }).catch(err => {
-      const code = err.response.status
-
-      if (code === 400 || code === 401) {
-        this.setState({ ...err.response.data })
-      } else {
-        alert('Error: ', err.response.data)
-      }})
-  }
-
   onChange = (event) => {
     const {
       name,
-      value
-    } = event.target
+      value } = event.target
 
     if (name === 'email') {
       this.setState({
@@ -69,25 +45,53 @@ class Login extends Component {
     }
   }
 
+  onSubmit = (event) => {
+    event.preventDefault()
+
+    const {
+      email,
+      password } = this.state
+
+    axios.post(`${URL}/api/auth/login`,
+      {
+        email,
+        password
+      })
+      .then(res => {
+        const { token } = res.data
+        if (res.data.token) {
+          localStorage.setItem('token', token)
+          this.props.history.push('/')
+        }
+      })
+      .catch(err => {
+        const {
+          status,
+          data
+        } = err.response
+
+        if (status === 400 || status === 401) this.setState({ ...data })
+        else alert(`Error: ${data}`)
+      })
+  }
+
   render() {
     const {
       email,
       emailError,
       password,
       passwordError,
-      invalid
-    } = this.state
+      invalid } = this.state
 
     const {
-      submitHandler,
-      onChange
-    } = this
+      onChange,
+      onSubmit } = this
 
     return (
       <form
         autoComplete='off'
         className='content-sect'
-        onSubmit={submitHandler}>
+        onSubmit={onSubmit}>
         <Input
           className={invalid || emailError
             ? 'error'

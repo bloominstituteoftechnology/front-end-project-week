@@ -1,17 +1,16 @@
 import React from 'react'
-import { Modal, Button } from 'semantic-ui-react'
+import {
+  Modal,
+  Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import './index.css'
 
 const DeleteModal = ({
-  USER_ID,
-  NOTE_ID,
   modal,
   toggle,
-  removeNote
-}) => (
+  removeNote }) => (
   <Modal
     className='modal-cont'
     open={modal}>
@@ -23,8 +22,8 @@ const DeleteModal = ({
         <Button
           as={Link}
           className='milano-red modal-btn'
-          to={`/${USER_ID}`}
-          onClick={() => removeNote(USER_ID, NOTE_ID)}>
+          to='/'
+          onClick={removeNote}>
           Yes
         </Button>
         <Button
@@ -38,8 +37,6 @@ const DeleteModal = ({
 )
 
 DeleteModal.propTypes = {
-  USER_ID: PropTypes.string.isRequired,
-  NOTE_ID: PropTypes.string.isRequired,
   modal: PropTypes.bool.isRequired,
   toggle: PropTypes.func.isRequired,
   removeNote: PropTypes.func.isRequired

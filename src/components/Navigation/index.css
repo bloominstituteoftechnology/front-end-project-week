@@ -16,9 +16,7 @@
   display: none !important;
 }
 
-.toggle-btn:hover {
-  background: #00616F;
-}
+.toggle-btn:hover { background: #00616F; }
 
 @media(max-width: 768px) {
   #navigation {
@@ -29,9 +27,7 @@
     width: 100%;
   }
 
-  .hide-btn {
-    display: none !important;
-  }
+  .hide-btn { display: none !important; }
 
   .toggle-btn {
     align-self: center;

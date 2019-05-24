@@ -17,10 +17,10 @@ const AuthRoutes = () => (
       exact path='/createnote'
       component={CreateNote} />
     <Route
-      exact path='/:noteId'
+      exact path='/note'
       component={Note} />
     <Route
-      exact path='/:noteId/editnote'
+      exact path='/editnote'
       component={EditNote} />
   </div>
 )
