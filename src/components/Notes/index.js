@@ -1,79 +1,90 @@
 import React, { Component } from 'react'
+import decode from 'jwt-decode'
 import { Card } from 'semantic-ui-react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import './index.css'
 
-const URL = 'https://lambda-notes0706.herokuapp.com/api/users'
+const {
+  REACT_APP_DEV,
+  REACT_APP_PROD } = process.env
+
+const URL = REACT_APP_DEV || REACT_APP_PROD
 
 class Notes extends Component {
   constructor() {
     super()
     this.state = {
-      username: null,
+      id: null,
+      firstname: null,
+      lastname: null,
       notes: null
     }
   }
 
   componentDidMount() {
-    const token = localStorage.getItem('jwt')
+    const TOKEN = localStorage.getItem('token')
+
+    const USER_ID = decode(TOKEN).id
+
     const REQUEST_OPTIONS = {
       headers: {
-        Authorization: token
+        Authorization: TOKEN
       }
     }
 
-    const USER_ID = localStorage.getItem('userId')
-
-    axios.get(`${URL}/${USER_ID}/notes`, REQUEST_OPTIONS)
-      .then(res => {
-        this.setState({
-          username: res.data.username,
-          notes: res.data.notes
-        })
-      })
+    axios
+      .get(`${URL}/api/users/${USER_ID}/notes`, REQUEST_OPTIONS)
+      .then(res => this.setState({ ...res.data }))
       .catch(err => {
-        alert(`Error: ${err}`)
+        const { data } = err.response
+        alert(`Error: ${data}`)
       })
   }
 
   render() {
     const {
-      username,
-      notes
-    } = this.state
+      id,
+      firstname,
+      lastname,
+      notes } = this.state
 
-    const USER_ID = localStorage.getItem('userId')
-
-    if (!username && !notes) return (
+    if (!id) return (
       <div className='loading'>
         <h2>Loading notes information...</h2>
       </div>)
 
     return (
       <div className='content-sect padding'>
-        <h2>{username} Notes:</h2>
+        <h2>{firstname} {lastname} Notes:</h2>
         {notes.length === 0
           ? <p>You currently do not have any notes. Click on the create note button to create one.</p>
-          : null}
-        <div className='notes'>
-          {notes.length > 0 ?
-            notes.map(note => (
-              <Card
-                className='card-container'
-                key={note._id}
-                as={Link}
-                to={`/${USER_ID}/notes/${note._id}`}>
-                <Card.Content
-                  className='card-header'
-                  header={note.title} />
-                <Card.Content
-                  className='card-description'
-                  description={note.text} />
-              </Card>
-            )) : null}
-        </div>
+          : <div className='notes'>
+            {notes.map(note => {
+              const {
+                id,
+                title,
+                text } = note
+
+              return (
+                <Card
+                  className='card-container'
+                  key={id}
+                  as={Link}
+                  to={{
+                    pathname: '/note',
+                    state: { id }
+                  }}>
+                  <Card.Content
+                    className='card-header'
+                    header={title} />
+                  <Card.Content
+                    className='card-description'
+                    description={text} />
+                </Card>
+              )})}
+          </div>}
       </div>
     )
   }

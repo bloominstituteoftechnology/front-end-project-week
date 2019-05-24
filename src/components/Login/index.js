@@ -1,122 +1,135 @@
 import React, { Component } from 'react'
-import { Input, Icon, Button } from 'semantic-ui-react'
+import {
+  Input,
+  Icon,
+  Button } from 'semantic-ui-react'
 import axios from 'axios'
-import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 
-const URL = 'https://lambda-notes0706.herokuapp.com/api/auth/login'
+const {
+  REACT_APP_DEV,
+  REACT_APP_PROD } = process.env
+
+const URL = REACT_APP_DEV || REACT_APP_PROD
 
 class Login extends Component {
   constructor() {
     super()
     this.state = {
-      usernameOrEmail: '',
+      email: '',
+      emailError: null,
       password: '',
+      passwordError: null,
       invalid: null
     }
   }
 
-    submitHandler = (event) => {
-      event.preventDefault()
-      const {
-        usernameOrEmail,
-        password
-      } = this.state
+  onChange = (event) => {
+    const {
+      name,
+      value } = event.target
 
-      axios.post(URL, {
-        username: usernameOrEmail,
-        email: usernameOrEmail,
-        password
-      }).then(res => {
-        if (res.data.token) {
-          localStorage.setItem('jwt', res.data.token)
-          localStorage.setItem('userId', res.data.id)
-          this.props.history.push(`/${res.data.id}`)
-        }
-      }).catch(err => {
-        if (err.response.status) {
-          if (err.response.status === 401) {
-            this.setState({ invalid: err.response.data })
-          } else if (err.response.status === 400) {
-            this.setState({ invalid: err.response.data[1] })
-          } else {
-            alert(`Error: ${err.response.status} ${err.response.data[1]}`)
-          }
-        } else {
-          alert(`Error: ${err}`)
-        }
+    if (name === 'email') {
+      this.setState({
+        email: value.replace(' ', '').toLowerCase(),
+        emailError: null,
+        invalid: null
+      })
+    } else {
+      this.setState({
+        password: value,
+        passowordError: null,
+        invalid: null
       })
     }
+  }
 
-    OnChange = (event) => {
-      const {
-        name,
-        value
-      } = event.target
+  onSubmit = (event) => {
+    event.preventDefault()
 
-      if (name === 'usernameOrEmail') {
-        this.setState({
-          [name]: value.replace(' ', '').toLowerCase(),
-          invalid: null
-        })
-      } else {
-        this.setState({
-          [name]: value,
-          invalid: null
-        })
-      }
-    }
+    const {
+      email,
+      password } = this.state
 
-    render() {
-      const {
-        usernameOrEmail,
-        password,
-        invalid
-      } = this.state
+    axios.post(`${URL}/api/auth/login`,
+      {
+        email,
+        password
+      })
+      .then(res => {
+        const { token } = res.data
+        if (res.data.token) {
+          localStorage.setItem('token', token)
+          this.props.history.push('/')
+        }
+      })
+      .catch(err => {
+        const {
+          status,
+          data
+        } = err.response
 
-      return (
-        <form
-          autoComplete='off'
-          className='content-sect'
-          onSubmit={this.submitHandler}>
-          <Input
-            className={invalid
-              ? 'error'
-              : null}
-            name='usernameOrEmail'
-            type='text'
-            icon
-            iconPosition='left'
-            placeholder='Username or Email'
-            value={usernameOrEmail}
-            onChange={this.OnChange}>
-            <Icon name='user' />
-            <input />
-          </Input>
-          {invalid
-            ? <div className='error-message'>{invalid}</div>
+        if (status === 400 || status === 401) this.setState({ ...data })
+        else alert(`Error: ${data}`)
+      })
+  }
+
+  render() {
+    const {
+      email,
+      emailError,
+      password,
+      passwordError,
+      invalid } = this.state
+
+    const {
+      onChange,
+      onSubmit } = this
+
+    return (
+      <form
+        autoComplete='off'
+        className='content-sect'
+        onSubmit={onSubmit}>
+        <Input
+          className={invalid || emailError
+            ? 'error'
             : null}
-          <Input
-            className={invalid
-              ? 'error'
-              : null}
-            name='password'
-            type='password'
-            icon
-            iconPosition='left'
-            placeholder='Password'
-            value={password}
-            onChange={this.OnChange}>
-            <Icon name='lock' />
-            <input />
-          </Input>
-          {invalid
-            ? <div className='error-message'>{invalid}</div>
+          name='email'
+          type='text'
+          icon
+          iconPosition='left'
+          placeholder='E-mail'
+          value={email}
+          onChange={onChange}>
+          <Icon name='user' />
+          <input />
+        </Input>
+        {invalid || emailError
+          ? <div className='error-message'>{invalid || emailError}</div>
+          : null}
+        <Input
+          className={invalid || passwordError
+            ? 'error'
             : null}
-          <Button className='pacific-blue auth-btn'>Log In</Button>
-        </form>
-      )
-    }
+          name='password'
+          type='password'
+          icon
+          iconPosition='left'
+          placeholder='Password'
+          value={password}
+          onChange={onChange}>
+          <Icon name='lock' />
+          <input />
+        </Input>
+        {invalid || passwordError
+          ? <div className='error-message'>{invalid || passwordError}</div>
+          : null}
+        <Button className='pacific-blue auth-btn'>Log In</Button>
+      </form>
+    )
+  }
 }
 
 Login.propTypes = {
