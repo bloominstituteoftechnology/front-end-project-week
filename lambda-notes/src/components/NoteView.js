@@ -12,7 +12,7 @@ class NoteView extends React.Component {
     this.state={
         note:{
         title:"",
-        textBody:""
+        body:""
       },
       Editing:false,
       Deleting: false
@@ -26,8 +26,8 @@ class NoteView extends React.Component {
    
    getNote = (id) => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-      .then(response => this.setState({note: response.data}))
+      .get(`http://localhost:7000/api/notes/${id}`)
+      .then(response =>  this.setState({note: response.data}))
       .catch(err => {console.log(err)});
    }
 
@@ -43,7 +43,7 @@ class NoteView extends React.Component {
     const id = this.props.match.params.id;
 
     axios
-    .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
+    .put(`http://localhost:7000/api/notes/${id}`, note)
     .then(response => {
       this.setState({
         note: response.data,
@@ -65,7 +65,7 @@ class NoteView extends React.Component {
   deleteNote = () => {
     const id = this.props.match.params.id;
 
-    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    axios.delete(`http://localhost:7000/api/notes/${id}`)
     .then(response => this.setState({notes: response.data}, () => {
     this.props.getNotes()
     this.props.history.push('/')}))
@@ -80,7 +80,7 @@ class NoteView extends React.Component {
         <NoteForm
           note={this.state.note} 
           title={this.state.title}
-          textBody={this.state.textBody}
+          body={this.state.body}
           editNote={this.editNote}
           Editing={this.state.Editing}
         />
@@ -100,7 +100,7 @@ class NoteView extends React.Component {
     <div className="nv-wrapper"> 
       <div className="nv-note"> 
         <h3>{this.state.note.title}</h3>
-        <h5>{this.state.note.textBody}</h5>
+        <h5>{this.state.note.body}</h5>
       </div>  
       <div className="nv-buttons">
         <button className="nv-button" onClick={this.editOn}>Edit</button>

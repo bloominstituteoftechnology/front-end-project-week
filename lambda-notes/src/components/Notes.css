@@ -10,6 +10,10 @@
     left: 461px;
 }
 
+.all-notes h2{
+    color: rgb(56, 71, 85);
+}
+
 .single-note{
     border: 1px black solid;
     border-radius: 10px;
@@ -22,7 +26,9 @@
 }
 
  .single-note h3{
-    border-bottom: 2px solid grey;
+    border-bottom: 1.1px solid grey;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
 .text{

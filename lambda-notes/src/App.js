@@ -16,7 +16,7 @@ class App extends Component {
       notes: [],
       note: {
         title: '',
-        textBody: ''
+        body: ''
       },
       search: "",
       searching:false
@@ -29,16 +29,16 @@ class App extends Component {
 
   getNotes = () => {
     axios
-    .get("https://killer-notes.herokuapp.com/note/get/all")
+    .get("http://localhost:7000/api/notes")
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log(err))
   }
   postNote = (newNote) => {
     axios
-      .post("https://killer-notes.herokuapp.com/note/create", newNote)
+      .post("http://localhost:7000/api/notes", newNote)
       .then(response => {
         console.log(response)
-        this.setState({ notes: [...this.state.notes, {...newNote, _id: response.data.success}] })})
+        this.setState({ notes: [...this.state.notes, {...newNote, id: response.data}] })})
       .catch(err => {console.log(err)});
   }
 
@@ -49,6 +49,7 @@ class App extends Component {
       this.setState({searching:false});
     }
   };
+
 
   render() {
     let filteredNotes = this.state.notes.filter(note => {
