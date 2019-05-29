@@ -50,6 +50,7 @@ export const fetchData = () => {
   };
 };
 
+
 export const addNote = (notes) => {
   return (dispatch) => {
     dispatch({ type: INITIALIZE_NOTE_ADD });

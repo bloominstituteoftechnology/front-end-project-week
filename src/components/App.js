@@ -21,7 +21,6 @@ class App extends Component {
           <Route exact path='/create-note' component={NotesForm} />
           <Route path='/notes/:id' component={SingleNoteView} />
           <Route path='/updateNote/:id' render={props => <Edit {...props} />} />
-
         </div>
       </div>
     );
