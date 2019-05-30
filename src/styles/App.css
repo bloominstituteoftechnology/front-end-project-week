@@ -164,7 +164,7 @@ form {
   padding-top: 10px;
   padding-left: 10px;
 }
-.Column-Layout h3{
+.Column-Layout h3 {
   margin-top: 20px;
   width: 100px;
   padding: 10px 3% 10px 3%;
@@ -196,6 +196,12 @@ button.btn.btn-primary {
 
 div.modal-body {
   text-align: center;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  margin-top: 40%;
 }
 
 @keyframes App-logo-spin {
