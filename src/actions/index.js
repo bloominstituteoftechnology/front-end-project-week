@@ -84,9 +84,8 @@ export const getNote = id => {
 export const updateNote = note => {
   return dispatch => {
       dispatch({ type: UPDATING_NOTES });
-
       axios
-      .put(`https://notes-backend-server.herokuapp.com/updateNote/${note.id}`, {title: note.title, content: note.content})
+      .put(`https://notes-backend-server.herokuapp.com/updateNote/${note.id}`, note)
       .then(() => {
           dispatch({ type: UPDATED_NOTES })
       })
