@@ -26,7 +26,7 @@ class NoteView extends React.Component {
    
    getNote = (id) => {
     axios
-      .get(`http://localhost:7000/api/notes/${id}`)
+      .get(`${api}/api/notes/${id}`)
       .then(response =>  this.setState({note: response.data}))
       .catch(err => {console.log(err)});
    }
@@ -43,7 +43,7 @@ class NoteView extends React.Component {
     const id = this.props.match.params.id;
 
     axios
-    .put(`http://localhost:7000/api/notes/${id}`, note)
+    .put(`${api}/api/notes/${id}`, note)
     .then(response => {
       this.setState({
         note: response.data,
@@ -65,7 +65,7 @@ class NoteView extends React.Component {
   deleteNote = () => {
     const id = this.props.match.params.id;
 
-    axios.delete(`http://localhost:7000/api/notes/${id}`)
+    axios.delete(`${api}/api/notes/${id}`)
     .then(response => this.setState({notes: response.data}, () => {
     this.props.getNotes()
     this.props.history.push('/')}))

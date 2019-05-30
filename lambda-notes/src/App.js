@@ -27,15 +27,17 @@ class App extends Component {
     this.getNotes();
   }
 
+  api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";
+
   getNotes = () => {
     axios
-    .get("http://localhost:7000/api/notes")
+    .get(`${api}/api/notes`)
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log(err))
   }
   postNote = (newNote) => {
     axios
-      .post("http://localhost:7000/api/notes", newNote)
+      .post(`${api}/api/notes`, newNote)
       .then(response => {
         console.log(response)
         this.setState({ notes: [...this.state.notes, {...newNote, id: response.data}] })})
