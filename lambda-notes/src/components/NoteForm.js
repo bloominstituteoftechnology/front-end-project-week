@@ -1,5 +1,4 @@
 import React,{Fragment} from 'react';
-import axios from 'axios';
 import './NoteForm.css';
 
 
@@ -8,7 +7,7 @@ class NoteForm extends React.Component{
         super()
         this.state = {
                 title:'',
-                textBody:''
+                body:''
             }
         }
 
@@ -16,7 +15,7 @@ class NoteForm extends React.Component{
         if(this.props.Editing){
             this.setState({
                 title: this.props.note.title,
-                textBody: this.props.note.textBody
+                body: this.props.note.body
             })
         }
     }
@@ -26,7 +25,7 @@ class NoteForm extends React.Component{
         if(this.props.Editing){
         const updatedNote = {
             title: this.state.title,
-            textBody: this.state.textBody
+            body: this.state.body
         }
         this.props.editNote(updatedNote)
     }else{
@@ -42,14 +41,14 @@ class NoteForm extends React.Component{
         e.preventDefault();
         const newNote = {
           title: this.state.title,
-          textBody: this.state.textBody
+          body: this.state.body
         }
     
         this.props.postNote(newNote);
         
         this.setState({
           title: '',
-          textBody: ''
+          body: ''
         });
         this.props.history.push('/')
       }
@@ -57,14 +56,14 @@ class NoteForm extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="nf-wrapper">
                 <h1>{this.props.Editing ? "Edit Note" : "Add Note"}</h1>
                 <form className="nf" onSubmit={this.handleSubmit}>
                     <div className="nf-inputs">
                     <input type="text" onChange={this.handleInputChange} name="title" value={this.state.title} placeholder="Title" />
-                    <input type="text" onChange={this.handleInputChange} name="textBody" value={this.state.textBody} placeholder="Notes" />
+                    <input type="text" onChange={this.handleInputChange} name="body" value={this.state.body} placeholder="Notes" />
                     </div>
-                    <button>{this.props.Editing ? "Update" : "Add Note"}</button>
+                    <button className="nf-button">{this.props.Editing ? "Update" : "Add Note"}</button>
                 </form>
             </div>
          

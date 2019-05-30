@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import SideBar from './components/SideBar';
+import Note from './components/Note';
 import Notes from './components/Notes';
 import NoteForm from './components/NoteForm';
 import NoteView from './components/NoteView.js';
@@ -15,8 +16,10 @@ class App extends Component {
       notes: [],
       note: {
         title: '',
-        textBody: ''
-      }
+        body: ''
+      },
+      search: "",
+      searching:false
     }
   }
 
@@ -24,26 +27,45 @@ class App extends Component {
     this.getNotes();
   }
 
+  api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";
+
   getNotes = () => {
     axios
-    .get("https://killer-notes.herokuapp.com/note/get/all")
+    .get(`${api}/api/notes`)
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log(err))
   }
   postNote = (newNote) => {
     axios
-      .post("https://killer-notes.herokuapp.com/note/create", newNote)
+      .post(`${api}/api/notes`, newNote)
       .then(response => {
         console.log(response)
-        this.setState({ notes: [...this.state.notes, {...newNote, _id: response.data.success}] })})
+        this.setState({ notes: [...this.state.notes, {...newNote, id: response.data}] })})
       .catch(err => {console.log(err)});
   }
 
+  handleSearchInput= (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+    this.setState({searching:true});
+    if(e.target.value === ""){
+      this.setState({searching:false});
+    }
+  };
+
+
   render() {
+    let filteredNotes = this.state.notes.filter(note => {
+      if(this.state.searching){
+      return note.title.toLowerCase().indexOf(this.state.search.toLowerCase()) > -1
+      }else{
+        return note
+      }
+    })
+  
     return (
       <div className="App">
-        <SideBar />
-        <Route exact path="/" render={(props) => <Notes {...props} notes={this.state.notes} />} />
+        <SideBar handleSearchInput={this.handleSearchInput} notes={this.state.notes} search={this.state.search}  />
+        <Route exact path="/" render={(props) => <Notes {...props} notes={filteredNotes} />} />
         <Route path="/add-note" render={(props)=> <NoteForm {...props} postNote={this.postNote} note={this.state.note} />}/>
         <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} getNotes={this.getNotes} getNote={this.getNote} />} />
       </div>

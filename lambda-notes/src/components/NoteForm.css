@@ -1,0 +1,51 @@
+.nf-wrapper{
+    background: whitesmoke;
+    position: absolute;
+    height: 100%;
+    width: 70%;
+    left:30%;
+}
+
+.nf{
+    margin: 15px;
+}
+
+.nf-inputs{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    position: relative;
+    left: 175px;
+}
+
+.nf-inputs input{
+    border: none;
+    border-bottom: inset grey 0.75px;
+    height: 40px;
+    margin: 20px;
+}
+
+.nf-inputs input[placeholder]{
+    height: 40px;
+    font-size: 1.5rem;
+}
+
+.nf-button{
+    padding: 5px;
+    cursor: pointer;
+    width:125px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 30px; 
+    background: rgb(56, 71, 85);
+    color: #FFFFFF;
+    font-size: 1rem;
+    box-shadow: 0.5px 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.nf-button:hover{
+    background: #FFFFFF;
+    color: rgb(56, 71, 85);
+    border: solid 1px rgb(56, 71, 85);
+}
