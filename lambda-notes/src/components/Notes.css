@@ -5,16 +5,27 @@
     height: 100%;
     background: rgb(185, 188, 224);
     display: flex;
-    left: 461px;
+    left: 30%;
 } 
 
 .all-notes h2{
     color: rgb(56, 71, 85);
     height: 35px;
-    width: 200px;
     position: relative; 
-    left: 430px;
+    left: 45%;
 }
+
+@media only screen and (max-width: 600px) {
+  .all-notes h2 {
+    left: 40%;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+    .all-notes h2 {
+      left: 35%;
+    }
+  }
 
 .all-notes .mapped-notes{
     display: flex;
