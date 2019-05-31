@@ -45,7 +45,8 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    width:90%;
+    width:90%; 
+    
 }
 
 
@@ -53,6 +54,7 @@
     border: none;
     border-bottom: inset rgb(56, 71, 85) 0.75px;
     height: 40px;
+    width:100%;
 }
 
 .sb-input input[placeholder]{

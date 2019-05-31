@@ -12,7 +12,7 @@ const SideBar = (props) =>{
                 <h1 className="sb-header">Lambda Notes</h1>
                 <div className="sb-links">
                     <Link className="sb-link" to="/">View Notes</Link>
-                    <Link className="sb-link" to="/add-note">Create Note</Link>
+                    <Link className="sb-link" to="/add-note" onClick={props.addingOn}>Create Note</Link>
                 </div>
             </div>
         

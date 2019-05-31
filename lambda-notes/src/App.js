@@ -17,7 +17,8 @@ class App extends Component {
         body: ''
       },
       search: "",
-      searching:false
+      searching:false,
+      adding: false
     }
   }
 
@@ -39,7 +40,7 @@ class App extends Component {
       .post( "https://notes-api-lsp.herokuapp.com/api/notes", newNote)
       .then(response => {
         console.log(response)
-        this.setState({ notes: [...this.state.notes, {...newNote, id: response.data}] })})
+        this.setState({ notes: [...this.state.notes, {...newNote, id: response.data}]})})
       .catch(err => {console.log(err)});
   }
 
@@ -50,7 +51,15 @@ class App extends Component {
       this.setState({searching:false});
     }
   };
+  
+  addingOn = () =>{
+    this.setState({adding:true})
+  }
 
+  addingOff = () =>{
+    this.setState({adding:false});
+    this.getNotes;  
+}
 
   render() {
     let filteredNotes = this.state.notes.filter(note => {
@@ -63,9 +72,9 @@ class App extends Component {
   
     return (
       <div className="App">
-        <SideBar handleSearchInput={this.handleSearchInput} notes={this.state.notes} search={this.state.search}  />
+        <SideBar handleSearchInput={this.handleSearchInput} notes={this.state.notes} search={this.state.search} adding={this.state.adding} addingOn={this.addingOn} />
         <Route exact path="/" render={(props) => <Notes {...props} notes={filteredNotes} />} />
-        <Route path="/add-note" render={(props)=> <NoteForm {...props} postNote={this.postNote} note={this.state.note} />}/>
+        <Route path="/add-note" render={(props)=> <NoteForm {...props} postNote={this.postNote} note={this.state.note} adding={this.state.adding} addingOff={this.addingOff} addingOn={this.addingOn} />}/>
         <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} getNotes={this.getNotes} getNote={this.getNote} />} />
       </div>
     );

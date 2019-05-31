@@ -1,16 +1,31 @@
+.nv-background{
+    position: absolute;
+    width:70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+    left:30%;
+}
+
 .nv-wrapper{
-    width: 40%;
-    float: right;
-    position: relative;
-    right: 200px;
-    top: 150px;
-    
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (max-width: 875px) {
+    .nv-wrapper{
+       width: 90%;
+    }
 }
 
 .nv-note{
     border: black inset 2px;
     background: rgb(235, 235, 235);
     padding: 100px 0;
+    width:75% 
 }
 
 .nv-button{
@@ -31,10 +46,6 @@
 }
 
 .cancel{
-    position: relative; 
-    top: 343px;
-    left: 75px; 
-    cursor: pointer;
     padding: 5px;
     margin: 10px;
     width: 125px;

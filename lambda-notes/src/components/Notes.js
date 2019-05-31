@@ -11,9 +11,9 @@ const Notes = (props) => {
         <div className="all-notes">
                 <h2>Your Notes</h2>
             <div className="mapped-notes">
-                {props.notes.map((note) => {
+                {props.notes.map((note, index) => {
                     return(
-                    <Link className="link" to={`/note/${note.id}`} key={note.id}>       
+                    <Link className="link" to={`/note/${note.id}`} key={index}>       
                     <Note 
                     noteTitle ={note.title}
                     noteBody={note.body} 

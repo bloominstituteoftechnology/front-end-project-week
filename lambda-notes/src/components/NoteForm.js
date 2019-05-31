@@ -39,11 +39,11 @@ class NoteForm extends React.Component{
 
     addNote = (e) => {
         e.preventDefault();
+        if(this.props.adding){
         const newNote = {
           title: this.state.title,
           body: this.state.body
-        }
-    
+        }     
         this.props.postNote(newNote);
         
         this.setState({
@@ -52,18 +52,21 @@ class NoteForm extends React.Component{
         });
         this.props.history.push('/')
       }
+    }
       
-
     render(){
         return(
             <div className="nf-wrapper">
                 <h1>{this.props.Editing ? "Edit Note" : "Add Note"}</h1>
                 <form className="nf" onSubmit={this.handleSubmit}>
                     <div className="nf-inputs">
-                    <input type="text" onChange={this.handleInputChange} name="title" value={this.state.title} placeholder="Title" />
-                    <input type="text" onChange={this.handleInputChange} name="body" value={this.state.body} placeholder="Notes" />
+                        <input type="text" onChange={this.handleInputChange} name="title" value={this.state.title} placeholder="Title" />
+                        <input type="text" onChange={this.handleInputChange} name="body" value={this.state.body} placeholder="Notes" />
                     </div>
-                    <button className="nf-button">{this.props.Editing ? "Update" : "Add Note"}</button>
+                    <div className="nf-buttons">
+                        <button className="cancel" onClick={this.props.Editing ? this.props.editOff : this.props.addingOff}>Cancel</button>
+                        <button className="nf-button">{this.props.Editing ? "Update" : "Add Note"}</button>
+                    </div>
                 </form>
             </div>
          
