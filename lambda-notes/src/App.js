@@ -31,7 +31,7 @@ class App extends Component {
     const api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";
 
     axios
-    .get(`${api}/api/notes`)
+    .get("http://notes-api-lsp.herokuapp.com/api/notes")
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log(err))
   }
@@ -39,7 +39,7 @@ class App extends Component {
     const  api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";
 
     axios
-      .post(`${api}/api/notes`, newNote)
+      .post("http://notes-api-lsp.herokuapp.com/api/notes", newNote)
       .then(response => {
         console.log(response)
         this.setState({ notes: [...this.state.notes, {...newNote, id: response.data}] })})
