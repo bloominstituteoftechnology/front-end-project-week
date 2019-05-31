@@ -24,8 +24,8 @@ class NoteView extends React.Component {
       this.getNote(id);
    }
    
-   api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";
-   
+  api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";
+
    getNote = (id) => {
     axios
       .get(`${api}/api/notes/${id}`)
