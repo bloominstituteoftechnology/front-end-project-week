@@ -25,9 +25,9 @@ class NoteView extends React.Component {
    }
 
    getNote = (id) => {
-    // const api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";    
+    const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";    
     axios
-      .get(`https://notes-api-lsp.herokuapp.com/api/notes/${id}`)
+      .get(`${api}/api/notes/${id}`)
       .then(response =>  this.setState({note: response.data}))
       .catch(err => {console.log(err)});
    }
@@ -41,11 +41,11 @@ class NoteView extends React.Component {
    }
 
    editNote = (note) => {
-    // const api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";    
+    const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";    
     const id = this.props.match.params.id;
 
     axios
-    .put(`https://notes-api-lsp.herokuapp.com/api/notes/${id}`, note)
+    .put(`${api}https://notes-api-lsp.herokuapp.com/api/notes/${id}`, note)
     .then(response => {
       this.setState({
         note: response.data,
@@ -65,10 +65,10 @@ class NoteView extends React.Component {
   }
 
   deleteNote = () => {
-    // const  api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";    
+    const  api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";    
     const id = this.props.match.params.id;
 
-    axios.delete(`https://notes-api-lsp.herokuapp.com/api/notes/${id}`)
+    axios.delete(`${api}/api/notes/${id}`)
     .then(response => this.setState({notes: response.data}, () => {
     this.props.getNotes()
     this.props.history.push('/')}))
