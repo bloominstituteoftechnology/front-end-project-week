@@ -30,7 +30,7 @@ class App extends Component {
   getNotes = () => {
     // const api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";
     axios
-    .get("http://notes-api-lsp.herokuapp.com/api/notes")
+    .get("https://notes-api-lsp.herokuapp.com/api/notes")
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log(err))
   }
@@ -38,7 +38,7 @@ class App extends Component {
     // const api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";
 
     axios
-      .post("http://notes-api-lsp.herokuapp.com/api/notes", newNote)
+      .post("https://notes-api-lsp.herokuapp.com/api/notes", newNote)
       .then(response => {
         console.log(response)
         this.setState({ notes: [...this.state.notes, {...newNote, id: response.data}] })})
