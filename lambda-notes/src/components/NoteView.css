@@ -15,10 +15,15 @@
 
 .nv-button{
     margin: 10px;
-    width: 75px;
-    height: 30px;
-    background: rgb(134, 134, 212);
+    width: 120px;
+    height: 35px;
+    font-size: 0.9rem;
+    background: lightseagreen;
+    color: #FFFFFF;
     cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0.5px 1px 5px rgba(0, 0, 0, 0.25);  
 }
 
 .nv-buttons .delete{
@@ -26,9 +31,19 @@
 }
 
 .cancel{
-    position: relative;
-    top: 244px;
-    left: 75px;
-    padding: 5px;
+    position: relative; 
+    top: 343px;
+    left: 75px; 
     cursor: pointer;
+    padding: 5px;
+    margin: 10px;
+    width: 125px;
+    height: 35px;
+    font-size: 0.9rem;
+    background: lightseagreen;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0.5px 1px 5px rgba(0, 0, 0, 0.25);  
 }

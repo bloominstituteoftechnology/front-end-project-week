@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Route} from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import SideBar from './components/SideBar';
-import Note from './components/Note';
 import Notes from './components/Notes';
 import NoteForm from './components/NoteForm';
 import NoteView from './components/NoteView.js';
@@ -28,17 +26,17 @@ class App extends Component {
   }
 
   getNotes = () => {
-    const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";
+    // const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";
     axios
-    .get(`${api}/api/notes`)
+    .get( "https://notes-api-lsp.herokuapp.com/api/notes")
     .then(response => this.setState({notes: response.data}))
     .catch(err => console.log(err))
   }
   postNote = (newNote) => {
-    const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";
+    // const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";
 
     axios
-      .post(`${api}/api/notes`, newNote)
+      .post( "https://notes-api-lsp.herokuapp.com/api/notes", newNote)
       .then(response => {
         console.log(response)
         this.setState({ notes: [...this.state.notes, {...newNote, id: response.data}] })})

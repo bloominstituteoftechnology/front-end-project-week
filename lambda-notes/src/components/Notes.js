@@ -9,9 +9,7 @@ const Notes = (props) => {
     return(
         <Fragment>
         <div className="all-notes">
-            <div className="h2-div">
                 <h2>Your Notes</h2>
-            </div>
             <div className="mapped-notes">
                 {props.notes.map((note) => {
                     return(

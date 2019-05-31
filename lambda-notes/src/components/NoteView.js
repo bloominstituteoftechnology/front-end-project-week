@@ -1,5 +1,4 @@
 import React, {Fragment} from "react";
-import { Link, Route } from "react-router-dom";
 import axios from 'axios';
 import NoteForm from './NoteForm';
 import DeleteModal from './DeleteModal';
@@ -25,9 +24,9 @@ class NoteView extends React.Component {
    }
 
    getNote = (id) => {
-    const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";    
+    // const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";    
     axios
-      .get(`${api}/api/notes/${id}`)
+      .get(`https://notes-api-lsp.herokuapp.com/api/notes/${id}`)
       .then(response =>  this.setState({note: response.data}))
       .catch(err => {console.log(err)});
    }
@@ -41,15 +40,15 @@ class NoteView extends React.Component {
    }
 
    editNote = (note) => {
-    const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";    
+    // const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";    
     const id = this.props.match.params.id;
 
     axios
-    .put(`${api}https://notes-api-lsp.herokuapp.com/api/notes/${id}`, note)
+    .put(`https://notes-api-lsp.herokuapp.com/api/notes/${id}`, note)
     .then(response => {
       this.setState({
         note: response.data,
-        Editing: false}), 
+        Editing: false}) 
         this.props.history.push('/')
         this.props.getNotes()
     })
@@ -65,10 +64,10 @@ class NoteView extends React.Component {
   }
 
   deleteNote = () => {
-    const  api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";    
+    // const  api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";    
     const id = this.props.match.params.id;
 
-    axios.delete(`${api}/api/notes/${id}`)
+    axios.delete(`https://notes-api-lsp.herokuapp.com/api/notes/${id}`)
     .then(response => this.setState({notes: response.data}, () => {
     this.props.getNotes()
     this.props.history.push('/')}))

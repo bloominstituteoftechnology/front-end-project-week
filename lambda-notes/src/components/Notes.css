@@ -5,17 +5,26 @@
     height: 100%;
     background: rgb(185, 188, 224);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     left: 461px;
-}
+} 
 
 .all-notes h2{
     color: rgb(56, 71, 85);
+    height: 35px;
+    width: 200px;
+    position: relative; 
+    left: 430px;
 }
 
 .all-notes .mapped-notes{
-    margin-top:25px;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 85%; 
+    position: absolute;
+    top:80px; 
 }
 
 .single-note{
@@ -24,8 +33,8 @@
     margin: 10px;
     background: rgb(243, 238, 238);
     display: flex;
-    flex-wrap: wrap;
-    width: 300px;
+    flex-direction: column;
+    width: 300px; 
 }
 
  .single-note h3{
