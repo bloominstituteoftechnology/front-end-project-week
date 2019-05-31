@@ -24,14 +24,15 @@ class NoteView extends React.Component {
    }
 
    getNote = (id) => {
-    // const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com";    
+    // const api = "http://localhost:7000" || "https://notes-api-lsp.herokuapp.com"; 
+   
     axios
       .get(`https://notes-api-lsp.herokuapp.com/api/notes/${id}`)
       .then(response =>  this.setState({note: response.data}))
-      .catch(err => {console.log(err)});
+      .catch(err => {console.log(err)});  
    }
-
-   editOn = () => {
+   
+  editOn = () => {
     this.setState({ Editing: true });
    }
 
@@ -85,8 +86,8 @@ class NoteView extends React.Component {
           body={this.state.body}
           editNote={this.editNote}
           Editing={this.state.Editing}
+          editOff={this.editOff}
         />
-        <button className="cancel" onClick={this.editOff}>Cancel Update</button>
         </Fragment>
       );
     }
@@ -104,10 +105,10 @@ class NoteView extends React.Component {
         <h3>{this.state.note.title}</h3>
         <h5>{this.state.note.body}</h5>
       </div>  
-      <div className="nv-buttons">
-        <button className="nv-button" onClick={this.editOn}>Edit</button>
-        <button className="nv-button delete" onClick={this.deleteOn}>Delete</button>
-      </div>
+        <div className="nv-buttons">
+          <button className="nv-button" onClick={this.editOn}>Edit</button>
+          <button className="nv-button delete" onClick={this.deleteOn}>Delete</button>
+        </div>
     </div>
     </div>
     </Fragment>
