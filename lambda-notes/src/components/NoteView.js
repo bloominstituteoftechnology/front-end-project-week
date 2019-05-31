@@ -23,10 +23,9 @@ class NoteView extends React.Component {
       const id = this.props.match.params.id;
       this.getNote(id);
    }
-   
-  api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";
 
    getNote = (id) => {
+    const api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";    
     axios
       .get(`${api}/api/notes/${id}`)
       .then(response =>  this.setState({note: response.data}))
@@ -42,6 +41,7 @@ class NoteView extends React.Component {
    }
 
    editNote = (note) => {
+    const api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";    
     const id = this.props.match.params.id;
 
     axios
@@ -65,6 +65,7 @@ class NoteView extends React.Component {
   }
 
   deleteNote = () => {
+    const  api = "http://localhost:7000" || "http://notes-api-lsp.herokuapp.com";    
     const id = this.props.match.params.id;
 
     axios.delete(`${api}/api/notes/${id}`)
