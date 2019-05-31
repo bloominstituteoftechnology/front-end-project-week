@@ -9,10 +9,10 @@ const Notes = (props) => {
     return(
         <Fragment>
         <div className="all-notes">
-            <div>
+            <div className="h2-div">
                 <h2>Your Notes</h2>
             </div>
-            <div>
+            <div className="mapped-notes">
                 {props.notes.map((note) => {
                     return(
                     <Link className="link" to={`/note/${note.id}`} key={note.id}>       
