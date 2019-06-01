@@ -12,6 +12,7 @@
 
 .nf{
     margin: 15px;
+    width:100%;
 }
 
 .nf-inputs{
@@ -20,7 +21,7 @@
     width: 60%;
     position: relative;
     left: 20%;
-    width:90%;
+    width:100%;
 }
 
 .nf-inputs input{
@@ -28,7 +29,7 @@
     border-bottom: inset grey 0.75px;
     height: 40px;
     margin: 20px;
-    width:75%;
+    width:55%;
 }
 
 .nf-inputs input[placeholder]{
@@ -45,14 +46,21 @@
     }
     .nf-buttons{
         display: flex;
-        justify-content: center; 
-        width:90%;
+        justify-content: center;
+        position: relative;
+        right: 10%; 
     }
 
     .nf-buttons button{
         width: 90px;
     }
+
+    .nf-wrapper h1{
+        position: relative;
+        right: 7%;
+    }
 }
+
 
 .nf-button{
     padding: 5px;

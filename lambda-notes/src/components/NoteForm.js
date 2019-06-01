@@ -65,7 +65,6 @@ class NoteForm extends React.Component{
                         <input type="text" onChange={this.handleInputChange} name="body" value={this.state.body} placeholder="Notes" />
                     </div>
                     <div className="nf-buttons">
-                        <button className="cancel" onClick={this.props.editOff}>Cancel</button>
                         <button className="nf-button">{this.props.Editing ? "Update" : "Add Note"}</button>
                     </div>
                 </form>

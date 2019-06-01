@@ -46,6 +46,7 @@
 }
 
 .cancel{
+    position: absolute;
     padding: 5px;
     margin: 10px;
     width: 125px;
