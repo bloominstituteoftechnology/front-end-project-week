@@ -37,21 +37,22 @@ class NoteForm extends React.Component{
         this.setState({ [e.target.name]: e.target.value });
       };
 
-    addNote = (e) => {
-        e.preventDefault();
-        if(this.props.adding){
+    addNote = () => {
+        if(this.state.title && this.state.body===''){        
+            this.props.getNotes()
+        }else{
         const newNote = {
           title: this.state.title,
           body: this.state.body
         }     
-        this.props.postNote(newNote);
+        this.props.postNote(newNote)
         
         this.setState({
           title: '',
           body: ''
         });
         this.props.history.push('/')
-      }
+        }
     }
       
     render(){
@@ -64,7 +65,7 @@ class NoteForm extends React.Component{
                         <input type="text" onChange={this.handleInputChange} name="body" value={this.state.body} placeholder="Notes" />
                     </div>
                     <div className="nf-buttons">
-                        <button className="cancel" onClick={this.props.Editing ? this.props.editOff : this.props.addingOff}>Cancel</button>
+                        <button className="cancel" onClick={this.props.editOff}>Cancel</button>
                         <button className="nf-button">{this.props.Editing ? "Update" : "Add Note"}</button>
                     </div>
                 </form>

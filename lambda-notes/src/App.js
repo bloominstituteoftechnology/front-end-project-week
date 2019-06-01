@@ -74,7 +74,7 @@ class App extends Component {
       <div className="App">
         <SideBar handleSearchInput={this.handleSearchInput} notes={this.state.notes} search={this.state.search} adding={this.state.adding} addingOn={this.addingOn} />
         <Route exact path="/" render={(props) => <Notes {...props} notes={filteredNotes} />} />
-        <Route path="/add-note" render={(props)=> <NoteForm {...props} postNote={this.postNote} note={this.state.note} adding={this.state.adding} addingOff={this.addingOff} addingOn={this.addingOn} />}/>
+        <Route path="/add-note" render={(props)=> <NoteForm {...props} postNote={this.postNote} note={this.state.note} getNotes={this.getNotes} />}/>
         <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} getNotes={this.getNotes} getNote={this.getNote} />} />
       </div>
     );
