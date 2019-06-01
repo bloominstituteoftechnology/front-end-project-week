@@ -1,0 +1,59 @@
+
+.BigContainer{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar{
+    width: 20vw;
+    background-color:#D8D8D8; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.sidebarname {
+    width: 10vw;
+    align-self: flex-start;
+    padding: 20px;
+}
+
+
+
+.mainbar{
+    display: flex;
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainbarNav{
+    height: 5vh;
+    width: 80vw;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.mainbarNav a{
+    padding: 20px;
+    color: black;
+    
+}
+
+.mainbarHeading {
+    height: 10vw;
+    width: 80vw;
+    padding-top: 80px;
+    padding-left: 20px;
+    margin: 10px;
+}
+
+
+.mainbarParagraph {
+    width: 80vw;
+    padding: 20px;
+    margin: 10px;
+}

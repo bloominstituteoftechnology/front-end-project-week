@@ -73,3 +73,43 @@ Once your MVP has been approved, you have been given a feature list that the cli
 - [ ] Create a login system around the MVP
 
 You will notice that this repository does not have any starter code. This is on purpose. You are to start from scratch using any files you have built throughout your time here at Lambda School.
+
+
+trello link - https://trello.com/b/oRIJkWr8
+
+
+techs to use - react, bootstrap
+
+
+file archticture - 
+
+src -
+    Component
+        - Layout
+            - Listview.js
+            - Newnoteview.js
+            - Noteview.js
+            - Editview.js
+        - Reusables
+            - Emptyview.js
+            - Sidebar.js
+            - Button.js
+            - Notecard.js
+    
+
+
+Heading font: Roboto Bold
+Everything else font: Raleway Medium
+
+Heading and main font color: #4A4A4A
+Button font color: #FFFFFF
+
+Sidebar background: #D8D8D8
+Main background: #F3F3F3
+Main button background: #2BC1C4
+Delete button background: #D0021B
+Border color used throughout: #979797
+
+
+
+    

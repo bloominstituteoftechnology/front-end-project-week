@@ -1,0 +1,65 @@
+
+.BigContainer{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar{
+    width: 20vw;
+    background-color:#D8D8D8; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.sidebarname {
+    width: 10vw;
+    align-self: flex-start;
+    padding: 20px;
+}
+
+
+
+.mainbar{
+    display: flex;
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainbarHeading {
+    height: 10vw;
+    width: 80vw;
+    padding-top: 80px;
+    padding-left: 40px;
+
+}
+
+.titleInput {
+    height: 5vw;
+    width: 40vw;
+    padding-right: 40px;
+    padding-left: 40px;
+
+}
+
+
+.noteInput {
+    height: 30vw;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    align-items: flex-end;
+}
+
+.noteInput input{
+    height: 25vw;
+}
+
+.submitButton{
+    height: 5vw;
+    padding-left: 40px;
+}
