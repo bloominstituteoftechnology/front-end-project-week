@@ -1,0 +1,80 @@
+.edit-delete-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+    max-width: 650px;
+    min-width: 500px;
+}
+
+.viewBtn {
+    font-size: 1.2rem;
+    margin-left: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.viewBtn:hover {
+    font-weight: bold;
+}
+
+.notes-page-title {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.note-text-Container {
+    width: 500px;
+    line-height: 1.5;
+}
+
+.modal-container {
+    background-color: rgb(224, 224, 224);
+    display: block;
+}
+
+.modal-hide {
+    display: none;
+}
+
+.modal-content {
+    position: absolute;
+    background-color: rgb(236, 236, 236);
+    width: 500px;
+    height: 250px;
+    top: 205px;
+    margin: 0 auto;
+    border: 3px outset rgb(219, 62, 75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-text {
+    /* margin-bottom: 40px; */
+    font-size: 1.2rem;
+}
+
+.modal-btns {
+    margin-top: 30px;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modal-delete-btn {
+    width: 150px;
+    height: 40px;
+    background-color: rgb(252, 70, 70);
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.modal-cancel-btn {
+    width: 150px;
+    height: 40px;
+    background-color: rgb(50, 163, 238);
+    color: #fff;
+    font-size: 1.3rem;
+}

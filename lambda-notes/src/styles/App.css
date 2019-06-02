@@ -1,0 +1,73 @@
+
+.app-container {
+  display: flex;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.left-nav-container {
+  width: 20vw;
+  min-width: 250px;
+  max-width: 250px;
+  background-color: rgb(137, 151, 168);
+  padding: 2rem 2rem;
+}
+
+.nav-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.navBtn {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 1rem;
+  background-color: rgb(28, 181, 228);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  border: 2px outset #ffffff;
+}
+
+.navBtn:hover {
+  background-color: rgb(18, 145, 184);
+  border: 2px inset gray;
+}
+
+
+.searchInput {
+  margin-top: 20px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  padding: 5px 5px;
+  border-color: rgb(18, 145, 184);
+}
+
+.main-notes-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: rgb(214, 214, 214);
+  padding: 4rem 3rem;
+}
+
+.notes-page-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.notes-container {
+  margin: 2rem 1rem;
+}
+
+.noteList-card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
