@@ -1,0 +1,43 @@
+.NoteView {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 70px 0 30px 30px;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.CreateViewButton {
+  background-color: #2BC1C4;
+  border: 1px solid #979797;
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+  height: 40px;
+  width: 150px;
+  margin: 12px auto 8px;
+}
+
+.TitleInput {
+  height: 40px;
+  min-height: 40px;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.ContentInput {
+  height: 350px;
+  width: 625px;
+}
+
+.CreateNote-Header {
+  font-size: 2.0rem;
+  font-weight: bold;
+}

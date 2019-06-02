@@ -1,0 +1,32 @@
+.noteView-Container {
+  margin: 70px 0 30px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.noteView-Header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.noteView-Header h4 {
+  font-size: 2.0rem;
+  text-align: left;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1.4rem;
+  color: black;
+  line-height: 25px;
+  text-align: left;
+}
+
+.links {
+  padding: 1rem 0.5rem;
+  text-decoration: underline;
+  color: black;
+  font-size: 1.3rem;
+}

@@ -1,0 +1,27 @@
+.NavigationBar {
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #979797;
+  width: 225px;
+  min-width: 225px;
+  background-color: #D8D8D8;
+  padding: 15px;
+}
+
+.Main-Heading {
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  font-size: 3.5rem;
+}
+
+.NavButton {
+  background-color: #2BC1C4;
+  border: 1px solid #979797;
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.6rem;
+  height: 40px;
+  width: 195px;
+  margin: 12px auto 8px;
+}
