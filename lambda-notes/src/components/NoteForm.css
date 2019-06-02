@@ -53,6 +53,7 @@
 
     .nf-buttons button{
         width: 90px;
+        left: 2.5%;
     }
 
     .nf-wrapper h1{
@@ -74,6 +75,8 @@
     color: #FFFFFF;
     font-size: 0.9rem;
     box-shadow: 0.5px 1px 5px rgba(0, 0, 0, 0.25);
+    position: relative;
+    right: 2.5%;
 }
 
 .nf-button:hover{
