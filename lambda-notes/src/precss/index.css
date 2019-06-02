@@ -1,0 +1,679 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  font-size: 100%;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.Link a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+/* Component's less files are treated as mixins => this allow to nested styles in layout.less */
+
+/**
+* WARNING => THERE ARE SOME BOOTSTRAP STYLES APPLIED USING BOOTSTRAP CUSTOM CLASSES
+*
+* App
+* |--SideBar_
+* |  |--Button_
+* |--Main_
+*    |--ListView
+*    |  |--NoteCard_
+*    |--NoteView
+*    |--Form_
+*    |--Form_
+*
+*/
+
+/** Import all less files from components */
+
+.button-component .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.note-view-component .edition {
+  flex-direction: row-reverse;
+  top: 0;
+  right: 0;
+  margin-right: 1.5rem;
+}
+
+.note-view-component .edition div {
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+}
+
+.note-view-component .modal-header {
+  width: 800px !important;
+  justify-content: space-around;
+}
+
+.note-view-component .modal-header>.custom-button {
+  min-width: 200px;
+}
+
+.NoteCard-component .custom-NoteCard {
+  width: 220px;
+  max-width: 220px;
+  height: 225px;
+  margin-bottom: 2rem;
+  padding: 16px;
+}
+
+.NoteCard-component .custom-NoteCard>h5 {
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+
+.NoteCard-component .custom-NoteCard .custom-hr {
+  margin: 0px;
+  border: 1px solid #979797;
+  margin-bottom: 0.5rem;
+}
+
+.NoteCard-component .custom-NoteCard>p {
+  margin: 0;
+  font-size: 100%;
+  line-height: 1.565;
+  letter-spacing: 0.03rem;
+}
+
+.list-view-component .custom-list-view-container {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.list-view-component .custom-list-view-container a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+.list-view-component .custom-list-view-container .custom-NoteCard {
+  width: 220px;
+  max-width: 220px;
+  height: 225px;
+  margin-bottom: 2rem;
+  padding: 16px;
+}
+
+.list-view-component .custom-list-view-container .custom-NoteCard>h5 {
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+
+.list-view-component .custom-list-view-container .custom-NoteCard .custom-hr {
+  margin: 0px;
+  border: 1px solid #979797;
+  margin-bottom: 0.5rem;
+}
+
+.list-view-component .custom-list-view-container .custom-NoteCard>p {
+  margin: 0;
+  font-size: 100%;
+  line-height: 1.565;
+  letter-spacing: 0.03rem;
+}
+
+.form-component .custom-form .custom-input {
+  width: 400px;
+  height: 50px;
+  padding: 0 9px;
+  outline: none;
+}
+
+.form-component .custom-form .custom-text-area {
+  padding: 20px;
+  outline: none;
+}
+
+.form-component .custom-form .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main-component .custom-main {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  border: 1px solid darkorange;
+  background-color: #F3F3F3;
+}
+
+.main-component .custom-main>h5 {
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.main-component .custom-main .custom-list-view-container {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main-component .custom-main .custom-list-view-container a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+.main-component .custom-main .custom-list-view-container .custom-NoteCard {
+  width: 220px;
+  max-width: 220px;
+  height: 225px;
+  margin-bottom: 2rem;
+  padding: 16px;
+}
+
+.main-component .custom-main .custom-list-view-container .custom-NoteCard>h5 {
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+
+.main-component .custom-main .custom-list-view-container .custom-NoteCard .custom-hr {
+  margin: 0px;
+  border: 1px solid #979797;
+  margin-bottom: 0.5rem;
+}
+
+.main-component .custom-main .custom-list-view-container .custom-NoteCard>p {
+  margin: 0;
+  font-size: 100%;
+  line-height: 1.565;
+  letter-spacing: 0.03rem;
+}
+
+.main-component .custom-main .edition {
+  flex-direction: row-reverse;
+  top: 0;
+  right: 0;
+  margin-right: 1.5rem;
+}
+
+.main-component .custom-main .edition div {
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+}
+
+.main-component .custom-main .modal-header {
+  width: 800px !important;
+  justify-content: space-around;
+}
+
+.main-component .custom-main .modal-header>.custom-button {
+  min-width: 200px;
+}
+
+.main-component .custom-main .custom-form .custom-input {
+  width: 400px;
+  height: 50px;
+  padding: 0 9px;
+  outline: none;
+}
+
+.main-component .custom-main .custom-form .custom-text-area {
+  padding: 20px;
+  outline: none;
+}
+
+.main-component .custom-main .custom-form .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main-component .custom-main a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+/* SideBar_ */
+
+.side-bar-component .side-bar {
+  min-height: 100vh;
+  padding: 1.3rem 1rem;
+  background-color: #D8D8D8;
+  border: 1px solid #979797;
+}
+
+.side-bar-component .side-bar a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+.side-bar-component .side-bar h1 {
+  margin-bottom: 1.65rem;
+}
+
+.side-bar-component .side-bar .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.custom-container {
+  max-width: 80%;
+  height: 100vh;
+  padding: 0;
+  border: 1px solid cyan;
+}
+
+.custom-container .row {
+  margin: 0px;
+}
+
+.custom-container .row .side-bar {
+  min-height: 100vh;
+  padding: 1.3rem 1rem;
+  background-color: #D8D8D8;
+  border: 1px solid #979797;
+}
+
+.custom-container .row .side-bar a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+.custom-container .row .side-bar h1 {
+  margin-bottom: 1.65rem;
+}
+
+.custom-container .row .side-bar .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.custom-container .row .custom-main {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  border: 1px solid darkorange;
+  background-color: #F3F3F3;
+}
+
+.custom-container .row .custom-main>h5 {
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.custom-container .row .custom-main .custom-list-view-container {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.custom-container .row .custom-main .custom-list-view-container a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+.custom-container .row .custom-main .custom-list-view-container .custom-NoteCard {
+  width: 220px;
+  max-width: 220px;
+  height: 225px;
+  margin-bottom: 2rem;
+  padding: 16px;
+}
+
+.custom-container .row .custom-main .custom-list-view-container .custom-NoteCard>h5 {
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+
+.custom-container .row .custom-main .custom-list-view-container .custom-NoteCard .custom-hr {
+  margin: 0px;
+  border: 1px solid #979797;
+  margin-bottom: 0.5rem;
+}
+
+.custom-container .row .custom-main .custom-list-view-container .custom-NoteCard>p {
+  margin: 0;
+  font-size: 100%;
+  line-height: 1.565;
+  letter-spacing: 0.03rem;
+}
+
+.custom-container .row .custom-main .edition {
+  flex-direction: row-reverse;
+  top: 0;
+  right: 0;
+  margin-right: 1.5rem;
+}
+
+.custom-container .row .custom-main .edition div {
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+}
+
+.custom-container .row .custom-main .modal-header {
+  width: 800px !important;
+  justify-content: space-around;
+}
+
+.custom-container .row .custom-main .modal-header>.custom-button {
+  min-width: 200px;
+}
+
+.custom-container .row .custom-main .custom-form .custom-input {
+  width: 400px;
+  height: 50px;
+  padding: 0 9px;
+  outline: none;
+}
+
+.custom-container .row .custom-main .custom-form .custom-text-area {
+  padding: 20px;
+  outline: none;
+}
+
+.custom-container .row .custom-main .custom-form .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.custom-container .row .custom-main a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+/** END Import all less files from components */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  font-family: "Raleway Medium", sans-serif;
+  color: #4A4A4A;
+  border: 1px dotted green;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Roboto Bold", sans-serif;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 2.3rem;
+  font-weight: 900;
+}
+
+h5 {
+  font-size: 1.3rem;
+}
+
+p {
+  margin-top: 1.6rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.82rem;
+  letter-spacing: 0.5px;
+}
