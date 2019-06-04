@@ -3,9 +3,9 @@
     width: 40%;
     height: 250px;
     float: right;
-    position: relative;
-    right: 200px;
-    top: 200px;
+    position: absolute;
+    right: 14.5%;
+    top: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,3 +29,8 @@
 .dm-yes{
     background: red;
 }
+
+/* @media only screen and (max-width: 875px) {
+    .dm-wrapper{
+        width: ;
+    } */

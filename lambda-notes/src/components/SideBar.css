@@ -21,6 +21,10 @@
       display: flex;
       flex-direction: column;
     }
+
+    .sb-input{
+        top:70%;
+    }
 }
 
 .sb-link{
