@@ -65,6 +65,6 @@
 
 @media only screen and (max-width: 500px){
     .single-note{
-        width: 90%;
+        width: 100%;
     }
 }
