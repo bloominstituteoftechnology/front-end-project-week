@@ -79,10 +79,18 @@
     box-shadow: 0.5px 1px 5px rgba(0, 0, 0, 0.25);
 }
 
-
 .sb-input button:hover{
     background: #FFFFFF;
     color: rgb(56, 71, 85);
     border: solid 1px rgb(56, 71, 85);
 }
 
+@media only screen and (max-width: 500px){
+    .head-div h1{
+        font-size:90%;
+    }
+
+    .sb-input button{
+        width: 90%;
+    }
+}

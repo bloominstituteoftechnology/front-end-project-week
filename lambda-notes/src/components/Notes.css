@@ -21,12 +21,6 @@
   }
 }
 
-@media only screen and(max-width: 500px){
-    .single-note{
-        width: 90%;
-    }
-}
-
 @media only screen and (max-width: 420px) {
     .all-notes h2 {
       left: 35%;
@@ -67,4 +61,10 @@
 
 .link{
     text-decoration: none;
+}
+
+@media only screen and (max-width: 500px){
+    .single-note{
+        width: 90%;
+    }
 }
