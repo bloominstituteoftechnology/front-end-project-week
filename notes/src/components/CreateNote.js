@@ -18,7 +18,7 @@ export default class CreateNote extends Component {
   // };
 
   render() {
-    console.log("createProps", this.props);
+    // console.log("createProps", this.props);
     return (
       <div className="createNote-container">
         <div className="CreateNote-form">
