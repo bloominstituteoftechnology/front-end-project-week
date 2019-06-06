@@ -10,7 +10,7 @@
     "react-modal": "^3.6.1",
     "react-responsive-modal": "^3.5.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.5"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
