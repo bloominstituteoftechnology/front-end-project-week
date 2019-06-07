@@ -8,7 +8,9 @@ import SideBar from './Components/SideBar';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import EditNote from './Components/EditNote';
-
+import host from './host';
+import Register from './Components/Register';
+import Login from './Components/Login';
 
 class App extends Component {
   constructor() {
@@ -38,6 +40,21 @@ class App extends Component {
       }
     }
   }
+
+  componentDidMount() {
+    const userId = localStorage.getItem('lambdaNotesUserId');
+    const userEndpoint = `${host}/api/users/${userId}`;
+
+    axios.get(`${userEndpoint}/noteEntries`)
+      .then(res => {
+        console.log('res: ', res);
+        const noteEntries = res.data;
+        this.setState({noteEntries:noteEntries})
+      })
+      .catch(err => {
+        console.log('err: ', err)
+      })
+    }
 
 
   addNoteEntry = (e) => {
@@ -130,6 +147,9 @@ class App extends Component {
   render() {
     return (
       <AppContainerStyledDiv>
+
+        <Register />
+        <Login />
 
         {/* SIDEBAR COMPONENT */}
         <Route path="/" component={SideBar} />
