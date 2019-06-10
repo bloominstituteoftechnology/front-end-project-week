@@ -1,0 +1,84 @@
+.button {
+    background: #2BC1C4;
+    color: #FFFFFF;
+    padding: 5px;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 35px;
+    width: 130px;
+    font-size: .75rem
+}
+
+.Sidebar {
+    background: #D8D8D8;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.7rem;
+    font-weight: 700;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid grey
+}
+
+.TemplateContainer {
+    width: 80%;
+    background: #F3F3F3;
+    min-width: 550px;
+    max-width: 600px;
+    padding: 20px;
+    padding-top: 40px;
+    border: 1px solid grey
+  }
+
+  .TopText {
+      font-size: 1.5rem;
+      font-weight: 500;
+  }
+
+  .Cards {
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .Card {
+      width: 30%;
+      min-width: 150px !important;
+      height: 200px;
+      padding: 10px;
+      margin: 1.66%;
+      box-sizing: border-box;
+      color: black;
+      border: 1px solid red
+  }
+
+  .Line {
+      border-top: 1px solid grey
+  }
+
+  .TopInput {
+      width: 350px !important;
+      padding: 10px;
+  }
+
+  .BottomInput {
+      height: 500px;
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+  }
+
+  ::-webkit-input-placeholder {
+    vertical-align: top
+ }
+
+ .MarginText {
+     text-align: end;
+     margin-top: -20px;
+     margin-bottom: 10px;
+     text-decoration: underline;
+ }
+
+ .ModalDelete {
+     display: flex;
+     margin-left: 65px
+ }
