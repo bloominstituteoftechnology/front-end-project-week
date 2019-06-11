@@ -113,32 +113,67 @@ class App extends Component {
         console.log(err)
       })
     
-    
-    
-     
     this.setState({noteEntry: noteEntryBlank })
   }
 
+  // editNoteEntry = (e, ID) => {
+  //   // e.preventDefault();
+  //   const noteEntries = this.state.noteEntries.slice();
+  //   const noteEntry = {
+  //     title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
+  //     textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
+  //     tags: [],
+  //     id: ID
+  //   }
+
+  //   const noteEntryBlank = {
+  //     title: '',
+  //     textBody: '',
+  //     tags: [],
+  //     id: ''
+  //   }
+
+  //   noteEntries[`${ID}`-1] = noteEntry;
+
+  //   this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
+  // }
+  
   editNoteEntry = (e, ID) => {
     // e.preventDefault();
-    const noteEntries = this.state.noteEntries.slice();
+    const userId = localStorage.getItem('lambdaNotesUserId');
+    const userEndpoint = `${host}/api/users/${userId}`;
+
     const noteEntry = {
+      id: ID,
+      userId: localStorage.getItem('lambdaNotesUserId'),
       title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
       textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
-      tags: [],
-      id: ID
     }
 
     const noteEntryBlank = {
       title: '',
-      textBody: '',
-      tags: [],
-      id: ''
+      textBody: ''
     }
 
-    noteEntries[`${ID}`-1] = noteEntry;
+    axios
+      .put(`${host}/api/noteEntries/${ID}`, noteEntry)
+      .then(res => {
+        console.log('res: ', res)
+        axios.get(`${userEndpoint}/noteEntries`)
+          .then(res => {
+            console.log('res: ', res);
+            const noteEntries = res.data;
+            this.setState({noteEntries:noteEntries})
+          })
+          .catch(err => {
+            console.log('err: ', err)
+          })
+      })
+      .catch(err => {
+        console.log(err)
+      })
 
-    this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
+    this.setState(()=>({noteEntry: noteEntryBlank }))
   }
 
   deleteNoteEntry = (e,ID) => {
