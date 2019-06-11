@@ -42,6 +42,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log('componentDidMount')
     const userId = localStorage.getItem('lambdaNotesUserId');
     const userEndpoint = `${host}/api/users/${userId}`;
 
@@ -57,27 +58,66 @@ class App extends Component {
     }
 
 
+  // addNoteEntry = (e) => {
+  //   e.preventDefault();
+  //   const noteEntries = this.state.noteEntries.slice();
+  //   const noteEntry = {
+  //     title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
+  //     textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
+  //     tags: [],
+  //     id: this.state.noteEntries.length+1
+  //   }
+
+  //   const noteEntryBlank = {
+  //     title: '',
+  //     textBody: '',
+  //     tags: [],
+  //     id: ''
+  //   }
+
+  //   noteEntries.push(noteEntry);
+  //   this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
+  // }
+
   addNoteEntry = (e) => {
     e.preventDefault();
-    const noteEntries = this.state.noteEntries.slice();
+    const userId = localStorage.getItem('lambdaNotesUserId');
+    const userEndpoint = `${host}/api/users/${userId}`;
+
     const noteEntry = {
+      userId: localStorage.getItem('lambdaNotesUserId'),
       title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
       textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
-      tags: [],
-      id: this.state.noteEntries.length+1
-    }
-
+    };
+    console.log(localStorage.getItem('lambdaNotesUserId'))
     const noteEntryBlank = {
       title: '',
-      textBody: '',
-      tags: [],
-      id: ''
-    }
+      textBody: ''
+    };
 
-    noteEntries.push(noteEntry);
-    this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
+    axios
+      .post(`${host}/api/noteEntries`, noteEntry)
+      .then(res => {
+        console.log('res: ', res)
+        axios.get(`${userEndpoint}/noteEntries`)
+        .then(res => {
+          console.log('res: ', res);
+          const noteEntries = res.data;
+          this.setState({noteEntries:noteEntries})
+        })
+        .catch(err => {
+          console.log('err: ', err)
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    
+    
+    
+     
+    this.setState({noteEntry: noteEntryBlank })
   }
-
 
   editNoteEntry = (e, ID) => {
     // e.preventDefault();
