@@ -52,7 +52,7 @@ class EditNote extends Component {
                         // defaultValue={props.noteEntries[props.match.match.params.id - 1].title}
                         defaultValue={note.title}
                     />
-                    <CreateNoteStyledTextarea
+                    {/* <CreateNoteStyledTextarea
                         type="text"
                         placeholder="Note Content"
                         name="content"
@@ -62,7 +62,7 @@ class EditNote extends Component {
                         
                     >
                     {`dfdsdf + ${textBodyCopy}`}
-                    </CreateNoteStyledTextarea>
+                    </CreateNoteStyledTextarea> */}
                     <CreateNoteStyledInput2
                         type="text"
                         placeholder="Note Content"
