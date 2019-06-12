@@ -6,13 +6,24 @@ class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note:[]
+            note:{}
         };
     }
 
     componentDidMount() {
-        const id = this.props.match.match.params.id-1;
-        this.setState({note:this.props.noteEntries[id]})
+        // const id = this.props.match.match.params.id-1;
+        // this.setState({note:this.props.noteEntries[id]})
+
+        // console.log('this.props: ', this.props)
+        const id = this.props.match.match.params.id;
+        // console.log('id: ', id)
+
+        let note = this.props.noteEntries.filter(noteEntry => noteEntry.id ==id)
+        note = note[0]
+        // console.log('note: ', note)
+
+        this.setState({note:note})
+
     }
 
     render() {

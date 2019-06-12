@@ -23,6 +23,12 @@ export const CreateNoteStyledTextarea = styled.textarea`
     resize:none;
 `
 
+export const CreateNoteStyledInput2 = styled.input`
+    width:100%;
+    height:200px;
+    
+`
+
 const CreateNoteForm = props => {
     return (
         <CreateNoteFormContainerStyledDiv>

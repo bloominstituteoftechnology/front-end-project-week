@@ -17,18 +17,18 @@ class App extends Component {
     super();
     this.state = {
       noteEntries: [
-        {
-          title: 'bleep',
-          textBody: `Lorem ipsum dolor sit amet,liquam odio ac lorem bibendum, in fermentum elit hendrerit. Inte.`,
-          tags: ['one', 'two', 'three'],
-          id: 1
-        }, 
-        {
-          title: 'bleep',
-          textBody: `Lorem ipsum dolor sit amet,liquam odio ac lorem bibendum, in fermentum elit hendrerit. Inte.`,
-          tags: ['one', 'two', 'three'],
-          id: 2
-        }
+        // {
+        //   title: 'bleep',
+        //   textBody: `Lorem ipsum dolor sit amet,liquam odio ac lorem bibendum, in fermentum elit hendrerit. Inte.`,
+        //   tags: ['one', 'two', 'three'],
+        //   id: 1
+        // }, 
+        // {
+        //   title: 'bleep',
+        //   textBody: `Lorem ipsum dolor sit amet,liquam odio ac lorem bibendum, in fermentum elit hendrerit. Inte.`,
+        //   tags: ['one', 'two', 'three'],
+        //   id: 2
+        // }
 
       ],
 
@@ -176,22 +176,52 @@ class App extends Component {
     this.setState(()=>({noteEntry: noteEntryBlank }))
   }
 
-  deleteNoteEntry = (e,ID) => {
-    const noteEntries = this.state.noteEntries.slice();
-    noteEntries.splice(ID-1,1);
+  // deleteNoteEntry = (e,ID) => {
+  //   const noteEntries = this.state.noteEntries.slice();
+  //   noteEntries.splice(ID-1,1);
 
-    for (let i = 0; i< noteEntries.length; i++) {
-      noteEntries[i].id=i+1
-    }
+  //   for (let i = 0; i< noteEntries.length; i++) {
+  //     noteEntries[i].id=i+1
+  //   }
+
+  //   const noteEntryBlank = {
+  //     title: '',
+  //     textBody: '',
+  //     tags: [],
+  //     id: ''
+  //   }
+
+  //   this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
+  // }
+
+  deleteNoteEntry = (e,ID) => {
+    const userId = localStorage.getItem('lambdaNotesUserId');
+    const userEndpoint = `${host}/api/users/${userId}`;
+
+    axios
+      .delete(`${host}/api/noteEntries/${ID}`)
+      .then(res => {
+        console.log('res: ', res);
+        axios.get(`${userEndpoint}/noteEntries`)
+          .then(res => {
+            console.log('res: ', res);
+            const noteEntries = res.data;
+            this.setState({noteEntries:noteEntries})
+          })
+          .catch(err => {
+            console.log('err: ', err)
+          })
+      })
+      .catch(err => {
+        console.log('err: ', err);
+      })
 
     const noteEntryBlank = {
       title: '',
       textBody: '',
-      tags: [],
-      id: ''
     }
 
-    this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
+    this.setState(()=>({noteEntry: noteEntryBlank }))
   }
 
   createNoteTitleHandler = e => {
