@@ -24,6 +24,7 @@ class Login extends Component {
             'username': this.state.username,
             'password': this.state.password
         };
+        console.log(`${host}/api/login`)
         axios
             .post(`${host}/api/login`, loginData) 
             .then(res=> {
