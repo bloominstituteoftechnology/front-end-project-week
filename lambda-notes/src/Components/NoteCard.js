@@ -21,6 +21,8 @@ const NoteCardTitleContainerStyledDiv = styled.div`
     margin-left:10px;
     margin-right:10px;
     margin-bottom:5px;
+    max-height:45px;
+    overflow:hidden
 `
 
 const NoteCardContentStyledP = styled.p`
@@ -31,7 +33,7 @@ const NoteCardContentContainerStyledDiv = styled.div`
     padding-top:10px;
     margin-left:10px;
     margin-right:10px;
-    height:140px;
+    height:123px;
     overflow:hidden;
 `
 
