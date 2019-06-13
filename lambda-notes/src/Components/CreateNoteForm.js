@@ -7,6 +7,7 @@ export const CreateNoteFormContainerStyledDiv = styled.div`
     flex-direction:column;
     border:0px solid red;
     width:97%;
+    font:Raleway Medium;
 `
 export const CreateNoteStyledForm = styled.form`
     display:flex;
@@ -15,6 +16,7 @@ export const CreateNoteStyledForm = styled.form`
 export const CreateNoteStyledInput = styled.input`
     width: 55%;
     margin-bottom:10px;
+    font:Raleway Medium;
 `
 
 export const CreateNoteStyledTextarea = styled.textarea`
@@ -26,7 +28,6 @@ export const CreateNoteStyledTextarea = styled.textarea`
 export const CreateNoteStyledInput2 = styled.input`
     width:100%;
     height:200px;
-    
 `
 
 const CreateNoteStyledButton = styled.button`
@@ -43,7 +44,7 @@ const CreateNoteStyledButton = styled.button`
 const CreateNoteForm = props => {
     return (
         <CreateNoteFormContainerStyledDiv>
-            <h2 style = {{margin:'30px 0px 10px 0px'}}>Create New Note:</h2>
+            <h2 style = {{margin:'30px 0px 15px 0px', font:'Roboto Bold', color:'#4A4A4A'}}>Create New Note:</h2>
             <CreateNoteStyledForm>
                 <CreateNoteStyledInput
                     type="text"
