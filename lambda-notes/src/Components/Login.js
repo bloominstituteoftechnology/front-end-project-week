@@ -24,9 +24,9 @@ class Login extends Component {
             'username': this.state.username,
             'password': this.state.password
         };
-        console.log(`${host}/api/login`)
+        console.log(`${host}api/login`)
         axios
-            .post(`${host}/api/login`, loginData) 
+            .post(`${host}api/login`, loginData) 
             .then(res=> {
                 console.log('res: ', res);
                 const lambdaNotesToken = res.data.token;
