@@ -3,6 +3,18 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { CreateNoteFormContainerStyledDiv, CreateNoteStyledForm, CreateNoteStyledTextarea, CreateNoteStyledInput,CreateNoteStyledInput2 } from './CreateNoteForm';
 import axios from 'axios';
 import host from '../host';
+import styled from 'styled-components';
+
+const UpdateNoteStyledButton = styled.button`
+    background-color: #2BC1C4;
+    color: white;
+    width: 190px;
+    height:45px;
+    font-size:16px;
+    font-weight:bold;
+    margin-top:15px;
+    margin-bottom:15px;
+`
 
 class EditNote extends Component {
     constructor(props) {
@@ -20,17 +32,15 @@ class EditNote extends Component {
         // console.log('this.props2: ', this.props)
         // console.log('note2: ', note)
         
-        
-        console.log('this.props2: ', this.props)
         const id = this.props.match.match.params.id;
-        console.log('id: ', id)
-
-        let note = this.props.noteEntries.filter(noteEntry => noteEntry.id ==id)
-        console.log('note1: ', note)
-        note = note[0]
-        console.log('note2: ', note)
-
-        this.setState({'note':note})
+        axios.get(`http://localhost:8000/api/noteEntries/${id}`)
+            .then(res=> {
+                console.log(res)
+                this.setState({note:res.data[0]})
+            })
+            .catch(err=> {
+                console.log(err)
+            })
     }
     
     
@@ -42,7 +52,7 @@ class EditNote extends Component {
         
         return (
             <CreateNoteFormContainerStyledDiv>
-                <h2>Edit Note:</h2>
+                <h1 style = {{margin:'55px 0px 25px 0px', font:'Roboto Bold', fontWeight:'bold', fontSize:'20px', color:'#4A4A4A'}}>Edit Note:</h1>
                 <CreateNoteStyledForm>
                     <CreateNoteStyledInput
                         type="text"
@@ -76,11 +86,9 @@ class EditNote extends Component {
                 </CreateNoteStyledForm>
 
                 <Link to={`/`}>
-                    <button onClick={(e) => this.props.editNoteEntry(e, this.props.match.match.params.id)}>
-                        <Link to={`/`}>
-                            UPDATE
-                        </Link>
-                    </button>
+                    <UpdateNoteStyledButton onClick={(e) => this.props.editNoteEntry(e, this.props.match.match.params.id)}>
+                        Update
+                    </UpdateNoteStyledButton>
                 </Link>
 
             </CreateNoteFormContainerStyledDiv>
