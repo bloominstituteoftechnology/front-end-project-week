@@ -29,10 +29,21 @@ export const CreateNoteStyledInput2 = styled.input`
     
 `
 
+const CreateNoteStyledButton = styled.button`
+    background-color: #2BC1C4;
+    color: white;
+    width: 190px;
+    height:45px;
+    font-size:16px;
+    font-weight:bold;
+    margin-top:15px;
+    margin-bottom:15px;
+`
+
 const CreateNoteForm = props => {
     return (
         <CreateNoteFormContainerStyledDiv>
-            <h2>Create New Note:</h2>
+            <h2 style = {{margin:'30px 0px 10px 0px'}}>Create New Note:</h2>
             <CreateNoteStyledForm>
                 <CreateNoteStyledInput
                     type="text"
@@ -51,11 +62,9 @@ const CreateNoteForm = props => {
             </CreateNoteStyledForm>
 
             <Link to={`/`}>
-            <button onClick={props.addNoteEntry}>                      
-                    <Link to={`/`}>
-                        Save
-                    </Link>
-            </button>
+                <CreateNoteStyledButton onClick={props.addNoteEntry}>
+                    Save
+                </CreateNoteStyledButton>   
             </Link>
 
         </CreateNoteFormContainerStyledDiv>

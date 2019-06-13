@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import styled from 'styled-components';
+
 
 
 class Note extends Component {
@@ -45,9 +47,9 @@ class Note extends Component {
                 </div>
                 
                 <div>
-                   TITLE: {this.state.note.title}
+                   {this.state.note.title}
                     <br />
-                   CONTENT:{this.state.note.textBody}
+                   {this.state.note.textBody}
                 </div>
             </div>
         ) 

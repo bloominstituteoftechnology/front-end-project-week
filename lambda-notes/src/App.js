@@ -80,7 +80,7 @@ class App extends Component {
   // }
 
   addNoteEntry = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const userId = localStorage.getItem('lambdaNotesUserId');
     const userEndpoint = `${host}/api/users/${userId}`;
 
@@ -253,8 +253,8 @@ class App extends Component {
     return (
       <AppContainerStyledDiv>
 
-        <Register />
-        <Login />
+        {/* <Register /> */}
+        {/* <Login /> */}
 
         {/* SIDEBAR COMPONENT */}
         <Route path="/" component={SideBar} />
@@ -329,4 +329,5 @@ const RightHandSideContainerStyledDiv = styled.div`
   background-color: #F3F3F3;
   padding-left:15px;
   padding-right:15px;
+  padding-bottom:15px
 `

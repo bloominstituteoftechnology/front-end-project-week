@@ -1,16 +1,37 @@
 import React from 'react';
 import NoteCard from './NoteCard';
+import styled from 'styled-components';
+
+const NotesListTitleStyledh1 = styled.h1`
+    font:Roboto Bold;
+    font-size:24px;
+    font-weight:bold;
+    margin: 30px 0px 20px 10px;
+    padding-left:5px;
+    color:#4A4A4A;
+    width:100%
+`
+
+const NotesListContainerStyledDiv = styled.div`
+    display:flex;
+    flex-wrap:wrap;
+    width: 680px;
+    background-color: #F3F3F3;
+`
 
 const NotesList = props => {
     return (
-        props.noteEntries.map(noteEntry => {
-            return (
-                <NoteCard
-                    noteEntry = {noteEntry}
-                    key = {noteEntry.id}
-                />
-            );
-        })
+        <NotesListContainerStyledDiv>
+            <NotesListTitleStyledh1>Your Notes:</NotesListTitleStyledh1>
+            {props.noteEntries.map(noteEntry => {
+                return (
+                    <NoteCard
+                        noteEntry = {noteEntry}
+                        key = {noteEntry.id}
+                    />
+                );
+            })}
+        </NotesListContainerStyledDiv>
     );
 }
 

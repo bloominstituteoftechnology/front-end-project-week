@@ -42,13 +42,13 @@ const NoteCard = props => {
                 <NoteCardContainerStyledDiv>
                     <NoteCardTitleContainerStyledDiv>
                         <NoteCardTitleStyledHeading>
-                            TITLE:{props.noteEntry.title}
+                            {props.noteEntry.title}
                         </NoteCardTitleStyledHeading>
                     </NoteCardTitleContainerStyledDiv>
                     
                     <NoteCardContentContainerStyledDiv>
                         <NoteCardContentStyledP>
-                            TEXT: {props.noteEntry.textBody}
+                            {props.noteEntry.textBody}
                         </NoteCardContentStyledP>
                     </NoteCardContentContainerStyledDiv>
                 </NoteCardContainerStyledDiv>
