@@ -16,6 +16,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      loggedIn:false,
       noteEntries: [
         // {
         //   title: 'bleep',
@@ -42,7 +43,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount')
+    console.log('componentDidMount');
+    this.fetchNoteEntries();
+  }
+
+  fetchNoteEntries = () => {
     const userId = localStorage.getItem('lambdaNotesUserId');
     const userEndpoint = `${host}/api/users/${userId}`;
 
@@ -53,10 +58,9 @@ class App extends Component {
         this.setState({noteEntries:noteEntries})
       })
       .catch(err => {
-        console.log('err: ', err)
-      })
-    }
-
+      console.log('err: ', err)
+    })
+  }
 
   // addNoteEntry = (e) => {
   //   e.preventDefault();
@@ -80,7 +84,6 @@ class App extends Component {
   // }
 
   addNoteEntry = (e) => {
-    // e.preventDefault();
     const userId = localStorage.getItem('lambdaNotesUserId');
     const userEndpoint = `${host}/api/users/${userId}`;
 
@@ -89,7 +92,7 @@ class App extends Component {
       title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
       textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
     };
-    console.log(localStorage.getItem('lambdaNotesUserId'))
+
     const noteEntryBlank = {
       title: '',
       textBody: ''
@@ -99,21 +102,14 @@ class App extends Component {
       .post(`${host}/api/noteEntries`, noteEntry)
       .then(res => {
         console.log('res: ', res)
-        axios.get(`${userEndpoint}/noteEntries`)
-        .then(res => {
-          console.log('res: ', res);
-          const noteEntries = res.data;
-          this.setState({noteEntries:noteEntries})
-        })
-        .catch(err => {
-          console.log('err: ', err)
-        })
+        this.fetchNoteEntries();
+        this.setState({noteEntry: noteEntryBlank });
       })
       .catch(err => {
         console.log(err)
       })
     
-    this.setState({noteEntry: noteEntryBlank })
+    
   }
 
   // editNoteEntry = (e, ID) => {
@@ -253,8 +249,8 @@ class App extends Component {
     return (
       <AppContainerStyledDiv>
 
-        {/* <Register /> */}
-        {/* <Login /> */}
+        {/* <Register />
+        <Login /> */}
 
         {/* SIDEBAR COMPONENT */}
         <Route path="/" component={SideBar} />
