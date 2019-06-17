@@ -9,14 +9,15 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import EditNote from './Components/EditNote';
 import host from './host';
-import Register from './Components/Register';
-import Login from './Components/Login';
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      username: '',
       loggedIn:false,
+      
       noteEntries: [
         // {
         //   title: 'bleep',
@@ -42,6 +43,18 @@ class App extends Component {
     }
   }
 
+  login = e => {
+    this.setState({loggedIn:true})
+    console.log('loggedIn supposed to change state')
+  }
+  logout = e => {
+    this.setState({loggedIn:false})
+    console.log('logged out')
+    localStorage.removeItem('lambdaNotesUserId');
+    localStorage.removeItem('lambdaNotesToken');
+    this.setState({noteEntries:[]})
+  }
+  
   componentDidMount() {
     console.log('componentDidMount');
     this.fetchNoteEntries();
@@ -51,37 +64,32 @@ class App extends Component {
     const userId = localStorage.getItem('lambdaNotesUserId');
     const userEndpoint = `${host}/api/users/${userId}`;
 
-    axios.get(`${userEndpoint}/noteEntries`)
+    if (userId) {
+      this.login();
+      axios.get(`${userEndpoint}/noteEntries`)
       .then(res => {
-        console.log('res: ', res);
         const noteEntries = res.data;
         this.setState({noteEntries:noteEntries})
       })
       .catch(err => {
       console.log('err: ', err)
     })
+
+    axios.get(`${userEndpoint}`)
+      .then(res=>{
+        console.log(res)
+        this.setState({username:res.data.username})
+        return res.data.user
+      })
+      .catch(err =>{
+        console.log(err)
+      })
+    } else {
+      console.log('please login to see your notes')
+    }
+    
+    
   }
-
-  // addNoteEntry = (e) => {
-  //   e.preventDefault();
-  //   const noteEntries = this.state.noteEntries.slice();
-  //   const noteEntry = {
-  //     title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
-  //     textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
-  //     tags: [],
-  //     id: this.state.noteEntries.length+1
-  //   }
-
-  //   const noteEntryBlank = {
-  //     title: '',
-  //     textBody: '',
-  //     tags: [],
-  //     id: ''
-  //   }
-
-  //   noteEntries.push(noteEntry);
-  //   this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
-  // }
 
   addNoteEntry = (e) => {
     const userId = localStorage.getItem('lambdaNotesUserId');
@@ -107,33 +115,9 @@ class App extends Component {
       })
       .catch(err => {
         console.log(err)
-      })
-    
-    
+      }) 
   }
 
-  // editNoteEntry = (e, ID) => {
-  //   // e.preventDefault();
-  //   const noteEntries = this.state.noteEntries.slice();
-  //   const noteEntry = {
-  //     title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
-  //     textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
-  //     tags: [],
-  //     id: ID
-  //   }
-
-  //   const noteEntryBlank = {
-  //     title: '',
-  //     textBody: '',
-  //     tags: [],
-  //     id: ''
-  //   }
-
-  //   noteEntries[`${ID}`-1] = noteEntry;
-
-  //   this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
-  // }
-  
   editNoteEntry = (e, ID) => {
     // e.preventDefault();
     const userId = localStorage.getItem('lambdaNotesUserId');
@@ -155,69 +139,33 @@ class App extends Component {
       .put(`${host}/api/noteEntries/${ID}`, noteEntry)
       .then(res => {
         console.log('res: ', res)
-        axios.get(`${userEndpoint}/noteEntries`)
-          .then(res => {
-            console.log('res: ', res);
-            const noteEntries = res.data;
-            this.setState({noteEntries:noteEntries})
-          })
-          .catch(err => {
-            console.log('err: ', err)
-          })
+        this.fetchNoteEntries();
+        this.setState(()=>({noteEntry: noteEntryBlank }))
       })
       .catch(err => {
         console.log(err)
       })
-
-    this.setState(()=>({noteEntry: noteEntryBlank }))
   }
 
-  // deleteNoteEntry = (e,ID) => {
-  //   const noteEntries = this.state.noteEntries.slice();
-  //   noteEntries.splice(ID-1,1);
-
-  //   for (let i = 0; i< noteEntries.length; i++) {
-  //     noteEntries[i].id=i+1
-  //   }
-
-  //   const noteEntryBlank = {
-  //     title: '',
-  //     textBody: '',
-  //     tags: [],
-  //     id: ''
-  //   }
-
-  //   this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
-  // }
 
   deleteNoteEntry = (e,ID) => {
     const userId = localStorage.getItem('lambdaNotesUserId');
     const userEndpoint = `${host}/api/users/${userId}`;
-
-    axios
-      .delete(`${host}/api/noteEntries/${ID}`)
-      .then(res => {
-        console.log('res: ', res);
-        axios.get(`${userEndpoint}/noteEntries`)
-          .then(res => {
-            console.log('res: ', res);
-            const noteEntries = res.data;
-            this.setState({noteEntries:noteEntries})
-          })
-          .catch(err => {
-            console.log('err: ', err)
-          })
-      })
-      .catch(err => {
-        console.log('err: ', err);
-      })
-
     const noteEntryBlank = {
       title: '',
       textBody: '',
     }
 
-    this.setState(()=>({noteEntry: noteEntryBlank }))
+    axios
+      .delete(`${host}/api/noteEntries/${ID}`)
+      .then(res => {
+        console.log('res: ', res);
+        this.fetchNoteEntries();
+        this.setState(()=>({noteEntry: noteEntryBlank }));
+      })
+      .catch(err => {
+        console.log('err: ', err);
+      })
   }
 
   createNoteTitleHandler = e => {
@@ -244,16 +192,21 @@ class App extends Component {
     })
   }
 
-
   render() {
     return (
       <AppContainerStyledDiv>
 
-        {/* <Register />
-        <Login /> */}
-
         {/* SIDEBAR COMPONENT */}
-        <Route path="/" component={SideBar} />
+        <Route path = "/" render = {()=>
+          <SideBar
+            loggedIn = {this.state.loggedIn}
+            username = {this.state.username}
+            logout={this.logout}
+            login={this.login}
+            fetchNoteEntries = {this.fetchNoteEntries}
+          />
+        }
+        />
 
 
         {/* NOTES LIST COMPONENT */}
@@ -327,3 +280,81 @@ const RightHandSideContainerStyledDiv = styled.div`
   padding-right:15px;
   padding-bottom:15px
 `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  // addNoteEntry = (e) => {
+  //   e.preventDefault();
+  //   const noteEntries = this.state.noteEntries.slice();
+  //   const noteEntry = {
+  //     title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
+  //     textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
+  //     tags: [],
+  //     id: this.state.noteEntries.length+1
+  //   }
+
+  //   const noteEntryBlank = {
+  //     title: '',
+  //     textBody: '',
+  //     tags: [],
+  //     id: ''
+  //   }
+
+  //   noteEntries.push(noteEntry);
+  //   this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
+  // }
+
+  
+  // deleteNoteEntry = (e,ID) => {
+  //   const noteEntries = this.state.noteEntries.slice();
+  //   noteEntries.splice(ID-1,1);
+
+  //   for (let i = 0; i< noteEntries.length; i++) {
+  //     noteEntries[i].id=i+1
+  //   }
+
+  //   const noteEntryBlank = {
+  //     title: '',
+  //     textBody: '',
+  //     tags: [],
+  //     id: ''
+  //   }
+
+  //   this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
+  // }
+
+    // editNoteEntry = (e, ID) => {
+  //   // e.preventDefault();
+  //   const noteEntries = this.state.noteEntries.slice();
+  //   const noteEntry = {
+  //     title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
+  //     textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
+  //     tags: [],
+  //     id: ID
+  //   }
+
+  //   const noteEntryBlank = {
+  //     title: '',
+  //     textBody: '',
+  //     tags: [],
+  //     id: ''
+  //   }
+
+  //   noteEntries[`${ID}`-1] = noteEntry;
+
+  //   this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
+  // }

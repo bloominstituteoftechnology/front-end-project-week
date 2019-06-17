@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import host from '../host';
+import styled from 'styled-components';
+
+const StyledInput = styled.input`
+    background-color:#D8D8D8
+`
 
 class Register extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             username: '',
             password: ''
@@ -32,6 +37,7 @@ class Register extends Component {
                 const lambdaNotesUserId = res.data.userId;
                 localStorage.setItem('lambdaNotesToken', lambdaNotesToken);
                 localStorage.setItem('lambdaNotesUserId', lambdaNotesUserId);
+                this.props.fetchNoteEntries();
             })
             .catch(err => {
                 console.log('axios failed');
@@ -42,26 +48,31 @@ class Register extends Component {
     render() {
         return (
             <div>
-                <h1>Register Form</h1>
                 <form onSubmit = {this.registerSubmitHandler}>
                     <div>
-                        <input
+                        <StyledInput
                             type = 'text'
                             name = 'username'
+                            placeholder="username"
                             value = {this.state.username} 
                             onChange = {this.inputChangeHandler}
                         /> 
                     </div>
                     <div>
-                        <input
+                        <StyledInput
                             type = 'password'
                             name = 'password'
+                            placeholder="password"
                             value = {this.state.password} 
                             onChange = {this.inputChangeHandler}
                         /> 
                     </div>
                     <div>
                         <button type = 'submit'>Register</button>
+                    </div>
+                    <br/>
+                    <div onClick = {this.props.toggleRegisterAndLoginFormVisibility}>
+                        Already have an account? Click here to login.
                     </div>
                 </form>
             </div>
