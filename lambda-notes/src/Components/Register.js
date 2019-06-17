@@ -40,8 +40,13 @@ class Register extends Component {
                 this.props.fetchNoteEntries();
             })
             .catch(err => {
-                console.log('axios failed');
                 console.log(err)
+                let errorMessage = err;
+                if (errorMessage.message === "Request failed with status code 401") {
+                    this.setState({errorMessage:'Invalid Credentials'})
+                } else {
+                    this.setState({errorMessage:errorMessage.message})
+                }
             })
     }
     
@@ -70,6 +75,13 @@ class Register extends Component {
                     <div>
                         <button type = 'submit'>Register</button>
                     </div>
+                    <br/>
+                    {this.state.errorMessage 
+                        ?
+                        <div style = {{color:'red'}}>{this.state.errorMessage}</div>
+                        :
+                        null
+                    }
                     <br/>
                     <div onClick = {this.props.toggleRegisterAndLoginFormVisibility}>
                         Already have an account? Click here to login.

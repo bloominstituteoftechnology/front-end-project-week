@@ -73,20 +73,21 @@ class App extends Component {
       })
       .catch(err => {
       console.log('err: ', err)
-    })
+      })
 
-    axios.get(`${userEndpoint}`)
-      .then(res=>{
-        console.log(res)
-        this.setState({username:res.data.username})
-        return res.data.user
-      })
-      .catch(err =>{
-        console.log(err)
-      })
-    } else {
-      console.log('please login to see your notes')
-    }
+      axios.get(`${userEndpoint}`)
+        .then(res=>{
+          console.log(res)
+          this.setState({username:res.data.username})
+          return res.data.user
+        })
+        .catch(err =>{
+          console.log(err)
+        })
+      } else {
+        this.logout();
+        console.log('please login to see your notes')
+      }
     
     
   }

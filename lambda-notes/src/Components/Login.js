@@ -12,7 +12,8 @@ class Login extends Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '', 
+            errorMessage:null
         };
     };
 
@@ -38,12 +39,16 @@ class Login extends Component {
                 const lambdaNotesUserId = res.data.userId;
                 localStorage.setItem('lambdaNotesToken', lambdaNotesToken);
                 localStorage.setItem('lambdaNotesUserId', lambdaNotesUserId);
-                this.props.fetchNoteEntries()
-
+                this.props.fetchNoteEntries();
             })
             .catch(err => {
-                console.log('axios failed');
-                console.log(err)
+                console.log('err: ', err)
+                let errorMessage = err;
+                 if (errorMessage.message === "Request failed with status code 401") {
+                    this.setState({errorMessage:'Invalid Credentials'})
+                 } else {
+                    this.setState({errorMessage:errorMessage.message})
+                 }
             })
     }
     
@@ -72,6 +77,13 @@ class Login extends Component {
                     <div>
                         <button type = 'submit'>Login</button>
                     </div>
+                    <br/>
+                    {this.state.errorMessage 
+                        ?
+                        <div style = {{color:'red'}}>{this.state.errorMessage}</div>
+                        :
+                        null
+                    }
                     <br/>
                     <div onClick = {this.props.toggleRegisterAndLoginFormVisibility}>
                         Don't have an account? Click here to Register.
