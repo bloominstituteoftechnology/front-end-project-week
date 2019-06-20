@@ -50,7 +50,7 @@ class EditNote extends Component {
                   return (
                     <div>
                       <div className="notes-header">
-                        <h3>Edit Note:</h3>
+                        <h3>Edit Notee:</h3>
                       </div>
                       <form onSubmit={this.submitNote}>
                         <input
