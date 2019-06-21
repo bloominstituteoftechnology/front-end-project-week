@@ -1,0 +1,176 @@
+html, body, .App {
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0; }
+
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  flex-direction: row;
+  width: 100%; }
+
+.page {
+  width: 80%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  height: 100vh;
+  background-color: #F2F6F6; }
+  .page > div {
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: scroll;
+    flex-direction: column; }
+    .page > div > h2 {
+      margin-top: 70px;
+      margin-left: 35px;
+      width: 100%;
+      text-align: left; }
+
+.side-bar {
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  background-color: #E0E4E4; }
+  .side-bar > div > button {
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 80%;
+    color: #fff;
+    font-size: 1.2em;
+    background-color: #4CD5A4;
+    margin: 0.5em;
+    font-family: 'Roboto', sans-serif; }
+    .side-bar > div > button > a {
+      text-decoration: none;
+      color: #fff; }
+
+.notes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; }
+
+.note {
+  width: 300px;
+  min-height: 150px;
+  margin: 20px 10px;
+  border: 1px solid black;
+  width: calc(33.3333% - 30px);
+  background: #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .note > div {
+    width: 100%;
+    height: 100%;
+    padding: 20px; }
+    .note > div > h3 {
+      margin: 0;
+      text-align: left;
+      margin-bottom: 10px;
+      font-size: 1.35em;
+      font-weight: bold; }
+    .note > div > .divider {
+      width: 100%;
+      height: 1px;
+      background: #000; }
+    .note > div > p {
+      margin: 0;
+      margin-top: 10px;
+      text-align: left;
+      color: #313131; }
+  .note > button {
+    position: absolute;
+    outline: none;
+    border: none;
+    top: 1px;
+    right: 1px;
+    border-radius: 50%;
+    height: 22.5px;
+    width: 22.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    font-weight: 800;
+    color: #FD6259; }
+    .note > button > img {
+      height: 20px;
+      width: 20px; }
+  .note > .complete {
+    top: auto;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 2.5px;
+    background-color: #ECFBFF;
+    box-shadow: 0px 2.5px 5px rgba(0, 0, 0, 0.35); }
+
+.new-note-form {
+  width: calc(100% - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; }
+  .new-note-form > form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .new-note-form > form > .input > button {
+      outline: none;
+      border: none;
+      height: 50px;
+      width: 40%;
+      color: #fff;
+      font-size: 1.2em;
+      background-color: #4CD5A4;
+      margin: 0.5em 0;
+      font-family: 'Roboto', sans-serif; }
+
+.input {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0; }
+  .input > input, .input textarea {
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid gray;
+    border-radius: 5px;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 1em; }
+  .input > input {
+    width: 60%; }
+  .input > textarea {
+    padding: 20px;
+    height: 300px; }
+
+.nav-to-edit-note {
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 40%;
+  color: #fff;
+  font-size: 1.2em;
+  background-color: #4CD5A4;
+  margin: 1em 3.5%;
+  font-family: 'Roboto', sans-serif; }

@@ -1,0 +1,24 @@
+.side-bar {
+	width: 20%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: row;
+	background-color:  #E0E4E4;
+	&>div>button {
+		outline:  none;
+		border:  none;
+		height:  50px;
+		width:  80%;
+		color:  #fff;
+		font-size:  1.2em;
+		background-color: #4CD5A4;
+		margin:  0.5em;
+		font-family: 'Roboto', sans-serif;
+		&>a {
+			text-decoration: none;
+			color: #fff;
+		}
+	}
+}
