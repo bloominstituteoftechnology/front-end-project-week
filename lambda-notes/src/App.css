@@ -38,6 +38,7 @@
 
 .fullText {
   position: relative;
+  font-size: 1.5rem;
   z-index: 0;
   text-align: left;
   text-overflow: scroll;
@@ -51,11 +52,15 @@
   z-index: 0;
   background-color: #F2F1F2;
 }
+.notesList {
+  display: flex;
+  flex-direction: column;
+}
 .gridList {
   display: grid;
-  width: 80%;
+  width: 100%;
   flex-direction: column;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: flex-start;
   justify-content: flex-start;
   padding: 20px;
@@ -76,6 +81,7 @@
 }
 .textList {
   height: 200px;
+  font-size: 1.5rem;
   overflow: hidden;
   word-break: break-word;
 }
@@ -101,11 +107,12 @@ nav {
 }
 
 h2 {
-  font-size: 1.5rem;
-
+  font-size: 2.5rem;
+  padding-left: 20px
 }
 
 h3 {
+  font-size: 2rem;
   text-decoration: none;
   word-break: break-word;
   }
@@ -121,7 +128,7 @@ button {
   width: 250px;
   color:white;
   padding:20px;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   border-radius: 0%;
   margin: 10px 10px 10px 20px;
 }
@@ -140,18 +147,20 @@ form {
   display: flex;
   width: 80%;
 }
+input {
+  height: 50px;
+}
 .title {
-  height: 35px;
   width: 50%;
   margin: 20px;
-  font-size: 1rem;
+  font-size: 1.5rem;
 
 }
 
 
 textarea {
   margin-left: 20px;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .test {
@@ -163,7 +172,7 @@ textarea {
   align-self: flex-end;
   display: flex;
   flex-direction: row;
-  width: 100px;
+  width: 15%;
   justify-content: space-around;
   color: black;
   align-self: flex-end
@@ -174,7 +183,14 @@ a {
   color: black;
 }
 
+h6 {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
 
+h5 {
+  font-size: 1.5rem;
+}
 h5:hover {
   text-decoration: underline;
   color: #24B8BD;
@@ -200,6 +216,6 @@ h5:hover {
 .singleContainer {
   display: flex;
   flex-direction: row;
-  width: 70%;
-justify-content: flex-start;
+  width: 100%;
+  justify-content: flex-start;
 }

@@ -8,23 +8,22 @@ class SingleNote extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            note: [],
+            note: {},
             deleteNote: false,
             home:false,
         };
     }
 
-    componentDidMount() {
-        const ID = Number(this.props.match.params.id);
-        axios.get(`http://localhost:4444/note/${ID}`)
-        .then(response => {this.setState({note: response.data});
-        this.props.this.setState({title:this.state.note.title, textBody: this.state.note.textBody})})
+    componentDidUpdate() {
+        const ID = this.props.match.params.id;
+        axios.get(`https://fe-notes.herokuapp.com/note/get/${ID}`)
+        .then( response => {this.setState({note: response.data })})
         .catch (err => console.log(err))
     }
 
     render(){
         let Modal = '';
-        if (this.props.DEL === true) {Modal = <DeleteModal clickForAllHandler={this.props.clickForAllHandler} deleteNote={this.props.deleteNote}  id={Number(this.props.match.params.id)} noHandler={this.props.noHandler} notes={this.state.notes}/>}
+        if (this.props.DEL === true) {Modal = <DeleteModal clickForAllHandler={this.props.clickForAllHandler} deleteNote={this.props.deleteNote}  id={this.props.match.params.id} noHandler={this.props.noHandler} notes={this.state.notes}/>}
         else { Modal = ''}
     return (
         <div className='singleContainer'>
@@ -32,7 +31,7 @@ class SingleNote extends Component {
 
         <div className='notesSingle'>
             <div className='button'>
-            <NavLink activeClassName='selected' to={{pathname: `/note/edit/${this.props.match.params.id}`, state:{ID: Number(this.props.match.params.id), title: this.state.note.title, textBody: this.state.note.textBody}}}>
+            <NavLink activeClassName='selected' to={{pathname: `/note/edit/${this.props.match.params.id}`, state:{ID: this.props.match.params.id, title: this.state.note.title, textBody: this.state.note.textBody}}}>
             <h5>edit</h5>
             </NavLink>
                 <h5 onClick={this.props.deleteHandler}>delete</h5>

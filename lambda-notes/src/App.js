@@ -33,7 +33,7 @@ class App extends Component {
   componentDidMount() {
     this._isM = true;
 
-    axios.get('http://localhost:4444/home')
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => {this.setState({notes: response.data});
     console.log(`App.js ComponentDidMount`, response)})
     .catch(err => console.log('There is a Note Error'))
@@ -44,31 +44,30 @@ class App extends Component {
 
   }
 
-  // componentDidUpdate() {
-  //   axios.get('http://localhost:4444/home')
-  //   .then(response => this.setState({notes: response.data}))
-  //   .catch(err => console.log('There is a Note Error'))}
+  componentDidUpdate() {
+    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    .then(response => this.setState({notes: response.data}))
+    .catch(err => console.log('There is a Note Error'))}
 
 
-  // clickForNewHandler = () => {
-  //   this.setState ({
-  //     allNotes: false,
-  //     newNote: true,
-  //     fullNote: false,
-  //     updateNote: false,
-  //     deleteNote: false,})
-  // }
+  clickForNewHandler = () => {
+    this.setState ({
+      allNotes: false,
+      newNote: true,
+      fullNote: false,
+      updateNote: false,
+      deleteNote: false,})
+  }
 
-  // selectedHandler = (id) => {
+  selectedHandler = (id) => {
 
-  //   console.log(id)
-  //   // axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-  //   // .then(response => this.setState({notes: response.data}))
-  //   // .catch(err => console.log('There is a Note Error'))
-  // }
+    axios.get(`https://fe-notes.herokuapp.com/note/${id}`)
+    .then(response => this.setState({notes: response.data}))
+    .catch(err => console.log('There is a Note Error'))
+  }
 
   deleteNote = (id) => {
-    axios.delete(`http://localhost:4444/note/${id}`)
+    axios.delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
       if (this._isM = true){
         console.log(`notes from state`, this.state.notes)
@@ -86,23 +85,23 @@ class App extends Component {
     
   }
 
-  // homeHandler = () => {
-  //   console.log(window.location)
-  //   }
+  homeHandler = () => {
+    console.log(window.location)
+    }
 
-  // noHandler= (event) => {
-  //   this.setState({deleteNote:false})
-  // }
+  noHandler= (event) => {
+    this.setState({deleteNote:false})
+  }
 
-  // clickForAllHandler = () => {
+  clickForAllHandler = () => {
 
-  //   this.setState ({
-  //     allNotes: true,
-  //     newNote: false,
-  //     fullNote: false,
-  //     updateNote: false,
-  //     deleteNote: false,})
-  // }
+    this.setState ({
+      allNotes: true,
+      newNote: false,
+      fullNote: false,
+      updateNote: false,
+      deleteNote: false,})
+  }
 
   inputHandler = (event) => {
     let value=event.target.value;
@@ -116,7 +115,7 @@ class App extends Component {
   const tags = this.state.tags;
   const title = this.state.title;
   const textBody = this.state.textBody;
-  axios.post('http://localhost:4444/new', {title,textBody})
+  axios.post(' https://fe-notes.herokuapp.com/note/create', {title,textBody})
   .then( response => {this.setState({notes: [...this.state.notes, {id:response.data , title:title, textBody:textBody}]})
 
 })
@@ -125,19 +124,20 @@ class App extends Component {
 
 
   editNote = (id) => {
-    let notesE = this.state.notes.filter( note => note.id !== Number(id))
+    let notesE = this.state.notes.filter( note => note.id !== id)
 
     const title = this.state.title;
     const textBody = this.state.textBody;
-    axios.put(`http://localhost:4444/note/edit/${id}`, {title,textBody})
+    axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, {title,textBody})
     .then( response => 
       {this.setState({notes: [...notesE, {id:id , title:title, textBody:textBody}]})
     })
+    .then(()=> {
+      axios.get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+      .then(response => this.setState({note: response.data}))
+      .catch (err => console.log(err))
+    })
     .catch(err => console.log(err))
-
-    axios.get(`http://localhost:4444/note/${id}`)
-        .then(response => this.setState({note: response.data}))
-        .catch (err => console.log(err))
   }
 
   deleteHandler= (event) => {
@@ -150,9 +150,9 @@ class App extends Component {
   
 
   render() {
-    // let Modal = '';
-    // if (this.state.deleteNote === true) {Modal = <DeleteModal noHandler={this.noHandler} notes={this.state.notes}/>}
-    // else { Modal = ''}
+    let Modal = '';
+    if (this.state.deleteNote === true) {Modal = <DeleteModal noHandler={this.noHandler} notes={this.state.notes}/>}
+    else { Modal = ''}
 
     return (
       <div className='Main'>
