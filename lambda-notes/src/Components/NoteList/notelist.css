@@ -1,0 +1,50 @@
+.page-container {
+    display: flex;
+    min-height: 800px;
+    width: 100vw;
+}
+
+.section-container {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+.note-container {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 10%;
+}
+
+.notes-title {
+    color: #4A4A4A;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    line-height: 0.90;
+    margin: 52px 0 0 9%;
+    width: 100%;
+}
+
+.note {
+    width: 25%;
+    height: 205px;
+    border: 1px #979797 solid;
+    padding: 0px 3% 0 3%;
+    margin: 20px 0 0px 0px;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.note h3 {
+    margin: 10px 0 10px 0px;
+    border-bottom: 1px #979797 solid;
+    padding-bottom: 5px;
+}
+
+.note a {
+    font-family: 'Raleway', sans-serif;
+}

@@ -1,0 +1,86 @@
+.card-page-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.section-container {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+.edit-delete {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-delete a {
+    margin: 5px 1% 0;
+}
+
+.notes-title.card {
+    margin: 27px 0 0 5%;
+}
+
+.single-notes-content {
+    width: 80%;
+    margin: 30px 0 0 5%;
+}
+
+.delete-overlay{
+    background: #9da7b1;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    opacity: 0.75;
+}
+
+.delete-container{
+    width: 50%;
+    background: white;
+    height: 130px;
+    top: 200px;
+    right: 25%;
+    position: absolute;
+    opacity: unset;
+    border: 1px #979797 solid;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-direction: column;
+    padding-top: 36px;
+}
+
+.delete-container a{
+    font-family: 'Raleway', sans-serif;
+    width: 56%;
+}
+
+.overlay-btn{
+    font-family: 'Raleway', sans-serif;
+    background: #2BC1C4;
+    color: #FFFFFF;
+    border: unset;
+    border: 1px #979797 solid;
+    width: 30%;
+    margin: 0 7.5% 15px;
+    padding: 8px;
+}
+
+.overlay-btn.delete{
+    background: #D0021B;
+    width: 100%;
+}
+
+.btn-container{
+    display: flex;
+    width: 100%;
+    margin-top: 35px;
+    justify-content: center;
+}
+
+.btn-container a{
+    width: 30%;
+}
+
