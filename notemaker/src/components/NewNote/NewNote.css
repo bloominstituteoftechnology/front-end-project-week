@@ -1,0 +1,74 @@
+.new-note {
+    background: #F3F3F3;   
+    width: 666px; 
+
+    padding-top: 33px;
+    padding-left: 26px;
+}
+
+.new-note h3 {
+    font-size: 21px;
+    font-family: "Roboto", sans-serif;
+}
+
+.note-title {
+    width: 360px;
+    height: 41px;
+    border-radius: 3px;
+
+    margin-top: 7px;
+    padding-left: 11px;
+    margin-bottom: 15px;
+    font-family: "Raleway", sans-serif;
+    font-size: 12px;
+
+    box-shadow: 0px 0px 3px #494949;
+}
+
+.note-content {
+    width: 608px;
+    height: 348px;
+    border-radius: 3px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 21px;
+    display: flex;
+    justify-content: flex-start;
+    resize: none;
+
+    font-family: "Raleway", sans-serif;
+    font-size: 12px;
+    box-shadow: 0px 0px 3px #494949;
+}
+
+.note-save-button {
+    background: #2BC1C4;
+    border: 1px solid #979797;
+    width: 192px;
+    height: 43px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: white;    
+    position: relative;
+    left: 2px;
+    top: 13px;
+
+    cursor: pointer;
+}
+
+.note-save-button-inner {
+    color: white;
+}
+
+.note-save-button:hover {
+    background: #4ED3D3;
+}
+
+.note-save-button:active {
+    background: #09B6B6;
+}

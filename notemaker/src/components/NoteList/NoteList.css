@@ -1,0 +1,23 @@
+a {
+    text-decoration: none;
+}
+
+.note-list {
+    background: #F3F3F3;   
+    width: 666px; 
+}
+
+.note-list h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: 21px;
+    padding-left: 26px;
+    padding-top: 33px;
+    margin-bottom: 0px;
+}
+
+.note-list-preview-container {
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 29px;
+    margin-top: 8px;
+}

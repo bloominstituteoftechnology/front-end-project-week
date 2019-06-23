@@ -1,0 +1,37 @@
+.note-preview-container {
+    width: 192px;
+    height: 196px;
+
+    border: 1px solid #979797;
+    color: #4A4A4A;
+    background: #FFFFFF;
+    margin: 0 16px 26px 0;
+}
+
+
+.note-preview-title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+
+    width: 156px;
+    margin: 0 auto;
+
+    font-size: 19px;
+
+    padding: 8px 0px 4px 0px;
+
+    border-bottom: 1px solid #979797;
+}
+
+.note-preview-content {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+
+    width: 170px;
+
+    padding-left: 17px;
+    padding-top: 5px;
+
+    font-size: 13.8px;
+    line-height: 22px;
+}

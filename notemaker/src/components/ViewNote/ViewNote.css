@@ -1,0 +1,125 @@
+.view-note {
+    width: 666px;
+    background: #F3F3F3;
+}
+
+.view-note .controls {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+
+    text-decoration: underline;
+}
+
+.delete-modal {
+    font-family: "Raleway", sans-serif;   
+    position: fixed;
+    z-index:1;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0, 0.4);
+}
+
+.modal-content {
+    background-color: #F4F4F4;
+    margin: 10% auto;
+    padding: 20px;
+    width: 532px;
+    height: 181px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+}
+
+.close-button {
+    color:#ccc;
+    float: right;
+    font-size: 30px;
+}
+
+.close-button:hover,.close-button:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-warning-message {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 23px;
+}
+
+.modal-button-group {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-button-delete {
+    margin-right: 20px;
+
+    width: 193px;
+    height: 43px;
+    border: 1px solid #494949;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #D0021B;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.modal-button-no {
+    width: 193px;
+    height: 43px;
+    border: 1px solid #494949;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #2BC1C4;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.display-none {
+    display: none;
+}
+
+.view-note .controls {
+    margin-top: 16px;
+}
+
+.view-note .controls .edit-link {
+    margin-right: 16px;
+    color: #4A4A4A;
+    font-family: "Roboto", sans-serif;
+    font-size: 13.4px;
+    cursor: pointer;
+}
+
+.view-note .controls .delete-link {
+    color: #4A4A4A;
+    font-family: "Roboto", sans-serif;
+    font-size: 13.4px;
+    margin-right: 34px;
+    cursor: pointer;
+}
+
+.displayed-note-for-reading {
+    margin-left: 26px;
+    margin-top: 20px;
+}
+
+.displayed-note-for-reading-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.displayed-note-for-reading-content {
+    line-height: 30px;
+    font-size: 14px;
+    padding-right: 50px;
+}
