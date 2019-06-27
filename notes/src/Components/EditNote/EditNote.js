@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Menu from './Menu';
+import Menu from '../Menu/Menu';
 import './EditNote.css';
 
 class EditNote extends Component {

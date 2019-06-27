@@ -14,7 +14,7 @@ class Note extends Component {
                     {this.props.note.body}
                 </div>
             </Link>
-        )
+        )           
     }
 }
 

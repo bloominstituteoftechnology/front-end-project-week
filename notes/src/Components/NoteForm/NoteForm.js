@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Menu from '../Menu/Menu';
 import './NoteForm.css';
-import Menu from './Menu';
 
 class NoteForm extends Component {
     constructor(props) {

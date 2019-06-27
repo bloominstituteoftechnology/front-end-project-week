@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Note from './Note';
+import Note from '../Note/Note';
+import Menu from '../Menu/Menu';
 import './NoteList.css';
-import Menu from './Menu';
 
 class NoteList extends Component {
     render() {

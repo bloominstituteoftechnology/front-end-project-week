@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import NoteList from '../src/Components/NoteList';
-import NoteForm from '../src/Components/NoteForm';
-import NoteCard from '../src/Components/NoteCard';
-import EditNote from '../src/Components/EditNote';
+import NoteList from '../src/Components/NoteList/NoteList';
+import NoteForm from '../src/Components/NoteForm/NoteForm';
+import NoteCard from '../src/Components/NoteCard/NoteCard';
+import EditNote from '../src/Components/EditNote/EditNote';
 import axios from 'axios';
 
 class App extends Component {
