@@ -43,7 +43,7 @@ export const StyledSidebarTitleLink = styled(StyledLink)`
 export const StyledH1 = styled.h1`
   width: 60%;
   font-size: 4rem;
-  color: ${colors.buttonNegColor};
+  color: ${colors.buttonColor};
   line-height: 3rem;
   text-align: left;
   margin: 0 0 35px;

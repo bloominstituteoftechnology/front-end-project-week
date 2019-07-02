@@ -18,9 +18,11 @@ export const SearchBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 95%;
+  max-width: 1000px;
   background: ${colors.backgroundColor};
-  padding: 8px 5% 8px 33px;
+  padding: 8px 5% 8px 40px;
+  margin-right: 10px;
   @media (max-width: 940px) {
     align-self: flex-end;
     justify-content: space-around;
@@ -67,7 +69,7 @@ export const NewOldMobileButton = styled(Button)`
 `;
 
 export const ListTitle = styled(StyledH3)`
-  margin-left: 30px;
+  margin-left: 40px;
   @media (max-width: 940px) {
     margin-left: 5vw;
   }
@@ -75,30 +77,31 @@ export const ListTitle = styled(StyledH3)`
 
 export const StyledListDiv = styled.div`
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  padding: 33px 0 33px 31px;
+  padding: 33px 0 33px 40px;
   @media (max-width: 940px) {
     padding-left: 6vw;
   }
 `;
 
 export const StyledNoteLink = styled(StyledLink)`
-  width: 30%;
-  margin-right: 17.5px;
+  width: 93%;
+  max-width: 900px;
+  /* margin-right: 17.5px; */
   margin-bottom: 27px;
   animation-name: out;
   animation-duration: 150ms;
   box-shadow: 0 3px 10px -3px rgb(0, 0, 0);
-  @media (max-width: 940px) {
+  /* @media (max-width: 940px) {
     width: 28vw;
   }
   @media (max-width: 700px) {
     width: 42vw;
   }
   @media (max-width: 500px) {
-    width: 88vw;
+    width: 88vw; */
   }
   :hover {
     animation-name: in;

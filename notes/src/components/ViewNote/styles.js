@@ -3,7 +3,7 @@ import { StyledH3, ViewContainer, StyledP, StyledLink } from '../../mixins';
 import { colors } from '../../variables';
 
 export const NoteView = styled(ViewContainer)`
-  padding: 0 38px 64px 30px;
+  padding: 0 38px 64px 40px;
   @media (max-width: 700px) {
     padding-top: 44px;
   }
@@ -49,6 +49,7 @@ export const NoteTextContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+  max-width: 800px;
   /* padding-top: 26px; */
 `;
 

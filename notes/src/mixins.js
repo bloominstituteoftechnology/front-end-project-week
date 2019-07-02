@@ -11,7 +11,7 @@ export const ViewContainer = styled.div`
   align-items: flex-start;
   height: 100vh;
   background: ${colors.backgroundColor};
-  padding: 64px 30px 0;
+  padding: 64px 30px 0 40px;
   /* border: 1px solid rgb(152, 152, 152); */
   overflow-y: scroll;
   @media (max-width: 700px) {
@@ -159,7 +159,8 @@ export const StyledP = styled(Markdown)`
 `;
 
 export const StyledForm = styled.form`
-  width: 100%;
+  width: 90%;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
