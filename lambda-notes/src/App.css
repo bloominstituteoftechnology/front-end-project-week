@@ -1,0 +1,66 @@
+.login {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: url('./kaleidico-754504-unsplash (1).jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.note-page {
+  height: 100vh;
+  /* border: 1px solid green; */
+}
+.nav-links {
+      display: flex;
+    text-decoration: none;
+     justify-content: center;
+     align-items: center;
+     margin-left: 9px;
+     width: 95%;
+     height: 60px;
+     background-color: #26B7BD;
+   color: white;
+   font-size: 25px;
+   font-weight: bold;
+   border: 1px solid #B1B7B8;
+}
+.mobile-nav-link {
+  font-size: 2rem;
+  color: white;
+}
+
+.note-button {
+  color: black;
+  margin-top: 15px;
+  margin-right: 10px;
+  border: none;
+  text-decoration: underline;
+  font-size: 15px;
+}
+
+.form-wrapper {
+  width: 100%;
+}
+
+
+.ReactModal {
+  width: 35%;
+  height: 200px;
+  margin: 150px auto 0 auto;
+  background: white;
+  border: 2px solid black;
+}
+
+.topnav-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  width: 50%;
+  border: 1px solid green;
+}
+
+.check-item {
+  border: 1px solid red;
+}
