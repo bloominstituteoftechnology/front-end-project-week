@@ -1,0 +1,84 @@
+.App {
+  display:flex;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+*{
+	box-sizing:border-box;
+}
+
+.posts {
+	display:flex;
+	width:800px;
+	flex-wrap:wrap;
+	margin-left:20px;
+}
+
+.card {
+	margin-top:20px;
+	display:flex;
+	flex-direction:column;
+	width:31%;
+	border:1px solid #979797;
+	margin-left:2.3%;
+}
+
+.card:hover {
+	cursor:pointer;
+}
+
+.title{
+	width:70%;
+	font-size:20px;
+	padding-bottom:5px;
+	margin-bottom:10px;
+	border-bottom:1px solid #979797;
+}
+
+.single {
+	width:100%;
+}
+
+.edit {
+	margin-right:15px;
+}
+
+.delete:hover {
+	cursor:pointer;
+}
+
+.edit:hover {
+	cursor:pointer;
+}
+
+.options {
+	width:100%;
+	display:flex;
+	justify-content:flex-end;
+	color:#979797;
+	text-decoration:underline;
+}
