@@ -133,15 +133,48 @@ class NotesList extends Component {
                 );
               })}
         </div>
-        {/* <ReactMarkdown source={markdown} escapeHtml={false} /> */}
       </Fragment>
     );
   }
 }
 
-// ReactDOM.render(
-//   <ReactMarkdown source={input} />,
-//   document.getElementById('test')
-// );
-
 export default NotesList;
+
+// allowDrop = ev => {
+//   ev.preventDefault();
+// };
+
+// drag = ev => {
+//   ev.dataTransfer.setData("image1", ev.target.id);
+// };
+
+// drop = ev => {
+//   ev.preventDefault();
+//   let data = ev.dataTransfer.getData("image1");
+//   ev.target.appendChild(document.getElementById(data));
+// };
+
+// <h2>Drag and Drop</h2>
+// <p>Drag the image back and forth between the two div elements.</p>
+{/* <div
+  id="div1"
+  ondrop={this.drop}
+  ondragover={this.allowDrop}
+>
+  <img
+    src="https://www.w3schools.com/HTML/img_w3slogo.gif"
+    draggable="true"
+    ondragstart={this.drag}
+    id="drag1"
+    width="100"
+    height="50"
+  />
+</div>
+
+<div
+  id="div2"
+  ondrop={this.drop}
+  ondragover={this.allowDrop}
+>
+      {this.props.children}
+</div> */}

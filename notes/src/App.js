@@ -28,7 +28,7 @@ class App extends Component {
     ) {
       this.setState({
         loggedIn: true
-      });
+      }); 
     } else {
       this.setState({
         loggedIn: false
@@ -43,9 +43,9 @@ class App extends Component {
   };
 
   render() {
-    if (!this.state.loggedIn) {
-      return <Login />;
-    } else {
+    // if (!this.state.loggedIn) {
+    //   return <Login />;
+    // } else {
       return (
         <div className="App">
           <nav className="nav-main">
@@ -79,6 +79,6 @@ class App extends Component {
       );
     }
   }
-}
+// }
 
 export default App;

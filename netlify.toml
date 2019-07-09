@@ -1,0 +1,9 @@
+[build]
+base = "/notes"
+command = "yarn build" 
+publish = "/notes/build"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
