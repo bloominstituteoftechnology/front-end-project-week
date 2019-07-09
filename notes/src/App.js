@@ -49,7 +49,7 @@ class App extends Component {
       return (
         <div className="App">
           <nav className="nav-main">
-            <h1 className="nav-header">Lambda Notes</h1>
+            <h1 className="nav-header">Community Notes</h1>
             <div className="nav-links-container">
               <NavLink className="nav-links" exact to="/">
                 <button className="nav-main-btn">View Your Notes</button>
