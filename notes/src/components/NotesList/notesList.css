@@ -1,0 +1,33 @@
+.notesBoxesv1 {
+    background-color:lightgrey;
+    /* border: 2px solid black; */
+    width: 85%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+.notesBoxes {
+    background-color:white;
+    border: 2px solid black;
+    width: 30%;
+    max-width:265px;
+    min-width: 220px;
+    margin:2% 1%;
+    /* height: 20vh; */
+}
+
+.yourNoteTitle{
+    background-color:lightgrey;
+    /* border: 2px solid black; */
+    width: 85%;
+    text-align: initial;
+    margin-left: 5%;
+}
+
+.noteListContainer{
+    background-color:lightgrey;
+    /* border: 2px solid black; */
+    width: 85%;
+}
