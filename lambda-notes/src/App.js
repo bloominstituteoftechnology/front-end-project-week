@@ -69,6 +69,7 @@ class App extends Component {
       axios.get(`${userEndpoint}/noteEntries`)
       .then(res => {
         const noteEntries = res.data;
+        console.log('noteEntries: ',noteEntries);
         this.setState({noteEntries:noteEntries})
       })
       .catch(err => {
@@ -267,9 +268,10 @@ export default App;
 const AppContainerStyledDiv = styled.div`
   display:flex;
   width: 900px;
-  border: 1px solid #979797;
-  margin-left:6px;
-  margin-right:6px;
+  // border: 1px solid #979797;
+  border: 3px solid black;
+  margin-left:auto;
+  margin-right:auto;
 `
 
 const RightHandSideContainerStyledDiv = styled.div`

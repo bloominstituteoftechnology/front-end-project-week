@@ -35,9 +35,11 @@ const NoteCardContentContainerStyledDiv = styled.div`
     margin-right:10px;
     height:123px;
     overflow:hidden;
+    white-space: pre-wrap;
 `
 
 const NoteCard = props => {
+    console.log('NoteCard.js props: ', props)
     return (
         <div>
             <Link to = {`/note/${props.noteEntry.id}`} style={{ textDecoration: "none" }}>

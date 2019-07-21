@@ -69,7 +69,7 @@ class Note extends Component {
  
                 </EditDeleteContainerStyledDiv>
                 
-                <div>
+                <div style = {{'white-space': 'pre-wrap'}}>
                     <h2 style = {{margin:'10px 0px 10px 0px', font:'Roboto Bold', fontSize:'24px', color:'#4A4A4A'}}>{this.state.note.title}</h2>
                    
                         <br />
