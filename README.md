@@ -60,7 +60,7 @@ Now deployment information needed here
 
 * **Thomas Claydon** - [Github](https://github.com/gittc100)
 
-## Canban Board
+## Kanban Board
 
 - Trello URL: https://trello.com/b/tTuz9SxL/lambda-notes-thomas-claydon
 
