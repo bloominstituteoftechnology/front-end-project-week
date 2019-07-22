@@ -37,8 +37,10 @@ Now deployment information needed here
 
 ## Built With
 
-* [Create React App](https://facebook.github.io/create-react-app/) - The web framework used
 * [Yarn](https://yarnpkg.com/en/) - Dependency Management
+* [Create React App](https://facebook.github.io/create-react-app/) - The web framework used
+* [Redux](https://redux.js.org/) - State Manager
+* [CSS] - Styling
 
 ## MVP Features:
 
