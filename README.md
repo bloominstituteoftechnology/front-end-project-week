@@ -33,7 +33,8 @@ $ yarn start
 
 ## Deployment
 
-Now deployment information needed here
+* [Netlify](https://www.netlify.com/) - Web Hosting Service
+- Production URL: https://www.community-notes.com/
 
 ## Built With
 
