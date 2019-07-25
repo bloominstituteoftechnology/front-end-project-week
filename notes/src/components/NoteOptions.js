@@ -11,7 +11,6 @@ class NoteOptions extends Component {
   }
 
   handleModal = () => {
-    console.log('firing');
     this.setState({ showModal: !this.state.showModal})
   }
 
@@ -32,7 +31,7 @@ class NoteOptions extends Component {
               />
             }
         </div>)
-    } else { return (<p> waiting </p>) }
+    } else { return (<p> no notes here! </p>) }
   }
 
 }

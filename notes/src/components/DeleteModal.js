@@ -6,9 +6,10 @@ import { withRouter } from 'react-router-dom'
 
 class DeleteModal extends Component {
 
-  handleDelete = (event) => {
-    console.log('click firing');
+  handleDelete = () => {
     this.props.deleteNote(this.props.match.params.id)
+    const {history} = this.props
+    history.push('/note-list')
   }
 
   render() {

@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom'
 
 import './App.css';
-// import Note from './Note';
-
-
 
  class Note extends Component {
 
-   handleClick = (event) => {
+   handleClick = () => {
      this.props.deleteNote(this.props.match.params.id)
    }
 

@@ -17,13 +17,21 @@ class NewNote extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    let newNote = {
-      title: this.state.title,
-      content: this.state.content,
+    if (!this.state.title) {
+      alert("Please add a title :)")
     }
-    this.props.createNote(newNote)
-    this.setState({ title:'', content:'' })
-
+    else if (!this.state.content) {
+      alert("Please write something on your note (:")
+    } else {
+      let newNote = {
+        title: this.state.title,
+        content: this.state.content,
+      }
+      this.props.createNote(newNote)
+      this.setState({ title:'', content:'' })
+      const {history} = this.props
+      history.push('./note-list')
+    }
   }
 
   render() {

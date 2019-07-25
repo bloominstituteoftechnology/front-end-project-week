@@ -17,7 +17,8 @@ export const UPLOADING_FILE = 'UPLOADING_FILE'
 
 const URL = 'http://localhost:8000/'
 
-export function uploadDocumentRequest({ file, name }) {
+export const uploadRequest = ({ file, name }) => {
+  console.log('UPLOAD REQUEST RUNNING');
   let data = new FormData();
   data.append('file', document);
   data.append('name', name);
@@ -25,7 +26,7 @@ export function uploadDocumentRequest({ file, name }) {
   return (dispatch) => {
     dispatch({type: UPLOADING_FILE})
     axios
-    .post(URL + '/files', data)
+    .post(URL + 'files', data)
       .then(response => {
         dispatch({type: UPLOAD_SUCCESS, payload: response.data})
       })

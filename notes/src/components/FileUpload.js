@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom'
+
+import { uploadRequest } from '../actions'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import './App.css';
 
@@ -21,13 +24,19 @@ class FileUpload extends Component {
     )
   }
 
-  handleFileUpload({ file }) {
+  handleFileUpload = ({ file }) => {
   // const file = files[0];
-  this.props.actions.uploadRequest({
+  this.props.uploadRequest({
      file,
      name: 'Awesome Cat Pic'
   })
 }
 }
 
-export default FileUpload
+const mapStateToProps = state => {
+  return {
+    state: state,
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { uploadRequest }) (FileUpload))

@@ -38,7 +38,6 @@ class App extends Component {
   }
 
   handlePagination = value => {
-    console.log('HPag firing:', value);;
     this.setState({ active: value})
   }
 
@@ -49,11 +48,9 @@ class App extends Component {
       (JSON.stringify(item.title)+JSON.stringify(item.content))
       .toLowerCase().includes(this.state.filter.toLowerCase()))
 
-      console.log('filtered length:', filteredNoteList.length);
-
     return (
       <div className="App">
-      <FileUpload />
+      {/* <FileUpload /> */}
         <header className="App-header">
           <h1 className="App-title">Lambda Notes</h1>
           <NavLink
@@ -74,7 +71,7 @@ class App extends Component {
         <section className='main-section'>
           <Route exact path='/note-list' render={props =>
             <React.Fragment>
-                <h2 className='notes-title'> Your Notes: </h2>
+                <h2 className='notes-title'> Notes: </h2>
                 <SearchBar
                   handleFilter={this.handleFilter}
                   filter={this.state.filter} />
