@@ -15,7 +15,8 @@ export const UPLOAD_FAIL = 'UPLOAD_FAIL'
 export const UPLOADING_FILE = 'UPLOADING_FILE'
 
 
-const URL = 'http://localhost:8000/'
+// const URL = 'http://localhost:8000/'
+const URL = 'https://backend-project-week-luisan.herokuapp.com/'
 
 export const uploadRequest = ({ file, name }) => {
   let data = new FormData();
@@ -45,7 +46,7 @@ export const fetchNotes = () => {
         dispatch({type: NOTES_FETCHED, payload: response.data})
       })
       .catch(error => {
-        dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
+        dispatch({type: ERROR, payload: 'Houston, we have a get problem', error})
       })
   }
 }
@@ -59,7 +60,7 @@ export const fetchNoteById = (id) => {
       dispatch({type: NOTES_FETCHED, payload: response.data})
     })
     .catch(error => {
-      dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
+      dispatch({type: ERROR, payload: 'Houston, we have a get by id problem', error})
     })
   }
 }
@@ -71,7 +72,7 @@ export const createNote = (note) => {
       .post(URL+'notes', note) //response from the server will be the ID of the new note
       .then(response => { dispatch({type: NOTES_SAVED, payload:response.data}) })
       .catch(error => {
-        dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
+        dispatch({type: ERROR, payload: 'Houston, we have a create note problem', error})
       })
   }
 }
@@ -84,7 +85,7 @@ export const deleteNote = (id) => {
     .then(response =>{ dispatch({type: NOTE_DELETED, payload: response.data })
     })
     .catch(error => {
-      dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
+      dispatch({type: ERROR, payload: 'Houston, we have a delete problem', error})
     })
   }
 }
@@ -95,7 +96,7 @@ export const updateNote = (note) => {
       .put(URL+`notes/${note.id}`, note) //response from the server will be the ID of the new note
       .then(response => { dispatch({type: NOTE_UPDATED, payload:response.data}) })
       .catch(error => {
-        dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
+        dispatch({type: ERROR, payload: 'Houston, we have an update problem', error})
       })
   }
 }
