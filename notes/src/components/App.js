@@ -52,7 +52,7 @@ class App extends Component {
       <div className="App">
       {/* <FileUpload /> */}
         <header className="App-header">
-          <h1 className="App-title">Lambda Notes</h1>
+          <h1 className="App-title">Luisan Notes</h1>
           <NavLink
             className='nav-link'
             to='/note-list'> View Your Notes </NavLink>
