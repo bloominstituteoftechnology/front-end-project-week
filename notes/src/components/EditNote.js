@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
 
-import { updateNote } from '../actions'
+import { updateNote, fetchNoteById } from '../actions'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import NoteForm from './NoteForm'
 
-let ans = null
-// console.log('heyo');
-
 class NewNote extends Component {
   state = {
-    title: 'Easter Egg',
-    content: 'Did you see it?',
+    title: '',
+    content: '',
     updated: false
   }
 
   componentDidUpdate() {
-    (!this.state.updated && ans)
-    ? this.setState({ title: ans.title, content: ans.content, updated: true})
-    : ''
-
+   if (!this.state.updated && this.props.note.length === 1) {
+     this.setState({ title: this.props.note[0].title, content: this.props.note[0].content, updated: true})
+   }
   }
 
   componentDidMount() {
+    const {id} = this.props.match.params;
+    this.props.fetchNoteById(id)
     this.setState({updated: false})
   }
 
@@ -32,19 +30,22 @@ class NewNote extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const id = this.props.noteList.find(item => item._id = this.props.match.params.id)._id
     let newNote = {
       title: this.state.title,
       content: this.state.content,
-      id: this.props.noteList.find(item => item._id = this.props.match.params.id)._id
+      id: id
     }
-    console.log(newNote._id);
+
     this.props.updateNote(newNote)
     this.setState({ title:'', content:'' })
+
+    const {history} = this.props
+    history.push(`/note-list/${id}`)
 
   }
 
   render() {
-    ans = this.props.noteList.find(item => item._id == this.props.match.params.id)
     return (
       <React.Fragment>
       <h2 className='notes-title'> Edit Note:</h2>
@@ -61,7 +62,8 @@ class NewNote extends Component {
 const mapStateToProps = state => {
   return {
     state: state,
+    note: state.notes
   }
 }
 
-export default withRouter(connect(mapStateToProps, { updateNote }) (NewNote))
+export default withRouter(connect(mapStateToProps, { updateNote, fetchNoteById }) (NewNote))

@@ -52,6 +52,21 @@ export const fetchNotes = () => {
   }
 }
 
+export const fetchNoteById = (id) => {
+  return dispatch => {
+    dispatch({type: FETCHING_NOTES})
+    axios
+    .get(`${URL}notes/${id}`)
+    .then(response => {
+      console.log(response)
+      dispatch({type: NOTES_FETCHED, payload: response.data})
+    })
+    .catch(error => {
+      dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
+    })
+  }
+}
+
 export const createNote = (note) => {
   return dispatch => {
     dispatch({type: SAVING_NOTES});
