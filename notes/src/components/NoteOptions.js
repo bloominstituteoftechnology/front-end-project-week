@@ -15,9 +15,8 @@ class NoteOptions extends Component {
   }
 
   render() {
-    let ans = this.props.noteList.find(item => item.id == this.props.match.params.id)
-    console.log('Ans:', ans);
-    if (ans) {
+    let note = this.props.noteList.find(item => item.id == this.props.match.params.id)
+    if (note) {
       return(
         <div className="note-options">
           <NavLink to={`/edit-note/${ans.id}`}>edit</NavLink>
@@ -33,7 +32,6 @@ class NoteOptions extends Component {
         </div>)
     } else { return (<p> no notes here! </p>) }
   }
-
 }
 
 const mapStateToProps = state => {

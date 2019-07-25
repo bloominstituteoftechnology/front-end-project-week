@@ -85,7 +85,6 @@ class App extends Component {
            } />
            <Route path='/note-list/:id' render={props =>
              <React.Fragment>
-               {console.log('Appnotes:', this.props.notes)}
              <NotesList
                {...props}
                noteList={this.props.notes}

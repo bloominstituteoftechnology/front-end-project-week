@@ -18,7 +18,6 @@ export const UPLOADING_FILE = 'UPLOADING_FILE'
 const URL = 'http://localhost:8000/'
 
 export const uploadRequest = ({ file, name }) => {
-  console.log('UPLOAD REQUEST RUNNING');
   let data = new FormData();
   data.append('file', document);
   data.append('name', name);
@@ -43,7 +42,6 @@ export const fetchNotes = () => {
     axios
       .get(URL + 'notes')
       .then(response => {
-        console.log(response);
         dispatch({type: NOTES_FETCHED, payload: response.data})
       })
       .catch(error => {
@@ -58,7 +56,6 @@ export const fetchNoteById = (id) => {
     axios
     .get(`${URL}notes/${id}`)
     .then(response => {
-      console.log(response)
       dispatch({type: NOTES_FETCHED, payload: response.data})
     })
     .catch(error => {
@@ -89,15 +86,11 @@ export const deleteNote = (id) => {
     .catch(error => {
       dispatch({type: ERROR, payload: 'Houston, we have a problem', error})
     })
-    console.log('axios done');
   }
 }
 export const updateNote = (note) => {
   return dispatch => {
     dispatch({type: UPDATING_NOTE});
-    console.log('Actions');
-    console.log(note);
-    console.log(note.id);
     axios
       .put(URL+`notes/${note.id}`, note) //response from the server will be the ID of the new note
       .then(response => { dispatch({type: NOTE_UPDATED, payload:response.data}) })
