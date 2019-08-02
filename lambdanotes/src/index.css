@@ -27,12 +27,12 @@ body {
   text-decoration: none;
 }
 
-.unstiledLink {
+.unstyledLink {
   text-decoration: none;
   color: rgb(66,66,66);
 }
 
-.unstiledLink :visited{
+.unstyledLink :visited{
   text-decoration: none;
   color: rgb(66,66,66);
 }
@@ -54,4 +54,9 @@ body {
 
 .button--danger {
     background-color: red;
+}
+
+.note  {
+color: black;
+text-decoration: none;
 }

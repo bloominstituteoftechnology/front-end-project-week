@@ -13,6 +13,7 @@
 
 .nav_header {
     margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .nav_buttons_container {
@@ -31,5 +32,5 @@
     border: 1px solid #86AEB1;
     margin: 0.5rem 0;
     height: 40px;
-    border-radius: 0.1rem;
+    border-radius: 1rem;
 }

@@ -28,7 +28,7 @@ class NotesList extends Component {
             <div className='note'>
                 <div>
                     <h4>{note.title}</h4>
-                    <hr></hr>
+                    
                     <p>{note.body}</p>
                 </div>
                 </div>

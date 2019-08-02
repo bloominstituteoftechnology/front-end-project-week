@@ -17,3 +17,7 @@
     padding: 1rem 0.5rem;
     color: rgb(66,66,66);
 }
+
+.content_header {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
