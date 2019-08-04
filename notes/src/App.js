@@ -57,9 +57,9 @@ class App extends Component {
               <NavLink to="/create-note">
                 <button className="nav-main-btn">+ Create New Note</button>
               </NavLink>
-              <button className="nav-main-btn" onClick={this.logOut}>
+              {/* <button className="nav-main-btn" onClick={this.logOut}>
                 Log Out
-              </button>
+              </button> */}
             </div>
           </nav>
 
