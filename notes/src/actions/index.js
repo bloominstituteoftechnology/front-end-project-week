@@ -55,7 +55,7 @@ export const getNotesBySort = sortType => dispatch => {
     .get("https://fe-notes.herokuapp.com/note/get/all")
     .then(response => {
       console.log("fetch finished");
-      let result = response.data.sort(sortType);;
+      let result = response.data.sort(sortType);
       console.log(result);
       dispatch({
         type: FETCH_NOTES_BY_SORT_SUCCESS,

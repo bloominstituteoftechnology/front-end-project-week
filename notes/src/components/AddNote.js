@@ -9,6 +9,17 @@ class AddNote extends React.Component {
     };
   }
 
+  componentDidMount(){
+    // this.props.edit ? `${this.props.note.title}` : "Note Title"
+    if(this.props.edit){
+      this.setState({
+        ...this.state,
+        title: this.props.note.title,
+        textBody: this.props.note.textBody
+      });
+    }
+  }
+
   changeHandler = event => {
     this.setState({
       [event.target.name]: event.target.value

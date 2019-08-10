@@ -1,51 +1,80 @@
+
 .App {
   text-align: center;
-  border: 1px solid grey;
   display: flex;
-  min-height: 99.8vh;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .nav-main {
+  position: fixed;
+  top: 0;
+  left:0;
+  width: calc(100% - 4rem);
   display: flex;
-  flex-direction: column;
-  border-right: 1px solid grey;
-  padding: 1.9rem 1.1rem;
-  width: 25%;
-  background-color: rgb(211, 210, 211);
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem;
+  background-color:  #272727;
+  border-radius: 4rem;
+  border: none;
 }
 
 .nav-header {
-  font-size: 3.5rem;
+  font-size: 3rem;
   letter-spacing: 0.025rem;
   line-height: 2.8rem;
   font-weight: bold;
   text-align: left;
+  margin: 2rem;
+  color: #fbffff;
 }
 
 .nav-links-container {
-  margin-top: 2.7rem;
-}
-
-.nav-main-btn {
-  width: 100%;
-  height: 5rem;
-  cursor: pointer;
-  margin-bottom: 1.25rem;
-  background-color: rgb(36, 184, 189);
-  border: 1px solid rgb(36, 184, 189);
-  color: white;
-  font-size: 1.6rem;
-  border-radius: 0.3rem;
+  height: 7rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .nav-links {
   cursor: pointer;
+  margin-right: 1.25rem;
+  color: #fbffff;
+  font-size: 4rem;
+  margin-right: 2rem;
+  transition: 0.5s;
+}
+
+@media (max-width: 500px) {
+  .nav-header {
+    font-size: 2rem;
+  }
+  .nav-links {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-header {
+    font-size: 1.8rem;
+  }
+  .nav-links {
+    font-size: 2rem;
+  }
+}
+
+.nav-links:hover {
+  color: red;
 }
 
 .notes-list-wrapper {
-  width: 75%;
+  width: 100%;
+  height: 100vh;
   padding: 2.5rem 2.5rem;
-  background-color: rgb(242, 241, 242);
+  padding-top:11.7rem;
+  background-color:  #121212;
 }
 
 .notes-list-wrapper h2 {
@@ -53,6 +82,7 @@
   font-weight: bold;
   text-align: left;
   margin-bottom: 3rem;
+  color:#fbffff;
 }
 
 .searchContainer {
@@ -60,25 +90,155 @@
 }
 
 .searchContainer input {
-  border-radius: 0.25rem;
-  width: 32%;
+  border-radius: 0.5rem;
+  border: none;
+  width: 15%;
   text-align: center;
+  background-color: #272727;
+  color: white;
+  font-size: 1.6rem;
+  padding: 0.5rem;
+}
+.searchContainer input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+.searchContainer input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+.searchContainer input::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+@media (max-width: 1200px) {
+  .searchContainer input {
+    width: 25%;
+  }
+}
+@media (max-width: 800px) {
+  .searchContainer input {
+    width: 40%;
+  }
+}
+@media (max-width: 600px) {
+  .searchContainer input {
+    width: 50%;
+  }
+}
+@media (max-width: 400px) {
+  .searchContainer input {
+    width: 60%;
+  }
 }
 
 .notes-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
 }
+.notes-container::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
+}
+/* .notes-container::-webkit-scrollbar { 
+  display: none;
+} */
 
 .note {
-  border: 1px solid grey;
-  width: 32%;
+  width: 23.5%;
   margin-bottom: 3rem;
+  margin-right: 2%;
   padding: 1rem 2rem;
   text-align: left;
-  background-color: white;
+  background-color: #272727;
+  min-height: 30rem; 
+  cursor: pointer;
+  border-radius: 2rem;
+  border: none;
+  transition: 0.5s;
 }
+.note:hover {
+  border: 1px solid red;
+}
+.note:nth-child(4n) {
+  margin-right: 0;
+  background: red;
+}
+.note:hover:nth-child(4n) {
+  margin-right: 0;
+  background: #272727;
+}
+@media (max-width: 1200px) {
+  .note {
+    width: 32%;
+  }
+  .note:nth-child(4n) {
+    margin-right: 2rem;
+    background: #272727;
+  }
+  .note:hover:nth-child(4n) {
+    margin-right: 2rem;
+    background: #272727;
+  }
+  .note:nth-child(3n) {
+    margin-right: 0;
+    background: red;
+  }
+  .note:hover:nth-child(3n) {
+    margin-right: 0;
+    background: #272727;
+  }
+}
+@media (max-width: 800px) {
+  .note {
+    width: 48%;
+  }
+  .note:nth-child(odd) {
+    margin-right: 2rem;
+    background: #272727;
+  }
+  .note:hover:nth-child(odd) {
+    margin-right: 2rem;
+    background: #272727;
+  }
+  .note:nth-child(even) {
+    margin-right: 0;
+    background: red;
+  }
+  .note:hover:nth-child(even) {
+    margin-right: 0;
+    background: #272727;
+  }
+}
+
+@media (max-width: 600px) {
+  .note {
+    width: 100%;
+    background-color: #272727;
+  }
+  .note:nth-child(odd) {
+    margin-right: 0;
+    background: #272727;
+  }
+  .note:hover:nth-child(odd) {
+    margin-right: 0;
+    background: #272727;
+  }
+  .note:nth-child(even) {
+    margin-right: 0;
+    background: red;
+  }
+  .note:hover:nth-child(even) {
+    margin-right: 0;
+    background: #272727;
+  }
+}
+
+
 
 .markdown-title {
   font-weight: bold;
@@ -90,11 +250,13 @@
 .note .markdown-title p{
   font-weight: bold;
   font-size: 2rem;
+  color: #fbffff;
 }
 
 .note h3 {
   font-weight: bold;
   font-size: 2rem;
+  color: #fbffff;
   border-bottom: 1px solid grey;
   padding-bottom: 0.5rem;
 }
@@ -105,27 +267,32 @@
 }
 
 .note .markdown-content p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   padding-top: 0.5rem;
+  color: #fbffff;
 }
 
 .note p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   padding-top: 0.5rem;
+  color: #fbffff;
+  overflow: hidden;
 }
 
-
 .form {
-  width: 75%;
+  width: 100%;
   padding: 5rem 2.5rem;
-  background-color: rgb(242, 241, 242);
+  padding-top:120px;
+  height: 100%;
+  background-color: #121212;
 }
 
 .form h2 {
   font-size: 2rem;
   font-weight: bold;
   text-align: left;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  color: #fbffff;
 }
 
 .form-container {
@@ -133,10 +300,11 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  height: 100%;
 }
 
 .input-title {
-  width: 65%;
+  width: 100%;
   height: 5rem;
   border-radius: 0.3rem;
   margin-bottom: 1.6rem;
@@ -147,7 +315,7 @@
 }
 .input-content {
   width: 100%;
-  height: 25rem;
+  height: 100%;
   border-radius: 0.3rem;
   margin-bottom: 1.6rem;
   resize: none;
@@ -158,18 +326,30 @@ textarea {
   font-family: Roboto, Arial, sans-serif;
   font-size: 1.6rem;
   line-height: 2.4rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+textarea::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
 }
 
 .form-button {
-  width: 25rem;
+  width: 10rem;
   height: 5rem;
   cursor: pointer;
   margin-bottom: 1.25rem;
-  background-color: rgb(36, 184, 189);
-  border: 1px solid rgb(36, 184, 189);
-  color: white;
+  background-color: #fbffff;
+  border: none;
+  color: black;
   font-size: 1.6rem;
-  border-radius: 0.3rem;
+  border-radius: 3rem;
+  transition: 0.5s;
+}
+
+.form-button:hover {
+  background-color: red;
+  color: #fbffff;
 }
 
 .delete-false {
@@ -180,7 +360,7 @@ textarea {
   position: fixed;
   top: 0px;
   left: 0px;
-  background-color: rgba(216, 216, 216, 0.8);
+  background-color: rgba(216, 216, 216, 0.99);
   width: 100vw;
   height: 100vh;
 }
@@ -188,17 +368,25 @@ textarea {
 .delete-container {
   margin: 0 auto;
   margin-top: 10rem;
-  background-color: white;
-  border: 1px solid grey;
+  /* background-color: #272727; */
+  /* border: 1px solid grey; */
   width: 50rem;
   height: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
+@media (max-width: 600px) {
+  .delete-container {
+    width: 90%;
+  }
+}
+
+
 
 .delete-container h3 {
   font-weight: bold;
+  color: #272727;
 }
 
 .delete-btn-yes {
@@ -206,9 +394,9 @@ textarea {
   height: 5rem;
   cursor: pointer;
   margin-bottom: 1.25rem;
-  background-color: rgb(36, 184, 189);
-  border: 1px solid rgb(36, 184, 189);
-  color: white;
+  background-color: rgb(202, 0, 26);
+  border: 1px solid rgb(202, 0, 26);
+  color:#fbffff;
   font-size: 1.6rem;
   border-radius: 0.3rem;
   margin-right: 2rem;
@@ -219,27 +407,46 @@ textarea {
   height: 5rem;
   cursor: pointer;
   margin-bottom: 1.25rem;
-  background-color: rgb(202, 0, 26);
-  border: 1px solid rgb(202, 0, 26);
+  background-color: #00e600;
+  border: 1px solid #00e600;
   color: white;
   font-size: 1.6rem;
   border-radius: 0.3rem;
 }
 
+@media (max-width: 600px) {
+  .delete-container h3 {
+    padding: 0 2rem;
+  }
+  .delete-btn-yes {
+    width: 40%;
+  }
+  .delete-btn-no {
+    width: 40%;
+  }
+}
+
 .note-wrapper {
-  width: 75%;
+  width: 100%;
   padding: 1rem 2.5rem;
-  background-color: rgb(242, 241, 242);
+  padding-top: 110px;
+  height: 100%;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .sub-nav {
   /* border: 1px solid red; */
   display: flex;
   justify-content: flex-end;
+  width: 100%;
 }
 
 .sub-nav-links {
-  width: 10rem;
+  width: 12rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -249,22 +456,35 @@ textarea {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  text-decoration: underline;
+  text-decoration: none;
   height: 100%;
+  color: #fbffff;
+  font-size: 2rem;
+  /* border: 1px solid red; */
 }
 
 .sub-nav-links-fix {
   height: 100%;
-  padding-bottom: 0.5rem;
+  vertical-align: center;
+  /* padding-bottom: 0.5rem; */
 }
 
 .sub-nav-btn:hover {
-  color: rgb(36, 184, 189);
+  color: red;
 }
 
 .note-body {
   /* border:1px solid red; */
+  width: 100%;
   margin-top: 1.8rem;
+  height: calc(100%-180px);
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+.note-body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
 }
 
 .note-body h2 {
@@ -272,6 +492,7 @@ textarea {
   font-weight: bold;
   text-align: left;
   margin-bottom: 1rem;
+  color:#fbffff;
 }
 
 .note-body p {
@@ -279,6 +500,7 @@ textarea {
   padding-top: 0.5rem;
   font-weight: 600;
   text-align: left;
+  color:#fbffff;
 }
 
 .login-form {
@@ -319,16 +541,44 @@ textarea {
   display: flex;
   /* border: 1px solid red; */
   justify-content: center;
+  /* border-radius: 0.5rem;
+  border: none; */
+  color: white;
+  font-size: 1.6rem;
+  padding: 0.5rem;
   
 }
 
 .sort select, .sort-markdown select {
-  border-radius: 0.25rem;
-  width: 32%;
-  background-color: rgb(36, 184, 189);
+  border-radius: 0.5rem;
+  border: none;
+  width: 15%;
+  background-color: #272727;
   color: white;
+  font-size: 1.6rem;
+  padding: 0.5rem;
+  cursor: pointer;
 }
-
+@media (max-width: 1200px) {
+  .sort select {
+    width: 25%;
+  }
+}
+@media (max-width: 800px) {
+  .sort select {
+    width: 40%;
+  }
+}
+@media (max-width: 600px) {
+  .sort select {
+    width: 50%;
+  }
+}
+@media (max-width: 400px) {
+  .sort select {
+    width: 60%;
+  }
+}
 
 
 

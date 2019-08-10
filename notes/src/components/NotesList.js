@@ -15,7 +15,23 @@ class NotesList extends Component {
     };
   }
 
+  handleChange = (e) => {
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value
+    });
+  }
+
   searchPostsHandler = e => {
+    if(e.which === 27){
+      console.log("Enter");
+      this.setState({
+        ...this.state,
+        search: "",
+        filteredNotes: this.props.notes
+      });
+      return;
+    }
     const filteredNotes = this.props.notes.filter(note => {
       if (note.title.includes(e.target.value)) {
         return note;
@@ -39,29 +55,21 @@ class NotesList extends Component {
         <div className="searchContainer">
           <input
             type="text"
+            value={this.state.search}
+            name="search"
             placeholder="Search For Note"
             onKeyDown={this.searchPostsHandler}
+            onChange={this.handleChange}
           />
           <div className="sort">
             <select onChange={this.props.sortHandler}>
-              <option value="" selected>
-                SORT ME!
-              </option>
-              <option value="none">None</option>
-              <option value="alphabetically">Alphabetically</option>
-            </select>
-          </div>
-          <div className="sort-markdown">
-            <select onChange={this.sortHandlerMarkdown}>
-              <option value="" selected>
-                Mark Down?
-              </option>
-              <option value="regular">Regular</option>
-              <option value="markdown">Markdown</option>
+              <option value="none">Sort Me</option>
+              <option value="none">Sort: None</option>
+              <option value="alphabetically">Sort: Alphabetically</option>
             </select>
           </div>
         </div>
-        <h2>Your Notes:</h2>
+        <h2>Notes:</h2>
         <div className="notes-container">
           {this.state.filteredNotes.length > 0
             ? this.state.filteredNotes.map(note => {
@@ -139,42 +147,3 @@ class NotesList extends Component {
 }
 
 export default NotesList;
-
-// allowDrop = ev => {
-//   ev.preventDefault();
-// };
-
-// drag = ev => {
-//   ev.dataTransfer.setData("image1", ev.target.id);
-// };
-
-// drop = ev => {
-//   ev.preventDefault();
-//   let data = ev.dataTransfer.getData("image1");
-//   ev.target.appendChild(document.getElementById(data));
-// };
-
-// <h2>Drag and Drop</h2>
-// <p>Drag the image back and forth between the two div elements.</p>
-{/* <div
-  id="div1"
-  ondrop={this.drop}
-  ondragover={this.allowDrop}
->
-  <img
-    src="https://www.w3schools.com/HTML/img_w3slogo.gif"
-    draggable="true"
-    ondragstart={this.drag}
-    id="drag1"
-    width="100"
-    height="50"
-  />
-</div>
-
-<div
-  id="div2"
-  ondrop={this.drop}
-  ondragover={this.allowDrop}
->
-      {this.props.children}
-</div> */}

@@ -51,7 +51,7 @@ class Note extends React.Component {
                 }
                 className="delete-btn-no"
               >
-                No
+                Return
               </button>
             </div>
           </div>
@@ -60,7 +60,7 @@ class Note extends React.Component {
           <nav className="sub-nav">
             <div className="sub-nav-links">
               <NavLink exact to={`/edit-note/${this.props.note._id}`}>
-                <button className="sub-nav-btn sub-nav-links-fix">edit</button>
+                <button className="sub-nav-btn sub-nav-links-fix">Edit</button>
               </NavLink>
               <button
                 className="sub-nav-btn"
@@ -68,11 +68,11 @@ class Note extends React.Component {
                   this.setState({ ...this.state, delete: !this.state.delete })
                 }
               >
-                delete
+                Delete
               </button>
             </div>
           </nav>
-          <div className="sort-markdown">
+          {/* <div className="sort-markdown">
             <select onChange={this.sortHandlerMarkdown}>
               <option value="" selected>
                 Mark Down?
@@ -80,7 +80,7 @@ class Note extends React.Component {
               <option value="regular">Regular</option>
               <option value="markdown">Markdown</option>
             </select>
-          </div>
+          </div> */}
           <div className="note-body">
             <Fragment>
               {this.state.markdown === "markdown" ? (

@@ -27,12 +27,10 @@ class NotesListView extends React.Component {
   }
 
   sortHandler = e => {
-    console.log(e.target.value);
     this.setState({...this.state, sort: e.target.value});
   };
 
   render() {
-    console.log("running render function");
     return (
       <div className="notes-list-wrapper">
         <NotesList {...this.props} sortHandler={this.sortHandler} />
