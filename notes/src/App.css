@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  /* zoom: reset; */
 }
 
 .nav-main {
@@ -71,8 +72,8 @@
 
 .notes-list-wrapper {
   width: 100%;
-  height: 100vh;
-  padding: 2.5rem 2.5rem;
+  height: 100%;
+  padding: 2.5rem 0rem;
   padding-top:11.7rem;
   background-color:  #121212;
 }
@@ -83,6 +84,7 @@
   text-align: left;
   margin-bottom: 3rem;
   color:#fbffff;
+  margin-left: 2.5rem;
 }
 
 .searchContainer {
@@ -139,6 +141,8 @@
   overflow-x: hidden;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE 10+ */
+  background-color:  #121212;
+  padding: 0 2.5rem;
 }
 .notes-container::-webkit-scrollbar {
     width: 0px;
