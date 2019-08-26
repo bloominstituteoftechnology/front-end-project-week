@@ -43,8 +43,7 @@ class Signup extends Component {
     } else if (name === 'lastname') {
       this.setState({
         [name]: value.replace(' ', ''),
-        lastnameError: null
-      })
+        lastnameError: null })
     } else if (name === 'email') {
       this.setState({
         [name]: value.replace(' ', '').toLowerCase(),
@@ -87,7 +86,9 @@ class Signup extends Component {
             data } = err.response
 
           if (status === 400) this.setState({ ...data })
-          else alert(`Error: ${data}`)
+          else {
+            alert(`Error: ${data.msg1}`)
+          }
         })
     }
   }
