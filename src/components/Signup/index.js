@@ -30,7 +30,7 @@ class Signup extends Component {
     }
   }
 
-  onChange = (event) => {
+  change = (event) => {
     const {
       name,
       value } = event.target
@@ -43,8 +43,7 @@ class Signup extends Component {
     } else if (name === 'lastname') {
       this.setState({
         [name]: value.replace(' ', ''),
-        lastnameError: null
-      })
+        lastnameError: null })
     } else if (name === 'email') {
       this.setState({
         [name]: value.replace(' ', '').toLowerCase(),
@@ -57,7 +56,7 @@ class Signup extends Component {
     }
   }
 
-  onSubmit = (event) => {
+  submit = (event) => {
     event.preventDefault()
 
     const {
@@ -87,7 +86,9 @@ class Signup extends Component {
             data } = err.response
 
           if (status === 400) this.setState({ ...data })
-          else alert(`Error: ${data}`)
+          else {
+            alert(`Error: ${data.msg1}`)
+          }
         })
     }
   }
@@ -105,14 +106,14 @@ class Signup extends Component {
       passwordError } = this.state
 
     const {
-      onChange,
-      onSubmit } = this
+      change,
+      submit } = this
 
     return (
       <form
         className='content-sect'
         autoComplete='off'
-        onSubmit={onSubmit}>
+        onSubmit={submit}>
         <Input
           className={firstnameError
             ? 'error'
@@ -121,7 +122,7 @@ class Signup extends Component {
           type='text'
           placeholder='First Name'
           value={firstname}
-          onChange={onChange} />
+          onChange={change} />
         {firstnameError
           ? <div className='error-message'>{firstnameError}</div>
           : null}
@@ -133,7 +134,7 @@ class Signup extends Component {
           type='text'
           placeholder='Last Name'
           value={lastname}
-          onChange={onChange} />
+          onChange={change} />
         {lastnameError
           ? <div className='error-message'>{lastnameError}</div>
           : null}
@@ -145,7 +146,7 @@ class Signup extends Component {
           type='text'
           placeholder='E-mail'
           value={email}
-          onChange={onChange} />
+          onChange={change} />
         {emailError
           ? <div className='error-message'>{emailError}</div>
           : null}
@@ -157,7 +158,7 @@ class Signup extends Component {
           type='password'
           placeholder='Password'
           value={password}
-          onChange={onChange} />
+          onChange={change} />
         {passwordError
           ? <div className='error-message'>{passwordError}</div>
           : null}
@@ -169,7 +170,7 @@ class Signup extends Component {
           type='password'
           placeholder='Confirm Password'
           value={passwordMatch}
-          onChange={onChange} />
+          onChange={change} />
         {passwordError
           ? <div className='error-message'>{passwordError}</div>
           : null}
