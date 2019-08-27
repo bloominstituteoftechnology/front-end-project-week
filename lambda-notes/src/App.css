@@ -100,12 +100,17 @@ nav {
   max-width:340px;
   width:30%;
   flex-direction: column;
-  position: relative;
   background-color: #D3D2D3;
   padding:30px;
   z-index: 0;
 }
-
+.fixed {
+  display: flex;
+  max-width:340px;
+  width:30%;
+  flex-direction: column;
+  position: fixed;
+}
 h2 {
   font-size: 2.5rem;
   padding-left: 20px
@@ -120,7 +125,7 @@ h3 {
 h1 {
   margin:0px;
   margin-bottom: 20px;
-  font-size: 3rem;
+  font-size: 3.5rem;
   text-align: left;
 }
 button {
@@ -140,7 +145,7 @@ button {
   padding:20px;
   font-size: 1.25rem;
   border-radius: 0%;
-  margin: 10px 10px 10px 20px;
+  margin: 10px 10px 10px 10px;
 }
 
 form {
@@ -198,12 +203,19 @@ h5:hover {
   cursor: pointer;
 }
 
+h4 {
+  font-size: 1.5rem;
+  z-index: 1;
+}
+
+
 
 .deleteContainer {
   display: flex;
   flex-direction: column;
   position: fixed;
-  bottom: 300px;
+  top: 13%;
+  right: 25%;
   width: 600px;
   height: 200px;
   background-color: white;
@@ -219,4 +231,5 @@ h5:hover {
   flex-direction: row;
   width: 100%;
   justify-content: flex-start;
+  padding-bottom: 75px
 }
