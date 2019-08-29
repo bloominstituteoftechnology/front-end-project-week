@@ -4,7 +4,7 @@ import { Loader } from 'semantic-ui-react'
 
 const Loading = ({ text }) => (
   <div className = 'loading'>
-    <Loader active inline='center'>{text}</Loader>
+    <Loader active inline = 'centered'>{text}</Loader>
   </div>
 )
 

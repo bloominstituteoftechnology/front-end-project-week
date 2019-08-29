@@ -49,9 +49,8 @@ class Signup extends Component {
     case 'email':
       error = 'emailError'
       break
-    case 'password' || 'passwordMatch':
+    default:
       error = 'passwordError'
-      break
     }
 
     this.setState({
