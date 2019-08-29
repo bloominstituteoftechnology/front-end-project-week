@@ -15,7 +15,8 @@ class DeleteModal extends Component {
     render() {
         return(
             <div className='deleteContainer'>
-            <h4> Are you sure you want to delete this? </h4>
+            <h6 className='h6'> Are you sure you want to delete this? </h6>
+
             <div className='deleteButtons'>
             <NavLink activeClassName='selected' to='/home' >
             <button className='red' onClick={()=> {this.props.deleteNote(this.props.id)}} >Delete</button>
