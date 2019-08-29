@@ -16,9 +16,12 @@ const {
 const URL = REACT_APP_DEV || REACT_APP_PROD
 
 class Signup extends Component {
+  _isMounted = false
+
   constructor() {
     super()
     this.state = {
+      cancel: false,
       email: '',
       emailError: '',
       firstname: '',
@@ -30,6 +33,15 @@ class Signup extends Component {
       passwordError: '',
       passwordMatch: ''
     }
+  }
+
+  componentDidMount() {
+    this._isMounted = true
+  }
+
+  componentWillUnmount() {
+    console.log('cancelled!!!')
+    this._isMounted = false
   }
 
   change = event => {
@@ -54,7 +66,9 @@ class Signup extends Component {
     }
 
     this.setState({
-      [name]: value.replace(' ', ''),
+      [name]: name === 'email'
+        ? value.replace(' ', '').toLowerCase()
+        : value.replace(' ', ''),
       [error]: ''
     })
   }
@@ -84,8 +98,10 @@ class Signup extends Component {
         password })
         .then(() => {
           setTimeout(() => {
-            this.setState({ loading: false })
-            this.props.history.push('/login')
+            if (this._isMounted) {
+              this.setState({ loading: false })
+              this.props.history.push('/login')
+            }
           }, 3000)
         })
         .catch(err => {
@@ -94,12 +110,14 @@ class Signup extends Component {
             data } = err.response
 
           setTimeout(() => {
-            if (status === 400) this.setState({
-              ...data,
-              loading: false })
-            else {
-              this.setState({ loading: false })
-              alert(`Error: ${data.msg1}`)
+            if (this._isMounted) {
+              if (status === 400) this.setState({
+                ...data,
+                loading: false })
+              else {
+                this.setState({ loading: false })
+                alert(`Error: ${data.msg1}`)
+              }
             }
           }, 3000)
         })
