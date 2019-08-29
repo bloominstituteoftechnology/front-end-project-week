@@ -12,7 +12,6 @@ import EditNote from './Components/EditNote'
 
 import axios from 'axios'
 class App extends Component {
-  _isM = false;
   constructor (props) {
     super(props);
 
@@ -31,17 +30,22 @@ class App extends Component {
 
   
   componentDidMount() {
+
     axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => {this.setState({notes: response.data});
     })
     .catch(err => console.log('There is a Note Error'))
 }
 
-
   componentDidUpdate() {
-    axios.get('https://fe-notes.herokuapp.com/note/get/all')
+    if (this.state.notes.length !== 0){
+      axios.get('https://fe-notes.herokuapp.com/note/get/all')
     .then(response => this.setState({notes: response.data}))
-    .catch(err => console.log('There is a Note Error'))}
+    .catch(err => console.log('There is a Note Error'))
+  }
+}
+
+
 
 
   clickForNewHandler = () => {

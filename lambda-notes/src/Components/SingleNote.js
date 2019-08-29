@@ -14,6 +14,9 @@ class SingleNote extends Component {
         };
     }
 
+    
+    
+      
     componentDidUpdate() {
         if (Object.entries(this.state.note).length === 0){
         const ID = this.props.match.params.id;
@@ -53,13 +56,12 @@ class SingleNote extends Component {
             <h3>LOADING...</h3>
             </div>
         }
-
-        
     return (
         <div className='singleContainer'>
         {Modal}
 
         {noteInfo}
+
         </div>
     )
 }

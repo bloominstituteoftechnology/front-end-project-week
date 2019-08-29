@@ -148,6 +148,7 @@ h1 {
   width: 70%;
   font-size: 3rem;
   align-self: flex-start;
+
   text-align: left;
 }
 button {
@@ -237,6 +238,12 @@ h5:hover {
   cursor: pointer;
 }
 
+h4 {
+  font-size: 1.5rem;
+  z-index: 1;
+}
+
+
 
 .deleteContainer {
   display: flex;
@@ -259,4 +266,5 @@ h5:hover {
   flex-direction: row;
   width: 100%;
   justify-content: flex-start;
+  padding-bottom: 75px
 }
