@@ -48,7 +48,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   z-index: 0;
   background-color: #F2F1F2;
 }
@@ -64,7 +64,16 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 20px;
+  padding-top: 140px;
   z-index: 0;
+}
+
+.new {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.new[input] {
+  background-color: rgba(255, 0, 0, 0.2);
 }
 
 .notesSingle {
@@ -74,7 +83,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 45px 20px 20px 20px;
   background-color: white;
   z-index: 0;
   
@@ -98,17 +107,33 @@
 nav {
   display: flex;
   max-width:340px;
-  width:30%;
+  width:100%;
   flex-direction: column;
-  position: relative;
   background-color: #D3D2D3;
-  padding:30px;
-  z-index: 0;
+  height: 100vh
 }
 
+.nav {
+  display: flex;
+  max-width:340px;
+  width:17%;
+  flex-direction: column;
+  position: fixed;
+  background-color: #D3D2D3;
+  margin: 30px;
+  align-items: center;
+  z-index: 0;
+  }
+
 h2 {
+  margin: 0;
   font-size: 2.5rem;
-  padding-left: 20px
+  padding: 40px 20px;
+  
+  width: 100%;
+  background-color: #F2F1F2;
+  position: fixed;
+  z-index: 1
 }
 
 h3 {
@@ -120,7 +145,9 @@ h3 {
 h1 {
   margin:0px;
   margin-bottom: 20px;
+  width: 70%;
   font-size: 3rem;
+  align-self: flex-start;
   text-align: left;
 }
 button {
@@ -130,7 +157,7 @@ button {
   padding:20px;
   font-size: 1.5rem;
   border-radius: 0%;
-  margin: 10px 10px 10px 20px;
+  margin: 10px 20px;
 }
 
 .red {
@@ -140,12 +167,14 @@ button {
   padding:20px;
   font-size: 1.25rem;
   border-radius: 0%;
-  margin: 10px 10px 10px 20px;
 }
 
 form {
   display: flex;
   width: 80%;
+  margin-top: 120px;
+
+
 }
 input {
   height: 50px;
@@ -186,7 +215,17 @@ a {
 h6 {
   font-size: 1.5rem;
   margin: 20px 0;
-  width:100%;
+}
+
+.h6 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.notebuttons {
+    margin: 40px 0;
+
 }
 
 h5 {
@@ -203,7 +242,6 @@ h5:hover {
   display: flex;
   flex-direction: column;
   position: fixed;
-  bottom: 300px;
   width: 600px;
   height: 200px;
   background-color: white;
@@ -211,6 +249,8 @@ h5:hover {
   justify-content: center;
   align-items: center;
   align-self: center;
+  top: 80px;
+  left: 40%;
   box-shadow: 0 0 15px 5px black, 0 0 1000px 1000px rgba(0, 0, 0, 0.5); 
 }
 
