@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Loading from '../Loading'
 import {
-  Input,
-  Button } from 'semantic-ui-react'
+  Button,
+  Input } from 'semantic-ui-react'
 import axios from 'axios'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
@@ -123,7 +123,7 @@ class Signup extends Component {
       change,
       submit } = this
 
-    if (loading) return <Loading text = 'Creating Account' />
+    if (loading) return <Loading text = 'Registering Account' />
 
     return (
       <form
