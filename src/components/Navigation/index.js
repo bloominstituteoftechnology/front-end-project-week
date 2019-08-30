@@ -17,8 +17,8 @@ const Navigation = ({
     <div id='navigation'>
       <Link
         to='/'>
-        <h1>Lambda<br />
-        Notes</h1>
+        <h1>Lambda</h1>
+        <h1>Notes</h1>
       </Link>
       {TOKEN
         ? <NavAuth

@@ -3,9 +3,13 @@
   border-right: .2rem solid #979797;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100%;
+  left: 0;
   padding: 2rem;  
+  position: fixed;
+  top: 0;
   width: 25%;
+  z-index: 6;
 }
 
 .toggle-btn {
@@ -22,8 +26,8 @@
   #navigation {
     border: none;
     flex-direction: row;
+    height: 25%;
     justify-content: space-between;
-    min-height: 100%;
     width: 100%;
   }
 
