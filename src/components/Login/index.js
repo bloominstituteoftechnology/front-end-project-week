@@ -15,6 +15,8 @@ const {
 const URL = REACT_APP_DEV || REACT_APP_PROD
 
 class Login extends Component {
+  _isMounted = false
+
   constructor() {
     super()
     this.state = {
@@ -25,6 +27,14 @@ class Login extends Component {
       password: '',
       passwordError: ''
     }
+  }
+
+  componentDidMount() {
+    this._isMounted = true
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false
   }
 
   onChange = event => {
@@ -67,11 +77,13 @@ class Login extends Component {
       })
       .then(res => {
         setTimeout(() => {
-          const { token } = res.data
-          if (res.data.token) {
-            localStorage.setItem('token', token)
-            this.setState({ laoding: false })
-            this.props.history.push('/')
+          if (this._isMounted) {
+            const { token } = res.data
+            if (res.data.token) {
+              localStorage.setItem('token', token)
+              this.setState({ laoding: false })
+              this.props.history.push('/')
+            }
           }
         }, 3000)
       })
@@ -82,13 +94,15 @@ class Login extends Component {
         } = err.response
 
         setTimeout(() => {
-          if (status === 400 || status === 401) this.setState({
-            ...data,
-            loading: false
-          })
-          else {
-            alert(`Error: ${data}`)
-            this.setState({ laoding: false })
+          if (this._isMounted) {
+            if (status === 400 || status === 401) this.setState({
+              ...data,
+              loading: false
+            })
+            else {
+              alert(`Error: ${data}`)
+              this.setState({ laoding: false })
+            }
           }
         }, 3000)
       })

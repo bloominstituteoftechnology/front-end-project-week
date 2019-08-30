@@ -40,7 +40,6 @@ class Signup extends Component {
   }
 
   componentWillUnmount() {
-    console.log('cancelled!!!')
     this._isMounted = false
   }
 
