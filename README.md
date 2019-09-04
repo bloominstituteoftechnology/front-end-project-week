@@ -15,29 +15,6 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 ## Trello Set Up:
 
-- [ ] Create a Trello account
-- [ ] Create a new board called "Lambda Notes - {Your Name}"
-- [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-- [ ] Fill in the `To Do` list with the MVP features listed below
-- [ ] Fill in the `backlog` list with all the extra features listed below
-- [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead PM for guidance
-- [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
-
-## MVP Features:
-
-- [ ] Display a list of notes
-- [ ] Create a note with a title and content
-- [ ] View an existing note
-- [ ] Edit an existing note
-- [ ] Delete an existing note
-- [ ] Wire up your static React App to our Notes API.
-  - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
-
-Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
-
-```markdown
-## Trello Set Up:
-
 - [X] Create a Trello account
 - [X] Create a new board called "Lambda Notes - {Your Name}"
 - [X] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
@@ -48,16 +25,13 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 
 ## MVP Features:
 
-- [ ] Display a list of notes
-- [ ] Create a note with a title and content
-- [ ] View an existing note
-- [ ] Edit an existing note
-- [ ] Delete an existing note
-- [ ] Wire up your static React App to our Notes API.
+- [x] Display a list of notes
+- [x] Create a note with a title and content
+- [x] View an existing note
+- [x] Edit an existing note
+- [x] Delete an existing note
+- [x] Wire up your static React App to our Notes API.
   - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
-```
-
----
 
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.
 

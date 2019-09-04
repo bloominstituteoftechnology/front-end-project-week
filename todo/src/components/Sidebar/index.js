@@ -4,15 +4,20 @@ import { Link } from 'react-router-dom';
 import '../App/index.css';
 
 const SideBarDiv = styled.div`
-    width: 26%;
     background-color: #D8D8D8;
     padding: 0px 1.5%;
     border-right: 2px solid #979797;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    width: 25%;
+    justify-content: flex-start;
 `;
 
 const SideBarH1 = styled.h1`
     color: 4A4A4A;
-    font-size: 5.2rem;
+    font-size: 5rem;
     text-align: left;
     margin: 0px;
     padding: 0px;
@@ -36,6 +41,8 @@ const SideBarButton = styled.div`
     font-size: 2.5rem;
     font-weight: 600;
     cursor: pointer;
+    width: 250px;
+    border-radius: 5px;
 `;
 
 const SideBar = () => {

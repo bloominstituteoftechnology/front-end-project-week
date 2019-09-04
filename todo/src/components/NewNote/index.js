@@ -85,7 +85,7 @@ class AddToDo extends React.Component {
             title: '',
             textBody: '',
         })
-        this.props.history.push('/notes');
+        window.location.href = '/notes';
     }
 
     render() {

@@ -50,12 +50,7 @@ export const addingToDo = (newToDo) => {
 	return (dispatch) => {
 		dispatch({ type: FETCHING });
 		axios.post('https://fe-notes.herokuapp.com/note/create', newToDo)
-			.then(response => {
-				dispatch({
-					type: GET_TODOS,
-					notes: response.data,
-				})
-			})
+			.then( dispatch(fetchingToDos) )
 
 			.catch(error => {
 				dispatch({
@@ -86,12 +81,8 @@ export const updateToDo = (id, updatedToDo) => {
 	return (dispatch) => {
 		dispatch({ type: FETCHING })
 		axios.put(`https://fe-notes.herokuapp.com/note/edit/${id}`, updatedToDo)
-			.then(response => {
-				dispatch({
-					type: GET_TODO,
-					currentNote: response.data,
-				})
-			})
+			.then( dispatch(fetchingToDos) )
+
 
 			.catch(error => {
 				dispatch({

@@ -9,7 +9,6 @@ top: 0;
 width: 100%;
 height: 100%;
 overflow: auto;
-background-color: rgb(30,30,30);
 background-color: rgb(30,30,30,0.4);
 `;
 

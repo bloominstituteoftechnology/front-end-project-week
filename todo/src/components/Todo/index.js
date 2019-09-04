@@ -36,6 +36,8 @@ const TextBodyP = styled.p`
     text-overflow: ellipsis-lastline;
     font-size: 2.0rem;
     margin-top: 0px;
+    max-width: 244px;
+    height: 210px;
 `;
 
 
@@ -51,15 +53,8 @@ const ToDo = (props) => {
     return (
         <ToDoDiv>
             <Link to={`/notes/${props.id}`}>
-                {/* //  onClick = { () => { */}
-                {/* //     props.getToDo(props.id);
-        //     props.history.push(`/notes/${props.id}`)
-        // }}> */}
-
-                {/* <TitleH3>{props.title}</TitleH3> */}
                 <TitleH3>{toDoTitle}</TitleH3>
 
-                {/* // <TextBodyP>{props.textBody}</TextBodyP> */}
                 <TextBodyP>{toDoContent}</TextBodyP>
 
             </Link>

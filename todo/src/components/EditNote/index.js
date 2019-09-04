@@ -4,7 +4,6 @@ import { updateToDo } from '../../actions';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 
-
 const EditNoteForm = styled.form`
     display: flex;
     flex-direction: column;
@@ -78,6 +77,7 @@ class EditNote extends React.Component {
 
     componentDidMount() {
         const note = this.props.notes.find(item => `${item._id}` === this.props.match.params.id);
+
         this.setState({
             note: note,
             title: note.title,
@@ -97,7 +97,7 @@ class EditNote extends React.Component {
             _id: this.state.note._id,
         }
         this.props.updateToDo(updatedToDo._id, updatedToDo);
-        this.props.history.push(`/notes/${this.state.note._id}`)
+        window.location.href = '/notes';
     }
 
     render() {

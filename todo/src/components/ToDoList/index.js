@@ -14,6 +14,16 @@ const ToDoListMainDiv = styled.div`
 
 `;
 
+const ToDoListDiv = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+`;
+
 const ToDoListH3 = styled.h3`
     color: 4A4A4A;
     font-size: 3.2rem;
@@ -41,13 +51,11 @@ class ToDoList extends React.Component {
         return (
             <ToDoListMainDiv>
                 <ToDoListH3>Your Notes:</ToDoListH3>
-                <ToDoListMainDiv>
-                    {/* {this.props.fetching ? <h2>Fetching Data. Please Wait</h2> : null }
-                {this.props.error !== '' ? <h2>{this.props.error}</h2>: '' } */}
+                <ToDoListDiv>
                     {this.props.notes.map(note => (
                         < ToDo note={note} key={note._id} id={note._id} textBody={note.textBody} title={note.title} getToDo={this.props.getToDo} history={this.props.history} />
                     ))}
-                </ToDoListMainDiv>
+                </ToDoListDiv>
             </ToDoListMainDiv>
         )
     }

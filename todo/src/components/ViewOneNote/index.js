@@ -8,7 +8,6 @@ import DeleteModal from '../DeleteModal';
 
 const UpdateToDoDiv = styled.div`
     margin: 0px 4%;
-
 `;
 
 const SpanDivs = styled.div`
@@ -82,7 +81,7 @@ class ViewOneNote extends React.Component {
 
     deleteThatNote = () => {
         this.props.deleteToDo(this.state.note._id)
-        this.props.history.push('/notes')
+        window.location.href = '/notes';
     }
 
     updateRoute = () => {
@@ -106,8 +105,9 @@ class ViewOneNote extends React.Component {
                         <TitleH3>{this.state.note.title}</TitleH3>
                         <SingleTextP>{this.state.note.textBody}</SingleTextP>
 
-                    </UpdateToDoDiv>)}
-                {this.state.delete ? <DeleteModal delete={this.deleteThatNote} closeForm={this.closeButton} /> : null}
+                    </UpdateToDoDiv>
+                )}
+                {this.state.delete ? <DeleteModal delete={this.deleteThatNote} closeForm={this.closeButton} /> : null }
             </div>
         )
     }
