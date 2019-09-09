@@ -93,7 +93,7 @@ export const StyledNoteLink = styled(StyledLink)`
   margin-bottom: 27px;
   animation-name: out;
   animation-duration: 150ms;
-  box-shadow: 0 3px 10px -3px rgb(0, 0, 0);
+  box-shadow: 0 5px 25px -15px rgb(0, 0, 0);
   /* @media (max-width: 940px) {
     width: 28vw;
   }
@@ -110,7 +110,7 @@ export const StyledNoteLink = styled(StyledLink)`
   }
   @keyframes in {
     from {
-      box-shadow: 0 3px 10px -3px rgb(0, 0, 0);
+      box-shadow: 0 5px 25px -15px rgb(0, 0, 0);
     }
     to {
       box-shadow: 0 15px 50px -20px rgb(0, 0, 0);
@@ -121,7 +121,7 @@ export const StyledNoteLink = styled(StyledLink)`
       box-shadow: 0 15px 50px -20px rgb(0, 0, 0);
     }
     to {
-      box-shadow: 0 3px 10px -3px rgb(0, 0, 0);
+      box-shadow: 0 5px 25px -15px rgb(0, 0, 0);
     }
   }
 `;
