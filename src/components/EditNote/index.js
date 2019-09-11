@@ -9,6 +9,8 @@ import axios from 'axios'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
+import Loading from '../Loading'
+
 const {
   REACT_APP_DEV,
   REACT_APP_PROD
@@ -17,18 +19,23 @@ const {
 const URL = REACT_APP_DEV || REACT_APP_PROD
 
 class EditNote extends Component {
+  _isMounted = false
+
   constructor() {
     super()
     this.state = {
-      id: null,
-      title: '',
-      titleError: null,
+      id: '',
+      loading: true,
       text: '',
-      textError: null,
+      textError: '',
+      title: '',
+      titleError: ''
     }
   }
 
   componentDidMount() {
+    this._isMounted = true
+
     const TOKEN = localStorage.getItem('token')
 
     const REQUEST_OPTIONS = {
@@ -46,18 +53,29 @@ class EditNote extends Component {
     const { id: NOTE_ID } = state
 
     axios.get(`${URL}/api/users/${USER_ID}/note/${NOTE_ID}`, REQUEST_OPTIONS)
-      .then(res => this.setState({
-        userId: USER_ID,
-        ...res.data
-      }))
+      .then(res => {
+        setTimeout(() => {
+          if (this._isMounted) {
+            this.setState({
+              loading: false,
+              ...res.data,
+              userId: USER_ID
+            })
+          }
+        }, 3000)
+      })
       .catch(err => {
         const {
-          status,
-          data } = err.response
+          data,
+          status } = err.response
 
         if (status === 400) this.setState({ ...data })
         else alert(`Error: ${data.msg1}`)
       })
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false
   }
 
   change = (event) => {
@@ -67,10 +85,10 @@ class EditNote extends Component {
 
     if (name === 'title') this.setState({
       [name]: value,
-      titleError: null })
+      titleError: '' })
     else this.setState({
       [name]: value,
-      textError: null
+      textError: ''
     })
   }
 
@@ -86,15 +104,15 @@ class EditNote extends Component {
     }
 
     const {
-      userId: USER_ID,
       id: NOTE_ID,
-      title,
-      text } = this.state
+      userId: USER_ID,
+      text,
+      title } = this.state
 
     axios.put(`${URL}/api/users/${USER_ID}/note/${NOTE_ID}`,
       {
-        title,
-        text
+        text,
+        title
       }, REQUEST_OPTIONS)
       .then(() => this.props.history.push({
         pathname: '/note',
@@ -102,8 +120,8 @@ class EditNote extends Component {
       }))
       .catch(err => {
         const {
-          status,
-          data } = err.response
+          data,
+          status } = err.response
 
         if (status === 400) this.setState({ ...data })
         else alert(`Error: ${data.msg1}`)
@@ -112,58 +130,54 @@ class EditNote extends Component {
 
   render() {
     const {
-      userId,
-      id,
-      title,
-      titleError,
+      loading,
       text,
-      textError } = this.state
+      textError,
+      title,
+      titleError } = this.state
 
     const {
       change,
       submit } = this
 
-    if (userId === null && id === null) return (
-      <div className='loading'>
-        <h2>Loading note information...</h2>
-      </div>)
+    if (loading) return <Loading text = 'Preparing Note For Editing' />
 
     return (
-      <div className='content-sect padding'>
+      <div className = 'content-sect padding'>
         <h2>Edit Note: </h2>
         <Form
-          className='edit-note'
-          onSubmit={submit}>
+          className = 'edit-note'
+          onSubmit = {submit}>
           <Input
-            id='title'
-            className={titleError
+            id = 'title'
+            className = {titleError
               ? 'error'
               : null}
-            name='title'
-            type='text'
-            placeholder='Note Title'
-            value={title}
-            onChange={change} />
+            name = 'title'
+            type = 'text'
+            placeholder = 'Note Title'
+            value = {title}
+            onChange = {change} />
           {titleError
-            ? <div className='error-message titleError'>{titleError}</div>
+            ? <div className = 'error-message titleError'>{titleError}</div>
             : null}
           <TextArea
-            id='text'
-            className={titleError
+            id = 'text'
+            className = {titleError
               ? 'error'
               : null}
-            name='text'
-            cols='50'
-            rows='15'
-            placeholder='Note Content'
-            value={text}
-            onChange={change} />
+            name = 'text'
+            cols = '50'
+            rows = '15'
+            placeholder = 'Note Content'
+            value = {text}
+            onChange = {change} />
           {textError
-            ? <div className='error-message textError'>{textError}</div>
+            ? <div className = 'error-message textError'>{textError}</div>
             : null}
           <Button
-            id='update'
-            className='pacific-blue'>
+            id = 'update'
+            className = 'pacific-blue'>
             Update
           </Button>
         </Form>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Loading from '../Loading'
+
 import {
   Button,
   Input } from 'semantic-ui-react'
