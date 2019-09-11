@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import Loading from '../Loading'
 import {
-  Input,
+  Button,
   Icon,
-  Button } from 'semantic-ui-react'
+  Input } from 'semantic-ui-react'
 import axios from 'axios'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
@@ -14,43 +15,60 @@ const {
 const URL = REACT_APP_DEV || REACT_APP_PROD
 
 class Login extends Component {
+  _isMounted = false
+
   constructor() {
     super()
     this.state = {
       email: '',
-      emailError: null,
+      emailError: '',
+      invalid: '',
+      loading: false,
       password: '',
-      passwordError: null,
-      invalid: null
+      passwordError: ''
     }
   }
 
-  onChange = (event) => {
+  componentDidMount() {
+    this._isMounted = true
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false
+  }
+
+  onChange = event => {
     const {
       name,
       value } = event.target
 
-    if (name === 'email') {
-      this.setState({
-        email: value.replace(' ', '').toLowerCase(),
-        emailError: null,
-        invalid: null
-      })
-    } else {
-      this.setState({
-        password: value,
-        passowordError: null,
-        invalid: null
-      })
+    let error
+
+    switch (name) {
+    case 'email':
+      error = 'emailError'
+      break
+    default:
+      error = 'passwordError'
     }
+
+    this.setState({
+      [error]: '',
+      invalid: '',
+      [name]: name === 'email'
+        ? value.replace(' ', '').toLowerCase()
+        : value.replace(' ' , '')
+    })
   }
 
-  onSubmit = (event) => {
+  onSubmit = event => {
     event.preventDefault()
 
     const {
       email,
       password } = this.state
+
+    this.setState({ loading: true })
 
     axios.post(`${URL}/api/auth/login`,
       {
@@ -58,11 +76,16 @@ class Login extends Component {
         password
       })
       .then(res => {
-        const { token } = res.data
-        if (res.data.token) {
-          localStorage.setItem('token', token)
-          this.props.history.push('/')
-        }
+        setTimeout(() => {
+          if (this._isMounted) {
+            const { token } = res.data
+            if (res.data.token) {
+              localStorage.setItem('token', token)
+              this.setState({ laoding: false })
+              this.props.history.push('/')
+            }
+          }
+        }, 3000)
       })
       .catch(err => {
         const {
@@ -70,8 +93,18 @@ class Login extends Component {
           data
         } = err.response
 
-        if (status === 400 || status === 401) this.setState({ ...data })
-        else alert(`Error: ${data}`)
+        setTimeout(() => {
+          if (this._isMounted) {
+            if (status === 400 || status === 401) this.setState({
+              ...data,
+              loading: false
+            })
+            else {
+              alert(`Error: ${data}`)
+              this.setState({ laoding: false })
+            }
+          }
+        }, 3000)
       })
   }
 
@@ -79,54 +112,57 @@ class Login extends Component {
     const {
       email,
       emailError,
+      invalid,
+      loading,
       password,
-      passwordError,
-      invalid } = this.state
+      passwordError} = this.state
 
     const {
       onChange,
       onSubmit } = this
 
+    if (loading) return <Loading text = 'Validating Credentials' />
+
     return (
       <form
-        autoComplete='off'
-        className='content-sect'
-        onSubmit={onSubmit}>
+        autoComplete = 'off'
+        className = 'content-sect'
+        onSubmit = {onSubmit}>
         <Input
-          className={invalid || emailError
+          className = {invalid || emailError
             ? 'error'
             : null}
-          name='email'
-          type='text'
           icon
-          iconPosition='left'
-          placeholder='E-mail'
-          value={email}
-          onChange={onChange}>
-          <Icon name='user' />
+          iconPosition = 'left'
+          name = 'email'
+          onChange = {onChange}
+          placeholder = 'E-mail'
+          type = 'text'
+          value = {email}>
+          <Icon name = 'user' />
           <input />
         </Input>
         {invalid || emailError
-          ? <div className='error-message'>{invalid || emailError}</div>
+          ? <div className = 'error-message'>{invalid || emailError}</div>
           : null}
         <Input
-          className={invalid || passwordError
+          className = {invalid || passwordError
             ? 'error'
             : null}
-          name='password'
-          type='password'
           icon
-          iconPosition='left'
-          placeholder='Password'
-          value={password}
-          onChange={onChange}>
-          <Icon name='lock' />
+          iconPosition = 'left'
+          name = 'password'
+          type = 'password'
+          placeholder = 'Password'
+          value = {password}
+          onChange = {onChange}>
+          <Icon name = 'lock' />
           <input />
         </Input>
         {invalid || passwordError
-          ? <div className='error-message'>{invalid || passwordError}</div>
+          ? <div className = 'error-message'>{invalid || passwordError}</div>
           : null}
-        <Button className='pacific-blue auth-btn'>Log In</Button>
+        <Button className = 'pacific-blue auth-btn'>Log In</Button>
       </form>
     )
   }

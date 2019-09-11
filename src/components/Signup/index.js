@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import Loading from '../Loading'
+
 import {
-  Input,
-  Button } from 'semantic-ui-react'
+  Button,
+  Input } from 'semantic-ui-react'
 import axios from 'axios'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
@@ -15,49 +17,66 @@ const {
 const URL = REACT_APP_DEV || REACT_APP_PROD
 
 class Signup extends Component {
+  _isMounted = false
+
   constructor() {
     super()
     this.state = {
-      firstname: '',
-      firstnameError: null,
-      lastname: '',
-      lastnameError: null,
+      cancel: false,
       email: '',
-      emailError: null,
+      emailError: '',
+      firstname: '',
+      firstnameError: '',
+      lastname: '',
+      lastnameError: '',
+      loading: false,
       password: '',
-      passwordMatch: '',
-      passwordError: null
+      passwordError: '',
+      passwordMatch: ''
     }
   }
 
-  change = (event) => {
+  componentDidMount() {
+    this._isMounted = true
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false
+  }
+
+  change = event => {
     const {
       name,
       value } = event.target
 
-    if (name === 'firstname') {
-      this.setState({
-        [name]: value.replace(' ', ''),
-        firstnameError: null
-      })
-    } else if (name === 'lastname') {
-      this.setState({
-        [name]: value.replace(' ', ''),
-        lastnameError: null })
-    } else if (name === 'email') {
-      this.setState({
-        [name]: value.replace(' ', '').toLowerCase(),
-        emailError: null })
-    } else if (name === 'password' || name === 'passwordMatch') {
-      this.setState({
-        [name]: value,
-        passwordError: null
-      })
+    let error
+
+    switch (name) {
+    case 'firstname':
+      error = 'firstnameError'
+      break
+    case 'lastname':
+      error = 'lastnameError'
+      break
+    case 'email':
+      error = 'emailError'
+      break
+    default:
+      error = 'passwordError'
     }
+
+    this.setState({
+      [name]: name === 'email'
+        ? value.replace(' ', '').toLowerCase()
+        : value.replace(' ', ''),
+      [error]: ''
+    })
   }
 
-  submit = (event) => {
+  submit = event => {
     event.preventDefault()
+
+    this.setState({ loading: true })
 
     const {
       password,
@@ -67,114 +86,129 @@ class Signup extends Component {
       this.setState({ passwordError: 'Passwords do not match.' })
     } else {
       const {
+        email,
         firstname,
         lastname,
-        email,
         password } = this.state
 
       axios.post(`${URL}/api/auth/signup`, {
+        email,
         firstname,
         lastname,
-        email,
         password })
         .then(() => {
-          this.props.history.push('/login')
+          setTimeout(() => {
+            if (this._isMounted) {
+              this.setState({ loading: false })
+              this.props.history.push('/login')
+            }
+          }, 3000)
         })
         .catch(err => {
           const {
             status,
             data } = err.response
 
-          if (status === 400) this.setState({ ...data })
-          else {
-            alert(`Error: ${data.msg1}`)
-          }
+          setTimeout(() => {
+            if (this._isMounted) {
+              if (status === 400) this.setState({
+                ...data,
+                loading: false })
+              else {
+                this.setState({ loading: false })
+                alert(`Error: ${data.msg1}`)
+              }
+            }
+          }, 3000)
         })
     }
   }
 
   render() {
     const {
+      email,
+      emailError,
       firstname,
       firstnameError,
       lastname,
       lastnameError,
-      email,
-      emailError,
+      loading,
       password,
-      passwordMatch,
-      passwordError } = this.state
+      passwordError,
+      passwordMatch } = this.state
 
     const {
       change,
       submit } = this
 
+    if (loading) return <Loading text = 'Registering Account' />
+
     return (
       <form
-        className='content-sect'
-        autoComplete='off'
-        onSubmit={submit}>
+        autoComplete = 'off'
+        className = 'content-sect'
+        onSubmit = {submit}>
         <Input
-          className={firstnameError
+          className = {firstnameError
             ? 'error'
             : null}
-          name='firstname'
-          type='text'
-          placeholder='First Name'
-          value={firstname}
-          onChange={change} />
+          name = 'firstname'
+          onChange = {change}
+          placeholder = 'First Name'
+          type = 'text'
+          value = {firstname} />
         {firstnameError
-          ? <div className='error-message'>{firstnameError}</div>
+          ? <div className = 'error-message'>{firstnameError}</div>
           : null}
         <Input
-          className={lastnameError
+          className = {lastnameError
             ? 'error'
             : null}
-          name='lastname'
-          type='text'
-          placeholder='Last Name'
-          value={lastname}
-          onChange={change} />
+          name = 'lastname'
+          onChange = {change}
+          placeholder = 'Last Name'
+          type = 'text'
+          value = {lastname} />
         {lastnameError
-          ? <div className='error-message'>{lastnameError}</div>
+          ? <div className = 'error-message'>{lastnameError}</div>
           : null}
         <Input
-          className={emailError
+          className = {emailError
             ? 'error'
             : null}
-          name='email'
-          type='text'
-          placeholder='E-mail'
-          value={email}
-          onChange={change} />
+          name = 'email'
+          type = 'text'
+          placeholder = 'E-mail'
+          value = {email}
+          onChange = {change} />
         {emailError
-          ? <div className='error-message'>{emailError}</div>
+          ? <div className = 'error-message'>{emailError}</div>
           : null}
         <Input
-          className={passwordError
+          className = {passwordError
             ? 'error'
             : null}
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={change} />
+          name = 'password'
+          onChange = {change}
+          placeholder = 'Password'
+          type = 'password'
+          value = {password} />
         {passwordError
-          ? <div className='error-message'>{passwordError}</div>
+          ? <div className = 'error-message'>{passwordError}</div>
           : null}
         <Input
-          className={passwordError
+          className = {passwordError
             ? 'error'
             : null}
-          name='passwordMatch'
-          type='password'
-          placeholder='Confirm Password'
-          value={passwordMatch}
-          onChange={change} />
+          name = 'passwordMatch'
+          onChange = {change}
+          placeholder = 'Confirm Password'
+          type = 'password'
+          value = {passwordMatch} />
         {passwordError
-          ? <div className='error-message'>{passwordError}</div>
+          ? <div className = 'error-message'>{passwordError}</div>
           : null}
-        <Button className='pacific-blue auth-btn'>Register</Button>
+        <Button className = 'pacific-blue auth-btn'>Register</Button>
       </form>
     )
   }
