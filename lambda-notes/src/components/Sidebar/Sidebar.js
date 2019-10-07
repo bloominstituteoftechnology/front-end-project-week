@@ -18,7 +18,6 @@ import NotificationsIcon from '@material-ui/icons/Notifications'
 /* Misc */ 
 import classNames from 'classnames';
 import { H1, H4 } from './styled-components/SidebarStyledComponents'
-import { styles } from './styled-components/SidebarStyledComponents' 
 
 class Sidebar extends React.Component {
  constructor(props){
@@ -162,4 +161,4 @@ class Sidebar extends React.Component {
     )}
 }
 
-export default withStyles(styles)(Sidebar)
+export default Sidebar
