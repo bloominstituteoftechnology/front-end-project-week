@@ -23,3 +23,15 @@
     padding: 10px 0 0 10px;
     border-radius: 5px
 }
+
+@media (max-width: 600px) {
+
+  .edit-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu{
+      width: 100%;
+  }
+}

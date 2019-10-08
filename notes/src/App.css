@@ -3,5 +3,14 @@
   display: flex;
   margin: auto;
   width: 95%;
+  max-width: 1200px;
   min-height: 750px;
+}
+
+@media (max-width: 600px) {
+
+  .App {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -48,3 +48,15 @@ h2 {
     display: flex;
     margin-left: 5%;
 }
+
+@media (max-width: 600px) {
+
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu{
+      width: 100%;
+  }
+}

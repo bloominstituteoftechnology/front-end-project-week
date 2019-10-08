@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
+import { Link } from 'react-router-dom';
 import './EditNote.css';
 
 class EditNote extends Component {
@@ -56,9 +57,9 @@ class EditNote extends Component {
                         onChange={this.inputHandleChange}
                         value={this.state.body}
                     />
-                    <div className='save-button' onClick={this.editNote}>
+                    <Link to='/' className='save-button' onClick={this.editNote}>
                         Update
-                    </div>
+                    </Link>
                 </div>
             </div>
         )

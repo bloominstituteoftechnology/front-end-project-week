@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
+import { Link } from 'react-router-dom';
 import './NoteForm.css';
 
 class NoteForm extends Component {
@@ -54,9 +55,9 @@ class NoteForm extends Component {
                         onChange={this.inputHandleChange}
                         value={this.state.body}
                     />
-                    <div className='save-button' onClick={this.addNote}>
+                    <Link to="/" className='save-button' onClick={this.addNote}>
                         Save
-                    </div>
+                    </Link>
                 </div>
             </div>
         )

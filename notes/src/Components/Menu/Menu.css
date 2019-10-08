@@ -42,3 +42,15 @@
     text-align: start;
     margin: 0;
 }
+
+@media (max-width: 600px) {
+
+    .lambda-notes {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .lambda-notes p {
+        margin-right: 2%;
+    }
+}

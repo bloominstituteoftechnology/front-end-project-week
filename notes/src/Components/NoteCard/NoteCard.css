@@ -40,3 +40,19 @@
     margin-right: 2%;
     color: black;
 }
+
+@media (max-width: 600px) {
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu{
+      width: 100%;
+  }
+
+  .notecard {
+      min-height: 380px;
+  }
+}
