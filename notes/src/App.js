@@ -33,16 +33,6 @@ class App extends Component {
     this.getNotes()
   }
 
-  // getNote = (note) => {
-  //   console.log('clicked')
-  //   console.log(note)
-  //   axios.get(`http://localhost:2200/api/notes/${note.id}`)
-  //     .then(response => {
-  //     this.getNotes()
-  //     })
-  //   .catch(error => console.log('error!'))
-  // }
-
   newNote = note => {
     axios
       .post(`http://localhost:2200/api/notes`, note)

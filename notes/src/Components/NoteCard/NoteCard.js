@@ -11,7 +11,7 @@ const NoteCard = props => {
     })
 
     if (note === undefined) {
-        return <p>Nothing here</p>
+        return <p></p>
     }
 
     return (

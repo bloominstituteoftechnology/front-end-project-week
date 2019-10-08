@@ -1,5 +1,6 @@
 .list {
     display: flex;
+    width: 100%;
 }
 
 .note-list {
@@ -8,6 +9,7 @@
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
+    /* min-width: 1000px; */
     padding-top: 75px;
     background-color: gainsboro;
 }
