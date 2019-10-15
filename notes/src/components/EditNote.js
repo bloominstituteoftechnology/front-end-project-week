@@ -88,7 +88,7 @@ class EditNote extends React.Component {
       // this.props.registered || this.props.loggedIn
       // ?
       <div className="componentContainer">
-        <h2>Edit Note:</h2>
+        <h2>Edit Your Note:</h2>
         <form onSubmit={this.editNote} method="post">
           <input
             type="text"
