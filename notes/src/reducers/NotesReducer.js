@@ -12,9 +12,13 @@ import {
   UPDATEDTAG,
   DELETEDTAG,
   FETCHNOTETAGS,
-  // REGISTER,
-  // LOGIN,
-  // LOGOUT
+  REGISTER,
+  LOGIN,
+  LOGOUT,
+  FETCHUSER
+  // REGISTERING,
+  // LOGGING_IN,
+  // LOGGING_OUT
 } from "../actions/actions";
 
 const initialState = {
@@ -29,7 +33,9 @@ const initialState = {
   noteTags: [],
   registered: false,
   loggedIn: false,
-  user: {}
+  user: {},
+  token: "",
+  personal: false
 };
 
 export default (state = initialState, action) => {
@@ -48,6 +54,12 @@ export default (state = initialState, action) => {
         fetching: false,
         note: action.payload[0],
       };
+    case FETCHUSER:
+      return {
+        ...state,
+        fetching: false,
+        user: action.payload
+      }
     case ADDED:
       return {
         ...state,
@@ -105,26 +117,32 @@ export default (state = initialState, action) => {
       return {
         ...state
       };
-    // case REGISTER:
-    // return {
-    //   ...state,
-    //   registered: true,
-    //   loggedIn: true,
-    //   user: action.payload
-    // }
-    // case LOGIN:
-    // return {
-    //   ...state,
-    //   loggedIn: true,
-    //   user: action.payload
-    // }
-    // case LOGOUT:
-    // return {
-    //   ...state,
-    //   registered: false,
-    //   loggedIn: false,
-    //   user: {}
-    // }
+    case REGISTER:
+    return {
+      ...state,
+      registered: true,
+      loggedIn: true,
+      fetching: false,
+      token: action.payload,
+      user: action.user
+    }
+    case LOGIN:
+    return {
+      ...state,
+      loggedIn: true,
+      fetching: false,
+      user: action.user,
+      token: action.payload
+    }
+    case LOGOUT:
+    return {
+      ...state,
+      fetching: false,
+      registered: false,
+      loggedIn: false,
+      token: "",
+      user: {}
+    }
     default:
       return state;
   }
