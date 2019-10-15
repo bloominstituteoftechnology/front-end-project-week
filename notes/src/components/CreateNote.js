@@ -35,7 +35,8 @@ class CreateNote extends React.Component {
     this.props
       .addNote({
         title: this.state.title,
-        content: this.state.content
+        content: this.state.content,
+        user: this.props.user
       })
       // .then(() => this.props.fetchNotes())
       // .then(() => this.props.addTagsToNote(this.props.newNote))
@@ -133,7 +134,8 @@ const mapStateToProps = state => {
     noteTags: state.noteTags,
     newTag: state.newTag,
     registered: state.registered,
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
+    user: state.user
   };
 };
 export default connect(

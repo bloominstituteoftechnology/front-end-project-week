@@ -49,7 +49,7 @@ class EditNote extends React.Component {
     event.preventDefault();
     const { title, content, id } = this.state;
     // let oldTags = this.props.tags.filter(tag => tag !== this.props.note._id);
-    let editedNote = { title, content, id };
+    let editedNote = { title, content, id, user: this.props.user };
     this.props.updateNote(editedNote);
     this.setState({ edited: true });
   };
@@ -157,7 +157,8 @@ const mapStateProps = state => {
     newTag: state.newTag,
     registered: state.registered,
     loggedIn: state.loggedIn,
-    id: state.id
+    id: state.id,
+    user: state.user
   };
 };
 
