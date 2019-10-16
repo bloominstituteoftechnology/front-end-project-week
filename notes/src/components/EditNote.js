@@ -16,7 +16,7 @@ class EditNote extends React.Component{
     editNote = e => {
         e.preventDefault();
         const ID = this.props.match.params;
-        axios.put(`http://localhost:9000/note/edit/${ID.id}`,this.state.note)
+        axios.put(`https://lambdanotesapi.herokuapp.com/note/edit/${ID.id}`,this.state.note)
         .then(response => {
             this.setState({note : {title : '',textBody : ''}});
             this.props.refresh();
@@ -27,7 +27,7 @@ class EditNote extends React.Component{
 
     fetchNoteById = () => {
         const ID = this.props.match.params;
-        axios.get(`http://localhost:9000/note/get/${ID.id}`)
+        axios.get(`https://lambdanotesapi.herokuapp.com/note/get/${ID.id}`)
             .then(response => {
                 this.setState({note : response.data})
             })

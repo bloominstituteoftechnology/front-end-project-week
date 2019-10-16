@@ -19,6 +19,7 @@ class Login extends React.Component{
                 <div className="container">
                     <h1>Welcome To Lambda Notes</h1>
                     <p>Please Login to Continue</p>
+                    <p>(This is a sample login screen use any username or password to continue)</p>
                     <h3>{this.props.message}</h3>
                     <form className="form">
 
@@ -57,7 +58,7 @@ class Login extends React.Component{
                     <li>Please Login to Lambda Notes</li>
                     <li>Lambda Rules!<br />CS14 no wait FSW14 wait maybe Web14 is the best cohort ever!<br/><br />Cs11 is okay too, Kam came from there I think</li>
                 </ul>
-                <Register name={this.state.name}/>
+                {/* <Register name={this.state.name}/> */}
             </div>
         )
     }

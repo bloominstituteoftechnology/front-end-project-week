@@ -56,7 +56,7 @@ class AppView extends Component {
   }
 
   refreshState(){
-    axios.get('http://localhost:9000/note/get/all')
+    axios.get('https://lambdanotesapi.herokuapp.com/note/get/all')
     .then(response => this.setState({notes : response.data,loading:true}))
     .catch(error => console.log("Refresh State:", error))
   }
@@ -64,13 +64,14 @@ class AppView extends Component {
   createNewSubmit = e =>{
     e.preventDefault();
     this.setState({loading : true})
-    axios.post('http://localhost:9000/note/create',this.state.newNote)
+    axios.post('https://lambdanotesapi.herokuapp.com/note/create',this.state.newNote)
     .then(response => {
       this.setState({/*notes : {response.data} */newNote : {
         title : '',
         textBody : '',
       }})
       this.refreshState();
+      alert("Note Created");
     })
     .catch(error => alert(error));
   }

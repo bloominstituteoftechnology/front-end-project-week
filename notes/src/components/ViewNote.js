@@ -19,7 +19,7 @@ class ViewNote extends React.Component{
     }
 
     fetchNoteById = id => {
-        axios.get(`http://localhost:9000/note/get/${id}`)
+        axios.get(`https://lambdanotesapi.herokuapp.com/note/get/${id}`)
             .then(response => {
                 this.setState({note : response.data})
                 // console.log("NOTE : ", response.data)
