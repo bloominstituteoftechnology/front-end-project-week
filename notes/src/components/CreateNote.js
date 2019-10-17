@@ -10,9 +10,9 @@ import {
   // deleteTag
 } from "../actions/actions";
 
-import "../styles/App.css";
-import "../styles/Sidebar.css";
-import "../styles/CreateNote.css";
+// import "../styles/App.css";
+// import "../styles/Sidebar.css";
+// import "../styles/CreateNote.css";
 
 class CreateNote extends React.Component {
   constructor() {

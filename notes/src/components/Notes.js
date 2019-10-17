@@ -3,20 +3,25 @@ import { connect } from "react-redux";
 
 import Note from "./Note";
 
-import { fetchNotes, fetchTags, fetchUserNotes, fetchUserTags } from "../actions/actions";
+import {
+  fetchNotes,
+  fetchTags,
+  fetchUserNotes,
+  fetchUserTags
+} from "../actions/actions";
 
-import "../styles/App.css";
+import { Box } from "grommet";
+
+// import "../styles/App.css";
 
 class Notes extends React.Component {
-
   componentDidMount() {
-    const {path} = this.props.match
-
+    const { path } = this.props.match;
 
     if (path === "/my-notes") {
-      const user = this.props.user
-      this.props.fetchUserNotes(user)
-      this.props.fetchUserTags(user)
+      const user = this.props.user;
+      this.props.fetchUserNotes(user);
+      this.props.fetchUserTags(user);
     } else {
       this.props.fetchNotes();
       this.props.fetchTags();
@@ -36,16 +41,18 @@ class Notes extends React.Component {
   // } else {
   render() {
     let notes = this.props.notes;
-    const {path} = this.props.match
+    const { path } = this.props.match;
     return (
-      <div className="componentContainer">
-        {path === "/my-notes" ? <h2>Your Notes:</h2> : <h2>All Notes:</h2>}
-        <div className="notesContainer">
-          {notes.map(note => (
-            <Note key={note.id} note={note} tags={this.props.tags} />
-          ))}
-        </div>
-      </div>
+      <Box basis="3/4" fill="vertical">
+        {/* <div className="componentContainer"> */}
+          {path === "/my-notes" ? <h2>Your Notes:</h2> : <h2>All Notes:</h2>}
+          <div className="notesContainer">
+            {notes.map(note => (
+              <Note key={note.id} note={note} tags={this.props.tags} />
+            ))}
+          </div>
+        {/* </div> */}
+      </Box>
     );
   }
 }
@@ -58,5 +65,8 @@ const mapStatetoProps = state => {
   };
 };
 
-export default connect(mapStatetoProps, { fetchNotes, fetchTags, fetchUserNotes, fetchUserTags })(Notes);
+export default connect(
+  mapStatetoProps,
+  { fetchNotes, fetchTags, fetchUserNotes, fetchUserTags }
+)(Notes);
 // }

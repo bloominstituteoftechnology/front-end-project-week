@@ -7,7 +7,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 
-import "./styles/index.css";
+// import "./styles/index.css";
 import NotesReducer from "./reducers/NotesReducer";
 
 const middleware = applyMiddleware(logger, thunk);

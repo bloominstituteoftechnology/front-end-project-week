@@ -6,9 +6,9 @@ import {
   register
 } from "../actions/actions"
 
-import "../styles/App.css";
-import "../styles/CreateNote.css";
-import "../styles/Sidebar.css";
+// import "../styles/App.css";
+// import "../styles/CreateNote.css";
+// import "../styles/Sidebar.css";
 
 class Register extends React.Component {
   constructor() {

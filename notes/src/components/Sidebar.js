@@ -1,25 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { logout } from "../actions/actions";
 
-import "../styles/Sidebar.css";
+import { Box, Heading, RoutedButton } from 'grommet';
+
+// import "../styles/Sidebar.css";
 
 class SideBar extends React.Component {
   render() {
     return (
-      <div className="sidebar">
-        <div className="sidebarWrapper">
-          <h1 className="sidebarTitle">Lambda Notes</h1>
-          <div className="sidebarButton notesButton"><Link to="/">View All Notes</Link></div>
-          {this.props.loggedIn ? <div className="sidebarButton notesButton"><Link to="/my-notes">View Your Notes</Link></div> : null}
-          {this.props.loggedIn ? <div className="sidebarButton notesButton"><Link to="/create">+ Create New Note</Link></div> : null}
-          {this.props.loggedIn ? null : <div className="sidebarButton notesButton"><Link to="/register">Register</Link></div>}
-          {this.props.loggedIn ? null : <div className="sidebarButton notesButton"><Link to="/login">Login</Link></div>}
-          {this.props.loggedIn ? <div className="sidebarButton notesButton" onClick={this.props.logout}><Link to="/">Logout</Link></div> : null}
-        </div>
-      </div>
+      <Box align="center" basis="small" margin="large" fill="vertical">
+      {/* // <div className="sidebar"> */}
+        {/* <div className="sidebarWrapper"> */}
+          <Box align="center" justify="center" basis="1/4">
+          <Heading level="1" textAlign="center">Lambda Notes</Heading>
+          </Box>
+          <Box align="center" justify="start" gap="xlarge" fill="horizontal" basis="3/4">
+          <RoutedButton fill="horizontal" plain={false} path="/" style={{textAlign: "center"}}>View All Notes</RoutedButton>
+          {this.props.loggedIn ? <RoutedButton fill="horizontal" plain={false} path="/my-notes" style={{textAlign: "center"}}>View Your Notes</RoutedButton> : null}
+          {this.props.loggedIn ? <RoutedButton fill="horizontal" plain={false} path="/create" style={{textAlign: "center"}}>+ Create New Note</RoutedButton> : null}
+          {this.props.loggedIn ? null : <RoutedButton fill="horizontal" plain={false} path="/register" style={{textAlign: "center"}}>Register</RoutedButton>}
+          {this.props.loggedIn ? null : <RoutedButton fill="horizontal" plain={false} path="/login" style={{textAlign: "center"}}>Login</RoutedButton>}
+          {this.props.loggedIn ? <RoutedButton fill="horizontal" plain={false} path="/" onClick={this.props.logout} style={{textAlign: "center"}}>Logout</RoutedButton> : null}
+          </Box>
+        {/* </div> */}
+      {/* // </div> */}
+      </Box>
     );
   }
 }

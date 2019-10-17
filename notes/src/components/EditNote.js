@@ -10,9 +10,9 @@ import {
   addTag
 } from "../actions/actions";
 
-import "../styles/App.css";
-import "../styles/CreateNote.css";
-import "../styles/Sidebar.css";
+// import "../styles/App.css";
+// import "../styles/CreateNote.css";
+// import "../styles/Sidebar.css";
 
 class EditNote extends React.Component {
   constructor() {
