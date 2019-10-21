@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { logout } from "../actions/actions";
 
-import "../styles/Sidebar.css";
+// import "../styles/Sidebar.css";
 
 class SideBar extends React.Component {
   render() {

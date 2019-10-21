@@ -4,9 +4,9 @@ import { Redirect } from "react-router-dom";
 
 import { fetchNote, fetchNotes, deleteNote } from "../actions/actions";
 
-import "../styles/App.css";
-import "../styles/NotePage.css";
-import "../styles/Sidebar.css";
+// import "../styles/App.css";
+// import "../styles/NotePage.css";
+// import "../styles/Sidebar.css";
 
 class NotePage extends React.Component {
   constructor() {

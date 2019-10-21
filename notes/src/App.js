@@ -10,12 +10,13 @@ import NotePage from "./components/NotePage";
 import EditNote from "./components/EditNote";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Dashboard from "./components/Dashboard"
 
 import {
   returnUser
 } from "./actions/actions";
 
-import "./styles/App.css";
+// import "./styles/App.css";
 
 
 class App extends React.Component {
@@ -30,18 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <SideBar />
-        <Route exact path="/" component={Notes} />
-        <Route exact path="/my-notes" component={Notes} />
-        <Route exact path="/create" component={CreateNote} />
-        <Route exact path="/notes/:id" render={props => <NotePage {...props} />} />
-        <Route
-          exact
-          path="/note/:id/edit"
-          render={props => <EditNote {...props} />}
-        />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
+        <Dashboard />
       </div>
     )
   }

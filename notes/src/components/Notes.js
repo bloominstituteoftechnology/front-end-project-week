@@ -1,27 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
+import clsx from "clsx";
 import { connect } from "react-redux";
+import { useStyles } from "./Dashboard";
+
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
 import Note from "./Note";
 
-import { fetchNotes, fetchTags, fetchUserNotes, fetchUserTags } from "../actions/actions";
+import {
+  fetchNotes,
+  fetchTags,
+  fetchUserNotes,
+  fetchUserTags
+} from "../actions/actions";
 
-import "../styles/App.css";
+// import "../styles/App.css";
 
-class Notes extends React.Component {
-
-  componentDidMount() {
-    const {path} = this.props.match
-
+function Notes(props) {
+  useEffect(() => {
+    const { path } = props.match;
 
     if (path === "/my-notes") {
-      const user = this.props.user
-      this.props.fetchUserNotes(user)
-      this.props.fetchUserTags(user)
+      const user = this.props.user;
+      props.fetchUserNotes(user);
+      props.fetchUserTags(user);
     } else {
-      this.props.fetchNotes();
-      this.props.fetchTags();
+      props.fetchNotes();
+      props.fetchTags();
     }
-  }
+  }, []);
+
+  const classes = useStyles();
+
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
   // sortNotes = (a, b) => {
   //   if (b.id < a.id) return 1;
   //   if (b.id > a.id) return -1;
@@ -34,20 +51,26 @@ class Notes extends React.Component {
   //   <div className="componentContainer"></div>
   //   );
   // } else {
-  render() {
-    let notes = this.props.notes;
-    const {path} = this.props.match
-    return (
-      <div className="componentContainer">
-        {path === "/my-notes" ? <h2>Your Notes:</h2> : <h2>All Notes:</h2>}
-        <div className="notesContainer">
+
+  let notes = props.notes;
+  const { path } = props.match;
+  return (
+    <div className="componentContainer">
+      <CssBaseline />
+      <Container maxWidth="lg" className={classes.container}>
+      {path === "/my-notes" ? <h2>Your Notes:</h2> : <h2>All Notes:</h2>}      
+        <Grid container spacing={3}>
           {notes.map(note => (
-            <Note key={note.id} note={note} tags={this.props.tags} />
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <Note key={note.id} note={note} tags={props.tags} />
+              </Paper>
+            </Grid>
           ))}
-        </div>
-      </div>
-    );
-  }
+        </Grid>
+      </Container>
+    </div>
+  );
 }
 
 const mapStatetoProps = state => {
@@ -58,5 +81,8 @@ const mapStatetoProps = state => {
   };
 };
 
-export default connect(mapStatetoProps, { fetchNotes, fetchTags, fetchUserNotes, fetchUserTags })(Notes);
+export default connect(
+  mapStatetoProps,
+  { fetchNotes, fetchTags, fetchUserNotes, fetchUserTags }
+)(Notes);
 // }

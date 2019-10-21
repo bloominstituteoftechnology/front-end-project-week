@@ -4,7 +4,10 @@
   "homepage": "https://alasalle-front-backend.netlify.com",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.5.1",
+    "@material-ui/icons": "^4.5.1",
     "axios": "^0.18.0",
+    "clsx": "^1.0.4",
     "draft-js": "^0.10.5",
     "jwt-decode": "^2.2.0",
     "react": "^16.6.3",

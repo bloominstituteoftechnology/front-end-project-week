@@ -7,9 +7,9 @@ import {
   fetchUser
 } from "../actions/actions";
 
-import "../styles/App.css";
-import "../styles/CreateNote.css";
-import "../styles/Sidebar.css";
+// import "../styles/App.css";
+// import "../styles/CreateNote.css";
+// import "../styles/Sidebar.css";
 
 class Login extends React.Component {
   constructor() {

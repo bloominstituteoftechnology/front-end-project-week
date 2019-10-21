@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../styles/Note.css"
+// import "../styles/Note.css"
 
 const Note = props => {
   const truncateString = (str, num) => {
