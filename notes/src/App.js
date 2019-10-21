@@ -2,7 +2,6 @@ import React from "react";
 import { Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-
 import SideBar from "./components/Sidebar";
 import Notes from "./components/Notes";
 import CreateNote from "./components/CreateNote";
@@ -12,21 +11,27 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard"
 
-import {
-  returnUser
-} from "./actions/actions";
+import { returnUser } from "./actions/actions";
 
 // import "./styles/App.css";
 
+// import "./styles/App.css";
+
+const theme = {
+  global: {
+    font: {
+      family: "Muli",
+      size: "1.2rem",
+      height: "1.5"
+    },
+    height: "100%"
+  }
+};
 
 class App extends React.Component {
-
   componentDidMount() {
-    const token = localStorage.getItem("jwt")
-    return token 
-    ? this.props.returnUser(token)
-    : null
-
+    const token = localStorage.getItem("jwt");
+    return token ? this.props.returnUser(token) : null;
   }
   render() {
     return (
@@ -35,15 +40,16 @@ class App extends React.Component {
       </div>
     )
   }
-  
-};
+}
 
 const mapStateToProps = state => {
   return {
     loggedIn: state.loggedIn
   };
 };
-export default withRouter(connect(
-  mapStateToProps,
-  { returnUser }
-)(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { returnUser }
+  )(App)
+);
