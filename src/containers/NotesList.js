@@ -1,13 +1,125 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { getNotes, filterNotes, sortNotes } from "../store/actions";
 import { connect } from "react-redux";
 import { CSVLink } from "react-csv";
 import download from "../img/download.svg";
-import HTML5Backend from "react-dnd-html5-backend";
-import { DragDropContext } from "react-dnd";
 import SingleNoteListView from "../components/SingleNoteListView";
-const update = require("immutability-helper");
+
+// ==============================
+// ======    COMPONENTS    ======
+// ==============================
+
+const NotesList = (props) => {
+
+  const getNoteString = (text, limit) => {
+    if (text) {
+      let finalStr = "",
+        str1 = text.replace(/\s+/g, " "),
+        str2 = str1.split(" "),
+        wordsNum = str2.length;
+
+      if (wordsNum > limit) {
+        for (let i = 0; i < limit; i++) {
+          finalStr = `${finalStr} ${str2[i]} `;
+        }
+        return `${finalStr}...`;
+      } else return text;
+    } else return null;
+  };
+
+
+    const headers = [
+      { label: "title", key: "title" },
+      { label: "text body", key: "textBody" },
+      { label: "ID", key: "_id" },
+      { label: "Tags", key: "tags" }
+    ];
+    if (!props.notes || props.fetchingNotes) {
+      return <h3>Retrieving Notes, One Moment...</h3>;
+    }
+
+    console.log(props.notes)
+    return (
+      <List>
+        <Header>
+          <p>
+            Your Notes:&nbsp;
+            <StyledCSVLink data={props.notes} headers={headers}>
+              <img
+                src={download}
+                style={{ width: 20, marginRight: 10 }}
+                alt="a sgv download icon"
+              />
+              CSV
+            </StyledCSVLink>
+            <SortSpan
+              onClick={() => {
+                props.sortNotes("ascending");
+                props.history.push(`/notes`);
+              }}
+            >
+              Sort A-Z
+            </SortSpan>
+            <SortSpan
+              onClick={() => {
+                props.sortNotes("descending");
+                props.history.push(`/notes`);
+              }}
+            >
+              Sort Z-A
+            </SortSpan>
+          </p>
+        </Header>
+        {!props.filteredNotes.length
+          ? props.notes.map((note, i) => (
+              <SingleNoteListView
+                key={note._id}
+                props={props}
+                note={note}
+                getNoteString={getNoteString}
+                index={i}
+                id={note._id}
+                notes={props.notes}
+                />
+            ))
+          : props.filteredNotes.map((note, i) => (
+              <SingleNoteListView
+                key={note._id}
+                props={props}
+                note={note}
+                getNoteString={getNoteString}
+                index={i}
+                id={note._id}
+                notes={props.notes}
+              />
+            ))}
+        <IconFooter>
+          <PAnchor>
+            icon from{" "}
+            <a
+              href="https://fontawesome.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              fontawesome.com
+            </a>
+          </PAnchor>
+        </IconFooter>
+      </List>
+    );
+  }
+
+const mapStateToProps = ({ filteredNotes, notes }) => ({
+  filteredNotes,
+  notes
+});
+
+
+export default connect(
+  mapStateToProps,
+  { getNotes, filterNotes, sortNotes }
+)(NotesList);
 
 // ==============================
 // ======   STYLED COMPS   ======
@@ -85,140 +197,3 @@ const IconFooter = styled.div`
     padding: 20px 0 0 30px;
   }
 `;
-
-// ==============================
-// ======    COMPONENTS    ======
-// ==============================
-
-class NotesList extends Component {
-  state = {
-    noteString: ""
-  };
-  componentDidMount = () => {
-    getNotes();
-    this.getNoteString();
-  };
-
-  getNoteString = (text, limit) => {
-    if (text) {
-      let finalStr = "",
-        str1 = text.replace(/\s+/g, " "),
-        str2 = str1.split(" "),
-        wordsNum = str2.length;
-
-      if (wordsNum > limit) {
-        for (let i = 0; i < limit; i++) {
-          finalStr = `${finalStr} ${str2[i]} `;
-        }
-        return `${finalStr}...`;
-      } else return text;
-    } else return null;
-  };
-
-  moveNote = (dragIndex, hoverIndex) => {
-    const { notes } = this.props.notes;
-    const dragCard = notes[dragIndex];
-
-    this.setState(
-      update(this.state, {
-        notes: {
-          $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]]
-        }
-      })
-    );
-  };
-
-  render() {
-    const headers = [
-      { label: "title", key: "title" },
-      { label: "text body", key: "textBody" },
-      { label: "ID", key: "_id" },
-      { label: "Tags", key: "tags" }
-    ];
-    if (!this.props.notes || this.props.fetchingNotes) {
-      return <h3>Retrieving Notes, One Moment...</h3>;
-    }
-    return (
-      <List>
-        <Header>
-          <p>
-            Your Notes:&nbsp;
-            <StyledCSVLink data={this.props.notes} headers={headers}>
-              <img
-                src={download}
-                style={{ width: 20, marginRight: 10 }}
-                alt="a sgv download icon"
-              />
-              CSV
-            </StyledCSVLink>
-            <SortSpan
-              onClick={() => {
-                this.props.sortNotes("ascending");
-                this.props.history.push(`/notes`);
-              }}
-            >
-              Sort A-Z
-            </SortSpan>
-            <SortSpan
-              onClick={() => {
-                this.props.sortNotes("descending");
-                this.props.history.push(`/notes`);
-              }}
-            >
-              Sort Z-A
-            </SortSpan>
-          </p>
-        </Header>
-        {!this.props.filteredNotes.length
-          ? this.props.notes.map((note, i) => (
-              <SingleNoteListView
-                key={note._id}
-                props={this.props}
-                note={note}
-                getNoteString={this.getNoteString}
-                index={i}
-                id={note._id}
-                moveNote={this.moveNote}
-                notes={this.state.notes}
-              />
-            ))
-          : this.props.filteredNotes.map((note, i) => (
-              <SingleNoteListView
-                key={note._id}
-                props={this.props}
-                note={note}
-                getNoteString={this.getNoteString}
-                index={i}
-                id={note._id}
-                moveNote={this.moveNote}
-                notes={this.state.notes}
-              />
-            ))}
-        <IconFooter>
-          <PAnchor>
-            icon from{" "}
-            <a
-              href="https://fontawesome.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              fontawesome.com
-            </a>
-          </PAnchor>
-        </IconFooter>
-      </List>
-    );
-  }
-}
-
-const mapStateToProps = ({ filteredNotes, notes }) => ({
-  filteredNotes,
-  notes
-});
-
-const draggable = DragDropContext(HTML5Backend)(NotesList);
-
-export default connect(
-  mapStateToProps,
-  { getNotes, filterNotes, sortNotes }
-)(draggable);

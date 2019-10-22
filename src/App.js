@@ -10,6 +10,7 @@ import Note from "./components/Note";
 import styled, { createGlobalStyle } from "styled-components";
 import Login from "./components/Login";
 
+
 // ==============================
 // ======   STYLED COMPS   ======
 // ==============================
@@ -47,7 +48,7 @@ class App extends Component {
         <Route
           path="/notes"
           render={props => <NotesList {...props} notes={this.props.notes} />}
-        />
+          />
         <Route path="/note/:noteId" render={props => <Note {...props} />} />
         <Route path="/note-add" component={AddNoteForm} />
         <Route path="/note-edit/:noteId" component={EditNoteForm} />
