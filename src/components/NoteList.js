@@ -22,7 +22,12 @@ class NoteList extends Component {
         </div>
         {this.props.notes.map(note => {
           return (
-            <NoteCard key={note.id} deleteNote={this.props.deleteNote} note={note} editNote={this.props.editNote} />
+            <NoteCard
+              key={note}
+              deleteNote={this.props.deleteNote}
+              note={note}
+              editNote={this.props.editNote}
+            />
           );
         })}
       </div>

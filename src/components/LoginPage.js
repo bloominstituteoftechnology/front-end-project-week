@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 
+const localAPI = "http://localhost:4000";
+
 class LoginPage extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,7 @@ class LoginPage extends Component {
     const { username, password } = this.state;
     e.preventDefault();
     axios
-      .post("https://adamsnotes.herokuapp.com/api/login", { username, password })
+      .post(`${localAPI}/api/login`, { username, password })
       .then(res => {
         localStorage.setItem("jwt", res.data.token);
         this.props.loginHandler(e);

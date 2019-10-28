@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+const localAPI = "http://localhost:4000";
+
+const deployedAPI = "https://adamsnotes.herokuapp.com";
+
 const initialUser = {
   username: "",
   password: ""
@@ -24,8 +28,9 @@ class Register extends Component {
   submitHandler = e => {
     e.preventDefault();
     axios
-      .post("https://adamsnotes.herokuapp.com/api/register", this.state.user)
+      .post(`${localAPI}/api/register`, this.state.user)
       .then(res => {
+        console.log(res.status);
         if (res.status === 201) {
           this.setState({
             message: "Registration Successful",
@@ -37,6 +42,7 @@ class Register extends Component {
         this.props.history.push("/");
       })
       .catch(err => {
+        console.log(err);
         this.setState({
           message: "registration failed",
           user: { ...initialUser }

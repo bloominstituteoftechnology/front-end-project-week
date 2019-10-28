@@ -11,6 +11,8 @@ import Register from "./components/Register";
 
 const api = "https://adamsnotes.herokuapp.com/api/notes/";
 
+const localAPI = "http://localhost:4000/api/notes";
+
 class App extends Component {
   constructor() {
     super();
@@ -34,7 +36,7 @@ class App extends Component {
       }
     };
     axios
-      .get(`${api}`, options)
+      .get(`${localAPI}`, options)
       .then(res => {
         login();
         this.setState({ notes: res.data });
@@ -50,7 +52,7 @@ class App extends Component {
       }
     };
     axios
-      .get(`${api}`, options)
+      .get(`${localAPI}`, options)
       .then(res => this.setState({ notes: res.data }))
       .catch(err => console.log(err));
   };
@@ -64,7 +66,7 @@ class App extends Component {
       }
     };
     axios
-      .post(`${api}`, newNote, options)
+      .post(`${localAPI}`, newNote, options)
       .then(res => {
         newNote.id = res.data.success;
         this.setState({ notes: [newNote, ...this.state.notes] });
@@ -75,7 +77,7 @@ class App extends Component {
   deleteNote = (e, id) => {
     e.preventDefault();
     axios
-      .delete(`${api}${id}`)
+      .delete(`${localAPI}${id}`)
 
       .then(() => {
         // eslint-disable-next-line
@@ -93,7 +95,7 @@ class App extends Component {
     e.preventDefault();
 
     axios
-      .put(`${api}${id}`, state)
+      .put(`${localAPI}${id}`, state)
       .then(res => {
         const updatedArray = this.state.notes.map(note => {
           if (Number(note.id) === Number(res.data.id)) {
@@ -119,7 +121,9 @@ class App extends Component {
 
   loginHandler = async e => {
     e.preventDefault();
-    localStorage.getItem("jwt") ? await this.setState({ loggedIn: true }) : alert("you need to login");
+    localStorage.getItem("jwt")
+      ? await this.setState({ loggedIn: true })
+      : alert("you need to login");
   };
 
   logout = e => {
@@ -133,7 +137,11 @@ class App extends Component {
     return !this.state.loggedIn ? (
       <Switch>
         <Route path="/register" render={props => <Register {...props} />} />
-        <Route exact path="/" render={props => <LoginPage loginHandler={this.loginHandler} />} />
+        <Route
+          exact
+          path="/"
+          render={props => <LoginPage loginHandler={this.loginHandler} />}
+        />
       </Switch>
     ) : (
       <div className="App">
@@ -170,9 +178,18 @@ class App extends Component {
                 />
               )}
             />
-            <Route path="/add-note" render={props => <AddNoteForm {...props} addNote={this.addNote} />} />
-            <Route path="/note/:id" render={props => <Note {...props} deleteNote={this.deleteNote} />} />
-            <Route path="/edit/:id" render={props => <EditNoteForm {...props} editNote={this.editNote} />} />
+            <Route
+              path="/add-note"
+              render={props => <AddNoteForm {...props} addNote={this.addNote} />}
+            />
+            <Route
+              path="/note/:id"
+              render={props => <Note {...props} deleteNote={this.deleteNote} />}
+            />
+            <Route
+              path="/edit/:id"
+              render={props => <EditNoteForm {...props} editNote={this.editNote} />}
+            />
           </Switch>
         </div>
       </div>
