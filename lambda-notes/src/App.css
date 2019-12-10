@@ -105,6 +105,7 @@
 
 .fullText {
   position: relative;
+  font-size: 1.5rem;
   z-index: 0;
   text-align: left;
   text-overflow: scroll;
@@ -114,9 +115,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   z-index: 0;
   background-color: lightgreen;
+}
+.notesList {
+  display: flex;
+  flex-direction: column;
 }
 .gridList {
   display: grid;
@@ -126,7 +131,16 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 20px;
+  padding-top: 140px;
   z-index: 0;
+}
+
+.new {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.new[input] {
+  background-color: rgba(255, 0, 0, 0.2);
 }
 
 .notesSingle {
@@ -136,13 +150,14 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 45px 20px 20px 20px;
   background-color: white;
   z-index: 0;
   
 }
 .textList {
   height: 200px;
+  font-size: 1.5rem;
   overflow: hidden;
   word-break: break-word;
 }
@@ -167,12 +182,31 @@ nav {
   z-index: 0;
 }
 
-h2 {
-  font-size: 1.5rem;
+.nav {
+  display: flex;
+  max-width:340px;
+  width:17%;
+  flex-direction: column;
+  position: fixed;
+  background-color: #D3D2D3;
+  margin: 30px;
+  align-items: center;
+  z-index: 0;
+  }
 
+h2 {
+  margin: 0;
+  font-size: 2.5rem;
+  padding: 40px 20px;
+  
+  width: 100%;
+  background-color: #F2F1F2;
+  position: fixed;
+  z-index: 1
 }
 
 h3 {
+  font-size: 2rem;
   text-decoration: none;
   word-break: break-word;
   }
@@ -188,6 +222,8 @@ h3 {
 h1 {
   margin:0px;
   font-size: 3rem;
+  align-self: flex-start;
+
   text-align: left;
 }
 
@@ -203,9 +239,9 @@ button {
   width: 250px;
   color: black;
   padding:20px;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   border-radius: 0%;
-  margin: 10px 10px 10px 20px;
+  margin: 10px 20px;
 }
 
 .red {
@@ -215,25 +251,29 @@ button {
   padding:20px;
   font-size: 1.25rem;
   border-radius: 0%;
-  margin: 10px 10px 10px 20px;
 }
 
 form {
   display: flex;
   width: 80%;
+  margin-top: 120px;
+
+
+}
+input {
+  height: 50px;
 }
 .title {
-  height: 35px;
   width: 50%;
   margin: 20px;
-  font-size: 1rem;
+  font-size: 1.5rem;
 
 }
 
 
 textarea {
   margin-left: 20px;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .test {
@@ -245,7 +285,7 @@ textarea {
   align-self: flex-end;
   display: flex;
   flex-direction: row;
-  width: 100px;
+  width: 15%;
   justify-content: space-around;
   color: black;
   align-self: flex-end
@@ -256,19 +296,42 @@ a {
   color: black;
 }
 
+h6 {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
 
+.h6 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.notebuttons {
+    margin: 40px 0;
+
+}
+
+h5 {
+  font-size: 1.5rem;
+}
 h5:hover {
   text-decoration: underline;
   color: #24B8BD;
   cursor: pointer;
 }
 
+h4 {
+  font-size: 1.5rem;
+  z-index: 1;
+}
+
+
 
 .deleteContainer {
   display: flex;
   flex-direction: column;
   position: fixed;
-  bottom: 300px;
   width: 600px;
   height: 200px;
   background-color: white;
@@ -276,12 +339,15 @@ h5:hover {
   justify-content: center;
   align-items: center;
   align-self: center;
+  top: 80px;
+  left: 40%;
   box-shadow: 0 0 15px 5px black, 0 0 1000px 1000px rgba(0, 0, 0, 0.5); 
 }
 
 .singleContainer {
   display: flex;
   flex-direction: row;
-  width: 70%;
-justify-content: flex-start;
+  width: 100%;
+  justify-content: flex-start;
+  padding-bottom: 75px
 }
