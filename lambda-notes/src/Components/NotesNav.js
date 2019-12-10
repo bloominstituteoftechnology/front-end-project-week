@@ -10,7 +10,8 @@ class NotesNav extends Component {
     render(){
     return (
         <nav>
-            <h1>Lambda Notes</h1>
+            <h1>Famous Quotes</h1>
+            <div>
             <NavLink activeClassName='selected' to='/home'>
             <button onClick={this.props.clickForAllHandler}>View Your Notes</button>
             </NavLink>
@@ -18,6 +19,7 @@ class NotesNav extends Component {
             <NavLink activeClassName='selected' to='/new'>
             <button onClick={this.props.clickForNewHandler}> + Create New Note</button>
             </NavLink>
+            </div>
         </nav>
     )
 }

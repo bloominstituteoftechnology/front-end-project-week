@@ -3,32 +3,99 @@
 }
 
 
+@keyframes deleteQuoteC {
+  0% {
+    background-image: linear-gradient(lightgreen 0% 100%, black 100% 100%, lightgreen 100% 100%);
+  }
+
+  5% {
+    background-image: linear-gradient(lightgreen 0% 45%, black 45% 55%, lightgreen 55% 100%);
+  }
+
+  10% {
+    background-image: linear-gradient(lightgreen 0% 35%, black 35% 65%, lightgreen 65% 100%);
+  }
+
+  15% {
+    background-image: linear-gradient(lightgreen 0% 25%, black 25% 75%, lightgreen 75% 100%);
+  }
+
+  20% {
+    background-image: linear-gradient(lightgreen 0% 15%, black 15% 85%, lightgreen 85% 100%);
+  }
+
+  25% {
+    background-image: linear-gradient(lightgreen 0% 5%, black 5% 95%, lightgreen 95% 100%);
+  }
+
+  30%, 100% {
+    background-image: linear-gradient(lightgreen 0% 0%, black 0% 100%, lightgreen 100% 100%);
+  }
+
+}
 
 
+@keyframes deleteQuote {
+  0% {
+    transform: scale(1);
+  }
 
+  100% {
+    transform: scale(0);
+  }
+}
+
+
+.noteStyleC {
+  filter: drop-shadow(0px 0px 10px black);
+  position: relative;
+  z-index: 0
+
+}
+
+.noteStyleC:hover {
+  filter: drop-shadow(0px 10px 20px black);
+  z-index: 1;
+}
+
+.noteStyleC:hover > .noteStyle  {
+  transform: scale(1.25);
+}
 
 
 .noteStyle {
   display: flex;
   justify-content: center;
+  position: relative;
   width: 250px;
   flex-direction: column;
-  background-color: white;
   align-items: flex-start;
   text-align:left;
   text-decoration: none;
   overflow-wrap: break-word;
+  background-color: white;
   height:250px;
   margin: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  border: 1px solid #DEDEDE;
   z-index: 0;
+  box-shadow: 0px 0px 10px 2px black;
+  clip-path: polygon(0 58%, 5% 21%, 1% 9%, 0 0, 0 100%, 0% 1%, 10% 0%, 23% 2%, 34% 0%, 51% 3%, 61% 0%, 75% 5%, 93% 4%, 100% 9%, 96% 19%, 100% 30%, 94% 43%, 100% 52%, 95% 86%, 100% 100%, 89% 98%, 77% 100%, 49% 93%, 34% 100%, 26% 91%, 0 100%);
 }
 
-.noteStyle:hover {
-  box-shadow: 0px 0px 20px 10px #24B8BD;
+.noteStyle::after {
+  content: "";
+  /* background: url(https://thingsmysonasks.files.wordpress.com/2016/04/yoda.jpg); */
+  background-size: 100%;
+  /* opacity: 0.25; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
 }
+
 
 .line {
   height: 2px;
@@ -49,13 +116,13 @@
   flex-direction: column;
   padding: 20px;
   z-index: 0;
-  background-color: #F2F1F2;
+  background-color: lightgreen;
 }
 .gridList {
   display: grid;
-  width: 80%;
+  width: 100%;
   flex-direction: column;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: flex-start;
   justify-content: flex-start;
   padding: 20px;
@@ -83,7 +150,7 @@
 
 .Main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   max-width: 2000px;
   width: 100%;
@@ -91,12 +158,12 @@
 
 nav {
   display: flex;
-  max-width:340px;
-  width:30%;
-  flex-direction: column;
+  width:100%;
+  flex-direction: row;
   position: relative;
-  background-color: #D3D2D3;
-  padding:30px;
+  justify-content: space-between;
+  background-color: white;
+  padding: 15px;
   z-index: 0;
 }
 
@@ -110,16 +177,31 @@ h3 {
   word-break: break-word;
   }
 
+  h1::before {
+    content: '"';
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 5rem;
+    color: green
+    
+  }
+
 h1 {
   margin:0px;
-  margin-bottom: 20px;
   font-size: 3rem;
   text-align: left;
 }
+
+h1::after {
+  content: '"';
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 5rem;
+    color: green
+}
+
 button {
-  background-color: #24B8BD;
+  background-color: green;
   width: 250px;
-  color:white;
+  color: black;
   padding:20px;
   font-size: 1.25rem;
   border-radius: 0%;
