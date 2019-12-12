@@ -1,0 +1,102 @@
+.spanButtonsContainer {
+  display: flex;
+  width: 82%;
+  justify-content: flex-end;
+  margin: 0 0 20px 10%;
+}
+
+a, span {
+  text-decoration: underline;
+  cursor: pointer;
+  color: black;
+}
+
+.spanButtonsContainer a {
+    margin-right: 2%;
+}
+
+.componentContainer p {
+    margin: 35px 5% 35px 5%;
+}
+
+.noteText {
+  white-space: pre-wrap;
+}
+
+.modalWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 3;
+}
+
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(180, 180, 180);
+  opacity: 0.7;
+  position: fixed;
+  z-index: 2;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 45%;
+  z-index: 4;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 1;
+  position: fixed;
+
+}
+
+.modalButtonBox {
+  display: flex;
+  width: 70%;
+  margin-top: 20px;
+}
+
+.first {
+  margin-right: 10%;
+  background-color: #D0011B;
+}
+
+.first:hover {
+  background-color: rgb(180, 180, 180);
+}
+
+.second {
+  background-color: #2AC0C4;
+}
+
+.second:hover {
+  background-color: rgb(180, 180, 180);
+}
+
+
+
+.modalButton {
+  color: white;
+  height: 45px;
+  width: 45%;
+  border: 1.2px solid #b6b5b6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.modal p {
+  text-align: center;
+}

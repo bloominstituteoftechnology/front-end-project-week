@@ -1,0 +1,22 @@
+.componentContainer .noteCard p {
+  margin: 0;
+}
+
+.noteCard {
+  height: 250px;
+  width: 200px;
+  padding: 10px 1.5%;
+  border: 1px solid #b6b5b6;
+  background-color: white;
+  margin: 35px 5% 0 0;
+  line-height: 30px;
+}
+
+.noteCard h3 {
+  height: 31px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 179px;
+}
+

@@ -1,0 +1,56 @@
+.App {
+  display: flex;
+  width: 100%
+}
+
+@media (max-width: 513px) {
+
+  .componentContainer .notesContainer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1030px) {
+
+  .App .componentContainer {
+    width: 100%;
+    left: 0;
+    top: 75px;
+  }
+
+  /* .componentContainer .notesContainer {
+    justify-content: center;
+  } */
+}
+
+.componentContainer {
+  background-color: #F2F1F2;
+  width: 82%;
+  padding: 50px 0 50px 0;
+  position: relative;
+  left: 18%;
+  min-height: 100vh;
+  
+}
+
+.componentContainer h2 {
+  margin: 0 5%;
+}
+
+
+.notesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 0 5%;
+  justify-content: flex-start;
+  
+}
+
+.componentContainer form, .tagInput {
+  display: flex;
+  flex-direction: column;
+  margin: 35px 5%;
+}
+
+
+  

@@ -1,0 +1,27 @@
+input {
+    margin-bottom: 20px;
+    border-radius: 4px;
+    height: 40px;
+    width: 50%;
+    padding-left: 1%;
+}
+
+textarea {
+    margin-bottom: 20px;
+    border-radius: 4px;
+    padding-left: 1%;
+    padding-top: 20px;
+    height: 350px;
+}
+
+.createButton {
+    width: 23%;
+}
+
+.inputBox {
+    display: flex;
+}
+
+.inputBox button {
+    height: 40px;
+}
