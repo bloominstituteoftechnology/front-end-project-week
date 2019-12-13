@@ -18,7 +18,7 @@ class App extends Component {
 
   getNotes = event => {
     axios
-      .get(`http://localhost:2200/api/notes`)
+      .get(`https://mitchellnotes-backend.herokuapp.com/api/notes`)
       .then(response => {
         // console.log('Data!', response)
         this.setState({
@@ -35,7 +35,7 @@ class App extends Component {
 
   newNote = note => {
     axios
-      .post(`http://localhost:2200/api/notes`, note)
+      .post(`https://mitchellnotes-backend.herokuapp.com/api/notes`, note)
       .then(response => {
         this.getNotes()
         this.setState({ notes: response.data })
@@ -46,7 +46,7 @@ class App extends Component {
   updateNote = (updateNote) => {
     console.log('Clicked!')
     axios
-      .put(`http://localhost:2200/api/notes/${updateNote.id}`, updateNote)
+      .put(`https://mitchellnotes-backend.herokuapp.com/api/notes/${updateNote.id}`, updateNote)
       .then(response => {
         this.getNotes()
         console.log('response', response)
@@ -56,7 +56,7 @@ class App extends Component {
 
   deleteNote = id => {
     axios
-      .delete(`http://localhost:2200/api/notes/${id}`)
+      .delete(`https://mitchellnotes-backend.herokuapp.com/api/notes/${id}`)
       .then(response => {
         this.getNotes()
       })
