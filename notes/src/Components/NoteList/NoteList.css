@@ -1,0 +1,47 @@
+.list {
+  display: flex;
+  width: 100%;
+}
+
+.note-list {
+  border: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  /* min-width: 1000px; */
+  padding-top: 75px;
+  background-color: gainsboro;
+}
+
+.note-list h2 {
+  display: flex;
+  width: 100%;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 3%;
+}
+
+@media (max-width: 600px) {
+  .list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .notes {
+    align-items: center;
+    margin: auto;
+  }
+
+  .note {
+    width: 80%;
+    margin: 2% auto;
+  }
+}

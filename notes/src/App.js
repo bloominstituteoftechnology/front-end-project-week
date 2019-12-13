@@ -7,6 +7,14 @@ import NoteCard from './Components/NoteCard';
 import NotesList from './Components/NotesList';
 import SideMenu from './Components/SideMenu';
 import './App.css';
+<<<<<<< HEAD
+=======
+import NoteList from '../src/Components/NoteList/NoteList';
+import NoteForm from '../src/Components/NoteForm/NoteForm';
+import NoteCard from '../src/Components/NoteCard/NoteCard';
+import EditNote from '../src/Components/EditNote/EditNote';
+import axios from 'axios';
+>>>>>>> cb5ed60e989ee41ecab4bda4c6ed01c1058c14f5
 
 class App extends Component {
   constructor(props) {
