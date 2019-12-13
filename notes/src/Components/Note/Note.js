@@ -5,12 +5,6 @@ class Note extends Component {
 
     render() {
         return (
-<<<<<<< HEAD:notes/src/Components/Note.js
-            <div>
-                Note
-        </div>
-        )
-=======
             <Link to={`/notes/${this.props.note.id}`} className='note'>
                 <h3 className='note-title'>
                     {this.props.note.title}
@@ -20,7 +14,6 @@ class Note extends Component {
                 </div>
             </Link>
         )           
->>>>>>> cb5ed60e989ee41ecab4bda4c6ed01c1058c14f5:notes/src/Components/Note/Note.js
     }
 }
 

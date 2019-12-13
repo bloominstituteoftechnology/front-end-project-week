@@ -12,7 +12,6 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-<<<<<<< HEAD
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -31,12 +30,6 @@
   to {
     transform: rotate(360deg);
   }
-=======
-  margin: auto;
-  width: 95%;
-  max-width: 1200px;
-  min-height: 750px;
->>>>>>> cb5ed60e989ee41ecab4bda4c6ed01c1058c14f5
 }
 
 @media (max-width: 600px) {
