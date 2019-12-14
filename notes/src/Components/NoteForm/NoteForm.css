@@ -1,62 +1,61 @@
 .form {
-    display: flex;
-    width: 100%;
-    height: auto;
+  display: flex;
+  width: 100%;
+  height: 100vh;
 }
 
 .note-form {
-    border: 1px solid grey;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-top: 75px;
-    background-color: gainsboro;
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 75px;
+  background-color: gainsboro;
 }
 
 .new-note-title {
-    width: 50%;
-    height: 45px;
-    margin: 0 0 30px 5%;
+  width: 50%;
+  height: 45px;
+  margin: 0 0 30px 5%;
 }
 
 .note-content {
-    width: 50%;
-    height: 350px;
-    margin: 0 0 20px 5%;
-    border: 2px inset whitesmoke;
-    font-family: Arial, Helvetica, sans-serif;
+  width: 50%;
+  height: 350px;
+  margin: 0 0 20px 5%;
+  border: 2px inset whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .save-button {
-    border: 1px solid grey;
-    background-color: rgb(0, 167, 167);
-    color: white;
-    margin: 0 0 20px 5%;
-    width: 25%;
-    height: 50px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  border: 1px solid grey;
+  background-color: rgb(0, 167, 167);
+  color: white;
+  margin: 0 0 20px 5%;
+  width: 25%;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .save-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 h2 {
-    display: flex;
-    margin-left: 5%;
+  display: flex;
+  margin-left: 5%;
 }
 
 @media (max-width: 600px) {
-
   .form {
     display: flex;
     flex-direction: column;
   }
 
-  .menu{
-      width: 100%;
+  .menu {
+    width: 100%;
   }
 }
