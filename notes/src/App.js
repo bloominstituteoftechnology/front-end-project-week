@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import CreateNote from "./Components/CreateNote";
 import EditNote from "./Components/EditNote/EditNote";
 import Note from "./Components/Note/Note";
 import NoteCard from "./Components/NoteCard/NoteCard";
-import NotesList from "./Components/NotesList";
-import SideMenu from "./Components/SideMenu";
+import NoteList from "./Components/NoteList/NoteList";
+import NoteForm from "./Components/NoteForm/NoteForm";
 import axios from "axios";
 import "./App.css";
 
@@ -70,13 +69,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" render={props => <NotesList {...props} />} />
         <Route
           exact
-          path="/notes/create"
-          render={props => <CreateNote {...props} />}
+          path="/"
+          render={props => <NoteList {...props} notes={this.state.notes} />}
         />
-        <Route exact path="/notes/:id" render={props => <Note {...props} />} />
+        <Route
+          exact
+          path="/notes/form"
+          render={props => <NoteForm {...props} />}
+        />
+        <Route
+          exact
+          path="/notes/:id"
+          render={props => <NoteCard {...props} />}
+        />
         <Route
           exact
           path="/notes/edit/:id"

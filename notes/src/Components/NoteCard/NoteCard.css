@@ -1,58 +1,57 @@
 .container {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
+  border: 1px solid red;
 }
 
 .note-container {
-    width: 100%;
-    border: 1px solid gray;
-    background-color: gainsboro;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  border: 1px solid gray;
+  background-color: gainsboro;
+  display: flex;
+  flex-direction: column;
 }
 
 .notecard {
-    padding-top: 50px;
-
+  padding-top: 50px;
 }
 
 .delete:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .body {
-    display: flex;
-    margin-left: 5%;
-    width: 90%;
-    text-align: start;
+  display: flex;
+  margin-left: 5%;
+  width: 90%;
+  text-align: start;
 }
 
 .notecard-buttons {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 5%;
-    margin-top: 10px;
-    text-decoration-color: black;
-    text-decoration: underline;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5%;
+  margin-top: 10px;
+  text-decoration-color: black;
+  text-decoration: underline;
 }
 
 .edit {
-    margin-right: 2%;
-    color: black;
+  margin-right: 2%;
+  color: black;
 }
 
 @media (max-width: 600px) {
-
   .container {
     display: flex;
     flex-direction: column;
   }
 
-  .menu{
-      width: 100%;
+  .menu {
+    width: 100%;
   }
 
   .notecard {
-      min-height: 380px;
+    min-height: 380px;
   }
 }
