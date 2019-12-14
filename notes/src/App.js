@@ -82,7 +82,7 @@ class App extends Component {
         <Route
           exact
           path="/notes/:id"
-          render={props => <NoteCard {...props} />}
+          render={props => <NoteCard {...props} notes={this.state.notes} />}
         />
         <Route
           exact
