@@ -1,7 +1,7 @@
 .container {
   display: flex;
   width: 100%;
-  border: 1px solid red;
+  height: 100vh;
 }
 
 .note-container {
@@ -13,18 +13,27 @@
 }
 
 .notecard {
-  padding-top: 50px;
+  padding-top: 75px;
 }
 
 .delete:hover {
   cursor: pointer;
 }
 
+h2 {
+  display: flex;
+  margin-left: 5%;
+}
+
 .body {
   display: flex;
   margin-left: 5%;
-  width: 90%;
+  padding: 5px;
+  width: 50%;
   text-align: start;
+  border-radius: 10px;
+  background-color: silver;
+  min-height: 50vh;
 }
 
 .notecard-buttons {
