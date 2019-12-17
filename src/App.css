@@ -1,0 +1,206 @@
+/* .App {
+  text-align: center;
+  background-color: #f3f3f3;
+} */
+/* .loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 200px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 3rem;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+}
+
+.heart {
+  /* position: relative; */
+  height: 200px;
+}
+
+.heart,
+.heart:before,
+.heart:after {
+  display: block;
+  width: 70px;
+  height: 70px;
+  background-color: #dea6af;
+  transform: rotateZ(45deg);
+}
+
+.heart:before,
+.heart:after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart:before {
+  transform: translateX(-50%);
+  animation: animX 1s infinite 0.25s;
+}
+
+.heart:after {
+  transform: translateY(-50%);
+  animation: animY 1s infinite;
+}
+
+@keyframes animX {
+  0% {
+    transform: translateX(-50%);
+  }
+  25% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(50%);
+  }
+  75% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes animY {
+  0% {
+    transform: translateY(-50%);
+  }
+  25% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  75% {
+    transform: translateY(50%);
+  }
+}
+
+
+/* .left {
+  background-color: #d8d8d8;
+  overflow: scroll;
+  height: 100%;
+} */
+
+/* .right {
+  background-color: #f3f3f3;
+  overflow: scroll;
+  padding-left: 20px;
+  height: 100vh;
+} */
+
+/* h1 {
+  font-family: Roboto Bold;
+  color: #4a4a4a;
+  text-align: center;
+} */
+/* 
+.sidebar-button {
+  width: 200px;
+  height: 60px;
+  margin: 10px 10px 0px 25px;
+  background-color: #2bc1c4;
+  color: white;
+  font-size: 1rem;
+  font-weight: heavy;
+} */
+
+/* .save-button {
+  width: 200px;
+  height: 60px;
+  margin-top: 20px;
+  background-color: #2bc1c4;
+  color: white;
+  font-size: 2rem;
+  font-weight: heavy;
+} */
+
+/* h2 {
+  font-family: Roboto Bold;
+  color: #4a4a4a;
+  width: 800px;
+  text-align: center;
+} */
+
+/* 
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+} */
+
+/* styling of a Link tag */
+.cards {
+  text-decoration: none;
+}
+.cards:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+ /* .single-note {
+  width: 80%;
+} */
+
+/* input tag */
+/* .note-title {
+  height: 30px;
+  width: 80%;
+  margin-bottom: 20px;
+  padding-left: 5%;
+  font-size: 2rem;
+} 
+
+.note-text {
+  height: 500px;
+  width: 80%;
+  padding-left: 5%;
+  font-size: 2rem;
+}  */
+
+
+/* .notes-text {
+  overflow: auto;
+  // from notes.js
+}  */
+
+/* .edit-links {
+  display: flex;
+  justify-content: flex-end;
+} */
+
+/* styling of a Link tag */
+.edit {
+  margin: 10px;
+}
