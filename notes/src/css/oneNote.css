@@ -1,0 +1,29 @@
+.activeNote {
+    padding: 20px 50px;
+    width: 80%;
+    background-color: #F2F0F1;
+}
+.activeNote .noteContent {
+    line-height: 2.5;
+    margin: 20px 0;
+}
+.activeNote .noteContent h3 {
+    font-size: 24px;
+}
+.activeNote .noteContent p {
+    font-size: 18px;
+}
+.activeNote .buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.activeNote .buttons button {
+    text-decoration: underline;
+    margin-left: 20px;
+    border: none;
+    background-color: #F2F0F1;
+    font-weight: bold;
+}

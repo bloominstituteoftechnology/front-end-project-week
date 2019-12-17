@@ -1,0 +1,28 @@
+.sideBar {
+	margin-top: 20px;
+	width: 100%;
+	padding: 10px;
+	background-color: #d2d1d2;
+	height: 80%;
+}
+.lambdaTitle {
+	text-decoration: none;
+	color: black;
+}
+.sideBarButtons {
+	display: flex;
+	flex-direction: column;
+	height: 100px;
+	justify-content: space-between;
+	text-decoration: none;
+}
+.sideBarButtons button {
+	padding: 20px 0;
+	background-color: #00b8ba;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+}
+.container .notesBody {
+	padding: 20px;
+}

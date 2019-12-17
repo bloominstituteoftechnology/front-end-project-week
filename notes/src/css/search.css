@@ -1,0 +1,16 @@
+.searchPage {
+    width: 80%;
+    margin-top: 20px;
+}
+.searchBar {
+    width: 50%;
+    height: 50px;
+    padding-left: 20px;
+}
+.searchedNote a {
+    text-decoration: none;
+    color: black;
+}
+.searchedNote {
+    padding: 10px 0px;
+}

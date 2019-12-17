@@ -1,0 +1,35 @@
+.createNote {
+    width: 80%;
+    padding: 50px;
+    background-color: #F2F0F1;
+}
+.createNote .createNoteHeader {
+    font-size: 24px;
+}
+.createNote .createNoteForm {
+    display: flex;
+    flex-wrap: wrap;
+}
+.createNote .newTitle {
+    width: 40%;
+    padding: 5px 0 5px 10px;
+    margin-bottom: 20px;
+}
+.createNote .newTextBody {
+    width: 100%;
+    padding: 10px 0 400px 10px;
+    margin-bottom: 20px;
+}
+.createNote .newTextBody input.break {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.createNote button {
+    width: 200px;
+    height: 50px;
+    background-color: #00B8BA;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+}
