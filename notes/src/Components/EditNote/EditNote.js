@@ -6,6 +6,7 @@ import './EditNote.css';
 class EditNote extends Component {
 
     render() {
+        console.log('props', this.props.editNote);
         return (
             <div className='edit-container'>
                 <Menu />
@@ -18,14 +19,14 @@ class EditNote extends Component {
                         placeholder='Note Title'
                         name='title'
                         onChange={this.inputHandleChange}
-                        value={this.state.title}
+                        // value={this.state.title}
                     />
                     <textarea
                         className='note-content'
                         placeholder='Note Content'
                         name='body'
                         onChange={this.inputHandleChange}
-                        value={this.state.body}
+                        // value={this.state.body}
                     />
                     <Link to='/' className='save-button' onClick={this.editNote}>
                         Update

@@ -87,7 +87,7 @@ class App extends Component {
         <Route
           exact
           path="/notes/edit/:id"
-          render={props => <EditNote {...props} />}
+          render={props => <EditNote {...props} editNote={this.updateNote}/>}
         />
       </div>
     );

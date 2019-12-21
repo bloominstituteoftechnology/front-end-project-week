@@ -1,37 +1,37 @@
 .edit-container {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
+  height: 100vh;
 }
 
 .input-container {
-    width: 100%;
-    padding-top: 75px;
-    border: 1px solid grey;
-    background-color: gainsboro;
+  width: 100%;
+  padding-top: 75px;
+  border: 1px solid grey;
+  background-color: gainsboro;
 }
 
 .new-note-title {
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 10px;
-    border-radius: 5px
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+  border-radius: 5px;
 }
 
 .note-content {
-    display: flex;
-    justify-content: flex-start;
-    padding: 10px 0 0 10px;
-    border-radius: 5px
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 0 0 10px;
+  border-radius: 5px;
 }
 
 @media (max-width: 600px) {
-
   .edit-container {
     display: flex;
     flex-direction: column;
   }
 
-  .menu{
-      width: 100%;
+  .menu {
+    width: 100%;
   }
 }
