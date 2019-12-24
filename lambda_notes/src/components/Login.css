@@ -1,0 +1,22 @@
+
+    .Login {
+      padding: 60px 0;
+      border: 3px solid blue;
+      z-index: 1000;
+      width: 100vw;
+      height: 100vh;
+      background-color: "white";
+    }
+
+    .Login form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      padding: 20px;
+      margin: 25px auto;
+      max-width: 320px;
+      background-color: "#00A3FF";
+
+      border: 3px solid red;
+    }
