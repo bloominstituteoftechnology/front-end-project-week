@@ -1,0 +1,12 @@
+.TitleInput{
+    margin-left: 65px;
+    margin-top: 30px;
+}
+@media (max-width:768px) {
+.ButtonContainer{
+    margin-bottom: 50px;
+  }
+}
+nav h1{
+    line-height: .9;
+  }

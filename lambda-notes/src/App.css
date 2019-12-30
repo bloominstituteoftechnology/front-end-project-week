@@ -1,0 +1,200 @@
+.App {
+  text-align: center;
+
+}
+.App {
+
+}
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+nav {
+position: fixed;
+display: block;
+background-color: #d3d2d3;
+border: 1px solid #696565;
+height: 100vh;
+width: 20vw;
+top: 0;
+z-index: 2000;
+
+}
+.cover{
+  background-color: #d3d2d3;
+  border: none;
+  z-index: 10;
+}
+.LambdaNavLogo{
+  position: absolute;
+  left:0;
+  font-size:25px;
+  background-color:#d3d2d3;
+  height: 50px;
+  width:120px;
+  z-index: inherit;
+  width: 205px;
+  height: 65px;
+  text-align: left;
+  min-width:155px
+}
+.container  nav button{
+border-radius: 10%;
+margin-bottom: 5%;
+background-color: grey;
+margin-bottom: 20px;
+background-color: #26b8bd;
+border:1px solid grey;
+margin-bottom: 20px;
+padding-top: 6px;
+padding-bottom: 6px;
+color: white;
+}
+h1{
+font-size: 30px;
+margin-top:0px;
+margin-left: 10px;
+text-align: left;
+}
+.NoteContainer{
+float: right;
+Padding: 50px;
+border:  1px solid #696565;
+justify-content: space-between;
+box-shadow: 0px 4px 20px 0px #242231;
+text-align: center;
+height: 202px;
+order: 3;
+overflow:hidden;
+display: flex;
+margin: 50px 50px 50px 50px;
+width: 202px;
+height: 202px;
+padding-left: 15px;
+padding-right: 0px;
+padding-bottom: 0px;
+padding-top: 0px;
+border-radius: 10px;
+margin-top: 100px;
+margin-right: 5px;
+margin-left: 20px;
+
+
+}
+.NoteContainer:hover{
+  background-color:#26b8bd;
+  color: white;
+}
+.NoteContainer p{
+text-align: center;
+}
+.NoteContainer h3{
+text-align: center;
+}
+.container {
+display: flex;
+left: 0;
+  }
+
+.container nav{
+min-width: 50px;
+left: 0;
+  }
+.editForm{
+  border: 1px solid black;
+  margin-left: 100px;
+}
+.FormContainer{
+  top: 600px;
+  z-index: -20;
+  position: absolute;
+      left: 200px;
+      top: 0px;
+left: 220px;
+}
+.FormContainer form{
+  justify-content: center;
+  margin-left:50%;
+  margin: 0 auto;
+  display:inline-block;
+  text-align: center;
+  margin-left: 150px;
+}
+.FormContainer button{
+
+}
+.ButtonContainer{
+  margin-bottom: 100px;
+}
+.rowTitle input{
+
+}
+label{
+margin-right: 10px;
+font-size: 30px;
+}
+hr{
+color: black;
+
+}
+.SearchBar{
+
+}
+h2{
+margin-left: 600px;
+}
+.NoteContainer a{
+margin-left: 35px;
+text-decoration: none;
+color:black !important;
+  }
+
+
+@media (max-width:780px) {
+nav h1{
+    font-size: 15px;
+    line-height: .7 !important;
+  }
+  .LambdaNavLogo{
+    display:none;
+  }
+  nav{
+    height: 100%;
+      z-index: 2000;
+  }
+  .NoteContainer{
+
+  }
+
+  .SearchBar{
+
+  }
+  .App{
+    width: 1000px;
+
+    z-index: -100;
+  }
+}
+.SearchBar input{
+  margin-right: 10px;
+}

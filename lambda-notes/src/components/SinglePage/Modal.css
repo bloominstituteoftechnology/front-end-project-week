@@ -1,0 +1,13 @@
+.backdrop{
+  width: 100vw;
+  height: 100vh;
+  background-color: grey;
+  position: absolute;
+  top: 0px;
+  height: 2000px;
+  z-index: 2;
+  opacity: .7;
+}
+.customModal{
+margin-top: 100px;
+}
