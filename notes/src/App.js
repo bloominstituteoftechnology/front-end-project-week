@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import EditNote from "./Components/EditNote/EditNote";
-import Note from "./Components/Note/Note";
-import NoteCard from "./Components/NoteCard/NoteCard";
+import NoteDisplay from "./Components/NoteDisplay/NoteDisplay";
 import NoteList from "./Components/NoteList/NoteList";
-import NoteForm from "./Components/NoteForm/NoteForm";
+import CreateNote from "./Components/CreateNote/CreateNote";
 import axios from "axios";
 import "./App.css";
 
@@ -21,16 +20,15 @@ class App extends Component {
     axios
       .get(`https://mitchellnotes-backend.herokuapp.com/api/notes`)
       .then(response => {
-        // console.log('Data!', response)
         this.setState({
           notes: response.data
         });
-        // console.log('Notes!', this.state.notes)
       })
       .catch(error => console.log("error!"));
   };
 
   componentDidMount() {
+    console.log("getting notes");
     this.getNotes();
   }
 
@@ -67,6 +65,7 @@ class App extends Component {
       .catch(error => console.log("error!"));
   };
   render() {
+    console.log("whatever")
     return (
       <div className="App">
         <Route
@@ -76,18 +75,18 @@ class App extends Component {
         />
         <Route
           exact
-          path="/notes/form"
-          render={props => <NoteForm {...props} />}
+          path="/notes/create-note"
+          render={props => <CreateNote {...props} />}
         />
         <Route
           exact
-          path="/notes/:id"
-          render={props => <NoteCard {...props} notes={this.state.notes} />}
+          path="/notes/display/:id"
+          render={props => <NoteDisplay {...props} notes={this.state.notes} />}
         />
         <Route
           exact
           path="/notes/edit/:id"
-          render={props => <EditNote {...props} editNote={this.updateNote}/>}
+          render={props => <EditNote {...props} editNote={this.updateNote} />}
         />
       </div>
     );

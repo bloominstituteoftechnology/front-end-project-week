@@ -12,7 +12,7 @@ class NoteList extends Component {
           <h2>Your Notes:</h2>
           <div className="notes">
             {this.props.notes.map(note => {
-              return <Note note={note} />;
+              return <Note note={note} key={note.id}/>;
             })}
           </div>
         </div>
