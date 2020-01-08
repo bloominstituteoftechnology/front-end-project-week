@@ -34,7 +34,6 @@ class EditNote extends Component {
   };
 
   render() {
-    console.log("props", this.props);
     return (
       <div className="edit-container">
         <Menu />

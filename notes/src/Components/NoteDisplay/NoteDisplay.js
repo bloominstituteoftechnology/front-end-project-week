@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Route } from "react-router-dom";
+import EditNote from "../../Components/EditNote/EditNote";
 import Menu from "../Menu/Menu";
 import "./NoteCard.css";
 
@@ -7,6 +9,10 @@ class NoteCard extends Component {
   delete = e => {
     this.props.deleteNote(this.props.match.params.id);
   };
+
+  getNote = e => {
+    this.props.getNote(this.props.match.params)
+  }
 
   render() {
     const noteId = this.props.match.params.id;
@@ -31,7 +37,7 @@ class NoteCard extends Component {
             <Link to="/" onClick={this.delete}>
               Delete
             </Link>
-            <Link to="/notes/edit/:id" onClick={this.props.getNote}>
+            <Link to={`/notes/display/${noteId}/edit`} onClick={this.getNote}>
               Edit
             </Link>
           </div>

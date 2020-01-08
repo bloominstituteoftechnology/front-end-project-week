@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import EditNote from "./Components/EditNote/EditNote";
+// import EditNote from "./Components/EditNote/EditNote";
 import NoteDisplay from "./Components/NoteDisplay/NoteDisplay";
 import NoteList from "./Components/NoteList/NoteList";
 import CreateNote from "./Components/CreateNote/CreateNote";
 import axios from "axios";
 import "./App.css";
+import EditNote from "./Components/EditNote/EditNote";
 
 class App extends Component {
   constructor(props) {
@@ -28,16 +29,14 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log("getting notes");
     this.getNotes();
   }
 
   getNote = note => {
     axios
-      .get(`https://mitchellnotes-backend.herokuapp.com/api/notes/${note.id}`)
+      .get(`https://mitchellnotes-backend.herokuapp.com/api/notes/${note}`)
       .then(response => {
         this.getNotes();
-        console.log("note", response)
       })
       .catch(err => console.log("error!"));
   };
@@ -101,13 +100,8 @@ class App extends Component {
         />
         <Route
           exact
-          path="/notes/edit/:id"
-          render={props => (
-            <EditNote
-              {...props}
-              editNote={this.updateNote}
-            />
-          )}
+          path="/notes/display/:id/edit"
+          render={props => <EditNote {...props} editNote={this.updateNote} />}
         />
       </div>
     );
