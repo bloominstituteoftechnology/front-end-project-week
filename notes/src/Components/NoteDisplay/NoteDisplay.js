@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Route } from "react-router-dom";
-import EditNote from "../../Components/EditNote/EditNote";
 import Menu from "../Menu/Menu";
 import "./NoteCard.css";
 
@@ -33,11 +31,11 @@ class NoteCard extends Component {
       <div className="container">
         <Menu />
         <div className="note-container">
-          <div className="buttons">
-            <Link to="/" onClick={this.delete}>
+          <div className="notecard-buttons">
+            <Link to="/" className="notecard-button" onClick={this.delete}>
               Delete
             </Link>
-            <Link to={`/notes/display/${noteId}/edit`} >
+            <Link to={`/notes/display/${noteId}/edit`} className="notecard-button" >
               Edit
             </Link>
           </div>

@@ -13,7 +13,7 @@
 }
 
 .notecard {
-  padding-top: 75px;
+  /* padding-top: 15px; */
 }
 
 .delete:hover {
@@ -23,6 +23,7 @@
 h2 {
   display: flex;
   margin-left: 5%;
+  margin-top: 0;
 }
 
 .body {
@@ -39,10 +40,25 @@ h2 {
 .notecard-buttons {
   display: flex;
   justify-content: flex-end;
+  height: 75px;
   padding-right: 5%;
   margin-top: 10px;
   text-decoration-color: black;
   text-decoration: underline;
+}
+
+.notecard-button {
+  border: 1px solid grey;
+  background-color: rgb(0, 167, 167);
+  color: white;
+  margin: 0 0 20px 5%;
+  width: 15%;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 
 .edit {
