@@ -32,6 +32,16 @@ class App extends Component {
     this.getNotes();
   }
 
+  getNote = note => {
+    axios
+      .get(`https://mitchellnotes-backend.herokuapp.com/api/notes/${note.id}`)
+      .then(response => {
+        this.getNotes();
+        console.log("note", response)
+      })
+      .catch(err => console.log("error!"));
+  };
+
   newNote = note => {
     axios
       .post(`https://mitchellnotes-backend.herokuapp.com/api/notes`, note)
@@ -43,7 +53,6 @@ class App extends Component {
   };
 
   updateNote = updateNote => {
-    console.log("Clicked!");
     axios
       .put(
         `https://mitchellnotes-backend.herokuapp.com/api/notes/${updateNote.id}`,
@@ -51,7 +60,7 @@ class App extends Component {
       )
       .then(response => {
         this.getNotes();
-        console.log("response", response);
+        console.log("response", updateNote);
       })
       .catch(error => console.log("error!"));
   };
@@ -61,11 +70,11 @@ class App extends Component {
       .delete(`https://mitchellnotes-backend.herokuapp.com/api/notes/${id}`)
       .then(response => {
         this.getNotes();
+        console.log(id);
       })
       .catch(error => console.log("error!"));
   };
   render() {
-    console.log("whatever")
     return (
       <div className="App">
         <Route
@@ -76,17 +85,29 @@ class App extends Component {
         <Route
           exact
           path="/notes/create-note"
-          render={props => <CreateNote {...props} />}
+          render={props => <CreateNote {...props} newNote={this.newNote} />}
         />
         <Route
           exact
           path="/notes/display/:id"
-          render={props => <NoteDisplay {...props} notes={this.state.notes} />}
+          render={props => (
+            <NoteDisplay
+              {...props}
+              notes={this.state.notes}
+              getNote={this.getNote}
+              deleteNote={this.deleteNote}
+            />
+          )}
         />
         <Route
           exact
           path="/notes/edit/:id"
-          render={props => <EditNote {...props} editNote={this.updateNote} />}
+          render={props => (
+            <EditNote
+              {...props}
+              editNote={this.updateNote}
+            />
+          )}
         />
       </div>
     );

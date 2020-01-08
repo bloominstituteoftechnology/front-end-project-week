@@ -34,7 +34,7 @@ class EditNote extends Component {
   };
 
   render() {
-    console.log("props", this.props.editNote);
+    console.log("props", this.props);
     return (
       <div className="edit-container">
         <Menu />
@@ -54,7 +54,7 @@ class EditNote extends Component {
             onChange={this.inputHandleChange}
             // value={this.state.body}
           />
-          <Link to="/" className="save-button" onClick={this.editNote}>
+          <Link to="/" className="save-button" onClick={this.updateNote}>
             Update
           </Link>
         </div>
