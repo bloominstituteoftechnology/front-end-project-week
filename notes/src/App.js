@@ -101,7 +101,7 @@ class App extends Component {
         <Route
           exact
           path="/notes/display/:id/edit"
-          render={props => <EditNote {...props} editNote={this.updateNote} />}
+          render={props => <EditNote {...props} notes={this.state.notes} editNote={this.updateNote} />}
         />
       </div>
     );

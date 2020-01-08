@@ -34,6 +34,17 @@ class EditNote extends Component {
   };
 
   render() {
+    let id = this.props.match.params.id;
+    let title;
+    let body;
+    for (let i = 0; i < this.props.notes.length; i++) {
+      if (this.props.notes[i].id == id) {
+        title = this.props.notes[i].title;
+        body = this.props.notes[i].body;
+      }
+    }
+
+
     return (
       <div className="edit-container">
         <Menu />
@@ -41,14 +52,14 @@ class EditNote extends Component {
           <h2>Edit Note:</h2>
           <input
             className="new-note-title"
-            placeholder="Note Title"
+            placeholder={`${title}`}
             name="title"
             onChange={this.inputHandleChange}
             // value={this.state.title}
           />
           <textarea
             className="note-content"
-            placeholder="Note Content"
+            placeholder={`${body}`}
             name="body"
             onChange={this.inputHandleChange}
             // value={this.state.body}

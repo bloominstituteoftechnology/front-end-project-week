@@ -37,7 +37,7 @@ class NoteCard extends Component {
             <Link to="/" onClick={this.delete}>
               Delete
             </Link>
-            <Link to={`/notes/display/${noteId}/edit`} onClick={this.getNote}>
+            <Link to={`/notes/display/${noteId}/edit`} >
               Edit
             </Link>
           </div>
