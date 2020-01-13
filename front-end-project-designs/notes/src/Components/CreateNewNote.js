@@ -24,7 +24,7 @@ class CreateNewNote extends React.Component {
         //this.setState({title : '', textbody : ''});
         axios
             .post('https://fe-notes.herokuapp.com/note/create', newNote )
-            .then(response => this.props.history.replace('/notes'))
+            .then(response => this.props.history.push('/notes'))
             .catch(err => console.log("ERROR : ",err)) 
     }
 
