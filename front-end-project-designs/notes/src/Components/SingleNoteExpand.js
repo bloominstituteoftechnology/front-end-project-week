@@ -24,7 +24,9 @@ class SingleNoteExpand extends React.Component{
     }
 
     render() {
-        console.log("SingleNoteExapand  : ", this.state.textbody)
+        //console.log("props in singlenoteexpand    :  ", this.props)
+        //console.log("SingleNoteExapand  : ", this.state.textbody)
+
         return (
             <div className = "expand-div">
                 <div className = "span-div">

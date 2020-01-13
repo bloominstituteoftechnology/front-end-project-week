@@ -2,36 +2,29 @@
     margin-top : 20px;
 }
 
-button {
-    border: 0;      
-    padding:15px 0;
-    font-size:2rem;
-    font-weight: bold;
-    text-transform:uppercase;
-    letter-spacing : .1em;
-    background : #1ab188;
-    color : white;
-    transition:all.5s ease;
-    display : block;
-    width : 40%;
-    margin-top: 40px;
-    margin-left: 160px;
-    border-radius: 5px;
-    height : 70px;
-}
+
 
 .Formdiv{
     background: #13232f;
     padding: 40px;
+    padding-left: 85px;
     max-width:600px;
-    margin:40px auto;
+    margin:80px auto;
     border-radius: 6px;
     box-shadow:0 4px 10px 4px #13232f;
     font-family: 'Titillium Web', sans-serif;
     color : white;
 }
 
-input[type= password] {
+label {
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+    
+}
+
+input {
     width: 65%;
     height: 30px;
     border-radius: 4px;
@@ -39,5 +32,6 @@ input[type= password] {
     justify-content: center;
     align-items: center;
     padding : 5px;
-    margin-top : 1px;
+    margin-bottom: 30px;
+
 }

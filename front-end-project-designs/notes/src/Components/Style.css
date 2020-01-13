@@ -6,7 +6,9 @@
     justify-content: flex-start;
     text-align: left;
     background-color: #c6c6c6;
-    height: auto;
+    height: 100vh;
+    position: sticky;
+    top: 0;
     /*border : 1px solid black;*/
 }
 
@@ -39,7 +41,7 @@ button {
     margin-right: 3%;
     background-color: white;
     border: 1px solid silver;
-    height: 200px;
+    height: 100%;
     margin-bottom: 20px;
     text-align: left;
 }
@@ -61,7 +63,6 @@ button {
     margin-left: 7%;
     margin-top : 20px;
     font-weight : bold;
-    margin-bottom : 20px;
     display : flex;
     justify-content: space-between;
 }
@@ -198,7 +199,7 @@ textarea {
 }
 
 .Buttons{
-    width: 100%;
+    width: 60%;
     display: flex;
     justify-content: flex-start;
     margin-top: 40px;

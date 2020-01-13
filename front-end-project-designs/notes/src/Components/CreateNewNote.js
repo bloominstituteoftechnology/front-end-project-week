@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+
 import './Style.css'
 
 class CreateNewNote extends React.Component {
@@ -20,16 +21,16 @@ class CreateNewNote extends React.Component {
               title : this.state.title,
               textBody : this.state.textbody
         }
-        this.setState({title : '', textbody : ''});
+        //this.setState({title : '', textbody : ''});
         axios
             .post('https://fe-notes.herokuapp.com/note/create', newNote )
-            .then(response => this.props.history.push('/notes'))
+            .then(response => this.props.history.replace('/notes'))
             .catch(err => console.log("ERROR : ",err)) 
     }
 
-    render() {
-        console.log(this.state.title);
-        console.log(this.state.textbody);
+    render() {     
+        // console.log(this.state.title);
+        // console.log(this.state.textbody);
         return (
             <div className = "create-note-main-div">
                 <h3>Create New Note : </h3>

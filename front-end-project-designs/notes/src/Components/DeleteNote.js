@@ -21,7 +21,9 @@ class DeleteNote extends React.Component{
 
  
     render() {
-        console.log("DeleteNote  :  ", this.props.match.params._id) //getting correct id passed thro route here
+        //console.log("Deletecomponent   :  ",this.props.history.push);
+
+        //console.log("DeleteNote  :  ", this.props.match.params._id) //getting correct id passed thro route here
         return (
             <div className = "ModalContent">
                 <div className = "delete-note-main-div">

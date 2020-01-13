@@ -32,24 +32,24 @@ class Login extends React.Component {
 
                 <form>
                     <div className = "Fieldwrap">
-                        <label>Username : </label>
+                        <label>Username &nbsp; : </label>
                         <input 
                             type = "text"
                             name = "username"
                             value = {this.state.username}
                             onChange = {this.handleInputChange}
                         />
-                    </div>
+                    {/* </div> */}
      
-                        <label>Password : </label>
-                        <input className = "Fieldwrap"
+                        <label>Password &nbsp; : </label>
+                        <input style = {{marginBottom: "50px"}}
                             type = "password"
                             name = "password"
                             value = {this.state.password}
                             onChange = {this.handleInputChange}
                         />
-                                      
-                    <button onClick = {this.handleLoginSubmit} > 
+                    </div>                  
+                    <button onClick = {this.handleLoginSubmit} style = {{backgroundColor : "#07917a" ,marginLeft: "188px", width: "200px", fontSize: "20px", borderRadius:"8px"}} > 
                         Login 
                     </button>
                                

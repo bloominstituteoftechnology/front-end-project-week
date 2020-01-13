@@ -2,9 +2,7 @@ import React from 'react';
 
 import axios from 'axios';
 import SingleNote from './SingleNote';
-import {CSVLink, CSVDownload} from 'react-csv';
-import { Route } from 'react-router-dom';
-import Logout from '../Authenticate/Logout';
+//import {CSVLink, CSVDownload} from 'react-csv';
 
 
 class NotesDisplay extends React.Component {
@@ -22,7 +20,7 @@ class NotesDisplay extends React.Component {
         axios
             .get('https://fe-notes.herokuapp.com/note/get/all')
             .then(response => {
-                    console.log("RR  : ",response.data);
+                    //console.log("response.dat Notes...  : ",response.data);
                     this.setState({ notes : response.data})
              })
             .catch(error => console.log(error))
@@ -55,29 +53,23 @@ class NotesDisplay extends React.Component {
                 />
                 </div>
 
-                
+                <h5 style = {{marginLeft: "62px"}}>Total Notes : {this.state.notes.length}</h5>
+
                 <div className = "notes">
-                   {/* {this.state.notes.map((note, index) => 
-                                                        <SingleNote
-                                                            key = {note.id}
-                                                            data = {note}
-                                                        />
-                    )}*/}
-                       {(this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.state.notes).map((note, index) => 
+                    {(this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.state.notes).map((note, index) => 
                                                                                                                         <SingleNote  
-                                                                                                                            key = {note.id}
+                                                                                                                            key = {index}
                                                                                                                             data = {note}
                                                                                                                         />
                     )}
                 </div>
 
-                <Route exact path = '/csv-file'  component = {<CSVDownload
+                {/* <Route exact path = '/csv-file'  component = {<CSVDownload
                                                                     data = {this.state.notes.map(x => ({ title : x.title, textBody :  x.textBody })) }
                                                                     target = "_blank"  />}
-                />
+                /> */}
 
-                <Logout />
-             
+                            
             </div>
         )
     }
