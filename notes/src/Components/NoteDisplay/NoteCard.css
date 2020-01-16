@@ -35,6 +35,7 @@ h2 {
   border-radius: 10px;
   background-color: silver;
   min-height: 50vh;
+  font-size: 1.5rem;
 }
 
 .notecard-buttons {

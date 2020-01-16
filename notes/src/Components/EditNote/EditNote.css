@@ -16,6 +16,7 @@
   justify-content: flex-start;
   padding-left: 10px;
   border-radius: 5px;
+  font-size: 1.5rem;
 }
 
 .note-content {
@@ -23,6 +24,7 @@
   justify-content: flex-start;
   padding: 10px 0 0 10px;
   border-radius: 5px;
+  font-size: 1.5rem;
 }
 
 @media (max-width: 600px) {

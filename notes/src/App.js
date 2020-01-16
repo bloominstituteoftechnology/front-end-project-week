@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import Authenticate from "./Authentication/Authentication";
 // import EditNote from "./Components/EditNote/EditNote";
 import NoteDisplay from "./Components/NoteDisplay/NoteDisplay";
 import NoteList from "./Components/NoteList/NoteList";
@@ -101,11 +102,17 @@ class App extends Component {
         <Route
           exact
           path="/notes/display/:id/edit"
-          render={props => <EditNote {...props} notes={this.state.notes} editNote={this.updateNote} />}
+          render={props => (
+            <EditNote
+              {...props}
+              notes={this.state.notes}
+              editNote={this.updateNote}
+            />
+          )}
         />
       </div>
     );
   }
 }
 
-export default App;
+export default Authenticate(App);
