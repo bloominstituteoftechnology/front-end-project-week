@@ -3,6 +3,11 @@ import "./Menu.css";
 import { Link } from "react-router-dom";
 
 class Menu extends Component {
+  logout() {
+    localStorage.clear();
+    window.location.reload();
+  }
+
   render() {
     return (
       <div className="menu">
@@ -17,6 +22,9 @@ class Menu extends Component {
           <Link to="/notes/create-note" className="link">
             <div className="button">+ Create New Notes</div>
           </Link>
+          <div className="logout button" onClick={this.logout}>
+            Logout
+          </div>
         </div>
       </div>
     );
