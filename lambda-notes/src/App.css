@@ -58,11 +58,14 @@ table {
 body {
 	font-family:'Raleway', sans-serif;
 	color:#4A4A4A;
+	/* background-color: #4C2D73; */
+	background-color: #071E2C;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Roboto', sans-serif;
 	font-weight: bold;
+	
 }
 
 

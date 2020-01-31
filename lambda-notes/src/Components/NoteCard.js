@@ -11,7 +11,8 @@ const NoteCardContainerStyledDiv = styled.div`
     margin:10px;
     text-decoration:none;
     padding-left:5px;
-    color:black;
+    // color:black;
+    color:#4A4A4A;
     `
 const NoteCardTitleStyledHeading = styled.h2`
     font-size:22px;
@@ -35,7 +36,7 @@ const NoteCardContentContainerStyledDiv = styled.div`
     margin-right:10px;
     height:123px;
     overflow:hidden;
-    white-space: pre-wrap;
+    white-Space: pre-wrap;
 `
 
 const NoteCard = props => {

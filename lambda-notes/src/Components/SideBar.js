@@ -6,14 +6,18 @@ import Register from './Register';
 
 const SideBarContainerStyledDiv = styled.div`
     background-color: #D8D8D8;
+    // background-color:#731D00;
     width: 220px;
     padding:10px;
+    
 `
 const SideBarStyledHeading = styled.h1`
     font-size:36px;
 `
 const SideBarStyledButton = styled.button`
-    background-color: #2BC1C4;
+    // background-color: #2BC1C4;
+    background-color: #0075C0;
+
     color: white;
     width: 190px;
     height:45px;

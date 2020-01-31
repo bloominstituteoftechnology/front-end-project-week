@@ -17,6 +17,7 @@ const NotesListContainerStyledDiv = styled.div`
     flex-wrap:wrap;
     width: 680px;
     background-color: #F3F3F3;
+    // background-color:#D3D7DA;
 `
 
 const NotesList = props => {

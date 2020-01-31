@@ -269,9 +269,10 @@ const AppContainerStyledDiv = styled.div`
   display:flex;
   width: 900px;
   // border: 1px solid #979797;
-  border: 3px solid black;
+  border: 5px solid #D3D7DA;
   margin-left:auto;
   margin-right:auto;
+  margin-top:30px;
 `
 
 const RightHandSideContainerStyledDiv = styled.div`
