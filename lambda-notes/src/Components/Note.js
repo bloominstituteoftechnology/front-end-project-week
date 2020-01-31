@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
+import host from '../host';
 
 const EditDeleteContainerStyledDiv = styled.div`
     display:flex;
@@ -39,7 +40,7 @@ class Note extends Component {
         // note = note[0]
 
 
-        axios.get(`http://localhost:8000/api/noteEntries/${id}`)
+        axios.get(`${host}/api/noteEntries/${id}`)
             .then(res=> {
                 console.log(res)
                 this.setState({note:res.data[0]})
