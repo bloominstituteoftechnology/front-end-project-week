@@ -33,9 +33,9 @@ class EditNote extends Component {
         // console.log('note2: ', note)
         
         const id = this.props.match.match.params.id;
-        axios.get(`http://localhost:8000/api/noteEntries/${id}`)
+        axios.get(`${host}/api/noteEntries/${id}`)
             .then(res=> {
-                console.log(res)
+                console.log('res: ', res)
                 this.setState({note:res.data[0]})
             })
             .catch(err=> {
@@ -47,7 +47,7 @@ class EditNote extends Component {
     render() {
         // const textBody = this.state.note.textBody
         const { note } = this.state
-        console.log('sdfsdf', this.state.note.textBody)
+        console.log('this.state.note.textBody: ', this.state.note.textBody)
         const textBodyCopy = this.state.note.textBody
         
         return (
@@ -62,7 +62,7 @@ class EditNote extends Component {
                         // defaultValue={props.noteEntries[props.match.match.params.id - 1].title}
                         defaultValue={note.title}
                     />
-                    {/* <CreateNoteStyledTextarea
+                    <CreateNoteStyledTextarea
                         type="text"
                         placeholder="Note Content"
                         name="content"
@@ -72,8 +72,8 @@ class EditNote extends Component {
                         
                     >
                     {`dfdsdf + ${textBodyCopy}`}
-                    </CreateNoteStyledTextarea> */}
-                    <CreateNoteStyledInput2
+                    </CreateNoteStyledTextarea>
+                    {/* <CreateNoteStyledInput2
                         type="text"
                         placeholder="Note Content"
                         name="content"
@@ -81,7 +81,7 @@ class EditNote extends Component {
                         // defaultValue={props.noteEntries[props.match.match.params.id - 1].textBody}
                         defaultValue={textBodyCopy}
                         
-                    />
+                    /> */}
                     
                 </CreateNoteStyledForm>
 
