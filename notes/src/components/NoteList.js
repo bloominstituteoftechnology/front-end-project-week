@@ -1,7 +1,8 @@
 import React from 'react';
 import Note from './Note';
 import { Route, Link, NavLink } from 'react-router-dom';
-import LinesEllipsis from 'react-lines-ellipsis';
+
+
 
 
 function NoteList(props){
@@ -21,9 +22,11 @@ function NoteList(props){
               onClick={ev => routeToNote(ev, note)}
               className='each-note'
               key={note._id}>
+
             <h4>{note.title}</h4>
-            <p>_______________________________</p>
-            <p>{note.textBody}</p>
+            <h4>_______________________________</h4>
+            <p className='text-body'>{note.textBody}</p>
+
             </div>
           )
         })}
