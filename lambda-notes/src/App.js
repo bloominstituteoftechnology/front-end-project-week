@@ -10,6 +10,25 @@ import styled from 'styled-components';
 import EditNote from './Components/EditNote';
 import host from './host';
 
+const AppContainerStyledDiv = styled.div`
+  display:flex;
+  width: 900px;
+  // border: 1px solid #979797;
+  border: 5px solid #D3D7DA;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:30px;
+`
+
+const RightHandSideContainerStyledDiv = styled.div`
+  display:flex;
+  flex-wrap:wrap;
+  width: 680px;
+  background-color: #F3F3F3;
+  padding-left:15px;
+  padding-right:15px;
+  padding-bottom:15px
+`
 
 class App extends Component {
   constructor() {
@@ -24,14 +43,7 @@ class App extends Component {
         //   textBody: `Lorem ipsum dolor sit amet,liquam odio ac lorem bibendum, in fermentum elit hendrerit. Inte.`,
         //   tags: ['one', 'two', 'three'],
         //   id: 1
-        // }, 
-        // {
-        //   title: 'bleep',
-        //   textBody: `Lorem ipsum dolor sit amet,liquam odio ac lorem bibendum, in fermentum elit hendrerit. Inte.`,
-        //   tags: ['one', 'two', 'three'],
-        //   id: 2
         // }
-
       ],
 
       noteEntry: {
@@ -89,8 +101,6 @@ class App extends Component {
         this.logout();
         console.log('please login to see your notes')
       }
-    
-    
   }
 
   addNoteEntry = (e) => {
@@ -210,7 +220,6 @@ class App extends Component {
         }
         />
 
-
         {/* NOTES LIST COMPONENT */}
         <Route exact path="/" render={() =>
           <RightHandSideContainerStyledDiv>
@@ -262,103 +271,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-const AppContainerStyledDiv = styled.div`
-  display:flex;
-  width: 900px;
-  // border: 1px solid #979797;
-  border: 5px solid #D3D7DA;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:30px;
-`
-
-const RightHandSideContainerStyledDiv = styled.div`
-  display:flex;
-  flex-wrap:wrap;
-  width: 680px;
-  background-color: #F3F3F3;
-  padding-left:15px;
-  padding-right:15px;
-  padding-bottom:15px
-`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  // addNoteEntry = (e) => {
-  //   e.preventDefault();
-  //   const noteEntries = this.state.noteEntries.slice();
-  //   const noteEntry = {
-  //     title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
-  //     textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
-  //     tags: [],
-  //     id: this.state.noteEntries.length+1
-  //   }
-
-  //   const noteEntryBlank = {
-  //     title: '',
-  //     textBody: '',
-  //     tags: [],
-  //     id: ''
-  //   }
-
-  //   noteEntries.push(noteEntry);
-  //   this.setState({ noteEntries: noteEntries, noteEntry: noteEntryBlank })
-  // }
-
-  
-  // deleteNoteEntry = (e,ID) => {
-  //   const noteEntries = this.state.noteEntries.slice();
-  //   noteEntries.splice(ID-1,1);
-
-  //   for (let i = 0; i< noteEntries.length; i++) {
-  //     noteEntries[i].id=i+1
-  //   }
-
-  //   const noteEntryBlank = {
-  //     title: '',
-  //     textBody: '',
-  //     tags: [],
-  //     id: ''
-  //   }
-
-  //   this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
-  // }
-
-    // editNoteEntry = (e, ID) => {
-  //   // e.preventDefault();
-  //   const noteEntries = this.state.noteEntries.slice();
-  //   const noteEntry = {
-  //     title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
-  //     textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
-  //     tags: [],
-  //     id: ID
-  //   }
-
-  //   const noteEntryBlank = {
-  //     title: '',
-  //     textBody: '',
-  //     tags: [],
-  //     id: ''
-  //   }
-
-  //   noteEntries[`${ID}`-1] = noteEntry;
-
-  //   this.setState(()=>({ noteEntries: noteEntries, noteEntry: noteEntryBlank }))
-  // }
