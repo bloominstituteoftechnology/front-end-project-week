@@ -57,18 +57,18 @@ class App extends Component {
 
   login = e => {
     this.setState({loggedIn:true})
-    console.log('loggedIn supposed to change state')
+    // console.log('loggedIn supposed to change state')
   }
   logout = e => {
     this.setState({loggedIn:false})
-    console.log('logged out')
+    // console.log('logged out')
     localStorage.removeItem('lambdaNotesUserId');
     localStorage.removeItem('lambdaNotesToken');
     this.setState({noteEntries:[]})
   }
   
   componentDidMount() {
-    console.log('componentDidMount');
+    // console.log('componentDidMount');
     this.fetchNoteEntries();
   }
 
@@ -81,7 +81,7 @@ class App extends Component {
       axios.get(`${userEndpoint}/noteEntries`)
       .then(res => {
         const noteEntries = res.data;
-        console.log('noteEntries: ',noteEntries);
+        // console.log('noteEntries: ',noteEntries);
         this.setState({noteEntries:noteEntries})
       })
       .catch(err => {
@@ -99,7 +99,7 @@ class App extends Component {
         })
       } else {
         this.logout();
-        console.log('please login to see your notes')
+        // console.log('please login to see your notes')
       }
   }
 
@@ -121,7 +121,7 @@ class App extends Component {
     axios
       .post(`${host}/api/noteEntries`, noteEntry)
       .then(res => {
-        console.log('res: ', res)
+        // console.log('res: ', res)
         this.fetchNoteEntries();
         this.setState({noteEntry: noteEntryBlank });
       })
@@ -147,12 +147,12 @@ class App extends Component {
       textBody: ''
     }
 
-    console.log('noteEntry input to used in edit Note entry put call: ', noteEntry)
+    // console.log('noteEntry input to used in edit Note entry put call: ', noteEntry)
 
     axios
       .put(`${host}/api/noteEntries/${ID}`, noteEntry)
       .then(res => {
-        console.log('res from edit Note entry put call: ', res)
+        // console.log('res from edit Note entry put call: ', res)
         this.fetchNoteEntries();
         this.setState(()=>({noteEntry: noteEntryBlank }))
       })
@@ -173,7 +173,7 @@ class App extends Component {
     axios
       .delete(`${host}/api/noteEntries/${ID}`)
       .then(res => {
-        console.log('res: ', res);
+        // console.log('res: ', res);
         this.fetchNoteEntries();
         this.setState(()=>({noteEntry: noteEntryBlank }));
       })
@@ -183,7 +183,7 @@ class App extends Component {
   }
 
   createNoteTitleHandler = e => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
 
     this.setState({
       noteEntry: {
@@ -195,7 +195,7 @@ class App extends Component {
   }
 
   createNoteTextBodyHandler = e => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
 
     this.setState({
       noteEntry: {
