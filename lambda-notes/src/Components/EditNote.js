@@ -29,7 +29,7 @@ class EditNote extends Component {
     }
 
     editNoteTitleHandler = e => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
     
         this.setState({
           noteEntry: {
@@ -41,7 +41,7 @@ class EditNote extends Component {
     }
 
     editNoteTextBodyHandler = e => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
     
         this.setState({
           noteEntry: {
@@ -56,7 +56,7 @@ class EditNote extends Component {
         const id = this.props.match.match.params.id;
         axios.get(`${host}/api/noteEntries/${id}`)
             .then(res=> {
-                console.log('res from EditNote.js componentDidMount: ', res)
+                // console.log('res from EditNote.js componentDidMount: ', res)
                 this.setState({noteEntry:res.data[0]})
             })
             .catch(err=> {
@@ -66,20 +66,20 @@ class EditNote extends Component {
     
     
     render() {
-        console.log('this.state: ', this.state);
-        console.log('this.state.noteEntry: ', this.state.noteEntry);
+        // console.log('this.state: ', this.state);
+        // console.log('this.state.noteEntry: ', this.state.noteEntry);
 
         return (
             <CreateNoteFormContainerStyledDiv>
                 <h1 style = {{margin:'55px 0px 25px 0px', font:'Roboto Bold', fontWeight:'bold', fontSize:'20px', color:'#4A4A4A'}}>Edit Note:</h1>
                 <CreateNoteStyledForm>
+
                     <CreateNoteStyledInput
                         type="text"
                         placeholder="Note Title"
                         name="title"
                         onChange = {this.editNoteTitleHandler}
                         value = {this.state.noteEntry.title}
-                        // defaultValue={this.state.noteEntry.title}
                     />
 
                     <CreateNoteStyledTextarea
@@ -88,23 +88,8 @@ class EditNote extends Component {
                         name="content"
                         onChange = {this.editNoteTextBodyHandler}
                         value = {this.state.noteEntry.textBody}
-                        // defaultValue={this.state.noteEntry.textBody}
                     >
-                    {/* {`dfdsdf + ${this.state.noteEntry.textBody}`} */}
                     </CreateNoteStyledTextarea>
-
-
-
-
-                    {/* <CreateNoteStyledInput2
-                        type="text"
-                        placeholder="Note Content"
-                        name="content"
-                        onChange={this.props.createNoteTextBodyHandler}
-                        // defaultValue={props.noteEntries[props.match.match.params.id - 1].textBody}
-                        defaultValue={textBodyCopy}
-                        
-                    /> */}
                     
                 </CreateNoteStyledForm>
 
