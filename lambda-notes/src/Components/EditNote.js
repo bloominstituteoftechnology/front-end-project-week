@@ -20,23 +20,44 @@ class EditNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note:{}
+            noteEntry:{
+                title: '',
+                textBody: '',
+                tags: []
+            }
         };
     }
 
-    fetchNote = () => {
+    editNoteTitleHandler = e => {
+        console.log(e.target.value);
+    
+        this.setState({
+          noteEntry: {
+            title: e.target.value,
+            textBody: this.state.noteEntry.textBody,
+            tags: this.state.noteEntry.tags
+          }
+        })
     }
+
+    editNoteTextBodyHandler = e => {
+        console.log(e.target.value);
+    
+        this.setState({
+          noteEntry: {
+            title: this.state.noteEntry.title,
+            textBody: e.target.value,
+            tags: this.state.noteEntry.tags
+          }
+        })
+    }
+
     componentDidMount() {
-        // let note = this.props.noteEntries.filter(noteEntry => noteEntry.id ==this.props.match.match.params.id)
-        // note = note[0]
-        // console.log('this.props2: ', this.props)
-        // console.log('note2: ', note)
-        
         const id = this.props.match.match.params.id;
         axios.get(`${host}/api/noteEntries/${id}`)
             .then(res=> {
-                console.log('res: ', res)
-                this.setState({note:res.data[0]})
+                console.log('res from EditNote.js componentDidMount: ', res)
+                this.setState({noteEntry:res.data[0]})
             })
             .catch(err=> {
                 console.log(err)
@@ -45,11 +66,9 @@ class EditNote extends Component {
     
     
     render() {
-        // const textBody = this.state.note.textBody
-        const { note } = this.state
-        console.log('this.state.note.textBody: ', this.state.note.textBody)
-        const textBodyCopy = this.state.note.textBody
-        
+        console.log('this.state: ', this.state);
+        console.log('this.state.noteEntry: ', this.state.noteEntry);
+
         return (
             <CreateNoteFormContainerStyledDiv>
                 <h1 style = {{margin:'55px 0px 25px 0px', font:'Roboto Bold', fontWeight:'bold', fontSize:'20px', color:'#4A4A4A'}}>Edit Note:</h1>
@@ -58,21 +77,25 @@ class EditNote extends Component {
                         type="text"
                         placeholder="Note Title"
                         name="title"
-                        onChange={this.props.createNoteTitleHandler}
-                        // defaultValue={props.noteEntries[props.match.match.params.id - 1].title}
-                        defaultValue={note.title}
+                        onChange = {this.editNoteTitleHandler}
+                        value = {this.state.noteEntry.title}
+                        // defaultValue={this.state.noteEntry.title}
                     />
+
                     <CreateNoteStyledTextarea
                         type="text"
                         placeholder="Note Content"
                         name="content"
-                        onChange={this.props.createNoteTextBodyHandler}
-                        // defaultValue={props.noteEntries[props.match.match.params.id - 1].textBody}
-                        defaultValue={note.textBody}
-                        
+                        onChange = {this.editNoteTextBodyHandler}
+                        value = {this.state.noteEntry.textBody}
+                        // defaultValue={this.state.noteEntry.textBody}
                     >
-                    {`dfdsdf + ${textBodyCopy}`}
+                    {/* {`dfdsdf + ${this.state.noteEntry.textBody}`} */}
                     </CreateNoteStyledTextarea>
+
+
+
+
                     {/* <CreateNoteStyledInput2
                         type="text"
                         placeholder="Note Content"
@@ -86,7 +109,7 @@ class EditNote extends Component {
                 </CreateNoteStyledForm>
 
                 <Link to={`/`}>
-                    <UpdateNoteStyledButton onClick={(e) => this.props.editNoteEntry(e, this.props.match.match.params.id)}>
+                    <UpdateNoteStyledButton onClick={(e) => this.props.editNoteEntry(e, this.props.match.match.params.id, this.state.noteEntry)}>
                         Update
                     </UpdateNoteStyledButton>
                 </Link>

@@ -90,7 +90,7 @@ class App extends Component {
 
       axios.get(`${userEndpoint}`)
         .then(res=>{
-          console.log(res)
+          // console.log(res)
           this.setState({username:res.data.username})
           return res.data.user
         })
@@ -130,27 +130,29 @@ class App extends Component {
       }) 
   }
 
-  editNoteEntry = (e, ID) => {
+  editNoteEntry = (e, ID, noteEntry) => {
     // e.preventDefault();
     const userId = localStorage.getItem('lambdaNotesUserId');
     const userEndpoint = `${host}/api/users/${userId}`;
 
-    const noteEntry = {
-      id: ID,
-      userId: localStorage.getItem('lambdaNotesUserId'),
-      title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
-      textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
-    }
+    // const noteEntry = {
+    //   id: ID,
+    //   userId: localStorage.getItem('lambdaNotesUserId'),
+    //   title: this.state.noteEntry.title[0],  // zero here because this is registering as an array without it when I add. don't know why!
+    //   textBody: this.state.noteEntry.textBody[0], // zero here because this is registering as an array without it when I add. don't know why!
+    // }
 
     const noteEntryBlank = {
       title: '',
       textBody: ''
     }
 
+    console.log('noteEntry input to used in edit Note entry put call: ', noteEntry)
+
     axios
       .put(`${host}/api/noteEntries/${ID}`, noteEntry)
       .then(res => {
-        console.log('res: ', res)
+        console.log('res from edit Note entry put call: ', res)
         this.fetchNoteEntries();
         this.setState(()=>({noteEntry: noteEntryBlank }))
       })
