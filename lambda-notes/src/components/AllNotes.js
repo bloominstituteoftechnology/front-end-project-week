@@ -15,22 +15,22 @@ import Notes from '../components/Notes';
 //     background-color: #e5e5e5;
 //     width: 900px;
 // `
-    const MainNoteHeader = styled.div`
-        margin: 30px 0px 0px 60px;
-        font-weight: bold;
-        font-size: 40px;
-    `
+    // const MainNoteHeader = styled.div`
+    //     margin: 30px 0px 0px 60px;
+    //     font-weight: bold;
+    //     font-size: 40px;
+    // `
     // const NoteContainer = styled.div`
     //     display:flex;
     //     flex-wrap:wrap;
     //     justify-content: center;
     // `
-        const Note = styled.div`
-            background-color: white;
-            margin: 10px 10px 10px 10px;
-            width: 200px;
-            height: 250px;
-        `
+        // const Note = styled.div`
+        //     background-color: white;
+        //     margin: 10px 10px 10px 10px;
+        //     width: 200px;
+        //     height: 250px;
+        // `
 
 export default class AllNotes extends Component {
     constructor(props){
@@ -63,16 +63,16 @@ export default class AllNotes extends Component {
         // console.log(this.state.notes)
         return (
             <div className="NoteContainer">
-                <MainNoteHeader>Your Notes:</MainNoteHeader>
+                <div className="MainNoteHeader">Your Notes:</div>
                 <div className="main_note_div">
                     {this.state.notes.map(note => (
-                        <Note key ={note._id}>
+                        <div className="Note" key ={note._id}>
                             <NoteDetails
                                 key = {note._id}
                                 id = {note._id}
                                 note = {note}
                                 />
-                        </Note>
+                        </div>
                     ))}
                 </div>
             </div>
