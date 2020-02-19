@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// import '../CSS/Note.css'
 
 const ModalDiv = styled.div`
     width: 800px;
