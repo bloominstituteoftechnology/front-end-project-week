@@ -16,19 +16,6 @@ const MainDiv = styled.div`
     flex-direction:column;
     flex-wrap:wrap;
 `
-
-const EditDeleteButtonDiv = styled.div`
-    display:flex;
-    justify-content:flex-end;
-`
-
-const EditDeleteButton = styled.button`
-    border:none;
-    background-color:#e5e5e5;
-    font-size: 15px;
-    text-decoration:underline;
-
-`
 const SingleNoteDiv = styled.div`
     width: 800px;
 `
@@ -105,15 +92,15 @@ export default class SingleNote extends Component {
                     </Modal>
                 </div>
 
-               <EditDeleteButtonDiv>
+               <div className="EditDeleteButtonDiv">
                     <div>
                         <Link to={`/EditNote/${this.props.match.params.id}`}>
-                            <EditDeleteButton>Edit</EditDeleteButton>
+                            <button className="EditDeleteButton">Edit</button>
                         </Link>
                 
-                        <EditDeleteButton onClick={this.toggleModal}>Delete</EditDeleteButton>
+                        <button className="EditDeleteButton" onClick={this.toggleModal}>Delete</button>
                     </div>
-               </EditDeleteButtonDiv>
+               </div>
                 <SingleNoteDiv>
                     <Notes
                         title = {this.state.note.title}
