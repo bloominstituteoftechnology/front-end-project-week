@@ -2,35 +2,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
 
 //CSS
 import '../CSS/Note.css'
 
 //Components
 import Notes from '../components/Notes';
-
-//styled components
-// const MainNoteDiv = styled.div`
-//     background-color: #e5e5e5;
-//     width: 900px;
-// `
-    // const MainNoteHeader = styled.div`
-    //     margin: 30px 0px 0px 60px;
-    //     font-weight: bold;
-    //     font-size: 40px;
-    // `
-    // const NoteContainer = styled.div`
-    //     display:flex;
-    //     flex-wrap:wrap;
-    //     justify-content: center;
-    // `
-        // const Note = styled.div`
-        //     background-color: white;
-        //     margin: 10px 10px 10px 10px;
-        //     width: 200px;
-        //     height: 250px;
-        // `
 
 export default class AllNotes extends Component {
     constructor(props){
@@ -59,8 +36,6 @@ export default class AllNotes extends Component {
 
 
     render() {
-        // console.log(this.props)
-        // console.log(this.state.notes)
         return (
             <div className="NoteContainer">
                 <div className="MainNoteHeader">Your Notes:</div>
@@ -81,7 +56,6 @@ export default class AllNotes extends Component {
 }
 
 function NoteDetails({ note }) {
-    // console.log(note.title)
     return (
             <div>
                 <Link to={`/notes/${note._id}`} style={{ textDecoration: 'none' }}>

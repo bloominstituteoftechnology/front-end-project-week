@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
+import '../CSS/Note.css'
+
 
 import Notes from './Notes'
 import Modal from './Modal'
