@@ -1,0 +1,22 @@
+.MainDiv {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap; 
+}
+
+.EditDeleteButtonDiv {
+    display:flex;
+    justify-content:flex-end;
+}
+
+.EditDeleteButton {
+    border:none;
+    background-color:#e5e5e5;
+    font-size: 15px;
+    text-decoration:underline;
+}
+
+.SingleNoteDiv {
+    width: 800px;
+
+}

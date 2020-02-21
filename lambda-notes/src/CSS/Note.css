@@ -1,0 +1,23 @@
+.MainNoteDiv {
+    background-color: #e5e5e5;
+    width: 900px;
+}
+
+.MainNoteHeader {
+    margin: 30px 0px 0px 60px;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.NoteContainer {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.Note {
+    background-color: white;
+    margin: 10px 10px 10px 10px;
+    width: 200px;
+    height: 250px;
+}
