@@ -4,13 +4,13 @@ export const drawerWidth = 330
 
 export const H1 = styled.h1 `
 font-size: 1.6rem ;
-font-family: 'Permanent Marker' ;
+font-family: 'Oxygen Mono' ;
 margin-bottom: 5px ;
 color: #90A4AE ;
 `
 export const H4 = styled.h4 `
 font-size: 1rem ;
-font-family: 'Permanent Marker' ;
+font-family: 'Oxygen Mono' ;
 margin-bottom: 5px ;
 color: #90A4AE ;
 `
@@ -69,7 +69,6 @@ export const styles = theme => ({
  drawerPaper: {
   position: 'relative',
   whiteSpace: 'nowrap',
-  background: "#546E7A",
   border: '1px solid black',
   width: drawerWidth,
   transition: theme.transitions.create('width', {
