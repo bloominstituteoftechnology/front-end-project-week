@@ -24,7 +24,6 @@ const styles = theme => ({
   marginTop: 40,
   maxWidth: 200,
   maxHeight: 400,
-  background: '#CFD8DC',
   border: '2px solid black ',
   boxShadow: '10px 10px 12px #263238'
  },

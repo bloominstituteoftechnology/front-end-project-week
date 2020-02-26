@@ -51,7 +51,7 @@ class Sidebar extends React.Component {
      >
       <Toolbar disableGutters={!this.state.open} className={classes.toolbar}>
        <IconButton
-       color="inherit"
+       color="black"
        aria-label="Open Drawer"
        onClick={this.onOpen}
        className={
@@ -69,9 +69,9 @@ class Sidebar extends React.Component {
        noWrap
        className={classes.title}
        >
-       <H4>"For all your note-taking needs."</H4>
+       <H1>Personote</H1>
        </Typography>
-       <IconButton color="inherit">
+       <IconButton color="black">
         <Badge badgeContent={this.props.notes.length} color="#29B6F6">
          <NotificationsIcon color="pink"/>
         </Badge>
