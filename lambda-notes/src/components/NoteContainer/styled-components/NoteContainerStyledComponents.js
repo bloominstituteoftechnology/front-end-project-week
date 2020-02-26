@@ -6,6 +6,6 @@ export const NoteContainerStyle = styled.div `
  flex-wrap: wrap ;
  padding: 5%;
  width: 80% ;
- border: 1px solid black ;
- justify-content: center ;
+ border: 5px solid red ;
+ justify-content: space-around ;
 `

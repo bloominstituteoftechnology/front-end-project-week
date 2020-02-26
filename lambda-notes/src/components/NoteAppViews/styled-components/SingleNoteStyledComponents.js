@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const SingleNoteContainer = styled.div `
-margin-top: 180px ;
+margin-top: 20px ;
 margin-left: 5px ;
 display: flex;
 flex-direction: column;
@@ -35,8 +35,8 @@ export const styles = theme => ({
   width: theme.spacing.unit * 50,
   backgroundColor: theme.palette.background.paper,
   boxShadow: theme.shadows[6],
-  marginTop: 700,
-  marginLeft: 500,
+  marginTop: 100,
+  marginLeft: 200,
   padding: theme.spacing.unit * 4,
   // border: '1px solid black', 
   // margin: "0 auto",

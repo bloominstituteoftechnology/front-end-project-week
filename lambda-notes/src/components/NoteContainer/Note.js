@@ -17,13 +17,15 @@ const Hover = posed.div({
 
 const styles = theme => ({
  root: {
-  width: 400,
+  width: 100,
+  border: '3px solid green',
+  margin: '0 auto',
  },
  paper: {
   padding: theme.spacing.unit * 1.5,
-  marginTop: 40,
   maxWidth: 200,
   maxHeight: 400,
+  margin: '0 auto',
   border: '2px solid black ',
   boxShadow: '10px 10px 12px #263238'
  },
@@ -58,7 +60,7 @@ class Note extends React.Component {
    <Paper 
    
    className={classes.paper}>
-    <Grid container spacing={8}>
+    <Grid container spacing={1}>
      <Grid item>
       <ButtonBase>
       <NoteTitle>
@@ -67,7 +69,7 @@ class Note extends React.Component {
       </ButtonBase>
      </Grid>
      <Grid item xs={12} sm container>
-      <Grid item xs container direction="column" spacing ={16}>
+      <Grid item xs container direction="column" spacing ={1}>
        <Grid item xs>
         <Typography style={{cursor: 'pointer'}}>
         </Typography>

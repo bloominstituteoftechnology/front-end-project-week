@@ -11,6 +11,7 @@ export const NoteTitle = styled.div `
 `
 export const NoteBody = styled.span ` 
  width: 110px ;
+ border: 3px solid red;
  height: 90px ;
  overflow: hidden;
  text-overflow: ellipsis ;
