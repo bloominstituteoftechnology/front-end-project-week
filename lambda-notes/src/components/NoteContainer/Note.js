@@ -8,12 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { NoteTitle, NoteNumber } from './styled-components/NoteStyledComponents'
 import { Wobble, FadeIn, Flip } from 'animate-css-styled-components'
-import posed from 'react-pose'
 
-const Hover = posed.div({
- idle: {scale: 1},
- hovered: {scale: 1.5}
-})
 
 const styles = theme => ({
  root: {
@@ -60,7 +55,7 @@ class Note extends React.Component {
    <Paper 
    
    className={classes.paper}>
-    <Grid container spacing={1}>
+    <Grid container spacing={0}>
      <Grid item>
       <ButtonBase>
       <NoteTitle>
@@ -69,7 +64,7 @@ class Note extends React.Component {
       </ButtonBase>
      </Grid>
      <Grid item xs={12} sm container>
-      <Grid item xs container direction="column" spacing ={1}>
+      <Grid item xs container direction="column" spacing ={0}>
        <Grid item xs>
         <Typography style={{cursor: 'pointer'}}>
         </Typography>

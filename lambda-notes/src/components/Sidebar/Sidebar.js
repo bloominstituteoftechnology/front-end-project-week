@@ -17,7 +17,7 @@ import { Add } from '@material-ui/icons/'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 /* Misc */ 
 import classNames from 'classnames';
-import { H1, H4 } from './styled-components/SidebarStyledComponents'
+import { H1 } from './styled-components/SidebarStyledComponents'
 import { styles } from './styled-components/SidebarStyledComponents' 
 
 class Sidebar extends React.Component {
@@ -43,6 +43,8 @@ class Sidebar extends React.Component {
  }
  render (){
   const { classes } = this.props
+  const { noteCount } = this.state
+  console.log(noteCount)
   return (
   <div>
   <AppBar
@@ -51,7 +53,7 @@ class Sidebar extends React.Component {
      >
       <Toolbar disableGutters={!this.state.open} className={classes.toolbar}>
        <IconButton
-       color="black"
+       color="secondary"
        aria-label="Open Drawer"
        onClick={this.onOpen}
        className={
@@ -71,11 +73,6 @@ class Sidebar extends React.Component {
        >
        <H1>Personote</H1>
        </Typography>
-       <IconButton color="black">
-        <Badge badgeContent={this.props.notes.length} color="#29B6F6">
-         <NotificationsIcon color="pink"/>
-        </Badge>
-       </IconButton>
       </Toolbar>
      </AppBar>
    <Drawer

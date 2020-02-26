@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const drawerWidth = 330 
 
-export const H1 = styled.h1 `
+export const H1 = styled.div `
 font-size: 1.6rem ;
 font-family: 'Oxygen Mono' ;
 margin-bottom: 5px ;

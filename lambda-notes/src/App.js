@@ -4,7 +4,6 @@ import Sidebar from './components/Sidebar/Sidebar'
 import EditView from './components/NoteAppViews/EditView'
 import CreateView from './components/NoteAppViews/CreateView'
 import './App.css';
-import axios from 'axios'
 import NoteContainer from './components/NoteContainer/NoteContainer'
 import SingleNote from './components/NoteAppViews/SingleNote'
 
@@ -13,18 +12,18 @@ class App extends Component {
   notes: []
  }
 
- componentDidMount() {
-  axios
-   .get('http://localhost:3945/api/notes')
-   .then((response) =>{
-    this.setState({
-     notes: response.data
-    })
-   })
-   .catch((err) =>{
-    console.log(err)
-   })
- }
+//  componentDidMount() {
+//   axios
+//    .get('http://localhost:3945/api/notes')
+//    .then((response) =>{
+//     this.setState({
+//      notes: response.data
+//     })
+//    })
+//    .catch((err) =>{
+//     console.log(err)
+//    })
+//  }
   render() {
     return (
      <div className="App">
