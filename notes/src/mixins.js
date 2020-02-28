@@ -169,6 +169,7 @@ export const StyledForm = styled.form`
 
 export const StyledInput = styled.input`
   max-width: 402px;
+  font-family: inherit;
   font-size: 1.6rem;
   color: ${colors.textColor};
   ::placeholder {
@@ -187,6 +188,7 @@ export const StyledTextarea = styled.textarea`
   width: 100%;
   height: 56vh;
   resize: none;
+  font-family: inherit;
   font-size: 1.6rem;
   color: ${colors.textColor};
   ::placeholder {
