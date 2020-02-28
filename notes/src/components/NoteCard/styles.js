@@ -3,41 +3,41 @@ import { StyledP } from '../../mixins';
 import { colors } from '../../variables';
 
 export const StyledCard = styled.div`
-  display: flex;
-  flex-direction: column;
   align-items: stretch;
-  width: 100%;
-  height: 222px;
   background: #ffffff;
-  padding: 13px 20px;
   border: 1px solid ${colors.borderColor};
   border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  height: 222px;
+  padding: 13px 20px;
+  width: 100%;
 `;
 
 export const StyledH5 = styled.h5`
+  border-bottom: 1px solid ${colors.borderColor};
   color: ${colors.textColor};
   font-size: 1.8rem;
-  text-align: left;
-  padding-bottom: 9px;
-  border-bottom: 1px solid ${colors.borderColor};
-  white-space: nowrap;
   overflow: hidden;
+  padding-bottom: 9px;
+  text-align: left;
   text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const CardP = styled(StyledP)`
-  position: relative;
   height: 166px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 2.2rem;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
   ::before {
-    content: '';
-    width: 100%;
-    height: 30%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+    bottom: 0;
+    content: '';
+    height: 30%;
+    left: 0;
+    position: absolute;
+    width: 100%;
   }
 `;

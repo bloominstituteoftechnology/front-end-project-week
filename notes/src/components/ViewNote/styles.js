@@ -10,24 +10,24 @@ export const NoteView = styled(ViewContainer)`
 `;
 
 export const NoteLinkContainer = styled.div`
+  align-items: center;
+  background: ${colors.backgroundColor};
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  padding: 22px 0 26px;
   position: sticky;
   top: 0;
-  z-index: 2;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
   width: 100%;
-  background: ${colors.backgroundColor};
-  padding: 22px 0 26px;
+  z-index: 2;
   @media (max-width: 940px) {
     align-self: flex-end;
     width: 70%;
   }
   @media (max-width: 700px) {
+    padding: 8px 0 18px;
     position: static;
     width: 100%;
-    padding: 8px 0 18px;
   }
 `;
 
@@ -36,27 +36,27 @@ export const NoteLink = styled(StyledLink)`
 `;
 
 export const NoteLinkText = styled.span`
+  color: ${colors.buttonColor};
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: 600;
-  color: ${colors.buttonColor};
-  text-decoration: underline;
   margin-left: 10px;
+  text-decoration: underline;
 `;
 
 export const NoteTextContainer = styled.div`
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
   max-width: 800px;
   /* padding-top: 26px; */
+  width: 100%;
 `;
 
 export const NoteTitle = styled(StyledH3)``;
 
 export const NoteContent = styled(StyledP)`
   line-height: 2.8rem;
-  white-space: pre-wrap;
   margin-top: 30px;
+  white-space: pre-wrap;
 `;

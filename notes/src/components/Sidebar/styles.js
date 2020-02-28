@@ -3,31 +3,31 @@ import { Button, StyledLink } from '../../mixins';
 import { colors } from '../../variables';
 
 export const StyledSidebar = styled.div`
+  align-items: flex-start;
+  background: ${colors.backgroundColor};
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   flex-shrink: 0;
   height: 100vh;
-  width: 249px;
-  background: ${colors.backgroundColor};
   overflow-x: hidden;
   padding: 25px 16px;
+  width: 249px;
   @media (max-width: 940px) {
+    flex-direction: row;
+    height: 62px;
+    justify-content: space-between;
+    left: 0;
+    padding: 8px 0 0 5vw;
     position: fixed;
     top: 0;
-    left: 0;
-    z-index: 3;
-    flex-direction: row;
-    justify-content: space-between;
     width: 30%;
-    height: 62px;
-    padding: 8px 0 0 5vw;
+    z-index: 3;
   }
   @media (max-width: 700px) {
-    width: 100%;
     align-self: stretch;
     height: 44px;
     padding-right: 5vw;
+    width: 100%;
   }
 `;
 
@@ -41,22 +41,22 @@ export const StyledSidebarTitleLink = styled(StyledLink)`
 `;
 
 export const StyledH1 = styled.h1`
-  width: 60%;
-  font-size: 4rem;
   color: ${colors.buttonColor};
+  font-size: 4rem;
   line-height: 3rem;
-  text-align: left;
   margin: 0 0 35px;
+  text-align: left;
+  width: 60%;
   @media (max-width: 940px) {
-    width: initial;
     font-size: 2rem;
     line-height: 1.5rem;
+    width: initial;
   }
 `;
 
 export const StyledSidebarLink = styled(StyledLink)`
-  text-decoration: none;
   margin-bottom: 21px;
+  text-decoration: none;
   @media (max-width: 940px) {
     /* margin: 0; */
   }
@@ -71,11 +71,11 @@ export const StyledButton = styled(Button)`
 export const StyledMobileButton = styled(Button)`
   display: none;
   @media (max-width: 940px) {
-    display: flex;
-    width: 46px;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    justify-content: center;
     margin: 0;
+    width: 46px;
   }
   @media (max-width: 700px) {
     width: 40px;
@@ -90,14 +90,14 @@ export const StyledAltButton = styled(Button)`
 `;
 
 export const StyledMobileAltButton = styled(Button)`
-  display: none;
   background: ${colors.buttonNegColor};
+  display: none;
   @media (max-width: 940px) {
-    display: flex;
-    width: 46px;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    justify-content: center;
     margin: 0;
+    width: 46px;
   }
   @media (max-width: 700px) {
     width: 40px;

@@ -4,39 +4,39 @@ import Markdown from 'react-markdown';
 import { colors } from './variables';
 
 export const ViewContainer = styled.div`
-  flex-grow: 1;
+  align-items: flex-start;
+  background: ${colors.backgroundColor};
+  /* border: 1px solid rgb(152, 152, 152); */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-grow: 1;
   height: 100vh;
-  background: ${colors.backgroundColor};
-  padding: 64px 30px 0 40px;
-  /* border: 1px solid rgb(152, 152, 152); */
+  justify-content: flex-start;
   overflow-y: scroll;
+  padding: 64px 30px 0 40px;
   @media (max-width: 700px) {
     padding-top: 44px;
   }
 `;
 
 export const StyledLink = styled(Link)`
+  border-radius: 7px;
   cursor: pointer;
   text-decoration: none;
-  border-radius: 7px;
 `;
 
 export const Button = styled.div`
-  cursor: pointer;
-  width: 214px;
   background: ${colors.buttonColor};
-  color: rgb(255, 255, 255);
-  font-size: 1.6rem;
-  font-weight: 900;
-  text-align: center;
-  padding: 15px 0;
   /* border: 1px solid gray; */
   border-radius: 7px;
   /* box-shadow: 0px 3px 10px -3px rgb(0, 0, 0); */
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-size: 1.6rem;
+  font-weight: 900;
+  padding: 15px 0;
+  text-align: center;
+  width: 214px;
   :active {
     box-shadow: inset 0px 2px 10px -1px rgb(0, 0, 0);
   }
@@ -51,10 +51,10 @@ export const StyledH3 = styled.h3`
 `;
 
 export const StyledP = styled(Markdown)`
-  text-align: left;
-  font-size: 1.6rem;
   color: ${colors.textColor};
+  font-size: 1.6rem;
   margin-top: 9px;
+  text-align: left;
   & p,
   th,
   td,
@@ -159,43 +159,43 @@ export const StyledP = styled(Markdown)`
 `;
 
 export const StyledForm = styled.form`
-  width: 90%;
-  max-width: 800px;
+  align-items: stretch;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  max-width: 800px;
   padding: 33px 0;
+  width: 90%;
 `;
 
 export const StyledInput = styled.input`
-  max-width: 402px;
+  border: 1px solid ${colors.borderColor};
+  border-radius: 7px;
+  color: ${colors.textColor};
   font-family: inherit;
   font-size: 1.6rem;
-  color: ${colors.textColor};
+  margin-bottom: 16px;
+  max-width: 402px;
+  padding: 14px 12px;
   ::placeholder {
     color: rgb(152, 152, 152);
   }
-  padding: 14px 12px;
-  border: 1px solid ${colors.borderColor};
-  border-radius: 7px;
-  margin-bottom: 16px;
   @media (max-width: 700px) {
     padding: 6px;
   }
 `;
 
 export const StyledTextarea = styled.textarea`
-  width: 100%;
-  height: 56vh;
-  resize: none;
+  border: 1px solid ${colors.borderColor};
+  border-radius: 7px;
+  color: ${colors.textColor};
   font-family: inherit;
   font-size: 1.6rem;
-  color: ${colors.textColor};
+  height: 56vh;
+  margin-bottom: 16px;
   ::placeholder {
     color: rgb(152, 152, 152);
   }
   padding: 14px 12px;
-  border: 1px solid ${colors.borderColor};
-  border-radius: 7px;
-  margin-bottom: 16px;
+  resize: none;
+  width: 100%;
 `;

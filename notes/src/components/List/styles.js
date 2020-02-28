@@ -11,35 +11,35 @@ export const StyledView = styled(ViewContainer)`
 `;
 
 export const SearchBar = styled.div`
+  align-items: center;
+  background: ${colors.backgroundColor};
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  margin-right: 10px;
+  max-width: 1000px;
+  padding: 8px 5% 8px 40px;
   position: sticky;
   top: 0;
-  z-index: 2;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 95%;
-  max-width: 1000px;
-  background: ${colors.backgroundColor};
-  padding: 8px 5% 8px 40px;
-  margin-right: 10px;
+  z-index: 2;
   @media (max-width: 940px) {
     align-self: flex-end;
     justify-content: space-around;
-    width: 70%;
     padding: 8px 5vw;
+    width: 70%;
   }
   @media (max-width: 700px) {
-    position: static;
     justify-content: space-between;
-    width: 100%;
     padding-top: 2px;
+    position: static;
+    width: 100%;
   }
 `;
 
 export const SearchInput = styled(StyledInput)`
-  width: 70%;
   margin: 0;
+  width: 70%;
   @media (max-width: 940px) {
     width: 40vw;
   }
@@ -61,8 +61,8 @@ export const NewOldButton = styled(Button)`
 `;
 
 export const NewOldMobileButton = styled(Button)`
-  width: 96px;
   display: none;
+  width: 96px;
   @media (max-width: 500px) {
     display: initial;
   }
@@ -79,22 +79,21 @@ export const StyledListDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 100%;
   padding: 33px 0 33px 40px;
+  width: 100%;
   @media (max-width: 940px) {
     padding-left: 6vw;
   }
 `;
 
 export const StyledNoteLink = styled(StyledLink)`
-  width: 93%;
-  max-width: 900px;
-  /* margin-right: 17.5px; */
-  margin-bottom: 27px;
-  animation-name: out;
   animation-duration: 150ms;
+  animation-name: out;
   box-shadow: 0 0 0 0 #000000;
-
+  margin-bottom: 27px;
+  /* margin-right: 17.5px; */
+  max-width: 900px;
+  width: 93%;
   /* @media (max-width: 940px) {
     width: 28vw;
   }
@@ -102,13 +101,12 @@ export const StyledNoteLink = styled(StyledLink)`
     width: 42vw;
   }
   @media (max-width: 500px) {
-    width: 88vw; */
-  }
+    width: 88vw;
+  } */
   :hover {
-    animation-name: in;
     animation-duration: 370ms;
+    animation-name: in;
     box-shadow: 0 15px 50px -35px #000000;
-
   }
   @keyframes in {
     from {

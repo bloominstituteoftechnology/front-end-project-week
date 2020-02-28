@@ -9,30 +9,31 @@ export const StyledBackdrop = styled.div`
     } else {
       return `display: flex;`;
     }
-  }} position: fixed;
-  top: 0;
+  }} 
+  background: rgba(231, 231, 231, 0.7);
   bottom: 0;
   left: 0;
-  right: 0;
-  z-index: 3;
-  background: rgba(231, 231, 231, 0.7);
   padding-top: 64px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 3;
 `;
 
 export const StyledModal = styled.div`
+  align-items: center;
+  background: rgb(255, 255, 255);
+  border-radius: 7px;
+  box-shadow: 0 5px 20px -5px rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 3;
-  width: 80vw;
-  max-width: 598px;
   height: 212px;
-  background: rgb(255, 255, 255);
-  padding: 36px;
-  border-radius: 7px;
+  justify-content: space-around;
   margin: auto auto 45vh;
-  box-shadow: 0 5px 20px -5px rgb(0, 0, 0);
+  max-width: 598px;
+  padding: 36px;
+  width: 80vw;
+  z-index: 3;
 `;
 
 export const ModalMessage = styled(StyledP)`
@@ -45,18 +46,18 @@ export const ModalButtonContainer = styled.div`
   justify-content: space-around;
   width: 100%;
   @media (max-width: 940px) {
-    flex-direction: column;
     align-items: center;
-    width: 80%;
+    flex-direction: column;
     /* margin-bottom: 28px; */
+    width: 80%;
   }
 `;
 
 export const ModalDeleteButton = styled(Button)`
   background: ${colors.buttonNegColor};
   @media (max-width: 940px) {
-    width: 100%;
     margin-bottom: 10px;
+    width: 100%;
   }
 `;
 
