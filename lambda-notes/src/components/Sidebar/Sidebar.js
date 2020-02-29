@@ -83,7 +83,7 @@ class Sidebar extends React.Component {
       <div className={classes.toolBarIcon}>
        <IconButton onClick={this.onClose}>
         <ChevronLeftIcon />
-       <H1>Duly Noted</H1>
+       <H1>Menu</H1>
        </IconButton>
       </div>
       <Divider />

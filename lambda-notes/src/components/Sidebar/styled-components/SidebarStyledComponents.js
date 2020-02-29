@@ -33,11 +33,11 @@ export const styles = theme => ({
  },
  toolbar: {
   paddingRight: 24,
+  border: '3px solid green'
  },
  toolBarIcon: {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'flex-end',
   padding: '0 8px',
   ...theme.mixins.toolbar,
  },
@@ -69,7 +69,8 @@ export const styles = theme => ({
  drawerPaper: {
   position: 'relative',
   whiteSpace: 'nowrap',
-  border: '1px solid black',
+  border: '3px solid pink',
+  background: 'secondary',
   width: drawerWidth,
   transition: theme.transitions.create('width', {
    easing: theme.transitions.easing.sharp,
@@ -102,7 +103,7 @@ export const styles = theme => ({
  tableContainer: {
   height: 320,
   width: 500,
-  border: '1px solid black',
+  border: '4px solid blue',
  },
  h5: {
   marginBottom: theme.spacing.unit * 2
