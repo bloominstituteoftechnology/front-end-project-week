@@ -1,0 +1,4 @@
+[build]
+base = "lambda-notes/"
+publish = "lambda-notes/build/"
+command = "yarn build"
