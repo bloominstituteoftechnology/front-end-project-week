@@ -1,0 +1,5 @@
+2020-01-20T22:50:40-05:00 | 1c54eaedde83e96dee062bcb19fada251bcdf63c | push
+2020-03-20T22:30:06-05:00 | 51460d01ea49233ebe5af6eb7bc686df5df2ec1e | test commit
+2019-02-23T12:20:27-06:00 | 1b1da7cfcba8822a964c7ed8b83d21a7e454fd66 | MVP finished, code cleaned up
+2019-02-21T13:55:19-06:00 | 0650e9dc415f105e5288e1968a8bfe777f90cb3f | removed empy h tags
+2019-02-20T22:35:23-06:00 | 3c0e90131771f6a76690b88298a995946c583ef5 | Completely refactored to sync up with backend.
