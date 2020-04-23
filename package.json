@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": false,
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "nodemon": "^2.0.3"
   },
   "dependencies": {
-    "bcrypt": "^3.0.5",
+    "@types/dotenv": "^8.2.0",
+    "bcrypt": "^4.0.1",
     "cors": "^2.8.5",
-    "dotenv": "^7.0.0",
-    "express": "^4.16.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "faker": "^4.1.0",
-    "helmet": "^3.16.0",
+    "helmet": "^3.22.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.4.20"
+    "mongoose": "^5.9.10"
   },
   "license": "MIT",
   "scripts": {
