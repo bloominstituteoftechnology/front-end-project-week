@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/index.css';
+import '../css/index.css';
 import { Header } from './Header';
 import Form from './Form';
 

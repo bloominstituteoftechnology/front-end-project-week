@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import CreateNote from './CreateNote';
-import EditNote from './EditNote';
+import CreateNote from './components/CreateNote';
+import EditNote from './components/EditNote';
 import { Header }from './components/Header';
 import NoteList from './components/NoteList';
 import SingleNoteView from './components/SingleNoteView';
 import Sidebar from './components/Sidebar';
-import './css/index.css';
+import './css/index.css'
 
 class App extends Component {
   constructor(props) {

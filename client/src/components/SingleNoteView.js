@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-import "./css/index.css";
+import "../css/index.css";
 import { Link } from "react-router-dom";
 
 class SingleNoteView extends Component {
