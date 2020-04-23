@@ -5,7 +5,7 @@ class NoteCard extends Component {
 
     render() {
         console.log(this.props.notes);
-        if(!this.props.notes) {
+        if(!this.props.notes.length) {
             return (
                 <div className="card-container">
                     <h2 className="main-container-header">{this.props.text}</h2>
