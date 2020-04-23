@@ -71,7 +71,7 @@ else {
 //global middleware
 //TODO: read up more on cors to fix the options
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://notepen.netlify.com']
+    origin: ['http://localhost:3000', 'https://notepen.netlify.app']
 };
 
 server.use(express.json());
