@@ -1,0 +1,14 @@
+.main-content-body {
+ border: 3px solid lightgrey;
+ width: 80%;
+ height: 80%;
+ padding: 5px;
+}
+
+.main-content-body-edit {
+    border: 3px dashed lightgrey;
+    width: 80%;
+    height: 80%;
+    padding: 5px;
+
+}
