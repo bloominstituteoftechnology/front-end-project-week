@@ -1,0 +1,9 @@
+.main_container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    min-width: 660px;
+    height: 100vh;
+    background-color: #f1f1f1;
+    color: rgb(66,66,66)
+}
