@@ -1,0 +1,115 @@
+.App {
+  border: 1px solid gray;
+  background: #f2f2f2;
+  max-width: 880px;
+  min-height: 800px;
+  display: flex;
+  margin: 0 auto;
+  font-size: 62.5%;
+}
+
+.nav {
+  border: 1px solid gray;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  background: lightgray;
+}
+
+
+.nav-logo {
+  margin: 2%;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.button-nav {
+  width: 90%;
+  height: 30px;
+  margin: 3%;
+  color: white;
+  background: #5f9ea0;
+  cursor: pointer;
+} 
+
+.list-block {
+  width:80%;
+  padding: 5%;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note {
+  width: 30%;
+  height: 220px;
+  margin: 1%;
+  padding: 0.5%;
+  background: white;
+  border: 1px solid gray;
+  color: black;
+  text-decoration: none;
+}
+
+.note h3 {
+  margin: 5%;
+  padding-bottom: 2%;
+  border-bottom: 2px solid gray;
+}
+
+.note p {
+  margin: 5%;
+}
+
+.add-note {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-note h2 {
+  margin: 5% 5% 2% 5%;
+}
+
+.add-note input {
+  margin: 2% 5% 1% 5%;
+  height: 25px;
+  width: 55%;
+}
+
+.add-note textarea {
+  margin: 1% 5% 2% 5%;
+  height: 250px;
+  width: 90%;
+}
+
+.add-note button {
+  height: 30px;
+  width: 25%;
+  margin: 0 5%;
+  color: white;
+  background: #5f9ea0;
+  cursor: pointer;
+}
+
+.note-view {
+  padding: 5%;
+  margin: 5%;
+  width: 20%;
+  border: 1px solid black;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-view-link {
+  text-align: right;
+  font-weight: bold;
+  color: black;
+  margin: 5%;
+}
