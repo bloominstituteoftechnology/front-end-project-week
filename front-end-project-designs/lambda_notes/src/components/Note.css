@@ -1,0 +1,125 @@
+.notelist-wrapper{
+    margin: 20px;
+}
+
+.notelist-wrapper h1{
+    font-size: 24px;
+    display: flex;
+    justify-content: flex-start;
+}
+.note-card-container{
+    display: flex;
+    flex-flow: row wrap;
+    width: 700px;
+}
+
+.note-card {
+    width: 30%;
+    height: 100px; 
+    border: 1px solid black;
+    margin: 5px;
+    overflow: hidden;
+    /* padding: 5px; */
+}
+
+.note-card:hover{
+    cursor: pointer;
+}
+
+.note-card .note-title{
+    font-size: 12px;
+    display:flex;
+    flex-flow: row wrap;
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    margin: 5px;
+    /* justify-content: flex-start;
+    align-items: flex-start; */
+}
+
+.note-card .note-textBody{
+    margin: 5px;
+    font-size: 12px;
+    display:flex;
+    flex-flow: row wrap;
+    text-align: left;
+    vertical-align: text-top;
+    /* justify-content: flex-start;
+    align-items: flex-start; */
+}
+
+.note-component .note-title {
+    font-size: 12px;
+    display:flex;
+    flex-flow: row wrap;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.note-component .note-textBody {
+    font-size: 10px;
+    display:flex;
+    flex-flow: row wrap;
+    text-align: left;
+    vertical-align: text-top;
+}
+
+.create-edit-form {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.create-edit-form h1{
+    font-size: 20px;
+}
+
+.create-edit-form .title-input{
+    width: 400px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.create-edit-form .textBody-input {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.save-input-button {
+    width: 130px;
+    height: 30px;
+    background-color: #24B8BD;
+    color: white;
+}
+
+.title-input {
+    text-align: left;
+    vertical-align: text-top;
+}
+
+.textBody-input {
+    text-align: left;
+    vertical-align: top;
+}
+
+
+
+.delete-yes-button{
+    background-color: red;
+    color: white;
+    width: 50px;
+    height: 20px;
+} 
+
+.delete-no-button{
+    background-color:#24B8BD;
+    color: white;
+    width: 50px;
+    height: 20px;
+}

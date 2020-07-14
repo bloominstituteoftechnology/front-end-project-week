@@ -1,0 +1,92 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  max-width: 100%;
+  padding: 10px;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.navigation-panel{
+  width: 275px;
+  height: auto;
+  background-color: #D3D2D3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navigation-panel button{
+   background-color: #24B8BD;
+   width: 130px;
+   height: 30px;
+   color: white;
+}
+
+.display-panel{
+   width: 100%;
+   background-color: #F2F1F2;
+}
+
+.edit-delete-links {
+  display: flex;
+  justify-content: flex-end;
+
+  font-size: 12px;
+
+}
+
+.edit-delete-links h3:hover{
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.delete-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.delete-modal-popup {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  height: 150px;
+}
+
