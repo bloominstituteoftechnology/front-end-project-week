@@ -1,0 +1,19 @@
+p {
+    line-height: 30px;
+}
+
+.delete-button {
+    margin-top: -3px;
+}
+
+.delete-button:hover{
+    cursor:pointer;
+}
+
+.buttons {
+    width: 37%;
+}
+
+.create-link:hover{
+    text-decoration: none;
+}
