@@ -1,0 +1,84 @@
+.noteView-container {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: start;
+    padding: 30px 31px 0px 31px;
+    font-size: 20px;
+    color: #4A4A4A;
+    background-color: #F3F3F3;
+    height: 100vh;
+}
+@media (max-width: 400px) {
+    .noteView-container {
+        height: 100%;;
+    }
+}
+
+
+.noteView-title{
+    padding-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 45px;
+}
+
+.noteView-body {
+    font-family: 'Raleway';
+    font-size: 15px;
+    line-height: 2;
+}
+
+.link {
+    color: #4A4A4A;
+    font-size: 15px;
+    margin-right: 16px;
+    font-weight: bold;
+    float: right;
+    text-Decoration: underline;
+}
+
+.modal-body {
+    border: none;
+    width: 117%; /*584px*/
+    height: 100px;
+    background-color: #FFFFFF;
+    text-align: center;
+    border: 1px solid black;
+    border-bottom: none !important;
+    padding-top: 60px !important;
+}
+
+.modal {
+    margin-left: 10%; /*120px*/
+    padding: 165px 75px 0px 0px; 
+    max-width: 980px;
+    width: 100%;
+}
+
+.modal-footer {
+    width: 117%;
+    height: 100px;
+    background-color: #FFFFFF;
+    padding-right: 80px !important;
+    border: 1px solid black;
+    border-top: none !important;
+}
+
+.delete-btn {
+    background-color: rgb(184, 8, 31);
+}
+
+.delete-btn:hover {
+    background-color: #ff0011;
+    color: white;
+    width: 320px;
+    box-shadow: 3px 3px 3px gray;
+}
+
+.cancel-btn:hover {
+    background-color: #00fbff;
+    color: white;
+    box-shadow: 3px 3px 3px gray;
+}
+
+

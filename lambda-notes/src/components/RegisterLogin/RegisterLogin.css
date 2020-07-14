@@ -1,0 +1,108 @@
+.homePage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* height: 100vh; */
+    height: 100%;
+    align-items: center;
+    background-image: url('../../assets/sidney-m-607220-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-register{
+    width: 100%;
+}
+
+.login-header {
+    height: 12vh;
+    background-color:lightgray;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 50%;
+    opacity: 0.6;
+}
+
+.login-input {
+    display: inline-block;
+    margin-right: 20px;
+    width: 150px;
+    border-radius: 3px;
+}
+
+.loginBtn {
+    display: inline-block;
+    font-size: 15px;
+    height: 30px;
+    width: 18%;
+}
+
+.loginBtn:hover {
+    background-color: #FFFFFF;
+    color: #2BC1C4;
+    box-shadow: none;
+}
+
+.LambdaNotes {
+    font-family: 'Acme', sans-serif;
+    color: #5647aa;
+    opacity: 0.8;
+    margin-top: 20px;
+    font-size: 85px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    word-spacing: 1.5rem;
+}
+
+.register-form {
+    width: 30%;
+    bottom: 200px;
+    background-color: lightgray;
+    margin-top: 5px;
+    margin-bottom: 55px;
+    /* align-self: flex-end; */
+    opacity: 0.7;
+    border-radius: 5px;
+    padding: 3%;
+}
+
+label {
+    font-weight: bold;
+    color: black;
+}
+
+.register-form input {
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 3px;
+}
+
+@media (max-width: 980px) {
+    .login-header {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .login-header {
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+    .login-input {
+        display: block;
+        margin-top: 5px;
+    }
+    .loginBtn {
+        display: block;
+        margin-left: 0px;
+        margin-top: 5px;
+        width: 173px;
+    }
+    .login-header {
+        padding-top: 28px;
+        padding-left: 110px;
+    }
+    .LambdaNotes {
+        font-size: 60px;
+    }
+}
