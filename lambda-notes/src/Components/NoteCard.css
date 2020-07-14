@@ -1,0 +1,30 @@
+.note-card {
+    margin: 0 0 15px 15px;
+    width: 30%;
+    text-align: left;
+    outline: 2px solid #000;
+    background-color: white;
+    
+}
+
+.note-card .card-header {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 5%;
+    line-height: 40px;
+    border-bottom: 1px solid #000;
+}
+
+.note-card .card-body .card-text {
+    overflow: hidden;
+    height: 100%;
+    margin: 5%;
+    
+}
+
+Button {
+    width: 50px;
+    padding: 1%;
+    margin: 2px;
+}
