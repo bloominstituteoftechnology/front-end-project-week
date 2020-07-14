@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.Side-container {
+  width: 20%;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  background-color: #bebebe;
+  border: solid #838383 1px;
+}
+.ViewNotes {
+  margin: 10px 0;
+  background-color: #00b3b3;
+  color: white;
+  width: 90%;
+}
+.CreateNotes {
+  margin: 10px 0;
+  background-color: #00b3b3;
+  color: white;
+  width: 90%;
+}
+.Background-color {
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+}
+.SubmitContainer {
+  padding-left: 170px;
+}
+.InputTitle {
+  margin: 0 auto;
+  background-color: white;
+  width: 200px;
+  margin-bottom: 10px;
+  padding: 1%;
+}
+.InputContent {
+  margin: 0 auto;
+  background-color: white;
+  width: 450px;
+  padding: 1%;
+  height: 200px;
+  position: relative;
+}
+.SaveNote {
+  text-align: center;
+  padding: 1%;
+  border: solid #005778 0.5px;
+  background-color: #00b3b3;
+  color: white;
+  width: 120px;
+  cursor: pointer;
+}
+
+.SelectedTitle {
+  margin: 0 auto;
+  background-color: white;
+  width: 200px;
+  margin-bottom: 10px;
+  padding: 1%;
+  border: 2px solid lightgray;
+}
+.SelectedText {
+  margin: 0 auto;
+  background-color: white;
+  width: 450px;
+  padding: 1%;
+  height: 200px;
+  border: 2px solid lightgray;
+}
+.InputDivs {
+  display: flex;
+  flex-direction: column;
+}
+
+.UpdateNote {
+  margin: 0 auto;
+  background-color: green;
+  color: white;
+  width: 75px;
+  cursor: pointer;
+}
+.EditNote {
+  margin: 5px 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+.EDIT {
+  background-color: green;
+  width: 75px;
+  cursor: pointer;
+  color: white;
+}
+.DELETE {
+  background-color: red;
+  color: white;
+  width: 75px;
+  cursor: pointer;
+}
+.doIt {
+  background-color: red;
+  color: white;
+  width: 75px;
+  cursor: pointer;
+}
+.dont {
+  background-color: green;
+  width: 75px;
+  cursor: pointer;
+  color: white;
+}
+.DeleteDiv {
+  padding: 10px;
+  margin-bottom: 10px;
+  margin: 0 auto;
+  border: 5px solid red;
+  width: 300px;
+}
+.OptionLinks {
+  margin-top: 15px;
+}
+.NoteContainer {
+  overflow-y: auto;
+  height: 700px;
+  /* height: 100vh; */
+}
+.Main-container {
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-left: 20%;
+  overflow-y: auto;
+  height: 650px;
+}
+.Notes-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  overflow-y: auto;
+  height: 630px;
+  /* flex-direction: column; */
+  /* margin: 0 auto; */
+  /* height: 100vh; */
+  /* overflow: hidden; */
+}
+.Note-info {
+  background-color: white;
+  max-width: 275px;
+  min-width: 250px;
+  max-height: 150px;
+  min-height: 100px;
+  padding: 10px;
+  border: 2px solid lightgray;
+  /* text-decoration: none; */
+}
+.note {
+  margin: 2.5% 2.5%;
+  overflow: hidden;
+}
+.NoteTitle {
+  border-bottom: 2px solid lightgray;
+}
