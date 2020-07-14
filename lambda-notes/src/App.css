@@ -1,0 +1,26 @@
+
+        
+        .app {display: flex;
+        flex-direction: row;
+        z-index: 0;
+        height: 100%;
+        }
+        .right-display{
+        
+          background-color: #F3F3F3;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+        }
+        .delete {
+       
+          width: 100vw;
+          height: 100vh;
+          background-color:rgba(215,215,215,0.5);
+          position: fixed;
+          z-index: 10;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }

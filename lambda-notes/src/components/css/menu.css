@@ -1,0 +1,36 @@
+    .menu  { border: 1px solid lightgray;
+      background-color: #D7D7D7;
+      height: 1200px;
+      width: 219px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+      h1{
+       
+        padding: 10px;
+        width: 80%;
+      }
+      .menu-item{
+     
+        width: 189px;
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: #2AC0C4;
+        font-weight: bold;
+        margin: 10px;
+        border: 1px solid gray;
+      }
+        &:hover {
+          cursor: pointer;
+        }
+
+      
+      .red {
+        background-color: red;
+        color: black;
+        height: 200px;
+      }

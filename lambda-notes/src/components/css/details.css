@@ -1,0 +1,35 @@
+
+
+ 
+  /* display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background-color: white;
+  height: 100vh; */
+  .links {
+   
+    padding: 15px;
+    text-align: right;
+    font-weight: bold;
+  }
+
+    .link {
+   
+      margin: 8px;
+      color: gray;
+    
+    }
+  
+  .detail h4 {
+    font-weight: bold;
+    text-align: left;
+    margin: 18px;
+    font-size: 24px;
+    margin-left: 10px;
+  }
+
+  p {
+    line-height: 30px;
+    margin-left: 10px;
+    margin-top:50px;
+  }

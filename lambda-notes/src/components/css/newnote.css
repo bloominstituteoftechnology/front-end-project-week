@@ -1,0 +1,21 @@
+.newnote {
+  /* border: 1px solid green;  */
+  display: grid;
+  grid-template-columns: 500px;
+  /* flex-direction: column; */
+  /* background-color: #F3F3F3; */
+  padding: 25px;
+  width: 80%;
+  align-items: left;
+
+ 
+  font-weight: bold;
+  /* height: 100vh; */
+}
+
+  .newNote h4 {
+text-align: left;
+font-size: 24px;
+font-weight: bold;
+ margin: 10px 0 10px 10px; 
+  }
