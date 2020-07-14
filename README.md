@@ -54,6 +54,8 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
   - Now that you've completed the MVP for this project, we want to work with some data that will be persistent across a server. [We have built a Notes API](/NOTES.md) for you. You'll find information about this server in the NOTES.md file.
 ```
 
+https://trello.com/b/GfpnPZD1/lambda-notes-arthur-bates
+
 ---
 
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.
