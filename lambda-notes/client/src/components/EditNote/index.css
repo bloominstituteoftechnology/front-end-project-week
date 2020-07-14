@@ -1,0 +1,43 @@
+.submit{
+    display: flex;
+    background-color: #5CBDC2;
+    margin : 1rem 0 0 0;
+    border: 1px solid #86AEB1;
+    height: 40px;
+    color: white;
+    font-weight: 800;
+    border-radius: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    width:25%;
+}
+.editNote-container{
+    display: flex;
+    flex-direction: column;
+    width: 675px;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container input {
+    width: 75%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.2rem;
+
+}
+
+.form-container textarea {
+    padding: 1rem;
+}
+
+.note-Header{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-start;
+}

@@ -1,0 +1,21 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 675px;
+    height: 100vh;
+    background: #f1f1f1;
+}
+.nav{
+    display:flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+ .nav  a{
+     margin: 0.5rem;
+     color: rgb(66,66.66);
+ }
+
+ .tittle-header{
+     display: flex;
+ }
