@@ -1,0 +1,42 @@
+.editNote-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+}
+
+.editNote-title {
+  height: 40px;
+  width: 350px;
+  padding: 0.2rem .8rem;
+  margin-bottom: 1rem;
+  border: 1 px solid #B2B2B2;
+  border-radius: 0.2rem;
+}
+
+
+.editNote-body {
+  padding: 0.2rem .8rem;
+  margin-bottom: 1rem;
+  border: 1 px solid #B2B2B2;
+  border-radius: 0.2rem;
+}
+
+.editNote-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+
+    }
+    
+    .editNote-btn button {
+        
+        color: white;
+        font-weight: 600;
+        background-color: #23B8BE;
+        border: 1px solid #86AEB1;
+        margin: 0.5rem 0;
+        height: 40px;
+        border-radius: 0.1rem;
+        width: 200px;
+ 
+}

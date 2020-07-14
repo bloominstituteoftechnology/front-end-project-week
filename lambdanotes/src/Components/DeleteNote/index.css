@@ -1,0 +1,59 @@
+
+.delete-note-container {
+    z-index: 1000;
+    position: fixed;
+    margin-top: 80px;
+    margin-left: -70px;
+    background: white;
+    
+    /* styles */
+    width: 600px;
+    height: 220px;
+    border: 1px solid rgb(66,66,66);
+    box-shadow: 1px 1px 5px rgb(66,66,66);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.delete-buttons {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+
+.deleteNote-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+}
+
+.deleteNote-btn button {
+    
+    color: white;
+    font-weight: 600;
+    background-color: #23B8BE;
+    border: 1px solid #86AEB1;
+    margin: 0.5rem 0;
+    height: 40px;
+    border-radius: 0.1rem;
+    width: 200px;
+    margin: 0.5rem 0.5rem;
+
+}
+
+.deleteNote-btn .red {
+
+    background: red;
+
+}
+
+.hidden {
+    display: none;
+}
+
+
