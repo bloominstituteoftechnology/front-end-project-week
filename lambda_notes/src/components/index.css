@@ -1,0 +1,158 @@
+/* SideBar */
+
+.sideBar {
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    background: lightgray;
+    margin-left: 10px;
+}
+
+.sbTitle {
+    font-size: 40px;
+    margin: 15px 0;
+    padding-left: 10px;
+}
+
+.sbButton {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background: lightseagreen;
+    border: 1px solid grey;
+    padding: 10px 30px;
+    color: white;
+}
+
+.sbButton:hover {
+    cursor: pointer;
+}
+
+.button1{
+    padding: 10px 37px;
+}
+
+/* MainNotes */
+
+.notesContainer {
+    padding-left: 35px;
+    background: whitesmoke;
+    width: 100%;
+    margin-right: 10px;
+    padding-top: 50px;
+}
+
+.notesListContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.notesList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.note {
+    width: 200px;
+    min-height: 170px;
+    border: 1px solid lightgray;
+    padding: 7px 10px;
+    overflow: hidden;
+    margin: 0 25px 25px 0;
+    background: white;
+}
+
+.note h4 {
+    margin: 0;
+}
+
+.note p {
+    margin-top: 0;
+    height: 11rem;
+    overflow: hidden;
+}
+
+/* NotesList */
+.noteLink {
+    text-decoration: none;
+    color: black;
+}
+
+ /* CreateNote */
+ .createNoteContainer {
+    padding-left: 35px;
+    width: 90%;
+    margin-right: 10px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+ }
+
+ .inputTitle {
+     width: 60%;
+     margin: 15px 0;
+     padding: 10px 0 10px 10px;
+ }
+
+ .inputContent {
+     width: 90%;
+     margin-bottom: 15px;
+     height: 500px;
+     padding: 10px 0 0 10px;
+     font-size: 14px;
+     font-family: Arial, Helvetica, sans-serif; 
+ }
+
+ .createNoteButton {
+     width: 180px;
+    margin-bottom: 10px;
+    background: lightseagreen;
+    border: 1px solid grey;
+    padding: 10px 30px;
+    color: white;
+ }
+
+ .createNoteButton:hover {
+    cursor: pointer;
+}
+
+ /* NoteView */
+ .noteViewLinks {
+     display: flex;
+     justify-content: flex-end;
+     padding-right: 30px;
+ }
+ 
+ .noteViewEdit {
+     margin-right: 10px;
+ }
+
+ .noteViewLink {
+    text-decoration: underline;
+    color: darkgrey;
+ }
+
+ .noteViewLink:hover {
+     cursor: pointer;
+ }
+
+ /* DeleteNote */
+ .deleteContainer {
+     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 200px;
+ }
+
+ .deleteButtons {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+ }
+
+ .hidden {
+     display: none;
+ }
