@@ -1,0 +1,48 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+	text-decoration: none;
+}
+
+a {
+	color: inherit;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	box-sizing: border-box;
+	font-family: 'Inter UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: 400;
+	color: #222;
+}
+
+p {
+	color: #444;
+}
+
+.show-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(29, 29, 29, 0.3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+}
+
+.hide-modal {
+	display: none;
+}
+
+
