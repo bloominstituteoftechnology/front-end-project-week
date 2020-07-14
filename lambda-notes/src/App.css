@@ -1,0 +1,7 @@
+.App {
+  max-width: 1024px;
+  width: 100%;
+  min-height: 880px;
+  display: flex;
+  color: #222222;
+}
