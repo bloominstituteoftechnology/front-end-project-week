@@ -1,0 +1,211 @@
+.App {
+  display: flex;
+  text-align: center;
+}
+
+/* notecard */
+
+.notes-headline {
+  display: flex;
+  align-items: flex-start;
+  padding: 5px 5%;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+
+}
+.note-card {
+   display: flex;
+   border: solid lightgray 1px; 
+   width: 25%;
+   height: 180px;
+   background: white;
+   justify-content: center;
+   margin: 10px 1%;
+}
+
+
+.note-card-text {
+  width: 90%;
+  overflow: hidden;
+}
+
+.note-card-text-body {
+  border-top: gray solid 1px;
+  width: 95%;
+}
+
+.note-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 75%;
+  background: #F3F3F3;
+  margin-left: 20%;
+}
+
+.notes-headline {
+  width: 100%; 
+
+}
+.notes-headline h2 {
+  margin-left: 5%;
+
+}
+/* navbar */
+.navbar {
+  width: 20%;
+  height: 100%;
+  background: #D7D7D7;
+  position: fixed;
+  z-index: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2AC0C4;
+  color: white;
+  margin: 10px;
+  border: gray 1px solid;
+  width: 85%;
+  height: 25px;
+}
+
+.nav-button p {
+  width: 95%;
+}
+
+.searchbar {
+  z-index: 9999;
+  width: 85%;
+}
+/* form  page */
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  background: #F3F3F3;
+  margin-left: 20%; 
+}
+
+.form {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.form-button {
+  display: flex;
+  margin-left: 9%;
+  width: 100%;
+}
+
+.form-button button {
+  font-weight: bold;
+}
+
+.form-headline {
+  display: flex;
+  align-items: flex-start;
+  width: 75%;
+  padding: 0 5%;
+}
+
+input {
+  width: 75%;
+  height: 30px;
+  margin: 15px 0;
+}
+
+textarea {
+  height: 300px;
+  width: 100%;
+  margin-left: 12%;
+  }
+
+.new-note-button {
+  background: #2AC0C4;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  border: gray 1px solid;
+  width: 40%;
+  height: 40px;
+}
+
+/* single note page */
+.single-note-and-delete-container {
+  width: 80%;
+  height: 100%;
+  background: #F3F3F3;
+  margin-left: 20%;
+}
+
+.single-note-links {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 30px;
+
+}
+
+.single-note-links a {
+  margin: 10px 3%;
+}
+.single-note-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 5%;
+}
+
+.single-note-container p {
+  width: 85%;
+}
+
+/* delete modal page */
+.modal-div {
+  position: fixed;
+  height: 150px;
+  width: 50%;
+  margin: 100px 10% 0 10%;
+  border: black solid 1px;
+  background: white;
+  z-index: 100;
+}
+
+.modal-div button {
+  width: 30%;
+  height: 40px;
+  margin: 15px 2%;
+  background: #2AC0C4;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.modal-div .delete-note {
+  background: red;
+}
+
+.full-page-modal {
+  display: flex;
+  justify-content: center;
+  z-index: 50;
+  height: 100%;
+  width: 100%;
+  background: #D7D7D7;
+  position: fixed;
+  opacity: 0.5;
+}
+
+
