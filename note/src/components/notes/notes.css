@@ -1,0 +1,71 @@
+.notes{
+    flex:2;
+    margin-left: 300px;
+    background-color: rgb(243, 243, 243);
+    padding: 20px;
+    position: relative;
+}
+.notes__flex{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.notes__edit{
+    position: absolute;
+    right: 100px;
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+}
+.note{
+    font-size: 16px;
+}
+.note__title{
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+.form{
+    width: 75vw;
+    font-size: 16px;
+}
+.form__title{
+    padding: 5px 10px;
+}
+.form__content{
+    padding: 5px 10px;
+}
+.form__submit{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    background-color: teal;
+    width: 125px;
+    font-size: 20px;
+}
+input{
+    margin: 10px 0;
+}
+.card{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 270px;
+    height: 300px;
+    color: blue;
+    background: white;
+    font-size: 16px;
+    padding: 20px;
+    cursor: pointer;
+
+    border: 2px solid rgb(136, 136, 136);
+}
+.card__title{
+    border-bottom: 1px solid grey;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+.card__text{
+    margin-top: 10px;
+}
