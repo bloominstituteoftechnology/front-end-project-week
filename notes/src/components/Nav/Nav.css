@@ -1,0 +1,21 @@
+.nav {
+    min-height: 100vh;
+    background: #D2D1D2;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    width: 80%;
+    margin: 5px 0;
+    height: 40px;
+    background: #2FB6BB;
+    border: 1px solid #94AFB1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+  }

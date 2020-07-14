@@ -1,0 +1,17 @@
+.note {
+    margin: 10px 1px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #D3D2D3;
+    padding: 10px;
+}
+
+.note header {
+    width: 100%;
+    border-bottom: 1px solid #C5C5C5;
+    padding-bottom: 5px;
+}
+
+.note p {
+    padding: 5px 0;
+}
