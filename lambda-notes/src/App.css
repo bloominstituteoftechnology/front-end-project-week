@@ -1,0 +1,163 @@
+/* note-container is a NavLink so that it can be clicked anywhere without a page refresh */
+.note-container {
+    text-decoration: none;
+    color: black;
+}
+.note-container:hover {
+    cursor: pointer;
+}
+
+/* App styling, main container */
+.App {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #b7b7b7;
+    
+}
+
+/* sidebar styling */
+.side-bar {
+    width: 350px;
+    background-color: #D3D2D3;
+    color: #414141;
+    padding: 0 20px;
+    border: 1px solid #B7B7B7;
+}
+
+.button, button {
+    background-color: #24B8BD;
+    text-decoration: none;
+    color: #fbfdfc;
+    width: 230px;
+    height: 40px; 
+    font-size: 16px;  
+    margin: 0 0 15px 0; 
+}
+
+button {
+    border: 2px solid #B7B7B7;
+}
+
+/* main-view */
+.main-view {
+    width: 100%;  
+    padding: 30px 30px 200px 30px; 
+    background-color: #f2f1f2;
+    border: 1px solid #B7B7B7;
+}
+
+/* notes */
+.main-view .notes-container {
+    display: flex; 
+    flex-wrap: wrap;
+}
+
+.main-view .notes-container .note-container {
+    width: 165px;
+    height: 190px; 
+    border: 1px solid #B7B7B7;
+    background-color: #ffffff;
+    padding: 0 15px; 
+    margin: 10px 7px; 
+    overflow: hidden;
+}
+
+.main-view .notes-container .note-container h3 {
+    border-bottom: 1px solid #B7B7B7;
+    padding-bottom: 5px; 
+    width: 100%;
+}
+
+/* search bar in notes */
+.main-view .search-bar-container {
+    display: flex;
+    align-items: center;  
+    justify-content: space-between;
+    margin:  5px 40px 0 10px;
+} 
+
+.main-view .search-bar-container .search-bar {
+    width: 165px;
+    padding: 0 15px;  
+    height: 30px; 
+    font-size: 1.15em;
+    border: 1px solid #B7B7B7;
+}
+
+.main-view .search-bar-container .sort {
+    display: flex; 
+}
+
+.main-view .search-bar-container .sort-button {
+    margin-left: 10px; 
+}
+
+.main-view .search-bar-container .sort-button:hover {
+    color: #24B8BD;
+    cursor: pointer; 
+}
+
+/* create new note */
+.main-view .title {
+    height: 40px; 
+    width: 75%;
+    margin-bottom: 10px;
+    padding-left: 10px; 
+    border-radius: 3px; 
+    border: 2px solid #B7B7b7;
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.main-view .text-body {
+    height: 340px; 
+    width: 95%;
+    margin-bottom: 10px; 
+    padding: 10px;
+    border-radius: 3px; 
+    border: 2px solid #B7B7b7;  
+}
+
+/* note card */
+.main-view .note-nav {
+    display: flex; 
+    justify-content: flex-end;
+}
+
+.main-view .note-nav .note-links {
+    margin: 7px; 
+    color: black; 
+}
+
+.delete-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: grey;
+    z-index: 1;
+    opacity: .9;
+}
+
+/* delete prompt */
+.delete-view .prompt {
+    position: fixed;
+    top: 20%; 
+    left: 22%;  
+    width: 56%; 
+    border: 2px solid #a1a1a1;
+    background-color: #ffffff;  
+    text-align: center;
+    padding: 25px 0 40px; 
+    color: #656263; 
+    z-index: 2;
+}
+
+.delete-view .prompt button {
+    margin: 5px 15px; 
+}
+
+
