@@ -1,0 +1,78 @@
+.create h1 {
+    color: #4A494A;
+    margin-top: 10%;
+}
+
+.sideBar a {
+    width:21vw;
+}
+
+input {
+    display: block;
+    margin: 3% 0 4% 0;
+    font-size: 1rem;
+    padding-left: 2%;
+}
+
+input:first-of-type {
+    width: 60%;
+    height: 2rem;
+}
+
+textarea { 
+    padding-left:2%;
+    font-size:1.1rem;
+    font-family: sans-serif;
+}
+
+input:last-of-type {
+    display: flex;
+    width: 330%;
+    height: 40vh;
+}
+
+.create {
+    margin-left: 3%;
+}
+
+.create input {
+    width:100%;
+}
+
+.create textarea {
+    width:100%;
+
+}
+
+
+.myButton {
+    text-decoration: none;
+    border: none;
+    width: 10rem;
+    background-color: #2AC0C4;
+    color: white;
+    margin-top: 2%;
+    font-size: 1.4rem;
+    height: 7.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myButton:hover {
+    font-size: 1.6rem;
+    height: 7.7vh;
+    cursor: pointer;
+}
+
+.edit {
+    border:1px solid black;
+    font-size: 1rem;
+    margin: 0 10px 0 5px;
+    cursor: pointer;
+    text-decoration-line: underline;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4A4A4A;
+      }
