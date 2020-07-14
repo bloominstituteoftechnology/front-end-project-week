@@ -1,0 +1,203 @@
+
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.login-page {
+  background: url(img/pix1.jpg);
+  width: 100%;
+  color: grey;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page .login-wrapper {
+  width: 30%;
+  height: 30%;
+  background-color: white;
+  opacity: .9;
+  text-align: center;
+  margin-bottom: 150px;
+}
+
+.login-page .login-wrapper button {
+  width: 90%;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #30996b;
+  color: white;
+  opacity: 1;
+}
+
+.logo a{
+  text-decoration: none;
+  font-size: 25px;
+}
+
+pre {
+  font-family: sans-serif;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 5vh;
+  padding: 20px 0;
+  color: white;
+  background-color: black;
+  border-bottom: 1px solid white;
+}
+
+header nav a {
+  color: white;
+}
+
+.filter-wrapper {
+ flex-basis: 30%;
+}
+
+.filter {
+  padding: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+
+
+.logout button{
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 5px 15px;
+}
+
+.main {
+  display: flex;
+}
+
+.side-bar {
+  flex-basis: 15%;
+  text-align: center;
+  padding: 20px 10px;
+  border-top: 1px solid black;
+}
+
+.side-bar h2 {
+  font-size: 25px;
+}
+
+.side-bar button {
+  width: 90%;
+  padding: 10px 0;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+}
+
+.side-btn {
+  margin-bottom: 10px;
+}
+
+.notes-list {
+  flex: 1;
+  display: flex;
+  background-color: black;
+  justify-content: space-around;
+  color: white;
+  min-height: 89vh;
+  overflow: scroll;
+  flex-wrap: wrap;
+  align-item: flex-start;
+}
+
+.note-card {
+  flex-basis: 30%;
+  height: 200px;
+  overflow: scroll;
+  text-align: center;
+  margin-top: 30px;
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+}
+
+.note-card h2 {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+}
+
+.note-card a {
+  color: white;
+  text-decoration: none;
+}
+
+.add-note {
+  background-color: black;
+  color: white;
+  height: 89vh;
+  flex: 1;
+  padding: 20px 30px;
+}
+
+.add-title {
+  padding: 5px;
+  font-size: 16px;
+  width: 60%;
+}
+
+.add-body {
+  margin-top: 30px;
+  font-size: 16px;
+  width: 100%;
+  height: 400px;
+  padding: 5px;
+}
+
+.add-btn {
+  margin-top: 30px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 5px 15px;
+}
+
+.show-wrapper {
+  flex: 1;
+  background-color: black;
+  color: white;
+  min-height: 89vh;
+  overflow: scroll;
+  padding: 30px;
+}
+
+.edit-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-delete button {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 5px 15px;
+  margin-right: 20px;
+}
+
+.show-content {
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.show-content h2 {
+  font-size: 25px;
+}
+
+.show-content p {
+  font-size: 16px;
+}
