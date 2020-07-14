@@ -1,0 +1,363 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	/* font: inherit; */
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 890px;
+  margin: auto;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
+/* Remove excess padding and border in Firefox 4+ */
+&::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+	}
+
+* {
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+}
+
+
+
+.App {
+  display: flex;
+  flex-direction: row;
+  width: 888px;
+  margin: 17px 0;
+	border: 1px solid #aaaaaa;
+	height: 888px;
+}
+
+.App-header {
+  display: flex;
+  width: 24.85%;
+  flex-direction: column;
+	border-right: 1px solid #aaaaaa;
+	align-items: flex-start;
+	padding: 0 13px;
+	background-color: #d3d2d3
+}
+
+.App-title {
+	padding: 13px 0;
+	padding-top: 18px;
+	font-size: 2.2rem;
+	line-height: 30px;
+	letter-spacing: .8px;
+	margin-bottom: 16px;
+	color: #414141
+}
+
+.nav-link {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2px;
+  border: 1px solid #aaaaaa;
+  width: 190px;
+  height: 42px;
+	margin-bottom: 19px;
+	text-decoration: none;
+	font-weight: bold;
+	background-color: #24b8bd;
+	color: white;
+	font-size: .96rem;
+}
+
+.main-section {
+  display: flex;
+  width: 75%;
+  flex-direction: column;
+  padding: 0 19px;
+	position: relative;
+	background-color: #f2f1f2;
+}
+
+.notes-title {
+	font-size: 1.3rem;
+  margin: 55px 8px 31px;
+  font-weight: bold;
+	color: #4c4c4c
+	}
+
+.search-filter {
+		position: absolute;
+    right: 4%;
+    top: 54px;
+    width: 193px;
+	}
+
+.note-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+	margin-left: 3px;
+}
+
+.note {
+  border: 1px solid gray;
+  width: 193px;
+  height: 197px;
+  margin-bottom: 25px;
+	padding: 12px 20px 18px 16px;
+	background-color: white;
+	word-wrap: break-word;
+}
+
+.note-title {
+	border-bottom: 2px solid #dddddd;
+	height: 25px;
+	font-size: 1.1rem;
+	letter-spacing: .5px;
+	color: black;
+	overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a {
+	text-decoration: none;
+	color: #414141;
+}
+
+.note-textBody {
+	font-size: .79rem;
+	margin-top: 6px;
+	letter-spacing: 1px;
+	line-height: 22px;
+	height: 81%;
+	overflow: hidden;
+}
+
+
+
+.new-note {
+  padding: 0px 10px 0 8px;
+}
+
+.note-form{
+	display: flex;
+	flex-direction: column;
+}
+
+.input-title{
+	width: 357px;
+  height: 44px;
+  border-radius: 5px;
+  margin-bottom: 13px;
+	text-indent: 7px;
+}
+
+.input-textBody{
+	width: 100%;
+  height: 349px;
+  border-radius: 5px;
+  margin-bottom: 13px;
+	padding: 1.5% 1.2%
+}
+
+.note-options{
+	position: absolute;
+  right: 4.8%;
+  top: 16px;
+  font-size: 0.9rem;
+  text-decoration: underline;
+	font-weight: bold;
+}
+
+.delete-button {
+	margin-left: 12px;
+	text-decoration: underline;
+	color: #414141
+}
+
+.note-full-view {
+	position: absolute;
+  left: 22px;
+}
+
+.note-full-view .notes-title{
+	margin-left: 4px;
+}
+
+.notes-full-text{
+	font-size: .9rem;
+	padding: 0px 4px;
+	line-height: 25px;
+	margin-top: -3px;
+
+}
+
+.delete-modal {
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+}
+
+.modal-overlay {
+	  position: absolute;
+    background-color: rgba(216, 216, 216, 0.6);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.confirmation-box {
+	position: absolute;
+	top: 21%;
+	width: 533px;
+	background: white;
+	border: 1px solid black;
+	height: 181px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	opacity: 1;
+}
+
+
+.confirmation-message {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	margin-top: 46px;
+	font-size: 0.95rem;
+}
+
+.confirmation-button {
+	width: 190px;
+	border: 1px solid gray;
+	height: 42px;
+	margin: 0 10px;
+	color: white;
+}
+
+.confirmation-button.delete {background-color: #ca001a}
+.confirmation-button.cancel {background-color: #24b8bd}
+
+
+
+/* // ******************
+PAGINATIONS
+// ****************** */
+
+.note-page {
+  display: none;
+}
+.note-page.active {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-left: 3px;
+	width: 100%;
+
+}
+
+.pagination-buttons {
+	width: 190px;
+	background-color: white;
+	display: flex;
+  justify-content: space-around;
+	height: 42px;
+	font-weight: bold;
+	background-color: #24b8bd;
+	color: white;
+	font-size: .96rem;
+	align-items: center;
+}
+
+.pagination-buttons .add {
+	border: 2px solid white;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #24b8bd;
+    background-color: white;
+		font-size: 1.5rem;
+}
+.pagination-buttons .substract {
+	border: 2px solid white;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #24b8bd;
+    background-color: white;
+}
