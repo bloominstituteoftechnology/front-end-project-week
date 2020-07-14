@@ -1,0 +1,47 @@
+.delete_wrapper {
+    z-index: 1000;
+    position: fixed;
+    /* Remove Hackyness */
+    align-self: center;
+    margin-top: 80px;
+    margin-left: 0;
+    /* Standard Styles */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    max-width: 600px;
+    height: 200px;
+    border: 1px solid rgb(66,66,66);
+    box-shadow: 1px 1px 8px rgb(66,66,66);
+    background-color: white;
+}
+
+.delete_buttons_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.hidden {
+    display: none;
+}
+
+@media(max-width: 940px) {
+    .delete_wrapper {
+        margin-left: -20vw;
+    }
+}
+
+@media(max-width: 480px) {
+    .delete_wrapper {
+        margin-left: -25vw;
+    }
+}
+
+@media(max-width: 400px) {
+    .delete_wrapper {
+        margin-left: -35vw;
+    }
+}
