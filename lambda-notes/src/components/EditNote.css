@@ -1,0 +1,11 @@
+.edit-note {
+    padding-top: 40px;
+}
+
+.edit-note h2 {
+    font-weight: bolder;
+}
+
+.edit-note .btn {
+    border-radius: 0;
+    }

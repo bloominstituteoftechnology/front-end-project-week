@@ -1,0 +1,35 @@
+.sidenav {
+    height: 100%; 
+    width: 250px; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    background-color: #D7D7D7; 
+    overflow-x: hidden; 
+    padding-top: 20px;
+    border-right: 2px solid gray; 
+}
+
+.sidenav h1 {
+    padding-left: 16px;
+    font-weight: bolder;
+    line-height: .9;
+}
+
+.sidenav .btn {
+border-radius: 0;
+margin-top: 10px;
+}
+
+.sidenav a {
+    padding: 6px 16px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}

@@ -1,0 +1,11 @@
+.note {
+    padding-top: 16px;
+}
+
+.note h2 {
+    font-weight: bolder;
+}
+
+.note p {
+    padding-top: 30px;
+}
