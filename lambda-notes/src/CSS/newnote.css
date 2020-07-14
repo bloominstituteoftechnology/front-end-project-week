@@ -1,0 +1,38 @@
+.input {
+    display: flex;
+    flex-direction: column;
+}
+.input-title {
+    width: 60%;
+    height: 30px;
+    border-radius: 3px;
+    margin-bottom: 2%;
+    border: solid lightgray 2px;
+    font-size: 100%;
+    padding: 0 1%;
+    outline: none;
+}
+.input-body {
+    width: 100%;
+    height: 60vh;
+    border-radius: 3px;
+    border: solid lightgray 2px;
+    font-size: 100%;
+    box-sizing: border-box;
+    padding: 1%;
+    outline: none;
+}
+ .save > button {
+    color: white;
+    background: darkturquoise;
+    border: solid rgb(172, 172, 172) 1px;
+    border-radius: 2px;
+    font-size: 90%;
+    height: 40px;
+    width: 100%;
+    margin-top: 10%;
+    cursor: pointer;
+}
+ .save {
+    width: 25%;
+}

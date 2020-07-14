@@ -14,6 +14,7 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 - [ ] Create a Trello account
 - [ ] Create a new board called "Lambda Notes - {Your Name}"
+(https://trello.com/b/EmUCpNDs/lambda-notes-jocatherine-griggs)
 - [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
 - [ ] Fill in the `To Do` list with the MVP features listed below
 - [ ] Fill in the `backlog` list with all the extra features listed below

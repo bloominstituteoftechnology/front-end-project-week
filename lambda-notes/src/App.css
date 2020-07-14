@@ -1,0 +1,99 @@
+body {
+  background: #f2f1f2;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: Roboto;
+}
+.App {
+  display: flex;
+  min-height: 100vh;
+  box-shadow: 0px 0px 10px lightgray;
+}
+
+.menu {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #d3d2d3;
+
+  border-right: solid rgb(196, 196, 196) 1px;
+}
+.menu > h1 {
+  font-size: 28px;
+  margin: 10% 10% 8%;
+  color: #414141;
+  font-weight: bolder;
+}
+
+.menu-link {
+  background: darkturquoise;
+  border: solid rgb(172, 172, 172) 1px;
+  font-size: 90%;
+  color: white;
+  width: 80%;
+  height: 40px;
+  margin-bottom: 5%;
+  border-radius: 2px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.note-container {
+  box-sizing: border-box;
+  background: #f2f1f2;
+  padding: 2.5%;
+  width: 80%;
+  height: 100%;
+}
+
+.note-container > h1 {
+font-size: 20px;
+font-weight: bold;
+margin-bottom: 15px;
+
+}
+
+h2 {
+  color: #414141;
+}
+
+.all-notes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin-top: 5%;
+  padding-bottom: 5%;
+  border-bottom: solid lightgray 2px;
+  font-weight: bold;
+}
+
+.note {
+  width: 200px;
+  height: 200px;
+  overflow-y: auto;
+  background: white;
+  border: solid lightgray 2px;
+  box-sizing: border-box;
+  padding: 0 10% 10%;
+  margin: 1%;
+  position: relative;
+  border-radius: 3px;
+
+}
+
+.notelink {
+  text-decoration: none;
+  color: black;
+  margin: 2%;
+}
+.note-contents {
+  line-height: 150%;
+  white-space: pre-wrap;
+
+}
+
