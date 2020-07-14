@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+h2 {
+  margin: 0;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.content {
+  width: 80%;
+
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:rgba(0, 0, 0, 0.5);
+  
+}
+
+#root {
+  height: 100%;
+}
+.deletebutton {
+  background: #cc0000;
+}
+.overlay-box  {
+  position: fixed;
+  background: white;
+  padding: 25px 80px;
+  border: 1px solid black;
+}
+
+.overlay-box button {
+ 
+  padding: 15px 80px;
+}
+
+.overlay-box p {
+  font-size: 1.3rem;
+}
+
+.overlay-buttons {
+  margin-top: 40px;
+  display: flex;
+}
+
+.overlay-box a {
+  margin-right: 25px;
+}

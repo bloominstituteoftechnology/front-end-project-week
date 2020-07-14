@@ -1,0 +1,43 @@
+.sideBarContainer {
+    width: 20%;
+    text-align: start;
+    background: lightgray;
+    
+    min-height: 100vh;
+    border-bottom: 1.5px solid #9BA3A3;
+}
+
+.sidebar-content {
+    height: 100%;
+}
+
+.sideBar {
+    padding: 0 20px 0 20px;
+   
+}
+
+button {
+    width: 100%;
+    padding: 17px 17px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: white;
+    background: #44B3B8;
+    border: 1.5px solid #9BA3A3;
+    font-size: 1.2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 2.5rem;
+    color: #5C5D5D;
+}
+
+.forBorder {
+    height: 100%;
+    padding-top: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}

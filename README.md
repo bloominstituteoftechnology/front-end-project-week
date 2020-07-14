@@ -1,3 +1,9 @@
+
+****************************************************************************************************************
+TRELLO LINK: https://trello.com/b/j1XmM5VX/lambda-notes-bryan-garcia-felix
+****************************************************************************************************************
+
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
