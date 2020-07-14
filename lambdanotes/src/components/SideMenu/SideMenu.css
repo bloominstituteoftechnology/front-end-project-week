@@ -1,0 +1,46 @@
+.sidemenu-container {
+    display: flex;
+}
+
+.sidemenu-container ul {
+    border: 1px solid #A6A6A6;
+    background-color: #D3D2D3;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    width: 228px;
+    margin: 0;
+}
+
+.sidemenu-container .menu-title {
+    letter-spacing: 1px;
+    padding: 0;
+    text-align: justify;
+    margin: 15px;
+    line-height: 32px;
+}
+
+.sidemenu-container .nav-bar .nav-container li {
+    border: 1px solid #A6A6A6;
+    padding: 10px 0;
+    margin: 18px;
+    width: 190px;
+    background-color: #00B9BC;
+}
+
+.sidemenu-container .nav-bar .nav-container li:hover {
+    background-color: rgb(3, 142, 145);
+}
+
+.sidemenu-container .nav-bar .nav-container li .nav-text {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.sidemenu-container .nav-bar .nav-container li .active-component {
+    color: rgb(1, 48, 49);
+}
