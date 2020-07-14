@@ -1,0 +1,33 @@
+.sidebar {
+  background: lightgray;
+  padding: 10px;
+  border: 1px solid grey;
+  width: 25%;
+}
+
+.sidebar-header {
+  font-size: 2rem;
+}
+
+.side-buttons {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  background: #6dcfca;
+  color: white;
+  font-weight: bold;
+}
+
+.side-buttons-logout {
+  width: 50%;
+  background: #6dcfca;
+  color: white;
+  font-weight: bold;
+}
+
+.logout-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
