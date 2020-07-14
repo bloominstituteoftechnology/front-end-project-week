@@ -1,0 +1,288 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: url("img/list-background.jpg"); /* The image used */
+  background-color: #0084d3; /* Used if the image is unavailable */
+  height: 800px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.App {
+  display: flex;
+  color: #222222;
+  position: relative;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.navbar {
+  width: 18%;
+  background: whitesmoke;
+  margin: 0 2% 0 0;
+  padding: 0 3% 0 3%;
+  list-style-type: none;
+  position: absolute;
+  height: 100%; /* 100% Full-height */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  opacity: 0.9;
+}
+
+.navbar h1 {
+  font-size: 2.5rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 700;
+  padding: 20px 0;
+}
+
+.navbar a:hover {
+  transform: scale(1.1);
+}
+
+.navbar li {
+  border-top: 1px solid gray;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  padding: 0 5px;
+}
+
+.navbar .create-note {
+  border-bottom: 1px solid gray;
+}
+
+.list-view {
+  width: 100%;
+  padding-left: 22%;
+  overflow: hidden;
+}
+
+.list-view h2 {
+  padding: 20px 0 0 5%;
+  color: whitesmoke;
+  letter-spacing: 1px;
+  text-shadow: 10px 10px 30px #222;
+}
+
+.notes-list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 30px;
+  padding-left: 5%;
+}
+
+.note-card {
+  width: 20%;
+  margin: 10px;
+  padding: 10px 4%;
+  height: 200px;
+  overflow: hidden;
+  background: whitesmoke;
+  text-decoration: none;
+  box-shadow: 10px 10px 30px #222;
+  opacity: 0.9;
+}
+
+.note-card:hover {
+  transform: scale(1.1);
+}
+
+.note-card h3 {
+  border-bottom: 1.5px solid lightgray;
+  padding-bottom: 10px;
+}
+
+.note-card a {
+  text-decoration: none;
+  color: black;
+}
+
+.form-wrapper h2 {
+  margin-left: 50%;
+  width: 100%;
+  color: whitesmoke;
+  letter-spacing: 1px;
+  text-shadow: 10px 10px 30px #222;
+}
+
+.note-title-input {
+  width: 350px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+  box-shadow: 10px 10px 30px #222;
+}
+
+.note-text-input {
+  width: 600px;
+  height: 400px;
+  padding: 0;
+  opacity: 0.9;
+  box-shadow: 10px 10px 30px #222;
+}
+
+.note-form input {
+  padding: 15px;
+  font-size: 0.9rem;
+  color: #222;
+  font-weight: 100;
+  box-shadow: 10px 10px 30px #222;
+}
+
+.note-form textarea {
+  padding: 15px;
+  font-size: 0.9rem;
+  color: #222;
+  font-weight: 100;
+  box-shadow: 10px 10px 30px #222;
+}
+
+.note-form {
+  margin-left: 50%;
+}
+
+.note-form button {
+  border: 1px solid gray;
+  background: whitesmoke;
+  opacity: 0.9;
+  width: 75%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  padding: 0 5px;
+  color: #222;
+  font-weight: 700;
+  border: 1px solid #222;
+  box-shadow: 10px 10px 30px #222;
+}
+
+.note-form button:hover {
+  background: #222;
+  color: whitesmoke;
+}
+
+.single-note {
+  margin-left: 31%;
+  margin-top: 100px;
+  position: relative;
+  width: 60%;
+  padding-right: 3%;
+  height: 400px;
+  overflow: hidden;
+  background: whitesmoke;
+  text-decoration: none;
+  box-shadow: 10px 10px 30px #222;
+  opacity: 0.9;
+}
+
+.single-note-text {
+  padding-left: 3%;
+}
+.single-note h3 {
+  font-size: 1.5rem;
+}
+
+.single-note button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 21%;
+  border: none;
+  background: none;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #222;
+  cursor: pointer;
+  margin-top: 15px;
+  border: 1px solid #222;
+  padding: 10px;
+  width: 100px;
+}
+
+.single-note button:hover {
+  background: #222;
+  color: whitesmoke;
+}
+
+.single-note .delete {
+  margin-right: 2.5%;
+}
+
+.single-note .delete:hover {
+  color: #222;
+  background: #f6ae36;
+}
+
+.log-out {
+  border: 1px solid #222;
+  padding: 10px 30px;
+  margin-top: 30px;
+  width: 41%;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 56px 0 20px 13%;
+  cursor: pointer;
+  color: #222;
+  font-weight: 700;
+}
+
+.log-out:hover {
+  background: #222;
+  color: whitesmoke;
+}
+
+.log-in-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+}
+
+.log-in-container .log-in {
+  width: 40%;
+  background: whitesmoke;
+  margin: 0 2% 0 0;
+  padding: 0 3% 0 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  opacity: 0.7;
+}
+
+.log-in-container .log-in {
+  text-align: center;
+}
+
+.log-in-container .log-in-button {
+  border: 1px solid #222;
+  padding: 10px 30px;
+  margin-top: 30px;
+}
+
+.log-in-container .log-in-button:hover {
+  background: #222;
+  color: whitesmoke;
+}
