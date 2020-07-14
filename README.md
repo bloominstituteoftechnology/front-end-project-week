@@ -1,3 +1,14 @@
+==========TRELLO=============================================
+https://trello.com/b/qTWg8ccu/lambda-notes-justin-hammett   |
+                                                            |
+=============================================================                                                            
+
+==========GIT PULL REQUEST=========================================
+https://github.com/LambdaSchool/front-end-project-week/pull/373   |
+                                                                  |
+=================================================================== 
+
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
