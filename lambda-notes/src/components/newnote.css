@@ -1,0 +1,40 @@
+.NewNote {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: right;
+}
+
+.NewNote h1 {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.NewNote form {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-left: 10px;
+}
+
+.NewNote form input {
+    height: 30px;
+    border-radius: 5px;
+}
+
+.NewNote form .content {
+    height: 500px;
+    width: 500px;
+    border-radius: 5px;
+}
+
+.NewNote form button {
+    width: 15%;
+    max-width: 150px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    width: 150px;
+    height: 40px;
+    background: #00BBBC;
+    font-weight: bold;
+    font-size: 17px;
+}

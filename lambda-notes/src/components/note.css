@@ -1,0 +1,21 @@
+.oneNote {
+    background: white;
+    margin: 10px;
+    margin-left: 25px;
+    border: 2px solid #C2C2C2;
+    padding: 10px;
+    width: 150px;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    border-top: 2px solid #C2C2C2;
+    width: 90%;
+    margin: auto;
+    font-size: 10px;
+}
