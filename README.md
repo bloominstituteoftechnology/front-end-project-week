@@ -1,3 +1,7 @@
+
+https://trello.com/invite/b/62bo9uQ3/fb1e1d1e0c5a5ee94af55619368ad907/lambda-notes-by-brooks-poltl
+# deployment
+https://musing-hawking-de9fe3.netlify.com/
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
