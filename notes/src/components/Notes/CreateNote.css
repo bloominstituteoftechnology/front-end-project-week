@@ -1,0 +1,34 @@
+.create-ctn {
+    margin: 10 200px;
+    width: 100%;
+    padding: 30px;
+    font-size: 1.3rem;
+    font-family: 'Raleway', sans-serif;
+    background-color: #f3f3f3;
+    border: 1px solid #979797;
+    border-left: 0px;
+    display:flex;
+    flex-flow: column nowrap;
+}
+.create-ctn .title-bar {
+    height: 40px;
+    width: 50%;
+    margin-bottom: 20px;
+}
+.create-ctn .content-bar {
+    height: 400px;
+    width: 100%;
+}
+.create-ctn .create-btn {
+    height: 50px;
+    width: 30%;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-family: 'Raleway', sans-serif;
+    color: #FFFFFF;
+    background-color: #2bc1c4;
+    border: 2px solid #979797;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}

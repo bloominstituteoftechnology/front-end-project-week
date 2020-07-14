@@ -1,0 +1,40 @@
+
+.Modal {
+    position: absolute;
+    text-align: center;
+    height: 130px;
+    width: 500px;
+    top: 35%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 2px solid #979797;
+    font-family: 'Raleway', sans-serif;
+    padding: 10px;
+    outline: none;
+    
+}
+.Modal .dialog-ctn {
+    display:flex;
+    justify-content: space-between;
+    padding: 10px 45px 0;
+}
+
+.Modal .dialog-ctn .dialog-btn {
+    width: 140px;
+    height: 30px;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.Modal .dialog-ctn .delete-btn {
+    background-color: #D0021B
+}
+.Modal .dialog-ctn .edit-btn {
+    background-color: #2bc1c4
+}
