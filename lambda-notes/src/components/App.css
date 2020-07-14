@@ -1,0 +1,644 @@
+/*
+  Heading font: Roboto Bold
+  Everything else font: Raleway Medium
+  Heading and main font color: #4A4A4A
+  Button font color: #FFFFFF
+  Sidebar background: #D8D8D8
+  Main background: #F3F3F3
+  Main button background: #2BC1C4
+  Delete button background: #D0021B
+  Border color used throughout: #979797
+*/
+
+.App-container {
+  min-height: 900px;
+  max-width: 1366px;
+  border: 2px solid #979797;
+  margin: 10px auto 20px auto;
+}
+
+.App {
+  background: white;
+  text-align: center;
+  min-height: 900px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  font-family: 'Raleway', sans-serif;
+  color: #4A4A4A;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: #FFFFFF;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Nav styles */
+.Nav-container {
+  width: 326px;
+  background: #D8D8D8;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #979797;
+}
+
+.Nav-header, .Nav-buttons button {
+  width: 286px;
+  margin: 0 auto;
+}
+
+.Nav-header {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+}
+
+.Nav-header img {
+  display: none;
+}
+
+.Nav-header h1 {
+  margin: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.Nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Nav-buttons a {
+  margin: 0 auto;
+}
+
+.Nav-buttons button {
+  height: 62px;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  border: 2px solid #979797;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 16px auto;
+}
+
+.Nav-buttons button:hover {
+  background: #979797;
+}
+
+/* ListView styles */
+.ListView-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1030px;
+  padding-bottom: 100px;
+  margin: 0 0 auto 0;
+}
+
+.ListView-container a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.ListView-header {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 100px 0 0 32px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.ListView-header h2 {
+  margin: 0 0 28px 0;
+}
+
+.ListView-header i {
+  height: 40px;
+  width: 50px;
+  /* border: 1px solid red; */
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  /* border-radius: 50%; */
+  margin: 0 0 0 16px;
+}
+
+.ListView-header i:hover {
+  color: #2BC1C4;
+  /* color: #FFFFFF; */
+  cursor: pointer;
+}
+
+/* NoteView styles */
+.NoteView-wrapper {
+  border: 2px solid #979797;
+  height: 294px;
+  width: 294px;
+  margin: 16px 4px 16px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.NoteView-container {
+  height: 294px;
+}
+
+.NoteView-container:hover {
+  /* background: #979797; */
+  background: #2BC1C4;
+  color: #FFFFFF;
+}
+
+.NoteView-header, .NoteView-note {
+  margin: 8px 30px;
+}
+
+.NoteView-header h3, .NoteView-note p {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.NoteView-header {
+  font-weight: bold;
+  font-size: 22px;
+  border-bottom: 1px solid black;
+}
+
+.NoteView-header h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.NoteView-note {
+  font-size: 20px;
+  text-align: left;
+}
+
+.NoteView-note p {
+  height: 180px;
+  line-height: 30px;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.NoteView-tag span {
+  text-decoration: underline;
+  margin: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.NoteView-tag span:hover {
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 10px;
+  color: #000000;
+}
+
+.NoteView-container div:last-child {
+  display: flex;
+}
+
+/* CreateView styles */
+.CreateView-container, .EditView-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding-bottom: 100px;
+  margin: 0 36px;
+}
+
+.CreateView-header, .CreateView-content, .EditView-header, .EditView-content {
+  margin: 8px 30px;
+}
+
+.CreateView-header, .EditView-header {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 100px 0 27px 0;
+  display: flex;
+  width: 286px;
+}
+
+.CreateView-header h2, .EditView-header h2 {
+  margin: 0;
+}
+
+.CreateView-content, .EditView-content {
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.CreateView-content input, .CreateView-content textarea, .EditView-content input, .EditView-content textarea {
+  height: 62px;
+  border: 2px solid #979797;
+  border-radius: 5px;
+  margin-bottom: 22px;
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif; 
+}
+
+.CreateView-content input, .EditView-content input {
+  width: 536px;
+  padding: 0 24px;
+}
+
+.CreateView-content textarea, .EditView-content textarea {
+  height: 512px;
+  width: 894px;
+  padding: 32px 32px;
+}
+
+.CreateView-content label, .EditView-content label {
+  text-align: left;
+  margin: 16px 0;
+}
+
+.CreateView-buttons, .EditView-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 286px;
+}
+
+.CreateView-buttons button, .EditView-buttons button, .DeleteModal-buttons button {
+  height: 62px;
+  width: 286px;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  border: 2px solid #979797;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 16px 0;
+}
+
+.CreateView-buttons button:hover, .EditView-buttons button:hover, .DeleteModal-buttons button:hover {
+  background: #979797;
+}
+
+.EditView-content label span, .Note-tag span {
+  text-decoration: underline;
+  margin: 0 10px;
+}
+
+.EditView-content label span:hover, .Note-tag span:hover {
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Note styles */
+.Note-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px;
+  margin: 0 36px;
+}
+
+.Note-header, .Note-content {
+  margin: 8px 30px;
+}
+
+.Note-header {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 0 27px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 136px;
+  width: 962px;
+}
+
+.Note-header h2 {
+  display: flex;
+  margin: 0;
+}
+
+.Note-links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Note-links a {
+  color: #4A4A4A;
+}
+
+.Note-links a:hover {
+  text-decoration: none;
+}
+
+.Note-links p {
+  margin-left: 20px;
+}
+
+.Note-content, .Note-tag {
+  width: 860px;
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.Note-content p {
+  font-size: 22px;
+  line-height: 40px;
+  width: 962px;
+  margin: 0;
+}
+
+/* DeleteModal styles */
+.DeleteModal-container {
+  position: fixed;
+  background: #D8D8D8;
+  opacity: 0.8;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+}
+
+.DeleteModal-modal {
+  position: fixed;
+  background: white;
+  height: 270px;
+  width: 800px;
+  border: 2px solid #979797;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 276px;
+  right: 576px;
+}
+
+.DeleteModal-header {
+  margin: 0 0 36px 0;
+}
+
+.DeleteModal-buttons button {
+  margin: 0 16px;
+}
+
+.DeleteModal-buttons button:first-child {
+  background: red;
+}
+
+.DeleteModal-buttons button:first-child:hover {
+  background: #979797;
+}
+
+/* laptop styles */
+@media (max-width: 1080px) {
+  .App-container {
+    margin: 20px;
+  }
+
+  .App {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Nav-container {
+    /* position: fixed; */
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .Nav-header {
+    width: 157px;
+    margin: auto 0 auto 32px;
+  }
+
+  .Nav-buttons {
+    margin: auto 32px auto auto;
+    /* width: 100px; */
+  }
+
+  .Nav-buttons button {
+    margin: auto 0 auto 16px;
+  }
+
+  .Nav-header h1 {
+    display: none;
+  }
+
+  .Nav-header img {
+    display: flex
+  }
+
+  .ListView-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .ListView-header {
+    margin: 32px;
+  }
+
+  .ListView-header h2 {
+    margin: 0;
+  }
+
+  .NoteView-wrapper {
+    margin: 16px;
+  }
+
+  .Note-container, .Note-header, .Note-content, .Note-tag {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .Note-content p {
+    width: 90%;
+  }
+
+  .Note-header {
+    margin-bottom: 16px;
+  }
+
+  .Note-container {
+    margin-bottom: 50px;
+  }
+
+  .CreateView-container, .EditView-container {
+    width: 90%;
+  }
+
+  .CreateView-content textarea, .EditView-content textarea {
+    width: 94%;
+  }
+
+  .DeleteModal-modal {
+    top: 250px;
+    right: 78px;
+  }
+
+}
+
+/* tablet portrait styles */
+@media (max-width: 768px) {
+  .Nav-container {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .Nav-header {
+    margin: 16px auto;
+  }
+
+  .Nav-buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 16px auto;
+  }
+
+  .Nav-buttons button, .DeleteModal-buttons button {
+    margin: 5px auto;
+  }
+
+  .ListView-container {
+    
+  }
+
+  .ListView-header {
+    display: flex;
+  }
+
+  .CreateView-content textarea, .EditView-content textarea {
+    width: 90%;
+  }
+
+  .DeleteModal-modal {
+    top: 250px;
+    right: 76px;
+    width: 80%;
+  }
+
+  .DeleteModal-header {
+    margin: 0;
+  }
+
+  .DeleteModal-buttons {
+    display: flex;
+    flex-flow: column-reverse;
+    margin: 0 auto 16px auto;
+  }
+}
+
+/* phone styles */
+@media (max-width: 400px) {
+  .App-container {
+    margin: 0;
+  }
+
+  .Nav-buttons button {
+    width: 300px;
+  }
+
+  .ListView-header h2 {
+    width: 100%;
+  }
+
+  .ListView-header i {
+    display: flex;
+    margin: 10px auto 0 auto;
+  }
+
+  .NoteView-wrapper {
+    width: 250px;
+  }
+
+  .NoteView-tag {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .Note-header, .Note-links {
+    display: flex;
+    justify-content: center;
+  }
+
+  .CreateView-container, .EditView-container {
+    width: 100%;
+    margin: 0 10px;
+  }
+
+  .CreateView-header, .EditView-header {
+    margin: 16px auto;
+  }
+
+  .CreateView-content input, .EditView-content input {
+    width: 76%;
+  }
+
+  .CreateView-content textarea, .EditView-content textarea {
+    width: 70%;
+  }
+
+  .CreateView-buttons, .EditView-buttons {
+    width: 80%;
+    
+  }
+
+  .CreateView-buttons button, .EditView-buttons button {
+    width: 278px;
+    margin: 10px auto;
+  }
+
+  .DeleteModal-modal {
+    
+    top: 250px;
+    right: 1px;
+    width: 98%;
+  }
+
+  .DeleteModal-header {
+    margin: 0;
+  }
+
+  .DeleteModal-buttons {
+    width: 100%;
+  }
+
+  .DeleteModal-buttons button {
+    width: 80%;
+  }
+}
