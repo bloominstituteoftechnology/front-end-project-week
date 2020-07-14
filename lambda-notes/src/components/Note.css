@@ -1,0 +1,54 @@
+.page-container {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+}
+
+.section-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.notes-title {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: #4A4A4A;
+    margin: 50px 10% 50px 10%;
+}
+
+.note-container {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 10%;
+}
+
+.note {
+    width: 23.5%;
+    height: 250px;
+    border: 1px #979797 solid;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0px 3% 0 3%;
+    margin-right: 3%;
+    margin-bottom: 20px;
+}
+
+.note h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px #979797 solid;
+    text-overflow: ellipsis;
+    margin: 10px 0 10px 0px;
+    padding-bottom: 5px;
+}
+
+.note p {
+    font-family: 'Raleway', sans-serif;
+}

@@ -1,0 +1,36 @@
+.page-container {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+}
+
+.section-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.section-container .buttons {
+    align-self: flex-end;
+    margin-right: 25%;
+}
+
+.section-container .buttons a {
+    margin-right: 5%;
+}
+
+.section-container .single-note {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 25%;
+}
+
+/* .section-container .single-note h1 {
+
+}
+
+.section-container .single-note p {
+
+} */

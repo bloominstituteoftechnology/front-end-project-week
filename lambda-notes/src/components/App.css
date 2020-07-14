@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    box-sizing: content-box;
+}
+
+body {
+    background-color: #F3F3F3;
+}
+.App-container {
+    display: flex;
+}
