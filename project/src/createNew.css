@@ -1,0 +1,72 @@
+.CNcontainer {
+    display: flex;
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
+}
+
+.CNtitle {
+    margin-top: 35px;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.CNnewTitle {
+    width: 300px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.CNinput {
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.CNcommentContainer {
+    text-align: left;
+}
+
+.CNcomment {
+    width: 500px;
+    height: 300px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    color: grey;
+    border: 1px solid grey;
+}
+
+.form {
+    background: rgb(173, 165, 177);
+    padding: 15px;
+    border: 1px solid #979797;
+    height: 100vh;
+    width: 100vw;
+}
+
+.CNbuttonContainer {
+    text-align: left;
+}
+
+.CNbutton {
+    width: 200px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    width: 200px;
+    background: rgb(150, 135, 194);
+    border: #979797 1px solid;
+    border-radius: 3px;
+    
+}
+
+.NVheader {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.NVedit {
+    padding-right: 10px;
+}
+
+.NVnoteName {
+    text-align: left;
+    font-size: 24px;
+}

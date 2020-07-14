@@ -1,0 +1,88 @@
+.EVcontainer {
+    display: flex;
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
+}
+
+.EVsideNav {
+    background: #D8D8D8;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: solid 1px  #979797;
+    width: 230px;
+}
+
+.EVnavTitleContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0px;
+    text-align: left;
+}
+
+.EVsideNavTitle {
+    margin-top: 35px;
+    text-align: left;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    font: Roboto Bold;
+    color: #4A4A4A;
+    font-size: 35px;
+}
+
+.EVbuttonContainer {
+    padding: 0px;
+}
+
+.EVbutton {
+    width: 200px;
+    color: #FFFFFF;
+    background: #2BC1C4;
+    margin-bottom: 10px;
+    border: #979797 1px solid;
+}
+
+.EVmainBody {
+    padding: 20px;
+    background: #F3F3F3;
+    border: 1px solid #979797;
+    height: 980px;
+}
+
+.EVmainTitle {
+    color: #4A4A4A;
+    text-align: left;
+    margin-top: 35px;
+}
+
+.EVnewTitleContainer {
+    text-align: left;
+}
+
+.EVnewTitle {
+    width: 300px;
+    text-align: left;
+}
+
+.EVnewContentContainer {
+    text-align: left;
+}
+
+.EVnewContent {
+    width: 500px;
+    height: 300px;
+}
+
+.EVbuttonContainer {
+    text-align: left;
+}
+
+.EVbutton {
+    width: 200px;
+    color: #FFFFFF;
+    background: #2BC1C4;
+    margin-bottom: 10px;
+    border: #979797 1px solid;
+
+}

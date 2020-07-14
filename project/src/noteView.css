@@ -1,0 +1,71 @@
+.NVcontainer {
+    display: flex;
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
+}
+
+.NVsidebar {
+    background: #D8D8D8;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: solid 1px  #979797;
+  }
+
+.NVtitleContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0px;
+    text-align: left;
+    
+  }
+
+  .NVtitle {
+    margin-top: 35px;
+    text-align: left;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    font: Roboto Bold;
+    color: #4A4A4A;
+    font-size: 35px;
+}
+
+  .NVcontainer {
+    display: flex;
+    box-sizing: border-box;
+    height: 100vh;
+    
+}
+
+.NVbutton {
+    width: 200px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    border: #979797 1px solid;
+  }
+
+  .NVnoteContainer {
+      padding: 20px;
+      background: rgb(173, 165, 177);
+      border: 1px solid #979797;
+  }
+
+  .navLinkEdit {
+      padding-right: 10px;
+      color: black !important;
+      text-decoration: underline;
+  }
+
+  .navLinkDelete {
+    color: black !important;
+    text-decoration: underline;
+  }
+
+  .NVparagraph {
+      text-align: left;
+  }
+
+  .NVnoteName {
+    color: #4A4A4A;
+  }
