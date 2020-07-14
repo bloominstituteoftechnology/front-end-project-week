@@ -1,0 +1,23 @@
+.App{
+display:flex;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+*{
+box-sizing:border-box;
+}
+
+.column{
+display:flex;
+flex-direction:column;
+width:100%;
+}

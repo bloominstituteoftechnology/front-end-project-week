@@ -1,0 +1,37 @@
+.sideBar{
+display:flex;
+flex-direction:column;
+width:15%;
+background:#b3b3b3;
+min-width:200px;
+border-right:1px solid #808080;
+}
+
+.button{
+color:white;
+background:#00b3b3;
+border:1px solid #808080;
+padding:20px;
+width:80%;
+margin-left:10%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-top:20px;
+font-size:20px;
+}
+
+.button:hover{
+background:#9fd9e0;
+cursor:pointer;
+}
+
+.header{
+display:flex;
+flex-direction:column;
+margin-top:30px;
+font-weight:900;
+font-size:36px;
+color:#4d4d4d;
+margin-left:10%;
+}
