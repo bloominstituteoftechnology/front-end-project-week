@@ -9,6 +9,7 @@ The main objective of this week is to develop the MVP feature set listed below u
 ## Git Commits
 
 - You are required to showcase progress with at least 1 commit a day. This will let your project manager know where you are and if you need help. This also allows the client to get progress reports from the company in a real world setting.
+## Trello Link https://trello.com/invite/b/cJ3Cxfzb/7b9c64e0d56abb0dadb484a456765e36/lambda-notes-terrance-danckert
 
 ## Trello Set Up:
 
