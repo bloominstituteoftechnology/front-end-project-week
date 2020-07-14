@@ -1,0 +1,84 @@
+.main-list-container{
+    width: 100%;
+}
+
+.main-header{
+    color: hotpink;
+    box-shadow: -5px -5px 10px #2BC1C4, 5px 5px 10px #2BC1C4;
+    border-radius: 100%;
+    padding: 10px;
+    text-align: center;
+    width: 250px;
+}
+
+.list-header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-form{
+    margin: 15px;
+    display: inline-block;
+}
+
+.search-button{
+    color: #FFF;
+    background-color: #2BC1C4;
+    padding: 3px;
+    font-weight: bold;
+}
+
+.note-list{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-between;
+    margin: 15px 30px;
+}
+
+.note-card{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #979797;
+    padding: 10px;
+    background-color: white;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: -3px -3px 10px #2BC1C4, 3px 3px 10px #2BC1C4;
+    border-radius: 5%;
+}
+
+.note-card:hover{
+    background-color: #f1f1f1;
+}
+
+.note-card h2{
+    color: #4A4A4A;
+    border-bottom: 1px solid #979797;
+}
+
+.note-card p{
+    color: #4A4A4A;
+}
+
+.export button{
+    color: #FFF;
+    background-color: #2BC1C4;
+    margin: 10px 15px;
+    padding: 10px;
+    font-weight: 700;
+}
+
+button{
+    box-shadow: 5px;
+}
+
+button:hover {
+    background-color: rgb(31, 148, 150);
+}
+
+.search-button:hover{
+    background-color: rgb(31, 148, 150);
+}
