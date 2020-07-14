@@ -1,0 +1,51 @@
+.html{
+    font-family: 'Raleway Medium';
+}
+
+
+.sidebar-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 1000px;
+    width: 300px;
+    background-color: #D8D8D8;
+    
+    border-right: 1px solid gray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header{
+    display:flex;
+    margin-left: 10px;
+
+}
+.headerText{
+    text-align: left;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #4A4A4A;
+}
+.viewNotes{
+
+    height: 40px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    font-size: .8rem;
+    width:80%;
+
+}
+
+.createNote{
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 40px;
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    font-size: .8rem;
+    width: 80%;
+    
+}
