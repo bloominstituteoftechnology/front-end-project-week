@@ -1,3 +1,6 @@
+https://trello.com/b/vdFZYp44/lambda-notes-jeanette-fernandez
+https://github.com/LambdaSchool/front-end-project-week/pull/398
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
