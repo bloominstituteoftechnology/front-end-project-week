@@ -1,0 +1,27 @@
+{
+  "name": "notes-server",
+  "version": "1.0.0",
+  "description": "Lambda School Front End Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodacoram/front-end-project-week.git"
+  },
+  "keywords": [],
+  "author": "Rodrigo Acosta-Ramos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/Sprint-Challenge--Redux/issues"
+  },
+  "homepage": "hhttps://github.com/rodacoram/front-end-project-week/blob/master/README.md",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  }
+}
