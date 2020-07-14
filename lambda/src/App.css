@@ -1,0 +1,22 @@
+.App{
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  background-color: #F3F3F3; 
+  height: 1000px; 
+  border: 1px solid gray;
+  padding: 20px;
+}
+
+h4{
+  display: flex;
+  justify-content: end;
+  padding-top:30px;
+}
+
+.delete{
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
+}
+
