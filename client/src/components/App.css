@@ -1,0 +1,33 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #F3F3F3;
+  color: #4A4A4A;
+  font-family: Raleway, 'sans-serif';
+  height: 100vh;
+  margin: 0;
+}
+
+a {
+  color: #4A4A4A;
+  text-decoration: none;
+}
+
+.button {
+  background: #2BC1C4;
+  border: none;
+  color: #fff;
+  display: block;
+  font-size: 2rem;
+  margin: 0 auto;
+  padding: 15px;
+  width: 275px;
+}
+
+@media (min-width: 890px) {
+  .App {
+    display: flex;
+  }
+}
