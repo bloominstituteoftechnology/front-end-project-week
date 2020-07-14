@@ -1,0 +1,44 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-a-note-form {
+  width: 75%;
+  margin-left: 2%;
+}
+
+.add-a-note-header {
+  font-size: 1.2rem;
+  padding-top: 4%;
+}
+
+form {
+  width: 65%;
+}
+
+.title-input {
+  height: 40px;
+  border-radius: 4px;
+  width: 50%;
+}
+
+.note-body-input {
+  border-radius: 4px;
+  margin-top: 27px;
+  padding-top: 21px;
+  padding-left: 20px;
+  font-size: 0.8rem;
+  height: 320px;
+}
+
+.save-button {
+  width: 28%;
+  border-radius: 3px;
+  color: white;
+  background-color: #00C4C3;
+  height: 50px;  
+  margin-top: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}

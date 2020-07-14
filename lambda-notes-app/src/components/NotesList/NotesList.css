@@ -1,0 +1,52 @@
+.notes-list-wrap {
+  width: 85%;
+  background-color: #F2F1F2;
+  height: 100%
+}
+
+h4 {
+  margin-top: 5%;
+  margin-left: 3%;
+  font-size: 1.3rem;
+}
+
+.notes-map {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 3%;
+}
+
+.note-box {
+  width: 290px;      
+  height: 190px;  
+  background-color: white;
+  border: 3px solid lightgrey;
+  margin-right: 10px;
+  margin-bottom: 21px;
+}
+
+.note-title {
+  padding-top: 9px;
+  border-bottom: 2px solid lightgrey;
+  margin: 0 15px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.note-title:hover {
+  cursor: pointer;
+}
+
+.note-body {
+  margin: 0 15px;
+  padding-top: 10px;
+  width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.notes-map {
+  background-color: #F2F1F2;
+}

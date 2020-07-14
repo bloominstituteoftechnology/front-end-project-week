@@ -1,0 +1,78 @@
+.single-note-wrap {
+  width: 85%;
+  background-color: #F2F1F2;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50px;
+  padding-top: 20px;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+p {
+  width: 60%;
+}
+
+.note-div {
+  padding-left: 27px;
+}
+
+.edit-delete-button {
+  border: none;
+  background-color: #F2F1F2;
+  font-size: 0.9rem;
+  color: #8B8987;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.edit-delete-button:hover {
+  border-bottom: 1px solid grey;
+}
+
+.open-modal {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-text {
+  padding-left: 150px;
+}
+
+.handle-modal-buttons {
+  display: flex;
+}
+
+.delete-inside-modal {
+  height: 30px;
+  background-color: brightred;
+  background-color: #D90000;
+  color: white;  
+  display: flex;
+  width: 110px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  cursor: pointer;
+}
+
+.cancel-inside-modal {
+  height: 30px;
+  background-color: brightred;
+  background-color: #00BEC0;
+  color: white;
+  display: flex;
+  width: 110px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  cursor: pointer;
+}
