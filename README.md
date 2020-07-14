@@ -1,3 +1,5 @@
+## [Trello board](https://trello.com/b/Ro9BEQ6J/lamda-notes-hargobind-atwal)
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."

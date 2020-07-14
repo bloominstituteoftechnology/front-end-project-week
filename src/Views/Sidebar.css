@@ -1,0 +1,46 @@
+.Sidebar {
+  background-color: #D8D8D8;
+
+  position: fixed;
+  
+  display: flex;
+  
+  flex-direction: column;
+  
+  justify-content: flex-start;
+  
+  width: 25%;
+  
+  border-right: 1px solid grey;
+  
+  align-items: center;
+  
+  height: 100%;
+}
+
+.Sidebar > *{
+  margin-top: 20px;
+}
+
+.Sidebar .sidebar-heading {
+  margin-bottom: 10px;
+}
+
+.Sidebar .sidebar-heading h1 {
+  color: #4a4a4a;
+  font-size: 2.6rem;
+}
+
+.Sidebar a {
+  width: 85%;
+}
+
+.Sidebar .sidebar-button {
+  width: 100%;
+}
+
+.page-wrapper {
+  margin-left: 25%;
+  position: relative;
+  width: 75%;
+}
