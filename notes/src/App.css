@@ -1,0 +1,7 @@
+.App {
+  display: flex;
+  max-width: 1200px;
+  height: 100%;
+  font-family: 'Roboto';
+  margin: 0 auto;
+}
