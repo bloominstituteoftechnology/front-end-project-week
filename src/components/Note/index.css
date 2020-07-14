@@ -1,0 +1,5 @@
+.noteButtons {
+  flex-direction: row; 
+  display: flex; 
+  justify-content: flex-end; 
+}

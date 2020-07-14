@@ -1,0 +1,28 @@
+.notes {
+  display: flex; 
+  flex-wrap: wrap;
+}
+
+.card-container {
+  margin: 2rem 1rem 0 0 !important;
+  text-decoration: none !important;
+  width: 20rem !important;
+}
+
+.card-header {
+  font-size: 1.4rem !important;
+  text-align: center;
+  overflow-y: auto;
+  word-break: break-word;
+}
+
+.card-description {
+  font-size: 1.4rem !important;
+  height: 15rem;
+  overflow-y: auto;
+  word-break: break-word;
+}
+
+.card-header::-webkit-scrollbar { width: 0 !important }
+
+.card-description::-webkit-scrollbar { width: 0 !important }
