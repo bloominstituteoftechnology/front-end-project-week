@@ -1,0 +1,16 @@
+I decided upon yarn as my package-manager for this project. I ran the following inside the "client" folder.
+
+
+
+
+yarn add react redux react-redux react-dom react-router-dom
+
+yarn add axios
+
+yarn add bootstrap
+
+yarn add reactstrap
+
+yarn add redux-axios-middleware
+
+inside of the ROOT folder, I had to run [yarn add cors] to make the server work.

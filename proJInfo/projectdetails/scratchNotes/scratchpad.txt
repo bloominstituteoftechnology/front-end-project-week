@@ -1,0 +1,15 @@
+Here is where I intend to store various instructions and relevant information I may find useful.
+
+How I envision the routing:
+
+"/" and_or "Home" will route to the default list view
+ -the EditList [Button] will be 
+
+"/AddNote" will route to the AddNote form
+
+"/Note[id]" will display the individual note
+ -the EditNote [Button] will only be accessible here
+ -the DeleteNote [Button] will be accessible here but not exlusively, upon clicking it,
+    the page will route back to the default list view
+
+Overflow: hidden 
