@@ -1,0 +1,137 @@
+.App {
+  display: flex;
+}
+
+.nav {
+  align-items: center;
+  background-color: rgb(211, 210, 211);
+  width: 200px;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  height: 100vh;
+}
+
+.nav-button-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0 0 0;
+  width: 200px;
+}
+
+.nav-button {
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #23B8BE;
+  border: 1px solid #86AEB1;
+  margin: 0.5rem 0;
+  height: 40px;
+  border-radius: 0.1rem;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.container {
+  padding-left: 50px;
+  width: 700px;
+}
+
+.create-button {
+  background-color: #23B8BE;
+  border: 1px solid #86AEB1;
+  margin: 0.5rem 0;
+  height: 40px;
+  border-radius: 0.1rem;
+  color: white;
+  font-weight: 600;
+}
+
+.note-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-list {
+  display: flex;
+}
+
+.note {
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  border: 2px solid black;
+  padding: 0.5rem 1rem;
+}
+
+.note-view-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.note-view-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-delete {
+  padding: 1rem 0.5rem;
+  color: rgb(66, 66, 66);
+}
+
+.note-view-body {
+
+}
+
+.delete-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 200px;
+  border: 1px solid rgb(66, 66, 66);
+  box-shadow: 1px 1px 8px rgb(66, 66, 66);
+}
+
+.delete-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+}
+
+.delete-button1 {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border: 1px solid #86AEB1;
+  margin: 0.5rem 0.5rem;
+  height: 40px;
+  border-radius: 0.1rem;
+  color: white;
+  font-weight: 600;
+}
+
+.delete-button2 {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #23B8BE;
+  border: 1px solid #86AEB1;
+  margin: 0.5rem 0.5rem;
+  height: 40px;
+  border-radius: 0.1rem;
+  color: white;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
