@@ -1,3 +1,7 @@
+# Trello Board
+
+https://trello.com/invite/b/oJrjrii1/4571c65b3cba2bb631ce71418baae403/lambda-notes-blake-koennecker
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
