@@ -1,0 +1,196 @@
+.App {
+  max-width: 880px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: #F2F1F2;
+}
+
+a {
+  color: #252120;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button {
+  margin: 12px;
+  width: 200px;
+}
+
+.navbar {
+  position: fixed;
+  width: 25%;
+  height: 100%;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #D3D2D3;
+  
+}
+
+.navbar-brand {
+  font-size: 2.1rem;
+  color: #414141;
+  font-weight: bold;
+  line-height: 1.0;
+}
+
+.nav-item {
+  width: 100%;
+  background-color: #24B8BD;
+  border: 1px solid grey;
+  margin: .5rem 0;
+  text-align: center;
+}
+
+.nav-item a {
+  color: white;
+  font-weight: bold;
+}
+
+.home {
+  width: 75%;
+  margin: 0 0 0 25%;
+  background-color: #F2F1F2;
+  padding: 15px;
+}
+
+.home h3 {
+  margin: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.note-container {
+  width: 75%;
+  margin-left: 25%;
+  background-color: #F2F1F2;
+  padding: 20px 10px;
+  height: 100%;
+}
+
+.note-container h3 {
+  margin: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.home .note-container {
+  width: 100%;
+}
+
+.form-container {
+  width: 75%;
+  margin-left: 25%;
+  background-color: #F2F1F2;
+  padding: 20px 10px;
+  height: 100%;
+}
+
+.form-container h3 {
+  margin-left: 20px;
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.note-form {
+  width: 80%;
+  margin: 0 0 0 20px;
+}
+
+.note-form input {
+  width: 60%;
+}
+
+.note-form textarea {
+  width: 100%;
+  height: 300px;
+}
+
+.main-button {
+  margin: 0;
+  width: 200px;
+  background-color: #24B8BD;
+  color: white;
+  border: 1px solid grey;
+}
+
+.note-view {
+  width: 75%;
+  margin-left: 25%;
+  background-color: #F2F1F2;
+  padding: 20px 10px;
+  height: 100%;
+}
+
+.note-view .header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-view .header a {
+  text-decoration: underline;
+  font-weight: bold;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #5B5C60;
+}
+
+
+.note-view .note-content {
+  margin-left: 20px;
+}
+
+.note-view .note-content h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-container {
+  display: flex;
+}
+
+.note-card {
+  border: 1px solid #BDBDBD;
+  width: 100%;
+  margin: 0.4rem;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+ 
+}
+.note-card .card-body {
+  padding: 12px;
+}
+
+
+.card-title {
+  font-weight: bold;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #BDBDBD;
+  font-size: 1.25rem;
+}
+
+.home-note-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 15px;
+}
+
+.note {
+  width: 30%;
+  max-height: 300px;
+  margin-bottom: 50px;
+}
+
+.search-bar {
+  text-align: center;
+  margin-top: 1rem;
+}
