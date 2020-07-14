@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    margin: 20px auto;
+    font-family: "Raleway", sans-serif;
+    border: 1px solid #979797;
+    min-height: 600px;
+}
