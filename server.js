@@ -33,7 +33,7 @@ if(process.env.NODE_ENV === "development") {
 else {
     console.log(username);
     //mongodb://<dbuser>:<dbpassword>@ds229118.mlab.com:29118/heroku_v30jk6j6
-    mongoose.connect(process.env.MONGOLAB_BROWN_URI, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false, useUnifiedTopology: true }  )
+    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false, useUnifiedTopology: true }  )
     .then(response => {
 
         console.log(`Connected to ${response.connection.name}`);
