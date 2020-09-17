@@ -32,7 +32,7 @@ class App extends Component {
       })
     }
     else {
-      let promise = axios.get("https://notepen.herokuapp.com/api/notes");
+      let promise = axios.get("https://notepen.herokuapp.com/api/faker");
       promise 
         .then(response => {
             console.log(response.data);
