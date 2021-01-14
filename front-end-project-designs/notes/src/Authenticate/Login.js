@@ -15,24 +15,45 @@ class Login extends React.Component {
         this.setState({ [event.target.name] : event.target.value });
     };
 
-    handleRegister = (event) => {
+    handleRegister = (e) => {
+        e.preventDefault()
         const userData = {
             username: this.state.username,
             password: this.state.password
-        }        
+        }
+                
         axios.post('http://localhost:7000/api/users/register', userData) 
              .then(res => {
                 if (res.status === 201) {
                     alert("Registered Successfully 👍 " + userData.username + "\nCan proceed and login")
                 }
              })
-             .catch(err => console.log(err))
+             .catch(err => {
+                    if(err.response.status === 409) {
+                        alert("Username already exists 😲 " + userData.username + "\nTry to register with another username")
+                    } else {
+                        console.log("Error " ,err)
+                    }
+              })
     }
 
-    handleLoginSubmit = (event) => {
-        const user = this.state.username;
-        localStorage.setItem('user', user)
-        window.location.reload();
+    handleLoginSubmit = (e) => {
+        e.preventDefault()
+        console.log("In handleLoginSubmit....")
+        const userData = {
+            username: this.state.username,
+            password: this.state.password
+        }
+
+        axios.post('http://localhost:7000/api/users/login', userData) 
+             .then(res => {
+                 console.log("res login  : ", res.status, "\n\n",res.data.token) 
+                 if(res.status === 200) {
+                    localStorage.setItem('user', this.state.username)
+                    localStorage.setItem('userToken', res.data.token)
+                    window.location.reload();                    
+                 }
+              })
     }
 
     render() {

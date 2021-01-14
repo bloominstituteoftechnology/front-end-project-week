@@ -6,7 +6,8 @@ import '../Components/Style.css';
 class Logout extends React.Component {
     
     handleLogout() {
-        localStorage.removeItem("user");
+        localStorage.removeItem('user')
+        localStorage.removeItem('userToken')
         window.location.reload();
     }
 
