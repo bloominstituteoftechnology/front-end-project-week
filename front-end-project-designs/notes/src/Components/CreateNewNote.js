@@ -8,7 +8,7 @@ class CreateNewNote extends React.Component {
         super(props);
             this.state = {
                 title : '',
-                textbody : ''
+                content : ''
             }
     }
 
@@ -16,21 +16,23 @@ class CreateNewNote extends React.Component {
         this.setState({ [event.target.name] : event.target.value});
     }
 
-    createNewNoteObject = () => {
+    createNewNoteObject = (e) => {
+        e.preventDefault()
+        console.log("CREATE *************  :---  ", this.state)
         const newNote = {
-              title : this.state.title,
-              textBody : this.state.textbody
+            title : this.state.title,
+            content : this.state.content
         }
-        //this.setState({title : '', textbody : ''});
+        // this.setState({title: '', content: ''})
         axios
-            .post('https://fe-notes.herokuapp.com/note/create', newNote )
-            .then(response => this.props.history.push('/notes'))
-            .catch(err => console.log("ERROR : ",err)) 
+            .post('http://localhost:7000/api/notes/', newNote)
+            .then(response => {
+                    console.log("RES ******** ",response)
+                    this.props.history.push('/notes')
+            })
     }
 
     render() {     
-        // console.log(this.state.title);
-        // console.log(this.state.textbody);
         return (
             <div className = "create-note-main-div">
                 <h3>Create New Note : </h3>
@@ -42,12 +44,12 @@ class CreateNewNote extends React.Component {
                            onChange = {this.handleInputChange}
                     />
                     <textarea
-                           name = "textbody" 
+                           name = "content" 
                            placeholder = "Note Content"
-                           value = {this.state.textbody} 
+                           value = {this.state.content} 
                            onChange = {this.handleInputChange}
                     />
-                    <button onClick = {this.createNewNoteObject}> Save </button>
+                    <button onClick = {this.createNewNoteObject}> Create </button>
                 </form>
 
             </div>

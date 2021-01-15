@@ -21,20 +21,24 @@ class Login extends React.Component {
             username: this.state.username,
             password: this.state.password
         }
-                
-        axios.post('http://localhost:7000/api/users/register', userData) 
-             .then(res => {
-                if (res.status === 201) {
-                    alert("Registered Successfully 👍 " + userData.username + "\nCan proceed and login")
-                }
-             })
-             .catch(err => {
+        
+        if(!userData.username && !userData.password) { 
+            alert('Please enter uername and password') 
+        } else {
+            axios.post('http://localhost:7000/api/users/register', userData) 
+                .then(res => {
+                    if (res.status === 201) {
+                        alert("Registered Successfully 👍 " + userData.username + "\nCan proceed and login")
+                    }
+                })
+                .catch(err => {
                     if(err.response.status === 409) {
                         alert("Username already exists 😲 " + userData.username + "\nTry to register with another username")
                     } else {
                         console.log("Error " ,err)
                     }
-              })
+                })
+        }
     }
 
     handleLoginSubmit = (e) => {
@@ -44,16 +48,20 @@ class Login extends React.Component {
             username: this.state.username,
             password: this.state.password
         }
-
-        axios.post('http://localhost:7000/api/users/login', userData) 
-             .then(res => {
-                 console.log("res login  : ", res.status, "\n\n",res.data.token) 
-                 if(res.status === 200) {
-                    localStorage.setItem('user', this.state.username)
-                    localStorage.setItem('userToken', res.data.token)
-                    window.location.reload();                    
-                 }
-              })
+        if(!userData.username && !userData.password) { 
+            alert('Please enter uername and password') 
+        } else {
+            axios.post('http://localhost:7000/api/users/login', userData) 
+                 .then(res => {
+                    // console.log("res login  : ", res.status, "\n\n",res.data.token) 
+                    if(res.status === 200) {
+                        localStorage.setItem('user', this.state.username)
+                        localStorage.setItem('userToken', res.data.token)
+                        window.location.reload();                    
+                    }
+                  })
+                  .catch(err => console.log(err))
+        }
     }
 
     render() {
@@ -61,7 +69,7 @@ class Login extends React.Component {
         return (
             <div className = "Formdiv">
                 <h1>Welcome to My Notes app</h1>
-                <h4>Login / Register Page...</h4>
+                <p style = {{marginLeft:'0'}}>Login / Register Page...</p>
 
                 <form>
                     <div className = "Fieldwrap">

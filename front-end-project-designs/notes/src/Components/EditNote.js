@@ -6,7 +6,7 @@ class EditNote extends React.Component{
         super(props);
         this.state = {
             title : '',
-            textbody : '',
+            content : '',
             isMounted:false
         }
     }
@@ -16,27 +16,31 @@ class EditNote extends React.Component{
     }
 
     componentDidMount() {
+        console.log(this.props.match.params.id, " -----this.props.match.params.id")
         axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params._id}`)
-            .then(response => 
-                        this.setState({ title : response.data.title,
-                        textbody : response.data.textBody}))
+            .get(`http://localhost:7000/api/notes/${this.props.match.params.id}`)
+            .then(response =>{ 
+                        console.log("Editnote   :  ",response.data.title, response.data[0].content)
+                        this.setState({ title : response.data[0].title, content : response.data[0].content})
+                        console.log("After response to state --- ",this.state) }
+             )
             .catch(error => console.log(error));
     }
 
     editNote = () => {
         const editedNote = {
             title : this.state.title,
-            textBody : this.state.textbody
+            content : this.state.content
         }
-        this.setState({title : '', textbody : ''});
+        //this.setState({title : '', content : ''});
         axios
-            .put(`https://fe-notes.herokuapp.com/note/edit/${this.props.match.params._id}`, editedNote)
+            .put(`http://localhost:7000/api/notes/${this.props.match.params.id}`, editedNote)
             .then(response => this.props.history.push('/notes'))
             .catch(error => console.log(error));
     }
     
     render() {
+        console.log("in editnote -- " ,this.state)
         return (
             <div className = "create-note-main-div">
                 <h3>Editing....</h3>
@@ -50,10 +54,10 @@ class EditNote extends React.Component{
                            onChange={this.handleInputChange}
                     />
 
-                    <textarea name = 'textbody' 
+                    <textarea name = 'content' 
                            type = 'text'
-                           placeholder = {this.state.textbody}
-                           value = {this.state.textbody} 
+                           placeholder = {this.state.content}
+                           value = {this.state.content} 
                            onChange = {this.handleInputChange}
                     />
 

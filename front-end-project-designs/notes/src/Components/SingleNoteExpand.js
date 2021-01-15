@@ -8,17 +8,17 @@ class SingleNoteExpand extends React.Component{
         super(props);
         this.state = {
             title : '',
-            textbody : ''
+            content : ''
         }
     }
 
     componentDidMount() {
         axios
-            .get(`https://fe-notes.herokuapp.com/note/get/${this.props.match.params._id}`)
+            .get(`http://localhost:7000/api/notes/${this.props.match.params.id}`)
             .then(response => {
                 console.log("RRRRR  :: ",response.data);
-                this.setState({ title : response.data.title ,
-                                textbody : response.data.textBody })
+                this.setState({ title : response.data[0].title ,
+                                content : response.data[0].content })
              })
             .catch(error => console.log(error));
     }
@@ -31,18 +31,18 @@ class SingleNoteExpand extends React.Component{
             <div className = "expand-div">
                 <div className = "span-div">
                     {/*Link Edit button... */}
-                    <Link to = {`/notes/edit/${this.props.match.params._id}`} className = "no-decoration">
+                    <Link to = {`/notes/edit/${this.props.match.params.id}`} className = "no-decoration">
                         <span>Edit</span>
                     </Link>                    
                     
                     {/*Link Delete button... */}
-                    <Link to = {`/notes/delete/${this.props.match.params._id}`} className = "no-decoration">
+                    <Link to = {`/notes/delete/${this.props.match.params.id}`} className = "no-decoration">
                         <span>Delete</span>
                     </Link>
                 </div>
                 <div className = "note-div">
                     <h2> {this.state.title} </h2>
-                    <ReactMarkdown source={this.state.textbody} />
+                    <ReactMarkdown source={this.state.content} />
                     {/*<p> {this.state.textbody} </p>*/}
                 </div>
             </div>

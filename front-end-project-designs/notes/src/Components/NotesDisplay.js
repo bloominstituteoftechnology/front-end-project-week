@@ -18,7 +18,7 @@ class NotesDisplay extends React.Component {
     //ComponentDidMount to fetch data from API
     componentDidMount() {
         axios
-            .get('https://fe-notes.herokuapp.com/note/get/all')
+            .get('http://localhost:7000/api/notes')
             .then(response => {
                     //console.log("response.dat Notes...  : ",response.data);
                     this.setState({ notes : response.data})

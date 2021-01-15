@@ -18,15 +18,16 @@ class App extends Component {
         
           <NotesSideBar />
 
-          <Route exact path = '/(|notes)' component = {NotesDisplay} />
+          <Route exact path = '/notes' component = {NotesDisplay} /> 
+          {/* (|notes) */}
           
           <Route exact  path = '/create' component = {CreateNewNote } />
 
-          <Route exact path = '/notes/:_id' component = {SingleNoteExpand } />
+          <Route exact path = '/notes/:id' component = {SingleNoteExpand } />
 
-          <Route exact path = '/notes/delete/:_id' component = {DeleteNote } />   
+          <Route exact path = '/notes/delete/:id' component = {DeleteNote } />   
           
-          <Route exact path = '/notes/edit/:_id'  component = {EditNote}  />
+          <Route exact path = '/notes/edit/:id'  component = {EditNote}  />
       </div>
     );
   }
