@@ -232,3 +232,25 @@ textarea {
   margin-top: 40px;
   margin-left: 125px;
 }
+
+/* Single note tooltip on hover -- note heading */
+.delete {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1030;
+  color: rgb(59, 59, 57);
+  width: auto;
+  font-size: 13px;
+  background-color: rgb(189, 195, 195);
+  width: fit-content;
+  margin-left: 35px;
+  margin-top: -10px;
+}
+
+.note-header {
+  font-size: large;
+}
+
+.note-header:hover .delete {
+  visibility: visible;
+}

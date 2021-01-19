@@ -8,13 +8,22 @@ const SingleNote = (props) => {
     console.log("Single-note-props : ", props);
     return (
         <div className = "note-card">
-            <Link to = {`/notes/${props.data.id}`} className = "no-decoration">
+            {/* <Link to = {`/notes/${props.data.id}`} className = "no-decoration">
                 <h4>  {props.data.title} </h4>  </Link>
-                <p className =  "line"></p>
-                <ReactMarkdown source={props.data.content} />
-                {/*<p> {props.data.textBody} </p>*/}
-           
-        </div>
+            */}
+
+            <div className = "note-header">
+                <Link to = {`/notes/${props.data.id}`} className = "no-decoration">
+                    <h4>  {props.data.title} </h4>  
+                </Link>
+                <div className = "delete">Click to edit or delete a note</div>
+            </div>
+
+            <p className =  "line"></p>
+
+            <ReactMarkdown source={props.data.content} />
+            {/*<p> {props.data.textBody} </p>*/}
+       </div>
     )
 }
 
