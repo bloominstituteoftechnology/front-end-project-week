@@ -9,7 +9,7 @@ const SingleNote = (props) => {
     return (
         <div className = "note-card">
             <Link to = {`/notes/${props.data.id}`} className = "no-decoration">
-                <h4 /*onClick = {alert(props.data._id)}*/>  {props.data.title} </h4>  </Link>
+                <h4>  {props.data.title} </h4>  </Link>
                 <p className =  "line"></p>
                 <ReactMarkdown source={props.data.content} />
                 {/*<p> {props.data.textBody} </p>*/}

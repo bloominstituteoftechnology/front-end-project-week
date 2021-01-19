@@ -15,29 +15,42 @@ class Login extends React.Component {
         this.setState({ [event.target.name] : event.target.value });
     };
 
+    checkUserName = (userCredential) => {
+        var valid = true;
+        if (!userCredential[0].match(/[a-z]/i)) valid = false; // first character is not a letter
+        if (userCredential.length < 3) valid = false; // less than 8 characters
+        //if (userCredential.match(/\d+/g) == null) good = false; //contains no numbers
+        return valid;
+    }
+
     handleRegister = (e) => {
         e.preventDefault()
         const userData = {
             username: this.state.username,
             password: this.state.password
         }
-        
-        if(!userData.username && !userData.password) { 
-            alert('Please enter uername and password') 
+
+        if (!this.checkUserName(userData.username) || !this.checkUserName(userData.password)) {
+            alert('Username and password must be at least 3 charcter long and string')
         } else {
-            axios.post('http://localhost:7000/api/users/register', userData) 
-                .then(res => {
-                    if (res.status === 201) {
-                        alert("Registered Successfully 👍 " + userData.username + "\nCan proceed and login")
-                    }
-                })
-                .catch(err => {
-                    if(err.response.status === 409) {
-                        alert("Username already exists 😲 " + userData.username + "\nTry to register with another username")
-                    } else {
-                        console.log("Error " ,err)
-                    }
-                })
+
+            if(!userData.username && !userData.password) { 
+                alert('Please enter uername and password') 
+            } else {
+                axios.post('https://notes-backend-s.herokuapp.com/api/users/register', userData) 
+                    .then(res => {
+                        if (res.status === 201) {
+                            alert("Registered Successfully 👍 " + userData.username + "\nCan proceed and login")
+                        }
+                    })
+                    .catch(err => {
+                        if(err.response.status === 409) {
+                            alert("Username already exists 😲 " + userData.username + "\nTry to register with another username")
+                        } else {
+                            console.log("Error " ,err)
+                        }
+                    })
+            }
         }
     }
 
@@ -51,16 +64,22 @@ class Login extends React.Component {
         if(!userData.username && !userData.password) { 
             alert('Please enter uername and password') 
         } else {
-            axios.post('http://localhost:7000/api/users/login', userData) 
+            axios.post('https://notes-backend-s.herokuapp.com/api/users/login', userData) 
                  .then(res => {
                     // console.log("res login  : ", res.status, "\n\n",res.data.token) 
                     if(res.status === 200) {
                         localStorage.setItem('user', this.state.username)
                         localStorage.setItem('userToken', res.data.token)
-                        window.location.reload();                    
+                        //window.location.reload(true);   
+                        window.location.replace('/notes')
+                 
                     }
                   })
-                  .catch(err => console.log(err))
+                  .catch(err => {
+                       if(err.response.status === 401) {
+                           alert('Need to register first..\nOr check the username and password');
+                       }
+                   })
         }
     }
 

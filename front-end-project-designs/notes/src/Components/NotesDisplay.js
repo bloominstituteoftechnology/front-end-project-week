@@ -17,11 +17,16 @@ class NotesDisplay extends React.Component {
 
     //ComponentDidMount to fetch data from API
     componentDidMount() {
+        console.log(localStorage.getItem('userToken'))
         axios
-            .get('http://localhost:7000/api/notes')
+            .get('https://notes-backend-s.herokuapp.com/api/notes')
+
+            // .get('http://localhost:7000/api/notes/', 
+            // {headers: {Authorization: `Token ${localStorage.getItem('userToken')}`}})
+
             .then(response => {
                     //console.log("response.dat Notes...  : ",response.data);
-                    this.setState({ notes : response.data})
+                    this.setState({ notes : response.data.reverse()})
              })
             .catch(error => console.log(error))
     }
@@ -31,7 +36,7 @@ class NotesDisplay extends React.Component {
             let filteredNotes = this.state.notes.slice();
             console.log("++++++++ " ,filteredNotes);
             filteredNotes = filteredNotes.filter(note => 
-                                                note.title.includes(this.state.filterparameter || note.textBody.includes(this.state.filterparameter)) 
+                                                note.title.includes(this.state.filterparameter || note.content.includes(this.state.filterparameter)) 
                                                 )
             return this.setState({filteredNotes : filteredNotes}, () =>  console.log(this.state.filteredNotes))
         })
@@ -53,7 +58,7 @@ class NotesDisplay extends React.Component {
                 />
                 </div>
 
-                <h5 style = {{marginLeft: "62px"}}>Total Notes : {this.state.notes.length}</h5>
+                <h5 style = {{marginLeft: "69px"}}>Total Notes : {this.state.notes.length}</h5>
 
                 <div className = "notes">
                     {(this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.state.notes).map((note, index) => 
@@ -65,7 +70,7 @@ class NotesDisplay extends React.Component {
                 </div>
 
                 {/* <Route exact path = '/csv-file'  component = {<CSVDownload
-                                                                    data = {this.state.notes.map(x => ({ title : x.title, textBody :  x.textBody })) }
+                                                                    data = {this.state.notes.map(x => ({ title : x.title, content :  x.content })) }
                                                                     target = "_blank"  />}
                 /> */}
 

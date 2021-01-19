@@ -25,7 +25,7 @@ class CreateNewNote extends React.Component {
         }
         // this.setState({title: '', content: ''})
         axios
-            .post('http://localhost:7000/api/notes/', newNote)
+            .post('https://notes-backend-s.herokuapp.com/api/notes/', newNote)
             .then(response => {
                     console.log("RES ******** ",response)
                     this.props.history.push('/notes')

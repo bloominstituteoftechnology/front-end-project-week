@@ -35,8 +35,11 @@ button {
   font-weight: bold;
   border: 1px solid #069e4d;
   cursor: pointer;
-  font-size: 16px;
-  letter-spacing: 0.8px;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+  padding: 12px 9px;
+  /* font-size: medium; */
 }
 
 button:hover {
@@ -49,11 +52,11 @@ button:hover {
   margin-right: 3%;
   background-color: white;
   border: 1px solid silver;
-  height: 100%;
   margin-bottom: 20px;
   text-align: left;
-  height: 480px;
+  height: 460px;
   overflow-y: auto;
+  border-radius: 5px;
 }
 ::-webkit-scrollbar {
   width: 5px;
@@ -61,7 +64,7 @@ button:hover {
 
 ::-webkit-scrollbar-thumb {
   background: gray;
-  /* border-radius: 30px; */
+  border-radius: 30px;
   height: 5px;
 }
 
@@ -82,7 +85,8 @@ p {
 
 .notes-list-heading-search {
   margin-left: 7%;
-  margin-top: 20px;
+  margin-top: 35px;
+  margin-right: 6.5%;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
@@ -98,6 +102,10 @@ p {
 .search-input {
   background: rgb(236, 223, 191);
   margin-right: 15px;
+}
+
+.notes-list-heading-search input[type="text"] {
+  width: 80%;
 }
 
 /*CreateNewNote.js style */
@@ -154,7 +162,7 @@ textarea {
 /*SingleNoteExpand.js style*/
 .expand-div {
   background-color: #ddd;
-  width: 100%;
+  width: 80%;
   text-align: left;
 }
 
@@ -222,4 +230,5 @@ textarea {
   display: flex;
   justify-content: flex-start;
   margin-top: 40px;
+  margin-left: 125px;
 }

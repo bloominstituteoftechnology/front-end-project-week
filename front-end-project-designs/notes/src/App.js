@@ -18,7 +18,7 @@ class App extends Component {
         
           <NotesSideBar />
 
-          <Route exact path = '/notes' component = {NotesDisplay} /> 
+          <Route exact path = '/(|notes)' component = {NotesDisplay} /> 
           {/* (|notes) */}
           
           <Route exact  path = '/create' component = {CreateNewNote } />
