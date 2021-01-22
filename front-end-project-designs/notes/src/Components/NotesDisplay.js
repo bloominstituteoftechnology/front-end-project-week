@@ -4,7 +4,8 @@ import axios from 'axios';
 import SingleNote from './SingleNote';
 //import {CSVLink, CSVDownload} from 'react-csv';
 
-
+//const url = process.env.REACT_APP_LOCAL_URL;
+const url = process.env.REACT_APP_DEPLOY_URL;
 class NotesDisplay extends React.Component {
     constructor() {
         super();
@@ -19,7 +20,7 @@ class NotesDisplay extends React.Component {
     componentDidMount() {
         console.log(localStorage.getItem('userToken'))
         axios
-            .get('https://notes-backend-s.herokuapp.com/api/notes')
+            .get(`${url}/api/notes`)
 
             // .get('http://localhost:7000/api/notes/', 
             // {headers: {Authorization: `Token ${localStorage.getItem('userToken')}`}})

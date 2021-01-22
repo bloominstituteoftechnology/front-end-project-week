@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import './Style.css'
 
+//const url = process.env.REACT_APP_LOCAL_URL;
+const url = process.env.REACT_APP_DEPLOY_URL;
 class CreateNewNote extends React.Component {
     constructor(props) {
         super(props);
@@ -25,7 +27,7 @@ class CreateNewNote extends React.Component {
         }
         // this.setState({title: '', content: ''})
         axios
-            .post('https://notes-backend-s.herokuapp.com/api/notes/', newNote)
+            .post(`${url}/api/notes/`, newNote)
             .then(response => {
                     console.log("RES ******** ",response)
                     this.props.history.push('/notes')

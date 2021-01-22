@@ -1,6 +1,10 @@
 import React from 'react';
 import './login.css';
 import axios from 'axios';
+
+//const url = process.env.REACT_APP_LOCAL_URL;
+const url = process.env.REACT_APP_DEPLOY_URL;
+
 class Login extends React.Component {
     
     constructor (props) {
@@ -37,7 +41,9 @@ class Login extends React.Component {
             if(!userData.username && !userData.password) { 
                 alert('Please enter uername and password') 
             } else {
-                axios.post('https://notes-backend-s.herokuapp.com/api/users/register', userData) 
+                const postUrl = `${url}/api/users/register/`;
+                console.log("POST ....  ",postUrl)
+                axios.post(`${postUrl}`, userData) 
                     .then(res => {
                         if (res.status === 201) {
                             alert("Registered Successfully 👍 " + userData.username + "\nCan proceed and login")
@@ -64,7 +70,7 @@ class Login extends React.Component {
         if(!userData.username && !userData.password) { 
             alert('Please enter uername and password') 
         } else {
-            axios.post('https://notes-backend-s.herokuapp.com/api/users/login', userData) 
+            axios.post(`${url}/api/users/login`, userData)  
                  .then(res => {
                     // console.log("res login  : ", res.status, "\n\n",res.data.token) 
                     if(res.status === 200) {
@@ -84,7 +90,7 @@ class Login extends React.Component {
     }
 
     render() {
-        
+        console.log(url)
         return (
             <div className = "Formdiv">
                 <h1>Welcome to My Notes app</h1>

@@ -3,6 +3,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from "react-markdown";
 
+//  const url = process.env.REACT_APP_LOCAL_URL;
+const url = process.env.REACT_APP_DEPLOY_URL;
+
 class SingleNoteExpand extends React.Component{
     constructor(props) {
         super(props);
@@ -14,7 +17,7 @@ class SingleNoteExpand extends React.Component{
 
     componentDidMount() {
         axios
-            .get(`https://notes-backend-s.herokuapp.com/api/notes/${this.props.match.params.id}`)
+            .get(`${url}/api/notes/${this.props.match.params.id}`)
             .then(response => {
                 console.log("RRRRR  :: ",response.data);
                 this.setState({ title : response.data[0].title ,
