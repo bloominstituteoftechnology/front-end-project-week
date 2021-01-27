@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
+    "netlify-identity-widget": "^1.9.1",
     "react": "^16.6.0",
     "react-csv": "^1.0.18",
     "react-dom": "^16.6.0",
