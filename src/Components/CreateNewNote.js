@@ -4,7 +4,7 @@ import axios from 'axios';
 import './Style.css'
 
 //const url = process.env.REACT_APP_LOCAL_URL;
-const url = process.env.REACT_APP_DEPLOY_URL;
+//const url = process.env.REACT_APP_DEPLOY_URL;
 class CreateNewNote extends React.Component {
     constructor(props) {
         super(props);

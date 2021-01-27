@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 //const url = process.env.REACT_APP_LOCAL_URL;
-const url = process.env.REACT_APP_DEPLOY_URL;
+//const url = process.env.REACT_APP_DEPLOY_URL;
 class EditNote extends React.Component{
     constructor(props){
         super(props);

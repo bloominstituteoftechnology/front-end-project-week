@@ -3,7 +3,7 @@ import './login.css';
 import axios from 'axios';
 
 //const url = process.env.REACT_APP_LOCAL_URL;
-const url = process.env.REACT_APP_DEPLOY_URL;
+//const url = process.env.REACT_APP_DEPLOY_URL;
 
 class Login extends React.Component {
     

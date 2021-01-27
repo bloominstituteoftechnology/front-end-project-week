@@ -5,7 +5,7 @@ import SingleNote from './SingleNote';
 //import {CSVLink, CSVDownload} from 'react-csv';
 
 //const url = process.env.REACT_APP_LOCAL_URL;
-const url = process.env.REACT_APP_DEPLOY_URL;
+//const url = process.env.REACT_APP_DEPLOY_URL;
 class NotesDisplay extends React.Component {
     constructor() {
         super();
