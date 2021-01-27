@@ -238,10 +238,10 @@ textarea {
   visibility: hidden;
   position: absolute;
   z-index: 1030;
-  color: rgb(59, 59, 57);
+  color: rgb(56, 56, 55);
   width: auto;
-  font-size: 13px;
-  background-color: rgb(189, 195, 195);
+  font-size: 13.38px;
+  background-color: rgb(191, 202, 202);
   width: fit-content;
   margin-left: 35px;
   margin-top: -10px;

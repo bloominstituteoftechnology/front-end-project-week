@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 
 
 const SingleNote = (props) => {
-    console.log("Single-note-props : ", props);
+    //console.log("Single-note-props : ", props);
     return (
         <div className = "note-card">
             {/* <Link to = {`/notes/${props.data.id}`} className = "no-decoration">

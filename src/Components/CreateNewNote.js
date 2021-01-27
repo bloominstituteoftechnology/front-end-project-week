@@ -29,7 +29,7 @@ class CreateNewNote extends React.Component {
         axios
             .post(`${url}/api/notes/`, newNote)
             .then(response => {
-                    console.log("RES ******** ",response)
+                    //console.log("RES ******** ",response)
                     this.props.history.push('/notes')
             })
     }

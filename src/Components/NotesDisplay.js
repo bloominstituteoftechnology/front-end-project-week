@@ -18,7 +18,6 @@ class NotesDisplay extends React.Component {
 
     //ComponentDidMount to fetch data from API
     componentDidMount() {
-        console.log(localStorage.getItem('userToken'))
         axios
             .get(`${url}/api/notes`)
 
@@ -35,16 +34,16 @@ class NotesDisplay extends React.Component {
     inputChange = (event) => {
         this.setState({ [event.target.name] : event.target.value }, () => {
             let filteredNotes = this.state.notes.slice();
-            console.log("++++++++ " ,filteredNotes);
+            //console.log("++++++++ " ,filteredNotes);
             filteredNotes = filteredNotes.filter(note => 
                                                 note.title.includes(this.state.filterparameter || note.content.includes(this.state.filterparameter)) 
                                                 )
-            return this.setState({filteredNotes : filteredNotes}, () =>  console.log(this.state.filteredNotes))
+            return this.setState({filteredNotes : filteredNotes}) //, () => console.log(this.state.filteredNotes))
         })
     }
 
     render() {
-        console.log("State from API .. ", this.state.notes);
+        // console.log("State from API .. ", this.state.notes);
         return (
             <div className = "note-display-maindiv">
                 

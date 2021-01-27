@@ -18,13 +18,14 @@ class EditNote extends React.Component{
     }
 
     componentDidMount() {
-        console.log(this.props.match.params.id, " -----this.props.match.params.id")
+        //console.log(this.props.match.params.id, " -----this.props.match.params.id")
         axios
             .get(`${url}/api/notes/${this.props.match.params.id}`)
             .then(response =>{ 
-                        console.log("Editnote   :  ",response.data.title, response.data[0].content)
+                        //console.log("Editnote   :  ",response.data.title, response.data[0].content)
                         this.setState({ title : response.data[0].title, content : response.data[0].content})
-                        console.log("After response to state --- ",this.state) }
+                        //console.log("After response to state --- ",this.state) 
+                  }
              )
             .catch(error => console.log(error));
     }
@@ -42,7 +43,7 @@ class EditNote extends React.Component{
     }
     
     render() {
-        console.log("in editnote -- " ,this.state)
+        //console.log("in editnote -- " ,this.state)
         return (
             <div className = "create-note-main-div">
                 <h3>Editing....</h3>
