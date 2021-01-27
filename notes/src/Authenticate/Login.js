@@ -1,9 +1,6 @@
 import React from 'react';
 import './login.css';
 import axios from 'axios';
-import netlifyIdentity from "netlify-identity-widget";
-
-console.log("netlify currentUser  :--- ",netlifyIdentity.currentUser)
 
 //const url = process.env.REACT_APP_LOCAL_URL;
 const url = process.env.REACT_APP_DEPLOY_URL;

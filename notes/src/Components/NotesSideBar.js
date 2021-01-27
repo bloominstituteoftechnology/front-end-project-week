@@ -7,7 +7,7 @@ import Logout from '../Authenticate/Logout.js'
 const NotesSideBar = (props) => {
     return (
         <div className = "side-bar">
-            <h1>My <br/>Notes </h1>
+            <h1>Notes <br/>App </h1>
                    
             <Link to = "/notes" className = "no-decoration">
                 <button> View Your Notes </button>
