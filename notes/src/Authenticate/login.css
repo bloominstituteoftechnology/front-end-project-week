@@ -1,0 +1,40 @@
+.Fieldwrap {
+  margin-top: 20px;
+}
+
+.Formdiv {
+  background: #13232f;
+  padding: 40px;
+  padding-left: 85px;
+  max-width: 600px;
+  margin: 80px auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px 4px #13232f;
+  font-family: "Titillium Web", sans-serif;
+  color: white;
+}
+
+.Formdiv h1 {
+  font-size: 42px;
+  padding-bottom: 10px;
+}
+
+label {
+  text-align: right;
+  clear: both;
+  float: left;
+  margin-right: 15px;
+}
+
+input {
+  width: 65%;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: #13232f;
+}

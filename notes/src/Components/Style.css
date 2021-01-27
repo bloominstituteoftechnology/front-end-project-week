@@ -1,0 +1,256 @@
+/* NotesSideBar style */
+.side-bar {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  background-color: #c6c6c6;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  /*border : 1px solid black;*/
+}
+
+.side-bar h1 {
+  color: #424242;
+  font-weight: Bold;
+  font-size: 40px;
+  margin-left: 10%;
+}
+
+/* NotesSideBar style  and common to all buttons in application*/
+button {
+  width: 65%;
+  margin-left: 10%;
+  height: 40px;
+  /* background-color: #08b7bd; */
+  background-color: #07917a;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-weight: bold;
+  border: 1px solid #069e4d;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+  padding: 12px 9px;
+  /* font-size: medium; */
+}
+
+button:hover {
+  border: 1px solid black;
+}
+
+/*SingleNote.js note-card */
+.note-card {
+  width: 30%;
+  margin-right: 3%;
+  background-color: white;
+  border: 1px solid silver;
+  margin-bottom: 20px;
+  text-align: left;
+  height: 460px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 30px;
+  height: 5px;
+}
+
+.note-card h4,
+p {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.line {
+  border: 1px solid silver;
+}
+
+/*NotesDisplay style*/
+.note-display-maindiv {
+  background-color: #ddd;
+  width: 80%;
+}
+
+.notes-list-heading-search {
+  margin-left: 7%;
+  margin-top: 35px;
+  margin-right: 6.5%;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+.notes {
+  width: 88%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 7%;
+}
+.search-input {
+  background: rgb(236, 223, 191);
+  margin-right: 15px;
+}
+
+.notes-list-heading-search input[type="text"] {
+  width: 80%;
+}
+
+/*CreateNewNote.js style */
+.no-decoration {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.form {
+  width: 92.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 5%;
+}
+
+input[type="text"] {
+  width: 65%;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+textarea {
+  width: 100%;
+  height: 300px;
+  padding: 12px 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  margin-top: 20px;
+}
+
+.create-note-main-div {
+  background-color: #ddd;
+  width: 75%;
+  height: 100vh;
+}
+.create-note-main-div h3 {
+  margin-left: 43px;
+  margin-top: 60px;
+}
+.create-note-main-div button {
+  margin-left: 3px;
+  width: 20%;
+}
+
+/*SingleNoteExpand.js style*/
+.expand-div {
+  background-color: #ddd;
+  width: 80%;
+  text-align: left;
+}
+
+.span-div {
+  display: flex;
+  height: 60px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5%;
+}
+.span-div span {
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+.note-div {
+  background-color: #ddd;
+  width: 75%;
+}
+
+.note-div h2 {
+  margin-left: 10%;
+}
+
+/*DeleteNote.js style*/
+.ModalContent {
+  height: 100vh;
+  width: 60%;
+  position: fixed;
+  z-index: 9999;
+  background: rgba(131, 128, 128, 0.35);
+
+  text-align: center;
+  top: 0;
+}
+
+.delete-note-main-div {
+  max-width: 610px;
+  width: 100%;
+  height: 190px;
+  margin-left: 26.4%;
+  margin-top: 180px;
+  background-color: #fff;
+  border: 1px solid black;
+}
+
+.delete-confirm {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.delete-button {
+  width: 35%;
+  background-color: #c40000;
+}
+
+.no-button {
+  width: 55%;
+  margin-left: 6%;
+  text-decoration: none;
+}
+
+.Buttons {
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 40px;
+  margin-left: 125px;
+}
+
+/* Single note tooltip on hover -- note heading */
+.delete {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1030;
+  color: rgb(59, 59, 57);
+  width: auto;
+  font-size: 13px;
+  background-color: rgb(189, 195, 195);
+  width: fit-content;
+  margin-left: 35px;
+  margin-top: -10px;
+}
+
+.note-header {
+  font-size: large;
+}
+
+.note-header:hover .delete {
+  visibility: visible;
+}
