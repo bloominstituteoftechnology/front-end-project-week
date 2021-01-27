@@ -17,7 +17,7 @@ class SingleNoteExpand extends React.Component{
 
     componentDidMount() {
         axios
-            .get(`${url}/api/notes/${this.props.match.params.id}`)
+            .get(`${process.env.REACT_APP_DEPLOY_URL}/api/notes/${this.props.match.params.id}`)
             .then(response => {
                 //console.log("RRRRR  :: ",response.data);
                 this.setState({ title : response.data[0].title ,

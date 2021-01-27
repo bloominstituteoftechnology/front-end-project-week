@@ -27,7 +27,7 @@ class CreateNewNote extends React.Component {
         }
         // this.setState({title: '', content: ''})
         axios
-            .post(`${url}/api/notes/`, newNote)
+            .post(`${process.env.REACT_APP_DEPLOY_URL}/api/notes/`, newNote)
             .then(response => {
                     //console.log("RES ******** ",response)
                     this.props.history.push('/notes')

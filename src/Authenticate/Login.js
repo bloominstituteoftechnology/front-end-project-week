@@ -41,7 +41,7 @@ class Login extends React.Component {
             if(!userData.username && !userData.password) { 
                 alert('Please enter uername and password') 
             } else {
-                const postUrl = `${url}/api/users/register/`;
+                const postUrl = `${process.env.REACT_APP_DEPLOY_URL}/api/users/register/`;
                 console.log("POST ....  ",postUrl)
                 axios.post(`${postUrl}`, userData) 
                     .then(res => {
@@ -62,7 +62,6 @@ class Login extends React.Component {
 
     handleLoginSubmit = (e) => {
         e.preventDefault()
-        console.log("In handleLoginSubmit....")
         const userData = {
             username: this.state.username,
             password: this.state.password
@@ -70,7 +69,7 @@ class Login extends React.Component {
         if(!userData.username && !userData.password) { 
             alert('Please enter uername and password') 
         } else {
-            axios.post(`${url}/api/users/login`, userData)  
+            axios.post(`${process.env.REACT_APP_DEPLOY_URL}/api/users/login`, userData)  
                  .then(res => {
                     // console.log("res login  : ", res.status, "\n\n",res.data.token) 
                     if(res.status === 200) {
@@ -90,7 +89,6 @@ class Login extends React.Component {
     }
 
     render() {
-        console.log(url)
         return (
             <div className = "Formdiv">
                 <h1>Welcome to My Notes app</h1>

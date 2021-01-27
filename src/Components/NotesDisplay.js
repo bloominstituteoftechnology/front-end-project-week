@@ -19,7 +19,7 @@ class NotesDisplay extends React.Component {
     //ComponentDidMount to fetch data from API
     componentDidMount() {
         axios
-            .get(`${url}/api/notes`)
+            .get(`${process.env.REACT_APP_DEPLOY_URL}/api/notes`)
 
             // .get('http://localhost:7000/api/notes/', 
             // {headers: {Authorization: `Token ${localStorage.getItem('userToken')}`}})

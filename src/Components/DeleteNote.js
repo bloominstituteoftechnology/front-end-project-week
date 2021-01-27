@@ -16,7 +16,7 @@ class DeleteNote extends React.Component{
 
     delete = () => {
         axios
-          .delete(`${url}/api/notes/${this.props.match.params.id}`)    
+          .delete(`${process.env.REACT_APP_DEPLOY_URL}/api/notes/${this.props.match.params.id}`)    
           .then(response => this.props.history.push('/notes'))
           .catch(error => console.log(error));
     }
