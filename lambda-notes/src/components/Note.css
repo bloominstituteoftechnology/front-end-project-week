@@ -1,0 +1,28 @@
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mapped-notes {
+    border: 1.5px solid grey;
+    background-color: white;
+    padding: 15px 20px;
+    margin: 15px 10px;
+    height: 285px;
+    width:285px;
+  }
+
+  .deez-notes h1 {
+      text-align: left;
+      margin-left: 100px;
+      
+  }
+
+  .display-none {
+      display: none;
+  }
+
+  .display-flex {
+      display: flex;
+  }
