@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import {
   StyledEditView,
   StyledEditForm,
@@ -8,72 +7,61 @@ import {
   SaveEditedButton,
   EditTitle,
 } from './styles';
-import { apiUri } from '../../globalVariables';
+import { editNote, getNote } from '../../notesService.js';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
-export default class EditNote extends Component {
-  state = {
-    title: '',
-    textBody: '',
-    id: this.props.match.params.id,
+const EditNote = props => {
+  const [title, setTitle] = useState('');
+  const [textBody, setTextBody] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  useEffect(() => {
+    setTitle(location.state.title);
+    setTextBody(location.state.textBody);
+  }, [location.state]);
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+
+    if (name === 'title') setTitle(value);
+    if (name === 'textBody') setTextBody(value);
   };
 
-  componentDidMount() {
-    this.setState({
-      ...this.state,
-      ...this.props.location.state,
-    });
-  }
-
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  saveEdit = (event) => {
+  const saveEdit = async event => {
     event.preventDefault();
-    const { title, textBody } = this.state;
     const editedNote = { title, textBody };
-    if (this.state.title.length > 0 && this.state.textBody.length > 0) {
-      axios
-        .put(`${apiUri}/note/edit/${this.state.id}`, editedNote)
-        .then(() => {
-          this.fetchData(this.state.id);
-          this.props.history.push(`/note/${this.state.id}`);
-        })
-        .catch((error) => console.error(error));
+
+    if (title.length > 0 && textBody.length > 0) {
+      try {
+        await editNote(id, editedNote);
+        await getNote(id);
+        navigate(`/note/${id}`);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
-  fetchData = (id) => {
-    axios
-      .get(`${apiUri}/note/get/${id}`)
-      .then()
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  return <StyledEditView>
+    <EditTitle>Edit Note:</EditTitle>
+    <StyledEditForm>
+      <NoteTitleInput
+        type="text"
+        name="title"
+        onChange={handleChange}
+        value={title}
+      />
+      <NoteContentInput
+        source={textBody}
+        name="textBody"
+        onChange={handleChange}
+        value={textBody}
+      />
+      <SaveEditedButton onClick={saveEdit}>Save</SaveEditedButton>
+    </StyledEditForm>
+  </StyledEditView>;
+};
 
-  render() {
-    console.log(this.state.id);
-    // const { title, textBody } = this.state.note;
-    return (
-      <StyledEditView>
-        <EditTitle>Edit Note:</EditTitle>
-        <StyledEditForm>
-          <NoteTitleInput
-            type="text"
-            name="title"
-            onChange={this.handleChange}
-            value={this.state.title}
-          />
-          <NoteContentInput
-            source={this.state.textBody}
-            name="textBody"
-            onChange={this.handleChange}
-            value={this.state.textBody}
-          />
-          <SaveEditedButton onClick={this.saveEdit}>Save</SaveEditedButton>
-        </StyledEditForm>
-      </StyledEditView>
-    );
-  }
-}
+export default EditNote;

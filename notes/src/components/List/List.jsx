@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import NoteCard from '../NoteCard/NoteCard';
 import {
   StyledView,
@@ -11,96 +10,79 @@ import {
   NewOldButton,
   NewOldMobileButton,
 } from './styles';
-import { apiUri } from '../../globalVariables';
+import { listNotes } from '../../notesService.js';
 
-export default class List extends Component {
-  state = {
-    notes: [],
-    search: '',
-    sortReverse: true,
-  };
+const List = () => {
+  const [notes, setNotes] = useState([]);
+  const [search, setSearch] = useState('');
+  const [sortReverse, setSortReverse] = useState(true);
+  const [error, setError] = useState(null);
 
-  componentDidMount() {
-    axios.get(apiUri).then((res) => {
-      this.setState(() => ({ notes: res.data.notes }
-      ));
-    }).catch((error) => {
+  useEffect(() => {
+    listNotes().then(res => {
+      setNotes(res.data.notes);
+    }).catch(error => {
       console.error('Server Error', error);
+      setError(error);
     });
+  }, []);
+
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const filteredNotes = () => {
+    return notes.filter(
+      (note) => note.title.toLowerCase().includes(search.toLowerCase()) ||
+        note.textBody.toLowerCase().includes(search.toLowerCase()));
+  };
+
+  const getSortButtonText = () => {
+    return sortReverse ? 'Old → New' : 'New → Old';
+  };
+
+  const getMobileSortButtonText = () => {
+    return sortReverse ? 'Oldest' : 'Newest';
+  };
+
+  const handleSortToggle = () => {
+    setSortReverse(!sortReverse);
+  };
+
+  const handleSort = (arr) => {
+    return sortReverse ? arr.reverse() : arr;
+  };
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
   }
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  return notes.length === 0 ? <ListTitle>Loading your notes...</ListTitle> : (
+    <StyledView>
+      <SearchBar>
+        <SearchInput
+          name="search"
+          placeholder="Search"
+          onChange={handleChange}
+          value={search}
+        />
+        <NewOldButton onClick={handleSortToggle}>
+          {getSortButtonText()}
+        </NewOldButton>
+        <NewOldMobileButton onClick={handleSortToggle}>
+          {getMobileSortButtonText()}
+        </NewOldMobileButton>
+      </SearchBar>
+      <ListTitle>Your Notes:</ListTitle>
+      <StyledListDiv>
+        {handleSort(filteredNotes().
+          map((note) => (<StyledNoteLink to={`/note/${note.id}`} key={note.id}>
+              <NoteCard note={note} />
+            </StyledNoteLink>
+          )))}
+      </StyledListDiv>
+    </StyledView>
+  );
+};
 
-  filteredNotes = () => {
-    return this.state.notes.filter(
-      (note) =>
-        note.title.toLowerCase().includes(this.state.search.toLowerCase()) ||
-        note.textBody.toLowerCase().includes(this.state.search.toLowerCase()),
-    );
-  };
-
-  sortButton = () => {
-    if (this.state.sortReverse) {
-      return 'Old → New';
-    } else if (!this.state.sortReverse) {
-      return 'New → Old';
-    }
-  };
-
-  sortMobileButton = () => {
-    if (this.state.sortReverse) {
-      return 'Oldest';
-    } else if (!this.state.sortReverse) {
-      return 'Newest';
-    }
-  };
-
-  handleSortToggle = () =>
-    this.setState({ sortReverse: !this.state.sortReverse });
-
-  handleOldestFirst = () => this.setState({ sortReverse: false });
-
-  handleSort = (arr) => {
-    if (this.state.sortReverse) {
-      return arr.reverse();
-    } else if (!this.state.sortReverse) {
-      return arr;
-    }
-  };
-
-  render() {
-    if (this.state.notes.length === 0) {
-      return <ListTitle>Loading your notes...</ListTitle>;
-    }
-    return (
-      <StyledView>
-        <SearchBar>
-          <SearchInput
-            name="search"
-            placeholder="Search"
-            onChange={this.handleChange}
-            value={this.state.search}
-          />
-          <NewOldButton onClick={this.handleSortToggle}>
-            {this.sortButton()}
-          </NewOldButton>
-          <NewOldMobileButton onClick={this.handleSortToggle}>
-            {this.sortMobileButton()}
-          </NewOldMobileButton>
-        </SearchBar>
-        <ListTitle>Your Notes:</ListTitle>
-        <StyledListDiv>
-          {this.handleSort(
-            this.filteredNotes().map((note) => (
-              <StyledNoteLink to={`/note/${note.id}`} key={note.id}>
-                <NoteCard note={note} />
-              </StyledNoteLink>
-            )),
-          )}
-        </StyledListDiv>
-      </StyledView>
-    );
-  }
-}
+export default List;

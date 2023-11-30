@@ -8,6 +8,7 @@ import {
   NoteTitleInput,
   NoteContentInput,
 } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 const initialState = {
   title: '',
@@ -16,10 +17,12 @@ const initialState = {
 
 const CreateNote = (props) => {
   const [state, setState] = useState(initialState);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setState(previousState => ({ ...previousState, [name]: value }
+    setState(previousState => (
+      { ...previousState, [name]: value }
     ));
   };
 
@@ -31,7 +34,7 @@ const CreateNote = (props) => {
       try {
         await createNote(newNote);
         setState(initialState);
-        props.history.push('/');
+        navigate('/');
       } catch (error) {
         console.error(error);
       }

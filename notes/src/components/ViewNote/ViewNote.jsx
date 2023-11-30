@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { useCallback, useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import {
   NoteView,
@@ -10,77 +9,64 @@ import {
   NoteContent,
   NoteLinkText,
 } from './styles';
-import { apiUri } from '../../globalVariables';
+import { useNavigate, useParams } from 'react-router-dom';
+import { deleteNote, getNote } from '../../notesService.js';
 
-export default class ViewNote extends Component {
-  state = {
-    note: null,
-    showModal: false,
-    confirm: false,
-  };
+const ViewNote = () => {
+  const [note, setNote] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  componentDidMount() {
-    const id = this.props.match.params.id;
-    this.fetchNote(id);
-  }
-
-  fetchNote = (id) => {
-    axios
-      .get(`${apiUri}/note/get/${id}`)
-      .then((res) => {
-        this.setState(() => ({ note: res.data.note }));
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  deleteNote = () => {
-    // const result = window.confirm('Are you sure you want to delete this note?');
-    this.displayModal();
-    axios
-      .delete(`${apiUri}/note/delete/${this.state.note.id}`)
-      .then(() => this.props.history.push('/'))
-      .catch((error) => console.error(error));
-  };
-
-  displayModal = () => {
-    this.setState({ ...this.state, showModal: !this.state.showModal });
-  };
-
-  confirmDelete = () => {
-    this.setState({ ...this.state, confirm: true });
-  };
-
-  render() {
-    if (!this.state.note) {
-      return <NoteTitle>Loading your note...</NoteTitle>;
+  const fetchNote = useCallback(async () => {
+    try {
+      const res = await getNote(id);
+      console.log('RES: ', res);
+      setNote(res.data.note);
+    } catch (error) {
+      console.error(error);
     }
+  }, [id]);
 
-    const { title, textBody } = this.state.note;
-    return (
-      <NoteView>
-        <Modal
-          showModal={this.state.showModal.toString()}
-          deleteNote={this.deleteNote}
-          displayModal={this.displayModal}
-        />
-        <NoteLinkContainer>
-          <NoteLink
-            to={{
-              pathname: `/note/${this.state.note.id}/edit`,
-              state: this.state.note,
-            }}
-          >
-            <NoteLinkText>edit</NoteLinkText>
-          </NoteLink>
-          <NoteLinkText onClick={this.displayModal}>delete</NoteLinkText>
-        </NoteLinkContainer>
-        <NoteTextContainer>
-          <NoteTitle>{title}</NoteTitle>
-          <NoteContent source={textBody} />
-        </NoteTextContainer>
-      </NoteView>
-    );
-  }
-}
+  useEffect(() => {
+    fetchNote().then(n => console.log('NOTE: ', n));
+  }, [fetchNote]);
+
+  const handleDeleteNote = async () => {
+    setShowModal(prev => !prev);
+    try {
+      await deleteNote(note.id);
+      navigate('/');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const displayModal = () => {
+    setShowModal(prev => !prev);
+  };
+
+  if (!note) return <NoteTitle>Loading your note...</NoteTitle>;
+
+  return (
+    <NoteView>
+      <Modal
+        showModal={showModal.toString()}
+        deleteNote={handleDeleteNote}
+        displayModal={displayModal}
+      />
+      <NoteLinkContainer>
+        <NoteLink to={`/note/${note.id}/edit`} state={{ ...note }}>
+          <NoteLinkText>edit</NoteLinkText>
+        </NoteLink>
+        <NoteLinkText onClick={displayModal}>delete</NoteLinkText>
+      </NoteLinkContainer>
+      <NoteTextContainer>
+        <NoteTitle>{note.title}</NoteTitle>
+        <NoteContent>{note.textBody}</NoteContent>
+      </NoteTextContainer>
+    </NoteView>
+  );
+};
+
+export default ViewNote;
