@@ -19,15 +19,14 @@ export default class List extends Component {
     search: '',
     sortReverse: true,
   };
+
   componentDidMount() {
-    axios
-      .get(apiUri)
-      .then((res) => {
-        this.setState(() => ({ notes: res.data.notes }));
-      })
-      .catch((error) => {
-        console.error('Server Error', error);
-      });
+    axios.get(apiUri).then((res) => {
+      this.setState(() => ({ notes: res.data.notes }
+      ));
+    }).catch((error) => {
+      console.error('Server Error', error);
+    });
   }
 
   handleChange = (event) => {
@@ -38,7 +37,7 @@ export default class List extends Component {
     return this.state.notes.filter(
       (note) =>
         note.title.toLowerCase().includes(this.state.search.toLowerCase()) ||
-        note.textBody.toLowerCase().includes(this.state.search.toLowerCase())
+        note.textBody.toLowerCase().includes(this.state.search.toLowerCase()),
     );
   };
 
@@ -98,7 +97,7 @@ export default class List extends Component {
               <StyledNoteLink to={`/note/${note.id}`} key={note.id}>
                 <NoteCard note={note} />
               </StyledNoteLink>
-            ))
+            )),
           )}
         </StyledListDiv>
       </StyledView>

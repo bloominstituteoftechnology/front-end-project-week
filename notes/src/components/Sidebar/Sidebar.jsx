@@ -9,7 +9,6 @@ import {
   StyledMobileButton,
   StyledMobileAltButton,
 } from './styles';
-import { ReactComponent as Logo } from '../../house.svg';
 
 function Sidebar() {
   return (
@@ -20,7 +19,7 @@ function Sidebar() {
       <StyledSidebarLink to="/">
         <StyledButton>View Your Notes</StyledButton>
         <StyledMobileButton>
-          <Logo />
+          Home
         </StyledMobileButton>
       </StyledSidebarLink>
       <StyledSidebarLink to="/create">

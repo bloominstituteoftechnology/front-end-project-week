@@ -1,22 +1,21 @@
 {
   "name": "notes",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
+  "type": "module",
   "dependencies": {
-    "axios": "^0.18.0",
-    "dotenv": "^6.2.0",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-markdown": "^4.0.3",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.5",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
+    "react-router-dom": "^6.20.0",
     "styled-components": "^4.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -26,5 +25,24 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zacharyarney/front-end-project-week.git"
+  },
+  "author": "Zachary Arney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zacharyarney/front-end-project-week/issues"
+  },
+  "homepage": "https://github.com/zacharyarney/front-end-project-week#readme",
+  "devDependencies": {
+    "@svgr/rollup": "^8.1.0",
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.0",
+    "vite": "^5.0.4"
+  }
 }

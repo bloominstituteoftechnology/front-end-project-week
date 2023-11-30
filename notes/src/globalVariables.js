@@ -1,3 +1,1 @@
-module.exports = {
-  apiUri: process.env.REACT_APP_API_URI || 'http://localhost:9000',
-};
+export const apiUri = import.meta.env.REACT_APP_API_URI || 'http://localhost:8008';
